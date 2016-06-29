@@ -1,0 +1,14 @@
+# main links links
+main:
+
+  - title: "Archive"
+    url: /archive/
+
+  - title: "Browse by package"
+    url: /tags/
+
+  - title: "Browse by category"
+    url: /categories/
+
+  - title: "About"
+    url: /about/
