@@ -3,9 +3,9 @@ author: Matt Oakley
 category: python
 layout: single
 tags:
-- pan
 - folium
 - folium.plugins
+- pan
 title: Using Leaflet and Folium to make interactive maps in Python
 ---
 

@@ -176,6 +176,7 @@ def get_tags(markdown_filename, lang):
     pkg_lines = [s for s in text if keyword in s]
     tags = find_package(pkg_lines, lang)
     unique_tags = list(set(tags))
+    unique_tags.sort()
     tags_to_exclude = ['__future__', 'sys']
     return [tag for tag in unique_tags if tag not in tags_to_exclude]
 

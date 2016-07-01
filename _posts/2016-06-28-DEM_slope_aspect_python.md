@@ -3,12 +3,12 @@ author: Matt Oakley
 category: python
 layout: single
 tags:
-- numpy
-- matplotlib.pyplot
-- osgeo
-- matplotlib.colors
 - math
 - matplotlib
+- matplotlib.colors
+- matplotlib.pyplot
+- numpy
+- osgeo
 title: Calculating slope and aspect from a digital elevation model in Python
 ---
 
