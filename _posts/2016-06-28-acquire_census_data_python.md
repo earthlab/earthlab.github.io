@@ -3,8 +3,8 @@ author: Zach Schira
 category: python
 layout: single
 tags:
-- pan
 - cenpy
+- pan
 - pysal
 title: Acquiring U.S. census data with Python and cenpy
 ---

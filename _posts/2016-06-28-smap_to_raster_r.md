@@ -3,10 +3,10 @@ author: Zach Schira
 category: r
 layout: single
 tags:
-- sp
+- raster
 - rgdal
 - rhdf5
-- raster
+- sp
 title: Create RasterStacks from arrays with hdf5 files in R
 ---
 

@@ -3,11 +3,11 @@ author: Matt Oakley
 category: python
 layout: single
 tags:
+- ftplib
+- h5py
 - numpy
 - osgeo
 - urllib
-- h5py
-- ftplib
 title: HDF5 to Raster Tutorial with Python
 ---
 
