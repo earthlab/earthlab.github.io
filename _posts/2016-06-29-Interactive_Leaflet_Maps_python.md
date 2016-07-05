@@ -5,7 +5,7 @@ layout: single
 tags:
 - folium
 - folium.plugins
-- pan
+- pandas
 title: Using Leaflet and Folium to make interactive maps in Python
 ---
 
