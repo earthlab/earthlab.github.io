@@ -4,7 +4,7 @@ category: python
 layout: single
 tags:
 - cenpy
-- pan
+- pandas
 - pysal
 title: Acquiring U.S. census data with Python and cenpy
 ---

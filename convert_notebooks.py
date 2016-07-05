@@ -210,15 +210,14 @@ def find_python_packages(commands):
     """Finds Python modules loaded in a list of commands"""
     packages = []
     for i, cmd in enumerate(commands):
-        if "from" in cmd:
+        if "from " in cmd:
             import_start = re.search("import", cmd).start()
             cmd = cmd[:(import_start - 1)]
             cmd = cmd.replace("from ", "")
         else:
             cmd = cmd.replace("import ", "")
-        if "as" in cmd:
-            as_start = re.search("as", cmd).start()
-            cmd = cmd[:(as_start - 1)]
+        if " as " in cmd:
+            cmd = re.split('\s', cmd)[0]
         cmd = cmd.rstrip()
         packages.append(cmd)
     return packages
