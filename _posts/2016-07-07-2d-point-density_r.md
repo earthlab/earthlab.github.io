@@ -75,7 +75,11 @@ We can filter the data based on the latitude and longitude values to remove poin
 
 
 ```R
-d <- subset(d, LATITUDE < 50 & LATITUDE > 22 & LONGITUDE > -125)
+lower48 <- c(left = -125, bottom = 24, right = -67, top = 49)
+d <- subset(d, LONGITUDE < lower48['right'] & 
+               LONGITUDE > lower48['left'] & 
+               LATITUDE > lower48['bottom'] & 
+               LATITUDE < lower48['top'])
 ```
 
 Let's visualize the location data, adding some alpha transparency and reducing the size of the points to avoid overplotting.
@@ -104,13 +108,37 @@ Combined with the basemap functionality of `ggmap`, visualizing spatial density 
 
 ```R
 # acquire basemap within bounding box
-bbox <- make_bbox(LONGITUDE, LATITUDE, data = d, .5)
-map <- get_map(location = bbox, maptype = 'satellite', color = 'bw')
+map <- get_stamenmap(lower48, zoom = 5, maptype = "toner-lite")
 ```
 
-    Warning message:
-    : bounding box given to google - spatial extent only approximate.converting bounding box to center/zoom specification. (experimental)
-    Map from URL : http://maps.googleapis.com/maps/api/staticmap?center=36.77,-95.7019&zoom=3&size=640x640&scale=2&maptype=satellite&language=en-EN&sensor=false
+    Map from URL : http://tile.stamen.com/toner-lite/5/4/10.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/5/10.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/6/10.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/7/10.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/8/10.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/9/10.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/10/10.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/4/11.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/5/11.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/6/11.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/7/11.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/8/11.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/9/11.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/10/11.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/4/12.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/5/12.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/6/12.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/7/12.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/8/12.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/9/12.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/10/12.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/4/13.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/5/13.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/6/13.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/7/13.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/8/13.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/9/13.png
+    Map from URL : http://tile.stamen.com/toner-lite/5/10/13.png
 
 
 You can pass arguments for `kde2d` through the call to `stat_density2d`. 
@@ -124,24 +152,15 @@ ggmap(map,
   stat_density2d(aes(fill = ..level.., alpha = ..level..), 
                  geom = "polygon", h = 1) + 
   scale_fill_gradient(low="red", high="yellow") + 
-  theme(legend.position = 'none') + 
-  ylim(range(d$LATITUDE)) + 
-  xlim(range(d$LONGITUDE))
+  theme(legend.position = 'none')
 ```
-
-    Scale for 'y' is already present. Adding another scale for 'y', which will
-    replace the existing scale.
-    Scale for 'x' is already present. Adding another scale for 'x', which will
-    replace the existing scale.
-    Warning message:
-    : Removed 1 rows containing missing values (geom_rect).
 
 
     
 
 
 
-![png](/images/2016-07-07-2d-point-density_r_12_2.png)
+![png](/images/2016-07-07-2d-point-density_r_12_1.png)
 
 
 
