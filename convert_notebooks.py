@@ -245,7 +245,7 @@ def identify_notebooks(input_dir, lang):
     notebooks = glob(notebook_directory + "*.ipynb")
     return notebooks
 
-
+exclude = ['tutorials/python/introduction_to_bokeh.ipynb'] # these don't render properly
 
 def main():
     """Main function identifies notebooks and converts each one to md post
@@ -263,7 +263,8 @@ usage: python convert_notebooks.py input_dir output_dir
     for lang in languages:
         notebooks = identify_notebooks(input_dir, lang)
         for nb in notebooks:
-            convert_notebook(input_file = nb, destination = output_dir, lang = lang)
+            if nb not in exclude:
+                convert_notebook(input_file = nb, destination = output_dir, lang = lang)
 
 if __name__ == "__main__":
     main()
