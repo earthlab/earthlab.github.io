@@ -173,7 +173,7 @@ def get_tags(markdown_filename, lang):
     contents = open(markdown_filename, 'r')
     text = contents.readlines()
     keyword = get_keyword(lang)
-    pkg_lines = [s for s in text if keyword in s]
+    pkg_lines = [s for s in text if keyword in s and '.' not in s[-2:]]
     tags = find_package(pkg_lines, lang)
     unique_tags = list(set(tags))
     unique_tags.sort()
