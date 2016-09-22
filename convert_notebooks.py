@@ -25,7 +25,7 @@ def gen_output_filename(destination, input_prefix, date_string, lang):
     Generates output file name
     """
     tutorial_name = input_prefix.split("/")[-1]
-    filename = destination + "/" + date_string + tutorial_name + "_" + lang
+    filename = destination + "/" + date_string + tutorial_name + "-" + lang
     return filename
 
 
@@ -58,6 +58,8 @@ def convert_notebook(input_file, destination, lang):
     """
     md_prefix = generate_md_prefix(input_file, destination, lang)
     wd = os.getcwd()
+    md_prefix = md_prefix.replace("_", "-")
+    md_prefix = md_prefix.replace("-posts/", "_posts/")
     md_out = wd + "/" + md_prefix
     ipynb_in = wd + "/" + input_file
     cmd = "jupyter nbconvert --to markdown --output {0} {1}".format(md_out, ipynb_in)
