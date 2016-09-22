@@ -1,8 +1,8 @@
 # Site Settings
 locale                   : "en-US"
-title                    : "earthlab/tutorials"
+title                    : "Earth Lab Resources"
 title_separator          : "-"
-name                     : "Analytics Hub"
+name                     : "Earth Analytics"
 description              : "Code, tutorials, and tools for modern Earth analytics"
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
@@ -56,9 +56,9 @@ google_ad_slot           :
 
 # Site Author
 author:
-  name             : "Analytics Hub"
-  avatar           : "218px-ISS-44_Milky_Way_and_lightning_strike_from_space.jpg"
-  bio              : "Code tutorials"
+  name             : "Earth Analytics"
+  avatar           : "earth.jpg"
+  bio              : "Geospatial data integration, analysis, and tutorials in R and Python"
   location         : "Boulder, Colorado"
   email            :
   uri              :
@@ -79,7 +79,7 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          :
+  twitter          : "earthlabcu"
   vine             :
   weibo            :
   xing             :
