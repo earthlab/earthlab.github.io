@@ -12,3 +12,12 @@ main:
 
   - title: "About"
     url: /about/
+
+spatial-intro:
+
+  - title: Test Side Bar
+    children:
+      - title: "A link to law"
+        url: /law
+      - title: "Another Link"
+        url: /testWontWork
