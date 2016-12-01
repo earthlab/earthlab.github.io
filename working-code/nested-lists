@@ -1,0 +1,47 @@
+sidebar Code
+
+
+<h3>Tutorials By Language 222</h3>
+
+{% for member in site.data.libs222 %}
+ THE LANGUAGE: {{ member.lang }}
+{% assign counter = 0 %}
+<!-- this code counts the number of posts associated with the member -->
+{% for post in site.posts %}
+<!-- loop through each tool in the nested list -->
+  {% for aTool in post.lang2 %}
+
+    {% if aTool.tool contains member.lang %}
+    <!-- if the post uses the current language being counted, then ...  -->
+        {% for lib in member.libs %}
+          MEMBER: {{ member.libs }}
+        {% if aTool.tool contains member.lang %}
+          {% if aTool.libs contains lib %}
+            {{ lib }}
+          {% endif %}
+        {% endif %}
+        {% endfor %}
+    <!-- Now loop through the libraries and count-->
+      {% for lib in aTool.libs %}
+
+        {{ lib }}
+
+      {% endfor %}
+    {% endif %}
+
+  {% endfor %}
+ {% if post.lang2.tool contains member.lang %} Does this work - why not? {% endif %}
+
+ {% if post.lang2[member.lang] %}
+<!-- if the post contains member.lang, then loop through libraries and add them to the count -->
+<!-- loop through the libraries in lib and count each one in my r.lib -->
+
+  {% for languages in post.lang2 %}
+	   {% assign counter = counter | plus: 1 %}
+     {{ languages }}
+  {% endfor %}
+{% endif %}
+
+{% endfor %}
+  <h5><a href="{{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}">{{ member.lang }} ({{ counter }})</a></h5>
+{% endfor %}

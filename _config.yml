@@ -4,8 +4,8 @@ title                    : "Earth Lab Resources"
 title_separator          : "-"
 name                     : "Earth Analytics"
 description              : "Code, tutorials, and tools for modern Earth analytics"
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
-baseurl                  : # the subpath of your site, e.g. "/blog"
+url                      : #"https://earthlab.github.io"
+baseurl                  : #"/dev-earthlab-site"
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 # breadcrumbs            : false # true, false (default)
@@ -45,9 +45,9 @@ social:
 
 # Analytics
 analytics:
-  provider               : "google"
+  provider               :
   google:
-    tracking_id          : "UA-84081999-1"
+    tracking_id          :
 
 # Google AdSense
 google_ad_client         :
@@ -60,7 +60,7 @@ author:
   avatar           : "earth.jpg"
   bio              : "Geospatial data integration, analysis, and tutorials in R and Python"
   location         : "Boulder, Colorado"
-  email            :
+  email            : "earth.lab@colorado.edu"
   uri              :
   bitbucket        :
   codepen          :
@@ -214,3 +214,31 @@ defaults:
       comments: true
       share: true
       related: true
+
+# classroom lessons are sets of materials and will be collections
+collections:
+  open-science:
+    output: true
+    permalink: /:collection/:path/
+    title: Open Science
+  slide-shows:
+    output: true
+  veg-structure-lidar:
+    output: true
+    permalink: /:collection/:path/
+    title: Lidar Vegetation Structure  
+  tools:
+    output: true
+    permalink: /:collection/:path/
+    title: Tools
+  events:
+    output: true
+    permalink: /:collection/:path/
+    title: Events
+
+# Slideshow stuff
+# Format for the slides, can be either 16:9 or 4:3
+format: '4:3'
+
+# Publish posts and events that are post-dated
+future: true
