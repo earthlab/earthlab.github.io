@@ -1,0 +1,270 @@
+---
+layout: slides
+title: 'File Naming Conventions'
+author: [Jenny Bryan]
+class-lesson: ['intro-open-science']
+---
+
+## Names matter
+
+![cheers]({{ site.baseurl }}/images/slide-shows/intro-file-naming/cheers.png)
+Jenny Bryan - Reproducible Science Curriculum
+---
+
+## What works, what doesn't?
+
+**NO**
+
+~~~
+myabstract.docx
+Joe’s Filenames Use Spaces and Punctuation.xlsx
+figure 1.png
+fig 2.png
+JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt
+~~~
+
+**YES**
+
+```
+2014-06-08_abstract-for-sla.docx
+joes-filenames-are-getting-better.xlsx
+fig01_scatterplot-talk-length-vs-interest.png
+fig02_histogram-talk-attendance.png
+1986-01-28_raw-data-from-challenger-o-rings.txt
+```
+
+---
+
+## Three principles for (file) names
+
+1. Machine readable
+2. Human readable
+3. Plays well with default ordering
+
+---
+
+## Good File Names
+
+![awesome_names]({{ site.baseurl }}/images/slide-shows/intro-file-naming/awesome_names.png)
+
+---
+
+## Machine readable names
+
+Regular expression and globbing friendly
+* Avoid spaces, punctuation, accented characters, case sensitivity
+
+Easy to compute on
+* Deliberate use of delimiters
+
+---
+
+## Globbing - Shell
+
+.one-half[
+**Complete file list:**
+![plasmid_names]({{ site.baseurl }}/images/slide-shows/intro-file-naming/plasmid_names.png)
+]
+
+.one-half[
+**Narrow file list:**
+![plasmid_names]({{ site.baseurl }}/images/slide-shows/intro-file-naming/plasmid_glob.png)
+]
+
+---
+
+## Subset With Mac OS Finder Search
+
+![plasmid_mac_os_search]({{ site.baseurl }}/images/slide-shows/intro-file-naming/plasmid_mac_os_search.png)
+
+---
+## Subset using R - regex
+
+![plasmid_regex]({{ site.baseurl }}/images/slide-shows/intro-file-naming/plasmid_regex.png)
+
+---
+
+## Punctuation
+
+Deliberate use of `"-"` and `"_"` allows recovery of meta-data from the filenames:
+
+- `"_"` underscore used to delimit units of meta-data I want later
+- `"-"` hyphen used to delimit words so my eyes don't bleed
+
+![plasmid_delimiters]({{ site.baseurl }}/images/slide-shows/intro-file-naming/plasmid_delimiters.png)
+
+---
+## Punctuation
+
+Deliberate use of `"-"` and `"_"` allows recovery of meta-data from the filenames:
+![plasmid_delimiters_code]({{ site.baseurl }}/images/slide-shows/intro-file-naming/plasmid_delimiters_code.png)
+
+---
+class: center, middle
+
+Previous examples use `R` but also possible in the shell, Python, etc.
+
+---
+
+## Machine Readable Names
+
+- Easy to search for files later.
+- Easy to narrow file lists based on names.
+- Easy to extract info from file names, e.g. by splitting.
+
+---
+
+## Recap: Use Machine Readable Names
+
+New to regular expressions and globbing? Be kind to yourself and avoid
+
+* Spaces in file names
+* Punctuation
+* Accented characters
+* Different files named `foo` and `Foo`
+
+---
+
+## Human readable
+
+* Name contains info on content
+* Connects to concept of a *slug* from semantic URLs
+
+---
+
+## Example
+
+**Which set of file(name)s do you want at 3 a.m. before a deadline?**
+
+![human_readable_not_options]({{ site.baseurl }}/images/slide-shows/intro-file-naming/human_readable_not_options.png)
+
+---
+class: center, middle
+
+.one-half[
+![slug_filenames]({{ site.baseurl }}/images/slide-shows/intro-file-naming/slug_filenames.png)
+]
+.one-half[
+![slug]({{ site.baseurl }}/images/slide-shows/intro-file-naming/slug.jpg)
+]
+---
+## Recap: Human readable
+
+Easy to figure out what something is, based on its name
+
+* Plays well with default ordering
+  - Put something numeric first
+  - Use the ISO 8601 standard for dates
+  - Left pad other numbers with zeros
+
+---
+
+## Example - Chronological order:
+
+![chronological_order]({{ site.baseurl }}/images/slide-shows/intro-file-naming/chronological_order.png)
+
+---
+
+## Example - Logical order:
+*Put something numeric first*
+
+![logical_order]({{ site.baseurl }}/images/slide-shows/intro-file-naming/logical_order.png)
+
+---
+## Dates
+
+Use the ISO 8601 standard for dates: YYYY-MM-DD
+
+![chronological_order]({{ site.baseurl }}/images/slide-shows/intro-file-naming/chronological_order.png)
+
+---
+class: middle, center
+
+![iso_psa]({{ site.baseurl }}/images/slide-shows/intro-file-naming/iso_8601.tiff)
+
+---
+class: center, middle
+## Countries that use MM-DD-YYYY format
+
+
+![map graphic ]({{ site.baseurl }}/images/slide-shows/intro-file-naming/map-mmddyyyy.png)
+
+.caption[
+From https://twitter.com/donohoe/status/597876118688026624.
+]
+
+---
+
+
+.one-half[
+Left pad numbers with zeros:
+```xml
+01_marshal-data.r
+02_pre-dea-filtering.r
+03_dea-with-limma-voom.
+90_limma-model-term-name-incident.r
+happen01_a-file.txt
+happen02_viz-file.txt
+
+```
+
+]
+
+.one-half[
+If you don’t left pad, you get this:
+
+```xml
+10_final-figs-for-publication.R
+1_data-cleaning.R
+2_fit-model.R
+```
+
+which is just sad :(
+]
+---
+
+## Recap - Three principles for (file) names
+
+1. Machine readable
+2. Human readable
+3. Plays well with default ordering
+
+---
+
+## Recap: Names Play Well With Default Ordering
+
+- Put something numeric first
+- Use the ISO 8601 standard for dates
+- Left pad other numbers with zeros
+
+---
+## Benefits
+
+- Easy to implement NOW
+- Payoffs accumulate as your skills evolve and projects get more complex
+
+---
+class: inverse, middle
+
+## Go forth and use awesome file names!
+
+![chronological_order]({{ site.baseurl }}/images/slide-shows/intro-file-naming/chronological_order.png)
+
+---
+class: inverse, middle
+
+## Go forth and use awesome file names!
+
+![logical_order]({{ site.baseurl }}/images/slide-shows/intro-file-naming/logical_order.png)
+
+---
+name: inverse
+class: center, middle, inverse
+
+## Improve This Presentation
+
+This presentation was created using markdown and built via jekyll / github.
+
+Suggest changes via a PR or an issue in the repo:
+<a href="https://github.com/lwasser/class-activities/blob/master/_slide-shows/2-file-naming-jenny-bryan.html" target="_blank">
+  View on GitHub </a>

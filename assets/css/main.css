@@ -7,12 +7,16 @@ a:focus {
 }
 
 html {
-  box-sizing:border-box;background-color:#fff;font-size:16px;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%
+  box-sizing:border-box;
+  background-color:#fff;
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%
 }
 
 @media (min-width: 48em) {
   html {
-    font-size:18px
+    font-size:16px
   }
 }
 
@@ -2028,6 +2032,10 @@ input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus,
   margin-bottom:2em
 }
 
+.archive > p {
+    padding-right: 300px;
+}
+
 @media (min-width: 48em) {
   .archive {
   width:100%;float:left;margin-left:0;margin-right:0
@@ -2045,7 +2053,18 @@ input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus,
 }
 
 .archive a {
-  color:inherit;text-decoration:none
+  color:#52adc8;text-decoration:none
+}
+
+.archive a:hover {
+  color:#9ed1e0;text-decoration:none
+}
+
+.archive__item-title > a {
+    color: #52adc8;
+}
+.archive__item-title > a:hover {
+    color: #9ed1e0;
 }
 
 .archive__subtitle {

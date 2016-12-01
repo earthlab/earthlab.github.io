@@ -1,0 +1,24 @@
+.generate-progress(20);
+
+.progress-step {
+  background-color: fadeout(@dataone_plum, 20%);
+  display: inline-block;
+  height: 0.3em;
+  border-radius: 5px;
+}
+
+.progressbar {
+  width: 5em;
+  height: 0.3em;
+  border-radius: 5px;
+  background-color: #d6d6d6;
+  display: inline-block;
+}
+
+.generate-progress(@n, @i: 0) when (@i <= @n) {
+  .progress-step-@{i} {
+    width: (@i * 100% / @n);
+    .progress-step;
+  }
+  .generate-progress(@n, (@i + 1));
+}

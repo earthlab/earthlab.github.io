@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+{% include base_path %}
+
+{% if (page.header.overlay_color or page.header.overlay_image) or page.header.image %}
+  {% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+    <div class="archive">
+      {% unless page.header.overlay_color or page.header.overlay_image %}
+        <h1 class="page__title">{{ page.title }}</h1>
+      {% endunless %}
+        {{ page.author }} has contributed to the materials listed below.
+        {{ content }}
+        {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
+
+        <!-- List all posts in the page category  -->
+        <h2>Class Lessons </h2>
+        {% assign lessonCounter = 0 %}
+
+        {% for member in site.data.class-lessons %}
+          {% if member.active %}
+            <!-- if member contains the author -->
+            {% if member.authors contains page.author %}
+            {% assign lessonCounter = lessonCounter | plus: 1 %}
+            <div class="list__item">
+              <article class="archive__item">
+                <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ member.name }}</a></h2>
+                <p class="archive__item-excerpt">{{ member.description }}</p>
+              </article>
+            </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+
+        {% if lessonCounter == 0 %}
+         <em>Nothing to list here yet! </em>
+        {% endif %}
+
+        <h2> Tutorials  </h2>
+        {% assign tutorialCounter = 0 %}
+        {% for post in site.categories.tutorials %}
+          {% if post.authors contains page.author %}
+          {% assign tutorialCounter = tutorialCounter | plus: 1 %}
+
+          <div class="list__item">
+            <article class="archive__item">
+              <h2 class="archive__item-title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+              <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+            </article>
+          </div>
+          {% endif %}
+        {% endfor %}
+
+        {% if tutorialCounter == 0 %}
+         <em>Nothing to list here yet! </em>
+        {% endif %}
+
+      </div>
+</div>
