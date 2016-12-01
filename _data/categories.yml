@@ -1,0 +1,9 @@
+- slug: tutorials
+  name: tutorials
+  description: "Classroom data lessons."
+  color: '#1abc9c'
+
+- slug: course-materials
+  name: Classroom Lessons
+  description: "Classroom data lessons."
+  color: '#1abc9c'

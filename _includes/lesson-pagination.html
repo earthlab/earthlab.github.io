@@ -1,0 +1,27 @@
+<!-- This is clunky code that forces pagination across lesson sets -->
+<!-- NOTE: it won't include slideshows as written which makes sense -->
+<!-- add forced pagination -->
+<!-- first, get total lesson count -->
+{% assign counter = 0 %}
+{% for post in site.categories.course-materials %}
+    {% if post.class-lesson == page.class-lesson %}
+      {% assign counter = counter | plus: 1 %}
+    {% endif %}
+{% endfor %}
+
+<!-- if it's page one - then no previous button -->
+<!-- how do i figure out the link? i have to loop through again? -->
+{% for post in site.categories.course-materials %}
+    {% if post.class-lesson == page.class-lesson %}
+
+    {% assign prevPageNum = page.order | minus: 1 %}
+      {% if post.order == prevPageNum %}
+        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn-success"> <-- PREVIOUS LESSON </a>
+      {% endif %}
+
+      {% assign nextPageNum = page.order | plus: 1 %}
+      {% if post.order == nextPageNum %}
+       <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn-success" style="float:right" > NEXT LESSON --> </a>
+      {% endif %}
+    {% endif %}
+{% endfor %}

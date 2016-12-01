@@ -1,7 +1,7 @@
 ---
 layout: archive
-permalink: /archive/
-title: "Archive"
+permalink: /tutorials-del/
+title: "Code Tutorials"
 author_profile: false
 published: true
 site-map: true

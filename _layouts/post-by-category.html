@@ -1,0 +1,71 @@
+---
+layout: default
+---
+
+{% if (page.header.overlay_color or page.header.overlay_image) or page.header.image %}
+  {% include page__hero.html %}
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  {% include sidebar.html %}
+
+  <div class="archive">
+    {% unless page.header.overlay_color or page.header.overlay_image %}
+      <h1 class="page__title">{{ page.title }}</h1>
+    {% endunless %}
+    {{ content }}
+
+    <!-- List all posts in the page category  -->
+
+
+
+      {% if page.langSide %}
+
+      <!-- Only list posts where language = page.lang -->
+      {% for post in site.posts %}
+        {% if page.library %}
+          {% if post.lib contains page.library %}
+          <div class="list__item">
+            <article class="archive__item" >
+            <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
+            <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+          </article>
+        </div>
+          {% endif %}
+        {% else %}
+        {% if page.language %}
+         {% if post.lang contains page.language %}
+         <div class="list__item">
+           <article class="archive__item">
+             <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
+             <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+           </article>
+         </div>
+         {% endif %}
+
+        {% endif %}
+        {% endif %}
+      {% endfor %}
+
+      {% else %}
+        {% for post in site.categories.[page.category] %}
+      <!-- List all posts in the page category  -->
+      <!-- Somehow loop through each class lesson and count - right now i'm not including category on series pages -->
+      <div class="list__item">
+        <article class="archive__item">
+          <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
+          <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+        </article>
+      </div>
+        {% endfor %}
+
+      {% endif %}
+
+  </div>
+</div>

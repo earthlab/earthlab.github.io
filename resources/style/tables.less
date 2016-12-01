@@ -1,0 +1,19 @@
+table {
+  border-collapse: collapse;
+}
+
+tr {
+  color: black;
+  &:nth-child(odd)		{ background-color: fadeout(@dataone_teal, 80%); }
+  &:nth-child(even)		{ background-color: fadeout(@dataone_teal, 95%); }
+}
+
+th {
+  background-color: @dataone_teal;
+  color: white;
+  font-weight: bold;
+}
+
+td, th {
+  padding: 0.4em;
+}
