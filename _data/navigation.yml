@@ -1,23 +1,36 @@
 # main links links
 main:
 
-  - title: "Archive"
-    url: /archive/
+  - title: "Tutorials"
+    url: /tutorials/
 
-  - title: "Browse by package"
-    url: /tags/
+  - title: "Course Materials"
+    url: /course-materials/
 
-  - title: "Browse by category"
-    url: /categories/
+  - title: "Tools"
+    url: /tools/
+
+  - title: "Events"
+    url: /events/
 
   - title: "About"
     url: /about/
 
-spatial-intro:
+  - title: "Earth Lab CU"
+    url: http://www.colorado.edu/earthlab
 
-  - title: Test Side Bar
+
+open-science:
+
+  - title: Open Science
     children:
-      - title: "A link to law"
-        url: /law
-      - title: "Another Link"
-        url: /testWontWork
+      - title: "Activity Overview"
+        url: /tutorials/intro-open-science/
+      - title: "Teaching Notes"
+        url: /open-science/2-instructor-notes/
+  - title: Slide Shows
+    children:
+      - title: "Intro to Reproducibility"
+        url: /slide-shows/1_intro-reprod-science/
+      - title: "File Naming 101"
+        url: /slide-shows/2-file-naming-jenny-bryan/

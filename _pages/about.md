@@ -1,22 +1,41 @@
 ---
 layout: single
-title: "About the Analytics Hub"
+title: "About Earth Lab Resources"
 author_profile: false
 published: true
 site-map: true
 permalink: /about/
 ---
 
-The Analytics Hub is part of [Earth Lab](http://www.colorado.edu/earthlab/) at the University of Colorado Boulder.
-Our team approaches Earth analytics from a diverse set of perspectives, with backgrounds in high performance computing, statistics, visualization, and applied science.
-This website contains code tutorials and blog posts related to our work.
-Most of the tutorials are aimed at building R and Python skills relevant to Earth analytics, including geospatial, social, and biological data.
-More details about the Analytics Hub can be found [here](http://www.colorado.edu/earthlab/analytics-hub).
+This site hosts resources developed by the Earth Lab team at University of Colorado,
+Boulder. This website contains data, code tutorials, data-intensive course
+materials and blog posts related to our work. Most of the
+[data tutorials]({{ site.url }}{{ site.baseurl }}/tutorials/)
+building `R` and `Python` skills relevant to earth systems analytics, including geospatial,
+social, biological, and earth systems data. The [data-intensive course materials]({{ site.url }}{{ site.baseurl }}/course-materials/) focus on a suite of topics including:
 
-## Who we are
+* Geospatial analysis
+* Open, reproducible science
+* Spatio-temporal data
+* Heterogeneous data structures
+* Remote sensing
 
-- [Shelley Knuth](http://www.colorado.edu/earthlab/shelley-knuth): Director of the Analytics Hub, Earth Lab
-- [Maxwell B. Joseph](http://www.colorado.edu/earthlab/maxwell-joseph): Research Data Analytics Specialist, Earth Lab
-- [Timothy Dunn](http://www.colorado.edu/earthlab/timothy-dunn): Visualization Specialist, Earth Lab
-- [Matthew Oakley](https://github.com/matt-oak): Summer 2016 intern, Earth Lab
-- [Zachary Schira](https://github.com/zschira): Summer 2016 intern, Earth Lab
+
+
+## Our Team
+
+Our mission is to both capitalize on the data deluge from Space and other
+platforms to accelerate science and to train a new generation of data scientists
+who can apply their knowledge to addressing outstanding Earth Science questions.
+Our team approaches Earth analytics from a diverse set of perspectives, with
+backgrounds in high performance computing, statistics, visualization, and
+applied science.
+
+* Learn more about the [Earth Lab Analytics Hub](https://www.colorado.edu/earthlab/analytics-hub)
+* Learn More about the [Earth Lab Education Initiative](https://www.colorado.edu/earthlab/learn)
+
+Questions?
+This site is maintained by:
+
+* Max Joseph, Director - Analytics Hub, EarthLab <a href="http://twitter.com/mxwlj" class="btn btn--twitter"><i class="fa fa-twitter"></i>@mxwlj</a>
+* Leah Wasser, Director - Earth Analytics Education Initiative, EarthLab <a href="http://twitter.com/leahawasser" class="btn btn--twitter"><i class="fa fa-twitter"></i>@leahawasser</a>

@@ -25,6 +25,11 @@
         </div>
       {% endif %}
       <h2 class="archive__item-title" itemprop="headline">{% if post.id %}{{ post.title | markdownify | remove: "<p>" | remove: "</p>" }}{% else %}{{ post.title }}{% endif %}{% if post.link %}<i class="fa fa-star" aria-hidden="true"></i>{% endif %}</h2>
+
+
+     {% if post.author %}
+        <p class="page__meta">{{ post.author | join: ', ' %}}</p>
+     {% endif %}
       {% if post.read_time %}
         <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
       {% endif %}
