@@ -1,6 +1,6 @@
 {% include base_path %}
 
-{% if page.author_profile or layout.author_profile or page.sidebar %}
+{% if page.author_profile or layout.author_profile or page.sidebar or page.class-lesson %}
   <div class="sidebar sticky">
   {% if page.author_profile or layout.author_profile %}{% include author-profile.html %}{% endif %}
   {% if page.sidebar %}
@@ -20,6 +20,113 @@
     {% if page.sidebar.nav %}
       {% include nav_list nav=page.sidebar.nav %}
     {% endif %}
+
+    {% if page.class-lesson %}
+      <nav class="nav__list">
+        <ul>
+          <li><span class="nav__sub-title">{{ page.class-lesson }} </span>
+            <ul>
+              {% assign sorted_posts = site.posts | sort:"order" %}
+              {% for post in sorted_posts %}
+                {% if post.class-lesson == page.class-lesson %}
+                  {% if post.url == page.url %}
+                  <li><a href= {{ site.url }}{{ site.baseurl }}{{ post.url }} class='active'>{{ post.nav-title }}</a></li>
+                  {% else %}
+                  <li><a href= {{ site.url }}{{ site.baseurl }}{{ post.url }}>{{ post.nav-title }}</a></li>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+
+        <ul>
+          <li><span class="nav__sub-title">Slide Shows</span>
+            <ul>
+
+              {% for slides in site.slide-shows %}
+                {% if slides.class-lesson == page.class-lesson %}
+                  <li><a href="{{ site.url }}{{ site.baseurl }}{{ slides.url}}" target='_blank'>{{ slides.title }} </a></li>
+
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+        </ul>
+    </nav>
+    {% endif %}
+
   {% endif %}
   </div>
+{% endif %}
+
+
+{% if page.lang or page.language or page.library %}
+<div class="sidebar sticky">
+  <nav class="nav__list">
+    <ul>
+      <li><span class="nav__sub-title">Language</span>
+        <ul>
+          {% for member in site.data.libs %}
+
+          {% assign counter = 0 %}
+          <!-- this code counts the number of posts associated with the member -->
+          {% for post in site.posts %}
+
+          	{% if post.lang contains member.lang %}
+          	{% assign counter = counter | plus: 1 %}
+          	{% endif %}
+          {% endfor %}
+            {% if page.language == member.lang %}
+
+              {% if page.library %}
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
+              {% else %}
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }} class='active' >{{ member.lang }} ({{ counter }})</a></li>
+              {% endif %}
+
+              {% else %}
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+
+<!-- list tutorials by library -->
+
+{% unless page.layout contains 'single' %}
+  {% for member in site.data.libs %}
+    {% if page.language contains member.lang %}
+      <ul>
+        <li><span class="nav__sub-title">{{ member.lang }} library</span>
+          <ul>
+        {% for lib in member.libs %}
+          {% assign counter = 0 %}
+       <!-- this code counts the number of posts associated with the member -->
+            {% for post in site.posts %}
+              {% if post.lib contains lib %}
+              {% assign counter = counter | plus: 1 %}
+              {% endif %}
+            {% endfor %}
+
+            {% if page.library == lib %}
+            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }} class='active'>{{ lib }} ({{ counter }})</a></li>
+            {% else %}
+            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }}>{{ lib }} ({{ counter }})</a></li>
+            {% endif %}
+        {% endfor %}
+      </ul>
+      {% endif %}
+  {% endfor %}
+{% endunless %}
+<!-- end language side bar nav -->
+</nav>
+
+{% if page.class-lesson %}
+Lesson series
+
+{% endif %}
+
+</div>
 {% endif %}

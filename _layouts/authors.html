@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+
+<!-- List all posts authored by the page author -->
+
+{% for posts in site.categories.tutorials %}
+  {% if post.authors contains page.author %}
+
+    <a href="#">{{ post.baseurl }}{{ post.url }}{{ post.title }}</a>
+
+{% endfor %}

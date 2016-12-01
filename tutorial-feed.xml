@@ -1,0 +1,38 @@
+---
+layout:
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version ="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <atom:link href="{{ site.url }}{{site.baseurl}}/tutorial-feed.xml" rel="self" type="application/rss+xml" />
+    <title>{{ site.title }}</title>
+      <link>{{ site.url }}{{ site.baseurl }}</link>
+      <description>A GitHub Jekyll Website maintained by Max Joseph and Leah Wasser</description>
+
+      <language>en-us</language>
+      <copyright>2016</copyright>
+
+      <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+      <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+      <generator>jekyll</generator>
+
+      <webMaster> {{ site.author.email }} ({{ site.author.name }})</webMaster>
+
+
+
+
+ {% for post in site.categories.tutorials %}
+      <item>
+               <title>{{ post.title | cdata_escape }}</title>
+               <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
+               <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
+               <description>{{ post.excerpt | xml_escape }}</description>
+                 <author>{{ site.author.email }} ({{ post.authors | join: ', ' }})</author>
+
+               <category>{{ post.categories }}</category>
+               <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+      </item>
+{% endfor %}
+
+  </channel>
+</rss>

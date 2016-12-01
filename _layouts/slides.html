@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{page.title}} - Earth Lab, University of CO, Boulder</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/resources/slide-show.css">
+</head>
+<body>
+
+  <!--  The chunk below creates a template for each slide -->
+  <textarea id="source">
+
+
+layout: true
+
+.logo[
+![logo]({{ site.baseurl }}/images/earth.png)
+]
+
+---
+
+{{ page.content }}
+
+  </textarea>
+  <script src="{{ site.baseurl }}/resources/remark-latest-min.js">
+  </script>
+  <script>
+  var slideshow = remark.create({
+    ratio: '{{ site.format }}',
+    slideNumberFormat: function (current, total) {
+      return '<span class="progressbar"><span class="step' + Math.round(current/total*11-1) + '">&nbsp;</span></span>';
+    },
+    // Customize slide number label, either using a format string..
+    slideNumberFormat: 'Slide %current% of %total%',
+    // .. or by using a format function
+    slideNumberFormat: function (current, total) {
+      return current + ' / ' + total;
+    },
+    countIncrementalSlides: true
+  });
+  </script>
+</body>
+</html>
