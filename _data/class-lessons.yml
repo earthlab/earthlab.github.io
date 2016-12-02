@@ -15,7 +15,7 @@
   uncertainty and associated differences between measurements.'
   authors: ['Leah Wasser']
   url:
-  active: true
+  active: false
   dateModified: 2016-11-25
 
 - name: 'Intro to Spatial Data in R'
@@ -25,5 +25,5 @@
   but all code examples use R. '
   authors: ['Leah Wasser']
   url:
-  active: true
+  active: false
   dateModified: 2016-11-25
