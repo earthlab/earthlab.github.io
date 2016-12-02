@@ -22,16 +22,17 @@ layout:
 
 
  {% for post in site.categories.tutorials %}
+ {% unless post.title == 'Creating animated maps with matplotlib & basemap in Python' %}
       <item>
                <title>{{ post.title | cdata_escape }}</title>
                <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
                <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
                <description>{{ post.excerpt | xml_escape }}</description>
-                 <author>{{ site.author.email }} ({{ post.authors | join: ', ' }})</author>
-
+               <author>{{ site.author.email }} ({{ post.authors | join: ', ' }})</author>
                <category>{{ post.categories }}</category>
                <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
       </item>
+{% endunless %}
 {% endfor %}
 
   </channel>
