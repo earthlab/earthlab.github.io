@@ -27,3 +27,4 @@ ranging from extreme value theory, parallel computing to bayesian statistics.
 No expertise is necessary to join.
 Go to the [Earth Lab data meetup GitHub repository](https://github.com/earthlab/meetup) to see our upcoming topics and
  to get involved!
+
