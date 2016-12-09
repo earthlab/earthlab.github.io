@@ -12,12 +12,6 @@ author_profile: true
 Presentations created using markdown.
 
 {% for slides in site.slide-shows %}
-<h3><a href="{{ slides.url}}">{{ slides.title }}</a></h3>
-
-{% endfor %}
-
-## testing another collection
-{% for lidar in site.veg-structure-lidar %}
-<h3><a href="{{ lidar.url}}">{{ lidar.title }}</a></h3>
+<h3><a href="{{ site.url }}{{ site.baseurl }}{{ slides.url }}">{{ slides.title }}</a></h3>
 
 {% endfor %}
