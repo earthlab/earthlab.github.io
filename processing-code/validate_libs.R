@@ -6,18 +6,22 @@ source("processing-code/helpers.R")
 
 libs_yaml <- yaml.load_file("_data/libs.yml")
 
-
-
-
 # for each post, pull out the language and libraries used -----------------
-
 posts <- list_posts()
 
-langs <- sapply(posts, yaml2df, "lang") %>%
+
+langs <- vector(length = length(posts), mode = "list")
+libs <- vector(length = length(posts), mode = "list")
+for (i in seq_along(posts)) {
+  langs[[i]] <- yaml2df(posts[i], "lang")
+  libs[[i]] <- yaml2df(posts[i], "lib")
+}
+
+langs <- langs %>%
   bind_rows() %>%
   select(file, field, value)
 
-libs <- sapply(posts, yaml2df, "lib") %>%
+libs <- libs %>%
   bind_rows() %>%
   select(file, field, value)
 

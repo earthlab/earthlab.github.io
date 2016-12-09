@@ -1,12 +1,16 @@
-################## 
+##################
 
 # This code takes a set of Rmd files from a designated git repo and
-# 1) knits them to jekyll flavored markdown 
+# 1) knits them to jekyll flavored markdown
 # 2) purls them to .R files
 # it then cleans up all image directories, etc from the working dir!
 ##################
 
 require(knitr)
+dirs <- c("/course-materials/geog-4100-5100/intro-co-floods")
+
+
+str(nodata)
 
 #################### Set up Input Variables #############################
 # Inputs - Where the git repo is on your computer
@@ -14,10 +18,10 @@ rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
 gitRepoPath <-"~/Documents/github/dev-earthlab-site/"
 
 
-#jekyll will only render md posts that begin with a date. Add one.
+# jekyll will only render md posts that begin with a date. Add one.
 add.date <- "2016-11-28-SI"
 
-#set working dir - this is where the data are located
+# set working dir - this is where the data are located
 wd <- "~/Documents/data"
 
 
@@ -80,11 +84,11 @@ if (dir.exists(paste0(gitRepoPath, codeDir))){
 ################# Clean out posts Dir  #################
 # NOTE: comment this out if you just want to rebuild one lesson
 
-# clean out images dir to avoid the issue of duplicate files 
+# clean out images dir to avoid the issue of duplicate files
 unlink(paste0(gitRepoPath, postsDir,"*"), recursive = TRUE)
-# clean out images dir to avoid the issue of duplicate files 
+# clean out images dir to avoid the issue of duplicate files
 unlink(paste0(gitRepoPath, codeDir,"*"), recursive = TRUE)
-# clean out images dir to avoid the issue of duplicate files 
+# clean out images dir to avoid the issue of duplicate files
 unlink(paste0(gitRepoPath, imagePath,"*"), recursive = TRUE)
 
 
@@ -105,16 +109,16 @@ rmd.files <- list.files(rmdRepoPath, pattern="*.Rmd", full.names = TRUE )
 # rmd.files <- rmd.files[3]
 
 for (files in rmd.files) {
-  
-  # copy .Rmd file to data working directory 
+
+  # copy .Rmd file to data working directory
   file.copy(from = files, to=wd, overwrite = TRUE)
   input=basename(files)
-  
+
   # setup path to images
   # print(paste0(imagePath, sub(".Rmd$", "", basename(input)), "/"))
   fig.path <- print(paste0(imagePath, sub(".Rmd$", "", input), "/"))
-  
-  
+
+
   opts_chunk$set(fig.path = fig.path)
   opts_chunk$set(fig.cap = " ")
   # render_jekyll()
@@ -123,37 +127,37 @@ for (files in rmd.files) {
   # create the markdown file name - add a date at the beginning to Jekyll recognizes
   # it as a post
   mdFile <- paste0(gitRepoPath,postsDir,add.date ,sub(".Rmd$", "", input), ".md")
-  
-  # knit Rmd to jekyll flavored md format 
+
+  # knit Rmd to jekyll flavored md format
   knit(input, output = mdFile, envir = parent.frame())
-  
+
   # COPY image directory, rmd file OVER to the GIT SITE###
   # only copy over if there are images for the lesson
   if (dir.exists(paste0(wd,"/",fig.path))){
     # copy image directory over
     file.copy(paste0(wd,"/",fig.path), paste0(gitRepoPath,imagePath), recursive=TRUE)
   }
-  
+
   # copy rmd file to the rmd directory on git
   # file.copy(paste0(wd, "/", basename(files)), gitRepoPath, recursive=TRUE)
-  
+
   # delete local repo copies of RMD files just so things are cleaned up??
-  
+
   ## OUTPUT STUFF TO R ##
   # output (purl) code in .R format
   rCodeOutput <- paste0(gitRepoPath, codeDir, sub(".Rmd$", "", basename(files)), ".R")
-  
+
   # purl the code to R
   purl(files, output = rCodeOutput)
-  
+
   # CLEAN UP
   # remove Rmd file from data working directory
   unlink(basename(files))
-  
+
   # print when file is knit
   doneWith <- paste0("processed: ",files)
   print(doneWith)
-  
+
 }
 
 ###### Local image cleanup #####
@@ -161,4 +165,4 @@ for (files in rmd.files) {
 # clean up working directory images dir (remove all sub dirs)
 unlink(paste0(wd,"/",imagePath,"*"), recursive = TRUE)
 
-########################### end script  
+########################### end script
