@@ -9,7 +9,7 @@
 library(yaml)
 library(dplyr)
 source("processing-code/helpers.R")
-#Then setup the code to grab all .md files in the _posts directory 
+# Then setup the code to grab all .md files in the _posts directory 
 # and save the `authors.yml` file.
 
 # produce the authors.yaml file -----------------------------------------
