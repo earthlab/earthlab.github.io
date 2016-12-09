@@ -3,7 +3,7 @@
   description: 'MORE.'
   authors: ['Leah Wasser', 'NEON Data Skills']
   url:
-  active: true
+  active: false
   dateCreated: 2016-12-06
   dateModified: 2016-12-06
 
@@ -12,7 +12,7 @@
   description: 'MORE.'
   authors: ['Leah Wasser', 'NEON Data Skills']
   url:
-  active: true
+  active: false
   dateCreated: 2016-12-06
   dateModified: 2016-12-06
 
@@ -32,7 +32,7 @@
   and knitr to create and publish reports that link analysis, results and documentation. '
   authors: ['Leah Wasser', NEON Data Skills]
   url:
-  active: true
+  active: false
   dateCreated: 2016-12-04
   dateModified: 2016-12-04
   attribution: 'This lesson was created using material taught in the 2016 NEON Data
@@ -46,7 +46,7 @@
   uncertainty and associated differences between measurements.'
   authors: ['Leah Wasser']
   url:
-  active: true
+  active: false
   dateModified: 2016-11-25
 
 - name: 'Intro to Spatial Data in R'
@@ -56,5 +56,5 @@
   but all code examples use R. '
   authors: ['Leah Wasser']
   url:
-  active: true
+  active: false
   dateModified: 2016-11-25
