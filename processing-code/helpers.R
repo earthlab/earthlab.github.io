@@ -2,6 +2,12 @@ library(readr)
 options(stringsAsFactors = FALSE)
 
 # Helper functions for building the website -------------------------------
+posts_to_ignore <- function() {
+  # return a character vector of posts to ignore when building
+  c("readme.md", 
+    "creating-animated-maps-matplotlib")
+}
+
 
 list_posts <- function() {
   # returns a vector with all of the markdown files in the _posts/ directory
@@ -9,7 +15,10 @@ list_posts <- function() {
   md_files <- post_dir %>%
     file.path(list.files(post_dir, pattern = "\\.md",
                          recursive = TRUE, include.dirs = TRUE))
-  md_files[!grepl("readme.md", md_files)]
+  posts_to_ignore() %>%
+    paste(collapse = "|") %>%
+    grep(md_files, value = TRUE) %>%
+    unique()
 }
 
 yaml2df <- function(file, field) {
