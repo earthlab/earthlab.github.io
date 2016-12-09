@@ -16,12 +16,12 @@
 
     {% assign prevPageNum = page.order | minus: 1 %}
       {% if post.order == prevPageNum %}
-        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn-success"> <-- PREVIOUS LESSON </a>
+        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn-success"> <-- PREVIOUS - {{ post.nav-title }} </a>
       {% endif %}
 
       {% assign nextPageNum = page.order | plus: 1 %}
       {% if post.order == nextPageNum %}
-       <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn-success" style="float:right" > NEXT LESSON --> </a>
+       <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn-success" style="float:right" > {{ post.nav-title }} - NEXT --> </a>
       {% endif %}
     {% endif %}
 {% endfor %}
