@@ -1,0 +1,192 @@
+---
+layout: single
+title: "Publish Code - From R Markdown to HTML with knitr"
+description: "This tutorial introduces how to use the R knitr package to publish
+from R Markdown files to HTML (or other) file format."
+authors: ['Leah Wasser', 'NEON Data Skills']
+category: [course-materials]
+lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+class-lesson: ['intro-rmarkdown-knitr']
+permalink: /course-materials/intro-rmarkdown-knitr3
+nav-title: 'R knitr package'
+sidebar:
+  nav:
+author_profile: false
+comments: false
+order: 5
+---
+
+
+In the previous tutorials we've learned about the R Markdown format and how
+to create a report using R Markdown in R Studio. In this tutorial, we will
+render or `knit` an R Markdown document to a web friendly, `html` format using
+the R `knitr` package. `knitr` can be used to convert R Markdown files to many
+different formats including: `HTML`, `PDF`, github markdown (`.md`) and more.
+
+<div class='notice--success' markdown="1">
+
+# Learning Objectives
+
+At the end of this activity, you will:
+
+* Be able to produce (‘knit’) an HTML file from a R Markdown file.
+* Know how to modify chuck options to change what is rendered and not rendered on the output HTML file.
+
+## Things You’ll Need To Complete This Tutorial
+
+You will need the most current version of R and, preferably, RStudio loaded on
+your computer to complete this tutorial.
+
+### Install R Packages
+
+* **knitr:** `install.packages("knitr")`
+* **rmarkdown:** `install.packages("rmarkdown")`
+
+## An Rmd File
+
+To complete this tutorial you will need an R Markdown document that contains a
+YAML header, code chunks and markdown segments.
+
+</div>
+
+## What Is knitr?
+
+`knitr` is the tool (R package) that allows us to convert our R Markdown files into another,
+more user friendly format like html or pdf.
+
+The `knitr` package allow us to:
+
+* Publish & share preliminary results with collaborators.
+* Create professional reports that document our workflow and results directly
+from our code, reducing the risk of accidental copy and paste or transcription errors.
+* Document our workflow to facilitate reproducibility.
+* Efficiently change code outputs (figures, files) given changes in the data, methods, etc.
+
+>The knitr package was designed to be a transparent engine for dynamic report
+generation with R --
+<a href="http://yihui.name/knitr/" target="_blank"> Yihui Xi -- knitr package creator</a>
+
+
+
+<i class="fa fa-star"></i> **When To Knit**: Knitting is a useful exercise
+throughout your scientific workflow. It allows you to see what your outputs
+look like and also to test that your code runs without errors.
+The time required to knit depends on the length and complexity of the script
+and the size of your data.
+{: .notice}
+
+### How to Knit
+
+<figure>
+	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/KnitButton-screenshot.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/KnitButton-screenshot.png"></a>
+	<figcaption> Location of the knit button in RStudio in Version 0.99.903.
+	</figcaption>
+</figure>
+
+To knit in RStudio, click the **knit** pull down button. You want to use the
+**knit HTML** option for this lesson.
+
+When you click the **Knit HTML** button, a  window will open in your console
+titled R Markdown. This
+pane shows the knitting progress. The output (HTML in this case) file will
+automatically be saved in the current working directory. If there is an error
+in the code, an error message will appear with a line number in the R Console
+to help you diagnose the problem.
+
+<i class="fa fa-star"></i> **Data Tip:** You can run `knitr` from the command prompt
+using: `render(“input.Rmd”, “all”)`.
+{: .notice}
+
+
+### View the Output
+
+<figure>
+	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/Rmd-screenshot-html.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/Rmd-screenshot-html.png"></a>
+	<figcaption> R Markdown (left) and the resultant HTML (right) after knitting.
+	</figcaption>
+</figure>
+
+When knitting is complete, the HTML file produced will automatically open.
+
+Notice that information from the YAML header (title, author, date) is printed
+at the top of the HTML document. Then the HTML shows the text, code, and
+results of the code that you included in the RMD document.
+
+<div class="notice--warning" markdown="1">
+
+## Activity: Create A Report Using Knitr & R Markdown
+
+* Create a new .Rmd file in r studio. Name the file: `yourLastName-firstInitial-week1.Rmd` 
+example: `wasser-l-week1.Rmd`
+
+* Add an `author:` line to the `YAML` header at the top of your `.Rmd` document.
+* Give your file an appropriate title. Suggestion: `Earth Analytics Spring 2017 - Knitr Assignment`
+* At the top of the document, add some text that describes:
+
+   * What an Rmd file is 
+   * How you can use knitr in `R` and what it does.
+
+* Add the code BELOW to your rmd document into a CODE CHUNK.
+* Below the code chunk, add some TEXT that describes what the plot that you created
+shows. 
+* Finally, describe what you like and don't like about the plot. If you could
+change it, what would you change? 
+
+BONUS: If you know `R`, clean up the plot by adding labels and a title. Or better
+yet, use `ggplot2`!
+
+
+</div>
+
+```{r plot-data, eval=F }
+
+# download data from figshare
+download.file(url = "https://ndownloader.figshare.com/files/7010681", 
+              destfile = "boulder-precip.csv")
+
+# import data
+boulder.precip <- read.csv(file="boulder-precip.csv")
+
+# view first few rows of the data
+head(boulder.precip)
+
+# when we download the data we create a dataframe
+# view each column of the data frame using it's name (or header)
+boulder.precip$DATE
+
+# view the precip column
+boulder.precip$PRECIP
+
+# q plot stands for quick plot. Let's use it to plot our data
+qplot(x=boulder.precip$DATE, 
+      y=boulder.precip$PRECIP)
+
+```
+
+When you `knit` your `.Rmd` file to pdf, the plot you produce should look like 
+the one below. Not so pretty, eh? Don't worry - we will learn more about plotting 
+in a later tutorial!
+
+```{r render-plot, echo=F }
+
+# download data from figshare
+download.file(url = "https://ndownloader.figshare.com/files/7010681", 
+              destfile = "boulder-precip.csv")
+
+# import data
+boulder.precip <- read.csv(file="boulder-precip.csv")
+
+# q plot stands for quick plot. Let's use it to plot our data
+qplot(x=boulder.precip$DATE, 
+      y=boulder.precip$PRECIP)
+
+```
+
+<i class="fa fa-star"></i> **Data Tip:** If you are a frequent user of LaTex,
+you might find
+<a href="http://cdn.screenr.com/video/8352c25b-7324-4134-970b-b7c427381adb.mp4" target="_blank">this video from the creator of knitr </a>
+informational. It introduces R Markdown & knitr in conjunction with LaTex and
+other formats.
+{: .notice .warning}
