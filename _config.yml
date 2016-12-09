@@ -5,7 +5,7 @@ title_separator          : "-"
 name                     : "Earth Analytics"
 description              : "Code, tutorials, and tools for modern Earth analytics"
 url                      : "https://earthlab.github.io"
-baseurl                  : #"/dev-earthlab-site"
+baseurl                  :
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 # breadcrumbs            : false # true, false (default)
@@ -113,6 +113,7 @@ exclude:
   - Rakefile
   - README
   - tmp
+  - "*.Rmd"
 keep_files:
   - .git
   - .svn
@@ -226,7 +227,7 @@ collections:
   veg-structure-lidar:
     output: true
     permalink: /:collection/:path/
-    title: Lidar Vegetation Structure  
+    title: Lidar Vegetation Structure
   tools:
     output: true
     permalink: /:collection/:path/
