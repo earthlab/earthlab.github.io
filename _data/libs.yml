@@ -38,5 +38,10 @@
   - ggmap
   - parallel
   - MASS
+  - dplyr
+  - ggplot2
+  - lubridate
+  - viridis
+  - RCurl
 - lang: javascript
   libs: ~
