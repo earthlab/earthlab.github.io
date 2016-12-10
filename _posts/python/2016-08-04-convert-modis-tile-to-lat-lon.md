@@ -13,13 +13,13 @@ lang: [python]
 lib: [numpy]
 ---
 
-Many Modis data products are organized in a tile grid based on a sinusoidal projection. 
+Many MODIS data products are organized in a tile grid based on a sinusoidal projection. 
 You can find an online calculator [here](http://landweb.nascom.nasa.gov/cgi-bin/developer/tilemap.cgi), that will convert from tiles to latitude and longitude coordinates. 
 This tutorial will demonstrate how to perform this conversion in Python.
 
 ## Objectives
 
-- Read in Modis tile bounding coordinates
+- Read in MODIS tile bounding coordinates
 - Define point with given latitude and longitude coordinates
 - Find corresponding tile
 
@@ -32,7 +32,7 @@ This tutorial will demonstrate how to perform this conversion in Python.
 import numpy as np
 ```
 
-Modis provides a text file containing the range of latitude and longitude coordinates for each tile. We will load this data into a numpy two dimensional array. Next, we will define the coordinates of the point we would like to convert.
+MODIS provides a text file containing the range of latitude and longitude coordinates for each tile. We will load this data into a numpy two dimensional array. Next, we will define the coordinates of the point we would like to convert.
 
 
 ```python
