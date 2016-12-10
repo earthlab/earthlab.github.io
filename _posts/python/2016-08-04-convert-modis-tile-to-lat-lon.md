@@ -13,7 +13,9 @@ lang: [python]
 lib: [numpy]
 ---
 
-Many Modis data products are organized in a [sinusoidal tile grid](http://modis-land.gsfc.nasa.gov/MODLAND_grid.html) based on a sinusoidal projection. You can find an online calculator [here](http://landweb.nascom.nasa.gov/cgi-bin/developer/tilemap.cgi), that will convert from tiles to latitude and longitude coordinates. This tutorial will demonstrate how to perform this conversion in Python.
+Many Modis data products are organized in a tile grid based on a sinusoidal projection. 
+You can find an online calculator [here](http://landweb.nascom.nasa.gov/cgi-bin/developer/tilemap.cgi), that will convert from tiles to latitude and longitude coordinates. 
+This tutorial will demonstrate how to perform this conversion in Python.
 
 ## Objectives
 
