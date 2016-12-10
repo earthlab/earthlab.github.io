@@ -15,10 +15,12 @@ list_posts <- function() {
   md_files <- post_dir %>%
     file.path(list.files(post_dir, pattern = "\\.md",
                          recursive = TRUE, include.dirs = TRUE))
-  posts_to_ignore() %>%
+  ignore <- posts_to_ignore() %>%
     paste(collapse = "|") %>%
     grep(md_files, value = TRUE) %>%
     unique()
+  
+  md_files[!(md_files %in% ignore)]
 }
 
 yaml2df <- function(file, field) {
