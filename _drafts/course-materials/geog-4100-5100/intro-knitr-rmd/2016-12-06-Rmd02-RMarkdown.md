@@ -31,7 +31,7 @@ At the end of this activity, you will:
 * Create an R Markdown document ready to be ‘knit’ into an HTML document to
 share your code and results.
 
-## Things You’ll Need To Complete This Tutorial
+## What You Need
 
 You will need the most current version of R and, preferably, RStudio loaded on
 your computer to complete this tutorial.
@@ -66,8 +66,7 @@ NOTE: The document title is not the same as the file name.
 <figure>
 	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/KnitButton-screenshot.png">
 	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/KnitButton-screenshot.png"></a>
-	<figcaption> Location of the knit button in RStudio in Version 0.99.486.
-	Source: National Ecological Observatory Network (NEON)
+	<figcaption> Location of the knit button in RStudio in Version 0.99.903.
 	</figcaption>
 </figure>
 
@@ -85,9 +84,9 @@ Next, let's break down the structure of an R Markdown file.
  <figure>
 	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/NewRmd-html-screenshot.png">
 	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/NewRmd-html-screenshot.png"></a>
-	<figcaption>Screenshot of a new R Markdown document in RStudio. Notice the different
-	parts of the document.
-	Source: National Ecological Observatory Network (NEON)
+	<figcaption>Screenshot of a new R Markdown document in RStudio. Checkout the three
+  types of information: 1. the YAML header at the very top 2:. Chunks of r code
+  separated by <code>```</code> and 3. Text written using markdown syntax.
 	</figcaption>
 </figure>
 
