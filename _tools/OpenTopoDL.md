@@ -5,6 +5,7 @@ excerpt: "Programmatic access to digital elevation models and lidar point clouds
 header:
   image: dem.JPG
   teaser: dem.JPG
+  image_alt: "Digital elevation model"
 published: true
 ---
 
