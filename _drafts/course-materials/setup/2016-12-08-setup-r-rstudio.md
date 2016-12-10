@@ -3,12 +3,13 @@ layout: single
 authors: ['Software Carpentry']
 category: [course-materials]
 title: 'Install & Setup R and R Studio on Your Computer'
+attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: '#.'
 nav-title: 'Setup R Studio'
 sidebar:
   nav:
 class-lesson: ['setup']
-permalink: /setup-r-rstudio
+permalink: /course-materials/setup-r-rstudio
 author_profile: false
 comments: false
 order: 1
@@ -17,7 +18,7 @@ order: 1
 
 ##  R & RStudio Setup
 
-R & RStudio installation instructions adapted from
+The R & RStudio installation instructions below were adapted from
 <a href="http://software-carpentry.org/" target="_blank"> Software Carpentry</a>.
 
 ### Windows
@@ -29,8 +30,8 @@ R & RStudio installation instructions adapted from
 *  Double click the file to install it
 
 
-Once R and RStudio are installed, open RStudio to make sure it works and
-that you don't get any error messages.
+Once R and RStudio are installed, open RStudio to make sure that you don't get
+any error messages.
 
 ## Mac OS X
 
