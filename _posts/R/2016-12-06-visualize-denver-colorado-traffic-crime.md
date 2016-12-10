@@ -13,7 +13,7 @@ lang: [r]
 lib: [dplyr, ggplot2, lubridate, viridis, RCurl]
 ---
 
-The city of Denver publicly hosts crime data from the past five years in their [open data catalog](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-crime). In this tutorial, we will use R to access and visualize these data, which are essentially spatiotemporally referenced points with features for type of crime, neighborhood, etc.
+The city of Denver publicly hosts crime data from the past five years in their [open data catalog](https://www.denvergov.org/opendata). In this tutorial, we will use R to access and visualize these data, which are essentially spatiotemporally referenced points with features for type of crime, neighborhood, etc.
 
 First, we will load some packages that we'll use later.
 
