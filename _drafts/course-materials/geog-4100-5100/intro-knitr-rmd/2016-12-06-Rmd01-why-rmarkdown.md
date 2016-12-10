@@ -26,6 +26,17 @@ At the end of this activity, you will be able to:
 * Explain how R Markdown is a useful tool in Open Science approaches.
 * Explain one way that R Markdown can benefit your research.
 
+## What You Need
+
+Before you start this tutorial, be sure that you have  R and R studio setup on
+your computer. Also we recommend have you have an `earth-analytics` directory
+setup on your computer with a `/data` directory with it. Follow the links below
+for help getting R, R studio and your data directory setup.
+
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
+* [Setup your working directory](/course-materials/setup-working-directory)
+
+
 </div>
 
 ## Why Open Science
