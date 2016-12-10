@@ -5521,3 +5521,8 @@ img.mfp-img {
 
 
 }
+
+/* ##### New Styles  #### */
+div.notice--success, div.notice--warning {
+    padding: 2em;
+}
