@@ -3,6 +3,7 @@ library(tools)
 library(yaml)
 library(rlist)
 library(rmarkdown)
+source("processing-code/helpers.R")
 
 # Find files that need to be converted ------------------------------------
 find_files_to_convert <- function(input_dir) {
@@ -19,7 +20,8 @@ find_files_to_convert <- function(input_dir) {
   files
 }
 
-files_to_convert <- find_files_to_convert("tutorials")
+files_to_convert <- find_files_to_convert("tutorials") %>%
+  except(posts_to_ignore())
 
 
 # Convert the files to md posts -------------------------------------------
