@@ -5,4 +5,5 @@ permalink: /authors/zach-schira/
 title: Zach Schira
 author_profile: 'false'
 site-map: 'true'
+bio: ''
 ---
