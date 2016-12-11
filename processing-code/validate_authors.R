@@ -24,6 +24,10 @@ authors <- lapply(md_files, yaml2df, "authors") %>%
   unique() %>%
   arrange(slug)
 
+bios <- read.csv("org/author-bios.csv", stringsAsFactors = FALSE)
+
+authors <- left_join(authors, bios)
+
 finalYAML <- yaml::as.yaml(authors, column.major = FALSE)
 
 # save output (do we need to prepend "_data/"?)
@@ -54,7 +58,8 @@ gen_author_profiles <- function(authors, prefix = "org/authors") {
                       permalink = paste0("/authors/", authors$slug[i], "/"),
                       title = authors$name[i],
                       author_profile = "false",
-                      `site-map` = "true")
+                      `site-map` = "true", 
+                      bio = trimws(authors$bio[i]))
     # convert to yaml
     auth_yaml <- as.yaml(auth_list)
 
