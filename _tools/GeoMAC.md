@@ -5,6 +5,7 @@ excerpt: "Programmatic access to Geospatial Multi-Agency Coordination (GeoMAC) f
 header:
   image: airtanker-fire.jpg
   teaser: airtanker-fire.jpg
+  image_alt: "Air tanker dumping flame retardant on a wild fire"
 published: true
 ---
 
