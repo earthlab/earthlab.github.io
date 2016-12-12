@@ -1,9 +1,20 @@
+- name: 'Setup R, R Studio & Your Working Directory'
+  slug: 'setup-r-rstudio'
+  description: 'This module walks you through getting R and R studio setup on your
+  computer. It also introduces file organization strategies.'
+  authors: ['Leah Wasser', 'Data Carpentry']
+  course: earth-analytics
+  active: true
+  dateCreated: 2016-12-12
+  dateModified: 2016-12-12
+
 - name: 'Part 1 Flooding: Understand Drivers and Impacts of the 2013 Colorado Floods Using Data'
   slug: 'co-floods-1-intro'
   description: 'MORE.'
   authors: ['Leah Wasser', 'NEON Data Skills']
-  url:
-  active: false
+  path: ''
+  course: earth-analytics
+  active: true
   dateCreated: 2016-12-06
   dateModified: 2016-12-06
 
@@ -12,6 +23,7 @@
   description: 'MORE.'
   authors: ['Leah Wasser', 'NEON Data Skills']
   url:
+  course: earth-analytics
   active: false
   dateCreated: 2016-12-06
   dateModified: 2016-12-06
@@ -31,8 +43,8 @@
   description: 'A hands-on activity that teaches participants how to use rmarkdown
   and knitr to create and publish reports that link analysis, results and documentation. '
   authors: ['Leah Wasser', NEON Data Skills]
-  url:
-  active: false
+  course: earth-analytics
+  active: true
   dateCreated: 2016-12-04
   dateModified: 2016-12-04
   attribution: 'This lesson was created using material taught in the 2016 NEON Data
