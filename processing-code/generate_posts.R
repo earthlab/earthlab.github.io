@@ -1,9 +1,9 @@
 library(dplyr)
 library(tools)
-library(nbconvertR)
 library(yaml)
 library(rlist)
 library(rmarkdown)
+source("processing-code/helpers.R")
 
 # Find files that need to be converted ------------------------------------
 find_files_to_convert <- function(input_dir) {
@@ -20,13 +20,13 @@ find_files_to_convert <- function(input_dir) {
   files
 }
 
-files_to_convert <- find_files_to_convert("tutorials")
+files_to_convert <- find_files_to_convert("tutorials") %>%
+  except(posts_to_ignore())
 
 
 # Convert the files to md posts -------------------------------------------
 
 make_post <- function(file, dest_dir = "_posts") {
-  
   # first, generate an output filename, e.g., _posts/R/2015-01-22-test.md
   ext <- file_ext(file)
   md_out <- gsub(paste0("\\.", ext), ".md", file)
@@ -39,7 +39,8 @@ make_post <- function(file, dest_dir = "_posts") {
 
   if (ext == "Rmd") {
     rmarkdown::render(file, 
-                      output_format = "md_document", 
+                      output_format = md_document(variant = "markdown_github", 
+                                                  preserve_yaml = TRUE), 
                       output_dir = dir_out)
     
     md_filename <- file.path(dir_out, md_name)
@@ -54,10 +55,7 @@ make_post <- function(file, dest_dir = "_posts") {
     
     # add the yaml frontmatter back into the md file
     post_text <- readLines(dated_md_filename)
-    post_text <- c("---", 
-                   as.yaml(yaml_list) %>% strsplit(split = "\n") %>% unlist(), 
-                   "---", 
-                   post_text)
+
     # move images to right directory & update paths in post
     move_images(dated_md_filename, md_filename, md_name, post_text, Rmd = TRUE)
     
@@ -65,7 +63,13 @@ make_post <- function(file, dest_dir = "_posts") {
     cmd <- paste("jupyter nbconvert --to markdown --output-dir", dir_out, file)
     # the following is a hack that I had to use to ensure 
     # that system() recognizes my PATH environmental variable
-    system(paste("source ~/.bash_profile &&", cmd))
+    # locally on Xubuntu I appended my conda path in ~/.profile
+    if (file.exists("~/.bash_profile")) {
+      system(paste("source ~/.bash_profile &&", cmd))
+    } else {
+      # just try to run command, will raise error if Jupyter not in PATH
+      system(cmd)
+    }
     
     md_filename <- file.path(dir_out, md_name)
     post_text <- readLines(md_filename)
@@ -110,7 +114,7 @@ make_post <- function(file, dest_dir = "_posts") {
 move_images <- function(dated_md_filename, md_filename, md_name, post_text, 
                         Rmd = FALSE) {
   if (Rmd) {
-    image_dir <- gsub("\\.md", replacement = "_files/figure-markdown_strict", 
+    image_dir <- gsub("\\.md", replacement = "_files/figure-markdown_github", 
                       x = md_filename)
   } else {
     image_dir <- gsub("\\.md", replacement = "_files", x = md_filename)
@@ -130,6 +134,7 @@ move_images <- function(dated_md_filename, md_filename, md_name, post_text,
     if (dir.exists(parent_img_dir)) {
       file.remove(parent_img_dir)
     }
+    stopifnot(!dir.exists(parent_img_dir))
     
     # fix the file paths in the actual post
     if (Rmd) {
