@@ -96,7 +96,7 @@ pd.DataFrame(datasets).head()
 
 
 
-Passing the name of a specific API to `explorer.explain()` will give a description of the data available. For this example, we will use the 2012 [American Community Service](https://www.census.gov/programs-surveys/acs/) 1 year data (`2012acs1`).
+Passing the name of a specific API to `explorer.explain()` will give a description of the data available. For this example, we will use the 2012 American Community Service 1 year data (`2012acs1`).
 
 
 ```python
@@ -130,7 +130,7 @@ con
 
 ### Geographical specification
 
-Cenpy uses [FIPS codes](https://www.census.gov/geo/reference/codes/cou.html) to specify the geographical extent of the data to be downloaded. The object `con` is our connection to the api, and the attribute `geographies` is a dictionary.
+Cenpy uses FIPS codes to specify the geographical extent of the data to be downloaded. The object `con` is our connection to the api, and the attribute `geographies` is a dictionary.
 
 
 ```python
@@ -386,7 +386,7 @@ data.ix[:5, -5:]
 
 ### Topologically Integrated Geographic Encoding and Referencing (TIGER) data
 
-The Census [TIGER API](https://www.census.gov/geo/maps-data/data/tiger.html) provides geomotries for desired geographic regions. For instance, perhaps we want to have additional information on each county such as area.
+The Census TIGER API provides geomotries for desired geographic regions. For instance, perhaps we want to have additional information on each county such as area.
 
 
 ```python
