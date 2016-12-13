@@ -47,5 +47,7 @@ earth-analytics-2017:
     children:
       - title: "In Class"
         url: /course-materials/earth-analytics/co-floods-1-intro
-      - title: "Wk 1 Homework"
+      - title: "Homework - Setup"
+        url: /course-materials/earth-analytics/setup-r-rstudio
+      - title: "Homework - Rmd"
         url: /course-materials/earth-analytics/intro-rmarkdown-knitr
