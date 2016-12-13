@@ -3,7 +3,7 @@ layout: single
 title: Earth Systems Analytics Course - Register Now!
 text: 'To be held Spring 2017 - register now!'
 location: SEEC S125
-permalink: /course-materials/earth-analytics
+permalink: /course-materials/earth-analytics/
 date: 2017-01-17
 startTime: '3:00'
 endTime: '17:50'
