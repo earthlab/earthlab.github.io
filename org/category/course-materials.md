@@ -13,9 +13,6 @@ Course materials and labs that focus on computational approaches.
 {% assign modules = site.posts | where:"order", 1 %}
 {% for module in modules %}
 
-{{ module.module-title }}
-{{ module.class-lesson }}
-
 <div class="list__item">
   <article class="archive__item" >
   <h2 class="archive__item-title">
