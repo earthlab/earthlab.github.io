@@ -207,13 +207,13 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   margin-top: 0;
-  font-size: 1.563em; }
+  font-size: 1.463em; }
 
 h2 {
-  font-size: 1.25em; }
+  font-size: 1.15em; }
 
 h3 {
-  font-size: 1em; }
+  font-size: 0.9em; }
 
 h4 {
   font-size: 0.75em; }
@@ -826,9 +826,9 @@ tr, td, th {
     .btn--linkedin:hover {
       background-color: #006292; }
   .btn--x-large {
-    font-size: 1.25em; }
+    font-size: 1.15em; }
   .btn--large {
-    font-size: 1em; }
+    font-size: 0.9em; }
   .btn--small {
     font-size: 0.6875em; }
 
@@ -1179,7 +1179,7 @@ tr, td, th {
     float: left;
     width: 50%;
     font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-    font-size: 1em;
+    font-size: 0.9em;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
@@ -1271,7 +1271,7 @@ tr, td, th {
     .greedy-nav .hidden-links a {
       margin: 0;
       padding: 10px 20px;
-      font-size: 1em; }
+      font-size: 0.9em; }
       .greedy-nav .hidden-links a:hover {
         color: #5c6266;
         background: #dee0e1; }
@@ -1331,7 +1331,7 @@ tr, td, th {
   margin: 0;
   padding: 0.5rem 1rem;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-  font-size: 1em;
+  font-size: 0.9em;
   font-weight: bold; }
 
 .nav__sub-title {
@@ -2131,7 +2131,7 @@ select:focus {
 
 .page__lead {
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-  font-size: 1.25em; }
+  font-size: 1.15em; }
 
 .page__content {
   /* paragraph indents */
@@ -2140,7 +2140,7 @@ select:focus {
     padding-bottom: 0.5em;
     border-bottom: 1px solid #f2f3f3; }
   .page__content p, .page__content li, .page__content dl {
-    font-size: 1em; }
+    font-size: 0.9em; }
   .page__content p {
     margin: 0 0 1.3em; }
   .page__content a {
@@ -2205,10 +2205,10 @@ select:focus {
     .page__hero--overlay .page__lead {
       max-width: 768px; }
     .page__hero--overlay .page__title {
-      font-size: 1.953em; }
+      font-size: 1.853em; }
       @media (min-width: 37.5em) {
         .page__hero--overlay .page__title {
-          font-size: 2.441em; } }
+          font-size: 2.341em; } }
 
 .page__hero-image {
   width: 100%;
@@ -2364,7 +2364,7 @@ select:focus {
 .archive__subtitle {
   margin: 1.414em 0 0;
   padding-bottom: 0.5em;
-  font-size: 1em;
+  font-size: 0.9em;
   color: #9ba1a6;
   border-bottom: 1px solid #f2f3f3; }
   .archive__subtitle + .list__item .archive__item-title {
@@ -2419,7 +2419,7 @@ a:hover .archive__item-title {
     margin: 0 0 4px; }
   .grid__item .archive__item-title {
     margin-top: 0.5em;
-    font-size: 1em; }
+    font-size: 0.9em; }
   .grid__item .archive__item-excerpt {
     display: none; }
   @media (min-width: 37.5em) {
@@ -2592,7 +2592,7 @@ a:hover .archive__item-title {
     margin-bottom: 0;
     font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif; }
   .sidebar h3, .sidebar h4 {
-    font-size: 1em; }
+    font-size: 0.9em; }
   .sidebar p, .sidebar li {
     font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
     font-size: 0.75em;
@@ -2656,7 +2656,7 @@ a:hover .archive__item-title {
 
 .sidebar .author__name {
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-  font-size: 1em; }
+  font-size: 0.9em; }
 
 .author__bio {
   margin: 0; }
@@ -2743,7 +2743,7 @@ a:hover .archive__item-title {
     padding-top: 2px;
     padding-bottom: 2px;
     color: inherit;
-    font-size: 1em;
+    font-size: 0.9em;
     text-decoration: none; }
     .author__urls a:hover {
       text-decoration: underline; }
