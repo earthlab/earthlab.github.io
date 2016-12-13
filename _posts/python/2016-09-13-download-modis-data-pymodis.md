@@ -13,7 +13,7 @@ lang: [python]
 lib: [pymodis, os, glob]
 ---
 
-The [pyModis](http://webcache.googleusercontent.com/search?q=cache:http://www.pymodis.org/_static/pyModis.pdf#27) python package allows for easy programmatic access to [Modis](http://modis.gsfc.nasa.gov/) data. This tutorial will demonstrate how to acquire specific modis data products using pymodis.
+The [pyModis](http://webcache.googleusercontent.com/search?q=cache:http://www.pymodis.org/_static/pyModis.pdf#27) python package allows for easy programmatic access to [Modis](https://en.wikipedia.org/wiki/Moderate-resolution_imaging_spectroradiometer) data. This tutorial will demonstrate how to acquire specific modis data products using pymodis.
 
 
 ## Objectives
@@ -44,7 +44,7 @@ import glob
     WxPython missing, no GUI enabled
 
 
-First we will set some parameters that will be used by the `downModis` class. Important parameters to include are the destination, the start date, how many days you would like to download, the product, and the tiles (specifies location of data). For more information on the Modis grid look [here](http://modis-land.gsfc.nasa.gov/MODLAND_grid.html). Note that using delta to specify the number of days can be counterintuitive, because it counts backwards from the start date.
+First we will set some parameters that will be used by the `downModis` class. Important parameters to include are the destination, the start date, how many days you would like to download, the product, and the tiles (specifies location of data). Note that using delta to specify the number of days can be counterintuitive, because it counts backwards from the start date.
  
 We will be using the default [http server](http://e4ftl01.cr.usgs.gov), with the default path, `MOLT/`, for this data. This server has recently been updated to require an earthdata account, so you will need to follow this [link](https://urs.earthdata.nasa.gov/users/new), and create your own account. Once you have done this, replace the username and password in the following section of code (the ones provided will not work). If you are looking for Modis data that is not available on this server you can provide your own url, as well as a path to the data. Note that using a different server can become difficult if the directories on the server you are using are organized in a way pymodis does not recognize.
 
