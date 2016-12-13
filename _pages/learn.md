@@ -5,7 +5,7 @@ permalink: /learn/
 header:
   overlay_color: "#333"
   cta_label: "CU Students, Enroll Now - GEOG 4100 / 5100"
-  cta_url: "/courses/earth-systems-analytics"
+  cta_url: "/course-materials/earth-analytics"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
 excerpt: 'Data intensive learning.'
