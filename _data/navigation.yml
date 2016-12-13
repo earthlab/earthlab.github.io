@@ -34,3 +34,10 @@ open-science:
         url: /slide-shows/1_intro-reprod-science/
       - title: "File Naming 101"
         url: /slide-shows/2-file-naming-jenny-bryan/
+
+earth-analytics-2017:
+
+  - title: Course Overview
+    children:
+      - title: Course Home
+        url: /course-materials/earth-analytics
