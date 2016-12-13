@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/get-to-know-r
 nav-title: 'Intro to R'
 dateCreated: 2016-12-13
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+lastModified: 2016-12-13
 module-title: 'Get to Know The R Programming Language'
 module-description: 'This tutorial introduces the R scientific programming language. It is
 designed for someone who has not used R before. We will work with precipitation and
@@ -140,13 +140,15 @@ you're in RStudio and this happens, click inside the console window and press
 
 If you need help with a specific function, let's say `barplot()`, you can type:
 
-```{r, eval=FALSE, purl=FALSE}
+
+```r
 ?barplot
 ```
 
 If you just need to remind yourself of the names of the arguments, you can use:
 
-```{r, eval=FALSE, purl=FALSE}
+
+```r
 args(lm)
 ```
 
@@ -157,7 +159,8 @@ If you are looking for a function to do a particular task, you can use
 However, this only looks through the installed packages for help pages with a
 match to your search request
 
-```{r, eval=FALSE, purl=FALSE}
+
+```r
 ??kruskal
 ```
 
