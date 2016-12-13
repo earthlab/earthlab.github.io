@@ -135,11 +135,11 @@ We use the `R` `knitr` package to render our markdown and create easy to read do
 files.We will cover knitr later in this series.
 
 <figure class="half">
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/rmd-file.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/rmd-file.png">
+	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/rmd-file.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/rmd-file.png">
 	</a>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/knitr-output.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/knitr-output.png">
+	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/knitr-output.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/knitr-output.png">
 	</a>
 	<figcaption>R Markdown script (left) and the HTML produced from the knit R
 	Markdown script (right).
