@@ -114,6 +114,7 @@ exclude:
   - README
   - tmp
   - "*.Rmd"
+  - vendor
 keep_files:
   - .git
   - .svn
