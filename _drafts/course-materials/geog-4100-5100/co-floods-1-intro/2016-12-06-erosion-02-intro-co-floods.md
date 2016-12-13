@@ -5,10 +5,7 @@ excerpt: "Understanding the floods with data."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
-<<<<<<< HEAD:_drafts/course-materials/geog-4100-5100/co-floods-1-intro/2016-12-06-erosion-02-intro-co-floods.md
-=======
 permalink: /course-materials/earth-analytics/co-floods-1-intro
->>>>>>> da0250716a933d1a78a8c515c1aa55a553631048:_drafts/course-materials/geog-4100-5100/co-floods-1-intro/2016-12-06-R01-intro-co-floods.md
 nav-title: 'CO Floods - Google Earth'
 dateCreated: 2016-12-06
 dateModified: 2016-12-12
