@@ -8,7 +8,6 @@ nav-title: 'Setup Working Directory'
 sidebar:
   nav:
 class-lesson: ['setup']
-permalink: course-materials/setup-working-directory
 author_profile: false
 comments: false
 order: 3

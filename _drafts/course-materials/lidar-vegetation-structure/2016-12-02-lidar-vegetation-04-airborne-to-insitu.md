@@ -6,8 +6,7 @@ excerpt: "This lesson uses several interactive plots that illustrate differences
 between tree height measured on the ground to tree height estimated using airborne
 lidar data."
 category: [course-materials]
-class-lesson: ['veg-structure-lidar']
-permalink: /course-materials/lidar-airborne-to-insitu
+class-lesson: ['lidar-vegetation-01-intro']
 nav-title: 'Tree Height'
 sidebar:
   nav:
