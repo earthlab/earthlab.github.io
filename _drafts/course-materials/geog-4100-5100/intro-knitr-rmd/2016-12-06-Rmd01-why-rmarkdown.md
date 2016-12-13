@@ -5,8 +5,13 @@ excerpt: "This tutorial introduces the importance of tools supporting documentin
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/intro-rmarkdown-knitr
+permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr
 nav-title: 'Intro to RMD'
+dateCreated: 2016-12-12
+dateModified: 2016-12-12
+module-title: 'Introduction to R Markdown & Knitr'
+module-description: 'This module teaches participants how to use rmarkdown
+and knitr to create and publish reports that link analysis, results and documentation.'
 sidebar:
   nav:
 author_profile: false

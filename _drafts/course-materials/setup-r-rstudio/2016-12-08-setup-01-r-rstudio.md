@@ -1,15 +1,21 @@
 ---
 layout: single
-authors: ['Software Carpentry']
+authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
 category: [course-materials]
 title: 'Install & Setup R and R Studio on Your Computer'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
-excerpt: '#.'
+excerpt: 'This tutorial walks you through downloading and installing R and R studio on your computer.'
+dateCreated: 2016-12-12
+dateModified: 2016-12-12
+module-title: 'Setup R, R Studio & Your Working Directory'
+module-description: 'This module walks you through getting R and RStudio setup on your
+computer. It also introduces file organization strategies.'
 nav-title: 'Setup R Studio'
 sidebar:
   nav:
-class-lesson: ['setup']
-permalink: /course-materials/setup-r-rstudio
+course: 'earth-analytics'
+class-lesson: ['setup-r-rstudio']
+permalink: /course-materials/earth-analytics/setup-r-rstudio
 author_profile: false
 comments: false
 order: 1
@@ -18,10 +24,23 @@ order: 1
 
 ##  R & RStudio Setup
 
-The R & RStudio installation instructions below were adapted from
-<a href="http://software-carpentry.org/" target="_blank"> Software Carpentry</a>.
+In this tutorial, we will walk you through downloading and installing `R` & `RStudio`
+on your computer.
 
-### Windows
+*The R & RStudio installation instructions below were adapted from
+<a href="http://software-carpentry.org/" target="_blank"> Software Carpentry</a>.*
+
+<div class='notice--success' markdown="1">
+
+# Learning Objectives
+At the end of this activity, you will:
+
+* Be able to download and install `R` and `Rstudio` on your laptop.
+
+
+</div>
+
+## Windows
 
 *  <a href="http://cran.r-project.org/bin/windows/base/release.htm" target="_blank">Download R for Windows here</a>
 *   Run the `.exe` file that was downloaded in the step above.
