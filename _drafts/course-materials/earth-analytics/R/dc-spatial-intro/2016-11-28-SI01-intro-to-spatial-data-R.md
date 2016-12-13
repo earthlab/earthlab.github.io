@@ -3,14 +3,18 @@ layout: single
 title: "Spatial Intro 01: Intro"
 authors: [Leah Wasser]
 contributors: [NEON Data Skills]
-dateCreated: 2016-09-26
-lastModified: 2016-11-29
 packagesLibraries: [raster, rgdal, sp]
 category: [course-materials]
 excerpt: 'This tutorial covers the basics of key data formats that may
 contain spatial information including shapefile, GeoTIFF and .csv. It also
 provides a brief overview of other formats that you may encounter when working
 with spatial data.'
+dateCreated: 2016-09-26
+dateModified: 2016-11-29
+module-title: 'Intro to Spatial Data in R'
+module-description: 'These lessons overview the key concepts that you need to understand
+to work with spatial data in R. These same concepts apply to python and other languages
+but all code examples use R.'
 sidebar:
   nav:
 nav-title: 'spatial intro'

@@ -1,12 +1,12 @@
 ---
 layout: single
-title: " Markdown"
+title: "Intro to Markdown"
 excerpt: 'This tutorial cover how to use Markdown syntax in R and then
 render it to html using knitr.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/markdown-primer
+permalink: /course-materials/earth-analytics/intro-to-markdown
 nav-title: 'Intro 2 Markdown'
 sidebar:
   nav:
