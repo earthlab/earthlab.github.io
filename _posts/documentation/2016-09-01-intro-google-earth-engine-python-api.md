@@ -59,7 +59,7 @@ It is important to note that the Python API does not support any kind of visual 
     If you see metadata printed to the terminal and there are no errors then the Python API for Earth Engine is properly installed and you are ready to use it. If you were stuck or ran into errors not outline in this tutorial, a more in-depth tutorial can be found [here](https://developers.google.com/earth-engine/python_install)
     
 ## Examples
-**Downloading Data** - Running below script will print the path used to download some elevation data from the NASA [Shuttle Radar Topography Mission](http://www2.jpl.nasa.gov/srtm/):
+**Downloading Data** - Running below script will print the path used to download some elevation data from the NASA Shuttle Radar Topography Mission:
 
 ```
 import ee
