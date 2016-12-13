@@ -7,7 +7,7 @@ authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 lastModified: `r format(Sys.time(), "%Y-%m-%d")`
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/intro-rmarkdown-knitr3
+permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr3
 nav-title: 'R knitr package'
 sidebar:
   nav:
@@ -36,6 +36,10 @@ At the end of this activity, you will:
 
 You will need the most current version of R and, preferably, RStudio loaded on
 your computer to complete this tutorial.
+
+## Download Data
+
+https://ndownloader.figshare.com/files/7010681
 
 ### Install R Packages
 
@@ -118,21 +122,21 @@ results of the code that you included in the RMD document.
 
 ## Activity: Create A Report Using Knitr & R Markdown
 
-* Create a new .Rmd file in r studio. Name the file: `yourLastName-firstInitial-week1.Rmd` 
+* Create a new .Rmd file in r studio. Name the file: `yourLastName-firstInitial-week1.Rmd`
 example: `wasser-l-week1.Rmd`
 
 * Add an `author:` line to the `YAML` header at the top of your `.Rmd` document.
 * Give your file an appropriate title. Suggestion: `Earth Analytics Spring 2017 - Knitr Assignment`
 * At the top of the document, add some text that describes:
 
-   * What an Rmd file is 
+   * What an Rmd file is
    * How you can use knitr in `R` and what it does.
 
 * Add the code BELOW to your rmd document into a CODE CHUNK.
 * Below the code chunk, add some TEXT that describes what the plot that you created
-shows. 
+shows.
 * Finally, describe what you like and don't like about the plot. If you could
-change it, what would you change? 
+change it, what would you change?
 
 BONUS: If you know `R`, clean up the plot by adding labels and a title. Or better
 yet, use `ggplot2`!
@@ -143,7 +147,7 @@ yet, use `ggplot2`!
 ```{r plot-data, eval=F }
 
 # download data from figshare
-download.file(url = "https://ndownloader.figshare.com/files/7010681", 
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "boulder-precip.csv")
 
 # import data
@@ -160,26 +164,26 @@ boulder.precip$DATE
 boulder.precip$PRECIP
 
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE, 
+qplot(x=boulder.precip$DATE,
       y=boulder.precip$PRECIP)
 
 ```
 
-When you `knit` your `.Rmd` file to pdf, the plot you produce should look like 
-the one below. Not so pretty, eh? Don't worry - we will learn more about plotting 
+When you `knit` your `.Rmd` file to pdf, the plot you produce should look like
+the one below. Not so pretty, eh? Don't worry - we will learn more about plotting
 in a later tutorial!
 
 ```{r render-plot, echo=F }
 
 # download data from figshare
-download.file(url = "https://ndownloader.figshare.com/files/7010681", 
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "boulder-precip.csv")
 
 # import data
 boulder.precip <- read.csv(file="boulder-precip.csv")
 
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE, 
+qplot(x=boulder.precip$DATE,
       y=boulder.precip$PRECIP)
 
 ```

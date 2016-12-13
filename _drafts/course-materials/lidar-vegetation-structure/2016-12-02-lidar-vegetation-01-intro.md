@@ -6,12 +6,17 @@ excerpt: "The overview page I used at CU 5 April 2016."
 category: [course-materials]
 class-lesson: ['lidar-vegetation-01-intro']
 nav-title: 'Lidar intro'
+dateCreated: 2016-08-01
+dateModified: 2016-11-25
+module-title: 'Explore Vegetation Structure Using Light Detection and Ranging (Lidar) Data'
+module-description: 'An activity that walks students through some lidar data and associated
+comparisons between lidar and in situ (field) measured tree height to better understand
+uncertainty and associated differences between measurements.'
 sidebar:
   nav:
 author_profile: false
 comments: false
 order: 1
-published: true
 ---
 
 ## Overview
