@@ -13,13 +13,9 @@ computer. It also introduces file organization strategies.'
 nav-title: 'Setup R Studio'
 sidebar:
   nav:
-<<<<<<< HEAD:_drafts/course-materials/setup/2016-12-08-setup-r-rstudio.md
-class-lesson: ['setup']
-=======
 course: 'earth-analytics'
 class-lesson: ['setup-r-rstudio']
 permalink: /course-materials/earth-analytics/setup-r-rstudio
->>>>>>> da0250716a933d1a78a8c515c1aa55a553631048:_drafts/course-materials/setup-r-rstudio/2016-12-08-setup-01-r-rstudio.md
 author_profile: false
 comments: false
 order: 1
