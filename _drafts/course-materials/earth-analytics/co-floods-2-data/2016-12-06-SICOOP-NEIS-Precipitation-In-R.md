@@ -323,7 +323,7 @@ values, are labelled with the placeholder `999.99`. Do we have any NoData values
 hist(precip.boulder$HPCP)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/intro-co-floodsCOOP-NEIS-Precipitation-In-R/no-data-values-hist-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/no-data-values-hist-1.png)
 
 Looking at the histogram, it looks like we have mostly low values (which makes sense) but a few values
 up near 1000 -- likely 999.99. We can assign these entries to be `NA`, the value that
@@ -373,7 +373,7 @@ precPlot_hourly
 ## Warning: Removed 94 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/intro-co-floodsCOOP-NEIS-Precipitation-In-R/plot-precip-hourly-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/plot-precip-hourly-1.png)
 
 As we can see, plots of hourly date lead to very small numbers and is difficult
 to represent all information on a figure. Hint: If you can't see any bars on your
@@ -412,7 +412,7 @@ precPlot_daily1
 ## Warning: Removed 94 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/intro-co-floodsCOOP-NEIS-Precipitation-In-R/daily-summaries-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/daily-summaries-1.png)
 
 R will automatically combine all data from the same day and plot it as one entry.
 
@@ -480,7 +480,7 @@ precPlot_daily <- ggplot(data=precip.boulder_daily,  # the data frame
 precPlot_daily
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/intro-co-floodsCOOP-NEIS-Precipitation-In-R/daily-prec-plot-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/daily-prec-plot-1.png)
 
 Compare this plot to the plot we created using the first method. Are they the same?
 
@@ -519,7 +519,7 @@ precPlot_flood
 ## Warning: Removed 770 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/intro-co-floodsCOOP-NEIS-Precipitation-In-R/plot-Aug-Oct-2013-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/plot-Aug-Oct-2013-1.png)
 
 Now we can easily see the dramatic rainfall event in mid-September!
 
@@ -554,7 +554,7 @@ precPlot_flood2 <- ggplot(data=precip.boulder_AugOct, aes(DATE,PRECIP)) +
 precPlot_flood2
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/intro-co-floodsCOOP-NEIS-Precipitation-In-R/subset-data-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/subset-data-1.png)
 
 
 ## Interactive Plots - Plotly

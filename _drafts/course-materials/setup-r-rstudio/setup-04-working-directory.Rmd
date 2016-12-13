@@ -66,8 +66,8 @@ Sometimes this format of naming using dashes is referred to as a `slug`.
 
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/working-dir-os.png">
-	<img src="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/working-dir-os.png"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-dir-os.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-dir-os.png"></a>
 	<figcaption> Your working directory should look like this. Right now it just
 	contains one directory - `data`.
 	</figcaption>
@@ -81,8 +81,8 @@ options panel` (see screen shot below).
 * Browse to the `earth-analytics` directory and set it as your default working directory.
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/r-studio-wd-setup.png">
-	<img src="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/r-studio-wd-setup.png"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/r-studio-wd-setup.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/r-studio-wd-setup.png"></a>
 	<figcaption> Set your default working directory in R studio to the Earth Analytics
   directory. That way, every time you open `RStudio` it will default to that
   directory. Image: RStudio Version 0.99.903.
@@ -125,8 +125,8 @@ within the `Documents` directory.
 Your window should look like the screen shot below:
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/working-directory.png">
-	<img src="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/working-directory.png"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-directory.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-directory.png"></a>
 	<figcaption> Your working directory should look like this. It should contain
 	just a `data` directory. Image: RStudio Version 0.99.903. Source: Earth Lab.
 	</figcaption>
@@ -135,8 +135,8 @@ Your window should look like the screen shot below:
 * Next, click on the `More` drop down. Choose `Set as working directory`
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/set-working-dir-rstudio.png">
-	<img src="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/set-working-dir-rstudio.png"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/set-working-dir-rstudio.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/set-working-dir-rstudio.png"></a>
 	<figcaption> You can set your working directory in RStudio directly. Image: RStudio Version 0.99.903. Source: Earth Lab.
 	</figcaption>
 </figure>
