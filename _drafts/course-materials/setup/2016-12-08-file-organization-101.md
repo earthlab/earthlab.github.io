@@ -8,7 +8,6 @@ nav-title: 'File Organization 101'
 sidebar:
   nav:
 class-lesson: ['setup']
-permalink: course-materials/file-organization-101
 author_profile: false
 comments: false
 order: 2

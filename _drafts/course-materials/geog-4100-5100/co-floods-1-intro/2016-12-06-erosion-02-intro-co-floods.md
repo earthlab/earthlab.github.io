@@ -5,7 +5,6 @@ excerpt: "."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
-permalink: /course-materials/co-floods-1-intro
 nav-title: 'CO Floods - Google Earth'
 sidebar:
   nav:
