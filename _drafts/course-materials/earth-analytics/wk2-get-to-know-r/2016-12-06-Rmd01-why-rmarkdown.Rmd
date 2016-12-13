@@ -1,0 +1,58 @@
+---
+layout: single
+title: "Get to Know R & RStudio"
+excerpt: "This tutorial introduces the R scientific programming language. It is 
+designed for someone who has not used R before. We will work with precipitation and
+stream discharge data for Boulder County."
+authors: ['Leah Wasser', 'Data Carpentry']
+category: [course-materials]
+class-lesson: ['get-to-know-r']
+permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr
+nav-title: 'Intro to RMD'
+dateCreated: 2016-12-13
+lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+module-title: 'Get to Know R & RStudio'
+module-description: 'This tutorial introduces the R scientific programming language. It is 
+designed for someone who has not used R before. We will work with precipitation and
+stream discharge data for Boulder County.'
+sidebar:
+  nav:
+author_profile: false
+comments: false
+order: 1
+---
+
+.
+
+<div class='notice--success' markdown="1">
+
+# Learning Objectives
+At the end of this activity, you will be able to:
+
+* 
+
+## What You Need
+
+You need R and RStudio to complete this tutorial. Also we recommend have you 
+have an `earth-analytics` directory setup on your computer with a `/data` 
+directory with it.
+
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
+* [Setup your working directory](/course-materials/setup-working-directory)
+
+
+</div>
+
+
+
+<figure class="half">
+	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/rmd-file.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/rmd-file.png">
+	</a>
+	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/knitr-output.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/geog-4100-5100/intro-knitr-rmd/knitr-output.png">
+	</a>
+	<figcaption>R Markdown script (left) and the HTML produced from the knit R
+	Markdown script (right).
+	</figcaption>
+</figure>
