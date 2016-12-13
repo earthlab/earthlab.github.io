@@ -8,7 +8,7 @@ date: 2017-01-17
 header:
   overlay_image: about-header.jpg
   cta_label: "Students, Register Now!"
-  cta_url: "test"
+  cta_url:
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
 excerpt: 'Earth Analytics Spring 2017 - Fuse data science skills with Earth system science knowledge.'
