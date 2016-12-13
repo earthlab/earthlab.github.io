@@ -54,6 +54,9 @@ install.packages("knitr")
 
 # install the rmarkdown package
 install.packages("rmarkdown")
+
+# install ggplot for plotting
+install.packages("ggplot2")
 ```
 
 <i class="fa fa-star"></i> **Data Tip** You can install as many packages as you one in one string of code as follows
@@ -68,6 +71,7 @@ your script like this:
 ```r
 library(knitr)
 library(rmarkdown)
+library(ggplot2)
 
 ```
 
