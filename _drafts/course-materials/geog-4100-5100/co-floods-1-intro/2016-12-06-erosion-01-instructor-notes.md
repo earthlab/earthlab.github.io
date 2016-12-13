@@ -5,7 +5,6 @@ excerpt: "."
 authors: ['Leah Wasser']
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
-permalink: /course-materials/co-floods1/instructor-notes
 nav-title: 'Instructor Notes'
 sidebar:
   nav:
