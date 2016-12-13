@@ -5,7 +5,7 @@ excerpt: 'This tutorial cover how code chunks are written and formatted within a
 R Markdown file in R Studio.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
-lastModified: 2016-12-08
+lastModified: 2016-12-13
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/intro-rmarkdown-code-chunks
 nav-title: 'Code Chunks'
@@ -83,9 +83,9 @@ in R, and sets the working directory.
 
 <pre>
 <code>
-
+ 
  ```r
-
+ 
    1+2
  ## [1] 3
  ```
