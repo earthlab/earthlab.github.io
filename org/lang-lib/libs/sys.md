@@ -2,7 +2,7 @@
 layout: post-by-category
 category: tutorials
 title: sys - Python Data Intensive Tutorials
-permalink: /tutorials/software/python/sys
+permalink: /tutorials/python/sys
 comments: 'false'
 author_profile: 'false'
 language: python
