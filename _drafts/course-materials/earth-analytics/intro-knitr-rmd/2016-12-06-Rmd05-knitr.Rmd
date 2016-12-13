@@ -146,12 +146,16 @@ yet, use `ggplot2`!
 
 ```{r plot-data, eval=F }
 
+# load the ggplot2 library for plotting
+library(ggplot2)
+
 # download data from figshare
+# note that we are downloaded the data into your 
 download.file(url = "https://ndownloader.figshare.com/files/7010681",
-              destfile = "boulder-precip.csv")
+              destfile = "data/boulder-precip.csv")
 
 # import data
-boulder.precip <- read.csv(file="boulder-precip.csv")
+boulder.precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder.precip)
@@ -175,18 +179,39 @@ in a later tutorial!
 
 ```{r render-plot, echo=F }
 
-# download data from figshare
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
-              destfile = "boulder-precip.csv")
+# load ggplot library for plotting
+library(ggplot2)
 
 # import data
 boulder.precip <- read.csv(file="boulder-precip.csv")
 
 # q plot stands for quick plot. Let's use it to plot our data
+# NOTE: qplot is a function in the GGPLOT2 package
 qplot(x=boulder.precip$DATE,
       y=boulder.precip$PRECIP)
 
 ```
+
+
+## Where is the file?
+
+In the steps above, we downloaded a file. However, where did that file go on your
+computer? let's find it before we go any further.
+
+```r
+
+# what is the working directory?
+getwd()
+
+[1] "/Users/lewa8222/Documents/earth-analytics"
+
+# set working dir as a variable
+my.dir <- getwd()
+
+# what files are in that working directory?
+list.files(my.dir, recursive= TRUE)
+```
+Is the `boulder-precip.csv` file there?
 
 <i class="fa fa-star"></i> **Data Tip:** If you are a frequent user of LaTex,
 you might find

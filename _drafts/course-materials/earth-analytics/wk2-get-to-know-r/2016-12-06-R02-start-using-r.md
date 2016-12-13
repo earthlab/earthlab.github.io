@@ -1,25 +1,21 @@
 ---
 layout: single
 title: "Get to Know R & RStudio"
-excerpt: "This tutorial introduces the R scientific programming language. It is 
+excerpt: "This tutorial introduces the R scientific programming language. It is
 designed for someone who has not used R before. We will work with precipitation and
 stream discharge data for Boulder County."
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr
-nav-title: 'Intro to RMD'
+permalink: /course-materials/earth-analytics/start-using-r
+nav-title: 'Use R'
 dateCreated: 2016-12-13
 lastModified: 2016-12-13
-module-title: 'Get to Know R & RStudio'
-module-description: 'This tutorial introduces the R scientific programming language. It is 
-designed for someone who has not used R before. We will work with precipitation and
-stream discharge data for Boulder County.'
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 1
+order: 2
 ---
 
 .
@@ -29,12 +25,14 @@ order: 1
 # Learning Objectives
 At the end of this activity, you will be able to:
 
-* 
+* Be able to work with the 4 panes in the RStudio interface
+* Understand the basic concept of a function and be able to use a function in your code.
+* Know how to use key operator commands in R (<-)
 
 ## What You Need
 
-You need R and RStudio to complete this tutorial. Also we recommend have you 
-have an `earth-analytics` directory setup on your computer with a `/data` 
+You need R and RStudio to complete this tutorial. Also we recommend have you
+have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
 * [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
@@ -43,77 +41,9 @@ directory with it.
 
 </div>
 
-# Presentation of RStudio
-
-Let's start by learning about [RStudio](https://www.rstudio.com/), the Integrated Development Environment (IDE).
-
-The RStudio IDE open source product is free under the [Affero General Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html). RStudio IDE is also available with a commercial license and priority email support from RStudio, Inc.
-
-We will use RStudio IDE to write code, navigate the files found on our computer, inspect the variables we are going to create, and visualize the plots we will generate. RStudio can also be used for other things (e.g., version control, developing packages, writting Shiny apps) that we will not cover during the workshop.
-
-RStudio is divided into 4 "Panes": the editor for your scripts and documents
-(top-left, in the default layout), the R console (bottom-left), your
-environment/history (top-right), and your files/plots/packages/help/viewer
-(bottom-right). The placement of these panes and their content can be customized
-(see menu, RStudio -> Preferences -> Pane Layout). One of the advantages of
-using RStudio is that all the information you need to write code is available in
-a single window. Additionally, with many shortcuts, autocompletion, and
-highlighting for the major file types you use while developing in R, RStudio
-will make typing easier and less error-prone.
-
-
-# Interacting with R
-
-The basis of programming is that we write down instructions for the computer to
-follow, and then we tell the computer to follow those instructions. We write, or
-*code*, instructions in R because it is a common language that both the computer
-and we can understand. We call the instructions *commands* and we tell the
-computer to follow the instructions by *executing* (also called *running*) those
-commands.
-
-There are two main ways of interacting with R: using the console or by using
-script files (plain text files that contain your code). We want our code and
-workflow to be reproducible. In other words, we want to write code in a way that
-anyone can easily replicate, such they can obtain the same results from our code
-on their computer.
-
-The console pane (in RStudio, the bottom left panel) is the place where R is
-waiting for you to tell it what to do, and where it will show the results of a
-command that has been executed.  You can type commands directly into the console
-and press `Enter` to execute those commands, but they will be forgotten when you
-close the session. It is better to enter the commands in the script editor, and
-save the script. This way, you have a complete record of what you did, you can
-easily show others how you did it and you can do it again later on if needed.
-RStudio allows you to execute commands directly from the script editor by using
-the <kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd> shortcut. The command on the current
-line in the script or all of the commands in the currently selected text will be
-sent to the console and executed when you press <kbd>`Ctrl`</kbd> +
-<kbd>`Enter`</kbd>.
-
-At some point in your analysis you may want to check the content of variable or
-the structure of an object, without necessarily keep a record of it in your
-script. You can type these commands and execute them directly in the console.
-RStudio provides the <kbd>`Ctrl`</kbd> + <kbd>`1`</kbd> and <kbd>`Ctrl`</kbd> +
-<kbd>`2`</kbd> shortcuts allow you to jump between the script and the console
-windows.
-
-If R is ready to accept commands, the R console shows a `>` prompt. If it
-receives a command (by typing, copy-pasting or sent from the script editor using
-<kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>), R will try to execute it, and when
-ready, show the results and come back with a new `>`-prompt to wait for new
-commands.
-
-If R is still waiting for you to enter more data because it isn't complete yet,
-the console will show a `+` prompt. It means that you haven't finished entering
-a complete command. This is because you have not 'closed' a parenthesis or
-quotation, i.e. you don't have the same number of left-parentheses as
-right-parentheses, or the same number of opening and closing quotation marks. If
-you're in RStudio and this happens, click inside the console window and press
-`Esc`; this will cancel the incomplete command and return you to the `>` prompt.
-
 # Basics of R
 
-R is a versatile, open source programming/scripting language that's useful both
+`R` is a versatile, open source programming/scripting language that's useful both
 for statistics but also data science. Inspired by the programming language S.
 
 * Free/Libre/Open Source Software under the [GPL version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
@@ -128,7 +58,17 @@ for statistics but also data science. Inspired by the programming language S.
 
 ## The R syntax
 
-_Start by showing an example of a script_
+
+```r
+
+# let's define some variables
+my.variable <- (1*2) + 5
+my.second.variable <- 7 * 3
+
+# I can sum two variables together using the sum function
+sum(my.variable, my.second.variable, na.rm=FALSE)
+## [1] 28
+```
 
 * Point to the different parts:
   - a function
@@ -142,26 +82,29 @@ _Start by showing an example of a script_
 
 ### Commenting
 
-Use `#` signs to comment. Anything to the right of a `#` is ignored by R,
-meaning it won't be executed. Comments are a great way to describe what your
-code does within the code itself, so comment liberally in your R scripts.
+Use `#` sign is used to add comments to your code. A comment is a way for you 
+to DOCUMENT the steps of your code - both for yourself and for others who may
+use your script. Anything to the right of a `#` is ignored by `R`,
+meaning it won't be executed.
 
-### Assignment operator
+### Assignment operator <-
 
-`<-` is the assignment operator. It assigns values on the right to objects on
-the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
+`<-` is the assignment operator. It is similar to an equalts sign. It assigns 
+values on the right to objects on the left. So, after executing `x <- 3`, the 
+value of `x` is `3`. The arrow can
 be read as 3 **goes into** `x`.  For historical reasons, you can also use `=` for assignments,
 but not in every context. Because of the [slight](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html) [differences](https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html) in syntax,
 it is good practice to use always `<-` for assignments, except when specifying the values of
 arguments in functions, when only `=` should be used, see below.
 
-In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
+<i class="fa fa-star"></i> **Data Tip:**  In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
 same time as the <kbd>-</kbd> key) will write ` <- ` in a single keystroke.
+{: .notice }
 
 ### Functions and their arguments
 
 Functions are "canned scripts" that automate something complicated or convenient
-or both.  Many functions are predefined, or can be made available by importing R
+or both. Many functions are predefined, or can be made available by importing R
 *packages* (more on that later). A function usually gets one or more inputs
 called *arguments*. Functions often (but not always) return a *value*. A typical
 example would be the function `sqrt()`. The input (the argument) must be a
@@ -188,10 +131,11 @@ function operates, such as whether it ignores 'bad values', or what symbol to
 use in a plot.  However, if you want something specific, you can specify a value
 of your choice which will be used instead of the default.
 
-Let's try a function that can take multiple arguments: `round()`.
+Let's run a function that can take multiple arguments: `round()`.
 
 
 ```r
+
 round(3.14159)
 ## [1] 3
 ```
@@ -247,10 +191,7 @@ definition of a function with unfamiliar arguments to understand what you're
 doing.
 
 
-
-# Seeking help
-
-## I know the name of the function I want to use, but I'm not sure how to use it
+## Get Information About A Function 
 
 If you need help with a specific function, let's say `barplot()`, you can type:
 
@@ -325,15 +266,3 @@ but it is full of useful information.
 * [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
   has quite comprehensive advice on how to ask programming questions.
 </div>
-
-<figure class="half">
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/rmd-file.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/rmd-file.png">
-	</a>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/knitr-output.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/knitr-output.png">
-	</a>
-	<figcaption>R Markdown script (left) and the HTML produced from the knit R
-	Markdown script (right).
-	</figcaption>
-</figure>
