@@ -9,9 +9,11 @@ sidebar:
   nav:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/setup-working-directory
+dateCreated: 2016-12-12
+dateModified: 2016-12-12
 author_profile: false
 comments: false
-order: 3
+order: 4
 ---
 
 
@@ -52,7 +54,7 @@ on your computer:
 * Navigate to the `Documents` directory on your computer.
 * In the directory, create a NEW DIRECTORY called `earth-analytics`.
 
-> Notice that we are creating a nice easy to read directory name. The name has
+<i class="fa fa-star"></i> **Data Tip** Notice that we are creating a easy to read directory name. The name has
 no spaces and uses all lower case to support machine reading down the road.
 Sometimes this format of naming using dashes is referred to as a `slug`.
 
@@ -73,10 +75,10 @@ Sometimes this format of naming using dashes is referred to as a `slug`.
 
 * The final step is optional but recommended - especially if you are new to `R`
 and `RStudio`. Open up `RStudio` and set your default working Directory
-to the `earth-analytics` directory that we just created. In RStudio go to:
+to the `earth-analytics` directory that we just created. In `RStudio` go to:
 `Tools--> Global Options --> Click on the General setting at the top of the global
 options panel` (see screen shot below).
-* Browse to the earth-analytics directory and set it as your default working directory.
+* Browse to the `earth-analytics` directory and set it as your default working directory.
 
 <figure>
 	<a href="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/r-studio-wd-setup.png">
@@ -87,11 +89,14 @@ options panel` (see screen shot below).
 	</figcaption>
 </figure>
 
+When you set a default working directory, every time you open `RStudio` it will
+default to that working directory being set. This can be nice if you are going
+to always work in the same directory (like we will in all of our tutorials).
+
 Finally, let's see what your main working directory. We use the  `getwd()` function
 to find out what our current working directory is in R.
 
-
-```r
+```{r check-working-directory, eval=FALSE}
 
 # view working directory
 getwd()
@@ -104,12 +109,19 @@ getwd()
 ```
 
 If your working directory path does not match the location where you created your
-`earth-analytics` directory on your computer, then we need to change it. We can
-do this with code OR we can use the RStudio interface to do this.
+`earth-analytics` directory on your computer, then we need to fix it. We can
+set the working directory with `R` code OR we can use the `RStudio` interface to
+set the working directory.
 
-* In the RStudio interface, look at the pane in the LOWER LEFT hand corner of your
-screen. It should have a tab called `Files`. In that directory, navigate to
-your earth-analytics directory which should be int he `Documents` directory.
+## Set Working Directory Using RStudio
+
+Let's set the working directory using the `RStudio` interface.
+
+* In the `RStudio` interface, look at the pane in the LOWER LEFT hand corner of your
+screen. It should have a tab called `Files` which opens the files window. In
+the files window, navigate to your `earth-analytics` directory which should be
+within the `Documents` directory.
+
 Your window should look like the screen shot below:
 
 <figure>
@@ -120,7 +132,7 @@ Your window should look like the screen shot below:
 	</figcaption>
 </figure>
 
-* Next, click on the `More`. Cho0se `Set as working directory`
+* Next, click on the `More` drop down. Choose `Set as working directory`
 
 <figure>
 	<a href="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/set-working-dir-rstudio.png">
@@ -130,16 +142,14 @@ Your window should look like the screen shot below:
 </figure>
 
 
-
-
 ## Set Working Directory Using Code
 
-We can
-use the `setwd()` function to set a new working directory as follows:
+We can set the working directory  using code in R too. You don't have to do This
+if you already set the working directory above. However, it's good to know how
+to do it! We use the `setwd()` function to set a new working directory as follows:
 
 
-
-```r
+```{r set-working-directory, eval=FALSE}
 
 # set working directory - MAC File Structure - backslashes
 setwd("/Users/lewa8222/Documents/earth-analytics")
@@ -149,17 +159,6 @@ setwd("/Users/lewa8222/Documents/earth-analytics")
 setwd("C:\Users\lewa8222\Documents\earth-analytics")
 
 ```
-
-
-
-
-<figure>
-	<a href="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/working-directory.png">
-	<img src="{{ site.url }}/images/course-materials/geog-4100-5100/setup-r-rstudio/working-directory.png"></a>
-	<figcaption> Your working directory should look like this. It should contain
-	just a `data` directory. Image: RStudio Version 0.99.903. Source: Earth Lab.
-	</figcaption>
-</figure>
 
 ## All Done!
 Great work! You are now read to start working with `RStudio`!
