@@ -7,12 +7,8 @@ excerpt: '#.'
 nav-title: 'File Organization 101'
 sidebar:
   nav:
-<<<<<<< HEAD:_drafts/course-materials/setup/2016-12-08-file-organization-101.md
-class-lesson: ['setup']
-=======
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/file-organization-101
->>>>>>> da0250716a933d1a78a8c515c1aa55a553631048:_drafts/course-materials/setup-r-rstudio/2016-12-08-setup-02-file-organization-101.md
 author_profile: false
 comments: false
 order: 2
