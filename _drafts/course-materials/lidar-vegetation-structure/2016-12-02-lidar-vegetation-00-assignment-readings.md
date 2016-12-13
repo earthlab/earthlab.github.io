@@ -4,8 +4,7 @@ title: 'Lidar Assignment & Readings'
 authors: [Leah Wasser, NEON Data Skills]
 excerpt: "The overview page I used at CU 5 April 2016."
 category: [course-materials]
-class-lesson: ['veg-structure-lidar']
-permalink: /course-materials/readings
+class-lesson: ['lidar-vegetation-01-intro']
 nav-title: 'Assignment & Reading'
 sidebar:
   nav:

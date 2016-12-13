@@ -4,8 +4,7 @@ title: 'Instructor Notes'
 authors: [Leah Wasser]
 excerpt: "Comparing airborne lidar derived tree height to in situ measured tree height."
 category: [course-materials]
-class-lesson: ['veg-structure-lidar']
-permalink: /course-materials/lidar-instructor-notes
+class-lesson: ['lidar-vegetation-01-intro']
 nav-title: 'instructor notes'
 sidebar:
   nav:
