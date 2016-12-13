@@ -5,6 +5,7 @@ excerpt: "Pre-built computing environments for reproducible and portable geospat
 header:
   image: docker.png
   teaser: docker.png
+  image_alt: Docker whale logo
 published: true
 ---
 
