@@ -9,7 +9,6 @@ nav-title: 'Setup R Studio'
 sidebar:
   nav:
 class-lesson: ['setup']
-permalink: /course-materials/setup-r-rstudio
 author_profile: false
 comments: false
 order: 1

@@ -4,8 +4,7 @@ title: 'Convert Lidar Point Clouds to Rasters'
 authors: [Leah Wasser]
 excerpt: "The overview page I used at CU 5 April 2016."
 category: [course-materials]
-class-lesson: ['veg-structure-lidar']
-permalink: /course-materials/lidar-point-to-raster
+class-lesson: ['lidar-vegetation-01-intro']
 nav-title: 'Point 2 raster'
 sidebar:
   nav:
