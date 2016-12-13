@@ -4,8 +4,7 @@ title: 'Lidar Point Clouds'
 authors: [Leah Wasser]
 excerpt: "The overview page I used at CU 5 April 2016."
 category: [course-materials]
-class-lesson: ['veg-structure-lidar']
-permalink: /course-materials/veg-structure-lidar-point-clouds
+class-lesson: ['lidar-vegetation-01-intro']
 nav-title: 'Point clouds'
 sidebar:
   nav:

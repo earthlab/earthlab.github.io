@@ -1,12 +1,19 @@
 ---
 layout: single
 title: "Intro to the CO Floods"
-excerpt: "."
+excerpt: "Understanding the floods with data."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
-permalink: /course-materials/co-floods-1-intro
+permalink: /course-materials/earth-analytics/co-floods-1-intro
 nav-title: 'CO Floods - Google Earth'
+dateCreated: 2016-12-06
+dateModified: 2016-12-12
+module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
+module-description: 'This module introduces the concept of using data to Understand
+a natural phenomenon. Here, we use a combination of NOAA precipitation data and
+USGS stream flow data to begin to understand the factors associated with a flood.
+No technical experience is needed to complete this activity.'
 sidebar:
   nav:
 author_profile: false
