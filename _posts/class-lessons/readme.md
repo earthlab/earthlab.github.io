@@ -12,3 +12,18 @@ ordered by the order value.
 
 
 NOTE: if there are duplicate order values - ie two posts have order:2 then you'll get weird duplication of navigation at the bottom!
+
+
+## Module elements
+
+Note that the elements of a module landing page are below. THese elements trigger
+jekyll to build a "welcome to the series" block at the top of the page.
+
+```yaml
+dateCreated: 2016-12-12
+dateModified: 2016-12-12
+module-title: 'Setup R, R Studio & Your Working Directory'
+module-description: 'This module walks you through getting R and RStudio setup on your
+computer. It also introduces file organization strategies.'
+order: 1
+```

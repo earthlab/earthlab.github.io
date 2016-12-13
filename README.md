@@ -2,6 +2,8 @@
 
 # Development -- Analytics Hub Tutorial website
 
+[![Build Status](https://travis-ci.org/earthlab/earthlab.github.io.svg?branch=master)](https://travis-ci.org/earthlab/earthlab.github.io)
+
 This site is made with Jekyll, the Minimal Mistakes theme, and hosted via GitHub pages.
 To work locally on the site:
 

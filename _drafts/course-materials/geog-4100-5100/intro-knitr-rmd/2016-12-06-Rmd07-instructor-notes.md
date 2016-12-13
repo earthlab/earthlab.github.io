@@ -5,7 +5,7 @@ excerpt: "Instructor notes."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/rmarkdown-instructor-notes
+permalink: /course-materials/earth-analytics/rmarkdown-instructor-notes
 nav-title: 'Instructor Notes'
 sidebar:
   nav:

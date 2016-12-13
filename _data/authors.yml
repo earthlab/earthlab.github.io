@@ -1,16 +1,20 @@
 - name: Leah Wasser
   slug: leah-wasser
-- name: Mariela Perignon
-  slug: mariela-perignon
+  bio: ' Leah is the director of the Earth Analytics Education Initiative at Earth
+    Lab and maintains this website.'
 - name: Matt Oakley
   slug: matt-oakley
+  bio: ''
 - name: Max Joseph
   slug: max-joseph
+  bio: ' Max is the director of the Analytics Hub at Earth Lab and maintains this
+    website.'
 - name: Naupaka Zimmerman
   slug: naupaka-zimmerman
-- name: NEON Data Skills
-  slug: neon-data-skills
+  bio: ''
 - name: Reproducible Science Curriculum Community
   slug: reproducible-science-curriculum-community
+  bio: ''
 - name: Zach Schira
   slug: zach-schira
+  bio: ''
