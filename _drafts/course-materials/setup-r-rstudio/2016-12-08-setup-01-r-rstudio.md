@@ -27,7 +27,7 @@ order: 1
 In this tutorial, we will walk you through downloading and installing `R` & `RStudio`
 on your computer.
 
-*The R & RStudio installation instructions below were adapted from
+*The `R` & `RStudio` installation instructions below were adapted from
 <a href="http://software-carpentry.org/" target="_blank"> Software Carpentry</a>.*
 
 <div class='notice--success' markdown="1">
@@ -36,7 +36,6 @@ on your computer.
 At the end of this activity, you will:
 
 * Be able to download and install `R` and `Rstudio` on your laptop.
-
 
 </div>
 
@@ -49,7 +48,7 @@ At the end of this activity, you will:
 *  Double click the file to install it
 
 
-Once R and RStudio are installed, open RStudio to make sure that you don't get
+Once `R` and `RStudio` are installed, open `RStudio` to make sure that you don't get
 any error messages.
 
 ## Mac OS X
@@ -64,12 +63,12 @@ will download.
 * Under *Installers* select <b>RStudio *current version ##* - Mac OS X 10.6+ (64-bit)</b> to download it.
 * Once it's downloaded, double click the file to install it.
 
-Once R and RStudio are installed, open RStudio to make sure it works and you
+Once `R` and `RStudio` are installed, open RStudio to make sure it works and you
 don't get any error messages.
 
 ## Linux
 
-R is available through most Linux package managers. You can download the binary
+`R` is available through most `Linux` package managers. You can download the binary
 files for your distribution from
 <a href="http://cran.r-project.org/index.html" target="_blank">CRAN</a>.
 Or you can use your package manager (e.g. for Debian/Ubuntu run
@@ -81,5 +80,5 @@ Or you can use your package manager (e.g. for Debian/Ubuntu run
 * Once it's downloaded, double click the file to install it.
 
 
-Once R and RStudio are installed, open RStudio to make sure it works and you
+Once `R` and `RStudio` are installed, open `RStudio` to make sure it works and you
 don't get any error messages.
