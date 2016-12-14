@@ -56,7 +56,7 @@
   }
 
   p, li, dl {
-    font-size: 1em;
+    font-size: $type-size-5;
   }
 
   /* paragraph indents */
@@ -74,6 +74,7 @@
 
   a {
     text-decoration: none;
+    color: $info-color;
 
     &:hover {
       text-decoration: underline;
