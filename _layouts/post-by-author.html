@@ -22,6 +22,7 @@ layout: default
         <h1 class="page__title">{{ page.title }}</h1>
       {% endunless %}
         {{ page.author }} has contributed to the materials listed below.
+        {{ page.bio }}
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
