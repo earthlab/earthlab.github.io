@@ -5346,5 +5346,19 @@ img.mfp-img {
   .ads,
   .page__footer {
     display: none; } }
+/* ==========================================================================
+   Earth Lab Specific css highlighting this will allow us to more easily
+   integrate with MIn Minstakes in the future
+   ========================================================================== */
+div.notice--success, div.notice--warning {
+  padding: 2em !important;
+  font-size: .8em !important; }
+  div.notice--success code, div.notice--warning code {
+    font-size: 0.9em; }
+
+.nav__sub-title {
+  background-color: #428aa0;
+  color: #fff;
+  padding-left: .7em; }
 
 /*# sourceMappingURL=main.css.map */
