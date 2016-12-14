@@ -59,3 +59,6 @@ earth-analytics-2017:
         url: /course-materials/earth-analytics/setup-r-rstudio
       - title: "Homework - ??"
         url: /course-materials/earth-analytics/intro-rmarkdown-knitr
+  - title: Week Three
+    children:
+      - title: "In Class"
