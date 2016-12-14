@@ -144,7 +144,7 @@ generate_lib_md <- function(df) {
                  category = "tutorials",
                  title = paste(df$libs, "-", firstup(df$lang),
                                "Data Intensive Tutorials"),
-                 permalink = paste0("/tutorials/software/", 
+                 permalink = paste0("/tutorials/", 
                                     df$lang, "/", df$libs, "/"),
                  comments = FALSE, 
                  author_profile = FALSE,
