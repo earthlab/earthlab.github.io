@@ -1,7 +1,7 @@
 ---
 layout: post-by-category
 category: tutorials
-title: gdal - Python Data Intensive Tutorials
+title: 'gdal - Python Data Intensive Tutorials'
 permalink: /tutorials/python/gdal/
 comments: false
 author_profile: false
