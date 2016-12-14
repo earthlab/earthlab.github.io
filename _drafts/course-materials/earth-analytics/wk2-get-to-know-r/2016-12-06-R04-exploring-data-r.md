@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/data-in-R
 nav-title: 'Data in R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-13
+lastModified: 2016-12-14
 sidebar:
   nav:
 author_profile: false

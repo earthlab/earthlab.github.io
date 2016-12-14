@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Get to Know R & RStudio"
+title: "Get to Know R"
 excerpt: "This tutorial introduces the R scientific programming language. It is
 designed for someone who has not used R before. We will work with precipitation and
 stream discharge data for Boulder County."
@@ -8,13 +8,13 @@ authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/get-to-know-r
-nav-title: 'Intro to R'
+nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
 lastModified: `r format(Sys.time(), "%Y-%m-%d")`
 module-title: 'Get to Know The R Programming Language'
-module-description: 'This tutorial introduces the R scientific programming language. It is
-designed for someone who has not used R before. We will work with precipitation and
-stream discharge data for Boulder County.'
+module-description: 'This tutorial introduces the R scientific programming language.
+We will work with precipitation and stream discharge data for Boulder County
+to better understand the R syntax, various data types and data import and plotting.'
 sidebar:
   nav:
 author_profile: false
@@ -22,16 +22,17 @@ comments: false
 order: 1
 ---
 
-.
+In this tutorial, we will explore the basic syntax (structure) or the R programming
+language. We will introduce assignment operators (`<-`, comments (`#`) and functions
+as used in `R`.
 
 <div class='notice--success' markdown="1">
 
 # Learning Objectives
 At the end of this activity, you will be able to:
 
-* Be able to work with the 4 panes in the RStudio interface
 * Understand the basic concept of a function and be able to use a function in your code.
-* Know how to use key operator commands in R (<-)
+* Know how to use key operator commands in R (`<-`)
 
 ## What You Need
 
@@ -41,102 +42,197 @@ directory with it.
 
 * [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
 * [Setup your working directory](/course-materials/setup-working-directory)
-
+* [Intro to the R & RStudio Interface](/course-materials/earth-analytics/intro-to-r-and-rstudio)
 
 </div>
 
-# Get to Know RStudio
+In the previous module, we setup `RStudio` and `R` and got to know the RStudio interface.
+We also created a basic
+`RMarkdown` report using `RStudio`. In this module, we will explore the basic
+syntax of the `R` programming language. We will learn how to work with packages and
+functions, how to work with vector objects in R and finally how to import data
+into a data.frame which is the `R` equivalent of a spreadsheet.
 
-Let's explore [RStudio](https://www.rstudio.com/), the Integrated Development
-Environment (IDE) that we will use to write code, navigate files on our computer,
-inspect variables and more. The RStudio IDE open source product is free under the [Affero General Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
+Let's start by looking at the code we used in the previous module. Here, we
 
-RStudio is divided into 4 "Panes":
-
-1. the **editor** for your scripts and documents
-(top-left, in the default layout),
-2. the **R console** (bottom-left),
-3. your **environment/history **(top-right), and
-4. your files/plots/packages/help/viewer (bottom-right).
-
-The placement of these panes and their content can be customized
-(see menu, RStudio -> Preferences -> Pane Layout). One advantage of
-using `RStudio` is that it contains many shortcuts and
-highlighting that speeds up coding. Also, autocomplete is avaibale to use functions
-and find variables which makes typing easier and less error-prone.
-
-<figure>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/wk2-get-to-know-r/rstudio-interface.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/wk2-get-to-know-r/rstudio-interface.png">
-	</a>
-	<figcaption>The RStudio IDE (Integrated Development Environment).
-	</figcaption>
-</figure>
-
-## Interacting with R
-
-When we program, we are writing down instructions for the computer to
-follow. When we run a program, we tell the computer to follow those instructions.
-We write, or *code*, instructions in `R` because it is a common language that
-both the computer and we can understand.
-
-### Definitions To Remember
-
-* **COMMANDS**: the "instructions" that we tell the computer to follow
-* **EXECUTE** a program: (also called *running*). When we execute a program, we
-are telling the computer to run it.
-
-## Scripts vs. Console vs. Rmarkdown
-
-There are two main ways of interacting with R: using the console or by using
-script files (plain text files that contain your code - note these can be `.R` files
-OR `.Rmd` files).
-
-### Benefits of Scripts
-The main benefit of using scripts is it allows us to save our workflow. We want
-our code and workflow to be reproducible so that anyone (including ourselves)
-can easily replicate the workflow at a later time.
-
-### Why use the console
-The console pane (in `RStudio`, the bottom left panel) is the place where `R` is
-waiting for you to tell it what to do, and where it will show the results of a
-command that has been executed. You can type commands directly into the console
-and press `Enter` to execute those commands, but they will be forgotten when you
-close the session. This is a good place to TEST a line of code.
-
-It is better to enter the commands in the script editor, and
-save the script. This way, you have a complete record of what you did, you can
-easily show others how you did it and you can do it again later on if needed.
-When you run a script or a part of a script, it will run in the console.
-
-### R Studio Shortcuts
-
-* <kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>: execute commands directly from the script editor. This shortcut will run either the line in the script that your cursor
-is on or all of the commands that you have currently selected (highlighted) in
-your script.
-* <kbd>`Ctrl`</kbd> + <kbd>`1`</kbd> and <kbd>`Ctrl`</kbd> +
-<kbd>`2`</kbd>: jump between the script and the console windows in `RStudio`.
-
-## R Console Tricks
-
-If R is ready to accept commands, the R console shows a `>` prompt. If it
-receives a command (by typing, copy-pasting or sent from the script editor using
-<kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>), R will try to execute it, and when
-ready, show the results and come back with a new `>`-prompt to wait for new
-commands.
-
-If R is still waiting for you to enter more data because it isn't complete yet,
-the console will show a `+` prompt. It means that you haven't finished entering
-a complete command. This is because you have not 'closed' a parenthesis or
-quotation, i.e. you don't have the same number of left-parentheses as
-right-parentheses, or the same number of opening and closing quotation marks. If
-you're in RStudio and this happens, click inside the console window and press
-`Esc`; this will cancel the incomplete command and return you to the `>` prompt.
+1. Downloaded some data from figshare using the `download.file()` function.
+2. Imported the data into r using the `read.csv()` function
+3. Finally, we plotted the data using the `qplot()` function (which is a part of the `ggplot2` package)
 
 
-# Seeking help
+```{r open-file }
 
-## I know the name of the function I want to use, but I'm not sure how to use it
+# load the ggplot2 library for plotting
+library(ggplot2)
+
+# turn off factors
+options(stringsAsFactors = FALSE)
+
+# download data from figshare
+# note that we are downloaded the data into your
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
+              destfile = "data/boulder-precip.csv")
+
+# import data
+boulder.precip <- read.csv(file="data/boulder-precip.csv")
+
+# view first few rows of the data
+head(boulder.precip)
+
+# what is the format of the variable in R
+str(boulder.precip)
+
+# q plot stands for quick plot. Let's use it to plot our data
+qplot(x=boulder.precip$DATE,
+      y=boulder.precip$PRECIP)
+
+```
+
+The above chunk of code, uses syntax that is unique the `R` programming language.
+Syntax is simply the characters or commands that `R` understands and associated
+organization / format of the code including spacing and comments.
+
+Let's break down the syntax of the code above, to better understand what it's doing.
+
+## Intro to the R Syntax
+
+### Assignment operator <-
+
+First, notice the use of `<-`. `<-` is the assignment operator. It is similar to
+an equals (=) sign. It assigns
+values on the right to objects on the left. So, after executing `x <- 3`, the
+value of `x` is `3`. The arrow can be read as 3 **goes into** `x`.
+
+
+In the example below, we assigned the data file that we read into R named `boulder-precip.csv`
+to the variable name `boulder.precip`. After you run the line of code below,
+what happens in R?
+
+```r
+# import data
+boulder.precip <- read.csv(file="data/boulder-precip.csv")
+```
+
+<i class="fa fa-star"></i> **Data Tip:**  In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
+same time as the <kbd>-</kbd> key) will write ` <- ` in a single keystroke.
+{: .notice }
+
+While the `=` can be used in R, it does not always work. Thus please use `<-` for all assignments
+in R from here on in. There is one exception to this rule - when we are defining
+arguments for functions. We will discuss that below. For historical reasons, you can also use `=` for assignments,
+but not in every context. Because of the [slight](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html) [differences](https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html) in syntax,
+it is good practice to use always `<-` for assignments.
+
+
+### Comments in R
+
+Next, notice the use of the `#` sign.
+
+```r
+# load the ggplot2 library for plotting
+library(ggplot2)
+```
+
+Use `#` sign is used to add comments to your code. A comment is a way for you
+to DOCUMENT the steps of your code - both for yourself and for others who may
+use your script. Anything to the right of a `#` is ignored by `R`,
+meaning it won't be executed.
+
+
+### Functions and their arguments
+
+Finally we have functions. Functions are "canned scripts" that automate a task
+that may other take several lines of code that you have to type in. There are a
+set of functions that come with `R` when you download it. These are called `base R`
+functions. Other functions are add-ons to base R. These functions can be loaded by
+
+1. Installing a particular package (using install.packages() like we did when
+we installed ggplot2, knitr, and rmarkdown.
+2. Loading the library in our script using `library(package-name).
+
+A function often has one or more inputs called *arguments*. In the example
+below, we used the `qplot()` function which is a part of the `ggplot2` package
+of functions. `qplot()` needs to arguments:
+
+1. The value that you want to plot on the `x=` axis and
+2. The value that you want to plot on the `y=` axis
+
+
+```r
+# q plot stands for quick plot. Let's use it to plot our data
+qplot(x=boulder.precip$DATE,
+      y=boulder.precip$PRECIP)
+```
+
+Functions return an output. Sometimes that output is a *figure* like the example
+above. Sometimes it is a *value* or a set of values or even something else.
+
+### Functions that return values
+The  `sqrt()` function is an example of a `base R` function that returns a single
+value. Remember, when we say base R, we are reffering the the set of functions
+that come with R when we download and install it. We can add additional functions
+to `R` by installing and loading packages OR by creating them ourselves.
+
+The input (the argument) is a number, and the return value (the output)
+is the square root of that number. Executing a function ('running it') is called
+*calling* the function. An example of a function call is:
+
+`b <- sqrt(a)`
+
+Here, the value of `a` is given to the `sqrt()` function, the `sqrt()` function
+calculates the square root, and returns the value which is then assigned to
+variable `b`. This function is very simple, because it takes just one argument.
+
+
+Let's run a function that can take multiple arguments: `round()`.
+
+```{r, results='show'}
+
+round(3.14159)
+
+```
+
+Here, we've called `round()` with just one argument, `3.14159`, and it has
+returned the value `3`.  That's because the default is to round to the nearest
+whole number. If we want more digits we can see how to do that by getting
+information about the `round` function.  We can use `args(round)` or look at the
+help for this function using `?round`.
+
+```{r, results='show', purl=FALSE}
+args(round)
+```
+
+```{r, eval=FALSE, purl=FALSE}
+?round
+```
+
+We see that if we want a different number of digits, we can
+type `digits=2` or however many we want.
+
+```{r, results='show', purl=FALSE}
+round(3.14159, digits=2)
+```
+
+If you provide the arguments in the exact same order as they are defined you
+don't have to name them:
+
+```{r, results='show', purl=FALSE}
+round(3.14159, 2)
+```
+
+And if you do name the arguments, you can switch their order:
+
+```{r, results='show', purl=FALSE}
+round(digits=2, x=3.14159)
+```
+
+It's good practice to put the non-optional arguments (like the number you're
+rounding) first in your function call, and to specify the names of all optional
+arguments.  If you don't, someone reading your code might have to look up
+definition of a function with unfamiliar arguments to understand what you're
+doing.
+
+## Get Information About A Function
 
 If you need help with a specific function, let's say `barplot()`, you can type:
 
@@ -150,61 +246,20 @@ If you just need to remind yourself of the names of the arguments, you can use:
 args(lm)
 ```
 
-## I want to use a function that does X, there must be a function for it but I don't know which one...
+<div class="notice--warning" markdown="1">
 
-If you are looking for a function to do a particular task, you can use
-`help.search()` function, which is called by the double question mark `??`.
-However, this only looks through the installed packages for help pages with a
-match to your search request
+## Modify A Plot
 
-```{r, eval=FALSE, purl=FALSE}
-??kruskal
-```
+Use the RMarkdown document that we created as homework for today's class. If
+you don't have a document already, create a new one, naming it: "lastname-firstname-wk2.Rmd.
+Edit the code that generates the plot that you see on this page as follows
 
-If you can't find what you are looking for, you can use the
-[rdocumention.org](http://www.rdocumentation.org) website that searches through
-the help files across all packages available.
+1. The plot, created above, isn't pretty. Let's fix the x and y labels.
+Look up the arguments for the qplot function using either args(qplot) OR `?qplot`
+in the R console. Then fix the labels of your plot in your script.
 
-## I am stuck... I get an error message that I don't understand
+HINT: google is your friend. Feel free to use it to help edit the code.
 
-Start by googling the error message. However, this doesn't always work very well
-because often, package developers rely on the error catching provided by R. You
-end up with general error messages that might not be very helpful to diagnose a
-problem (e.g. "subscript out of bounds"). If the message is very generic, you might
-also include the name of the function or package you're using in your query.
-
-However, you should check StackOverflow. Search using the `[r]` tag. Most
-questions have already been answered, but the challenge is to use the right
-words in the search to find the answers:
-[http://stackoverflow.com/questions/tagged/r](http://stackoverflow.com/questions/tagged/r)
-
-The [Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.pdf) can
-also be dense for people with little programming experience but it is a good
-place to understand the underpinnings of the R language.
-
-The [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical
-but it is full of useful information.
-
-
-<div class='notice--info' markdown="1">
-
-# Where to Get Help
-
-* Ask your colleagues: if you know someone with more experience than you,
-  they might be able to help you.
-* [StackOverflow](http://stackoverflow.com/questions/tagged/r): if your question
-  hasn't been answered before and is well crafted, chances are you will get an
-  answer in less than 5 min. Remember to follow their guidelines on [how to ask
-  a good question](http://stackoverflow.com/help/how-to-ask).
-* There are also some topic-specific mailing lists (GIS, phylogenetics, etc...),
-  the complete list is [here](http://www.r-project.org/mail.html).
-
-## More resources
-
-* The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
-  mailing lists.
-* [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
-  useful guidelines
-* [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
-  has quite comprehensive advice on how to ask programming questions.
+2. what other things can you modify to make the plot look prettier. Explore. Are
+there things that you'd like to do that you can't?
 </div>
