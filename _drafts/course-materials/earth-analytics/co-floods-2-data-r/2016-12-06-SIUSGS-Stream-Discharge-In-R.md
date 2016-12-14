@@ -342,7 +342,7 @@ sum(is.na(discharge$datetime))
 hist(discharge$disValue)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/no-data-values-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/USGS-Stream-Discharge-In-R/no-data-values-1.png)
 
 ```r
 summary(discharge$disValue)
@@ -373,7 +373,7 @@ stream.discharge.30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
 stream.discharge.30yrs 
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
 
 #### Questions: 
 
@@ -412,7 +412,7 @@ stream.discharge.3mo
 ## Warning: Removed 10963 rows containing missing values (geom_point).
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/define-time-subset-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/USGS-Stream-Discharge-In-R/define-time-subset-1.png)
 
 We get a warning message because we are "ignoring" lots of the data in the
 data set.
@@ -451,7 +451,7 @@ disPlot.plotly <- ggplot(data=discharge.aug.oct2013,
 disPlot.plotly
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plotly-discharge-data-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plotly-discharge-data-1.png)
 
 ```r
       
@@ -464,7 +464,7 @@ disPlot.plotly <- disPlot.plotly +
 disPlot.plotly
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/geog-4100-5100/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plotly-discharge-data-2.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/USGS-Stream-Discharge-In-R/plotly-discharge-data-2.png)
 
 ```r
 
