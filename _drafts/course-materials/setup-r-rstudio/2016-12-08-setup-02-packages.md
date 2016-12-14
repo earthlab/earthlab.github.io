@@ -21,8 +21,8 @@ order: 2
 
 ##  Install a Package
 
-In this tutorial, we will walk you through installing the `rmarkdown` and `knitr`
- packages for `R`.
+In this tutorial, we will walk you through installing the `rmarkdown`, `knitr`
+and `ggplot2` packages for `R`.
 
 
 <div class='notice--success' markdown="1">
@@ -30,22 +30,22 @@ In this tutorial, we will walk you through installing the `rmarkdown` and `knitr
 # Learning Objectives
 At the end of this activity, you will:
 
-* Know how to install a pacakge for `R` using `Rstudio`.
+* Know how to install an `R` package using `Rstudio`.
 * Be able to explain what a package is in `R`.
 
 </div>
 
 ## What is a Package?
 
-A package, in `R` is a bundle of pre-build functionality. Think of it like a
-tool box. Except for the tools, may do things like calculate a mathamatical function
+A package, in `R` is a bundle of pre-built functionality. Think of it like a
+toolbox. Except for the tools, may do things like calculate a mathamatical function
 e.g. `sum` or create a plot.
 
 ## Install a Package
 
-In `R` we install packages using the `install.packages()` function. Let's get
-rmarkdown and knitr installed so we can use them in our exercises. In the R
-console within Rstudio, use the code below to install both packages individually.
+In `R` we install packages using the `install.packages("packageNameHere")` function. Let's get
+rmarkdown and knitr installed so we can use them in our exercises. In the `R`
+console within `Rstudio`, use the code below to install packages individually.
 
 
 ```r
@@ -74,7 +74,11 @@ library(rmarkdown)
 library(ggplot2)
 
 ```
+Note that you don't need to use quotes around the package name when you call it
+using the `library()` function. But you do need the quotes when you install a
 
-In our case, the knitr and rmarkdown packages load buttons and options within
-the Rstudio enviornment that we can use. Thus we won't have to call these two
-packages in our code in this lesson.
+
+In our case, the `knitr` and `rmarkdown` packages load buttons and options within
+the `Rstudio` enviornment that we can use. Thus we won't have to call these two
+packages in our code in this lesson. However, when we use `ggplot2` to plot,
+we will have to call it. We will see how this works in the next set of lessons. 
