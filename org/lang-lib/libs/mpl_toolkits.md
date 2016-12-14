@@ -2,7 +2,7 @@
 layout: post-by-category
 category: tutorials
 title: mpl_toolkits - Python Data Intensive Tutorials
-permalink: /tutorials/python/mpl_toolkits
+permalink: /tutorials/python/mpl_toolkits/
 comments: false
 author_profile: false
 language: python
