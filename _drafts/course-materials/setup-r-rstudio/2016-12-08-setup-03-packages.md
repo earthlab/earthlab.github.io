@@ -15,7 +15,7 @@ class-lesson: ['setup-r-rstudio']
 permalink: /course-materials/earth-analytics/install-r-packages
 author_profile: false
 comments: false
-order: 2
+order: 3
 ---
 
 
@@ -81,4 +81,4 @@ using the `library()` function. But you do need the quotes when you install a
 In our case, the `knitr` and `rmarkdown` packages load buttons and options within
 the `Rstudio` enviornment that we can use. Thus we won't have to call these two
 packages in our code in this lesson. However, when we use `ggplot2` to plot,
-we will have to call it. We will see how this works in the next set of lessons. 
+we will have to call it. We will see how this works in the next set of lessons.
