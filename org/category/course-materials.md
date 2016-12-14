@@ -7,14 +7,17 @@ comments: false
 author_profile: false
 ---
 
+## Courses
+
+[Earth Analytics ](/course-materials/earth-analytics/)
+
+
+
 ## Course Materials
 Course materials and labs that focus on computational approaches.
 
 {% assign modules = site.posts | where:"order", 1 %}
 {% for module in modules %}
-
-{{ module.module-title }}
-{{ module.class-lesson }}
 
 <div class="list__item">
   <article class="archive__item" >
