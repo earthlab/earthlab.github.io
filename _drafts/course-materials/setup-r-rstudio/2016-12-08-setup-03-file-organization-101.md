@@ -23,7 +23,9 @@ order: 3
 Project organization is integral to efficient research. A well organized project
 structure will allow you to more easily find components of your project AND
 make it easier for others you are working with to understand and find data, code,
-and results.
+and results. In this tutorial, we will create a well-organized **working directory**.
+A **working directory** is an organized space or directory on our computer where we
+keep our data, scripts and outputs.
 
 <div class='notice--success' markdown="1">
 
@@ -32,21 +34,24 @@ At the end of this activity, you will:
 
 * Be able to describe the key components of a well structured project.
 * Be able to summarize in 1-3 sentences why good project structure can make your work more efficient and make it easier to collaborate with colleagues.
+* Be able to explain what a working directory is.
 
 
 ## What You Need
 
-You will need the most current version of R and, preferably, RStudio loaded on
+You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
 
 * [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
 
 </div>
 
-## Characteristics of a Well Structured Project
+## Characteristics of a Well Structured Project / Working Directory
 
+Please note that in this lesson, we will be using our project directory as our
+working directory. Thus these terms will be used intechangably throughout.
 
-## 1. Organization - Files & Directories
+### 1. Organization - Files & Directories
 
 When it comes to structuring the names of the files and folders that create your
 project, the more self explanatory, the better.
@@ -72,16 +77,16 @@ A well structured project directory should:
 <figure>
 	<a href="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png">
 	<img src="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png"></a>
-	<figcaption> # Source: Jenny Bryan, Reproducible Science Curriculum.
+	<figcaption> Example of a well-organized project directory. Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
 </figure>
 
 ### Which Filenames Are Most Self-explanatory?
 
-Your goal when structuring a project directory is to try your best to use a naming
+Your goal when structuring a project directory is to try to use a naming
 convention that someone who is not familiar with your project can quickly understand.
-Case in point, have a look at the graphic below. Which list of file names is
-the most self explanatory.
+Case in point, have a look at the graphic below. Which list of file names are
+the most self explanatory? The ones on the LEFT? Or the ones of the RIGHT?
 
 <figure>
 	<a href="{{ site.url }}/images/slide-shows/intro-rr/human-readable-jenny.png">
@@ -92,5 +97,5 @@ the most self explanatory.
 </figure>
 
 
-Consider this as we build the project directory for our earth analytics tutorials
-in the next lesson.
+Consider the structure of your project as we build the project or working
+directory for our earth analytics tutorials in the next lesson.
