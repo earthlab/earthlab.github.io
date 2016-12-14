@@ -18,13 +18,6 @@ layout: default
   {% include sidebar.html %}
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    {% if page.order == 1%}
-    <div class="notice--warning">
-      <h1> Welcome!</h1>
-
-      Welcome to the {{ page.module-title }} module landing page. {{ module-description }}
-    </div>
-    {% endif %}
 
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
