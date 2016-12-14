@@ -7,6 +7,12 @@ comments: false
 author_profile: false
 ---
 
+## Courses
+
+[Earth Analytics ](/course-materials/earth-analytics/)
+
+
+
 ## Course Materials
 Course materials and labs that focus on computational approaches.
 

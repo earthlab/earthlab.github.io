@@ -16,7 +16,8 @@ NOTE: if there are duplicate order values - ie two posts have order:2 then you'l
 
 ## Module elements
 
-Note that the elements of a module landing page are below. THese elements trigger
+Note that the elements of a module landing page are below. The order==1
+element triggers
 jekyll to build a "welcome to the series" block at the top of the page.
 
 ```yaml
