@@ -1,7 +1,7 @@
 ---
 layout: post-by-category
 category: tutorials
-title: MASS - R Data Intensive Tutorials
+title: 'MASS - R Data Intensive Tutorials'
 permalink: /tutorials/r/MASS/
 comments: false
 author_profile: false
