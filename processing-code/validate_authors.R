@@ -57,16 +57,19 @@ gen_author_profiles <- function(authors, prefix = "org/authors") {
                       author = authors$name[i],
                       permalink = paste0("/authors/", authors$slug[i], "/"),
                       title = authors$name[i],
-                      author_profile = "false",
-                      `site-map` = "true", 
+                      author_profile = FALSE,
+                      `site-map` = TRUE, 
                       bio = trimws(authors$bio[i]))
     # convert to yaml
-    auth_yaml <- as.yaml(auth_list)
+    auth_yaml <- as.yaml(auth_list) %>%
+      fix_booleans() %>%
+      quote_titles()
 
     # save as md
     out_file <- paste0(paste0(authors$slug[i], ".md"))
     cat(paste0("---\n",
                auth_yaml,
+               "\n",
                "---\n"),
         file = file.path(prefix, out_file))
   }
