@@ -1,7 +1,7 @@
 ---
 layout: post-by-category
 category: tutorials
-title: sp - R Data Intensive Tutorials
+title: 'sp - R Data Intensive Tutorials'
 permalink: /tutorials/r/sp/
 comments: false
 author_profile: false
