@@ -15,8 +15,11 @@
   }
 
   a {
-    color: inherit;
+    color: $info-color;
     text-decoration: none;
+  }
+  a:hover {
+    color: $link-color-hover;
   }
 }
 
