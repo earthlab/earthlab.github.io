@@ -25,7 +25,16 @@ layout: default
 
     <div class="page__inner-wrap">
       {% unless page.header.overlay_color or page.header.overlay_image %}
+
         <header>
+          <div class="notice--warning" markdown="1">
+          {% if page.module-description %}
+           <h1> Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.</h1>
+
+           {{ page.module-description }}
+          {% endif %}
+          </div>
+
           {% if page.title %}<h1 class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
           {% if page.authors %}
             <div class="page__meta">
@@ -44,6 +53,8 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+
+
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
