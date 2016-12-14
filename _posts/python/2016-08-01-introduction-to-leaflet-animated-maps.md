@@ -97,7 +97,6 @@ my_map
 Leaflet (or folium for our purposes) has some other pretty great features that you may find useful. There are some great tutorials that can be found online with examples that should be easily adaptable to your code. Additionally, folium can work with pandas dataframes in order to overlay data onto the interactive map. I've listed a few below and will go over some other features for the remainder of this notebook.
 
 - [Folium Documentation](https://media.readthedocs.org/pdf/folium/latest/folium.pdf)
-- [Creating Interative Crime Maps w/ Folium](https://blog.dominodatalab.com/creating-interactive-crime-maps-with-folium/)
 - [Python and Webmaps: Folium](http://www.digital-geography.com/python-and-webmaps-folium/#.V2rhFvkrKUk)
 
 
