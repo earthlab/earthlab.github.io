@@ -72,3 +72,35 @@ firstup <- function(x) {
   substr(x, 1, 1) <- toupper(substr(x, 1, 1))
   x
 }
+
+
+fix_booleans <- function(x) {
+  # replace yes and no with true and false in a yaml string
+  x <- gsub(pattern = ": no\n", 
+                    replacement = ": false\n", 
+                    x = x)
+  x <- gsub(pattern = ": yes\n", 
+                    replacement = ": true\n", 
+                    x = x)
+  x
+}
+
+
+
+
+
+quote_titles <- function(x) {
+  res <- x %>%
+    gsub(pattern = "title: ", 
+         replacement = "title: '") %>%
+    strsplit("\n") %>%
+    unlist()
+  
+  which_append <- res %>%
+    grep(pattern = "title")
+  
+  res[which_append] <- paste0(res[which_append], "'")
+  
+  res %>%
+    paste(collapse = "\n")
+}
