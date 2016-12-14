@@ -15,7 +15,7 @@ of today!
 
 <details id="{{ author.slug }}">
   <summary>
-    <a name="/authors/{{ author.slug }}">{{ author.name }}</a>
+    <a href="/authors/{{ author.slug }}" name="/authors/{{ author.slug }}">{{ author.name }}</a>
   </summary>
   {% if author.bio %}{{ author.bio }} {% endif %}
 </details>
