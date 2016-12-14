@@ -542,6 +542,12 @@ body:hover .visually-hidden button {
 /*
    Icons
    ========================================================================== */
+.fa-6 {
+  font-size: 2em; }
+
+.fa-4 {
+  font-size: 1.5em; }
+
 .icon {
   display: inline-block;
   fill: currentColor;
@@ -1307,7 +1313,7 @@ tr, td, th {
    Navigation list
    ========================================================================== */
 .nav__list {
-  font-size: 1.25rem; }
+  font-size: 1.1rem; }
   .nav__list ul {
     margin-bottom: 1em; }
   .nav__list a {
@@ -2144,7 +2150,8 @@ select:focus {
   .page__content p {
     margin: 0 0 1.3em; }
   .page__content a {
-    text-decoration: none; }
+    text-decoration: none;
+    color: #52adc8; }
     .page__content a:hover {
       text-decoration: underline; }
       .page__content a:hover img {
@@ -2358,8 +2365,10 @@ select:focus {
       margin-right: 0;
       padding-left: 4.23729%; } }
   .archive a {
-    color: inherit;
+    color: #52adc8;
     text-decoration: none; }
+  .archive a:hover {
+    color: #3e8296; }
 
 .archive__subtitle {
   margin: 1.414em 0 0;
