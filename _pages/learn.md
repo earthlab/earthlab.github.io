@@ -5,7 +5,7 @@ permalink: /learn/
 header:
   overlay_color: "#333"
   cta_label: "CU Students, Enroll Now - GEOG 4100 / 5100"
-  cta_url: "/courses/earth-systems-analytics"
+  cta_url: "/course-materials/earth-analytics"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
 excerpt: 'Data intensive learning.'
@@ -108,7 +108,7 @@ the bottom. We'll try our best to help!
 
 ## Data Intensive Courses
 A newly designed
-[Earth Systems Analytics course - GEOG 4100 / 5100]({{ site.url }}/course-materials/earth-analytics)
+[Earth Systems Analytics course - GEOG 4100 / 5100]({{ site.url }}/course-materials/earth-analytics/)
 will be taught January 2017. This course fuses key topics related to the grand
 challenges in science, remote sensing and computationally intensive approaches.
 The course will be held in Spring 2017 at the CU Boulder campus. Stay tuned for

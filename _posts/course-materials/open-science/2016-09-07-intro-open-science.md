@@ -97,31 +97,3 @@ reproducibility of this project.
 * <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1000424" target="_blank">Noble (2009) - A Quick Guide to Organizing Computational Biology Projects
 </a>
 </div>
-
-
-
-
-
-<!--
-{% for lesson in site.open-science %}
-<h3><a href="{{ lesson.url}}">{{ lesson.title }}</a></h3>
-{{ lesson.description }}
-
-{% endfor %}
--->
-
-<!-- Testing out listing each collection set
-{% for issue in site.collections %}
-  <li>
-    <h6 class="post-meta">
-       {{ issue[1].label }}
-      {{ issue[3] }}
-      {{ issue[1].date | date: "%b %-d, %Y" }}
-    </h6>
-    <h2>
-      {{ issue[1].title }}
-    </h2>
-  </li>
-{% endfor %}
-
--->
