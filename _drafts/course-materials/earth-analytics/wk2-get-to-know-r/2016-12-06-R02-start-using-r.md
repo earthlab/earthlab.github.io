@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/start-using-r
 nav-title: 'Use R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-13
+lastModified: 2016-12-14
 sidebar:
   nav:
 author_profile: false
@@ -41,228 +41,105 @@ directory with it.
 
 </div>
 
-# Basics of R
 
-`R` is a versatile, open source programming/scripting language that's useful both
-for statistics but also data science. Inspired by the programming language S.
+## Creating objects
 
-* Free/Libre/Open Source Software under the [GPL version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
-* Superior (if not just comparable) to commercial alternatives. R has over 7,000
-  user contributed packages at this time. It's widely used both in academia and
-  industry.
-* Available on all platforms.
-* Not just for statistics, but also general purpose programming.
-* For people who have experience in programmming: R is both an object-oriented
-  and a so-called [functional language](http://adv-r.had.co.nz/Functional-programming.html).
-* Large and growing community of peers.
-
-## The R syntax
+You can get output from R simply by typing in math in the console
 
 
 ```r
-
-# let's define some variables
-my.variable <- (1*2) + 5
-my.second.variable <- 7 * 3
-
-# I can sum two variables together using the sum function
-sum(my.variable, my.second.variable, na.rm=FALSE)
-## [1] 28
+3 + 5
+## [1] 8
+12/7
+## [1] 1.714286
 ```
 
-* Point to the different parts:
-  - a function
-  - the assignment operator `<-`
-  - the `=` for arguments
-  - the comments `#` and how they are used to document function and its content
-  - the `$` operator
-* Point to indentation and consistency in spacing to improve clarity
-
-![Example of a simple R script](img/r_starting_example_script.png)
-
-### Commenting
-
-Use `#` sign is used to add comments to your code. A comment is a way for you 
-to DOCUMENT the steps of your code - both for yourself and for others who may
-use your script. Anything to the right of a `#` is ignored by `R`,
-meaning it won't be executed.
-
-### Assignment operator <-
-
-`<-` is the assignment operator. It is similar to an equalts sign. It assigns 
-values on the right to objects on the left. So, after executing `x <- 3`, the 
-value of `x` is `3`. The arrow can
-be read as 3 **goes into** `x`.  For historical reasons, you can also use `=` for assignments,
-but not in every context. Because of the [slight](http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html) [differences](https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html) in syntax,
-it is good practice to use always `<-` for assignments, except when specifying the values of
-arguments in functions, when only `=` should be used, see below.
-
-<i class="fa fa-star"></i> **Data Tip:**  In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
-same time as the <kbd>-</kbd> key) will write ` <- ` in a single keystroke.
-{: .notice }
-
-### Functions and their arguments
-
-Functions are "canned scripts" that automate something complicated or convenient
-or both. Many functions are predefined, or can be made available by importing R
-*packages* (more on that later). A function usually gets one or more inputs
-called *arguments*. Functions often (but not always) return a *value*. A typical
-example would be the function `sqrt()`. The input (the argument) must be a
-number, and the return value (in fact, the output) is the square root of that
-number. Executing a function ('running it') is called *calling* the function. An
-example of a function call is:
-
-`b <- sqrt(a)`
-
-Here, the value of `a` is given to the `sqrt()` function, the `sqrt()` function
-calculates the square root, and returns the value which is then assigned to
-variable `b`. This function is very simple, because it takes just one argument.
-
-The return 'value' of a function need not be numerical (like that of `sqrt()`),
-and it also does not need to be a single item: it can be a set of things, or
-even a data set. We'll see that when we read data files in to R.
-
-Arguments can be anything, not only numbers or filenames, but also other
-objects. Exactly what each argument means differs per function, and must be
-looked up in the documentation (see below). Some functions take arguments which
-may either be specified by the user, or if left out, take on a *default* value:
-these are called *options*. Options are typically used to alter the way the
-function operates, such as whether it ignores 'bad values', or what symbol to
-use in a plot.  However, if you want something specific, you can specify a value
-of your choice which will be used instead of the default.
-
-Let's run a function that can take multiple arguments: `round()`.
+However, to do useful and interesting things, we need to assign _values_ to
+_objects_. To create an object, we need to give it a name followed by the
+assignment operator `<-`, and the value we want to give it:
 
 
 ```r
-
-round(3.14159)
-## [1] 3
+weight_kg <- 55
 ```
 
-Here, we've called `round()` with just one argument, `3.14159`, and it has
-returned the value `3`.  That's because the default is to round to the nearest
-whole number. If we want more digits we can see how to do that by getting
-information about the `round` function.  We can use `args(round)` or look at the
-help for this function using `?round`.
+Objects can be given any name such as `x`, `current_temperature`, or
+`subject_id`. You want your object names to be explicit and not too long. They
+cannot start with a number (`2x` is not valid, but `x2` is). R is case sensitive
+(e.g., `weight_kg` is different from `Weight_kg`). There are some names that
+cannot be used because they are the names of fundamental functions in R (e.g.,
+`if`, `else`, `for`, see
+[here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
+for a complete list). In general, even if it's allowed, it's best to not use
+other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). In doubt
+check the help to see if the name is already in use. It's also best to avoid
+dots (`.`) within a variable name as in `my.dataset`. There are many functions
+in R with dots in their names for historical reasons, but because dots have a
+special meaning in R (for methods) and other programming languages, it's best to
+avoid them. It is also recommended to use nouns for variable names, and verbs
+for function names. It's important to be consistent in the styling of your code
+(where you put spaces, how you name variable, etc.). In R, two popular style
+guides are [Hadley Wickham's](http://adv-r.had.co.nz/Style.html) and
+[Google's](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml).
+
+When assigning a value to an object, R does not print anything. You can force to
+print the value by using parentheses or by typing the name:
 
 
 ```r
-args(round)
-## function (x, digits = 0) 
-## NULL
+weight_kg <- 55    # doesn't print anything
+(weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
+## [1] 55
+weight_kg          # and so does typing the name of the object
+## [1] 55
 ```
+
+Now that R has `weight_kg` in memory, we can do arithmetic with it. For
+instance, we may want to convert this weight in pounds (weight in pounds is 2.2
+times the weight in kg):
 
 
 ```r
-?round
+2.2 * weight_kg
+## [1] 121
 ```
 
-We see that if we want a different number of digits, we can
-type `digits=2` or however many we want.
+We can also change a variable's value by assigning it a new one:
 
 
 ```r
-round(3.14159, digits=2)
-## [1] 3.14
+weight_kg <- 57.5
+2.2 * weight_kg
+## [1] 126.5
 ```
 
-If you provide the arguments in the exact same order as they are defined you
-don't have to name them:
+This means that assigning a value to one variable does not change the values of
+other variables.  For example, let's store the animal's weight in pounds in a new
+variable, `weight_lb`:
 
 
 ```r
-round(3.14159, 2)
-## [1] 3.14
+weight_lb <- 2.2 * weight_kg
 ```
 
-And if you do name the arguments, you can switch their order:
+and then change `weight_kg` to 100.
 
 
 ```r
-round(digits=2, x=3.14159)
-## [1] 3.14
+weight_kg <- 100
 ```
 
-It's good practice to put the non-optional arguments (like the number you're
-rounding) first in your function call, and to specify the names of all optional
-arguments.  If you don't, someone reading your code might have to look up
-definition of a function with unfamiliar arguments to understand what you're
-doing.
+What do you think is the current content of the object `weight_lb`? 126.5 or 200?
 
+### Challenge
 
-## Get Information About A Function 
-
-If you need help with a specific function, let's say `barplot()`, you can type:
+What are the values after each statement in the following?
 
 
 ```r
-?barplot
+mass <- 47.5            # mass?
+age  <- 122             # age?
+mass <- mass * 2.0      # mass?
+age  <- age - 20        # age?
+mass_index <- mass/age  # mass_index?
 ```
-
-If you just need to remind yourself of the names of the arguments, you can use:
-
-
-```r
-args(lm)
-```
-
-## I want to use a function that does X, there must be a function for it but I don't know which one...
-
-If you are looking for a function to do a particular task, you can use
-`help.search()` function, which is called by the double question mark `??`.
-However, this only looks through the installed packages for help pages with a
-match to your search request
-
-
-```r
-??kruskal
-```
-
-If you can't find what you are looking for, you can use the
-[rdocumention.org](http://www.rdocumentation.org) website that searches through
-the help files across all packages available.
-
-## I am stuck... I get an error message that I don't understand
-
-Start by googling the error message. However, this doesn't always work very well
-because often, package developers rely on the error catching provided by R. You
-end up with general error messages that might not be very helpful to diagnose a
-problem (e.g. "subscript out of bounds"). If the message is very generic, you might
-also include the name of the function or package you're using in your query.
-
-However, you should check StackOverflow. Search using the `[r]` tag. Most
-questions have already been answered, but the challenge is to use the right
-words in the search to find the answers:
-[http://stackoverflow.com/questions/tagged/r](http://stackoverflow.com/questions/tagged/r)
-
-The [Introduction to R](http://cran.r-project.org/doc/manuals/R-intro.pdf) can
-also be dense for people with little programming experience but it is a good
-place to understand the underpinnings of the R language.
-
-The [R FAQ](http://cran.r-project.org/doc/FAQ/R-FAQ.html) is dense and technical
-but it is full of useful information.
-
-
-<div class='notice--info' markdown="1">
-
-# Where to Get Help
-
-* Ask your colleagues: if you know someone with more experience than you,
-  they might be able to help you.
-* [StackOverflow](http://stackoverflow.com/questions/tagged/r): if your question
-  hasn't been answered before and is well crafted, chances are you will get an
-  answer in less than 5 min. Remember to follow their guidelines on [how to ask
-  a good question](http://stackoverflow.com/help/how-to-ask).
-* There are also some topic-specific mailing lists (GIS, phylogenetics, etc...),
-  the complete list is [here](http://www.r-project.org/mail.html).
-
-## More resources
-
-* The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
-  mailing lists.
-* [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
-  useful guidelines
-* [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
-  has quite comprehensive advice on how to ask programming questions.
-</div>
