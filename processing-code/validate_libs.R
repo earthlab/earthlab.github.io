@@ -33,7 +33,7 @@ crossref_libs <- function(df, libs_yaml) {
   # crossreference languages and libraries used with _data/libs.yml
   # input:
   #   - df (data.frame): a data frame with file, field, and value
-  # output: 
+  # output:
   #   - data.frame with following columns:
   #       1) file (chr): source md file for post
   #       2) lang (chr): language e.g., r, python
@@ -44,18 +44,18 @@ crossref_libs <- function(df, libs_yaml) {
     stop("crossref_libs() assumes that each post has only one tagged language!")
   }
   stopifnot(length(unique(df$file)) == 1)
-  
+
   # find which list to pull from
   which_list <- libs_yaml %>%
     lapply(FUN = function(x) x$lang == lang) %>%
     unlist() %>%
     which()
-  
+
   libs_in_yaml <- libs_yaml[[which_list]]$libs
   missing <- !(libs_in_post %in% libs_in_yaml)
   if (any(missing)) {
-    res <- data.frame(file = unique(df$file), 
-               lang = lang, 
+    res <- data.frame(file = unique(df$file),
+               lang = lang,
                missing_lib = libs_in_post[missing])
   } else {
     res <- data.frame(file = NULL, lang = NULL, missing_lib = NULL)
@@ -74,24 +74,24 @@ missing_df <- langs %>%
 # Fill in any missing libs in _data/libs.yml ------------------------
 
 sync_libs_yaml <- function(missing_df, libs_yaml) {
-  # If any libs are used in posts, but not in the _data/libs.yml file, this 
-  # function will add the missing libraries to the _data/libs.yml file and 
-  # overwrite the old _data/libs.yml file. 
-  # args: 
+  # If any libs are used in posts, but not in the _data/libs.yml file, this
+  # function will add the missing libraries to the _data/libs.yml file and
+  # overwrite the old _data/libs.yml file.
+  # args:
   #   - missing_df (data.frame) with all missing libs for each post
   #   - libs_yaml (list) the list generated from our _data/libs.yml file
   # returns: nothing
   if (nrow(missing_df) > 0) {
-    
+
     missing_df <- missing_df %>%
       distinct(lang, missing_lib)
-    
+
     for (i in 1:length(libs_yaml)) {
       lang_df <- subset(missing_df, lang == libs_yaml[[i]]$lang)
       any_missing <- nrow(lang_df) > 0
-      
+
       if (any_missing) {
-        libs_yaml[[i]]$libs <- c(libs_yaml[[i]]$libs, 
+        libs_yaml[[i]]$libs <- c(libs_yaml[[i]]$libs,
                                  lang_df$missing_lib) %>%
           unique()
       }
@@ -122,7 +122,7 @@ list_to_df <- function(x) {
 
 lib_md_df <- lapply(libs_yaml, list_to_df) %>%
   bind_rows() %>%
-  mutate(filename = file.path("org", "lang-lib", "libs", paste0(libs, ".md")), 
+  mutate(filename = file.path("org", "lang-lib", "libs", paste0(libs, ".md")),
          exists = file.exists(filename))
 
 # check for libs with same name, but different languages and raise hell
@@ -141,8 +141,8 @@ generate_lib_md <- function(df) {
   stopifnot(nrow(df) == 1)
   if (!df$exists) {
     yaml <- list(layout = "post-by-category",
-                 category = "tutorials", 
-                 title = paste(df$libs, "-", firstup(df$lang), 
+                 category = "tutorials",
+                 title = paste(df$libs, "-", firstup(df$lang),
                                "Data Intensive Tutorials"),
                  permalink = paste0("/tutorials/software/", 
                                     df$lang, "/", df$libs, "/"),
