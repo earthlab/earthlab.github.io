@@ -1,8 +1,8 @@
 ---
 layout: post-by-category
 category: tutorials
-title: "Raster Package - R Data Intensive Tutorials"
-permalink: tutorials/r/raster
+title: 'raster - R Data Intensive Tutorials'
+permalink: /tutorials/r/raster/
 comments: false
 author_profile: false
 language: r
