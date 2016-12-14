@@ -1,8 +1,8 @@
 ---
 layout: post-by-category
 category: tutorials
-title: 'rhdf5 - R Data Intensive Tutorials'
-permalink: /tutorials/software/r/rhdf5
+title: "rhdf5 Package - R Data Intensive Tutorials"
+permalink: tutorials/r/rhdf5
 comments: false
 author_profile: false
 language: r
