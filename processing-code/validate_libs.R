@@ -96,7 +96,12 @@ sync_libs_yaml <- function(missing_df, libs_yaml) {
           unique()
       }
     }
-    cat(as.yaml(libs_yaml), file = "_data/libs.yml")
+    
+    libs_yaml %>%
+      as.yaml() %>%
+      fix_booleans() %>%
+      quote_titles() %>%
+      cat(file = "_data/libs.yml")
   }
 }
 
@@ -141,16 +146,19 @@ generate_lib_md <- function(df) {
                                "Data Intensive Tutorials"),
                  permalink = paste0("/tutorials/software/", 
                                     df$lang, "/", df$libs),
-                 comments = "false", 
-                 author_profile = "false",
+                 comments = FALSE, 
+                 author_profile = FALSE,
                  language = df$lang, 
                  library = df$libs, 
-                 langSide = "true") %>%
-      as.yaml()
+                 langSide = TRUE) %>%
+      as.yaml() %>%
+      fix_booleans() %>%
+      quote_titles()
     
     # save as md
     cat(paste0("---\n",
                yaml,
+               "\n",
                "---\n"),
         file = df$filename)
   }
