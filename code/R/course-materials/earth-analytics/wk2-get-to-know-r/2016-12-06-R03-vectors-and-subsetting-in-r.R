@@ -1,8 +1,4 @@
 ## ---- echo=FALSE, purl=TRUE----------------------------------------------
-### Creating objects in R
-
-
-## ---- echo=FALSE, purl=TRUE----------------------------------------------
 ### Vectors and data types
 
 ## ---- echo=FALSE, eval=FALSE, purl=TRUE----------------------------------
