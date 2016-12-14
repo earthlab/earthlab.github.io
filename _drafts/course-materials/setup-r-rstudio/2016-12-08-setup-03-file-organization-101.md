@@ -1,17 +1,20 @@
 ---
 layout: single
-authors: ['Software Carpentry']
+authors: ['Leah Wasser', 'Reproducible Science Community']
 category: [course-materials]
 title: 'File Organization 101'
-excerpt: '#.'
+excerpt: 'This lesson provides a broad overview of file organization principles.'
 nav-title: 'File Organization 101'
 sidebar:
   nav:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/file-organization-101
+dateCreated: 2016-12-12
+dateModified: 2016-12-12
+course: 'earth-analytics'
 author_profile: false
 comments: false
-order: 2
+order: 3
 ---
 
 
