@@ -80,13 +80,13 @@
             {% if page.language == member.lang %}
 
               {% if page.library %}
-              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
               {% else %}
-              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }} class='active' >{{ member.lang }} ({{ counter }})</a></li>
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }} class='active' >{{ member.lang }} ({{ counter }})</a></li>
               {% endif %}
 
               {% else %}
-              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -97,7 +97,7 @@
 
 {% unless page.layout contains 'single' %}
   {% for member in site.data.libs %}
-    {% if page.language contains member.lang %}
+    {% if page.language == member.lang %}
       <ul>
         <li><span class="nav__sub-title">{{ member.lang }} library</span>
           <ul>
@@ -111,9 +111,9 @@
             {% endfor %}
 
             {% if page.library == lib %}
-            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }} class='active'>{{ lib }} ({{ counter }})</a></li>
+            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }}/{{ lib }} class='active'>{{ lib }} ({{ counter }})</a></li>
             {% else %}
-            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }}>{{ lib }} ({{ counter }})</a></li>
+            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }}/{{ lib }}>{{ lib }} ({{ counter }})</a></li>
             {% endif %}
         {% endfor %}
       </ul>
