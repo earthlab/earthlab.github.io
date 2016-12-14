@@ -97,7 +97,7 @@
 
 {% unless page.layout contains 'single' %}
   {% for member in site.data.libs %}
-    {% if page.language contains member.lang %}
+    {% if page.language == member.lang %}
       <ul>
         <li><span class="nav__sub-title">{{ member.lang }} library</span>
           <ul>
