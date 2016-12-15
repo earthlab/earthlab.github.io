@@ -24,9 +24,8 @@ order: 3
 # Learning Objectives
 At the end of this activity, you will be able to:
 
-* Be able to work with the 4 panes in the RStudio interface
-* Understand the basic concept of a function and be able to use a function in your code.
-* Know how to use key operator commands in R (<-)
+* Understand the structure of and be able to create a vector object in R.
+* Be able to define what a `NA` value is in `R` and how it is used in a vector.
 
 ## What You Need
 
@@ -40,29 +39,13 @@ directory with it.
 
 </div>
 
-------------
-
-> ## Learning Objectives
->
-> * Familiarize participants with R syntax
-> * Understand the concepts of objects and assignment
-> * Understand the concepts of vector and data types
-> * Get exposed to a few functions
-
-------------
-
-
-
-```
 
 ## Vectors and data types
 
-
-
-A vector is the most common and basic data structure in R, and is pretty much
-the workhorse of R. It's a group of values, mainly either numbers or
-characters. You can assign this list of values to a variable, just like you
-would for one item. For example we can create a vector of animal weights:
+A vector is the most common data structure in `R`. A vector is defined as a
+a group of values, which most often are either numbers or characters. You can
+assign this list of values to an object or variable, just like you
+can for a single value. For example we can create a vector of animal weights:
 
 
 ```r
@@ -144,9 +127,9 @@ Vectors are one of the many **data structures** that R uses. Other important
 ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
 factors (`factor`).
 
+<div class="notice--warning" markdown="1">
 
-### Challenge
-
+# Challenge
 
 * **Question**: We’ve seen that atomic vectors can be of type character,
   numeric, integer, and logical. But what happens if we try to mix these types in
@@ -162,7 +145,6 @@ num_logical <- c(1, 2, 3, TRUE)
 char_logical <- c('a', 'b', 'c', TRUE)
 tricky <- c(1, 2, 3, '4')
 ```
-
 * **Question**: Why do you think it happens?
 <!-- * _Answer_: Vectors can be of only one data type. R tries to convert (=coerce)
   the content of this vector to find a "common denominator". -->
@@ -170,6 +152,10 @@ tricky <- c(1, 2, 3, '4')
 * **Question**: Can you draw a diagram that represents the hierarchy of the data
   types?
 <!-- * _Answer_: `logical -> numeric -> character <-- logical` -->
+
+</div>
+
+
 
 
 
@@ -188,44 +174,25 @@ animals[c(3, 2)]
 ## [1] "dog" "rat"
 ```
 
-We can also repeat the indices to create an object with more elements than the
-original one:
-
-
-```r
-more_animals <- animals[c(1, 2, 3, 2, 1, 4)]
-more_animals
-## [1] "mouse" "rat"   "dog"   "rat"   "mouse" "cat"
-```
-
-R indexes start at 1. Programming languages like Fortran, MATLAB, and R start
+<fa fa-star></i>**Data Tip:** R indexes start at 1. Programming languages like
+Fortran, MATLAB, and R start
 counting at 1, because that's what human beings typically do. Languages in the C
 family (including C++, Java, Perl, and Python) count from 0 because that's
 simpler for computers to do.
+{: .notice }
 
-### Conditional subsetting
+## Subset Vectors
 
-Another common way of subsetting is by using a logical vector: `TRUE` will
-select the element with the same index, while `FALSE` will not:
-
-
-```r
-weight_g <- c(21, 34, 39, 54, 55)
-weight_g[c(TRUE, FALSE, TRUE, TRUE, FALSE)]
-## [1] 21 39 54
-```
-
-Typically, these logical vectors are not typed by hand, but are the output of
-other functions or logical tests. For instance, if you wanted to select only the
+We can subset vectors too. For instance, if you wanted to select only the
 values above 50:
 
 
 ```r
 weight_g > 50    # will return logicals with TRUE for the indices that meet the condition
-## [1] FALSE FALSE FALSE  TRUE  TRUE
+## [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE
 ## so we can use this to select only the values above 50
 weight_g[weight_g > 50]
-## [1] 54 55
+## [1] 60 65 82 90
 ```
 
 You can combine multiple tests using `&` (both conditions are true, AND) or `|`
@@ -234,7 +201,7 @@ You can combine multiple tests using `&` (both conditions are true, AND) or `|`
 
 ```r
 weight_g[weight_g < 30 | weight_g > 50]
-## [1] 21 54 55
+## [1] 60 65 82 90
 weight_g[weight_g >= 30 & weight_g == 21]
 ## numeric(0)
 ```
@@ -338,8 +305,9 @@ heights[complete.cases(heights)]
 ## [1] 2 4 4 6
 ```
 
+<div class="notice--warning" markdown="1">
 
-### Challenge
+# Challenge
 
 * **Question**: Why does the following piece of code give a warning?
 
@@ -355,5 +323,4 @@ mean(sample, na.rm = TRUE)
 * **Question**: Why does the warning message say the argument is not numeric?
 <!-- * _Answer_: R converts the entire vector to character because of the "NA", and doesn't recognize it as numeric. -->
 
-Next, we will use the "surveys" dataset to explore the `data.frame` data
-structure, which is one of the most common types of R objects.
+</div>

@@ -5,10 +5,10 @@ excerpt: "#"
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/objects-in-r
+permalink: /course-materials/earth-analytics/write-clean-code-with-r
 nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+lastModified: 2016-12-14
 sidebar:
   nav:
 author_profile: false
