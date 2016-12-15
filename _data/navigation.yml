@@ -40,25 +40,25 @@ earth-analytics-2017:
   - title: Course Overview
     children:
       - title: Course Home
-        url: /course-materials/earth-analytics
+        url: /course-materials/earth-analytics/
       - title: "Syllabus"
-        url: /course-materials/earth-analytics/geog-4100-5100-syllabus
+        url: /course-materials/earth-analytics/geog-4100-5100-syllabus/
   - title: Week One
     children:
       - title: "In Class"
-        url: /course-materials/earth-analytics/co-floods-1-intro
+        url: /course-materials/earth-analytics/co-floods-1-intro/
       - title: "Homework - Setup"
-        url: /course-materials/earth-analytics/setup-r-rstudio
+        url: /course-materials/earth-analytics/setup-r-rstudio/
       - title: "Homework - Rmd"
-        url: /course-materials/earth-analytics/intro-rmarkdown-knitr
+        url: /course-materials/earth-analytics/intro-rmarkdown-knitr/
   - title: Week Two
     children:
       - title: "In Class"
-        url: /course-materials/earth-analytics/get-to-know-r
+        url: /course-materials/earth-analytics/get-to-know-r/
       - title: "Homework - ??"
-        url: /course-materials/earth-analytics/setup-r-rstudio
+        url: /course-materials/earth-analytics/setup-r-rstudio/
       - title: "Homework - ??"
-        url: /course-materials/earth-analytics/intro-rmarkdown-knitr
+        url: /course-materials/earth-analytics/intro-rmarkdown-knitr/
   - title: Week Three
     children:
       - title: "In Class"

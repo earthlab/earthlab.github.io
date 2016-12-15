@@ -5,7 +5,7 @@ excerpt: "."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/about-and-get-help-with-R
+permalink: /course-materials/earth-analytics/about-and-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
 lastModified: 2016-12-14
