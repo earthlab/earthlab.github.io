@@ -1,19 +1,19 @@
 ---
 layout: single
-title: "Working with data in R"
+title: "Working with spreadsheet (tabular) data in R"
 excerpt: "."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/data-in-R
-nav-title: 'Data in R'
+permalink: /course-materials/earth-analytics/spreadsheet-data-in-R
+nav-title: 'Spreadsheet Data in R'
 dateCreated: 2016-12-13
 lastModified: 2016-12-14
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 4
+order: 5
 ---
 
 .
@@ -23,7 +23,7 @@ order: 4
 # Learning Objectives
 At the end of this activity, you will be able to:
 
-* 
+*
 
 ## What You Need
 
@@ -37,7 +37,7 @@ directory with it.
 
 </div>
 
-In the homework, we used the code below to create a report with knitr. 
+In the homework, we used the code below to create a report with knitr.
 
 
 ```r
@@ -49,23 +49,23 @@ library(ggplot2)
 options(stringsAsFactors = FALSE)
 
 # download data from figshare
-# note that we are downloaded the data into your 
+# note that we are downloaded the data into your
 download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/boulder-precip.csv")
 ```
 
 First, we used the `download.file` function to download a datafile. In this case,
 the data are housed on figshare.com - a popoular data repository that is free
-to use if your data are cumulatively smaller than 20gb. 
+to use if your data are cumulatively smaller than 20gb.
 
 Notice that download.file has two **ARGUMENTS**:
 
 1. url: this is the path to the data file that you wish to download
-2. deskfile: this is the location on your computer (in this case: `/data`) and name of the 
+2. deskfile: this is the location on your computer (in this case: `/data`) and name of the
 file when saved (in this case: boulder-precip.csv). So we downloaded a file from
 a url on figshare do our data directory. We named that file `boulder-precip.csv`.
 
-Next, we read in the data using the function: `read.csv`. 
+Next, we read in the data using the function: `read.csv`.
 
 
 ```r
@@ -130,7 +130,7 @@ boulder.precip$PRECIP
 
 ## Plotting our Data
 
-We can quickly plot our data too. 
+We can quickly plot our data too.
 
 
 ```r
@@ -139,7 +139,7 @@ qplot(x=boulder.precip$DATE,
       y=boulder.precip$PRECIP)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/wk2-get-to-know-r/2016-12-06-R04-exploring-data-r/quick-plot-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/wk2-get-to-know-r/2016-12-06-R05-exploring-data-r/quick-plot-1.png)
 
 <div class="notice--success" markdown="1">
 

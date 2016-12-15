@@ -42,7 +42,6 @@ directory with it.
 ## Consistent, Clean Code
 
 Be consistent when you write your code (where you put spaces, how you name
-variable, etc.). In R, two popular style guides are
-[Hadley Wickham's](http://adv-r.had.co.nz/Style.html) and
-[Google's](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml). Pick
-one and use it!
+variable, etc.). In R
+[Hadley Wickham's style guide](http://adv-r.had.co.nz/Style.html) is popular. We
+will use this style guide for the rest of our course.

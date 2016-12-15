@@ -7,7 +7,7 @@ library(ggplot2)
 options(stringsAsFactors = FALSE)
 
 # download data from figshare
-# note that we are downloaded the data into your 
+# note that we are downloaded the data into your
 download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/boulder-precip.csv")
 
