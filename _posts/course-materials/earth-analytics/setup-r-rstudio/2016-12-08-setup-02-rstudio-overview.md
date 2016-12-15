@@ -12,7 +12,7 @@ sidebar:
   nav:
 course: 'earth-analytics'
 class-lesson: ['setup-r-rstudio']
-permalink: /course-materials/earth-analytics/intro-to-r-and-rstudio
+permalink: /course-materials/earth-analytics/intro-to-r-and-rstudio/
 author_profile: false
 comments: false
 order: 2
