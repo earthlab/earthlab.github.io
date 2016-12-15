@@ -25,7 +25,6 @@ order: 3
 At the end of this activity, you will be able to:
 
 * Understand the structure of and be able to create a vector object in R.
-* Be able to define what a `NA` value is in `R` and how it is used in a vector.
 
 ## What You Need
 
@@ -73,9 +72,10 @@ length(weight_g)
 length(animals)
 ## [1] 3
 ```
+## Vector data types
 
-An important feature of a vector, is that all of the elements are the same type of data.
-The function `class()` indicates the class (the type of element) of an object:
+An important feature of a vector, is that all of the elements are the same data
+type. The function `class()` shows us the class (the data type) of an object:
 
 
 ```r
@@ -85,8 +85,8 @@ class(animals)
 ## [1] "character"
 ```
 
-The function `str()` provides an overview of the object and the elements it
-contains. It is a really useful function when working with large and complex
+The function `str()` shows us the **structure** of the object and the elements it
+contains. `str()` is a really useful function when working with large and complex
 objects:
 
 
@@ -101,20 +101,22 @@ You can add elements to your vector by using the `c()` function:
 
 
 ```r
-weight_g <- c(weight_g, 90) # adding at the end of the vector
-weight_g <- c(30, weight_g) # adding at the beginning of the vector
+
+# add the number 90 to the end of the vector
+weight_g <- c(weight_g, 90)
+
+# add the number 30 to the beginning of the vector
+weight_g <- c(30, weight_g)
 weight_g
 ## [1] 30 50 60 65 82 90
 ```
 
-What happens here is that we take the original vector `weight_g`, and we are
-adding another item first to the end of the other ones, and then another item at
-the beginning. We can do this over and over again to grow a vector, or assemble
-a dataset. As we program, this may be useful to add results that we are
-collecting or calculating.
+In the examples above, we saw 2 of the 6 **atomic vector** types that `R` uses:
 
-We just saw 2 of the 6 **atomic vector** types that R uses: `"character"` and
-`"numeric"`. These are the basic building blocks that all R objects are built
+1. `"character"` and
+2. `"numeric"`.
+
+These are the basic data tpes that all `R` objects are built
 from. The other 4 are:
 
 * `"logical"` for `TRUE` and `FALSE` (the boolean data type)
@@ -123,17 +125,18 @@ from. The other 4 are:
   `1+4i`) and that's all we're going to say about them
 * `"raw"` that we won't discuss further
 
-Vectors are one of the many **data structures** that R uses. Other important
-ones are lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
-factors (`factor`).
+## Data type vs. data structure
+Vectors are one of the many **data structures** that `R` uses. Other important
+ones include: lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
+factors (`factor`). We will look at `data.frames` when we open our `boulder.precip`
+data in the next lesson!
 
 <div class="notice--warning" markdown="1">
 
 # Challenge
 
-* **Question**: We’ve seen that atomic vectors can be of type character,
-  numeric, integer, and logical. But what happens if we try to mix these types in
-  a single vector?
+* **Question**: What happens when we create a vector that contains both numbers
+and character values? Give it a try and write down the answer.
 <!-- * _Answer_: R implicitly converts them to all be the same type -->
 
 * **Question**: What will happen in each of these examples? (hint: use `class()`
@@ -141,8 +144,8 @@ factors (`factor`).
 
 ```r
 num_char <- c(1, 2, 3, 'a')
-num_logical <- c(1, 2, 3, TRUE)
-char_logical <- c('a', 'b', 'c', TRUE)
+num_logical <- c(1, 2, 3, '2.45')
+char_logical <- c('a', 'b', 'c', frog)
 tricky <- c(1, 2, 3, '4')
 ```
 * **Question**: Why do you think it happens?
@@ -174,7 +177,7 @@ animals[c(3, 2)]
 ## [1] "dog" "rat"
 ```
 
-<fa fa-star></i>**Data Tip:** R indexes start at 1. Programming languages like
+<i fa fa-star></i>**Data Tip:** R indexes start at 1. Programming languages like
 Fortran, MATLAB, and R start
 counting at 1, because that's what human beings typically do. Languages in the C
 family (including C++, Java, Perl, and Python) count from 0 because that's
@@ -235,92 +238,3 @@ animals[animals %in% c("rat", "cat", "dog", "duck")]
 ##   "four" comes after "five", and therefore is "greater than" it.
 ```
 -->
-
-
-
-## Missing data
-
-As R was designed to analyze datasets, it includes the concept of missing data
-(which is uncommon in other programming languages). Missing data are represented
-in vectors as `NA`.
-
-
-```r
-planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus",
-             "Neptune", NA)
-```
-
-The default setting for most base functions that read data into R is to
-interpret `NA` as a missing value. If there are multiple types of missing values
-in your dataset, you can extend what R considers a missing value when it reads
-the file in.  To do this you supply additional values to the "`na.strings`"
-argument of the command to read in the data. For instance, if you wanted to read
-in a CSV file named `planets.csv` that had missing values represented as empty
-cell, a single blank space, and the value -999, you would use:
-
-
-```r
-planets_df <- read.csv(file = "planets.csv", na.strings = c("", " ", "-999"))
-```
-
-When doing operations on numbers, most functions will return `NA` if the data
-you are working with include missing values. It is a safer behavior as otherwise
-you may overlook that you are dealing with missing data. You can add the
-argument `na.rm=TRUE` to calculate the result while ignoring the missing values.
-
-
-```r
-heights <- c(2, 4, 4, NA, 6)
-mean(heights)
-## [1] NA
-max(heights)
-## [1] NA
-mean(heights, na.rm = TRUE)
-## [1] 4
-max(heights, na.rm = TRUE)
-## [1] 6
-```
-
-If your data include missing values, you may want to become familiar with the
-functions `is.na()`, `na.omit()`, and `complete.cases()`. See below for
-examples.
-
-
-
-```r
-## Extract those elements which are not missing values.
-heights[!is.na(heights)]
-## [1] 2 4 4 6
-
-## Returns the object with incomplete cases removed. The returned object is atomic.
-na.omit(heights)
-## [1] 2 4 4 6
-## attr(,"na.action")
-## [1] 4
-## attr(,"class")
-## [1] "omit"
-
-## Extract those elements which are complete cases.
-heights[complete.cases(heights)]
-## [1] 2 4 4 6
-```
-
-<div class="notice--warning" markdown="1">
-
-# Challenge
-
-* **Question**: Why does the following piece of code give a warning?
-
-```r
-sample <- c(2, 4, 4, "NA", 6)
-mean(sample, na.rm = TRUE)
-## Warning in mean.default(sample, na.rm = TRUE): argument is not numeric or
-## logical: returning NA
-## [1] NA
-```
-<!-- * _Answer_: Because R recognizes the NA in quotes as a character. -->
-
-* **Question**: Why does the warning message say the argument is not numeric?
-<!-- * _Answer_: R converts the entire vector to character because of the "NA", and doesn't recognize it as numeric. -->
-
-</div>

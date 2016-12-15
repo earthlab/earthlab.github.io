@@ -5,6 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
+lastModified: 2016-12-14
 category: [course-materials]
 class-lesson: ['co-floods-2-data-r']
 permalink: /course-materials/co-floods-precip-r
@@ -17,45 +18,46 @@ order: 3
 ---
 
 Several factors contributed to extreme flooding that occurred in Boulder,
-Colorado in 2013. In this data activity, we explore and visualize the data for
-precipitation (rainfall) data collected by the National Weather Service's
-Cooperative Observer Program. The tutorial is part of the Data Activities that
-can be used with the
-<a href="{{ site.basurl }}/teaching-modules/disturb-events-co13/" target="_blank"> *Ecological Disturbance Teaching Module*</a>.
+Colorado in 2013. In this tutorial, we will import, manipulate and plot precipitation
+data downloaded from the National Weather Service's
+Cooperative Observer Program.
 
-<div id="objectives" markdown="1">
+<div class="success-warning" markdown="1">
 
 ### Learning Objectives
+
 After completing this tutorial, you will be able to:
 
-* Download precipitation data from
-<a href="http://www.ncdc.noaa.gov/" target="_blank">NOAA's National Centers for Environmental Information</a>.
-* Plot precipitation data in R.
-* Publish & share an interactive plot of the data using Plotly.
+* Import a text file into R.
+* Manipulate data from a text file and plot a quantitative output (precipitation over time)
+* Publish & share an interactive plot of the data using Plot.ly.
 * Subset data by date (if completing Additional Resources code).
 * Set a NoData Value to NA in R (if completing Additional Resources code).
 
 ### Things You'll Need To Complete This Lesson
+
 Please be sure you have the most current version of R and, preferably,
 RStudio to write your code.
 
  **R Skill Level:** Intermediate - To succeed in this tutorial, you will need to
-have basic knowledge for use of the R software program.
+have basic knowledge for use of the `R` ssoftware program.
 
 ### R Libraries to Install:
 
 * **ggplot2:** `install.packages("ggplot2")`
 * **plotly:** `install.packages("plotly")`
 
-#### Data Download & Directory Preparation
+#### Data Download
 
-Part of this lesson is to access and download the data directly from NOAA's
-National Climate Divisional Database. If instead you would prefer to download
-the data as a single compressed file, it can be downloaded from the
-<a href="https://ndownloader.figshare.com/files/6780978"> NEON Data Skills account on FigShare</a>.
+<a href="https://ndownloader.figshare.com/files/6780978"> Download Precipitation Data </a>.
 
-To more easily follow along with this lesson, use the same organization for your
-files and folders as we did. First, create a `data` directory (folder) within
+
+#### Directory Structure
+
+Save the data downloaded above in a directory on your computer called data using 
+the following path:
+
+First, create a `data` directory (folder) within
 your `Documents` directory. If you downloaded the compressed data file above,
 unzip this file and place the `distub-events-co13` folder within the `data`
 directory you created. If you are planning to access the data directly as
@@ -67,120 +69,7 @@ accordingly.
 
 </div>
 
-## Research Question
-What were the patterns of precipitation leading up to the 2013 flooding events
-in Colorado?
 
-## Precipitation Data
-The heavy **precipitation (rain)** that occurred in September 2013 caused much
-damage during the 2013 flood by, among other things, increasing
-**stream discharge (flow)**. In this lesson we will download, explore, and
-visualize the precipitation data collected during this time to better understand
-this important flood driver.
-
-## Where can we get precipitation data?
-
-The precipitation data are obtained through
- <a href="http://www.ncdc.noaa.gov/" target="_blank">NOAA's National Centers for Environmental Information</a>
-(formerly the National Climatic Data Center). There are numerous climatic
-datasets that can be found and downloaded via the
-<a href="http://www.ncdc.noaa.gov/cdo-web/search" target="_blank">Climate Data Online Search portal</a>.
-
-The precipitation data that we will use is from the
-<a href="https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/cooperative-observer-network-coop" target="_blank">Cooperative Observer Network (COOP)</a>.
-
-> "Through the National Weather Service (NWS) Cooperative Observer Program
-(COOP), more than 10,000 volunteers take daily weather observations at National
-Parks, seashores, mountaintops, and farms as well as in urban and suburban
-areas. COOP data usually consist of daily maximum and minimum temperatures,
-snowfall, and 24-hour precipitation totals."
-> Quoted from NOAA's National Centers for Environmental Information
-
-Data is collected at different stations, often on paper data sheets like the one
-below, and then entered into a central database where we can access that data and
-download it in the .csv (Comma Separated Values) format.
-
- <figure>
-   <a href="{{ site.baseurl }}/images/disturb-events-co13/COOP_SampleDataSheet.png">
-   <img src="{{ site.baseurl }}/images/disturb-events-co13/COOP_SampleDataSheet.png"></a>
-   <figcaption> An example of the data sheets used to collect the precipitation
-   data for the Cooperative Observer Network. Source: Cooperative Observer
-   Network, NOAA
-   </figcaption>
-</figure>
-
-## Obtain the Data
-
-If you have not already opened the
-<a href="http://www.ncdc.noaa.gov/cdo-web/search" target="_blank">Climate Data
-Online Search portal</a>, do so now.
-
-Note: If you are using the pre-compiled data subset that can be downloaded as a
-compressed file above, you should still read through this section to know where
-the data comes from before proceeding with the lesson.
-
-#### Step 1: Search for the data
-To obtain data we must first choose a location of interest.
-The COOP site Boulder 2 (Station ID:050843) is centrally located in Boulder, CO.
-
- <figure>
-   <a href="{{ site.baseurl }}/images/disturb-events-co13/LocationOfPrecipStation.png">
-   <img src="{{ site.baseurl }}/images/disturb-events-co13/LocationOfPrecipStation.png"></a>
-   <figcaption> Cooperative Observer Network station 050843 is located in
-   central Boulder, CO. Source: National Centers for Environmental Information
-   </figcaption>
-</figure>
-
-Then we must decide what type of data we want to download for that station. As
-shown in the image below, we selected:
-
-* the desired date range (1 January 2003 to 31 December 2013),
-* the type of dataset ("Precipitation Hourly"),
-* the search type ("Stations") and
-* the search term (e.g. the # for the station located in central Boulder, CO: 050843).
-
- <figure>
-   <a href="{{ site.baseurl }}/images/disturb-events-co13/NCEI_DownloadData_ScreenShot.png">
-   <img src="{{ site.baseurl }}/images/disturb-events-co13/NCEI_DownloadData_ScreenShot.png"></a>
-   <figcaption> An example of the data sheets used to collect the precipitation
-   data for the Cooperative Observer Network. Source: National Ecological
-   Observatory Network (NEON)
-   </figcaption>
-</figure>
-
-Once the data is entered and you select `Search`, you will be directed to a
-new page with a map. You can find out more information about the data by selecting
-`View Full Details`.
-Notice that this dataset goes all the way back to 1 August 1948! However, we've
-selected only a portion of this time frame.
-
-#### Step 2: Request the data
-Once you are sure this is the data that you want, you need to request it by
-selecting `Add to Cart`. The data can then be downloaded as a **.csv** file
-which we will use to conduct our analyses. Be sure to double check the date
-range before downloading.
-
-On the options page, we want to make sure we select:
-
-* Station Name
-* Geographic Location (this gives us longitude & latitude; optional)
-* Include Data Flags (this gives us information if the data are problematic)
-* Units (Standard)
-* Precipitation (w/ HPCP automatically checked)
-
-On the next page you must enter an email address for the data set to be sent
-to.
-
-#### Step 3: Get the data
-As this is a small dataset, it won't take long for you to get an email telling
-you the dataset is ready. Follow the link in the email to download your dataset.
-You can also view documentation (metadata) for the data.
-Each data subset is downloaded with a unique order number.  The order number in
-our example data set is 805325.  If you are using a data set you've downloaded
-yourself, make sure to substitute in your own order number in the code below.
-
-To ensure that we remember what our data file is, we've added a descriptor to
-the order number: `805325-precip_daily_2003-2013`. You may wish to do the same.
 
 # Work with Precipitation Data
 
@@ -192,7 +81,7 @@ interactive plots.
 
 ```r
 # set your working directory
-#setwd("working-dir-path-here")
+# setwd("working-dir-path-here")
 
 # load packages
 library(ggplot2) # create efficient, professional plots
@@ -219,7 +108,7 @@ the R object structure.
 ```r
 
 # import precip data into R data.frame
-precip.boulder <- read.csv("disturb-events-co13/precip/805325-precip_daily_2003-2013.csv",
+precip.boulder <- read.csv("data/flood-co-2013/precip/805325-precip_daily_2003-2013.csv",
                            header = TRUE)
 
 # view first 6 lines of the data
@@ -232,11 +121,11 @@ head(precip.boulder)
 ## 5 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811 20030203 02:00
 ## 6 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811 20030205 02:00
 ##   HPCP Measurement.Flag Quality.Flag
-## 1  0.0                g
-## 2  0.0                g
-## 3  0.2
-## 4  0.1
-## 5  0.1
+## 1  0.0                g             
+## 2  0.0                g             
+## 3  0.2                              
+## 4  0.1                              
+## 5  0.1                              
 ## 6  0.1
 
 # view structure of data
@@ -323,7 +212,7 @@ values, are labelled with the placeholder `999.99`. Do we have any NoData values
 hist(precip.boulder$HPCP)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/no-data-values-hist-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/2016-12-06-eros02-precipitation-data-in-R/no-data-values-hist-1.png)
 
 Looking at the histogram, it looks like we have mostly low values (which makes sense) but a few values
 up near 1000 -- likely 999.99. We can assign these entries to be `NA`, the value that
@@ -362,7 +251,7 @@ Now that we've cleaned up the data, we can view it. To do this we will plot usin
 
 ```r
 
-#plot the data
+# plot the data using ggplot2
 precPlot_hourly <- ggplot(data=precip.boulder,  # the data frame
       aes(DateTime, HPCP)) +   # the variables of interest
       geom_bar(stat="identity") +   # create a bar graph
@@ -373,7 +262,7 @@ precPlot_hourly
 ## Warning: Removed 94 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/plot-precip-hourly-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/2016-12-06-eros02-precipitation-data-in-R/plot-precip-hourly-1.png)
 
 As we can see, plots of hourly date lead to very small numbers and is difficult
 to represent all information on a figure. Hint: If you can't see any bars on your
@@ -412,7 +301,7 @@ precPlot_daily1
 ## Warning: Removed 94 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/daily-summaries-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/2016-12-06-eros02-precipitation-data-in-R/daily-summaries-1.png)
 
 R will automatically combine all data from the same day and plot it as one entry.
 
@@ -474,13 +363,13 @@ Now we can plot the daily data.
 precPlot_daily <- ggplot(data=precip.boulder_daily,  # the data frame
       aes(DATE, PRECIP)) +   # the variables of interest
       geom_bar(stat="identity") +   # create a bar graph
-      xlab("Date") + ylab("Precipitation (Inches)") +  # label the x & y axes
+      xlab("Date") + ylab("Precipitation (inches)") +  # label the x & y axes
       ggtitle("Daily Precipitation - Boulder Station\n 2003-2013")  # add a title
 
 precPlot_daily
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/daily-prec-plot-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/2016-12-06-eros02-precipitation-data-in-R/daily-prec-plot-1.png)
 
 Compare this plot to the plot we created using the first method. Are they the same?
 
@@ -519,7 +408,7 @@ precPlot_flood
 ## Warning: Removed 770 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/plot-Aug-Oct-2013-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/2016-12-06-eros02-precipitation-data-in-R/plot-Aug-Oct-2013-1.png)
 
 Now we can easily see the dramatic rainfall event in mid-September!
 
@@ -548,13 +437,13 @@ max(precip.boulder_AugOct$DATE)
 # create new plot
 precPlot_flood2 <- ggplot(data=precip.boulder_AugOct, aes(DATE,PRECIP)) +
   geom_bar(stat="identity") +
-  xlab("Time") + ylab("Precipitation (inches)") +
-  ggtitle("Daily Total Precipitation \n Boulder Creek 2013")
+  xlab("Date") + ylab("Precipitation (inches)") +
+  ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek")
 
 precPlot_flood2
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/intro-co-floodsCOOP-NEIS-Precipitation-In-R/subset-data-1.png)
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/co-floods-2-data-r/2016-12-06-eros02-precipitation-data-in-R/subset-data-1.png)
 
 
 ## Interactive Plots - Plotly
@@ -581,7 +470,7 @@ plotly_POST(precPlot_flood2)
 
 ```
 
-<iframe width="100%" height="500" frameborder="0" scrolling="no" src="//plot.ly/~leahawasser/159.embed"></iframe>
+<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~leahawasser/161.embed"></iframe>
 
 <div id="challenge" markdown="1">
 
@@ -602,7 +491,7 @@ As an added challenge, aggregate the data by month instead of by day.
 
 ### Units & Scale
 If you are using a dataset downloaded before 2016, the units were in
-**hundredths of an inch**, this isn't the most useful measure. You might want to
+**hundredths of an inch**. You might want to
 create a new column `PRECIP` that contains the data from `HPCP` converted to
 inches.
 
