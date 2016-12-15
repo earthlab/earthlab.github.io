@@ -8,12 +8,12 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/about-and-get-help-with-R
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+lastModified: 2016-12-14
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 6
+order: 7
 ---
 
 Getting help
@@ -58,13 +58,15 @@ for statistics but also data science. Inspired by the programming language S.
 
 If you need help with a specific function, let's say `barplot()`, you can type:
 
-```{r, eval=FALSE, purl=FALSE}
+
+```r
 ?barplot
 ```
 
 If you just need to remind yourself of the names of the arguments, you can use:
 
-```{r, eval=FALSE, purl=FALSE}
+
+```r
 args(lm)
 ```
 
@@ -75,7 +77,8 @@ If you are looking for a function to do a particular task, you can use
 However, this only looks through the installed packages for help pages with a
 match to your search request
 
-```{r, eval=FALSE, purl=FALSE}
+
+```r
 ??kruskal
 ```
 

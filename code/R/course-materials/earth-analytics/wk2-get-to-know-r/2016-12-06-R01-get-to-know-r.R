@@ -25,8 +25,25 @@ qplot(x=boulder.precip$DATE,
       y=boulder.precip$PRECIP)
 
 
-## ---- results='show'-----------------------------------------------------
+## ----import-data---------------------------------------------------------
+# import data
+boulder.precip <- read.csv(file="data/boulder-precip.csv")
 
+# view new object
+boulder.precip
+
+
+## ----simple-function-----------------------------------------------------
+# take the square root of a value
+sqrt(16)
+
+
+## ----round-data----------------------------------------------------------
+# round a number
 round(3.14159)
 
+
+## ----args-cmd------------------------------------------------------------
+# view arguments for the round function
+args(round)
 
