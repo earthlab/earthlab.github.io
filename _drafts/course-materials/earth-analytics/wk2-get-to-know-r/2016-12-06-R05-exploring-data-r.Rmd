@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Working with data in R"
+title: "Working with spreadsheet (tabular) data in R"
 excerpt: "."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 4
+order: 5
 ---
 
 .
