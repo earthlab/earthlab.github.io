@@ -100,7 +100,7 @@ sync_libs_yaml <- function(missing_df, libs_yaml) {
     libs_yaml %>%
       as.yaml() %>%
       fix_booleans() %>%
-      quote_titles() %>%
+      quote_field(field = "title") %>%
       cat(file = "_data/libs.yml")
   }
 }
@@ -153,7 +153,7 @@ generate_lib_md <- function(df) {
                  langSide = TRUE) %>%
       as.yaml() %>%
       fix_booleans() %>%
-      quote_titles()
+      quote_field(field = "title")
     
     # save as md
     cat(paste0("---\n",
