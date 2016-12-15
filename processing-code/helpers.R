@@ -4,7 +4,8 @@ options(stringsAsFactors = FALSE)
 # Helper functions for building the website -------------------------------
 posts_to_ignore <- function() {
   # return a character vector of posts to ignore when building
-  c("readme.md", 
+  c("readme", 
+    "README",
     "creating-animated-maps-matplotlib")
 }
 
@@ -20,7 +21,7 @@ except <- function(files, to_ignore = posts_to_ignore()) {
 
 list_posts <- function() {
   # returns a vector with all of the markdown files in the _posts/ directory
-  post_dir <- "_posts"
+  post_dir <- "."
   post_dir %>%
     file.path(list.files(post_dir, pattern = "\\.md",
                          recursive = TRUE, include.dirs = TRUE)) %>%
@@ -37,19 +38,24 @@ yaml2df <- function(file, field) {
   
   first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
   delims <- which(grepl(pattern = "---", x = first_n_lines))
+  
+  null_result <- data.frame(value = NULL, slug = NULL)
+  
+  if (length(delims) == 0) {
+    # file does not contain yaml
+    return(null_result)
+  }
   yaml_list <- first_n_lines[(delims[1] + 1):(delims[2] - 1)] %>%
     paste(collapse = "\n") %>%
     yaml.load()
   
   field_does_not_exist <- !(field %in% names(yaml_list))
   if (field_does_not_exist) {
-    warning(paste(field, "does not exist in yaml frontmatter of", file, "\n"))
     return(data.frame(value = NULL, slug = NULL))
   }
   
   empty_field <- is.null(yaml_list[[field]]) | length(yaml_list[[field]]) == 0
   if (empty_field) {
-    warning(paste(field, "has no entries in", file, "\n"))
     return(data.frame(value = NULL, slug = NULL))
   }
   
@@ -86,21 +92,23 @@ fix_booleans <- function(x) {
 }
 
 
-
-
-
-quote_titles <- function(x) {
+quote_field <- function(x, field) {
+  # quotes a field in a yaml string
+  # e.g., if in the input we have authors: Bob Dole
+  # this should change to authors: 'Bob Dole'
   res <- x %>%
-    gsub(pattern = "title: ", 
-         replacement = "title: '") %>%
+    gsub(pattern = paste0(field, ": "), 
+         replacement = paste0(field, ": '")) %>%
+    gsub(pattern = "\n   ", replacement = "", fixed = TRUE) %>% # rm linewraps
+    gsub(pattern = "'{3}", replacement = "'") %>% # handle blank entries
     strsplit("\n") %>%
     unlist()
-  
-  which_append <- res %>%
-    grep(pattern = "title")
-  
-  res[which_append] <- paste0(res[which_append], "'")
-  
-  res %>%
-    paste(collapse = "\n")
+
+    which_append <- res %>%
+      grep(pattern = field)
+    
+    res[which_append] <- paste0(res[which_append], "'")
+    
+    res %>%
+      paste(collapse = "\n")
 }
