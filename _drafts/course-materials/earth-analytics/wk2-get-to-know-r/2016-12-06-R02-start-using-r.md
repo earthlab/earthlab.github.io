@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "Get to Know R & RStudio"
+title: "Objects in R"
 excerpt: "This tutorial introduces the R scientific programming language. It is
 designed for someone who has not used R before. We will work with precipitation and
 stream discharge data for Boulder County."
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/start-using-r
-nav-title: 'Use R'
+permalink: /course-materials/earth-analytics/objects-in-r
+nav-title: 'Objects in R'
 dateCreated: 2016-12-13
 lastModified: 2016-12-14
 sidebar:
@@ -25,9 +25,7 @@ order: 2
 # Learning Objectives
 At the end of this activity, you will be able to:
 
-* Be able to work with the 4 panes in the RStudio interface
-* Understand the basic concept of a function and be able to use a function in your code.
-* Know how to use key operator commands in R (<-)
+* Be able to create, modify and use objects or variables in `R`.
 
 ## What You Need
 
@@ -38,18 +36,19 @@ directory with it.
 * [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
 * [Setup your working directory](/course-materials/setup-working-directory)
 
-
 </div>
 
 
 ## Creating objects
 
-You can get output from R simply by typing in math in the console
+You can get output from `R` simply by typing in math in the console
 
 
 ```r
+# add 3 + 5
 3 + 5
 ## [1] 8
+# divide 12 by 7
 12/7
 ## [1] 1.714286
 ```
@@ -60,28 +59,35 @@ assignment operator `<-`, and the value we want to give it:
 
 
 ```r
+# assign weight_kg to the value of 55
 weight_kg <- 55
+
+# view object value
+weight_kg
+## [1] 55
 ```
 
+## Use Useful Object Names
 Objects can be given any name such as `x`, `current_temperature`, or
-`subject_id`. You want your object names to be explicit and not too long. They
-cannot start with a number (`2x` is not valid, but `x2` is). R is case sensitive
-(e.g., `weight_kg` is different from `Weight_kg`). There are some names that
-cannot be used because they are the names of fundamental functions in R (e.g.,
+`subject_id`. However, it is best to use clear and descriptive words when Naming
+objects to ensure your code is easy to follow:
+
+1. **Keep object names short:** this makes them easier to read when scanning through code.
+2. **Use meaningful names:** For example: `precip` is a more useful name that tells us something about the object compared to `x`
+3. **Don't start names with numbers!** Objects that start with a number are NOT VALID in R.
+4. **Avoid names that are existing functions in R:** e.g.,
 `if`, `else`, `for`, see
 [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
-for a complete list). In general, even if it's allowed, it's best to not use
-other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`). In doubt
-check the help to see if the name is already in use. It's also best to avoid
-dots (`.`) within a variable name as in `my.dataset`. There are many functions
-in R with dots in their names for historical reasons, but because dots have a
-special meaning in R (for methods) and other programming languages, it's best to
-avoid them. It is also recommended to use nouns for variable names, and verbs
-for function names. It's important to be consistent in the styling of your code
-(where you put spaces, how you name variable, etc.). In R, two popular style
-guides are [Hadley Wickham's](http://adv-r.had.co.nz/Style.html) and
-[Google's](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml).
 
+A few other notes about object names in R:
+
+* R is case sensitive (e.g., `weight_kg` is different from `Weight_kg`).
+* Avoid other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`).
+* Use nouns for variable names, and verbs for function names.
+* Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning in R (for methods) and other programming languages
+
+
+## View object value
 When assigning a value to an object, R does not print anything. You can force to
 print the value by using parentheses or by typing the name:
 
@@ -131,9 +137,11 @@ weight_kg <- 100
 
 What do you think is the current content of the object `weight_lb`? 126.5 or 200?
 
-### Challenge
+<div class="notice--warning" markdown="1">
 
-What are the values after each statement in the following?
+# Challenge
+
+What are the values of each object defined in EACH LINE OF code below?
 
 
 ```r
@@ -143,3 +151,4 @@ mass <- mass * 2.0      # mass?
 age  <- age - 20        # age?
 mass_index <- mass/age  # mass_index?
 ```
+</div>
