@@ -7,7 +7,7 @@ authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 lastModified: `r format(Sys.time(), "%Y-%m-%d")`
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr3
+permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr3/
 nav-title: 'R knitr package'
 sidebar:
   nav:
@@ -150,7 +150,7 @@ yet, use `ggplot2`!
 library(ggplot2)
 
 # download data from figshare
-# note that we are downloaded the data into your 
+# note that we are downloaded the data into your
 download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/boulder-precip.csv")
 
