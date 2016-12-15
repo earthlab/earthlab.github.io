@@ -1,11 +1,11 @@
 ---
 layout: post-by-category
 category: tutorials
-title: 'utm - Python Data Intensive Tutorials'
-permalink: /tutorials/python/utm/
+title: 'urllib2 - Python Data Intensive Tutorials'
+permalink: /tutorials/python/urllib2/
 comments: false
 author_profile: false
 language: python
-library: utm
+library: urllib2
 langSide: true
 ---
