@@ -3,6 +3,7 @@
   - cenpy
   - climata
   - ee
+  - elevation
   - folium
   - ftplib
   - gdal
@@ -10,20 +11,21 @@
   - glob
   - h5py
   - ipyparallel
-  - math
   - matplotlib
   - numpy
   - ogr
   - os
   - osgeo
   - pandas
+  - pydem
   - pymodis
   - pysal
   - rpy2
   - shapely
   - sys
   - urllib
-  - utm
+  - urllib2
+  - zipfile
 - lang: r
   libs:
   - dplyr
