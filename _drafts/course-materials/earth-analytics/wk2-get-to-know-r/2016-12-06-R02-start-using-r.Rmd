@@ -70,7 +70,7 @@ Objects can be given any name such as `x`, `current_temperature`, or
 objects to ensure your code is easy to follow:
 
 1. **Keep object names short:** this makes them easier to read when scanning through code.
-2. **Use meaningful names: **For example: `precip` is a more useful name that tells us something about the object compared to `x`
+2. **Use meaningful names:** For example: `precip` is a more useful name that tells us something about the object compared to `x`
 3. **Don't start names with numbers!** Objects that start with a number are NOT VALID in R.
 4. **Avoid names that are existing functions in R:** e.g.,
 `if`, `else`, `for`, see
@@ -82,15 +82,6 @@ A few other notes about object names in R:
 * Avoid other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`).
 * Use nouns for variable names, and verbs for function names.
 * Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning in R (for methods) and other programming languages
-
-
-## Consistent, Clean Code
-
-Be consistent when you write your code (where you put spaces, how you name
-variable, etc.). In R, two popular style guides are
-[Hadley Wickham's](http://adv-r.had.co.nz/Style.html) and
-[Google's](https://google-styleguide.googlecode.com/svn/trunk/Rguide.xml). Pick
-one and use it!
 
 
 ## View object value
@@ -138,12 +129,13 @@ What do you think is the current content of the object `weight_lb`? 126.5 or 200
 
 # Challenge
 
-What are the values after each statement in the following?
+What are the values of each object defined in EACH LINE OF code below?
 
-```{r, purl=FALSE}
+```{r challenge-activity }
 mass <- 47.5            # mass?
 age  <- 122             # age?
 mass <- mass * 2.0      # mass?
 age  <- age - 20        # age?
 mass_index <- mass/age  # mass_index?
+```
 </div>
