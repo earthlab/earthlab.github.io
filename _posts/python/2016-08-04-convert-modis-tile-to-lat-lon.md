@@ -10,7 +10,7 @@ sidebar:
 author_profile: false
 comments: true
 lang: [python]
-lib: [numpy]
+lib: [numpy, urllib2]
 ---
 
 Many MODIS data products are organized in a tile grid based on a sinusoidal projection. 
@@ -25,18 +25,43 @@ This tutorial will demonstrate how to perform this conversion in Python.
 
 ## Dependencies
 
+- wget
 - numpy
+- urllib2
 
 
 ```python
 import numpy as np
+import urllib2
 ```
 
 MODIS provides a text file containing the range of latitude and longitude coordinates for each tile. We will load this data into a numpy two dimensional array. Next, we will define the coordinates of the point we would like to convert.
 
 
 ```python
-data = np.loadtxt('../data/SinusoidalGrid.txt')
+!wget https://modis-land.gsfc.nasa.gov/pdf/sn_bound_10deg.txt
+```
+
+    --2016-12-14 16:28:08--  https://modis-land.gsfc.nasa.gov/pdf/sn_bound_10deg.txt
+    Resolving modis-land.gsfc.nasa.gov... 129.164.179.244, 2001:4d0:2310:150::244
+    Connecting to modis-land.gsfc.nasa.gov|129.164.179.244|:443... connected.
+    HTTP request sent, awaiting response... 200 OK
+    Length: 32585 (32K) [text/plain]
+    Saving to: ‘sn_bound_10deg.txt’
+    
+    sn_bound_10deg.txt  100%[===================>]  31.82K  --.-KB/s    in 0.05s   
+    
+    2016-12-14 16:28:08 (610 KB/s) - ‘sn_bound_10deg.txt’ saved [32585/32585]
+    
+
+
+
+```python
+# first seven rows contain header information
+# bottom 3 rows are not data
+data = np.genfromtxt('sn_bound_10deg.txt', 
+                     skip_header = 7, 
+                     skip_footer = 3)
 lat = 40.015
 lon = -105.2705
 ```
@@ -61,5 +86,5 @@ horiz = data[i-1, 1]
 print('Vertical Tile:', vert, 'Horizontal Tile:', horiz)
 ```
 
-    Vertical Tile: 4.0 Horizontal Tile: 9.0
+    ('Vertical Tile:', 4.0, 'Horizontal Tile:', 9.0)
 
