@@ -5,7 +5,7 @@ excerpt: "Resources."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr6
+permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr6/
 nav-title: 'Setup & Resources'
 sidebar:
   nav:

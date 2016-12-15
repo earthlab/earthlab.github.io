@@ -8,7 +8,7 @@ nav-title: 'File Organization 101'
 sidebar:
   nav:
 class-lesson: ['setup-r-rstudio']
-permalink: course-materials/earth-analytics/file-organization-101
+permalink: course-materials/earth-analytics/file-organization-101/
 dateCreated: 2016-12-12
 dateModified: 2016-12-12
 course: 'earth-analytics'
