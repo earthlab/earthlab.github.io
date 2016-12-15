@@ -8,13 +8,13 @@ authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/get-to-know-r
-nav-title: 'Intro to R'
+nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
 lastModified: 2016-12-14
 module-title: 'Get to Know The R Programming Language'
-module-description: 'This tutorial introduces the R scientific programming language. It is
-designed for someone who has not used R before. We will work with precipitation and
-stream discharge data for Boulder County.'
+module-description: 'This tutorial introduces the R scientific programming language.
+We will work with precipitation and stream discharge data for Boulder County
+to better understand the R syntax, various data types and data import and plotting.'
 sidebar:
   nav:
 author_profile: false
@@ -32,7 +32,7 @@ as used in `R`.
 At the end of this activity, you will be able to:
 
 * Understand the basic concept of a function and be able to use a function in your code.
-* Know how to use key operator commands in R (<-)
+* Know how to use key operator commands in R (`<-`)
 
 ## What You Need
 
