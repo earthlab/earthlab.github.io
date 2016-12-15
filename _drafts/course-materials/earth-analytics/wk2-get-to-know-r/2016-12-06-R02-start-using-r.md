@@ -41,7 +41,7 @@ directory with it.
 
 ## Creating objects
 
-You can get output from `R` simply by typing in math in the console
+You can get output from `R` by typing in math in the console
 
 
 ```r
@@ -53,7 +53,7 @@ You can get output from `R` simply by typing in math in the console
 ## [1] 1.714286
 ```
 
-However, to do useful and interesting things, we need to assign _values_ to
+However, is it more useful to assign _values_ to
 _objects_. To create an object, we need to give it a name followed by the
 assignment operator `<-`, and the value we want to give it:
 
@@ -69,7 +69,7 @@ weight_kg
 
 ## Use Useful Object Names
 Objects can be given any name such as `x`, `current_temperature`, or
-`subject_id`. However, it is best to use clear and descriptive words when Naming
+`subject_id`. However, it is best to use clear and descriptive words when naming
 objects to ensure your code is easy to follow:
 
 1. **Keep object names short:** this makes them easier to read when scanning through code.
@@ -79,17 +79,16 @@ objects to ensure your code is easy to follow:
 `if`, `else`, `for`, see
 [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
 
-A few other notes about object names in R:
+A few other notes about object names in `R`:
 
-* R is case sensitive (e.g., `weight_kg` is different from `Weight_kg`).
+* `R` is case sensitive (e.g., `weight_kg` is different from `Weight_kg`).
 * Avoid other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`).
 * Use nouns for variable names, and verbs for function names.
-* Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning in R (for methods) and other programming languages
-
+* Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning in R (for methods) and other programming languages. Instead use underscores `my_dataset`.
 
 ## View object value
-When assigning a value to an object, R does not print anything. You can force to
-print the value by using parentheses or by typing the name:
+When assigning a value to an object, `R` does not print anything. You can force
+it to print the value by using parentheses or by typing the name:
 
 
 ```r
@@ -100,7 +99,7 @@ weight_kg          # and so does typing the name of the object
 ## [1] 55
 ```
 
-Now that R has `weight_kg` in memory, we can do arithmetic with it. For
+Now that `R` has `weight_kg` in memory, we can do arithmetic with it. For
 instance, we may want to convert this weight in pounds (weight in pounds is 2.2
 times the weight in kg):
 
