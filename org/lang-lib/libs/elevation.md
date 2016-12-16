@@ -1,11 +1,11 @@
 ---
 layout: post-by-category
 category: tutorials
-title: 'mpl_toolkits - Python Data Intensive Tutorials'
-permalink: /tutorials/python/mpl_toolkits/
+title: 'elevation - Python Data Intensive Tutorials'
+permalink: /tutorials/python/elevation/
 comments: false
 author_profile: false
 language: python
-library: mpl_toolkits
+library: elevation
 langSide: true
 ---
