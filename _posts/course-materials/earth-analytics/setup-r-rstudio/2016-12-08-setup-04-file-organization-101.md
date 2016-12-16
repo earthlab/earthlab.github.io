@@ -42,7 +42,7 @@ At the end of this activity, you will:
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
 
 </div>
 
@@ -58,7 +58,7 @@ project, the more self explanatory, the better.
 
 <figure class="half">
 	<a href="{{ site.url }}/images/slide-shows/intro-rr/basmati-rice.png">
-	<img src="{{ site.url }}/images/slide-shows/intro-rr/basmati-rice.png"></a>
+	<img src="{{ site.url }}/images/slide-shows/intro-rr/basmati-rice.png" alt="basmati rice label on cookie container."></a>
 	<figcaption> A well structured project uses directory (folder) names that describe
   the contents of the directory. Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
@@ -76,7 +76,7 @@ A well structured project directory should:
 
 <figure>
 	<a href="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png">
-	<img src="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png"></a>
+	<img src="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png" alt="good file organization"></a>
 	<figcaption> Example of a well-organized project directory. Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
 </figure>
@@ -90,7 +90,7 @@ the most self explanatory? The ones on the LEFT? Or the ones of the RIGHT?
 
 <figure>
 	<a href="{{ site.url }}/images/slide-shows/intro-rr/human-readable-jenny.png">
-	<img src="{{ site.url }}/images/slide-shows/intro-rr/human-readable-jenny.png"></a>
+	<img src="{{ site.url }}/images/slide-shows/intro-rr/human-readable-jenny.png" alt="example of human readable file names"></a>
 	<figcaption> Compare the list of file names on the LEFT to those on the right
   which ones are easier to quickly understand? Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
