@@ -38,8 +38,8 @@ your computer. Also we recommend have you have an `earth-analytics` directory
 setup on your computer with a `/data` directory with it. Follow the links below
 for help getting R, R studio and your data directory setup.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
-* [Setup your working directory](/course-materials/setup-working-directory/)
+* [How to Setup R / R Studio](/course-materials/earth-analytics/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/earth-analytics/setup-working-directory/)
 
 
 </div>
