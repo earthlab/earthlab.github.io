@@ -16,11 +16,11 @@ dirs <- c("course-materials/earth-analytics/co-floods-1-intro",
 # is it a draft or a final
 post.dirs <- c("_drafts", "_posts")
 
-post.dir <- post.dirs[1]
+post.dir <- post.dirs[2]
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[2]
+subDir <- dirs[5]
 
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"

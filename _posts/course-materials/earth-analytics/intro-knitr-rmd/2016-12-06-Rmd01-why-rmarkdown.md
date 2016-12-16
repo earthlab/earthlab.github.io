@@ -5,7 +5,7 @@ excerpt: "This tutorial introduces the importance of tools supporting documentin
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr
+permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr/
 nav-title: 'Intro to RMD'
 dateCreated: 2016-12-12
 dateModified: 2016-12-12
@@ -38,8 +38,8 @@ your computer. Also we recommend have you have an `earth-analytics` directory
 setup on your computer with a `/data` directory with it. Follow the links below
 for help getting R, R studio and your data directory setup.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
-* [Setup your working directory](/course-materials/setup-working-directory)
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/setup-working-directory/)
 
 
 </div>
@@ -136,10 +136,10 @@ files.We will cover knitr later in this series.
 
 <figure class="half">
 	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/rmd-file.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/rmd-file.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/rmd-file.png" alt="rmd example file">
 	</a>
 	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/knitr-output.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/knitr-output.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-knitr-rmd/knitr-output.png" alt="knitr output">
 	</a>
 	<figcaption>R Markdown script (left) and the HTML produced from the knit R
 	Markdown script (right).

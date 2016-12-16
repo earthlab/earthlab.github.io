@@ -1,4 +1,4 @@
-## ----open-file-----------------------------------------------------------
+## ----open-file, fig.cap="precip data plot"-------------------------------
 
 # load the ggplot2 library for plotting
 library(ggplot2)
