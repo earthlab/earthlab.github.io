@@ -39,7 +39,7 @@ At the end of this activity, you will:
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
+* [How to Setup R / R Studio](/course-materials/earth-analytics/setup-r-rstudio/)
 
 </div>
 
