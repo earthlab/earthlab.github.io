@@ -31,7 +31,7 @@ boulder.precip$DATE
 # view the precip column
 boulder.precip$PRECIP
 
-## ----quick-plot----------------------------------------------------------
+## ----quick-plot, fig.cap="plot precipitation data"-----------------------
 # q plot stands for quick plot. Let's use it to plot our data
 qplot(x=boulder.precip$DATE,
       y=boulder.precip$PRECIP)
