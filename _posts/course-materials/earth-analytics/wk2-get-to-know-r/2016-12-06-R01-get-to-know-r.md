@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/get-to-know-r
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-14
+lastModified: 2016-12-15
 module-title: 'Get to Know The R Programming Language'
 module-description: 'This tutorial introduces the R scientific programming language.
 We will work with precipitation and stream discharge data for Boulder County
@@ -40,8 +40,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
-* [Setup your working directory](/course-materials/setup-working-directory)
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/setup-working-directory/)
 * [Intro to the R & RStudio Interface](/course-materials/earth-analytics/intro-to-r-and-rstudio)
 
 </div>
@@ -100,7 +100,7 @@ qplot(x=boulder.precip$DATE,
       y=boulder.precip$PRECIP)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/wk2-get-to-know-r/2016-12-06-R01-get-to-know-r/open-file-1.png)
+![precip data plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/wk2-get-to-know-r/2016-12-06-R01-get-to-know-r/open-file-1.png)
 
 The above chunk of code, uses syntax that is unique the `R` programming language.
 Syntax is simply the characters or commands that `R` understands and associated

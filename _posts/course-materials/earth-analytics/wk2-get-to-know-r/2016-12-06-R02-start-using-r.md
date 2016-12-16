@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/objects-in-r
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-14
+lastModified: 2016-12-15
 sidebar:
   nav:
 author_profile: false
@@ -33,8 +33,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
-* [Setup your working directory](/course-materials/setup-working-directory)
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/setup-working-directory/)
 
 </div>
 

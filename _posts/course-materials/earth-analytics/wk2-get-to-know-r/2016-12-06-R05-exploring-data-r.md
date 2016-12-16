@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/spreadsheet-data-in-R
 nav-title: 'Spreadsheet Data in R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-14
+lastModified: 2016-12-15
 sidebar:
   nav:
 author_profile: false
@@ -31,8 +31,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
-* [Setup your working directory](/course-materials/setup-working-directory)
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/setup-working-directory/)
 
 
 </div>
@@ -139,7 +139,7 @@ qplot(x=boulder.precip$DATE,
       y=boulder.precip$PRECIP)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/wk2-get-to-know-r/2016-12-06-R05-exploring-data-r/quick-plot-1.png)
+![plot precipitation data]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/wk2-get-to-know-r/2016-12-06-R05-exploring-data-r/quick-plot-1.png)
 
 <div class="notice--success" markdown="1">
 

@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/missing-data-in-r-na
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
-lastModified: 2016-12-14
+lastModified: 2016-12-15
 sidebar:
   nav:
 author_profile: false
@@ -32,17 +32,17 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
-* [Setup your working directory](/course-materials/setup-working-directory)
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/setup-working-directory/)
 
 
 </div>
 
 ## Missing data - No Data Values
 
-Sometimes, our data are missing values. Imagine a spreadsheet in excelt with
-cells that are blank. If the cells are blank, we don't know for sure whether
-those data weren't collected, or something forgot to fill in a value. To account
+Sometimes, our data are missing values. Imagine a spreadsheet in Microsoft excel
+with cells that are blank. If the cells are blank, we don't know for sure whether
+those data weren't collected, or something someone forgot to fill in. To account
 for data that are missing (not by mistake) we can put a value in those cells
 that represents `no data`.
 
@@ -59,16 +59,18 @@ The default setting for most base functions that read data into `R` is to
 interpret `NA` as a missing value.
 
 ## Customizing no data values
-Sometimes, you'll get a dataset that uses another value for missing data - for
-example -9999 is sometimes used. If there are multiple types of missing values
-in your dataset, you can extend what `R` considers a missing value when it reads
+
+Sometimes, you'll find a dataset that uses another value for missing data. In some
+disciplines, for example -9999 is sometimes used. If there are multiple types of
+missing values in your dataset, you can extend what `R` considers a missing value when it reads
 the file in using  "`na.strings`" argument. For instance, if you wanted to read
-in a `.CSV` file named `planets.csv` that had missing values represented as empty
+in a `.CSV` file named `planets.csv` that had missing values represented as an empty
 cell, a single blank space, and the value -999, you would use:
 
 
 ```r
 
+# import data with multiple no data values
 planets_df <- read.csv(file = "planets.csv", na.strings = c("", " ", "-999"))
 ## Warning in file(file, "rt"): cannot open file 'planets.csv': No such file
 ## or directory

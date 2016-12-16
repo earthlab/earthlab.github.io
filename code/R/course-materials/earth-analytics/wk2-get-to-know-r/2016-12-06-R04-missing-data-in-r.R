@@ -5,6 +5,7 @@ planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus",
 
 ## ---- read-na-values-custom----------------------------------------------
 
+# import data with multiple no data values
 planets_df <- read.csv(file = "planets.csv", na.strings = c("", " ", "-999"))
 
 ## ----math-no-data--------------------------------------------------------
