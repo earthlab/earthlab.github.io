@@ -26,7 +26,7 @@ the dataset, move it to this directory.
 
 <figure>
 	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute3-rmd/FileStructureScreenShot.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute3-rmd/FileStructureScreenShot.png"></a>
+	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute3-rmd/FileStructureScreenShot.png" alt="file structure screenshot"></a>
 	<figcaption> The <strong>data</strong> directory with the teaching data subset. This is the suggested organization for all Data Institute teaching data subsets.
 	Source: National Ecological Observatory Network (NEON)
 	</figcaption>
