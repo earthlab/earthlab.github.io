@@ -7,7 +7,7 @@ stream discharge data for Boulder County."
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/objects-in-r
+permalink: /course-materials/earth-analytics/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
 lastModified: 2016-12-15
