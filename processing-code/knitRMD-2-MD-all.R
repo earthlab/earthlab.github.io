@@ -10,7 +10,7 @@ require(knitr)
 dirs <- c("course-materials/earth-analytics/co-floods-1-intro",
           "course-materials/earth-analytics/co-floods-2-data-r",
           "course-materials/earth-analytics/intro-knitr-rmd",
-          "course-materials/setup-r-rstudio",
+          "course-materials/earth-analytics/setup-r-rstudio",
           "course-materials/earth-analytics/wk2-get-to-know-r")
 
 # is it a draft or a final

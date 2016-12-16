@@ -10,7 +10,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/setup-working-directory/
 dateCreated: 2016-12-12
-dateModified: 2016-12-14
+dateModified: 2016-12-15
 author_profile: false
 comments: false
 order: 5
@@ -77,7 +77,7 @@ called `data`
 
 <figure>
 	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-dir-os.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-dir-os.png"></a>
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-dir-os.png" alt="working directory screenshot"></a>
 	<figcaption> Your working directory should look like this. Right now it just
 	contains one directory called data.
 	</figcaption>
@@ -92,7 +92,7 @@ options panel` (see screen shot below).
 
 <figure>
 	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/r-studio-wd-setup.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/r-studio-wd-setup.png"></a>
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/r-studio-wd-setup.png" alt="setup working directory in rstudio"></a>
 	<figcaption> Set your default working directory in R studio to the Earth Analytics
   directory. That way, every time you open `RStudio` it will default to that
   directory. Image: RStudio Version 0.99.903.
@@ -137,7 +137,7 @@ Your window should look like the screen shot below:
 
 <figure>
 	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-directory.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-directory.png"></a>
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-directory.png" alt="working directory screenshot"></a>
 	<figcaption> Your working directory should look like this. It should contain
 	just a `data` directory. Image: RStudio Version 0.99.903. Source: Earth Lab.
 	</figcaption>
@@ -147,7 +147,7 @@ Your window should look like the screen shot below:
 
 <figure>
 	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/set-working-dir-rstudio.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/set-working-dir-rstudio.png"></a>
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/set-working-dir-rstudio.png" alt="rstudio working directory set"></a>
 	<figcaption> You can set your working directory in RStudio directly. Image: RStudio Version 0.99.903. Source: Earth Lab.
 	</figcaption>
 </figure>
