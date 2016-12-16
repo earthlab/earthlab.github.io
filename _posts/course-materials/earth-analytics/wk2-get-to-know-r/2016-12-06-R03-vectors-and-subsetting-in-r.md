@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/work-with-data-types-r
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-14
+lastModified: 2016-12-15
 sidebar:
   nav:
 author_profile: false
@@ -32,8 +32,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/course-materials/setup-r-rstudio)
-* [Setup your working directory](/course-materials/setup-working-directory)
+* [How to Setup R / R Studio](/course-materials/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/setup-working-directory/)
 
 
 </div>
@@ -42,7 +42,7 @@ directory with it.
 ## Vectors and data types
 
 A vector is the most common data structure in `R`. A vector is defined as a
-a group of values, which most often are either numbers or characters. You can
+group of values, which most often are either numbers or characters. You can
 assign this list of values to an object or variable, just like you
 can for a single value. For example we can create a vector of animal weights:
 
@@ -72,6 +72,7 @@ length(weight_g)
 length(animals)
 ## [1] 3
 ```
+
 ## Vector data types
 
 An important feature of a vector, is that all of the elements are the same data
