@@ -44,7 +44,7 @@ Download Google Earth</a>
 
 ## Download Data
 
-<a href="##" target="_blank"  class="btn btn-success">
+<a href=https://ndownloader.figshare.com/files/7005404" target="_blank"  class="btn btn-success">
 Download Data -- Need to Push to Repo?</a>
 
 </div>
@@ -58,8 +58,8 @@ conditions associated with the soils in Colorado and other factors yielded and
 devastating flooding across the Front Range in Colorado, USA.
 
 <figure>
- <a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg" alt="North St Vrain before and after 2013 flood.">
- <img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg"></a>
+ <a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg">
+ <img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg" alt="North St Vrain before and after 2013 flood."></a>
  <figcaption> The St. Vrain River in Boulder County, CO after (left) and before
  (right) the 2013 flooding event.  Source: Boulder County via <a href="http://krcc.org/post/post-flood-planning-boulder-county" target="_blank"> KRCC</a>.
  </figcaption>
