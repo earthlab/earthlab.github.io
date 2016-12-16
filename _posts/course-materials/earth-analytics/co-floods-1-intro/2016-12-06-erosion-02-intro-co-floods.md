@@ -58,7 +58,7 @@ conditions associated with the soils in Colorado and other factors yielded and
 devastating flooding across the Front Range in Colorado, USA.
 
 <figure>
- <a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg">
+ <a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg" alt="North St Vrain before and after 2013 flood.">
  <img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg"></a>
  <figcaption> The St. Vrain River in Boulder County, CO after (left) and before
  (right) the 2013 flooding event.  Source: Boulder County via <a href="http://krcc.org/post/post-flood-planning-boulder-county" target="_blank"> KRCC</a>.
@@ -89,7 +89,7 @@ Boulder, Colorado. If it doesn't double click on the text `Locations of Signific
 
 <figure>
  <a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/google-earth-time.png">
- <img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/google-earth-time.png"></a>
+ <img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/google-earth-time.png" alt="google earth time series feature."></a>
  <figcaption> The `show historical imagery` button allows you to turn on and slide
  through imagery from various points in time within Google Earth. It is the button
  outlined in pink in the above imaged.
