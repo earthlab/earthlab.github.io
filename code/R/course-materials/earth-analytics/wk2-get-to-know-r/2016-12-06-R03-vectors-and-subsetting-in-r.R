@@ -1,9 +1,7 @@
-## ---- echo=FALSE, purl=TRUE----------------------------------------------
-### Creating objects in R
+## ----weight-vector-------------------------------------------------------
+weight_g <- c(50, 60, 65, 82)
+weight_g
 
-
-## ---- echo=FALSE, purl=TRUE----------------------------------------------
-### Vectors and data types
 
 ## ---- echo=FALSE, eval=FALSE, purl=TRUE----------------------------------
 ## ## We’ve seen that atomic vectors can be of type character, numeric, integer, and

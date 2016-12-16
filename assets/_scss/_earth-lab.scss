@@ -4,5 +4,21 @@
    ========================================================================== */
 
 div.notice--success, div.notice--warning {
-   padding: 2em;
+   padding: 2em !important;
+   font-size: .8em !important;
+
+   code {
+     font-size: .9em
+   }
 }
+
+
+.nav__sub-title {
+  background-color: mix(#000, $info-color, 20%);
+  color: #fff;
+  padding-left: .7em;
+}
+
+.nav__list li ul li {
+    padding-left: 0.5em;
+  }

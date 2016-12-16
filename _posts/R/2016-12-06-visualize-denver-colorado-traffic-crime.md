@@ -1,14 +1,14 @@
 ---
-layout: single 
+layout: single
 title: "Visualizing hourly traffic crime data for Denver, Colorado using R, dplyr, and ggplot"
-date: 2016-12-06 
-authors: [Max Joseph] 
-category: [tutorials] 
-excerpt: 'This tutorial demonstrates how to access and visualize crime data for Denver, Colorado.' 
-sidebar: 
-nav: 
-author_profile: false 
-comments: true 
+date: 2016-12-06
+authors: [Max Joseph]
+category: [tutorials]
+excerpt: 'This tutorial demonstrates how to access and visualize crime data for Denver, Colorado.'
+sidebar:
+nav:
+author_profile: false
+comments: true
 lang: [r]
 lib: [dplyr, ggplot2, lubridate, viridis, RCurl]
 ---
@@ -67,9 +67,9 @@ The code below uses the `dplyr` package to subset the data to only include traff
 accidents <- d %>%
   filter(offense_category_id == "traffic-accident") %>%
   mutate(datetime = ymd_hms(first_occurrence_date, tz = "MST"),
-         hm = as.POSIXct(paste(hour(datetime), minute(datetime), sep = ":"), 
+         hm = as.POSIXct(paste(hour(datetime), minute(datetime), sep = ":"),
                          format = "%H:%M"),
-         dow = wday(datetime), 
+         dow = wday(datetime),
          yday = yday(datetime))
 ```
 
@@ -80,29 +80,29 @@ p <- accidents %>%
   group_by(hm, dow, yday, offense_type_id) %>%
   summarize(n = n()) %>%
   # the call to mutate() makes new variables with better names
-  mutate(day = factor(c("Sunday", "Monday", "Tuesday", 
-                 "Wednesday", "Thursday", "Friday", 
-                 "Saturday")[dow], 
-                 levels = c("Monday", "Tuesday", 
-                            "Wednesday", "Thursday", "Friday", 
-                            "Saturday", "Sunday")), 
+  mutate(day = factor(c("Sunday", "Monday", "Tuesday",
+                 "Wednesday", "Thursday", "Friday",
+                 "Saturday")[dow],
+                 levels = c("Monday", "Tuesday",
+                            "Wednesday", "Thursday", "Friday",
+                            "Saturday", "Sunday")),
          offense_type = ifelse(
-           offense_type_id == "traffic-accident-hit-and-run", 
-           "Hit and run", 
+           offense_type_id == "traffic-accident-hit-and-run",
+           "Hit and run",
            ifelse(
              offense_type_id == "traffic-accident-dui-duid",
              "Driving under the influence", "Traffic accident"))) %>%
-  ggplot(aes(x = hm, 
-             fill = day, 
-             color = day)) + 
+  ggplot(aes(x = hm,
+             fill = day,
+             color = day)) +
   geom_freqpoly(binwidth = 60 * 30) + # 60 sec/min * 30 min
-  scale_color_viridis(discrete = TRUE, "", direction = -1) + 
-  scale_fill_viridis(discrete = TRUE, "", direction = -1) + 
-  xlab("Time of day") + 
-  ylab("Frequency") + 
-  ggtitle("Traffic crimes in Denver, Colorado") + 
+  scale_color_viridis(discrete = TRUE, "", direction = -1) +
+  scale_fill_viridis(discrete = TRUE, "", direction = -1) +
+  xlab("Time of day") +
+  ylab("Frequency") +
+  ggtitle("Traffic crimes in Denver, Colorado") +
   scale_x_datetime(date_breaks = "4 hours", date_labels = "%H:%M")
-p 
+p
 ```
 
 ![Traffic accident data for each hour in Denver, CO](/images/visualize-denver-colorado-traffic-crime_files/plot-hourly-1.png)

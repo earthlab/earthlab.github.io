@@ -16,14 +16,14 @@
 
     {% assign prevPageNum = page.order | minus: 1 %}
       {% if post.order == prevPageNum %}
-        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn-success">
+        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn--info btn--large btn-success">
           <i class="fa fa-4 fa-arrow-circle-left fa-4" aria-hidden="true"></i>
           PREVIOUS - {{ post.nav-title }} </a>
       {% endif %}
 
       {% assign nextPageNum = page.order | plus: 1 %}
       {% if post.order == nextPageNum %}
-       <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn-success" style="float:right" >
+       <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn--info btn--large btn-success" style="float:right" >
          {{ post.nav-title }} - NEXT
          <i class="fa fa-4 fa-arrow-circle-right" aria-hidden="true"></i></a>
       {% endif %}
