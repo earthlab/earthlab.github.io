@@ -7,7 +7,7 @@ authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 lastModified: 2016-12-13
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/intro-rmarkdown-code-chunks
+permalink: /course-materials/earth-analytics/intro-rmarkdown-code-chunks/
 nav-title: 'Code Chunks'
 sidebar:
   nav:
@@ -83,9 +83,9 @@ in R, and sets the working directory.
 
 <pre>
 <code>
- 
+
  ```r
- 
+
    1+2
  ## [1] 3
  ```
