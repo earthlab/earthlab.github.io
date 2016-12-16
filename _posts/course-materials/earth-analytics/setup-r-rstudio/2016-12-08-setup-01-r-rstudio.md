@@ -15,7 +15,7 @@ sidebar:
   nav:
 course: 'earth-analytics'
 class-lesson: ['setup-r-rstudio']
-permalink: /course-materials/earth-analytics/setup-r-rstudio
+permalink: /course-materials/earth-analytics/setup-r-rstudio/
 author_profile: false
 comments: false
 order: 1
