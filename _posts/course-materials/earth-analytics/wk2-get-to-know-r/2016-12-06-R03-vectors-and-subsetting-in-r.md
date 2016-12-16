@@ -6,7 +6,7 @@ and working with NA values."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/work-with-data-types-r
+permalink: /course-materials/earth-analytics/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
 lastModified: 2016-12-15
