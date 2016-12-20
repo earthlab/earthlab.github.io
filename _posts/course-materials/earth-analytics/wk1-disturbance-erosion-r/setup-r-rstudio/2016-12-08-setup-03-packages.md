@@ -12,7 +12,7 @@ sidebar:
   nav:
 course: 'earth-analytics'
 class-lesson: ['setup-r-rstudio']
-permalink: /course-materials/earth-analytics/install-r-packages/
+permalink: /course-materials/earth-analytics/wk1-disturbance-erosion-r/install-r-packages/
 author_profile: false
 comments: false
 order: 3

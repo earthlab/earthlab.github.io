@@ -14,10 +14,3 @@ Week One landing page.
 
 This page needs to have the in class stuff
 And the homework.
-
-- title: "In Class"
-  url: /course-materials/earth-analytics/get-to-know-r/
-- title: "Homework - ??"
-  url: /course-materials/earth-analytics/setup-r-rstudio/
-- title: "Homework - ??"
-  url: /course-materials/earth-analytics/intro-rmarkdown-knitr/
