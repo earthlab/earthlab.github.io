@@ -5,7 +5,7 @@ excerpt: "Understanding the floods with data."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
-permalink: /course-materials/earth-analytics/co-floods-1-intro/
+permalink: /course-materials/earth-analytics/wk1-disturbance-erosion/co-floods-1-intro/
 nav-title: 'CO Floods - Google Earth'
 dateCreated: 2016-12-06
 dateModified: 2016-12-12
@@ -128,6 +128,13 @@ Then answer the questions below.
 <i class="fa fa-star"></i> **Precipitation:** is the moisture that
 falls from clouds including rain, hail and snow.
 {: .notice}
+
+<figure>
+ <a href="https://plot.ly/~NEONDataSkills/6/total-monthly-precipitation-boulder-co-station/">
+ <img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/intro-co-floods/total-monthly-precip.png" alt="North St Vrain before and after 2013 flood."></a>
+ <figcaption> Total Monthly Precipitation. Click on the image to EXPLORE the data interactively! Data Source: NOAA <a href="http://krcc.org/post/post-flood-planning-boulder-county" target="_blank"> KRCC</a>.
+ </figcaption>
+</figure>
 
 <iframe width="100%" height="400" frameborder="0" scrolling="no" src="https://plot.ly/~NEONDataSkills/6.embed"></iframe>
 
