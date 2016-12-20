@@ -5,7 +5,7 @@ excerpt: "#"
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/write-clean-code-with-r/
+permalink: /course-materials/earth-analytics/wk2-disturbance-erosion-r/write-clean-code-with-r/
 nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
 lastModified: 2016-12-15
