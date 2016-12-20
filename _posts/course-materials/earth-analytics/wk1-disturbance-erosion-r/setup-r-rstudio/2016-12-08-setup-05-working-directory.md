@@ -10,7 +10,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-working-directory/
 dateCreated: 2016-12-12
-dateModified: 2016-12-15
+dateModified: 2016-12-20
 author_profile: false
 comments: false
 order: 5
