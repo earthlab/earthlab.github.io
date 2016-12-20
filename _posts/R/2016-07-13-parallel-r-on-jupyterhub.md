@@ -40,7 +40,7 @@ num_cores <- detectCores()
 cl <- makeCluster(num_cores)
 ```
 
-The parallel package contains functions that mirror the base R [lapply](http://www.inside-r.org/r-doc/base/sapply) function. The following example will calculate the square of each number in a sequence in parallel.
+The parallel package contains functions that mirror the base R `sapply` function. The following example will calculate the square of each number in a sequence in parallel.
 
 
 ```R
