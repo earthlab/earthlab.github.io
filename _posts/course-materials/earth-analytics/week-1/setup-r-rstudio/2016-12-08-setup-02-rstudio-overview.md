@@ -48,8 +48,8 @@ The placement of these panes and their content can be customized using the RStud
 preferences: (see menu, RStudio -> Preferences -> Pane Layout).
 
 <figure>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/wk2-get-to-know-r/rstudio-interface.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/wk2-get-to-know-r/rstudio-interface.png" alt="rstudio interface">
+	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/get-to-know-r/rstudio-interface.png">
+	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/get-to-know-r/rstudio-interface.png" alt="rstudio interface">
 	</a>
 	<figcaption>The RStudio IDE (Integrated Development Environment) is divided into
   four panes in it's default layout.
