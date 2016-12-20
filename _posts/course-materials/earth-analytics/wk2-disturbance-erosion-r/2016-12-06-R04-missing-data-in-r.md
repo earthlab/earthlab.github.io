@@ -5,10 +5,10 @@ excerpt: "This tutorial introduces the concept of missing of no data values in R
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/missing-data-in-r-na/
+permalink: /course-materials/earth-analytics/wk2-disturbance-erosion-r/missing-data-in-r-na/
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+lastModified: 2016-12-15
 sidebar:
   nav:
 author_profile: false
@@ -48,7 +48,8 @@ that represents `no data`.
 
 The `R` programming language uses the value `NA` to represent missing data values.
 
-```{r no-data-values }
+
+```r
 
 planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus",
              "Neptune", NA)
@@ -66,10 +67,14 @@ the file in using  "`na.strings`" argument. For instance, if you wanted to read
 in a `.CSV` file named `planets.csv` that had missing values represented as an empty
 cell, a single blank space, and the value -999, you would use:
 
-```{r, read-na-values-custom }
+
+```r
 
 # import data with multiple no data values
 planets_df <- read.csv(file = "planets.csv", na.strings = c("", " ", "-999"))
+## Warning in file(file, "rt"): cannot open file 'planets.csv': No such file
+## or directory
+## Error in file(file, "rt"): cannot open the connection
 ```
 
 When performing mathematical operations on numbers in `R`, most functions will
@@ -77,12 +82,17 @@ return the value `NA` if the data you are working with include missing values.
 This allows you to see that you have missing data in your dataset. You can add the
 argument `na.rm=TRUE` to calculate the result while ignoring the missing values.
 
-```{r math-no-data }
+
+```r
 heights <- c(2, 4, 4, NA, 6)
 mean(heights)
+## [1] NA
 max(heights)
+## [1] NA
 mean(heights, na.rm = TRUE)
+## [1] 4
 max(heights, na.rm = TRUE)
+## [1] 6
 ```
 
 If your data include missing values, you may want to become familiar with the
@@ -90,16 +100,23 @@ functions `is.na()`, `na.omit()`, and `complete.cases()`. See below for
 examples.
 
 
-```{r, purl=FALSE}
+
+```r
 # Extract those elements which are not missing values.
 heights[!is.na(heights)]
+## [1] 2 4 4 6
 
 # Returns the object with incomplete cases removed. The returned object is atomic.
 na.omit(heights)
+## [1] 2 4 4 6
+## attr(,"na.action")
+## [1] 4
+## attr(,"class")
+## [1] "omit"
 
 # Extract those elements which are complete cases.
 heights[complete.cases(heights)]
-
+## [1] 2 4 4 6
 ```
 
 <div class="notice--warning" markdown="1">
@@ -107,9 +124,13 @@ heights[complete.cases(heights)]
 # Challenge
 
 * **Question**: Why does the following piece of code give a warning?
-```{r, purl=FALSE}
+
+```r
 sample <- c(2, 4, 4, "NA", 6)
 mean(sample, na.rm = TRUE)
+## Warning in mean.default(sample, na.rm = TRUE): argument is not numeric or
+## logical: returning NA
+## [1] NA
 ```
 <!-- * _Answer_: Because R recognizes the NA in quotes as a character. -->
 

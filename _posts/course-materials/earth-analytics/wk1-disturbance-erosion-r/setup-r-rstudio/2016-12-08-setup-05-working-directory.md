@@ -8,9 +8,9 @@ nav-title: 'Setup Working Directory'
 sidebar:
   nav:
 class-lesson: ['setup-r-rstudio']
-permalink: course-materials/earth-analytics/setup-working-directory/
+permalink: course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-working-directory/
 dateCreated: 2016-12-12
-dateModified: `r format(Sys.time(), "%Y-%m-%d")`
+dateModified: 2016-12-15
 author_profile: false
 comments: false
 order: 5
@@ -106,7 +106,8 @@ to always work in the same directory (like we will in all of our tutorials).
 Finally, let's see what your main working directory. We use the  `getwd()` function
 to find out what our current working directory is in R.
 
-```{r check-working-directory, eval=FALSE}
+
+```r
 
 # view working directory
 getwd()
@@ -159,7 +160,8 @@ if you already set the working directory above. However, it's good to know how
 to do it! We use the `setwd()` function to set a new working directory as follows:
 
 
-```{r set-working-directory, eval=FALSE}
+
+```r
 
 # set working directory - MAC File Structure - backslashes
 setwd("/Users/lewa8222/Documents/earth-analytics")
