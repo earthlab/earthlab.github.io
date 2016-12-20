@@ -233,7 +233,7 @@ yaml_from_md <- function(md_filename){
 
 
 if (length(files_to_convert) > 0) {
-  pb <- txtProgressBar(min = 1, max = length(files_to_convert), style = 3)
+  pb <- txtProgressBar(min = 0, max = length(files_to_convert), style = 3)
   for (i in seq_along(files_to_convert)) {
     make_post(files_to_convert[i])
     setTxtProgressBar(pb, i)
