@@ -39,7 +39,7 @@ At the end of this activity, you will:
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
 
-* [How to Setup R / R Studio](/course-materials/earth-analytics/setup-r-rstudio/)
+* [How to Setup R / R Studio](/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/)
 
 </div>
 
@@ -76,8 +76,8 @@ called `data`
 
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-dir-os.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-dir-os.png" alt="working directory screenshot"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/working-dir-os.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/working-dir-os.png" alt="working directory screenshot"></a>
 	<figcaption> Your working directory should look like this. Right now it just
 	contains one directory called data.
 	</figcaption>
@@ -91,8 +91,8 @@ options panel` (see screen shot below).
 * Browse to the `earth-analytics` directory and set it as your default working directory.
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/r-studio-wd-setup.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/r-studio-wd-setup.png" alt="setup working directory in rstudio"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/r-studio-wd-setup.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/r-studio-wd-setup.png" alt="setup working directory in rstudio"></a>
 	<figcaption> Set your default working directory in R studio to the Earth Analytics
   directory. That way, every time you open `RStudio` it will default to that
   directory. Image: RStudio Version 0.99.903.
@@ -136,8 +136,8 @@ within the `Documents` directory.
 Your window should look like the screen shot below:
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-directory.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/working-directory.png" alt="working directory screenshot"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/working-directory.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/working-directory.png" alt="working directory screenshot"></a>
 	<figcaption> Your working directory should look like this. It should contain
 	just a `data` directory. Image: RStudio Version 0.99.903. Source: Earth Lab.
 	</figcaption>
@@ -146,8 +146,8 @@ Your window should look like the screen shot below:
 * Next, click on the `More` drop down. Choose `Set as working directory`
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/set-working-dir-rstudio.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/setup-r-rstudio/set-working-dir-rstudio.png" alt="rstudio working directory set"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/set-working-dir-rstudio.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/set-working-dir-rstudio.png" alt="rstudio working directory set"></a>
 	<figcaption> You can set your working directory in RStudio directly. Image: RStudio Version 0.99.903. Source: Earth Lab.
 	</figcaption>
 </figure>
