@@ -6,7 +6,7 @@ render it to html using knitr.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr2/
+permalink: /course-materials/earth-analytics/wk1-disturbance-erosion-r/intro-rmarkdown-knitr2/
 nav-title: 'Create RMarkdown File'
 sidebar:
   nav:
