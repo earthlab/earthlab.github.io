@@ -7,11 +7,11 @@
 ##################
 
 require(knitr)
-dirs <- c("course-materials/earth-analytics/wk1-disturbance-erosion-r/co-floods-1-intro",
+dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
           "course-materials/earth-analytics/co-floods-2-data-r",
-          "course-materials/earth-analytics/wk1-disturbance-erosion-r/intro-knitr-rmd",
-          "course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio",
-          "course-materials/earth-analytics/wk2-get-to-know-r")
+          "course-materials/earth-analytics/week-1/intro-knitr-rmd",
+          "course-materials/earth-analytics/week-1/setup-r-rstudio",
+          "course-materials/earth-analytics/week-2/get-to-know-r")
 
 # is it a draft or a final
 post.dirs <- c("_drafts", "_posts")
