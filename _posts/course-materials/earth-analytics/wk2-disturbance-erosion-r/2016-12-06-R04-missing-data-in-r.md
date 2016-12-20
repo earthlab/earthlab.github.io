@@ -5,7 +5,7 @@ excerpt: "This tutorial introduces the concept of missing of no data values in R
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/missing-data-in-r-na/
+permalink: /course-materials/earth-analytics/wk2-disturbance-erosion-r/missing-data-in-r-na/
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
 lastModified: 2016-12-15

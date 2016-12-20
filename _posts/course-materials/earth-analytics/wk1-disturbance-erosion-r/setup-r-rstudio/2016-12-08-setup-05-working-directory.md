@@ -8,7 +8,7 @@ nav-title: 'Setup Working Directory'
 sidebar:
   nav:
 class-lesson: ['setup-r-rstudio']
-permalink: course-materials/earth-analytics/setup-working-directory/
+permalink: course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-working-directory/
 dateCreated: 2016-12-12
 dateModified: 2016-12-15
 author_profile: false
