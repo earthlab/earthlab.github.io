@@ -7,10 +7,10 @@
 ##################
 
 require(knitr)
-dirs <- c("course-materials/earth-analytics/co-floods-1-intro",
+dirs <- c("course-materials/earth-analytics/wk1-disturbance-erosion-r/co-floods-1-intro",
           "course-materials/earth-analytics/co-floods-2-data-r",
-          "course-materials/earth-analytics/intro-knitr-rmd",
-          "course-materials/earth-analytics/setup-r-rstudio",
+          "course-materials/earth-analytics/wk1-disturbance-erosion-r/intro-knitr-rmd",
+          "course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio",
           "course-materials/earth-analytics/wk2-get-to-know-r")
 
 # is it a draft or a final
@@ -20,7 +20,7 @@ post.dir <- post.dirs[2]
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[3]
+subDir <- dirs[5]
 
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
