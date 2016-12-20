@@ -1,11 +1,11 @@
 ---
 layout: post-by-category
 category: tutorials
-title: 'math - Python Data Intensive Tutorials'
-permalink: /tutorials/python/math/
+title: 'pydem - Python Data Intensive Tutorials'
+permalink: /tutorials/python/pydem/
 comments: false
 author_profile: false
 language: python
-library: math
+library: pydem
 langSide: true
 ---
