@@ -5,7 +5,7 @@ excerpt: "This tutorial introduces the importance of tools supporting documentin
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/intro-rmarkdown-knitr/
+permalink: /course-materials/earth-analytics/wk1-disturbance-erosion-r/intro-rmarkdown-knitr/
 nav-title: 'Intro to RMD'
 dateCreated: 2016-12-12
 dateModified: 2016-12-12
