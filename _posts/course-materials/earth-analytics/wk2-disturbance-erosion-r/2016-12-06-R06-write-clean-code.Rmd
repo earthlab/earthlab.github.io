@@ -31,8 +31,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/course-materials/earth-analytics/setup-r-rstudio/)
-* [Setup your working directory](/course-materials/earth-analytics/setup-working-directory/)
+* [How to Setup R / R Studio](/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/earth-analytics/wk1-disturbance-erosion-r/setup-working-directory/)
 
 </div>
 
