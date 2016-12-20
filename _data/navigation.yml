@@ -46,11 +46,11 @@ earth-analytics-2017:
   - title: "WK 1-3: Intro to R & Disturbance"
     children:
       - title: "Wk 1: Introduction "
-        url: /course-materials/earth-analytics/wk1-disturbance-erosion/
+        url: /course-materials/earth-analytics/wk1-disturbance-erosion-r/
       - title: "Wk 2: Flood Data in R "
-        url: /course-materials/earth-analytics/wk2-disturbance-erosion/
+        url: /course-materials/earth-analytics/wk2-disturbance-erosion-r/
       - title: "Wk 3: Lidar Data in R"
-        url: /course-materials/earth-analytics/wk3-disturbance-erosion/
+        url: /course-materials/earth-analytics/wk3-disturbance-erosion-r/
   - title: Week Two
     children:
       - title: "In Class"
