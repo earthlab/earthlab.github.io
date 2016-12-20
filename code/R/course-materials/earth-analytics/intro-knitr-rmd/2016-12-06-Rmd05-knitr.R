@@ -26,7 +26,7 @@
 ##       y=boulder.precip$PRECIP)
 ## 
 
-## ----render-plot, echo=F-------------------------------------------------
+## ----render-plot, echo=F, fig.cap="Precipitation over time"--------------
 
 # load ggplot library for plotting
 library(ggplot2)
