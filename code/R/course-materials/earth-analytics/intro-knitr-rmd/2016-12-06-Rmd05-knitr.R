@@ -32,7 +32,7 @@
 library(ggplot2)
 
 # import data
-boulder.precip <- read.csv(file="boulder-precip.csv")
+boulder.precip <- read.csv(file="data/boulder-precip.csv")
 
 # q plot stands for quick plot. Let's use it to plot our data
 # NOTE: qplot is a function in the GGPLOT2 package
