@@ -5,7 +5,7 @@ excerpt: "."
 authors: ['Leah Wasser']
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
-permalink: course-materials/earth-analytics/wk1-disturbance-erosion/instructor-notes/
+permalink: course-materials/earth-analytics/wk1-disturbance-erosion-r/instructor-notes/
 nav-title: 'Instructor Notes'
 sidebar:
   nav:
