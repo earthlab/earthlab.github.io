@@ -42,11 +42,11 @@ directory with it.
 
 * [How to Setup R / R Studio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
 * [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/course-materials/earth-analytics/intro-to-r-and-rstudio)
+* [Intro to the R & RStudio Interface](/course-materials/earth-analytics/week-1/intro-to-r-and-rstudio)
 
 </div>
 
-In the [previous module](/course-materials/earth-analytics/setup-r-rstudio), we
+In the [previous module](/course-materials/earth-analytics/week-1/setup-r-rstudio), we
 setup `RStudio` and `R` and got to know the `RStudio` interface.
 We also created a basic
 `RMarkdown` report using `RStudio`. In this module, we will explore the basic
