@@ -1,11 +1,11 @@
 ---
 layout: post-by-category
 category: tutorials
-title: 'JSAnimation - Python Data Intensive Tutorials'
-permalink: /tutorials/python/JSAnimation/
+title: 'zipfile - Python Data Intensive Tutorials'
+permalink: /tutorials/python/zipfile/
 comments: false
 author_profile: false
 language: python
-library: JSAnimation
+library: zipfile
 langSide: true
 ---
