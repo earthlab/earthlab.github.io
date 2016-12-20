@@ -41,7 +41,7 @@ have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
 * [How to Setup R / R Studio](/course-materials/earth-analytics/setup-r-rstudio/)
-* [Setup your working directory](/course-materials/setup-working-directory/)
+* [Setup your working directory](/course-materials/earth-analytics/setup-working-directory/)
 * [Intro to the R & RStudio Interface](/course-materials/earth-analytics/intro-to-r-and-rstudio)
 
 </div>
