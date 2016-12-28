@@ -861,6 +861,9 @@ tr, td, th {
   .notice h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -891,6 +894,9 @@ tr, td, th {
   .notice--primary h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--primary h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--primary h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -921,6 +927,9 @@ tr, td, th {
   .notice--info h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--info h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--info h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -951,6 +960,9 @@ tr, td, th {
   .notice--warning h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--warning h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--warning h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -981,6 +993,9 @@ tr, td, th {
   .notice--success h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--success h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--success h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -1011,6 +1026,9 @@ tr, td, th {
   .notice--danger h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--danger h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--danger h4 {
     margin-bottom: 0;
     font-size: 1em; }

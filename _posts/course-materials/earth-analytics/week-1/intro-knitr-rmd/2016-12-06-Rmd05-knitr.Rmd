@@ -118,31 +118,8 @@ Notice that information from the YAML header (title, author, date) is printed
 at the top of the HTML document. Then the HTML shows the text, code, and
 results of the code that you included in the RMD document.
 
-<div class="notice--warning" markdown="1">
+{% include/earth-analytics/homework-wk1.html %}
 
-## Activity: Create A Report Using Knitr & R Markdown
-
-* Create a new .Rmd file in r studio. Name the file: `yourLastName-firstInitial-week1.Rmd`
-example: `wasser-l-week1.Rmd`
-
-* Add an `author:` line to the `YAML` header at the top of your `.Rmd` document.
-* Give your file an appropriate title. Suggestion: `Earth Analytics Spring 2017 - Knitr Assignment`
-* At the top of the document, add some text that describes:
-
-   * What an Rmd file is
-   * How you can use knitr in `R` and what it does.
-
-* Add the code BELOW to your rmd document into a CODE CHUNK.
-* Below the code chunk, add some TEXT that describes what the plot that you created
-shows.
-* Finally, describe what you like and don't like about the plot. If you could
-change it, what would you change?
-
-BONUS: If you know `R`, clean up the plot by adding labels and a title. Or better
-yet, use `ggplot2`!
-
-
-</div>
 
 ```{r plot-data, eval=F }
 
