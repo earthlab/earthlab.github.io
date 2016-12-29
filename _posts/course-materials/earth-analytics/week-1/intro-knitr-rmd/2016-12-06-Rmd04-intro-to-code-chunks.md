@@ -5,10 +5,11 @@ excerpt: 'This tutorial cover how code chunks are written and formatted within a
 R Markdown file in R Studio.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
-lastModified: 2016-12-20
+lastModified: 2016-12-28
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-code-chunks/
 nav-title: 'Code Chunks'
+week: 1
 sidebar:
   nav:
 author_profile: false

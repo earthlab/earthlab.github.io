@@ -8,7 +8,8 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/missing-data-in-r-na/
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
-lastModified: 2016-12-20
+lastModified: 2016-12-28
+week: 2
 sidebar:
   nav:
 author_profile: false
@@ -61,21 +62,39 @@ interpret `NA` as a missing value.
 ## Customizing no data values
 
 Sometimes, you'll find a dataset that uses another value for missing data. In some
-disciplines, for example -9999 is sometimes used. If there are multiple types of
+disciplines, for example -999 is sometimes used. If there are multiple types of
 missing values in your dataset, you can extend what `R` considers a missing value when it reads
 the file in using  "`na.strings`" argument. For instance, if you wanted to read
-in a `.CSV` file named `planets.csv` that had missing values represented as an empty
+in a `.CSV` file named `temperature_example.csv` that had missing values represented as an empty
 cell, a single blank space, and the value -999, you would use:
 
 
 ```r
+# download file
+download.file("https://ndownloader.figshare.com/files/7275959",
+              "data/week2/temperature_example.csv")
 
 # import data with multiple no data values
-planets_df <- read.csv(file = "planets.csv", na.strings = c("", " ", "-999"))
-## Warning in file(file, "rt"): cannot open file 'planets.csv': No such file
-## or directory
-## Error in file(file, "rt"): cannot open the connection
+temp_df <- read.csv(file = "data/week2/temperature_example.csv")
+
+temp_df2 <- read.csv(file = "data/week2/temperature_example.csv", na.strings = c("NA", " ", "-999"))
 ```
+
+In the example below, note how a mean value is calculated differently depending
+upon on how NA values are treated when the data are imported.
+
+
+```r
+mean(temp_df$avg_temp)
+## [1] NA
+mean(temp_df2$avg_temp)
+## [1] NA
+
+mean(temp_df2$avg_temp, na.rm = TRUE)
+## [1] 56.25
+```
+
+Notice a difference between `temp_df` and `temp_df2` ?
 
 When performing mathematical operations on numbers in `R`, most functions will
 return the value `NA` if the data you are working with include missing values.
