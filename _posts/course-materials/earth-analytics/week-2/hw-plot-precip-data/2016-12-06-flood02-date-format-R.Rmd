@@ -1,0 +1,175 @@
+---
+layout: single
+title: "Work With Dates in R - Plot Time Series Data"
+excerpt: "This lesson walks through working with time series data in R. you will learn how to convert a data field to a date class that R can understand as a date/time element."
+authors: ['Leah Wasser', 'Data Carpentry']
+lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+category: [course-materials]
+class-lesson: ['hw-ggplot2-r']
+permalink: /course-materials/earth-analytics/week-2/date-class-in-r
+nav-title: 'Dates in R'
+week: 2
+sidebar:
+  nav:
+author_profile: false
+comments: false
+order: 2
+---
+
+In this tutorial, we will look at the date time format - which is important for
+plotting and working with time series data in R.
+
+<div class='notice--success' markdown="1">
+
+# Learning Objectives
+At the end of this activity, you will be able to:
+
+* Convert column in a dataframe containing dates / times to a date/time object that can be used in R.
+
+## What You Need
+
+You need `R` and `RStudio` to complete this tutorial. Also you should have
+an `earth-analytics` directory setup on your computer with a `/data`
+directory with it.
+
+* [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)
+* [Intro to the R & RStudio Interface](/course-materials/earth-analytics/week-1/intro-to-r-and-rstudio)
+
+</div>
+
+
+In this tutorial, we will learn how to convert data that contain dates and times
+into a date / time format in R.
+
+First let's revisit the boulder precip data that we've been working with in
+this module.
+
+```{r import-data}
+
+# load the ggplot2 library for plotting
+library(ggplot2)
+
+# download data from figshare
+# note that we are downloaded the data into your
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
+              destfile = "data/boulder-precip.csv")
+
+# import data
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
+
+# view first few rows of the data
+head(boulder_precip)
+
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
+```
+
+Notice when we plot the data, the x axis is "messy". It would be better to
+only have ticks on the x axis for dates incrementally - every few weeks. Or
+once a month even.
+
+Let's look closely at the STRUCTURE of the data to understand what is happening.
+
+```{r structure}
+
+str(boulder_precip)
+
+```
+
+
+### Classes in R
+
+The structure results above tell us that the attributes in our `data.frame`
+are stored as several different data types or `classes` as follows:
+
+* **chr - Character:** It holds strings that are composed of letters and
+words. Character class data can not be interpreted numerically - that is to say
+we can not perform math on these values even if they contain only numbers.
+* **int - Integer:**  It holds numbers that are whole integers without decimals.
+Mathematical operations can be performed on integers.
+* **num - Numeric:**  It accepts data that are a wide variety of numeric formats
+including decimals (floating point values) and integers. Numeric also accept
+larger numbers than **int** will.
+
+Storing variables using different `classes` is a strategic decision by `R` (and
+other programming languages) that optimizes processing and storage. It allows:
+
+* data to be processed more quickly & efficiently.
+* the program (`R`) to minimize the storage size.
+
+Remember, that we also discussed classes during class: [vectors in R - data classes](/course-materials/earth-analytics/week-2/work-with-data-types-r/)
+
+## What is going on with the X axis?
+
+We have successfully plotted some data. However, what is happening on the
+x-axis?
+
+`R` is trying to plot EVERY date value in our data, on the x-axis. This makes it
+hard to read. Why? Let's have a look at the class of the x-axis variable - date.
+
+```{r view-class }
+# View data class for each column that we wish to plot
+class(boulder_precip$DATE)
+
+class(boulder_precip$PRECIP)
+
+```
+
+In this case, the `date` column is stored in our `data.frame` as a character
+class. Because it is a character, `R` does not know how to plot the dates as a
+continuous variable. Instead it tries to plot every date value as a text string.
+The `PRECIP` data is numeric so that metric plots just fine.
+
+## Date as a Date-Time Class
+
+We need to convert our `date` column, which is currently stored as a character
+to a `date-time` class that can be displayed as a continuous variable. Lucky
+for us, `R` has a `date` class.  We can convert the `date` field to a `date class`
+using `as.Date()`.
+
+To convert, we can use the `as.Date` function in `R`. We should specify the format
+that our dates are in as well.
+
+Looking at the results above, we see that our data are stored in the format:
+Year-Month-Day (2003-08-21). We can use this information to populate our format
+string using the following designations for the components of the date-time data:
+
+* %Y - year
+* %m - month
+* %d - day
+
+Our format string will look like this: `%Y-%m-%d`.
+For a more in depth overview of date-time formats, check out the
+<a href="http://neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank">NEON Data skills time series tutoral.</a>
+
+
+```{r convert-date-time }
+
+# convert date column to date class
+boulder_precip$DATE <- as.Date(boulder_precip$DATE, format="%Y-%m-%d")
+
+# view R class of data
+class(boulder_precip$DATE)
+
+# view results
+head(boulder_precip$DATE)
+```
+
+Now that we have adjusted the date, let's plot again. Notice that it plots
+much more quickly now that R recognizes `date` as a date class. `R` can
+aggregate ticks on the x-axis by year instead of trying to plot every day!
+
+```{r qplot-data}
+
+# quickly plot the data and include a title using main=""
+# In title string we can use '\n' to force the string to break onto a new line
+
+ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
+      geom_bar(stat="identity") +
+      ggtitle("Precipitation")
+
+```
+
+
+Now, our plot looks a lot nicer!

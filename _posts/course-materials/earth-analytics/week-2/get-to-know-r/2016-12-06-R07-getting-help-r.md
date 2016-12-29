@@ -8,7 +8,8 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/about-and-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-lastModified: 2016-12-20
+lastModified: 2016-12-28
+week: 2
 sidebar:
   nav:
 author_profile: false

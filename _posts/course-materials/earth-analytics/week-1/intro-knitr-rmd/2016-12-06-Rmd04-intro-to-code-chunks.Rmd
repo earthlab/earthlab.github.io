@@ -9,6 +9,7 @@ lastModified: `r format(Sys.time(), "%Y-%m-%d")`
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-code-chunks/
 nav-title: 'Code Chunks'
+week: 1
 sidebar:
   nav:
 author_profile: false
