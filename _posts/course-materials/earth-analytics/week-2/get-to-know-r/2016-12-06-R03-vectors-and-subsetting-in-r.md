@@ -9,7 +9,8 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-20
+lastModified: 2016-12-28
+week: 2
 sidebar:
   nav:
 author_profile: false
@@ -225,9 +226,12 @@ animals[animals %in% c("rat", "cat", "dog", "duck")]
 ## [1] "rat" "dog" "cat"
 ```
 
-> ### Challenge {.challenge}
->
-> * Can you figure out why `"four" > "five"` returns `TRUE`?
+<div class="notice--warning" markdown="1">
+
+## Challenge {.challenge}
+
+* Can you figure out why `"four" > "five"` returns `TRUE`?
+</div>
 
 
 

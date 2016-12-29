@@ -1,0 +1,52 @@
+## ----import-data---------------------------------------------------------
+
+# load the ggplot2 library for plotting
+library(ggplot2)
+
+# download data from figshare
+# note that we are downloaded the data into your
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
+              destfile = "data/boulder-precip.csv")
+
+# import data
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
+
+# view first few rows of the data
+head(boulder_precip)
+
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
+
+## ----structure-----------------------------------------------------------
+
+str(boulder_precip)
+
+
+## ----view-class----------------------------------------------------------
+# View data class for each column that we wish to plot
+class(boulder_precip$DATE)
+
+class(boulder_precip$PRECIP)
+
+
+## ----convert-date-time---------------------------------------------------
+
+# convert date column to date class
+boulder_precip$DATE <- as.Date(boulder_precip$DATE, format="%Y-%m-%d")
+
+# view R class of data
+class(boulder_precip$DATE)
+
+# view results
+head(boulder_precip$DATE)
+
+## ----qplot-data----------------------------------------------------------
+
+# quickly plot the data and include a title using main=""
+# In title string we can use '\n' to force the string to break onto a new line
+
+ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
+      geom_bar(stat="identity") +
+      ggtitle("Precipitation")
+
+
