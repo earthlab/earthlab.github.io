@@ -11,7 +11,8 @@ dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
           "course-materials/earth-analytics/co-floods-2-data-r",
           "course-materials/earth-analytics/week-1/intro-knitr-rmd",
           "course-materials/earth-analytics/week-1/setup-r-rstudio",
-          "course-materials/earth-analytics/week-2/get-to-know-r")
+          "course-materials/earth-analytics/week-2/get-to-know-r",
+          "course-materials/earth-analytics/week-2/hw-plot-precip-data")
 
 # is it a draft or a final
 post.dirs <- c("_drafts", "_posts")
@@ -20,7 +21,7 @@ post.dir <- post.dirs[2]
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[3]
+subDir <- dirs[6]
 
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
@@ -42,6 +43,7 @@ setwd(wd)
 # don't change - this is the posts dir location required by jekyll
 postsDir <- file.path(post.dir, subDir)
 codeDir <- file.path("code/R", subDir)
+pdfDir <- file.path("pdf", subDir)
 
 # images path
 imagePath <- file.path("images/rfigs", subDir)
@@ -66,24 +68,33 @@ if (dir.exists(file.path(wd, imagePath))){
 # NOTE -- delete the image directory at the end!
 
 
-################# Check For / Set up / Clean out Code Dir  #################
+################# Check For / Set up / Clean out Code and pdf Dir  #################
 
 if (dir.exists(file.path(gitRepoPath, codeDir))){
-  print("code dir exists - and has been cleaned out")
+  # clean out code dir to avoid the issue of duplicate files
+  unlink(file.path(gitRepoPath, codeDir, "*"), recursive = TRUE)
+  print("code dir exists & and has been cleaned ")
 } else {
   # create image directory structure
   dir.create(file.path(gitRepoPath, codeDir), recursive=T)
   print("new code sub dir created.")
 }
 
+
+if (dir.exists(file.path(gitRepoPath, pdfDir))){
+  # clean out code dir to avoid the issue of duplicate files
+  unlink(file.path(gitRepoPath, pdfDir, "*"), recursive = TRUE)
+  print("pdf dir exists & has been cleaned out")
+} else {
+  # create image directory structure
+  dir.create(file.path(gitRepoPath, pdfDir), recursive=T)
+  print("new pdf sub dir created.")
+}
 ################# Clean out posts Dir  #################
 # NOTE: comment this out if you just want to rebuild one lesson
 
 # clean out posts dir to avoid the issue of duplicate files - don't do this if rmd files r here
 # unlink(paste0(gitRepoPath, postsDir, "*"), recursive = TRUE)
-
-# clean out code dir to avoid the issue of duplicate files
-unlink(file.path(gitRepoPath, codeDir, "*"), recursive = TRUE)
 
 # clean out images dir to avoid the issue of duplicate files
 unlink(file.path(gitRepoPath, imagePath, "*"), recursive = TRUE)
@@ -106,7 +117,7 @@ rmd.files <- list.files(rmdRepoPath,
 #################### Set up Image Directory #############################
 
 # just render one file
-# rmd.files <- rmd.files[3]
+# rmd.files <- rmd.files[1]
 
 for (files in rmd.files) {
   
@@ -154,6 +165,14 @@ for (files in rmd.files) {
   knit(current.file, 
        output = mdFile, 
        envir = parent.frame())
+  
+  pdfFile <- file.path(gitRepoPath, pdfDir, 
+                       paste0(add.date , sub(".Rmd$", "", current.file), ".pdf"))
+  
+  # knit to pdf
+  # render(current.file, 
+  #        output_file = pdfFile,
+  #        output_format = "pdf_document")
   
   # COPY image directory, rmd file OVER to the GIT SITE###
   # only copy over if there are images for the lesson

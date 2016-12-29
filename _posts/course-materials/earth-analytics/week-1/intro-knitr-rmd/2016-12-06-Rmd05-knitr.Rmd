@@ -9,6 +9,7 @@ lastModified: `r format(Sys.time(), "%Y-%m-%d")`
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/knit-rmarkdown-document-to-pdf/
 nav-title: 'R knitr package'
+week: 1
 sidebar:
   nav:
 author_profile: false
@@ -118,7 +119,7 @@ Notice that information from the YAML header (title, author, date) is printed
 at the top of the HTML document. Then the HTML shows the text, code, and
 results of the code that you included in the RMD document.
 
-{% include/earth-analytics/homework-wk1.html %}
+{% include/earth-analytics/homework-wk1.md %}
 
 
 ```{r plot-data, eval=F }

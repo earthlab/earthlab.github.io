@@ -21,8 +21,9 @@ that describes:
 * Copy and paste the code BELOW into the code chunk that you just created.
 * Below the code chunk in your `rmarkdown` document, add some TEXT that describes what the plot that you created
 shows - interpret what you see in the data.
-* Finally, describe what you like and don't like about the plot. If you could
-change it, what would you change?
+* Finally, in your own words, summarize what you think the plot shows / tells us about
+the flood and also how the data that produced the plot were likely collected. Use the video
+about the Boulder Floods as a reference when you write this summery.
 
 BONUS: If you know `R`, clean up the plot by adding labels and a title. Or better
 yet, use `ggplot2`!
@@ -61,7 +62,7 @@ qplot(x=boulder.precip$DATE,
 
 <figure class="half">
 <a href="/images/rfigs/course-materials/earth-analytics/week-1/intro-knitr-rmd/2016-12-06-Rmd05-knitr/render-plot-1.png">
-<img src="/images/rfigs/course-materials/earth-analytics/week-1/intro-knitr-rmd/2016-12-06-Rmd05-knitr/render-plot-1.png">
+<img src="/images/rfigs/course-materials/earth-analytics/week-1/intro-knitr-rmd/2016-12-06-Rmd05-knitr/render-plot-1.png" alt="example of the plot">
 </a>
 <figcaption>
 If your code ran properly, the resulting plot should look like this one.
@@ -71,12 +72,12 @@ If your code ran properly, the resulting plot should look like this one.
 
 <figure>
 <a href="/images/course-materials/earth-analytics/week-1/setup-r-rstudio/r-markdown-wk-1.png">
-<img src="/images/course-materials/earth-analytics/week-1/setup-r-rstudio/r-markdown-wk-1.png">
+<img src="/images/course-materials/earth-analytics/week-1/setup-r-rstudio/r-markdown-wk-1.png" alt="R markdown example image.">
 </a>
 <figcaption>
 Your rmarkdown file should look something like the one above (with your own text
 added to it). Note that the image above is CROPPED at the bottom. Your rmarkdown
-file will have more code in it. 
+file will have more code in it.
 </figcaption>
 </figure>
 
@@ -107,7 +108,7 @@ directory?
 
 <figure>
 <a href="/images/course-materials/earth-analytics/week-1/setup-r-rstudio/data-dir-wk-1.png">
-<img src="/images/course-materials/earth-analytics/week-1/setup-r-rstudio/data-dir-wk-1.png">
+<img src="/images/course-materials/earth-analytics/week-1/setup-r-rstudio/data-dir-wk-1.png" alt="data directory example image.">
 </a>
 <figcaption>
 Your working directory should contain a `/data` directory.

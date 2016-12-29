@@ -15,6 +15,7 @@ module-title: 'Get to Know The R Programming Language'
 module-description: 'This tutorial introduces the R scientific programming language.
 We will work with precipitation and stream discharge data for Boulder County
 to better understand the R syntax, various data types and data import and plotting.'
+week: 2
 sidebar:
   nav:
 author_profile: false
@@ -22,7 +23,7 @@ comments: false
 order: 1
 ---
 
-In this tutorial, we will explore the basic syntax (structure) or the R programming
+In this tutorial, we will explore the basic syntax (structure) or the `R` programming
 language. We will introduce assignment operators (`<-`, comments (`#`) and functions
 as used in `R`.
 
@@ -36,11 +37,11 @@ At the end of this activity, you will be able to:
 
 ## What You Need
 
-You need R and RStudio to complete this tutorial. Also we recommend have you
-have an `earth-analytics` directory setup on your computer with a `/data`
+You need `R` and `RStudio` to complete this tutorial. Also you should have
+an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
+* [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
 * [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)
 * [Intro to the R & RStudio Interface](/course-materials/earth-analytics/week-1/intro-to-r-and-rstudio)
 
@@ -125,14 +126,16 @@ While the `=` can be used in `R`, it does not always work. Thus we will use `<-`
 for all assignments in `R` from here on in. It is a recommended best practice.
 
 When we are defining arguments for functions we do use the `=` sign. We will
-discuss that function arguments below.
+discuss function arguments below.
 
-### More info = vs <-
 
-Check out the links below for discussions on using `=` vs `<-` in R.
+<div class="notice" markdown="1">
+<i class="fa fa-star"></i> **Data Tip:** Check out the links below for discussions on using `=` vs `<-` in R.
 
 * <a href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html"  target="_blank">Revolutionary analytics blog - equals vs assignment.</a>
 *  <a href="https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html" target="_blank">r list-serve discussion</a>
+
+</div>
 
 ### Comments in R (`#`)
 
@@ -275,16 +278,46 @@ args(lm)
 
 ## Modify A Plot
 
-Use the RMarkdown document that we created as homework for today's class. If
+Use the `RMarkdown` document that we created as homework for today's class. If
 you don't have a document already, create a new one, naming it: "lastname-firstname-wk2.Rmd.
-Edit the code that generates the plot that you see on this page as follows
+Add the code below in a code chunk. Edit the code that you just pasted into
+your `.Rmd` document as follows
 
-1. The plot, created above, isn't pretty. Let's fix the x and y labels.
+1. The plot isn't pretty. Let's fix the x and y labels.
 Look up the arguments for the qplot function using either args(qplot) OR `?qplot`
 in the R console. Then fix the labels of your plot in your script.
 
 HINT: google is your friend. Feel free to use it to help edit the code.
 
-2. what other things can you modify to make the plot look prettier. Explore. Are
+2. What other things can you modify to make the plot look prettier. Explore. Are
 there things that you'd like to do that you can't?
 </div>
+
+```r
+
+# load the ggplot2 library for plotting
+library(ggplot2)
+
+# download data from figshare
+# note that we are downloaded the data into your
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
+              destfile = "data/boulder-precip.csv")
+
+# import data
+boulder.precip <- read.csv(file="data/boulder-precip.csv")
+
+# view first few rows of the data
+head(boulder.precip)
+
+# when we download the data we create a dataframe
+# view each column of the data frame using it's name (or header)
+boulder.precip$DATE
+
+# view the precip column
+boulder.precip$PRECIP
+
+# q plot stands for quick plot. Let's use it to plot our data
+qplot(x=boulder.precip$DATE,
+      y=boulder.precip$PRECIP)
+
+```
