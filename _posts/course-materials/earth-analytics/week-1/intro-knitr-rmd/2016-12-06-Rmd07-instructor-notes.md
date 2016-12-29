@@ -7,6 +7,7 @@ category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/rmarkdown-instructor-notes/
 nav-title: 'Instructor Notes'
+week: 1
 sidebar:
   nav:
 author_profile: false
