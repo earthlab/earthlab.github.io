@@ -1,4 +1,4 @@
-<h3>Week {{ page.week }} Lessons</h3>
+<!--<h3>Week {{ page.week }} Lessons</h3>-->
 
 {% assign modules = site.posts | where:"order", 1 %}
 {% assign weeks = modules | where:"week", page.week %}
@@ -19,7 +19,7 @@
         {% endfor %}
       </ul>
 
-   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Homework</span>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Homework Materials</span>
      <ul>
        {% for module in homework %}
        {% if module.class-lesson != page.class-lesson %}
