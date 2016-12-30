@@ -115,7 +115,7 @@ to modify existing `ggplot` objects. This means you can easily set up plot
 "templates" and conveniently explore different types of plots, so the above
 plot can also be generated with code like this:
 
-```{r, first-ggplot-with-plus, eval=FALSE, purl=FALSE}
+```{r, first-ggplot-with-plus, eval=FALSE, purl=FALSE, fig.cap="first ggplot"}
 # Create
 precip_plot <-  ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP))
 
@@ -124,7 +124,7 @@ precip_plot + geom_point()
 
 ```
 
-```{r, eval=FALSE, purl=TRUE, echo=FALSE, purl=FALSE}
+```{r, eval=FALSE, purl=TRUE, echo=FALSE, purl=FALSE, fig.cap="2nd ggplot"}
 # Create
 precip_plot <-  ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP))
 
