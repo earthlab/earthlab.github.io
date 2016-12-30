@@ -12,25 +12,25 @@ download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/boulder-precip.csv")
 
 # import data
-boulder.precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
-head(boulder.precip)
+head(boulder_precip)
 
 # what is the format of the variable in R
-str(boulder.precip)
+str(boulder_precip)
 
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE,
-      y=boulder.precip$PRECIP)
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
 
 
 ## ----import-data---------------------------------------------------------
 # import data
-boulder.precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view new object
-boulder.precip
+boulder_precip
 
 
 ## ----simple-function-----------------------------------------------------
