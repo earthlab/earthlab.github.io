@@ -28,3 +28,13 @@ module-description: 'This module walks you through getting R and RStudio setup o
 computer. It also introduces file organization strategies.'
 order: 1
 ```
+
+
+### Styles
+
+#### Icons
+Idea block - lightbulb: <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
+Challenge Activity - pencil writing: <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+Regular pencil<i class="fa fa-pencil" aria-hidden="true"></i>
+
+Learning Objective : graduate cap <i class="fa fa-graduation-cap" aria-hidden="true"></i>

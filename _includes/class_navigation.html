@@ -39,6 +39,21 @@
 <!-- end slideshows  -->
 </nav>
 
+<h3>Other Week {{ page.week }} Lessons</h3>
+
+{% assign modules = site.posts | where:"order", 1 %}
+{% assign weeks = modules | where:"week", page.week %}
+
+{% for module in weeks %}  
+{% if module.class-lesson != page.class-lesson %}
+<nav class="nav__list">
+<a href="{{ site.url }}{{ module.permalink }}">
+  <ul>
+    <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-title |  replace: '-',' ' |  replace: '"',' ' |  remove: ']' |  remove: '['}} Lessons</span>
+    </ul></a>
+</nav>
+{% endif %}
+{% endfor %}
 
 {% capture the_path %}{{ site.url }} /course-materials/earth-analytics/week-{{ page.week }}{% endcapture %}
 
