@@ -26,18 +26,18 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 
 
-## ----add-alpha-----------------------------------------------------------
+## ----add-alpha, fig.cap="ggplot with blue points and alpha"--------------
 
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
 
 
-## ----add-title-----------------------------------------------------------
+## ----add-title, fig.cap="ggplot with labels"-----------------------------
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
     ggtitle("Precipitation - Boulder, Colorado 2013")
 
-## ----add-title2----------------------------------------------------------
+## ----add-title2, fig.cap="ggplot with title and labels"------------------
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
     ggtitle("Precipitation - Boulder, Colorado 2013") +

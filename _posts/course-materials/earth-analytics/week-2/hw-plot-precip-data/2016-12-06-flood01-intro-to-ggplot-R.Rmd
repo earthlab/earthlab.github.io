@@ -135,15 +135,16 @@ precip_plot + geom_point()
 
 We can also apply a color to our the points
 
-```{r adding-colors, purl=FALSE}
- ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
+```{r adding-colors, purl=FALSE, fig.cap="ggplot with blue points"}
+
+ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(color = "blue")
 
 ```
 
 And adjust the transparency.
 
-```{r add-alpha}
+```{r add-alpha, fig.cap="ggplot with blue points and alpha"}
 
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
@@ -153,7 +154,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 Or to color each value in the plot differently:
 
-```{r color-by-species, purl=FALSE}
+```{r color-by-species, purl=FALSE, fig.cap="ggplot with colored points"}
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP))
 
@@ -162,7 +163,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 We can turn our plot into a bar plot.
 
-```{r barplot, purl=FALSE}
+```{r barplot, purl=FALSE, fig.cap="ggplot with bars"}
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity")
 
@@ -170,7 +171,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 Turn the bar outlines blue
 
-```{r bar-color, purl=FALSE}
+```{r bar-color, purl=FALSE, fig.cap="ggplot with blue bars"}
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity", color="blue")
 
@@ -178,7 +179,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 Change the fill to bright green.
 
-```{r barcolor2, purl=FALSE}
+```{r barcolor2, purl=FALSE, fig.cap="ggplot with green bars"}
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity", color="blue", fill="green")
 
@@ -188,7 +189,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 ## Adding Labels
 
 You can add labels to your plots as well. Let's add a title, and x and y labels.
-```{r add-title }
+```{r add-title, fig.cap="ggplot with labels" }
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
     ggtitle("Precipitation - Boulder, Colorado 2013")
@@ -197,7 +198,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 x and y labels...
 
 
-```{r add-title2 }
+```{r add-title2, fig.cap="ggplot with title and labels" }
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
     ggtitle("Precipitation - Boulder, Colorado 2013") +

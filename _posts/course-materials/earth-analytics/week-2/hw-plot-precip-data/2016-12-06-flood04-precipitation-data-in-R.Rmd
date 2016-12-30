@@ -70,8 +70,8 @@ After completing this tutorial, you will be able to:
 * Plot quantitative time series data using ggplot
 * Ensure that NoData values do not interfere with quantitative analysis by setting them to NA in `R`.
 * use the na.rm function argument when performing math with large datasets.
-* subset data using the dplyr filter() function 
-* use dplyr pipes to filter data in R. 
+* subset data using the dplyr filter() function
+* use dplyr pipes to filter data in R.
 
 ### What You'll Need
 
@@ -198,7 +198,7 @@ Your final plot should look something like the plot below.
 
 
 
-``` {r plot-precip-hourly, echo=F, warning=F}
+``` {r plot-precip-hourly, echo=F, warning=F, fig.cap="precip plot w fixed dates"}
 
 # do we need to do something about NA VALUES?
 boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
@@ -251,9 +251,9 @@ to do this.
 
 ## Introduction to the Pipe %<%
 
-Pipes let you take the output of one function and send it directly to the next, 
-which is useful when you need to do many things to the same data set. Pipes in R 
-look like %>% and are made available via the magrittr package, installed 
+Pipes let you take the output of one function and send it directly to the next,
+which is useful when you need to do many things to the same data set. Pipes in R
+look like %>% and are made available via the magrittr package, installed
 automatically with dplyr.
 
 If we want to subset our data, we could use the following syntax
@@ -273,12 +273,12 @@ precip_boulder_AugOct <- boulder_daily_precip %>%
 ```
 
 In the code above, we use the pipe to send the boulder_daily_precip data through
-a filter setp. In that filter step, we filter our only the rows withing the 
-date range that we specified. Since %>% takes the object on its left and passes 
+a filter setp. In that filter step, we filter our only the rows withing the
+date range that we specified. Since %>% takes the object on its left and passes
 it as the first argument to the function on its right, we don’t need to explicitly include it as an argument to the filter() function.
 
 
-```{r check-subset }
+```{r check-subset, fig.cap="precip plot subset" }
 # check the first & last dates
 min(precip_boulder_AugOct$DATE)
 max(precip_boulder_AugOct$DATE)
@@ -298,18 +298,18 @@ precPlot_flood2
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Create a subset from the same dates in 2012 to compare to the 2013 plot. 
+Create a subset from the same dates in 2012 to compare to the 2013 plot.
 Use the ylim() argument to ensure the y axis range is the SAME as the previous
 plot - from 0 to 10".
 
 How different was the rainfall in 2012?
 
-HINT: type ?lims in the console to see how the xlim and ylim arguments work. 
+HINT: type ?lims in the console to see how the xlim and ylim arguments work.
 
 
 </div>
 
-```{r challenge, echo=FALSE, warning="hide" }
+```{r challenge, echo=FALSE, warning="hide", fig.cap="precip plot subset 2" }
 
 # subset 2 months around flood
 precip_boulder_AugOct_2012 <- boulder_daily_precip %>%
