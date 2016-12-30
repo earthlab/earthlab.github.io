@@ -46,15 +46,15 @@ into a date / time format in R.
 First let's revisit the boulder precip data that we've been working with in
 this module.
 
-```{r import-data}
+```{r import-data, fig.cap="quick plot of precip data"}
 
 # load the ggplot2 library for plotting
 library(ggplot2)
 
 # download data from figshare
 # note that we are downloaded the data into your
-#download.file(url = "https://ndownloader.figshare.com/files/7010681",
-#              destfile = "data/boulder-precip.csv")
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
+             destfile = "data/boulder-precip.csv")
 
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
@@ -68,7 +68,7 @@ qplot(x=boulder_precip$DATE,
 
 Wait - we know how to use ggplot() now so let's use that instead!
 
-```{r ggplot-plot }
+```{r ggplot-plot, fig.cap="ggplot of precip data" }
 
 # plot the data using ggplot
 ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP) +
@@ -178,7 +178,7 @@ Now that we have adjusted the date, let's plot again. Notice that it plots
 much more quickly now that R recognizes `date` as a date class. `R` can
 aggregate ticks on the x-axis by year instead of trying to plot every day!
 
-```{r qplot-data}
+```{r qplot-data, fig.cap="precip bar plot"}
 
 # quickly plot the data and include a title using main=""
 # In title string we can use '\n' to force the string to break onto a new line
