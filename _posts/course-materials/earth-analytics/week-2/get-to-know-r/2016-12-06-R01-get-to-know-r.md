@@ -10,17 +10,13 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/get-to-know-r/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-28
-module-title: 'Get to Know The R Programming Language'
-module-description: 'This tutorial introduces the R scientific programming language.
-We will work with precipitation and stream discharge data for Boulder County
-to better understand the R syntax, various data types and data import and plotting.'
+lastModified: 2016-12-29
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 1
+order: 2
 ---
 
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming
@@ -29,7 +25,7 @@ as used in `R`.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Understand the basic concept of a function and be able to use a function in your code.
@@ -77,10 +73,10 @@ download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/boulder-precip.csv")
 
 # import data
-boulder.precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
-head(boulder.precip)
+head(boulder_precip)
 ##     X       DATE PRECIP
 ## 1 756 2013-08-21    0.1
 ## 2 757 2013-08-26    0.1
@@ -90,21 +86,21 @@ head(boulder.precip)
 ## 6 761 2013-09-10    1.0
 
 # what is the format of the variable in R
-str(boulder.precip)
+str(boulder_precip)
 ## 'data.frame':	18 obs. of  3 variables:
 ##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
 ##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
 
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE,
-      y=boulder.precip$PRECIP)
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
 ```
 
 ![precip data plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R01-get-to-know-r/open-file-1.png)
 
-The above chunk of code, uses syntax that is unique the `R` programming language.
-Syntax is simply the characters or commands that `R` understands and associated
+The code above, uses syntax that is unique the `R` programming language.
+Syntax is the characters or commands that `R` understands and associated
 organization / format of the code including spacing and comments.
 
 Let's break down the syntax of the code above, to better understand what it's doing.
@@ -119,16 +115,16 @@ values on the right to objects on the left. So, after executing `x <- 3`, the
 value of `x` is `3` (`x=3`). The arrow can be read as 3 **goes into** `x`.
 
 In the example below, we assigned the data file that we read into R named `boulder-precip.csv`
-to the variable name `boulder.precip`. After you run the line of code below,
+to the variable name `boulder_precip`. After you run the line of code below,
 what happens in R?
 
 
 ```r
 # import data
-boulder.precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view new object
-boulder.precip
+boulder_precip
 ##      X       DATE PRECIP
 ## 1  756 2013-08-21    0.1
 ## 2  757 2013-08-26    0.1
@@ -214,8 +210,8 @@ Below, we use the `qplot()` function which is a part of the `ggplot2` package.
 
 ```r
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE,
-      y=boulder.precip$PRECIP)
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
 ```
 
 Functions return an output. Sometimes that output is a *figure* like the example
@@ -350,20 +346,20 @@ download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/boulder-precip.csv")
 
 # import data
-boulder.precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
-head(boulder.precip)
+head(boulder_precip)
 
 # when we download the data we create a dataframe
 # view each column of the data frame using it's name (or header)
-boulder.precip$DATE
+boulder_precip$DATE
 
 # view the precip column
-boulder.precip$PRECIP
+boulder_precip$PRECIP
 
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE,
-      y=boulder.precip$PRECIP)
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
 
 ```

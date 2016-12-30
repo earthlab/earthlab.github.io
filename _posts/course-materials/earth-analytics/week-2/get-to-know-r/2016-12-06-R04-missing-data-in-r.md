@@ -8,20 +8,20 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/missing-data-in-r-na/
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
-lastModified: 2016-12-28
+lastModified: 2016-12-29
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 4
+order: 5
 ---
 
-.
+This lesson covers how to work with no data values in `R`.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Understand why it is important to make note of missing data values.
@@ -74,14 +74,17 @@ cell, a single blank space, and the value -999, you would use:
 download.file("https://ndownloader.figshare.com/files/7275959",
               "data/week2/temperature_example.csv")
 
-# import data with multiple no data values
+# import data but don't specify no data values - what happens?
 temp_df <- read.csv(file = "data/week2/temperature_example.csv")
 
+# import data but specify no data values - what happens?
 temp_df2 <- read.csv(file = "data/week2/temperature_example.csv", na.strings = c("NA", " ", "-999"))
 ```
 
 In the example below, note how a mean value is calculated differently depending
 upon on how NA values are treated when the data are imported.
+
+
 
 
 ```r
@@ -95,6 +98,18 @@ mean(temp_df2$avg_temp, na.rm = TRUE)
 ```
 
 Notice a difference between `temp_df` and `temp_df2` ?
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+
+* **Question**: Why, in the the example above did mean(temp_df$avg_temp) return
+a value of NA?
+
+<!-- * _Answer_: Because if there are NA values in a dataset, R can not automatically
+perform the calculation. you need to add a na.rm=TRUE to remove NA values. -->
+
+</div>
 
 When performing mathematical operations on numbers in `R`, most functions will
 return the value `NA` if the data you are working with include missing values.
@@ -140,9 +155,10 @@ heights[complete.cases(heights)]
 
 <div class="notice--warning" markdown="1">
 
-# Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-* **Question**: Why does the following piece of code give a warning?
+* **Question**: Why does the following piece of code return a warning?
+
 
 ```r
 sample <- c(2, 4, 4, "NA", 6)
