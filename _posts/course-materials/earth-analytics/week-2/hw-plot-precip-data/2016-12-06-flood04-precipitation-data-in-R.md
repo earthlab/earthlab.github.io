@@ -8,7 +8,7 @@ authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
 lastModified: 2016-12-29
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
-permalink: /course-materials/earth-analytics/week-2/precip-in-r
+permalink: /course-materials/earth-analytics/week-2/precip-in-r/
 nav-title: 'Plot & Subset Precip Data R'
 week: 2
 sidebar:
@@ -137,7 +137,7 @@ str(boulder_daily_precip)
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
 ##    0.000    0.100    0.100    5.297    0.300 1000.000
 max(boulder_daily_precip$DAILY_PRECIP)
 ## [1] 999.99

@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Data Carpentry']
 lastModified: 2016-12-29
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
-permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r
+permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
 nav-title: 'GGPLOT R'
 module-title: 'Plot Time Series Data in R'
 module-description: 'This tutorial covers how to plot time series data in R using ggplot2. It also covers converting data stored in data/time format into an R date time class.'
