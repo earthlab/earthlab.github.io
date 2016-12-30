@@ -8,6 +8,7 @@ excerpt: 'This tutorial walks you through downloading and installing R and R stu
 dateCreated: 2016-12-12
 dateModified: 2016-12-12
 nav-title: 'Install Packages'
+week: 1
 sidebar:
   nav:
 course: 'earth-analytics'

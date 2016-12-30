@@ -84,9 +84,9 @@ in R, and sets the working directory.
 
 <pre>
 <code>
- 
+
  ```r
- 
+
    1+2
  ## [1] 3
  ```
