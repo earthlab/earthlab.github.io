@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Plotting with GGPLOT"
+title: "Plot Time Series Data Using ggplot()"
 excerpt: "This lesson walks through using GGPLOT2 to plot data."
 authors: ['Leah Wasser', 'Data Carpentry']
 lastModified: 2016-12-30
@@ -8,7 +8,7 @@ category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
 nav-title: 'GGPLOT R'
-module-title: 'Plot Time Series Data in R'
+module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-description: 'This tutorial covers how to plot time series data in R using ggplot2. It also covers converting data stored in data/time format into an R date time class.'
 week: 2
 sidebar:
@@ -22,7 +22,7 @@ In this tutorial, we will explore more advanced plotting techniques using `ggplo
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * use the ggplot plot function to customize plots
