@@ -1,7 +1,7 @@
 ---
 layout: single
 category: course-materials
-title: "Week Two - Introduction to R & R Studio"
+title: "Week Two - Introduction to R & R Studio & Sensor Network Derived Time Series Data"
 permalink: /course-materials/earth-analytics/week-2/
 sidebar:
   nav: earth-analytics-2017
@@ -15,7 +15,13 @@ author_profile: false
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 2!
 
 Welcome to week two of Earth Analytics! In week 2 we will learn how to work with
-data in `R` and `Rstudio`. We will also dig deeper into the 2013 Colorado floods.
+data in `R` and `Rstudio`. We will also learn how to work with data collected
+by in situ sensor networks including the USGS stream gage network data and
+NOAA / National Weather Service precipitation data. These data are collected through
+time and thus require knowledge of both working with date fields, dealing with
+missing data and also efficient plotting and subsetting of large datasets. All
+of the data we work with are for the Boulder region and can be used to quantify
+drivers of the 2013 flood event. 
 
 ### In Class Lessons
 * [In Class](/course-materials/earth-analytics/week-2/get-to-know-r/)
@@ -49,28 +55,40 @@ Listen" icon on the page
 
 ### Part 2 - Plot Precip & Discharge Data
 
-1. Create a new R markdown document. Create a new rmarkdown document. Name it: `youLastName-yourFirstName-week2.rmd`
-2. In this RMarkdown document, add the following plots [using the homework lessons
+1. Create a new `R markdown` document. Name it: `youLastName-yourFirstName-week2.rmd`
+2. In this `R markdown` document, add the following plots [using the homework lessons
 as a guide to walk you through](/course-materials/earth-analytics/week-2/hw-ggplot2-r).
     * Create a plot of precipitation from 2003 to 2013 using `ggplot()`.
     * Create a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013
     * Create a plot of stream discharge from 1986 to 2016 using `ggplot()`.
     * Create a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013
 
-Be sure to
-* LABEL all plots clearly. This includes a title, x and y axis labels
-* Be sure to write [clean code](/course-materials/earth-analytics/week-2/write-clean-code-with-r/). This includes comments that describes the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
+Be sure to:
 
-Now, turn your document into a report. Include a few paragraphs at the top which
-summarize the events that took place in 2013 to cause the flood. Then describe and
-interpret each
+* LABEL all plots clearly. This includes a title, x and y axis labels
+* Be sure to write [clean code](/course-materials/earth-analytics/week-2/write-clean-code-with-r/). This includes comments that document / describe the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
+
+
+#### Report Write Up
+
+Turn your R Markdown document into a report about the 2013 Boulder floods by adding
+the following:
+
+1. Carefull compose 2-3 paragraphs at the top of the repor which summarize the conditions
+and the events that took place in 2013 to cause a flood that had significant impacts.
+Describe the impacts of the flood on the terrain and the people in Boulder. Then
+describe and interpret each
 plot, telling us what it shows, and how it impacted the overall disturbance caused
 by the floods. Use the readings above to write the text in your report.
+
+When you are happy with your report, convert your R Markdown file into a .pdf
+format report using `knitr`.
 
 Be sure to PROOFREAD your report before submitting it. Check for spelling, and grammar.
 The text will be graded like a typical paper. The code will be graded for
 
 * syntax, clean code style, function (does it run without errors)
 
+**Submit your final report in both PDF and R Markdown formats by....**
 
 * [Homework Lesson Set 1: Plot with Ggplot & Date / Time Formats directory](/course-materials/earth-analytics/week-2/hw-ggplot2-r){: .btn .btn--info .btn--large}

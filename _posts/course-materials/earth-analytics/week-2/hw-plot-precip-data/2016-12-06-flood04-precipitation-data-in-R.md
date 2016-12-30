@@ -18,10 +18,6 @@ comments: false
 order: 3
 ---
 
-
-
-
-
 In this lesson, we will learn how to import a larger dataset, and test our
 skills cleaning and plotting the data.
 
@@ -76,13 +72,13 @@ directory is set. Be sure to also set `stringsAsFactors` to `FALSE` as shown bel
 # load packages
 library(ggplot2) # efficient, professional plots
 library(dplyr) # efficient data manipulation
-## 
+##
 ## Attaching package: 'dplyr'
 ## The following objects are masked from 'package:stats':
-## 
+##
 ##     filter, lag
 ## The following objects are masked from 'package:base':
-## 
+##
 ##     intersect, setdiff, setequal, union
 
 # set strings as factors to false for everything

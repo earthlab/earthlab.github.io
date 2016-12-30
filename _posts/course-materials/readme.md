@@ -32,6 +32,32 @@ order: 1
 
 ### Styles
 
+HERE is a learning objective box:
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+</div>
+
+Here is a challenge
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+
+</div>
+
+*****
+
+Here is additional resources box
+
+<div class="notice--info" markdown="1">
+
+## Additional Resources
+
+</div>
+
+****
+
 #### Icons
 Idea block - lightbulb: <i class="fa fa-lightbulb-o" aria-hidden="true"></i>
 Challenge Activity - pencil writing: <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
