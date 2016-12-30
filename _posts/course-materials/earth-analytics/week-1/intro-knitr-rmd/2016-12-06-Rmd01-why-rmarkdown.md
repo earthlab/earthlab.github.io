@@ -12,6 +12,7 @@ dateModified: 2016-12-12
 module-title: 'Introduction to R Markdown & Knitr'
 module-description: 'This module teaches participants how to use rmarkdown
 and knitr to create and publish reports that link analysis, results and documentation.'
+module-type: 'homework'
 week: 1
 sidebar:
   nav:

@@ -1,0 +1,38 @@
+<h3>Week {{ page.week }} Lessons</h3>
+
+{% assign modules = site.posts | where:"order", 1 %}
+{% assign weeks = modules | where:"week", page.week %}
+{% assign classes = weeks | where:"module-type", 'class' %}
+{% assign homework = weeks | where:"module-type", 'homework' %}
+
+<nav class="nav__list">
+  <ul>
+    <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class</span>
+
+      <ul>
+        {% for module in classes %}
+        {% if module.class-lesson != page.class-lesson %}
+          <a href="{{ site.url }}{{ module.permalink }}">
+            <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-title }} Lessons </li>
+          </a>
+        {% endif %}
+        {% endfor %}
+      </ul>
+
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Homework</span>
+     <ul>
+       {% for module in homework %}
+       {% if module.class-lesson != page.class-lesson %}
+          <a href="{{ site.url }}{{ module.permalink }}">
+             <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-title }} Lessons</span>
+          </a>
+        {% endif %}
+        {% endfor %}
+     </ul>
+   </ul>
+</nav>
+
+
+<!-- Only add this if the page has a week asociated with it -->
+<h4><a href="{{ site.url }}/course-materials/earth-analytics/" >
+  <i class="fa fa-arrow-circle-left"></i> Earth Analytics Home</a></h4>
