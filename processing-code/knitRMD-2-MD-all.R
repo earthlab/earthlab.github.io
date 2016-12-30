@@ -7,27 +7,31 @@
 ##################
 
 require(knitr)
-dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
-          "course-materials/earth-analytics/co-floods-2-data-r",
-          "course-materials/earth-analytics/week-1/intro-knitr-rmd",
-          "course-materials/earth-analytics/week-1/setup-r-rstudio",
-          "course-materials/earth-analytics/week-2/get-to-know-r",
-          "course-materials/earth-analytics/week-2/hw-plot-precip-data")
+all_post_dirs <- list.dirs("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics")
+
+# for this to work i'll have to split at course-materials
+
+# dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
+#           "course-materials/earth-analytics/co-floods-2-data-r",
+#           "course-materials/earth-analytics/week-1/intro-knitr-rmd",
+#           "course-materials/earth-analytics/week-1/setup-r-rstudio",
+#           "course-materials/earth-analytics/week-2/get-to-know-r",
+#           "course-materials/earth-analytics/week-2/hw-plot-precip-data")
 
 # is it a draft or a final
-post.dirs <- c("_drafts", "_posts")
+draft_post <- c("_drafts", "_posts")
 
-post.dir <- post.dirs[2]
+the_draft_post <- all_post_dirs[2]
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[6]
+subDir <- dirs[10]
 
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
 gitRepoPath <-"~/Documents/github/earthlab.github.io"
-rmdRepoPath <- file.path(gitRepoPath, post.dir, subDir)# they are the same this time. 
-
+#rmdRepoPath <- file.path(gitRepoPath, the_draft_post, subDir)# they are the same this time. 
+# rmdRepoPath <- subDir
 # jekyll will only render md posts that begin with a date. Add one.
 add.date <- ""
 
@@ -41,7 +45,7 @@ wd <- "~/Documents/earth-analytics/"
 setwd(wd)
 
 # don't change - this is the posts dir location required by jekyll
-postsDir <- file.path(post.dir, subDir)
+postsDir <- file.path(the_draft_post, subDir)
 codeDir <- file.path("code/R", subDir)
 pdfDir <- file.path("pdf", subDir)
 
@@ -101,7 +105,7 @@ unlink(file.path(gitRepoPath, imagePath, "*"), recursive = TRUE)
 
 
 # copy image directory over
-# file.copy(paste0(wd,"/",fig.path), paste0(gitRepoPath,imagePath), recursive=TRUE)
+# file.copy(paste0(wd,"/",fig_path), paste0(gitRepoPath,imagePath), recursive=TRUE)
 
 # copy rmd file to the rmd directory on git
 # file.copy(paste0(wd,"/",basename(files)), gitRepoPath, recursive=TRUE)
@@ -109,7 +113,7 @@ unlink(file.path(gitRepoPath, imagePath, "*"), recursive = TRUE)
 
 
 # get a list of files to knit / purl
-rmd.files <- list.files(rmdRepoPath, 
+rmd.files <- list.files(subDir, 
                         pattern="\\.Rmd$", 
                         full.names = TRUE,
                         ignore.case = F)
@@ -123,12 +127,12 @@ for (files in rmd.files) {
   
   # copy .Rmd file to data working directory
   file.copy(from = files, to=wd, overwrite = TRUE)
-  current.file=basename(files)
+  current_file=basename(files)
   
   # setup path to images
   # print(paste0(imagePath, sub(".Rmd$", "", basename(input)), "/"))
   # forcing the trailing "/" with paste0 so images render to the right directory
-  fig.path <- paste0(file.path(imagePath, sub(".Rmd$", "", current.file)),"/")
+  fig_path <- paste0(file.path(imagePath, sub(".Rmd$", "", current_file)),"/")
   
   # clean out images in the working directory
   unlink(file.path(wd, imagePath, "*"))
@@ -136,21 +140,21 @@ for (files in rmd.files) {
   # make sure image subdir exists in the GIT REPO
   # then clean out image subdir on git if it exists
   # note this will fail if the sub dir doesn't exist
-  if (dir.exists(file.path(gitRepoPath, fig.path))){
+  if (dir.exists(file.path(gitRepoPath, fig_path))){
     print("image dir exists, cleaning")
-    unlink(file.path(gitRepoPath, fig.path, "*"))
+    unlink(file.path(gitRepoPath, fig_path, "*"))
   } else {
     # create image directory structure
-    dir.create(file.path(gitRepoPath, fig.path), recursive = T)
+    dir.create(file.path(gitRepoPath, fig_path), recursive = T)
     print("git image directories created!")
   }
   
   # might be able to combine these into one. testing.
-  opts_chunk$set(fig.path = fig.path,
+  opts_chunk$set(fig_path = fig_path,
                  fig.cap = " ",
                  collapse = T)
   
-  # opts_chunk$set(fig.path = fig.path)
+  # opts_chunk$set(fig_path = fig_path)
   # opts_chunk$set(fig.cap = " ")
   # opts_chunk$set(collapse = T )
   
@@ -159,26 +163,26 @@ for (files in rmd.files) {
   
   # create the markdown file name - add a date at the beginning to Jekyll 
   # recognizes it as a post
-  mdFile <- file.path(gitRepoPath, postsDir, paste0(add.date , sub(".Rmd$", "", current.file), ".md"))
+  mdFile <- file.path(gitRepoPath, postsDir, paste0(add.date , sub(".Rmd$", "", current_file), ".md"))
   
   # knit Rmd to jekyll flavored md format
-  knit(current.file, 
+  knit(current_file, 
        output = mdFile, 
        envir = parent.frame())
   
   pdfFile <- file.path(gitRepoPath, pdfDir, 
-                       paste0(add.date , sub(".Rmd$", "", current.file), ".pdf"))
+                       paste0(add.date , sub(".Rmd$", "", current_file), ".pdf"))
   
   # knit to pdf
-  # render(current.file, 
+  # render(current_file, 
   #        output_file = pdfFile,
   #        output_format = "pdf_document")
   
   # COPY image directory, rmd file OVER to the GIT SITE###
   # only copy over if there are images for the lesson
-  if (dir.exists(file.path(wd, fig.path))){
+  if (dir.exists(file.path(wd, fig_path))){
     # copy image directory over
-    file.copy(file.path(wd, fig.path), file.path(gitRepoPath, imagePath), recursive=TRUE)
+    file.copy(file.path(wd, fig_path), file.path(gitRepoPath, imagePath), recursive=TRUE)
   }
   
   # copy rmd file to the rmd directory on git
