@@ -28,14 +28,14 @@ use in our lessons.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
 * Be able to create an easy to use and we structured project structure.
 * Be able to set a working directory in `R` using code.
 * Be able to set a working directory using the `RStudio` interface.
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.

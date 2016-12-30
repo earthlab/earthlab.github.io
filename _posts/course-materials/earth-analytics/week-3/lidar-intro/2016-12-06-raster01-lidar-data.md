@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to LiDAR Data"
 excerpt: "."
 authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+lastModified: 2016-12-30
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-intro/
@@ -20,8 +20,7 @@ order: 1
 ---
 
 
-
-<div class='notice--success header' markdown="1">
+<div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
@@ -86,6 +85,7 @@ methods. Remote sensing means that we aren’t actually physically measuring
 things with our hands, we are using sensors which capture information about a
 landscape and record things that we can use to estimate conditions and
 characteristics.
+
 
 
 <figure>

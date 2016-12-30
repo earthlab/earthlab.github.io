@@ -22,7 +22,7 @@ information about the event.
 
 <div class='notice--success' markdown='1'>
 
-## Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
