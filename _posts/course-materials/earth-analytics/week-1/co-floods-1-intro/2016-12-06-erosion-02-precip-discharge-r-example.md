@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
 lastModified: 2016-12-28
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
-permalink: /course-materials/co-floods-data-example-r
+permalink: /course-materials/earth-analytics/week-1/co-floods-data-example-r
 nav-title: 'Co Floods Data Example'
 week: 1
 sidebar:
