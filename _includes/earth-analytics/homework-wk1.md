@@ -76,7 +76,7 @@ If your code ran properly, the resulting plot should look like this one.
 </a>
 <figcaption>
 Your rmarkdown file should look something like the one above (with your own text
-added to it). Note that the image above is CROPPED at the bottom. Your rmarkdown
+added to it). Note that the imaglocalhoste above is CROPPED at the bottom. Your rmarkdown
 file will have more code in it.
 </figcaption>
 </figure>

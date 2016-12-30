@@ -4,7 +4,7 @@
 
 # load packages
 library(ggplot2) # create efficient, professional plots
-library(plotly) # create cool interactive plots
+library(dplyr) # data manipulation
 
 # set strings as factors to false
 options(stringsAsFactors = FALSE)
@@ -18,39 +18,15 @@ discharge <- read.csv("data/flood-co-2013/discharge/06730200-Discharge_Daily_198
 head(discharge)
 
 
-## ----view-data-structure-------------------------------------------------
-# view structure of data
-str(discharge)
-
-# view class of the disValue column
-class(discharge$disValue)
-
-# view class of the datetime column
-class(discharge$datetime)
-
-## ----convert-time--------------------------------------------------------
+## ----convert-time, echo=F------------------------------------------------
 
 # convert to date class -
 discharge$datetime <- as.Date(discharge$datetime, format="%m/%d/%y")
 
-# recheck data structure
-str(discharge)
+# looks like there aren't any no data values to deal with.
 
-
-## ----no-data-values------------------------------------------------------
-# check total number of NA values
-sum(is.na(discharge$datetime))
-
-# view distribution of values
-hist(discharge$disValue)
-summary(discharge$disValue)
-
-
-## ----plot-flood-data-----------------------------------------------------
+## ----plot-flood-data, echo=F---------------------------------------------
 # check out our date range
-min(discharge$datetime)
-max(discharge$datetime)
-
 stream_discharge_30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
               geom_point() +
               ggtitle("Stream Discharge (CFS) - Boulder Creek, 1986-2016") +
@@ -59,24 +35,27 @@ stream_discharge_30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
 stream_discharge_30yrs
 
 
-## ----define-time-subset--------------------------------------------------
+## ----define-time-subset, echo=F, eval=F----------------------------------
+## 
+## # Define Start and end times for the subset as R objects that are the time class
+## startTime <- as.Date("2013-08-15")
+## endTime <- as.Date("2013-10-15")
+## 
+## discharge_augSept_2013 <- discharge %>%
+##                   filter((datetime >= as.Date('2013-08-15') & datetime <= as.Date('2013-10-15')))
+## 
+## 
+## 
+## 
 
-# Define Start and end times for the subset as R objects that are the time class
-startTime <- as.Date("2013-08-15")
-endTime <- as.Date("2013-10-15")
-
-# create a start and end time R object
-start_end <- c(startTime,endTime)
-start_end
+## ----plot-challenge, echo=F----------------------------------------------
 
 # plot the data - Aug 15-October 15
-stream.discharge_3mo <- ggplot(discharge,
-          aes(datetime,disValue)) +
+stream.discharge_3mo <- ggplot(discharge_augSept_2013,
+          aes(datetime, disValue)) +
           geom_point() +
-          scale_x_date(limits=start_end) +
           xlab("Month / Day") + ylab("Discharge (Cubic Feet per Second)") +
           ggtitle("Daily Stream Discharge (CFS) for Boulder Creek 8/15 - 10/15 2013")
 
 stream.discharge_3mo
-
 

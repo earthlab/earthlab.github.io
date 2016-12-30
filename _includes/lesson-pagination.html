@@ -2,6 +2,9 @@
 <!-- NOTE: it won't include slideshows as written which makes sense -->
 <!-- add forced pagination -->
 <!-- first, get total lesson count -->
+
+<div class="previous--next">
+  
 {% assign counter = 0 %}
 {% for post in site.categories.course-materials %}
     {% if post.class-lesson == page.class-lesson %}
@@ -29,3 +32,4 @@
       {% endif %}
     {% endif %}
 {% endfor %}
+</div>

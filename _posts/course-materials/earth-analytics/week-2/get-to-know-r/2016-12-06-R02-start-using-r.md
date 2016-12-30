@@ -10,20 +10,20 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-28
+lastModified: 2016-12-29
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 2
+order: 3
 ---
 
 .
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Be able to create, modify and use objects or variables in `R`.
@@ -42,7 +42,8 @@ directory with it.
 
 ## Creating objects
 
-You can get output from `R` by typing in math in the console
+You can get output from `R` by typing a mathematical equation into the console -
+For example, if you type in `3 + 5`, `R` will calculate the output value.
 
 
 ```r
@@ -71,7 +72,10 @@ weight_kg
 ## Use Useful Object Names
 Objects can be given any name such as `x`, `current_temperature`, or
 `subject_id`. However, it is best to use clear and descriptive words when naming
-objects to ensure your code is easy to follow:
+objects to ensure your code is easy to follow.
+
+We will discuss best practicing for coding in this module - in the [clean coding
+lesson](/course-materials/earth-analytics/week-2/write-clean-code-with-r/).
 
 1. **Keep object names short:** this makes them easier to read when scanning through code.
 2. **Use meaningful names:** For example: `precip` is a more useful name that tells us something about the object compared to `x`
@@ -139,7 +143,7 @@ What do you think is the current content of the object `weight_lb`? 126.5 or 200
 
 <div class="notice--warning" markdown="1">
 
-# Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 What are the values of each object defined in EACH LINE OF code below?
 

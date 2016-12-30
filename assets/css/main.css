@@ -1368,6 +1368,10 @@ tr, td, th {
   text-transform: uppercase;
   border-bottom: 1px solid #f2f3f3; }
 
+.nav__sub-title.grey {
+  background-color: #fff;
+  color: #7a8288; }
+
 /*
    Table of contents navigation
    ========================================================================== */
@@ -1486,6 +1490,10 @@ tr, td, th {
 /* ==========================================================================
    Syntax highlighting
    ========================================================================== */
+/* Make sure code in challenge blocks is readable */
+div.notice--warning pre {
+  font-size: 0.9em !important; }
+
 div.highlighter-rouge, figure.highlight {
   position: relative;
   margin-bottom: 1em;
@@ -5381,5 +5389,9 @@ div.notice--success, div.notice--warning {
 
 .nav__list li ul li {
   padding-left: 0.5em; }
+
+/* previous and next buttons */
+.previous--next {
+  margin-top: 2.5em; }
 
 /*# sourceMappingURL=main.css.map */

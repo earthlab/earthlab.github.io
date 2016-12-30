@@ -9,20 +9,20 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-28
+lastModified: 2016-12-29
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 3
+order: 4
 ---
 
 .
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Understand the structure of and be able to create a vector object in R.
@@ -130,12 +130,12 @@ from. The other 4 are:
 ## Data type vs. data structure
 Vectors are one of the many **data structures** that `R` uses. Other important
 ones include: lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
-factors (`factor`). We will look at `data.frames` when we open our `boulder.precip`
+factors (`factor`). We will look at `data.frames` when we open our `boulder_precip`
 data in the next lesson!
 
 <div class="notice--warning" markdown="1">
 
-# Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 * **Question**: What happens when we create a vector that contains both numbers
 and character values? Give it a try and write down the answer.
@@ -228,7 +228,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck")]
 
 <div class="notice--warning" markdown="1">
 
-## Challenge {.challenge}
+### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge  {.challenge}
 
 * Can you figure out why `"four" > "five"` returns `TRUE`?
 </div>

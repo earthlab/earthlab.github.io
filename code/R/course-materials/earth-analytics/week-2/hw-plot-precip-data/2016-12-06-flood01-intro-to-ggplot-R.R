@@ -5,14 +5,14 @@ library(ggplot2)
 
 # download data from figshare
 # note that we are downloaded the data into your
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
-              destfile = "data/boulder-precip.csv")
+#download.file(url = "https://ndownloader.figshare.com/files/7010681",
+#              destfile = "data/boulder-precip.csv")
 
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
-head(boulder.precip)
+head(boulder_precip)
 
 # when we download the data we create a dataframe
 # view each column of the data frame using it's name (or header)

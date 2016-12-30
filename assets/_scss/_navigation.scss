@@ -355,8 +355,14 @@
   font-weight: bold;
   text-transform: uppercase;
   border-bottom: 1px solid $border-color;
+
+
 }
 
+.nav__sub-title.grey {
+  background-color: #fff;
+  color: #7a8288;
+}
 
 /*
    Table of contents navigation
