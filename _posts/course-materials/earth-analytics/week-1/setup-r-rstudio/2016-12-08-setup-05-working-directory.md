@@ -5,6 +5,7 @@ category: [course-materials]
 title: 'Install & Setup R and R Studio on Your Computer'
 excerpt: '#.'
 nav-title: 'Setup Working Directory'
+week: 1
 sidebar:
   nav:
 class-lesson: ['setup-r-rstudio']
