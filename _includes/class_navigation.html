@@ -55,6 +55,10 @@
 {% endif %}
 {% endfor %}
 
+<!-- Only add this if the page has a week asociated with it -->
+{% if page.week %}
 {% capture the_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ page.week }}/{% endcapture %}
 
 <a href="{{ the_path }}" ><i class="fa fa-arrow-circle-left"></i> Return to week {{ page.week }}</a>
+
+{% endif %}
