@@ -87,7 +87,7 @@ To build a ggplot we need to:
 
 - bind the plot to a specific data frame using the `data` argument
 
-```{r, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE, purl=FALSE, fig.cap="ggplot binding"}
 
 ggplot(data = boulder_precip)
 
@@ -96,14 +96,14 @@ ggplot(data = boulder_precip)
 - define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
      such as plotting size, shape color, etc.,
 
-```{r, eval=FALSE, purl=FALSE}
+```{r, eval=FALSE, purl=FALSE, fig.cap="ggplot example plot precip"}
 ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP))
 ```
 
 - add `geoms` -- graphical representation of the data in the plot (points,
      lines, bars). To add a geom to the plot use `+` operator:
 
-```{r first-ggplot, purl=FALSE}
+```{r first-ggplot, purl=FALSE, fig.cap="ggplot boulder precip"}
 
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
   geom_point()
