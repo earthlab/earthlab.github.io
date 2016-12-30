@@ -5,6 +5,7 @@ category: [course-materials]
 title: 'File Organization 101'
 excerpt: 'This lesson provides a broad overview of file organization principles.'
 nav-title: 'File Organization 101'
+week: 1
 sidebar:
   nav:
 class-lesson: ['setup-r-rstudio']
