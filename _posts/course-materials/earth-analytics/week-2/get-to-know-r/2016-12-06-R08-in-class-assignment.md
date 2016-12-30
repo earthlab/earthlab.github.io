@@ -1,12 +1,12 @@
 ---
 layout: single
-title: "Getting Help with R"
-excerpt: "This tutorial covers ways to get help when you are stuck in R. "
+title: "Week 2 - In Class Activity"
+excerpt: "Week 2 In class activity. "
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/week-2/about-and-get-help-with-R/
-nav-title: 'About R / Getting Help'
+permalink: /course-materials/earth-analytics/week-2/wk2-in-class-activity/
+nav-title: 'Wk 2 In Class Activity'
 dateCreated: 2016-12-13
 lastModified: 2016-12-29
 week: 2
@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 7
+order: 8
 ---
 
 Getting help

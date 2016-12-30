@@ -3,12 +3,12 @@ layout: single
 title: "Plotting with GGPLOT"
 excerpt: "This lesson walks through using GGPLOT2 to plot data."
 authors: ['Leah Wasser', 'Data Carpentry']
-lastModified: 2016-12-28
+lastModified: 2016-12-29
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r
 nav-title: 'GGPLOT R'
-module-title: 'Plotting Time Series Data in R'
+module-title: 'Plot Time Series Data in R'
 module-description: 'This tutorial covers how to plot time series data in R using ggplot2. It also covers converting data stored in data/time format into an R date time class.'
 week: 2
 sidebar:
@@ -54,14 +54,14 @@ library(ggplot2)
 
 # download data from figshare
 # note that we are downloaded the data into your
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
-              destfile = "data/boulder-precip.csv")
+#download.file(url = "https://ndownloader.figshare.com/files/7010681",
+#              destfile = "data/boulder-precip.csv")
 
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
-head(boulder.precip)
+head(boulder_precip)
 ##     X       DATE PRECIP
 ## 1 756 2013-08-21    0.1
 ## 2 757 2013-08-26    0.1
@@ -190,7 +190,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 ![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/barplot-1.png)
 
-Turn the bars blue
+Turn the bar outlines blue
 
 
 ```r
@@ -245,10 +245,14 @@ few are listed below.
 * <a href="http://www.datacarpentry.org/R-ecology-lesson/05-visualization-ggplot2.html" target="_blank"> Data carpentry ggplot2 </a>
 * <a href="http://www.cookbook-r.com/Graphs/" target="_blank">R Cookbook</a>
 
-<div id="challenge" markdown="1">
-* customize your plot as follows
+<div class="notice--warning" markdown="1">
 
-- color of the plot,
-dots vs bars
-add labels
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+
+Customize the plot that we created in last weeks homework as follows:
+
+* Change the colors of the plot
+* Plot the data using points `geom_point()` AND bars `geom_bar()`
+* Add a title to your plot and x and y axis labels.
+
 </div>

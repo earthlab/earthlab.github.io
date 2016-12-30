@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-lastModified: 2016-12-28
+lastModified: 2016-12-29
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -15,16 +15,17 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 5
+order: 4
 ---
 
 Several factors contributed to the extreme flooding that occurred in Boulder,
-Colorado in 2013. In this data activity, we explore and visualize the data for
-stream discharge data collected by the United States Geological Survey (USGS).
+Colorado in 2013. In this data activity, we explore and visualize stream discharge
+data collected by the United States Geological Survey (USGS).
 
 <div class='notice--success' markdown="1">
 
-### Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
 After completing this tutorial, you will be able to:
 
 * Plot USGS Stream Discharge time series data in `R`.
@@ -42,6 +43,7 @@ directory with it.
 ### R Libraries to Install:
 
 * **ggplot2:** `install.packages("ggplot2")`
+* **dplyr:** `install.packages("dplyr")`
 
 </div>
 
@@ -75,9 +77,9 @@ Source: <a href="http://nwis.waterdata.usgs.gov/usa/nwis/peak/?site_no=06730200"
 </figure>
 
 
-## Work with Stream Gauge Data
+## Work with USGS Stream Gage Data
 
-We will use `ggplot2` to  plot our data.
+Let's begin by loading our libraries and setting our working directory.
 
 
 ```r
@@ -86,7 +88,7 @@ We will use `ggplot2` to  plot our data.
 
 # load packages
 library(ggplot2) # create efficient, professional plots
-library(plotly) # create cool interactive plots
+library(dplyr) # data manipulation
 
 # set strings as factors to false
 options(stringsAsFactors = FALSE)
@@ -114,152 +116,46 @@ head(discharge)
 ## 6      USGS 6730200  10/6/86       30        A
 ```
 
-## View Data Structure
 
-Next, let's have a look at the structure of our data.
+<div class="notice--warning" markdown="1">
 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-```r
-# view structure of data
-str(discharge)
-## 'data.frame':	9954 obs. of  5 variables:
-##  $ agency_cd: chr  "USGS" "USGS" "USGS" "USGS" ...
-##  $ site_no  : int  6730200 6730200 6730200 6730200 6730200 6730200 6730200 6730200 6730200 6730200 ...
-##  $ datetime : chr  "10/1/86" "10/2/86" "10/3/86" "10/4/86" ...
-##  $ disValue : num  30 30 30 30 30 30 30 30 30 31 ...
-##  $ qualCode : chr  "A" "A" "A" "A" ...
+Now that the data are imported, plot disValue (discharge value) over time. 
+To do this, you will need to use
+everything that you learned in the previous lessons.
 
-# view class of the disValue column
-class(discharge$disValue)
-## [1] "numeric"
+Hint: when converting the date, take a close look at the format of the date -
+is the year 4 digits (including the century) or just 2? Use `?strptime` to figure
+out what format elements you'll need to include to get the date right.
 
-# view class of the datetime column
-class(discharge$datetime)
-## [1] "character"
-```
+</div>
 
 
-### Convert Date to R Date Class
-
-However, the time stamp field, `datetime` is a `character` class.
-
-To work with and efficiently plot time series data, it is best to convert date
-and/or time data to a date/time class.
-
-To learn more about different date/time classes, see the
-<a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank" >
-*Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a> tutorial.
-
-** note they will have to use %y lowercase instead of upper case.
 
 
-```r
 
-# convert to date class -
-discharge$datetime <- as.Date(discharge$datetime, format="%m/%d/%y")
-
-# recheck data structure
-str(discharge)
-## 'data.frame':	9954 obs. of  5 variables:
-##  $ agency_cd: chr  "USGS" "USGS" "USGS" "USGS" ...
-##  $ site_no  : int  6730200 6730200 6730200 6730200 6730200 6730200 6730200 6730200 6730200 6730200 ...
-##  $ datetime : Date, format: "1986-10-01" "1986-10-02" ...
-##  $ disValue : num  30 30 30 30 30 30 30 30 30 31 ...
-##  $ qualCode : chr  "A" "A" "A" "A" ...
-```
-
-### No Data Values
-Next, let's query our data to check whether there are no data values in
-it.  The metadata associated with the data doesn't specify what the values would
-be, `NA` or `-9999` are common values
-
-
-```r
-# check total number of NA values
-sum(is.na(discharge$datetime))
-## [1] 0
-
-# view distribution of values
-hist(discharge$disValue)
-```
-
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/no-data-values-1.png)
-
-```r
-summary(discharge$disValue)
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    0.87   32.00   54.00   93.71  108.00 4770.00
-```
-
-The min and max data values to not appear to have any NA values nor any values
-that are typically used to represent NoData (e.g. -9999). It's safe to assume
-our data don't have NA values.
-
-## Plot The Data
-
-Finally, we are ready to plot our data. We will use `ggplot` from the `ggplot2`
-package to create our plot.
-
-
-```r
-# check out our date range
-min(discharge$datetime)
-## [1] "1986-10-01"
-max(discharge$datetime)
-## [1] "2013-12-31"
-
-stream_discharge_30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
-              geom_point() +
-              ggtitle("Stream Discharge (CFS) - Boulder Creek, 1986-2016") +
-              xlab("Year") + ylab("Discharge (CFS)")
-
-stream_discharge_30yrs
-```
+Your plot should look something like the one below:
 
 ![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
 
-#### Questions:
+<div class="notice--warning" markdown="1">
 
-1. What patterns do you see in the data?
-1. Why might there be an increase in discharge during that time of year?
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+
+Similar to the previous lesson, take the cleaned discharge data that you just 
+plotted and subset it to the time span
+of 2013-08-15 to 2013-10-15. Use `dplyr` pipes and the `filter()` function
+to perform the subset.
+
+Plot the data with `ggplot()`. Your plot should look like the one below. 
+</div>
 
 
-## Plot Data Time Subsets With ggplot
-
-We can plot a subset of our data within `ggplot()` by specifying the start and
-end times (in a `limits` object) for the x-axis with `scale_x_datetime`. Let's
-plot data for the months directly around the Boulder flood: August 15 2013 -
-October 15 2013.
 
 
-```r
-
-# Define Start and end times for the subset as R objects that are the time class
-startTime <- as.Date("2013-08-15")
-endTime <- as.Date("2013-10-15")
-
-# create a start and end time R object
-start_end <- c(startTime,endTime)
-start_end
-## [1] "2013-08-15" "2013-10-15"
-
-# plot the data - Aug 15-October 15
-stream.discharge_3mo <- ggplot(discharge,
-          aes(datetime,disValue)) +
-          geom_point() +
-          scale_x_date(limits=start_end) +
-          xlab("Month / Day") + ylab("Discharge (Cubic Feet per Second)") +
-          ggtitle("Daily Stream Discharge (CFS) for Boulder Creek 8/15 - 10/15 2013")
-
-stream.discharge_3mo
-## Warning: Removed 9892 rows containing missing values (geom_point).
-```
-
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/define-time-subset-1.png)
-
-We get a warning message because we are "ignoring" lots of the data in the
-data set.
-
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
+<div class="notice--info" markdown="1">
 
 ## Additional Resources
 
@@ -277,3 +173,5 @@ particularly useful if you want to request data from multiple sites or build the
 data request into a script.
 <a href="http://help.waterdata.usgs.gov/faq/automated-retrievals#RT">
 Read more here about API downloads of USGS data</a>.
+
+</div>
