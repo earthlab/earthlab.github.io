@@ -28,7 +28,7 @@ and `ggplot2` packages for `R`.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
 * Know how to install an `R` package using `Rstudio`.

@@ -29,7 +29,7 @@ At the end of this activity, you will be able to:
 
 * use the ggplot plot function to customize plots
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`

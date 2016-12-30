@@ -27,7 +27,7 @@ At the end of this activity, you will be able to:
 
 * Understand the structure of and be able to create a vector object in R.
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`

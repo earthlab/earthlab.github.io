@@ -30,7 +30,7 @@ the flood using different methods.
 
 <div class='notice--success' markdown="1">
 
-## Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Use the timeline function in Google Earth to view time series imagery data
@@ -107,7 +107,7 @@ damage file. Scroll to 10/2012 and then to 10/2013. Do you see any differences?
 
 <div class="notice--warning" markdown="1">
 
-## Activity: What Changes do you see?
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: What Changes do you see?
 
 As a group, discuss the following questions. Record your answers following the
 directions of your instructor (Google Doc, word document, etherpad, etc.).
