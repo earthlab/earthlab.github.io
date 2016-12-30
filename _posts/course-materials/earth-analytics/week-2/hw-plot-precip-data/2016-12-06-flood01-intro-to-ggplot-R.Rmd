@@ -46,7 +46,7 @@ features.
 
 Let's explore the code below to create a quick plot.
 
-```{r plot-data}
+```{r plot-data, fig.cap="quick plot of precip data"}
 
 # load the ggplot2 library for plotting
 library(ggplot2)
