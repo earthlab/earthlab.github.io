@@ -3,8 +3,10 @@ layout: single
 category: course-materials
 title: "Week 1 - Disturbance, Erosion & the 2013 Colorado Floods - R"
 permalink: /course-materials/earth-analytics/week-1/
+week-landing: 1
+week: 1
 sidebar:
-  nav: earth-analytics-2017
+  nav:
 comments: false
 author_profile: false
 ---
