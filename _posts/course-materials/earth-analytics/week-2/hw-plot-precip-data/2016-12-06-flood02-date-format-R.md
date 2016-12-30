@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Data Carpentry']
 lastModified: 2016-12-29
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
-permalink: /course-materials/earth-analytics/week-2/date-class-in-r
+permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
 nav-title: 'Dates in R'
 week: 2
 sidebar:
@@ -88,7 +88,7 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP) +
   xlab("Date") + ylab("Total Precipitation (Inches)")
 ## Error: <text>:8:0: unexpected end of input
 ## 6:   xlab("Date") + ylab("Total Precipitation (Inches)")
-## 7: 
+## 7:
 ##   ^
 ```
 Notice when we plot the data, the x axis is "messy". It would be easier to read
