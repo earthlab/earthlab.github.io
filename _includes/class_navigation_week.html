@@ -1,38 +1,56 @@
-<h3>Week {{ page.week }} Lessons</h3>
+{% assign sorted_posts = site.posts | sort:"order" %}
 
 {% assign modules = site.posts | where:"order", 1 %}
-{% assign weeks = modules | where:"week", page.week %}
+
+{% assign weeks = sorted_posts | where:"week", page.week %}
+
 {% assign classes = weeks | where:"module-type", 'class' %}
 {% assign homework = weeks | where:"module-type", 'homework' %}
 
 <nav class="nav__list">
   <ul>
-    <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class</span>
-
+    <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class Materials</span>
       <ul>
         {% for module in classes %}
-        {% if module.class-lesson != page.class-lesson %}
-          <a href="{{ site.url }}{{ module.permalink }}">
-            <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-title }} Lessons </li>
-          </a>
+        {% if module.order == 1 %}
+            {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
+            <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
         {% endif %}
-        {% endfor %}
-      </ul>
 
-   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Homework</span>
+        <ul>
+        {% for alesson in class_lessons %}
+        <a href="{{ site.url }}{{ module.permalink }}">
+          <li>{{ alesson.order }}. {{ alesson.nav-title }} </li>
+        </a>
+        {% endfor %}
+       </ul>
+        {% endfor %}
+       </ul>
+
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Homework Materials</span>
      <ul>
        {% for module in homework %}
-       {% if module.class-lesson != page.class-lesson %}
-          <a href="{{ site.url }}{{ module.permalink }}">
-             <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-title }} Lessons</span>
-          </a>
-        {% endif %}
-        {% endfor %}
+       {% if module.order == 1 %}
+           {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
+           <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
+       {% endif %}
+
+       <ul>
+       {% for alesson in class_lessons %}
+       <a href="{{ site.url }}{{ module.permalink }}">
+         <li>{{ alesson.order }}. {{ alesson.nav-title }} </li>
+       </a>
+       {% endfor %}
+        </ul>
+       {% endfor %}
      </ul>
    </ul>
 </nav>
 
 
-<!-- Only add this if the page has a week asociated with it -->
-<h4><a href="{{ site.url }}/course-materials/earth-analytics/" >
-  <i class="fa fa-arrow-circle-left"></i> Earth Analytics Home</a></h4>
+{% if page.week %}
+{% capture the_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ page.week }}/{% endcapture %}
+
+<a href="{{ the_path }}" ><i class="fa fa-arrow-circle-left"></i> Week {{ page.week }} Home</a>
+
+{% endif %}
