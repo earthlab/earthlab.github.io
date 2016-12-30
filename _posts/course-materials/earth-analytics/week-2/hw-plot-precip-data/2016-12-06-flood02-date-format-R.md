@@ -3,7 +3,7 @@ layout: single
 title: "Work With Dates in R - Plot Time Series Data"
 excerpt: "This lesson walks through working with time series data in R. you will learn how to convert a data field to a date class that R can understand as a date/time element."
 authors: ['Leah Wasser', 'Data Carpentry']
-lastModified: 2016-12-29
+lastModified: 2016-12-30
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
@@ -88,7 +88,7 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP) +
   xlab("Date") + ylab("Total Precipitation (Inches)")
 ## Error: <text>:8:0: unexpected end of input
 ## 6:   xlab("Date") + ylab("Total Precipitation (Inches)")
-## 7:
+## 7: 
 ##   ^
 ```
 Notice when we plot the data, the x axis is "messy". It would be easier to read
@@ -105,7 +105,7 @@ so many labels on the x axis.
 str(boulder_precip)
 ## 'data.frame':	18 obs. of  3 variables:
 ##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
-##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
+##  $ DATE  : Factor w/ 18 levels "2013-08-21","2013-08-26",..: 1 2 3 4 5 6 7 8 9 10 ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
 ```
 
@@ -143,7 +143,7 @@ are sequential.
 ```r
 # View data class for each column that we wish to plot
 class(boulder_precip$DATE)
-## [1] "character"
+## [1] "factor"
 
 class(boulder_precip$PRECIP)
 ## [1] "numeric"
