@@ -20,6 +20,7 @@ order: 1
 ---
 
 
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -56,7 +57,7 @@ page will introduce fundamental lidar concepts including:
 
 <figure>
    <a href="https://farm4.staticflickr.com/3913/14532371197_a17d52e010.jpg">
-   <img src="https://farm4.staticflickr.com/3913/14532371197_a17d52e010.jpg"></a>
+   <img src="https://farm4.staticflickr.com/3913/14532371197_a17d52e010.jpg" alt="Lidar data collected by NEON AOP"></a>
    <figcaption>LiDAR data collected at the Soaproot Saddle site by the National
 Ecological Observatory Network Airborne Observation Platform (NEON AOP) - image
 available on <a href="https://flic.kr/s/aHsk4W4cdP" target="_blank"> Flickr</a>.
@@ -87,10 +88,9 @@ landscape and record things that we can use to estimate conditions and
 characteristics.
 
 
-
 <figure>
-   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/ScalingTrees_NatGeo.jpg">
-   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/ScalingTrees_NatGeo.jpg"></a>
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/scaling-trees-nat-geo.jpg">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/scaling-trees-nat-geo.jpg" alt="national geographic scaling trees graphic"></a>
    <figcaption>Conventional on the ground methods to measure trees are resource
    intensive and limit the amount of vegetation that can be characterized. Source:
    National Geographic
@@ -146,8 +146,8 @@ building.
 
 
 <figure>
-   <a href="http://neondataskills.org/images/lidar/Waveform.PNG">
-   <img src="http://neondataskills.org/images/lidar/Waveform.PNG"></a>
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" target="_blank">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
    <figcaption>An example LiDAR waveform. Source: National Ecological
    Observatory Network, Boulder, CO - image
 available on <a href="https://flic.kr/s/aHsk4W4cdP" target="_blank"> Flickr</a>.
@@ -161,8 +161,8 @@ There are many different uses for LiDAR data.
 - LiDAR data classically have been used to derive high resolution elevation data
 
 <figure>
-   <a href="http://neondataskills.org/images/lidar/HighRes.png">
-   <img src="http://neondataskills.org/images/lidar/HighRes.png"></a>
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/high-res-topo.png">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/high-res-topo.png" alt="high resolution vs low resolution topography."></a>
    <figcaption>LiDAR data have historically been used to generate high
    resolution elevation datasets. Source: National Ecological Observatory
    Network - image
@@ -181,9 +181,10 @@ structure including
 
 <figure>
    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/Treeline_ScannedPoints.png">
-   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/Treeline_ScannedPoints.png"></a>
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
    <figcaption>Cross section showing LiDAR point cloud data (above) and the
    corresponding landscape profile (below). Graphic: Leah A. Wasser
+   </figcaption>
 </figure>
 
 
