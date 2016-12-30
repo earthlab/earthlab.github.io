@@ -7,6 +7,7 @@ category: [course-materials]
 class-lesson: ['co-floods-1-intro']
 permalink: /course-materials/earth-analytics/week-1/co-floods-1-intro/
 nav-title: 'CO Floods - Google Earth'
+module-nav-title: 'CO Floods Intro'
 dateCreated: 2016-12-06
 dateModified: 2016-12-12
 module-title: 'Understanding Disturbance With Data - Flooding & Erosion'

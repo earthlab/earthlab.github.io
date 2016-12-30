@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 8
+order: 9
 ---
 
 Getting help

@@ -12,6 +12,7 @@ module-description: 'This module walks you through getting R and RStudio setup o
 computer. It also introduces file organization strategies.'
 computes. module-type: 'homework'
 nav-title: 'Setup R Studio'
+module-nav-title: 'Setup R'
 module-type: 'homework'
 week: 1
 sidebar:
