@@ -1,16 +1,23 @@
 ---
 layout: archive
 category: course-materials
-title: "Week One - Disturbance, Erosion & the 2013 Colorado Floods"
+title: "Week 3 - LiDAR Data "
 permalink: /course-materials/earth-analytics/week-3/
+week-landing: 3
+week: 3
 sidebar:
-  nav: earth-analytics-2017
+  nav:
 comments: false
 author_profile: false
 ---
 
+<div class="notice--info" markdown="1">
 
-Week One landing page.
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-This page needs to have the in class stuff
-And the homework.
+Welcome to week {{ page.week }} of Earth Analytics! In week 3 we will ...
+
+
+Read the assignment below carefully. Use the class and homework lessons to help
+you complete the assignment.
+</div>

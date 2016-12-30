@@ -258,7 +258,7 @@ help for this function using `?round`.
 ```r
 # view arguments for the round function
 args(round)
-## function (x, digits = 0) 
+## function (x, digits = 0)
 ## NULL
 ```
 
