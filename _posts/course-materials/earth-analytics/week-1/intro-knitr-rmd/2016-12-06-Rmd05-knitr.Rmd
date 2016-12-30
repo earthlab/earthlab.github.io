@@ -26,7 +26,7 @@ different formats including: `HTML`, `PDF`, github markdown (`.md`) and more.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 At the end of this activity, you will:
 

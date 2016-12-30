@@ -24,7 +24,7 @@ Let's dive deeper into the R Markdown file format. This tutorial will introduce 
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
 * Know how to create an R Markdown file in RStudio.
@@ -32,7 +32,7 @@ At the end of this activity, you will:
 * Create an R Markdown document ready to be ‘knit’ into an HTML document to
 share your code and results.
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need the most current version of R and, preferably, RStudio loaded on
 your computer to complete this tutorial.
@@ -138,7 +138,7 @@ output: html_document
 
 <div class="notice--warning" markdown="1">
 
-## Activity: Customize your R Markdown File's Front Matter - YAML
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Customize your R Markdown File's Front Matter - YAML
 Customize the header of your `.Rmd` file as follows:
 
 * **Title:** Provide a title that fits the code that will be in your RMD.

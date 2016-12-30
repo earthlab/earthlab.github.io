@@ -7,7 +7,7 @@ variables for consistency and more. To modify the styles
 2. then rebuild the styles to create a new main.css file
 
 NOTE: the main.scss is the file that maps all of the SASS files (in order) to build
-the final css file. 
+the final css file.
 
 ## To build css in shell
 from the assets dir run:

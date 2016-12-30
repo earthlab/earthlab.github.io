@@ -5394,4 +5394,12 @@ div.notice--success, div.notice--warning {
 .previous--next {
   margin-top: 2.5em; }
 
+/* if the warning block is a header, remove the top margin so things line up */
+.header {
+  margin-top: 0 !important; }
+
+/* for font awesome sizing */
+.fa-2 {
+  font-size: .8em; }
+
 /*# sourceMappingURL=main.css.map */
