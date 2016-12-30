@@ -26,6 +26,11 @@
       {% include class_navigation.html %}
 
     {% endif %}
+    {% if page.week-landing %}
+     <!--  This is the code that populates the side bar navigation if there is a class-->
+      {% include class_navigation_week.html %}
+
+    {% endif %}
 
   {% endif %}
   </div>
