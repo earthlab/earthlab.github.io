@@ -10,7 +10,9 @@ dateModified: 2016-12-12
 module-title: 'Setup R, R Studio & Your Working Directory'
 module-description: 'This module walks you through getting R and RStudio setup on your
 computer. It also introduces file organization strategies.'
+computes. module-type: 'homework'
 nav-title: 'Setup R Studio'
+module-type: 'homework'
 week: 1
 sidebar:
   nav:

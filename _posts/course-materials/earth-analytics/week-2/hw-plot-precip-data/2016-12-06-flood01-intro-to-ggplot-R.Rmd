@@ -10,6 +10,7 @@ permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
 nav-title: 'GGPLOT R'
 module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-description: 'This tutorial covers how to plot time series data in R using ggplot2. It also covers converting data stored in data/time format into an R date time class.'
+module-type: 'homework'
 week: 2
 sidebar:
   nav:
@@ -27,7 +28,7 @@ At the end of this activity, you will be able to:
 
 * Use the `ggplot()` plot function to create custom plots.
 * Add labels to x and y axes and a title to your ggplot plot.
-* Customize the colors and look of a ggplot plot. 
+* Customize the colors and look of a ggplot plot.
 
 ## What You Need
 
