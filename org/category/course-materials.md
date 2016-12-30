@@ -9,7 +9,7 @@ author_profile: false
 
 ## Courses
 
-[Earth Analytics ](/course-materials/earth-analytics/)
+[Earth Analytics Course Spring 2017](/course-materials/earth-analytics/)
 
 
 
