@@ -36,8 +36,8 @@ After completing this tutorial, you will be able to:
 * Plot quantitative time series data using ggplot
 * Ensure that NoData values do not interfere with quantitative analysis by setting them to NA in `R`.
 * use the na.rm function argument when performing math with large datasets.
-* subset data using the dplyr filter() function 
-* use dplyr pipes to filter data in R. 
+* subset data using the dplyr filter() function
+* use dplyr pipes to filter data in R.
 
 ### What You'll Need
 
@@ -192,7 +192,7 @@ Your final plot should look something like the plot below.
 
 
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/plot-precip-hourly-1.png)
+![precip plot w fixed dates]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/plot-precip-hourly-1.png)
 
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
@@ -222,9 +222,9 @@ to do this.
 
 ## Introduction to the Pipe %<%
 
-Pipes let you take the output of one function and send it directly to the next, 
-which is useful when you need to do many things to the same data set. Pipes in R 
-look like %>% and are made available via the magrittr package, installed 
+Pipes let you take the output of one function and send it directly to the next,
+which is useful when you need to do many things to the same data set. Pipes in R
+look like %>% and are made available via the magrittr package, installed
 automatically with dplyr.
 
 If we want to subset our data, we could use the following syntax
@@ -244,8 +244,8 @@ precip_boulder_AugOct <- boulder_daily_precip %>%
 ```
 
 In the code above, we use the pipe to send the boulder_daily_precip data through
-a filter setp. In that filter step, we filter our only the rows withing the 
-date range that we specified. Since %>% takes the object on its left and passes 
+a filter setp. In that filter step, we filter our only the rows withing the
+date range that we specified. Since %>% takes the object on its left and passes
 it as the first argument to the function on its right, we don’t need to explicitly include it as an argument to the filter() function.
 
 
@@ -266,22 +266,22 @@ precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
 precPlot_flood2
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/check-subset-1.png)
+![precip plot subset]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/check-subset-1.png)
 
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Create a subset from the same dates in 2012 to compare to the 2013 plot. 
+Create a subset from the same dates in 2012 to compare to the 2013 plot.
 Use the ylim() argument to ensure the y axis range is the SAME as the previous
 plot - from 0 to 10".
 
 How different was the rainfall in 2012?
 
-HINT: type ?lims in the console to see how the xlim and ylim arguments work. 
+HINT: type ?lims in the console to see how the xlim and ylim arguments work.
 
 
 </div>
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/challenge-1.png)
+![precip plot subset 2]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/challenge-1.png)

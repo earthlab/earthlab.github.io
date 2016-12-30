@@ -54,8 +54,8 @@ library(ggplot2)
 
 # download data from figshare
 # note that we are downloaded the data into your
-#download.file(url = "https://ndownloader.figshare.com/files/7010681",
-#              destfile = "data/boulder-precip.csv")
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
+             destfile = "data/boulder-precip.csv")
 
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
@@ -74,7 +74,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/import-data-1.png)
+![quick plot of precip data]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/import-data-1.png)
 
 Wait - we know how to use ggplot() now so let's use that instead!
 
@@ -213,7 +213,7 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
       ggtitle("Precipitation")
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/qplot-data-1.png)
+![precip bar plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/qplot-data-1.png)
 
 
 Now, our plot looks a lot nicer!

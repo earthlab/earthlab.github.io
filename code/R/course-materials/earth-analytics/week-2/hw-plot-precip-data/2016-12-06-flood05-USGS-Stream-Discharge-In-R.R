@@ -25,7 +25,7 @@ discharge$datetime <- as.Date(discharge$datetime, format="%m/%d/%y")
 
 # looks like there aren't any no data values to deal with.
 
-## ----plot-flood-data, echo=F---------------------------------------------
+## ----plot-flood-data, echo=F, fig.cap="plot of discharge vs time"--------
 # check out our date range
 stream_discharge_30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
               geom_point() +
@@ -35,20 +35,13 @@ stream_discharge_30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
 stream_discharge_30yrs
 
 
-## ----define-time-subset, echo=F, eval=F----------------------------------
-## 
-## # Define Start and end times for the subset as R objects that are the time class
-## startTime <- as.Date("2013-08-15")
-## endTime <- as.Date("2013-10-15")
-## 
-## discharge_augSept_2013 <- discharge %>%
-##                   filter((datetime >= as.Date('2013-08-15') & datetime <= as.Date('2013-10-15')))
-## 
-## 
-## 
-## 
+## ----define-time-subset, echo=F------------------------------------------
 
-## ----plot-challenge, echo=F----------------------------------------------
+discharge_augSept_2013 <- discharge %>%
+                  filter((datetime >= as.Date('2013-08-15') & datetime <= as.Date('2013-10-15')))
+
+
+## ----plot-challenge, echo=F, fig.cap="ggplot subsetted discharge data"----
 
 # plot the data - Aug 15-October 15
 stream.discharge_3mo <- ggplot(discharge_augSept_2013,
