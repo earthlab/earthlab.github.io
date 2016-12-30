@@ -21,7 +21,8 @@ plotting and working with time series data in R.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
 At the end of this activity, you will be able to:
 
 * Convert column in a dataframe containing dates / times to a date/time object that can be used in R.
@@ -52,8 +53,8 @@ library(ggplot2)
 
 # download data from figshare
 # note that we are downloaded the data into your
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
-              destfile = "data/boulder-precip.csv")
+#download.file(url = "https://ndownloader.figshare.com/files/7010681",
+#              destfile = "data/boulder-precip.csv")
 
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
@@ -65,11 +66,24 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-Notice when we plot the data, the x axis is "messy". It would be better to
-only have ticks on the x axis for dates incrementally - every few weeks. Or
+Wait - we know how to use ggplot() now so let's use that instead!
+
+```{r ggplot-plot }
+
+# plot the data using ggplot
+ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP) +
+  geom_point() +
+  ggtitle("Precipitation Data") +
+  xlab("Date") + ylab("Total Precipitation (Inches)")
+
+```
+Notice when we plot the data, the x axis is "messy". It would be easier to read
+if we only had ticks on the x axis for dates incrementally - every few weeks. Or
 once a month even.
 
-Let's look closely at the STRUCTURE of the data to understand what is happening.
+Let's look closely at the STRUCTURE of the data to understand why R is placing
+so many labels on the x axis.
+.
 
 ```{r structure}
 
@@ -92,21 +106,20 @@ Mathematical operations can be performed on integers.
 including decimals (floating point values) and integers. Numeric also accept
 larger numbers than **int** will.
 
-Storing variables using different `classes` is a strategic decision by `R` (and
+Storing
+variables using different `classes` is a strategic decision by `R` (and
 other programming languages) that optimizes processing and storage. It allows:
 
 * data to be processed more quickly & efficiently.
 * the program (`R`) to minimize the storage size.
 
-Remember, that we also discussed classes during class: [vectors in R - data classes](/course-materials/earth-analytics/week-2/work-with-data-types-r/)
+Remember, that we also discussed classes during class in these lessons: [vectors in R - data classes](/course-materials/earth-analytics/week-2/work-with-data-types-r/)
 
 ## What is going on with the X axis?
 
-We have successfully plotted some data. However, what is happening on the
-x-axis?
-
-`R` is trying to plot EVERY date value in our data, on the x-axis. This makes it
-hard to read. Why? Let's have a look at the class of the x-axis variable - date.
+Note that the Date column in our dataframe is of class character (chr). This
+means that R  is reading it in as letters and numbers rather than dates that
+are sequential.
 
 ```{r view-class }
 # View data class for each column that we wish to plot
@@ -116,38 +129,43 @@ class(boulder_precip$PRECIP)
 
 ```
 
-In this case, the `date` column is stored in our `data.frame` as a character
-class. Because it is a character, `R` does not know how to plot the dates as a
-continuous variable. Instead it tries to plot every date value as a text string.
-The `PRECIP` data is numeric so that metric plots just fine.
+`R` is then trying to plot EVERY date value in our data, on
+the x-axis. This makes it hard to read. The `PRECIP` data is numeric so that
+variable plots just fine.
 
 ## Date as a Date-Time Class
 
 We need to convert our `date` column, which is currently stored as a character
-to a `date-time` class that can be displayed as a continuous variable. Lucky
+to a `date` class that can be displayed as a continuous variable. Lucky
 for us, `R` has a `date` class.  We can convert the `date` field to a `date class`
-using `as.Date()`.
+using the function `as.Date()`.
 
-To convert, we can use the `as.Date` function in `R`. We should specify the format
-that our dates are in as well.
+When we convert, we need to tell R the format that each part of the date is
+stored in the column as well.
 
 Looking at the results above, we see that our data are stored in the format:
-Year-Month-Day (2003-08-21). We can use this information to populate our format
+Year-Month-Day (2003-08-21). Each part of the date is separated in this case with
+a `-`. We can use this information to populate our format
 string using the following designations for the components of the date-time data:
 
 * %Y - year
 * %m - month
 * %d - day
 
-Our format string will look like this: `%Y-%m-%d`.
-For a more in depth overview of date-time formats, check out the
-<a href="http://neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank">NEON Data skills time series tutoral.</a>
+Our format string will look like this: `%Y-%m-%d`. Notice that we are telling
+R where to find the year (%Y), month (%m) and day (%d). Also notice that we
+include the dashes that separate each component in each date cell of our data.
+
+NOTE: look up `?strptime` to see all of the date "elements" that you can use to
+describe the format of a date string in R.
+{: .notice }
 
 
 ```{r convert-date-time }
 
 # convert date column to date class
-boulder_precip$DATE <- as.Date(boulder_precip$DATE, format="%Y-%m-%d")
+boulder_precip$DATE <- as.Date(boulder_precip$DATE,
+                        format="%Y-%m-%d")
 
 # view R class of data
 class(boulder_precip$DATE)
@@ -173,3 +191,10 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
 
 
 Now, our plot looks a lot nicer!
+
+<div class="notice--info" markdown="1">
+
+## Other Resources
+* For a more in depth overview of date-time formats, check out the
+<a href="http://neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank">NEON Data skills time series tutoral.</a>
+</div>

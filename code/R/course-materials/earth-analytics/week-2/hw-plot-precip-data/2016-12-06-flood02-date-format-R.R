@@ -5,8 +5,8 @@ library(ggplot2)
 
 # download data from figshare
 # note that we are downloaded the data into your
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
-              destfile = "data/boulder-precip.csv")
+#download.file(url = "https://ndownloader.figshare.com/files/7010681",
+#              destfile = "data/boulder-precip.csv")
 
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
@@ -16,6 +16,15 @@ head(boulder_precip)
 
 qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
+
+## ----ggplot-plot---------------------------------------------------------
+
+# plot the data using ggplot
+ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP) +
+  geom_point() +
+  ggtitle("Precipitation Data") +
+  xlab("Date") + ylab("Total Precipitation (Inches)")
+
 
 ## ----structure-----------------------------------------------------------
 
@@ -32,7 +41,8 @@ class(boulder_precip$PRECIP)
 ## ----convert-date-time---------------------------------------------------
 
 # convert date column to date class
-boulder_precip$DATE <- as.Date(boulder_precip$DATE, format="%Y-%m-%d")
+boulder_precip$DATE <- as.Date(boulder_precip$DATE,
+                        format="%Y-%m-%d")
 
 # view R class of data
 class(boulder_precip$DATE)
