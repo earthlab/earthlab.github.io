@@ -25,14 +25,6 @@ missing data and also efficient plotting and subsetting of large datasets. All
 of the data we work with are for the Boulder region and can be used to quantify
 drivers of the 2013 flood event.
 
-### In Class Lessons
-* [In Class](/course-materials/earth-analytics/week-2/get-to-know-r/)
-
-
-### Homework Lessons
-
-* [Homework Lesson Set 1: Plot with Ggplot & Date / Time Formats directory](/course-materials/earth-analytics/week-2/hw-ggplot2-r)
-
 Read the assignment below carefully. Use the class and homework lessons to help
 you complete the assignment.
 </div>

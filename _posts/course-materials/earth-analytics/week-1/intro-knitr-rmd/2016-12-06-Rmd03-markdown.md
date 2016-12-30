@@ -20,7 +20,7 @@ Here, we break down the basic syntax for a markdown file. We also cover how to
 create and format markdown (`.md`) files.
 
 <div class="notice--warning" markdown="1">
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Use basic markdown syntax to format a document including: headers, bold and italics.
@@ -150,7 +150,7 @@ If you are unsure, the answers are at the bottom of this page.
 
 <div class="notice--warning" markdown="1">
 
-## Activity: R Markdown Text
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: R Markdown Text
 
 1. Remove the template markdown and code chunks added to the RMD file by RStudio.
 (Be sure to keep the YAML header!)

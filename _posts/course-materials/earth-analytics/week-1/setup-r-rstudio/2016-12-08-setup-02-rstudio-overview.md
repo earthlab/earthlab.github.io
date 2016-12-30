@@ -25,7 +25,7 @@ order: 2
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
 * Be able to work with the 4 panes in the `RStudio` interface

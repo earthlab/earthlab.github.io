@@ -27,7 +27,7 @@ At the end of this activity, you will be able to:
 
 * Convert column in a dataframe containing dates / times to a date/time object that can be used in R.
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`

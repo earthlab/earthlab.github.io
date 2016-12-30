@@ -20,9 +20,11 @@
 
         <ul>
         {% for alesson in class_lessons %}
-        <a href="{{ site.url }}{{ module.permalink }}">
-          <li>{{ alesson.order }}. {{ alesson.nav-title }} </li>
-        </a>
+          {% if alesson.url == page.url %}
+          <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+          {% else %}
+          <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+          {% endif %}
         {% endfor %}
        </ul>
         {% endfor %}
@@ -38,9 +40,11 @@
 
        <ul>
        {% for alesson in class_lessons %}
-       <a href="{{ site.url }}{{ module.permalink }}">
-         <li>{{ alesson.order }}. {{ alesson.nav-title }} </li>
-       </a>
+         {% if alesson.url == page.url %}
+         <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+         {% else %}
+         <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+         {% endif %}
        {% endfor %}
         </ul>
        {% endfor %}
@@ -52,6 +56,7 @@
 {% if page.week %}
 {% capture the_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ page.week }}/{% endcapture %}
 
-<a href="{{ the_path }}" ><i class="fa fa-arrow-circle-left"></i> Week {{ page.week }} Home</a>
-
+<h4><a href="{{ the_path }}" ><i class="fa fa-arrow-circle-left"></i> Week {{ page.week }} Home</a></h4>
 {% endif %}
+
+<h4><a href="{{ site.url }}/course-materials/earth-analytics/" ><i class="fa fa-arrow-circle-left"></i> Course Home</a></h4>

@@ -9,23 +9,22 @@
 require(knitr)
 all_post_dirs <- list.dirs("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics")
 
-# for this to work i'll have to split at course-materials
-
-# dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
-#           "course-materials/earth-analytics/co-floods-2-data-r",
-#           "course-materials/earth-analytics/week-1/intro-knitr-rmd",
-#           "course-materials/earth-analytics/week-1/setup-r-rstudio",
-#           "course-materials/earth-analytics/week-2/get-to-know-r",
-#           "course-materials/earth-analytics/week-2/hw-plot-precip-data")
+dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
+          "course-materials/earth-analytics/co-floods-2-data-r",
+          "course-materials/earth-analytics/week-1/intro-knitr-rmd",
+          "course-materials/earth-analytics/week-1/setup-r-rstudio",
+          "course-materials/earth-analytics/week-2/get-to-know-r",
+          "course-materials/earth-analytics/week-2/hw-plot-precip-data",
+          "course-materials/earth-analytics/week-3/lidar-intro")
 
 # is it a draft or a final
 draft_post <- c("_drafts", "_posts")
 
-the_draft_post <- all_post_dirs[2]
+the_draft_post <- draft_post[2]
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[10]
+subDir <- dirs[7]
 
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
@@ -113,7 +112,7 @@ unlink(file.path(gitRepoPath, imagePath, "*"), recursive = TRUE)
 
 
 # get a list of files to knit / purl
-rmd.files <- list.files(subDir, 
+rmd.files <- list.files(file.path(gitRepoPath, draft_post,subDir), 
                         pattern="\\.Rmd$", 
                         full.names = TRUE,
                         ignore.case = F)

@@ -21,7 +21,7 @@ Next, we will talk about code chunks in `R markdown` files.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
 * Be able to add code to a code chunk in an .rmd file
@@ -75,7 +75,7 @@ chunk a unique name to support more advanced knitting approaches.
 
 <div class="notice--warning" markdown="1">
 
-## Activity: Add Code Chunks to Your R Markdown File
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Add Code Chunks to Your R Markdown File
 
 Continue working on your document. Below the last section that you've just added,
 create a code chunk that loads the packages required to work with raster data
@@ -163,7 +163,7 @@ or the
 
 <div class="notice--warning" markdown="1">
 
-## Activity: Add More Code to Your R Markdown
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Add More Code to Your R Markdown
 
 Update your RMD file as follows:
 

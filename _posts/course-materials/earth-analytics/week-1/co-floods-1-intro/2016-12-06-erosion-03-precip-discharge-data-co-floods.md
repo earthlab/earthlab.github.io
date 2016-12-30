@@ -28,7 +28,7 @@ the flood using different methods.
 
 <div class='notice--success' markdown="1">
 
-## Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Describe two related drivers of a flood event.
@@ -119,7 +119,7 @@ increases significantly during a flood event.
 
 <div class="notice--warning" markdown="1">
 
-## Activity: What do the data tell you about rainfall?
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: What do the data tell you about rainfall?
 
 As a group, discuss the following questions. Record your answers following the
 directions of your instructor (Google Doc, word document, etherpad, etc.).
