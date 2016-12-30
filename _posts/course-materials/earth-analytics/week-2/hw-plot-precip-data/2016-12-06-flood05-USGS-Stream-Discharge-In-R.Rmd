@@ -113,7 +113,7 @@ head(discharge)
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Now that the data are imported, plot disValue (discharge value) over time. 
+Now that the data are imported, plot disValue (discharge value) over time.
 To do this, you will need to use
 everything that you learned in the previous lessons.
 
@@ -135,7 +135,7 @@ discharge$datetime <- as.Date(discharge$datetime, format="%m/%d/%y")
 
 Your plot should look something like the one below:
 
-```{r plot-flood-data, echo=F }
+```{r plot-flood-data, echo=F, fig.cap="plot of discharge vs time" }
 # check out our date range
 stream_discharge_30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
               geom_point() +
@@ -150,30 +150,23 @@ stream_discharge_30yrs
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Similar to the previous lesson, take the cleaned discharge data that you just 
+Similar to the previous lesson, take the cleaned discharge data that you just
 plotted and subset it to the time span
 of 2013-08-15 to 2013-10-15. Use `dplyr` pipes and the `filter()` function
 to perform the subset.
 
-Plot the data with `ggplot()`. Your plot should look like the one below. 
+Plot the data with `ggplot()`. Your plot should look like the one below.
 </div>
 
 
-```{r define-time-subset, echo=F, eval=F}
-
-# Define Start and end times for the subset as R objects that are the time class
-startTime <- as.Date("2013-08-15")
-endTime <- as.Date("2013-10-15")
+```{r define-time-subset, echo=F}
 
 discharge_augSept_2013 <- discharge %>%
                   filter((datetime >= as.Date('2013-08-15') & datetime <= as.Date('2013-10-15')))
 
-
-
-
 ```
 
-```{r plot-challenge, echo=F}
+```{r plot-challenge, echo=F, fig.cap="ggplot subsetted discharge data"}
 
 # plot the data - Aug 15-October 15
 stream.discharge_3mo <- ggplot(discharge_augSept_2013,

@@ -121,7 +121,7 @@ head(discharge)
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Now that the data are imported, plot disValue (discharge value) over time. 
+Now that the data are imported, plot disValue (discharge value) over time.
 To do this, you will need to use
 everything that you learned in the previous lessons.
 
@@ -137,24 +137,24 @@ out what format elements you'll need to include to get the date right.
 
 Your plot should look something like the one below:
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
+![plot of discharge vs time]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Similar to the previous lesson, take the cleaned discharge data that you just 
+Similar to the previous lesson, take the cleaned discharge data that you just
 plotted and subset it to the time span
 of 2013-08-15 to 2013-10-15. Use `dplyr` pipes and the `filter()` function
 to perform the subset.
 
-Plot the data with `ggplot()`. Your plot should look like the one below. 
+Plot the data with `ggplot()`. Your plot should look like the one below.
 </div>
 
 
 
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
+![ggplot subsetted discharge data]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
