@@ -1,10 +1,11 @@
 ---
 layout: archive
 permalink: /categories/
-title: "Browse by category"
+title: "Browse by category deprecated page"
 author_profile: false
 ---
 
+{% comment %}
 {% include base_path %}
 {% include group-by-array collection=site.posts field="categories" %}
 
@@ -15,3 +16,5 @@ author_profile: false
     {% include archive-single.html %}
   {% endfor %}
 {% endfor %}
+
+{% endcomment %}
