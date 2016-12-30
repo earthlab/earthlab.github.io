@@ -11,6 +11,7 @@ module-title: 'Setup R, R Studio & Your Working Directory'
 module-description: 'This module walks you through getting R and RStudio setup on your
 computer. It also introduces file organization strategies.'
 nav-title: 'Setup R Studio'
+week: 1
 sidebar:
   nav:
 course: 'earth-analytics'
