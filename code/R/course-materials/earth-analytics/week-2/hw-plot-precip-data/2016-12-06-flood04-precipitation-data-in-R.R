@@ -67,7 +67,7 @@ str(boulder_daily_precip)
 summary(boulder_daily_precip$DAILY_PRECIP)
 max(boulder_daily_precip$DAILY_PRECIP)
 
-## ----plot-precip-hourly, echo=F, warning=F-------------------------------
+## ----plot-precip-hourly, echo=F, warning=F, fig.cap="precip plot w fixed dates"----
 
 # do we need to do something about NA VALUES?
 boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
@@ -98,7 +98,7 @@ precip_boulder_AugOct <- boulder_daily_precip %>%
                         filter(DATE >= as.Date('2013-08-15') & DATE <= as.Date('2013-10-15'))
 
 
-## ----check-subset--------------------------------------------------------
+## ----check-subset, fig.cap="precip plot subset"--------------------------
 # check the first & last dates
 min(precip_boulder_AugOct$DATE)
 max(precip_boulder_AugOct$DATE)
@@ -112,7 +112,7 @@ precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
 precPlot_flood2
 
 
-## ----challenge, echo=FALSE, warning="hide"-------------------------------
+## ----challenge, echo=FALSE, warning="hide", fig.cap="precip plot subset 2"----
 
 # subset 2 months around flood
 precip_boulder_AugOct_2012 <- boulder_daily_precip %>%
