@@ -3,8 +3,10 @@ layout: single
 category: course-materials
 title: "Week Two - Introduction to R & R Studio & Sensor Network Derived Time Series Data"
 permalink: /course-materials/earth-analytics/week-2/
+week-landing: 2
+week: 2
 sidebar:
-  nav: earth-analytics-2017
+  nav:
 comments: false
 author_profile: false
 ---
@@ -21,7 +23,7 @@ NOAA / National Weather Service precipitation data. These data are collected thr
 time and thus require knowledge of both working with date fields, dealing with
 missing data and also efficient plotting and subsetting of large datasets. All
 of the data we work with are for the Boulder region and can be used to quantify
-drivers of the 2013 flood event. 
+drivers of the 2013 flood event.
 
 ### In Class Lessons
 * [In Class](/course-materials/earth-analytics/week-2/get-to-know-r/)
