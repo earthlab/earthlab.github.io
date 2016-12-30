@@ -4,37 +4,37 @@
 
 # load packages
 library(ggplot2) # create efficient, professional plots
-library(plotly) # create cool interactive plots
+
 
 # set strings as factors to false for everything!
 options(stringsAsFactors = FALSE)
 
-download.file(url = "https://ndownloader.figshare.com/files/7270970",
-              "data/week1/805325-precip_daily_2003-2013.csv")
+#download.file(url = "https://ndownloader.figshare.com/files/7270970",
+#              "data/week1/805325-precip_daily_2003-2013.csv")
 
 # import precip data into R data.frame
-precip.boulder <- read.csv("data/week1/805325-precip_daily_2003-2013.csv",
+precip_boulder <- read.csv("data/week1/805325-precip_daily_2003-2013.csv",
                            header = TRUE)
 
 
 # convert to date/time and retain as a new field
-precip.boulder$DateTime <- as.POSIXct(precip.boulder$DATE,
+precip_boulder$DateTime <- as.POSIXct(precip_boulder$DATE,
                                   format="%Y%m%d %H:%M")
 
 # assign NoData values to NA
-precip.boulder$HPCP[precip.boulder$HPCP==999.99] <- NA
+precip_boulder$HPCP[precip_boulder$HPCP==999.99] <- NA
 
 
 
-## ----daily-summaries, echo=FALSE, message=FALSE, results=FALSE, warning=FALSE----
+## ----daily-summaries, echo=FALSE, message=FALSE, results=FALSE, warning=FALSE, fig.cap="plot 1"----
 
 # convert DATE to a Date class
 # (this will strip the time, but that is saved in DateTime)
-precip.boulder$DATE <- as.Date(precip.boulder$DateTime, # convert to Date class
+precip_boulder$DATE <- as.Date(precip_boulder$DateTime, # convert to Date class
                                   format="%Y%m%d %H:%M")
                                   #DATE in the format: YearMonthDay Hour:Minute
 
-precPlot_daily1 <- ggplot(data=precip.boulder,  # the data frame
+precPlot_daily1 <- ggplot(data=precip_boulder,  # the data frame
       aes(DATE, HPCP)) +   # the variables of interest
       geom_bar(stat="identity") +   # create a bar graph
       xlab("Date") + ylab("Precipitation") +  # label the x & y axes
@@ -43,16 +43,15 @@ precPlot_daily1 <- ggplot(data=precip.boulder,  # the data frame
 precPlot_daily1
 
 
-## ----subset-data, echo=FALSE, message=FALSE, results=FALSE---------------
+## ----subset-data, echo=FALSE, message=FALSE, results=FALSE, fig.cap="plot 2 precip"----
 
 # subset 2 months around flood
-precip.boulder_AugOct <- subset(precip.boulder_daily,
-                        DATE >= as.Date('2013-08-15') &
-												DATE <= as.Date('2013-10-15'))
+precip_boulder_AugOct <- precip_boulder %>%
+                        filter(DATE >= as.Date('2013-08-15') & DATE <= as.Date('2013-10-15'))
 
 
 # create new plot
-precPlot_flood2 <- ggplot(data=precip.boulder_AugOct, aes(DATE,PRECIP)) +
+precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE, HPCP)) +
   geom_bar(stat="identity") +
   xlab("Date") + ylab("Precipitation") +
   ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek")
@@ -60,7 +59,7 @@ precPlot_flood2 <- ggplot(data=precip.boulder_AugOct, aes(DATE,PRECIP)) +
 precPlot_flood2
 
 
-## ----all-boulder-station-data, echo=FALSE, message=FALSE, results=FALSE, warning=FALSE----
+## ----all-boulder-station-data, echo=FALSE, message=FALSE, results=FALSE, warning=FALSE, fig.cap="plot 3 discharge"----
 
 download.file(url = "https://ndownloader.figshare.com/files/7271003",
                 "data/week1/805333-precip_daily_1948-2013.csv")

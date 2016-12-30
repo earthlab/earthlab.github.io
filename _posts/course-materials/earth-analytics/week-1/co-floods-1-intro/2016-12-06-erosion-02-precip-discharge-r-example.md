@@ -3,10 +3,10 @@ layout: single
 title: "Work with Precipitation Data in R - 2013 Colorado Floods"
 excerpt: "This lesson provides students wiht an example of a data driven report to emphsize the importance of connecting data, documentation and results."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-lastModified: 2016-12-28
+lastModified: 2016-12-29
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
-permalink: /course-materials/earth-analytics/week-1/co-floods-data-example-r
+permalink: /course-materials/earth-analytics/week-1/co-floods-data-example-r/
 nav-title: 'Co Floods Data Example'
 week: 1
 sidebar:
@@ -61,14 +61,14 @@ A lot of rain impacted Colorado. See below.
 
 
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/daily-summaries-1.png)
+![plot 1]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/daily-summaries-1.png)
 
 ## Fall 2013 Precipitation
 
 Let's check out the data for a few months.
 
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/subset-data-1.png)
+![plot 2 precip]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/subset-data-1.png)
 
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/all-boulder-station-data-1.png)
+![plot 3 discharge]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/all-boulder-station-data-1.png)
