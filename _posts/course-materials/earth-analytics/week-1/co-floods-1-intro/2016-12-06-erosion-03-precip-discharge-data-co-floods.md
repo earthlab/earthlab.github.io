@@ -67,28 +67,28 @@ falls from clouds including rain, hail and snow.
 {: .notice}
 
 <figure>
- <a href="https://plot.ly/~NEONDataSkills/6/total-monthly-precipitation-boulder-co-station/">
+ <a href="https://plot.ly/~NEONDataSkills/6/total-monthly-precipitation-boulder-co-station/" target="_blank">
  <img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-co-floods/total-monthly-precip.png" alt="North St Vrain before and after 2013 flood."></a>
  <figcaption> Total Monthly Precipitation. Click on the image to EXPLORE the data interactively! Data Source: NOAA <a href="http://krcc.org/post/post-flood-planning-boulder-county" target="_blank"> KRCC</a>.
  </figcaption>
 </figure>
 
-<iframe width="100%" height="400" frameborder="0" scrolling="no" src="https://plot.ly/~NEONDataSkills/6.embed"></iframe>
-
 <iframe width="100%" height="400" frameborder="0" scrolling="no" src="//plot.ly/~leahawasser/161.embed"></iframe>
 
 <div class="notice--warning" markdown="1">
 
-## Activity: What do the data tell you about rainfall?
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+
+### What do the data tell you about precipitation?
 
 As a group, discuss the following questions. Record your answers following the
 directions of your instructor (Google Doc, word document, etherpad, etc.).
 
-* What differences to you see between 2012 and 2013?
+* What interesting things do you observe in the data? Are there any data points that seem different from the rest?
   * For each difference: What you think caused that difference?
   * For each difference: How can you quantitatively record the differences?
-* For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
-* Was the cause - caused by something else? IE did something else DRIVE the cause?
+* What do you think caused or drove the point(s) that your observed in the above question?
+* Was the cause - caused by something else? I.E. did something else DRIVE the cause?
 * Create a diagram that illustrates the causes and effects (or drivers and impacts) of the flood. Is it a linear diagram? Is it quantifiable?
 </div>
 
