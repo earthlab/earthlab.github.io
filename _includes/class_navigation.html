@@ -44,7 +44,7 @@
 {% assign modules = site.posts | where:"order", 1 %}
 {% assign weeks = modules | where:"week", page.week %}
 
-{% for module in weeks %}  
+{% for module in weeks %}
 {% if module.class-lesson != page.class-lesson %}
 <nav class="nav__list">
 <a href="{{ site.url }}{{ module.permalink }}">
@@ -55,6 +55,6 @@
 {% endif %}
 {% endfor %}
 
-{% capture the_path %}{{ site.url }} /course-materials/earth-analytics/week-{{ page.week }}{% endcapture %}
+{% capture the_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ page.week }}/{% endcapture %}
 
 <a href="{{ the_path }}" ><i class="fa fa-arrow-circle-left"></i> Return to week {{ page.week }}</a>
