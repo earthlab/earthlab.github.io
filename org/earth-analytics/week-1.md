@@ -20,16 +20,13 @@ Welcome to week one of Earth Analytics! In week 1 we will explore data together
 in class related to the 2013 Colorado Floods -  natural disturbance event that
 had significant impacts on people across the state of Colorado.
 
-### In Class Lessons
-* [In Class](/course-materials/earth-analytics/week-1/co-floods-1-intro/)
+Learning Objectives
 
-### Homework Lessons
+*
 
-* [Homework Lesson Set 1: Setup R, R Studio and your working directory](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
-* [Homework Lesson Set 2: Intro to Rmarkdown and knitr](/course-materials/earth-analytics/week-1/intro-rmarkdown-knitr/)
 </div>
 
-## <i class="fa fa-pencil"></i> Homework
+## <i class="fa fa-pencil"></i> Homework Assignment Week 1
 
 
 ### Part 1
