@@ -3,7 +3,7 @@ layout: single
 title: "Plotting with GGPLOT"
 excerpt: "This lesson walks through using GGPLOT2 to plot data."
 authors: ['Leah Wasser', 'Data Carpentry']
-lastModified: 2016-12-29
+lastModified: 2016-12-30
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
@@ -73,10 +73,10 @@ head(boulder_precip)
 # when we download the data we create a dataframe
 # view each column of the data frame using it's name (or header)
 boulder_precip$DATE
-##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
-##  [6] "2013-09-10" "2013-09-11" "2013-09-12" "2013-09-13" "2013-09-15"
-## [11] "2013-09-16" "2013-09-22" "2013-09-23" "2013-09-27" "2013-09-28"
-## [16] "2013-10-01" "2013-10-04" "2013-10-11"
+##  [1] 2013-08-21 2013-08-26 2013-08-27 2013-09-01 2013-09-09 2013-09-10
+##  [7] 2013-09-11 2013-09-12 2013-09-13 2013-09-15 2013-09-16 2013-09-22
+## [13] 2013-09-23 2013-09-27 2013-09-28 2013-10-01 2013-10-04 2013-10-11
+## 18 Levels: 2013-08-21 2013-08-26 2013-08-27 2013-09-01 ... 2013-10-11
 
 # view the precip column
 boulder_precip$PRECIP
@@ -127,7 +127,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
   geom_point()
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/first-ggplot-1.png)
+![ggplot boulder precip]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/first-ggplot-1.png)
 
 The `+` in the `ggplot2` package is particularly useful because it allows you
 to modify existing `ggplot` objects. This means you can easily set up plot
