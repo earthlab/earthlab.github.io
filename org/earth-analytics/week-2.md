@@ -37,7 +37,7 @@ Read the assignment below carefully. Use the class and homework lessons to help
 you complete the assignment.
 </div>
 
-## <i class="fa fa-pencil"></i> Week 2: Homework
+## <i class="fa fa-pencil"></i> Week 2: Homework Assignment Week 2
 
 ### Part 1 - Readings
 
