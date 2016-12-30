@@ -33,7 +33,7 @@ At the end of this activity, you will be able to:
 
 * Understand the breadth of things that you can do with RMarkdown
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 A computer with internet
 

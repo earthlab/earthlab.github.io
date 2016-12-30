@@ -27,14 +27,14 @@ In this tutorial we will us the `knitr` and `rmarkdown` packages in
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * List benefits of using R Markdown to create reports.
 * Explain how R Markdown is a useful tool in Open Science approaches.
 * Explain one way that R Markdown can benefit your research.
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 Before you start this tutorial, be sure that you have  R and R studio setup on
 your computer. Also we recommend have you have an `earth-analytics` directory
