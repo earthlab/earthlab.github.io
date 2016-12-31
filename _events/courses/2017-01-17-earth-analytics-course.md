@@ -36,7 +36,7 @@ course is for you.
 * **Teaching Assistant:** Sepideh Khanghah
 * **Time:** Wednesday 3:00 pm -  5:50 pm
 * **Location:** SEEC S125
-* **Sections:** GEOG 4163 (Junior / Senior Level undergraduate), GEOG 5163 (Graduate)
+* **Sections:** GEOG 4563 (Junior / Senior Level undergraduate), GEOG 5563 (Graduate)
 
 Please direct questions to Leah Wasser (leah.wasser at colorado.edu).
 
