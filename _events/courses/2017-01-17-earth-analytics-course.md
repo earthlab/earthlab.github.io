@@ -18,7 +18,7 @@ startTime: '3:00'
 endTime: '17:50'
 ---
 
-## Earth Analytics Home
+## Earth Analytics Course Home
 
 This advanced, multidisciplinary course will address major questions in Earth
 science and teach students to use the analytical tools necessary to undertake
@@ -42,7 +42,7 @@ Please direct questions to Leah Wasser (leah.wasser at colorado.edu).
 
 </div>
 
-### Example Course Science Topics (Topics subject to change):
+### Example Science Topics:
 
 * **Climate & Disturbance (Fire / Drought / Permafrost):** How
 changing climate impacts natural disturbance systems.
