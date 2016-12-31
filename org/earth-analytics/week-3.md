@@ -30,3 +30,6 @@ Wehr, A., and U. Lohr (1999). Airborne Laser Scanning - An Introduction and Over
 
 Introduction to lasers: https://www.e-education.psu.edu/geog481/l1_p3.html
 History of Lidar Development: https://www.e-education.psu.edu/geog481/l1_p4.html
+
+Active remote sensing: https://www.e-education.psu.edu/natureofgeoinfo/node/1890
+Passive REmote Sensing: 
