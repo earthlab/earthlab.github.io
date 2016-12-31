@@ -9,7 +9,7 @@ class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-intro/
 nav-title: 'LiDAR Raster Data in R'
 module-title: 'LiDAR Raster Data R'
-module-description: 'This tutorial covers the principles of LiDAR remote sensing.'
+module-description: 'This tutorial covers the basic principles of LiDAR remote sensing.'
 module-nav-title: 'Lidar Rasters in R'
 module-type: 'class'
 week: 3
@@ -27,46 +27,33 @@ order: 1
 
 After completing this tutorial, you will be able to:
 
-* Plot USGS Stream Discharge time series data in `R`.
+* List and briefly describe the 3 core components of a lidar remote sensing system.
+* Describe what a lidar system measures.
+* Define an active remote sensing system.
 
 ### Things You'll Need To Complete This Lesson
 
-You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
-
-* [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
-* [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/course-materials/earth-analytics/week-1/intro-to-r-and-rstudio)
-
-### R Libraries to Install:
-
-* **ggplot2:** `install.packages("ggplot2")`
-* **dplyr:** `install.packages("dplyr")`
+You will need a computer with internet access to complete this lesson.
 
 </div>
 
 LiDAR or **Li**ght **D**etection **a**nd **R**anging is an active remote sensing
- system that can be used to measure vegetation height across wide areas. This
-page will introduce fundamental lidar concepts including:
-
-1. What LiDAR data are.
-2. The key attributes of LiDAR data.
-3. How LiDAR data are used to measure trees.
+system that can be used to measure vegetation height across wide areas.
 
 
 <figure>
-   <a href="https://farm4.staticflickr.com/3913/14532371197_a17d52e010.jpg">
-   <img src="https://farm4.staticflickr.com/3913/14532371197_a17d52e010.jpg" alt="Lidar data collected by NEON AOP"></a>
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-trees.jpg">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-trees.jpg" alt="Lidar data collected by NEON AOP"></a>
    <figcaption>LiDAR data collected at the Soaproot Saddle site by the National
-Ecological Observatory Network Airborne Observation Platform (NEON AOP) - image
-available on <a href="https://flic.kr/s/aHsk4W4cdP" target="_blank"> Flickr</a>.
+Ecological Observatory Network Airborne Observation Platform (NEON AOP). Source:
+Keith Krauss, NEON.
    </figcaption>
 </figure>
 
 
 ## LiDAR Background
-
+Watch the videos below to better understand what lidar is and how a lidar system
+works.
 
 ### The Story of LiDAR Data video
 <iframe width="560" height="315" src="//www.youtube.com/embed/m7SXoFv6Sdc?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -81,12 +68,11 @@ available on <a href="https://flic.kr/s/aHsk4W4cdP" target="_blank"> Flickr</a>.
 
 Scientists often need to characterize vegetation over large regions. We use
 tools that can estimate key characteristics over large areas because we don’t
-have the resources to measure each and every tree. These tools often use remote
+have the resources to measure each individual tree. These tools often use remote
 methods. Remote sensing means that we aren’t actually physically measuring
 things with our hands, we are using sensors which capture information about a
 landscape and record things that we can use to estimate conditions and
 characteristics.
-
 
 <figure>
    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/scaling-trees-nat-geo.jpg">
@@ -104,18 +90,29 @@ be used to estimate forest structure across larger areas. LiDAR, or light
 detection ranging (sometimes also referred to as active laser scanning) is one
 remote sensing method that can be used to map structure including vegetation
 height, density and other characteristics across a region. LiDAR directly
-measures the height and density of vegetation on the ground making it an ideal
-tool for scientists studying vegetation over large areas.
+measures the height and density of vegetation (and buildings and other objects)
+on the ground making it an ideal tool for scientists studying vegetation over
+large areas.
 
-### How LiDAR Works
+<figure class="half">
+   <img src="http://www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/passiv.gif" alt="active remote sensing">
+   <img src="http://www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/sensors.gif" alt="passive remote sensing">
+   <figcaption>LEFT: Remote sensing systems which measure energy that is naturally
+   available are called passive sensors. RIGHT: Active sensors emit their own
+   energy from a source on the instrument itself. Source:
+   Natural Resources Canada.
+   </figcaption>
+</figure>
 
-LIDAR is an **active remote sensing** system. An active system means that the
-system itself generates energy - in this case light - to measure things on the
+### Lidar is an Active Remote Sensing System
+
+LIDAR is an **active remote sensing** system. An
+<a href="http://www.nrcan.gc.ca/node/14639" target="_blank">active system means that the
+system itself generates energy </a> - in this case light - to measure things on the
 ground. In a LiDAR system, light is emitted from a rapidly firing laser. You can
 imagine, light quickly strobing from a laser light source. This light travels
 to the ground and reflects off of things like buildings and tree branches. The
 reflected light energy then returns to the LiDAR sensor where it is recorded.
-
 
 A LiDAR system measures the time it takes for emitted light to travel  to the
 ground and back. That time is used to calculate distance traveled. Distance
@@ -129,7 +126,7 @@ provides the orientation of the plane in the sky.
 
 ### How Light Energy Is Used to Measure Trees
 
-Light energy is a collection of photons. As photon that make up light moves
+Light energy is a collection of photons. As the photons that make up light moves
 towards the ground, they hit objects such as branches on a tree. Some of the
 light reflects off of those objects and returns to the sensor. If the object is
 small, and there are gaps surrounding it that allow light to pass through, some
@@ -143,7 +140,6 @@ waveform. The amount of energy that returned to the LiDAR sensor is known as
 sensor create peaks in the distribution of energy. Theses peaks in the waveform
 often represent objects on the ground like - a branch, a group of leaves or a
 building.
-
 
 <figure>
    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" target="_blank">
@@ -233,3 +229,46 @@ Some LiDAR products will be classified as "ground/non-ground". Some datasets
 will be further processed to determine which points reflected off of buildings
 and other infrastructure. Some LiDAR data will be classified according to the
 vegetation type.
+
+
+#### Gridded or Raster LiDAR Data Products ###
+LiDAR data products are most often worked within a gridded or raster data format.
+A raster file is a regular grid of cells, all of which are the same size. A
+few notes about rasters:
+
+-  Each cell is called a pixel.
+-  And each pixel represents an area on the ground.
+-  The resolution of the raster represents the area that each pixel represents
+- on the ground. So, for instance if the raster is 1 m resolution, that simple
+- means that each pixel represents a 1 m by 1m area on the ground.
+
+Raster data can have attributes associated with it as well. For instance in a
+LiDAR derived digital elevation model (DEM), each cell might represent a
+particular elevation value.  In a LIDAR derived intensity image, each cell
+represents a LIDAR intensity value.
+
+
+## Creating A Raster From LiDAR Point Clouds
+There are different ways to create a raster from LiDAR point clouds. Let's look
+at one of the most basic ways to create a raster file points- basic gridding.
+When you perform a gridding algorithm, you are simply calculating a value, using
+point data, for each pixels in your raster dataset. To do this:
+
+1. To begin, a grid is placed on top of the LiDAR data in space. Each cell in the grid has the same spatial dimensions. These dimensions represent that particular area on the ground. If we want to derive a 1 m resolution raster from the lidar data, we overlay a 1m by 1m grid over the LiDAR data points.
+2. Within each 1 m x 1 m cell, we calculate a value to be applied to that cell, using the LiDAR points found within that cell. The simplest method of doing this is to take the max, min or mean height value of all lidar points found within the 1 m cell. If we use this approach, we might have cells in the raster that don't contains any lidar points. These cells will have a "no data" value if we process our raster in this way.
+
+### Point to Raster Methods - Interpolation
+A different approach is to interpolate the value for each cell. Interpolation
+considers the values of points outside of the cell in addition to points within
+the cell to calculate a value. Interpolation is useful because it can provide us
+with some ability to predict or calculate cell values in areas where there are
+no data (or no points). And to quantify the error associated with those predictions
+which is useful to know, if you are doing research.
+
+<figure>
+<a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif">
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
+<figcaption>
+Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format. Source: Tristan Goulden, National Ecological Observatory Network
+</figcaption>
+</figure>
