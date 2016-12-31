@@ -15,7 +15,7 @@
         {% for module in classes %}
         {% if module.order == 1 %}
             {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
-            <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
+            <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
         {% endif %}
 
         <ul>
