@@ -58,16 +58,19 @@ full screen mode.
 Now that you see how R Markdown can be used in RStudio, you are
 ready to create your own `.RMD` document. Do the following:
 
-1. Create a new R Markdown file and choose HTML as the desired output format.
+1. Using the Create a new R Markdown file and choose HTML as the desired output format.
 2. Enter a Title (Earth Analytics Week 1) and Author Name (your name). Then click OK.
 3. Save the file using the following format: **FirstInitial-LastName-week-1.rmd**
 NOTE: The document title is not the same as the file name.
-4. Hit the `knit` button in RStudio (as is done in the video above). What happens?
+4. Hit the <kbd>`Knit HTML`</kbd> drop down button in `RStudio` (as is done in the video above). What happens?
 
-<figure>
+<figure class="half">
+<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/create-rmd.png">
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/create-rmd.png" alt="knitr button screenshot"></a>
 	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png">
 	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png" alt="knitr button screenshot"></a>
-	<figcaption> Location of the knit button in RStudio in Version 0.99.903.
+	<figcaption> LEFT: Create a new RMD file using the file drop down menu in
+  R Studio. RIGHT: Location of the knit button in RStudio in Version 0.99.903.
 	</figcaption>
 </figure>
 
