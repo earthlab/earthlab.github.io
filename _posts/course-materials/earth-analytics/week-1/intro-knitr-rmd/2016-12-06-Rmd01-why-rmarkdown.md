@@ -22,7 +22,7 @@ comments: false
 order: 1
 ---
 
-In this tutorial we will us the `knitr` and `rmarkdown` packages in
+In this tutorial we will use the `knitr` and `rmarkdown` packages in
 `RStudio` to create a report that links our analysis, results and associated data.
 
 <div class='notice--success' markdown="1">
