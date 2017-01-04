@@ -7,7 +7,7 @@ lastModified: `r format(Sys.time(), "%Y-%m-%d")`
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-intro/
-nav-title: 'LiDAR Raster Data in R'
+nav-title: 'LiDAR Data Intro'
 module-title: 'LiDAR Raster Data R'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing.'
 module-nav-title: 'Lidar Rasters in R'
@@ -20,6 +20,8 @@ comments: false
 order: 1
 ---
 
+{% include toc title="In This Lesson" icon="file-text" %}
+
 
 <div class='notice--success' markdown="1">
 
@@ -31,7 +33,7 @@ After completing this tutorial, you will be able to:
 * Describe what a lidar system measures.
 * Define an active remote sensing system.
 
-### Things You'll Need To Complete This Lesson
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -229,46 +231,3 @@ Some LiDAR products will be classified as "ground/non-ground". Some datasets
 will be further processed to determine which points reflected off of buildings
 and other infrastructure. Some LiDAR data will be classified according to the
 vegetation type.
-
-
-#### Gridded or Raster LiDAR Data Products ###
-LiDAR data products are most often worked within a gridded or raster data format.
-A raster file is a regular grid of cells, all of which are the same size. A
-few notes about rasters:
-
--  Each cell is called a pixel.
--  And each pixel represents an area on the ground.
--  The resolution of the raster represents the area that each pixel represents
-- on the ground. So, for instance if the raster is 1 m resolution, that simple
-- means that each pixel represents a 1 m by 1m area on the ground.
-
-Raster data can have attributes associated with it as well. For instance in a
-LiDAR derived digital elevation model (DEM), each cell might represent a
-particular elevation value.  In a LIDAR derived intensity image, each cell
-represents a LIDAR intensity value.
-
-
-## Creating A Raster From LiDAR Point Clouds
-There are different ways to create a raster from LiDAR point clouds. Let's look
-at one of the most basic ways to create a raster file points- basic gridding.
-When you perform a gridding algorithm, you are simply calculating a value, using
-point data, for each pixels in your raster dataset. To do this:
-
-1. To begin, a grid is placed on top of the LiDAR data in space. Each cell in the grid has the same spatial dimensions. These dimensions represent that particular area on the ground. If we want to derive a 1 m resolution raster from the lidar data, we overlay a 1m by 1m grid over the LiDAR data points.
-2. Within each 1 m x 1 m cell, we calculate a value to be applied to that cell, using the LiDAR points found within that cell. The simplest method of doing this is to take the max, min or mean height value of all lidar points found within the 1 m cell. If we use this approach, we might have cells in the raster that don't contains any lidar points. These cells will have a "no data" value if we process our raster in this way.
-
-### Point to Raster Methods - Interpolation
-A different approach is to interpolate the value for each cell. Interpolation
-considers the values of points outside of the cell in addition to points within
-the cell to calculate a value. Interpolation is useful because it can provide us
-with some ability to predict or calculate cell values in areas where there are
-no data (or no points). And to quantify the error associated with those predictions
-which is useful to know, if you are doing research.
-
-<figure>
-<a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif">
-<img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
-<figcaption>
-Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format. Source: Tristan Goulden, National Ecological Observatory Network
-</figcaption>
-</figure>
