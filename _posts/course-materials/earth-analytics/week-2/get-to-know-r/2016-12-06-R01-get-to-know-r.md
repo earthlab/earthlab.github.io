@@ -10,13 +10,19 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/get-to-know-r/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-29
+lastModified: 2017-01-04
+module-title: 'Get to Know R'
+module-nav-title: 'Get to Know R'
+module-description: 'This module introduces the R scientific programming language.
+We will work with precipitation and stream discharge data for Boulder County
+to better understand the R syntax, various data types and data import and plotting.'
+module-type: 'class'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 2
+order: 1
 ---
 
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming
@@ -257,7 +263,7 @@ help for this function using `?round`.
 ```r
 # view arguments for the round function
 args(round)
-## function (x, digits = 0)
+## function (x, digits = 0) 
 ## NULL
 ```
 

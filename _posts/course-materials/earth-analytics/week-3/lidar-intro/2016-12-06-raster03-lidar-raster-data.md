@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster."
 authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: 2017-01-03
+lastModified: 2017-01-04
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/
@@ -25,7 +25,7 @@ order: 3
 After completing this tutorial, you will be able to:
 
 * Describe the basic process of how a lidar point cloud is converted into a raster.
-*
+* Be able to describe the structural differences between a raster dataset and a lidar point cloud.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -35,15 +35,6 @@ You will need a computer with internet access to complete this lesson.
 
 In the last lesson, we learned about lidar points clouds. In this lesson, we
 will learn how a point cloud is converted into a gridded or raster data format.
-
-## create a graphic of lidar points and then a raster version??
-
-<figure>
-   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/#">
-   <img src="#" alt="Lidar data collected by NEON AOP"></a>
-   <figcaption>Caption here.
-   </figcaption>
-</figure>
 
 
 ### How A Lidar system records points
@@ -69,6 +60,19 @@ to handle large volumns of points. LiDAR data products are often
 created and stored in a gridded or raster data format. The raster format can be
 easier for many people to work with and also is supported by many different
 commonly used software packages.
+
+<figure class="half">
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-points-hill.png">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-points-hill.png" alt="Lidar data on top of a raster."></a>
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-points-hill-zoomout.png">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-points-hill-zoomout.png" alt="LEFT: Lidar data points overlayed on top of a hillshade which represents elevationin a graphical 3-dimensional view. RIGHT: If you zoom in on a portion of the data, you will see
+   that the elevation data consists of cells or pixels, And there are lidar data
+   points that fall within most of the pixels."></a>
+   <figcaption>LEFT: Lidar data points overlayed on top of a hillshade which represents elevationin a graphical 3-dimensional view. RIGHT: If you zoom in on a portion of the data, you will see
+   that the elevation data consists of cells or pixels, And there are lidar data
+   points that fall within most of the pixels.
+   </figcaption>
+</figure>
 
 A raster file is a composed of regular grid of cells, all of which are the same
 size. You've looked at and used rasters before if you've looked at photographs
@@ -170,10 +174,11 @@ We can use the `raster("path-to-raster-here")` function to open a raster in R.
 ```r
 
 # open raster data
-lidar_dem <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
+lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
-plot(lidar_dem)
+plot(lidar_dem,
+     main="Digital Elevation Model - Pre 2013 Flood")
 ```
 
 ![digital surface model raster plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/open-plot-raster-1.png)
@@ -185,7 +190,7 @@ case that value represents the elevation of ground.
 
 
 ```r
-plot(lidar_dem, xlim=c(473000, 473050), ylim=c(4434000, 4434050),
+plot(lidar_dem, xlim=c(473000, 473030), ylim=c(4434000, 4434030),
      main="Lidar Raster - Zoomed into to one small region")
 ```
 
@@ -238,10 +243,10 @@ for identifying outlier data values.
 # plot histogram
 hist(lidar_dem,
      main="Distribution of elevation values",
-     xlab="elevation (meters)", ylab="frequency",
+     xlab="Elevation (meters)", ylab="Frequency",
      col="springgreen")
 ## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
-## 2% of the raster cells were used. 100000 values used.
+## 1% of the raster cells were used. 100000 values used.
 ```
 
 ![histogram of DEM elevation values]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/view-hist-1.png)
