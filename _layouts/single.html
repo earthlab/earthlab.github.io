@@ -57,7 +57,10 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        {% if page.class-lesson %}
 
+        {% endif %}
 
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}

@@ -5407,4 +5407,9 @@ div.notice--success, div.notice--warning {
   font-weight: normal;
   padding: 0; }
 
+/* Force the TOC to have grey text not blue */
+#markdown-toc a {
+  color: #7a8288;
+  font-size: 0.9em; }
+
 /*# sourceMappingURL=main.css.map */

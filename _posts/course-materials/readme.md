@@ -68,3 +68,6 @@ Challenge Activity - pencil writing: `<i class="fa fa-pencil-square-o" aria-hidd
 Regular pencil`<i class="fa fa-pencil" aria-hidden="true"></i>`
 
 Learning Objective : graduate cap `<i class="fa fa-graduation-cap" aria-hidden="true"></i>`
+
+To highlight code for pushing keyboard keys (example shows ctrl key) use:
+<kbd>ctrl</kbd>
