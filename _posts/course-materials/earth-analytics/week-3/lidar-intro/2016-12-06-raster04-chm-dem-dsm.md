@@ -173,6 +173,53 @@ plot(lidar_chm,
 
 ![canopy height model breaks]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-breaks-1.png)
 
+## Export a raster
+
+When can export a raster file in R using the `write.raster()` function. Let's 
+export the canopy height model that we just created to our data folder. We will
+create a new directory called "outputs" within the week 3 director. This structure
+allows us to keep things organized, separating our outputs from the data we downloaded.
+
+
+
+
+```r
+
+# check to see if an output directory exists
+!dir.exists("data/week3/outputs")
+## [1] FALSE
+
+# if the output directory doesn't exist, create it
+if (dir.exists("data/week3/outputs")) {
+  print("the directory exists!") 
+  } else {
+    # if the directory doesn't exist, create it
+    # recursive tells R to create the entire directory path (data/week3/outputs)
+    dir.create("data/week3/outputs", recursive=TRUE) 
+  }
+## [1] "the directory exists!"
+
+# export CHM object to new GeotIFF
+writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
+            format="GTiff",  # output format = GeoTIFF
+            overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
+            
+```
+
+<div class="notice" markdown="1">
+<i fa fa-star></i>**Data Tip:**
+We can simplify the directory code above by using the ! which tells are to return
+the INVERSE or opposite of the function you have requested R run. 
+```r
+# if the output directory doesn't exist, create it
+if (!dir.exists("data/week3/outputs")) {
+    # if the directory doesn't exist, create it
+    # recursive tells R to create the entire directory path (data/week3/outputs)
+    dir.create("data/week3/outputs", recursive=TRUE) 
+}
+```
+</div>
+
 
 ## Explore changes before and after the floods
 
@@ -182,6 +229,12 @@ Colorado floods.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - Calculate Degree of Difference
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - Calculate Difference
+
+* Subtract the post-flood DEM from the pre-flood DEM. Do you see any differences in
+elevation before the after?
+* Create a CHM for both pre-flood and post-flood by subtracing the DEM from the DTM for each year. Next create a CHM DIFFERENCE raster by subtracting the post-flood chm from the pre-flood CHM.
+* export the files as geotiff's and open them in QGIS. Explore the differences. 
+What differences do you see between the two years?
 
 </div>
