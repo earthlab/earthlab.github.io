@@ -11,14 +11,15 @@ library(rgdal)
 ## ----open-plot-raster, fig.cap="digital surface model raster plot"-------
 
 # open raster data
-lidar_dem <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
+lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
-plot(lidar_dem)
+plot(lidar_dem,
+     main="Digital Elevation Model - Pre 2013 Flood")
 
 
 ## ----plot-zoomed-in-raster, fig.cap="zoom in on a small part of a raster - see the pixels?"----
-plot(lidar_dem, xlim=c(473000, 473050), ylim=c(4434000, 4434050),
+plot(lidar_dem, xlim=c(473000, 473030), ylim=c(4434000, 4434030),
      main="Lidar Raster - Zoomed into to one small region")
 
 
@@ -39,6 +40,6 @@ crs(lidar_dem)
 # plot histogram
 hist(lidar_dem,
      main="Distribution of elevation values",
-     xlab="elevation (meters)", ylab="frequency",
+     xlab="Elevation (meters)", ylab="Frequency",
      col="springgreen")
 

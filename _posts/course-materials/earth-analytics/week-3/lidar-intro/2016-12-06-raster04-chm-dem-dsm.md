@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: 2017-01-03
+lastModified: 2017-01-04
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -96,11 +96,11 @@ library(rgdal)
 ```r
 
 # open raster data
-lidar_dem <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
+lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
 plot(lidar_dem,
-     main="LiDAR Digital Elevation Model")
+     main="Lidar Digital Elevation Model (DEM)")
 ```
 
 ![digital elevation model plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dem-1.png)
@@ -113,11 +113,11 @@ Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
 ```r
 
 # open raster data
-lidar_dsm <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
+lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
 # plot raster data
 plot(lidar_dsm,
-     main="LiDAR Digital Surface Model")
+     main="Lidar Digital Surface Model (DSM)")
 ```
 
 ![digital surface model plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dsm-1.png)
@@ -148,7 +148,7 @@ lidar_chm <- lidar_dsm - lidar_dem
 
 # plot raster data
 plot(lidar_chm,
-     main="LiDAR Canopy Height Model")
+     main="Lidar Canopy Height Model (CHM)")
 ```
 
 ![canopy height model plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-1.png)
@@ -167,15 +167,16 @@ Let's create breaks in our CHM plot.
 
 # plot raster data
 plot(lidar_chm,
-     breaks = c(300, 350, 400, 450),
-     main="LiDAR Canopy Height Model")
+     breaks = c(0, 2, 10, 20, 30),
+     main="Lidar Canopy Height Model",
+     col=c("white","brown","springgreen","darkgreen"))
 ```
 
 ![canopy height model breaks]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-breaks-1.png)
 
 ## Export a raster
 
-When can export a raster file in R using the `write.raster()` function. Let's 
+When can export a raster file in R using the `write.raster()` function. Let's
 export the canopy height model that we just created to our data folder. We will
 create a new directory called "outputs" within the week 3 director. This structure
 allows us to keep things organized, separating our outputs from the data we downloaded.
@@ -186,16 +187,16 @@ allows us to keep things organized, separating our outputs from the data we down
 ```r
 
 # check to see if an output directory exists
-!dir.exists("data/week3/outputs")
-## [1] FALSE
+dir.exists("data/week3/outputs")
+## [1] TRUE
 
 # if the output directory doesn't exist, create it
 if (dir.exists("data/week3/outputs")) {
-  print("the directory exists!") 
+  print("the directory exists!")
   } else {
     # if the directory doesn't exist, create it
     # recursive tells R to create the entire directory path (data/week3/outputs)
-    dir.create("data/week3/outputs", recursive=TRUE) 
+    dir.create("data/week3/outputs", recursive=TRUE)
   }
 ## [1] "the directory exists!"
 
@@ -203,19 +204,20 @@ if (dir.exists("data/week3/outputs")) {
 writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
             format="GTiff",  # output format = GeoTIFF
             overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
-            
+
 ```
 
 <div class="notice" markdown="1">
 <i fa fa-star></i>**Data Tip:**
-We can simplify the directory code above by using the ! which tells are to return
-the INVERSE or opposite of the function you have requested R run. 
+We can simplify the directory code above by using the exclamation `!` which tells
+R to return the INVERSE or opposite of the function you have requested R run.
+
 ```r
 # if the output directory doesn't exist, create it
 if (!dir.exists("data/week3/outputs")) {
     # if the directory doesn't exist, create it
     # recursive tells R to create the entire directory path (data/week3/outputs)
-    dir.create("data/week3/outputs", recursive=TRUE) 
+    dir.create("data/week3/outputs", recursive=TRUE)
 }
 ```
 </div>
@@ -234,7 +236,7 @@ Colorado floods.
 * Subtract the post-flood DEM from the pre-flood DEM. Do you see any differences in
 elevation before the after?
 * Create a CHM for both pre-flood and post-flood by subtracing the DEM from the DTM for each year. Next create a CHM DIFFERENCE raster by subtracting the post-flood chm from the pre-flood CHM.
-* export the files as geotiff's and open them in QGIS. Explore the differences. 
+* Export the files as geotiff's and open them in QGIS. Explore the differences.
 What differences do you see between the two years?
 
 </div>
