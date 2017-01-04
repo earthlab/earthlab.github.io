@@ -17,7 +17,6 @@ comments: false
 order: 2
 ---
 
-
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -218,7 +217,7 @@ In addition to intensity values, these lidar data also have a classification val
 - 6 Building
 
 <figure>
-  <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/intensity-plasio-colors-kendra.png">
+  <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/plasio-colors-kendra.png">
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/plasio-colors-kendra.png" alt="Blue and Orange gradient color scheme submitted by Kendra Sand. Which color scheme is your favorite?">
   </a>
   <figcaption>Blue and Orange gradient color scheme submitted by Kendra Sand. Which color scheme is your favorite?
@@ -254,7 +253,7 @@ Finally, spend some time exploring the data. what features do you see in this da
 
 ## Additional Resources
 
-*	<a href="http://www.asprs.org/Committee" target="_blank"> About the .las file format.</a>
+*	<a href="https://www.asprs.org/committee-general/laser-las-file-format-exchange-activities.html" target="_blank"> About the .las file format.</a>
 *	<a href="http://laspy.readthedocs.org/en/latest/tut_background.html" target="_blank"> Las: python ingest</a>
 *	<a href="http://www.asprs.org/a/society/committees/standards/asprs_las_spec_v13.pdf" target="_blank"> las v1.3 specifications</a>
 
