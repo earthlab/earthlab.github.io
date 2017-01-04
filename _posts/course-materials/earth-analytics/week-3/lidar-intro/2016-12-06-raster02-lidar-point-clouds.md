@@ -4,7 +4,7 @@ title: "Understand LiDAR Point Cloud Data"
 excerpt: "This lesson covers what a lidar point cloud is. We will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: 2017-01-03
+lastModified: 2017-01-04
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-point-clouds/
@@ -36,8 +36,9 @@ You will need a computer with internet access to complete this lesson.
 </div>
 
 In the last lesson, we learned the basics of how a lidar system works. In this
-lessons, we will learn about lidar points clouds - which is one of the commonly
-found data products that a lidar system provides.
+lesson, we will learn about lidar point clouds. The point cloud is one of the commonly
+found lidar data products and it the "native" format for discrete return lidar data.
+But first, let's discuss the concept of a data product.
 
 ## What is a data product?
 
@@ -48,20 +49,21 @@ The average value is DERIVED from the individual measurements that you collected
 in the field.
 
 When dealing with sensor data, the sensors often collect data in a format that
-needs to be processed in order to get  usable value from it.
+needs to be processed in order to get usable values from it.
 
-# MORE ON THIS OR LINKS TO STUFF ON DATA PRODUCTS...
 
 <figure>
-   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-trees.jpg">
-   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-trees.jpg" alt="Lidar data collected by NEON AOP"></a>
-   <figcaption>LiDAR point cloud data rendered on the computer using an "aerial" perspective. Image Source:
-Keith Krauss, NEON.
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-cross-section.png">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/lidar-cross-section.png" alt="A cross section of 3-dimensional lidar data. Brown points represent ground,
+   green represent vegetation (trees)."></a>
+   <figcaption>A cross section of 3-dimensional lidar data. This point cloud data
+   product is classified into the classes: vegetation and ground points. Brown points represent ground,
+   green represent vegetation (trees).
    </figcaption>
 </figure>
 
 
-### How A Lidar system records points
+### How a lidar system records points
 
 Remember that lidar is an active remote sensing system that records reflected
 or returned light energy. A discrete return lidar system, records the strongest
