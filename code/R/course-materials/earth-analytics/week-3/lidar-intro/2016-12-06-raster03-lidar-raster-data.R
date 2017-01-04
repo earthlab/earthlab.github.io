@@ -8,7 +8,7 @@ library(rgdal)
 # setwd("working-dir-path-here")
 
 
-## ----open-plot-raster, fig.caption="digital surface model raster plot"----
+## ----open-plot-raster, fig.cap="digital surface model raster plot"-------
 
 # open raster data
 lidar_dem <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
@@ -17,7 +17,7 @@ lidar_dem <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
 plot(lidar_dem)
 
 
-## ----plot-zoomed-in-raster, fig.caption="zoom in on a small part of a raster - see the pixels?"----
+## ----plot-zoomed-in-raster, fig.cap="zoom in on a small part of a raster - see the pixels?"----
 plot(lidar_dem, xlim=c(473000, 473050), ylim=c(4434000, 4434050),
      main="Lidar Raster - Zoomed into to one small region")
 
@@ -31,7 +31,7 @@ yres(lidar_dem)
 
 ## ----crs-view------------------------------------------------------------
 
-# view coordinate refence system 
+# view coordinate refence system
 crs(lidar_dem)
 
 
