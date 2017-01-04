@@ -108,7 +108,8 @@ the bottom. We'll try our best to help!
 
 ## Data Intensive Courses
 A newly designed
-[Earth Systems Analytics course - GEOG 4100 / 5100]({{ site.url }}/course-materials/earth-analytics/)
+
+[Earth Systems Analytics course - GEOG 4463 / 5463]({{ site.url }}/course-materials/earth-analytics/)
 will be taught January 2017. This course fuses key topics related to the grand
 challenges in science, remote sensing and computationally intensive approaches.
 The course will be held in Spring 2017 at the CU Boulder campus. Stay tuned for
