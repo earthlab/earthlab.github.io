@@ -168,7 +168,7 @@ Remember that not all lidar data are created equally. Different lidar data may h
 If the data imported into the plas.io viewer correctly, you should see something similar to the screenshot below:
 
 <figure>
-<img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/plasio_dataImport.png" alt="Lidar data in the plas.io online tool.">
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/plasio-data-import.png" alt="Lidar data in the plas.io online tool.">
 <figcaption>Caption here</figcaption>
 </figure>
 
