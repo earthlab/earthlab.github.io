@@ -35,7 +35,7 @@ yres(lidar_dem)
 crs(lidar_dem)
 
 
-## ----view-hist-----------------------------------------------------------
+## ----view-hist, fig.cap="histogram of DEM elevation values"--------------
 # plot histogram
 hist(lidar_dem,
      main="Distribution of elevation values",
