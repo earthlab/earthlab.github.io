@@ -5407,6 +5407,13 @@ div.notice--success, div.notice--warning {
   font-weight: normal;
   padding: 0; }
 
+/* Custom side bar links to Home and before /next week */
+.sidebar.sticky a {
+  text-decoration: none; }
+
+.sidebar.sticky > h4 {
+  margin-top: 0.3em; }
+
 /* Force the TOC to have grey text not blue */
 #markdown-toc a {
   color: #7a8288;
