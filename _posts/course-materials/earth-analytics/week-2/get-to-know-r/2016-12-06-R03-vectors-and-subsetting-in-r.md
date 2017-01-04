@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-29
+lastModified: 2017-01-04
 week: 2
 sidebar:
   nav:
@@ -228,7 +228,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck")]
 
 <div class="notice--warning" markdown="1">
 
-### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge  {.challenge}
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 * Can you figure out why `"four" > "five"` returns `TRUE`?
 </div>

@@ -11,21 +11,21 @@ library(rgdal)
 ## ----dem, fig.cap="digital elevation model plot"-------------------------
 
 # open raster data
-lidar_dem <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
+lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
 plot(lidar_dem,
-     main="LiDAR Digital Elevation Model")
+     main="Lidar Digital Elevation Model (DEM)")
 
 
 ## ----dsm, fig.cap="digital surface model plot"---------------------------
 
 # open raster data
-lidar_dsm <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
+lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
 # plot raster data
 plot(lidar_dsm,
-     main="LiDAR Digital Surface Model")
+     main="Lidar Digital Surface Model (DSM)")
 
 
 ## ----chm, fig.cap="canopy height model plot"-----------------------------
@@ -35,34 +35,36 @@ lidar_chm <- lidar_dsm - lidar_dem
 
 # plot raster data
 plot(lidar_chm,
-     main="LiDAR Canopy Height Model")
+     main="Lidar Canopy Height Model (CHM)")
 
 
 ## ----chm-breaks, fig.cap="canopy height model breaks"--------------------
 
 # plot raster data
 plot(lidar_chm,
-     breaks = c(300, 350, 400, 450),
-     main="LiDAR Canopy Height Model")
+     breaks = c(0, 2, 10, 20, 30),
+     main="Lidar Canopy Height Model",
+     col=c("white","brown","springgreen","darkgreen"))
+
 
 ## ----export-raster-------------------------------------------------------
 
 # check to see if an output directory exists
-!dir.exists("data/week3/outputs")
+dir.exists("data/week3/outputs")
 
 # if the output directory doesn't exist, create it
 if (dir.exists("data/week3/outputs")) {
-  print("the directory exists!") 
+  print("the directory exists!")
   } else {
     # if the directory doesn't exist, create it
     # recursive tells R to create the entire directory path (data/week3/outputs)
-    dir.create("data/week3/outputs", recursive=TRUE) 
+    dir.create("data/week3/outputs", recursive=TRUE)
   }
 
 # export CHM object to new GeotIFF
 writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
             format="GTiff",  # output format = GeoTIFF
             overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
-            
+
 
 

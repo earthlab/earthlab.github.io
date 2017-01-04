@@ -18,7 +18,6 @@ comments: false
 order: 4
 ---
 
-.
 
 <div class='notice--success' markdown="1">
 
