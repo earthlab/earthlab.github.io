@@ -120,7 +120,8 @@ rmd.files <- list.files(file.path(gitRepoPath, draft_post,subDir),
 #################### Set up Image Directory #############################
 
 # just render one file
-# rmd.files <- rmd.files[1]
+#rmd.files <- rmd.files[3]
+#files <- rmd.files[1]
 
 for (files in rmd.files) {
   
@@ -149,7 +150,7 @@ for (files in rmd.files) {
   }
   
   # might be able to combine these into one. testing.
-  opts_chunk$set(fig_path = fig_path,
+  opts_chunk$set(fig.path = fig_path,
                  fig.cap = " ",
                  collapse = T)
   
@@ -169,8 +170,8 @@ for (files in rmd.files) {
        output = mdFile, 
        envir = parent.frame())
   
-  pdfFile <- file.path(gitRepoPath, pdfDir, 
-                       paste0(add.date , sub(".Rmd$", "", current_file), ".pdf"))
+  #pdfFile <- file.path(gitRepoPath, pdfDir, 
+   #                    paste0(add.date , sub(".Rmd$", "", current_file), ".pdf"))
   
   # knit to pdf
   # render(current_file, 
