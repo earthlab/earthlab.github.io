@@ -224,7 +224,7 @@ data.
 We can view the distribution of elevation values in our data too. This is useful
 for identifying outlier data values.
 
-```{r view-hist}
+```{r view-hist, fig.cap="histogram of DEM elevation values"}
 # plot histogram
 hist(lidar_dem,
      main="Distribution of elevation values",
