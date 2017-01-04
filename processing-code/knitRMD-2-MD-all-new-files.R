@@ -7,8 +7,44 @@
 ##################
 
 require(knitr)
+
+a <- as.data.frame(list.files("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics", pattern="\\.Rmd$", recursive = T, full.names = T))
+
+a[3]
+# get the name of the .md file
+mdFile <- gsub(".Rmd$", ".md", a[3])
+# does the file exist?
+file.exists(mdFile)
+
+file.info(mdFile)$mtime
+
+## function to check if the file has been changed
+
+file.info(a[3])$mtime 
+
+# do the files equal
+if (file.info(mdFile)$mtime == file.info(a[3])$mtime){
+  print("the files have the same modified date - no building required")
+} else {
+  
+}
+
+# check to see if there is a .md file
+
+# if there is a md file, compare it to the time the associated md file was modified
+basename(a[1])
+
+
+
+
 all_post_dirs <- list.dirs("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics")
 
+# is it a draft or a final post
+draft_post <- c("_drafts", "_posts")
+
+list.files("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics", pattern="\\.Rmd$", recursive = T, full.names = T)
+
+## function to check if the file has been changed
 
 dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
           "course-materials/earth-analytics/co-floods-2-data-r",
@@ -18,14 +54,11 @@ dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
           "course-materials/earth-analytics/week-2/hw-plot-precip-data",
           "course-materials/earth-analytics/week-3/lidar-intro")
 
-# is it a draft or a final post
-draft_post <- c("_drafts", "_posts")
-
 the_draft_post <- draft_post[2]
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[5]
+subDir <- dirs[7]
 
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"

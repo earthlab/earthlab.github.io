@@ -1,0 +1,84 @@
+---
+layout: single
+title: "R Markdown Review"
+excerpt: "This tutorial provides a review of R markdown and then introduces the
+scientific programming language - R."
+authors: ['Leah Wasser', 'Data Carpentry']
+category: [course-materials]
+class-lesson: ['get-to-know-r']
+permalink: /course-materials/earth-analytics/week-2/r-markdown-review/
+nav-title: 'R Markdown Review'
+dateCreated: 2016-12-13
+lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+week: 2
+sidebar:
+  nav:
+author_profile: false
+comments: false
+order: 1
+---
+
+In this tutorial, we will review **R Markdown**.
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+At the end of this activity, you will be able to:
+
+* Understand the breadth of things that you can do with R Markdown
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+
+A computer with internet
+
+</div>
+
+## Review - RMarkdown
+
+On this page we will include answers to commonly asked questions about RMarkdown.
+
+## Templates
+While we won't get into this during class, there are many different tempalates.
+
+Let's look at one
+```{r install-template }
+
+# check to see if devtools is installed and if it isn't, install it
+if (!("devtools" %in% installed.packages())){
+  install.packages("devtools")
+}
+
+# install package of templates
+devtools::install_github("hrbrmstr/markdowntemplates")
+
+```
+
+Modify the top of your yaml.
+
+```yaml
+
+# modify your YAML in your rmd file
+---
+title: "INSERT_TITLE_HERE"
+author: "AUTHOR"
+navlink: "[NAVTITLE](http://NAVLINK/)"
+og:
+  type: "article"
+  title: "opengraph title"
+  url: "optional opengraph url"
+  image: "optional opengraph image link"
+footer:
+  - content: '[link1](http://example.com/) • [link2](http://example.com/)<br/>'
+  - content: 'Copyright blah blah'
+date: "`r Sys.Date()`"
+output: markdowntemplates::skeleton
+---
+
+render("delete.Rmd",
+        output_file = "delete.pdf",
+        output_format = "pdf_document")
+
+```
+
+
+Explore other templates: <a href="http://rmarkdown.rstudio.com/gallery.html" target="_blank">Examples of RMarkdown templates</a>
