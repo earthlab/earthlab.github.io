@@ -8,6 +8,10 @@
 {% assign classes = weeks | where:"module-type", 'class' %}
 {% assign homework = weeks | where:"module-type", 'homework' %}
 
+{% if page.week %}
+  {% capture the_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ page.week }}/{% endcapture %}
+  <h4><a href="{{ the_path }}" ><i class="fa fa-home" aria-hidden="true"></i> Week {{ page.week }}</a></h4>
+{% endif %}
 <nav class="nav__list">
   <ul>
     <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class Materials</span>
@@ -54,20 +58,20 @@
 
 
 {% if page.week %}
-  {% capture the_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ page.week }}/{% endcapture %}
-  <h4><a href="{{ the_path }}" ><i class="fa fa-arrow-circle-left"></i> Back to Week {{ page.week }} </a></h4>
-  {% if page.week > 1 and page.week <= 3 %}
+  {% if page.week > 1 and page.week <= 4 %}
   <hr>
    {% assign previousWeek = page.week | minus: 1 %}
    {% capture previous_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ previousWeek }}/{% endcapture %}
-   <h5><a href="{{ previous_week_path }}" ><i class="fa fa-arrow-circle-left"></i> previous week: {{ previousWeek }} </a></h5>
+   <h5><a href="{{ previous_week_path }}" ><i class="fa fa-arrow-circle-left"></i> {{ previousWeek }} </a>
    {% endif %}
+   go to week
  {% if page.week >= 1 and page.week <= 3 %}
   {% assign nextWeek = page.week | plus: 1 %}
   {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
-  <h5><a href="{{ next_week_path }}" ><i class="fa fa-arrow-circle-right"></i> next week: {{ nextWeek }} </a></h5>
+
+  <a href="{{ next_week_path }}" > {{ nextWeek }} <i class="fa fa-arrow-circle-right"></i> </a></h5>
   {% endif %}
 
 {% endif %}
 
-<h5><a href="{{ site.url }}/course-materials/earth-analytics/" ><i class="fa fa-arrow-circle-left"></i> Course Home</a></h5>
+<h5><a href="{{ site.url }}/course-materials/earth-analytics/" ><i class="fa fa-home" aria-hidden="true"></i> Course Home</a></h5>
