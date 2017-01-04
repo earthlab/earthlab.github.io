@@ -244,4 +244,4 @@ hist(lidar_dem,
 ## 2% of the raster cells were used. 100000 values used.
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/view-hist-1.png)
+![histogram of DEM elevation values]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/view-hist-1.png)
