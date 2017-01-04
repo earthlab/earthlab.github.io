@@ -15,6 +15,7 @@ author_profile: false
 comments: false
 order: 3
 ---
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 <div class='notice--success' markdown="1">
@@ -50,24 +51,31 @@ will learn how a point cloud is converted into a gridded or raster data format.
 Remember that lidar is an active remote sensing system that records reflected
 or returned light energy. A discrete return lidar system, records the strongest
 reflections of light as discrete or individual points. Each point has an associated
-X, Y and Z value associated with it.  It also has an intensity which represents
-the amount of energy that returned to the sensor.
+X, Y and Z value associated with it. It also has an intensity which represents
+the amount of reflected light energy that returned to the sensor.
 
 <figure>
    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" target="_blank">
    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
-   <figcaption>An example LiDAR waveform. Source: National Ecological
-   Observatory Network, Boulder, CO - image
-available on <a href="https://flic.kr/s/aHsk4W4cdP" target="_blank"> Flickr</a>.
+   <figcaption>An example LiDAR waveform. Source: NEON.
    </figcaption>
 </figure>
 
 
 ## Gridded or Raster LiDAR Data Products
-Point clouds provide a lot of information, scientifically, however they can be
-difficult to work with given the size of the data. LiDAR data products are often
-created and stored in a gridded or raster data format. A raster file is a
-regular grid of cells, all of which are the same size.
+Point clouds provide a lot of information, scientifically. However they can be
+difficult to work with given the size of the data and tools that are available
+to handle large volumns of points. LiDAR data products are often
+created and stored in a gridded or raster data format. The raster format can be
+easier for many people to work with and also is supported by many different
+commonly used software packages.
+
+A raster file is a composed of regular grid of cells, all of which are the same
+size. You've looked at and used rasters before if you've looked at photographs
+or imagery in a tool like Google Earth. However, the raster files that we will
+work with are different from photographs in that they are spatially referenced.
+Each pixel represents an area of land on the ground. That area is defined by
+the **resolution** of the raster.
 
 
 <figure>
@@ -83,13 +91,13 @@ A few notes about rasters:
 -  Each cell is called a pixel.
 -  And each pixel represents an area on the ground.
 -  The resolution of the raster represents the area that each pixel represents
-- on the ground. So, for instance if the raster is 1 m resolution, that simple
-- means that each pixel represents a 1 m by 1m area on the ground.
+the area it represents on the ground. So, a 1 meter resolution raster, means that each pixel represents  a 1 m by 1m area on the ground.
 
-Raster data can have attributes associated with it as well. For instance in a
-LiDAR derived digital elevation model (DEM), each cell might represent a
-particular elevation value.  In a LIDAR derived intensity image, each cell
-represents a LIDAR intensity value.
+A raster dataset can have attributes associated with it as well. For instance in a
+LiDAR derived digital elevation model (DEM), each cell represents an elevation
+value for that location on the earth. In a LIDAR derived intensity image, each cell
+represents a LIDAR intensity value or the amount of light energy returned to and
+recorded by the sensor.
 
 <figure>
    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/raster-resolution.png" target="_blank">
@@ -141,7 +149,7 @@ We will not be talking about interpolation in today's class.
 
 ## Open Raster Data in R
 
-To work with raster data in R, we can use the `raster` and `rgdal` packages.
+To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
 
 
 ```r
@@ -156,42 +164,84 @@ library(rgdal)
 
 We can use the `raster("path-to-raster-here")` function to open a raster in R.
 
+## NOTE SWITCH THIS TO USE THE DEM INSTEAD.
 
 
 ```r
 
 # open raster data
-lidar_dsm <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
+lidar_dem <- raster(x="data/week3/lidar/post-flood/postDSM3.tif")
 
 # plot raster data
-plot(lidar_dsm)
+plot(lidar_dem)
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/open-plot-raster-1.png)
+![digital surface model raster plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/open-plot-raster-1.png)
 
-```r
-
-lidar_dsm
-## class       : RasterLayer
-## dimensions  : 2000, 2000, 4e+06  (nrow, ncol, ncell)
-## resolution  : 1, 1  (x, y)
-## extent      : 473000, 475000, 4434000, 4436000  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week3/lidar/post-flood/postDSM3.tif
-## names       : postDSM3
-```
 
 If we zoom in on a small section of the raster, we can see the individual pixels
-that make up the raster. Each pixel has one value.
+that make up the raster. Each pixel has one value associated with it. In this
+case that value represents the elevation of ground.
 
 
 ```r
-plot(lidar_dsm, xlim=c(473000, 473050), ylim=c(4434000, 4434050),
+plot(lidar_dem, xlim=c(473000, 473050), ylim=c(4434000, 4434050),
      main="Lidar Raster - Zoomed into to one small region")
 ```
 
-![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/plot-zoomed-in-raster-1.png)
+![zoom in on a small part of a raster - see the pixels?]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/plot-zoomed-in-raster-1.png)
+
+## Raster Resolution
+
+A raster has horizontal (x and y) resolution. This resolution represents the
+area on the ground that each pixel covers. The units for our data are in meters.
+Given our data resolution is 1 x 1, this means that each pixel represents a 1 x 1 meter area on the ground.
 
 
-## histogram - look at the values of all of the pixels
-## figure out the units of the data (x and y)
+```r
+
+# what is the x and y resolution for our raster data?
+xres(lidar_dem)
+## [1] 1
+yres(lidar_dem)
+## [1] 1
+```
+
+### Resolution units
+
+Resolution as a number doesn't mean anything unless we know the units. We can
+figure out the horizontal (x and y) units from the coordinate reference system
+string.
+
+
+```r
+
+# view coordinate refence system
+crs(lidar_dem)
+## CRS arguments:
+##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
+```
+
+Notice this string contains an element called **units=m**. This means the units
+are in meters. We won't get into too much detail about coordinate refence strings
+in this class but they are important to be familiar with when working with spatial
+data.
+
+## Distribution of elevation values
+
+We can view the distribution of elevation values in our data too. This is useful
+for identifying outlier data values.
+
+
+```r
+# plot histogram
+hist(lidar_dem,
+     main="Distribution of elevation values",
+     xlab="elevation (meters)", ylab="frequency",
+     col="springgreen")
+## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
+## 2% of the raster cells were used. 100000 values used.
+```
+
+![ ]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/view-hist-1.png)
