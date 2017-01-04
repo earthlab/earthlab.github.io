@@ -45,3 +45,24 @@ plot(lidar_chm,
      breaks = c(300, 350, 400, 450),
      main="LiDAR Canopy Height Model")
 
+## ----export-raster-------------------------------------------------------
+
+# check to see if an output directory exists
+!dir.exists("data/week3/outputs")
+
+# if the output directory doesn't exist, create it
+if (dir.exists("data/week3/outputs")) {
+  print("the directory exists!") 
+  } else {
+    # if the directory doesn't exist, create it
+    # recursive tells R to create the entire directory path (data/week3/outputs)
+    dir.create("data/week3/outputs", recursive=TRUE) 
+  }
+
+# export CHM object to new GeotIFF
+writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
+            format="GTiff",  # output format = GeoTIFF
+            overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
+            
+
+
