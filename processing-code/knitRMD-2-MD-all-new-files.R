@@ -7,87 +7,56 @@
 ##################
 
 require(knitr)
+library(dplyr)
 
-a <- as.data.frame(list.files("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics", pattern="\\.Rmd$", recursive = T, full.names = T))
+# working directory
+options(stringsAsFactors = F)
 
-a[3]
-# get the name of the .md file
-mdFile <- gsub(".Rmd$", ".md", a[3])
-# does the file exist?
-file.exists(mdFile)
-
-file.info(mdFile)$mtime
-
-## function to check if the file has been changed
-
-file.info(a[3])$mtime 
-
-# do the files equal
-if (file.info(mdFile)$mtime == file.info(a[3])$mtime){
-  print("the files have the same modified date - no building required")
-} else {
-  
-}
-
-# check to see if there is a .md file
-
-# if there is a md file, compare it to the time the associated md file was modified
-basename(a[1])
+all_rmd_files <- as.data.frame(list.files("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics", 
+                                          pattern="\\.Rmd$", 
+                                          recursive = T, full.names = T))
+names(all_rmd_files) <- "rmd_files"
 
 
+## subset dataframe to just the files that need a build
+# conditions = date modified is not the same OR there is no md file
+all_rmd_files_bld <- all_rmd_files %>%
+  mutate(md_files = gsub(".Rmd$", ".md", rmd_files)) %>%
+  mutate(rmd_modified = file.info(rmd_files)$mtime,
+         md_modified = file.info(md_files)$mtime) %>%
+  filter(!(md_modified == rmd_modified) | is.na(md_modified) == TRUE ) %>%
+  mutate(path = dirname(rmd_files),
+         code_dir = gsub("_posts", "code", rmd_files),
+         fig_dir = gsub("_posts", "images/rfigs", rmd_files))
 
-
-all_post_dirs <- list.dirs("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics")
 
 # is it a draft or a final post
-draft_post <- c("_drafts", "_posts")
-
-list.files("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics", pattern="\\.Rmd$", recursive = T, full.names = T)
-
-## function to check if the file has been changed
-
-dirs <- c("course-materials/earth-analytics/week-1/co-floods-1-intro",
-          "course-materials/earth-analytics/co-floods-2-data-r",
-          "course-materials/earth-analytics/week-1/intro-knitr-rmd",
-          "course-materials/earth-analytics/week-1/setup-r-rstudio",
-          "course-materials/earth-analytics/week-2/get-to-know-r",
-          "course-materials/earth-analytics/week-2/hw-plot-precip-data",
-          "course-materials/earth-analytics/week-3/lidar-intro")
-
-the_draft_post <- draft_post[2]
+# draft_post <- c("_drafts", "_posts")
 
 #################### Set up Input Variables #############################
-# set directory that  you'd like to build
-subDir <- dirs[7]
 
 # Inputs - Where the git repo is on your computer
-# rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
 gitRepoPath <-"~/Documents/github/earthlab.github.io"
-#rmdRepoPath <- file.path(gitRepoPath, the_draft_post, subDir)# they are the same this time. 
-# rmdRepoPath <- subDir
-# jekyll will only render md posts that begin with a date. Add one.
-add.date <- ""
 
 # set working dir - this is where the data are located
 wd <- "~/Documents/earth-analytics/"
-
 
 ################### CONFIG BELOW IS REQUIRED BY JEKYLL - DON"T CHANGE ##########
 
 # set data working dir
 setwd(wd)
 
+
 # don't change - this is the posts dir location required by jekyll
-postsDir <- file.path(the_draft_post, subDir)
-codeDir <- file.path("code/R", subDir)
-pdfDir <- file.path("pdf", subDir)
+#postsDir <- file.path(the_draft_post, subDir)
+#codeDir <- file.path("code/R", subDir)
 
 # images path
-imagePath <- file.path("images/rfigs", subDir)
+#imagePath <- file.path("images/rfigs", subDir)
 
 # set the base url for images and links in the md file
-base.url="{{ site.baseurl }}/"
-opts_knit$set(base.url = base.url)
+base_url="{{ site.url }}/"
+opts_knit$set(base.url = base_url)
 
 #################### Check For / Set up Image Directories  #############################
 
