@@ -29,7 +29,7 @@ After completing this tutorial, you will be able to:
 * List some of the components of a project that make it more easily re-usable (reproducible) to you when working with other people
 
 
-## Things You'll Need To Complete This Lesson
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this activity.
 
