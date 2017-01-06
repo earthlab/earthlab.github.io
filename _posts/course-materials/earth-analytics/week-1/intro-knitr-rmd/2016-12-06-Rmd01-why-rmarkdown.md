@@ -75,7 +75,7 @@ publish them in different formats (html, pdf, etc).
 ## Open Science Slideshow
 
 Click through the slideshow below to learn more about open science.
-<a class="btn btn-info" href="{{ site.url }}/slide-shows/share-publish-archive/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
+<a class="btn btn-info" href="{{ site.baseurl }}/slide-shows/share-publish-archive/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
 View Slideshow: Share, Publish & Archive Code & Data</a>
 
 ## About R Markdown
@@ -144,11 +144,11 @@ documents from `.rmd` files. We will cover how to use `knitr` later in this
 series.
 
 <figure class="half">
-	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png" alt="rmd example file">
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png" alt="rmd example file">
 	</a>
-	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/knitr-output.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/knitr-output.png" alt="knitr output">
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/knitr-output.png">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/knitr-output.png" alt="knitr output">
 	</a>
 	<figcaption>R Markdown script (left) and the HTML produced from the knit R
 	Markdown script (right).

@@ -63,8 +63,8 @@ When it comes to structuring the names of the files and folders that create your
 project, the more self explanatory, the better.
 
 <figure class="half">
-	<a href="{{ site.url }}/images/slide-shows/intro-rr/basmati-rice.png">
-	<img src="{{ site.url }}/images/slide-shows/intro-rr/basmati-rice.png" alt="basmati rice label on cookie container."></a>
+	<a href="{{ site.baseurl }}/images/slide-shows/intro-rr/basmati-rice.png">
+	<img src="{{ site.baseurl }}/images/slide-shows/intro-rr/basmati-rice.png" alt="basmati rice label on cookie container."></a>
 	<figcaption> A well structured project uses directory (folder) names that describe
   the contents of the directory. Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
@@ -81,8 +81,8 @@ A well structured project directory should:
 * Have easy to read directory names that contains components of the project (e.g. code, data, outputs, figures, etc)
 
 <figure>
-	<a href="{{ site.url }}/images/slide-shows/intro-rr/file-organization.png">
-	<img src="{{ site.url }}/images/slide-shows/intro-rr/file-organization.png" alt="good file organization"></a>
+	<a href="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png">
+	<img src="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png" alt="good file organization"></a>
 	<figcaption> Example of a well-organized project directory. Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
 </figure>
@@ -95,8 +95,8 @@ Case in point, have a look at the graphic below. Which list of file names are
 the most self explanatory? The ones on the LEFT? Or the ones of the RIGHT?
 
 <figure>
-	<a href="{{ site.url }}/images/slide-shows/intro-rr/human-readable-jenny.png">
-	<img src="{{ site.url }}/images/slide-shows/intro-rr/human-readable-jenny.png" alt="example of human readable file names"></a>
+	<a href="{{ site.baseurl }}/images/slide-shows/intro-rr/human-readable-jenny.png">
+	<img src="{{ site.baseurl }}/images/slide-shows/intro-rr/human-readable-jenny.png" alt="example of human readable file names"></a>
 	<figcaption> Compare the list of file names on the LEFT to those on the right
   which ones are easier to quickly understand? Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
