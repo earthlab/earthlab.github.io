@@ -38,8 +38,8 @@ You will need a computer with internet access to complete this activity.
 
 ## A data report
 
-Your colleage put together the very informative data report below. The topic of
-the report is the 2013 Colordo floods. Examine the report. Then answer the questions
+Your colleague put together the very informative data report below. The topic of
+the report is the 2013 Colorado floods. Examine the report. Then answer the questions
 below.
 
 
