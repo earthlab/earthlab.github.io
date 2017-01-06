@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Plot Time Series Data Using ggplot()"
+title: "Plotting with GGPLOT"
 excerpt: "This lesson walks through using GGPLOT2 to plot data."
 authors: ['Leah Wasser', 'Data Carpentry']
-lastModified: 2016-12-30
+lastModified: 2017-01-06
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
@@ -27,7 +27,9 @@ In this tutorial, we will explore more advanced plotting techniques using `ggplo
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* use the ggplot plot function to customize plots
+* Use the `ggplot()` plot function to create custom plots.
+* Add labels to x and y axes and a title to your ggplot plot.
+* Customize the colors and look of a ggplot plot.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -75,10 +77,10 @@ head(boulder_precip)
 # when we download the data we create a dataframe
 # view each column of the data frame using it's name (or header)
 boulder_precip$DATE
-##  [1] 2013-08-21 2013-08-26 2013-08-27 2013-09-01 2013-09-09 2013-09-10
-##  [7] 2013-09-11 2013-09-12 2013-09-13 2013-09-15 2013-09-16 2013-09-22
-## [13] 2013-09-23 2013-09-27 2013-09-28 2013-10-01 2013-10-04 2013-10-11
-## 18 Levels: 2013-08-21 2013-08-26 2013-08-27 2013-09-01 ... 2013-10-11
+##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
+##  [6] "2013-09-10" "2013-09-11" "2013-09-12" "2013-09-13" "2013-09-15"
+## [11] "2013-09-16" "2013-09-22" "2013-09-23" "2013-09-27" "2013-09-28"
+## [16] "2013-10-01" "2013-10-04" "2013-10-11"
 
 # view the precip column
 boulder_precip$PRECIP

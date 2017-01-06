@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 5
+order: 4
 ---
 
 This lesson covers how to work with no data values in `R`.

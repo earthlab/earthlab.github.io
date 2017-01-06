@@ -10,13 +10,13 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-lastModified: 2017-01-04
+lastModified: 2017-01-06
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 3
+order: 2
 ---
 
 .
