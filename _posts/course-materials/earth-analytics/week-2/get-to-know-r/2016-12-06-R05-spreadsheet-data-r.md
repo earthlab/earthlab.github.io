@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/spreadsheet-data-in-R/
 nav-title: 'Spreadsheet Data in R'
 dateCreated: 2016-12-13
-lastModified: 2017-01-04
+lastModified: 2017-01-06
 week: 2
 sidebar:
   nav:
@@ -180,7 +180,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![plot precipitation data]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R05-spreadsheet-data-r/quick-plot-1.png)
+![plot precipitation data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R05-spreadsheet-data-r/quick-plot-1.png)
 
 <div class="notice--success" markdown="1">
 
