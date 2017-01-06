@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 6
+order: 5
 ---
 
 This lesson introduces the data.frame which is very similar to working with
@@ -180,9 +180,9 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![plot precipitation data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R05-spreadsheet-data-r/quick-plot-1.png)
+![plot precipitation data]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R05-spreadsheet-data-r/quick-plot-1.png)
 
-<div class="notice--success" markdown="1">
+<div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
