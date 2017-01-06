@@ -68,8 +68,8 @@ NOTE: The document title is not the same as the file name.
 <figure class="half">
 <a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/create-rmd.png">
 <img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/create-rmd.png" alt="knitr button screenshot"></a>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png" alt="knitr button screenshot"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png" alt="knitr button screenshot"></a>
 	<figcaption> LEFT: Create a new RMD file using the file drop down menu in
   R Studio. RIGHT: Location of the knit button in RStudio in Version 0.99.903.
 	</figcaption>
@@ -87,8 +87,8 @@ Next, let's break down the structure of an R Markdown file.
 ## The Structure of an R Markdown file
 
  <figure>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png" alt="create new rmd document"></a>
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png" alt="create new rmd document"></a>
 	<figcaption>Screenshot of a new R Markdown document in RStudio. Checkout the three
   types of information: 1. the YAML header at the very top 2:. Chunks of r code
   separated by <code>```</code> and 3. Text written using markdown syntax.
