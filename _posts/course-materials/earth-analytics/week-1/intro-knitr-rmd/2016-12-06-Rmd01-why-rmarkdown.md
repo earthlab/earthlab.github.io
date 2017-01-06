@@ -6,12 +6,12 @@ authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr/
-nav-title: 'Intro to RMD'
+nav-title: 'Intro toR Markdown'
 dateCreated: 2016-12-12
 dateModified: 2016-12-12
 module-title: 'Document & Publish a Workflow with R Markdown & Knitr'
 module-nav-title: 'R Markdown Intro'
-module-description: 'This module teaches participants how to use rmarkdown
+module-description: 'This module teaches participants how to use R Markdown
 and knitr to create and publish reports that link analysis, results and documentation.'
 module-type: 'homework'
 week: 1
@@ -69,14 +69,14 @@ In this tutorial, we will learn how to document our work - by connecting data,
 methods and outputs in one or more reports or documents. We will introduce the
 `R Markdown` file format which can be used to generate reports that connect our
 data, code (methods used to process the data) and outputs. We will use the
-`rmarkdown` and `knitr` package to write rmarkdown files in `Rstudio` and
+`rmarkdown` and `knitr` package to write R Markdown files in `Rstudio` and
 publish them in different formats (html, pdf, etc).
 
-## Watch Slideshow
+## Open Science Slideshow
 
-Click through the slideshow below to learn more about open science. 
-<a class="btn btn-info" href="http://neon-workwithdata.github.io/slide-shows/share-publish-archive-slideshow.html" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
-View Slideshow: Share, Publish & Archive -  from the Reproducible Science Curriculum</a>
+Click through the slideshow below to learn more about open science.
+<a class="btn btn-info" href="{{ site.url }}/slide-shows/share-publish-archive/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
+View Slideshow: Share, Publish & Archive Code & Data</a>
 
 ## About R Markdown
 
@@ -116,7 +116,7 @@ R Markdown provides documentation for you to see what code you used to create a
 figure or to analyze the data.
 
 <i class="fa fa-star"></i> **Data Tip:** Many of the Earth Lab lessons- including
-this one - were created using Rmarkdown!
+this one - were created using R Markdown!
 {: .notice}
 
 
@@ -139,15 +139,16 @@ share and publish code online.
 
 ## Use Knitr to convert .rmd to .pdf
 
-We use the `R` `knitr` package to render our markdown and create easy to read documents from `.rmd`
-files.We will cover knitr later in this series.
+We use the `R` `knitr` package to render our markdown and create easy to read
+documents from `.rmd` files. We will cover how to use `knitr` later in this
+series.
 
 <figure class="half">
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png" alt="rmd example file">
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png" alt="rmd example file">
 	</a>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/knitr-output.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/knitr-output.png" alt="knitr output">
+	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/knitr-output.png">
+	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/knitr-output.png" alt="knitr output">
 	</a>
 	<figcaption>R Markdown script (left) and the HTML produced from the knit R
 	Markdown script (right).

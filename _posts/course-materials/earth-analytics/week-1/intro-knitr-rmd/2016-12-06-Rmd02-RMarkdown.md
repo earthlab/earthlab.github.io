@@ -7,7 +7,7 @@ authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr2/
-nav-title: 'Create RMarkdown File'
+nav-title: 'Create R Markdown File'
 week: 1
 sidebar:
   nav:
@@ -19,7 +19,7 @@ order: 2
 
 
 ## Getting Started
-Let's dive deeper into the R Markdown file format. This tutorial will introduce you to working with R markdown files in `R` and
+Let's dive deeper into the R Markdown file format. This tutorial will introduce you to working withR Markdown files in `R` and
 `R Studio`. We will create an R Markdown file and render it to html using the
 `knitr` package.
 
@@ -45,7 +45,7 @@ your computer to complete this tutorial.
 
 </div>
 
-## Create a new RMarkdown file in RStudio
+## Create a new R Markdown file in RStudio
 
 Watch the 6:38 minute video below to see how we convert
 an R Markdown file to HTML (or other formats) using `knitr` in `RStudio`.
