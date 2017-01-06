@@ -84,8 +84,8 @@ and the size of your data.
 ### How to Knit
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png" alt="knit button screenshot"></a>
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png" alt="knit button screenshot"></a>
 	<figcaption> Location of the knit button in RStudio in Version 0.99.903.
 	</figcaption>
 </figure>
@@ -108,8 +108,8 @@ using: `render(“input.Rmd”, “all”)`.
 ### View the Output
 
 <figure>
-	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/Rmd-screenshot-html.png">
-	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/Rmd-screenshot-html.png" alt="rmd template screenshot"></a>
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/Rmd-screenshot-html.png">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/Rmd-screenshot-html.png" alt="rmd template screenshot"></a>
 	<figcaption> R Markdown (left) and the resultant HTML (right) after knitting.
 	</figcaption>
 </figure>
