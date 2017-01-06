@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 7
+order: 6
 ---
 
 This lesson reviews best practices associated with clean coding.
@@ -79,7 +79,7 @@ A few other notes about object names in `R`:
 * Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning in R (for methods) and other programming languages. Instead use underscores `my_dataset`.
 
 
-<div class="notice--success" markdown="1">
+<div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 

@@ -30,7 +30,7 @@ After completing this tutorial, you will be able to:
 
 * Plot USGS Stream Discharge time series data in `R`.
 
-### Things You'll Need To Complete This Lesson
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
