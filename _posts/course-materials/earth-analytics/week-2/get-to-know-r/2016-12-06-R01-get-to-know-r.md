@@ -228,7 +228,7 @@ set of functions that come with `R` when you download it. These are called `base
 functions. Other functions are add-ons to base `R`. These functions can be loaded by
 
 1. Installing a particular package (using install.packages() like we did when
-we installed ggplot2, knitr, and rmarkdown and loading the library in our script using `library(package-name).
+we installed ggplot2, knitr, and R Markdown and loading the library in our script using `library(package-name).
 2. Writing our own functions.
 
 ### Functions that return values
@@ -263,7 +263,7 @@ help for this function using `?round`.
 ```r
 # view arguments for the round function
 args(round)
-## function (x, digits = 0) 
+## function (x, digits = 0)
 ## NULL
 ```
 
