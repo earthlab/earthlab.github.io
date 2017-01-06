@@ -31,7 +31,7 @@ At the end of this activity, you will be able to:
 *  .
 * #.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 ### Get Google Earth
 

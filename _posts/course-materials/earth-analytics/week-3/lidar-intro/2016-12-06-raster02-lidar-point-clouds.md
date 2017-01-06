@@ -27,7 +27,7 @@ After completing this tutorial, you will be able to:
 * Briefly describe how a lidar system collects lidar points.
 * Be able to describe the difference how a discrete and full waveform lidar system collect data.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson.
 
