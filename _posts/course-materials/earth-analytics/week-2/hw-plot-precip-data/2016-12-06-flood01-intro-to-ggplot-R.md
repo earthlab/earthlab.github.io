@@ -92,7 +92,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![quick plot of precip data]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/plot-data-1.png)
+![quick plot of precip data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/plot-data-1.png)
 
 ## Plotting with ggplot2
 
@@ -131,7 +131,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
   geom_point()
 ```
 
-![ggplot boulder precip]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/first-ggplot-1.png)
+![ggplot boulder precip]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/first-ggplot-1.png)
 
 The `+` in the `ggplot2` package is particularly useful because it allows you
 to modify existing `ggplot` objects. This means you can easily set up plot
@@ -160,7 +160,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(color = "blue")
 ```
 
-![ggplot with blue points]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/adding-colors-1.png)
+![ggplot with blue points]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/adding-colors-1.png)
 
 And adjust the transparency.
 
@@ -171,7 +171,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
 ```
 
-![ggplot with blue points and alpha]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-alpha-1.png)
+![ggplot with blue points and alpha]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-alpha-1.png)
 
 
 Or to color each value in the plot differently:
@@ -182,7 +182,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP))
 ```
 
-![ggplot with colored points]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/color-by-species-1.png)
+![ggplot with colored points]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/color-by-species-1.png)
 
 
 We can turn our plot into a bar plot.
@@ -193,7 +193,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity")
 ```
 
-![ggplot with bars]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/barplot-1.png)
+![ggplot with bars]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/barplot-1.png)
 
 Turn the bar outlines blue
 
@@ -203,7 +203,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity", color="blue")
 ```
 
-![ggplot with blue bars]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/bar-color-1.png)
+![ggplot with blue bars]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/bar-color-1.png)
 
 Change the fill to bright green.
 
@@ -213,7 +213,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity", color="blue", fill="green")
 ```
 
-![ggplot with green bars]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/barcolor2-1.png)
+![ggplot with green bars]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/barcolor2-1.png)
 
 
 ## Adding Labels
@@ -226,7 +226,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     ggtitle("Precipitation - Boulder, Colorado 2013")
 ```
 
-![ggplot with labels]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-title-1.png)
+![ggplot with labels]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-title-1.png)
 
 x and y labels...
 
@@ -239,7 +239,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     xlab("x label here") + ylab("y label here")
 ```
 
-![ggplot with title and labels]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-title2-1.png)
+![ggplot with title and labels]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-title2-1.png)
 
 
 ## More on customizing your plots

@@ -53,7 +53,7 @@ pdfDir <- file.path("pdf", subDir)
 imagePath <- file.path("images/rfigs", subDir)
 
 # set the base url for images and links in the md file
-base.url="{{ site.baseurl }}/"
+base.url="{{ site.url }}/"
 opts_knit$set(base.url = base.url)
 
 #################### Check For / Set up Image Directories  #############################
