@@ -27,7 +27,7 @@ At the end of this activity, you will be able to:
 * List 2 ways that you can get help when you are stuck using R.
 * List several features of R that makes it a versatile tool for scientific programming.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 A computer with internet access.
 

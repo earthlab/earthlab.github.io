@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 * Describe what a lidar system measures.
 * Define an active remote sensing system.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson.
 

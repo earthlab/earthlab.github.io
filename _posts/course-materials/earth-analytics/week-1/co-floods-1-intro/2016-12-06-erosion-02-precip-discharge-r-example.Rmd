@@ -30,7 +30,7 @@ After completing this tutorial, you will be able to:
 * List some of the components of a project that make it more easily re-usable (reproducible) to you when working with other people
 
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this activity.
 
