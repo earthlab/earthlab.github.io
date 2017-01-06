@@ -19,12 +19,18 @@ order: 3
 Here, we break down the basic syntax for a markdown file. We also cover how to
 create and format markdown (`.md`) files.
 
-<div class="notice--warning" markdown="1">
+<div class='notice--success' markdown="1">
+
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Use basic markdown syntax to format a document including: headers, bold and italics.
 * Be able to explain what the markdown format is.
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+
+You will need the most current version of `R` and, preferably, `RStudio` loaded on
+your computer to complete this tutorial.
 
 </div>
 

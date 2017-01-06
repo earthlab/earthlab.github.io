@@ -5,7 +5,7 @@ excerpt: 'This tutorial cover how code chunks are written and formatted within a
 R Markdown file in R Studio.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
-lastModified: 2016-12-28
+lastModified: 2017-01-06
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-code-chunks/
 nav-title: 'Code Chunks'
@@ -27,7 +27,7 @@ At the end of this activity, you will:
 * Be able to add code to a code chunk in an .rmd file
 * Be able to add options to a code chunk in R Studio
 
-## Things You’ll Need To Complete This Tutorial
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need the most current version of R and, preferably, RStudio loaded on
 your computer to complete this tutorial.
@@ -84,9 +84,9 @@ in R, and sets the working directory.
 
 <pre>
 <code>
-
+ 
  ```r
-
+ 
    1+2
  ## [1] 3
  ```

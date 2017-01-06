@@ -28,12 +28,12 @@ different formats including: `HTML`, `PDF`, github markdown (`.md`) and more.
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-At the end of this activity, you will:
+At the end of this lesson, you will:
 
 * Be able to produce (‘knit’) an HTML file from a R Markdown file.
 * Know how to modify chuck options to change what is rendered and not rendered on the output HTML file.
 
-## Things You’ll Need To Complete This Tutorial
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need the most current version of R and, preferably, RStudio loaded on
 your computer to complete this tutorial.

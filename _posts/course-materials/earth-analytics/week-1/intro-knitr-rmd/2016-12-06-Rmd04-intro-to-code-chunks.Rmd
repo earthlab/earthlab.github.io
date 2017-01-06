@@ -27,7 +27,7 @@ At the end of this activity, you will:
 * Be able to add code to a code chunk in an .rmd file
 * Be able to add options to a code chunk in R Studio
 
-## Things You’ll Need To Complete This Tutorial
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need the most current version of R and, preferably, RStudio loaded on
 your computer to complete this tutorial.

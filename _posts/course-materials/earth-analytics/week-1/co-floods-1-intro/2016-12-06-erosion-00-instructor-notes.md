@@ -30,7 +30,7 @@ At the end of this activity, you will be able to:
 *  .
 * #.
 
-## Things You’ll Need To Complete This Tutorial
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 ### Get Google Earth
 
