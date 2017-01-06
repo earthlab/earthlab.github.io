@@ -23,6 +23,7 @@ author_profile: false
 comments: false
 order: 1
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 In this classroom activity we will actively engage with different types of data
 that scientifically quantify / document the drivers (causes of) and impacts of
@@ -42,11 +43,11 @@ At the end of this activity, you will be able to:
 You will need to download and install Google Earth on your computer and then
 download the kml file below.
 
-<a href="https://www.google.com/earth/download/gep/agree.html" target="_blank" class="btn btn-success btn--large">
-DOWNLOAD Google Earth</a>
+<a href="https://www.google.com/earth/download/gep/agree.html" target="_blank" class="btn btn-success btn--x-large">
+Get Google Earth</a>
 
-<a href="https://ndownloader.figshare.com/files/7005404" class="btn btn-success btn--large">
-DOWNLOAD DATA: Google Earth Data (KML file)</a>
+<a href="https://ndownloader.figshare.com/files/7005404" class="btn btn-success btn--x-large">
+<i class="fa fa-download" aria-hidden="true"></i> Download .kmz file - Locations of Change</a>
 
 </div>
 
@@ -68,6 +69,7 @@ devastating flooding across the Front Range in Colorado, USA.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bUcWERTM-OA?rel=0&loop=1" frameborder="0" allowfullscreen></iframe>
 
+## Use imagery to detect change
 Georeferenced imagery, collected using satellites and airplanes provides a powerful
 visual record of landscape changes. Google Earth, has a time series feature that
 allows you to look at imagery of the earth, across time. Let's have a look at some
@@ -79,11 +81,13 @@ of the visible changes.
 * Open Google Earth
 * Double click on the `.KMZ` file that you downloaded above. It should open in Google Earth.
 
-> NOTE: the KMZ file might not be automatically associated with Google Earth. If
-double clicking doesn't work, go to File --> Open in Google Earth. Navigate to the
-location of your downloaded file (~Documents/data/co-flood/locations) and open it.
+<i fa fa-star></i>**Tip:** the `.kmz` file may not be automatically associated with Google Earth. If
+double clicking doesn't automatically open Google Earth, then Open Google Earth,
+go to File --> Open in Google Earth. Navigate to the
+location of your downloaded file (`~Documents/data/co-flood/locations`) and open it.
+{: .notice }
 
-* Once you have the kml open, notice it is listed in the Temporary Places section
+* Once you have the `.kmz` file open, notice it is listed in the Temporary Places section
 of the  `places` window. It should automatically zoom you into to an area in North
 Boulder, Colorado. If it doesn't double click on the text `Locations of Significant Damage`.
 * Click on the show historical imagery button in google earth

@@ -2,9 +2,9 @@
 layout: single
 authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
 category: [course-materials]
-title: 'Install & Setup R and R Studio on Your Computer'
+title: 'Install & Setup R and RStudio on Your Computer'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
-excerpt: 'This tutorial walks you through downloading and installing R and R studio on your computer.'
+excerpt: 'This tutorial walks you through downloading and installing R and RStudio on your computer.'
 dateCreated: 2016-12-12
 dateModified: 2016-12-12
 nav-title: 'Install Packages'
@@ -18,6 +18,7 @@ author_profile: false
 comments: false
 order: 3
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 ##  Install a Package
@@ -39,13 +40,13 @@ At the end of this activity, you will:
 ## What is a Package?
 
 A package, in `R` is a bundle of pre-built functionality. Think of it like a
-toolbox. Except for the tools, may do things like calculate a mathamatical function
+toolbox. Except for the tools, may do things like calculate a mathematical function
 e.g. `sum` or create a plot.
 
 ## Install a Package
 
 In `R` we install packages using the `install.packages("packageNameHere")` function. Let's get
-rmarkdown and knitr installed so we can use them in our exercises. In the `R`
+`rmarkdown` and `knitr` installed so we can use them in our exercises. In the `R`
 console within `Rstudio`, use the code below to install packages individually.
 
 
@@ -80,6 +81,7 @@ using the `library()` function. But you do need the quotes when you install a
 
 
 In our case, the `knitr` and `rmarkdown` packages load buttons and options within
-the `Rstudio` enviornment that we can use. Thus we won't have to call these two
+the `Rstudio` environment that we can use. Thus we won't have to call these two
 packages in our code in this lesson. However, when we use `ggplot2` to plot,
-we will have to call it. We will see how this works in the next set of lessons.
+we will have to call it. We will see how calling a package works in a later set
+of lessons.
