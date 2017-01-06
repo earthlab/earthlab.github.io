@@ -54,7 +54,7 @@ full screen mode.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DNS7i2m4sB0" frameborder="0" allowfullscreen></iframe>
 
-## Create an RMD File
+### Create Your .Rmd File
 
 Now that you see how R Markdown can be used in RStudio, you are
 ready to create your own `.RMD` document. Do the following:
@@ -111,7 +111,7 @@ using `knitr` to an output document.
 
 Next, let's break down each of the parts listed above.
 
-## 1. Header -- YAML Header (Front Matter)
+### YAML Header (Front Matter)
 
 An R Markdown file always starts with a header written using
 <a href="https://en.wikipedia.org/wiki/YAML" target="_blank">YAML syntax</a>.
@@ -140,6 +140,12 @@ output: html_document
 ---
 ```
 
+### R Markdown Text / Markdown Blocks
+
+The second part of a R Markdown document is the markdown itself which is used
+to add documentation to your file (or write your report). We will cover markdown
+in the next tutorial.
+
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Customize your R Markdown File's Front Matter - YAML
@@ -152,9 +158,3 @@ Customize the header of your `.Rmd` file as follows:
 We will be rendering an HTML file.
 
 </div>
-
-### R Markdown Text / Markdown Blocks
-
-The second part of a R Markdown document is the markdown itself which is used
-to add documentation to your file (or write your report). We will cover markdown
-in the next tutorial.
