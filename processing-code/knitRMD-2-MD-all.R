@@ -25,7 +25,7 @@ the_draft_post <- draft_post[2]
 
 #################### Set up Input Variables #############################
 # set directory that  you'd like to build
-subDir <- dirs[6]
+subDir <- dirs[5]
 
 # Inputs - Where the git repo is on your computer
 # rmdRepoPath <-"~/Documents/github/R-Spatio-Temporal-Data-and-Management-Intro/"
