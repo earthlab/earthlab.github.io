@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr/
-nav-title: 'Intro toR Markdown'
+nav-title: 'Intro to R Markdown'
 dateCreated: 2016-12-12
 dateModified: 2016-12-12
 module-title: 'Document & Publish a Workflow with R Markdown & Knitr'
