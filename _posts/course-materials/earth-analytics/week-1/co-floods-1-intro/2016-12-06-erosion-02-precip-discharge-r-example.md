@@ -3,11 +3,11 @@ layout: single
 title: "Work with Precipitation Data in R - 2013 Colorado Floods"
 excerpt: "This lesson provides students wiht an example of a data driven report to emphsize the importance of connecting data, documentation and results."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-lastModified: 2016-12-29
+lastModified: 2017-01-06
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
 permalink: /course-materials/earth-analytics/week-1/co-floods-data-example-r/
-nav-title: 'Co Floods Data Example'
+nav-title: 'CO Floods Data Example'
 week: 1
 sidebar:
   nav:
@@ -29,7 +29,7 @@ After completing this tutorial, you will be able to:
 * List some of the components of a project that make it more easily re-usable (reproducible) to you when working with other people
 
 
-## Things You'll Need To Complete This Lesson
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this activity.
 
