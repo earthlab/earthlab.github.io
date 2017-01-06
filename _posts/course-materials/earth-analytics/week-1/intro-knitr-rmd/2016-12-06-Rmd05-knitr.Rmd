@@ -36,28 +36,23 @@ At the end of this lesson, you will:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need the most current version of R and, preferably, RStudio loaded on
-your computer to complete this tutorial.
+You will need the most current version of `R` and, preferably, `RStudio` loaded on
+your computer to complete this tutorial. You will also need an R Markdown
+document that contains a YAML header, code chunks and markdown segments.
 
-## Download Data
-
-https://ndownloader.figshare.com/files/7010681
+<a href="https://ndownloader.figshare.com/files/7010681" class="btn btn-success btn--x-large">
+<i class="fa fa-download" aria-hidden="true"></i> Download Lesson data</a>
 
 ### Install R Packages
 
 * **knitr:** `install.packages("knitr")`
 * **rmarkdown:** `install.packages("rmarkdown")`
 
-## An Rmd File
-
-To complete this tutorial you will need an R Markdown document that contains a
-YAML header, code chunks and markdown segments.
-
 </div>
 
 ## What Is knitr?
 
-`knitr` is the tool (R package) that allows us to convert our R Markdown files into another,
+`knitr` is the R package that we use to convert an R Markdown document into another,
 more user friendly format like html or pdf.
 
 The `knitr` package allow us to:

@@ -79,27 +79,33 @@ chunk a unique name to support more advanced knitting approaches.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Add Code Chunks to Your R Markdown File
 
-Continue working on your document. Below the last section that you've just added,
-create a code chunk that loads the packages required to work with raster data
-in R, and sets the working directory.
+Continue to add to the `.Rmd` document that you created in the previous lesson.
+Below the last section that you've just added,
+create a code chunk that performs some basic math.
 
-<pre>
-<code>
- ```{r setup-read-data }
+<pre><code>```{r perform-math }
+# perform addition
+a <- 1+2
 
-   1+2
+b <- 234
 
- ```
- </code>
- </pre>
+# subtract a from b
+final_answer <- b - a
+
+# write out the final answer variable
+final_answer
+
+```</code></pre>
 
 
-Then, add another chunk that does something?? .
+Then, add another chunk. Give it a different name.
 
-<pre><code>```{r load-dsm-raster }
+<pre><code>```{r math-part-two }
 
-   # code here
-   code here...
+   # More math!
+   a * b
+
+   a * b / final_answer
 
  ```</code></pre>
 
@@ -107,12 +113,20 @@ Now run the code in this chunk.
 
 You can run code chunks:
 
-* **Line-by-line:** with cursor on current line, Ctrl + Enter (Windows/Linux) or
-Command + Enter (Mac OS X).
+* **Line-by-line:** with cursor on current line, <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (Windows/Linux) or
+<kbd>Command</kbd> + <kbd>Enter</kbd> (Mac OS X).
 * **By chunk:** You can run the entire chunk (or multiple chunks) by
 clicking on the `Chunks` dropdown button in the upper right corner of the script
 environment and choosing the appropriate option. Keyboard shortcuts are
 available for these options.
+
+<figure class="half">
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-run.png">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-run.png" alt="knitr button screenshot"></a>
+	<figcaption> The "run" button in RStudio allows you to run a chunk individually
+  or to run all chunks at once. RStudio Version 0.99.903.
+	</figcaption>
+</figure>
 
 </div>
 
@@ -125,10 +139,10 @@ later tutorial.
 
 ## Code chunk options
 
-You can add arguments or options to each code chunk. These arguments allow
-us to customize how or if you want code to be
-processed or appear on the output HTML document. Code chunk arguments are added on
-the first line of a code
+You can add arguments (similar to options) to each code chunk. These arguments allow
+you to customize how or if you want code to be
+processed or appear on the rendered output (pdf document, html document, etc).
+Code chunk arguments are added on the first line of a code
 chunk after the name, within the curly brackets.
 
 The example below, is a code chunk that will not be "run", or evaluated, by R.
@@ -136,8 +150,8 @@ The code within the chunk will appear on the output document, however there
 will be no outputs from the code.
 
 <pre><code>```{r intro-option, eval=FALSE}
-# the code here will not be processed by R
-# but it will appear on your output document
+# this is a comment. text, next to a comment, is not processed by R
+# comments will appear on your rendered r markdown document
 1+2
  ```</code></pre>
 
@@ -167,20 +181,39 @@ or the
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Add More Code to Your R Markdown
 
-Update your RMD file as follows:
+Add a new chunk with the following arguments. Then describe in your own words
+when you might want to use each of these arguments. HINT: Think about creating a report
+with plots where you have a lot of code generating those plots.
 
-* Add a **new code chunk** that plots the `TEAK_lidarDSM` raster object that you imported above.
-Experiment with plot colors and be sure to add a plot title.
-* Run the code chunk that you just added to your RMD document in R (e.g. run in console, not
-knitting). Does it create a plot with a title?
-* In another new code chunk, import and plot another raster file from the NEON data subset
-that you downloaded. The `TEAK_lidarCHM` is a good raster to plot.
-* Finally, create histograms for both rasters that you've imported into R.
-* Be sure to document your steps as you go using both **code comments** and
-**markdown syntax** in between the code chunks.
+<pre><code>```{r testing-arguments, eval=FALSE }
 
-For help opening and plotting raster data in `R`, see the NEON Data Skills tutorial
-<a href="http://neondataskills.org/R/Plot-Rasters-In-R/" target="_blank">*Plot Raster Data in R*</a>.
+   # More math!
+   a * b
 
-We will knit this document to HTML in the next tutorial.
+   a * b / final_answer
+
+ ```</code></pre>
+
+
+ <pre><code>```{r testing-arguments, echo=FALSE }
+
+    # More math!
+    a * b
+
+    a * b / final_answer
+
+  ```</code></pre>
+
+
+  <pre><code>```{r testing-arguments, results="hide" }
+
+     # More math!
+     a * b
+
+     a * b / final_answer
+
+   ```</code></pre>
+
 </div>
+
+We will knit our R Markdown document to `.pdf` in the next lesson.
