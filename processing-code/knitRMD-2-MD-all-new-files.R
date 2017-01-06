@@ -39,6 +39,17 @@ wd <- "~/Documents/earth-analytics/"
 git_repo_base_path <- "~/Documents/Github/earthlab.github.io"
 repo_post_path <- "_posts/course-materials/earth-analytics"
 
+##### Setup Life ####
+
+# set data working dir
+setwd(wd)
+
+# Universal Knitr Config - set the base url for images and links in the md file
+base_url="{{ site.url }}/"
+opts_knit$set(base.url = base_url)
+
+
+# create initial list of files
 all_rmd_files <- as.data.frame(list.files(file.path(git_repo_base_path, repo_post_path), 
                                           pattern="\\.Rmd$", 
                                           recursive = T, full.names = T))
@@ -63,23 +74,13 @@ all_rmd_files_bld <- all_rmd_files %>%
 # is it a draft or a final post
 # draft_post <- c("_drafts", "_posts")
 
-################### CONFIG BELOW IS REQUIRED BY JEKYLL - DON"T CHANGE ##########
-
-# set data working dir
-setwd(wd)
-
-
-# set the base url for images and links in the md file
-base_url="{{ site.url }}/"
-opts_knit$set(base.url = base_url)
-
 ################# Check For / Set up / Clean out Code and pdf Dir  #################
 
 # there is a possibility of duplicate code and image directories here IF there is a file name change. think about this.
 
 #################### Set up Image Directory #############################
 
-# in case you just want to build one file
+# in case you just want to test this function
 # rmd_file_df <- all_rmd_files_bld[10, ]
 
 create_markdown <- function(rmd_file_df, wd){
@@ -133,6 +134,8 @@ create_markdown <- function(rmd_file_df, wd){
 }
 
 ########################### end script
+
+## fun the function
 
 create_markdown(rmd_file_df = all_rmd_files_bld[10, ], wd)
 
