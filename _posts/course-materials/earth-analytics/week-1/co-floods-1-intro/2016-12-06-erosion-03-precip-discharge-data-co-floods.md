@@ -35,7 +35,7 @@ At the end of this activity, you will be able to:
 * Interpret plots containing time series data related to flood drivers.
 
 
-## Things You’ll Need To Complete This Tutorial
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need a computer with internet to complete this lesson.
 
