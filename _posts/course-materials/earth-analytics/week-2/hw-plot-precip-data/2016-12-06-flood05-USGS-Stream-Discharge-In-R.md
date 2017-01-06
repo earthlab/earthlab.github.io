@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-lastModified: 2016-12-30
+lastModified: 2017-01-06
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -30,7 +30,7 @@ After completing this tutorial, you will be able to:
 
 * Plot USGS Stream Discharge time series data in `R`.
 
-### Things You'll Need To Complete This Lesson
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`

@@ -3,7 +3,7 @@ layout: single
 title: "Work With Dates in R - Plot Time Series Data"
 excerpt: "This lesson walks through working with time series data in R. you will learn how to convert a data field to a date class that R can understand as a date/time element."
 authors: ['Leah Wasser', 'Data Carpentry']
-lastModified: 2016-12-30
+lastModified: 2017-01-06
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
@@ -105,7 +105,7 @@ so many labels on the x axis.
 str(boulder_precip)
 ## 'data.frame':	18 obs. of  3 variables:
 ##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
-##  $ DATE  : Factor w/ 18 levels "2013-08-21","2013-08-26",..: 1 2 3 4 5 6 7 8 9 10 ...
+##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
 ```
 
@@ -143,7 +143,7 @@ are sequential.
 ```r
 # View data class for each column that we wish to plot
 class(boulder_precip$DATE)
-## [1] "factor"
+## [1] "character"
 
 class(boulder_precip$PRECIP)
 ## [1] "numeric"
