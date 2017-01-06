@@ -38,7 +38,7 @@ your computer to complete this tutorial.
 
 ## Markdown in Rmd files
 
-An R markdown file can contain text written using the markdown syntax.
+AnR Markdown file can contain text written using the markdown syntax.
 Markdown text, can be whatever you want. It may describe the data that you are
 using, how it's being processed and what the outputs are. You may even add some
 text that interprets or discusses the outputs.

@@ -34,7 +34,13 @@ floods.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bUcWERTM-OA?rel=0&loop=1" frameborder="0" allowfullscreen></iframe>
 
-### 2. Review Lessons
+### 2. Make sure you've reviewed the open science slide shows
+Note: these were also linked in the lessons below.
+
+<a class="btn btn-info" href="{{ site.url }}/slide-shows/share-publish-archive/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
+View Slideshow: Share, Publish & Archive Code & Data</a>
+
+### 3. Review Lessons
 The second part of your homework assignment is to review the homework lessons (see links
 on the left hand side of this page).
 Following the lessons, setup `R`, `RStudio` and a
