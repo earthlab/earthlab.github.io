@@ -15,6 +15,8 @@ comments: false
 order: 6
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 ## Setup
 
 

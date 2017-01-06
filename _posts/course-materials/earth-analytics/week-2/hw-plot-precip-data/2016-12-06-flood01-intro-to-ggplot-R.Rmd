@@ -31,7 +31,7 @@ At the end of this activity, you will be able to:
 * Add labels to x and y axes and a title to your ggplot plot.
 * Customize the colors and look of a ggplot plot.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
