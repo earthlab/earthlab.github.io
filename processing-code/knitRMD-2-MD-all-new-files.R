@@ -63,8 +63,6 @@ all_rmd_files_bld <- all_rmd_files %>%
 # is it a draft or a final post
 # draft_post <- c("_drafts", "_posts")
 
-
-
 ################### CONFIG BELOW IS REQUIRED BY JEKYLL - DON"T CHANGE ##########
 
 # set data working dir
@@ -75,21 +73,9 @@ setwd(wd)
 base_url="{{ site.url }}/"
 opts_knit$set(base.url = base_url)
 
-#################### Check For / Set up Image Directories  #############################
-
-# NOTE -- delete the image directory at the end!
-
 ################# Check For / Set up / Clean out Code and pdf Dir  #################
 
 # there is a possibility of duplicate code and image directories here IF there is a file name change. think about this.
-# also there is now a dir for each code file which isn't necessary. 
-
-
-# check for image directory in WD - create it if it's not there. 
-check_create_dirs(file.path(wd, all_rmd_files_bld$wd_image_dir[10]))
-# check for code directory in the git repo, create it if it's not there
-# this will create empty folders sometimes
-check_create_dirs(dirname(all_rmd_files_bld$code_file[10]))
 
 #################### Set up Image Directory #############################
 
@@ -151,6 +137,8 @@ create_markdown <- function(rmd_file_df, wd){
 create_markdown(rmd_file_df = all_rmd_files_bld[10, ], wd)
 
 # rebuild entire course
+do.call( function(x,y) create_markdown(all_rmd_files_bld, wd), 
+         all_rmd_files_bld)
 
 apply(all_rmd_files_bld, wd, fun=create_markdown)
 mapply(create_markdown, all_rmd_files_bld, wd=wd)
