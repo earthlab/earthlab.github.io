@@ -18,6 +18,12 @@ comments: false
 order: 4
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
+In the previous lessons, we setup R and RStudio. The last part of our setup is
+to setup our working directory. A **working directory** is an organized space or directory on our computer where we keep our data, scripts and outputs. It is important
+to think about the organization of that directory, to make our own future lives
+easier (so we can find things) and also to make it easier to collaborate with other people.
 
 ## Setup your project
 
@@ -25,15 +31,14 @@ Project organization is integral to efficient research. A well organized project
 structure will allow you to more easily find components of your project AND
 make it easier for others you are working with to understand and find data, code,
 and results. In this tutorial, we will create a well-organized **working directory**.
-A **working directory** is an organized space or directory on our computer where we
-keep our data, scripts and outputs.
+
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
-* Be able to describe the key components of a well structured project.
+* Be able to describe the key characteristics of a well structured project.
 * Be able to summarize in 1-3 sentences why good project structure can make your work more efficient and make it easier to collaborate with colleagues.
 * Be able to explain what a working directory is.
 
@@ -43,7 +48,7 @@ At the end of this activity, you will:
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
 
-* [How to Setup R / R Studio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
+* [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
 
 </div>
 
@@ -68,23 +73,23 @@ project, the more self explanatory, the better.
 
 A well structured project directory should:
 
-* Reflect the structure of your project: For this set of lessons, we just need a main directory (`earth-analytics`), and a `data` directory. Other projects may be more complex with inputs (data) outputs (data outputs), code and more.
 * Utilize a naming convention that is:
    * **Human readable** - use directory names that are easy to understand.
    * **Machine readable** - avoid funky characters OR SPACES.
    * **Support sorting**  - If you have a list of input files, it's nice to be able to sort them to quickly see what's there and find what you need.
 * **Preserve raw data so it's not modified:** We'll worry about this later.
+* Have easy to read directory names that contains components of the project (e.g. code, data, outputs, figures, etc)
 
 <figure>
-	<a href="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png">
-	<img src="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png" alt="good file organization"></a>
+	<a href="{{ site.url }}/images/slide-shows/intro-rr/file-organization.png">
+	<img src="{{ site.url }}/images/slide-shows/intro-rr/file-organization.png" alt="good file organization"></a>
 	<figcaption> Example of a well-organized project directory. Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
 </figure>
 
 ### Which Filenames Are Most Self-explanatory?
 
-Your goal when structuring a project directory is to try to use a naming
+Your goal when structuring a project directory is to use a naming
 convention that someone who is not familiar with your project can quickly understand.
 Case in point, have a look at the graphic below. Which list of file names are
 the most self explanatory? The ones on the LEFT? Or the ones of the RIGHT?
@@ -96,7 +101,6 @@ the most self explanatory? The ones on the LEFT? Or the ones of the RIGHT?
   which ones are easier to quickly understand? Source: Jenny Bryan, Reproducible Science Curriculum.
 	</figcaption>
 </figure>
-
 
 Consider the structure of your project as we build the project or working
 directory for our earth analytics tutorials in the next lesson.
