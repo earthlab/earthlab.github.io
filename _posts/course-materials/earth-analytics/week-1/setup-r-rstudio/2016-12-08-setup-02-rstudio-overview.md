@@ -80,9 +80,9 @@ both the computer and we can understand.
 * **EXECUTE** a program: (also called *running*). When we execute a program, we
 are telling the computer to run it.
 
-## Scripts vs. Console vs. Rmarkdown
+## Scripts vs. Console vs. R Markdown
 
-There are two main ways of interacting with R: using the console or by using
+There are two main ways of interacting with `R`: using the console or by using
 script files (plain text files that contain your code - note these can be `.R` files
 OR `.Rmd` files).
 
@@ -113,7 +113,7 @@ your script.
 
 ## R Console Tricks
 
-If R is ready to accept commands, the R console shows a `>` prompt. If it
+If `R` is ready to accept commands, the `R` console shows a `>` prompt. If it
 receives a command (by typing, copy-pasting or sent from the script editor using
 <kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>), R will try to execute it, and when
 ready, show the results and come back with a new `>`-prompt to wait for new

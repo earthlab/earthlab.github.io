@@ -5419,4 +5419,8 @@ div.notice--success, div.notice--warning {
   color: #7a8288;
   font-size: 0.9em; }
 
+/* Adding space under authors */
+.page__title + .page__meta {
+  margin-bottom: 1.4em; }
+
 /*# sourceMappingURL=main.css.map */
