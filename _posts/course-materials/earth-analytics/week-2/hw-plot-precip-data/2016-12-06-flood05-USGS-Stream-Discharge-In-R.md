@@ -137,7 +137,7 @@ out what format elements you'll need to include to get the date right.
 
 Your plot should look something like the one below:
 
-![plot of discharge vs time]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
+![plot of discharge vs time]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
 
 <div class="notice--warning" markdown="1">
 
@@ -154,7 +154,7 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 
 
 
-![ggplot subsetted discharge data]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
+![ggplot subsetted discharge data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
