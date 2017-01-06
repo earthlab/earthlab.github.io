@@ -103,7 +103,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![precip data plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R01-get-to-know-r/open-file-1.png)
+![precip data plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R01-get-to-know-r/open-file-1.png)
 
 The code above, uses syntax that is unique the `R` programming language.
 Syntax is the characters or commands that `R` understands and associated
