@@ -751,8 +751,8 @@ tr, td, th {
   padding: 0.5em 1em;
   color: #fff !important;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-  font-size: 0.75em;
-  font-weight: bold;
+  font-size: 0.9em;
+  font-weight: normal;
   text-align: center;
   text-decoration: none;
   background-color: #7a8288;
