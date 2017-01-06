@@ -12,34 +12,57 @@ library(dplyr)
 # working directory
 options(stringsAsFactors = F)
 
-all_rmd_files <- as.data.frame(list.files("~/Documents/Github/earthlab.github.io/_posts/course-materials/earth-analytics", 
+
+### Helper function ####
+
+## Helper function - check to see if directory exists and if it doesn't, create it.
+check_create_dirs <- function(path_to_check){
+  if (dir.exists(path_to_check)){
+    # clean out code dir to avoid the issue of duplicate files
+    unlink(file.path(path_to_check, "/*"), recursive = TRUE)
+    print(" dir exists & and has been cleaned ")
+  } else {
+    # create image directory structure
+    dir.create(path_to_check, recursive=T)
+    print("new sub dir created.")
+  }
+}
+
+#################### Set up Input Variables #############################
+
+# set working dir - this is where the data are located
+wd <- "~/Documents/earth-analytics/"
+# where the files to render are
+git_repo_base_path <- "~/Documents/Github/earthlab.github.io"
+repo_post_path <- "_posts/course-materials/earth-analytics"
+
+all_rmd_files <- as.data.frame(list.files(file.path(git_repo_base_path, repo_post_path), 
                                           pattern="\\.Rmd$", 
                                           recursive = T, full.names = T))
 names(all_rmd_files) <- "rmd_files"
 
 
+
 ## subset dataframe to just the files that need a build
 # conditions = date modified is not the same OR there is no md file
+# note: this has a lot of path redundancy in it. Not ideal. 
 all_rmd_files_bld <- all_rmd_files %>%
   mutate(md_files = gsub(".Rmd$", ".md", rmd_files)) %>%
   mutate(rmd_modified = file.info(rmd_files)$mtime,
          md_modified = file.info(md_files)$mtime) %>%
   filter(!(md_modified == rmd_modified) | is.na(md_modified) == TRUE ) %>%
-  mutate(path = dirname(rmd_files),
-         code_dir = gsub("_posts", "code", rmd_files),
-         fig_dir = gsub("_posts", "images/rfigs", rmd_files))
+  mutate(base_path = file.path(dirname(rmd_files), gsub(".Rmd$", "", basename(rmd_files))),
+         code_file = gsub("_posts", "code", rmd_files),
+         code_file = gsub(".Rmd$", ".R", code_file), # create the code path
+         base_path = sub(".*_posts/", "", base_path),
+         fig_dir = file.path("images/rfigs", base_path),
+         wd_image_dir = file.path("images/rfigs", base_path))
 
 
 # is it a draft or a final post
 # draft_post <- c("_drafts", "_posts")
 
-#################### Set up Input Variables #############################
 
-# Inputs - Where the git repo is on your computer
-gitRepoPath <-"~/Documents/github/earthlab.github.io"
-
-# set working dir - this is where the data are located
-wd <- "~/Documents/earth-analytics/"
 
 ################### CONFIG BELOW IS REQUIRED BY JEKYLL - DON"T CHANGE ##########
 
@@ -47,85 +70,73 @@ wd <- "~/Documents/earth-analytics/"
 setwd(wd)
 
 
-# don't change - this is the posts dir location required by jekyll
-#postsDir <- file.path(the_draft_post, subDir)
-#codeDir <- file.path("code/R", subDir)
-
-# images path
-#imagePath <- file.path("images/rfigs", subDir)
-
 # set the base url for images and links in the md file
 base_url="{{ site.url }}/"
 opts_knit$set(base.url = base_url)
 
 #################### Check For / Set up Image Directories  #############################
 
-# make sure image directory exists in the DATA DIR WHERE THIS RENDERS
-# if it doesn't exist, create it
-# note this will fail quietly if the sub dir doesn't exist
-if (dir.exists(file.path(wd, imagePath))){
-  print("image dir exists - all good")
-} else {
-  # create image directory structure
-  dir.create(file.path(wd, imagePath), recursive = T)
-  print("image directories created!")
-}
-
 # NOTE -- delete the image directory at the end!
-
 
 ################# Check For / Set up / Clean out Code and pdf Dir  #################
 
-if (dir.exists(file.path(gitRepoPath, codeDir))){
-  # clean out code dir to avoid the issue of duplicate files
-  unlink(file.path(gitRepoPath, codeDir, "*"), recursive = TRUE)
-  print("code dir exists & and has been cleaned ")
-} else {
-  # create image directory structure
-  dir.create(file.path(gitRepoPath, codeDir), recursive=T)
-  print("new code sub dir created.")
-}
+# there is a possibility of duplicate code and image directories here IF there is a file name change. think about this.
+# also there is now a dir for each code file which isn't necessary. 
 
 
-if (dir.exists(file.path(gitRepoPath, pdfDir))){
-  # clean out code dir to avoid the issue of duplicate files
-  unlink(file.path(gitRepoPath, pdfDir, "*"), recursive = TRUE)
-  print("pdf dir exists & has been cleaned out")
-} else {
-  # create image directory structure
-  dir.create(file.path(gitRepoPath, pdfDir), recursive=T)
-  print("new pdf sub dir created.")
-}
-################# Clean out posts Dir  #################
-# NOTE: comment this out if you just want to rebuild one lesson
-
-# clean out posts dir to avoid the issue of duplicate files - don't do this if rmd files r here
-# unlink(paste0(gitRepoPath, postsDir, "*"), recursive = TRUE)
-
-# clean out images dir to avoid the issue of duplicate files
-unlink(file.path(gitRepoPath, imagePath, "*"), recursive = TRUE)
-
-
-# copy image directory over
-# file.copy(paste0(wd,"/",fig_path), paste0(gitRepoPath,imagePath), recursive=TRUE)
-
-# copy rmd file to the rmd directory on git
-# file.copy(paste0(wd,"/",basename(files)), gitRepoPath, recursive=TRUE)
-#################### Get List of RMD files to Render #############################
-
-
-# get a list of files to knit / purl
-rmd.files <- list.files(file.path(gitRepoPath, draft_post,subDir), 
-                        pattern="\\.Rmd$", 
-                        full.names = TRUE,
-                        ignore.case = F)
+# check for image directory in WD - create it if it's not there. 
+check_create_dirs(file.path(wd, all_rmd_files_bld$wd_image_dir[1]))
+# check for code directory in the git repo, create it if it's not there
+check_create_dirs(dirname(all_rmd_files_bld$code_file[1]))
 
 #################### Set up Image Directory #############################
 
-# just render one file
-#rmd.files <- rmd.files[3]
-#files <- rmd.files[1]
+rmd_file_df <- all_rmd_files_bld[4, ]
 
+create_markdown <- function(rmd_file_df, wd){
+  
+  current_file <- rmd_file_df$rmd_files
+  # copy .Rmd file to data working directory
+  file.copy(from = current_file, to=wd, overwrite = TRUE)
+  
+  # check for working dir image dir
+  check_create_dirs(rmd_file_df$wd_image_dir)
+
+  # check for image dir in git repo
+  check_create_dirs(rmd_file_df$fig_dir)
+  # check for code dir in git repo
+  check_create_dirs(dirname(rmd_file_df$code_file))
+  
+  # set knitr render options.
+  opts_chunk$set(fig.path = paste0(rmd_file_df$fig_dir,"/"),
+                 fig.cap = " ",
+                 collapse = T)
+  
+  # render jekyll flavor md
+  render_markdown(strict = FALSE, 
+                  fence_char = "`")
+  
+  # knit Rmd to jekyll flavored md format, knit to the git repo so don't have to 
+  # move the file
+  knit(input= basename(current_file), 
+       output = rmd_file_df$md_files, 
+       envir = parent.frame())
+  
+  if (length(list.files(rmd_file_df$wd_image_dir)) > 0) {
+    # copy image directory over to git site if there are images in it
+    file.copy(rmd_file_df$wd_image_dir, rmd_file_df$fig_dir, recursive=TRUE)
+  }
+  
+  # purl the code to R
+  r_file_path <- file.path(git_repo_base_path, "code", 
+                           rmd_file_df$base_path, 
+                           gsub(".Rmd$",".R", basename(current_file)))
+  purl(basename(current_file), output = r_file_path)
+  
+}
+
+
+### will delete this for loop
 for (files in rmd.files) {
   
   # copy .Rmd file to data working directory
