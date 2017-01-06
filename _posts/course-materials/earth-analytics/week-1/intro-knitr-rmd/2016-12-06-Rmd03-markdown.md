@@ -173,12 +173,12 @@ you will be adding the page.
 
 </div>
 
-*Got questions? No problem. Leave your question in the comment box below.
+*Got questions? Leave your question in the comment box below.
 It's likely some of your colleagues have the same question, too! And also
 likely someone else knows the answer.*
 
 
-## Answers to the Default Text Markdown Syntax Questions
+### Answers to the Default Text Markdown Syntax Questions
 
 * Are any words in bold? - Yes, “Knit” on line 10
 * Are any words in italics? - No

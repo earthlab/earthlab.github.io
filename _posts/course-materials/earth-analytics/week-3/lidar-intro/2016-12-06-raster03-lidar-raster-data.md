@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster."
 authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: 2017-01-04
+lastModified: 2017-01-06
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/
@@ -160,7 +160,20 @@ To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
 
 # load libraries
 library(raster)
+## Loading required package: sp
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+## 
+##     select
 library(rgdal)
+## rgdal: version: 1.1-10, (SVN revision 622)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 1.11.4, released 2016/01/25
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-3
 
 # set working directory to ensure R can find the file we wish to import
 # setwd("working-dir-path-here")
@@ -175,13 +188,13 @@ We can use the `raster("path-to-raster-here")` function to open a raster in R.
 
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
+## Error in plot(lidar_dem, main = "Digital Elevation Model - Pre 2013 Flood"): object 'lidar_dem' not found
 ```
-
-![digital surface model raster plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/open-plot-raster-1.png)
 
 
 If we zoom in on a small section of the raster, we can see the individual pixels
@@ -192,9 +205,8 @@ case that value represents the elevation of ground.
 ```r
 plot(lidar_dem, xlim=c(473000, 473030), ylim=c(4434000, 4434030),
      main="Lidar Raster - Zoomed into to one small region")
+## Error in plot(lidar_dem, xlim = c(473000, 473030), ylim = c(4434000, 4434030), : object 'lidar_dem' not found
 ```
-
-![zoom in on a small part of a raster - see the pixels?]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/plot-zoomed-in-raster-1.png)
 
 ## Raster Resolution
 
@@ -207,9 +219,9 @@ Given our data resolution is 1 x 1, this means that each pixel represents a 1 x 
 
 # what is the x and y resolution for our raster data?
 xres(lidar_dem)
-## [1] 1
+## Error in xres(lidar_dem): object 'lidar_dem' not found
 yres(lidar_dem)
-## [1] 1
+## Error in yres(lidar_dem): object 'lidar_dem' not found
 ```
 
 ### Resolution units
@@ -223,9 +235,7 @@ string.
 
 # view coordinate refence system
 crs(lidar_dem)
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## Error in crs(lidar_dem): object 'lidar_dem' not found
 ```
 
 Notice this string contains an element called **units=m**. This means the units
@@ -245,8 +255,5 @@ hist(lidar_dem,
      main="Distribution of elevation values",
      xlab="Elevation (meters)", ylab="Frequency",
      col="springgreen")
-## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
-## 1% of the raster cells were used. 100000 values used.
+## Error in hist(lidar_dem, main = "Distribution of elevation values", xlab = "Elevation (meters)", : object 'lidar_dem' not found
 ```
-
-![histogram of DEM elevation values]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/view-hist-1.png)
