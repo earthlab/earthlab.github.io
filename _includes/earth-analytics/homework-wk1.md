@@ -3,7 +3,7 @@
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil" aria-hidden="true"></i> Activity: Create A Report Using `Knitr` & `RMarkdown`
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Create A Report Using Knitr & RMarkdown
 
 * Create a new rmarkdown `.Rmd` file in `Rstudio`. Name the file:
 `yourLastName-firstInitial-week1.Rmd` example: `wasser-l-week1.Rmd`
