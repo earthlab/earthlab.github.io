@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Document & Publish A Workflow Using R Markdown & knitr"
+title: "Introduction to R Markdown & knitr"
 excerpt: "This tutorial introduces the importance of tools supporting documenting & publishing a workflow."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
@@ -9,7 +9,7 @@ permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr/
 nav-title: 'Intro to RMD'
 dateCreated: 2016-12-12
 dateModified: 2016-12-12
-module-title: 'Introduction to R Markdown & Knitr'
+module-title: 'Document & Publish a Workflow with R Markdown & Knitr'
 module-nav-title: 'R Markdown Intro'
 module-description: 'This module teaches participants how to use rmarkdown
 and knitr to create and publish reports that link analysis, results and documentation.'
@@ -21,6 +21,7 @@ author_profile: false
 comments: false
 order: 1
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 In this tutorial we will use the `knitr` and `rmarkdown` packages in
 `RStudio` to create a report that links our analysis, results and associated data.
@@ -34,7 +35,7 @@ At the end of this activity, you will be able to:
 * Explain how R Markdown is a useful tool in Open Science approaches.
 * Explain one way that R Markdown can benefit your research.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 Before you start this tutorial, be sure that you have  R and R studio setup on
 your computer. Also we recommend have you have an `earth-analytics` directory
@@ -47,7 +48,7 @@ for help getting R, R studio and your data directory setup.
 
 </div>
 
-## Why Open Science
+## Why open science
 
 Open science in a nutshell is about making scientific methods, data and outcomes
 available to everyone. It can be broken down into several parts (<a href="http://www.openscience.org/blog/?p=269" target="_blank">Gezelter 2009</a>):
@@ -71,7 +72,11 @@ data, code (methods used to process the data) and outputs. We will use the
 `rmarkdown` and `knitr` package to write rmarkdown files in `Rstudio` and
 publish them in different formats (html, pdf, etc).
 
-<a class="btn btn-info" href="http://neon-workwithdata.github.io/slide-shows/share-publish-archive-slideshow.html" target= "_blank"> View Slideshow: Share, Publish & Archive -  from the Reproducible Science Curriculum</a>
+## Watch Slideshow
+
+Click through the slideshow below to learn more about open science. 
+<a class="btn btn-info" href="http://neon-workwithdata.github.io/slide-shows/share-publish-archive-slideshow.html" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
+View Slideshow: Share, Publish & Archive -  from the Reproducible Science Curriculum</a>
 
 ## About R Markdown
 
@@ -94,7 +99,7 @@ underlying R code or data changes)."
 We use R Markdown (.rmd) files to document workflows and to share data processing,
 analysis and visualization code & outputs.
 
-## RMD is Beneficial to your colleagues
+## RMD is beneficial to your colleagues
 The link between data, code and results make `.rmd` powerful. You can share your
 entire workflow with your colleagues and they can quickly see your process. You
 can also write reports using `.rmd` files which contain code and data
@@ -102,7 +107,7 @@ analysis results. To enrich the document, you can add text, just like you would
 in a word document that describes your workflow, discusses your results and
 presents your conclusions - along side your analysis results.
 
-## RMD is Beneficial to You & Your Future Self
+## RMD is beneficial to you & your future self
 
 R Markdown as a format is an efficient tool. If you need to make changes to your
 workflow, you can simply modify the report and re-render (or knit) the report.
@@ -128,11 +133,11 @@ slide shows and more.
 * **Easy to share:** Code and data can be shared with a colleague to replicate the workflow.
 
 <i class="fa fa-star"></i> **Data Tip:**
-<a href="https://rpubs.com/" target= "_blank ">RPubs</a> is a quick way to
+<a href="https://rpubs.com/" target= "_blank ">RPubs</a> is a one way to
 share and publish code online.
 {: .notice}
 
-## Knitr
+## Use Knitr to convert .rmd to .pdf
 
 We use the `R` `knitr` package to render our markdown and create easy to read documents from `.rmd`
 files.We will cover knitr later in this series.

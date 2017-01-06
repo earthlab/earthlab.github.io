@@ -43,7 +43,7 @@ At the end of this activity, you will:
 * Be able to explain what a working directory is.
 
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
@@ -76,7 +76,7 @@ A well structured project directory should:
 * Utilize a naming convention that is:
    * **Human readable** - use directory names that are easy to understand.
    * **Machine readable** - avoid funky characters OR SPACES.
-   * **Support sorting**  - If you have a list of input files, it's nice to be able to sort them to quickly see what's there and find what you need.
+   * **Support sorting**  - If you have a list of input files, it's nice to be able to sort them to quickly see what's there and find What you need.
 * **Preserve raw data so it's not modified:** We'll worry about this later.
 * Have easy to read directory names that contains components of the project (e.g. code, data, outputs, figures, etc)
 
