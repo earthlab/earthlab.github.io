@@ -2,7 +2,7 @@
 layout: single
 authors: ['Software Carpentry']
 category: [course-materials]
-title: 'Install & Setup R and R Studio on Your Computer'
+title: 'Install & Setup R and RStudio on Your Computer'
 excerpt: '#.'
 nav-title: 'Setup Working Directory'
 week: 1
@@ -11,18 +11,19 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/setup-working-directory/
 dateCreated: 2016-12-12
-dateModified: 2016-12-28
+dateModified: 2017-01-06
 author_profile: false
 comments: false
 order: 5
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 ## Setup your working directory
 
 As we learned in the previous tutorial, project organization is integral to
-efficient research. In this tutorial, we will create the working directory that
-we will use for all of our work. This working directory will be carefully
+efficient research. In this tutorial, we will create the project directory that
+we will use for all of our work. This project directory will be carefully
 organized with a `\data` directory that we will use to save all of the data we
 use in our lessons.
 
@@ -40,7 +41,7 @@ At the end of this activity, you will:
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
 
-* [How to Setup R / R Studio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
+* [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
 
 </div>
 
@@ -48,16 +49,17 @@ your computer to complete this tutorial.
 ## Setup Working Directory
 
 Now that we have the basics of good project structure out of the way, let's get
-our project setup. We are going to create an `earth-analytics` working directory
-(or folder) where we will store data and files used in the class.
+our project setup. We are going to create an `earth-analytics` project directory
+(or folder) where we will store data and files used in the class. We will then
+set that **project directory** as our **working directory** in `R`.
 
-<i class="fa fa-star"></i> **Data Tip** Working Directory vs Folder: You can think
+<i class="fa fa-star"></i> **Data Tip** Directory vs Folder: You can think
 of a directory as a folder. However the term directory considers the relationship
 between that folder and the folders within it and around it (it's full path).
 {: .notice }
 
-Follow the steps below to create an `earth-analytics` working directory on your
-computer and then a data directory located within that working directory.
+Follow the steps below to create an `earth-analytics` project directory on your
+computer and then a data directory located within that project directory.
 
 * Navigate to the `Documents` directory on your computer.
 * In the directory, create a NEW DIRECTORY called `earth-analytics`.
@@ -79,7 +81,7 @@ called `data`
 <figure>
 	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/setup-r-rstudio/working-dir-os.png">
 	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/setup-r-rstudio/working-dir-os.png" alt="working directory screenshot"></a>
-	<figcaption> Your working directory should look like this. Right now it just
+	<figcaption> Your project directory should look like this. Right now it just
 	contains one directory called data.
 	</figcaption>
 </figure>
@@ -94,7 +96,7 @@ options panel` (see screen shot below).
 <figure>
 	<a href="{{ site.url }}/images/course-materials/earth-analytics/week-1/setup-r-rstudio/r-studio-wd-setup.png">
 	<img src="{{ site.url }}/images/course-materials/earth-analytics/week-1/setup-r-rstudio/r-studio-wd-setup.png" alt="setup working directory in rstudio"></a>
-	<figcaption> Set your default working directory in R studio to the Earth Analytics
+	<figcaption> Set your default working directory in RStudio to the Earth Analytics
   directory. That way, every time you open `RStudio` it will default to that
   directory. Image: RStudio Version 0.99.903.
 	</figcaption>
