@@ -63,14 +63,14 @@ A lot of rain impacted Colorado. See below.
 
 
 
-![plot 1]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/daily-summaries-1.png)
+![plot 1]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/daily-summaries-1.png)
 
 ## Fall 2013 Precipitation
 
 Let's check out the data for a few months.
 
 
-![plot 2 precip]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/subset-data-1.png)
+![plot 2 precip]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/subset-data-1.png)
 
 
-![plot 3 discharge]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/all-boulder-station-data-1.png)
+![plot 3 discharge]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/all-boulder-station-data-1.png)
