@@ -20,9 +20,12 @@ check_create_dirs <- function(path_to_check, clean=T){
   if (dir.exists(path_to_check)){
     # clean out code dir to avoid the issue of duplicate files
     if(clean==F){
+      print(" dir exists") 
+    }else {
+      print(" dir exists & and has been cleaned ")
       unlink(file.path(path_to_check, "/*"), recursive = TRUE)
     }
-    print(" dir exists & and has been cleaned ")
+    
   } else {
     # create image directory structure
     dir.create(path_to_check, recursive=T)
@@ -49,26 +52,35 @@ base_url="{{ site.url }}/"
 opts_knit$set(base.url = base_url)
 
 
-# create initial list of files
-all_rmd_files <- as.data.frame(list.files(file.path(git_repo_base_path, repo_post_path), 
-                                          pattern="\\.Rmd$", 
-                                          recursive = T, full.names = T))
-names(all_rmd_files) <- "rmd_files"
 
-
+# a_dataframe <- all_rmd_files
 ## subset dataframe to just the files that need a build
 # conditions = date modified is not the same OR there is no md file
-# note: this has a lot of path redundancy in it. Not ideal. 
-all_rmd_files_bld <- all_rmd_files %>%
-  mutate(md_files = gsub(".Rmd$", ".md", rmd_files)) %>%
-  mutate(rmd_modified = file.info(rmd_files)$mtime,
-         md_modified = file.info(md_files)$mtime) %>%
-  # filter(!(md_modified == rmd_modified) | is.na(md_modified) == TRUE ) %>%
-  mutate(base_path = file.path(dirname(rmd_files), gsub(".Rmd$", "", basename(rmd_files))),
-         code_file = gsub("_posts", "code", rmd_files),
-         code_file = gsub(".Rmd$", ".R", code_file), # create the code path
-         base_path = sub(".*_posts/", "", base_path),
-         fig_dir = file.path("images/rfigs", base_path))
+
+populate_all_rmd_df <- function(a_dataframe, all=FALSE){
+  all_rmd_files_bld <- a_dataframe %>%
+    mutate(md_files = gsub(".Rmd$", ".md", rmd_files)) %>%
+    mutate(rmd_modified = file.info(rmd_files)$mtime,
+           md_modified = file.info(md_files)$mtime) %>%
+    mutate(base_path = file.path(dirname(rmd_files), gsub(".Rmd$", "", basename(rmd_files))),
+           code_file = gsub(".Rmd$", ".R", (basename(rmd_files))), # create the code name
+           base_path = sub(".*_posts/", "", base_path),
+           fig_dir = file.path("images/rfigs", base_path))
+
+    # filter the data to just the modified files if it's not a full rebuild
+  if (all== FALSE) {
+    all_rmd_files_bld <- all_rmd_files_bld %>%
+      filter((md_modified < rmd_modified) | is.na(md_modified) == TRUE )
+  }
+
+  return(all_rmd_files_bld)
+}
+
+
+
+
+
+# create code filename
 
 
 # is it a draft or a final post
@@ -96,9 +108,6 @@ create_markdown <- function(rmd_file_df, wd){
   # check for image dir in git repo
   check_create_dirs(fig_dir_path)
   
-  # check for code dir in git repo - don't clean out repo
-  check_create_dirs(sub("[^/]+$", "", rmd_file_df$base_path), clean=F)
-  
   # set knitr render options.
   opts_chunk$set(fig.path = paste0(rmd_file_df$fig_dir,"/"),
                  fig.cap = " ",
@@ -119,9 +128,14 @@ create_markdown <- function(rmd_file_df, wd){
     file.copy(rmd_file_df$fig_dir, fig_dir_path, recursive=TRUE)
   }
   
+  
+  # check for code dir in git repo - don't clean out repo
+  # code path
+  code_dir <- file.path(git_repo_base_path, "code", (sub("[^/]+$", "", rmd_file_df$base_path)))
+  
+  check_create_dirs(code_dir, clean=F)
   # purl the code to .R format, save in "code" directory
-  r_file_path <- file.path(git_repo_base_path, "code", 
-                           paste0(rmd_file_df$base_path, ".R"))
+  r_file_path <- file.path(code_dir, rmd_file_df$code_file)
   
   purl(basename(current_file), output = r_file_path)
   
@@ -135,13 +149,28 @@ create_markdown <- function(rmd_file_df, wd){
 
 ########################### end script
 
-## fun the function
 
-create_markdown(rmd_file_df = all_rmd_files_bld[10, ], wd)
+# create initial list of files
+all_rmd_files <- as.data.frame(list.files(file.path(git_repo_base_path, repo_post_path), 
+                                          pattern="\\.Rmd$", 
+                                          recursive = T, full.names = T))
+names(all_rmd_files) <- "rmd_files"
+
+all_rmd_files_bld <- populate_all_rmd_df(all_rmd_files, all=T)
+## run the function
+
+if ((nrow(all_rmd_files_bld)) > 0){
+  pb <- txtProgressBar(min = 0, max = nrow(all_rmd_files_bld), style = 3)
+ for (i in seq(from=1, to=nrow(all_rmd_files_bld))) {
+  create_markdown(rmd_file_df = all_rmd_files_bld[i, ], wd)
+   setTxtProgressBar(pb, i)
+   print(i)
+ }
+}
+
 
 # rebuild entire course
-do.call( function(x,y) create_markdown(all_rmd_files_bld, wd), 
-         all_rmd_files_bld)
+#do.call( function(x,y) create_markdown(all_rmd_files_bld, wd), 
+#         all_rmd_files_bld)
 
-apply(all_rmd_files_bld, wd, fun=create_markdown)
-mapply(create_markdown, all_rmd_files_bld, wd=wd)
+#mapply(create_markdown, all_rmd_files_bld, wd=wd)
