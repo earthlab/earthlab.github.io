@@ -15,6 +15,7 @@ author_profile: false
 comments: false
 order: 2
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 Several factors contributed to extreme flooding that occurred in Boulder,
 Colorado in 2013. In this lesson we will check our a report that provides some
@@ -35,7 +36,7 @@ You will need a computer with internet access to complete this activity.
 
 </div>
 
-## A data report!
+## A data report
 
 Your colleage put together the very informative data report below. The topic of
 the report is the 2013 Colordo floods. Examine the report. Then answer the questions
@@ -43,12 +44,13 @@ below.
 
 
 1. What sources of data were used to create the plots?
-2. How were the data processed ?
+2. How were the data processed?
 3. How did your colleague generate this report? When was it last updated?
 4. Who contributed to this report?
 5. You'd like to make some changes to the report - can you do that easily? If you
-wanted to make changes, how would you begin?
+wanted to make changes, what process and tools would you use to make those changes?
 6. What units are the precipitation data in?
+7. Create a list of the things that would make editing this report easier.
 
 
 ***
@@ -61,14 +63,14 @@ A lot of rain impacted Colorado. See below.
 
 
 
-![plot 1]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/daily-summaries-1.png)
+![plot 1]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/daily-summaries-1.png)
 
 ## Fall 2013 Precipitation
 
 Let's check out the data for a few months.
 
 
-![plot 2 precip]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/subset-data-1.png)
+![plot 2 precip]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/subset-data-1.png)
 
 
-![plot 3 discharge]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/all-boulder-station-data-1.png)
+![plot 3 discharge]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-1/co-floods-1-intro/2016-12-06-erosion-02-precip-discharge-r-example/all-boulder-station-data-1.png)

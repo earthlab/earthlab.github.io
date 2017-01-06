@@ -22,9 +22,11 @@ comments: false
 order: 3
 ---
 
-In this classroom activity we will actively engage with different types of data
+{% include toc title="This Lesson" icon="file-text" %}
+
+In this classroom activity we will look at different types of data
 that scientifically quantify / document the drivers (causes of) and impacts of
-the flood using different methods.
+a disturbance event like a flood.
 
 <div class='notice--success' markdown="1">
 
@@ -77,12 +79,12 @@ falls from clouds including rain, hail and snow.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Precip Data
 
 ### What do the data tell you about precipitation?
 
 As a group, discuss the following questions. Record your answers following the
-directions of your instructor (Google Doc, word document, etherpad, etc.).
+directions of your instructor (Google Doc, Word document, Etherpad, etc.).
 
 * What interesting things do you observe in the data? Are there any data points that seem different from the rest?
   * For each difference: What you think caused that difference?
@@ -119,7 +121,9 @@ increases significantly during a flood event.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: What do the data tell you about rainfall?
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Stream discharge data
+
+### What do the data tell you about stream discharge?
 
 As a group, discuss the following questions. Record your answers following the
 directions of your instructor (Google Doc, word document, etherpad, etc.).
