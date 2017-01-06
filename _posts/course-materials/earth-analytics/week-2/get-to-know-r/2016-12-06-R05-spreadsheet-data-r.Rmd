@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 6
+order: 5
 ---
 
 This lesson introduces the data.frame which is very similar to working with
@@ -156,7 +156,7 @@ qplot(x=boulder_precip$DATE,
 
 ```
 
-<div class="notice--success" markdown="1">
+<div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 

@@ -16,7 +16,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 3
+order: 2
 ---
 
 .
