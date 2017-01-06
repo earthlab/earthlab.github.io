@@ -158,9 +158,10 @@ Your window should look like the screen shot below:
 
 ## Set Working Directory Using Code
 
-We can set the working directory  using code in R too. You don't have to do This
+We can set the working directory  using code in R too. You don't have to do this
 if you already set the working directory above. However, it's good to know how
-to do it! We use the `setwd()` function to set a new working directory as follows:
+to do it - particularly if you get into more advanced scripting in R. We use the
+ `setwd()` function to set a new working directory as follows:
 
 
 
@@ -176,4 +177,4 @@ setwd("C:\Users\lewa8222\Documents\earth-analytics")
 ```
 
 ## All Done!
-Great work! You are now read to start working with `RStudio`!
+Great work! You are now ready to start working with `RStudio`!
