@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: 2017-01-04
+lastModified: 2017-01-06
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -97,13 +97,13 @@ library(rgdal)
 
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
+## Error in plot(lidar_dem, main = "Lidar Digital Elevation Model (DEM)"): object 'lidar_dem' not found
 ```
-
-![digital elevation model plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dem-1.png)
 
 Notice in the plot above, the range of elevation values. Let's next look at the
 digital SURFACE model (DSM). The DSM represents the top of the earth's surface.
@@ -114,13 +114,13 @@ Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
 
 # open raster data
 lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
+## Error in plot(lidar_dsm, main = "Lidar Digital Surface Model (DSM)"): object 'lidar_dsm' not found
 ```
-
-![digital surface model plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dsm-1.png)
 
 ## The Canopy Height Model
 
@@ -145,13 +145,13 @@ if the data haven't been "cleaned").
 
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
+## Error in eval(expr, envir, enclos): object 'lidar_dsm' not found
 
 # plot raster data
 plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
+## Error in plot(lidar_chm, main = "Lidar Canopy Height Model (CHM)"): object 'lidar_chm' not found
 ```
-
-![canopy height model plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-1.png)
 
 ## Plots Using Breaks
 
@@ -170,9 +170,8 @@ plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
      main="Lidar Canopy Height Model",
      col=c("white","brown","springgreen","darkgreen"))
+## Error in plot(lidar_chm, breaks = c(0, 2, 10, 20, 30), main = "Lidar Canopy Height Model", : object 'lidar_chm' not found
 ```
-
-![canopy height model breaks]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-breaks-1.png)
 
 ## Export a raster
 
@@ -204,7 +203,7 @@ if (dir.exists("data/week3/outputs")) {
 writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
             format="GTiff",  # output format = GeoTIFF
             overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
-
+## Error in writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff", format = "GTiff", : object 'lidar_chm' not found
 ```
 
 <div class="notice" markdown="1">

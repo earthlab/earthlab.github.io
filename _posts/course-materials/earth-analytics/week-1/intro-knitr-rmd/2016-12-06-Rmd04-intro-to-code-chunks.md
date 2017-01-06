@@ -18,6 +18,7 @@ order: 4
 ---
 {% include toc title="This Lesson" icon="file-text" %}
 
+
 Next, we will talk about code chunks in `R markdown` files.
 
 <div class='notice--success' markdown="1">
@@ -85,9 +86,9 @@ in R, and sets the working directory.
 
 <pre>
 <code>
-
+ 
  ```r
-
+ 
    1+2
  ## [1] 3
  ```
