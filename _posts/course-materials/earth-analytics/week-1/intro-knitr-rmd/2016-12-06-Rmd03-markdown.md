@@ -15,6 +15,7 @@ author_profile: false
 comments: false
 order: 3
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 Here, we break down the basic syntax for a markdown file. We also cover how to
 create and format markdown (`.md`) files.
@@ -27,7 +28,7 @@ At the end of this activity, you will be able to:
 * Use basic markdown syntax to format a document including: headers, bold and italics.
 * Be able to explain what the markdown format is.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.

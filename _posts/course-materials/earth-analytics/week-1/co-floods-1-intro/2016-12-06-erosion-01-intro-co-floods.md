@@ -38,7 +38,7 @@ At the end of this activity, you will be able to:
 * Illustrate using a schematic graphic, the causes and impacts of a flood.
 * Be able to define a driver and an impact of a disturbance.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need to download and install Google Earth on your computer and then
 download the kml file below.
