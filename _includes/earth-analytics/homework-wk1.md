@@ -3,7 +3,7 @@
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Create A Report Using Knitr & RMarkdown
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission: Create A Report Using Knitr & RMarkdown
 
 * Create a new rmarkdown `.Rmd` file in `Rstudio`. Name the file:
 `yourLastName-firstInitial-week1.Rmd` example: `wasser-l-week1.Rmd`
@@ -81,11 +81,11 @@ file will have more code in it.
 </figcaption>
 </figure>
 
-## Did the figure plot?
+### Troubleshooting: missing plot
 
 If the code above did not produce a plot, please check the following:
 
-### Check your working directory
+#### Check your working directory
 
 If the path to your file is not correct, then the data won't load into `R`.
 If the data don't load into `R`, then you can't work with it or plot it.

@@ -9,7 +9,7 @@ permalink: /course-materials/earth-analytics/week-1/co-floods-1-intro/
 nav-title: 'CO Floods - Google Earth'
 module-nav-title: 'CO Floods Intro'
 dateCreated: 2016-12-06
-dateModified: 2016-12-12
+modified: 2016-12-12
 module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
@@ -51,7 +51,7 @@ Get Google Earth</a>
 
 </div>
 
-## Exploring Flood Damage
+## About the 2013 CO floods
 
 In early September 2013, a slow moving cold air front moved through Colorado
 intersecting with a warm, humid air front. The clash between the cold and warm
@@ -76,10 +76,10 @@ allows you to look at imagery of the earth, across time. Let's have a look at so
 of the visible changes.
 
 
-## STEPS HERE ABOUT HOW TO DOWNLOAD AND VIEW TIME SERIES IN GOOGLE EARTH
+### How to view time series imagery in Google Earth
 
 * Open Google Earth
-* Double click on the `.KMZ` file that you downloaded above. It should open in Google Earth.
+* Double click on the `.kmz` file that you downloaded above. It should open in Google Earth.
 
 <i fa fa-star></i>**Tip:** the `.kmz` file may not be automatically associated with Google Earth. If
 double clicking doesn't automatically open Google Earth, then Open Google Earth,
@@ -111,7 +111,7 @@ damage file. Scroll to 10/2012 and then to 10/2013. Do you see any differences?
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: What Changes do you see?
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: What changes do you see?
 
 As a group, discuss the following questions. Record your answers following the
 directions of your instructor (Google Doc, word document, etherpad, etc.).
