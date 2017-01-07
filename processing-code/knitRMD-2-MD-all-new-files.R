@@ -93,7 +93,7 @@ populate_all_rmd_df <- function(a_dataframe, all=FALSE){
 #################### Set up Image Directory #############################
 
 # in case you just want to test this function
-# rmd_file_df <- all_rmd_files_bld[2, ]
+# rmd_file_df <- all_rmd_files_bld[21, ]
 
 create_markdown <- function(rmd_file_df, wd){
   
@@ -103,10 +103,6 @@ create_markdown <- function(rmd_file_df, wd){
   
   # check for working dir image dir
   check_create_dirs(rmd_file_df$fig_dir)
-  # create fig dir path
-  fig_dir_path <- file.path(git_repo_base_path, rmd_file_df$fig_dir)
-  # check for image dir in git repo
-  check_create_dirs(fig_dir_path)
   
   # set knitr render options.
   opts_chunk$set(fig.path = paste0(rmd_file_df$fig_dir,"/"),
@@ -123,12 +119,13 @@ create_markdown <- function(rmd_file_df, wd){
        output = rmd_file_df$md_files, 
        envir = parent.frame())
   
+  
   if (length(list.files(rmd_file_df$fig_dir)) > 0) {
+    # create fig dir path
+    fig_dir_path <- file.path(git_repo_base_path, rmd_file_df$fig_dir)
     # copy image directory over to git site if there are images in it
     file.copy(rmd_file_df$fig_dir, (sub("[^/]+$", "", fig_dir_path)), recursive=TRUE)
   }
-  
-  
   
   # check for code dir in git repo - don't clean out repo
   # code path
@@ -158,6 +155,9 @@ all_rmd_files <- as.data.frame(list.files(file.path(git_repo_base_path, repo_pos
 names(all_rmd_files) <- "rmd_files"
 
 all_rmd_files_bld <- populate_all_rmd_df(all_rmd_files, all=F)
+
+# just one file
+# create_markdown(all_rmd_files_bld[20, ], wd)
 ## run the function
 
 if ((nrow(all_rmd_files_bld)) > 0){

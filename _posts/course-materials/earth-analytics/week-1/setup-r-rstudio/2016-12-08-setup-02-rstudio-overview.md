@@ -2,11 +2,11 @@
 layout: single
 authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
 category: [course-materials]
-title: 'Install & Setup R and RStudio on Your Computer'
+title: 'Get to Know RStudio'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'This tutorial walks you through downloading and installing R and RStudio on your computer.'
 dateCreated: 2016-12-12
-dateModified: 2016-12-12
+modified: 2016-12-30
 nav-title: 'RStudio Intro'
 week: 1
 sidebar:
