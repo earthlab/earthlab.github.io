@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+modified: `r format(Sys.time(), "%Y-%m-%d")`
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -74,7 +74,7 @@ thus easier to work with. In this lesson, we will import and work with
 </figure>
 
 
-## Introducing the Digital Elevation Model
+### Digital Elevation Model
 We will start with the digital elevation model - the file that we worked with
 to better understand raster data in the previous lesson. The digital elevation
 model (DEM), also known as a digital terrain model (DTM) represents the elevation
@@ -118,7 +118,7 @@ plot(lidar_dsm,
 
 ```
 
-## The Canopy Height Model
+## Canopy Height Model
 
 The canopy height model (CHM) represents the HEIGHT of the trees. This is not
 an elevation value, rather it's the distance between the ground and the top of the
@@ -126,6 +126,7 @@ trees. Some canopy height models also include buildings so you need to look clos
 are your data to make sure it was properly cleaned before assuming it represents
 all trees!
 
+### Calculate difference between two rasters
 
 There are different ways to calculate a CHM. One easy way is to subtract the
 DEM from the DSM.
@@ -213,7 +214,7 @@ if (!dir.exists("data/week3/outputs")) {
 </div>
 
 
-## Explore changes before and after the floods
+## Change detection in Terrain
 
 Now that we've learned about the 3 common data products derived from lidar data,
 let's use them to do a bit of exploration of our data - as it relates to the 2013
@@ -221,11 +222,11 @@ Colorado floods.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - Calculate Difference
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - calculate changes in terrain
 
 * Subtract the post-flood DEM from the pre-flood DEM. Do you see any differences in
 elevation before the after?
-* Create a CHM for both pre-flood and post-flood by subtracing the DEM from the DTM for each year. Next create a CHM DIFFERENCE raster by subtracting the post-flood chm from the pre-flood CHM.
+* Create a CHM for both pre-flood and post-flood by subtracting the DEM from the DTM for each year. Next create a CHM DIFFERENCE raster by subtracting the post-flood CHM from the pre-flood CHM.
 * Export the files as geotiff's and open them in QGIS. Explore the differences.
 What differences do you see between the two years?
 

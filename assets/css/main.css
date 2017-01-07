@@ -2395,7 +2395,7 @@ select:focus {
 .archive__subtitle {
   margin: 1.414em 0 0;
   padding-bottom: 0.5em;
-  font-size: 0.9em;
+  font-size: 1.15em;
   color: #9ba1a6;
   border-bottom: 1px solid #f2f3f3; }
   .archive__subtitle + .list__item .archive__item-title {

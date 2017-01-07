@@ -30,9 +30,11 @@ Read the assignment below carefully. Use the class and homework lessons to help
 you complete the assignment.
 </div>
 
-## <i class="fa fa-pencil"></i> Week 2: Homework Assignment Week 2
+## <i class="fa fa-pencil"></i> Homework Week 2
 
-### Part 1 - Readings
+### 1. Readings
+
+Read the papers and pages listed below.
 
 * Wehr, A., and U. Lohr (1999). Airborne Laser Scanning - An Introduction and Overview. ISPRS Journal of Photogrammetry and Remote Sensing 54:68–92. doi: 10.1016/S0924-2716(99)00011-8 : <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.516&rep=rep1&type=pdf" target="_blank" data-proofer-ignore=''><i class="fa fa-download" aria-hidden="true"></i>
 PDF</a>
@@ -41,19 +43,29 @@ PDF</a>
 * <a href="https://www.e-education.psu.edu/natureofgeoinfo/node/1890" target="_blank">Active remote sensing</a>
 
 
-### Videos
+### 2. Videos
 
 Watch the following videos:
 
-### The Story of LiDAR Data video
+#### The Story of LiDAR Data video
 <iframe width="560" height="315" src="//www.youtube.com/embed/m7SXoFv6Sdc?rel=0" frameborder="0" allowfullscreen></iframe>
 
-### How LiDAR Works
+#### How LiDAR Works
 <iframe width="560" height="315" src="//www.youtube.com/embed/EYbhNSUnIdU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+
+### 3. Install QGIS & review homework lessons
+
+Install QGIS. Use the install QGIS homework lesson as a guide if needed.
+Then review all of the homework lessons - they will help you complete the
+submission below.
 
 ***
 
-### Part 2 - Plot Precip & Discharge Data
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission
 
 1. Create a new `R markdown` document. Name it: `youLastName-yourFirstName-week2.rmd`
 2. In this `R markdown` document, add the following plots [using the homework lessons
@@ -74,7 +86,7 @@ Be sure to:
 Turn your R Markdown document into a report about the 2013 Boulder floods by adding
 the following:
 
-1. Carefull compose 2-3 paragraphs at the top of the repor which summarize the conditions
+1. Carefully compose 2-3 paragraphs at the top of the repor which summarize the conditions
 and the events that took place in 2013 to cause a flood that had significant impacts.
 Describe the impacts of the flood on the terrain and the people in Boulder. Then
 describe and interpret each
@@ -91,9 +103,4 @@ The text will be graded like a typical paper. The code will be graded for
 
 **Submit your final report in both PDF and R Markdown formats by....**
 
-* [Homework Lesson Set 1: Plot with Ggplot & Date / Time Formats directory](/course-materials/earth-analytics/week-2/hw-ggplot2-r){: .btn .btn--info .btn--large}
-
-
-## Part 3 - Install QGIS
-
-Install QGIS
+</div>
