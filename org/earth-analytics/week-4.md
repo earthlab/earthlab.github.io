@@ -22,14 +22,15 @@ Welcome to week {{ page.week }} of Earth Analytics!
 </div>
 
 Nothing here to see yet, folks.
-## Part 1. Readings
+
+### 1. Readings
 
 
-
+### 3. Complete the assignment below
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Week 3 Assignment
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
 
 ###
 
