@@ -3,7 +3,7 @@ layout: single
 title: "Install QGIS"
 excerpt: "This lesson walks through install QGIS on your laptop."
 authors: ['Leah Wasser', 'NEON Data Skill']
-lastModified: 2016-12-30
+modified: 2016-12-30
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/install-qgis/

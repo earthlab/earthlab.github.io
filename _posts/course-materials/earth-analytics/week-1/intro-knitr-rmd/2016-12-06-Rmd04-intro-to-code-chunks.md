@@ -5,7 +5,7 @@ excerpt: 'This tutorial cover how code chunks are written and formatted within a
 R Markdown file in R Studio.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
-lastModified: 2017-01-06
+modified: 2017-01-06
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-code-chunks/
 nav-title: 'Code Chunks'
@@ -183,7 +183,8 @@ or the
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Add More Code to Your R Markdown
 
 Add a new chunk with the following arguments. Then describe in your own words
-what each argument does.
+when you might want to use each of these arguments. HINT: Think about creating a report
+with plots where you have a lot of code generating those plots.
 
 <pre><code>```{r testing-arguments, eval=FALSE }
 

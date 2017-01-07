@@ -22,7 +22,7 @@ jekyll to build a "welcome to the series" block at the top of the page.
 
 ```yaml
 dateCreated: 2016-12-12
-dateModified: 2016-12-12
+modified: 2016-12-12
 module-title: 'Setup R, R Studio & Your Working Directory'
 module-description: 'This module walks you through getting R and RStudio setup on your
 computer. It also introduces file organization strategies.'
@@ -71,3 +71,19 @@ Learning Objective : graduate cap `<i class="fa fa-graduation-cap" aria-hidden="
 
 To highlight code for pushing keyboard keys (example shows ctrl key) use:
 <kbd>ctrl</kbd>
+
+
+### Minimal mistakes
+
+Styles:
+https://mmistakes.github.io/minimal-mistakes/docs/utility-classes/
+
+
+### Ignore a link that is not passing HTML proofer but we know works:
+https://spock.rocks/tech/2016/03/21/basic-jekyll-site-tests.html
+
+HTML url:
+<a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.516&rep=rep1&type=pdf" target="_blank" data-proofer-ignore=''>
+
+Markdown url:
+[get pdf](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.516&rep=rep1&type=pdf){:data-proofer-ignore=''}
