@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/wk2-in-class-activity/
 nav-title: 'Wk 2 In Class Activity'
 dateCreated: 2016-12-13
-lastModified: 2017-01-06
+modified: 2017-01-06
 week: 2
 sidebar:
   nav:

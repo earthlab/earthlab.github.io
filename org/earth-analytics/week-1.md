@@ -24,7 +24,7 @@ document and convert it to a pdf using `knitr`.
 
 </div>
 
-## <i class="fa fa-pencil"></i> Homework Assignment Week 1
+## <i class="fa fa-pencil"></i> Homework Week 1
 
 
 ### 1. Watch Flood Video
@@ -57,7 +57,7 @@ ALL of the lessons and have your computer setup BEFORE class begins next week.
 You will be behind if these things are not setup / complete before week 2.
 {: .notice }
 
-## Homework Assignment
+### 4. Complete assignment below
 
 After you have reviewed the lessons above, complete the assignment below.
 Submit your `.pdf` document and R markdown document to ... by **Tuesday 23

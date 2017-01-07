@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/spreadsheet-data-in-R/
 nav-title: 'Spreadsheet Data in R'
 dateCreated: 2016-12-13
-lastModified: 2017-01-06
+modified: 2017-01-06
 week: 2
 sidebar:
   nav:

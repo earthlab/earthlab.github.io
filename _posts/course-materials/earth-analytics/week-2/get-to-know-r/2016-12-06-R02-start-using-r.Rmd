@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-lastModified: `r format(Sys.time(), "%Y-%m-%d")`
+modified: `r format(Sys.time(), "%Y-%m-%d")`
 week: 2
 sidebar:
   nav:
