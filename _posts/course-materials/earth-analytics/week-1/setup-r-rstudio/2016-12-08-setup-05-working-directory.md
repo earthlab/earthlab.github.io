@@ -2,7 +2,7 @@
 layout: single
 authors: ['Software Carpentry']
 category: [course-materials]
-title: 'Install & Setup R and RStudio on Your Computer'
+title: 'Create a Project & Working Directory Setup'
 excerpt: '#.'
 nav-title: 'Setup Working Directory'
 week: 1
@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/setup-working-directory/
 dateCreated: 2016-12-12
-modified: 2017-01-06
+modified: 2017-01-08
 author_profile: false
 comments: false
 order: 5
