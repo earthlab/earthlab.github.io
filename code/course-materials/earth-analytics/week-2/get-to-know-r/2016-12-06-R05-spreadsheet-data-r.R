@@ -11,29 +11,36 @@ options(stringsAsFactors = FALSE)
 download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/boulder-precip.csv")
 
-## ----read-data-----------------------------------------------------------
+## ----import-data---------------------------------------------------------
 # import data
-boulder.precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
-
-## ----view-header---------------------------------------------------------
 # view first few rows of the data
-head(boulder.precip)
+head(boulder_precip)
 
-# what is the format of the variable in R
-str(boulder.precip)
+# view the format of the boulder_precip object in R
+str(boulder_precip)
 
 ## ----view-column---------------------------------------------------------
 # when we download the data we create a dataframe
-# view each column of the data frame using it's name (or header)
-boulder.precip$DATE
+# view each column of the data frame using its name (or header)
+boulder_precip$DATE
 
 # view the precip column
-boulder.precip$PRECIP
+boulder_precip$PRECIP
+
+## ----view-structure------------------------------------------------------
+# when we download the data we create a dataframe
+# view each column of the data frame using its name (or header)
+# how many rows does the data frame have
+nrow(boulder_precip)
+
+# view the precip column
+boulder_precip$PRECIP
 
 ## ----quick-plot, fig.cap="plot precipitation data"-----------------------
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE,
-      y=boulder.precip$PRECIP)
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
 
 
