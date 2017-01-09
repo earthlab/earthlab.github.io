@@ -31,7 +31,7 @@ first few weeks to help you complete the assignment.
 </div>
 
 
-## Part 1. Readings
+### 1. Readings
 
 Read the following articles and listen to the 7 minute interview with
 Suzanne Anderson (faculty here at CU Boulder).
@@ -51,9 +51,9 @@ Listen" icon on the page
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Week 3 Assignment
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
 
-### Produce a final report
+#### Produce a final report
 
 Create a new R markdown document. Name it: lastName-firstInitial-floodreport.rmd
 Carefully compose a report that summarized the 2013 Colorado flood event. When you
@@ -62,7 +62,7 @@ the .Rmd file and the .pdf file.
 
 Include the following parts in your report:
 
-###  Background / overview of the flood
+####  Background / overview of the flood
 
 Include the following background in your report:
 
@@ -74,11 +74,11 @@ Include the following background in your report:
     * Interpret your plots
 4. Plots of lidar data that show before / after differences in elevation and tree cover.
 
-### Summary / Discussion
+#### Summary / Discussion
 A summary of the flood events, how drivers and impacts were quantified and
 and what the data show you about those drivers and impacts.
 
-### Important:
+#### Important:
 
 * Clearly state the source of each dataset that you use.
 * Analyze / interpret each plot that you produce in your report. State what the source of the data are and what the plot shows as a driver or impact of the 2013 flood events.

@@ -72,7 +72,7 @@ data, code (methods used to process the data) and outputs. We will use the
 `rmarkdown` and `knitr` package to write R Markdown files in `Rstudio` and
 publish them in different formats (html, pdf, etc).
 
-## Open Science Slideshow
+### Open Science Slideshow
 
 Click through the slideshow below to learn more about open science.
 <a class="btn btn-info" href="{{ site.baseurl }}/slide-shows/share-publish-archive/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
@@ -99,28 +99,7 @@ underlying R code or data changes)."
 We use R Markdown (.rmd) files to document workflows and to share data processing,
 analysis and visualization code & outputs.
 
-## RMD is beneficial to your colleagues
-The link between data, code and results make `.rmd` powerful. You can share your
-entire workflow with your colleagues and they can quickly see your process. You
-can also write reports using `.rmd` files which contain code and data
-analysis results. To enrich the document, you can add text, just like you would
-in a word document that describes your workflow, discusses your results and
-presents your conclusions - along side your analysis results.
-
-## RMD is beneficial to you & your future self
-
-R Markdown as a format is an efficient tool. If you need to make changes to your
-workflow, you can simply modify the report and re-render (or knit) the report.
-This creates an efficient workflow. Your future self will appreciate it too.
-R Markdown provides documentation for you to see what code you used to create a
-figure or to analyze the data.
-
-<i class="fa fa-star"></i> **Data Tip:** Many of the Earth Lab lessons- including
-this one - were created using R Markdown!
-{: .notice}
-
-
-### Why R Markdown?
+## Why R Markdown?
 There are many advantages to using R Markdown in your work:
 
 * **Human readable:** it's much easier to read a web page or a report containing text and figures.
@@ -137,11 +116,32 @@ slide shows and more.
 share and publish code online.
 {: .notice}
 
+### RMD is beneficial to your colleagues
+The link between data, code and results make `.rmd` powerful. You can share your
+entire workflow with your colleagues and they can quickly see your process. You
+can also write reports using `.rmd` files which contain code and data
+analysis results. To enrich the document, you can add text, just like you would
+in a word document that describes your workflow, discusses your results and
+presents your conclusions - along side your analysis results.
+
+### RMD is beneficial to you & your future self
+
+R Markdown as a format is an efficient tool. If you need to make changes to your
+workflow, you can simply modify the report and re-render (or knit) the report.
+This creates an efficient workflow. Your future self will appreciate it too.
+R Markdown provides documentation for you to see what code you used to create a
+figure or to analyze the data.
+
+<i class="fa fa-star"></i> **Data Tip:** Many of the Earth Lab lessons- including
+this one - were created using R Markdown!
+{: .notice}
+
+
 ## Use Knitr to convert .rmd to .pdf
 
 We use the `R` `knitr` package to render our markdown and create easy to read
 documents from `.rmd` files. We will cover how to use `knitr` later in this
-series.
+lesson series.
 
 <figure class="half">
 	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/rmd-file.png">
