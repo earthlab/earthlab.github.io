@@ -11,18 +11,18 @@ header:
   cta_url:
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
-excerpt: 'Earth Analytics Spring 2017 - Fuse data science skills with Earth system science knowledge.'
+excerpt: 'Earth Analytics Spring 2017 - Fuse Data Science Skills with Earth System Science Knowledge.'
 sidebar:
   nav: earth-analytics-2017
 startTime: '3:00'
 endTime: '17:50'
 ---
 
-## About
+## Earth Analytics Course Home
 
 This advanced, multidisciplinary course will address major questions in Earth
 science and teach students to use the analytical tools necessary to undertake
-exploration of ‘big scientific data’. If you are a graduate and undergraduate
+exploration of ‘big scientific data’. If you are a graduate or undergraduate
 (junior/senior) student in the natural/social science disciplines with an
 interest in learning about computationally intensive science, this
 course is for you.
@@ -36,13 +36,13 @@ course is for you.
 * **Teaching Assistant:** Sepideh Khanghah
 * **Time:** Wednesday 3:00 pm -  5:50 pm
 * **Location:** SEEC S125
-* **Sections:** GEOG 4100-001 (Junior / Senior Level undergraduate), GEOG 5100-003 (Graduate)
+* **Sections:** GEOG 4563 (Junior / Senior Level undergraduate), GEOG 5563 (Graduate)
 
 Please direct questions to Leah Wasser (leah.wasser at colorado.edu).
 
 </div>
 
-### Example Course Science Topics (Topics subject to change):
+### Example Science Topics:
 
 * **Climate & Disturbance (Fire / Drought / Permafrost):** How
 changing climate impacts natural disturbance systems.

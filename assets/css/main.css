@@ -751,8 +751,8 @@ tr, td, th {
   padding: 0.5em 1em;
   color: #fff !important;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-  font-size: 0.75em;
-  font-weight: bold;
+  font-size: 0.9em;
+  font-weight: normal;
   text-align: center;
   text-decoration: none;
   background-color: #7a8288;
@@ -861,6 +861,9 @@ tr, td, th {
   .notice h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -891,6 +894,9 @@ tr, td, th {
   .notice--primary h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--primary h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--primary h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -921,6 +927,9 @@ tr, td, th {
   .notice--info h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--info h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--info h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -951,6 +960,9 @@ tr, td, th {
   .notice--warning h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--warning h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--warning h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -981,6 +993,9 @@ tr, td, th {
   .notice--success h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--success h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--success h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -1011,6 +1026,9 @@ tr, td, th {
   .notice--danger h4 {
     margin-top: 0 !important;
     margin-bottom: 0.75em; }
+  .notice--danger h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; }
   .page__content .notice--danger h4 {
     margin-bottom: 0;
     font-size: 1em; }
@@ -1468,6 +1486,14 @@ tr, td, th {
 /* ==========================================================================
    Syntax highlighting
    ========================================================================== */
+/* Make sure code in challenge blocks is readable */
+div.notice--warning pre {
+  font-size: 0.9em !important; }
+
+pre {
+  background-color: #f2f3f3;
+  padding: 2em; }
+
 div.highlighter-rouge, figure.highlight {
   position: relative;
   margin-bottom: 1em;
@@ -2373,7 +2399,7 @@ select:focus {
 .archive__subtitle {
   margin: 1.414em 0 0;
   padding-bottom: 0.5em;
-  font-size: 0.9em;
+  font-size: 1.15em;
   color: #9ba1a6;
   border-bottom: 1px solid #f2f3f3; }
   .archive__subtitle + .list__item .archive__item-title {
@@ -5363,5 +5389,42 @@ div.notice--success, div.notice--warning {
 
 .nav__list li ul li {
   padding-left: 0.5em; }
+
+/* previous and next buttons */
+.previous--next {
+  margin-top: 2.5em; }
+
+/* if the warning block is a header, remove the top margin so things line up */
+.header {
+  margin-top: 0 !important; }
+
+/* for font awesome sizing */
+.fa-2 {
+  font-size: .8em; }
+
+.nav__sub-title.grey {
+  background-color: #fff;
+  color: #7a8288;
+  background-color: #fff;
+  color: #7a8288;
+  font-size: 1em;
+  font-weight: normal;
+  padding: 0; }
+
+/* Custom side bar links to Home and before /next week */
+.sidebar.sticky a {
+  text-decoration: none; }
+
+.sidebar.sticky > h4 {
+  margin-top: 0.3em; }
+
+/* Force the TOC to have grey text not blue */
+#markdown-toc a {
+  color: #7a8288;
+  font-size: 0.9em; }
+
+/* Adding space under authors */
+.page__title + .page__meta {
+  margin-bottom: 1.4em; }
 
 /*# sourceMappingURL=main.css.map */
