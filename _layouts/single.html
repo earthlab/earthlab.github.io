@@ -30,7 +30,7 @@ layout: default
         <header>
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
           {% if page.order == 1 %}
-          <div class="notice--warning" markdown="1">
+          <div class="notice--warning header" markdown="1">
           {% if page.module-description %}
            <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> MODULE: {{ page.module-title }}</h1>
           Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
@@ -57,7 +57,10 @@ layout: default
       {% endunless %}
 
       <section class="page__content" itemprop="text">
+        <!-- would like to include the TOC automatically but this does weird things-->
+        {% if page.class-lesson %}
 
+        {% endif %}
 
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}

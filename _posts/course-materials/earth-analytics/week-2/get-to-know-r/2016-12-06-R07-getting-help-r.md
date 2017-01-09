@@ -1,14 +1,15 @@
 ---
 layout: single
-title: "Working with data in R"
-excerpt: "."
+title: "Getting Help with R"
+excerpt: "This tutorial covers ways to get help when you are stuck in R. "
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/about-and-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-lastModified: 2016-12-20
+modified: 2017-01-06
+week: 2
 sidebar:
   nav:
 author_profile: false
@@ -20,20 +21,15 @@ Getting help
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-*
+* List 2 ways that you can get help when you are stuck using R.
+* List several features of R that makes it a versatile tool for scientific programming.
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need R and RStudio to complete this tutorial. Also we recommend have you
-have an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
-
-* [How to Setup R / R Studio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
-* [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)
-
+A computer with internet access.
 
 </div>
 
@@ -54,6 +50,9 @@ for statistics but also data science. Inspired by the programming language S.
 
 ## Seeking help
 
+Below we discuss a few ways that you can get help when you are stuck in R.
+
+
 ## I know the name of the function I want to use, but I'm not sure how to use it
 
 If you need help with a specific function, let's say `barplot()`, you can type:
@@ -63,7 +62,11 @@ If you need help with a specific function, let's say `barplot()`, you can type:
 ?barplot
 ```
 
-If you just need to remind yourself of the names of the arguments, you can use:
+When you use the `?barplot` in the R console, you asking R to look for the documentation
+for the `barplot()` function.
+
+If you just need to remind yourself of the names of the arguments that can be used
+with the function, you can use:
 
 
 ```r
