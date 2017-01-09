@@ -7,30 +7,38 @@ authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-to-markdown/
-nav-title: 'Intro 2 Markdown'
+nav-title: 'Intro to Markdown'
+week: 1
 sidebar:
   nav:
 author_profile: false
 comments: false
 order: 3
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 Here, we break down the basic syntax for a markdown file. We also cover how to
 create and format markdown (`.md`) files.
 
-<div class="notice--warning" markdown="1">
-# Learning Objectives
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Use basic markdown syntax to format a document including: headers, bold and italics.
 * Be able to explain what the markdown format is.
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need the most current version of `R` and, preferably, `RStudio` loaded on
+your computer to complete this tutorial.
 
 </div>
 
 
 ## Markdown in Rmd files
 
-An R markdown file can contain text written using the markdown syntax.
+AnR Markdown file can contain text written using the markdown syntax.
 Markdown text, can be whatever you want. It may describe the data that you are
 using, how it's being processed and what the outputs are. You may even add some
 text that interprets or discusses the outputs.
@@ -149,7 +157,7 @@ If you are unsure, the answers are at the bottom of this page.
 
 <div class="notice--warning" markdown="1">
 
-## Activity: R Markdown Text
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: R Markdown Text
 
 1. Remove the template markdown and code chunks added to the RMD file by RStudio.
 (Be sure to keep the YAML header!)
@@ -165,12 +173,12 @@ you will be adding the page.
 
 </div>
 
-*Got questions? No problem. Leave your question in the comment box below.
+*Got questions? Leave your question in the comment box below.
 It's likely some of your colleagues have the same question, too! And also
 likely someone else knows the answer.*
 
 
-## Answers to the Default Text Markdown Syntax Questions
+### Answers to the Default Text Markdown Syntax Questions
 
 * Are any words in bold? - Yes, “Knit” on line 10
 * Are any words in italics? - No
