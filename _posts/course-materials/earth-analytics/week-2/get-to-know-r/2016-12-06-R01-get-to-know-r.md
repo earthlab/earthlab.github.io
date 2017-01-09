@@ -10,11 +10,14 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/get-to-know-r/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-lastModified: 2016-12-20
-module-title: 'Get to Know The R Programming Language'
-module-description: 'This tutorial introduces the R scientific programming language.
+modified: 2017-01-06
+module-title: 'Get to Know R'
+module-nav-title: 'Get to Know R'
+module-description: 'This module introduces the R scientific programming language.
 We will work with precipitation and stream discharge data for Boulder County
 to better understand the R syntax, various data types and data import and plotting.'
+module-type: 'class'
+week: 2
 sidebar:
   nav:
 author_profile: false
@@ -22,25 +25,25 @@ comments: false
 order: 1
 ---
 
-In this tutorial, we will explore the basic syntax (structure) or the R programming
+In this tutorial, we will explore the basic syntax (structure) or the `R` programming
 language. We will introduce assignment operators (`<-`, comments (`#`) and functions
 as used in `R`.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Understand the basic concept of a function and be able to use a function in your code.
 * Know how to use key operator commands in R (`<-`)
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need R and RStudio to complete this tutorial. Also we recommend have you
-have an `earth-analytics` directory setup on your computer with a `/data`
+You need `R` and `RStudio` to complete this tutorial. Also you should have
+an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
+* [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
 * [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)
 * [Intro to the R & RStudio Interface](/course-materials/earth-analytics/week-1/intro-to-r-and-rstudio)
 
@@ -76,10 +79,10 @@ download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/boulder-precip.csv")
 
 # import data
-boulder.precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
-head(boulder.precip)
+head(boulder_precip)
 ##     X       DATE PRECIP
 ## 1 756 2013-08-21    0.1
 ## 2 757 2013-08-26    0.1
@@ -89,21 +92,21 @@ head(boulder.precip)
 ## 6 761 2013-09-10    1.0
 
 # what is the format of the variable in R
-str(boulder.precip)
+str(boulder_precip)
 ## 'data.frame':	18 obs. of  3 variables:
 ##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
 ##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
 
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE,
-      y=boulder.precip$PRECIP)
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
 ```
 
-![precip data plot]({{ site.baseurl }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R01-get-to-know-r/open-file-1.png)
+![precip data plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R01-get-to-know-r/open-file-1.png)
 
-The above chunk of code, uses syntax that is unique the `R` programming language.
-Syntax is simply the characters or commands that `R` understands and associated
+The code above, uses syntax that is unique the `R` programming language.
+Syntax is the characters or commands that `R` understands and associated
 organization / format of the code including spacing and comments.
 
 Let's break down the syntax of the code above, to better understand what it's doing.
@@ -118,16 +121,16 @@ values on the right to objects on the left. So, after executing `x <- 3`, the
 value of `x` is `3` (`x=3`). The arrow can be read as 3 **goes into** `x`.
 
 In the example below, we assigned the data file that we read into R named `boulder-precip.csv`
-to the variable name `boulder.precip`. After you run the line of code below,
+to the variable name `boulder_precip`. After you run the line of code below,
 what happens in R?
 
 
 ```r
 # import data
-boulder.precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view new object
-boulder.precip
+boulder_precip
 ##      X       DATE PRECIP
 ## 1  756 2013-08-21    0.1
 ## 2  757 2013-08-26    0.1
@@ -157,14 +160,15 @@ While the `=` can be used in `R`, it does not always work. Thus we will use `<-`
 for all assignments in `R` from here on in. It is a recommended best practice.
 
 When we are defining arguments for functions we do use the `=` sign. We will
-discuss that function arguments below.
+discuss function arguments below.
 
-### More info = vs <-
 
-Check out the links below for discussions on using `=` vs `<-` in R.
+<div class="notice" markdown="1">
+<i class="fa fa-star"></i> **Data Tip:** Check out the links below for discussions on using `=` vs `<-` in R.
 
 * <a href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html"  target="_blank">Revolutionary analytics blog - equals vs assignment.</a>
-*  <a href="https://web.archive.org/web/20130610005305/https://stat.ethz.ch/pipermail/r-help/2009-March/191462.html" target="_blank">r list-serve discussion</a>
+
+</div>
 
 ### Comments in R (`#`)
 
@@ -211,8 +215,8 @@ Below, we use the `qplot()` function which is a part of the `ggplot2` package.
 
 ```r
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder.precip$DATE,
-      y=boulder.precip$PRECIP)
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
 ```
 
 Functions return an output. Sometimes that output is a *figure* like the example
@@ -224,7 +228,7 @@ set of functions that come with `R` when you download it. These are called `base
 functions. Other functions are add-ons to base `R`. These functions can be loaded by
 
 1. Installing a particular package (using install.packages() like we did when
-we installed ggplot2, knitr, and rmarkdown and loading the library in our script using `library(package-name).
+we installed `ggplot2`, `knitr`, and `rmarkdown` and loading the library in our script using `library(package-name).
 2. Writing our own functions.
 
 ### Functions that return values
@@ -321,16 +325,46 @@ args(lm)
 
 ## Modify A Plot
 
-Use the RMarkdown document that we created as homework for today's class. If
+Use the `RMarkdown` document that we created as homework for today's class. If
 you don't have a document already, create a new one, naming it: "lastname-firstname-wk2.Rmd.
-Edit the code that generates the plot that you see on this page as follows
+Add the code below in a code chunk. Edit the code that you just pasted into
+your `.Rmd` document as follows
 
-1. The plot, created above, isn't pretty. Let's fix the x and y labels.
+1. The plot isn't pretty. Let's fix the x and y labels.
 Look up the arguments for the qplot function using either args(qplot) OR `?qplot`
 in the R console. Then fix the labels of your plot in your script.
 
 HINT: google is your friend. Feel free to use it to help edit the code.
 
-2. what other things can you modify to make the plot look prettier. Explore. Are
+2. What other things can you modify to make the plot look prettier. Explore. Are
 there things that you'd like to do that you can't?
 </div>
+
+```r
+
+# load the ggplot2 library for plotting
+library(ggplot2)
+
+# download data from figshare
+# note that we are downloaded the data into your
+download.file(url = "https://ndownloader.figshare.com/files/7010681",
+              destfile = "data/boulder-precip.csv")
+
+# import data
+boulder_precip <- read.csv(file="data/boulder-precip.csv")
+
+# view first few rows of the data
+head(boulder_precip)
+
+# when we download the data we create a dataframe
+# view each column of the data frame using it's name (or header)
+boulder_precip$DATE
+
+# view the precip column
+boulder_precip$PRECIP
+
+# q plot stands for quick plot. Let's use it to plot our data
+qplot(x=boulder_precip$DATE,
+      y=boulder_precip$PRECIP)
+
+```

@@ -2,6 +2,9 @@
 <!-- NOTE: it won't include slideshows as written which makes sense -->
 <!-- add forced pagination -->
 <!-- first, get total lesson count -->
+
+<div class="previous--next">
+
 {% assign counter = 0 %}
 {% for post in site.categories.course-materials %}
     {% if post.class-lesson == page.class-lesson %}
@@ -18,14 +21,15 @@
       {% if post.order == prevPageNum %}
         <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn--info btn--large btn-success">
           <i class="fa fa-4 fa-arrow-circle-left fa-4" aria-hidden="true"></i>
-          PREVIOUS - {{ post.nav-title }} </a>
+          {{ post.nav-title }} </a>
       {% endif %}
 
       {% assign nextPageNum = page.order | plus: 1 %}
       {% if post.order == nextPageNum %}
        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn--info btn--large btn-success" style="float:right" >
-         {{ post.nav-title }} - NEXT
+         {{ post.nav-title }}
          <i class="fa fa-4 fa-arrow-circle-right" aria-hidden="true"></i></a>
       {% endif %}
     {% endif %}
 {% endfor %}
+</div>

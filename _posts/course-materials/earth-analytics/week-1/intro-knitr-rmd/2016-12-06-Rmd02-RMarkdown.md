@@ -7,23 +7,25 @@ authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr2/
-nav-title: 'Create RMarkdown File'
+nav-title: 'Create R Markdown File'
+week: 1
 sidebar:
   nav:
 author_profile: false
 comments: false
 order: 2
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 ## Getting Started
-Let's dive deeper into the R Markdown file format. This tutorial will introduce you to working with R markdown files in `R` and
+Let's dive deeper into the R Markdown file format. This tutorial will introduce you to working withR Markdown files in `R` and
 `R Studio`. We will create an R Markdown file and render it to html using the
 `knitr` package.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
 * Know how to create an R Markdown file in RStudio.
@@ -31,7 +33,7 @@ At the end of this activity, you will:
 * Create an R Markdown document ready to be ‘knit’ into an HTML document to
 share your code and results.
 
-## What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need the most current version of R and, preferably, RStudio loaded on
 your computer to complete this tutorial.
@@ -43,7 +45,7 @@ your computer to complete this tutorial.
 
 </div>
 
-## Create a new RMarkdown file in RStudio
+##  <i class="fa fa-youtube-play" aria-hidden="true"></i> Create a new R Markdown file in RStudio
 
 Watch the 6:38 minute video below to see how we convert
 an R Markdown file to HTML (or other formats) using `knitr` in `RStudio`.
@@ -52,21 +54,24 @@ full screen mode.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DNS7i2m4sB0" frameborder="0" allowfullscreen></iframe>
 
-## Create an RMD File
+### Create Your .Rmd File
 
 Now that you see how R Markdown can be used in RStudio, you are
 ready to create your own `.RMD` document. Do the following:
 
-1. Create a new R Markdown file and choose HTML as the desired output format.
+1. Using the Create a new R Markdown file and choose HTML as the desired output format.
 2. Enter a Title (Earth Analytics Week 1) and Author Name (your name). Then click OK.
 3. Save the file using the following format: **FirstInitial-LastName-week-1.rmd**
 NOTE: The document title is not the same as the file name.
-4. Hit the `knit` button in RStudio (as is done in the video above). What happens?
+4. Hit the <kbd>`Knit HTML`</kbd> drop down button in `RStudio` (as is done in the video above). What happens?
 
-<figure>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png" alt="knitr button screenshot"></a>
-	<figcaption> Location of the knit button in RStudio in Version 0.99.903.
+<figure class="half">
+<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/create-rmd.png">
+<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/create-rmd.png" alt="knitr button screenshot"></a>
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/KnitButton-screenshot.png" alt="knitr button screenshot"></a>
+	<figcaption> LEFT: Create a new RMD file using the file drop down menu in
+  R Studio. RIGHT: Location of the knit button in RStudio in Version 0.99.903.
 	</figcaption>
 </figure>
 
@@ -82,8 +87,8 @@ Next, let's break down the structure of an R Markdown file.
 ## The Structure of an R Markdown file
 
  <figure>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png" alt="create new rmd document"></a>
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png" alt="create new rmd document"></a>
 	<figcaption>Screenshot of a new R Markdown document in RStudio. Checkout the three
   types of information: 1. the YAML header at the very top 2:. Chunks of r code
   separated by <code>```</code> and 3. Text written using markdown syntax.
@@ -106,7 +111,7 @@ using `knitr` to an output document.
 
 Next, let's break down each of the parts listed above.
 
-## 1. Header -- YAML Header (Front Matter)
+### YAML Header (Front Matter)
 
 An R Markdown file always starts with a header written using
 <a href="https://en.wikipedia.org/wiki/YAML" target="_blank">YAML syntax</a>.
@@ -135,9 +140,15 @@ output: html_document
 ---
 ```
 
+### R Markdown Text / Markdown Blocks
+
+The second part of a R Markdown document is the markdown itself which is used
+to add documentation to your file (or write your report). We will cover markdown
+in the next tutorial.
+
 <div class="notice--warning" markdown="1">
 
-## Activity: Customize your R Markdown File's Front Matter - YAML
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Customize your R Markdown File's Front Matter - YAML
 Customize the header of your `.Rmd` file as follows:
 
 * **Title:** Provide a title that fits the code that will be in your RMD.
@@ -147,9 +158,3 @@ Customize the header of your `.Rmd` file as follows:
 We will be rendering an HTML file.
 
 </div>
-
-### R Markdown Text / Markdown Blocks
-
-The second part of a R Markdown document is the markdown itself which is used
-to add documentation to your file (or write your report). We will cover markdown
-in the next tutorial.
