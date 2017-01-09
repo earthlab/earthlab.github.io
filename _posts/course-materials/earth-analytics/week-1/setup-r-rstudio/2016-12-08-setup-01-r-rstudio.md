@@ -2,15 +2,19 @@
 layout: single
 authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
 category: [course-materials]
-title: 'Install & Setup R and R Studio on Your Computer'
+title: 'Install & setup R and RStudio on your laptop'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
-excerpt: 'This tutorial walks you through downloading and installing R and R studio on your computer.'
+excerpt: 'This tutorial walks you through downloading and installing R and RStudio on your computer.'
 dateCreated: 2016-12-12
-dateModified: 2016-12-12
-module-title: 'Setup R, R Studio & Your Working Directory'
+modified: 2016-12-12
+module-title: 'Setup R, RStudio & Your Working Directory'
 module-description: 'This module walks you through getting R and RStudio setup on your
-computer. It also introduces file organization strategies.'
-nav-title: 'Setup R Studio'
+laptop. It also introduces file organization strategies.'
+computes. module-type: 'homework'
+nav-title: 'Setup RStudio'
+module-nav-title: 'Setup R'
+module-type: 'homework'
+week: 1
 sidebar:
   nav:
 course: 'earth-analytics'
@@ -21,18 +25,20 @@ comments: false
 order: 1
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 
 ##  R & RStudio Setup
 
 In this tutorial, we will walk you through downloading and installing `R` & `RStudio`
 on your computer.
 
-*The `R` & `RStudio` installation instructions below were adapted from
-<a href="http://software-carpentry.org/" target="_blank"> Software Carpentry</a>.*
+>The `R` & `RStudio` installation instructions below were adapted from
+<a href="http://software-carpentry.org/" target="_blank"> Software Carpentry</a>.
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
 * Be able to download and install `R` and `Rstudio` on your laptop.
@@ -80,5 +86,5 @@ Or you can use your package manager (e.g. for Debian/Ubuntu run
 * Once it's downloaded, double click the file to install it.
 
 
-Once `R` and `RStudio` are installed, open `RStudio` to make sure it works and you
-don't get any error messages.
+Once `R` and `RStudio` are installed, open `RStudio` to make sure it works and that
+you don't get any error messages.

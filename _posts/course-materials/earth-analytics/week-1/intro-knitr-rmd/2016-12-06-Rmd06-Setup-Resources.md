@@ -6,7 +6,8 @@ authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr6/
-nav-title: 'Setup & Resources'
+nav-title: 'R Markdown Resources'
+week: 1
 sidebar:
   nav:
 author_profile: false
@@ -14,18 +15,10 @@ comments: false
 order: 6
 ---
 
-## Setup
+{% include toc title="This Lesson" icon="file-text" %}
 
 
-
-
-You will want to create a **data** directory for all the Data Institute teaching
-data sets. We suggest the pathway be `~/Documents/data/earth-analytics` or
-the equivalent for your operating system. Once you've downloaded and unzipped
-the dataset, move it to this directory.
-
-
-## Additional Resources
+## R Markdown Resources
 
 * <a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf" target="_blank"> R Markdown Cheatsheet</a>: a very handy reference for using R
 Markdown

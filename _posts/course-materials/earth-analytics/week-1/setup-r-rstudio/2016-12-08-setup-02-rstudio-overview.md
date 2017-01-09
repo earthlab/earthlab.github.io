@@ -2,12 +2,13 @@
 layout: single
 authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
 category: [course-materials]
-title: 'Install & Setup R and R Studio on Your Computer'
+title: 'Get to Know RStudio'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
-excerpt: 'This tutorial walks you through downloading and installing R and R studio on your computer.'
+excerpt: 'This tutorial walks you through downloading and installing R and RStudio on your computer.'
 dateCreated: 2016-12-12
-dateModified: 2016-12-12
+modified: 2016-12-30
 nav-title: 'RStudio Intro'
+week: 1
 sidebar:
   nav:
 course: 'earth-analytics'
@@ -18,16 +19,15 @@ comments: false
 order: 2
 ---
 
-
-
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 <div class='notice--success' markdown="1">
 
-# Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
-* Be able to work with the 4 panes in the `RStudio` interface
+* Be able to describe the main use for each of the 4 main 4 panes in the `RStudio` interface
 
 </div>
 
@@ -37,33 +37,35 @@ Let's explore [RStudio](https://www.rstudio.com/), the Integrated Development
 Environment (IDE) that we will use to write code, navigate files on our computer,
 inspect variables and more. The RStudio IDE open source product is free under the [Affero General Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
-RStudio is divided into 4 "Panes" in it's default settings as described below:
+When you first open it, the `RStudio` interface is divided into 4 "Panes" as
+described below:
 
-1. Top LEFT: the **editor** where you edit scripts and documents,
-2. Bottom LEFT: the **R console** where you can input code,
-3. Top RIGHT: your **environment/history** where you can see variables you've created,
-4. Bottom RIGHT: your files/plots/packages/help/viewer.
+1. Top LEFT: the **editor** where you edit scripts, documents and can "send" code to run in the console,
+2. Bottom LEFT: the **R console** is where the code is run. You can type code directly into the console OR you can send it to the console by running it from the editor,
+3. Top RIGHT: your **environment/history** panes. This is where you can see variables you've created and a full history of functions / commands you have run,
+4. Bottom RIGHT: The bottom right pane by default contains several panes including:
+**files/plots/packages/help/viewer**. The files pane allows you to explore files on your computer like you would in windows explorer or finder on a mac. The plots tab is where you will see plots that you create. We will explore these various panes together in class.
 
-The placement of these panes and their content can be customized using the RStudio
-preferences: (see menu, RStudio -> Preferences -> Pane Layout).
+The placement of these panes and their content can be customized using the `RStudio`
+preferences: (From the RStudio drop down choose: `RStudio -> Preferences -> Pane Layout`).
+You can also drag the panes using your mouse to move / resize them.
 
 <figure>
-	<a href="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/get-to-know-r/rstudio-interface.png">
-	<img src="{{ site.url }}{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/get-to-know-r/rstudio-interface.png" alt="rstudio interface">
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/get-to-know-r/rstudio-interface.png">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/get-to-know-r/rstudio-interface.png" alt="rstudio interface">
 	</a>
 	<figcaption>The RStudio IDE (Integrated Development Environment) is divided into
-  four panes in it's default layout.
+  four panes in its default layout.
 	</figcaption>
 </figure>
 
 ## Advantages of an IDE like RStudio
 One advantage of
 using `RStudio` is that it contains many shortcuts and visual cues like code
-highlighting that speed up coding. Also, autocomplete is avaibale to use functions
-and find variables which makes typing easier and less error-prone. We will talk
+highlighting that speed up coding. Also, autocomplete is available to use to find
+function names, arguments for those functions and variables that are stored
+in your environment. This makes typing easier and less error-prone. We will talk
 more about autocomplete in class.
-
-
 
 ## Interacting with R
 
@@ -78,9 +80,9 @@ both the computer and we can understand.
 * **EXECUTE** a program: (also called *running*). When we execute a program, we
 are telling the computer to run it.
 
-## Scripts vs. Console vs. Rmarkdown
+## Scripts vs. Console vs. R Markdown
 
-There are two main ways of interacting with R: using the console or by using
+There are two main ways of interacting with `R`: using the console or by using
 script files (plain text files that contain your code - note these can be `.R` files
 OR `.Rmd` files).
 
@@ -111,7 +113,7 @@ your script.
 
 ## R Console Tricks
 
-If R is ready to accept commands, the R console shows a `>` prompt. If it
+If `R` is ready to accept commands, the `R` console shows a `>` prompt. If it
 receives a command (by typing, copy-pasting or sent from the script editor using
 <kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>), R will try to execute it, and when
 ready, show the results and come back with a new `>`-prompt to wait for new
