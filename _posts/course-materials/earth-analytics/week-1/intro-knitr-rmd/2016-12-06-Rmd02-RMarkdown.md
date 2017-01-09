@@ -45,7 +45,7 @@ your computer to complete this tutorial.
 
 </div>
 
-## Create a new R Markdown file in RStudio
+##  <i class="fa fa-youtube-play" aria-hidden="true"></i> Create a new R Markdown file in RStudio
 
 Watch the 6:38 minute video below to see how we convert
 an R Markdown file to HTML (or other formats) using `knitr` in `RStudio`.

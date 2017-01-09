@@ -130,11 +130,12 @@ available for these options.
 
 </div>
 
-## Code Format
+## Comment your code
 
 Notice that in each of our code chunks, we've introduced `comments`. Comments
 are lines in our code that are not run by `R`. However they allow us to describe
-the intent of our code. Get in the habit of adding comments as you code. We will discuss this further when we break down scientific programming in `R` in a
+the intent of our code. Get in the habit of adding comments as you code. We will
+discuss this further when we break down scientific programming in `R` in a
 later tutorial.
 
 ## Code chunk options
