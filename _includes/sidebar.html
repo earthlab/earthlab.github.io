@@ -22,38 +22,14 @@
     {% endif %}
 
     {% if page.class-lesson %}
-      <nav class="nav__list">
-        <ul>
-          <li><span class="nav__sub-title">{{ page.class-lesson }} </span>
-            <ul>
-              {% assign sorted_posts = site.posts | sort:"order" %}
-              {% for post in sorted_posts %}
-                {% if post.class-lesson == page.class-lesson %}
-                  {% if post.url == page.url %}
-                  <li><a href= {{ site.url }}{{ site.baseurl }}{{ post.url }} class='active'>{{ post.nav-title }}</a></li>
-                  {% else %}
-                  <li><a href= {{ site.url }}{{ site.baseurl }}{{ post.url }}>{{ post.nav-title }}</a></li>
-                  {% endif %}
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        </ul>
+     <!--  This is the code that populates the side bar navigation if there is a class-->
+      {% include class_navigation_week.html %}
 
-        <ul>
-          <li><span class="nav__sub-title">Slide Shows</span>
-            <ul>
+    {% endif %}
+    {% if page.week-landing %}
+     <!--  This is the code that populates the side bar navigation if there is a class-->
+      {% include class_navigation_week.html %}
 
-              {% for slides in site.slide-shows %}
-                {% if slides.class-lesson == page.class-lesson %}
-                  <li><a href="{{ site.url }}{{ site.baseurl }}{{ slides.url}}" target='_blank'>{{ slides.title }} </a></li>
-
-                {% endif %}
-              {% endfor %}
-            </ul>
-          </li>
-        </ul>
-    </nav>
     {% endif %}
 
   {% endif %}
@@ -80,13 +56,13 @@
             {% if page.language == member.lang %}
 
               {% if page.library %}
-              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
               {% else %}
-              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }} class='active' >{{ member.lang }} ({{ counter }})</a></li>
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }} class='active' >{{ member.lang }} ({{ counter }})</a></li>
               {% endif %}
 
               {% else %}
-              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
+              <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }}>{{ member.lang }} ({{ counter }})</a></li>
             {% endif %}
           {% endfor %}
         </ul>
@@ -97,7 +73,7 @@
 
 {% unless page.layout contains 'single' %}
   {% for member in site.data.libs %}
-    {% if page.language contains member.lang %}
+    {% if page.language == member.lang %}
       <ul>
         <li><span class="nav__sub-title">{{ member.lang }} library</span>
           <ul>
@@ -111,9 +87,9 @@
             {% endfor %}
 
             {% if page.library == lib %}
-            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }} class='active'>{{ lib }} ({{ counter }})</a></li>
+            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }}/{{ lib }} class='active'>{{ lib }} ({{ counter }})</a></li>
             {% else %}
-            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/software/{{ member.lang }}/{{ lib }}>{{ lib }} ({{ counter }})</a></li>
+            <li><a href={{ site.url }}{{ site.baseurl }}/tutorials/{{ member.lang }}/{{ lib }}>{{ lib }} ({{ counter }})</a></li>
             {% endif %}
         {% endfor %}
       </ul>
@@ -123,10 +99,6 @@
 <!-- end language side bar nav -->
 </nav>
 
-{% if page.class-lesson %}
-Lesson series
-
-{% endif %}
 
 </div>
 {% endif %}

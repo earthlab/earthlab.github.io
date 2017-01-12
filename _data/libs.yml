@@ -1,47 +1,44 @@
 - lang: python
   libs:
-  - rpy2
-  - h5py
+  - cenpy
+  - climata
   - ee
-  - gdal
-  - numpy
-  - urllib
+  - elevation
+  - folium
   - ftplib
-  - sys
+  - gdal
+  - geopy
+  - glob
+  - h5py
+  - ipyparallel
+  - matplotlib
+  - numpy
+  - ogr
+  - os
   - osgeo
   - pandas
-  - cenpy
-  - pysal
-  - mpl_toolkits
-  - matplotlib
-  - JSAnimation
-  - climata
-  - geopy
-  - utm
-  - math
-  - folium
-  - ipyparallel
-  - ogr
-  - shapely
+  - pydem
   - pymodis
-  - os
-  - glob
+  - pysal
+  - rpy2
+  - shapely
+  - sys
+  - urllib
+  - urllib2
+  - zipfile
 - lang: r
   libs:
-  - raster
-  - rhdf5
-  - sp
-  - rgdal
-  - rLiDAR
-  - scatterplot3d
-  - scales
-  - ggmap
-  - parallel
-  - MASS
   - dplyr
+  - ggmap
   - ggplot2
   - lubridate
-  - viridis
+  - MASS
+  - parallel
+  - raster
   - RCurl
+  - rLiDAR
+  - scales
+  - scatterplot3d
+  - viridis
 - lang: javascript
-  libs: ~
+  libs: ~ 

@@ -1,0 +1,84 @@
+{% assign sorted_posts = site.posts | sort:"order" %}
+<!--<h3>Week {{ page.week }} Lessons</h3>-->
+
+{% assign modules = site.posts | where:"order", 1 %}
+
+{% assign weeks = sorted_posts | where:"week", page.week %}
+
+{% assign classes = weeks | where:"module-type", 'class' %}
+{% assign homework = weeks | where:"module-type", 'homework' %}
+
+{% if page.week %}
+  {% capture the_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ page.week }}/{% endcapture %}
+  <h4><a href="{{ the_path }}" ><i class="fa fa-home" aria-hidden="true"></i> Week {{ page.week }}</a></h4>
+{% endif %}
+<nav class="nav__list">
+  <ul>
+    <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class Materials</span>
+      <ul>
+        {% for module in classes %}
+        {% if module.order == 1 %}
+            {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
+            <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
+        {% endif %}
+
+        <ul>
+        {% for alesson in class_lessons %}
+          {% if alesson.url == page.url %}
+          <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+          {% else %}
+          <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+          {% endif %}
+        {% endfor %}
+       </ul>
+        {% endfor %}
+       </ul>
+
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Homework Materials</span>
+     <ul>
+       {% for module in homework %}
+       {% if module.order == 1 %}
+           {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
+           <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
+       {% endif %}
+
+       <ul>
+       {% for alesson in class_lessons %}
+         {% if alesson.url == page.url %}
+         <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+         {% else %}
+         <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+         {% endif %}
+       {% endfor %}
+        </ul>
+       {% endfor %}
+     </ul>
+   </ul>
+</nav>
+
+
+{% if page.week %}
+  {% if page.week > 1 and page.week <= 4 %}
+  <hr>
+   {% assign previousWeek = page.week | minus: 1 %}
+   {% capture previous_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ previousWeek }}/{% endcapture %}
+   <h5><a href="{{ previous_week_path }}" ><i class="fa fa-arrow-circle-left"></i> {{ previousWeek }} </a>
+   go to week
+   {% endif %}
+
+
+   {% if page.week == 1 %}
+    {% assign nextWeek = page.week | plus: 1 %}
+    {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
+    <h5>go to week<a href="{{ next_week_path }}" > {{ nextWeek }} <i class="fa fa-arrow-circle-right"></i> </a></h5>
+    {% endif %}
+ {% if page.week >= 2 and page.week <= 3 %}
+  {% assign nextWeek = page.week | plus: 1 %}
+  {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
+
+  <a href="{{ next_week_path }}" > {{ nextWeek }} <i class="fa fa-arrow-circle-right"></i> </a></h5>
+  {% endif %}
+
+{% endif %}
+
+<h5><a href="{{ site.url }}/course-materials/earth-analytics/" ><i class="fa fa-home" aria-hidden="true"></i> Course Home</a></h5>
