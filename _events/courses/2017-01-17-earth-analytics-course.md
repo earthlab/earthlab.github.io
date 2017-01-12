@@ -18,18 +18,17 @@ startTime: '3:00'
 endTime: '17:50'
 ---
 
-## Earth Analytics Course Home
+## <i class="fa fa-home" aria-hidden="true"></i> Earth Analytics Spring 2017
 
-This advanced, multidisciplinary course will address major questions in Earth
-science and teach students to use the analytical tools necessary to undertake
-exploration of ‘big scientific data’. If you are a graduate or undergraduate
-(junior/senior) student in the natural/social science disciplines with an
-interest in learning about computationally intensive science, this
-course is for you.
+This advanced, multidisciplinary course covers addressing major
+questions in Earth science using computationally intensive approaches. Students
+learn analytical tools necessary to undertake exploration of large, spatio-temporal
+scientific data. The course is geared towards graduate and upper level (junior/
+senior) undergraduate students in the natural/social sciences.
 
 <div class='notice--success' markdown="1">
 
-# Info
+## Course Details
 
 **Instructor:** Dr. Leah A. Wasser
 
@@ -38,29 +37,35 @@ course is for you.
 * **Location:** SEEC S125
 * **Sections:** GEOG 4563 (Junior / Senior Level undergraduate), GEOG 5563 (Graduate)
 
+Office  Hours
+
+We need to add these here. 
+
 Please direct questions to Leah Wasser (leah.wasser at colorado.edu).
 
 </div>
 
-### Example Science Topics:
 
-* **Climate & Disturbance (Fire / Drought / Permafrost):** How
-changing climate impacts natural disturbance systems.
-* **Land Processes (Erosion):** Identify how rapid and slow
-landscape evolution impacts our lives;
-* **Vegetation:** Determine what is driving Colorado forest
-dieback;
+
+### Example Course Science Topics (Topics subject to change):
+
+* **Flooding & Erosion:** We will use data from in situ sensor networks including
+USGS stream gage data and NOAA weather data to better understand flood event drivers
+and impacts.
+* **Fire:** We will use light detection and ranging (lidar) and spectral remote sensing data combined with on
+the ground field measurements to better understand the drivers and impacts of
+wildfires.
+* **Permafrost:**
 * **Climate & Society:** Social media and web as a powerful
 means to understand climate impacts.
-* **Data Integration:** understand issues associated with
-integration data from various sources (scale, resolution, format)
-
 
 Throughout the semester, we will work together to build the
 following skills:
 
 * **Scientific programming:** Use the R / R-studio environment to
 access, process & visualize scientific data.
+* **Data Integration:** understand issues associated with
+integration data from various sources (scale, resolution, format)
 * **Find / access scientific data:** Programmatic (API) access of
 data (NASA, USGS, etc.) via API’s.
 * **Communication/Collaboration:** refine cross- discipline
@@ -72,7 +77,5 @@ using multiple “cores”.
 
 ### Semester Project
 
-End of the semester Course Project: Students will choose a
-science question of interest to explore throughout the semester.
-They will apply skills learned in the course, to produce and
-present a final project.
+All students will select a topic for and use skills learned in the course to work
+collaboratively on an end of the semester project.

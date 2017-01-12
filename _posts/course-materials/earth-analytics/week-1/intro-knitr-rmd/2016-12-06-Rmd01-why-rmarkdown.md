@@ -8,7 +8,7 @@ class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr/
 nav-title: 'Intro to R Markdown'
 dateCreated: 2016-12-12
-modified: 2016-12-12
+modified: 2017-01-11
 module-title: 'Document & Publish a Workflow with R Markdown & Knitr'
 module-nav-title: 'R Markdown Intro'
 module-description: 'This module teaches participants how to use R Markdown
@@ -18,7 +18,7 @@ week: 1
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 1
 ---
 {% include toc title="This Lesson" icon="file-text" %}
@@ -80,14 +80,14 @@ View Slideshow: Share, Publish & Archive Code & Data</a>
 
 ## About R Markdown
 
-Simply put, `.rmd` is a text based file format that allows you to include both
+Simply put, `.Rmd` is a text based file format that allows you to include both
 descriptive text, code blocks and code output. You can run the code in `R` and
 using a package called `knitr` (which we will talk about next) you can export the
-text formated .rmd file to a nicely rendered, shareable format like pdf or html.
+text formated .Rmd file to a nicely rendered, shareable format like pdf or html.
 When you knit (or use `knitr`) the code is run and so your code outputs including
 plots, and other figures appear in the rendered document.
 
-> “R Markdown (.rmd) is an authoring format that enables easy creation of dynamic
+> “R Markdown (.Rmd) is an authoring format that enables easy creation of dynamic
 documents, presentations, and reports from R. It combines the core syntax of
 markdown (an easy to write plain text format) with embedded R code chunks that
 are run so their output can be included in the final document. R Markdown
@@ -96,7 +96,7 @@ underlying R code or data changes)."
 -- <a href="http://rmarkdown.rstudio.com/" target="_blank">RStudio documentation</a>.
 
 
-We use R Markdown (.rmd) files to document workflows and to share data processing,
+We use R Markdown (.Rmd) files to document workflows and to share data processing,
 analysis and visualization code & outputs.
 
 ## Why R Markdown?
@@ -117,9 +117,9 @@ share and publish code online.
 {: .notice}
 
 ### RMD is beneficial to your colleagues
-The link between data, code and results make `.rmd` powerful. You can share your
+The link between data, code and results make `.Rmd` powerful. You can share your
 entire workflow with your colleagues and they can quickly see your process. You
-can also write reports using `.rmd` files which contain code and data
+can also write reports using `.Rmd` files which contain code and data
 analysis results. To enrich the document, you can add text, just like you would
 in a word document that describes your workflow, discusses your results and
 presents your conclusions - along side your analysis results.
@@ -137,10 +137,10 @@ this one - were created using R Markdown!
 {: .notice}
 
 
-## Use Knitr to convert .rmd to .pdf
+## Use Knitr to convert .Rmd to .pdf
 
 We use the `R` `knitr` package to render our markdown and create easy to read
-documents from `.rmd` files. We will cover how to use `knitr` later in this
+documents from `.Rmd` files. We will cover how to use `knitr` later in this
 lesson series.
 
 <figure class="half">

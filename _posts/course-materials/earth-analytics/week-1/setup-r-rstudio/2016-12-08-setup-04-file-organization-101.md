@@ -11,10 +11,10 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/file-organization-101/
 dateCreated: 2016-12-12
-modified: 2016-12-12
+modified: 2017-01-11
 course: 'earth-analytics'
 author_profile: false
-comments: false
+comments: true
 order: 4
 ---
 
