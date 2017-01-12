@@ -49,3 +49,4 @@ using multiple “cores”.
 
 All students will select a topic for and use skills learned in the course to work
 collaboratively on an end of the semester project.
+
