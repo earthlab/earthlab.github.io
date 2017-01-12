@@ -13,7 +13,7 @@ week: 1
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 5
 ---
 {% include toc title="This Lesson" icon="file-text" %}
@@ -55,7 +55,7 @@ document that contains a YAML header, code chunks and markdown segments.
 `knitr` is the R package that we use to convert an R Markdown document into another,
 more user friendly format like html or pdf.
 
-The `knitr` package allow us to:
+The `knitr` package allows us to:
 
 * Publish & share preliminary results with collaborators.
 * Create professional reports that document our workflow and results directly
@@ -115,8 +115,13 @@ Notice that information from the YAML header (title, author, date) is printed
 at the top of the HTML document. Then the HTML shows the text, code, and
 results of the code that you included in the RMD document.
 
-{% include/earth-analytics/homework-wk1.md %}
+<div class="notice--warning" markdown="1">
 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge Activity
+
+Add the code below to your `.Rmd` document. Then `knit` to .html format.
+
+</div>
 
 ```{r plot-data, eval=F }
 
@@ -167,10 +172,10 @@ qplot(x=boulder_precip$DATE,
 ```
 
 
-## Where is the file?
+#### Where is the file?
 
 In the steps above, we downloaded a file. However, where did that file go on your
-computer? let's find it before we go any further.
+computer? Let's find it before we go any further.
 
 ```r
 
