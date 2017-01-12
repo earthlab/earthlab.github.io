@@ -14,7 +14,7 @@ nav-title: 'Stream Discharge Data R'
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 4
 ---
 

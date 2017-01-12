@@ -2,18 +2,19 @@
 layout: single
 title: "Code Chunks in R Markdown"
 excerpt: 'This tutorial cover how code chunks are written and formatted within an
-R Markdown file in R Studio.'
+R Markdown file in R Studio. It also explores how to use comments to document your
+code workflow.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
 modified: `r format(Sys.time(), "%Y-%m-%d")`
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-code-chunks/
+permalink: /course-materials/earth-analytics/week-1/code-chunks-comments-knitr/
 nav-title: 'Code Chunks'
 week: 1
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 4
 ---
 {% include toc title="This Lesson" icon="file-text" %}
@@ -26,7 +27,7 @@ Next, we will talk about code chunks in `R markdown` files.
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
-* Be able to add code to a code chunk in an .rmd file
+* Be able to add code to a code chunk in an .Rmd file
 * Be able to add options to a code chunk in R Studio
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -64,11 +65,11 @@ tilde (~). Graves are not the same as an apostrophe!
 
 A code chunk looks like this:
 
-<pre><code>
-```{r chunk-name-with-no-spaces}
+<div class="highlighter-rouge">
+<pre class="highlight"><code>```{r chunk-name-with-no-spaces}
 # code goes here
- ```
- </code></pre>
+ ```</code></pre>
+ </div>
 
 The first line: <code>```{r chunk-name-with-no-spaces}</code> contains the language (`r`) in this case, and the name of the chunk. Specifying
 the language is mandatory. Next to the `{r}`, there is a chunk name. The chunk
@@ -140,25 +141,29 @@ later tutorial.
 
 ## Code chunk options
 
-You can add arguments (similar to options) to each code chunk. These arguments allow
-you to customize how or if you want code to be
+You can add options to each code chunk. These options allow you to customize
+how or if you want code to be
 processed or appear on the rendered output (pdf document, html document, etc).
-Code chunk arguments are added on the first line of a code
+Code chunk options are added on the first line of a code
 chunk after the name, within the curly brackets.
 
 The example below, is a code chunk that will not be "run", or evaluated, by R.
 The code within the chunk will appear on the output document, however there
 will be no outputs from the code.
 
-<pre><code>```{r intro-option, eval=FALSE}
+<div class="highlighter-rouge">
+<pre class="highlight"><code>```{r intro-option, eval=FALSE}
 # this is a comment. text, next to a comment, is not processed by R
 # comments will appear on your rendered r markdown document
 1+2
- ```</code></pre>
+ ```</code></pre></div>
 
-We use `eval=FALSE` often when the chunk is exporting an file that we don't
-need to re-export but we want to document the code used to export the file.
+One example of using `eval=FALSE` is for a code chunk that exports a file such
+as a figure graphic or a text file. We may want to show / document the code that
+we used to export that graphic in our html or pdf document, but we don't need to
+actually export that file each time we create a revised html or pdf document.
 
+### 3 common chunk options: eval, echo & results
 Three common code chunk options are:
 
 * `eval = FALSE`: Do not **eval**uate (or run) this code chunk when
@@ -172,11 +177,7 @@ will not be rendered on the output document. This is useful if you are viewing t
 structure of a large object (e.g. outputs of a large `data.frame` which is
   the equivalent of a spreadsheet in `r`).
 
-Multiple code chunk options can be used for the same chunk. For more on code
-chunk options, read
-<a href="http://rmarkdown.rstudio.com/authoring_rcodechunks.html" target="_blank"> the RStudio documentation</a>
-or the
-<a href="http://yihui.name/knitr/demo/output/" target="_blank"> knitr documentation</a>.
+Multiple code chunk options can be used for the same chunk.
 
 <div class="notice--warning" markdown="1">
 
@@ -218,3 +219,12 @@ with plots where you have a lot of code generating those plots.
 </div>
 
 We will knit our R Markdown document to `.pdf` in the next lesson.
+
+<div class="notice--info" markdown="1">
+
+## Additional Resources
+
+* <a href="http://rmarkdown.rstudio.com/authoring_rcodechunks.html" target="_blank"> RStudio documentation.</a>
+* <a href="http://yihui.name/knitr/demo/output/" target="_blank"> knitr documentation.</a>
+
+</div>
