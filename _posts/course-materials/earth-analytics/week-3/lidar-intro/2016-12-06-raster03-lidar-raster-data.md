@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: 2017-01-06
+modified: 2017-01-12
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/
@@ -160,7 +160,20 @@ To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
 
 # load libraries
 library(raster)
+## Loading required package: sp
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+## 
+##     select
 library(rgdal)
+## rgdal: version: 1.2-4, (SVN revision 643)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 1.11.4, released 2016/01/25
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-3
 
 # set working directory to ensure R can find the file we wish to import
 # setwd("working-dir-path-here")
