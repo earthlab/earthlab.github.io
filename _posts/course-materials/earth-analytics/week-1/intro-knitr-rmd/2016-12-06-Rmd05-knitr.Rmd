@@ -8,7 +8,7 @@ category: [course-materials]
 modified: `r format(Sys.time(), "%Y-%m-%d")`
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/knit-rmarkdown-document-to-pdf/
-nav-title: 'R knitr package'
+nav-title: 'Knit .Rmd to .html'
 week: 1
 sidebar:
   nav:
