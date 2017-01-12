@@ -111,6 +111,4 @@ the bottom. We'll try our best to help!
 [View All Tutorials]({{ site.url }}{{ site.baseurl }}/tutorials/)
 
 
-
-
 Questions? Tweet: <a href="http://twitter.com/leahawasser" class="btn btn--twitter"><i class="fa fa-twitter"></i>@leahawasser</a> or <a href="http://twitter.com/mxwlj" class="btn btn--twitter"><i class="fa fa-twitter"></i>@mxwlj</a>
