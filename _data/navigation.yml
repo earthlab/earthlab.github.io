@@ -34,3 +34,20 @@ open-science:
         url: /slide-shows/1_intro-reprod-science/
       - title: "File Naming 101"
         url: /slide-shows/2-file-naming-jenny-bryan/
+
+earth-analytics-2017:
+
+  - title: Course Overview
+    children:
+      - title: "Course Home"
+        url: /course-materials/earth-analytics/
+      - title: "Syllabus"
+        url: /course-materials/earth-analytics/earth-analytics-syllabus/
+  - title: "Course Weeks 1-3"
+    children:
+      - title: "Week 1: Getting Started With Data"
+        url: /course-materials/earth-analytics/week-1/
+      - title: "Week 2: Time Series Data in R"
+        url: /course-materials/earth-analytics/week-2/
+      - title: "Week 3: Lidar Data in R"
+        url: /course-materials/earth-analytics/week-3/

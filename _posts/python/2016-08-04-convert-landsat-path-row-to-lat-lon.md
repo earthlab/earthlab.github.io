@@ -10,7 +10,7 @@ sidebar:
 author_profile: false
 comments: true
 lang: [python]
-lib: [ogr, shapely]
+lib: [ogr, shapely, urllib, zipfile]
 ---
 
 The Landsat 8 satellite uses the [WRS-2](http://landsat.gsfc.nasa.gov/the-worldwide-reference-system/) reference system to catalog data. This referece system uses paths and rows, which are derived from the satellites orbit. You may find it useful to be able to convert between the WRS-2 paths and rows to latitude and longitude coordinates. This tutorial will demonstrate how to programmatically perform the conversion in python.
@@ -26,19 +26,34 @@ The Landsat 8 satellite uses the [WRS-2](http://landsat.gsfc.nasa.gov/the-worldw
 - ogr
 - shapely.wkt
 - shapely.geometry
+- urllib
+- zipfile
 
 
 ```python
 import ogr
 import shapely.wkt
 import shapely.geometry
+import urllib
+import zipfile
 ```
 
-First we need to load the WRS-2 shapefiles which can be found on the page linked above.
+First we need to download and unzip the WRS-2 shapefiles which can be found on the USGS Landsat website.
 
 
 ```python
-shapefile = '../data/wrs2_asc_desc/wrs2_asc_desc.shp'
+url = "https://landsat.usgs.gov/sites/default/files/documents/wrs2_asc_desc.zip"
+filehandle, _ = urllib.urlretrieve(url)
+zip_file_object = zipfile.ZipFile(filehandle, 'r')
+zip_file_object.extractall(".")
+zip_file_object.close()
+```
+
+Then we can read the shapefile that we just downloaded.
+
+
+```python
+shapefile = 'wrs2_asc_desc/wrs2_asc_desc.shp'
 wrs = ogr.Open(shapefile)
 layer = wrs.GetLayer(0)
 ```
@@ -74,5 +89,5 @@ row = feature['ROW']
 print('Path: ', path, 'Row: ', row)
 ```
 
-    Path:  34 Row:  32
+    ('Path: ', 34, 'Row: ', 32)
 

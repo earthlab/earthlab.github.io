@@ -22,6 +22,38 @@ that can be used to teach a class without having to actually process data.
 
 Check out the instructor notes to better understand how each lesson can be taught.
 
+{% assign modules = site.posts | where:"order", 1 %}
+{% for module in modules limit:3 %}
+
+{{ module.module-title }}
+{{ module.class-lesson }}
+
+<div class="list__item">
+  <article class="archive__item" >
+  <h2 class="archive__item-title">
+  <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}</a></h2>
+
+  <p class='archive__item-excerpt'>{{ module.module-description }}</p>
+
+  {% assign counter = 0 %}
+  {% for post in site.categories.[page.category] %}
+      {% if post.class-lesson == module.class-lesson %}
+        {% assign counter = counter | plus: 1 %}
+      {% endif %}
+  {% endfor %}
+
+ {% assign slideCounter = 0 %}
+  {% for slides in site.slide-shows %}
+    {% if slides.class-lesson == module.class-lesson %}
+      {% assign slideCounter = slideCounter | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  <p class="page__meta">lessons: {{ counter }}, presentations {{ slideCounter }}</p>
+  </article>
+</div>
+
+{% endfor %}
+
 {% for member in site.data.class-lessons limit:3 %}
 {% if member.active %}
 <div class="list__item">
@@ -76,11 +108,10 @@ the bottom. We'll try our best to help!
 
 ## Data Intensive Courses
 A newly designed
-[Earth Systems Analytics course - GEOG 4100 / 5100]({{ site.url }}/course-materials/earth-analytics)
-will be taught January 2017. This course fuses key topics related to the grand
+[Earth Systems Analytics course - GEOG 4563 / 5563]({{ site.url }}/course-materials/earth-analytics/)
+will be this Spring 2017. This course fuses key topics related to the grand
 challenges in science, remote sensing and computationally intensive approaches.
-The course will be held in Spring 2017 at the CU Boulder campus. Stay tuned for
-course materials as they develop.
+The course will be held in Spring 2017 at the CU Boulder campus.
 
 
 Questions? Tweet: <a href="http://twitter.com/leahawasser" class="btn btn--twitter"><i class="fa fa-twitter"></i>@leahawasser</a> or <a href="http://twitter.com/mxwlj" class="btn btn--twitter"><i class="fa fa-twitter"></i>@mxwlj</a>
