@@ -5,10 +5,11 @@
 /* Make sure code in challenge blocks is readable */
 div.notice--warning pre {
        font-size: 0.9em !important;
+       background-color: $code-background-color
    }
 
 pre {
-  background-color: $$code-background-color;
+  background-color: $code-background-color;
   padding: 2em;
 }
 

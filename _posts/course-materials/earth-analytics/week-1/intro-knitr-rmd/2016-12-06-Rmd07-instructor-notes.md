@@ -11,7 +11,7 @@ week: 1
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 7
 ---
 

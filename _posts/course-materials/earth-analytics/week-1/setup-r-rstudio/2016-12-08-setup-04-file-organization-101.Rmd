@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/file-organization-101/
 dateCreated: 2016-12-12
-modified: 2017-01-11
+modified: `r format(Sys.time(), "%Y-%m-%d")`
 course: 'earth-analytics'
 author_profile: false
 comments: true
