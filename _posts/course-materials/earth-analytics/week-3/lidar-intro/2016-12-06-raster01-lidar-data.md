@@ -3,13 +3,14 @@ layout: single
 title: "Introduction to LiDAR Data"
 excerpt: "."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: 2017-01-06
+modified: 2017-01-12
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-intro/
 nav-title: 'LiDAR Data Intro'
 module-title: 'LiDAR Raster Data R'
-module-description: 'This tutorial covers the basic principles of LiDAR remote sensing.'
+module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
+the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Lidar Rasters in R'
 module-type: 'class'
 week: 3
