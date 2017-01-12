@@ -13,7 +13,7 @@ permalink: course-materials/earth-analytics/week-1/setup-working-directory/
 dateCreated: 2016-12-12
 modified: 2017-01-08
 author_profile: false
-comments: false
+comments: true
 order: 5
 ---
 {% include toc title="This Lesson" icon="file-text" %}

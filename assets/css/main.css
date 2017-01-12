@@ -1488,10 +1488,11 @@ tr, td, th {
    ========================================================================== */
 /* Make sure code in challenge blocks is readable */
 div.notice--warning pre {
-  font-size: 0.9em !important; }
+  font-size: 0.9em !important;
+  background-color: #fafafa; }
 
 pre {
-  background-color: #f2f3f3;
+  background-color: #fafafa;
   padding: 2em; }
 
 div.highlighter-rouge, figure.highlight {
@@ -5380,7 +5381,8 @@ div.notice--success, div.notice--warning {
   padding: 2em !important;
   font-size: .8em !important; }
   div.notice--success code, div.notice--warning code {
-    font-size: 0.9em; }
+    font-size: .9em;
+    background-color: #fafafa; }
 
 .nav__sub-title {
   background-color: #428aa0;
