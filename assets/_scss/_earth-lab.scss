@@ -8,7 +8,8 @@ div.notice--success, div.notice--warning {
    font-size: .8em !important;
 
    code {
-     font-size: .9em
+     font-size: .9em;
+     background-color: $code-background-color;
    }
 }
 

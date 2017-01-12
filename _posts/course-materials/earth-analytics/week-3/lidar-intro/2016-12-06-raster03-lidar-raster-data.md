@@ -12,7 +12,7 @@ week: 3
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 3
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
