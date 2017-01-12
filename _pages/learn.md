@@ -13,6 +13,13 @@ modified: 2016-08-21T17:19:29-04:00
 author_profile: false
 ---
 
+## <i class="fa fa-plane" aria-hidden="true"></i> New course: Earth Analytics - Spring 2017
+A newly designed
+[Earth Systems Analytics course - GEOG 4563 / 5563]({{ site.url }}/course-materials/earth-analytics/)
+is being held this Spring 2017 on the CU Boulder campus. This course fuses key
+topics related to the grand challenges in science, remote sensing and
+computationally intensive approaches.
+
 ## Recent Classroom Modules
 
 Below, is a list of the most recent classroom modules. Classroom modules consist
@@ -24,9 +31,6 @@ Check out the instructor notes to better understand how each lesson can be taugh
 
 {% assign modules = site.posts | where:"order", 1 %}
 {% for module in modules limit:3 %}
-
-{{ module.module-title }}
-{{ module.class-lesson }}
 
 <div class="list__item">
   <article class="archive__item" >
@@ -106,12 +110,7 @@ the bottom. We'll try our best to help!
 
 [View All Tutorials]({{ site.url }}{{ site.baseurl }}/tutorials/)
 
-## Data Intensive Courses
-A newly designed
-[Earth Systems Analytics course - GEOG 4563 / 5563]({{ site.url }}/course-materials/earth-analytics/)
-will be this Spring 2017. This course fuses key topics related to the grand
-challenges in science, remote sensing and computationally intensive approaches.
-The course will be held in Spring 2017 at the CU Boulder campus.
+
 
 
 Questions? Tweet: <a href="http://twitter.com/leahawasser" class="btn btn--twitter"><i class="fa fa-twitter"></i>@leahawasser</a> or <a href="http://twitter.com/mxwlj" class="btn btn--twitter"><i class="fa fa-twitter"></i>@mxwlj</a>
