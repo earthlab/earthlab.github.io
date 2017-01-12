@@ -3,7 +3,9 @@ layout: single
 authors: ['Software Carpentry']
 category: [course-materials]
 title: 'Create a Project & Working Directory Setup'
-excerpt: '#.'
+excerpt: 'This lessons covers the concept of a project directory compared to a
+working directory as used in R Studio. It also reviews how to set up a clearly
+organized project directory and associated file structure.'
 nav-title: 'Setup Working Directory'
 week: 1
 sidebar:
@@ -13,7 +15,7 @@ permalink: course-materials/earth-analytics/week-1/setup-working-directory/
 dateCreated: 2016-12-12
 modified: `r format(Sys.time(), "%Y-%m-%d")`
 author_profile: false
-comments: false
+comments: true
 order: 5
 ---
 {% include toc title="This Lesson" icon="file-text" %}
@@ -46,7 +48,7 @@ your computer to complete this tutorial.
 </div>
 
 
-## Setup Working Directory
+## Create earth-analytics project directory
 
 Now that we have the basics of good project structure out of the way, let's get
 our project setup. We are going to create an `earth-analytics` project directory
@@ -126,7 +128,7 @@ If your working directory path does not match the location where you created you
 set the working directory with `R` code OR we can use the `RStudio` interface to
 set the working directory.
 
-## Set Working Directory Using RStudio
+### Set working directory in RStudio interface
 
 Let's set the working directory using the `RStudio` interface.
 
@@ -155,7 +157,7 @@ Your window should look like the screen shot below:
 </figure>
 
 
-## Set Working Directory Using Code
+## Set working directory using code
 
 We can set the working directory  using code in R too. You don't have to do this
 if you already set the working directory above. However, it's good to know how

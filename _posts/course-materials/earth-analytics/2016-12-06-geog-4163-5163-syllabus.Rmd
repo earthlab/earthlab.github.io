@@ -11,7 +11,7 @@ sidebar:
 author_profile: false
 comments: false
 ---
- 
+
 
 ## Lead Instructor
 
@@ -32,29 +32,28 @@ leah.wasser@colorado.edu
 
   </div>
 
-## Course Description
+## About the Course
 This advanced, multidisciplinary course will address major questions in Earth
 science and teach students to use the analytical tools necessary to undertake
-exploration of ‘big scientific data’. This course is desiend for upper level (junior /
+exploration of ‘big scientific data’. This course is designed for upper level (junior /
 senior level) undergraduate students and graduate students.
 
-Throughout the course we will focus on addressing questions in science using
-data and computationally intensive approaches. We will use a suite of different
-types of publically available data including:
+Throughout the course we will use computationally intensive techniques to address
+scientific questionsWe will use a suite of different
+types of publicly available data including:
 
-* various types of remote sensing data (spectral and lidar),
-* data collected from large *in situ* (on the ground) sensor networks maintained
-through organizations such as USGS and NOAA,
-* social media data, and
-* demographic (census) data.
+* Satellite and airborne lidar and spectral remote sensing data,
+* Data collected using distributed *in situ* (on the ground) sensor networks
+* Social media data, and
+* Demographic (census) data.
 
 ## Learning Outcomes
 
 At the end of this course you will be able to:
 
-* Open and visualize various types of data using the `R` programming languages.
+* Open and visualize various types of data using the `R` programming language.
 * Navigate and use the `RStudio` environment for `R`.
-* Describe and apply several approaches to efficient computing including parallelization
+* Describe and apply several approaches to efficient computing including parallelization.
 
 ## Grading
 Grading will be based on the following course assignments. Late assignments will
@@ -68,12 +67,20 @@ receive a 10% deduction per 24-hour period after the due date/time.
 | Final Project Submission | 20%  |
 | Class Participation | 15% |
 
+## Late assignments
 
-## Attendance:
+Late assignments will not be accepted in this course. If there are extenuating /
+university approved
+circumstances university-approved activity, illness, injury, family emergency, or religious
+observance that prevents you from completing an assignment on time, please
+get in touch with the instructor or the course TA as soon as possible.
+
+
+## Attendance
 
 Attendance is required for all class sessions. In the event that you must miss a class due
 to a university-approved activity, illness, injury, family emergency, or religious
-observance, you must notify me, preferably before the day of class, and the absence
+observance, you must notify the course instructor, preferably **before** the day of class, and the absence
 will be excused. Students will be given a reasonable amount of time to make up the
 work based on the type of assignment missed and the reason for their absence.
 Unexcused absences will affect the student’s grade because regular
@@ -82,5 +89,7 @@ participation is a requirement of this course.
 
 ## Readings
 
-NOTE, readings are subject to change or additional ones added. Appropriate
-notice will be given if readings do change.
+Readings are posted every week along with the homework assignment for that week.
+The material for each week will be posted no later than the Tuesday before the
+next weeks' class. If you are looking ahead to upcoming weeks, please note that,
+readings are subject to change.
