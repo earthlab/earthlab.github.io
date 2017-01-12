@@ -4,6 +4,7 @@ title: "Write Reports and Document Workflow Using R Markdown"
 excerpt: 'This tutorial cover how to create an R Markdown file in R and then
 render it to html using knitr.'
 authors: [Leah Wasser, NEON Data Skills]
+modified: 2017-01-11
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr2/
@@ -12,7 +13,7 @@ week: 1
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 2
 ---
 {% include toc title="This Lesson" icon="file-text" %}
@@ -61,7 +62,7 @@ ready to create your own `.RMD` document. Do the following:
 
 1. Using the Create a new R Markdown file and choose HTML as the desired output format.
 2. Enter a Title (Earth Analytics Week 1) and Author Name (your name). Then click OK.
-3. Save the file using the following format: **FirstInitial-LastName-week-1.rmd**
+3. Save the file using the following format: **FirstInitial-LastName-week-1.Rmd**
 NOTE: The document title is not the same as the file name.
 4. Hit the <kbd>`Knit HTML`</kbd> drop down button in `RStudio` (as is done in the video above). What happens?
 
