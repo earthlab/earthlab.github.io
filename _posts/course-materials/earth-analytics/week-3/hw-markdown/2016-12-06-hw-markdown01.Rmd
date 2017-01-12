@@ -16,7 +16,7 @@ week: 3
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 1
 ---
 
@@ -72,7 +72,7 @@ Let's try it with an actual image.
 ```
 And here's what that code does IF the image is in the right place:
 
-![an image caption Source: Ultimate Funny Dog Videos Compilation 2013.]({{ site.url }}images/course-materials/earth-analytics/week-3/silly-dog.png)
+![an image caption Source: Ultimate Funny Dog Videos Compilation 2013.]({{ site.url }}/images/course-materials/earth-analytics/week-3/silly-dog.png)
 
 If all of your images are in your images directory, then `knitr` will be able to
 easily find them. This also follows good file management practices because
