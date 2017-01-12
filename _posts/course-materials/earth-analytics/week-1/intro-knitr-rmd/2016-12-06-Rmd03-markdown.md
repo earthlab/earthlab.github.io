@@ -4,6 +4,7 @@ title: "Intro to Markdown"
 excerpt: 'This tutorial cover how to use Markdown syntax in R and then
 render it to html using knitr.'
 authors: [Leah Wasser, NEON Data Skills]
+modified: 2017-01-11
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-to-markdown/
@@ -12,7 +13,7 @@ week: 1
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 3
 ---
 {% include toc title="This Lesson" icon="file-text" %}
@@ -35,10 +36,17 @@ your computer to complete this tutorial.
 
 </div>
 
+## About markdown
 
-## Markdown in Rmd files
+Markdown is a human readable syntax for formatting text documents. Markdown can
+be used to produce nicely formatted documents including pdf's, web pages and more.
+When you format text using markdown in a document, it is similar to using the
+format tools (bold, heading 1, heading 2, etc) in a word processing tool like Microsoft
+Word of Google Docs.
 
-AnR Markdown file can contain text written using the markdown syntax.
+### Markdown Syntax in .Rmd files
+
+An `R Markdown` file can contain text written using the markdown syntax.
 Markdown text, can be whatever you want. It may describe the data that you are
 using, how it's being processed and what the outputs are. You may even add some
 text that interprets or discusses the outputs.
@@ -47,18 +55,8 @@ When you render your document to HTML, this markdown will appear as text on the
 output HTML document. We will learn about the markdown syntax next.
 
 
-## What is the .md Format?
-
-Markdown is a human readable syntax for formatting text documents. Markdown can
-be used to produce nicely formatted documents including
-pdf's, web pages and more. Think of it like a word processing tool, like Microsoft
-Word of Google Docs. In Google docs, you can make text bold and add headings that
-visually break up your document. You can
-do the same in markdown, however you do it using a particular format or `syntax`.
-
-
 <i class="fa fa-star"></i> **Data Tip:** This web page that you are reading right now
-is generated from a markdown document!
+is generated from a markdown document.
 {: .notice }
 
 In this tutorial, we cover the basic syntax of markdown.
@@ -74,18 +72,16 @@ Markdown is simple plain text, that is styled using special characters, includin
 
 Let's review some basic markdown syntax.
 
+### Paragraph text
 
-<a class="btn btn-info" href="http://rmarkdown.rstudio.com/authoring_basics.html" target="_blank"> Learn More - RStudio Markdown Overview</a>
-
-### Plain Text
-
-Plain text will appear as paragraph text in a Markdown document. You can format
-that text in different ways.
+When you type text in a markdown document with not additional syntax, the text
+will appear as paragraph text. You can add additional syntax to that text
+to format it in different ways.
 
 For example, if we want to highlight a function or some code within a plain text
 paragraph, we can use one backtick on each side of the text ( <code>``</code> ),
-like this: <code>`Here is some code`</code>. This is the backtick, or grave; not an apostrophe (on most
-US keyboards it is on the same key as the tilde (~)).
+like this: <code>`Here is some code`</code>. This is the backtick, or grave; not
+an apostrophe (on most US keyboards it is on the same key as the tilde (~)).
 
 To add emphasis to other text you can use **bold** or *italics*.
 
@@ -132,8 +128,7 @@ Heading one is 1 `#` sign, heading two is 2 `##` signs, etc as follows:
 	#### Heading four
 
 
-For a more thorough list of markdown syntax, please read this
-<a href="https://guides.github.com/features/mastering-markdown/" target="_blank">GitHub Guide on Markdown</a>.
+
 
 <i class="fa fa-star"></i> **Data Tip:**
 There are many free Markdown editors out there! The
@@ -144,7 +139,7 @@ renderer that allows you to preview the rendered Markdown as you write.
 
 ### Explore Your R Markdown File
 
-Look closely at the pre-populated markdown and R code chunks in the `.rmd`
+Look closely at the pre-populated markdown and R code chunks in the `.Rmd`
 file that we created above.
 
 Does any of the markdown syntax look familiar?
@@ -159,17 +154,16 @@ If you are unsure, the answers are at the bottom of this page.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: R Markdown Text
 
-1. Remove the template markdown and code chunks added to the RMD file by RStudio.
+1. Remove the template markdown and code chunks added to the `.Rmd` file by `RStudio`.
 (Be sure to keep the YAML header!)
-2. At the very top of your RMD document - after the YAML header, add
+2. At the very top of your .Rmd document - after the YAML header, add
 the bio and short research description that you wrote last week in markdown syntax to
-the RMD file.
+the .Rmd file.
 3. Between your profile and the research descriptions, add a header that says
 **About My Project** (or something similar).
-4. Add a new header XXX **XXX Activity** and text below that explaining
-that this page demonstrates using some of the **XXX XXX XXX data products**
-in R. The wording of this text should clearly describe the code and outputs that
-you will be adding the page.
+4. Add a new header titled: **Data Activity**. Write some text below that header
+that describes what you are learning in this lesson and demonstrates the use of
+bold, italics and code formatting within a paragraph of text.
 
 </div>
 
@@ -178,8 +172,18 @@ It's likely some of your colleagues have the same question, too! And also
 likely someone else knows the answer.*
 
 
-### Answers to the Default Text Markdown Syntax Questions
+
+<div class="notice--info" markdown="1">
+
+## Additional Resources
+
+* <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">GitHub Guide on Markdown</a>
+* <a href="http://rmarkdown.rstudio.com/authoring_basics.html" target="_blank"> RStudio Markdown Overview</a>
+
+#### Answers to the Default Text Markdown Syntax Questions
 
 * Are any words in bold? - Yes, “Knit” on line 10
 * Are any words in italics? - No
 * Are any words highlighted as code? - Yes, “echo = FALSE” on line 22
+
+</div>
