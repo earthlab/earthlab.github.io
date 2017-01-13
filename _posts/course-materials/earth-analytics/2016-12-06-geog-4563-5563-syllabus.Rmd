@@ -1,15 +1,17 @@
 ---
+title: 'GEOG 4563 & 5563 - Earth Analytics: Spring 2017 Syllabus'
+authors: Leah Wasser
+category: course-materials
+output: pdf_document
+excerpt: .
 layout: single
-title: "GEOG 4563 & 5563 - Earth Analytics: Spring 2017 Syllabus"
-excerpt: "."
-authors: ['Leah Wasser']
-category: [course-materials]
+nav-title: Course Syllabus
+modified: 2017-01-13
+comments: no
 permalink: /course-materials/earth-analytics/earth-analytics-syllabus/
-nav-title: 'Course Syllabus'
 sidebar:
   nav: earth-analytics-2017
-author_profile: false
-comments: false
+author_profile: no
 ---
 
 
@@ -22,15 +24,22 @@ leah.wasser@colorado.edu
 
 <div class='notice--success' markdown="1">
 
-# Where & When
+## Where & When
 
-* **Teaching Assistant:** Sepideh Khanghah
+* **Teaching Assistant:** Sepideh Dadashi
 * **Time:** Wednesday 3:00 pm -  5:50 pm
 * **Location:** SEEC S125
 
-**Contributing Instructors:**
+## Office Hours
 
-  </div>
+* Mondays: 1:00pm-3:00pm, Leah Wasser SEEC Earth Lab - S346
+* Tuesdays: 1:00pm - 3:00pm, Sepideh Dadashi, SEEC Earth Lab main space S348
+
+
+<a href="{{ site.url }}/pdf/course-materials/earth-analytics/2016-12-06-geog-4163-5163-syllabus.pdf" class="btn btn-success btn--x-large">
+<i class="fa fa-download" aria-hidden="true"></i> course syllabus (.pdf)</a>
+</div>
+
 
 ## About the Course
 This advanced, multidisciplinary course will address major questions in Earth
@@ -56,8 +65,7 @@ At the end of this course you will be able to:
 * Describe and apply several approaches to efficient computing including parallelization.
 
 ## Grading
-Grading will be based on the following course assignments. Late assignments will
-receive a 10% deduction per 24-hour period after the due date/time.
+Course grades will be calculated using the following course assignments.
 
 | Assignment  | Percent of Credit   |
 |---|---|---|---|---|
