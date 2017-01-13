@@ -27,9 +27,9 @@ document and convert it to a pdf using `knitr`.
 ## <i class="fa fa-pencil"></i> Homework Week 1
 
 ### 1. Readings
-Five selfish reasons to work reproducibly - Florian Markowetz
+* [Five selfish reasons to work reproducibly - Florian Markowetz](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7)
 
-Computing Workflows for Biologists: A Roadmap
+* Computing Workflows for Biologists: A Roadmap
 
 
 ### 2. Watch Flood Video
@@ -62,7 +62,7 @@ ALL of the lessons and have your computer setup BEFORE class begins next week.
 You will be behind if these things are not setup / complete before week 2.
 {: .notice }
 
-### 4. Complete assignment below
+### 5. Complete assignment below
 
 After you have reviewed the lessons above, complete the assignment below.
 Submit your `.pdf` document and R markdown document to ... by **Tuesday 23
