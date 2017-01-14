@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: 2017-01-12
+modified: '2017-01-13'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
