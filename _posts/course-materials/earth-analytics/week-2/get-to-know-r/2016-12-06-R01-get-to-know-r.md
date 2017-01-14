@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/get-to-know-r/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: 2017-01-12
+modified: '2017-01-13'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
