@@ -4,7 +4,7 @@ layout:
 <?xml version="1.0" encoding="utf-8"?>
 <rss version ="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <atom:link href="{{ site.url }}{{site.baseurl}}/tutorial-feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="{{ site.url }}/class-lesson-feed.xml" rel="self" type="application/rss+xml" />
     <title>Earth Lab Data Intensive Classroom Modules</title>
       <link>{{ site.url }}</link>
       <description>A GitHub Jekyll Website maintained by Max Joseph and Leah Wasser</description>
@@ -18,21 +18,18 @@ layout:
 
       <webMaster> {{ site.author.email }} ({{ site.author.name }})</webMaster>
 
-      {% assign members = site.posts | where:"order", 1 %}
-      {% for member in members %}
+  {% assign members = site.posts | where:"order", 1 %}
+  {% for member in members %}
       <item>
-               <title>{{ member.module-title }}</title>
+               <title>{{ member.module-title | cdata_escape }}</title>
                <link>{{ site.url }}{{ member.permalink }}</link>
                <guid isPermaLink="true">{{ site.url }}{{ member.permalink }}</guid>
                <description>{{ member.module-description | xml_escape }}</description>
                <author>{{ site.author.email }} ({{ member.authors | join: ', ' }})</author>
+               <category>{{ member.category }}</category>
                <pubDate>{{ member.modified | date_to_rfc822 }}</pubDate>
       </item>
-      {% endfor %}
-
-
-
-  <!-- <category>{{ post.categories }}</category> do i need this?-->
+  {% endfor %}
 
   </channel>
 </rss>
