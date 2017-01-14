@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: 2017-01-06
+modified: '2017-01-13'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -224,7 +224,7 @@ if (!dir.exists("data/week3/outputs")) {
 </div>
 
 
-## Calculate difference between 2 rasters
+## Change detection in Terrain
 
 Now that we've learned about the 3 common data products derived from lidar data,
 let's use them to do a bit of exploration of our data - as it relates to the 2013
@@ -232,11 +232,11 @@ Colorado floods.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - Calculate Difference
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - calculate changes in terrain
 
 * Subtract the post-flood DEM from the pre-flood DEM. Do you see any differences in
 elevation before the after?
-* Create a CHM for both pre-flood and post-flood by subtracing the DEM from the DTM for each year. Next create a CHM DIFFERENCE raster by subtracting the post-flood chm from the pre-flood CHM.
+* Create a CHM for both pre-flood and post-flood by subtracting the DEM from the DTM for each year. Next create a CHM DIFFERENCE raster by subtracting the post-flood CHM from the pre-flood CHM.
 * Export the files as geotiff's and open them in QGIS. Explore the differences.
 What differences do you see between the two years?
 

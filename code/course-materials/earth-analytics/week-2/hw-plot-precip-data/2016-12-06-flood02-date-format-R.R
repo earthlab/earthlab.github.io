@@ -20,7 +20,7 @@ qplot(x=boulder_precip$DATE,
 ## ----ggplot-plot, fig.cap="ggplot of precip data"------------------------
 
 # plot the data using ggplot
-ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP) +
+ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   geom_point() +
   ggtitle("Precipitation Data") +
   xlab("Date") + ylab("Total Precipitation (Inches)")
