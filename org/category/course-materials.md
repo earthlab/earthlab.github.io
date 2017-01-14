@@ -7,8 +7,6 @@ comments: false
 author_profile: false
 ---
 
-test
-
 ## Courses
 
 [Earth Analytics Course Spring 2017](/course-materials/earth-analytics/)
