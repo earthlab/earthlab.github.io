@@ -6,7 +6,7 @@ title: 'Install & setup R and RStudio on your laptop'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'This tutorial walks you through downloading and installing R and RStudio on your computer.'
 dateCreated: 2016-12-12
-modified: 2017-01-11
+modified: '2017-01-13'
 module-title: 'Setup R, RStudio & Your Working Directory'
 module-description: 'This module walks you through getting R and RStudio setup on your
 laptop. It also introduces file organization strategies.'
@@ -30,7 +30,7 @@ order: 1
 
 ##  R & RStudio Setup
 
-In this tutorial, we will walk you through downloading and installing `R` & `RStudio`
+In this tutorial, we will download and install `R` & `RStudio`
 on your computer.
 
 >The `R` & `RStudio` installation instructions below were adapted from
@@ -86,5 +86,5 @@ Or you can use your package manager (e.g. for Debian/Ubuntu run
 * Once it's downloaded, double click the file to install it.
 
 
-Once `R` and `RStudio` are installed, open `RStudio` to make sure it works and that
-you don't get any error messages.
+Once `R` and `RStudio` are installed, open `RStudio` to make sure that it works
+and there are no errors when you open it.

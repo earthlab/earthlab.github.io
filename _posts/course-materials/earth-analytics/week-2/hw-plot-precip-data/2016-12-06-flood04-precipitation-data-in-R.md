@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: 2017-01-06
+modified: '2017-01-13'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -100,47 +100,47 @@ We can use `read.csv()` to import the `.csv` file.
 #              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-# do we need to do something about NA VALUES?
-boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
          header = TRUE)
 
 
 # view first 6 lines of the data
 head(boulder_daily_precip)
-##     DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
-## 1 1/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 2 1/5/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 3 2/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 4 2/2/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 5 2/3/03         0.40 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 6 2/5/03         0.20 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+##   X       DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
+## 1 1 2003-01-01          0.0 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 2 2 2003-02-01          0.0 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 3 3 2003-02-03          0.4 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 4 4 2003-02-05          0.2 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 5 5 2003-02-06          0.1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 6 6 2003-02-07          0.1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
 ##   LONGITUDE YEAR JULIAN
 ## 1 -105.2811 2003      1
-## 2 -105.2811 2003      5
-## 3 -105.2811 2003     32
-## 4 -105.2811 2003     33
-## 5 -105.2811 2003     34
-## 6 -105.2811 2003     36
+## 2 -105.2811 2003     32
+## 3 -105.2811 2003     34
+## 4 -105.2811 2003     36
+## 5 -105.2811 2003     37
+## 6 -105.2811 2003     38
 
 # view structure of data
 str(boulder_daily_precip)
-## 'data.frame':	792 obs. of  9 variables:
-##  $ DATE        : chr  "1/1/03" "1/5/03" "2/1/03" "2/2/03" ...
-##  $ DAILY_PRECIP: num  0e+00 1e+03 0e+00 1e+03 4e-01 ...
+## 'data.frame':	788 obs. of  10 variables:
+##  $ X           : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ DATE        : chr  "2003-01-01" "2003-02-01" "2003-02-03" "2003-02-05" ...
+##  $ DAILY_PRECIP: num  0 0 0.4 0.2 0.1 0.1 0 0 0.3 0.1 ...
 ##  $ STATION     : chr  "COOP:050843" "COOP:050843" "COOP:050843" "COOP:050843" ...
 ##  $ STATION_NAME: chr  "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" ...
 ##  $ ELEVATION   : num  1650 1650 1650 1650 1650 ...
 ##  $ LATITUDE    : num  40 40 40 40 40 ...
 ##  $ LONGITUDE   : num  -105 -105 -105 -105 -105 ...
 ##  $ YEAR        : int  2003 2003 2003 2003 2003 2003 2003 2003 2003 2003 ...
-##  $ JULIAN      : int  1 5 32 33 34 36 37 38 41 49 ...
+##  $ JULIAN      : int  1 32 34 36 37 38 41 49 55 58 ...
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-##    0.000    0.100    0.100    5.297    0.300 1000.000
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.1000  0.1000  0.2478  0.3000  9.8000
 max(boulder_daily_precip$DAILY_PRECIP)
-## [1] 999.99
+## [1] 9.8
 ```
 
 
@@ -253,9 +253,9 @@ it as the first argument to the function on its right, we don’t need to explic
 ```r
 # check the first & last dates
 min(precip_boulder_AugOct$DATE)
-## [1] "2013-08-21"
+## [1] "2013-09-03"
 max(precip_boulder_AugOct$DATE)
-## [1] "2013-10-11"
+## [1] "2013-10-09"
 
 # create new plot
 precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +

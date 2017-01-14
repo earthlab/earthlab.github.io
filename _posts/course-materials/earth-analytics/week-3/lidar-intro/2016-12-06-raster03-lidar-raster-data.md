@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: 2017-01-06
+lastModified: '2017-01-13'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/
@@ -12,7 +12,7 @@ week: 3
 sidebar:
   nav:
 author_profile: false
-comments: true
+comments: false
 order: 3
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -27,7 +27,7 @@ After completing this tutorial, you will be able to:
 * Describe the basic process of how a lidar point cloud is converted into a raster.
 * Be able to describe the structural differences between a raster dataset and a lidar point cloud.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -111,7 +111,7 @@ recorded by the sensor.
    </figcaption>
 </figure>
 
-## Create A Raster From LiDAR Point Clouds
+## Creating A Raster From LiDAR Point Clouds
 
 There are different ways to create a raster from LiDAR point clouds. Let's look
 at one of the most basic ways to create a raster file points - gridding.
@@ -166,9 +166,9 @@ library(rgdal)
 # setwd("working-dir-path-here")
 ```
 
-We can use the `raster()` function to open a raster in `R`. The raster() function
-has one required argument: the path to the raster that you want to open. So you'd
-use it as follows: raster("path-to-raster-here").
+We can use the `raster("path-to-raster-here")` function to open a raster in R.
+
+## NOTE SWITCH THIS TO USE THE DEM INSTEAD.
 
 
 ```r
@@ -233,7 +233,7 @@ are in meters. We won't get into too much detail about coordinate refence string
 in this class but they are important to be familiar with when working with spatial
 data.
 
-### Distribution of elevation values
+## Distribution of elevation values
 
 We can view the distribution of elevation values in our data too. This is useful
 for identifying outlier data values.
