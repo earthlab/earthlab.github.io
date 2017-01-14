@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: `r format(Sys.time(), "%Y-%m-%d")`
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -133,8 +133,7 @@ We can use `read.csv()` to import the `.csv` file.
 #              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-# do we need to do something about NA VALUES?
-boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
          header = TRUE)
 
 
@@ -201,14 +200,14 @@ Your final plot should look something like the plot below.
 ``` {r plot-precip-hourly, echo=F, warning=F, fig.cap="precip plot w fixed dates"}
 
 # do we need to do something about NA VALUES?
-boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
          header = TRUE,
          na.strings = 999.99)
 
 
 # format date
 boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
-                                     format="%m/%d/%y")
+                                     format="%Y-%d-%m")
 
 
 
