@@ -3,7 +3,7 @@ layout: single
 title: "Plotting with GGPLOT"
 excerpt: "This lesson walks through using GGPLOT2 to plot data."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: `r format(Sys.time(), "%Y-%m-%d")`
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/

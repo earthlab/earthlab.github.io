@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: 2017-01-12
+modified: '2017-01-13'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -100,27 +100,47 @@ We can use `read.csv()` to import the `.csv` file.
 #              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-# do we need to do something about NA VALUES?
-boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
          header = TRUE)
-## Warning in file(file, "rt"): cannot open file 'data/week2/805325-precip-
-## dailysum_2003-2013.csv': No such file or directory
-## Error in file(file, "rt"): cannot open the connection
 
 
 # view first 6 lines of the data
 head(boulder_daily_precip)
-## Error in head(boulder_daily_precip): object 'boulder_daily_precip' not found
+##   X       DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
+## 1 1 2003-01-01          0.0 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 2 2 2003-02-01          0.0 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 3 3 2003-02-03          0.4 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 4 4 2003-02-05          0.2 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 5 5 2003-02-06          0.1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 6 6 2003-02-07          0.1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+##   LONGITUDE YEAR JULIAN
+## 1 -105.2811 2003      1
+## 2 -105.2811 2003     32
+## 3 -105.2811 2003     34
+## 4 -105.2811 2003     36
+## 5 -105.2811 2003     37
+## 6 -105.2811 2003     38
 
 # view structure of data
 str(boulder_daily_precip)
-## Error in str(boulder_daily_precip): object 'boulder_daily_precip' not found
+## 'data.frame':	788 obs. of  10 variables:
+##  $ X           : int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ DATE        : chr  "2003-01-01" "2003-02-01" "2003-02-03" "2003-02-05" ...
+##  $ DAILY_PRECIP: num  0 0 0.4 0.2 0.1 0.1 0 0 0.3 0.1 ...
+##  $ STATION     : chr  "COOP:050843" "COOP:050843" "COOP:050843" "COOP:050843" ...
+##  $ STATION_NAME: chr  "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" ...
+##  $ ELEVATION   : num  1650 1650 1650 1650 1650 ...
+##  $ LATITUDE    : num  40 40 40 40 40 ...
+##  $ LONGITUDE   : num  -105 -105 -105 -105 -105 ...
+##  $ YEAR        : int  2003 2003 2003 2003 2003 2003 2003 2003 2003 2003 ...
+##  $ JULIAN      : int  1 32 34 36 37 38 41 49 55 58 ...
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
-## Error in summary(boulder_daily_precip$DAILY_PRECIP): object 'boulder_daily_precip' not found
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.0000  0.1000  0.1000  0.2478  0.3000  9.8000
 max(boulder_daily_precip$DAILY_PRECIP)
-## Error in eval(expr, envir, enclos): object 'boulder_daily_precip' not found
+## [1] 9.8
 ```
 
 
@@ -172,13 +192,7 @@ Your final plot should look something like the plot below.
 
 
 
-
-```
-## Error in file(file, "rt"): cannot open the connection
-## Error in as.Date(boulder_daily_precip$DATE, format = "%m/%d/%y"): object 'boulder_daily_precip' not found
-## Error in ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)): object 'boulder_daily_precip' not found
-## Error in eval(expr, envir, enclos): object 'prec_plot_daily' not found
-```
+![precip plot w fixed dates]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/plot-precip-hourly-1.png)
 
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
@@ -227,7 +241,6 @@ pipes allow us to link multiple steps in one line.
 # subset 2 months around flood
 precip_boulder_AugOct <- boulder_daily_precip %>%
                         filter(DATE >= as.Date('2013-08-15') & DATE <= as.Date('2013-10-15'))
-## Error in eval(expr, envir, enclos): object 'boulder_daily_precip' not found
 ```
 
 In the code above, we use the pipe to send the boulder_daily_precip data through
@@ -240,9 +253,9 @@ it as the first argument to the function on its right, we don’t need to explic
 ```r
 # check the first & last dates
 min(precip_boulder_AugOct$DATE)
-## [1] "2013-08-21"
+## [1] "2013-09-03"
 max(precip_boulder_AugOct$DATE)
-## [1] "2013-10-11"
+## [1] "2013-10-09"
 
 # create new plot
 precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
@@ -251,7 +264,6 @@ precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
   ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek")
 
 precPlot_flood2
-## Error in eval(expr, envir, enclos): object 'DAILY_PRECIP' not found
 ```
 
 ![precip plot subset]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/check-subset-1.png)
@@ -272,9 +284,4 @@ HINT: type ?lims in the console to see how the xlim and ylim arguments work.
 
 </div>
 
-
-```
-## Error in eval(expr, envir, enclos): object 'boulder_daily_precip' not found
-## Error in ggplot(data = precip_boulder_AugOct_2012, aes(DATE, DAILY_PRECIP)): object 'precip_boulder_AugOct_2012' not found
-## Error in eval(expr, envir, enclos): object 'precPlot_flood_2012' not found
-```
+![precip plot subset 2]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/challenge-1.png)
