@@ -26,6 +26,7 @@ layout:
                <guid isPermaLink="true">{{ site.url }}{{ member.permalink }}</guid>
                <description>{{ member.module-description | xml_escape }}</description>
                <author>{{ site.author.email }} ({{ member.authors | join: ', ' }})</author>
+               <category>{{ member.category }}</category>
                <pubDate>{{ member.modified | date_to_rfc822 }}</pubDate>
       </item>
       {% endfor %}
