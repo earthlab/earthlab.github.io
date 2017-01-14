@@ -15,15 +15,18 @@
   }
 
   a {
-    color: inherit;
+    color: $info-color;
     text-decoration: none;
+  }
+  a:hover {
+    color: $link-color-hover;
   }
 }
 
 .archive__subtitle {
   margin: 1.414em 0 0;
   padding-bottom: 0.5em;
-  font-size: $type-size-5;
+  font-size: $type-size-4;
   color: mix(#fff, $gray, 25%);
   border-bottom: 1px solid $border-color;
 
