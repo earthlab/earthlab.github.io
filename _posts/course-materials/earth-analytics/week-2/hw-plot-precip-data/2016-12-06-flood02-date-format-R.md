@@ -3,7 +3,7 @@ layout: single
 title: "Work With Dates in R - Plot Time Series Data"
 excerpt: "This lesson walks through working with time series data in R. you will learn how to convert a data field to a date class that R can understand as a date/time element."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: 2017-01-12
+modified: '2017-01-13'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
@@ -82,15 +82,13 @@ Wait - we know how to use ggplot() now so let's use that instead!
 ```r
 
 # plot the data using ggplot
-ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP) +
+ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   geom_point() +
   ggtitle("Precipitation Data") +
   xlab("Date") + ylab("Total Precipitation (Inches)")
-## Error: <text>:8:0: unexpected end of input
-## 6:   xlab("Date") + ylab("Total Precipitation (Inches)")
-## 7: 
-##   ^
 ```
+
+![ggplot of precip data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/ggplot-plot-1.png)
 Notice when we plot the data, the x axis is "messy". It would be easier to read
 if we only had ticks on the x axis for dates incrementally - every few weeks. Or
 once a month even.

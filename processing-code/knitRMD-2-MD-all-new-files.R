@@ -47,9 +47,7 @@ repo_post_path <- "_posts/course-materials/earth-analytics"
 # set data working dir
 setwd(wd)
 
-# Universal Knitr Config - set the base url for images and links in the md file
-base_url="{{ site.url }}/"
-opts_knit$set(base.url = base_url)
+
 
 
 
@@ -93,7 +91,7 @@ populate_all_rmd_df <- function(a_dataframe, all=FALSE){
 #################### Set up Image Directory #############################
 
 # in case you just want to test this function
-# rmd_file_df <- all_rmd_files_bld[21, ]
+#rmd_file_df <- all_rmd_files_bld[3, ]
 
 create_markdown <- function(rmd_file_df, wd){
   
@@ -104,6 +102,10 @@ create_markdown <- function(rmd_file_df, wd){
   # check for working dir image dir
   check_create_dirs(rmd_file_df$fig_dir)
   
+  # check for pdf directory in git repo
+  pdf_dir <- file.path(git_repo_base_path, "pdf", (sub("[^/]+$", "", rmd_file_df$base_path)))
+  check_create_dirs(pdf_dir, clean = F)
+  
   # set knitr render options.
   opts_chunk$set(fig.path = paste0(rmd_file_df$fig_dir,"/"),
                  fig.cap = " ",
@@ -113,12 +115,28 @@ create_markdown <- function(rmd_file_df, wd){
   render_markdown(strict = FALSE, 
                   fence_char = "`")
   
+  # Universal Knitr Config - set the base url for images and links in the md file for website
+  base_url="{{ site.url }}/"
+  opts_knit$set(base.url = base_url)
+  
   # knit Rmd to jekyll flavored md format, knit to the git repo so don't have to 
   # move the file
   knit(input= basename(current_file), 
        output = rmd_file_df$md_files, 
        envir = parent.frame())
+
+  # create pdfFile path name
+  pdf_file <- paste0(pdf_dir, gsub(x=rmd_file_df$code_file, pattern=".R$",".pdf")) 
   
+  # Universal Knitr Config - set the base url for images and links in the pdf
+  base_url=""
+  opts_knit$set(base.url = base_url)
+  
+  # turning off pdf - as not sure how to deal with inline images with {{ site.url }} in the path
+  # knit to pdf
+  #render(basename(current_file), 
+  #        output_file = pdf_file,
+  #        output_format = "pdf_document")
   
   if (length(list.files(rmd_file_df$fig_dir)) > 0) {
     # create fig dir path
@@ -154,7 +172,7 @@ all_rmd_files <- as.data.frame(list.files(file.path(git_repo_base_path, repo_pos
                                           recursive = T, full.names = T))
 names(all_rmd_files) <- "rmd_files"
 
-all_rmd_files_bld <- populate_all_rmd_df(all_rmd_files, all=F)
+all_rmd_files_bld <- populate_all_rmd_df(all_rmd_files, all=T)
 
 # just one file
 # create_markdown(all_rmd_files_bld[20, ], wd)
@@ -169,9 +187,3 @@ if ((nrow(all_rmd_files_bld)) > 0){
  }
 }
 
-
-# rebuild entire course
-#do.call( function(x,y) create_markdown(all_rmd_files_bld, wd), 
-#         all_rmd_files_bld)
-
-#mapply(create_markdown, all_rmd_files_bld, wd=wd)
