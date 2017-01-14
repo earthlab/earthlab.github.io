@@ -6,7 +6,7 @@ title: 'Get to Know RStudio'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'This tutorial walks you through downloading and installing R and RStudio on your computer.'
 dateCreated: 2016-12-12
-modified: 2017-01-13
+modified: '2017-01-13'
 nav-title: 'RStudio Intro'
 week: 1
 sidebar:
