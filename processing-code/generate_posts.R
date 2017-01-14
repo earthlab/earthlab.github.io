@@ -3,6 +3,7 @@ library(tools)
 library(yaml)
 library(rlist)
 library(rmarkdown)
+library(lubridate)
 source("processing-code/helpers.R")
 
 # Find files that need to be converted ------------------------------------
@@ -21,8 +22,75 @@ find_files_to_convert <- function(input_dir) {
 }
 
 files_to_convert <- find_files_to_convert("tutorials") %>%
-  except(posts_to_ignore())
+  except(posts_to_ignore()) %>%
+  data.frame(source_file = .)
 
+
+# create a data frame with
+# - does md exist?
+# - date of last md change
+# - date of last source file change
+last_commit_date <- function(df, column) {
+  file <- df[[column]]
+  if (is.na(file)) {
+    return(NA)
+  }
+  stopifnot(length(file) == 1)
+  cmd_prefix <- "git log -1 --date=iso --format=%cd"
+  
+  if (substr(file, 1, 10) == "tutorials/") {
+    cmd_prefix <- paste("cd tutorials &&", cmd_prefix)
+    file <- gsub("tutorials/", "", file)
+  }
+  
+  cmd_prefix %>%
+    paste(file) %>%
+    system(intern = TRUE) %>%
+    strsplit(split = " -") %>%
+    unlist() %>%
+    `[`(1) %>%
+    ymd_hms()
+}
+
+commit_df <- files_to_convert %>%
+  group_by(source_file) %>%
+  do(data.frame(last_src_commit = last_commit_date(., column = "source_file"))) %>%
+  mutate(expected_md = sub("(.*\\/)([^.]+)(\\.[[:alnum:]]+$)", "\\2", 
+                           source_file), 
+         expected_md = paste0(expected_md, ".md"))
+
+# find whether md exists
+extant_md <- list_posts() %>%
+  grep(pattern = "./tutorials/", fixed = TRUE, value = TRUE, invert = TRUE)
+
+commit_df$md_exists <- NA
+commit_df$md_name <- NA
+
+for (i in 1:nrow(commit_df)) {
+  commit_df$md_exists[i] <- max(grepl(x = extant_md, 
+                                  pattern = commit_df$expected_md[i], 
+                                  fixed = TRUE))
+  stopifnot(commit_df$md_exists[i] <= 1)
+  if (commit_df$md_exists[i]) {
+    commit_df$md_name[i] <- grep(x = extant_md, 
+                                 pattern = commit_df$expected_md[i], 
+                                 fixed = TRUE, 
+                                 value = TRUE)
+  }
+}
+
+# identify which posts need to be rebuilt based on 
+# - whether a md file has already been rendered
+# - whether the source file has changed more recently than the rendered post
+files_to_convert <- commit_df %>%
+  group_by(source_file, last_src_commit, md_exists, md_name) %>%
+  do(data.frame(last_md_commit = last_commit_date(., column = "md_name"))) %>%
+  mutate(delta_t = last_src_commit - last_md_commit,   
+         needs_rebuild = !md_exists | delta_t > 0) %>%
+  filter(needs_rebuild) %>%
+  ungroup() %>%
+  select(source_file) %>%
+  unlist()
 
 # Convert the files to md posts -------------------------------------------
 
@@ -164,9 +232,10 @@ yaml_from_md <- function(md_filename){
 }
 
 
-
-pb <- txtProgressBar(min = 1, max = length(files_to_convert), style = 3)
-for (i in seq_along(files_to_convert)) {
-  make_post(files_to_convert[i])
-  setTxtProgressBar(pb, i)
+if (length(files_to_convert) > 0) {
+  pb <- txtProgressBar(min = 0, max = length(files_to_convert), style = 3)
+  for (i in seq_along(files_to_convert)) {
+    make_post(files_to_convert[i])
+    setTxtProgressBar(pb, i)
+  }
 }

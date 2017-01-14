@@ -25,6 +25,11 @@
     margin-bottom: 0.75em;
   }
 
+  h2 {
+    font-size: 1.5em;
+    margin-top: 0 !important; // override
+  }
+
   @at-root .page__content #{&} h4 {
     // using at-root to override .page-content h4 font size
     margin-bottom: 0;
