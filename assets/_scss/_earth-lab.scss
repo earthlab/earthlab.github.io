@@ -1,0 +1,75 @@
+/* ==========================================================================
+   Earth Lab Specific css highlighting this will allow us to more easily
+   integrate with MIn Minstakes in the future
+   ========================================================================== */
+
+div.notice--success, div.notice--warning {
+   padding: 2em !important;
+   font-size: .8em !important;
+
+   code {
+     font-size: .9em;
+     background-color: $code-background-color;
+   }
+}
+
+
+.nav__sub-title {
+  background-color: mix(#000, $info-color, 20%);
+  color: #fff;
+  padding-left: .7em;
+}
+
+.nav__list li ul li {
+    padding-left: 0.5em;
+  }
+
+/* previous and next buttons */
+  .previous--next {
+      margin-top: 2.5em;
+  }
+
+
+/* if the warning block is a header, remove the top margin so things line up */
+
+  .header {
+      margin-top: 0 !important;
+  }
+
+  /* for font awesome sizing */
+
+  .fa-2 {
+    font-size: .8em;
+  }
+
+
+  .nav__sub-title.grey {
+    background-color: #fff;
+    color: #7a8288;
+    background-color: #fff;
+    color: #7a8288;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0;
+  }
+
+  /* Custom side bar links to Home and before /next week */
+
+  .sidebar.sticky a {
+      text-decoration: none;
+  }
+
+  .sidebar.sticky > h4 {
+    margin-top: 0.3em;
+}
+  /* Force the TOC to have grey text not blue */
+
+  #markdown-toc a {
+    color: #7a8288;
+    font-size: 0.9em;
+}
+
+/* Adding space under authors */
+.page__title + .page__meta {
+    margin-bottom: 1.4em;
+}
