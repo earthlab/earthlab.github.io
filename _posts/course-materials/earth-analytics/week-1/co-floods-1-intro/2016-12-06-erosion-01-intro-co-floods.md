@@ -10,7 +10,7 @@ nav-title: 'CO Floods - Google Earth'
 module-nav-title: 'CO Floods Intro'
 dateCreated: 2016-12-06
 modified: 2016-12-12
-module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
+module-title: 'Understanding Disturbance With Data - Flooding and Erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
 USGS stream flow data to begin to understand the factors associated with a flood.
