@@ -7,6 +7,8 @@ comments: false
 author_profile: false
 ---
 
+test
+
 ## Courses
 
 [Earth Analytics Course Spring 2017](/course-materials/earth-analytics/)
@@ -42,5 +44,23 @@ Course materials and labs that focus on computational approaches.
   <p class="page__meta">lessons: {{ counter }}, presentations {{ slideCounter }}</p>
   </article>
 </div>
+
+{% endfor %}
+
+
+
+
+# MATERIALS 2
+Here doc
+
+{% assign modules2 = site.posts | where:"order", 1 %}
+{% for module in modules2 %}
+* YES   {{ module.module-title | cdata_escape }}
+        {{ module.permalink }}
+        MODIFIED: {{ module.modified }} {{ module.modified | replace:''','' }}
+        {{ module.module-description | xml_escape }}
+        {{ module.order }}
+        * {{ module.authors | join: ', ' }}
+
 
 {% endfor %}
