@@ -26,9 +26,12 @@ authors <- lapply(md_files, yaml2df, "authors") %>%
 
 bios <- read.csv("org/author-bios.csv", stringsAsFactors = FALSE)
 
-authors <- left_join(authors, bios)
+authors <- left_join(authors, bios) %>%
+  mutate(bio = trimws(bio), 
+         bio = ifelse(is.na(bio), "", bio))
 
-finalYAML <- yaml::as.yaml(authors, column.major = FALSE)
+finalYAML <- yaml::as.yaml(authors, column.major = FALSE) %>%
+  quote_field("bio")
 
 # save output (do we need to prepend "_data/"?)
 cat(finalYAML, file = "_data/authors.yml")
@@ -57,16 +60,21 @@ gen_author_profiles <- function(authors, prefix = "org/authors") {
                       author = authors$name[i],
                       permalink = paste0("/authors/", authors$slug[i], "/"),
                       title = authors$name[i],
-                      author_profile = "false",
-                      `site-map` = "true", 
+                      author_profile = FALSE,
+                      `site-map` = TRUE, 
                       bio = trimws(authors$bio[i]))
     # convert to yaml
-    auth_yaml <- as.yaml(auth_list)
+    auth_yaml <- as.yaml(auth_list) %>%
+      fix_booleans() %>%
+      gsub(pattern = "\n  ", replacement = " ") %>%
+      quote_field(field = "title") %>%
+      quote_field(field = "bio")
 
     # save as md
     out_file <- paste0(paste0(authors$slug[i], ".md"))
     cat(paste0("---\n",
                auth_yaml,
+               "\n",
                "---\n"),
         file = file.path(prefix, out_file))
   }
