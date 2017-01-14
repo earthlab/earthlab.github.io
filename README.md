@@ -39,3 +39,16 @@ NOTE: if the config BASEURL is not correct, the site won't build locally properl
 # run jekyll site locally
 bundle exec jekyll serve
 ```
+
+
+## Build Notes:
+
+* the site requires jekyll flavored markdown. Be sure to specify that if you are knitting.
+* in rmd files - be sure to specify fig.cap="text here" to add alt text to any code chunks that output a FIGURE.
+
+## CSS
+
+Currently, we are using less. to install less
+
+1. install nodejs (npm) https://nodejs.org/en/
+2. install less : `sudo npm install less -g` NOTE: you need administration access to install 

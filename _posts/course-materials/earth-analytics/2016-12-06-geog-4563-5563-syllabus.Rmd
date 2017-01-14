@@ -1,0 +1,193 @@
+---
+title: 'GEOG 4563 & 5563 - Earth Analytics: Spring 2017 Syllabus'
+authors: Leah Wasser
+category: course-materials
+output: pdf_document
+excerpt:
+layout: single
+nav-title: Course Syllabus
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+comments: no
+permalink: /course-materials/earth-analytics/earth-analytics-syllabus/
+sidebar:
+  nav: earth-analytics-2017
+author_profile: no
+---
+
+{% include toc title="This Lesson" icon="file-text" %}
+
+
+## Instructor
+
+Dr. Leah A. Wasser
+Office. S346 SEEC
+Ph. 303.735.4637
+leah.wasser@colorado.edu
+
+<div class='notice--success' markdown="1">
+
+## Course location
+
+* **Teaching Assistant:** Sepideh Dadashi
+* **Time:** Wednesday 3:00 pm -  5:50 pm
+* **Location:** SEEC S125
+
+## Office hours
+
+* Mondays: 1:00pm-3:00pm, Leah Wasser SEEC Earth Lab - S346
+* Tuesdays: 1:00pm - 3:00pm, Sepideh Dadashi, SEEC Earth Lab main space S348
+
+## Learning Outcomes
+
+At the end of this course you will be able to:
+
+* Use the R programming language to open and visualize various types of data.
+* Navigate and use the `RStudio` environment for `R`.
+* Find and download different types of data available from various agency and other sources.
+*  Create data-driven reports that link data processing methods, data and results.
+
+## Course requirements
+
+All students will need
+a working laptop to use in class each week. Please contact the instructor if
+you do not currently have a laptop.
+
+## Textbook
+There is no required textbook for this course. We will be drawing from a suite
+of papers, blog posts, text and other resources throughout the course. As you
+find other resources that help you through the class, please feel free to
+share them with the instructor and your classmates.
+
+<a href="{{ site.url }}/pdf/course-materials/earth-analytics/2016-12-06-geog-4163-5163-syllabus.pdf" class="btn btn-success btn--x-large">
+<i class="fa fa-download" aria-hidden="true"></i> course syllabus (.pdf)</a>
+</div>
+
+
+## Course overview
+
+This advanced, multidisciplinary course will address major questions in Earth
+science and teach students to use the analytical tools necessary to undertake
+exploration of heterogeneous ‘big scientific data’. This course is designed for upper level (junior /
+senior level) undergraduate students and graduate students.
+
+Throughout the course we will use computationally intensive techniques to address
+scientific questionsWe will use a suite of different
+types of publicly available data including:
+
+* Satellite and airborne lidar and spectral remote sensing data,
+* Data collected using distributed *in situ* (on the ground) sensor networks
+* Social media data, and
+* Demographic (census) data.
+
+This course is highly technical. We will use the `R` scientific programming
+environment and the `RStudio` interface to work with data.
+
+
+## Grading
+All grading for this course will follow the CU grading policies.
+Late assignments will not be accepted in this course. If there are extenuating /
+university approved
+circumstances university-approved activity, illness, injury, family emergency, or religious
+observance that prevents you from completing an assignment on time, please
+get in touch with the instructor or the course TA as soon as possible.
+
+Course grades will be calculated using the following assignments:
+
+| Assignment  | Percent of Credit   |
+|---|---|---|---|---|
+| Homework | 25% |
+| Mid term project | 20% |
+| Final group presentation | 20% |
+| Final individual project report | 20%  |
+| Class participation | 15% |
+
+You must complete all assignments to recieve a passing grade in this course.
+
+## Communication
+
+All email messages about this course should include “earth-analytics” in the
+subject line and be signed with your full name. Please use your official **CU email address** when communicating with your course instructors.
+
+## Course content
+Material pertaining to this course will be communicated through the course website. [http://earthlab.github.io/course-materials/earth-analytics/earth-analytics-syllabus/](http://earthlab.github.io/course-materials/earth-analytics/). Students are expected to check this website daily for assignment and
+content updates.
+
+## Course policies
+
+### Attendance
+
+Attendance is required for all class sessions. In the event that you must miss a class due
+to a university-approved activity, illness, injury, family emergency, or religious
+observance, you must notify the course instructor, preferably **before** the day of class, and the absence
+will be excused. Students will be given a reasonable amount of time to make up the
+work based on the type of assignment missed and the reason for their absence.
+Unexcused absences will affect the student’s grade because regular
+participation is a requirement of this course.
+
+### Classroom Behavior
+
+Students and faculty each have responsibility for maintaining an appropriate learning environment. Those who fail to adhere to such behavioral standards may
+be subject to discipline. Professional courtesy and sensitivity are especially
+important with respect to individuals and topics dealing with differences of
+race, color, culture, religion, creed, politics, veteran’s status, sexual
+orientation, gender, gender identity and gender expression, age, disability,
+and nationalities. Class rosters are provided to the instructor with the
+student's legal name. I will gladly honor your request to address you by
+an alternate name or gender pronoun. Please advise the course instructor of this preference
+early in the semester so that they can make appropriate changes to their
+records. Please also see the policies for <a href="http://www.colorado.edu/policies/student-classroom-and-course-related-behavior" target="_blank">Student Classroom and Course-Related Behavior </a>and the
+<a href="http://www.colorado.edu/policies/student-honor-code-policy" target="_blank">Student Honor Code.</a>
+
+
+The University of Colorado Boulder (CU-Boulder) is committed to maintaining a positive learning, working, and living environment. CU-Boulder will not tolerate acts of discrimination or harassment based upon Protected Classes or related retaliation against or by any employee or student. For purposes of this CU-Boulder policy, "Protected Classes" refers to race, color, national origin, sex, pregnancy, age, disability, creed, religion, sexual orientation, gender identity, gender expression, veteran status, political affiliation or political philosophy. Individuals who believe they have been discriminated against should contact the <a href="http://www.colorado.edu/institutionalequity/
+" target="_blank">Office of Institutional Equity and Compliance.</a> For further details, please also see CU-Boulder’s
+<a href="http://www.colorado.edu/policies/discrimination-and-harassment-policy-and-procedures
+" target="_blank">Discrimination and Harassment Policy and Procedures.</a>
+
+### Religious observances
+
+Campus policy regarding religious observances requires that faculty make every
+effort to deal reasonably and fairly with all students who, because of religious
+obligations, have conflicts with scheduled exams, assignments or required
+attendance. See the policy document on <a href="http://www.colorado.edu/policies/observance-religious-holidays-and-absences-classes-andor-exams
+" target="_blank">Observance of Religious Holidays and Absences from Classes and/or Exams</a>
+for further details.
+
+### Academic Standards
+
+All students of the University of Colorado at Boulder are responsible for knowing and adhering to the Academic Integrity Policy of this institution. Violations of this policy may include: cheating, plagiarism, aid of academic dishonesty, fabrication, lying, bribery, and threatening behavior. All incidents of academic misconduct shall be reported to the Honor Code Council (honor@colorado.edu; 303-735-2273). Students who are found to be in violation of the academic integrity policy will be subject to both academic sanctions from the faculty member and non-academic sanctions (including but not limited to university probation, suspension, or expulsion). Information on the Honor Code is available from the <a href="http://honorcode.colorado.edu/
+" target="_blank">Honor Code Office.</a> If you have any questions about proper citations, plagiarism, etc., please don’t hesitate to ask!
+
+### Students with a Disability
+
+If you have any type of disability (emotional, medical, physical, learning, etc.), there are support systems, resources, and accommodation actions available to you. If you wish to access any of these supports, resources or accommodations, I encourage you to contact <a href="http://www.colorado.edu/disabilityservices/
+" target="_blank">Disability Services</a> in the Office of Diversity, Equity and Community Engagement, to secure necessary academic accommodations. Please Note: You are under no obligation to disclose your disability.
+
+If you qualify for accommodations because of a disability, please submit to your professor a letter from Disability Services in a timely manner (for exam accommodations provide your letter at least one week prior to the exam) so that your needs can be addressed. Disability Services determines accommodations based on documented disabilities. Contact Disability Services at 303-492-8671 or by e-mail at dsinfo@colorado.edu. If you have a temporary medical condition or injury, see Temporary Medical Conditions: Injuries, Surgeries, and Illnesses guidelines under Quick Links at Disability Services website and discuss your needs with your professor.
+
+## Course components
+
+### Homework assignments
+
+Each week there will be a homework assignment. Use the materials on the website
+including readings, tutorials and links to other resources in addition to skills
+and concepts that we learn in class to complete the assignment.
+
+### Weekly readings
+
+Readings are posted every week along with the homework assignment for that week.
+The material for each week will be posted no later than the Tuesday before the
+next weeks' class. Weekly readings are subject to change. Be sure to check the
+weekly assignment page for the readings **each week**.
+
+### Final project (subject to change)
+
+Assigments that you complete will provide you with the skills and resources needed
+to complete the final project. The final project will consist of a group presentation
+and an individual report that you submit in `R Markdown` and `.html` or `.pdf` format.
+
+**Important:** Please note that the course schedule and content as discussed above
+is subject to change. This course content schedule is not designed as a
+contract. Rather, it is
+an overview guide to the materials that we will review during the semester.
+{: .notice }

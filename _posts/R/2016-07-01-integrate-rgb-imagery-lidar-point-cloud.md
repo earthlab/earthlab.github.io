@@ -43,11 +43,14 @@ library(scales)
 options(jupyter.plot_mimetypes = 'image/png')
 
 # download data if necessary
-neon_dir <- list.files(getwd(), pattern = 'NEON_AOP_sample_data')
-if (length(neon_dir) == 0) {
-  system("wget http://neonhighered.org/AOPSampleData/AOP_sample_data.zip")
-  system("unzip AOP_sample_data.zip && rm AOP_sample_data.zip")
+dir_pattern <- "NEON_AOP_sample_data"
+if (0 == length(dir(pattern = dir_pattern))) {
+    download.file("http://neonhighered.org/AOPSampleData/AOP_sample_data.zip", 
+                 destfile = "AOP_sample_data.zip")
+    unzip("AOP_sample_data.zip")
 }
+neon_dir <- dir(pattern = dir_pattern)
+
 ```
 
     Loading required package: sp
@@ -72,7 +75,7 @@ lidar_d <- readLAS(path_to_lidar)
 scatterplot3d(lidar_d[, 1:3], 
               cex.symbols = .1,
               pch = 19, 
-              color = alpha(1, .1), 
+              color = alpha(1, .02), 
               angle = 70, 
               box = FALSE)
 ```
@@ -144,7 +147,6 @@ scatterplot3d(lidar_d[, 1:3],
               ylim = scale_lims(lidar_d, 'Y'), 
               zlim = scale_lims(lidar_d, 'Z'), 
               box = FALSE, 
-              angle = 80,
               xlab = 'Easting', 
               ylab = 'Northing', 
               zlab = 'Altitude')
