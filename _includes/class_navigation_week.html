@@ -24,14 +24,18 @@
 
         {% endif %}
         <ul>
- {{ theLesson }}
-     {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
-        {% for alesson in class_lessons %}
+
+          {{ theLesson }}
+        {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+        {% for alesson in weeks %}
         {{ theLesson }}
+        {% if alesson.class-lesson == alesson %}
+        it works
           {% if alesson.url == page.url %}
           <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
           {% else %}
           <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+          {% endif %}
           {% endif %}
         {% endfor %}
        </ul>
