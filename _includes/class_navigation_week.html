@@ -20,12 +20,12 @@
         {% if module.order == 1 %}
             <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
             {% assign theLesson = module.class-lesson %}
-            {{ theLesson }}
-            {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
-            {{ class_lessons[1].module-title }}
+            {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+
         {% endif %}
         <ul>
  {{ theLesson }}
+     {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
         {% for alesson in class_lessons %}
         {{ theLesson }}
           {% if alesson.url == page.url %}
