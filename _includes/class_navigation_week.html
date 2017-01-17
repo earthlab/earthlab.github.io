@@ -16,7 +16,10 @@
   <ul>
     <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class Materials</span>
       <ul>
+        is classes populating?
+        {{ classes }}
         {% for module in classes %}
+        {{ module }} {{ module.order }}
         {% if module.order == 1 %}
             {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
             <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
