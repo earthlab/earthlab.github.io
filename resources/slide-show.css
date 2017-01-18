@@ -216,3 +216,22 @@ code {
 .remark-slide-number {
   font-size: .5em;
 }
+
+.small { font-size: .8em}
+
+.smaller-image > img { width: 65% }
+
+.inverse > blockquote {
+    border-left: none;
+    border-right: none;
+    box-shadow: 0px 0px 0px;
+    background-color: #272822;
+    color: #fff;
+
+}
+.inverse > blockquote >p {
+    font-size: 1.45em;
+    line-height: 1.1em;
+    color: #fff;
+
+}
