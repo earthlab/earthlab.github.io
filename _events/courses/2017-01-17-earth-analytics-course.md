@@ -37,11 +37,7 @@ senior) undergraduate students in the natural/social sciences.
 * **Location:** SEEC S125
 * **Sections:** GEOG 4563 (Junior / Senior Level undergraduate), GEOG 5563 (Graduate)
 
-Office  Hours
-
-We need to add these here. 
-
-Please direct questions to Leah Wasser (leah.wasser at colorado.edu).
+[View full course syllabus for more information.](https://earthlab.github.io/course-materials/earth-analytics/earth-analytics-syllabus/)
 
 </div>
 
