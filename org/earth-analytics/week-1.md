@@ -44,6 +44,10 @@ First, watch this video to learn more about the 2013 Colorado floods and some
 of the data that can be used to better understand the drivers and impacts of those
 floods.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IHIckvWhwoo" frameborder="0" allowfullscreen></iframe>
+
+#### Before / after google earth fly through
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bUcWERTM-OA?rel=0&loop=1" frameborder="0" allowfullscreen></iframe>
 
 ### 3. Review open science slide show
