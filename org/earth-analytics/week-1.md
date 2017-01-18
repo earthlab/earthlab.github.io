@@ -25,6 +25,9 @@ document and convert it to a pdf using `knitr`.
 <a class="btn btn-info btn--x-large" href="{{ site.url }}/slide-shows/4-earth-analytics-spring-2017-intro/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i> View course overview slideshow
 </a>
 
+<a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1EY9vxr3bAi81xfuIcNvjMRQqbSkXc9qoau0Pn3cahLQ/edit" target= "_blank"> View climate change google doc
+</a>
+
 </div>
 
 ## <i class="fa fa-pencil"></i> Homework Week 1
@@ -33,6 +36,7 @@ document and convert it to a pdf using `knitr`.
 * <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7" target="_blank">Five selfish reasons to work reproducibly - Florian Markowetz</a>
 
 * <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002303" target="_blank"> Computing Workflows for Biologists: A Roadmap</a>
+* <a href="http://science.sciencemag.org/content/330/6006/916" target="_blank">Earth System Science for Global Sustainability: Grand Challenges (read the full article)</a>
 
 
 ### 2. Watch flood video
