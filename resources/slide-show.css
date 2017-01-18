@@ -235,3 +235,13 @@ code {
     color: #fff;
 
 }
+
+
+.remark-slide > .full {
+  padding: 0em;
+}
+
+/* turn off logo */
+.full .logo {
+    left: -300px;
+}
