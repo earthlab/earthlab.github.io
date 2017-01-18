@@ -27,6 +27,10 @@ document and convert it to a pdf using `knitr`.
 
 <a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1EY9vxr3bAi81xfuIcNvjMRQqbSkXc9qoau0Pn3cahLQ/edit" target= "_blank"> View climate change google doc
 </a>
+<a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1XuPS0oHh6lRo47sQ4XB-WSWvRQBoS2HWksNc6v_JSic/edit#
+" target= "_blank"> View climate change google doc
+</a>
+
 
 </div>
 
