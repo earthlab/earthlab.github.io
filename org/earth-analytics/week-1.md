@@ -22,6 +22,8 @@ in class related to the 2013 Colorado Floods. In your homework, you will set
 `R` and `RStudio` setup on your laptop and learn how to create an R Markdown
 document and convert it to a pdf using `knitr`.
 
+<a href="https://docs.google.com/document/d/1EY9vxr3bAi81xfuIcNvjMRQqbSkXc9qoau0Pn3cahLQ/edit" target="_blank" class="btn">Google doc for climate change activity</a>
+
 </div>
 
 ## <i class="fa fa-pencil"></i> Homework Week 1
