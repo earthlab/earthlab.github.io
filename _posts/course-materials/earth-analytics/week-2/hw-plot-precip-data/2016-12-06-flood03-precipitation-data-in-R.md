@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-01-19'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -18,43 +18,10 @@ comments: true
 order: 3
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
 
 
-``` {r daily-summ, eval=F, echo=F}
 
-# the data processing workflow
-library(dplyr)
-library(lubridate)
-
-# import precip data into R data.frame
-precip_boulder <- read.csv("data/flood-co-2013/precip/805325-precip_daily_2003-2013.csv",
-                           header = TRUE,
-                           na.strings = c(999.99))
-
-# convert time
-precip_boulder$DATE <- as.Date(precip_boulder$DATE, # convert to Date class
-                                  format="%Y%m%d %H:%M")
-                                  #DATE in the format: YearMonthDay Hour:Minute
-
-precip_boulder_daily <- precip_boulder %>%
-    group_by(DATE) %>% # summarize on the date column
-    summarize(DAILY_PRECIP = sum(HPCP, na.rm=TRUE), # sum up rainfall for each day
-              STATION = first(STATION), STATION_NAME= first(STATION_NAME),
-              ELEVATION= first(ELEVATION), LATITUDE= first(LATITUDE),
-              LONGITUDE= first(LONGITUDE))
-
-# add a year
-precip_boulder_daily$YEAR <- format(precip_boulder_daily$DATE, "%Y")
-# add a jday
-precip_boulder_daily$JULIAN <- yday(precip_boulder_daily$DATE)
-
-# view the results
-# head(precip_boulder_daily)
-
-# export to daily csv
-write.csv(precip_boulder_daily, "data/week2/805325-precip_dailysum_2003-2013.csv")
-
-```
 
 In this lesson, we will learn how to import a larger dataset, and test our
 skills cleaning and plotting the data.
@@ -89,7 +56,7 @@ directory with it.
 * **dplyr:** `install.packages("dplyr")`
 
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){: .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -116,7 +83,8 @@ Let's get started by loading the `ggplot2` and `dplyr` libraries. Also, let's se
 our working directory. Finally, set `stringsAsFactors` to `FALSE` globally as
 shown below.
 
-```{r load-libraries}
+
+```r
 # set your working directory to the earth-analytics directory
 # setwd("working-dir-path-here")
 
@@ -126,7 +94,6 @@ library(dplyr) # efficient data manipulation
 
 # set strings as factors to false for everything
 options(stringsAsFactors = FALSE)
-
 ```
 
 
@@ -140,7 +107,8 @@ December 2013.
 
 We can use `read.csv()` to import the `.csv` file.
 
-```{r import-precip}
+
+```r
 
 # download the data
 # download.file(url = "https://ndownloader.figshare.com/files/7283285",
@@ -153,13 +121,40 @@ boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.cs
 
 # view first 6 lines of the data
 head(boulder_daily_precip)
+##     DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
+## 1 1/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 2 1/5/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 3 2/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 4 2/2/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 5 2/3/03         0.40 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 6 2/5/03         0.20 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+##   LONGITUDE YEAR JULIAN
+## 1 -105.2811 2003      1
+## 2 -105.2811 2003      5
+## 3 -105.2811 2003     32
+## 4 -105.2811 2003     33
+## 5 -105.2811 2003     34
+## 6 -105.2811 2003     36
 
 # view structure of data
 str(boulder_daily_precip)
+## 'data.frame':	792 obs. of  9 variables:
+##  $ DATE        : chr  "1/1/03" "1/5/03" "2/1/03" "2/2/03" ...
+##  $ DAILY_PRECIP: num  0e+00 1e+03 0e+00 1e+03 4e-01 ...
+##  $ STATION     : chr  "COOP:050843" "COOP:050843" "COOP:050843" "COOP:050843" ...
+##  $ STATION_NAME: chr  "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" ...
+##  $ ELEVATION   : num  1650 1650 1650 1650 1650 ...
+##  $ LATITUDE    : num  40 40 40 40 40 ...
+##  $ LONGITUDE   : num  -105 -105 -105 -105 -105 ...
+##  $ YEAR        : int  2003 2003 2003 2003 2003 2003 2003 2003 2003 2003 ...
+##  $ JULIAN      : int  1 5 32 33 34 36 37 38 41 49 ...
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+##    0.000    0.100    0.100    5.297    0.300 1000.000
 max(boulder_daily_precip$DAILY_PRECIP)
+## [1] 999.99
 ```
 
 
@@ -214,30 +209,7 @@ Your final plot should look something like the plot below.
 
 
 
-``` {r plot-precip-hourly, echo=F, warning=F, fig.cap="precip plot w fixed dates"}
-
-# do we need to do something about NA VALUES?
-boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
-         header = TRUE,
-         na.strings = 999.99)
-
-
-# format date
-boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
-                                     format="%m/%d/%y")
-
-
-
-# plot the data using ggplot2
-prec_plot_daily <- ggplot(data=boulder_daily_precip,  # the data frame
-      aes(DATE, DAILY_PRECIP)) +   # the variables of interest
-      geom_point() +   # create a bar graph
-      xlab("Date") + ylab("Precipitation (Inches)") +  # label the x & y axes
-      ggtitle("Hourly Precipitation - Boulder Station\n 2003-2013")  # add a title
-
-prec_plot_daily
-
-```
+![precip plot w fixed dates]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/plot-precip-hourly-1.png)
 
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
@@ -277,12 +249,12 @@ When we code like this we have to create intermediate data frame outputs. howeve
 pipes allow us to link multiple steps in one line.
 
 
-```{r subset-data}
+
+```r
 
 # subset 2 months around flood
 precip_boulder_AugOct <- boulder_daily_precip %>%
                         filter(DATE >= as.Date('2013-08-15') & DATE <= as.Date('2013-10-15'))
-
 ```
 
 In the code above, we use the pipe to send the boulder_daily_precip data through
@@ -291,10 +263,13 @@ date range that we specified. Since %>% takes the object on its left and passes
 it as the first argument to the function on its right, we don’t need to explicitly include it as an argument to the filter() function.
 
 
-```{r check-subset, fig.cap="precip plot subset" }
+
+```r
 # check the first & last dates
 min(precip_boulder_AugOct$DATE)
+## [1] "2013-08-21"
 max(precip_boulder_AugOct$DATE)
+## [1] "2013-10-11"
 
 # create new plot
 precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
@@ -303,8 +278,9 @@ precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
   ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek")
 
 precPlot_flood2
-
 ```
+
+![precip plot subset]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/check-subset-1.png)
 
 
 <div class="notice--warning" markdown="1">
@@ -322,19 +298,4 @@ HINT: type ?lims in the console to see how the xlim and ylim arguments work.
 
 </div>
 
-```{r challenge, echo=FALSE, warning="hide", fig.cap="precip plot subset 2" }
-
-# subset 2 months around flood
-precip_boulder_AugOct_2012 <- boulder_daily_precip %>%
-                        filter(DATE >= as.Date('2012-08-15') & DATE <= as.Date('2012-10-15'))
-
-# create new plot
-precPlot_flood_2012 <- ggplot(data=precip_boulder_AugOct_2012, aes(DATE,DAILY_PRECIP)) +
-  geom_bar(stat="identity") +
-  xlab("Date") + ylab("Precipitation (inches)") +
-  ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek") +
-  ylim(0,10)
-
-precPlot_flood_2012
-
-```
+![precip plot subset 2]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/challenge-1.png)
