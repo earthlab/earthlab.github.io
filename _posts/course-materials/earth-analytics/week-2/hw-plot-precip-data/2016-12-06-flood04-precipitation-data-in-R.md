@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-01-13'
+modified: '2017-01-19'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -54,19 +54,33 @@ directory with it.
 * **ggplot2:** `install.packages("ggplot2")`
 * **dplyr:** `install.packages("dplyr")`
 
-### Data Download
 
-[Download Precipitation Data](https://ndownloader.figshare.com/files/7283078)
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){: .btn }
 
 </div>
 
+## Important - Data Organization
+Before you begin this lesson, be sure that you've downloaded the dataset above.
+You will need to UNZIP the zip file. When you do this, be sure that your directory
+looks like the image below: note that all of the data are within the week2
+directory. They are not nested within another directory. You may have to copy and
+paste your files to make this look right.
+
+<figure>
+<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/week2-data.png">
+<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/week2-data.png" alt="week 2 file organization">
+</a>
+<figcaption>Your `week2` file directory should look like the one above. Note that
+the data directly under the week-2 folder.</figcaption>
+</figure>
 
 ## Work with Precipitation Data
 
 ## R Libraries
 
-Let's get started by loading the ggplot2 library and making sure our working
-directory is set. Be sure to also set `stringsAsFactors` to `FALSE` as shown below.
+Let's get started by loading the `ggplot2` and `dplyr` libraries. Also, let's set
+our working directory. Finally, set `stringsAsFactors` to `FALSE` globally as
+shown below.
 
 
 ```r
@@ -74,7 +88,7 @@ directory is set. Be sure to also set `stringsAsFactors` to `FALSE` as shown bel
 # setwd("working-dir-path-here")
 
 # load packages
-library(ggplot2) # efficient, professional plots
+library(ggplot2) # efficient plotting
 library(dplyr) # efficient data manipulation
 
 # set strings as factors to false for everything
@@ -100,47 +114,46 @@ We can use `read.csv()` to import the `.csv` file.
 #              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
          header = TRUE)
 
 
 # view first 6 lines of the data
 head(boulder_daily_precip)
-##   X       DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
-## 1 1 2003-01-01          0.0 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 2 2 2003-02-01          0.0 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 3 3 2003-02-03          0.4 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 4 4 2003-02-05          0.2 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 5 5 2003-02-06          0.1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 6 6 2003-02-07          0.1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+##     DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
+## 1 1/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 2 1/5/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 3 2/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 4 2/2/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 5 2/3/03         0.40 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 6 2/5/03         0.20 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
 ##   LONGITUDE YEAR JULIAN
 ## 1 -105.2811 2003      1
-## 2 -105.2811 2003     32
-## 3 -105.2811 2003     34
-## 4 -105.2811 2003     36
-## 5 -105.2811 2003     37
-## 6 -105.2811 2003     38
+## 2 -105.2811 2003      5
+## 3 -105.2811 2003     32
+## 4 -105.2811 2003     33
+## 5 -105.2811 2003     34
+## 6 -105.2811 2003     36
 
 # view structure of data
 str(boulder_daily_precip)
-## 'data.frame':	788 obs. of  10 variables:
-##  $ X           : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ DATE        : chr  "2003-01-01" "2003-02-01" "2003-02-03" "2003-02-05" ...
-##  $ DAILY_PRECIP: num  0 0 0.4 0.2 0.1 0.1 0 0 0.3 0.1 ...
+## 'data.frame':	792 obs. of  9 variables:
+##  $ DATE        : chr  "1/1/03" "1/5/03" "2/1/03" "2/2/03" ...
+##  $ DAILY_PRECIP: num  0e+00 1e+03 0e+00 1e+03 4e-01 ...
 ##  $ STATION     : chr  "COOP:050843" "COOP:050843" "COOP:050843" "COOP:050843" ...
 ##  $ STATION_NAME: chr  "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" ...
 ##  $ ELEVATION   : num  1650 1650 1650 1650 1650 ...
 ##  $ LATITUDE    : num  40 40 40 40 40 ...
 ##  $ LONGITUDE   : num  -105 -105 -105 -105 -105 ...
 ##  $ YEAR        : int  2003 2003 2003 2003 2003 2003 2003 2003 2003 2003 ...
-##  $ JULIAN      : int  1 32 34 36 37 38 41 49 55 58 ...
+##  $ JULIAN      : int  1 5 32 33 34 36 37 38 41 49 ...
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.0000  0.1000  0.1000  0.2478  0.3000  9.8000
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+##    0.000    0.100    0.100    5.297    0.300 1000.000
 max(boulder_daily_precip$DAILY_PRECIP)
-## [1] 9.8
+## [1] 999.99
 ```
 
 
@@ -175,10 +188,14 @@ You can download the original complete data subset with additional documentation
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Using everything you've learned in the previous lessons, import the data,
-clean it up by assigning noData values to NA and making sure the dates are stored
-in the correct class. When you are done, plot it using `ggplot()`. Be sure to
-include a TITLE, and label the X and Y axes.
+Using everything you've learned in the previous lessons:
+
+* Import the dataset: `data/week2/805325-precip-dailysum_2003-2013.csv`
+* Clean the data by assigning noData values to `NA`
+* Make sure the date column is a date class
+* When you are done, plot it using `ggplot()`.
+  * Be sure to include a TITLE, and label the X and Y axes.
+  * Change the color of the plotted points
 
 Some notes to help you along:
 
@@ -191,15 +208,11 @@ Your final plot should look something like the plot below.
 
 
 
-
 ![precip plot w fixed dates]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/plot-precip-hourly-1.png)
 
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
 {: .notice }
-
-
-
 
 
 <div class="notice--warning" markdown="1">
@@ -253,9 +266,9 @@ it as the first argument to the function on its right, we don’t need to explic
 ```r
 # check the first & last dates
 min(precip_boulder_AugOct$DATE)
-## [1] "2013-09-03"
+## [1] "2013-08-21"
 max(precip_boulder_AugOct$DATE)
-## [1] "2013-10-09"
+## [1] "2013-10-11"
 
 # create new plot
 precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
