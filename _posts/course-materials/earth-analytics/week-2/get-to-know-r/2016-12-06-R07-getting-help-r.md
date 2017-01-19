@@ -17,6 +17,8 @@ comments: true
 order: 7
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 Getting help
 
 <div class='notice--success' markdown="1">

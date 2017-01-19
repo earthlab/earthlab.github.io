@@ -25,6 +25,9 @@ comments: true
 order: 1
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
+
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming
 language. We will introduce assignment operators (`<-`, comments (`#`) and functions
 as used in `R`.
