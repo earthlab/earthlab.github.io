@@ -24,7 +24,11 @@
     {% if page.class-lesson %}
      <!--  This is the code that populates the side bar navigation if there is a class-->
       {% include class_navigation_week.html %}
+    {% endif %}
 
+    {% if page.module %}
+    <!--  If it's not attached to a class, just show the lessons and slides-->
+      {% include module_navigation.html %}
     {% endif %}
     {% if page.week-landing %}
      <!--  This is the code that populates the side bar navigation if there is a class-->
