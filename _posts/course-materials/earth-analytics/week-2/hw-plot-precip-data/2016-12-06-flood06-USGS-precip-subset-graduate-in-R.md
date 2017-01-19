@@ -124,29 +124,11 @@ Next, check out the data. Are there no data values? If so, make sure to adjust y
 data import code above to account for no data values. Then determine how many no
 data values you have in your dataset.
 
+![histogram of data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/no-data-values-hist-1.png)![histogram of data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/no-data-values-hist-2.png)
+
+
 
 ```r
-
-# histogram - would allow us to see 999.99 NA values
-# or other "weird" values that might be NA if we didn't know the NA value
-hist(precip.boulder$HPCP, main ="Are there NA values?")
-```
-
-![histogram of data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/no-data-values-hist-1.png)
-
-```r
-
-precip.boulder <- read.csv("data/flood-co-2013/precip/805333-precip_daily_1948-2013.csv",
-                           header = TRUE, na.strings = 999.99)
-
-hist(precip.boulder$HPCP, main ="This looks better after the reimporting with\n no data values specified", xlab="value", ylab="frequency")
-```
-
-![histogram of data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/no-data-values-hist-2.png)
-
-```r
-
-
 print("how many NA values are there?")
 ## [1] "how many NA values are there?"
 sum(is.na(precip.boulder))
@@ -177,10 +159,10 @@ need to look like the one below!
 
 
 ```
-## Error in eval(expr, envir, enclos): object 'DateTime' not found
+## Warning: Removed 401 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png)
+![hourly precipitation]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png)
 
 These data are hard to look at. And really we only need to explore 30 years or so.
 Let's do the following
@@ -192,51 +174,37 @@ Let's do the following
 
 To aggregate data by a particular variable or time period, we can create a new column
 in our dataset called day. We will take all of the values for each day and add them
-using the `sum()` function. We can do all of this efficiently using dplyr!
+using the `sum()` function. We can do all of this efficiently using dplyr mutate() function.
 
-An example of how this works is below
-
-1. We use the mutate() function to ADD a new column called day to a new data.frame called daily_sum_precip. Note that we used as.Date to just grab the dates rather than dates and times.
-
+We use the `mutate()` function to add a new column called **day** to a new data.frame called **daily_sum_precip**. Note that we used `as.Date()` to just grab the dates rather than dates and times which are stored in the POSIX format.
 
 
 
 ```r
-
-
 # use dplyr
 daily_sum_precip <- precip.boulder %>%
-  mutate(day = as.Date(DATE, format="%Y-%m-%d"))
+  # create a new field called day and populate it with just the date
+  mutate(day = as.Date(DATE, format="%Y-%m-%d")) 
 
 # let's look at the new column
 head(daily_sum_precip$day)
 ## [1] "1948-08-01" "1948-08-02" "1948-08-03" "1948-08-03" "1948-08-03"
 ## [6] "1948-08-04"
-
-precPlot_daily1 <- ggplot(data=precip.boulder,  # the data frame
-      aes(DATE, HPCP)) +   # the variables of interest
-      geom_bar(stat="identity") +   # create a bar graph
-      xlab("Date") + ylab("Precipitation (Inches)") +  # label the x & y axes
-      ggtitle("Daily Precipitation - Boulder Station\n 2003-2013")  # add a title
-
-precPlot_daily1
-## Warning: Removed 401 rows containing missing values (position_stack).
 ```
+![Daily precip plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/plot-daily-1.png)
 
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/daily-summaries-1.png)
-
-Next we summarize() our data by the day field. This is similar to a workflow that
-you would do in excel!
+Next we `summarize()` the precipitation column (total_precip) - grouped by day.
+What this means is that we ADD UP all of the values for each day to get a grand
+total amount of precipitation each day.
 
 
 
 ```r
-
 # use dplyr
 daily_sum_precip <- precip.boulder %>%
   mutate(day = as.Date(DATE, format="%Y-%m-%d")) %>%
-  group_by(day) %>%
-  summarise(total_precip=mean(HPCP))
+  group_by(day) %>% # group by the day column
+  summarise(total_precip=sum(HPCP)) # calculate the SUM of all precipitation that occured on each day
 
 # how large is the resulting data frame?
 nrow(daily_sum_precip)
@@ -247,12 +215,12 @@ head(daily_sum_precip)
 ## # A tibble: 6 × 2
 ##          day total_precip
 ##       <date>        <dbl>
-## 1 1948-08-01   0.00000000
-## 2 1948-08-02   0.05000000
-## 3 1948-08-03   0.02333333
-## 4 1948-08-04   0.02000000
-## 5 1948-08-06   0.02000000
-## 6 1948-08-14   0.01500000
+## 1 1948-08-01         0.00
+## 2 1948-08-02         0.05
+## 3 1948-08-03         0.07
+## 4 1948-08-04         0.14
+## 5 1948-08-06         0.02
+## 6 1948-08-14         0.03
 
 # view column names
 names(daily_sum_precip)
@@ -267,7 +235,7 @@ Now plot the daily data.
 ## Warning: Removed 323 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png)
+![Daily precipitation for boulder]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png)
 
 
 ## have them create a few plots over different time scales
@@ -340,6 +308,3 @@ head(precip.boulder)
 ## 5 1948-08-03 15:00:00 0.03                                3e-04
 ## 6 1948-08-04 01:00:00 0.05                                5e-04
 ```
-
-#### Question
-Compare `HPCP` and `PRECIP`. Did we do the conversion correctly?
