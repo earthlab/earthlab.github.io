@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/about-and-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-modified: '2017-01-13'
+modified: '2017-01-19'
 week: 2
 sidebar:
   nav:
@@ -132,5 +132,3 @@ but it is full of useful information.
 * [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
   has quite comprehensive advice on how to ask programming questions.
 </div>
-
-<div class='notice--info' markdown="1">
