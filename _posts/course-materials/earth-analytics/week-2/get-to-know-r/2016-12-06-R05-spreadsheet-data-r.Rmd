@@ -17,6 +17,8 @@ comments: true
 order: 5
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 This lesson introduces the data.frame which is very similar to working with
 a spreadsheet in `R`.
 

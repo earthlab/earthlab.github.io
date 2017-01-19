@@ -19,6 +19,9 @@ comments: true
 order: 2
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives

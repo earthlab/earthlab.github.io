@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Bonus - Subset & aggregate precipitation data in R - 2013 Colorado Floods"
+title: "Subset & aggregate time series precipitation data in R"
 excerpt: "This lesson walks aggregating time series data in R."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
 modified: '2017-01-19'
@@ -15,6 +15,8 @@ author_profile: false
 comments: true
 order: 5
 ---
+
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 Bonus / graduate activity. In this lesson, you will PLOT precipitation data in R.
@@ -52,7 +54,7 @@ have basic knowledge for use of the `R` software program.
 #### Data Download
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){: .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -184,13 +186,14 @@ We use the `mutate()` function to add a new column called **day** to a new data.
 # use dplyr
 daily_sum_precip <- precip.boulder %>%
   # create a new field called day and populate it with just the date
-  mutate(day = as.Date(DATE, format="%Y-%m-%d")) 
+  mutate(day = as.Date(DATE, format="%Y-%m-%d"))
 
 # let's look at the new column
 head(daily_sum_precip$day)
 ## [1] "1948-08-01" "1948-08-02" "1948-08-03" "1948-08-03" "1948-08-03"
 ## [6] "1948-08-04"
 ```
+
 ![Daily precip plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/plot-daily-1.png)
 
 Next we `summarize()` the precipitation column (total_precip) - grouped by day.
@@ -230,11 +233,6 @@ names(daily_sum_precip)
 
 Now plot the daily data.
 
-
-```
-## Warning: Removed 323 rows containing missing values (position_stack).
-```
-
 ![Daily precipitation for boulder]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png)
 
 
@@ -271,7 +269,7 @@ precPlot_30yrs
 ## Warning: Removed 59 rows containing missing values (position_stack).
 ```
 
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/subset-data-1.png)
+![final precip plot daily sum]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/subset-data, -1.png)
 
 
 </div>
