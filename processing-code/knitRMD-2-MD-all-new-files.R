@@ -172,7 +172,7 @@ all_rmd_files <- as.data.frame(list.files(file.path(git_repo_base_path, repo_pos
                                           recursive = T, full.names = T))
 names(all_rmd_files) <- "rmd_files"
 
-all_rmd_files_bld <- populate_all_rmd_df(all_rmd_files, all=T)
+all_rmd_files_bld <- populate_all_rmd_df(all_rmd_files, all=F)
 
 # just one file
 # create_markdown(all_rmd_files_bld[20, ], wd)
