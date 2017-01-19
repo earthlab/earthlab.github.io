@@ -10,7 +10,6 @@ options(stringsAsFactors = FALSE)
 
 
 ## ----import-precip, echo=F-----------------------------------------------
-
 # import precip data into R data.frame
 precip.boulder <- read.csv("data/flood-co-2013/precip/805325-precip_daily_2003-2013.csv",
                            header = TRUE)
@@ -24,10 +23,8 @@ head(precip.boulder)
 str(precip.boulder)
 
 
-## ----no-data-values-hist, fig.cap="histogram of data"--------------------
-
-# histogram - would allow us to see 999.99 NA values
-# or other "weird" values that might be NA if we didn't know the NA value
+## ----no-data-values-hist, echo=F, fig.cap="histogram of data"------------
+#plot histogram
 hist(precip.boulder$HPCP, main ="Are there NA values?")
 
 precip.boulder <- read.csv("data/flood-co-2013/precip/805333-precip_daily_1948-2013.csv",
@@ -36,9 +33,10 @@ precip.boulder <- read.csv("data/flood-co-2013/precip/805333-precip_daily_1948-2
 hist(precip.boulder$HPCP, main ="This looks better after the reimporting with\n no data values specified", xlab="value", ylab="frequency")
 
 
+
+## ----how-many-na---------------------------------------------------------
 print("how many NA values are there?")
 sum(is.na(precip.boulder))
-
 
 ## ----convert-date, echo=F, results='hide'--------------------------------
 
@@ -51,11 +49,10 @@ precip.boulder$DATE <- as.POSIXct(precip.boulder$DATE,
 str(precip.boulder$DATE)
 
 
-## ----plot-precip-hourly, echo=F------------------------------------------
+## ----plot-precip-hourly, echo=F, fig.cap="hourly precipitation"----------
 
 # plot the data using ggplot2
-precPlot_hourly <- ggplot(data=precip.boulder,  # the data frame
-      aes(DateTime, HPCP)) +   # the variables of interest
+precPlot_hourly <- ggplot(precip.boulder, aes(DATE, HPCP)) +   # the variables of interest
       geom_bar(stat="identity") +   # create a bar graph
       xlab("Date") + ylab("Precipitation (Inches)") +  # label the x & y axes
       ggtitle("Hourly Precipitation - Boulder Station\n 2003-2013")  # add a title
@@ -64,15 +61,16 @@ precPlot_hourly
 
 
 ## ----daily-summaries-----------------------------------------------------
-
-
 # use dplyr
 daily_sum_precip <- precip.boulder %>%
-  mutate(day = as.Date(DATE, format="%Y-%m-%d"))
+  # create a new field called day and populate it with just the date
+  mutate(day = as.Date(DATE, format="%Y-%m-%d")) 
 
 # let's look at the new column
 head(daily_sum_precip$day)
 
+
+## ----plot-daily, echo=F, warning=F, fig.cap="Daily precip plot"----------
 precPlot_daily1 <- ggplot(data=precip.boulder,  # the data frame
       aes(DATE, HPCP)) +   # the variables of interest
       geom_bar(stat="identity") +   # create a bar graph
@@ -83,12 +81,11 @@ precPlot_daily1
 
 
 ## ----daily-summ----------------------------------------------------------
-
 # use dplyr
 daily_sum_precip <- precip.boulder %>%
   mutate(day = as.Date(DATE, format="%Y-%m-%d")) %>%
-  group_by(day) %>%
-  summarise(total_precip=mean(HPCP))
+  group_by(day) %>% # group by the day column
+  summarise(total_precip=sum(HPCP)) # calculate the SUM of all precipitation that occured on each day
 
 # how large is the resulting data frame?
 nrow(daily_sum_precip)
@@ -100,8 +97,7 @@ head(daily_sum_precip)
 names(daily_sum_precip)
 
 
-## ----daily-prec-plot, echo=F---------------------------------------------
-
+## ----daily-prec-plot, echo=F, warnings=F, fig.cap="Daily precipitation for boulder"----
 # plot daily data
 precPlot_daily <- ggplot(daily_sum_precip, aes(day, total_precip)) +
       geom_bar(stat="identity") +
