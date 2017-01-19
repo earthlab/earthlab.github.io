@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-01-13'
+modified: '2017-01-19'
 week: 2
 sidebar:
   nav:
@@ -19,14 +19,13 @@ comments: true
 order: 2
 ---
 
-.
-
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Be able to create, modify and use objects or variables in `R`.
+* Be able to define the key differences between the str (string) and num (number) classes in `R` in terms of how R can or can not perform calculations with each.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -143,7 +142,7 @@ What do you think is the current content of the object `weight_lb`? 126.5 or 200
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge activity
 
 What are the values of each object defined in EACH LINE OF code below?
 

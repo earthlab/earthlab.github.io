@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-01-13'
+modified: '2017-01-19'
 week: 2
 sidebar:
   nav:
@@ -134,7 +134,7 @@ data in the next lesson!
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge activity
 
 * **Question**: What happens when we create a vector that contains both numbers
 and character values? Give it a try and write down the answer.
@@ -227,7 +227,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck")]
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 * Can you figure out why `"four" > "five"` returns `TRUE`?
 </div>

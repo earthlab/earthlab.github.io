@@ -5,11 +5,11 @@ excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-01-13'
+modified: '2017-01-19'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
-permalink: /course-materials/earth-analytics/week-2/co-floods-USGS-stream-discharge-r/
+permalink: /course-materials/earth-analytics/week-2/plot-stream-discharge-timeseries-r/
 nav-title: 'Stream Discharge Data R'
 sidebar:
   nav:
@@ -44,6 +44,9 @@ directory with it.
 
 * **ggplot2:** `install.packages("ggplot2")`
 * **dplyr:** `install.packages("dplyr")`
+
+If you haven't already downloaded this data (from the previous lesson), do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){: .btn }
 
 </div>
 
