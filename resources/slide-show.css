@@ -245,3 +245,7 @@ code {
 .full .logo {
     left: -300px;
 }
+
+.inverse {
+  color: #c1c1bd !important
+}

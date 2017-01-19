@@ -25,20 +25,32 @@ document and convert it to a pdf using `knitr`.
 <a class="btn btn-info btn--x-large" href="{{ site.url }}/slide-shows/4-earth-analytics-spring-2017-intro/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i> View course overview slideshow
 </a>
 
+<a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1EY9vxr3bAi81xfuIcNvjMRQqbSkXc9qoau0Pn3cahLQ/edit" target= "_blank"> View climate change google doc
+</a>
+<a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1XuPS0oHh6lRo47sQ4XB-WSWvRQBoS2HWksNc6v_JSic/edit#
+" target= "_blank"> View FLOODING change google doc
+</a>
+
+
 </div>
 
 ## <i class="fa fa-pencil"></i> Homework Week 1
 
 ### 1. Readings
-* <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7" target="_blank">Five selfish reasons to work reproducibly - Florian Markowetz</a>
 
+* <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7" target="_blank">Five selfish reasons to work reproducibly - Florian Markowetz</a>
 * <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002303" target="_blank"> Computing Workflows for Biologists: A Roadmap</a>
+* <a href="http://science.sciencemag.org/content/330/6006/916" target="_blank">Earth System Science for Global Sustainability: Grand Challenges (read the full article)</a>
 
 
 ### 2. Watch flood video
 First, watch this video to learn more about the 2013 Colorado floods and some
 of the data that can be used to better understand the drivers and impacts of those
 floods.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IHIckvWhwoo" frameborder="0" allowfullscreen></iframe>
+
+#### Before / after google earth fly through
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bUcWERTM-OA?rel=0&loop=1" frameborder="0" allowfullscreen></iframe>
 
