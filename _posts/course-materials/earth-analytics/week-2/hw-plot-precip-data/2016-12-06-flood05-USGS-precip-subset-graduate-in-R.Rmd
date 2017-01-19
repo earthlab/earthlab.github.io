@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Bonus - Subset & aggregate precipitation data in R - 2013 Colorado Floods"
+title: "Subset & aggregate time series precipitation data in R"
 excerpt: "This lesson walks aggregating time series data in R."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
@@ -15,6 +15,8 @@ author_profile: false
 comments: true
 order: 5
 ---
+
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 Bonus / graduate activity. In this lesson, you will PLOT precipitation data in R.
@@ -52,7 +54,8 @@ have basic knowledge for use of the `R` software program.
 #### Data Download
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){: .btn }
+
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -202,12 +205,13 @@ We use the `mutate()` function to add a new column called **day** to a new data.
 # use dplyr
 daily_sum_precip <- precip.boulder %>%
   # create a new field called day and populate it with just the date
-  mutate(day = as.Date(DATE, format="%Y-%m-%d")) 
+  mutate(day = as.Date(DATE, format="%Y-%m-%d"))
 
 # let's look at the new column
 head(daily_sum_precip$day)
 
 ```
+
 ```{r plot-daily, echo=F, warning=F, fig.cap="Daily precip plot"}
 precPlot_daily1 <- ggplot(data=precip.boulder,  # the data frame
       aes(DATE, HPCP)) +   # the variables of interest
@@ -245,7 +249,7 @@ names(daily_sum_precip)
 
 Now plot the daily data.
 
-``` {r daily-prec-plot, echo=F, warnings=F, fig.cap="Daily precipitation for boulder"}
+``` {r daily-prec-plot, echo=F, warning=F, fig.cap="Daily precipitation for boulder"}
 # plot daily data
 precPlot_daily <- ggplot(daily_sum_precip, aes(day, total_precip)) +
       geom_bar(stat="identity") +
@@ -271,7 +275,7 @@ of just a date class, you need to use `scale_x_datetime()`.
 Now let's create a subset of the data and plot it.
 filter between 1993-12-31 - 2013-12-31
 
-``` {r subset-data}
+``` {r subset-data, , fig.cap="final precip plot daily sum"}
 
 # use dplyr
 daily_sum_precip_subset <- daily_sum_precip %>%
