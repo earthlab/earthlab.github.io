@@ -18,6 +18,8 @@ comments: true
 order: 4
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 Several factors contributed to the extreme flooding that occurred in Boulder,
 Colorado in 2013. In this data activity, we explore and visualize stream discharge
 data collected by the United States Geological Survey (USGS).
@@ -46,7 +48,7 @@ directory with it.
 * **dplyr:** `install.packages("dplyr")`
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){: .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
 
 </div>
 
