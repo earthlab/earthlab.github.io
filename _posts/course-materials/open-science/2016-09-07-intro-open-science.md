@@ -16,7 +16,7 @@ permalink: /course-materials/intro-open-science/
 nav-title: 'Lesson Overview'
 sidebar:
   nav:
-class-lesson: ['intro-open-science']
+module: ['intro-open-science']
 author_profile: false
 comments: false
 order: 1
