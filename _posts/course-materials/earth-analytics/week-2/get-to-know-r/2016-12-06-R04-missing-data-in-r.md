@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/missing-data-in-r-na/
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
-modified: '2017-01-13'
+modified: '2017-01-19'
 week: 2
 sidebar:
   nav:
@@ -78,7 +78,8 @@ download.file("https://ndownloader.figshare.com/files/7275959",
 temp_df <- read.csv(file = "data/week2/temperature_example.csv")
 
 # import data but specify no data values - what happens?
-temp_df2 <- read.csv(file = "data/week2/temperature_example.csv", na.strings = c("NA", " ", "-999"))
+temp_df2 <- read.csv(file = "data/week2/temperature_example.csv",
+                     na.strings = c("NA", " ", "-999"))
 ```
 
 In the example below, note how a mean value is calculated differently depending
@@ -86,13 +87,15 @@ upon on how NA values are treated when the data are imported.
 
 
 
-
 ```r
+
 mean(temp_df$avg_temp)
 ## [1] NA
 mean(temp_df2$avg_temp)
 ## [1] NA
 
+mean(temp_df$avg_temp, na.rm = TRUE)
+## [1] -231.5455
 mean(temp_df2$avg_temp, na.rm = TRUE)
 ## [1] 56.25
 ```
@@ -101,7 +104,7 @@ Notice a difference between `temp_df` and `temp_df2` ?
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 * **Question**: Why, in the the example above did mean(temp_df$avg_temp) return
 a value of NA?
@@ -109,6 +112,13 @@ a value of NA?
 <!-- * _Answer_: Because if there are NA values in a dataset, R can not automatically
 perform the calculation. you need to add a na.rm=TRUE to remove NA values. -->
 
+* **Question**: Why, in the the example above did mean(temp_df$avg_temp, na.rm = TRUE)
+also return a value of NA?
+
+<!-- * _Answer_: Because we didn't remove NA values when we imported the first data.frame. thus
+if there are NA values in a dataset, R can not automatically
+perform the calculation even with using na.rm=TRUE because there are no NA values
+in the data.frame . -->
 </div>
 
 When performing mathematical operations on numbers in `R`, most functions will
@@ -129,8 +139,8 @@ max(heights, na.rm = TRUE)
 ## [1] 6
 ```
 
-If your data include missing values, you may want to become familiar with the
-functions `is.na()`, `na.omit()`, and `complete.cases()`. See below for
+The functions, `is.na()`, `na.omit()`, and `complete.cases()` are all useful for
+figuring out if your data has assigned (`NA`) no-data values. See below for
 examples.
 
 
