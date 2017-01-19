@@ -26,6 +26,7 @@ plotting and working with time series data in R.
 At the end of this activity, you will be able to:
 
 * Convert column in a dataframe containing dates / times to a date/time object that can be used in R.
+* Be able to describe how we can use the data class 'date' to create easier to read time series plots in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -52,8 +53,9 @@ this module.
 library(ggplot2)
 
 # download data from figshare
-# note that we are downloaded the data into your
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
+# note that we already downloaded the data in the previous exercises so this line
+# is commented out. If you want to redownload the data, umcomment the line below.
+# download.file(url = "https://ndownloader.figshare.com/files/7010681",
              destfile = "data/boulder-precip.csv")
 
 # import data
@@ -77,6 +79,8 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   xlab("Date") + ylab("Total Precipitation (Inches)")
 
 ```
+
+
 Notice when we plot the data, the x axis is "messy". It would be easier to read
 if we only had ticks on the x axis for dates incrementally - every few weeks. Or
 once a month even.

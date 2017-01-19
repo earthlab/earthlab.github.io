@@ -88,26 +88,40 @@ directory with it.
 * **ggplot2:** `install.packages("ggplot2")`
 * **dplyr:** `install.packages("dplyr")`
 
-### Data Download
 
-[Download Precipitation Data](https://ndownloader.figshare.com/files/7283078)
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){: .btn }
 
 </div>
 
+## Important - Data Organization
+Before you begin this lesson, be sure that you've downloaded the dataset above.
+You will need to UNZIP the zip file. When you do this, be sure that your directory
+looks like the image below: note that all of the data are within the week2
+directory. They are not nested within another directory. You may have to copy and
+paste your files to make this look right.
+
+<figure>
+<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/week2-data.png">
+<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/week2-data.png" alt="week 2 file organization">
+</a>
+<figcaption>Your `week2` file directory should look like the one above. Note that
+the data directly under the week-2 folder.</figcaption>
+</figure>
 
 ## Work with Precipitation Data
 
 ## R Libraries
 
-Let's get started by loading the ggplot2 library and making sure our working
-directory is set. Be sure to also set `stringsAsFactors` to `FALSE` as shown below.
+Let's get started by loading the `ggplot2` and `dplyr` libraries. Also, let's set
+our working directory. Finally, set `stringsAsFactors` to `FALSE` globally as
+shown below.
 
 ```{r load-libraries}
 # set your working directory to the earth-analytics directory
 # setwd("working-dir-path-here")
 
 # load packages
-library(ggplot2) # efficient, professional plots
+library(ggplot2) # efficient plotting
 library(dplyr) # efficient data manipulation
 
 # set strings as factors to false for everything
@@ -133,7 +147,7 @@ We can use `read.csv()` to import the `.csv` file.
 #              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
          header = TRUE)
 
 
@@ -180,10 +194,14 @@ You can download the original complete data subset with additional documentation
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Using everything you've learned in the previous lessons, import the data,
-clean it up by assigning noData values to NA and making sure the dates are stored
-in the correct class. When you are done, plot it using `ggplot()`. Be sure to
-include a TITLE, and label the X and Y axes.
+Using everything you've learned in the previous lessons:
+
+* Import the dataset: `data/week2/805325-precip-dailysum_2003-2013.csv`
+* Clean the data by assigning noData values to `NA`
+* Make sure the date column is a date class
+* When you are done, plot it using `ggplot()`.
+  * Be sure to include a TITLE, and label the X and Y axes.
+  * Change the color of the plotted points
 
 Some notes to help you along:
 
@@ -196,18 +214,17 @@ Your final plot should look something like the plot below.
 
 
 
-
 ``` {r plot-precip-hourly, echo=F, warning=F, fig.cap="precip plot w fixed dates"}
 
 # do we need to do something about NA VALUES?
-boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
          header = TRUE,
          na.strings = 999.99)
 
 
 # format date
 boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
-                                     format="%Y-%d-%m")
+                                     format="%m/%d/%y")
 
 
 
@@ -225,9 +242,6 @@ prec_plot_daily
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
 {: .notice }
-
-
-
 
 
 <div class="notice--warning" markdown="1">
