@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/get-to-know-r/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: '2017-01-13'
+modified: '2017-01-19'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
@@ -323,7 +323,7 @@ args(lm)
 
 <div class="notice--warning" markdown="1">
 
-## Modify A Plot
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge activity
 
 Use the `RMarkdown` document that we created as homework for today's class. If
 you don't have a document already, create a new one, naming it: "lastname-firstname-wk2.Rmd.
@@ -331,7 +331,7 @@ Add the code below in a code chunk. Edit the code that you just pasted into
 your `.Rmd` document as follows
 
 1. The plot isn't pretty. Let's fix the x and y labels.
-Look up the arguments for the qplot function using either args(qplot) OR `?qplot`
+Look up the arguments for the `qplot()` function using either args(qplot) OR `?qplot`
 in the R console. Then fix the labels of your plot in your script.
 
 HINT: google is your friend. Feel free to use it to help edit the code.
