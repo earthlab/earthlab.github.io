@@ -30,6 +30,15 @@ Read the assignment below carefully. Use the class and homework lessons to help
 you complete the assignment.
 </div>
 
+## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class schedule
+
+|  time | topic   | speaker   |
+|---|---|---|---|---|
+| 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
+| 3:20 - 4:00  | Using data and models to understand the boulder floods   | Dr. Mariela Perignon  |
+| 4:15 - 5:50  | R coding session - Intro to Scientific programming with R  | Leah  |
+
+
 ## <i class="fa fa-pencil"></i> Homework Week 2
 
 ### 1. Readings
@@ -75,10 +84,13 @@ as a guide to walk you through](/course-materials/earth-analytics/week-2/hw-ggpl
     * Create a plot of stream discharge from 1986 to 2016 using `ggplot()`.
     * Create a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013
 
+Note: If you did the challenge activities, you have already created these plots.
+
 Be sure to:
 
 * LABEL all plots clearly. This includes a title, x and y axis labels
-* Be sure to write [clean code](/course-materials/earth-analytics/week-2/write-clean-code-with-r/). This includes comments that document / describe the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
+* Write [clean code](/course-materials/earth-analytics/week-2/write-clean-code-with-r/). This includes comments that document / describe the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
+* Convert date fields as appropriate
 
 
 #### Report Write Up
@@ -101,6 +113,7 @@ The text will be graded like a typical paper. The code will be graded for
 
 * syntax, clean code style, function (does it run without errors)
 
-**Submit your final report in both PDF and R Markdown formats by....**
+**Submit your final report to the d2l drop box in both `.html` and `.Rmd`
+formats by Wed 1 February 2017**
 
 </div>

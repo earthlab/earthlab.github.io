@@ -82,7 +82,7 @@ head(boulder_precip)
 # view the format of the boulder_precip object in R
 str(boulder_precip)
 ```
-<div class="notice--success" markdown="1">
+<div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 What is the format associated with each column for the `boulder_precip`
