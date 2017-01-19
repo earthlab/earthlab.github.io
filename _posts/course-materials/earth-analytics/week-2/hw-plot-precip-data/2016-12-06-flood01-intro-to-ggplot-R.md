@@ -20,6 +20,8 @@ comments: true
 order: 1
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 In this tutorial, we will explore more advanced plotting techniques using `ggplot2`.
 
 <div class='notice--success' markdown="1">

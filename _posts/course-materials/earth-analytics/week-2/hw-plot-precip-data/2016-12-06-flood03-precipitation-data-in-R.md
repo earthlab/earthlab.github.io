@@ -18,6 +18,7 @@ comments: true
 order: 3
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 
@@ -55,7 +56,7 @@ directory with it.
 * **dplyr:** `install.packages("dplyr")`
 
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){: .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
 
 </div>
 

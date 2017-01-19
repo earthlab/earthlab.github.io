@@ -17,6 +17,7 @@ author_profile: false
 comments: true
 order: 3
 ---
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 <div class='notice--success' markdown="1">

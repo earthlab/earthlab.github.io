@@ -64,7 +64,7 @@ precPlot_hourly
 # use dplyr
 daily_sum_precip <- precip.boulder %>%
   # create a new field called day and populate it with just the date
-  mutate(day = as.Date(DATE, format="%Y-%m-%d")) 
+  mutate(day = as.Date(DATE, format="%Y-%m-%d"))
 
 # let's look at the new column
 head(daily_sum_precip$day)
@@ -97,7 +97,7 @@ head(daily_sum_precip)
 names(daily_sum_precip)
 
 
-## ----daily-prec-plot, echo=F, warnings=F, fig.cap="Daily precipitation for boulder"----
+## ----daily-prec-plot, echo=F, warning=F, fig.cap="Daily precipitation for boulder"----
 # plot daily data
 precPlot_daily <- ggplot(daily_sum_precip, aes(day, total_precip)) +
       geom_bar(stat="identity") +
@@ -106,7 +106,7 @@ precPlot_daily <- ggplot(daily_sum_precip, aes(day, total_precip)) +
 
 precPlot_daily
 
-## ----subset-data---------------------------------------------------------
+## ----subset-data, , fig.cap="final precip plot daily sum"----------------
 
 # use dplyr
 daily_sum_precip_subset <- daily_sum_precip %>%

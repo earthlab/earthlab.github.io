@@ -16,6 +16,8 @@ comments: true
 order: 2
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 In this tutorial, we will look at the date time format - which is important for
 plotting and working with time series data in R.
 
