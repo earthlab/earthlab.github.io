@@ -5,7 +5,7 @@
 ## library(lubridate)
 ## 
 ## # import precip data into R data.frame
-## precip_boulder <- read.csv("data/flood-co-2013/precip/805325-precip_daily_2003-2013.csv",
+## precip_boulder <- read.csv("data/week2/precipitation/805325-precip-daily-2003-2013.csv",
 ##                            header = TRUE,
 ##                            na.strings = c(999.99))
 ## 
@@ -30,7 +30,7 @@
 ## # head(precip_boulder_daily)
 ## 
 ## # export to daily csv
-## write.csv(precip_boulder_daily, "data/week2/805325-precip_dailysum_2003-2013.csv")
+## write.csv(precip_boulder_daily, "data/week2/805325-precip-dailysum-2003-2013.csv")
 ## 
 
 ## ----load-libraries------------------------------------------------------
@@ -46,13 +46,12 @@ options(stringsAsFactors = FALSE)
 
 
 ## ----import-precip-------------------------------------------------------
-
 # download the data
 # download.file(url = "https://ndownloader.figshare.com/files/7283285",
 #              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week2/precipitation/805325-precip-dailysum-2003-2013.csv",
          header = TRUE)
 
 
@@ -69,7 +68,7 @@ max(boulder_daily_precip$DAILY_PRECIP)
 ## ----plot-precip-hourly, echo=F, warning=F, fig.cap="precip plot w fixed dates"----
 
 # do we need to do something about NA VALUES?
-boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week2/precipitation/805325-precip-dailysum-2003-2013.csv",
          header = TRUE,
          na.strings = 999.99)
 
@@ -91,7 +90,6 @@ prec_plot_daily
 
 
 ## ----subset-data---------------------------------------------------------
-
 # subset 2 months around flood
 precip_boulder_AugOct <- boulder_daily_precip %>%
                         filter(DATE >= as.Date('2013-08-15') & DATE <= as.Date('2013-10-15'))
@@ -121,7 +119,7 @@ precip_boulder_AugOct_2012 <- boulder_daily_precip %>%
 precPlot_flood_2012 <- ggplot(data=precip_boulder_AugOct_2012, aes(DATE,DAILY_PRECIP)) +
   geom_bar(stat="identity") +
   xlab("Date") + ylab("Precipitation (inches)") +
-  ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek") +
+  ggtitle("Daily Total Precipitation Aug - Oct 2012 for Boulder Creek") +
   ylim(0,10)
 
 precPlot_flood_2012
