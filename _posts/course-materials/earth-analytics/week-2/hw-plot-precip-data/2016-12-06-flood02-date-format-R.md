@@ -3,7 +3,7 @@ layout: single
 title: "Work With Dates in R - Plot Time Series Data"
 excerpt: "This lesson walks through working with time series data in R. you will learn how to convert a data field to a date class that R can understand as a date/time element."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-01-13'
+modified: '2017-01-19'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
@@ -16,6 +16,8 @@ comments: true
 order: 2
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 In this tutorial, we will look at the date time format - which is important for
 plotting and working with time series data in R.
 
@@ -26,6 +28,7 @@ plotting and working with time series data in R.
 At the end of this activity, you will be able to:
 
 * Convert column in a dataframe containing dates / times to a date/time object that can be used in R.
+* Be able to describe how we can use the data class 'date' to create easier to read time series plots in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -53,8 +56,9 @@ this module.
 library(ggplot2)
 
 # download data from figshare
-# note that we are downloaded the data into your
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
+# note that we already downloaded the data in the previous exercises so this line
+# is commented out. If you want to redownload the data, umcomment the line below.
+# download.file(url = "https://ndownloader.figshare.com/files/7010681",
              destfile = "data/boulder-precip.csv")
 
 # import data
@@ -62,19 +66,14 @@ boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder_precip)
-##     X       DATE PRECIP
-## 1 756 2013-08-21    0.1
-## 2 757 2013-08-26    0.1
-## 3 758 2013-08-27    0.1
-## 4 759 2013-09-01    0.0
-## 5 760 2013-09-09    0.1
-## 6 761 2013-09-10    1.0
 
 qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
+## Error: <text>:9:50: unexpected ')'
+## 8: # download.file(url = "https://ndownloader.figshare.com/files/7010681",
+## 9:              destfile = "data/boulder-precip.csv")
+##                                                     ^
 ```
-
-![quick plot of precip data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/import-data-1.png)
 
 Wait - we know how to use ggplot() now so let's use that instead!
 
@@ -89,6 +88,8 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
 ```
 
 ![ggplot of precip data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/ggplot-plot-1.png)
+
+
 Notice when we plot the data, the x axis is "messy". It would be easier to read
 if we only had ticks on the x axis for dates incrementally - every few weeks. Or
 once a month even.
