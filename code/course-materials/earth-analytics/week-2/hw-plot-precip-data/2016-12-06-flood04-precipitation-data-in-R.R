@@ -38,7 +38,7 @@
 # setwd("working-dir-path-here")
 
 # load packages
-library(ggplot2) # efficient, professional plots
+library(ggplot2) # efficient plotting
 library(dplyr) # efficient data manipulation
 
 # set strings as factors to false for everything
@@ -52,7 +52,7 @@ options(stringsAsFactors = FALSE)
 #              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
          header = TRUE)
 
 
@@ -69,14 +69,14 @@ max(boulder_daily_precip$DAILY_PRECIP)
 ## ----plot-precip-hourly, echo=F, warning=F, fig.cap="precip plot w fixed dates"----
 
 # do we need to do something about NA VALUES?
-boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
+boulder_daily_precip <- read.csv("data/week2/805325-precip-dailysum_2003-2013.csv",
          header = TRUE,
          na.strings = 999.99)
 
 
 # format date
 boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
-                                     format="%Y-%d-%m")
+                                     format="%m/%d/%y")
 
 
 
