@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-01-19'
+modified: '2017-01-20'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -20,9 +20,13 @@ order: 4
 
 {% include toc title="This Lesson" icon="file-text" %}
 
-Several factors contributed to the extreme flooding that occurred in Boulder,
-Colorado in 2013. In this data activity, we explore and visualize stream discharge
-data collected by the United States Geological Survey (USGS).
+In this data lesson, we explore and visualize stream discharge time series
+data collected by the United States Geological Survey (USGS). You will use everything
+that you learned in the previous lessons to create your plots. You will use these
+plots in the report that you submit for your homework.
+
+Note: this page just shows you what the plots should look like. You will need
+to use your programming skills to create the plots!
 
 <div class='notice--success' markdown="1">
 
@@ -49,7 +53,7 @@ directory with it.
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/files/7406089){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -107,8 +111,7 @@ Let's first import our data using the `read.csv()` function.
 
 
 ```r
-
-discharge <- read.csv("data/flood-co-2013/discharge/06730200-Discharge_Daily_1986-2013.csv",
+discharge <- read.csv("data/week2/discharge/06730200-discharge-daily-1986-2013.csv",
                       header=TRUE)
 
 # view first 6 lines of data
