@@ -17,6 +17,8 @@ comments: true
 order: 5
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 This lesson introduces the data.frame which is very similar to working with
 a spreadsheet in `R`.
 
@@ -82,7 +84,7 @@ head(boulder_precip)
 # view the format of the boulder_precip object in R
 str(boulder_precip)
 ```
-<div class="notice--success" markdown="1">
+<div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 What is the format associated with each column for the `boulder_precip`

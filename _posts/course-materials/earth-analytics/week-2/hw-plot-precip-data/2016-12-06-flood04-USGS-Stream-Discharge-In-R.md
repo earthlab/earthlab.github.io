@@ -5,11 +5,11 @@ excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-01-19'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
-permalink: /course-materials/earth-analytics/week-2/co-floods-USGS-stream-discharge-r/
+permalink: /course-materials/earth-analytics/week-2/plot-stream-discharge-timeseries-r/
 nav-title: 'Stream Discharge Data R'
 sidebar:
   nav:
@@ -17,6 +17,8 @@ author_profile: false
 comments: true
 order: 4
 ---
+
+{% include toc title="This Lesson" icon="file-text" %}
 
 Several factors contributed to the extreme flooding that occurred in Boulder,
 Colorado in 2013. In this data activity, we explore and visualize stream discharge
@@ -44,6 +46,10 @@ directory with it.
 
 * **ggplot2:** `install.packages("ggplot2")`
 * **dplyr:** `install.packages("dplyr")`
+
+If you haven't already downloaded this data (from the previous lesson), do so now.
+
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -81,7 +87,8 @@ Source: <a href="http://nwis.waterdata.usgs.gov/usa/nwis/peak/?site_no=06730200"
 
 Let's begin by loading our libraries and setting our working directory.
 
-```{r load-libraries}
+
+```r
 # set your working directory
 # setwd("working-dir-path-here")
 
@@ -98,14 +105,21 @@ options(stringsAsFactors = FALSE)
 Let's first import our data using the `read.csv()` function.
 
 
-```{r import-discharge-2 }
+
+```r
 
 discharge <- read.csv("data/flood-co-2013/discharge/06730200-Discharge_Daily_1986-2013.csv",
                       header=TRUE)
 
 # view first 6 lines of data
 head(discharge)
-
+##   agency_cd site_no datetime disValue qualCode
+## 1      USGS 6730200  10/1/86       30        A
+## 2      USGS 6730200  10/2/86       30        A
+## 3      USGS 6730200  10/3/86       30        A
+## 4      USGS 6730200  10/4/86       30        A
+## 5      USGS 6730200  10/5/86       30        A
+## 6      USGS 6730200  10/6/86       30        A
 ```
 
 
@@ -124,27 +138,12 @@ out what format elements you'll need to include to get the date right.
 </div>
 
 
-```{r convert-time, echo=F }
 
-# convert to date class -
-discharge$datetime <- as.Date(discharge$datetime, format="%m/%d/%y")
-
-# looks like there aren't any no data values to deal with.
-```
 
 
 Your plot should look something like the one below:
 
-```{r plot-flood-data, echo=F, fig.cap="plot of discharge vs time" }
-# check out our date range
-stream_discharge_30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
-              geom_point() +
-              ggtitle("Stream Discharge (CFS) - Boulder Creek, 1986-2016") +
-              xlab("Year") + ylab("Discharge (CFS)")
-
-stream_discharge_30yrs
-
-```
+![plot of discharge vs time]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
 
 <div class="notice--warning" markdown="1">
 
@@ -159,24 +158,9 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 </div>
 
 
-```{r define-time-subset, echo=F}
 
-discharge_augSept_2013 <- discharge %>%
-                  filter((datetime >= as.Date('2013-08-15') & datetime <= as.Date('2013-10-15')))
 
-```
-
-```{r plot-challenge, echo=F, fig.cap="ggplot subsetted discharge data"}
-
-# plot the data - Aug 15-October 15
-stream.discharge_3mo <- ggplot(discharge_augSept_2013,
-          aes(datetime, disValue)) +
-          geom_point() +
-          xlab("Month / Day") + ylab("Discharge (Cubic Feet per Second)") +
-          ggtitle("Daily Stream Discharge (CFS) for Boulder Creek 8/15 - 10/15 2013")
-
-stream.discharge_3mo
-```
+![ggplot subsetted discharge data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
