@@ -5,7 +5,7 @@ title: 'Open Science Lesson Instructor Notes'
 excerpt: 'Instructor notes for the open science lesson.'
 category: [course-materials]
 nav-title: 'Instructor Notes'
-class-lesson: ['intro-open-science']
+module: ['intro-open-science']
 permalink: /course-materials/open-science-instructor-notes/
 sidebar:
   nav:

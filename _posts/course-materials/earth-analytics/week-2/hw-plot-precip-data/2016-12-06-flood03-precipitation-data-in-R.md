@@ -5,11 +5,11 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-01-13'
+modified: '2017-01-20'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
-nav-title: 'Plot & Subset Precip Data R'
+nav-title: 'Subset time series data in R'
 week: 2
 sidebar:
   nav:
@@ -18,6 +18,7 @@ comments: true
 order: 3
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
 
 
 
@@ -34,10 +35,10 @@ After completing this tutorial, you will be able to:
 
 * Import a text file into R.
 * Plot quantitative time series data using ggplot
-* Ensure that NoData values do not interfere with quantitative analysis by setting them to NA in `R`.
-* use the na.rm function argument when performing math with large datasets.
-* subset data using the dplyr filter() function
-* use dplyr pipes to filter data in R.
+* Ensure that NoData values do not interfere with quantitative analysis by setting them to `NA` in `R`.
+* Use the `na.rm` argument when performing math with large datasets.
+* Subset data using the dplyr `filter()` function
+* Use dplyr pipes to filter data in R.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -54,19 +55,30 @@ directory with it.
 * **ggplot2:** `install.packages("ggplot2")`
 * **dplyr:** `install.packages("dplyr")`
 
-### Data Download
 
-[Download Precipitation Data](https://ndownloader.figshare.com/files/7283078)
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/files/7406089){:data-proofer-ignore='' .btn }
 
 </div>
 
+## Important - Data Organization
+Before you begin this lesson, be sure that you've downloaded the dataset above.
+You will need to UNZIP the zip file. When you do this, be sure that your directory
+looks like the image below: note that all of the data are within the week2
+directory. They are not nested within another directory. You may have to copy and
+paste your files to make this look right.
 
-## Work with Precipitation Data
+<figure>
+<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/week2-data.png">
+<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/week2-data.png" alt="week 2 file organization">
+</a>
+<figcaption>Your `week2` file directory should look like the one above. Note that
+the data directly under the week-2 folder.</figcaption>
+</figure>
 
-## R Libraries
-
-Let's get started by loading the ggplot2 library and making sure our working
-directory is set. Be sure to also set `stringsAsFactors` to `FALSE` as shown below.
+## Get started with time series data
+Let's get started by loading the `ggplot2` and `dplyr` libraries. Also, let's set
+our working directory. Finally, set `stringsAsFactors` to `FALSE` globally as
+shown below.
 
 
 ```r
@@ -74,7 +86,7 @@ directory is set. Be sure to also set `stringsAsFactors` to `FALSE` as shown bel
 # setwd("working-dir-path-here")
 
 # load packages
-library(ggplot2) # efficient, professional plots
+library(ggplot2) # efficient plotting
 library(dplyr) # efficient data manipulation
 
 # set strings as factors to false for everything
@@ -82,7 +94,7 @@ options(stringsAsFactors = FALSE)
 ```
 
 
-## Import Precipitation Data
+## Import precipitation time series
 
 We will use a precipitation dataset derived from data accessed through the
 National Centers for Environmental Information (formerly
@@ -94,57 +106,54 @@ We can use `read.csv()` to import the `.csv` file.
 
 
 ```r
-
 # download the data
 # download.file(url = "https://ndownloader.figshare.com/files/7283285",
 #              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-boulder_daily_precip <- read.csv("data/week2/805325precip_dailysum_20032013.csv",
+boulder_daily_precip <- read.csv("data/week2/precipitation/805325-precip-dailysum-2003-2013.csv",
          header = TRUE)
 
 
 # view first 6 lines of the data
 head(boulder_daily_precip)
-##   X       DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
-## 1 1 2003-01-01          0.0 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 2 2 2003-02-01          0.0 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 3 3 2003-02-03          0.4 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 4 4 2003-02-05          0.2 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 5 5 2003-02-06          0.1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 6 6 2003-02-07          0.1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+##     DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
+## 1 1/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 2 1/5/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 3 2/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 4 2/2/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 5 2/3/03         0.40 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 6 2/5/03         0.20 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
 ##   LONGITUDE YEAR JULIAN
 ## 1 -105.2811 2003      1
-## 2 -105.2811 2003     32
-## 3 -105.2811 2003     34
-## 4 -105.2811 2003     36
-## 5 -105.2811 2003     37
-## 6 -105.2811 2003     38
+## 2 -105.2811 2003      5
+## 3 -105.2811 2003     32
+## 4 -105.2811 2003     33
+## 5 -105.2811 2003     34
+## 6 -105.2811 2003     36
 
 # view structure of data
 str(boulder_daily_precip)
-## 'data.frame':	788 obs. of  10 variables:
-##  $ X           : int  1 2 3 4 5 6 7 8 9 10 ...
-##  $ DATE        : chr  "2003-01-01" "2003-02-01" "2003-02-03" "2003-02-05" ...
-##  $ DAILY_PRECIP: num  0 0 0.4 0.2 0.1 0.1 0 0 0.3 0.1 ...
+## 'data.frame':	792 obs. of  9 variables:
+##  $ DATE        : chr  "1/1/03" "1/5/03" "2/1/03" "2/2/03" ...
+##  $ DAILY_PRECIP: num  0e+00 1e+03 0e+00 1e+03 4e-01 ...
 ##  $ STATION     : chr  "COOP:050843" "COOP:050843" "COOP:050843" "COOP:050843" ...
 ##  $ STATION_NAME: chr  "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" ...
 ##  $ ELEVATION   : num  1650 1650 1650 1650 1650 ...
 ##  $ LATITUDE    : num  40 40 40 40 40 ...
 ##  $ LONGITUDE   : num  -105 -105 -105 -105 -105 ...
 ##  $ YEAR        : int  2003 2003 2003 2003 2003 2003 2003 2003 2003 2003 ...
-##  $ JULIAN      : int  1 32 34 36 37 38 41 49 55 58 ...
+##  $ JULIAN      : int  1 5 32 33 34 36 37 38 41 49 ...
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##  0.0000  0.1000  0.1000  0.2478  0.3000  9.8000
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+##    0.000    0.100    0.100    5.297    0.300 1000.000
 max(boulder_daily_precip$DAILY_PRECIP)
-## [1] 9.8
+## [1] 999.99
 ```
 
-
-## About the Data
+### About the Data
 
 Viewing the structure of these data, we can see that different types of data are included in
 this file.
@@ -173,12 +182,16 @@ You can download the original complete data subset with additional documentation
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
-Using everything you've learned in the previous lessons, import the data,
-clean it up by assigning noData values to NA and making sure the dates are stored
-in the correct class. When you are done, plot it using `ggplot()`. Be sure to
-include a TITLE, and label the X and Y axes.
+Using everything you've learned in the previous lessons:
+
+* Import the dataset: `data/week2/precipitation/805325-precip-dailysum-2003-2013.csv`
+* Clean the data by assigning noData values to `NA`
+* Make sure the date column is a date class
+* When you are done, plot it using `ggplot()`.
+  * Be sure to include a TITLE, and label the X and Y axes.
+  * Change the color of the plotted points
 
 Some notes to help you along:
 
@@ -191,25 +204,21 @@ Your final plot should look something like the plot below.
 
 
 
-
-![precip plot w fixed dates]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/plot-precip-hourly-1.png)
+![precip plot w fixed dates]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood03-precipitation-data-in-R/plot-precip-hourly-1.png)
 
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
 {: .notice }
 
 
-
-
-
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge 2
 
 Take a close look at the plot.
 
 * What does each point represent?
-* What are the minimum and maximum precipitation values for the 10 year span?
+* Use the `min()` and `max()` functions to determine the minimum and maximum precipitation values for the 10 year span?
 
 </div>
 
@@ -220,42 +229,34 @@ subset it. Let create a subset of data for the time period around the flood betw
 August to 15 October 2013. We will use the `filter()` function in the `dplyr` package
 to do this.
 
-## Introduction to the Pipe %<%
+### Introduction to the pipe %<%
 
 Pipes let you take the output of one function and send it directly to the next,
 which is useful when you need to do many things to the same data set. Pipes in R
-look like %>% and are made available via the magrittr package, installed
-automatically with dplyr.
-
-If we want to subset our data, we could use the following syntax
-
-`new_data <- filter(boulder_daily_precip, (DATE >= as.Date('2013-08-15') & DATE <= as.Date('2013-10-15')))`
-
-When we code like this we have to create intermediate data frame outputs. however,
-pipes allow us to link multiple steps in one line.
+look like %>% and are made available via the `magrittr` package, installed
+automatically with `dplyr`.
 
 
 
 ```r
-
 # subset 2 months around flood
 precip_boulder_AugOct <- boulder_daily_precip %>%
                         filter(DATE >= as.Date('2013-08-15') & DATE <= as.Date('2013-10-15'))
 ```
 
-In the code above, we use the pipe to send the boulder_daily_precip data through
-a filter setp. In that filter step, we filter our only the rows withing the
-date range that we specified. Since %>% takes the object on its left and passes
-it as the first argument to the function on its right, we don’t need to explicitly include it as an argument to the filter() function.
+In the code above, we use the pipe to send the `boulder_daily_precip` data through
+a filter step. In that filter step, we filter our only the rows withing the
+date range that we specified. Since `%>%` takes the object on its left and passes
+it as the first argument to the function on its right, we don’t need to explicitly include it as an argument to the `filter()` function.
 
 
 
 ```r
 # check the first & last dates
 min(precip_boulder_AugOct$DATE)
-## [1] "2013-09-03"
+## [1] "2013-08-21"
 max(precip_boulder_AugOct$DATE)
-## [1] "2013-10-09"
+## [1] "2013-10-11"
 
 # create new plot
 precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
@@ -266,12 +267,12 @@ precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
 precPlot_flood2
 ```
 
-![precip plot subset]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/check-subset-1.png)
+![precip plot subset]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood03-precipitation-data-in-R/check-subset-1.png)
 
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge 3
 
 Create a subset from the same dates in 2012 to compare to the 2013 plot.
 Use the ylim() argument to ensure the y axis range is the SAME as the previous
@@ -279,9 +280,9 @@ plot - from 0 to 10".
 
 How different was the rainfall in 2012?
 
-HINT: type ?lims in the console to see how the xlim and ylim arguments work.
+HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments work.
 
 
 </div>
 
-![precip plot subset 2]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-precipitation-data-in-R/challenge-1.png)
+![precip plot subset 2]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood03-precipitation-data-in-R/challenge-1.png)
