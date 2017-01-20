@@ -3,7 +3,7 @@ layout: single
 title: "Plotting with GGPLOT"
 excerpt: "This lesson walks through using GGPLOT2 to plot data."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-01-13'
+modified: '2017-01-19'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
@@ -19,6 +19,8 @@ author_profile: false
 comments: true
 order: 1
 ---
+
+{% include toc title="This Lesson" icon="file-text" %}
 
 In this tutorial, we will explore more advanced plotting techniques using `ggplot2`.
 
@@ -57,7 +59,8 @@ Let's explore the code below to create a quick plot.
 library(ggplot2)
 
 # download data from figshare
-# note that we are downloaded the data into your
+# note that we already downloaded the data to our laptops previously
+# but in case you don't have it - re-download it by uncommenting the code below.
 #download.file(url = "https://ndownloader.figshare.com/files/7010681",
 #              destfile = "data/boulder-precip.csv")
 
@@ -75,7 +78,7 @@ head(boulder_precip)
 ## 6 761 2013-09-10    1.0
 
 # when we download the data we create a dataframe
-# view each column of the data frame using it's name (or header)
+# view each column of the data frame using its name (or header)
 boulder_precip$DATE
 ##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
 ##  [6] "2013-09-10" "2013-09-11" "2013-09-12" "2013-09-13" "2013-09-15"
@@ -140,7 +143,7 @@ plot can also be generated with code like this:
 
 
 ```r
-# Create
+# Create the plot object (nothing will render on your screen)
 precip_plot <-  ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP))
 
 # Draw the plot
@@ -151,7 +154,7 @@ precip_plot + geom_point()
 
 
 
-We can also apply a color to our the points
+We can also apply a color to our points
 
 
 ```r
@@ -252,7 +255,7 @@ few are listed below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 Customize the plot that we created in last weeks homework as follows:
 

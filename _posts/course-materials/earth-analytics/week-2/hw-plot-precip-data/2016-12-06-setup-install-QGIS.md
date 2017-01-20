@@ -13,12 +13,10 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
-
 
 This lesson walks you through installing QGIS on your laptop.
 

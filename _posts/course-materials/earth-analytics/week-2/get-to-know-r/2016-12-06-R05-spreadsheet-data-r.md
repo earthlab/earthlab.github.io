@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/spreadsheet-data-in-R/
 nav-title: 'Spreadsheet Data in R'
 dateCreated: 2016-12-13
-modified: '2017-01-13'
+modified: '2017-01-19'
 week: 2
 sidebar:
   nav:
@@ -16,6 +16,8 @@ author_profile: false
 comments: true
 order: 5
 ---
+
+{% include toc title="This Lesson" icon="file-text" %}
 
 This lesson introduces the data.frame which is very similar to working with
 a spreadsheet in `R`.
@@ -95,7 +97,7 @@ str(boulder_precip)
 ##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
 ```
-<div class="notice--success" markdown="1">
+<div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 What is the format associated with each column for the `boulder_precip`
