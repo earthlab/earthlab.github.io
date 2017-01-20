@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R"
 excerpt: "This lesson walks aggregating time series data in R."
 authors: ['Leah Wasser', 'Mariela Perignon']
-modified: '2017-01-19'
+modified: '2017-01-20'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -55,7 +55,7 @@ have basic knowledge for use of the `R` software program.
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/files/7406089){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -72,7 +72,7 @@ directory and set `stringsAsFactors` to FALSE using `options()`.
 
 ## Import Precipitation Data
 
-We will use the `805333-precip_daily_1948-2013.csv` dataset for this assignment.
+We will use the `805333-precip-daily-1948-2013.csv` dataset for this assignment.
 in this analysis. This dataset contains the precipitation values collected daily
 from the COOP station 050843 in Boulder, CO for 1 January 2003 through 31 December 2013.
 
