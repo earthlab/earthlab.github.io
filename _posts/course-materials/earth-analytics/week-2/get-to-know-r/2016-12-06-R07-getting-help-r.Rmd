@@ -17,6 +17,8 @@ comments: true
 order: 7
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 Getting help
 
 <div class='notice--success' markdown="1">
@@ -129,5 +131,3 @@ but it is full of useful information.
 * [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
   has quite comprehensive advice on how to ask programming questions.
 </div>
-
-<div class='notice--info' markdown="1">
