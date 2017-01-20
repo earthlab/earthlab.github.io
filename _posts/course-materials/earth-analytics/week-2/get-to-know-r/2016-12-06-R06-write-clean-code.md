@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/write-clean-code-with-r/
 nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
-modified: '2017-01-13'
+modified: '2017-01-19'
 week: 2
 sidebar:
   nav:
@@ -16,6 +16,8 @@ author_profile: false
 comments: true
 order: 6
 ---
+
+{% include toc title="This Lesson" icon="file-text" %}
 
 This lesson reviews best practices associated with clean coding.
 
