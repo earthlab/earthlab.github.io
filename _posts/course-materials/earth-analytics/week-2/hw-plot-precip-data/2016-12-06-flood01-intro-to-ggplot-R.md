@@ -3,7 +3,7 @@ layout: single
 title: "Plotting with GGPLOT"
 excerpt: "This lesson walks through using GGPLOT2 to plot data."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-01-19'
+modified: '2017-01-20'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
@@ -111,7 +111,6 @@ To build a ggplot we need to:
 
 
 ```r
-
 ggplot(data = boulder_precip)
 
 ```
@@ -129,7 +128,6 @@ ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP))
 
 
 ```r
-
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
   geom_point()
 ```
@@ -158,7 +156,6 @@ We can also apply a color to our points
 
 
 ```r
-
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(color = "blue")
 ```
@@ -169,7 +166,6 @@ And adjust the transparency.
 
 
 ```r
-
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
 ```
