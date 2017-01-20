@@ -66,7 +66,8 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
         <!-- if the page is a course lesson, add pagination -->
-        {% if page.category contains 'course-materials' %}
+        
+        {% if page.class-lesson or page.module%}
          {% include lesson-pagination.html %}
         {% endif %}
       </section>
