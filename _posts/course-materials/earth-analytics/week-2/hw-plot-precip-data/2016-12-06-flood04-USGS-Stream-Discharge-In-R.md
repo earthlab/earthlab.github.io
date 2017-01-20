@@ -48,6 +48,7 @@ directory with it.
 * **dplyr:** `install.packages("dplyr")`
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
+
 [<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
 
 </div>
@@ -142,7 +143,7 @@ out what format elements you'll need to include to get the date right.
 
 Your plot should look something like the one below:
 
-![plot of discharge vs time]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
+![plot of discharge vs time]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
 
 <div class="notice--warning" markdown="1">
 
@@ -159,7 +160,7 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 
 
 
-![ggplot subsetted discharge data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
+![ggplot subsetted discharge data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
