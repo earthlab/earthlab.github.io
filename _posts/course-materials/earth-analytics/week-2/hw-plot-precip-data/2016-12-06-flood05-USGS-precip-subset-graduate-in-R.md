@@ -2,7 +2,7 @@
 layout: single
 title: "Subset & aggregate time series precipitation data in R"
 excerpt: "This lesson walks aggregating time series data in R."
-authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
+authors: ['Leah Wasser', 'Mariela Perignon']
 modified: '2017-01-19'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
@@ -54,10 +54,10 @@ have basic knowledge for use of the `R` software program.
 #### Data Download
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
+
 [<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/articles/4295360/versions/7){:data-proofer-ignore='' .btn }
 
 </div>
-
 
 
 ## Work with Precipitation Data
@@ -126,7 +126,7 @@ Next, check out the data. Are there no data values? If so, make sure to adjust y
 data import code above to account for no data values. Then determine how many no
 data values you have in your dataset.
 
-![histogram of data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/no-data-values-hist-1.png)![histogram of data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/no-data-values-hist-2.png)
+![histogram of data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/no-data-values-hist-1.png)![histogram of data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/no-data-values-hist-2.png)
 
 
 
@@ -161,10 +161,20 @@ need to look like the one below!
 
 
 ```
-## Warning: Removed 401 rows containing missing values (position_stack).
+## Warning: Removed 401 rows containing missing values (geom_point).
 ```
 
-![hourly precipitation]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png)
+![hourly precipitation]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png)
+
+## Differences in the data
+Any ideas what might be causing the notable difference in the plotted data through time?
+
+
+```
+## Warning: Removed 401 rows containing missing values (geom_point).
+```
+
+![hourly precipitation]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-round-1.png)
 
 These data are hard to look at. And really we only need to explore 30 years or so.
 Let's do the following
@@ -185,8 +195,8 @@ We use the `mutate()` function to add a new column called **day** to a new data.
 ```r
 # use dplyr
 daily_sum_precip <- precip.boulder %>%
-  # create a new field called day and populate it with just the date
-  mutate(day = as.Date(DATE, format="%Y-%m-%d"))
+  mutate(day = as.Date(DATE, format="%Y-%m-%d"))   # create a new column called day w the date
+
 
 # let's look at the new column
 head(daily_sum_precip$day)
@@ -194,7 +204,7 @@ head(daily_sum_precip$day)
 ## [6] "1948-08-04"
 ```
 
-![Daily precip plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/plot-daily-1.png)
+![Daily precip plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/plot-daily-1.png)
 
 Next we `summarize()` the precipitation column (total_precip) - grouped by day.
 What this means is that we ADD UP all of the values for each day to get a grand
@@ -233,7 +243,7 @@ names(daily_sum_precip)
 
 Now plot the daily data.
 
-![Daily precipitation for boulder]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png)
+![Daily precipitation for boulder]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png)
 
 
 ## have them create a few plots over different time scales
@@ -256,7 +266,7 @@ filter between 1993-12-31 - 2013-12-31
 
 # use dplyr
 daily_sum_precip_subset <- daily_sum_precip %>%
-  filter(day >= as.Date('2003-08-15') & day <= as.Date('2013-12-31'))
+  filter(day >= as.Date('2010-08-15') & day <= as.Date('2013-12-31'))
 
 
 # create new plot
@@ -266,10 +276,10 @@ precPlot_30yrs <- ggplot(daily_sum_precip_subset, aes(day, total_precip)) +
   ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek")
 
 precPlot_30yrs
-## Warning: Removed 59 rows containing missing values (position_stack).
+## Warning: Removed 23 rows containing missing values (position_stack).
 ```
 
-![final precip plot daily sum]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood06-USGS-precip-subset-graduate-in-R/subset-data, -1.png)
+![final precip plot daily sum]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/subset-data, -1.png)
 
 
 </div>
@@ -298,11 +308,11 @@ head(precip.boulder)
 ## 4 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
 ## 5 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
 ## 6 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
-##                  DATE HPCP Measurement.Flag Quality.Flag PRECIP
-## 1 1948-08-01 01:00:00 0.00                g               0e+00
-## 2 1948-08-02 15:00:00 0.05                                5e-04
-## 3 1948-08-03 09:00:00 0.01                                1e-04
-## 4 1948-08-03 14:00:00 0.03                                3e-04
-## 5 1948-08-03 15:00:00 0.03                                3e-04
-## 6 1948-08-04 01:00:00 0.05                                5e-04
+##                  DATE HPCP Measurement.Flag Quality.Flag HPCP_round PRECIP
+## 1 1948-08-01 01:00:00 0.00                g                       0  0e+00
+## 2 1948-08-02 15:00:00 0.05                                        0  5e-04
+## 3 1948-08-03 09:00:00 0.01                                        0  1e-04
+## 4 1948-08-03 14:00:00 0.03                                        0  3e-04
+## 5 1948-08-03 15:00:00 0.03                                        0  3e-04
+## 6 1948-08-04 01:00:00 0.05                                        0  5e-04
 ```
