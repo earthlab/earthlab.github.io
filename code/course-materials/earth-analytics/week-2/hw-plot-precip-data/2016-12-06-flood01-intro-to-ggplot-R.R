@@ -28,7 +28,6 @@ qplot(x=boulder_precip$DATE,
 
 
 ## ----add-alpha, fig.cap="ggplot with blue points and alpha"--------------
-
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
 
