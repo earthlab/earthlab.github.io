@@ -4,7 +4,8 @@
 library(ggplot2)
 
 # download data from figshare
-# note that we are downloaded the data into your
+# note that we already downloaded the data to our laptops previously
+# but in case you don't have it - re-download it by uncommenting the code below.
 #download.file(url = "https://ndownloader.figshare.com/files/7010681",
 #              destfile = "data/boulder-precip.csv")
 
@@ -15,7 +16,7 @@ boulder_precip <- read.csv(file="data/boulder-precip.csv")
 head(boulder_precip)
 
 # when we download the data we create a dataframe
-# view each column of the data frame using it's name (or header)
+# view each column of the data frame using its name (or header)
 boulder_precip$DATE
 
 # view the precip column
@@ -27,7 +28,6 @@ qplot(x=boulder_precip$DATE,
 
 
 ## ----add-alpha, fig.cap="ggplot with blue points and alpha"--------------
-
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
 

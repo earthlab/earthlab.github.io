@@ -13,13 +13,16 @@ download.file("https://ndownloader.figshare.com/files/7275959",
 temp_df <- read.csv(file = "data/week2/temperature_example.csv")
 
 # import data but specify no data values - what happens?
-temp_df2 <- read.csv(file = "data/week2/temperature_example.csv", na.strings = c("NA", " ", "-999"))
+temp_df2 <- read.csv(file = "data/week2/temperature_example.csv",
+                     na.strings = c("NA", " ", "-999"))
 
 
 ## ----na-remove-----------------------------------------------------------
+
 mean(temp_df$avg_temp)
 mean(temp_df2$avg_temp)
 
+mean(temp_df$avg_temp, na.rm = TRUE)
 mean(temp_df2$avg_temp, na.rm = TRUE)
 
 ## ----math-no-data--------------------------------------------------------
