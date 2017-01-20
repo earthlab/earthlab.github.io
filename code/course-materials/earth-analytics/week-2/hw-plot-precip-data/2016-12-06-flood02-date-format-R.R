@@ -4,8 +4,9 @@
 library(ggplot2)
 
 # download data from figshare
-# note that we are downloaded the data into your
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
+# note that we already downloaded the data in the previous exercises so this line
+# is commented out. If you want to redownload the data, umcomment the line below.
+# download.file(url = "https://ndownloader.figshare.com/files/7010681",
              destfile = "data/boulder-precip.csv")
 
 # import data

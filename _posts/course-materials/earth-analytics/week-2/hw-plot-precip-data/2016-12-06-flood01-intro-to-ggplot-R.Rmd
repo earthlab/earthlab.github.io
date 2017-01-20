@@ -20,6 +20,8 @@ comments: true
 order: 1
 ---
 
+{% include toc title="This Lesson" icon="file-text" %}
+
 In this tutorial, we will explore more advanced plotting techniques using `ggplot2`.
 
 <div class='notice--success' markdown="1">
@@ -56,7 +58,8 @@ Let's explore the code below to create a quick plot.
 library(ggplot2)
 
 # download data from figshare
-# note that we are downloaded the data into your
+# note that we already downloaded the data to our laptops previously
+# but in case you don't have it - re-download it by uncommenting the code below.
 #download.file(url = "https://ndownloader.figshare.com/files/7010681",
 #              destfile = "data/boulder-precip.csv")
 
@@ -67,7 +70,7 @@ boulder_precip <- read.csv(file="data/boulder-precip.csv")
 head(boulder_precip)
 
 # when we download the data we create a dataframe
-# view each column of the data frame using it's name (or header)
+# view each column of the data frame using its name (or header)
 boulder_precip$DATE
 
 # view the precip column
@@ -120,7 +123,7 @@ to modify existing `ggplot` objects. This means you can easily set up plot
 plot can also be generated with code like this:
 
 ```{r, first-ggplot-with-plus, eval=FALSE, purl=FALSE, fig.cap="first ggplot"}
-# Create
+# Create the plot object (nothing will render on your screen)
 precip_plot <-  ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP))
 
 # Draw the plot
@@ -137,7 +140,7 @@ precip_plot + geom_point()
 ```
 
 
-We can also apply a color to our the points
+We can also apply a color to our points
 
 ```{r adding-colors, purl=FALSE, fig.cap="ggplot with blue points"}
 
@@ -221,7 +224,7 @@ few are listed below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 Customize the plot that we created in last weeks homework as follows:
 
