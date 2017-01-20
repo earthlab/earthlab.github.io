@@ -95,7 +95,6 @@ To build a ggplot we need to:
 - bind the plot to a specific data frame using the `data` argument
 
 ```{r, eval=FALSE, purl=FALSE, fig.cap="ggplot binding"}
-
 ggplot(data = boulder_precip)
 
 ```
@@ -111,7 +110,6 @@ ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP))
      lines, bars). To add a geom to the plot use `+` operator:
 
 ```{r first-ggplot, purl=FALSE, fig.cap="ggplot boulder precip"}
-
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
   geom_point()
 
@@ -143,7 +141,6 @@ precip_plot + geom_point()
 We can also apply a color to our points
 
 ```{r adding-colors, purl=FALSE, fig.cap="ggplot with blue points"}
-
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(color = "blue")
 
@@ -152,7 +149,6 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 And adjust the transparency.
 
 ```{r add-alpha, fig.cap="ggplot with blue points and alpha"}
-
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
 
