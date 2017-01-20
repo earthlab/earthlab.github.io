@@ -12,7 +12,7 @@ options(stringsAsFactors = FALSE)
 ## ----import-precip, echo=F-----------------------------------------------
 
 #precip_file <- "data/flood-co-2013/precip/805325-precip_daily_2003-2013.csv"
-precip_file <- "data/flood-co-2013/precip/805333-precip_daily_1948-2013.csv"
+precip_file <- "data/week2/precipitation/805333-precip-daily-1948-2013.csv"
 
 # import precip data into R data.frame
 precip.boulder <- read.csv(precip_file,
@@ -65,7 +65,7 @@ precPlot_hourly
 ## ----plot-precip-hourly-round, echo=F, fig.cap="hourly precipitation"----
 # round precip
 precip.boulder$HPCP_round <- round(precip.boulder$HPCP, digits = 1)
-  
+
 # plot the data using ggplot2
 precPlot_hourly_round <- ggplot(precip.boulder, aes(DATE, HPCP_round)) +   # the variables of interest
       geom_point(stat="identity") +   # create a bar graph
