@@ -41,7 +41,8 @@ senior) undergraduate students in the natural/social sciences.
 
 </div>
 
-
+All students enrolled in the spring 2017 semester of Earth Analytics can request
+access to <a href="http://www.datacamp.com" target="_blank">Data Camp</a>! Email the instructor for details!
 
 ### Example Course Science Topics (Topics subject to change):
 
