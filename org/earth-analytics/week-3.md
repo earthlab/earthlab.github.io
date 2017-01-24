@@ -30,23 +30,23 @@ guidelines. Use all of the class and homework lessons that we've reviewed in the
 first few weeks to help you complete the assignment.
 </div>
 
+## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class schedule
+
+|  time | topic   | speaker   |
+|---|---|---|---|---|
+| 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
+| 3:20 - 4:00  | Using data and models to understand the boulder floods   | Dr. Mariela Perignon  |
+| 4:15 - 5:50  | R coding session - Intro to Scientific programming with R  | Leah  |
 
 ### 1. Readings
 
-Read the following articles and listen to the 7 minute interview with
-Suzanne Anderson (faculty here at CU Boulder).
-
 Read the following articles. They will help you write your report.
 
-1. <a href="http://journals.ametsoc.org/doi/full/10.1175/BAMS-D-13-00241.1" target="_blank">Gochis, D., Schumacher, R., Friedrich, K., Doesken, N., Kelsch, M., Sun, J., Ikeda, K., Lindsey, D., Wood, A., Dolan, B., Matrosov, S., Newman, A., Mahoney, K., Rutledge, S., Johnson, R., Kucera, P., Kennedy, P., Sempere-Torres, D., Steiner, M., Roberts, R., Wilson, J., Yu, W., Chandrasekar, V., Rasmussen, R., Anderson, A., & Brown, B. (2014):  The great Colorado flood of September 2013.  Bull. Amer. Meteor. Soc. 96, 1461-1487, doi:10.1175/BAMS-D-13-00241.1.</a>
-
-2. Coe, J.A., Kean, J.W., Godt, J.W., Baum, R.L., Jones, E.S., Gochis, D.J., & Anderson, G.S. (2014):  New insights into debris-flow hazards from an extraordinary event in the Colorado Front Range.  GSA Today 24 (10),  4-10, doi: 10.1130/GSATG214A.1.
-
-3. Anderson, S.W., Anderson, S.P., & Anderson, R.S. (2015). Exhumation by debris flows in the 2013 Colorado Front Range storm. Geology 43 (5), 391-394, doi:10.1130/G36507.1. 
-
-4. Read the short article and **listen to the 7 minute interview with Suzanne Anderson**: To listen - click on the "<i class="fa fa-volume-up" aria-hidden="true"></i>
-Listen" icon on the page
-<a href="http://www.cpr.org/news/story/study-2013-front-range-floods-caused-thousand-years-worth-erosion" target="_blank">Study: 2013 Front Range floods caused a thousand year's worth of erosion</a>
+* Wehr, A., and U. Lohr (1999). Airborne Laser Scanning - An Introduction and Overview. ISPRS Journal of Photogrammetry and Remote Sensing 54:68–92. doi: 10.1016/S0924-2716(99)00011-8 : <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.516&rep=rep1&type=pdf" target="_blank" data-proofer-ignore=''><i class="fa fa-download" aria-hidden="true"></i>
+PDF</a>
+* <a href="https://www.e-education.psu.edu/geog481/l1_p3.html" target="_blank">Introduction to Lasers</a>
+* <a href="https://www.e-education.psu.edu/geog481/l1_p4.html" target="_blank">History of Lidar Development</a>
+* <a href="https://www.e-education.psu.edu/natureofgeoinfo/node/1890" target="_blank">Active remote sensing</a>
 
 
 <div class="notice--warning" markdown="1">

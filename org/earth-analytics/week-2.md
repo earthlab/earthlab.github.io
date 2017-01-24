@@ -35,27 +35,49 @@ you complete the assignment.
 |  time | topic   | speaker   |
 |---|---|---|---|---|
 | 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
-| 3:20 - 4:00  | Using data and models to understand the boulder floods   | Dr. Mariela Perignon  |
-| 4:15 - 5:50  | R coding session - Intro to Scientific programming with R  | Leah  |
+| 3:20 - 4:00  | R coding session - Intro to Scientific programming with R   | Leah  |
+| 4:15 - 5:50  | R coding session continued  | Leah  |
 
 
 ## <i class="fa fa-pencil"></i> Homework Week 2
 
-### 1. Install a New R Package
+### 1. Install a New R Package & Download data
 **Important:** This week we will use a new R package called `dplyr`. Before you load
 this library, you will need to install it type the command: `install.packages('dplyr')`
 into the `R` console. If you need a reminder about how to install packages in R,
 refer back to the [Install packages setup lesson]({{site.baseurl}}/course-materials/earth-analytics/week-1/install-r-packages/).
 
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/files/7406089){:data-proofer-ignore='' .btn }
+
+## Important - Data Organization
+Before you begin this lesson, be sure that you've downloaded the dataset above.
+You will need to UNZIP the zip file. When you do this, be sure that your directory
+looks like the image below: note that all of the data are within the week2
+directory. They are not nested within another directory. You may have to copy and
+paste your files to make this look right.
+
+<figure>
+<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/week2-data.png">
+<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-2/week2-data.png" alt="week 2 file organization">
+</a>
+<figcaption>Your `week2` file directory should look like the one above. Note that
+the data directly under the week-2 folder.</figcaption>
+</figure>
+
 ### 2. Readings
 
-Read the papers and pages listed below.
+Read the following articles and listen to the 7 minute interview with
+Suzanne Anderson (faculty here at CU Boulder).
 
-* Wehr, A., and U. Lohr (1999). Airborne Laser Scanning - An Introduction and Overview. ISPRS Journal of Photogrammetry and Remote Sensing 54:68–92. doi: 10.1016/S0924-2716(99)00011-8 : <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.516&rep=rep1&type=pdf" target="_blank" data-proofer-ignore=''><i class="fa fa-download" aria-hidden="true"></i>
-PDF</a>
-* <a href="https://www.e-education.psu.edu/geog481/l1_p3.html" target="_blank">Introduction to Lasers</a>
-* <a href="https://www.e-education.psu.edu/geog481/l1_p4.html" target="_blank">History of Lidar Development</a>
-* <a href="https://www.e-education.psu.edu/natureofgeoinfo/node/1890" target="_blank">Active remote sensing</a>
+1. Gochis, D., Schumacher, R., Friedrich, K., Doesken, N., Kelsch, M., Sun, J., Ikeda, K., Lindsey, D., Wood, A., Dolan, B., Matrosov, S., Newman, A., Mahoney, K., Rutledge, S., Johnson, R., Kucera, P., Kennedy, P., Sempere-Torres, D., Steiner, M., Roberts, R., Wilson, J., Yu, W., Chandrasekar, V., Rasmussen, R., Anderson, A., & Brown, B. (2014):  <a href="http://journals.ametsoc.org/doi/full/10.1175/BAMS-D-13-00241.1" target="_blank">The great Colorado flood of September 2013.  </a>Bull. Amer. Meteor. Soc. 96, 1461-1487, doi:10.1175/BAMS-D-13-00241.1.
+
+2. Coe, J.A., Kean, J.W., Godt, J.W., Baum, R.L., Jones, E.S., Gochis, D.J., & Anderson, G.S. (2014):  <a href="ftp://rock.geosociety.org/pub/GSAToday/gt1410.pdf" target="_blank">New insights into debris-flow hazards from an extraordinary event in the Colorado Front Range. </a> GSA Today 24 (10),  4-10, doi: 10.1130/GSATG214A.1.
+
+3. Anderson, S.W., Anderson, S.P., & Anderson, R.S. (2015). <a href="http://geology.gsapubs.org/content/early/2015/03/27/G36507.1" target="_blank">Exhumation by debris flows in the 2013 Colorado Front Range storm. </a> Geology 43 (5), 391-394, doi:10.1130/G36507.1. 
+
+4. Read the short article and **listen to the 7 minute interview with Suzanne Anderson**: To listen - click on the "<i class="fa fa-volume-up" aria-hidden="true"></i>
+Listen" icon on the page
+<a href="http://www.cpr.org/news/story/study-2013-front-range-floods-caused-thousand-years-worth-erosion" target="_blank">Study: 2013 Front Range floods caused a thousand year's worth of erosion</a>
 
 
 ### 3. Videos
@@ -87,12 +109,14 @@ submission below.
 as a guide to walk you through](/course-materials/earth-analytics/week-2/hw-ggplot2-r).
 
 Use the `data/week2/precipitation/805325-precip-dailysum-2003-2013.csv` file to create:
-    * Create a plot of precipitation from 2003 to 2013 using `ggplot()`.
-    * Create a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013
+
+* a plot of precipitation from 2003 to 2013 using `ggplot()`.
+* a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013
 
 Use the `data/week2/discharge/06730200-discharge-daily-1986-2013.csv` file to create:
-    * Create a plot of stream discharge from 1986 to 2016 using `ggplot()`.
-    * Create a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013
+
+* a plot of stream discharge from 1986 to 2016 using `ggplot()`.
+* a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013
 
 Note: If you did the challenge activities, you have already created these plots.
 
@@ -111,15 +135,15 @@ from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. Use the [bo
 you through creating this plot. This lesson will give you a more real world experience
 with working with less than perfect data!
 
-You can recieve a bonus point for
+You can receive a bonus point for
 
-1. identifying an anomoly in the data when you
+1. identifying an anomaly in the data when you
 plot it and
-2. suggesting how to address that anomoly.
+2. suggesting how to address that anomaly.
 
 ### Undergrads Bonus
 If you complete the bonus activity and add the 1948 - 2013 plot to your report,
-you will recieve a bonus point!
+you will receive a bonus point!
 
 #### Report Write Up
 
