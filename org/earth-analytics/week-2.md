@@ -104,19 +104,38 @@ submission below.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission
 
-1. Create a new `R markdown` document. Name it: `youLastName-yourFirstName-week2.rmd`
-2. In this `R markdown` document, add the following plots [using the homework lessons
+**Create a new `R markdown` document.** Name it: `youLastName-yourFirstName-week2.rmd`
+Turn your R Markdown document into a report about the 2013 Boulder floods by adding
+the code required to generate the plots listed below and the following text:
+
+Carefully compose 2-3 paragraphs at the top of the report which summarize the conditions
+and the events that took place in 2013 to cause a flood that had significant impacts.
+Describe the impacts of the flood on the terrain and the people in Boulder.
+
+Below that text, include the 4 plots (described below). Describe and interpret each
+plot that you create below, describing what the plot shows and how the data demonstrate
+an impact or a driver of the flood event. Use the readings above to write the text
+in your report.
+
+Be sure to PROOFREAD your report before submitting it. Check for spelling, and grammar.
+The text will be graded like a typical paper. The code will be graded for
+
+* syntax, clean code style, function (does it run without errors)
+
+#### Add 4 plots to your report document
+
+Add the code to produce the following 4 plots in your `R markdown` document, [using the homework lessons
 as a guide to walk you through](/course-materials/earth-analytics/week-2/hw-ggplot2-r).
 
 Use the `data/week2/precipitation/805325-precip-dailysum-2003-2013.csv` file to create:
 
-* a plot of precipitation from 2003 to 2013 using `ggplot()`.
-* a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013
+* **PLOT 1:** a plot of precipitation from 2003 to 2013 using `ggplot()`.
+* **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013
 
 Use the `data/week2/discharge/06730200-discharge-daily-1986-2013.csv` file to create:
 
-* a plot of stream discharge from 1986 to 2016 using `ggplot()`.
-* a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013
+* **PLOT 3:** a plot of stream discharge from 1986 to 2016 using `ggplot()`.
+* **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013
 
 Note: If you did the challenge activities, you have already created these plots.
 
@@ -128,7 +147,7 @@ Be sure to:
 * Clean no data values as appropriate
 * Show all of your code in the output `.html` file.
 
-### Graduate students required additional plot
+#### Graduate students: add a 5th plot to your .Rmd file
 
 In addition to the plots above, add a plot of precipitation that spans
 from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. Use the [bonus lesson]({{ site.url }}/course-materials/earth-analytics/week-2/aggregate-time-series-data-r/) to guide
@@ -137,34 +156,17 @@ with working with less than perfect data!
 
 You can receive a bonus point for
 
-1. identifying an anomaly in the data when you
-plot it and
-2. suggesting how to address that anomaly.
+1. Identifying an anomaly in the data when you plot it and
+2. Suggesting how to address that anomaly.
 
-### Undergrads Bonus
+#### Undergrads Bonus
 If you complete the bonus activity and add the 1948 - 2013 plot to your report,
 you will receive a bonus point!
 
-#### Report Write Up
-
-Turn your R Markdown document into a report about the 2013 Boulder floods by adding
-the following:
-
-1. Carefully compose 2-3 paragraphs at the top of the report which summarize the conditions
-and the events that took place in 2013 to cause a flood that had significant impacts.
-Describe the impacts of the flood on the terrain and the people in Boulder. Then
-describe and interpret each
-plot, telling us what it shows, and how it impacted the overall disturbance caused
-by the floods. Use the readings above to write the text in your report.
+***
 
 When you are happy with your report, convert your R Markdown file into `.html`
 format report using `knitr`.
-
-Be sure to PROOFREAD your report before submitting it. Check for spelling, and grammar.
-The text will be graded like a typical paper. The code will be graded for
-
-* syntax, clean code style, function (does it run without errors)
-
 **Submit your final report to the d2l drop box in both `.html` and `.Rmd`
 formats by Wed 1 February 2017 @ NOON**
 
