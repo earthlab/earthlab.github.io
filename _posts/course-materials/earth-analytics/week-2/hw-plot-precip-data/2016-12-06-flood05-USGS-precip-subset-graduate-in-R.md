@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R"
 excerpt: "This lesson walks aggregating time series data in R."
 authors: ['Leah Wasser', 'Mariela Perignon']
-modified: '2017-01-20'
+modified: '2017-01-24'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -176,11 +176,12 @@ Any ideas what might be causing the notable difference in the plotted data throu
 
 ![hourly precipitation]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-round-1.png)
 
-These data are hard to look at. And really we only need to explore 30 years or so.
-Let's do the following
+It is difficult to interpret this plot which spans so many years at such a fine 
+temporal scale. For our research project, we only need to explore 30 years of data.
+Let's do the following:
 
-1. aggregate the precipitation totals (sum) by day.
-2. subset the data for 30 years.
+1. Aggregate the precipitation totals (sum) by day.
+2. Subset the data for 30 years (we learned how to do this in a previous lesson).
 
 #### Aggregating and summarizing data
 
@@ -246,8 +247,8 @@ Now plot the daily data.
 ![Daily precipitation for boulder]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png)
 
 
-## have them create a few plots over different time scales
-## how to aggregate by month, by week -- http://stackoverflow.com/questions/11395927/how-to-subset-data-frame-by-weeks-and-then-sum
+Finally, plot a temporal subsets of the data from 2000-2013. We learned how to 
+do this in the previous lessons. 
 
 
 Now we can easily see the dramatic rainfall event in mid-September!
@@ -259,60 +260,22 @@ of just a date class, you need to use `scale_x_datetime()`.
 #### Subset The Data
 
 Now let's create a subset of the data and plot it.
-filter between 1993-12-31 - 2013-12-31
+filter between 2012-12-31 - 2013-12-31
 
 
-```r
-
-# use dplyr
-daily_sum_precip_subset <- daily_sum_precip %>%
-  filter(day >= as.Date('2010-08-15') & day <= as.Date('2013-12-31'))
-
-
-# create new plot
-precPlot_30yrs <- ggplot(daily_sum_precip_subset, aes(day, total_precip)) +
-  geom_bar(stat="identity") +
-  xlab("Date") + ylab("Precipitation (inches)") +
-  ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek")
-
-precPlot_30yrs
-## Warning: Removed 23 rows containing missing values (position_stack).
+```
+## Warning: Removed 4 rows containing missing values (position_stack).
 ```
 
-![final precip plot daily sum]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/subset-data, -1.png)
+![final precip plot daily sum]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/subset-data-1.png)
 
 
-</div>
 
+<div class="notice--info" markdown="1">
 
 ## Additional Resources
 
-### Units & Scale
-If you are using a dataset downloaded before 2016, the units were in
-**hundredths of an inch**. You might want to
-create a new column `PRECIP` that contains the data from `HPCP` converted to
-inches.
+* <a href="http://stackoverflow.com/questions/11395927/how-to-subset-data-frame-by-weeks-and-then-sum" target="_blank">How to subset data by weeks</a>
+</div>
 
 
-```r
-
-# convert from 100th inch by dividing by 100
-precip.boulder$PRECIP<-precip.boulder$HPCP/100
-
-# view & check to make sure conversion occured
-head(precip.boulder)
-##       STATION    STATION_NAME ELEVATION LATITUDE LONGITUDE
-## 1 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
-## 2 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
-## 3 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
-## 4 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
-## 5 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
-## 6 COOP:050843 BOULDER 2 CO US   unknown  unknown   unknown
-##                  DATE HPCP Measurement.Flag Quality.Flag HPCP_round PRECIP
-## 1 1948-08-01 01:00:00 0.00                g                       0  0e+00
-## 2 1948-08-02 15:00:00 0.05                                        0  5e-04
-## 3 1948-08-03 09:00:00 0.01                                        0  1e-04
-## 4 1948-08-03 14:00:00 0.03                                        0  3e-04
-## 5 1948-08-03 15:00:00 0.03                                        0  3e-04
-## 6 1948-08-04 01:00:00 0.05                                        0  5e-04
-```
