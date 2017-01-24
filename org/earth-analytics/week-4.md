@@ -21,7 +21,11 @@ author_profile: false
 Welcome to week {{ page.week }} of Earth Analytics!
 </div>
 
-Nothing here to see yet, folks.
+|  time | topic   | speaker   |
+|---|---|---|---|---|
+| 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
+| 3:20 - 4:00  | Open Topography / lidar data   | Chris Crosby, UNAVCO / Open Topography  |
+| 4:15 - 5:50  | R coding session - Use lidar to characterize vegetation / uncertainty | Leah  |
 
 ### 1. Readings
 
