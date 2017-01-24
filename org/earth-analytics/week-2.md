@@ -104,7 +104,9 @@ submission below.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission
 
-**Create a new `R markdown` document.** Name it: `youLastName-yourFirstName-week2.rmd`
+#### 1. Create R Markdown document
+
+Create a new `R markdown` document. Name it: `youLastName-yourFirstName-week2.rmd`
 Turn your R Markdown document into a report about the 2013 Boulder floods by adding
 the code required to generate the plots listed below and the following text:
 
@@ -122,7 +124,7 @@ The text will be graded like a typical paper. The code will be graded for
 
 * syntax, clean code style, function (does it run without errors)
 
-#### Add 4 plots to your report document
+####  2. Add 4 plots to your R Markdown document
 
 Add the code to produce the following 4 plots in your `R markdown` document, [using the homework lessons
 as a guide to walk you through](/course-materials/earth-analytics/week-2/hw-ggplot2-r).
@@ -147,7 +149,7 @@ Be sure to:
 * Clean no data values as appropriate
 * Show all of your code in the output `.html` file.
 
-#### Graduate students: add a 5th plot to your .Rmd file
+#### 3. Graduate students: add a 5th plot to your .Rmd file
 
 In addition to the plots above, add a plot of precipitation that spans
 from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. Use the [bonus lesson]({{ site.url }}/course-materials/earth-analytics/week-2/aggregate-time-series-data-r/) to guide
@@ -164,6 +166,8 @@ If you complete the bonus activity and add the 1948 - 2013 plot to your report,
 you will receive a bonus point!
 
 ***
+
+## Homework due: Feb 1 @ NOON
 
 When you are happy with your report, convert your R Markdown file into `.html`
 format report using `knitr`.
