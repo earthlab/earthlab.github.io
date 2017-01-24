@@ -121,7 +121,7 @@ precPlot_daily <- ggplot(daily_sum_precip, aes(day, total_precip)) +
 
 precPlot_daily
 
-## ----subset-data, echo=F, fig.cap="final precip plot daily sum"----------
+## ----subset-data, echo=F, warning='hide', fig.cap="final precip plot daily sum"----
 
 # use dplyr
 daily_sum_precip_subset <- daily_sum_precip %>%

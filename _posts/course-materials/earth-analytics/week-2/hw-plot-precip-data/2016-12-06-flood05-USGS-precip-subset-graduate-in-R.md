@@ -259,8 +259,8 @@ of just a date class, you need to use `scale_x_datetime()`.
 
 #### Subset The Data
 
-Now let's create a subset of the data and plot it.
-filter between 2012-12-31 - 2013-12-31
+If we wanted to, we could subset this data set using the same code that we used 
+previously to subset! An example of the subsetted plot is below. 
 
 
 ```
@@ -268,8 +268,6 @@ filter between 2012-12-31 - 2013-12-31
 ```
 
 ![final precip plot daily sum]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/subset-data-1.png)
-
-
 
 <div class="notice--info" markdown="1">
 
