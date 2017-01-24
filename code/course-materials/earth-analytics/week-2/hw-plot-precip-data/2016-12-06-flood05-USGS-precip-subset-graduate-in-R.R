@@ -121,28 +121,19 @@ precPlot_daily <- ggplot(daily_sum_precip, aes(day, total_precip)) +
 
 precPlot_daily
 
-## ----subset-data, , fig.cap="final precip plot daily sum"----------------
+## ----subset-data, echo=F, fig.cap="final precip plot daily sum"----------
 
 # use dplyr
 daily_sum_precip_subset <- daily_sum_precip %>%
-  filter(day >= as.Date('2010-08-15') & day <= as.Date('2013-12-31'))
+  filter(day >= as.Date('2012-12-31') & day <= as.Date('2013-12-31'))
 
 
 # create new plot
 precPlot_30yrs <- ggplot(daily_sum_precip_subset, aes(day, total_precip)) +
   geom_bar(stat="identity") +
   xlab("Date") + ylab("Precipitation (inches)") +
-  ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek")
+  ggtitle("Daily Total Precipitation 2012 - 2013 for Boulder Creek")
 
 precPlot_30yrs
-
-
-## ----inches--------------------------------------------------------------
-
-# convert from 100th inch by dividing by 100
-precip.boulder$PRECIP<-precip.boulder$HPCP/100
-
-# view & check to make sure conversion occured
-head(precip.boulder)
 
 
