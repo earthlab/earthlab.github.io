@@ -68,7 +68,7 @@ Following the lessons, setup `R`, `RStudio` and a
 rest of the semester on your laptop.
 
 Once everything is setup, complete the second set of lessons which walk you
-through creating R markdown documents and knitting them to `.pdf` format. If you
+through creating R markdown documents and knitting them to `.html` format. If you
 already know `rmarkdown`, be sure to review the lessons anyway - particularly
 the ones about file organization and why we use this workflow in science.
 
@@ -80,7 +80,7 @@ You will be behind if these things are not setup / complete before week 2.
 ### 5. Complete assignment below
 
 After you have reviewed the lessons above, complete the assignment below.
-Submit your `.pdf` document and `R Markdown` document to the D2L course drop box
+Submit your `.html` document and `R Markdown` document to the D2L course drop box
 by **Wed 25 January 2017 at NOON Mountain Time.**
 
 <!-- start homework activity -->
