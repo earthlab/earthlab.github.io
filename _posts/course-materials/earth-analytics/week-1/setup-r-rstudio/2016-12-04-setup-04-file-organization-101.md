@@ -11,14 +11,14 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/file-organization-101/
 dateCreated: 2016-12-12
-modified: '2017-01-13'
+modified: '2017-01-25'
 course: 'earth-analytics'
 author_profile: false
 comments: true
 order: 4
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 In the previous lessons, we setup R and RStudio. The last part of our setup is
 to setup our working directory. A **working directory** is an organized space or directory on our computer where we keep our data, scripts and outputs. It is important

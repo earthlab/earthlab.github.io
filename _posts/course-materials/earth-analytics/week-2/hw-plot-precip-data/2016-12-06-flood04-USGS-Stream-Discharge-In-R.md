@@ -1,16 +1,16 @@
 ---
 layout: single
-title: "Visualize Stream Discharge Data in R - 2013 Colorado Floods"
+title: "Plot Stream Discharge Data in R"
 excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-01-20'
+modified: '2017-01-25'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
 permalink: /course-materials/earth-analytics/week-2/plot-stream-discharge-timeseries-r/
-nav-title: 'Stream Discharge Data R'
+nav-title: 'Plot Stream Discharge Data R'
 sidebar:
   nav:
 author_profile: false
@@ -18,7 +18,7 @@ comments: true
 order: 4
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 In this data lesson, we explore and visualize stream discharge time series
 data collected by the United States Geological Survey (USGS). You will use everything
