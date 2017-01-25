@@ -4,7 +4,7 @@ title: "Intro to Markdown"
 excerpt: 'This tutorial cover how to use Markdown syntax in R and then
 render it to html using knitr.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-01-13'
+modified: '2017-01-25'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-to-markdown/
@@ -16,7 +16,7 @@ author_profile: false
 comments: true
 order: 3
 ---
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 Here, we break down the basic syntax for a markdown file. We also cover how to
 create and format markdown (`.md`) files.
