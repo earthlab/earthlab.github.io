@@ -21,7 +21,7 @@ author_profile: false
 comments: true
 order: 1
 ---
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 In this tutorial we will use the `knitr` and `rmarkdown` packages in
 `RStudio` to create a report that links our analysis, results and associated data.

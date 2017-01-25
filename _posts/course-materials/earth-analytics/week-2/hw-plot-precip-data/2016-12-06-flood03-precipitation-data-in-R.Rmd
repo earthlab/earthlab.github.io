@@ -18,7 +18,7 @@ comments: true
 order: 3
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 ``` {r daily-summ, eval=F, echo=F}
@@ -188,7 +188,7 @@ You can download the original complete data subset with additional documentation
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Using everything you've learned in the previous lessons:
 
@@ -242,7 +242,7 @@ prec_plot_daily
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge 2
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 Take a close look at the plot.
 
@@ -297,7 +297,7 @@ precPlot_flood2
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge 3
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Create a subset from the same dates in 2012 to compare to the 2013 plot.
 Use the ylim() argument to ensure the y axis range is the SAME as the previous

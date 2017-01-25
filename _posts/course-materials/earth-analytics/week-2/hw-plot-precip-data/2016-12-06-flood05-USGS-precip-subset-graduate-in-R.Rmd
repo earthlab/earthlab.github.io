@@ -16,7 +16,7 @@ comments: true
 order: 5
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 Bonus / graduate activity. In this lesson, you will PLOT precipitation data in R.
