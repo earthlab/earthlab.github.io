@@ -55,7 +55,7 @@ have basic knowledge for use of the `R` software program.
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/files/7406089){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/files/7426738){:data-proofer-ignore='' .btn }
 
 </div>
 
