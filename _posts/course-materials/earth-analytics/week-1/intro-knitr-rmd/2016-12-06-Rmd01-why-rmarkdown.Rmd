@@ -137,7 +137,7 @@ this one - were created using R Markdown!
 {: .notice}
 
 
-## Use Knitr to convert .Rmd to .pdf
+## Use Knitr to convert .Rmd to .html
 
 We use the `R` `knitr` package to render our markdown and create easy to read
 documents from `.Rmd` files. We will cover how to use `knitr` later in this
