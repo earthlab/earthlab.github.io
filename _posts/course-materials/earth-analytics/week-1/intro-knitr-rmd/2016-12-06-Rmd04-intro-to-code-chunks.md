@@ -218,7 +218,7 @@ with plots where you have a lot of code generating those plots.
 
 </div>
 
-We will knit our R Markdown document to `.pdf` in the next lesson.
+We will knit our R Markdown document to `.html` in the next lesson.
 
 <div class="notice--info" markdown="1">
 
