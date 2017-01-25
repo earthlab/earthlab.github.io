@@ -16,7 +16,7 @@ comments: true
 order: 2
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 Several factors contributed to extreme flooding that occurred in Boulder,
 Colorado in 2013. In this lesson we will check our a report that provides some
