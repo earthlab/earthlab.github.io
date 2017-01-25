@@ -1,29 +1,24 @@
 ---
-title: "Plotting with GGPLOT"
-authors:
-- Leah Wasser
-- Data Carpentry
-category: course-materials
-output:
-  html_document: default
-  pdf_document: default
-comments: yes
-excerpt: This lesson walks through using GGPLOT2 to plot data.
 layout: single
+title: "Plot with GGPLOT"
+excerpt: 'This lesson walks through using GGPLOT2 to plot data.'
+authors: ['Leah Wasser', 'Data Carpentry']
 modified: '2017-01-25'
-module-description: This tutorial covers how to plot time series data in R using ggplot2.
-  It also covers converting data stored in data/time format into an R date time class.
-module-nav-title: Time Series Data in R
-module-title: Work with Sensor Network Derived Time Series Data in R
-module-type: homework
-nav-title: GGPLOT R
-order: 1
-class-lesson: hw-ggplot2-r
+category: [course-materials]
+class-lesson: ['hw-ggplot2-r']
+module-description: 'This tutorial covers how to plot time series data in R using ggplot2.
+  It also covers converting data stored in data/time format into an R date time class.'
+module-nav-title: 'Time Series Data in R'
+module-title: 'Work with Sensor Network Derived Time Series Data in R'
+module-type: 'homework'
+nav-title: 'GGPLOT R'
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
-sidebar:
-  nav: null
-author_profile: no
 week: 2
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 1
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
