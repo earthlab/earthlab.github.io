@@ -4,7 +4,7 @@ title: "Write Reports and Document Workflow Using R Markdown"
 excerpt: 'This tutorial cover how to create an R Markdown file in R and then
 render it to html using knitr.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-01-13'
+modified: '2017-01-25'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr2/
@@ -16,7 +16,7 @@ author_profile: false
 comments: true
 order: 2
 ---
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 ## Getting Started
