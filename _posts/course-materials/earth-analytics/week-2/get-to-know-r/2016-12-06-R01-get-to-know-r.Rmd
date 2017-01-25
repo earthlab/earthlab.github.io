@@ -25,7 +25,7 @@ comments: true
 order: 1
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming

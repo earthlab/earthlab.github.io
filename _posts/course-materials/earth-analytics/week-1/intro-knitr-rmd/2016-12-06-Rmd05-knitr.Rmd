@@ -16,7 +16,7 @@ author_profile: false
 comments: true
 order: 5
 ---
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 In the previous tutorials we've learned about the R Markdown format and how
