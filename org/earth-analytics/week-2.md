@@ -47,7 +47,7 @@ this library, you will need to install it type the command: `install.packages('d
 into the `R` console. If you need a reminder about how to install packages in R,
 refer back to the [Install packages setup lesson]({{site.baseurl}}/course-materials/earth-analytics/week-1/install-r-packages/).
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Precipitation Data](https://ndownloader.figshare.com/files/7406089){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 2 Data](https://ndownloader.figshare.com/files/7426738){:data-proofer-ignore='' .btn }
 
 ## Important - Data Organization
 Before you begin this lesson, be sure that you've downloaded the dataset above.
