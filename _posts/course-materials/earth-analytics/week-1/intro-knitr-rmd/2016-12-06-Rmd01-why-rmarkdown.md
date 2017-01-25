@@ -8,7 +8,7 @@ class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr/
 nav-title: 'Intro to R Markdown'
 dateCreated: 2016-12-12
-modified: '2017-01-13'
+modified: '2017-01-25'
 module-title: 'Link data, processing and results using R Markdown and Knitr'
 module-nav-title: 'R Markdown Intro'
 module-description: 'This module teaches participants how to use R Markdown
@@ -21,7 +21,7 @@ author_profile: false
 comments: true
 order: 1
 ---
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 In this tutorial we will use the `knitr` and `rmarkdown` packages in
 `RStudio` to create a report that links our analysis, results and associated data.

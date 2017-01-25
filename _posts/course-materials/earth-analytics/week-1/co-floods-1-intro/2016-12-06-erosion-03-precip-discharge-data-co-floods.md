@@ -22,7 +22,7 @@ comments: true
 order: 3
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 In this classroom activity we will look at different types of data
 that scientifically quantify / document the drivers (causes of) and impacts of
