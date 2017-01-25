@@ -15,7 +15,7 @@ comments: true
 order: 4
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 ## Setup
 
