@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster."
 authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: '2017-01-13'
+lastModified: '2017-01-25'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/

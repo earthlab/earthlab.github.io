@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-01-20'
+modified: '2017-01-25'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -18,7 +18,7 @@ comments: true
 order: 3
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
@@ -182,7 +182,7 @@ You can download the original complete data subset with additional documentation
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Using everything you've learned in the previous lessons:
 
@@ -213,7 +213,7 @@ Your final plot should look something like the plot below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge 2
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 Take a close look at the plot.
 
@@ -272,7 +272,7 @@ precPlot_flood2
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge 3
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Create a subset from the same dates in 2012 to compare to the 2013 plot.
 Use the ylim() argument to ensure the y axis range is the SAME as the previous
