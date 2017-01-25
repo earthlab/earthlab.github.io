@@ -6,7 +6,7 @@ R Markdown file in R Studio. It also explores how to use comments to document yo
 code workflow.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
-modified: '2017-01-13'
+modified: '2017-01-25'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/code-chunks-comments-knitr/
 nav-title: 'Code Chunks'
@@ -17,7 +17,7 @@ author_profile: false
 comments: true
 order: 4
 ---
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 Next, we will talk about code chunks in `R markdown` files.

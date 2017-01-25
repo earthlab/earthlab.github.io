@@ -23,7 +23,7 @@ author_profile: false
 comments: true
 order: 1
 ---
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 In this classroom activity we will actively engage with different types of data
 that scientifically quantify / document the drivers (causes of) and impacts of
