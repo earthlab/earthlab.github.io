@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/get-to-know-r/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: '2017-01-19'
+modified: '2017-01-25'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
@@ -25,7 +25,7 @@ comments: true
 order: 1
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming

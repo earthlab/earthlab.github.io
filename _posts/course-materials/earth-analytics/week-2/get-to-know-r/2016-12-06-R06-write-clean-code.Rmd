@@ -17,7 +17,7 @@ comments: true
 order: 6
 ---
 
-{% include toc title="This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 This lesson reviews best practices associated with clean coding.
 
