@@ -3,7 +3,7 @@ layout: single
 title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models - Work With LiDAR Data in R"
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
-authors: ['Leah Wasser', 'NEON Data Skills']
+authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
@@ -75,25 +75,21 @@ thus easier to work with. In this lesson, we will import and work with
 
 
 ### Digital Elevation Model
-We will start with the digital elevation model - the file that we worked with
-to better understand raster data in the previous lesson. The digital elevation
+In the previous lesson, we opened a digital elevation model. The digital elevation
 model (DEM), also known as a digital terrain model (DTM) represents the elevation
 of the earth surfacel. The DEM represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
 
 ```{r load-libraries }
-
 # load libraries
 library(raster)
 library(rgdal)
 
 # set working directory to ensure R can find the file we wish to import
 # setwd("working-dir-path-here")
-
 ```
 
 ```{r dem, fig.cap="digital elevation model plot" }
-
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
@@ -103,19 +99,16 @@ plot(lidar_dem,
 
 ```
 
-Notice in the plot above, the range of elevation values. Let's next look at the
-digital SURFACE model (DSM). The DSM represents the top of the earth's surface.
+Then we opened the digital SURFACE model (DSM). The DSM represents the top of the earth's surface.
 Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
 
 ```{r dsm, fig.cap="digital surface model plot" }
-
 # open raster data
 lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
 # plot raster data
 plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
-
 ```
 
 ## Canopy Height Model
@@ -138,14 +131,12 @@ earth surface and the ground which should be the heights of the trees (and build
 if the data haven't been "cleaned").
 
 ```{r chm, fig.cap="canopy height model plot" }
-
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
 
 # plot raster data
 plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
-
 ```
 
 ## Plots Using Breaks
@@ -157,8 +148,7 @@ in a raster. These ranges may be statistically generated or simply visual.
 Let's create breaks in our CHM plot.
 
 
-```{r chm-breaks, fig.cap="canopy height model breaks"}
-
+```{r chm-breaks, fig.cap="canopy height model breaks", warning=FALSE}
 # plot raster data
 plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
@@ -175,9 +165,7 @@ create a new directory called "outputs" within the week 3 director. This structu
 allows us to keep things organized, separating our outputs from the data we downloaded.
 
 
-
-```{r export-raster}
-
+```{r export-raster, warning=F, message=FALSE}
 # check to see if an output directory exists
 dir.exists("data/week3/outputs")
 
@@ -231,3 +219,4 @@ elevation before the after?
 What differences do you see between the two years?
 
 </div>
+
