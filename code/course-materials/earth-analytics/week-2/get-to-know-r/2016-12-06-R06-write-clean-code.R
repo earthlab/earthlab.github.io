@@ -28,6 +28,4 @@
 ## qplot(x=my.data$DATE,
 ##       y=my.data$PRECIP)
 ## 
-## 
-## 
 
