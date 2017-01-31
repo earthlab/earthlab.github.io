@@ -43,7 +43,7 @@ hist(lidar_dem,
 ## ----class-challenge, echo=F, fig.cap="DSM histogram and plot"-----------
 lidar_dsm <- raster("data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif")
 hist(lidar_dsm,
-     col="springgreen", 
+     col="springgreen",
      xlab="elevation", ylab="frequency",
      main="DSM Histogram")
 
