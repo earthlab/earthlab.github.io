@@ -89,6 +89,8 @@ library(rgdal)
 # setwd("working-dir-path-here")
 ```
 
+First, let's open and plot the digital elevation model. 
+
 ```{r dem, fig.cap="digital elevation model plot" }
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
