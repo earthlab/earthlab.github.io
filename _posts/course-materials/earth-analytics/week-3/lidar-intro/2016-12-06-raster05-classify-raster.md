@@ -8,7 +8,7 @@ modified: '2017-01-30'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/classify-raster/
-nav-title: 'classify raster'
+nav-title: 'Classify Raster'
 week: 3
 sidebar:
   nav:
@@ -74,17 +74,17 @@ tall = 3
 ```r
 
 # create classification matrix
-class.m <- c(0, 10, 1,
+reclass_df <- c(0, 10, 1,
              10, 20, 2,
              20, 35, 3)
-class.m
+reclass_df
 ## [1]  0 10  1 10 20  2 20 35  3
 
 # reshape the object into a matrix with columns and rows
-rcl.m <- matrix(class.m,
+reclass_m <- matrix(reclass_df,
                 ncol=3,
                 byrow=TRUE)
-rcl.m
+reclass_m
 ##      [,1] [,2] [,3]
 ## [1,]    0   10    1
 ## [2,]   10   20    2
@@ -101,9 +101,9 @@ Next, we will reclassify the raster
 lidar_chm <- raster("data/week3/outputs/lidar_chm.tif")
 ## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
-# reclassify the raster using the reclass object - rcl.m
+# reclassify the raster using the reclass object - reclass_m
 chm_classified <- reclassify(lidar_chm,
-                     rcl.m)
+                     reclass_m)
 ## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 # plot reclassified data
 plot(chm_classified,
@@ -124,17 +124,15 @@ create a CUSTOM legend with the 3 categories that we created in our classificati
 
 ```r
 # plot reclassified data
-plot(chm_classified, 
+plot(chm_classified,
      legend=F,
      col=c("red", "blue", "green"), axes=F,
      main="Canopy Height Model - Classified: short, medium, tall trees")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
-legend("topright", 
-       legend = c("short trees", "medium trees", "tall trees"), 
+legend("topright",
+       legend = c("short trees", "medium trees", "tall trees"),
        fill = c("red", "blue", "green"),
-       border = F, 
+       border = F,
        bty="n") # turn off legend border
 ```
 
@@ -145,12 +143,19 @@ legend("topright",
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - plot change over time
 
 1. Create a classified raster map that shows **positive and negative change** in the canopy height model before and after the flood. To do this you will need to calculate the difference
-between two canopy height models. 
-2. Create a classified raster map that shows **positive and negative change** in terrain extracted from the pre and post flood Digital Terrain Models 
+between two canopy height models.
+2. Create a classified raster map that shows **positive and negative change** in terrain extracted from the pre and post flood Digital Terrain Models
 before and after the flood.
 
-For each plot, be sure to add a legend that clearly shows what each color in your 
-classified raster represents. Add a title to your plot. You will include these plots
-in your final report due next week. 
+For each plot, be sure to:
 
+* add a legend that clearly shows what each color in your classified raster represents
+* use better colors that I used in my example above!.
+* add a title to your plot.
+
+You will include these plots in your final report due next week.
+
+Check out <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf" target="_blank">this cheatsheet for more on colors in `R`. </a>
+
+Or type: `grDevices::colors()` into the r console for a nice list of colors!
 </div>

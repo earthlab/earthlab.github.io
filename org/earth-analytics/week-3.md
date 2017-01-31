@@ -36,7 +36,7 @@ first few weeks to help you complete the assignment.
 |---|---|---|---|---|
 | 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
 | 3:20 - 4:00  | Using data and models to understand the boulder floods   | Dr. Mariela Perignon  |
-| 4:15 - 5:50  | R coding session - Intro to Scientific programming with R  | Leah  |
+| 4:15 - 5:50  | R coding session - Intro to Lidar data & raster data in R  | Leah  |
 
 ### 1. Readings
 
@@ -51,14 +51,16 @@ PDF</a>
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission
 
-#### Produce a final report
+#### Produce a final report on the 2013 Floods
+Create a new `R markdown `document. Name it: lastName-firstInitial-floodreport.Rmd
+Within your Rmd document, carefully compose a report that summarizes what you have
+learned about the 2013 Colorado flood event. Use all of the plots that you have created
+in the first 3 weeks of the class in your report as listed below.
 
-Create a new R markdown document. Name it: lastName-firstInitial-floodreport.rmd
-Carefully compose a report that summarized the 2013 Colorado flood event. When you
-are done with your report, use knitr to convert it to PDF. You will submit both
-the .Rmd file and the .pdf file.
+When you are done with your report, use knitr to convert it to PDF format. You will submit both
+the .Rmd file and the .pdf file. Be sure to name your files as instructed above!
 
 Include the following parts in your report:
 
@@ -66,7 +68,7 @@ Include the following parts in your report:
 
 Include the following background in your report:
 
-1. Where and when the disturbance event occured.
+1. Describe where and when the disturbance event occured. 
 2. Discussion of the drivers that yielded the flooding in Boulder and discussion of the impacts of the flood.
 3. Plots that show precipitation and discharge data during the flood period and around the flood period. Be sure to:
     * Discuss where the data came from and what it shows.
