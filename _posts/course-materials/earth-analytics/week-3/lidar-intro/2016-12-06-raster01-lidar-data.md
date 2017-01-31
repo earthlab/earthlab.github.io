@@ -2,7 +2,7 @@
 layout: single
 title: "Introduction to LiDAR Data"
 excerpt: "."
-authors: ['Leah Wasser', 'NEON Data Skills']
+authors: ['Leah Wasser']
 modified: '2017-01-30'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
