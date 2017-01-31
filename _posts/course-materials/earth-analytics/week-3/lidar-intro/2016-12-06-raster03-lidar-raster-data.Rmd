@@ -2,7 +2,7 @@
 layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster."
-authors: ['Leah Wasser', 'NEON Data Skills']
+authors: ['Leah Wasser']
 lastModified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
@@ -156,22 +156,19 @@ We will not be talking about interpolation in today's class.
 To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
 
 ```{r load-libraries }
-
 # load libraries
 library(raster)
 library(rgdal)
 
-# set working directory to ensure R can find the file we wish to import
-# setwd("working-dir-path-here")
+# Make sure your working directory is set to  wherever your 'earth-analytics' dir is
+# setwd("earth-analytics-dir-path-here")
 
 ```
 
 We can use the `raster("path-to-raster-here")` function to open a raster in R.
 
-## NOTE SWITCH THIS TO USE THE DEM INSTEAD.
 
 ```{r open-plot-raster, fig.cap="digital surface model raster plot" }
-
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
@@ -187,6 +184,7 @@ that make up the raster. Each pixel has one value associated with it. In this
 case that value represents the elevation of ground.
 
 ```{r plot-zoomed-in-raster, fig.cap="zoom in on a small part of a raster - see the pixels?" }
+# zoom in to one region of the raster
 plot(lidar_dem, xlim=c(473000, 473030), ylim=c(4434000, 4434030),
      main="Lidar Raster - Zoomed into to one small region")
 
@@ -199,7 +197,6 @@ area on the ground that each pixel covers. The units for our data are in meters.
 Given our data resolution is 1 x 1, this means that each pixel represents a 1 x 1 meter area on the ground.
 
 ```{r view-res }
-
 # what is the x and y resolution for our raster data?
 xres(lidar_dem)
 yres(lidar_dem)
@@ -213,7 +210,6 @@ figure out the horizontal (x and y) units from the coordinate reference system
 string.
 
 ```{r crs-view}
-
 # view coordinate refence system
 crs(lidar_dem)
 
@@ -232,7 +228,34 @@ for identifying outlier data values.
 ```{r view-hist, fig.cap="histogram of DEM elevation values"}
 # plot histogram
 hist(lidar_dem,
-     main="Distribution of elevation values",
+     main="Distribution of surface elevation values",
      xlab="Elevation (meters)", ylab="Frequency",
      col="springgreen")
+```
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> In-class challenge - import DSM
+
+* Import the file: `data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif`
+
+Plot the data and a histogram of the data. What do the elevations in the DSM
+represent? Are they different from the DTM? Discuss this with your neighbor.
+
+* Is the CRS and spatial resolution for this dataset?
+<!-- Yes - they are the same for both files you can figure this out using
+crs() and xres()  / yres() -->
+
+</div>
+
+```{r class-challenge, echo=F, fig.cap="DSM histogram and plot"}
+lidar_dsm <- raster("data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif")
+hist(lidar_dsm,
+     col="springgreen",
+     xlab="elevation", ylab="frequency",
+     main="DSM Histogram")
+
+plot(lidar_dsm, main="Digital Surface Model")
+
 ```
