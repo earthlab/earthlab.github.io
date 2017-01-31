@@ -4,11 +4,11 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-01-30'
+modified: '2017-01-31'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/classify-raster/
-nav-title: 'Classify Raster'
+nav-title: 'Classify a raster'
 week: 3
 sidebar:
   nav:
@@ -53,26 +53,36 @@ as QGIS.
 
 <figure>
 <img src="http://resources.esri.com/help/9.3/arcgisdesktop/com/gp_toolref/geoprocessing_with_3d_analyst/Reclass_Reclass2.gif" alt="reclassification process by ESRI">
-<figcaption>When you reclassify...
+<figcaption>When you reclassify a raster. You assign each cell a discrete value
+using a defined range of values. For example above you can see that all cells that
+contains the values 1-3 are assigned the new value of 5. Source: ESRI.
 </figcaption>
 </figure>
 
+## Load libraries
+
+
+```r
+# load the raster and rgdal libraries
+library(raster)
+library(rgdal)
+```
+
 ## Map raster values to new values
 
-The first thing that will need to do is create a reclassification matrix. This
+The first thing that we will need to create is a reclassification matrix. This
 matrix MAPS a range of values to a new defined value. Let's create a classified
 canopy height model where we designate short, medium and tall trees.
 
 The values will be defined as follows:
 
-short = 1
-medium = 2
-tall = 3
+* short = 1
+* medium = 2
+* tall = 3
 
 
 
 ```r
-
 # create classification matrix
 reclass_df <- c(0, 10, 1,
              10, 20, 2,
@@ -98,21 +108,17 @@ Next, we will reclassify the raster
 
 ```r
 # open canopy height model
-lidar_chm <- raster("data/week3/outputs/lidar_chm.tif")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
 
 # reclassify the raster using the reclass object - reclass_m
 chm_classified <- reclassify(lidar_chm,
                      reclass_m)
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 # plot reclassified data
 plot(chm_classified,
      col=c("red", "blue", "green"))
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-classify-raster/reclassify-raster-1.png)
+![classified chm plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-classify-raster/reclassify-raster-1.png)
 
 
 ## Add custom legend
@@ -136,7 +142,7 @@ legend("topright",
        bty="n") # turn off legend border
 ```
 
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-classify-raster/plot-w-legend-1.png)
+![classified chm with legend.]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-classify-raster/plot-w-legend-1.png)
 
 <div class="notice--warning" markdown="1">
 

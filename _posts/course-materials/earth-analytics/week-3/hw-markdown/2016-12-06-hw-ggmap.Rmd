@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Add images to a R markdown report"
+title: "Add a basemap to a R markdown report using ggmap"
 excerpt: "."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
@@ -8,13 +8,12 @@ category: [course-materials]
 class-lesson: ['hw-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/ggmap-basemap/
 nav-title: 'Create ggmap basemap'
-module-type: 'homework'
 week: 3
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 2
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -34,7 +33,8 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* install **ggmap**: `install.packages('ggmap')
+* install **devtools**: `install.packages('devtools')`
+* install **ggmap** from github: `devtools::install_github("dkahle/ggmap")`
 
 * [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
 * [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)
@@ -43,11 +43,10 @@ directory with it.
 
 
 ```{r ggmap-setup }
-
 # install devtools
 #install.packages("devtools")
 # install ggmap from dev space
-devtools::install_github("dkahle/ggmap")
+# devtools::install_github("dkahle/ggmap")
 
 library(ggmap)
 ```
@@ -57,10 +56,9 @@ library(ggmap)
 First, let's create a basemap that shows the location of our stream gage.
 
 
-
-```{r create-base-map }
+```{r create-base-map, fig.cap="ggmap base plot" }
 myMap <- get_map(location = "Boulder, Colorado",
-          source="google", 
+          source="google",
           maptype="terrain", crop=FALSE,
           zoom=6)
 # plot map
@@ -77,17 +75,17 @@ Longitude: 105.178333
 USGS gage 06730200
 40°03'06"	105°10'42"
 
-```{r add-points-to-map }
+```{r add-points-to-map, fig.cap="ggmap with location point on it. " }
 # add points to your map
 # creating a sample data.frame with your lat/lon points
 lon <- c(-105.178333)
 lat <- c(40.051667)
 df <- as.data.frame(cbind(lon,lat))
 
-# create a map with a point location for boulder. 
+# create a map with a point location for boulder.
 ggmap(myMap) + labs(x = "", y = "") +
   geom_point(data = df, aes(x = lon, y = lat, fill = "red", alpha = 0.2), size = 5, shape = 19) +
-  guides(fill=FALSE, alpha=FALSE, size=FALSE) 
-  
+  guides(fill=FALSE, alpha=FALSE, size=FALSE)
+
 
 ```
