@@ -148,6 +148,8 @@ create_markdown <- function(rmd_file_df, wd){
   if (length(list.files(rmd_file_df$fig_dir)) > 0) {
     # create fig dir path
     fig_dir_path <- file.path(git_repo_base_path, rmd_file_df$fig_dir)
+    # make sure image dir exists in git repo
+    check_create_dirs(fig_dir_path, clean = T)
     # copy image directory over to git site if there are images in it
     file.copy(rmd_file_df$fig_dir, (sub("[^/]+$", "", fig_dir_path)), recursive=TRUE)
   }
