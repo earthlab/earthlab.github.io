@@ -1,41 +1,41 @@
 ## ----create-matrix-------------------------------------------------------
 
 # create classification matrix
-class.m <- c(0, 10, 1,
+reclass_df <- c(0, 10, 1,
              10, 20, 2,
              20, 35, 3)
-class.m
+reclass_df
 
 # reshape the object into a matrix with columns and rows
-rcl.m <- matrix(class.m,
+reclass_m <- matrix(reclass_df,
                 ncol=3,
                 byrow=TRUE)
-rcl.m
+reclass_m
 
 
 ## ----reclassify-raster---------------------------------------------------
 # open canopy height model
 lidar_chm <- raster("data/week3/outputs/lidar_chm.tif")
 
-# reclassify the raster using the reclass object - rcl.m
+# reclassify the raster using the reclass object - reclass_m
 chm_classified <- reclassify(lidar_chm,
-                     rcl.m)
+                     reclass_m)
 # plot reclassified data
 plot(chm_classified,
      col=c("red", "blue", "green"))
 
 
-## ----plot-w-legend-------------------------------------------------------
+## ----plot-w-legend, warning=F, message=FALSE-----------------------------
 # plot reclassified data
-plot(chm_classified, 
+plot(chm_classified,
      legend=F,
      col=c("red", "blue", "green"), axes=F,
      main="Canopy Height Model - Classified: short, medium, tall trees")
 
-legend("topright", 
-       legend = c("short trees", "medium trees", "tall trees"), 
+legend("topright",
+       legend = c("short trees", "medium trees", "tall trees"),
        fill = c("red", "blue", "green"),
-       border = F, 
+       border = F,
        bty="n") # turn off legend border
 
 
