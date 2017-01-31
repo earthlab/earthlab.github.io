@@ -1,5 +1,9 @@
-## ----create-matrix-------------------------------------------------------
+## ----load-libraries, warning=FALSE, message=FALSE------------------------
+# load the raster and rgdal libraries
+library(raster)
+library(rgdal)
 
+## ----create-matrix-------------------------------------------------------
 # create classification matrix
 reclass_df <- c(0, 10, 1,
              10, 20, 2,
@@ -13,9 +17,9 @@ reclass_m <- matrix(reclass_df,
 reclass_m
 
 
-## ----reclassify-raster---------------------------------------------------
+## ----reclassify-raster, warning=FALSE, message=FALSE, fig.cap="classified chm plot"----
 # open canopy height model
-lidar_chm <- raster("data/week3/outputs/lidar_chm.tif")
+lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
 
 # reclassify the raster using the reclass object - reclass_m
 chm_classified <- reclassify(lidar_chm,
@@ -25,7 +29,7 @@ plot(chm_classified,
      col=c("red", "blue", "green"))
 
 
-## ----plot-w-legend, warning=F, message=FALSE-----------------------------
+## ----plot-w-legend, warning=FALSE, message=FALSE, fig.cap="classified chm with legend."----
 # plot reclassified data
 plot(chm_classified,
      legend=F,
