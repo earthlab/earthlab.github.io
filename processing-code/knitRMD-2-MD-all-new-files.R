@@ -4,6 +4,9 @@
 # 1) knits them to jekyll flavored markdown
 # 2) purls them to .R files
 # it then cleans up all image directories, etc from the working dir!
+# Author: Leah A. Wasser
+# last modified: 
+format(Sys.time(), "%d %h %y @ %H:%M")
 ##################
 
 require(knitr)
@@ -12,7 +15,6 @@ library(dplyr)
 
 # working directory
 options(stringsAsFactors = F)
-
 
 ### Helper function ####
 
