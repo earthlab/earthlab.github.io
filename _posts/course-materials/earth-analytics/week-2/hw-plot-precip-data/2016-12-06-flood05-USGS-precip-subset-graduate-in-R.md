@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R"
 excerpt: "This lesson walks aggregating time series data in R."
 authors: ['Leah Wasser', 'Mariela Perignon']
-modified: '2017-01-25'
+modified: '2017-01-30'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -176,7 +176,7 @@ Any ideas what might be causing the notable difference in the plotted data throu
 
 ![hourly precipitation]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-round-1.png)
 
-It is difficult to interpret this plot which spans so many years at such a fine 
+It is difficult to interpret this plot which spans so many years at such a fine
 temporal scale. For our research project, we only need to explore 30 years of data.
 Let's do the following:
 
@@ -247,8 +247,8 @@ Now plot the daily data.
 ![Daily precipitation for boulder]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood05-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png)
 
 
-Finally, plot a temporal subsets of the data from 2000-2013. We learned how to 
-do this in the previous lessons. 
+Finally, plot a temporal subsets of the data from 2000-2013. We learned how to
+do this in the previous lessons.
 
 
 Now we can easily see the dramatic rainfall event in mid-September!
@@ -259,8 +259,8 @@ of just a date class, you need to use `scale_x_datetime()`.
 
 #### Subset The Data
 
-If we wanted to, we could subset this data set using the same code that we used 
-previously to subset! An example of the subsetted plot is below. 
+If we wanted to, we could subset this data set using the same code that we used
+previously to subset! An example of the subsetted plot is below.
 
 
 ```
@@ -275,5 +275,3 @@ previously to subset! An example of the subsetted plot is below.
 
 * <a href="http://stackoverflow.com/questions/11395927/how-to-subset-data-frame-by-weeks-and-then-sum" target="_blank">How to subset data by weeks</a>
 </div>
-
-

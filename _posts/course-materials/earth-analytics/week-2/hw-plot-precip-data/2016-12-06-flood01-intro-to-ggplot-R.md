@@ -3,7 +3,7 @@ layout: single
 title: "Plot with GGPLOT"
 excerpt: 'This lesson walks through using GGPLOT2 to plot data.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-01-25'
+modified: '2017-01-30'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 module-description: 'This tutorial covers how to plot time series data in R using ggplot2.

@@ -3,8 +3,8 @@ layout: single
 title: "Understand LiDAR Point Cloud Data"
 excerpt: "This lesson covers what a lidar point cloud is. We will use the free
 plas.io point cloud viewer to explore a point cloud."
-authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-01-25'
+authors: ['Leah Wasser']
+modified: '2017-01-30'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-point-clouds/
