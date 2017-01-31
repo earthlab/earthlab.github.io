@@ -3,7 +3,7 @@ layout: single
 title: "Plot with GGPLOT"
 excerpt: 'This lesson walks through using GGPLOT2 to plot data.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-01-30'
+modified: '2017-01-31'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 module-description: 'This tutorial covers how to plot time series data in R using ggplot2.
@@ -247,7 +247,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 There are many different tutorials out there on customizing ggplot plots. A
 few are listed below.
 
-* <a href="http://www.datacarpentry.org/R-ecology-lesson/05-visualization-ggplot2.html" target="_blank"> Data carpentry ggplot2 </a>
+* <a href="http://www.datacarpentry.org/R-ecology-lesson/05-visualization-ggplot2.html" target="_blank" data-proofer-ignore=''> Data carpentry ggplot2 </a>
 * <a href="http://www.cookbook-r.com/Graphs/" target="_blank">R Cookbook</a>
 
 <div class="notice--warning" markdown="1">
