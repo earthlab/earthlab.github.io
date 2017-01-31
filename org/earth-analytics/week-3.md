@@ -13,9 +13,6 @@ author_profile: false
 
 {% include toc title="This Week" icon="file-text" %}
 
-
-## IMPORTANT NEED TO ADD A LESSON ON ADDING IMAGES TO A REPORT
-
 <div class="notice--info" markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
@@ -54,13 +51,16 @@ PDF</a>
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission
 
 #### Produce a final report on the 2013 Floods
-Create a new `R markdown `document. Name it: lastName-firstInitial-floodreport.Rmd
-Within your Rmd document, carefully compose a report that summarizes what you have
+
+Create a new `R markdown `document. Name it: **lastName-firstInitial-floodreport.Rmd**
+Within your `.Rmd` document, carefully compose a report that summarizes what you have
 learned about the 2013 Colorado flood event. Use all of the plots that you have created
 in the first 3 weeks of the class in your report as listed below.
 
-When you are done with your report, use knitr to convert it to PDF format. You will submit both
-the .Rmd file and the .pdf file. Be sure to name your files as instructed above!
+When you are done with your report, use `knitr` to convert it to `PDF` format (note:
+if you did not get knitr working it is ok if you create an html document and
+export it to pdf as we demonstrated in class). You will submit both
+the `.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
 
 Include the following parts in your report:
 
@@ -68,17 +68,51 @@ Include the following parts in your report:
 
 Include the following background in your report:
 
-1. Describe where and when the disturbance event occured. 
+1. Describe where and when the disturbance event occurred.
 2. Discussion of the drivers that yielded the flooding in Boulder and discussion of the impacts of the flood.
-3. Plots that show precipitation and discharge data during the flood period and around the flood period. Be sure to:
-    * Discuss where the data came from and what it shows.
-    * Discuss patterns that are evident in the data and how precipitation is or isn't linked to discharge.
-    * Interpret your plots
-4. Plots of lidar data that show before / after differences in elevation and tree cover.
+
+#### Your report should include 7 (or 8) Plots
+Your report should include the following plots (in whatever order you think best
+describes the events of the flood):
+
+### From Week 3:
+
+* **PLOT 0:** A basemap showing the location of the stream gage / study area created using
+`GGMAP()`.
+
+### From Week 2:
+
+Use the `data/week2/precipitation/805325-precip-dailysum-2003-2013.csv`file to create:
+
+* **PLOT 1:** a plot of precipitation from 2003 to 2013 using ggplot().
+* **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013.
+
+Use the `data/week2/discharge/06730200-discharge-daily-1986-2013.csv` file to create:
+
+* **PLOT 3:** a plot of stream discharge from 1986 to 2016 using ggplot().
+* **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013.
+
+### From Week 3:
+
+* **PLOT 5:** A classified raster map that shows positive and negative change in the canopy height model before and after the flood. To do this you will need to calculate the difference between two canopy height models.The plot should be CROPPED using the crop_extent shapefile that is included in your data download.
+* **PLOT 6:** A classified raster map that shows positive and negative change in terrain
+derived from the pre and post flood Digital Terrain Models before and after the flood. The plot should be CROPPED using the crop_extent shapefile that is included in your data download.
+
+### Graduate students & anyone who did the bonus week 2 plot
+
+* **PLOT 7:** A plot of precipitation that spans from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. Use the bonus lesson to guide you through creating this plot. This lesson will give you a more real world experience with working with less than perfect data!
+
+For all plots use the readings from the last 3 weeks to discuss:
+
+* Where the data came from and what the data shows.
+* Discuss patterns that are evident in the data and potential relationships between
+what you see in the lidar data compared to precipitation and discharge.
+
 
 #### Summary / Discussion
-A summary of the flood events, how drivers and impacts were quantified and
-and what the data show you about those drivers and impacts.
+End your report with a s summary discussion of the flood events. Be sure to discuss
+how the data help us better understand these types of disturbance events.
+
 
 #### Important:
 
@@ -92,6 +126,38 @@ and what the data show you about those drivers and impacts.
 * Include images as they make sense. Be sure to cite any graphics that you use that are not yours
 
 
-### Deadline
-Submit your report in both .Rmd and .PDF format by xXX @ 5pm.
+### Homework due: Feb 8 @ noon.
+Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox by NOON Wednesday 8
+February 2017.
 </div>
+
+### Grading
+
+While most homeworks are worth 5 points, this homework is worth 20 points as it
+represents a culmination of the things we have learned during the first 3 weeks
+of class. The grading rubric that we will use to grade the assignment is below.
+
+Report Content: 50%
+
+|  Element | 5 points | 3 Points | 0 Points|
+|---|---|---|---|---|
+| PDF and RMD submitted | Both files are submitted  | NA  | Only one of the 2 files are submitted |
+| YAML contains a title, author and date | Author, title and date are in YAML | One element is missing from the YAML | 2 or more elements are missing from the YAML |
+| Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | The are more than code 3 errors in the document |
+| Summary text is provided for each plot | NA | NA | NA |
+| Grammar & Spelling are accurate throughout the report|No visible grammar or spelling issues in the report|2-4 grammar and spelling issues in the report|  More than 4 spelling / grammar issues in the report |
+| File is named with last name-first initial week 1|File naming is as required| NA | File is not named properly|
+| Report contains all 7 (or 8 if you're a grad student) plots described in the assignment| All plots are included in the report|1 plot is missing| More than 1 plot is missing|
+| The datasource for each plot is clearly described in the report text|The data source for each plot is described correctly| The datasource for one or more plots is missing in the report. | The data source is not included for each plot |
+
+Plots - Total of 7 or 8 - 50%
+
+|  Element | 5 points   | 3 Points   | 1 Points|0 Points|
+|---|---|---|---|---|
+| PLOT 0 - basemap | GGMAP basemap included  | NA  | Missing GGMAP basemap | Plot is missing|
+| PLOT 1 - precipitation from 2003 to 2013 using `ggplot()`| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text./ or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 2: a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013. | Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 3: a plot of stream discharge from 1986 to 2016 using ggplot().| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 5: A classified raster map that shows positive and negative change in the canopy height model before and after the flood. | Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 6: A classified raster map that shows positive and negative change in terrain derived from the pre and post flood Digital Terrain Models before and after the flood.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 7: A plot of precipitation that spans from 1948 - 2013 using the 805333-precip-daily-1948-2013.csv file. Use the bonus lesson to guide you through creating this plot. (BONUS)| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
