@@ -144,6 +144,9 @@ legend("topright",
 
 ![classified chm with legend.]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-classify-raster/plot-w-legend-1.png)
 
+
+
+
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - plot change over time
