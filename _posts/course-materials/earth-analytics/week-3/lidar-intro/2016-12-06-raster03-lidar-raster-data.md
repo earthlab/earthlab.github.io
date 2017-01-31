@@ -2,8 +2,8 @@
 layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster."
-authors: ['Leah Wasser', 'NEON Data Skills']
-lastModified: '2017-01-25'
+authors: ['Leah Wasser']
+lastModified: '2017-01-30'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/
@@ -157,28 +157,36 @@ To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
 
 
 ```r
-
 # load libraries
 library(raster)
 library(rgdal)
+## rgdal: version: 1.2-5, (SVN revision 648)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+##  Path to GDAL shared files: 
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: (autodetected)
+## WARNING: no proj_defs.dat in PROJ.4 shared files
+##  Linking to sp version: 1.2-3
 
-# set working directory to ensure R can find the file we wish to import
-# setwd("working-dir-path-here")
+# Make sure your working directory is set to  wherever your 'earth-analytics' dir is
+# setwd("earth-analytics-dir-path-here")
 ```
 
 We can use the `raster("path-to-raster-here")` function to open a raster in R.
 
-## NOTE SWITCH THIS TO USE THE DEM INSTEAD.
 
 
 ```r
-
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot raster data
 plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![digital surface model raster plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/open-plot-raster-1.png)
@@ -190,8 +198,12 @@ case that value represents the elevation of ground.
 
 
 ```r
+# zoom in to one region of the raster
 plot(lidar_dem, xlim=c(473000, 473030), ylim=c(4434000, 4434030),
      main="Lidar Raster - Zoomed into to one small region")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![zoom in on a small part of a raster - see the pixels?]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/plot-zoomed-in-raster-1.png)
@@ -204,7 +216,6 @@ Given our data resolution is 1 x 1, this means that each pixel represents a 1 x 
 
 
 ```r
-
 # what is the x and y resolution for our raster data?
 xres(lidar_dem)
 ## [1] 1
@@ -220,7 +231,6 @@ string.
 
 
 ```r
-
 # view coordinate refence system
 crs(lidar_dem)
 ## CRS arguments:
@@ -242,11 +252,41 @@ for identifying outlier data values.
 ```r
 # plot histogram
 hist(lidar_dem,
-     main="Distribution of elevation values",
+     main="Distribution of surface elevation values",
      xlab="Elevation (meters)", ylab="Frequency",
      col="springgreen")
-## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
-## 1% of the raster cells were used. 100000 values used.
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![histogram of DEM elevation values]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/view-hist-1.png)
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> In-class challenge - import DSM
+
+* Import the file: `data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif`
+
+Plot the data and a histogram of the data. What do the elevations in the DSM
+represent? Are they different from the DTM? Discuss this with your neighbor.
+
+* Is the CRS and spatial resolution for this dataset?
+<!-- Yes - they are the same for both files you can figure this out using
+crs() and xres()  / yres() -->
+
+</div>
+
+
+```
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+```
+
+![DSM histogram and plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/class-challenge-1.png)
+
+```
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+```
+
+![DSM histogram and plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/class-challenge-2.png)
