@@ -216,7 +216,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 There are many different tutorials out there on customizing ggplot plots. A
 few are listed below.
 
-* <a href="http://www.datacarpentry.org/R-ecology-lesson/05-visualization-ggplot2.html" target="_blank"> Data carpentry ggplot2 </a>
+* <a href="http://www.datacarpentry.org/R-ecology-lesson/05-visualization-ggplot2.html" target="_blank" data-proofer-ignore=''> Data carpentry ggplot2 </a>
 * <a href="http://www.cookbook-r.com/Graphs/" target="_blank">R Cookbook</a>
 
 <div class="notice--warning" markdown="1">
