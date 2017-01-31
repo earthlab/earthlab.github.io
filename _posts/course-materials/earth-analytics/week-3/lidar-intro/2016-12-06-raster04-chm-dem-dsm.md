@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-01-30'
+modified: '2017-01-31'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -89,6 +89,8 @@ library(rgdal)
 # set working directory to ensure R can find the file we wish to import
 # setwd("working-dir-path-here")
 ```
+
+First, let's open and plot the digital elevation model. 
 
 
 ```r
@@ -191,7 +193,7 @@ allows us to keep things organized, separating our outputs from the data we down
 ```r
 # check to see if an output directory exists
 dir.exists("data/week3/outputs")
-## [1] TRUE
+## [1] FALSE
 
 # if the output directory doesn't exist, create it
 if (dir.exists("data/week3/outputs")) {
@@ -201,7 +203,6 @@ if (dir.exists("data/week3/outputs")) {
     # recursive tells R to create the entire directory path (data/week3/outputs)
     dir.create("data/week3/outputs", recursive=TRUE)
   }
-## [1] "the directory exists!"
 
 # export CHM object to new GeotIFF
 writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
