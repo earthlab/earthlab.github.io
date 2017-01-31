@@ -3,7 +3,7 @@ layout: single
 title: "Work With Dates in R - Plot Time Series Data"
 excerpt: "This lesson walks through working with time series data in R. you will learn how to convert a data field to a date class that R can understand as a date/time element."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-01-25'
+modified: '2017-01-30'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
