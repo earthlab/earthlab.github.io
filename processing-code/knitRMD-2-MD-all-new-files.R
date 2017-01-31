@@ -4,6 +4,9 @@
 # 1) knits them to jekyll flavored markdown
 # 2) purls them to .R files
 # it then cleans up all image directories, etc from the working dir!
+# Author: Leah A. Wasser
+# last modified: 
+format(Sys.time(), "%d %h %y @ %H:%M")
 ##################
 
 require(knitr)
@@ -12,7 +15,6 @@ library(dplyr)
 
 # working directory
 options(stringsAsFactors = F)
-
 
 ### Helper function ####
 
@@ -87,7 +89,7 @@ populate_all_rmd_df <- function(a_dataframe, all=FALSE){
 #################### Set up Image Directory #############################
 
 # in case you just want to test this function
-#rmd_file_df <- all_rmd_files_bld[26, ]
+#rmd_file_df <- all_rmd_files_bld[1, ]
 
 create_markdown <- function(rmd_file_df, wd){
   
@@ -133,15 +135,15 @@ create_markdown <- function(rmd_file_df, wd){
   # turning off pdf - as not sure how to deal with inline images with {{ site.url }} in the path
   
   ## clean out the file so we can knit to pdf
-  rmd_text <- readLines(current_file)
+  rmd_text <- readLines(basename(current_file))
   new_rmd_text <- gsub("\\{\\{ site.url \\}\\}/images", paste0(git_repo_base_path,"/images"), rmd_text)
   y <- gsub("{% include toc title=\"In This Lesson\" icon=\"file-text\" %}", "", new_rmd_text, fixed="TRUE")
-  cat(y, file=f, sep="\n")
+  cat(y, file=basename(current_file), sep="\n")
   
   # knit to pdf
   render(basename(current_file), 
           output_file = pdf_file,
-          output_format = "pdf_document")
+         output_format = "pdf_document")
   
   if (length(list.files(rmd_file_df$fig_dir)) > 0) {
     # create fig dir path

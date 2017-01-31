@@ -3,8 +3,8 @@ layout: single
 title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models - Work With LiDAR Data in R"
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
-authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-01-25'
+authors: ['Leah Wasser']
+modified: '2017-01-30'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -75,15 +75,13 @@ thus easier to work with. In this lesson, we will import and work with
 
 
 ### Digital Elevation Model
-We will start with the digital elevation model - the file that we worked with
-to better understand raster data in the previous lesson. The digital elevation
+In the previous lesson, we opened a digital elevation model. The digital elevation
 model (DEM), also known as a digital terrain model (DTM) represents the elevation
 of the earth surfacel. The DEM represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
 
 
 ```r
-
 # load libraries
 library(raster)
 library(rgdal)
@@ -94,30 +92,33 @@ library(rgdal)
 
 
 ```r
-
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot raster data
 plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![digital elevation model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dem-1.png)
 
-Notice in the plot above, the range of elevation values. Let's next look at the
-digital SURFACE model (DSM). The DSM represents the top of the earth's surface.
+Then we opened the digital SURFACE model (DSM). The DSM represents the top of the earth's surface.
 Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
 
 
 ```r
-
 # open raster data
 lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot raster data
 plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![digital surface model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dsm-1.png)
@@ -143,13 +144,15 @@ if the data haven't been "cleaned").
 
 
 ```r
-
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot raster data
 plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![canopy height model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-1.png)
@@ -165,12 +168,13 @@ Let's create breaks in our CHM plot.
 
 
 ```r
-
 # plot raster data
 plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
      main="Lidar Canopy Height Model",
      col=c("white","brown","springgreen","darkgreen"))
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![canopy height model breaks]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-breaks-1.png)
@@ -184,9 +188,7 @@ allows us to keep things organized, separating our outputs from the data we down
 
 
 
-
 ```r
-
 # check to see if an output directory exists
 dir.exists("data/week3/outputs")
 ## [1] TRUE
@@ -241,3 +243,4 @@ elevation before the after?
 What differences do you see between the two years?
 
 </div>
+
