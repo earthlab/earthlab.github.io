@@ -65,7 +65,7 @@ lidar_dem_hill <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM_hill
 
 # plot raster data
 plot(lidar_dem_hill,
-     main="Lidar Digital Elevation Model (DEM)",
+     main="Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade",
      col=grey(1:100/100),
      legend=F)
 

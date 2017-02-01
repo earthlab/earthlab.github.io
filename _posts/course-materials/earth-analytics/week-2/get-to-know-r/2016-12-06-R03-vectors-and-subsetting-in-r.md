@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-01-30'
+modified: '2017-01-31'
 week: 2
 sidebar:
   nav:

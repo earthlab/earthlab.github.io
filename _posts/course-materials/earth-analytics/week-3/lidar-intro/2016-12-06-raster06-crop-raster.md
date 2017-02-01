@@ -98,6 +98,7 @@ crop_extent <- readOGR("data/week3/BLDR_LeeHill/",
 ## Source: "data/week3/BLDR_LeeHill/", layer: "clip-extent"
 ## with 1 features
 ## It has 1 fields
+## Integer64 fields read as strings:  id
 
 # plot imported shapefile
 # notice that we use add=T to add a layer on top of an existing plot in R. 
@@ -110,7 +111,7 @@ plot(crop_extent,
 ![shapefile crop extent plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster06-crop-raster/plot-w-legend-1.png)
 
 Now that we have imported the shapefile. We can use the crop() function in R to
-crop the raster data using the vetor shapefile.
+crop the raster data using the vector shapefile.
 
 
 ```r
