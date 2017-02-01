@@ -86,7 +86,7 @@ to use to crop our data. To open a shapefil we use the `readOGR()` function.
 2. The name of the shapefile (without the extension): clip-extent
 
 
-```{r plot-w-legend, warning=FALSE, message=FALSE, fig.cap="shapefile crop extent plot"}
+```{r plot-w-legend, warning=F, message=F, fig.cap="shapefile crop extent plot"}
 # import the vector boundary
 crop_extent <- readOGR("data/week3/BLDR_LeeHill/", 
                        "clip-extent")
@@ -100,9 +100,9 @@ plot(crop_extent,
 ```
 
 Now that we have imported the shapefile. We can use the crop() function in R to
-crop the raster data using the vetor shapefile.
+crop the raster data using the vector shapefile.
 
-```{r crop-and-plot-raster, fig.cap="lidar chm cropped with vector extent on top"}
+```{r crop-and-plot-raster, fig.cap="lidar chm cropped with vector extent on top", warning=F, message=F}
 # crop the lidar raster using the vector extent
 lidar_chm_crop <- crop(lidar_chm, crop_extent)
 plot(lidar_chm_crop, main="Cropped lidar chm")

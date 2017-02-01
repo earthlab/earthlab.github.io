@@ -91,7 +91,7 @@ library(rgdal)
 
 First, let's open and plot the digital elevation model. 
 
-```{r dem, fig.cap="digital elevation model plot" }
+```{r dem, fig.cap="digital elevation model plot", warning=F, message=F }
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
@@ -104,7 +104,7 @@ plot(lidar_dem,
 Then we opened the digital SURFACE model (DSM). The DSM represents the top of the earth's surface.
 Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
 
-```{r dsm, fig.cap="digital surface model plot" }
+```{r dsm, fig.cap="digital surface model plot", warning=F, message=F }
 # open raster data
 lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
@@ -132,7 +132,7 @@ This math gives you the residual value or difference between the top of the
 earth surface and the ground which should be the heights of the trees (and buildings
 if the data haven't been "cleaned").
 
-```{r chm, fig.cap="canopy height model plot" }
+```{r chm, fig.cap="canopy height model plot", warning=F, message=F }
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
 
@@ -150,7 +150,7 @@ in a raster. These ranges may be statistically generated or simply visual.
 Let's create breaks in our CHM plot.
 
 
-```{r chm-breaks, fig.cap="canopy height model breaks", warning=FALSE}
+```{r chm-breaks, fig.cap="canopy height model breaks", warning=F, message=F}
 # plot raster data
 plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),

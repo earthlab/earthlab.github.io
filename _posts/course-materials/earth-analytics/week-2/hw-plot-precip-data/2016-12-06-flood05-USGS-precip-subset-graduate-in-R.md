@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R"
 excerpt: "This lesson walks aggregating time series data in R."
 authors: ['Leah Wasser', 'Mariela Perignon']
-modified: '2017-01-30'
+modified: '2017-01-31'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
