@@ -39,6 +39,9 @@ first few weeks to help you complete the assignment.
 
 ### 1. Readings
 
+First - review ALL of the lessons for this week. We did not cover them all in class. This 
+includes the in class and homework lessons.
+
 Read the following articles. They will help you write your report.
 
 * Wehr, A., and U. Lohr (1999). Airborne Laser Scanning - An Introduction and Overview. ISPRS Journal of Photogrammetry and Remote Sensing 54:68–92. doi: 10.1016/S0924-2716(99)00011-8 : <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.516&rep=rep1&type=pdf" target="_blank" data-proofer-ignore=''><i class="fa fa-download" aria-hidden="true"></i>
