@@ -39,7 +39,7 @@ first few weeks to help you complete the assignment.
 
 ### 1. Readings
 
-First - review ALL of the lessons for this week. We did not cover them all in class. This 
+First - review ALL of the lessons for this week. We did not cover them all in class. This
 includes the in class and homework lessons.
 
 Read the following articles. They will help you write your report.
@@ -160,7 +160,7 @@ of class. The grading rubric that we will use to grade the assignment is below.
 | Summary text is provided for each plot | Summary text is provided for all of the plots in the report. | Summary text is missing for 1-2 plots in the report. | Summary text is not included for 3 or more plots.  |
 | Grammar & spelling are accurate throughout the report| No visible grammar or spelling issues in the report| 2-4 grammar and spelling issues in the report| More than 4 spelling / grammar issues in the report |
 | File is named with last name-first initial week 3| File naming is as required| NA | File is not named properly|
-| Report contains all 7 (or 8 if you're a grad student) plots described in the assignment| All plots are included in the report|1 plot is missing| More than 1 plot is missing|
+| Report contains all 9 (or 10 if you're a grad student) plots described in the assignment| All plots are included in the report|1 plot is missing| More than 1 plot is missing|
 | References are made to the assigned class readings in your report in the form of citations. | References are made to atleast 3 readings assigned over the last 3 weeks of class. | References are made to 1-2 readings assigned over the last 3 weeks of class. | No references are made to the assigned readings. |
 | BONUS: images are added to your report. | 1-2 additional images are added to your report - bonus points!. | NA | NA |
 

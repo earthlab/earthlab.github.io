@@ -132,6 +132,7 @@ plot(crop_extent, add=T)
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - crop change over time layers
 
 In the previous lesson, you created 2 plots:
+
 1. A classified raster map that shows **positive and negative change** in the canopy height model before and after the flood. To do this you will need to calculate the difference
 between two canopy height models.
 2. A classified raster map that shows **positive and negative change** in terrain extracted from the pre and post flood Digital Terrain Models
