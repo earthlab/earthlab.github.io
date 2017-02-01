@@ -4,7 +4,7 @@
 ## library(ggplot2)
 ## 
 ## # download data from figshare
-## # note that we are downloaded the data into your
+## # note that we are downloading  the data into your working directory (earth-analytics)
 ## download.file(url = "https://ndownloader.figshare.com/files/7010681",
 ##               destfile = "data/boulder-precip.csv")
 ## 

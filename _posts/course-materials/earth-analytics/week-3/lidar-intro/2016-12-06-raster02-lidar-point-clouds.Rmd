@@ -33,7 +33,8 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson.
 
-<a href="http://www.neonhighered.org/Data/LidarActivity/r_filtered_256000_4111000.las" class="btn btn-success"> DOWNLOAD NEON LiDAR Point Cloud Data - FIX LINK</a>
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
