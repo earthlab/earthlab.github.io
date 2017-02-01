@@ -96,13 +96,18 @@ Use the `data/week2/discharge/06730200-discharge-daily-1986-2013.csv` file to cr
 
 ### Raster plots from week 3:
 
-* **PLOT 5:** A classified raster map that shows positive and negative change in the canopy height model before and after the flood. To do this you will need to calculate the difference between two canopy height models.The plot should be CROPPED using the crop_extent shapefile that is included in your data download.
-* **PLOT 6:** A classified raster map that shows positive and negative change in terrain
-derived from the pre and post flood Digital Terrain Models before and after the flood. The plot should be CROPPED using the crop_extent shapefile that is included in your data download.
+* **PLOT 5:** A **classified** and **cropped** raster map that shows positive and negative change in the canopy height model before and after the flood. To do this you will need to calculate the difference between two canopy height models.The plot should be CROPPED using the crop_extent shapefile that is included in your data download. You should classify the plot using values that make
+sense after reviewing the histogram of the data (created below).
+* **PLOT 6:** A **classified** and **cropped** raster map that shows positive and negative change in terrain
+derived from the pre and post flood Digital Terrain Models before and after the flood. The plot should be CROPPED using the crop_extent shapefile that is included in your data download. You should classify the plot using values that make
+sense after reviewing the histogram of the data (created below).
+* **PLOT 7** Create a HISTOGRAM of the **classified** and **cropped** raster map that shows positive and negative change in the canopy height model before and after the flood.
+* **PLOT 8** Create a HISTOGRAM of the **classified** and **cropped** raster map that shows positive and negative change in terrain
+derived from the pre and post flood Digital Terrain Models before and after the flood.
 
 ### Graduate students & anyone who did the bonus week 2 plot
 
-* **PLOT 7:** A plot of precipitation that spans from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. Use the bonus lesson to guide you through creating this plot. This lesson will give you a more real world experience with working with less than perfect data!
+* **PLOT 9:** A plot of precipitation that spans from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. Use the bonus lesson to guide you through creating this plot. This lesson will give you a more real world experience with working with less than perfect data!
 
 For all plots use the readings from the last 3 weeks to discuss:
 
@@ -127,7 +132,10 @@ how the data help us better understand these types of disturbance events.
 * Make sure all of the libraries that you use in the report are listed in a code chunk at the TOP of your document.
 * Spell check your report and check grammar.
 * All plots should be clearly labeled with titles, and x and y axis labels are it makes sense. (Your map of lidar data doesn't need x and y labels).
-* Include images as they make sense. Be sure to cite any graphics that you use that are not yours
+* Be sure to discuss how you selected the classifiation values used in the raster plots referencing
+the histograms of the data that you create.
+* OPTIONAL BONUS: Include images as they make sense. Be sure to cite any graphics that you use that are not yours.
+
 
 
 ## Homework due: Feb 8 @ noon.
@@ -151,6 +159,8 @@ of class. The grading rubric that we will use to grade the assignment is below.
 | File is named with last name-first initial week 3| File naming is as required| NA | File is not named properly|
 | Report contains all 7 (or 8 if you're a grad student) plots described in the assignment| All plots are included in the report|1 plot is missing| More than 1 plot is missing|
 | References are made to the assigned class readings in your report in the form of citations. | References are made to atleast 3 readings assigned over the last 3 weeks of class. | References are made to 1-2 readings assigned over the last 3 weeks of class. | No references are made to the assigned readings. |
+| BONUS: images are added to your report. | 1-2 additional images are added to your report - bonus points!. | NA | NA |
+
 
 ### Report Content - Code Format: 30%
 
@@ -174,4 +184,6 @@ of class. The grading rubric that we will use to grade the assignment is below.
 | PLOT 4: a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
 | PLOT 5: A classified raster map that shows positive and negative change in the canopy height model before and after the flood. | Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report. |Plot is missing|
 | PLOT 6: A classified raster map that shows positive and negative change in terrain derived from the pre and post flood Digital Terrain Models before and after the flood.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title  / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report. | Plot is missing|
-| PLOT 7: A plot of precipitation that spans from 1948 - 2013 using the 805333-precip-daily-1948-2013.csv file. Use the bonus lesson to guide you through creating this plot. (BONUS)| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 7: A histogram of the classified raster layer that shows positive and negative change in canopy height derived from the pre and post flood Digital Terrain Models before and after the flood.| Plot is customized with appropriate titles, axis labels and colors. There is discussion of how the histogram was used to select classification ranges. | Plot is correct but is missing a title  / or there is no discussion of what the histogram shows and how it was used to create the classification ranges.| Plot is missing appropriate labels and is discussion is missing in the body of the report. | Plot is missing|
+| PLOT 8: A histogram raster map that shows positive and negative change in terrain derived from the pre and post flood Digital Terrain Models before and after the flood.| Plot is customized with appropriate titles, axis labels and colors. There is discussion of how the histogram was used to select classification ranges. | Plot is correct but is missing a title  / or there is no discussion of what the histogram shows and how it was used to create the classification ranges.| Plot is missing appropriate labels and is discussion is missing in the body of the report. | Plot is missing|
+| PLOT 9: A plot of precipitation that spans from 1948 - 2013 using the 805333-precip-daily-1948-2013.csv file. Use the bonus lesson to guide you through creating this plot. (BONUS)| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|

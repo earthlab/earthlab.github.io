@@ -1,0 +1,170 @@
+---
+layout: single
+title: "Introduction to lidar raster data products"
+excerpt: "This lesson reviews how to open a lidar raster dataset in R."
+authors: ['Leah Wasser']
+lastModified: '`r format(Sys.time(), "%Y-%m-%d")`'
+category: [course-materials]
+class-lesson: ['class-lidar-r']
+permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
+nav-title: 'Open Raster Data R'
+week: 3
+sidebar:
+  nav:
+author_profile: false
+comments: false
+order: 4
+---
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+* Open a lidar raster dataset in R.
+* Be able to identify the resolution of a raster in R.
+* Be able to plot a lidar raster dataset in R.
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+
+You will need a computer with internet access to complete this lesson.
+
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+
+</div>
+
+In the last lesson, we reviewed the basic principles behind what a lidar raster
+dataset is in R and how point clouds are used to derive the raster. In this lesson, we
+will learn how to open a plot a lidar raster dataset in `R`.
+
+<figure>
+  <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif">
+  <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
+  <figcaption>
+  Animation that shows the general process of taking lidar point clouds and
+  converting them to a Raster Format. Source: Tristan Goulden, NEON.
+  </figcaption>
+</figure>
+
+## Open Raster Data in R
+
+To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
+
+```{r load-libraries, warning=F, message=F}
+# load libraries
+library(raster)
+library(rgdal)
+
+# Make sure your working directory is set to  wherever your 'earth-analytics' dir is
+# setwd("earth-analytics-dir-path-here")
+
+```
+
+We use the `raster("path-to-raster-here")` function to open a raster dataset in `R`.
+Note that we use the `plot()` function to plot the data. The function argument `main=""`
+adds a title to the plot.
+
+```{r open-plot-raster, fig.cap="digital surface model raster plot", warning=F, message=F }
+# open raster data
+lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+
+# plot raster data
+plot(lidar_dem,
+     main="Digital Elevation Model - Pre 2013 Flood")
+
+```
+
+If we zoom in on a small section of the raster, we can see the individual pixels
+that make up the raster. Each pixel has one value associated with it. In this
+case that value represents the elevation of ground.
+
+Note that we are using the `xlim=` argument to zoom in to on region of the raster.
+You can use `xlim` and `ylim` to define the x and y axis extents for any plot.
+
+```{r plot-zoomed-in-raster, fig.cap="zoom in on a small part of a raster - see the pixels?", warning=F, message=F }
+# zoom in to one region of the raster
+plot(lidar_dem,
+  xlim=c(473000, 473030), # define the x limits
+  ylim=c(4434000, 4434030), # define y limits for the plot
+     main="Lidar Raster - Zoomed into to one small region")
+
+```
+
+## Raster Resolution
+
+A raster has horizontal (x and y) resolution. This resolution represents the
+area on the ground that each pixel covers. The units for our data are in meters.
+In this case, our data resolution is 1 x 1. This means that each pixel represents
+a 1 x 1 meter area on the ground. We can figure out the units of this resolution
+using the `crs()` function which we will use next.
+
+```{r view-res, warning=F, message=F }
+# what is the x and y resolution for our raster data?
+xres(lidar_dem)
+yres(lidar_dem)
+
+```
+
+### Resolution units
+
+Resolution as a number doesn't mean anything unless we know the units. We can
+figure out the horizontal (x and y) units from the coordinate reference system
+string.
+
+```{r crs-view, warning=F, message=F}
+# view coordinate refence system
+crs(lidar_dem)
+
+```
+
+Notice this string contains an element called **units=m**. This means the units
+are in meters. We won't get into too much detail about coordinate refence strings
+in this weeks class but they are important to be familiar with when working with spatial
+data. We will cover them in more detail during the semester!
+
+## Distribution of elevation values
+
+We can view the distribution of elevation values in our data too. This is useful
+for identifying outlier data values. Notice that we are using the `xlab` and `ylab`
+arguments to label our plot axes.
+
+```{r view-hist, fig.cap="histogram of DEM elevation values", warning=F, message=F}
+# plot histogram
+hist(lidar_dem,
+     main="Distribution of surface elevation values",
+     xlab="Elevation (meters)", ylab="Frequency",
+     col="springgreen")
+```
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> In-class challenge - import DSM
+
+* Import the file: `data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif`
+
+Plot the data and a histogram of the data. What do the elevations in the DSM
+represent? Are they different from the DTM? Discuss this with your neighbor.
+
+* What is the CRS and spatial resolution for this dataset? What units is the spatial
+resolution in?
+<!-- Yes - they are the same for both files you can figure this out using
+crs() and xres()  / yres() -->
+
+</div>
+
+```{r class-challenge, echo=F, fig.cap="DSM histogram and plot", warning=F, message=F}
+lidar_dsm <- raster("data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif")
+hist(lidar_dsm,
+     col="springgreen",
+     xlab="elevation", ylab="frequency",
+     main="DSM Histogram")
+
+plot(lidar_dsm,
+  main="Digital Surface Model")
+
+```
