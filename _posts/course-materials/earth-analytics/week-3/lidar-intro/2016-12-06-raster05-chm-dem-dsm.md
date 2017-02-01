@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-02-01'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 5
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -25,8 +25,8 @@ order: 4
 
 After completing this tutorial, you will be able to:
 
-* Define Canopy Height Model (CHM), Digital Elevation Model (DEM) and Digital Surface Model (DSM)
-* Describe the key differences between the **CHM**, **DEM**, **DSM**
+* Define Canopy Height Model (CHM), Digital Elevation Model (DEM) and Digital Surface Model (DSM).
+* Describe the key differences between the **CHM**, **DEM**, **DSM**.
 * Derive a **CHM** in R using raster math.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -43,6 +43,9 @@ directory with it.
 
 * **raster:** `install.packages("raster")`
 * **rgdal:** `install.packages("rgdal")`
+
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -80,7 +83,8 @@ model (DEM), also known as a digital terrain model (DTM) represents the elevatio
 of the earth surfacel. The DEM represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
 
-```{r load-libraries }
+
+```r
 # load libraries
 library(raster)
 library(rgdal)
@@ -89,22 +93,25 @@ library(rgdal)
 # setwd("working-dir-path-here")
 ```
 
-First, let's open and plot the digital elevation model. 
+First, let's open and plot the digital elevation model.
 
-```{r dem, fig.cap="digital elevation model plot", warning=F, message=F }
+
+```r
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
 plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
-
 ```
+
+![digital elevation model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/dem-1.png)
 
 Then we opened the digital SURFACE model (DSM). The DSM represents the top of the earth's surface.
 Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
 
-```{r dsm, fig.cap="digital surface model plot", warning=F, message=F }
+
+```r
 # open raster data
 lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
@@ -112,6 +119,8 @@ lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
 ```
+
+![digital surface model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/dsm-1.png)
 
 ## Canopy Height Model
 
@@ -132,7 +141,8 @@ This math gives you the residual value or difference between the top of the
 earth surface and the ground which should be the heights of the trees (and buildings
 if the data haven't been "cleaned").
 
-```{r chm, fig.cap="canopy height model plot", warning=F, message=F }
+
+```r
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
 
@@ -140,6 +150,8 @@ lidar_chm <- lidar_dsm - lidar_dem
 plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
 ```
+
+![canopy height model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/chm-1.png)
 
 ## Plots Using Breaks
 
@@ -150,14 +162,16 @@ in a raster. These ranges may be statistically generated or simply visual.
 Let's create breaks in our CHM plot.
 
 
-```{r chm-breaks, fig.cap="canopy height model breaks", warning=F, message=F}
+
+```r
 # plot raster data
 plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
      main="Lidar Canopy Height Model",
      col=c("white","brown","springgreen","darkgreen"))
-
 ```
+
+![canopy height model breaks]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/chm-breaks-1.png)
 
 ## Export a raster
 
@@ -167,9 +181,11 @@ create a new directory called "outputs" within the week 3 director. This structu
 allows us to keep things organized, separating our outputs from the data we downloaded.
 
 
-```{r export-raster, warning=F, message=FALSE}
+
+```r
 # check to see if an output directory exists
 dir.exists("data/week3/outputs")
+## [1] FALSE
 
 # if the output directory doesn't exist, create it
 if (dir.exists("data/week3/outputs")) {
@@ -184,7 +200,6 @@ if (dir.exists("data/week3/outputs")) {
 writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
             format="GTiff",  # output format = GeoTIFF
             overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
-
 
 ```
 
@@ -221,4 +236,3 @@ elevation before the after?
 What differences do you see between the two years?
 
 </div>
-
