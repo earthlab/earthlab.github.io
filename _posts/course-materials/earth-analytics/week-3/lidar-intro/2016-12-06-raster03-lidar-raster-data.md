@@ -3,11 +3,11 @@ layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster."
 authors: ['Leah Wasser']
-lastModified: '2017-01-31'
+lastModified: '2017-02-01'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/
-nav-title: 'LiDAR Raster Data'
+nav-title: 'Intro Lidar Raster Data'
 week: 3
 sidebar:
   nav:
@@ -15,8 +15,8 @@ author_profile: false
 comments: false
 order: 3
 ---
-{% include toc title="In This Lesson" icon="file-text" %}
 
+{% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
@@ -30,6 +30,9 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
+
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -151,138 +154,5 @@ We will not be talking about interpolation in today's class.
   </figcaption>
 </figure>
 
-## Open Raster Data in R
 
-To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
-
-
-```r
-# load libraries
-library(raster)
-library(rgdal)
-
-# Make sure your working directory is set to  wherever your 'earth-analytics' dir is
-# setwd("earth-analytics-dir-path-here")
-```
-
-We can use the `raster("path-to-raster-here")` function to open a raster in R.
-
-
-
-```r
-# open raster data
-lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-
-# plot raster data
-plot(lidar_dem,
-     main="Digital Elevation Model - Pre 2013 Flood")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-```
-
-![digital surface model raster plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/open-plot-raster-1.png)
-
-
-If we zoom in on a small section of the raster, we can see the individual pixels
-that make up the raster. Each pixel has one value associated with it. In this
-case that value represents the elevation of ground.
-
-
-```r
-# zoom in to one region of the raster
-plot(lidar_dem, xlim=c(473000, 473030), ylim=c(4434000, 4434030),
-     main="Lidar Raster - Zoomed into to one small region")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-```
-
-![zoom in on a small part of a raster - see the pixels?]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/plot-zoomed-in-raster-1.png)
-
-## Raster Resolution
-
-A raster has horizontal (x and y) resolution. This resolution represents the
-area on the ground that each pixel covers. The units for our data are in meters.
-Given our data resolution is 1 x 1, this means that each pixel represents a 1 x 1 meter area on the ground.
-
-
-```r
-# what is the x and y resolution for our raster data?
-xres(lidar_dem)
-## [1] 1
-yres(lidar_dem)
-## [1] 1
-```
-
-### Resolution units
-
-Resolution as a number doesn't mean anything unless we know the units. We can
-figure out the horizontal (x and y) units from the coordinate reference system
-string.
-
-
-```r
-# view coordinate refence system
-crs(lidar_dem)
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
-```
-
-Notice this string contains an element called **units=m**. This means the units
-are in meters. We won't get into too much detail about coordinate refence strings
-in this class but they are important to be familiar with when working with spatial
-data.
-
-## Distribution of elevation values
-
-We can view the distribution of elevation values in our data too. This is useful
-for identifying outlier data values.
-
-
-```r
-# plot histogram
-hist(lidar_dem,
-     main="Distribution of surface elevation values",
-     xlab="Elevation (meters)", ylab="Frequency",
-     col="springgreen")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
-## 1% of the raster cells were used. 100000 values used.
-```
-
-![histogram of DEM elevation values]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/view-hist-1.png)
-
-
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> In-class challenge - import DSM
-
-* Import the file: `data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif`
-
-Plot the data and a histogram of the data. What do the elevations in the DSM
-represent? Are they different from the DTM? Discuss this with your neighbor.
-
-* Is the CRS and spatial resolution for this dataset?
-<!-- Yes - they are the same for both files you can figure this out using
-crs() and xres()  / yres() -->
-
-</div>
-
-
-```
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
-## 1% of the raster cells were used. 100000 values used.
-```
-
-![DSM histogram and plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/class-challenge-1.png)
-
-```
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-```
-
-![DSM histogram and plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster03-lidar-raster-data/class-challenge-2.png)
+In the next lesson, we will learn how to open a lidar raster dataset in R.
