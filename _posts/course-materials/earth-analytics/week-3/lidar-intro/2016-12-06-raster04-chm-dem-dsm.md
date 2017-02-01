@@ -96,13 +96,10 @@ First, let's open and plot the digital elevation model.
 ```r
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot raster data
 plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![digital elevation model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dem-1.png)
@@ -114,13 +111,10 @@ Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
 ```r
 # open raster data
 lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot raster data
 plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![digital surface model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dsm-1.png)
@@ -148,13 +142,10 @@ if the data haven't been "cleaned").
 ```r
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot raster data
 plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![canopy height model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-1.png)
@@ -175,8 +166,6 @@ plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
      main="Lidar Canopy Height Model",
      col=c("white","brown","springgreen","darkgreen"))
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 ![canopy height model breaks]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-breaks-1.png)
@@ -193,7 +182,7 @@ allows us to keep things organized, separating our outputs from the data we down
 ```r
 # check to see if an output directory exists
 dir.exists("data/week3/outputs")
-## [1] FALSE
+## [1] TRUE
 
 # if the output directory doesn't exist, create it
 if (dir.exists("data/week3/outputs")) {
@@ -203,6 +192,7 @@ if (dir.exists("data/week3/outputs")) {
     # recursive tells R to create the entire directory path (data/week3/outputs)
     dir.create("data/week3/outputs", recursive=TRUE)
   }
+## [1] "the directory exists!"
 
 # export CHM object to new GeotIFF
 writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
