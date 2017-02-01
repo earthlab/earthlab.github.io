@@ -5434,4 +5434,9 @@ div.notice--success, div.notice--warning {
 .page__title + .page__meta {
   margin-bottom: 1.4em; }
 
+/* For code blocks within .notice tags */
+.notice pre {
+  font-size: 0.8em !important;
+  padding: 0; }
+
 /*# sourceMappingURL=main.css.map */
