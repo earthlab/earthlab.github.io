@@ -6,7 +6,7 @@ library(rgdal)
 # set working directory to ensure R can find the file we wish to import
 # setwd("working-dir-path-here")
 
-## ----dem, fig.cap="digital elevation model plot"-------------------------
+## ----dem, fig.cap="digital elevation model plot", warning=F, message=F----
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
@@ -15,7 +15,7 @@ plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
 
 
-## ----dsm, fig.cap="digital surface model plot"---------------------------
+## ----dsm, fig.cap="digital surface model plot", warning=F, message=F-----
 # open raster data
 lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
@@ -23,7 +23,7 @@ lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
 
-## ----chm, fig.cap="canopy height model plot"-----------------------------
+## ----chm, fig.cap="canopy height model plot", warning=F, message=F-------
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
 
@@ -31,7 +31,7 @@ lidar_chm <- lidar_dsm - lidar_dem
 plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
 
-## ----chm-breaks, fig.cap="canopy height model breaks", warning=FALSE-----
+## ----chm-breaks, fig.cap="canopy height model breaks", warning=F, message=F----
 # plot raster data
 plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
