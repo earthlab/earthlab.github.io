@@ -175,3 +175,93 @@ format report using `knitr`.
 formats by Wed 1 February 2017 @ NOON**
 
 </div>
+
+## Report grade rubric
+
+### Report content - text writeup: 30%
+
+|  Element | 5 points | 3 Points | 0 Points|
+|---|---|---|---|---|
+| PDF and RMD submitted | Both files are submitted  | Only one of the 2 files are submitted  | NA |
+| Summary text is provided for each plot | Summary text is provided for all of the plots in the report. | Summary text is missing for 1-2 plots in the report. | Summary text is not included for 3 or more plots.  |
+| Grammar & spelling are accurate throughout the report| No visible grammar or spelling issues in the report| 2-4 grammar and spelling issues in the report| More than 4 spelling / grammar issues in the report |
+| File is named with last name-first initial week 3| File naming is as required| NA | File is not named properly|
+| Report contains all 4 plots described in the assignment. | All plots are included in the report|1 plot is missing| More than 1 plot is missing|
+| 2-3 paragraphs exist at the top of the report that summarize the conditions and the events that took place in 2013 to cause a flood that had significant impacts.| Summary text is included at the top of the report. || There is no introductory, summary text included in the report|
+| Introductory text at the top of the document clearly describes the conditions and events that took place in 2013 that yielded the significant flood event.|The summary text adequately describes the drivers including the weather system, rainfall and discharge as it relates to the erosion / deposition that occured. | NA| This information is not included in the report. |
+| Introductory text at the top of the document is thoughtful and well written.| It is well written. | NA| Introductory text is not well written. |
+
+
+### Report Content - Code Format: 20%
+
+|  Element | 5 points | 3 Points | 0 Points|
+|---|---|---|---|---|
+| Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| clean coding is not implemented consistently throughout the report. |
+| YAML contains a title, author and date | Author, title and date are in YAML | One element is missing from the YAML | 2 or more elements are missing from the YAML |
+| Code chunk contains code and runs | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | The are more than 3 code errors in the document |
+
+
+### Report plots: 50%
+
+**PLOT 1: a plot of precipitation from 2003 to 2013 using ggplot().**
+
+| 5 points | 3 Points | 0 Points|
+|---|---|---|---|
+| Plot is labeled with a title, x and y axis label. | Plot is missing 1 or 2 labels. | No labels were added to the plot. |
+| Plot is coded using the ggplot() function. | NA | Plot is not coded using the ggplot() function. |
+| Date on the x axis is formatted as a date class. | NA | Dates are not properly formatted. |
+| No data values have been removed | NA | No data values have not been removed |
+| Code to create the plot is clearly documented with comments in the html / pdf knitr output. |NA | Code is not documented with comments. |
+| Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event. | NA | Plot is not interpreted in the text. |
+
+**PLOT 2: a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013.**
+
+| 5 points | 3 Points | 0 Points|
+|---|---|---|---|
+| Plot is labeled with a title, x and y axis label. | Plot is missing 1 or 2 labels. | No labels were added to the plot. |
+| Plot is coded using the ggplot() function. | NA | Plot is not coded using the ggplot() function. |
+| Date on the x axis is formatted as a date class. | NA | Dates are not properly formatted. |
+| No data values have been removed | NA | No data values have not been removed |
+| Code to create the plot is clearly documented with comments in the html / pdf knitr output. |NA | Code is not documented with comments. |
+| Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event. | NA | Plot is not interpreted in the text. |
+
+**PLOT 3: a plot of stream discharge from 1986 to 2016 using ggplot().**
+
+| 5 points | 3 Points | 0 Points|
+|---|---|---|---|
+| Plot is labeled with a title, x and y axis label. | Plot is missing 1 or 2 labels. | No labels were added to the plot. |
+| Plot is coded using the ggplot() function. | NA | Plot is not coded using the ggplot() function. |
+| Date on the x axis is formatted as a date class. | NA | Dates are not properly formatted. |
+| No data values have been removed | NA | No data values have not been removed |
+| Code to create the plot is clearly documented with comments in the html / pdf knitr output. |NA | Code is not documented with comments. |
+| Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event. | NA | Plot is not interpreted in the text. |
+
+**PLOT 4: a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013**
+
+| 5 points | 3 Points | 0 Points|
+|---|---|---|---|
+| Plot is labeled with a title, x and y axis label. | Plot is missing 1 or 2 labels. | No labels were added to the plot. |
+| Plot is coded using the ggplot() function. | NA | Plot is not coded using the ggplot() function. |
+| Date on the x axis is formatted as a date class. | NA | Dates are not properly formatted. |
+| No data values have been removed | NA | No data values have not been removed |
+| Code to create the plot is clearly documented with comments in the html / pdf knitr output. |NA | Code is not documented with comments. |
+| Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event. | NA | Plot is not interpreted in the text. |
+
+
+**PLOT 5 (GRAD STUDENTS ONLY, bonus points for undergrads): a plot of precipitation that spans from 1948 - 2013** 
+
+| 5 points | 3 Points | 0 Points|
+|---|---|---|---|
+| Plot is labeled with a title, x and y axis label. | Plot is missing 1 or 2 labels. | No labels were added to the plot. |
+| Plot is coded using the ggplot() function. | NA | Plot is not coded using the ggplot() function. |
+| Date on the x axis is formatted as a date class. | NA | Dates are not properly formatted. |
+| No data values have been removed | NA | No data values have not been removed |
+| Code to create the plot is clearly documented with comments in the html / pdf knitr output. |NA | Code is not documented with comments. |
+| Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event. | NA | Plot is not interpreted in the text. |
+
+
+#### Grading bonus points
+***
+
+* Undergraduate Bonus point: If the undergraduate completes a plot of precipitation that spans from 1948 - 2013 they can get 1 extra bonus point (out of 5 points total for the homework)
+* Graduate Bonus point: If an graduate student clearly identifies the issue in the 1948-2013 data that makes the plot look "uneven", they get a bonus point.
