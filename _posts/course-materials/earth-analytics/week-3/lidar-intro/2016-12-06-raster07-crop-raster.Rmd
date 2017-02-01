@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 7
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -43,6 +43,9 @@ directory with it.
 * **raster:** `install.packages("raster")`
 * **rgdal:** `install.packages("rgdal")`
 
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+
 </div>
 
 In this lesson, we will learn how to crop a raster dataset in `R`. Previously,
@@ -64,7 +67,6 @@ library(rgdal)
 First, we will use the `raster()` function to open a raster layer. Let's open the
 canopy height model that we created in the previous lesson
 
-
 ```{r open-raster, warning=FALSE, message=FALSE, fig.cap="lidar chm plot"}
 # open raster layer
 lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
@@ -72,7 +74,6 @@ lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
 # plot CHM
 plot(lidar_chm,
      col=rev(terrain.colors(50)))
-
 ```
 
 ## Open vector layer
@@ -88,13 +89,13 @@ to use to crop our data. To open a shapefil we use the `readOGR()` function.
 
 ```{r plot-w-legend, warning=F, message=F, fig.cap="shapefile crop extent plot"}
 # import the vector boundary
-crop_extent <- readOGR("data/week3/BLDR_LeeHill/", 
+crop_extent <- readOGR("data/week3/BLDR_LeeHill/",
                        "clip-extent")
 
 # plot imported shapefile
-# notice that we use add=T to add a layer on top of an existing plot in R. 
-plot(crop_extent, 
-     main="Shapefile imported into R - crop extent", 
+# notice that we use add=T to add a layer on top of an existing plot in R.
+plot(crop_extent,
+     main="Shapefile imported into R - crop extent",
      axes=T,
      border="blue")
 ```
@@ -116,7 +117,8 @@ plot(crop_extent, add=T)
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - crop change over time layers
 
-In the previous lesson, you created 2 plots: 
+In the previous lesson, you created 2 plots:
+
 1. A classified raster map that shows **positive and negative change** in the canopy height model before and after the flood. To do this you will need to calculate the difference
 between two canopy height models.
 2. A classified raster map that shows **positive and negative change** in terrain extracted from the pre and post flood Digital Terrain Models
