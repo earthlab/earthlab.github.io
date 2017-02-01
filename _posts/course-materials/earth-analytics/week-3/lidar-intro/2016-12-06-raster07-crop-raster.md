@@ -4,7 +4,7 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-01-31'
+modified: '2017-02-01'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/crop-raster/
@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 7
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -43,6 +43,9 @@ directory with it.
 * **raster:** `install.packages("raster")`
 * **rgdal:** `install.packages("rgdal")`
 
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+
 </div>
 
 In this lesson, we will learn how to crop a raster dataset in `R`. Previously,
@@ -66,7 +69,6 @@ First, we will use the `raster()` function to open a raster layer. Let's open th
 canopy height model that we created in the previous lesson
 
 
-
 ```r
 # open raster layer
 lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
@@ -76,7 +78,7 @@ plot(lidar_chm,
      col=rev(terrain.colors(50)))
 ```
 
-![lidar chm plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster06-crop-raster/open-raster-1.png)
+![lidar chm plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster07-crop-raster/open-raster-1.png)
 
 ## Open vector layer
 
@@ -92,7 +94,7 @@ to use to crop our data. To open a shapefil we use the `readOGR()` function.
 
 ```r
 # import the vector boundary
-crop_extent <- readOGR("data/week3/BLDR_LeeHill/", 
+crop_extent <- readOGR("data/week3/BLDR_LeeHill/",
                        "clip-extent")
 ## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week3/BLDR_LeeHill/", layer: "clip-extent"
@@ -101,14 +103,14 @@ crop_extent <- readOGR("data/week3/BLDR_LeeHill/",
 ## Integer64 fields read as strings:  id
 
 # plot imported shapefile
-# notice that we use add=T to add a layer on top of an existing plot in R. 
-plot(crop_extent, 
-     main="Shapefile imported into R - crop extent", 
+# notice that we use add=T to add a layer on top of an existing plot in R.
+plot(crop_extent,
+     main="Shapefile imported into R - crop extent",
      axes=T,
      border="blue")
 ```
 
-![shapefile crop extent plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster06-crop-raster/plot-w-legend-1.png)
+![shapefile crop extent plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster07-crop-raster/plot-w-legend-1.png)
 
 Now that we have imported the shapefile. We can use the crop() function in R to
 crop the raster data using the vector shapefile.
@@ -123,13 +125,13 @@ plot(lidar_chm_crop, main="Cropped lidar chm")
 plot(crop_extent, add=T)
 ```
 
-![lidar chm cropped with vector extent on top]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster06-crop-raster/crop-and-plot-raster-1.png)
+![lidar chm cropped with vector extent on top]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster07-crop-raster/crop-and-plot-raster-1.png)
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - crop change over time layers
 
-In the previous lesson, you created 2 plots: 
+In the previous lesson, you created 2 plots:
 1. A classified raster map that shows **positive and negative change** in the canopy height model before and after the flood. To do this you will need to calculate the difference
 between two canopy height models.
 2. A classified raster map that shows **positive and negative change** in terrain extracted from the pre and post flood Digital Terrain Models
