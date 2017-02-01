@@ -4,7 +4,7 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-01-31'
+modified: '2017-02-01'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/classify-raster/
@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -41,6 +41,9 @@ directory with it.
 
 * **raster:** `install.packages("raster")`
 * **rgdal:** `install.packages("rgdal")`
+
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -81,7 +84,6 @@ The values will be defined as follows:
 * tall = 3
 
 
-
 ```r
 # create classification matrix
 reclass_df <- c(0, 10, 1,
@@ -118,7 +120,7 @@ plot(chm_classified,
      col=c("red", "blue", "green"))
 ```
 
-![classified chm plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-classify-raster/reclassify-raster-1.png)
+![classified chm plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster06-classify-raster/reclassify-raster-1.png)
 
 
 ## Add custom legend
@@ -142,7 +144,7 @@ legend("topright",
        bty="n") # turn off legend border
 ```
 
-![classified chm with legend.]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-classify-raster/plot-w-legend-1.png)
+![classified chm with legend.]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster06-classify-raster/plot-w-legend-1.png)
 
 
 
