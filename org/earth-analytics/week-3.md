@@ -77,28 +77,28 @@ Include the following background in your report:
 Your report should include the following plots (in whatever order you think best
 describes the events of the flood):
 
-### From Week 3:
+### Basemap plot from week 3:
 
 * **PLOT 0:** A basemap showing the location of the stream gage / study area created using
-`GGMAP()`.
+`ggmap()`.
 
-### From Week 2:
+### Precip & discharge plots from week 2:
 
 Use the `data/week2/precipitation/805325-precip-dailysum-2003-2013.csv`file to create:
 
-* **PLOT 1:** a plot of precipitation from 2003 to 2013 using ggplot().
-* **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013.
+* **PLOT 1:** a plot of precipitation from 2003 to 2013 using `ggplot()`.
+* **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`.
 
 Use the `data/week2/discharge/06730200-discharge-daily-1986-2013.csv` file to create:
 
-* **PLOT 3:** a plot of stream discharge from 1986 to 2016 using ggplot().
-* **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013.
+* **PLOT 3:** a plot of stream discharge from 1986 to 2016 using `ggplot()`.
+* **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`.
 
-### From Week 3:
+### Raster plots from week 3:
 
 * **PLOT 5:** A classified raster map that shows positive and negative change in the canopy height model before and after the flood. To do this you will need to calculate the difference between two canopy height models.The plot should be CROPPED using the crop_extent shapefile that is included in your data download.
 * **PLOT 6:** A classified raster map that shows positive and negative change in terrain
-derived from the pre and post flood Digital Terrain Models before and after the flood. The plot should be CROPPED using the crop_extent shapefile that is included in your data download. 
+derived from the pre and post flood Digital Terrain Models before and after the flood. The plot should be CROPPED using the crop_extent shapefile that is included in your data download.
 
 ### Graduate students & anyone who did the bonus week 2 plot
 
@@ -124,6 +124,7 @@ how the data help us better understand these types of disturbance events.
 * Clearly document that steps that you took to process the data by commenting your code or in the text of your report itself as it makes sense.
 * Cite **atleast 3** articles that you read or other sources of information that you used to write your report.
 * Use clean coding practices - this includes comments, variable names that are informative, clean code spacing, following Hadley Wickham's code style guide.
+* Make sure all of the libraries that you use in the report are listed in a code chunk at the TOP of your document.
 * Spell check your report and check grammar.
 * All plots should be clearly labeled with titles, and x and y axis labels are it makes sense. (Your map of lidar data doesn't need x and y labels).
 * Include images as they make sense. Be sure to cite any graphics that you use that are not yours
@@ -158,17 +159,19 @@ of class. The grading rubric that we will use to grade the assignment is below.
 | Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| clean coding is not implemented consistently throughout the report. |
 | YAML contains a title, author and date | Author, title and date are in YAML | One element is missing from the YAML | 2 or more elements are missing from the YAML |
 | Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | The are more than 3 code errors in the document |
+| All required R packages are listed at the top of the document in a code chunk.  | All libraries are listed at the top of the .Rmd in a code chunk. | Some libraries are at the top and some are lower down. | NA |
 
 
 
-Plots - Total of 7 or 8 - 30%
+### Plots - Total of 7 or 8 - 30%
 
 |  Element | 5 points   | 3 Points   | 1 Points|0 Points|
 |---|---|---|---|---|
-| PLOT 0 - basemap | GGMAP basemap included  | NA  | Missing GGMAP basemap | Plot is missing|
+| PLOT 0 - `ggmap()` basemap | `ggmap()` basemap included  | NA  | Missing `ggmap()` basemap | Plot is missing|
 | PLOT 1 - precipitation from 2003 to 2013 using `ggplot()`| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text./ or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
-| PLOT 2: a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013. | Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
-| PLOT 3: a plot of stream discharge from 1986 to 2016 using ggplot().| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 2: a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`. | Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 3: a plot of stream discharge from 1986 to 2016 using `ggplot()`.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+| PLOT 4: a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
 | PLOT 5: A classified raster map that shows positive and negative change in the canopy height model before and after the flood. | Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report. |Plot is missing|
 | PLOT 6: A classified raster map that shows positive and negative change in terrain derived from the pre and post flood Digital Terrain Models before and after the flood.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title  / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report. | Plot is missing|
 | PLOT 7: A plot of precipitation that spans from 1948 - 2013 using the 805333-precip-daily-1948-2013.csv file. Use the bonus lesson to guide you through creating this plot. (BONUS)| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
