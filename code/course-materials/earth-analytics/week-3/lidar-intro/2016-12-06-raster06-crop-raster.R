@@ -12,7 +12,7 @@ plot(lidar_chm,
      col=rev(terrain.colors(50)))
 
 
-## ----plot-w-legend, warning=FALSE, message=FALSE, fig.cap="shapefile crop extent plot"----
+## ----plot-w-legend, warning=F, message=F, fig.cap="shapefile crop extent plot"----
 # import the vector boundary
 crop_extent <- readOGR("data/week3/BLDR_LeeHill/", 
                        "clip-extent")
@@ -24,7 +24,7 @@ plot(crop_extent,
      axes=T,
      border="blue")
 
-## ----crop-and-plot-raster, fig.cap="lidar chm cropped with vector extent on top"----
+## ----crop-and-plot-raster, fig.cap="lidar chm cropped with vector extent on top", warning=F, message=F----
 # crop the lidar raster using the vector extent
 lidar_chm_crop <- crop(lidar_chm, crop_extent)
 plot(lidar_chm_crop, main="Cropped lidar chm")
