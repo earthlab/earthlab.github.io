@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Classify a raster in R."
+title: "Crop a raster in R using a shapefile."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
@@ -25,8 +25,8 @@ order: 7
 
 After completing this tutorial, you will be able to:
 
-* Crop a raster dataset in R using a vector extent object derived from a shapefile.
-* Open a shapefile in R.
+* Crop a raster dataset in `R` using a vector extent object derived from a shapefile.
+* Open a shapefile in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -83,7 +83,7 @@ plot(lidar_chm,
 ## Open vector layer
 
 Next, let's open up a vector layer that contains the crop extent that we want
-to use to crop our data. To open a shapefil we use the `readOGR()` function.
+to use to crop our data. To open a shapefile we use the `readOGR()` function.
 
 `readOGR()` requires two components:
 
@@ -111,6 +111,16 @@ plot(crop_extent,
 ```
 
 ![shapefile crop extent plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster07-crop-raster/plot-w-legend-1.png)
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/spatial_extent.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/spatial_extent.png"></a>
+    <figcaption>The spatial extent of a shapefile or R spatial object represents
+    the geographic "edge" or location that is the furthest north, south east and
+    west. Thus is represents the overall geographic coverage of the spatial
+    object. Image Source: Colin Williams, NEON. 
+    </figcaption>
+</figure>
 
 Now that we have imported the shapefile. We can use the crop() function in R to
 crop the raster data using the vector shapefile.
