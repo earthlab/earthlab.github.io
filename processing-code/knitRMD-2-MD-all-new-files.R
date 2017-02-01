@@ -89,7 +89,7 @@ populate_all_rmd_df <- function(a_dataframe, all=FALSE){
 #################### Set up Image Directory #############################
 
 # in case you just want to test this function
-#rmd_file_df <- all_rmd_files_bld[1, ]
+#rmd_file_df <- all_rmd_files_bld[7, ]
 
 create_markdown <- function(rmd_file_df, wd){
   
