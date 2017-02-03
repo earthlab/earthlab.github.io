@@ -4,7 +4,7 @@ title: "Understand LiDAR Point Cloud Data"
 excerpt: "This lesson covers what a lidar point cloud is. We will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
-modified: '2017-01-31'
+modified: '2017-02-01'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-point-clouds/
@@ -33,7 +33,8 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson.
 
-<a href="http://www.neonhighered.org/Data/LidarActivity/r_filtered_256000_4111000.las" class="btn btn-success"> DOWNLOAD NEON LiDAR Point Cloud Data - FIX LINK</a>
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -164,8 +165,8 @@ Remember that not all lidar data are created equally. Different lidar data may h
 
 ## 1. Open a .las file in plas.io ###
 
-1. If you haven't already, download the NEON lidar data `r_filtered_256000_4111000.las` in .las format [-->FIX THIS LINKRIGHT CLICK Here to download<--](http://neonhighered.org/Data/LidarActivity/r_filtered_256000_4111000.las "SAMPLE NEON LiDAR Data") if you haven't already.
-2. When the download is complete, drag the file r_filtered_256000_4111000.las into the <a href="http://plas.io" target="_blank"> plas.io website.</a> window.
+1. If you haven't already, download the week 3 dataset - linked at the top of this page. It contains several .laz format point cloud datasets that we will use in this lesson.
+2. When the download is complete, drag one of the .laz files into the <a href="http://plas.io" target="_blank"> plas.io website.</a> window.
 3. Zoom and pan around the data
 4. Use the particle size slider to adjust the size of each individual lidar point. NOTE: the particle size slider is located a little more than half way down the plas.io toolbar in the "Data" section.
 
@@ -173,7 +174,7 @@ If the data imported into the plas.io viewer correctly, you should see something
 
 <figure>
 <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/plasio-data-import.png" alt="Lidar data in the plas.io online tool.">
-<figcaption>Caption here</figcaption>
+<figcaption>You can drag a .las or .laz dataset into the plas.io viewer to view the data in your browser! </figcaption>
 </figure>
 
 ### Navigate Around Your Data in Plas.io
