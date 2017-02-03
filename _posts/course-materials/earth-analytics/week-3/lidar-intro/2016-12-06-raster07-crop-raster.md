@@ -4,7 +4,7 @@ title: "Crop a raster in R using a shapefile."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-02-01'
+modified: '2017-02-03'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/crop-raster/
@@ -114,11 +114,13 @@ plot(crop_extent,
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/spatial_extent.png">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/spatial_extent.png"></a>
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/spatial_extent.png" alt="The spatial extent of a shapefile or R spatial object represents
+    the geographic "edge" or location that is the furthest north, south east and
+    west."></a>
     <figcaption>The spatial extent of a shapefile or R spatial object represents
     the geographic "edge" or location that is the furthest north, south east and
     west. Thus is represents the overall geographic coverage of the spatial
-    object. Image Source: Colin Williams, NEON. 
+    object. Image Source: Colin Williams, NEON.
     </figcaption>
 </figure>
 
