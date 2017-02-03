@@ -201,7 +201,7 @@ Using everything you've learned in the previous lessons:
 
 Some notes to help you along:
 
-* Date: be sure to take of of the date format when you import the data.
+* Date: be sure to take of the date format when you import the data.
 * NoData Values: We know that the no data value = 999.99. We can account for this
 when we read in the data. Remember how?
 
