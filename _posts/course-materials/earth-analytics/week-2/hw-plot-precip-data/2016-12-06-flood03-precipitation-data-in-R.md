@@ -147,7 +147,7 @@ str(boulder_daily_precip)
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
 ##    0.000    0.100    0.100    5.297    0.300 1000.000
 max(boulder_daily_precip$DAILY_PRECIP)
 ## [1] 999.99
@@ -195,7 +195,7 @@ Using everything you've learned in the previous lessons:
 
 Some notes to help you along:
 
-* Date: be sure to take of of the date format when you import the data.
+* Date: be sure to take of the date format when you import the data.
 * NoData Values: We know that the no data value = 999.99. We can account for this
 when we read in the data. Remember how?
 
