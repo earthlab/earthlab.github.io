@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-01-31'
+modified: '2017-02-01'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 5
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -25,8 +25,8 @@ order: 4
 
 After completing this tutorial, you will be able to:
 
-* Define Canopy Height Model (CHM), Digital Elevation Model (DEM) and Digital Surface Model (DSM)
-* Describe the key differences between the **CHM**, **DEM**, **DSM**
+* Define Canopy Height Model (CHM), Digital Elevation Model (DEM) and Digital Surface Model (DSM).
+* Describe the key differences between the **CHM**, **DEM**, **DSM**.
 * Derive a **CHM** in R using raster math.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -43,6 +43,10 @@ directory with it.
 
 * **raster:** `install.packages("raster")`
 * **rgdal:** `install.packages("rgdal")`
+
+If you have not already downloaded the week 3 data, please do so now.
+
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -90,7 +94,7 @@ library(rgdal)
 # setwd("working-dir-path-here")
 ```
 
-First, let's open and plot the digital elevation model. 
+First, let's open and plot the digital elevation model.
 
 
 ```r
@@ -102,10 +106,11 @@ plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
 ```
 
-![digital elevation model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dem-1.png)
+![digital elevation model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/dem-1.png)
 
-Then we opened the digital SURFACE model (DSM). The DSM represents the top of the earth's surface.
-Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
+Next, let's open the digital SURFACE model (DSM). The DSM represents the top of
+the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that
+sit on the earth.
 
 
 ```r
@@ -117,12 +122,12 @@ plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
 ```
 
-![digital surface model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/dsm-1.png)
+![digital surface model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/dsm-1.png)
 
 ## Canopy Height Model
 
 The canopy height model (CHM) represents the HEIGHT of the trees. This is not
-an elevation value, rather it's the distance between the ground and the top of the
+an elevation value, rather it's the height or distance between the ground and the top of the
 trees. Some canopy height models also include buildings so you need to look closely
 are your data to make sure it was properly cleaned before assuming it represents
 all trees!
@@ -148,7 +153,7 @@ plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
 ```
 
-![canopy height model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-1.png)
+![canopy height model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/chm-1.png)
 
 ## Plots Using Breaks
 
@@ -168,14 +173,18 @@ plot(lidar_chm,
      col=c("white","brown","springgreen","darkgreen"))
 ```
 
-![canopy height model breaks]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-chm-dem-dsm/chm-breaks-1.png)
+![canopy height model breaks]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/chm-breaks-1.png)
 
 ## Export a raster
 
 When can export a raster file in R using the `write.raster()` function. Let's
 export the canopy height model that we just created to our data folder. We will
-create a new directory called "outputs" within the week 3 director. This structure
+create a new directory called "outputs" within the week 3 directory. This structure
 allows us to keep things organized, separating our outputs from the data we downloaded.
+
+NOTE: you can use the code below to check for and create an outputs directory.
+OR, you can create the directory yourself using the finder (MAC) or windows
+explorer.
 
 
 
@@ -217,7 +226,7 @@ if (!dir.exists("data/week3/outputs")) {
 </div>
 
 
-## Change detection in Terrain
+## Change detection: terrain
 
 Now that we've learned about the 3 common data products derived from lidar data,
 let's use them to do a bit of exploration of our data - as it relates to the 2013
@@ -229,9 +238,11 @@ Colorado floods.
 
 * Subtract the post-flood DEM from the pre-flood DEM. Do you see any differences in
 elevation before the after?
-* Create a CHM for both pre-flood and post-flood by subtracting the DEM from the DTM for each year. Next create a CHM DIFFERENCE raster by subtracting the post-flood CHM from the pre-flood CHM.
-* Export the files as geotiff's and open them in QGIS. Explore the differences.
-What differences do you see between the two years?
+* Create a CHM for both pre-flood and post-flood by subtracting the DEM from the DTM for each year.
+* Next create a CHM DIFFERENCE raster by subtracting the post-flood CHM from the pre-flood CHM.
+* Plot a histogram of the CHM DIFFERENCE.
+* Export the files as geotiff's to your output directory. Then, open them in QGIS. Explore the differences.
+
+What differences do you see in canopy height between the two years?
 
 </div>
-
