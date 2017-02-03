@@ -1,7 +1,8 @@
 ---
 layout: single
 title: "Introduction to LiDAR Data"
-excerpt: "."
+excerpt: "This lesson reviews what Lidar remote sensing is and discusses the core
+components of a lidar remote sensing system."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -23,7 +24,6 @@ order: 1
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
-
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -37,6 +37,9 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson.
+
+If you have not already downloaded the week 3 data, please do so now.
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
