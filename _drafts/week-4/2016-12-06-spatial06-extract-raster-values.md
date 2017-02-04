@@ -6,20 +6,15 @@ components of a lidar remote sensing system."
 authors: ['Leah Wasser']
 modified: '2017-02-03'
 category: [course-materials]
-class-lesson: ['class-lidar-r']
+class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/lidar-to-insitu/
 nav-title: 'LiDAR Data Intro'
-module-title: 'Compare remote sensing with in situ data in  R'
-module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
-the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
-module-nav-title: 'Spatial Data in R'
-module-type: 'class'
-week: 3
+week: 4
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 5
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -46,15 +41,15 @@ If you have not already downloaded the week 3 data, please do so now.
 ## Background ####
 NEON (National Ecological Observatory Network) will provide derived LiDAR products as one
 of its many free ecological data products. These products will come in a
-<a href="http://trac.osgeo.org/geotiff/" target="_blank"> GeoTIFF</a> 
-format, which is a `tif` raster format that is spatially located on the earth. 
+<a href="http://trac.osgeo.org/geotiff/" target="_blank"> GeoTIFF</a>
+format, which is a `tif` raster format that is spatially located on the earth.
 Geotiffs can be accessed using the `raster` package in R.
 
-A common first analysis using LiDAR data is to derive top of the canopy height 
-values from the LiDAR data. These values are often used to track changes in 
-forest structure over time, to calculate biomass, and even Leaf Area Index (LAI). 
-Let's dive into the basics of working with raster formatted LiDAR data in R! 
-Before we begin, make sure you've downloaded the data required to run the code 
+A common first analysis using LiDAR data is to derive top of the canopy height
+values from the LiDAR data. These values are often used to track changes in
+forest structure over time, to calculate biomass, and even Leaf Area Index (LAI).
+Let's dive into the basics of working with raster formatted LiDAR data in R!
+Before we begin, make sure you've downloaded the data required to run the code
 below.
 
 <div id="objectives" markdown="1">
@@ -90,27 +85,21 @@ First, we will import the NEON canopy height model.
 
 # import canopy height model (CHM).
 SJER_chm <- raster("data/week4/NEONdata/D17-California/SJER/2013/lidar/SJER_lidarCHM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 SJER_chm
-## class       : RasterLayer 
-## dimensions  : 5059, 4296, 21733464  (nrow, ncol, ncell)
-## resolution  : 1, 1  (x, y)
-## extent      : 254571, 258867, 4107303, 4112362  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week4/NEONdata/D17-California/SJER/2013/lidar/SJER_lidarCHM.tif 
-## names       : SJER_lidarCHM 
-## values      : 0, 45.88  (min, max)
+## Error in eval(expr, envir, enclos): object 'SJER_chm' not found
 
 # set values of 0 to NA as these are not trees
 SJER_chm[SJER_chm==0] <- NA
+## Error in SJER_chm[SJER_chm == 0] <- NA: object 'SJER_chm' not found
 
 # plot the data
 hist(SJER_chm,
      main="Histogram of Canopy Height\n NEON SJER Field Site",
      col="springgreen",
      xlab="Height (m)")
+## Error in hist(SJER_chm, main = "Histogram of Canopy Height\n NEON SJER Field Site", : object 'SJER_chm' not found
 ```
-
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/2016-12-06-spatial01-intro-vector-data-R/import-chm-1.png)
 
 
 ## Part 2. How does our CHM data compare to field measured tree heights?
@@ -131,16 +120,14 @@ located in `SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv`.
 # import plot centroids
 SJER_plots <- readOGR("data/week4/NEONdata/D17-California/SJER/vector_data",
                       "SJER_plot_centroids")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/NEONdata/D17-California/SJER/vector_data", layer: "SJER_plot_centroids"
-## with 18 features
-## It has 5 fields
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 
 
 # Overlay the centroid points and the stem locations on the CHM plot
 plot(SJER_chm,
      main="Plot Locations",
      col=gray.colors(100, start=.3, end=.9))
+## Error in plot(SJER_chm, main = "Plot Locations", col = gray.colors(100, : object 'SJER_chm' not found
 
 # pch 0 = square
 plot(SJER_plots,
@@ -148,9 +135,8 @@ plot(SJER_plots,
      cex = 2,
      col = 2,
      add=TRUE)
+## Error in plot(SJER_plots, pch = 16, cex = 2, col = 2, add = TRUE): object 'SJER_plots' not found
 ```
-
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/2016-12-06-spatial01-intro-vector-data-R/read-plot-data-1.png)
 
 ### Extract CMH data within 20 m radius of each plot centroid.
 
@@ -185,6 +171,7 @@ SJER_height <- extract(SJER_chm,
                     fun=max,
                     sp=TRUE,
                     stringsAsFactors=FALSE)
+## Error in extract(SJER_chm, SJER_plots, buffer = 20, fun = max, sp = TRUE, : object 'SJER_chm' not found
 ```
 
 #### If you want to explore The Data Distribution
@@ -243,9 +230,7 @@ SJER_insitu <- read.csv("NEONdata/D17-California/SJER/2013/insitu/veg_structure/
 
 # get list of unique plots
 unique(SJER_plots$Plot_ID)
-##  [1] "SJER1068" "SJER112"  "SJER116"  "SJER117"  "SJER120"  "SJER128" 
-##  [7] "SJER192"  "SJER272"  "SJER2796" "SJER3239" "SJER36"   "SJER361" 
-## [13] "SJER37"   "SJER4"    "SJER8"    "SJER824"  "SJER916"  "SJER952"
+## Error in unique(SJER_plots$Plot_ID): object 'SJER_plots' not found
 ```
 
 ## Extract Max Tree Height
@@ -297,28 +282,10 @@ SJER_height <- merge(SJER_height,
                      insitu_maxStemHeight,
                    by.x = 'Plot_ID',
                    by.y = 'plotid')
-## Error in merge(SJER_height, insitu_maxStemHeight, by.x = "Plot_ID", by.y = "plotid"): object 'insitu_maxStemHeight' not found
+## Error in merge(SJER_height, insitu_maxStemHeight, by.x = "Plot_ID", by.y = "plotid"): object 'SJER_height' not found
 
 SJER_height@data
-##     Plot_ID  Point northing  easting Remarks SJER_lidarCHM
-## 1  SJER1068 center  4111568 255852.4    <NA>         19.05
-## 2   SJER112 center  4111299 257407.0    <NA>         24.02
-## 3   SJER116 center  4110820 256838.8    <NA>         16.07
-## 4   SJER117 center  4108752 256176.9    <NA>         11.06
-## 5   SJER120 center  4110476 255968.4    <NA>          5.74
-## 6   SJER128 center  4111389 257078.9    <NA>         19.14
-## 7   SJER192 center  4111071 256683.4    <NA>         16.55
-## 8   SJER272 center  4112168 256717.5    <NA>         11.84
-## 9  SJER2796 center  4111534 256034.4    <NA>         20.28
-## 10 SJER3239 center  4109857 258497.1    <NA>         12.91
-## 11   SJER36 center  4110162 258277.8    <NA>          8.99
-## 12  SJER361 center  4107527 256961.8    <NA>         18.73
-## 13   SJER37 center  4107579 256148.2    <NA>         11.49
-## 14    SJER4 center  4109767 257228.3    <NA>          9.53
-## 15    SJER8 center  4110249 254738.6    <NA>          4.15
-## 16  SJER824 center  4110048 256185.6    <NA>         25.66
-## 17  SJER916 center  4109617 257460.5    <NA>         18.73
-## 18  SJER952 center  4110759 255871.2    <NA>          6.38
+## Error in eval(expr, envir, enclos): object 'SJER_height' not found
 ```
 
 ### Plot Data (CHM vs Measured)
@@ -337,10 +304,8 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
   xlab("Maximum LiDAR pixel")+
   geom_abline(intercept = 0, slope=1) +
   ggtitle("Lidar Height Compared to InSitu Measured Height")
-## Error in eval(expr, envir, enclos): object 'insituMaxHt' not found
+## Error in ggplot(SJER_height@data, aes(x = SJER_lidarCHM, y = insituMaxHt)): object 'SJER_height' not found
 ```
-
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/2016-12-06-spatial01-intro-vector-data-R/plot-w-ggplot-1.png)
 
 
 We can also add a regression fit to our plot. Explore the GGPLOT options and
@@ -356,16 +321,15 @@ p <- ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
   xlab("Maximum LiDAR Height")+
   geom_abline(intercept = 0, slope=1)+
   geom_smooth(method=lm)
+## Error in ggplot(SJER_height@data, aes(x = SJER_lidarCHM, y = insituMaxHt)): object 'SJER_height' not found
 
 p + theme(panel.background = element_rect(colour = "grey")) +
   ggtitle("LiDAR CHM Derived vs Measured Tree Height") +
   theme(plot.title=element_text(family="sans", face="bold", size=20, vjust=1.9)) +
   theme(axis.title.y = element_text(family="sans", face="bold", size=14, angle=90, hjust=0.54, vjust=1)) +
   theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
-## Error in eval(expr, envir, enclos): object 'insituMaxHt' not found
+## Error in eval(expr, envir, enclos): object 'p' not found
 ```
-
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/2016-12-06-spatial01-intro-vector-data-R/ggplot-data-1.png)
 
 
 ## View Differences
@@ -374,32 +338,20 @@ p + theme(panel.background = element_rect(colour = "grey")) +
 ```r
 
 SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$insituMaxHt)
-## Error in `$<-.data.frame`(`*tmp*`, "ht_diff", value = numeric(0)): replacement has 0 rows, data has 18
+## Error in eval(expr, envir, enclos): object 'SJER_height' not found
 
 boxplot(SJER_height@data$ht_diff)
-## Warning in is.na(x): is.na() applied to non-(list or vector) of type 'NULL'
-
-## Warning in is.na(x): is.na() applied to non-(list or vector) of type 'NULL'
-
-## Warning in is.na(x): is.na() applied to non-(list or vector) of type 'NULL'
-## Warning in min(x): no non-missing arguments to min; returning Inf
-## Warning in max(x): no non-missing arguments to max; returning -Inf
-## Error in plot.window(xlim = xlim, ylim = ylim, log = log, yaxs = pars$yaxs): need finite 'ylim' values
-```
-
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/2016-12-06-spatial01-intro-vector-data-R/view-diff-1.png)
-
-```r
+## Error in boxplot(SJER_height@data$ht_diff): object 'SJER_height' not found
 barplot(SJER_height@data$ht_diff,
         xlab = SJER_height@data$Plot_ID)
-## Error in barplot.default(SJER_height@data$ht_diff, xlab = SJER_height@data$Plot_ID): 'height' must be a vector or a matrix
+## Error in barplot(SJER_height@data$ht_diff, xlab = SJER_height@data$Plot_ID): object 'SJER_height' not found
 
 
 # create bar plot
 library(ggplot2)
 ggplot(data=SJER_height@data, aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
     geom_bar(stat="identity")
-## Error in eval(expr, envir, enclos): object 'ht_diff' not found
+## Error in ggplot(data = SJER_height@data, aes(x = Plot_ID, y = ht_diff, : object 'SJER_height' not found
 ```
 
 ## QGIS Check
@@ -429,8 +381,8 @@ plot.ly library installed, you can quickly export a ggplot graphic into plot.ly!
 an account. Once you've setup an account, you can get your key from the plot.ly
 site (under Settings > API Keys) to make the code below work.
 
-You must be signed into plot.ly online, from your current computer, at the time 
-you use the `plotly_POST` command to upload you plot to your plot.ly account.  
+You must be signed into plot.ly online, from your current computer, at the time
+you use the `plotly_POST` command to upload you plot to your plot.ly account.
 
 
 
@@ -442,7 +394,7 @@ library(plotly)
 Sys.setenv("plotly_username"="Your-User-Name")
 Sys.setenv("plotly_api_key"="Your-plotly-key")
 
-# you must be signed into Plot.ly online on the same computer for this code to work. 
+# you must be signed into Plot.ly online on the same computer for this code to work.
 # generate the plot
 plotly_POST(p,
             filename='NEON SJER CHM vs Insitu Tree Height') # let anyone in the world see the plot!
