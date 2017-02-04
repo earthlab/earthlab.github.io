@@ -13,7 +13,7 @@ plot(lidar_chm,
 
 ## ----plot-w-legend, warning=F, message=F, fig.cap="shapefile crop extent plot"----
 # import the vector boundary
-crop_extent <- readOGR("data/week3/BLDR_LeeHill/",
+crop_extent <- readOGR("data/week3/BLDR_LeeHill",
                        "clip-extent")
 
 # plot imported shapefile
