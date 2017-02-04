@@ -94,10 +94,10 @@ to use to crop our data. To open a shapefile we use the `readOGR()` function.
 
 ```r
 # import the vector boundary
-crop_extent <- readOGR("data/week3/BLDR_LeeHill/",
+crop_extent <- readOGR("data/week3/BLDR_LeeHill",
                        "clip-extent")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week3/BLDR_LeeHill/", layer: "clip-extent"
+## Source: "data/week3/BLDR_LeeHill", layer: "clip-extent"
 ## with 1 features
 ## It has 1 fields
 ## Integer64 fields read as strings:  id
