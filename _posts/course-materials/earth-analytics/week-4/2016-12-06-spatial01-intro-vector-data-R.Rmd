@@ -1,20 +1,20 @@
 ---
 layout: single
-title: "Introduction to LiDAR Data"
-excerpt: "This lesson reviews what Lidar remote sensing is and discusses the core
-components of a lidar remote sensing system."
+title: "GIS in R - intro to vector data"
+excerpt: "This lesson introduces what vector data are and how to open vector data stored in
+shapefile format in R."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
-class-lesson: ['class-lidar-r']
-permalink: /course-materials/earth-analytics/week-4/lidar-to-insitu/
-nav-title: 'LiDAR Data Intro'
-module-title: 'Compare remote sensing with in situ data in  R'
+class-lesson: ['class-intro-spatial-r']
+permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
+nav-title: 'vector data in R'
+module-title: 'Compare remote sensing with in situ data in R'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
 module-type: 'class'
-week: 3
+week: 4
 sidebar:
   nav:
 author_profile: false
@@ -43,343 +43,297 @@ If you have not already downloaded the week 3 data, please do so now.
 
 </div>
 
-## Background ####
-NEON (National Ecological Observatory Network) will provide derived LiDAR products as one
-of its many free ecological data products. These products will come in a
-<a href="http://trac.osgeo.org/geotiff/" target="_blank"> GeoTIFF</a> 
-format, which is a `tif` raster format that is spatially located on the earth. 
-Geotiffs can be accessed using the `raster` package in R.
-
-A common first analysis using LiDAR data is to derive top of the canopy height 
-values from the LiDAR data. These values are often used to track changes in 
-forest structure over time, to calculate biomass, and even Leaf Area Index (LAI). 
-Let's dive into the basics of working with raster formatted LiDAR data in R! 
-Before we begin, make sure you've downloaded the data required to run the code 
-below.
-
-<div id="objectives" markdown="1">
-
-### Recommended Reading
-<a href="http://neondataskills.org/remote-sensing/2_LiDAR-Data-Concepts_Activity2/">
-What is a CHM, DSM and DTM? About Gridded, Raster LiDAR Data</a>
-
-</div>
-
-
-```{r import-plot-DSM, warning=FALSE}
-
-# Import DSM into R
-library(raster)
-library(rgdal)
-library(ggplot2)
-library(dplyr)
-
-options(stringsAsFactors = FALSE)
-
-# set working directory
-# setwd("path-here/earth-analytics")
-```
-
-## Import NEON CHM
-
-First, we will import the NEON canopy height model.
-
-```{r import-chm }
-
-# import canopy height model (CHM).
-SJER_chm <- raster("data/week4/NEONdata/D17-California/SJER/2013/lidar/SJER_lidarCHM.tif")
-SJER_chm
-
-# set values of 0 to NA as these are not trees
-SJER_chm[SJER_chm==0] <- NA
-
-# plot the data
-hist(SJER_chm,
-     main="Histogram of Canopy Height\n NEON SJER Field Site",
-     col="springgreen",
-     xlab="Height (m)")
-
-```
-
-
-## Part 2. How does our CHM data compare to field measured tree heights?
-
-We now have a canopy height model for our study area in California. However, how
-do the height values extracted from the CHM compare to our laboriously collected,
-field measured canopy height data? To figure this out, we will use *in situ* collected
-tree height data, measured within circular plots across our study area. We will compare
-the maximum measured tree height value to the maximum LiDAR derived height value
-for each circular plot using regression.
-
-For this activity, we will use the a `csv` (comma separate value) file,
-located in `SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv`.
-
-```{r read-plot-data }
-
-# import plot centroids
-SJER_plots <- readOGR("data/week4/NEONdata/D17-California/SJER/vector_data",
-                      "SJER_plot_centroids")
-
-
-# Overlay the centroid points and the stem locations on the CHM plot
-plot(SJER_chm,
-     main="Plot Locations",
-     col=gray.colors(100, start=.3, end=.9))
-
-# pch 0 = square
-plot(SJER_plots,
-     pch = 16,
-     cex = 2,
-     col = 2,
-     add=TRUE)
-
-```
-
-### Extract CMH data within 20 m radius of each plot centroid.
-
-Next, we will create a boundary region (called a buffer) representing the spatial
-extent of each plot (where trees were measured). We will then extract all CHM pixels
-that fall within the plot boundary to use to estimate tree height for that plot.
-
-There are a few ways to go about this task. If your plots are circular, then the
-extract tool will do the job!
+## About Vector Data
+Vector data are composed of discrete geometric locations (x,y values) known as
+**vertices** that define the "shape" of the spatial object. The organization
+of the vertices, determines the type of vector that we are working
+with: point, line or polygon.
 
 <figure>
-    <img src="{{ site.baseurl }}/images/spatialData/BufferCircular.png">
-    <figcaption>The extract function in R allows you to specify a circular buffer
-    radius around an x,y point location. Values for all pixels in the specified
-    raster that fall within the circular buffer are extracted. In this case, we
-    will tell R to extract the maximum value of all pixels using the fun=max
-    command.
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/pnt_line_poly.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/pnt_line_poly.png" alt="points lines and polygons graphic."></a>
+    <figcaption> There are 3 types of vector objects: points, lines or
+    polygons. Each object type has a different structure.
+    Image Source: Colin Williams (NEON)
     </figcaption>
 </figure>
 
-### Extract Plot Data Using Circle: 20m Radius Plots
+* **Points:** Each individual point is defined by a single x, y coordinate.
+There can be many points in a vector point file. Examples of point data include:
+sampling locations, the location of individual trees or the location of plots.
+* **Lines:** Lines are composed of many (at least 2) vertices, or points, that
+are connected. For instance, a road or a stream may be represented by a line. This
+line is composed of a series of segments, each "bend" in the road or stream
+represents a vertex that has defined `x, y` location.
+* **Polygons:** A polygon consists of 3 or more vertices that are connected and
+"closed". Thus the outlines of plot boundaries, lakes, oceans, and states or
+countries are often represented by polygons. Occasionally, a polygon can have a
+hole in the middle of it (like a doughnut), this is something to be aware of but
+not an issue we will deal with in this tutorial.
 
-```{r extract-plot-data }
+ <i class="fa fa-star"></i> **Data Tip:** Sometimes, boundary layers such as
+ states and countries, are stored as lines rather than polygons. However, these
+ boundaries, when represented as a line, will not create a closed object with a defined "area" that can be "filled".
+{: .notice}
 
-# Insitu sampling took place within 40m x 40m square plots, so we use a 20m radius.
-# Note that below will return a dataframe containing the max height
-# calculated from all pixels in the buffer for each plot
-SJER_height <- extract(SJER_chm,
-                    SJER_plots,
-                    buffer = 20,
-                    fun=max,
-                    sp=TRUE,
-                    stringsAsFactors=FALSE)
+## Shapefiles: Points, Lines, and Polygons
+Geospatial data in vector format are often stored in a `shapefile` format.
+Because the structure of points, lines, and polygons are different, each
+individual shapefile can only contain one vector type (all points, all lines
+or all polygons). You will not find a mixture of point, line and polygon
+objects in a single shapefile.
+
+Objects stored in a shapefile often have a set of associated `attributes` that
+describe the data. For example, a line shapefile that contains the locations of
+streams, might contain the associated stream name, stream "order" and other
+information about each stream line object.
+
+* More about shapefiles can found on
+<a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank">Wikipedia</a>.
+
+## Import Shapefiles
+
+We will use the `rgdal` package to work with vector data in `R`. Notice that the
+`sp` package automatically loads when `rgdal` is loaded. We will also load the
+`raster` package so we can explore raster and vector spatial metadata using similar commands.
+
+```{r load-libraries }
+# work with spatial data; sp package will load with rgdal.
+library(rgdal)
+# for metadata/attributes- vectors or rasters
+library(raster)
+
+# set working directory to earth-analytics dir
+# setwd("pathToDirHere")
+```
+
+The shapefiles that we will import are:
+
+* A polygon shapefile representing our field site boundary,
+* A line shapefile representing roads, and
+* A point shapefile representing the location of the Fisher
+<a href="http://www.neonscience.org/science-design/collection-methods/flux-tower-measurements" target="_blank">flux tower</a>
+located at the
+<a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> NEON Harvard Forest field site</a>.
+
+The first shapefile that we will open contains the boundary of our study area
+(or our Area Of Interest or AOI, hence the name `aoiBoundary`). To import
+shapefiles we use the `R` function `readOGR()`.
+
+`readOGR()` requires two components:
+
+1. The directory where our shapefile lives: `data/week4/D17-California/SJER/vector_data/`
+2. The name of the shapefile (without the extension): `SJER_plot_centroids`
+
+Let's import our AOI.
+
+```{r Import-Shapefile}
+
+# Import a polygon shapefile: readOGR("path","fileName")
+# no extension needed as readOGR only imports shapefiles
+
+sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
+                      layer="SJER_plot_centroids")
+
 
 ```
 
-#### If you want to explore The Data Distribution
+<i class="fa fa-star"></i> **Data Tip:** The acronym, OGR, refers to the
+OpenGIS Simple Features Reference Implementation.
+<a href="https://trac.osgeo.org/gdal/wiki/FAQGeneral" target="_blank">
+Learn more about OGR.</a>
+{: .notice}
 
-If you want to explore the data distribution of pixel height values in each plot,
-you could remove the `fun` call to max and generate a list.
-`cent_ovrList <- extract(chm,centroid_sp,buffer = 20)`. It's good to look at the
-distribution of values we've extracted for each plot. Then you could generate a
-histogram for each plot `hist(cent_ovrList[[2]])`. If we wanted, we could loop
-through several plots and create histograms using a `for loop`.
+## Shapefile Metadata & Attributes
 
-```{r explore-data-distribution, eval=FALSE }
+When we import the `HarClip_UTMZ18` shapefile layer into `R` (as our
+`sjer_crop_extent` object), the `readOGR()` function automatically stores
+information about the data. We are particularly interested in the geospatial
+**metadata**, describing the format, `CRS`, `extent`, and other components of
+the vector data, and the **attributes** which describe properties associated
+with each individual vector object.
 
-# cent_ovrList <- extract(chm,centroid_sp,buffer = 20)
-# create histograms for the first 5 plots of data
-# for (i in 1:5) {
-#  hist(cent_ovrList[[i]], main=(paste("plot",i)))
-#  }
+ <i class="fa fa-star"></i> **Data Tip:** The
+ [Shapefile Metadata & Attributes in R]({{site.baseurl}}/R/shapefile-attributes-in-R/)
+tutorial provides more information on both metadata and attributes
+and using attributes to subset and plot data.
+{: .notice}
 
+## Spatial Metadata
+Key metadata for all shapefiles include:
+
+1. **Object Type:** the class of the imported object.
+2. **Coordinate Reference System (CRS):** the projection of the data.
+3. **Extent:** the spatial extent (geographic area that the shapefile covers) of
+the shapefile. Note that the spatial extent for a shapefile represents the
+extent for ALL spatial objects in the shapefile.
+
+We can view shapefile metadata using the `class`, `crs` and `extent` methods:
+
+```{r view-metadata }
+# view just the class for the shapefile
+class(sjer_plot_locations)
+
+# view just the crs for the shapefile
+crs(sjer_plot_locations)
+
+# view just the extent for the shapefile
+extent(sjer_plot_locations)
+
+# view all metadata at same time
+sjer_plot_locations
 ```
 
+Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
+in the CRS **UTM zone 18N**. The CRS is critical to interpreting the object
+`extent` values as it specifies units.
 
+<figure>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png"></a>
+    <figcaption>The spatial extent of a shapefile or R spatial object represents
+    the geographic "edge" or location that is the furthest north, south east and
+    west. Thus is represents the overall geographic coverage of the spatial object.
+    Image Source: National Ecological Observatory Network (NEON)
+    </figcaption>
+</figure>
 
-### Variation 3: Derive Square Plot boundaries, then CHM values around a point
-For how to extract square plots using a plot centroid value, check out the
-<a href="http://neondataskills.org/working-with-field-data/Field-Data-Polygons-From-Centroids" target="_blank"> extracting square shapes activity </a>.
+## Spatial Data Attributes
+Each object in a shapefile has one or more attributes associated with it.
+Shapefile attributes are similar to fields or columns in a spreadsheet. Each row
+in the spreadsheet has a set of columns associated with it that describe the row
+element. In the case of a shapefile, each row represents a spatial object - for
+example, a road, represented as a line in a line shapefile, will have one "row"
+of attributes associated with it. These attributes can include different types
+of information that describe objects stored within a shapefile. Thus, our road,
+may have a name, length, number of lanes, speed limit, type of road and other
+attributes stored with it.
 
- <figure>
-    <img src="{{ site.baseurl }}/images/spatialData/BufferSquare.png">
-    <figcaption>If you had square shaped plots, the code in the link above would
-    extract pixel values within a square shaped buffer.
+<figure>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/Attribute_Table.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/Attribute_Table.png"></a>
+    <figcaption>Each spatial feature in an R spatial object has the same set of
+    associated attributes that describe or characterize the feature.
+    Attribute data are stored in a separate *.dbf file. Attribute data can be
+    compared to a spreadsheet. Each row in a spreadsheet represents one feature
+    in the spatial object.
+    Image Source: National Ecological Observatory Network (NEON)
     </figcaption>
 </figure>
 
 
+We view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
+(e.g., `sjer_plot_locations@data`).
 
-## Extract descriptive stats from Insitu Data
-In our final step, we will extract summary height values from our field data.
-We will use the `dplyr` library to do this efficiently. We'll demonstrate both below
-
-### Extract stats from our spatial `data.frame` using the `DPLYR` package.
-
-First let's see how many plots are in the centroid folder.
-
-```{r unique-plots }
-
-# import the centroid data and the vegetation structure data
-SJER_insitu <- read.csv("NEONdata/D17-California/SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv",
-                        stringsAsFactors = FALSE)
-
-# get list of unique plots
-unique(SJER_plots$Plot_ID)
+``` {r Shapefile-attributes-2}
+# alternate way to view attributes
+sjer_plot_locations@data
 
 ```
 
-## Extract Max Tree Height
+In this case, our polygon object only has one attribute: `id`.
 
-Next, find the maximum MEASURED tree height value for each plot. This value represents
-the tallest tree in each plot. We will compare
-this value to the max lidar CHM value.
+## Metadata & Attribute Summary
+We can view a metadata & attribute summary of each shapefile by entering
+the name of the `R` object in the console. Note that the metadata output
+includes the **class**, the number of **features**, the **extent**, and the
+**coordinate reference system** (`crs`) of the `R` object. The last two lines of
+`summary` show a preview of the `R` object **attributes**.
 
-```{r analyze-plot-dplyr }
-
-# find the max stem height for each plot
-insitu_maxStemHeight <- SJER_insitu %>%
-  group_by(plotid) %>%
-  summarise(max = max(stemheight))
-
-head(insitu_maxStemHeight)
-
-# let's create better, self documenting column headers
-names(insitu_maxStemHeight) <- c("plotid","insituMaxHt")
-head(insitu_maxStemHeight)
+```{r shapefile-summary}
+# view a summary of metadata & attributes associated with the spatial object
+summary(sjer_plot_locations)
 
 ```
 
 
-### Merge InSitu Data With Spatial data.frame
+# Plot a Shapefile
+Next, let's visualize the data in our `R` `spatialpolygonsdataframe` object using
+`plot()`.
 
-Once we have our summarized insitu data, we can `merge` it into the centroids
-`data.frame`. Merge requires two data.frames and the names of the columns
-containing the unique ID that we will merge the data on. In this case, we will
-merge the data on the plot_id column. Notice that it's spelled slightly differently
-in both data.frames so we'll need to tell R what it's called in each data.frame.
-
-```{r merge-dataframe}
-
-# merge to create a new spatial df
-#SJER_height@data <- data.frame(SJER_height@data,
-#                               insitu_maxStemHeight[match(SJER_height@data[,"Plot_ID"], #insitu_maxStemHeight$plotid),])
-
-# the code below is another way to use MERGE however it creates a normal data.frame
-# rather than a spatial object. Above, we reassigned the "data" slot to
-# a newly merged data frame
-# merge the insitu data into the centroids data.frame
-SJER_height <- merge(SJER_height,
-                     insitu_maxStemHeight,
-                   by.x = 'Plot_ID',
-                   by.y = 'plotid')
-
-SJER_height@data
+``` {r plot-shapefile, fig.cap="SJER plot locations."}
+# create a plot of the shapefile
+# 'lwd' sets the line width
+# 'col' sets internal color
+# 'border' sets line color
+plot(sjer_plot_locations, col="blue",
+     pch=8,
+     main="Plot Locations")
 
 ```
-
-### Plot Data (CHM vs Measured)
-Let's create a plot that illustrates the relationship between in situ measured
-max canopy height values and lidar derived max canopy height values.
-
-
-```{r plot-w-ggplot}
-
-# create plot
-ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
-  geom_point() +
-  theme_bw() +
-  ylab("Maximum measured height") +
-  xlab("Maximum LiDAR pixel")+
-  geom_abline(intercept = 0, slope=1) +
-  ggtitle("Lidar Height Compared to InSitu Measured Height")
-
-```
-
-
-We can also add a regression fit to our plot. Explore the GGPLOT options and
-customize your plot.
-
-```{r ggplot-data }
-
-#plot with regression fit
-p <- ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
-  geom_point() +
-  ylab("Maximum Measured Height") +
-  xlab("Maximum LiDAR Height")+
-  geom_abline(intercept = 0, slope=1)+
-  geom_smooth(method=lm)
-
-p + theme(panel.background = element_rect(colour = "grey")) +
-  ggtitle("LiDAR CHM Derived vs Measured Tree Height") +
-  theme(plot.title=element_text(family="sans", face="bold", size=20, vjust=1.9)) +
-  theme(axis.title.y = element_text(family="sans", face="bold", size=14, angle=90, hjust=0.54, vjust=1)) +
-  theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
-
-```
-
-
-## View Differences
-
-```{r view-diff}
-
-SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$insituMaxHt)
-
-boxplot(SJER_height@data$ht_diff)
-barplot(SJER_height@data$ht_diff,
-        xlab = SJER_height@data$Plot_ID)
-
-
-# create bar plot
-library(ggplot2)
-ggplot(data=SJER_height@data, aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
-    geom_bar(stat="identity")
-
-```
-
-## QGIS Check
-
-Here's a link to add imagery to QGIS.
-<a href="https://ieqgis.wordpress.com/2014/08/09/adding-esris-online-world-imagery-dataset-to-qgis/" target="_blank">Add Imagery to QGIS</a>
-
-
-You have now successfully created a canopy height model using LiDAR data AND compared LiDAR
-derived vegetation height, within plots, to actual measured tree height data!
 
 <div id="challenge" markdown="1">
+## Optional challenge: Import Line and Polygon Shapefiles
 
-## Challenge: LiDAR vs Insitu Comparison
+Using the steps above, import the `data/week4/california/madera-county-roads/tl_2013_06039_roads` 
+and `data/week4/california/SJER/vector_data/SJER_crop.shp` shapefiles into
+`R`. Call the roads object `sjer_roads` and the crop layer 
+`sjer_crop_extent`.
 
-Create a plot of LiDAR 95th percentile value vs *insitu* max height. Or LiDAR 95th
-percentile vs *insitu* 95th percentile. Add labels to your plot. Customize the
-colors, fonts and the look of your plot. If you are happy with the outcome, share
-your plot in the comments below!
- </div>
+Answer the following questions:
 
-## Create Plot.ly Interactive Plot
+1. What type of `R` spatial object is created when you import each layer?
+2. What is the `CRS` and `extent` for each object?
+3. Do the files contain, points, lines or polygons?
+4. How many spatial objects are in each file?
+</div>
 
-Plot.ly is a free to use, online interactive data viz site. If you have the
-plot.ly library installed, you can quickly export a ggplot graphic into plot.ly!
- (NOTE: it also works for python matplotlib)!! To use plot.ly, you need to setup
-an account. Once you've setup an account, you can get your key from the plot.ly
-site (under Settings > API Keys) to make the code below work.
+```{r import-point-line, echo=FALSE, results="hide" }
+# import line shapefile
+sjer_roads <- readOGR("data/week4/california/madera-county-roads",
+                      layer = "tl_2013_06039_roads")
 
-You must be signed into plot.ly online, from your current computer, at the time 
-you use the `plotly_POST` command to upload you plot to your plot.ly account.  
+sjer_crop_extent <- readOGR("data/week4/california/SJER/vector_data/",
+                            "SJER_crop")
 
+# 1
+class(sjer_roads)
+class(sjer_plot_locations)
 
-```{r create-plotly, eval=FALSE }
+# 2
+crs(sjer_roads)
+extent(sjer_roads)
+crs(sjer_plot_locations)
+extent(sjer_plot_locations)
 
-library(plotly)
+# 3
+#sjer_roads contains only lines and sjer_plot_locations contains only 1 point
 
-# setup your plot.ly credentials
-Sys.setenv("plotly_username"="Your-User-Name")
-Sys.setenv("plotly_api_key"="Your-plotly-key")
+# 4 -> numerous ways to find this; sjer_roads=13,
+length(sjer_roads)  #easiest, but not previously taught
+sjer_roads  #look at 'features'
+attributes(sjer_roads)  #found in the $data section as above
 
-# you must be signed into Plot.ly online on the same computer for this code to work. 
-# generate the plot
-plotly_POST(p,
-            filename='NEON SJER CHM vs Insitu Tree Height') # let anyone in the world see the plot!
-
+# Alternative code for 1-4: view metadata/attributes all at once
+sjer_roads
+attributes(sjer_roads)
 
 ```
 
-Check out the results!
+## Plot Multiple Shapefiles
+The `plot()` function can be used for basic plotting of spatial objects.
+We use the `add = TRUE` argument to overlay shapefiles on top of each other, as
+we would when creating a map in a typical GIS application like QGIS.
 
-NEON Remote Sensing Data compared to NEON Terrestrial Measurements for the SJER Field Site
+We can use `main=""` to give our plot a title. If we want the title to span two
+lines, we use `\n` where the line should break.
 
-<iframe width="460" height="293" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~leahawasser/24.embed?width=460&height=293"></iframe>
+```{r plot-multiple-shapefiles }
+# Plot multiple shapefiles
+plot(sjer_crop_extent, col = "lightgreen",
+     main="NEON Harvard Forest\nField Site")
+plot(sjer_roads, add = TRUE)
+
+# use the pch element to adjust the symbology of the points
+plot(sjer_plot_locations, add  = TRUE, pch = 19, col = "purple")
+```
+
+
+***
+
+## Additional Resources: Plot Parameter Options
+For more on parameter options in the base `R` `plot()` function, check out these
+resources:
+
+* <a href="http://www.statmethods.net/advgraphs/parameters.html" target="_blank">Parameter methods in `R`.</a>
+* <a href="https://codeyarns.files.wordpress.com/2011/07/20110729-vim-named-colors.png?w=700" target="_blank">Color names in `R`</a>

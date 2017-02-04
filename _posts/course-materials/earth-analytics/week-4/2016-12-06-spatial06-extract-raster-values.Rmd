@@ -6,20 +6,15 @@ components of a lidar remote sensing system."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
-class-lesson: ['class-lidar-r']
+class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/lidar-to-insitu/
 nav-title: 'LiDAR Data Intro'
-module-title: 'Compare remote sensing with in situ data in  R'
-module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
-the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
-module-nav-title: 'Spatial Data in R'
-module-type: 'class'
-week: 3
+week: 4
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 5
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -46,15 +41,15 @@ If you have not already downloaded the week 3 data, please do so now.
 ## Background ####
 NEON (National Ecological Observatory Network) will provide derived LiDAR products as one
 of its many free ecological data products. These products will come in a
-<a href="http://trac.osgeo.org/geotiff/" target="_blank"> GeoTIFF</a> 
-format, which is a `tif` raster format that is spatially located on the earth. 
+<a href="http://trac.osgeo.org/geotiff/" target="_blank"> GeoTIFF</a>
+format, which is a `tif` raster format that is spatially located on the earth.
 Geotiffs can be accessed using the `raster` package in R.
 
-A common first analysis using LiDAR data is to derive top of the canopy height 
-values from the LiDAR data. These values are often used to track changes in 
-forest structure over time, to calculate biomass, and even Leaf Area Index (LAI). 
-Let's dive into the basics of working with raster formatted LiDAR data in R! 
-Before we begin, make sure you've downloaded the data required to run the code 
+A common first analysis using LiDAR data is to derive top of the canopy height
+values from the LiDAR data. These values are often used to track changes in
+forest structure over time, to calculate biomass, and even Leaf Area Index (LAI).
+Let's dive into the basics of working with raster formatted LiDAR data in R!
+Before we begin, make sure you've downloaded the data required to run the code
 below.
 
 <div id="objectives" markdown="1">
@@ -358,8 +353,8 @@ plot.ly library installed, you can quickly export a ggplot graphic into plot.ly!
 an account. Once you've setup an account, you can get your key from the plot.ly
 site (under Settings > API Keys) to make the code below work.
 
-You must be signed into plot.ly online, from your current computer, at the time 
-you use the `plotly_POST` command to upload you plot to your plot.ly account.  
+You must be signed into plot.ly online, from your current computer, at the time
+you use the `plotly_POST` command to upload you plot to your plot.ly account.
 
 
 ```{r create-plotly, eval=FALSE }
@@ -370,7 +365,7 @@ library(plotly)
 Sys.setenv("plotly_username"="Your-User-Name")
 Sys.setenv("plotly_api_key"="Your-plotly-key")
 
-# you must be signed into Plot.ly online on the same computer for this code to work. 
+# you must be signed into Plot.ly online on the same computer for this code to work.
 # generate the plot
 plotly_POST(p,
             filename='NEON SJER CHM vs Insitu Tree Height') # let anyone in the world see the plot!
