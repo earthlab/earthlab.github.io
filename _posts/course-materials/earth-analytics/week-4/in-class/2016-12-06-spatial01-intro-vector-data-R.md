@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "GIS in R - intro to vector data"
+title: "GIS in R: intro to vector format spatial data - points, lines and polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R."
 authors: ['Leah Wasser']
-modified: '2017-02-03'
+modified: '2017-02-06'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
-nav-title: 'vector data in R'
+nav-title: 'Vector data in R'
 module-title: 'Compare remote sensing with in situ data in R'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
@@ -36,9 +36,8 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson.
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-If you have not already downloaded the week 3 data, please do so now.
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
@@ -115,7 +114,7 @@ The shapefiles that we will import are:
 * A point shapefile representing the location of the Fisher
 <a href="http://www.neonscience.org/science-design/collection-methods/flux-tower-measurements" target="_blank">flux tower</a>
 located at the
-<a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> NEON Harvard Forest field site</a>.
+<a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> San Joachin field site</a>.
 
 The first shapefile that we will open contains the boundary of our study area
 (or our Area Of Interest or AOI, hence the name `aoiBoundary`). To import
@@ -130,7 +129,6 @@ Let's import our AOI.
 
 
 ```r
-
 # Import a polygon shapefile: readOGR("path","fileName")
 # no extension needed as readOGR only imports shapefiles
 
@@ -316,28 +314,29 @@ summary(sjer_plot_locations)
 
 
 # Plot a Shapefile
-Next, let's visualize the data in our `R` `spatialpolygonsdataframe` object using
+Next, let's visualize the data in our `R` `spatialpointsdataframe` object using
 `plot()`.
 
 
 ```r
 # create a plot of the shapefile
-# 'lwd' sets the line width
-# 'col' sets internal color
-# 'border' sets line color
+# 'pch' sets the symbol
+# 'col' sets point symbol color
 plot(sjer_plot_locations, col="blue",
      pch=8,
-     main="Plot Locations")
+     main="SJER Plot Locations\nMadera County, CA")
 ```
 
-![SJER plot locations.]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
-<div id="challenge" markdown="1">
-## Optional challenge: Import Line and Polygon Shapefiles
 
-Using the steps above, import the `data/week4/california/madera-county-roads/tl_2013_06039_roads` 
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Import Line & Polygon Shapefiles
+
+Using the steps above, import the `data/week4/california/madera-county-roads/tl_2013_06039_roads`
 and `data/week4/california/SJER/vector_data/SJER_crop.shp` shapefiles into
-`R`. Call the roads object `sjer_roads` and the crop layer 
+`R`. Call the roads object `sjer_roads` and the crop layer
 `sjer_crop_extent`.
 
 Answer the following questions:
@@ -351,12 +350,12 @@ Answer the following questions:
 
 
 ## Plot Multiple Shapefiles
-The `plot()` function can be used for basic plotting of spatial objects.
-We use the `add = TRUE` argument to overlay shapefiles on top of each other, as
-we would when creating a map in a typical GIS application like QGIS.
+The `plot()` function can be used to plot spatial objects. Use the following
+arguments to add a title to your plot and to layer several spatial objects
+on top of each other in your plot.
 
-We can use `main=""` to give our plot a title. If we want the title to span two
-lines, we use `\n` where the line should break.
+* `add = TRUE`: overlay a shapefile or raster on top the existing plot. This argument mimics layers in a typical GIS application like QGIS.
+* `main=""`: add a title to the plot. To add a line break to your title, use `\n` where the line break should occur.
 
 
 ```r
@@ -365,18 +364,36 @@ plot(sjer_crop_extent, col = "lightgreen",
      main="NEON Harvard Forest\nField Site")
 plot(sjer_roads, add = TRUE)
 
-# use the pch element to adjust the symbology of the points
-plot(sjer_plot_locations, add  = TRUE, pch = 19, col = "purple")
+# Use the pch element to adjust the symbology of the points
+plot(sjer_plot_locations,
+  add  = TRUE,
+  pch = 19,
+  col = "purple")
 ```
 
-![ ]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title=" " alt=" " width="100%" />
 
 
-***
+<div class="notice--warning" markdown="1">
 
-## Additional Resources: Plot Parameter Options
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Import & plot roads shapefile
+
+Import the madera-county-roads layer. Plot the roads.
+
+Next, try to plot the roads on top of the
+SJER crop extent. What happens?
+
+* Check the CRS of both layers. What do you notice?
+
+</div>
+
+<div class="notice--info" markdown="1">
+
+## Additional resources: Plot Parameter Options
 For more on parameter options in the base `R` `plot()` function, check out these
 resources:
 
 * <a href="http://www.statmethods.net/advgraphs/parameters.html" target="_blank">Parameter methods in `R`.</a>
 * <a href="https://codeyarns.files.wordpress.com/2011/07/20110729-vim-named-colors.png?w=700" target="_blank">Color names in `R`</a>
+
+</div>

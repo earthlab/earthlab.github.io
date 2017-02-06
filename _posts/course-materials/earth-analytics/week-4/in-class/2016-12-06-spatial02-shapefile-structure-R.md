@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "GIS in R - files that make up a shapefile"
+title: "GIS in R: files that make up a shapefile"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-02-03'
+modified: '2017-02-06'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/shapefile-structure/
-nav-title: 'shapefile structure'
+nav-title: 'Shapefile structure'
 week: 4
 sidebar:
   nav:
@@ -24,15 +24,13 @@ order: 2
 
 After completing this tutorial, you will be able to:
 
-* List and briefly describe the 3 core components of a lidar remote sensing system.
-* Describe what a lidar system measures.
-* Define an active remote sensing system.
+* Be able to list the 3 core files associated with a shapefile.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson.
 
-If you have not already downloaded the week 3 data, please do so now.
+If you have not already downloaded the week 4 data, please do so now.
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
@@ -73,5 +71,10 @@ file types together. And when you share a shapefile with a colleague, it is
 important to zip up all of these files into one package before you send it to
 them!
 
-NOTE: for a nice tutorial series on shapefiles in `R`, check out:
-[*NEON's Intro to Working With Vector Data in R* series](http://neondataskills.org/tutorial-series/vector-data-series/).
+<div class="notice--info" markdown="1">
+
+## Additional resources:
+
+* [Intro to Working With Vector Data in R - Data Carpentry / NEON series](http://neondataskills.org/tutorial-series/vector-data-series/).
+
+</div>
