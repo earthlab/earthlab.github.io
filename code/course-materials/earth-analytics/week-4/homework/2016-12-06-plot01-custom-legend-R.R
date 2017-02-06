@@ -1,0 +1,179 @@
+## ----load-libraries------------------------------------------------------
+# load libraries
+library(raster)
+library(rgdal)
+
+## ----convert-to-factor---------------------------------------------------
+# import roads
+sjer_roads <- readOGR("data/week4/california/madera-county-roads",
+                      "tl_2013_06039_roads")
+# view the original class of the TYPE column
+class(sjer_roads$RTTYP)
+unique(sjer_roads$RTTYP)
+
+# set all NA values to "unknown" so they still plot
+sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "unknown"
+unique(sjer_roads$RTTYP)
+
+# view levels or categories - note that there are no categories yet in our data!
+# the attributes are just read as a list of character elements.
+levels(sjer_roads$RTTYP)
+
+# Convert the TYPE attribute into a factor
+# Only do this IF the data do not import as a factor!
+sjer_roads$RTTYP <- as.factor(sjer_roads$RTTYP)
+class(sjer_roads$RTTYP)
+levels(sjer_roads$RTTYP)
+
+# how many features are in each category or level?
+summary(sjer_roads$RTTYP)
+
+## ----palette-and-plot----------------------------------------------------
+# count the number of unique values or levels
+length(levels(sjer_roads$RTTYP))
+
+# create a color palette of 4 colors - one for each factor level
+roadPalette <- c("blue", "green", "grey", "purple")
+roadPalette
+# create a vector of colors - one for each feature in our vector object
+# according to its attribute value
+roadColors <- c("blue", "green", "grey", "purple")[sjer_roads$RTTYP]
+roadColors
+
+# plot the lines data, apply a diff color to each factor level)
+plot(sjer_roads,
+     col=roadColors,
+     lwd=2,
+     main="Madera County Roads")
+
+
+## ----adjust-line-width, fig.cap="map of madera roads"--------------------
+# make all lines thicker
+plot(sjer_roads,
+     col=roadColors,
+     main="Madera County Roads\n All Lines Thickness=6",
+     lwd=6)
+
+
+## ----line-width-unique---------------------------------------------------
+class(sjer_roads$RTTYP)
+levels(sjer_roads$RTTYP)
+# create vector of line widths
+lineWidths <- (c(1, 2, 3, 4))[sjer_roads$RTTYP]
+# adjust line width by level
+# in this case, boardwalk (the first level) is the widest.
+plot(sjer_roads,
+     col=roadColors,
+     main="Madera County Roads \n Line width varies by TYPE Attribute Value",
+     lwd=lineWidths)
+
+## ----roads-map, include=TRUE, results="hide", echo=FALSE, fig.cap="roads map modified"----
+# view the factor levels
+levels(sjer_roads$RTTYP)
+# create vector of line width values
+lineWidth <- c(1.5, 1, 2, 3)[sjer_roads$RTTYP]
+# view vector
+lineWidth
+
+# in this case, boardwalk (the first level) is the widest.
+plot(sjer_roads,
+     col=roadColors,
+     main="Madera County Roads \n Line width varies by Type Attribute Value",
+     lwd=lineWidth)
+
+
+## ----add-legend-to-plot--------------------------------------------------
+# add legend to plot
+plot(sjer_roads,
+     col=roadColors,
+     main="Madera County Roads\n Default Legend")
+
+# we can use the color object that we created above to color the legend objects
+roadPalette
+
+# add a legend to our map
+legend("bottomright",   # location of legend
+      legend=levels(sjer_roads$RTTYP), # categories or elements to render in
+			 # the legend
+      fill=roadPalette) # color palette to use to fill objects in legend.
+
+
+## ----modify-legend-plot, fig.cap="custom legend"-------------------------
+# adjust legend
+plot(sjer_roads,
+     col=roadColors,
+     main="Madera County Roads \n Modified Legend - smaller font and no border")
+# add a legend to our map
+legend("bottomright",
+       legend=levels(sjer_roads$RTTYP),
+       fill=roadPalette,
+       bty="n", # turn off the legend border
+       cex=.8) # decrease the font / legend size
+
+
+## ----plot-different-colors, fig.cap='adjust colors'----------------------
+
+# manually set the colors for the plot!
+newColors <- c("springgreen", "blue", "magenta", "orange")
+newColors
+
+# plot using new colors
+plot(sjer_roads,
+     col=(newColors)[sjer_roads$RTTYP],
+     main="Madera County Roads \n Pretty Colors")
+
+# add a legend to our map
+legend("bottomright",
+       levels(sjer_roads$RTTYP),
+       fill=newColors,
+       bty="n", cex=.8)
+
+
+## ----road-map-2, include=TRUE, fig.cap='emphasize some attributes'-------
+# view levels
+levels(sjer_roads$RTTYP)
+# make sure the attribute is of class "factor"
+class(sjer_roads$RTTYP)
+
+# convert to factor if necessary
+sjer_roads$RTTYP <- as.factor(sjer_roads$RTTYP)
+levels(sjer_roads$RTTYP)
+
+# count factor levels
+length(levels(sjer_roads$RTTYP))
+# set colors so only the allowed roads are magenta
+# note there are 3 levels so we need 3 colors
+challengeColors <- c("magenta","grey","magenta","grey")
+challengeColors
+
+# plot using new colors
+plot(sjer_roads,
+     col=(challengeColors)[sjer_roads$RTTYP],
+     lwd=c(4,1,1,1)[sjer_roads$RTTYP],
+     main="NEON Harvard Forest Field Site\n Roads Where Bikes and Horses Are Allowed")
+
+# add a legend to our map
+legend("bottomright",
+       levels(sjer_roads$RTTYP),
+       fill=challengeColors, 
+       bty="n", # turn off border
+       cex=.8) # adjust font size
+
+
+## ----final-custom-legend, fig.cap="Custom legend with lines"-------------
+# plot using new colors
+plot(sjer_roads,
+     col=(challengeColors)[sjer_roads$RTTYP],
+     lwd=c(4,1,2,1)[sjer_roads$RTTYP], # color each line in the map by attribute
+     main="Madera County Roads\n County and State recognized roads")
+
+# add a legend to our map
+legend("bottomright",
+       levels(sjer_roads$RTTYP),
+       lty=c(1,1,1,1), # tell are which objects to be drawn as a line in the legend.
+       lwd=c(4,1,2,1),  # set the WIDTH of each legend line
+       col=challengeColors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.8) # adjust font size
+
+
