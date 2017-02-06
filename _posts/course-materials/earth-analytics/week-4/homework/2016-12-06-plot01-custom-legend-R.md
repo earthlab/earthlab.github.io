@@ -133,151 +133,8 @@ roadPalette
 # create a vector of colors - one for each feature in our vector object
 # according to its attribute value
 roadColors <- c("blue", "green", "grey", "purple")[sjer_roads$RTTYP]
-roadColors
-##    [1] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##    [8] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [15] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [22] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [29] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [36] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [43] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [50] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [57] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [64] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [71] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [78] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [85] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [92] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##   [99] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [106] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [113] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [120] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [127] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [134] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [141] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [148] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [155] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [162] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [169] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [176] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [183] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [190] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [197] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [204] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [211] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [218] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [225] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [232] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [239] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [246] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [253] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [260] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [267] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [274] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [281] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [288] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [295] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [302] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [309] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [316] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [323] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [330] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [337] "green"  "green"  "green"  "green"  "purple" "purple" "green" 
-##  [344] "green"  "green"  "green"  "green"  "green"  "purple" "green" 
-##  [351] "green"  "green"  "green"  "green"  "green"  "purple" "green" 
-##  [358] "green"  "purple" "purple" "green"  "purple" "purple" "green" 
-##  [365] "green"  "green"  "green"  "green"  "purple" "purple" "purple"
-##  [372] "purple" "green"  "green"  "green"  "green"  "green"  "purple"
-##  [379] "purple" "green"  "green"  "purple" "purple" "green"  "purple"
-##  [386] "purple" "green"  "purple" "green"  "green"  "green"  "purple"
-##  [393] "green"  "green"  "purple" "purple" "green"  "green"  "green" 
-##  [400] "purple" "green"  "green"  "green"  "green"  "green"  "green" 
-##  [407] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [414] "green"  "green"  "purple" "purple" "green"  "green"  "green" 
-##  [421] "green"  "purple" "purple" "purple" "grey"   "green"  "purple"
-##  [428] "green"  "green"  "green"  "green"  "purple" "green"  "green" 
-##  [435] "green"  "green"  "green"  "green"  "purple" "purple" "green" 
-##  [442] "green"  "green"  "green"  "green"  "green"  "green"  "purple"
-##  [449] "purple" "purple" "purple" "purple" "green"  "purple" "purple"
-##  [456] "purple" "purple" "purple" "purple" "green"  "purple" "purple"
-##  [463] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [470] "green"  "green"  "purple" "green"  "green"  "green"  "green" 
-##  [477] "green"  "green"  "green"  "green"  "green"  "purple" "purple"
-##  [484] "purple" "green"  "purple" "green"  "green"  "purple" "purple"
-##  [491] "purple" "purple" "green"  "green"  "green"  "green"  "green" 
-##  [498] "purple" "purple" "purple" "purple" "purple" "green"  "purple"
-##  [505] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [512] "green"  "green"  "green"  "purple" "green"  "purple" "green" 
-##  [519] "green"  "green"  "purple" "purple" "purple" "purple" "purple"
-##  [526] "purple" "purple" "green"  "green"  "green"  "purple" "green" 
-##  [533] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [540] "green"  "purple" "purple" "green"  "green"  "green"  "green" 
-##  [547] "purple" "green"  "green"  "purple" "green"  "green"  "green" 
-##  [554] "green"  "purple" "purple" "purple" "purple" "green"  "green" 
-##  [561] "green"  "green"  "green"  "green"  "purple" "purple" "green" 
-##  [568] "purple" "green"  "purple" "purple" "green"  "green"  "green" 
-##  [575] "purple" "green"  "green"  "green"  "green"  "purple" "purple"
-##  [582] "purple" "green"  "green"  "green"  "purple" "green"  "green" 
-##  [589] "green"  "green"  "green"  "purple" "purple" "purple" "green" 
-##  [596] "green"  "green"  "green"  "green"  "green"  "purple" "purple"
-##  [603] "green"  "green"  "green"  "green"  "green"  "purple" "green" 
-##  [610] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [617] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [624] "green"  "green"  "green"  "green"  "green"  "green"  "green" 
-##  [631] "green"  "green"  "green"  "green"  "green"  "purple" "purple"
-##  [638] "green"  "green"  "green"  "green"  "purple" "green"  "green" 
-##  [645] "green"  "green"  "green"  "purple" "green"  "purple" "purple"
-##  [652] "purple" "purple" "green"  "purple" "purple" "purple" "purple"
-##  [659] "purple" "green"  "purple" "purple" "purple" "green"  "purple"
-##  [666] "green"  "purple" "green"  "green"  "green"  "green"  "purple"
-##  [673] "purple" "green"  "purple" "purple" "purple" "green"  "purple"
-##  [680] "green"  "green"  "purple" "purple" "green"  "purple" "green" 
-##  [687] "purple" "purple" "blue"   "purple" "purple" "green"  "purple"
-##  [694] "purple" "green"  "purple" "purple" "purple" "grey"   "purple"
-##  [701] "green"  "purple" "purple" "green"  "purple" "purple" "green" 
-##  [708] "green"  "green"  "purple" "purple" "purple" "green"  "purple"
-##  [715] "purple" "purple" "green"  "green"  "purple" "purple" "purple"
-##  [722] "green"  "purple" "purple" "purple" "purple" "purple" "purple"
-##  [729] "purple" "purple" "green"  "purple" "purple" "purple" "purple"
-##  [736] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [743] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [750] "purple" "purple" "purple" "purple" "green"  "purple" "purple"
-##  [757] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [764] "purple" "purple" "green"  "purple" "green"  "green"  "green" 
-##  [771] "purple" "green"  "purple" "purple" "purple" "green"  "purple"
-##  [778] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [785] "purple" "purple" "purple" "purple" "purple" "green"  "green" 
-##  [792] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [799] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [806] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [813] "purple" "purple" "purple" "purple" "green"  "green"  "purple"
-##  [820] "purple" "purple" "purple" "purple" "green"  "purple" "purple"
-##  [827] "green"  "purple" "green"  "green"  "grey"   "green"  "purple"
-##  [834] "purple" "green"  "green"  "purple" "purple" "green"  "green" 
-##  [841] "green"  "purple" "green"  "green"  "purple" "purple" "purple"
-##  [848] "purple" "green"  "green"  "purple" "purple" "purple" "purple"
-##  [855] "purple" "purple" "purple" "green"  "green"  "green"  "green" 
-##  [862] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [869] "green"  "purple" "purple" "purple" "purple" "purple" "purple"
-##  [876] "green"  "green"  "purple" "purple" "purple" "purple" "purple"
-##  [883] "purple" "green"  "purple" "purple" "purple" "purple" "purple"
-##  [890] "purple" "purple" "green"  "purple" "green"  "purple" "green" 
-##  [897] "purple" "purple" "green"  "green"  "purple" "purple" "purple"
-##  [904] "green"  "green"  "purple" "purple" "purple" "purple" "purple"
-##  [911] "purple" "purple" "purple" "purple" "purple" "green"  "green" 
-##  [918] "purple" "purple" "green"  "purple" "purple" "purple" "purple"
-##  [925] "purple" "purple" "purple" "purple" "purple" "purple" "purple"
-##  [932] "purple" "purple" "purple" "purple" "purple" "purple" "green" 
-##  [939] "grey"   "grey"   "purple" "purple" "purple" "green"  "green" 
-##  [946] "purple" "purple" "purple" "purple" "green"  "purple" "green" 
-##  [953] "green"  "green"  "purple" "green"  "green"  "green"  "green" 
-##  [960] "purple" "purple" "purple" "purple" "green"  "purple" "purple"
-##  [967] "green"  "purple" "purple" "purple" "green"  "purple" "green" 
-##  [974] "purple" "green"  "green"  "green"  "purple" "purple" "green" 
-##  [981] "green"  "green"  "green"  "green"  "green"  "purple" "green" 
-##  [988] "purple" "green"  "purple" "purple" "purple" "purple" "purple"
-##  [995] "green"  "purple" "purple" "green"  "purple" "purple"
-##  [ reached getOption("max.print") -- omitted 8640 entries ]
+head(roadColors)
+## [1] "green" "green" "green" "green" "green" "green"
 
 # plot the lines data, apply a diff color to each factor level)
 plot(sjer_roads,
@@ -451,7 +308,7 @@ using the palette method. For example `palette(rainbow(6))` or
 ##  Plot Lines by Attribute
 
 Create a plot that emphasizes only roads designated as C or S (County or State).
-To emphasize these types of roads, make the lines that are C or S, THICKER than 
+To emphasize these types of roads, make the lines that are C or S, THICKER than
 the other lines.
 NOTE: this attribute information is located in the `sjer_roads$RTTYP`
 attribute.
@@ -492,15 +349,15 @@ plot(sjer_roads,
 # add a legend to our map
 legend("bottomright",
        levels(sjer_roads$RTTYP),
-       fill=challengeColors, 
+       fill=challengeColors,
        bty="n", # turn off border
        cex=.8) # adjust font size
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="100%" />
 
-Finall, let's adjust the legend. We want the legend SYMBOLS to represent the 
-actual symbology in the map - which contains lines, not polygons. 
+Finall, let's adjust the legend. We want the legend SYMBOLS to represent the
+actual symbology in the map - which contains lines, not polygons.
 
 
 ```r

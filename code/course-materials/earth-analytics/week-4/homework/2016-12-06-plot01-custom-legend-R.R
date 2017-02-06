@@ -38,7 +38,7 @@ roadPalette
 # create a vector of colors - one for each feature in our vector object
 # according to its attribute value
 roadColors <- c("blue", "green", "grey", "purple")[sjer_roads$RTTYP]
-roadColors
+head(roadColors)
 
 # plot the lines data, apply a diff color to each factor level)
 plot(sjer_roads,
@@ -155,7 +155,7 @@ plot(sjer_roads,
 # add a legend to our map
 legend("bottomright",
        levels(sjer_roads$RTTYP),
-       fill=challengeColors, 
+       fill=challengeColors,
        bty="n", # turn off border
        cex=.8) # adjust font size
 
