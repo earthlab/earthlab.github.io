@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Introduction to LiDAR Data"
-excerpt: "This lesson reviews how to extract data from a raster dataset using a 
+excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset."
 authors: ['Leah Wasser']
 modified: '2017-02-06'
@@ -25,7 +25,7 @@ order: 5
 
 After completing this tutorial, you will be able to:
 
-* 
+*
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -40,7 +40,7 @@ You will need a computer with internet access to complete this lesson and the da
 
 
 ```r
-# load libraries 
+# load libraries
 library(raster)
 library(rgdal)
 library(ggplot2)
@@ -52,7 +52,7 @@ options(stringsAsFactors = FALSE)
 # setwd("path-here/earth-analytics")
 ```
 
-## Import Canopy Height Model 
+## Import Canopy Height Model
 
 First, we will import the NEON canopy height model. In the previous lessons / weeks
 we learned how to make this data product by subtracting the DEM from the DSM.
@@ -147,12 +147,12 @@ There are a few ways to go about this task. If your plots are circular, then the
 extract tool will do the job!
 
 <figure>
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/buffer-circular.png" alt="buffer circular">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-4/buffer-circular.png" alt="buffer circular">
     <figcaption>The extract function in R allows you to specify a circular buffer
     radius around an x,y point location. Values for all pixels in the specified
     raster that fall within the circular buffer are extracted. In this case, we
     will tell R to extract the maximum value of all pixels using the fun=max
-    command.
+    command. Source: Colin Williams, NEON
     </figcaption>
 </figure>
 
@@ -167,7 +167,7 @@ extract tool will do the job!
 SJER_height <- extract(SJER_chm,
                     SJER_plots,
                     buffer = 20, # specify a 20 m radius
-                    fun=max, # extract the MAX value from each plot
+                    fun=mean, # extract the MEAN value from each plot
                     sp=TRUE, # create spatial object
                     stringsAsFactors=FALSE)
 ```
@@ -199,9 +199,9 @@ For how to extract square plots using a plot centroid value, check out the
 <a href="http://neondataskills.org/working-with-field-data/Field-Data-Polygons-From-Centroids" target="_blank"> extracting square shapes activity </a>.
 
  <figure>
-    <img src="{{ site.baseurl }}/images/spatialData/BufferSquare.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-4/BufferSquare.png">
     <figcaption>If you had square shaped plots, the code in the link above would
-    extract pixel values within a square shaped buffer.
+    extract pixel values within a square shaped buffer. Source: Colin Williams, NEON
     </figcaption>
 </figure>
 
@@ -238,34 +238,34 @@ this value to the max lidar CHM value.
 
 ```r
 
-# find the max stem height for each plot
-insitu_maxStemHeight <- SJER_insitu %>%
+# find the max and averagestem height for each plot
+insitu_stem_height <- SJER_insitu %>%
   group_by(plotid) %>%
-  summarise(max = max(stemheight))
+  summarise(insitu_max = max(stemheight), insitu_avg = mean(stemheight))
 
-head(insitu_maxStemHeight)
-## # A tibble: 6 × 2
-##     plotid   max
-##      <chr> <dbl>
-## 1 SJER1068  19.3
-## 2  SJER112  23.9
-## 3  SJER116  16.0
-## 4  SJER117  11.0
-## 5  SJER120   8.8
-## 6  SJER128  18.2
+head(insitu_stem_height)
+## # A tibble: 6 × 3
+##     plotid insitu_max insitu_avg
+##      <chr>      <dbl>      <dbl>
+## 1 SJER1068       19.3   3.866667
+## 2  SJER112       23.9   8.221429
+## 3  SJER116       16.0   8.218750
+## 4  SJER117       11.0   6.512500
+## 5  SJER120        8.8   7.600000
+## 6  SJER128       18.2   5.211765
 
 # let's create better, self documenting column headers
-names(insitu_maxStemHeight) <- c("plotid","insituMaxHt")
-head(insitu_maxStemHeight)
-## # A tibble: 6 × 2
-##     plotid insituMaxHt
-##      <chr>       <dbl>
-## 1 SJER1068        19.3
-## 2  SJER112        23.9
-## 3  SJER116        16.0
-## 4  SJER117        11.0
-## 5  SJER120         8.8
-## 6  SJER128        18.2
+names(insitu_stem_height) <- c("plotid", "insituMaxHt")
+head(insitu_stem_height)
+## # A tibble: 6 × 3
+##     plotid insituMaxHt       NA
+##      <chr>       <dbl>    <dbl>
+## 1 SJER1068        19.3 3.866667
+## 2  SJER112        23.9 8.221429
+## 3  SJER116        16.0 8.218750
+## 4  SJER117        11.0 6.512500
+## 5  SJER120         8.8 7.600000
+## 6  SJER128        18.2 5.211765
 ```
 
 
@@ -282,30 +282,49 @@ in both data.frames so we'll need to tell R what it's called in each data.frame.
 
 # merge the insitu data into the centroids data.frame
 SJER_height <- merge(SJER_height,
-                     insitu_maxStemHeight,
+                     insitu_stem_height,
                    by.x = 'Plot_ID',
                    by.y = 'plotid')
 
 SJER_height@data
 ##     Plot_ID  Point northing  easting Remarks SJER_lidarCHM insituMaxHt
-## 1  SJER1068 center  4111568 255852.4    <NA>         19.05        19.3
-## 2   SJER112 center  4111299 257407.0    <NA>         24.02        23.9
-## 3   SJER116 center  4110820 256838.8    <NA>         16.07        16.0
-## 4   SJER117 center  4108752 256176.9    <NA>         11.06        11.0
-## 5   SJER120 center  4110476 255968.4    <NA>          5.74         8.8
-## 6   SJER128 center  4111389 257078.9    <NA>         19.14        18.2
-## 7   SJER192 center  4111071 256683.4    <NA>         16.55        13.7
-## 8   SJER272 center  4112168 256717.5    <NA>         11.84        12.4
-## 9  SJER2796 center  4111534 256034.4    <NA>         20.28         9.4
-## 10 SJER3239 center  4109857 258497.1    <NA>         12.91        17.9
-## 11   SJER36 center  4110162 258277.8    <NA>          8.99         9.2
-## 12  SJER361 center  4107527 256961.8    <NA>         18.73        11.8
-## 13   SJER37 center  4107579 256148.2    <NA>         11.49        11.5
-## 14    SJER4 center  4109767 257228.3    <NA>          9.53        10.8
-## 15    SJER8 center  4110249 254738.6    <NA>          4.15         5.2
-## 16  SJER824 center  4110048 256185.6    <NA>         25.66        26.5
-## 17  SJER916 center  4109617 257460.5    <NA>         18.73        18.4
-## 18  SJER952 center  4110759 255871.2    <NA>          6.38         7.7
+## 1  SJER1068 center  4111568 255852.4    <NA>     11.544348        19.3
+## 2   SJER112 center  4111299 257407.0    <NA>     10.355685        23.9
+## 3   SJER116 center  4110820 256838.8    <NA>      7.511956        16.0
+## 4   SJER117 center  4108752 256176.9    <NA>      7.675347        11.0
+## 5   SJER120 center  4110476 255968.4    <NA>      4.591176         8.8
+## 6   SJER128 center  4111389 257078.9    <NA>      8.979005        18.2
+## 7   SJER192 center  4111071 256683.4    <NA>      7.240118        13.7
+## 8   SJER272 center  4112168 256717.5    <NA>      7.103862        12.4
+## 9  SJER2796 center  4111534 256034.4    <NA>      6.405240         9.4
+## 10 SJER3239 center  4109857 258497.1    <NA>      6.009128        17.9
+## 11   SJER36 center  4110162 258277.8    <NA>      6.516288         9.2
+## 12  SJER361 center  4107527 256961.8    <NA>     13.899027        11.8
+## 13   SJER37 center  4107579 256148.2    <NA>      7.109851        11.5
+## 14    SJER4 center  4109767 257228.3    <NA>      5.032620        10.8
+## 15    SJER8 center  4110249 254738.6    <NA>      3.024286         5.2
+## 16  SJER824 center  4110048 256185.6    <NA>      7.738203        26.5
+## 17  SJER916 center  4109617 257460.5    <NA>     11.181955        18.4
+## 18  SJER952 center  4110759 255871.2    <NA>      4.149286         7.7
+##          NA
+## 1  3.866667
+## 2  8.221429
+## 3  8.218750
+## 4  6.512500
+## 5  7.600000
+## 6  5.211765
+## 7  6.769565
+## 8  6.819048
+## 9  5.085714
+## 10 3.920833
+## 11 9.200000
+## 12 2.451429
+## 13 7.350000
+## 14 5.910526
+## 15 1.057143
+## 16 5.357895
+## 17 5.791667
+## 18 1.558333
 ```
 
 ## plot by height
@@ -313,12 +332,12 @@ SJER_height@data
 
 ```r
 # plot canopy height model
-plot(SJER_chm, 
+plot(SJER_chm,
      main="Vegetation Plots \nSymbol size by Average Tree Height",
      legend=F)
 
 # add plot location sized by tree height
-plot(SJER_height, 
+plot(SJER_height,
      pch=19,
      cex=(SJER_height$SJER_lidarCHM)/10, # size symbols according to tree height attribute normalized by 10
      add=T)
@@ -329,7 +348,7 @@ legend('bottomright',
        bty='n')
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/create-spatial-plot-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="100%" />
 
 
 ### Plot Data (CHM vs Measured)
@@ -350,7 +369,7 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
   ggtitle("Lidar Height Compared to InSitu Measured Height")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/plot-w-ggplot-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="100%" />
 
 
 We can also add a regression fit to our plot. Explore the GGPLOT options and
@@ -374,7 +393,7 @@ p + theme(panel.background = element_rect(colour = "grey")) +
   theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/ggplot-data-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="100%" />
 
 
 ## View Differences
@@ -384,28 +403,17 @@ p + theme(panel.background = element_rect(colour = "grey")) +
 
 SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$insituMaxHt)
 
-boxplot(SJER_height@data$ht_diff)
-```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/view-diff-1.png" title=" " alt=" " width="100%" />
-
-```r
-barplot(SJER_height@data$ht_diff,
-        xlab = SJER_height@data$Plot_ID)
-```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/view-diff-2.png" title=" " alt=" " width="100%" />
-
-```r
+# base plot example below
+# barplot(SJER_height@data$ht_diff,
+#        xlab = SJER_height@data$Plot_ID)
 
 
-# create bar plot
-library(ggplot2)
+# create bar plot using ggplot()
 ggplot(data=SJER_height@data, aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
     geom_bar(stat="identity")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/view-diff-3.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
 
 ## QGIS Check
 
@@ -446,7 +454,7 @@ library(plotly)
 # you must be signed into Plot.ly online on the same computer for this code to work.
 # generate the plot
 ggplotly(p,
-            filename='NEON SJER CHM vs Insitu Tree Height') # let anyone in the world see the plot!
+        filename='NEON SJER CHM vs Insitu Tree Height')
 
 ```
 
@@ -455,5 +463,3 @@ Check out the results!
 NEON Remote Sensing Data compared to NEON Terrestrial Measurements for the SJER Field Site
 
 <iframe width="460" height="293" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~leahawasser/24.embed?width=460&height=293"></iframe>
-
-
