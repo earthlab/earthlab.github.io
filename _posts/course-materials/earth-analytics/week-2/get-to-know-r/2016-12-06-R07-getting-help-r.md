@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/about-and-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-modified: '2017-02-01'
+modified: '2017-02-06'
 week: 2
 sidebar:
   nav:
@@ -129,8 +129,7 @@ but it is full of useful information.
 
 * The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
   mailing lists.
-* [How to ask for R help](http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html)
-  useful guidelines
-* [This blog post by Jon Skeet](http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/)
-  has quite comprehensive advice on how to ask programming questions.
+* <a href="http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html" target="_blank" data-proofer-ignore=''>How to ask for R help useful guidelines</a>
+* <a href="http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/" target="_blank" data-proofer-ignore=''>
+  This blog post by Jon Skeet has a comprehensive advice on how to ask programming questions.</a>
 </div>

@@ -163,7 +163,7 @@ worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
 worldMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="100%" />
 
 We can add three coordinate locations to our map. Note that the UNITS are
 in decimal **degrees** (latitude, longitude):
@@ -194,7 +194,7 @@ mapLocations <- worldMap + geom_point(data=loc.df,
 mapLocations + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="100%" />
 
 ## Geographic CRS - The Good & The Less Good
 
@@ -207,7 +207,7 @@ have been developed.
 
 <figure>
 	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/LatLongfromGlobeCenter-ESRI.gif">
-	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/LatLongfromGlobeCenter-ESRI.gif"></a>
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
 	<figcaption>A geographic coordinate system locates latitude and longitude
 	location using angles. Thus the spacing of each line of latitude moving north
 	and south is not uniform.
@@ -243,7 +243,7 @@ robMap <- ggplot(worldBound_df_robin, aes(long,lat, group=group)) +
 robMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="100%" />
 
 Now what happens if you try to add the same Lat / Long coordinate locations that
 we used above, to our map, with the `CRS` of `Robinsons`?
@@ -259,7 +259,7 @@ newMap <- robMap + geom_point(data=loc.df,
 newMap + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-crs-intro/add-locations-robinson-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/add-locations-robinson-1.png" title=" " alt=" " width="100%" />
 
 Notice above that when we try to add lat/long coordinates in degrees, to a map
 in a different `CRS`, that the points are not in the correct location. We need
@@ -315,7 +315,7 @@ newMap <- robMap + geom_point(data=loc.rob,
 newMap + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-crs-intro/reproject-robinson-1.png" title="Map plotted using robinson projection." alt="Map plotted using robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/reproject-robinson-1.png" title="Map plotted using robinson projection." alt="Map plotted using robinson projection." width="100%" />
 
 ## Compare Maps
 
@@ -387,7 +387,7 @@ finalRobMap <- finalRobMap + geom_point(data=loc.rob,
 grid.arrange(latLongMap, finalRobMap)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-crs-intro/plot-w-graticules-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/plot-w-graticules-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="100%" />
 
 
 ## Why Multiple CRS?
@@ -462,7 +462,7 @@ bite sized pieces!
 ## Additional Resources
 
 * Read more on coordinate systems in the
-<a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank">
+<a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" data-proofer-ignore=''>
 QGIS documentation.</a>
 * <a href="http://neondataskills.org/GIS-Spatial-Data/Working-With-Rasters/" target="_blank">The Relationship Between Raster Resolution, Spatial extent & Number of Pixels - in R - NEON</a>
 * For more on types of projections, visit

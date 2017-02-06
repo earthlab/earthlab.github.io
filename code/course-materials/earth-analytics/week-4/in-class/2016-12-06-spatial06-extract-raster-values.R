@@ -1,5 +1,5 @@
 ## ----import-plot-DSM, warning=FALSE--------------------------------------
-# load libraries 
+# load libraries
 library(raster)
 library(rgdal)
 library(ggplot2)
@@ -61,7 +61,7 @@ plot(SJER_plots,
 SJER_height <- extract(SJER_chm,
                     SJER_plots,
                     buffer = 20, # specify a 20 m radius
-                    fun=max, # extract the MAX value from each plot
+                    fun=mean, # extract the MEAN value from each plot
                     sp=TRUE, # create spatial object
                     stringsAsFactors=FALSE)
 
@@ -87,37 +87,37 @@ unique(SJER_plots$Plot_ID)
 
 ## ----analyze-plot-dplyr--------------------------------------------------
 
-# find the max stem height for each plot
-insitu_maxStemHeight <- SJER_insitu %>%
+# find the max and averagestem height for each plot
+insitu_stem_height <- SJER_insitu %>%
   group_by(plotid) %>%
-  summarise(max = max(stemheight))
+  summarise(insitu_max = max(stemheight), insitu_avg = mean(stemheight))
 
-head(insitu_maxStemHeight)
+head(insitu_stem_height)
 
 # let's create better, self documenting column headers
-names(insitu_maxStemHeight) <- c("plotid","insituMaxHt")
-head(insitu_maxStemHeight)
+names(insitu_stem_height) <- c("plotid", "insituMaxHt")
+head(insitu_stem_height)
 
 
 ## ----merge-dataframe-----------------------------------------------------
 
 # merge the insitu data into the centroids data.frame
 SJER_height <- merge(SJER_height,
-                     insitu_maxStemHeight,
+                     insitu_stem_height,
                    by.x = 'Plot_ID',
                    by.y = 'plotid')
 
 SJER_height@data
 
 
-## ----create-spatial-plot-------------------------------------------------
+## ----create-spatial-plot, fig.cap="Plots sized by vegetation height"-----
 # plot canopy height model
-plot(SJER_chm, 
+plot(SJER_chm,
      main="Vegetation Plots \nSymbol size by Average Tree Height",
      legend=F)
 
 # add plot location sized by tree height
-plot(SJER_height, 
+plot(SJER_height,
      pch=19,
      cex=(SJER_height$SJER_lidarCHM)/10, # size symbols according to tree height attribute normalized by 10
      add=T)
@@ -128,7 +128,7 @@ legend('bottomright',
        bty='n')
 
 
-## ----plot-w-ggplot-------------------------------------------------------
+## ----plot-w-ggplot, fig.cap="ggplot - measured vs lidar chm."------------
 
 # create plot
 ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
@@ -140,7 +140,7 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
   ggtitle("Lidar Height Compared to InSitu Measured Height")
 
 
-## ----ggplot-data---------------------------------------------------------
+## ----ggplot-data, fig.cap="Scatterplot measured height compared to lidar chm."----
 
 # plot with regression fit
 p <- ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
@@ -157,17 +157,16 @@ p + theme(panel.background = element_rect(colour = "grey")) +
   theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
 
 
-## ----view-diff-----------------------------------------------------------
+## ----view-diff, fig.cap="box plot showing differences between chm and measured heights."----
 
 SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$insituMaxHt)
 
-boxplot(SJER_height@data$ht_diff)
-barplot(SJER_height@data$ht_diff,
-        xlab = SJER_height@data$Plot_ID)
+# base plot example below
+# barplot(SJER_height@data$ht_diff,
+#        xlab = SJER_height@data$Plot_ID)
 
 
-# create bar plot
-library(ggplot2)
+# create bar plot using ggplot()
 ggplot(data=SJER_height@data, aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
     geom_bar(stat="identity")
 
@@ -179,7 +178,7 @@ ggplot(data=SJER_height@data, aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
 ## # you must be signed into Plot.ly online on the same computer for this code to work.
 ## # generate the plot
 ## ggplotly(p,
-##             filename='NEON SJER CHM vs Insitu Tree Height') # let anyone in the world see the plot!
+##         filename='NEON SJER CHM vs Insitu Tree Height')
 ## 
 ## 
 
