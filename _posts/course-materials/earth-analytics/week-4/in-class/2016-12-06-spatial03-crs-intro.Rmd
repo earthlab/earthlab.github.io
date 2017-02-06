@@ -196,7 +196,7 @@ have been developed.
 
 <figure>
 	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/LatLongfromGlobeCenter-ESRI.gif">
-	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/LatLongfromGlobeCenter-ESRI.gif"></a>
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
 	<figcaption>A geographic coordinate system locates latitude and longitude
 	location using angles. Thus the spacing of each line of latitude moving north
 	and south is not uniform.
@@ -438,7 +438,7 @@ bite sized pieces!
 ## Additional Resources
 
 * Read more on coordinate systems in the
-<a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank">
+<a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" data-proofer-ignore=''>
 QGIS documentation.</a>
 * <a href="http://neondataskills.org/GIS-Spatial-Data/Working-With-Rasters/" target="_blank">The Relationship Between Raster Resolution, Spatial extent & Number of Pixels - in R - NEON</a>
 * For more on types of projections, visit
