@@ -40,7 +40,7 @@ directory with it.
 ***
 
 ### Resources
-* <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide</a>
+* <a href="http://adv-r.had.co.nz/Style.html" target="_blank" data-proofer-ignore=''>Hadley Wickham's style guide</a>
 
 </div>
 

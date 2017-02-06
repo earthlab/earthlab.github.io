@@ -199,7 +199,7 @@ Additional information on USGS streamflow measurements and data:
 USGS data can be downloaded via an API using a command line interface. This is
 particularly useful if you want to request data from multiple sites or build the
 data request into a script.
-<a href="http://help.waterdata.usgs.gov/faq/automated-retrievals#RT">
+<a href="http://help.waterdata.usgs.gov/faq/automated-retrievals#RT" target="_blank" data-proofer-ignore=''>
 Read more here about API downloads of USGS data</a>.
 
 </div>
