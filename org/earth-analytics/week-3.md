@@ -153,7 +153,7 @@ of class. The grading rubric that we will use to grade the assignment is below.
 
 ### Report content - text writeup: 40%
 
-|  Element | 5 points | 3 Points | 0 Points|
+|  Full Credit | Partial Credit | Partial Credit | No Credit|
 |---|---|---|---|---|
 | PDF and RMD submitted | Both files are submitted  | Only one of the 2 files are submitted  | NA |
 | Summary text is provided for each plot | Summary text is provided for all of the plots in the report. | Summary text is missing for 1-2 plots in the report. | Summary text is not included for 3 or more plots.  |
@@ -162,11 +162,12 @@ of class. The grading rubric that we will use to grade the assignment is below.
 | Report contains all 9 (or 10 if you're a grad student) plots described in the assignment| All plots are included in the report|1 plot is missing| More than 1 plot is missing|
 | References are made to the assigned class readings in your report in the form of citations. | References are made to atleast 3 readings assigned over the last 3 weeks of class. | References are made to 1-2 readings assigned over the last 3 weeks of class. | No references are made to the assigned readings. |
 | BONUS: images are added to your report. | 1-2 additional images are added to your report - bonus points!. | NA | NA |
+| There is a thoughtful discussion of the relationship between precip, discharge and patterns seen in the lidar pre-post flood data.||| Discussion is missing. |
 
 
 ### Report Content - Code Format: 30%
 
-|  Element | 5 points | 3 Points | 0 Points|
+|  Full Credit | Partial Credit | Partial Credit | No Credit|
 |---|---|---|---|---|
 | Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| clean coding is not implemented consistently throughout the report. |
 | YAML contains a title, author and date | Author, title and date are in YAML | One element is missing from the YAML | 2 or more elements are missing from the YAML |
@@ -175,17 +176,63 @@ of class. The grading rubric that we will use to grade the assignment is below.
 
 
 
-### Plots - Total of 7 or 8 - 30%
+### Plots - Previously produced plots - 10%
 
-|  Element | 5 points   | 3 Points   | 1 Points|0 Points|
+|  Full Credit | Partial Credit | Partial Credit | No Credit|
 |---|---|---|---|---|
 | PLOT 0 - `ggmap()` basemap | `ggmap()` basemap included  | NA  | Missing `ggmap()` basemap | Plot is missing|
 | PLOT 1 - precipitation from 2003 to 2013 using `ggplot()`| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text./ or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
 | PLOT 2: a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`. | Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
 | PLOT 3: a plot of stream discharge from 1986 to 2016 using `ggplot()`.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
 | PLOT 4: a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
-| PLOT 5: A classified raster map that shows positive and negative change in the canopy height model before and after the flood. | Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report. |Plot is missing|
-| PLOT 6: A classified raster map that shows positive and negative change in terrain derived from the pre and post flood Digital Terrain Models before and after the flood.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title  / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report. | Plot is missing|
-| PLOT 7: A histogram of the classified raster layer that shows positive and negative change in canopy height derived from the pre and post flood Digital Terrain Models before and after the flood.| Plot is customized with appropriate titles, axis labels and colors. There is discussion of how the histogram was used to select classification ranges. | Plot is correct but is missing a title  / or there is no discussion of what the histogram shows and how it was used to create the classification ranges.| Plot is missing appropriate labels and is discussion is missing in the body of the report. | Plot is missing|
-| PLOT 8: A histogram raster map that shows positive and negative change in terrain derived from the pre and post flood Digital Terrain Models before and after the flood.| Plot is customized with appropriate titles, axis labels and colors. There is discussion of how the histogram was used to select classification ranges. | Plot is correct but is missing a title  / or there is no discussion of what the histogram shows and how it was used to create the classification ranges.| Plot is missing appropriate labels and is discussion is missing in the body of the report. | Plot is missing|
 | PLOT 9: A plot of precipitation that spans from 1948 - 2013 using the 805333-precip-daily-1948-2013.csv file. Use the bonus lesson to guide you through creating this plot. (BONUS)| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is not coded using `ggplot()` / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report.  |Plot is missing|
+
+## Raster Plots - 20%
+
+### Plot 5: A classified raster map that shows positive and negative change in the canopy height model before and after the flood.
+
+|  Full Credit | Partial Credit | Partial Credit | No Credit|
+|---|---|---|---|---|
+| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report. |Plot is missing|
+| Data are CROPPED using the crop_extent shapefile||| Data are not cropped to the crop_extent shapefile|
+| Raster data are classified into discrete values || | Data are not classified into discrete values |
+| The colors and classes selected to process the data and display the plot, clearly show changes in terrain. | Some adjustment was made to the classes and colors but the approach could be improved.|| The colors and classes are show change poorly or don't show change at all. |
+| There is text describing where the data come from and what the data show. ||| Text describing where the data come from and what the data show is missing.  |
+| There is discussion of how the classification values used in the raster plots were selected referencing the histograms.||| Discussion is missing. |
+
+### Plot 6:
+A classified raster map that shows positive and negative change in CHM.| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood.
+
+|  Full Credit | Partial Credit | Partial Credit | No Credit|
+|---|---|---|---|---|
+| Plot is correct but is missing a title  / or the data source is not mentioned in the text.| Plot is missing appropriate labels and is not described adequately in the text of the report. || Plot is missing|
+| Pre and post flood canopy height models have been created. ||| Pre-post flood CHMs were not created.  |
+| Data are CROPPED using the crop_extent shapefile||| Data are not cropped to the crop_extent shapefile|
+| Raster data are classified into discrete values || | Data are not classified into discrete values |
+| The colors and classes selected to process the data and display the plot, clearly show changes in terrain. | Some adjustment was made to the classes and colors but the approach could be improved.|| The colors and classes are show change poorly or don't show change at all. |
+| There is text describing where the data come from and what the data show. ||| Text describing where the data come from and what the data show is missing.  |
+| There is discussion of how the classification values used in the raster plots were selected referencing the histograms. ||| Discussion is missing. |
+
+
+### Plot 7:
+
+A histogram of the classified raster layer that shows positive and negative change in canopy height derived from the pre and post flood Digital Terrain Models before and after the flood
+
+|  Full Credit | Partial Credit | Partial Credit | No Credit|
+|---|---|---|---|---|
+| Plot is customized with appropriate titles, axis labels and colors. There is discussion of how the histogram was used to select classification ranges. | Plot is correct but is missing a title  / or there is no discussion of what the histogram shows and how it was used to create the classification ranges.| Plot is missing appropriate labels and is discussion is missing in the body of the report. | Plot is missing|
+| Histogram breaks were selected to clearly show positive and negative changes ||| Histogram breaks were not adjusted|
+| Histogram axes are clearly labeled and includes units ||| Histogram axes are not clearly labeled|
+| Plot has a clear title.  ||| Plot title is missing.|
+
+
+### Plot 8:
+
+A histogram raster map that shows positive and negative change in terrain derived from the pre and post flood Digital Terrain Models before and after the flood.
+
+|  Full Credit | Partial Credit | Partial Credit | No Credit|
+|---|---|---|---|---|
+| Plot is customized with appropriate titles, axis labels and colors. There is discussion of how the histogram was used to select classification ranges. | Plot is correct but is missing a title  / or there is no discussion of what the histogram shows and how it was used to create the classification ranges.| Plot is missing appropriate labels and is discussion is missing in the body of the report. | Plot is missing|
+| Histogram breaks were selected to clearly show positive and negative changes ||| Histogram breaks were not adjusted|
+| Histogram axes are clearly labeled and includes units ||| Histogram axes are not clearly labeled|
+| Plot has a clear title. ||| Plot title is missing.|
