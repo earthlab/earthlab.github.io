@@ -8,7 +8,7 @@ library(raster)
 # setwd("pathToDirHere")
 
 ## ----Import-Shapefile----------------------------------------------------
-# Import a polygon shapefile: readOGR("path","fileName")
+# Import a point shapefile: readOGR("path", "fileName")
 # no extension needed as readOGR only imports shapefiles
 
 sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
@@ -28,8 +28,15 @@ extent(sjer_plot_locations)
 sjer_plot_locations
 
 ## ----Shapefile-attributes-2----------------------------------------------
-# alternate way to view attributes
+# view attributes
 sjer_plot_locations@data
+
+## ----Shapefile-attributes-3----------------------------------------------
+# view structure of attributes
+str(sjer_plot_locations@data)
+
+# view attribute
+sjer_plot_locations$plot_type
 
 ## ----shapefile-summary---------------------------------------------------
 # view a summary of metadata & attributes associated with the spatial object
@@ -77,7 +84,7 @@ attributes(sjer_roads)
 ## ----plot-multiple-shapefiles, fig.cap="plot of sjer plots layered on top of the crop extent."----
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
-     main="NEON Harvard Forest\nField Site")
+     main="SJER Field Site Plot Locations - California")
 plot(sjer_roads, add = TRUE)
 
 # Use the pch element to adjust the symbology of the points
