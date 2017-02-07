@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 USGS Stream Discharge data in R to better understand the drivers and impacts of
 the 2013 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-02-01'
+modified: '2017-02-06'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -76,8 +76,8 @@ increases significantly during a flood event.
 Read more about stream discharge data collected by USGS.</a>
 
 <figure>
-<a href="http://neondataskills.org/images/disturb-events-co13/USGS-Peak-discharge.gif">
-<img src="http://neondataskills.org/images/disturb-events-co13/USGS-Peak-discharge.gif" alt="USGS stream discharge boulder creek plot"></a>
+<a href="{{ site.url }}/images/course-materials/earth-analytics/week-2/USGS-peak-discharge.gif">
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-2/USGS-peak-discharge.gif" alt="Plot of stream discharge from the USGS boulder creek stream gage"></a>
 <figcaption>
 The USGS tracks stream discharge through time at locations across the United
 States. Note the pattern observed in the plot above. The peak recorded discharge
@@ -146,7 +146,7 @@ out what format elements you'll need to include to get the date right.
 
 Your plot should look something like the one below:
 
-![plot of discharge vs time]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-flood-data-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -163,7 +163,7 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 
 
 
-![ggplot subsetted discharge data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-challenge-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="100%" />
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
@@ -180,7 +180,7 @@ Additional information on USGS streamflow measurements and data:
 USGS data can be downloaded via an API using a command line interface. This is
 particularly useful if you want to request data from multiple sites or build the
 data request into a script.
-<a href="http://help.waterdata.usgs.gov/faq/automated-retrievals#RT">
+<a href="http://help.waterdata.usgs.gov/faq/automated-retrievals#RT" target="_blank" data-proofer-ignore=''>
 Read more here about API downloads of USGS data</a>.
 
 </div>
