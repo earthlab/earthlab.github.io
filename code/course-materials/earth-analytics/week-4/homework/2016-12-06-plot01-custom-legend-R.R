@@ -261,7 +261,17 @@ legend("bottomright",
        bty="n", # turn off border
        cex=.9) # adjust legend font size
 
-## ----custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."----
+## ----adjust-legend, fig.cap="plot with fixed legend"---------------------
+
+# figure out where the upper RIGHT hand corner of our plot extent is
+
+the_plot_extent <- extent(sjer_plots)
+# grab the upper right hand corner coordinates
+furthest_pt_east <- the_plot_extent@xmax
+furthest_pt_north <- the_plot_extent@ymax
+
+# set the plot rendering space parameters
+par(xpd = T, mar = par()$mar + c(0,0,0,7))
 
 # plot using new colors
 plot(sjer_plots,
@@ -276,11 +286,48 @@ plot(sjer_roads_utm,
      add=T)
 
 # add a legend to our map
-legend("bottomright",
+legend(x=furthest_pt_east, y=furthest_pt_north,
+       legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA, NA, 1, 1, 1, 1),
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+
+
+## ----reset-margin--------------------------------------------------------
+# important: remove margins - one you are done, reset the margins
+dev.off()
+
+## ----custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."----
+
+# set the plot rendering space parameters
+par(xpd = T, mar = par()$mar + c(0,0,0,7))
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend(x=(furthest_pt_east+150), y=(furthest_pt_north-10),
        legend = c(levels(sjer_plots$plot_type), "", "Road Types", levels(sjer_roads$RTTYP)),
        pch=c(8,18,8, NA, NA, NA, NA, NA, NA),  # set the symbol for each point
        lty=c(NA,NA, NA, NA, NA,1, 1, 1, 1),
        col=plot_colors, # set the color of each legend line
        bty="n", # turn off border
        cex=.9) # adjust legend font size
+
+
+
+## ----reset-margin2-------------------------------------------------------
+# important: remove margins - one you are done, reset the margins
+dev.off()
 
