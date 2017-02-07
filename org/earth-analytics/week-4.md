@@ -25,7 +25,11 @@ extract data from a raster file. We are on our way towards integrating many diff
 types of data into our analysis which involves knowing how to deal with things
 like coordinate reference systems and varying data structures.
 
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
+
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -35,10 +39,7 @@ like coordinate reference systems and varying data structures.
 | 3:20 - 4:00  | Open Topography / lidar data | Chris Crosby, UNAVCO / Open Topography  |
 | 4:15 - 5:50  | R coding session - Use lidar to characterize vegetation / uncertainty | Leah  |
 
-### 1. Readings
-
-
-### 3. Complete the assignment below
+### 1. Complete the assignment below
 
 <div class="notice--warning" markdown="1">
 
