@@ -99,14 +99,14 @@ Use the `data/week2/discharge/06730200-discharge-daily-1986-2013.csv` file to cr
 
 ### Raster plots from week 3:
 
-* **PLOT 5:** A **classified** and **cropped** raster map that shows positive and negative change in the canopy height model before and after the flood. To do this you will need to calculate the difference between two canopy height models.The plot should be CROPPED using the crop_extent shapefile that is included in your data download. You should classify the plot using values that make
+* **PLOT 5:** A **classified** and **cropped** raster map that shows positive and negative change in the canopy height model before and after the flood. To do this you will need to calculate the difference between two canopy height models. Subtract the pre-flood CHM from the post-flood CHM (**post_flood_CHM - pre-flood-CHM**). The plot should be CROPPED using the crop_extent shapefile that is included in your data download. You should classify the plot using values that make
 sense after reviewing the histogram of the data (created below).
 * **PLOT 6:** A **classified** and **cropped** raster map that shows positive and negative change in terrain
-derived from the pre and post flood Digital Terrain Models before and after the flood. The plot should be CROPPED using the crop_extent shapefile that is included in your data download. You should classify the plot using values that make
+derived from the pre and post flood Digital Terrain Models. Subtract the pre-flood DTM from the post-flood DTM (**post_flood_DTM - pre-flood-DTM**). The plot should be CROPPED using the crop_extent shapefile that is included in your data download. You should classify the plot using values that make
 sense after reviewing the histogram of the data (created below).
 * **PLOT 7** Create a HISTOGRAM of the **classified** and **cropped** raster map that shows positive and negative change in the canopy height model before and after the flood.
 * **PLOT 8** Create a HISTOGRAM of the **classified** and **cropped** raster map that shows positive and negative change in terrain
-derived from the pre and post flood Digital Terrain Models before and after the flood.
+derived from the pre and post flood Digital Terrain Models.
 
 ### Graduate students & anyone who did the bonus week 2 plot
 
@@ -135,10 +135,9 @@ how the data help us better understand these types of disturbance events.
 * Make sure all of the libraries that you use in the report are listed in a code chunk at the TOP of your document.
 * Spell check your report and check grammar.
 * All plots should be clearly labeled with titles, and x and y axis labels are it makes sense. (Your map of lidar data doesn't need x and y labels).
-* Be sure to discuss how you selected the classifiation values used in the raster plots referencing
+* Be sure to discuss how you selected the classification values used in the raster plots referencing
 the histograms of the data that you create.
 * OPTIONAL BONUS: Include images as they make sense. Be sure to cite any graphics that you use that are not yours.
-
 
 
 ## Homework due: Feb 8 @ noon.
