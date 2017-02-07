@@ -84,7 +84,7 @@ model (DEM), also known as a digital terrain model (DTM) represents the elevatio
 of the earth surfacel. The DEM represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
 
-```{r load-libraries }
+```{r load-libraries,  message=F, warning=F }
 # load libraries
 library(raster)
 library(rgdal)
