@@ -143,7 +143,7 @@ plot(sjer_roads,
      main="Madera County Roads")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/palette-and-plot-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="100%" />
 
 ### Adjust Line Width
 We can also adjust the width of our plot lines using `lwd`. We can set all lines
@@ -186,7 +186,7 @@ plot(sjer_roads,
      lwd=lineWidths)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/line-width-unique-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/line-width-unique-1.png" title="Map with legend that shows unique line widths." alt="Map with legend that shows unique line widths." width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -245,7 +245,7 @@ legend("bottomright",   # location of legend
       fill=roadPalette) # color palette to use to fill objects in legend.
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/add-legend-to-plot-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/add-legend-to-plot-1.png" title="SJER roads map with custom legend." alt="SJER roads map with custom legend." width="100%" />
 
 We can tweak the appearance of our legend too.
 
