@@ -161,9 +161,7 @@ of class. The grading rubric that we will use to grade the assignment is below.
 | File is named with last name-first initial week 3| File naming is as required| NA | File is not named properly|
 | Report contains all 9 (or 10 if you're a grad student) plots described in the assignment| All plots are included in the report|1 plot is missing| More than 1 plot is missing|
 | References are made to the assigned class readings in your report in the form of citations. | References are made to atleast 3 readings assigned over the last 3 weeks of class. | References are made to 1-2 readings assigned over the last 3 weeks of class. | No references are made to the assigned readings. |
-| BONUS: images are added to your report. | 1-2 additional images are added to your report - bonus points!. | NA | NA |
 | There is a thoughtful discussion of the relationship between precip, discharge and patterns seen in the lidar pre-post flood data.||| Discussion is missing. |
-
 
 ### Report Content - Code Format: 30%
 
@@ -236,3 +234,5 @@ A histogram raster map that shows positive and negative change in terrain derive
 | Histogram breaks were selected to clearly show positive and negative changes ||| Histogram breaks were not adjusted|
 | Histogram axes are clearly labeled and includes units ||| Histogram axes are not clearly labeled|
 | Plot has a clear title. ||| Plot title is missing.|
+
+### BONUS: images are added to your report.  1-2 additional images are added to your report - bonus points!
