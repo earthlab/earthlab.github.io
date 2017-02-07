@@ -137,7 +137,7 @@ plot(country_boundary_us,
 points(aoi_centroid, pch=8, col="magenta", cex=1.5)
 
 
-## ----challenge-code-MASS-Map, include=TRUE, results="hide", echo=FALSE, warning=FALSE, fig.cap="challenge plot"----
+## ----challenge-code-MASS-Map, include=TRUE, results="hide", echo=FALSE, warning=FALSE, message=FALSE, fig.cap="challenge plot"----
 # import data
 sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
                       "SJER_crop")
@@ -152,6 +152,8 @@ sjer_roads_utm  <- spTransform(sjer_roads,
                                 crs(sjer_aoi))
 # crop data
 sjer_roads_utm <- crop(sjer_roads_utm, sjer_aoi)
+sjer_roads_utm$RTTYP[is.na(sjer_roads_utm$RTTYP)] <- "unknown"
+sjer_roads_utm$RTTYP <- as.factor(sjer_roads_utm$RTTYP)
 
 par(xpd = T, mar = par()$mar + c(0,0,0,7))
 # plot state boundaries
@@ -162,22 +164,23 @@ plot(sjer_aoi,
 
 # add point plot locations
 plot(sjer_plots,
-     pch = 19,
-     col = "purple",
+     pch = c(19, 8, 19)[factor(sjer_plots$plot_type)],
+     col = c("green", "brown", "grey")[factor(sjer_plots$plot_type)],
      add = TRUE)
 
 # add roads
 plot(sjer_roads_utm,
-     col = "grey",
+     col = c("orange", "black", "brown")[sjer_roads_utm$RTTYP],
      add = TRUE)
 
 # add legend
 # to create a custom legend, we need to fake it
 legend(258867.4, 4112362,
-       legend=c("AOI Boundary", "Roads", "Plot Locations"),
-       lty=c(1, 1, NA),
-       pch=c(NA, NA, 19),
-       col=c("black", "gray18","purple"),
+       legend=c("Study Area Boundary", "Roads", "Road Type 1",
+                "Road Type 2", "Road Type 3", "Plot Type", levels(factor(sjer_plots$plot_type))),
+       lty=c(1, NA, 1, 1, 1, NA, NA, NA, NA),
+       pch=c(NA, NA, NA, NA, NA, NA, 19, 8, 19),
+       col=c("black", "orange", "black", "brown", "gray18","purple","green", "brown", "grey"),
        bty="n",
        cex=.9)
 
