@@ -177,3 +177,110 @@ legend("bottomright",
        cex=.8) # adjust font size
 
 
+## ----legend-points-lines-------------------------------------------------
+# import points layer
+sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
+                      "SJER_plot_centroids")
+
+sjer_plots$plot_type <- as.factor(sjer_plots$plot_type)
+levels(sjer_plots$plot_type)
+
+plot_colors <- c("brown", "blue", "green")
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads\n County and State recognized roads")
+
+
+# add a legend to our map
+legend("bottomright",
+       legend = levels(sjer_plots$plot_type),
+       pch=c(8,18,8),  # set the WIDTH of each legend line
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+
+
+## ----reproject-data, echo=F, warning=F, message=F------------------------
+
+# reproject line and point data
+sjer_roads_utm  <- spTransform(sjer_roads,
+                                crs(sjer_plots))
+
+sjer_roads_utm <- crop(sjer_roads_utm, sjer_plots)
+
+
+## ----create-legend-list--------------------------------------------------
+c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
+
+
+## ----custom-legend-points-lines------------------------------------------
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend("bottomright",
+       legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8),  # set the WIDTH of each legend line
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+
+## ----custom-legend-points-lines-2----------------------------------------
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend("bottomright",
+       legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA, NA, 1, 1, 1, 1),
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+
+## ----custom-legend-points-lines-3, echo=F--------------------------------
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend("bottomright",
+       legend = c(levels(sjer_plots$plot_type), "", "Road Types", levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8, NA, NA, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA, NA, NA, NA,1, 1, 1, 1),
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+

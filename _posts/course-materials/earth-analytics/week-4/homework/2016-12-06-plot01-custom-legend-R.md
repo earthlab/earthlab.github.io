@@ -7,7 +7,7 @@ modified: '2017-02-06'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/r-custom-legend/
-nav-title: 'Create custom legend structure'
+nav-title: 'Create custom map legend'
 module-title: 'Custom plots in R'
 module-description: 'This tutorial covers the basics of creating custom plot legends
 in R'
@@ -385,3 +385,141 @@ M = Common Name
 O = Other
 S = State recognized
 U = U.S.-->
+
+## Adding point and lines to a legend
+
+The last step in customizing a legend is adding different types of symbols to 
+the plot. In the example above, we just added lines. But what if we wanted to add
+some POINTS too? We will do that next.
+
+In the data below, we've create a custom legend where each symbol type and color
+is defined using a vector. We have 3 levels: grass, soil and trees. Thus we 
+need to define 3 symbols and 3 colors for our legend and our plot. 
+
+`pch=c(8,18,8)`
+
+`plot_colors <- c("brown", "blue", "green")`
+
+
+```r
+# import points layer
+sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
+                      "SJER_plot_centroids")
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week4/california/SJER/vector_data", layer: "SJER_plot_centroids"
+## with 18 features
+## It has 5 fields
+
+sjer_plots$plot_type <- as.factor(sjer_plots$plot_type)
+levels(sjer_plots$plot_type)
+## [1] "grass" "soil"  "trees"
+
+plot_colors <- c("brown", "blue", "green")
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads\n County and State recognized roads")
+
+
+# add a legend to our map
+legend("bottomright",
+       legend = levels(sjer_plots$plot_type),
+       pch=c(8,18,8),  # set the WIDTH of each legend line
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/legend-points-lines-1.png" title=" " alt=" " width="100%" />
+
+Next, let's try to plot our roads on top of the plot locations. Then let's create 
+a custom legend that contains both lines and points. NOTE: in this example i've 
+fixed the projection for the roads layer and cropped it! You will have to do the same before 
+this code will work. 
+
+
+
+When we create a legend, we will have to add the labels for both the points
+layer and the lines layer. 
+
+`c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))`
+
+
+```r
+c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
+## [1] "grass"   "soil"    "trees"   "C"       "M"       "S"       "unknown"
+```
+
+
+
+```r
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend("bottomright",
+       legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8),  # set the WIDTH of each legend line
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-1.png" title=" " alt=" " width="100%" />
+
+
+Next we have to tell R, which symbols are lines and which are point symbols. We
+can do that using the lty argument. We have 3 unique point symbols and 4 unique 
+line symbols. We can include a NA for each element that should not be a line in 
+the lty argument:
+
+`lty=c(NA,NA, NA, 1, 1, 1, 1)`
+
+And we include a NA value for each element that should not be a symbol in the 
+pch argument:
+
+pch=c(8,18,8, NA, NA, NA, NA)
+
+
+```r
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend("bottomright",
+       legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA, NA, 1, 1, 1, 1),
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-2-1.png" title=" " alt=" " width="100%" />
+
+## BONUS Point! 
+What trickiness did I do below to add a space in the legend and a sub heading?
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-3-1.png" title=" " alt=" " width="100%" />
