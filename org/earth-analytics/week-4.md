@@ -78,6 +78,8 @@ Create a map of our SJER study area as follows:
 IMPORTANT: be sure that all of the data are within the same `EXTENT` and `crs` of the `sjer_aoi`
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
+**BONUS!!!:** Plot the vegetation plots by type - adjust the symbology of the plot locations (choose a symbol using pch for each type and adjust the color of the points). Make sure your legend matches the colors and symbols in your plot!
+
 ### Plot 2: Field site locations
 
 Create a plot of field site locations, SIZED according to maximum tree height.

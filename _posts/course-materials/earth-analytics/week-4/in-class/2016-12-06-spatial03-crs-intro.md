@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Intro to Coordinate Reference Systems"
 excerpt: "This lesson covers the basics of coordinate reference systems."
 authors: ['Leah Wasser']
-modified: '2017-02-06'
+modified: '2017-02-07'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/intro-to-coordinate-reference-systems/
@@ -37,7 +37,6 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
-
 
 </div>
 
@@ -146,11 +145,10 @@ library(raster)
 # read shapefile
 worldBound <- readOGR(dsn="data/week4/global/ne_110m_land",
                       layer="ne_110m_land")
-## OGR data source with driver: ESRI Shapefile
+## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week4/global/ne_110m_land", layer: "ne_110m_land"
 ## with 127 features
 ## It has 2 fields
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # convert to dataframe
 worldBound_df <- fortify(worldBound)
@@ -230,7 +228,6 @@ different shape compared to the map that we created above in the `CRS`:
 # reproject from longlat to robinson
 worldBound_robin <- spTransform(worldBound,
                                 CRS("+proj=robin"))
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 worldBound_df_robin <- fortify(worldBound_robin)
 ## Regions defined for each Polygons
@@ -284,19 +281,16 @@ loc.spdf <- SpatialPointsDataFrame(coords = loc.df, data=loc.df,
                             proj4string=crs(worldBound))
 
 loc.spdf
-## class       : SpatialPointsDataFrame
-## features    : 3
+## class       : SpatialPointsDataFrame 
+## features    : 3 
 ## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 2
-## names       :       lon,     lat
-## min values  : -105.2519, 39.6167
+## names       :       lon,     lat 
+## min values  : -105.2519, 39.6167 
 ## max values  :     10.75,   59.95
 # reproject data to Robinson
 loc.spdf.rob <- spTransform(loc.spdf, CRSobj = CRS("+proj=robin"))
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 loc.rob.df <- as.data.frame(cbind(loc.spdf.rob$lon, loc.spdf.rob$lat))
 # rename each column
