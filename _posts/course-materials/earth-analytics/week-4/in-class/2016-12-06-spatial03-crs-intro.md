@@ -146,7 +146,7 @@ library(raster)
 # read shapefile
 worldBound <- readOGR(dsn="data/week4/global/ne_110m_land",
                       layer="ne_110m_land")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week4/global/ne_110m_land", layer: "ne_110m_land"
 ## with 127 features
 ## It has 2 fields
@@ -284,13 +284,13 @@ loc.spdf <- SpatialPointsDataFrame(coords = loc.df, data=loc.df,
                             proj4string=crs(worldBound))
 
 loc.spdf
-## class       : SpatialPointsDataFrame 
-## features    : 3 
+## class       : SpatialPointsDataFrame
+## features    : 3
 ## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 ## variables   : 2
-## names       :       lon,     lat 
-## min values  : -105.2519, 39.6167 
+## names       :       lon,     lat
+## min values  : -105.2519, 39.6167
 ## max values  :     10.75,   59.95
 # reproject data to Robinson
 loc.spdf.rob <- spTransform(loc.spdf, CRSobj = CRS("+proj=robin"))
@@ -473,7 +473,7 @@ bite sized pieces!
 * Read more on coordinate systems in the
 <a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" data-proofer-ignore=''>
 QGIS documentation.</a>
-* <a href="http://neondataskills.org/GIS-Spatial-Data/Working-With-Rasters/" target="_blank">The Relationship Between Raster Resolution, Spatial extent & Number of Pixels - in R - NEON</a>
+* <a href="http://neondataskills.org/GIS-spatial-data/Working-With-Rasters/" target="_blank">The Relationship Between Raster Resolution, Spatial extent & Number of Pixels - in R - NEON</a>
 * For more on types of projections, visit
 <a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Datums/003r00000008000000/" target="_blank"> ESRI's ArcGIS reference on projection types.</a>.
 * Read more about <a href="https://source.opennews.org/en-US/learning/choosing-right-map-projection/" target="_blank"> choosing a projection/datum.</a>
