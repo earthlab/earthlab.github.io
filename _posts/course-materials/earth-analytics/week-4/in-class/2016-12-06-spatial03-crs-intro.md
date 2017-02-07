@@ -259,7 +259,7 @@ newMap <- robMap + geom_point(data=loc.df,
 newMap + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/add-locations-robinson-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="100%" />
 
 Notice above that when we try to add lat/long coordinates in degrees, to a map
 in a different `CRS`, that the points are not in the correct location. We need

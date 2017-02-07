@@ -74,7 +74,7 @@ sjer_roads
 attributes(sjer_roads)
 
 
-## ----plot-multiple-shapefiles--------------------------------------------
+## ----plot-multiple-shapefiles, fig.cap="plot of sjer plots layered on top of the crop extent."----
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
      main="NEON Harvard Forest\nField Site")

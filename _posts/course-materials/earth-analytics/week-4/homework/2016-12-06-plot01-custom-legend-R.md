@@ -344,7 +344,7 @@ challengeColors
 plot(sjer_roads,
      col=(challengeColors)[sjer_roads$RTTYP],
      lwd=c(4,1,1,1)[sjer_roads$RTTYP],
-     main="NEON Harvard Forest Field Site\n Roads Where Bikes and Horses Are Allowed")
+     main="SJER Roads")
 
 # add a legend to our map
 legend("bottomright",
