@@ -233,7 +233,7 @@ robMap
 Now what happens if you try to add the same Lat / Long coordinate locations that
 we used above, to our map, with the `CRS` of `Robinsons`?
 
-```{r add-locations-robinson }
+```{r add-locations-robinson, fig.cap="map with point locations added - robinson projection." }
 # add a point to the map
 newMap <- robMap + geom_point(data=loc.df,
                       aes(x=lon, y=lat, group=NULL),

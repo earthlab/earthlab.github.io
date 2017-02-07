@@ -211,7 +211,7 @@ in the CRS **UTM zone 18N**. The CRS is critical to interpreting the object
 `extent` values as it specifies units.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png">
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers.">
     <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png"></a>
     <figcaption>The spatial extent of a shapefile or R spatial object represents
     the geographic "edge" or location that is the furthest north, south east and
@@ -232,8 +232,10 @@ may have a name, length, number of lanes, speed limit, type of road and other
 attributes stored with it.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/Attribute_Table.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/Attribute_Table.png"></a>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
+    associated attributes that describe or characterize the feature.
+    Attribute data are stored in a separate *.dbf file. "></a>
     <figcaption>Each spatial feature in an R spatial object has the same set of
     associated attributes that describe or characterize the feature.
     Attribute data are stored in a separate *.dbf file. Attribute data can be
@@ -371,7 +373,7 @@ plot(sjer_plot_locations,
   col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">

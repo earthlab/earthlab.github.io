@@ -15,13 +15,13 @@ state_boundary_us <- readOGR("data/week4/usa-boundary-layers",
 # view data structure
 class(state_boundary_us)
 
-## ----find-coordinates----------------------------------------------------
+## ----find-coordinates, fig.cap="Plot of the continental united states."----
 # view column names
 plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data")
 
 
-## ----check-out-coordinates-----------------------------------------------
+## ----check-out-coordinates, fig.cap="Plot of the US overlayed with states and a boundary."----
 # Read the .csv file
 country_boundary_us <- readOGR("data/week4/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
