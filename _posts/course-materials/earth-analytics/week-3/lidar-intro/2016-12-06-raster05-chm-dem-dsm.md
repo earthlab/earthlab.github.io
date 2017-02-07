@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-02-01'
+modified: '2017-02-07'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -88,7 +88,20 @@ trees and buildings and other objects.
 ```r
 # load libraries
 library(raster)
+## Loading required package: sp
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+## 
+##     select
 library(rgdal)
+## rgdal: version: 1.2-5, (SVN revision 648)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-4
 
 # set working directory to ensure R can find the file we wish to import
 # setwd("working-dir-path-here")
@@ -106,7 +119,7 @@ plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
 ```
 
-![digital elevation model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/dem-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/dem-1.png" title="digital elevation model plot" alt="digital elevation model plot" width="100%" />
 
 Next, let's open the digital SURFACE model (DSM). The DSM represents the top of
 the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that
@@ -122,7 +135,7 @@ plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
 ```
 
-![digital surface model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/dsm-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/dsm-1.png" title="digital surface model plot" alt="digital surface model plot" width="100%" />
 
 ## Canopy Height Model
 
@@ -153,7 +166,7 @@ plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
 ```
 
-![canopy height model plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/chm-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/chm-1.png" title="canopy height model plot" alt="canopy height model plot" width="100%" />
 
 ## Plots Using Breaks
 
@@ -173,7 +186,7 @@ plot(lidar_chm,
      col=c("white","brown","springgreen","darkgreen"))
 ```
 
-![canopy height model breaks]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/chm-breaks-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster05-chm-dem-dsm/chm-breaks-1.png" title="canopy height model breaks" alt="canopy height model breaks" width="100%" />
 
 ## Export a raster
 
@@ -236,10 +249,10 @@ Colorado floods.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - calculate changes in terrain
 
-* Subtract the post-flood DEM from the pre-flood DEM. Do you see any differences in
+* Subtract the pre-flood DEM from the post-flood DEM. Do you see any differences in
 elevation before the after?
 * Create a CHM for both pre-flood and post-flood by subtracting the DEM from the DTM for each year.
-* Next create a CHM DIFFERENCE raster by subtracting the post-flood CHM from the pre-flood CHM.
+* Next create a CHM DIFFERENCE raster by subtracting the pre-flood CHM from the post-flood CHM.
 * Plot a histogram of the CHM DIFFERENCE.
 * Export the files as geotiff's to your output directory. Then, open them in QGIS. Explore the differences.
 
