@@ -24,9 +24,12 @@ coordinate reference systems, how to create custom maps and legends and how to
 extract data from a raster file. We are on our way towards integrating many different
 types of data into our analysis which involves knowing how to deal with things
 like coordinate reference systems and varying data structures.
+
+
+
 </div>
 
-|  time | topic   | speaker   |
+|  Time | Topic   | Speaker   |
 |---|---|---|---|---|
 | 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
 | 3:20 - 4:00  | Open Topography / lidar data   | Chris Crosby, UNAVCO / Open Topography  |
