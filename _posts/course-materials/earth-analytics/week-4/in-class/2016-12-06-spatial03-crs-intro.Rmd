@@ -38,7 +38,6 @@ You will need a computer with internet access to complete this lesson and the da
 
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
-
 </div>
 
 ## Intro to coordinate reference systems

@@ -453,30 +453,30 @@ transformations) on our data.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework plot 1: Crop, Reproject, Plot data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework plot 1: crop, reproject, plot data
 
 Create a map of our SJER study area as follows:
 
-1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
+1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download.
 2. Create a map that shows the roads layer, study site locations and the sjer_aoi boundary.
 3. Add a **title** to your plot.
 4. Add a **legend** to your plot that shows both the roads and the plot locations.
 5. Plot the roads by road type and add each type to the legend. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
+6. BONUS: Plot the plots by type - adjust the symbology of the plot locations (choose a symbol using pch for each type and adjust the color of the points).
+7. Do your best to make the map look nice!
 
 IMPORTANT: be sure that all of the data are within the same EXTENT and crs of the sjer_aoi
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
+Your map should look something like the map below. You should ofcourse use the
+actual roads types that you find in the metadata rather than "Road type 1, etc"
+
 </div>
-
-
-```
-## Loading required namespace: rgeos
-```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
 
 
 ```
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```
