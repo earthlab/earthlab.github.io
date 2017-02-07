@@ -61,7 +61,7 @@ robMap <- ggplot(worldBound_df_robin, aes(long,lat, group=group)) +
 
 robMap
 
-## ----add-locations-robinson----------------------------------------------
+## ----add-locations-robinson, fig.cap="map with point locations added - robinson projection."----
 # add a point to the map
 newMap <- robMap + geom_point(data=loc.df,
                       aes(x=lon, y=lat, group=NULL),

@@ -141,7 +141,7 @@ plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/find-coordinates-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/find-coordinates-1.png" title="Plot of the continental united states." alt="Plot of the continental united states." width="100%" />
 
 ## U.S. Boundary Layer
 
@@ -182,7 +182,7 @@ plot(country_boundary_us,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/check-out-coordinates-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="100%" />
 
 Next, let's add the location of our study area sites.
 As we are adding these layers, take note of the class of each object. We will use

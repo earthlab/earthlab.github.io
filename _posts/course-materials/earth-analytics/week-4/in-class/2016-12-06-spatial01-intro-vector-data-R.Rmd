@@ -185,7 +185,7 @@ in the CRS **UTM zone 18N**. The CRS is critical to interpreting the object
 `extent` values as it specifies units.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png">
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers.">
     <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png"></a>
     <figcaption>The spatial extent of a shapefile or R spatial object represents
     the geographic "edge" or location that is the furthest north, south east and
@@ -206,8 +206,10 @@ may have a name, length, number of lanes, speed limit, type of road and other
 attributes stored with it.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/Attribute_Table.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/Attribute_Table.png"></a>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
+    associated attributes that describe or characterize the feature.
+    Attribute data are stored in a separate *.dbf file. "></a>
     <figcaption>Each spatial feature in an R spatial object has the same set of
     associated attributes that describe or characterize the feature.
     Attribute data are stored in a separate *.dbf file. Attribute data can be
@@ -312,7 +314,7 @@ on top of each other in your plot.
 * `add = TRUE`: overlay a shapefile or raster on top the existing plot. This argument mimics layers in a typical GIS application like QGIS.
 * `main=""`: add a title to the plot. To add a line break to your title, use `\n` where the line break should occur.
 
-```{r plot-multiple-shapefiles }
+```{r plot-multiple-shapefiles, fig.cap="plot of sjer plots layered on top of the crop extent." }
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
      main="NEON Harvard Forest\nField Site")
