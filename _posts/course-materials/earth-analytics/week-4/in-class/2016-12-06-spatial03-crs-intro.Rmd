@@ -55,7 +55,8 @@ consists of an X and a Y value located within a 2 (or more) -dimensional space.
 
 <figure>
 	<a href="http://open.senecac.on.ca/clea/label/projectImages/15_276_xy-grid.jpg">
-	<img src="http://open.senecac.on.ca/clea/label/projectImages/15_276_xy-grid.jpg"></a>
+	<img src="http://open.senecac.on.ca/clea/label/projectImages/15_276_xy-grid.jpg" alt="We use coordinate systems with X, Y (and sometimes Z axes) to
+	define the location of objects in space."></a>
 	<figcaption> We use coordinate systems with X, Y (and sometimes Z axes) to
 	define the location of objects in space.
 	Source: http://open.senecac.on.ca
@@ -73,7 +74,8 @@ the coordinate system itself.
 
 <figure>
 	<a href="http://ayresriverblog.com/wp-content/uploads/2011/05/image.png">
-	<img src="http://ayresriverblog.com/wp-content/uploads/2011/05/image.png"></a>
+	<img src="http://ayresriverblog.com/wp-content/uploads/2011/05/image.png" alt="A CRS defines the translation between a location on the round earth
+	and that same location, on a flattened, 2 dimensional coordinate system."></a>
 	<figcaption>A CRS defines the translation between a location on the round earth
 	and that same location, on a flattened, 2 dimensional coordinate system.
 	Source: http://ayresriverblog.com
@@ -403,7 +405,9 @@ the graphic below optimize?
 
 <figure>
     <a href="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg">
-    <img src="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg">
+    <img src="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg" alt="Maps of the United States in different CRS including Mercator
+    (upper left), Albers equal area (lower left), UTM (Upper RIGHT) and
+    WGS84 Geographic (Lower RIGHT).">
     </a>
 
     <figcaption>Maps of the United States in different CRS including Mercator
