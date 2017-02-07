@@ -52,8 +52,8 @@ For instance, many states prefer to use a **State Plane** projection customized
 for that state.
 
 <figure>
-    <a href="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg">
-    <img src="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg">
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-4/different_projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-4/different_projections.jpg" alt="Maps of the United States using data in different projections.">
     </a>
 
     <figcaption>Maps of the United States using data in different projections.
