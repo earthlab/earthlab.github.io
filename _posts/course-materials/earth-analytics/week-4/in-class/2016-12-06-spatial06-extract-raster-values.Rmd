@@ -25,7 +25,7 @@ order: 5
 
 After completing this tutorial, you will be able to:
 
-*
+* Use the extract() function to extract raster values using a vector extent or set of extents.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 

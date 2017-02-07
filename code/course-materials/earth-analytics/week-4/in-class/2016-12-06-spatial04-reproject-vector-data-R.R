@@ -20,7 +20,6 @@ class(state_boundary_us)
 plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data")
 
-
 ## ----check-out-coordinates, fig.cap="Plot of the US overlayed with states and a boundary."----
 # Read the .csv file
 country_boundary_us <- readOGR("data/week4/usa-boundary-layers",

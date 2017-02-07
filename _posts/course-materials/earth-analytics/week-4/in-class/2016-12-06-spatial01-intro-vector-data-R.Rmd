@@ -43,6 +43,7 @@ You will need a computer with internet access to complete this lesson and the da
 </div>
 
 ## About Vector Data
+
 Vector data are composed of discrete geometric locations (x,y values) known as
 **vertices** that define the "shape" of the spatial object. The organization
 of the vertices, determines the type of vector that we are working
