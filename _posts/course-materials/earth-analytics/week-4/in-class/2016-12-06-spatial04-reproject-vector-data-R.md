@@ -119,6 +119,7 @@ state_boundary_us <- readOGR("data/week4/usa-boundary-layers",
 ## Integer64 fields read as strings:  ALAND AWATER
 ## Warning in readOGR("data/week4/usa-boundary-layers", "US-State-Boundaries-
 ## Census-2014"): Z-dimension discarded
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # view data structure
 class(state_boundary_us)
@@ -163,6 +164,7 @@ country_boundary_us <- readOGR("data/week4/usa-boundary-layers",
 ## Integer64 fields read as strings:  ALAND AWATER
 ## Warning in readOGR("data/week4/usa-boundary-layers", "US-Boundary-
 ## Dissolved-States"): Z-dimension discarded
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # look at the data structure
 class(country_boundary_us)
@@ -197,6 +199,7 @@ sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
 ## Source: "data/week4/california/SJER/vector_data", layer: "SJER_crop"
 ## with 1 features
 ## It has 1 fields
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 class(sjer_aoi)
 ## [1] "SpatialPolygonsDataFrame"
 ## attr(,"package")
@@ -468,10 +471,18 @@ layer. This means that you may have to CROP and reproject your data prior to plo
 
 </div>
 
+
+```
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+```
+
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
 
 
 ```
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```

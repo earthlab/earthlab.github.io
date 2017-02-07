@@ -43,6 +43,7 @@ You will need a computer with internet access to complete this lesson and the da
 </div>
 
 ## About Vector Data
+
 Vector data are composed of discrete geometric locations (x,y values) known as
 **vertices** that define the "shape" of the spatial object. The organization
 of the vertices, determines the type of vector that we are working
@@ -138,6 +139,7 @@ sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
 ## Source: "data/week4/california/SJER/vector_data/", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 <i class="fa fa-star"></i> **Data Tip:** The acronym, OGR, refers to the
@@ -201,9 +203,9 @@ sjer_plot_locations
 ## extent      : 254738.6, 258497.1, 4107527, 4112168  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 5
-## names       :  Plot_ID,  Point, northing,  easting, Remarks 
-## min values  : SJER1068, center,  4107527, 254738.6,      NA 
-## max values  :  SJER952, center,  4112168, 258497.1,      NA
+## names       :  Plot_ID,  Point, northing,  easting, plot_type 
+## min values  : SJER1068, center,  4107527, 254738.6,     grass 
+## max values  :  SJER952, center,  4112168, 258497.1,     trees
 ```
 
 Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
@@ -253,25 +255,25 @@ We view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
 ```r
 # alternate way to view attributes
 sjer_plot_locations@data
-##     Plot_ID  Point northing  easting Remarks
-## 1  SJER1068 center  4111568 255852.4    <NA>
-## 2   SJER112 center  4111299 257407.0    <NA>
-## 3   SJER116 center  4110820 256838.8    <NA>
-## 4   SJER117 center  4108752 256176.9    <NA>
-## 5   SJER120 center  4110476 255968.4    <NA>
-## 6   SJER128 center  4111389 257078.9    <NA>
-## 7   SJER192 center  4111071 256683.4    <NA>
-## 8   SJER272 center  4112168 256717.5    <NA>
-## 9  SJER2796 center  4111534 256034.4    <NA>
-## 10 SJER3239 center  4109857 258497.1    <NA>
-## 11   SJER36 center  4110162 258277.8    <NA>
-## 12  SJER361 center  4107527 256961.8    <NA>
-## 13   SJER37 center  4107579 256148.2    <NA>
-## 14    SJER4 center  4109767 257228.3    <NA>
-## 15    SJER8 center  4110249 254738.6    <NA>
-## 16  SJER824 center  4110048 256185.6    <NA>
-## 17  SJER916 center  4109617 257460.5    <NA>
-## 18  SJER952 center  4110759 255871.2    <NA>
+##     Plot_ID  Point northing  easting plot_type
+## 1  SJER1068 center  4111568 255852.4     trees
+## 2   SJER112 center  4111299 257407.0     trees
+## 3   SJER116 center  4110820 256838.8     grass
+## 4   SJER117 center  4108752 256176.9     trees
+## 5   SJER120 center  4110476 255968.4     grass
+## 6   SJER128 center  4111389 257078.9     trees
+## 7   SJER192 center  4111071 256683.4     grass
+## 8   SJER272 center  4112168 256717.5     trees
+## 9  SJER2796 center  4111534 256034.4      soil
+## 10 SJER3239 center  4109857 258497.1      soil
+## 11   SJER36 center  4110162 258277.8     trees
+## 12  SJER361 center  4107527 256961.8     grass
+## 13   SJER37 center  4107579 256148.2     trees
+## 14    SJER4 center  4109767 257228.3     trees
+## 15    SJER8 center  4110249 254738.6     trees
+## 16  SJER824 center  4110048 256185.6      soil
+## 17  SJER916 center  4109617 257460.5      soil
+## 18  SJER952 center  4110759 255871.2     grass
 ```
 
 In this case, our polygon object only has one attribute: `id`.
@@ -305,7 +307,7 @@ summary(sjer_plot_locations)
 ##                                        Mean   :4110258   Mean   :256674  
 ##                                        3rd Qu.:4111242   3rd Qu.:257191  
 ##                                        Max.   :4112168   Max.   :258497  
-##    Remarks         
+##   plot_type        
 ##  Length:18         
 ##  Class :character  
 ##  Mode  :character  
@@ -350,6 +352,10 @@ Answer the following questions:
 </div>
 
 
+```
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+```
 
 ## Plot Multiple Shapefiles
 The `plot()` function can be used to plot spatial objects. Use the following

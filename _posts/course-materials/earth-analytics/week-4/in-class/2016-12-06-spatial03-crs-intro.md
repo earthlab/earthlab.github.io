@@ -97,7 +97,6 @@ below.
 that are on a round surface (e.g. the earth) so we can view them on a flat surface
 (e.g. our computer screens or a paper map).
 
-
 ## Why CRS is Important
 
 It is important to understand the coordinate system that your data uses -
@@ -148,6 +147,7 @@ worldBound <- readOGR(dsn="data/week4/global/ne_110m_land",
 ## Source: "data/week4/global/ne_110m_land", layer: "ne_110m_land"
 ## with 127 features
 ## It has 2 fields
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # convert to dataframe
 worldBound_df <- fortify(worldBound)
@@ -227,6 +227,7 @@ different shape compared to the map that we created above in the `CRS`:
 # reproject from longlat to robinson
 worldBound_robin <- spTransform(worldBound,
                                 CRS("+proj=robin"))
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 worldBound_df_robin <- fortify(worldBound_robin)
 ## Regions defined for each Polygons
@@ -290,6 +291,9 @@ loc.spdf
 ## max values  :     10.75,   59.95
 # reproject data to Robinson
 loc.spdf.rob <- spTransform(loc.spdf, CRSobj = CRS("+proj=robin"))
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 loc.rob.df <- as.data.frame(cbind(loc.spdf.rob$lon, loc.spdf.rob$lat))
 # rename each column
