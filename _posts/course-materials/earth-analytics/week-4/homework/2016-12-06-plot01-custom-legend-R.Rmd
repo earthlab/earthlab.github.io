@@ -106,7 +106,7 @@ Note in the above example we have
 Let's give this a try.
 
 
-``` {r palette-and-plot}
+``` {r palette-and-plot, fig.cap="Adjust colors on map by creating a palette."}
 # count the number of unique values or levels
 length(levels(sjer_roads$RTTYP))
 
@@ -149,7 +149,7 @@ in our spatial object, we can use the same syntax that we used for colors, above
 Note that this requires the attribute to be of class `factor`. Let's give it a
 try.
 
-```{r line-width-unique }
+```{r line-width-unique, fig.cap="Map with legend that shows unique line widths." }
 class(sjer_roads$RTTYP)
 levels(sjer_roads$RTTYP)
 # create vector of line widths
@@ -215,7 +215,7 @@ the default set of colors that `R` applies to all plots.
 
 Let's add a legend to our plot.
 
-```{r add-legend-to-plot }
+```{r add-legend-to-plot, fig.cap="SJER roads map with custom legend." }
 # add legend to plot
 plot(sjer_roads,
      col=roadColors,
