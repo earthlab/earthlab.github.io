@@ -47,7 +47,7 @@ matplotlib.rcParams['figure.figsize'] = (14.0, 8.0)
 ## Extracting data for a specific USGS station ID
 
 To acquire station data, you must know which station you want to access. 
-There is a nice interactive application [here](http://maps.waterdata.usgs.gov/mapper/) to do this. 
+There is a nice interactive application [here](http://maps.waterdata.usgs.gov/mapper/){:data-proofer-ignore=''} to do this. 
 
 
 ```python
