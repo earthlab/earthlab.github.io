@@ -56,7 +56,6 @@ read in as factors, we can convert the categorical
 attribute values using `as.factor()`.
 {: .notice}
 
-
 ```{r load-libraries }
 # load libraries
 library(raster)
@@ -239,7 +238,7 @@ We can tweak the appearance of our legend too.
 
 Let's try it out.
 
-```{r modify-legend-plot, fig.cap="custom legend" }
+```{r modify-legend-plot, fig.cap="modified custom legend" }
 # adjust legend
 plot(sjer_roads,
      col=roadColors,
@@ -359,19 +358,19 @@ U = U.S.-->
 
 ## Adding point and lines to a legend
 
-The last step in customizing a legend is adding different types of symbols to 
+The last step in customizing a legend is adding different types of symbols to
 the plot. In the example above, we just added lines. But what if we wanted to add
 some POINTS too? We will do that next.
 
 In the data below, we've create a custom legend where each symbol type and color
-is defined using a vector. We have 3 levels: grass, soil and trees. Thus we 
-need to define 3 symbols and 3 colors for our legend and our plot. 
+is defined using a vector. We have 3 levels: grass, soil and trees. Thus we
+need to define 3 symbols and 3 colors for our legend and our plot.
 
 `pch=c(8,18,8)`
 
 `plot_colors <- c("brown", "blue", "green")`
 
-```{r legend-points-lines}
+```{r legend-points-lines, fig.cap="plot legend with points and lines"}
 # import points layer
 sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
                       "SJER_plot_centroids")
@@ -398,12 +397,12 @@ legend("bottomright",
 
 ```
 
-Next, let's try to plot our roads on top of the plot locations. Then let's create 
-a custom legend that contains both lines and points. NOTE: in this example i've 
-fixed the projection for the roads layer and cropped it! You will have to do the same before 
-this code will work. 
+Next, let's try to plot our roads on top of the plot locations. Then let's create
+a custom legend that contains both lines and points. NOTE: in this example i've
+fixed the projection for the roads layer and cropped it! You will have to do the same before
+this code will work.
 
-```{r reproject-data, echo=F, warning=F, message=F }
+```{r reproject-data, echo=F, warning=F, message=F, fig.cap="plot legend with points and lines and subheading." }
 
 # reproject line and point data
 sjer_roads_utm  <- spTransform(sjer_roads,
@@ -414,7 +413,7 @@ sjer_roads_utm <- crop(sjer_roads_utm, sjer_plots)
 ```
 
 When we create a legend, we will have to add the labels for both the points
-layer and the lines layer. 
+layer and the lines layer.
 
 `c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))`
 
@@ -424,7 +423,7 @@ c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
 ```
 
 
-```{r custom-legend-points-lines}
+```{r custom-legend-points-lines, fig.cap="final plot custom legend."}
 
 # plot using new colors
 plot(sjer_plots,
@@ -449,18 +448,18 @@ legend("bottomright",
 
 
 Next we have to tell R, which symbols are lines and which are point symbols. We
-can do that using the lty argument. We have 3 unique point symbols and 4 unique 
-line symbols. We can include a NA for each element that should not be a line in 
+can do that using the lty argument. We have 3 unique point symbols and 4 unique
+line symbols. We can include a NA for each element that should not be a line in
 the lty argument:
 
 `lty=c(NA,NA, NA, 1, 1, 1, 1)`
 
-And we include a NA value for each element that should not be a symbol in the 
+And we include a NA value for each element that should not be a symbol in the
 pch argument:
 
 pch=c(8,18,8, NA, NA, NA, NA)
 
-```{r custom-legend-points-lines-2 }
+```{r custom-legend-points-lines-2, fig.cap="Plot with points and lines customized."}
 
 # plot using new colors
 plot(sjer_plots,
@@ -484,10 +483,10 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 ```
 
-## BONUS Point! 
+## BONUS Point!
 What trickiness did I do below to add a space in the legend and a sub heading?
 
-```{r custom-legend-points-lines-3, echo=F }
+```{r custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."}
 
 # plot using new colors
 plot(sjer_plots,
