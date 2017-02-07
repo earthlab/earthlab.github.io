@@ -95,7 +95,8 @@ information about each stream line object.
 ## Import Shapefiles
 
 We will use the `rgdal` package to work with vector data in `R`. Notice that the
-`sp` package automatically loads when `rgdal` is loaded. We will also load the
+`sp` package automatically loads when `rgdal` is loaded. The <a href="https://cran.r-project.org/web/packages/sp/index.html" target="_blank">`sp` or spatial package
+in R</a>, supports lots of different types of spatial classes and objects. We will also load the
 `raster` package so we can explore raster and vector spatial metadata using similar commands.
 
 
@@ -130,10 +131,10 @@ Let's import our field plot locations.
 # Import a point shapefile: readOGR("path", "fileName")
 # no extension needed as readOGR only imports shapefiles
 
-sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
+sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data",
                       layer="SJER_plot_centroids")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/california/SJER/vector_data/", layer: "SJER_plot_centroids"
+## Source: "data/week4/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 ```
@@ -267,8 +268,8 @@ sjer_plot_locations@data
 ## 18  SJER952 center  4110759 255871.2     grass
 ```
 
-We the @data called the attributes of our shapefile. What format are these 
-attributes stored in? 
+We the @data called the attributes of our shapefile. What format are these
+attributes stored in?
 
 ```r
 # view structure of attributes
@@ -287,8 +288,8 @@ sjer_plot_locations$plot_type
 ## [17] "soil"  "grass"
 ```
 
-The attribute data for our shapefile are stored as a data.frame! We've worked 
-with data.frames in the past few weeks. You can access individual attribute values in the 
+The attribute data for our shapefile are stored as a data.frame! We've worked
+with data.frames in the past few weeks. You can access individual attribute values in the
 same way you access them when working with time series data using the `$` sign.
 
 ## Metadata & Attribute Summary
