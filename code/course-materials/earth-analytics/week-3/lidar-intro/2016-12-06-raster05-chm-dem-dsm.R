@@ -1,4 +1,4 @@
-## ----load-libraries------------------------------------------------------
+## ----load-libraries,  message=F, warning=F-------------------------------
 # load libraries
 library(raster)
 library(rgdal)
