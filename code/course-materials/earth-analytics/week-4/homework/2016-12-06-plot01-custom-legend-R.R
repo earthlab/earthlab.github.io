@@ -28,7 +28,7 @@ levels(sjer_roads$RTTYP)
 # how many features are in each category or level?
 summary(sjer_roads$RTTYP)
 
-## ----palette-and-plot----------------------------------------------------
+## ----palette-and-plot, fig.cap="Adjust colors on map by creating a palette."----
 # count the number of unique values or levels
 length(levels(sjer_roads$RTTYP))
 
@@ -55,7 +55,7 @@ plot(sjer_roads,
      lwd=6)
 
 
-## ----line-width-unique---------------------------------------------------
+## ----line-width-unique, fig.cap="Map with legend that shows unique line widths."----
 class(sjer_roads$RTTYP)
 levels(sjer_roads$RTTYP)
 # create vector of line widths
@@ -82,7 +82,7 @@ plot(sjer_roads,
      lwd=lineWidth)
 
 
-## ----add-legend-to-plot--------------------------------------------------
+## ----add-legend-to-plot, fig.cap="SJER roads map with custom legend."----
 # add legend to plot
 plot(sjer_roads,
      col=roadColors,
