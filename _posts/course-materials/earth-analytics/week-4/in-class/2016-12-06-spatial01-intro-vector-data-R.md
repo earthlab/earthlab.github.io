@@ -157,11 +157,6 @@ information about the data. We are particularly interested in the geospatial
 the vector data, and the **attributes** which describe properties associated
 with each individual vector object.
 
- <i class="fa fa-star"></i> **Data Tip:** The
- [Shapefile Metadata & Attributes in R]({{site.baseurl}}/R/shapefile-attributes-in-R/)
-tutorial provides more information on both metadata and attributes
-and using attributes to subset and plot data.
-{: .notice}
 
 ## Spatial Metadata
 Key metadata for all shapefiles include:
@@ -209,7 +204,7 @@ sjer_plot_locations
 ```
 
 Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
-in the CRS **UTM zone 18N**. The CRS is critical to interpreting the object
+in the CRS **UTM zone 11N**. The CRS is critical to interpreting the object
 `extent` values as it specifies units.
 
 <figure>
@@ -403,5 +398,5 @@ resources:
 
 * <a href="http://www.statmethods.net/advgraphs/parameters.html" target="_blank">Parameter methods in `R`.</a>
 * <a href="https://codeyarns.files.wordpress.com/2011/07/20110729-vim-named-colors.png?w=700" target="_blank">Color names in `R`</a>
-
+* <a href="http://www.neondataskills.org/R/shapefile-attributes-in-R/" target="_blank">Shapefile Metadata & Attributes in R</a>
 </div>
