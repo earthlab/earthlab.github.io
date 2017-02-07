@@ -107,7 +107,8 @@ create_markdown <- function(rmd_file_df, wd){
   # set knitr render options.
   opts_chunk$set(fig.path = paste0(rmd_file_df$fig_dir,"/"),
                  fig.cap = " ",
-                 collapse = T)
+                 collapse = T,
+                 out.width='100%', dpi=200)
   
   # render jekyll flavor md
   render_markdown(strict = FALSE, 
