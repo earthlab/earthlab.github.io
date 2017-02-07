@@ -1,7 +1,7 @@
 ---
 layout: single
 category: course-materials
-title: "Week 4 "
+title: "Week 4: Spatial Data in R"
 permalink: /course-materials/earth-analytics/week-4/
 week-landing: 4
 week: 4
@@ -32,7 +32,7 @@ like coordinate reference systems and varying data structures.
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
 | 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
-| 3:20 - 4:00  | Open Topography / lidar data   | Chris Crosby, UNAVCO / Open Topography  |
+| 3:20 - 4:00  | Open Topography / lidar data | Chris Crosby, UNAVCO / Open Topography  |
 | 4:15 - 5:50  | R coding session - Use lidar to characterize vegetation / uncertainty | Leah  |
 
 ### 1. Readings
@@ -54,36 +54,40 @@ if you did not get `knitr` working it is ok if you create an html document and
 export it to pdf as we demonstrated in class). You will submit both
 the `.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
 
-In your report, include the plots below. Be sure to describe what each plot shows and
-to answer the questions below.
+In your report, include the plots below. Be sure to describe what each plot shows. Also include a section where you answer the questions below.
+
+### Answer the following questions
 
 1. In your own words, describe what a Coordinate Reference System (CRS) is. If you are working with two datasets that are stored using difference CRSs, and want to process or plot them, what do you need to do to ensure they line up on a map and can be processed together?
 2. In this class we learned about lidar and canopy height models. We then compared height values extracted from a canopy height model compared to height values measured by humans at each study site. Are the values the same? Why or why not? Use the plots to discuss why they values are similar / different. Then discuss what factors may result in the values being different.
+3. What are metadata? How was metadata useful or not useful for this assignment?
 
 
-### Plot 1
+### Plot 1: Study area map
 
 Create a map of our SJER study area as follows:
 
 1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
 2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary.
-3. Plot the roads by road type and add each type to the legend. Place visual emphsize on the County adn State roads by adjusting the line width and color. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
-4. Add a **title** to your plot.
-45 Add a **legend** to your plot that shows both the road types and the plot locations.
+3. Plot the roads by road type and add each type to the legend. Place visual emphasize on the County and State roads by adjusting the line width and color. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
+5. BE sure to adjust the LABELS on your legend to be meaningful. Road labels in the legend should specify the type of road as a readable form rather than the representative letter found in the data (e.g. "C", "S", etc.).
+6. Add a **title** to your plot.
+7. Add a **legend** to your plot that shows both the road types and the plot locations.
 
-IMPORTANT: be sure that all of the data are within the same EXTENT and crs of the sjer_aoi
+IMPORTANT: be sure that all of the data are within the same `EXTENT` and `crs` of the `sjer_aoi`
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
-### Plot 2
+### Plot 2: Field site locations
+
 Create a plot of field site locations, SIZED according to maximum tree height.
 
-### Plot 3
+### Plot 3: Scatterplot CHM vs Insitu
 Create a scatter plot using `ggplot()` that compares MAXIMUM canopy height model height in meters,
 extracted within a 20 meter radius, compared to maximum tree height derived from the
 in situ field site data. Note: in the lessons we compared MEAN tree height rather than
 
-### Plot 4
-Create a blox plot using `ggplot()` that shows the DIFFERENCE between the extracted Max canopy height
+### Plot 4: CHM vs In situ difference
+Create a bar plot using `ggplot()` that shows the DIFFERENCE between the extracted Max canopy height
 model height compared to in situ height per plot.
 
 ## Homework due: Feb 15 @ noon.
