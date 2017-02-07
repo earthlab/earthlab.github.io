@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-02-06'
+modified: '2017-02-07'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/reproject-vector-data/
@@ -94,7 +94,7 @@ There are many good sources of boundary base layers that we can use to create a
 basemap. Some `R` packages even have these base layers built in to support quick
 and efficient mapping. In this tutorial, we will use boundary layers for the
 United States, provided by the
-<a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html" target="_blank"> United States Census Bureau.</a>
+<a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html" target="_blank" data-proofer-ignore=''> United States Census Bureau.</a>
 
 It is useful to have shapefiles to work with because we can add additional
 attributes to them if need be - for project specific mapping.
@@ -119,7 +119,6 @@ state_boundary_us <- readOGR("data/week4/usa-boundary-layers",
 ## Integer64 fields read as strings:  ALAND AWATER
 ## Warning in readOGR("data/week4/usa-boundary-layers", "US-State-Boundaries-
 ## Census-2014"): Z-dimension discarded
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # view data structure
 class(state_boundary_us)
@@ -164,7 +163,6 @@ country_boundary_us <- readOGR("data/week4/usa-boundary-layers",
 ## Integer64 fields read as strings:  ALAND AWATER
 ## Warning in readOGR("data/week4/usa-boundary-layers", "US-Boundary-
 ## Dissolved-States"): Z-dimension discarded
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # look at the data structure
 class(country_boundary_us)
@@ -199,7 +197,6 @@ sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
 ## Source: "data/week4/california/SJER/vector_data", layer: "SJER_crop"
 ## with 1 features
 ## It has 1 fields
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 class(sjer_aoi)
 ## [1] "SpatialPolygonsDataFrame"
 ## attr(,"package")
@@ -473,10 +470,7 @@ layer. This means that you may have to CROP and reproject your data prior to plo
 
 
 ```
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## Loading required namespace: rgeos
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
