@@ -71,14 +71,14 @@ Create a map of our SJER study area as follows:
 1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
 2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary. All data should be CROPPED to the sjer_aoi boundary.
 3. Plot the roads by road type and add each type to the legend. Place visual emphasize on the County and State roads by adjusting the line width and color. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
-5. BE sure to adjust the LABELS on your legend to be meaningful. Road labels in the legend should specify the type of road as a readable form rather than the representative letter found in the data (e.g. "C", "S", etc.).
+5. Be sure to adjust the LABELS on your legend to be meaningful. Road labels in the legend should specify the type of road as a readable form rather than the representative letter found in the data (e.g. "C", "S", etc.).
 6. Add a **title** to your plot.
 7. Add a **legend** to your plot that shows both the road types and the plot locations.
 
 IMPORTANT: be sure that all of the data are within the same `EXTENT` and `crs` of the `sjer_aoi`
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
-**BONUS!!!:** Plot the vegetation plots by type - adjust the symbology of the plot locations (choose a symbol using pch for each type and adjust the color of the points). Make sure your legend matches the colors and symbols in your plot!
+**BONUS!!!:** Plot the vegetation plots by type - adjust the symbology of the plot locations (choose a symbol using `pch` for each type and adjust the color of the points). Make sure your legend matches the colors and symbols in your plot! Also make sure your plot plots OUTSIDE of the plot extent (not on top of the map itself).
 
 ### Plot 2: Field site locations
 
