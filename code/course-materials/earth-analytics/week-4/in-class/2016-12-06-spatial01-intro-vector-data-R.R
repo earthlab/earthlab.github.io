@@ -11,7 +11,7 @@ library(raster)
 # Import a point shapefile: readOGR("path", "fileName")
 # no extension needed as readOGR only imports shapefiles
 
-sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
+sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data",
                       layer="SJER_plot_centroids")
 
 ## ----view-metadata-------------------------------------------------------
