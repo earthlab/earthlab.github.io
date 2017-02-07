@@ -97,7 +97,6 @@ below.
 that are on a round surface (e.g. the earth) so we can view them on a flat surface
 (e.g. our computer screens or a paper map).
 
-
 ## Why CRS is Important
 
 It is important to understand the coordinate system that your data uses -

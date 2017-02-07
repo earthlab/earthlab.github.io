@@ -127,7 +127,6 @@ Next, let's plot the U.S. states data.
 # view column names
 plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data")
-
 ```
 
 ## U.S. Boundary Layer
