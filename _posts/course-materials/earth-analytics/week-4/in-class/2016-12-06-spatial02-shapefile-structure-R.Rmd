@@ -43,7 +43,6 @@ many spatial formats are composed of several files. A shapefile is created by
 3 or more files, all of which must retain the same NAME and be
 stored in the same file directory, in order for you to be able to work with them.
 
-
 ### Shapefile Structure
 
 There are 3 key files associated with any and all shapefiles:

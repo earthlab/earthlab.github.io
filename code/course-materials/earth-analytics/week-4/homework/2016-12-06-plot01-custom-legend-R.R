@@ -98,7 +98,7 @@ legend("bottomright",   # location of legend
       fill=roadPalette) # color palette to use to fill objects in legend.
 
 
-## ----modify-legend-plot, fig.cap="custom legend"-------------------------
+## ----modify-legend-plot, fig.cap="modified custom legend"----------------
 # adjust legend
 plot(sjer_roads,
      col=roadColors,
@@ -177,7 +177,7 @@ legend("bottomright",
        cex=.8) # adjust font size
 
 
-## ----legend-points-lines-------------------------------------------------
+## ----legend-points-lines, fig.cap="plot legend with points and lines"----
 # import points layer
 sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
                       "SJER_plot_centroids")
@@ -203,7 +203,7 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 
 
-## ----reproject-data, echo=F, warning=F, message=F------------------------
+## ----reproject-data, echo=F, warning=F, message=F, fig.cap="plot legend with points and lines and subheading."----
 
 # reproject line and point data
 sjer_roads_utm  <- spTransform(sjer_roads,
@@ -216,7 +216,7 @@ sjer_roads_utm <- crop(sjer_roads_utm, sjer_plots)
 c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
 
 
-## ----custom-legend-points-lines------------------------------------------
+## ----custom-legend-points-lines, fig.cap="final plot custom legend."-----
 
 # plot using new colors
 plot(sjer_plots,
@@ -238,7 +238,7 @@ legend("bottomright",
        bty="n", # turn off border
        cex=.9) # adjust legend font size
 
-## ----custom-legend-points-lines-2----------------------------------------
+## ----custom-legend-points-lines-2, fig.cap="Plot with points and lines customized."----
 
 # plot using new colors
 plot(sjer_plots,
@@ -261,7 +261,7 @@ legend("bottomright",
        bty="n", # turn off border
        cex=.9) # adjust legend font size
 
-## ----custom-legend-points-lines-3, echo=F--------------------------------
+## ----custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."----
 
 # plot using new colors
 plot(sjer_plots,

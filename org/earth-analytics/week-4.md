@@ -74,8 +74,6 @@ Create a map of our SJER study area as follows:
 IMPORTANT: be sure that all of the data are within the same EXTENT and crs of the sjer_aoi
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
-# NOTE: be sure they know how to add points and lines to a legend. Re redit the homework lesson as some of the plots aren't labeled correctly.
-
 ### Plot 2
 Create a plot of field site locations, SIZED according to maximum tree height.
 

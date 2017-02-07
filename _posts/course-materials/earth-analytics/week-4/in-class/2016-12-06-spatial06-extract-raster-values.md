@@ -25,7 +25,7 @@ order: 5
 
 After completing this tutorial, you will be able to:
 
-*
+* Use the extract() function to extract raster values using a vector extent or set of extents.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -61,6 +61,7 @@ we learned how to make this data product by subtracting the DEM from the DSM.
 ```r
 # import canopy height model (CHM).
 SJER_chm <- raster("data/week4//california/SJER/2013/lidar/SJER_lidarCHM.tif")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 SJER_chm
 ## class       : RasterLayer 
 ## dimensions  : 5059, 4296, 21733464  (nrow, ncol, ncell)
@@ -76,6 +77,7 @@ hist(SJER_chm,
      main="Histogram of Canopy Height\n NEON SJER Field Site",
      col="springgreen",
      xlab="Height (m)")
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
 ## 0% of the raster cells were used. 100000 values used.
 ```
@@ -90,6 +92,8 @@ hist(SJER_chm,
 
 # set values of 0 to NA as these are not trees
 SJER_chm[SJER_chm==0] <- NA
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot the modified data
 hist(SJER_chm,
@@ -120,12 +124,15 @@ SJER_plots <- readOGR("data/week4/california/SJER/vector_data",
 ## Source: "data/week4/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 
 # Overlay the centroid points and the stem locations on the CHM plot
 plot(SJER_chm,
      main="SJER  Plot Locations",
      col=gray.colors(100, start=.3, end=.9))
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # pch 0 = square
 plot(SJER_plots,
@@ -170,6 +177,43 @@ SJER_height <- extract(SJER_chm,
                     fun=mean, # extract the MEAN value from each plot
                     sp=TRUE, # create spatial object
                     stringsAsFactors=FALSE)
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 #### Explore The Data Distribution
@@ -287,25 +331,25 @@ SJER_height <- merge(SJER_height,
                    by.y = 'plotid')
 
 SJER_height@data
-##     Plot_ID  Point northing  easting Remarks SJER_lidarCHM insituMaxHt
-## 1  SJER1068 center  4111568 255852.4    <NA>     11.544348        19.3
-## 2   SJER112 center  4111299 257407.0    <NA>     10.355685        23.9
-## 3   SJER116 center  4110820 256838.8    <NA>      7.511956        16.0
-## 4   SJER117 center  4108752 256176.9    <NA>      7.675347        11.0
-## 5   SJER120 center  4110476 255968.4    <NA>      4.591176         8.8
-## 6   SJER128 center  4111389 257078.9    <NA>      8.979005        18.2
-## 7   SJER192 center  4111071 256683.4    <NA>      7.240118        13.7
-## 8   SJER272 center  4112168 256717.5    <NA>      7.103862        12.4
-## 9  SJER2796 center  4111534 256034.4    <NA>      6.405240         9.4
-## 10 SJER3239 center  4109857 258497.1    <NA>      6.009128        17.9
-## 11   SJER36 center  4110162 258277.8    <NA>      6.516288         9.2
-## 12  SJER361 center  4107527 256961.8    <NA>     13.899027        11.8
-## 13   SJER37 center  4107579 256148.2    <NA>      7.109851        11.5
-## 14    SJER4 center  4109767 257228.3    <NA>      5.032620        10.8
-## 15    SJER8 center  4110249 254738.6    <NA>      3.024286         5.2
-## 16  SJER824 center  4110048 256185.6    <NA>      7.738203        26.5
-## 17  SJER916 center  4109617 257460.5    <NA>     11.181955        18.4
-## 18  SJER952 center  4110759 255871.2    <NA>      4.149286         7.7
+##     Plot_ID  Point northing  easting plot_type SJER_lidarCHM insituMaxHt
+## 1  SJER1068 center  4111568 255852.4     trees     11.544348        19.3
+## 2   SJER112 center  4111299 257407.0     trees     10.355685        23.9
+## 3   SJER116 center  4110820 256838.8     grass      7.511956        16.0
+## 4   SJER117 center  4108752 256176.9     trees      7.675347        11.0
+## 5   SJER120 center  4110476 255968.4     grass      4.591176         8.8
+## 6   SJER128 center  4111389 257078.9     trees      8.979005        18.2
+## 7   SJER192 center  4111071 256683.4     grass      7.240118        13.7
+## 8   SJER272 center  4112168 256717.5     trees      7.103862        12.4
+## 9  SJER2796 center  4111534 256034.4      soil      6.405240         9.4
+## 10 SJER3239 center  4109857 258497.1      soil      6.009128        17.9
+## 11   SJER36 center  4110162 258277.8     trees      6.516288         9.2
+## 12  SJER361 center  4107527 256961.8     grass     13.899027        11.8
+## 13   SJER37 center  4107579 256148.2     trees      7.109851        11.5
+## 14    SJER4 center  4109767 257228.3     trees      5.032620        10.8
+## 15    SJER8 center  4110249 254738.6     trees      3.024286         5.2
+## 16  SJER824 center  4110048 256185.6      soil      7.738203        26.5
+## 17  SJER916 center  4109617 257460.5      soil     11.181955        18.4
+## 18  SJER952 center  4110759 255871.2     grass      4.149286         7.7
 ##          NA
 ## 1  3.866667
 ## 2  8.221429
@@ -335,6 +379,8 @@ SJER_height@data
 plot(SJER_chm,
      main="Vegetation Plots \nSymbol size by Average Tree Height",
      legend=F)
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
+## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # add plot location sized by tree height
 plot(SJER_height,
