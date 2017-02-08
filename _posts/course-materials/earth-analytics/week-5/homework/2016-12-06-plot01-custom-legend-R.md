@@ -3,17 +3,17 @@ layout: single
 title: "GIS in R: custom legends"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-02-06'
+modified: '2017-02-07'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
-permalink: /course-materials/earth-analytics/week-4/r-custom-legend/
+permalink: /course-materials/earth-analytics/week-5/r-custom-legend/
 nav-title: 'Create custom map legend'
 module-title: 'Custom plots in R'
 module-description: 'This tutorial covers the basics of creating custom plot legends
 in R'
 module-nav-title: 'Spatial Data: Custom plots in R'
 module-type: 'homework'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -34,10 +34,9 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson.
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -55,7 +54,6 @@ By default, `R` will import spatial object attributes as `factors`.
 read in as factors, we can convert the categorical
 attribute values using `as.factor()`.
 {: .notice}
-
 
 
 ```r
@@ -143,7 +141,7 @@ plot(sjer_roads,
      main="Madera County Roads")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="100%" />
 
 ### Adjust Line Width
 We can also adjust the width of our plot lines using `lwd`. We can set all lines
@@ -158,7 +156,7 @@ plot(sjer_roads,
      lwd=6)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/adjust-line-width-1.png" title="map of madera roads" alt="map of madera roads" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/adjust-line-width-1.png" title="map of madera roads" alt="map of madera roads" width="100%" />
 
 ### Adjust Line Width by Attribute
 
@@ -186,7 +184,7 @@ plot(sjer_roads,
      lwd=lineWidths)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/line-width-unique-1.png" title="Map with legend that shows unique line widths." alt="Map with legend that shows unique line widths." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/line-width-unique-1.png" title="Map with legend that shows unique line widths." alt="Map with legend that shows unique line widths." width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -206,7 +204,7 @@ Create a plot of roads using the following line thicknesses:
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/roads-map-1.png" title="roads map modified" alt="roads map modified" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/roads-map-1.png" title="roads map modified" alt="roads map modified" width="100%" />
 
 <i class="fa fa-star"></i> **Data Tip:** Given we have a factor with 4 levels,
 we can create an vector of numbers, each of which specifies the thickness of each
@@ -245,7 +243,7 @@ legend("bottomright",   # location of legend
       fill=roadPalette) # color palette to use to fill objects in legend.
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/add-legend-to-plot-1.png" title="SJER roads map with custom legend." alt="SJER roads map with custom legend." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/add-legend-to-plot-1.png" title="SJER roads map with custom legend." alt="SJER roads map with custom legend." width="100%" />
 
 We can tweak the appearance of our legend too.
 
@@ -268,7 +266,7 @@ legend("bottomright",
        cex=.8) # decrease the font / legend size
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/modify-legend-plot-1.png" title="custom legend" alt="custom legend" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/modify-legend-plot-1.png" title="modified custom legend" alt="modified custom legend" width="100%" />
 
 We can modify the colors used to plot our lines by creating a new color vector,
 directly in the plot code too rather than creating a separate object.
@@ -297,7 +295,7 @@ legend("bottomright",
        bty="n", cex=.8)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/plot-different-colors-1.png" title="adjust colors" alt="adjust colors" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/plot-different-colors-1.png" title="adjust colors" alt="adjust colors" width="100%" />
 
 <i class="fa fa-star"></i> **Data Tip:** You can modify the defaul R color palette
 using the palette method. For example `palette(rainbow(6))` or
@@ -354,7 +352,7 @@ legend("bottomright",
        cex=.8) # adjust font size
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="100%" />
 
 Finall, let's adjust the legend. We want the legend SYMBOLS to represent the
 actual symbology in the map - which contains lines, not polygons.
@@ -377,7 +375,7 @@ legend("bottomright",
        cex=.8) # adjust font size
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/final-custom-legend-1.png" title="Custom legend with lines" alt="Custom legend with lines" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/final-custom-legend-1.png" title="Custom legend with lines" alt="Custom legend with lines" width="100%" />
 
 <!-- C = County
 I = Interstate
@@ -388,13 +386,13 @@ U = U.S.-->
 
 ## Adding point and lines to a legend
 
-The last step in customizing a legend is adding different types of symbols to 
+The last step in customizing a legend is adding different types of symbols to
 the plot. In the example above, we just added lines. But what if we wanted to add
 some POINTS too? We will do that next.
 
 In the data below, we've create a custom legend where each symbol type and color
-is defined using a vector. We have 3 levels: grass, soil and trees. Thus we 
-need to define 3 symbols and 3 colors for our legend and our plot. 
+is defined using a vector. We have 3 levels: grass, soil and trees. Thus we
+need to define 3 symbols and 3 colors for our legend and our plot.
 
 `pch=c(8,18,8)`
 
@@ -432,17 +430,17 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/legend-points-lines-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/legend-points-lines-1.png" title="plot legend with points and lines" alt="plot legend with points and lines" width="100%" />
 
-Next, let's try to plot our roads on top of the plot locations. Then let's create 
-a custom legend that contains both lines and points. NOTE: in this example i've 
-fixed the projection for the roads layer and cropped it! You will have to do the same before 
-this code will work. 
+Next, let's try to plot our roads on top of the plot locations. Then let's create
+a custom legend that contains both lines and points. NOTE: in this example i've
+fixed the projection for the roads layer and cropped it! You will have to do the same before
+this code will work.
 
 
 
 When we create a legend, we will have to add the labels for both the points
-layer and the lines layer. 
+layer and the lines layer.
 
 `c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))`
 
@@ -477,17 +475,17 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-1.png" title="final plot custom legend." alt="final plot custom legend." width="100%" />
 
 
 Next we have to tell R, which symbols are lines and which are point symbols. We
-can do that using the lty argument. We have 3 unique point symbols and 4 unique 
-line symbols. We can include a NA for each element that should not be a line in 
+can do that using the lty argument. We have 3 unique point symbols and 4 unique
+line symbols. We can include a NA for each element that should not be a line in
 the lty argument:
 
 `lty=c(NA,NA, NA, 1, 1, 1, 1)`
 
-And we include a NA value for each element that should not be a symbol in the 
+And we include a NA value for each element that should not be a symbol in the
 pch argument:
 
 pch=c(8,18,8, NA, NA, NA, NA)
@@ -517,9 +515,85 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-2-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-2-1.png" title="Plot with points and lines customized." alt="Plot with points and lines customized." width="100%" />
 
-## BONUS Point! 
+
+## Force the legend to plot outside
+
+Making your plots look just like what you want can be tricky. Play with the code 
+below to see if you can make your legend plot NEXT TO rather than on top of your 
+plot. 
+
+The steps are
+
+* adjust the plot *PAR*amaters using par(). Setting xpd = T tells R to allow the plot the render OUTSIDE of the axes of your plot. Seting $mar sets the margins in the format c(bottom, left, top, right). The code below is telling r to add 7 units of padding on the RIGHT hand side of our plot. 
+
+`par(xpd = T, mar = par()$mar + c(0,0,0,7))`
+
+
+When we plot the legend, rather than specifying `bottomright`, we specify the 
+precise coordinate location where we'd like the plot to be. There are a few ways 
+to do this. I'll show you one below.
+
+
+
+```r
+
+# figure out where the upper RIGHT hand corner of our plot extent is
+
+the_plot_extent <- extent(sjer_plots)
+# grab the upper right hand corner coordinates
+furthest_pt_east <- the_plot_extent@xmax
+furthest_pt_north <- the_plot_extent@ymax
+
+# set the plot rendering space parameters
+par(xpd = T, mar = par()$mar + c(0,0,0,7))
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend(x=furthest_pt_east, y=furthest_pt_north,
+       legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA, NA, 1, 1, 1, 1),
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/adjust-legend-1.png" title="plot with fixed legend" alt="plot with fixed legend" width="100%" />
+
+
+
+
+```r
+# important: remove margins - one you are done, reset the margins
+dev.off()
+## RStudioGD 
+##         2
+```
+
+Now, if you want to move the legend out a bit further, what would you do?
+
+## BONUS Point!
 What trickiness did I do below to add a space in the legend and a sub heading?
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-3-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-3-1.png" title="final legend with points and lines customized." alt="final legend with points and lines customized." width="100%" />
+
+
+```r
+# important: remove margins - one you are done, reset the margins
+dev.off()
+## RStudioGD 
+##         2
+```

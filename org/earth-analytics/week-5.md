@@ -1,10 +1,10 @@
 ---
 layout: single
 category: course-materials
-title: "Week 4 "
-permalink: /course-materials/earth-analytics/week-4/
-week-landing: 4
-week: 4
+title: "Week 5"
+permalink: /course-materials/earth-analytics/week-5/
+week-landing: 5
+week: 5
 sidebar:
   nav:
 comments: false
