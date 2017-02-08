@@ -40,9 +40,9 @@ We can break our data analysis workflow into several steps as follows:
 * **Data Exploration:** understand the range and distribution of values in your data. This may involve plotting histograms scatter plots, etc
 * **More Data Processing & Analysis:** This may include the final data processing steps that you determined based upon the data exploration phase.
 * **Final data analysis:** The final steps of your analysis - often performed using information gathered in the early data processing / exploration stages of your workflow.
-* **Presentation:** Refining your results into a final plot or set of plots that are cleaned up, labeled, etc. 
+* **Presentation:** Refining your results into a final plot or set of plots that are cleaned up, labeled, etc.
 
-Please note - working with data is not a linear process. There are no defined 
+Please note - working with data is not a linear process. There are no defined
 steps. As you work with data more, you will develop your own workflow and approach.
 
 ```{r setup}
@@ -54,10 +54,10 @@ library(rgdal)
 setwd("~/Documents/earth-analytics")
 ```
 
-Note: try mapview() is a function that allows you to create interactive maps of 
-spatial data using leaflet as a base. 
+Note: try mapview() is a function that allows you to create interactive maps of
+spatial data using leaflet as a base.
 
-https://cran.r-project.org/web/packages/mapview/index.html 
+https://cran.r-project.org/web/packages/mapview/index.html
 
 ```{r load-data}
 # load data
@@ -74,7 +74,7 @@ crop_ext <- readOGR("data/week3/BLDR_LeeHill", "clip-extent")
 
 Calculate the difference.
 
-```{r diff-data }
+```{r diff-data, fig.cap="difference between pre and post flood dtm." }
 # calculate dtm difference
 dtm_diff_uncropped <- post_dtm - pre_dtm
 plot(dtm_diff_uncropped)
