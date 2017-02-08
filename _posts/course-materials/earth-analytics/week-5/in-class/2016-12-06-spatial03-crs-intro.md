@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "GIS in R: Intro to Coordinate Reference Systems"
-excerpt: "This lesson covers the basics of coordinate reference systems."
+excerpt: "This lesson covers the basics of coordinate reference systems. "
 authors: ['Leah Wasser']
-modified: '2017-02-07'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-to-coordinate-reference-systems/

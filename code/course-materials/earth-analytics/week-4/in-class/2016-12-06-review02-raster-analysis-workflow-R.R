@@ -31,7 +31,9 @@ plot(dtm_diff,
 
 # get a quick glimpse at some of the values for a particular "row"
 # note there are a LOT of values in this raster so this won't print all values.
-getValues(dtm_diff, row = 5)
+# below i used the head() function to limit the n umber of values returned to 6.
+# that way a lot of numbers don't print out in my final knitr output.
+head(getValues(dtm_diff, row = 5))
 
 # view max data values
 dtm_diff@data@max
@@ -46,7 +48,7 @@ hist(dtm_diff,
 ## ----plot-histogram-xlim, fig.cap="initial histogram w xlim to zoom in"----
 hist(dtm_diff,
      xlim=c(-2,2),
-     main="histogram \nzoomed in to -2-2 on the x axis",
+     main="histogram \nzoomed in to -2 to 2 on the x axis",
      col="brown")
 
 # see how R is breaking up the data
