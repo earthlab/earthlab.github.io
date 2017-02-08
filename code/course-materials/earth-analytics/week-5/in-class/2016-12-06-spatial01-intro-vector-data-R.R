@@ -8,14 +8,11 @@ library(raster)
 # setwd("pathToDirHere")
 
 ## ----Import-Shapefile----------------------------------------------------
-
 # Import a polygon shapefile: readOGR("path","fileName")
 # no extension needed as readOGR only imports shapefiles
 
 sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
                       layer="SJER_plot_centroids")
-
-
 
 ## ----view-metadata-------------------------------------------------------
 # view just the class for the shapefile
@@ -34,21 +31,17 @@ sjer_plot_locations
 # alternate way to view attributes
 sjer_plot_locations@data
 
-
 ## ----shapefile-summary---------------------------------------------------
 # view a summary of metadata & attributes associated with the spatial object
 summary(sjer_plot_locations)
 
-
 ## ----plot-shapefile, fig.cap="SJER plot locations."----------------------
 # create a plot of the shapefile
-# 'lwd' sets the line width
-# 'col' sets internal color
-# 'border' sets line color
+# 'pch' sets the symbol
+# 'col' sets point symbol color
 plot(sjer_plot_locations, col="blue",
      pch=8,
-     main="Plot Locations")
-
+     main="SJER Plot Locations\nMadera County, CA")
 
 ## ----import-point-line, echo=FALSE, results="hide"-----------------------
 # import line shapefile
@@ -81,12 +74,15 @@ sjer_roads
 attributes(sjer_roads)
 
 
-## ----plot-multiple-shapefiles--------------------------------------------
+## ----plot-multiple-shapefiles, fig.cap="plot of sjer plots layered on top of the crop extent."----
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
      main="NEON Harvard Forest\nField Site")
 plot(sjer_roads, add = TRUE)
 
-# use the pch element to adjust the symbology of the points
-plot(sjer_plot_locations, add  = TRUE, pch = 19, col = "purple")
+# Use the pch element to adjust the symbology of the points
+plot(sjer_plot_locations,
+  add  = TRUE,
+  pch = 19,
+  col = "purple")
 
