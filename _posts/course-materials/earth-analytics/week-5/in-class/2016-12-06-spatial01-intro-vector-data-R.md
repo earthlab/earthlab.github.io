@@ -2,7 +2,7 @@
 layout: single
 title: "GIS in R: intro to vector format spatial data - points, lines and polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
-shapefile format in R."
+shapefile format in R. "
 authors: ['Leah Wasser']
 modified: '2017-02-08'
 category: [course-materials]
