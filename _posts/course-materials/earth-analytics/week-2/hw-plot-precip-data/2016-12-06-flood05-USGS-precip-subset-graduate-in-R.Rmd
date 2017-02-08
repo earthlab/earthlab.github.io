@@ -126,7 +126,7 @@ data import code above to account for no data values. Then determine how many no
 data values you have in your dataset.
 
 ``` {r no-data-values-hist, echo=F, fig.cap="histogram of data"}
-#plot histogram
+# plot histogram
 hist(precip.boulder$HPCP, main ="Are there NA values?")
 
 precip.boulder <- read.csv(precip_file,
