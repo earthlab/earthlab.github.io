@@ -2,9 +2,9 @@
 layout: single
 title: "Introduction to LiDAR Data"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
-vector dataset."
+vector dataset. "
 authors: ['Leah Wasser']
-modified: '2017-02-06'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/extract-data-from-raster/
@@ -62,7 +62,6 @@ we learned how to make this data product by subtracting the DEM from the DSM.
 ```r
 # import canopy height model (CHM).
 SJER_chm <- raster("data/week4//california/SJER/2013/lidar/SJER_lidarCHM.tif")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 SJER_chm
 ## class       : RasterLayer 
 ## dimensions  : 5059, 4296, 21733464  (nrow, ncol, ncell)
@@ -78,7 +77,6 @@ hist(SJER_chm,
      main="Histogram of Canopy Height\n NEON SJER Field Site",
      col="springgreen",
      xlab="Height (m)")
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
 ## 0% of the raster cells were used. 100000 values used.
 ```
@@ -93,8 +91,6 @@ hist(SJER_chm,
 
 # set values of 0 to NA as these are not trees
 SJER_chm[SJER_chm==0] <- NA
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # plot the modified data
 hist(SJER_chm,
@@ -125,15 +121,12 @@ SJER_plots <- readOGR("data/week4/california/SJER/vector_data",
 ## Source: "data/week4/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 
 # Overlay the centroid points and the stem locations on the CHM plot
 plot(SJER_chm,
      main="SJER  Plot Locations",
      col=gray.colors(100, start=.3, end=.9))
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # pch 0 = square
 plot(SJER_plots,
@@ -178,43 +171,6 @@ SJER_height <- extract(SJER_chm,
                     fun=mean, # extract the MEAN value from each plot
                     sp=TRUE, # create spatial object
                     stringsAsFactors=FALSE)
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 ```
 
 #### Explore The Data Distribution
@@ -380,8 +336,6 @@ SJER_height@data
 plot(SJER_chm,
      main="Vegetation Plots \nSymbol size by Average Tree Height",
      legend=F)
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
-## NOTE: rgdal::checkCRSArgs: no proj_defs.dat in PROJ.4 shared files
 
 # add plot location sized by tree height
 plot(SJER_height,

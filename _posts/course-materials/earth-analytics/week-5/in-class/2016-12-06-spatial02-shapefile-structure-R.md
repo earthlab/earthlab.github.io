@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "GIS in R: files that make up a shapefile"
-excerpt: "."
+excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-06'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/shapefile-structure/
