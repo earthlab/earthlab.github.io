@@ -438,6 +438,12 @@ fixed the projection for the roads layer and cropped it! You will have to do the
 this code will work.
 
 
+```
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week4/california/SJER/vector_data", layer: "SJER_crop"
+## with 1 features
+## It has 1 fields
+```
 
 When we create a legend, we will have to add the labels for both the points
 layer and the lines layer.
@@ -541,10 +547,13 @@ to do this. I'll show you one below.
 
 # figure out where the upper RIGHT hand corner of our plot extent is
 
-the_plot_extent <- extent(sjer_plots)
+the_plot_extent <- extent(sjer_aoi)
 # grab the upper right hand corner coordinates
 furthest_pt_east <- the_plot_extent@xmax
 furthest_pt_north <- the_plot_extent@ymax
+# view values
+furthest_pt_east
+## [1] 258867.4
 
 # set the plot rendering space parameters
 par(xpd = T, mar = par()$mar + c(0,0,0,7))
@@ -582,6 +591,8 @@ dev.off()
 ## RStudioGD 
 ##         2
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/reset-margin-1.png" title=" " alt=" " width="100%" />
 
 Now, if you want to move the legend out a bit further, what would you do?
 
