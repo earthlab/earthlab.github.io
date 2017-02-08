@@ -7,9 +7,9 @@ authors: ['Leah Wasser']
 modified: '2017-02-06'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-4/extract-data-from-raster/
+permalink: /course-materials/earth-analytics/week-5/extract-data-from-raster/
 nav-title: 'Extra data from raster'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -83,7 +83,7 @@ hist(SJER_chm,
 ## 0% of the raster cells were used. 100000 values used.
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/import-chm-1.png" title="histogram of CHM values" alt="histogram of CHM values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial06-extract-raster-values/import-chm-1.png" title="histogram of CHM values" alt="histogram of CHM values" width="100%" />
 
 
 
@@ -103,7 +103,7 @@ hist(SJER_chm,
      xlab="Height (m)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/view-histogram-na-0-1.png" title="histogram of chm values" alt="histogram of chm values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial06-extract-raster-values/view-histogram-na-0-1.png" title="histogram of chm values" alt="histogram of chm values" width="100%" />
 ## Part 2. How does our CHM data compare to field measured tree heights?
 
 We now have a canopy height model for our study area in California. However, how
@@ -143,7 +143,7 @@ plot(SJER_plots,
      add=TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/read-plot-data-1.png" title="canopy height model / plot locations plot" alt="canopy height model / plot locations plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial06-extract-raster-values/read-plot-data-1.png" title="canopy height model / plot locations plot" alt="canopy height model / plot locations plot" width="100%" />
 
 ### Extract CMH data within 20 m radius of each plot centroid.
 
@@ -155,7 +155,7 @@ There are a few ways to go about this task. If your plots are circular, then the
 extract tool will do the job!
 
 <figure>
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-4/buffer-circular.png" alt="buffer circular">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/buffer-circular.png" alt="buffer circular">
     <figcaption>The extract function in R allows you to specify a circular buffer
     radius around an x,y point location. Values for all pixels in the specified
     raster that fall within the circular buffer are extracted. In this case, we
@@ -244,7 +244,7 @@ For how to extract square plots using a plot centroid value, check out the
 <a href="http://neondataskills.org/working-with-field-data/Field-Data-Polygons-From-Centroids" target="_blank"> extracting square shapes activity </a>.
 
  <figure>
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-4/buffer-square.png" alt="Image showing the buffer area for a plot.">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/buffer-square.png" alt="Image showing the buffer area for a plot.">
     <figcaption>If you had square shaped plots, the code in the link above would
     extract pixel values within a square shaped buffer. Source: Colin Williams, NEON
     </figcaption>
@@ -395,7 +395,7 @@ legend('bottomright',
        bty='n')
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial06-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="100%" />
 
 
 ### Plot Data (CHM vs Measured)
@@ -416,7 +416,7 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insituMaxHt)) +
   ggtitle("Lidar Height Compared to InSitu Measured Height")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial06-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="100%" />
 
 
 We can also add a regression fit to our plot. Explore the GGPLOT options and
@@ -440,7 +440,7 @@ p + theme(panel.background = element_rect(colour = "grey")) +
   theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial06-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="100%" />
 
 
 ## View Differences
@@ -460,7 +460,7 @@ ggplot(data=SJER_height@data, aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
     geom_bar(stat="identity")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial06-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial06-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
 
 ## QGIS Check
 
