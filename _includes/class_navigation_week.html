@@ -66,7 +66,7 @@
 
 
 {% if page.week %}
-  {% if page.week > 1 and page.week <= 4 %}
+  {% if page.week > 1 and page.week <= 5 %}
   <hr>
    {% assign previousWeek = page.week | minus: 1 %}
    {% capture previous_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ previousWeek }}/{% endcapture %}
@@ -80,7 +80,7 @@
     {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
     <h5>go to week<a href="{{ next_week_path }}" > {{ nextWeek }} <i class="fa fa-arrow-circle-right"></i> </a></h5>
     {% endif %}
- {% if page.week >= 2 and page.week <= 3 %}
+ {% if page.week >= 2 and page.week <= 4 %}
   {% assign nextWeek = page.week | plus: 1 %}
   {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
 

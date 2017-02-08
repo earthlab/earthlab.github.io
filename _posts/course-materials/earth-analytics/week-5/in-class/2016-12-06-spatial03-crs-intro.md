@@ -1,14 +1,14 @@
 ---
 layout: single
 title: "GIS in R: Intro to Coordinate Reference Systems"
-excerpt: "This lesson covers the basics of coordinate reference systems."
+excerpt: "This lesson covers the basics of coordinate reference systems. "
 authors: ['Leah Wasser']
-modified: '2017-02-07'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-4/intro-to-coordinate-reference-systems/
+permalink: /course-materials/earth-analytics/week-5/intro-to-coordinate-reference-systems/
 nav-title: 'Coordinate reference systems'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -164,7 +164,7 @@ worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
 worldMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="100%" />
 
 We can add three coordinate locations to our map. Note that the UNITS are
 in decimal **degrees** (latitude, longitude):
@@ -195,7 +195,7 @@ mapLocations <- worldMap + geom_point(data=loc.df,
 mapLocations + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="100%" />
 
 ## Geographic CRS - The Good & The Less Good
 
@@ -207,8 +207,8 @@ have been developed.
 
 
 <figure>
-	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/LatLongfromGlobeCenter-ESRI.gif">
-	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
 	<figcaption>A geographic coordinate system locates latitude and longitude
 	location using angles. Thus the spacing of each line of latitude moving north
 	and south is not uniform.
@@ -244,7 +244,7 @@ robMap <- ggplot(worldBound_df_robin, aes(long,lat, group=group)) +
 robMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="100%" />
 
 Now what happens if you try to add the same Lat / Long coordinate locations that
 we used above, to our map, with the `CRS` of `Robinsons`?
@@ -260,7 +260,7 @@ newMap <- robMap + geom_point(data=loc.df,
 newMap + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="100%" />
 
 Notice above that when we try to add lat/long coordinates in degrees, to a map
 in a different `CRS`, that the points are not in the correct location. We need
@@ -316,7 +316,7 @@ newMap <- robMap + geom_point(data=loc.rob,
 newMap + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/reproject-robinson-1.png" title="Map plotted using robinson projection." alt="Map plotted using robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/reproject-robinson-1.png" title="Map plotted using robinson projection." alt="Map plotted using robinson projection." width="100%" />
 
 ## Compare Maps
 
@@ -388,7 +388,7 @@ finalRobMap <- finalRobMap + geom_point(data=loc.rob,
 grid.arrange(latLongMap, finalRobMap)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial03-crs-intro/plot-w-graticules-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/plot-w-graticules-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="100%" />
 
 
 ## Why Multiple CRS?
@@ -427,8 +427,8 @@ the graphic below optimize?
 ***
 
 <figure>
-    <a href="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg">
-    <img src="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg" alt="Maps of the United States in different CRS including Mercator
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different CRS including Mercator
     (upper left), Albers equal area (lower left), UTM (Upper RIGHT) and
     WGS84 Geographic (Lower RIGHT).">
     </a>
