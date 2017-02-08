@@ -1,4 +1,4 @@
-## ----setup---------------------------------------------------------------
+## ----setup, fig.cap="plot precip data using ggplot"----------------------
 library(ggplot2)
 # bonus lesson
 precip_file <- "data/week2/precipitation/805333-precip-daily-1948-2013.csv"
@@ -30,7 +30,7 @@ precPlot_hourly
 ## ggplotly(precPlot_hourly)
 ## 
 
-## ----plot-ggplot---------------------------------------------------------
+## ----plot-ggplot, fig.cap="time series plot of precipitation 1948-2013"----
 precip.boulder$HPCP_round <- round(precip.boulder$HPCP, digits = 1)
 
 # plot the data using ggplot2

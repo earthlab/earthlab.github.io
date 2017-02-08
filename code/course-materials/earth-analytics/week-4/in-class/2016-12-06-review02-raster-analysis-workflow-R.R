@@ -18,7 +18,7 @@ post_dsm <- raster("data/week3/BLDR_LeeHill/post-flood/lidar/post_DSM.tif")
 crop_ext <- readOGR("data/week3/BLDR_LeeHill", "clip-extent")
 
 
-## ----diff-data-----------------------------------------------------------
+## ----diff-data, fig.cap="difference between pre and post flood dtm."-----
 # calculate dtm difference
 dtm_diff_uncropped <- post_dtm - pre_dtm
 plot(dtm_diff_uncropped)
