@@ -1,7 +1,7 @@
 ---
 layout: single
 category: course-materials
-title: "Week 5"
+title: "Week 4: Data workflows"
 permalink: /course-materials/earth-analytics/week-4/
 week-landing: 4
 week: 4
@@ -18,27 +18,24 @@ author_profile: false
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to week {{ page.week }} of Earth Analytics! This week, we will dive deeper
-into working with spatial data in R. We will learn how to handle data in different
-coordinate reference systems, how to create custom maps and legends and how to
-extract data from a raster file. We are on our way towards integrating many different
-types of data into our analysis which involves knowing how to deal with things
-like coordinate reference systems and varying data structures.
+Welcome to week {{ page.week }} of Earth Analytics! This week, we will review
+some key concepts associated with working with time series & spatial data and rasters.
+Also, we will cover some key frameworks for organizing an rmarkdown document and
+starting a workflow to explore a dataset.
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course. We will use the data that we've been using for the first few weeks of
+course in our lessons today.
 
 </div>
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
 | 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
-| 3:20 - 4:00  | Open Topography / lidar data   | Chris Crosby, UNAVCO / Open Topography  |
+| 3:20 - 4:00  | Open Topography / lidar data | Chris Crosby, UNAVCO / Open Topography  |
 | 4:15 - 5:50  | R coding session - Use lidar to characterize vegetation / uncertainty | Leah  |
 
-### 1. Readings
-
-
-### 3. Complete the assignment below
+### 1. Complete the assignment below
 
 <div class="notice--warning" markdown="1">
 
@@ -54,42 +51,71 @@ if you did not get `knitr` working it is ok if you create an html document and
 export it to pdf as we demonstrated in class). You will submit both
 the `.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
 
-In your report, include the plots below. Be sure to describe what each plot shows and
-to answer the questions below.
+In your report, include the plots below. The important part of this week is that
+you document each step of your workflow using comments. And that you break up the
+sections of your analysis into SEPARATE code chunks.
 
-1. In your own words, describe what a Coordinate Reference System (CRS) is. If you are working with two datasets that are stored using difference CRSs, and want to process or plot them, what do you need to do to ensure they line up on a map and can be processed together?
-2. In this class we learned about lidar and canopy height models. We then compared height values extracted from a canopy height model compared to height values measured by humans at each study site. Are the values the same? Why or why not? Use the plots to discuss why they values are similar / different. Then discuss what factors may result in the values being different.
+### About the plots
 
+For your homework last week, you created 2 **classified** and **cropped** raster
+maps that showed positive and negative change bewteen the pre and post flood conditions,
+as seen in the lidar derived terrain and the canopy height models. To do thus you subtracted the pre-flood DTM from the post-flood DTM (**post_flood_DTM - pre-flood-DTM**). You
+performed the same math on the CHM data. You then cropped
+the plot using the `crop_extent.shp` shapefile that was included in your data
+download and classified the data using values that made sense.
 
-### Plot 1
+This week, you will recreate the SAME plots however, you will outline the steps that
+are needed to create a meaningful plot and histogram in `R`, in your .Rmd file.
+Also, you will separate out key components of your analysis, into individual code
+chunks in your .Rmd file.
 
-Create a map of our SJER study area as follows:
+### Part 1: Classified DTM difference map
 
-1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
-2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary.
-3. Plot the roads by road type and add each type to the legend. Place visual emphsize on the County adn State roads by adjusting the line width and color. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
-4. Add a **title** to your plot.
-45 Add a **legend** to your plot that shows both the road types and the plot locations.
+In your .Rmd demonstrate all of the steps needed to create a map that shows the
+difference (post-flood minus pre-flood) between the pre
+and post flood digital terrain models (DTMs). To create this map you should subtract the
+pre-flood CHM from the post-flood CHM. The steps include:
 
-IMPORTANT: be sure that all of the data are within the same EXTENT and crs of the sjer_aoi
-layer. This means that you may have to CROP and reproject your data prior to plotting it!
+#### Data Processing
+1. Open the pre and post flood raster data.
+1. Calculate the difference between the two rasters.
+1. Crop the data.
 
-# NOTE: be sure they know how to add points and lines to a legend. Re redit the homework lesson as some of the plots aren't labeled correctly.
+#### Data Exploration
+1. Explore the data. What is the min and max values of the data?
+1. Plot a histogram of the difference raster using the base histogram function (don't worry about custom breaks)
+1. Plot a second histogram of the difference raster and customize the breaks to mimic the
+classes that you may want to use for your final classified raster. Note - you should spend some time on this step to produce a histogram that looks good and clearly shows areas of positive and negative change.
+1. Plot a map of the difference raster - use breaks and custom colors to "color" positive and negative  difference "bins".
 
-### Plot 2
-Create a plot of field site locations, SIZED according to maximum tree height.
+#### Final Data Processing
+1. Once your are happy with the plot above, classify your raster using the breaks that you have defined.
 
-### Plot 3
-Create a scatter plot using `ggplot()` that compares MAXIMUM canopy height model height in meters,
-extracted within a 20 meter radius, compared to maximum tree height derived from the
-in situ field site data. Note: in the lessons we compared MEAN tree height rather than
+#### Final data presentation
+1. Plot your classified raster
+2. Add a title and legend to your plot - you are done with the first part!
 
-### Plot 4
-Create a blox plot using `ggplot()` that shows the DIFFERENCE between the extracted Max canopy height
-model height compared to in situ height per plot.
+### Part 2: Classified CHM difference map
+
+This map should show the difference (post-flood minus pre-flood) between the two canopy
+height models (CHM). To create this map you should subtract the pre-flood CHM
+from the post-flood CHM.
+
+Follow the steps that you followed above for part one. Note that you will have a few
+additional steps in the data processing section because you will need to first calculate
+the pre and post flood CHM and then perform the difference calculate (**Post-flood-chm minus Pre-flood-chm**).
+
+### BONUS (1 point): Use colorBrewer to create a color ramp
+In the lessons, I show you how to color your map by manually selecting colors.
+Use the RColorBrewer package to create a set of colors to use on your plot.
+
+* <a ref="https://www.r-bloggers.com/r-using-rcolorbrewer-to-colour-your-figures-in-r/" target="_blank"> R-Bloggers - using color brewer</a>
+* <a ref="https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf
+" target="_blank"> Color brewer documentation</a>
 
 ## Homework due: Feb 15 @ noon.
 Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox by NOON Wednesday 8
-February 2017.
+February 2017. NOTE: it is OK if you'd like to submit an html document to D2l.
+If you do, please ZIP the html file up with your .Rmd file.
 
 </div>

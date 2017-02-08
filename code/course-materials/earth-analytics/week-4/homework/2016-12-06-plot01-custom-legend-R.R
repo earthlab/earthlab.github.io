@@ -98,7 +98,7 @@ legend("bottomright",   # location of legend
       fill=roadPalette) # color palette to use to fill objects in legend.
 
 
-## ----modify-legend-plot, fig.cap="custom legend"-------------------------
+## ----modify-legend-plot, fig.cap="modified custom legend"----------------
 # adjust legend
 plot(sjer_roads,
      col=roadColors,
@@ -177,7 +177,7 @@ legend("bottomright",
        cex=.8) # adjust font size
 
 
-## ----legend-points-lines-------------------------------------------------
+## ----legend-points-lines, fig.cap="plot legend with points and lines"----
 # import points layer
 sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
                       "SJER_plot_centroids")
@@ -203,7 +203,7 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 
 
-## ----reproject-data, echo=F, warning=F, message=F------------------------
+## ----reproject-data, echo=F, warning=F, message=F, fig.cap="plot legend with points and lines and subheading."----
 
 # reproject line and point data
 sjer_roads_utm  <- spTransform(sjer_roads,
@@ -216,7 +216,7 @@ sjer_roads_utm <- crop(sjer_roads_utm, sjer_plots)
 c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
 
 
-## ----custom-legend-points-lines------------------------------------------
+## ----custom-legend-points-lines, fig.cap="final plot custom legend."-----
 
 # plot using new colors
 plot(sjer_plots,
@@ -238,7 +238,7 @@ legend("bottomright",
        bty="n", # turn off border
        cex=.9) # adjust legend font size
 
-## ----custom-legend-points-lines-2----------------------------------------
+## ----custom-legend-points-lines-2, fig.cap="Plot with points and lines customized."----
 
 # plot using new colors
 plot(sjer_plots,
@@ -261,7 +261,17 @@ legend("bottomright",
        bty="n", # turn off border
        cex=.9) # adjust legend font size
 
-## ----custom-legend-points-lines-3, echo=F--------------------------------
+## ----adjust-legend, fig.cap="plot with fixed legend"---------------------
+
+# figure out where the upper RIGHT hand corner of our plot extent is
+
+the_plot_extent <- extent(sjer_plots)
+# grab the upper right hand corner coordinates
+furthest_pt_east <- the_plot_extent@xmax
+furthest_pt_north <- the_plot_extent@ymax
+
+# set the plot rendering space parameters
+par(xpd = T, mar = par()$mar + c(0,0,0,7))
 
 # plot using new colors
 plot(sjer_plots,
@@ -276,11 +286,48 @@ plot(sjer_roads_utm,
      add=T)
 
 # add a legend to our map
-legend("bottomright",
+legend(x=furthest_pt_east, y=furthest_pt_north,
+       legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA, NA, 1, 1, 1, 1),
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+
+
+## ----reset-margin--------------------------------------------------------
+# important: remove margins - one you are done, reset the margins
+dev.off()
+
+## ----custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."----
+
+# set the plot rendering space parameters
+par(xpd = T, mar = par()$mar + c(0,0,0,7))
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend(x=(furthest_pt_east+150), y=(furthest_pt_north-10),
        legend = c(levels(sjer_plots$plot_type), "", "Road Types", levels(sjer_roads$RTTYP)),
        pch=c(8,18,8, NA, NA, NA, NA, NA, NA),  # set the symbol for each point
        lty=c(NA,NA, NA, NA, NA,1, 1, 1, 1),
        col=plot_colors, # set the color of each legend line
        bty="n", # turn off border
        cex=.9) # adjust legend font size
+
+
+
+## ----reset-margin2-------------------------------------------------------
+# important: remove margins - one you are done, reset the margins
+dev.off()
 

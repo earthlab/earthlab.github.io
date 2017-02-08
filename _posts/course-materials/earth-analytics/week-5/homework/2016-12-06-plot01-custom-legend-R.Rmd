@@ -6,14 +6,14 @@ authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
-permalink: /course-materials/earth-analytics/week-4/r-custom-legend/
+permalink: /course-materials/earth-analytics/week-5/r-custom-legend/
 nav-title: 'Create custom map legend'
 module-title: 'Custom plots in R'
 module-description: 'This tutorial covers the basics of creating custom plot legends
 in R'
 module-nav-title: 'Spatial Data: Custom plots in R'
 module-type: 'homework'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -34,10 +34,9 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson.
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -55,7 +54,6 @@ By default, `R` will import spatial object attributes as `factors`.
 read in as factors, we can convert the categorical
 attribute values using `as.factor()`.
 {: .notice}
-
 
 ```{r load-libraries }
 # load libraries
@@ -239,7 +237,7 @@ We can tweak the appearance of our legend too.
 
 Let's try it out.
 
-```{r modify-legend-plot, fig.cap="custom legend" }
+```{r modify-legend-plot, fig.cap="modified custom legend" }
 # adjust legend
 plot(sjer_roads,
      col=roadColors,
@@ -359,19 +357,19 @@ U = U.S.-->
 
 ## Adding point and lines to a legend
 
-The last step in customizing a legend is adding different types of symbols to 
+The last step in customizing a legend is adding different types of symbols to
 the plot. In the example above, we just added lines. But what if we wanted to add
 some POINTS too? We will do that next.
 
 In the data below, we've create a custom legend where each symbol type and color
-is defined using a vector. We have 3 levels: grass, soil and trees. Thus we 
-need to define 3 symbols and 3 colors for our legend and our plot. 
+is defined using a vector. We have 3 levels: grass, soil and trees. Thus we
+need to define 3 symbols and 3 colors for our legend and our plot.
 
 `pch=c(8,18,8)`
 
 `plot_colors <- c("brown", "blue", "green")`
 
-```{r legend-points-lines}
+```{r legend-points-lines, fig.cap="plot legend with points and lines"}
 # import points layer
 sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
                       "SJER_plot_centroids")
@@ -398,12 +396,12 @@ legend("bottomright",
 
 ```
 
-Next, let's try to plot our roads on top of the plot locations. Then let's create 
-a custom legend that contains both lines and points. NOTE: in this example i've 
-fixed the projection for the roads layer and cropped it! You will have to do the same before 
-this code will work. 
+Next, let's try to plot our roads on top of the plot locations. Then let's create
+a custom legend that contains both lines and points. NOTE: in this example i've
+fixed the projection for the roads layer and cropped it! You will have to do the same before
+this code will work.
 
-```{r reproject-data, echo=F, warning=F, message=F }
+```{r reproject-data, echo=F, warning=F, message=F, fig.cap="plot legend with points and lines and subheading." }
 
 # reproject line and point data
 sjer_roads_utm  <- spTransform(sjer_roads,
@@ -414,7 +412,7 @@ sjer_roads_utm <- crop(sjer_roads_utm, sjer_plots)
 ```
 
 When we create a legend, we will have to add the labels for both the points
-layer and the lines layer. 
+layer and the lines layer.
 
 `c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))`
 
@@ -424,7 +422,7 @@ c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
 ```
 
 
-```{r custom-legend-points-lines}
+```{r custom-legend-points-lines, fig.cap="final plot custom legend."}
 
 # plot using new colors
 plot(sjer_plots,
@@ -449,18 +447,18 @@ legend("bottomright",
 
 
 Next we have to tell R, which symbols are lines and which are point symbols. We
-can do that using the lty argument. We have 3 unique point symbols and 4 unique 
-line symbols. We can include a NA for each element that should not be a line in 
+can do that using the lty argument. We have 3 unique point symbols and 4 unique
+line symbols. We can include a NA for each element that should not be a line in
 the lty argument:
 
 `lty=c(NA,NA, NA, 1, 1, 1, 1)`
 
-And we include a NA value for each element that should not be a symbol in the 
+And we include a NA value for each element that should not be a symbol in the
 pch argument:
 
 pch=c(8,18,8, NA, NA, NA, NA)
 
-```{r custom-legend-points-lines-2 }
+```{r custom-legend-points-lines-2, fig.cap="Plot with points and lines customized."}
 
 # plot using new colors
 plot(sjer_plots,
@@ -484,10 +482,36 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 ```
 
-## BONUS Point! 
-What trickiness did I do below to add a space in the legend and a sub heading?
 
-```{r custom-legend-points-lines-3, echo=F }
+## Force the legend to plot outside
+
+Making your plots look just like what you want can be tricky. Play with the code
+below to see if you can make your legend plot NEXT TO rather than on top of your
+plot.
+
+The steps are
+
+* adjust the plot *PAR*amaters using par(). Setting xpd = T tells R to allow the plot the render OUTSIDE of the axes of your plot. Seting $mar sets the margins in the format c(bottom, left, top, right). The code below is telling r to add 7 units of padding on the RIGHT hand side of our plot.
+
+`par(xpd = T, mar = par()$mar + c(0,0,0,7))`
+
+
+When we plot the legend, rather than specifying `bottomright`, we specify the
+precise coordinate location where we'd like the plot to be. There are a few ways
+to do this. I'll show you one below.
+
+
+```{r adjust-legend, fig.cap="plot with fixed legend"}
+
+# figure out where the upper RIGHT hand corner of our plot extent is
+
+the_plot_extent <- extent(sjer_plots)
+# grab the upper right hand corner coordinates
+furthest_pt_east <- the_plot_extent@xmax
+furthest_pt_north <- the_plot_extent@ymax
+
+# set the plot rendering space parameters
+par(xpd = T, mar = par()$mar + c(0,0,0,7))
 
 # plot using new colors
 plot(sjer_plots,
@@ -502,11 +526,58 @@ plot(sjer_roads_utm,
      add=T)
 
 # add a legend to our map
-legend("bottomright",
+legend(x=furthest_pt_east, y=furthest_pt_north,
+       legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
+       pch=c(8,18,8, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA, NA, 1, 1, 1, 1),
+       col=plot_colors, # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9) # adjust legend font size
+
+```
+
+
+
+```{r reset-margin}
+# important: remove margins - one you are done, reset the margins
+dev.off()
+```
+
+Now, if you want to move the legend out a bit further, what would you do?
+
+## BONUS Point!
+What trickiness did I do below to add a space in the legend and a sub heading?
+
+```{r custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."}
+
+# set the plot rendering space parameters
+par(xpd = T, mar = par()$mar + c(0,0,0,7))
+
+# plot using new colors
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     main="Madera County Roads and plot locations")
+
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(plot_colors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend(x=(furthest_pt_east+150), y=(furthest_pt_north-10),
        legend = c(levels(sjer_plots$plot_type), "", "Road Types", levels(sjer_roads$RTTYP)),
        pch=c(8,18,8, NA, NA, NA, NA, NA, NA),  # set the symbol for each point
        lty=c(NA,NA, NA, NA, NA,1, 1, 1, 1),
        col=plot_colors, # set the color of each legend line
        bty="n", # turn off border
        cex=.9) # adjust legend font size
+
+
+```
+
+```{r reset-margin2}
+# important: remove margins - one you are done, reset the margins
+dev.off()
 ```
