@@ -26,7 +26,7 @@ str(precip.boulder)
 
 
 ## ----no-data-values-hist, echo=F, fig.cap="histogram of data"------------
-#plot histogram
+# plot histogram
 hist(precip.boulder$HPCP, main ="Are there NA values?")
 
 precip.boulder <- read.csv(precip_file,
