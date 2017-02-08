@@ -2,7 +2,7 @@
 layout: single
 title: "Introduction to LiDAR Data"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
-vector dataset."
+vector dataset. "
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
