@@ -3,7 +3,7 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['week4-review-r']
 permalink: /course-materials/earth-analytics/week-4/week4-review-r/
@@ -11,7 +11,7 @@ nav-title: 'Week 4 review'
 module-title: 'Review of key concepts in R'
 module-description: 'In this module, we will review some key concepts associated with both
 time series data and raster data in R. '
-module-nav-title: 'Spatial Data in R'
+module-nav-title: 'Week 4 Review R'
 module-type: 'class'
 week: 4
 sidebar:
@@ -46,7 +46,8 @@ Is there a visual change in the data over time that may not be related to change
 in precipitation?
 
 
-```{r setup }
+
+```r
 library(ggplot2)
 # bonus lesson
 precip_file <- "data/week2/precipitation/805333-precip-daily-1948-2013.csv"
@@ -63,6 +64,7 @@ precip.boulder$DATE <- as.POSIXct(precip.boulder$DATE,
 
 # double check structure
 str(precip.boulder$DATE)
+##  POSIXct[1:14476], format: "1948-08-01 01:00:00" "1948-08-02 15:00:00" ...
 
 # plot the data using ggplot2
 precPlot_hourly <- ggplot(precip.boulder, aes(DATE, HPCP)) +   # the variables of interest
@@ -71,13 +73,17 @@ precPlot_hourly <- ggplot(precip.boulder, aes(DATE, HPCP)) +   # the variables o
       ggtitle("Hourly Precipitation - Boulder Station\n 1948-2013")  # add a title
 
 precPlot_hourly
+## Warning: Removed 401 rows containing missing values (geom_point).
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review01-time-series-R/setup-1.png" title=" " alt=" " width="100%" />
 
 # interactive plotting
 
 Note - don't run this in ggplot
 
-```{r interactive-plot, warning=F, message=F, eval=F }
+
+```r
 library(plotly)
 
 ggplotly(precPlot_hourly)
@@ -87,7 +93,8 @@ ggplotly(precPlot_hourly)
 ## talk about adding arguments to code chunks
 
 
-```{r plot-ggplot}
+
+```r
 precip.boulder$HPCP_round <- round(precip.boulder$HPCP, digits = 1)
 
 # plot the data using ggplot2
@@ -97,33 +104,19 @@ precPlot_hourly_round <- ggplot(precip.boulder, aes(DATE, HPCP_round)) +   # the
       ggtitle("Hourly Precipitation - Boulder Station\n 1948-2013")  # add a title
 
 precPlot_hourly_round
-
+## Warning: Removed 401 rows containing missing values (geom_point).
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review01-time-series-R/plot-ggplot-1.png" title=" " alt=" " width="100%" />
 
 ## Time series - Dygraph
 
 
-```{r pressure, echo=FALSE, eval=F}
-# interactive time series
-library(dygraphs)
-# create time series objects (class xs)
-library(xts)
-options(stringsAsFactors = F)
 
 
-discharge_time <- read.csv("data/week2/discharge/06730200-discharge-daily-1986-2013.csv")
-
-discharge_time$datetime <- as.Date(discharge_time$datetime, format="%m/%d/%y")
-# create time series object
-discharge_timeSeries <- xts(x = discharge_time$disValue,
-                            order.by = discharge_time$datetime)
-
-# create a basic interactive element
-dygraph(discharge_timeSeries)
-```
 
 
-```{r interactive-plot-2, eval=F }
+```r
 # create a basic interactive element
 dygraph(discharge_timeSeries) %>% dyRangeSelector()
 
@@ -131,13 +124,16 @@ dygraph(discharge_timeSeries) %>% dyRangeSelector()
 
 ## Factors
 
-```{r factors}
+
+```r
 
 new_vector <- c("dog", "cat", "mouse","cat", "mouse", "cat", "mouse")
 str(new_vector)
+##  chr [1:7] "dog" "cat" "mouse" "cat" "mouse" "cat" ...
 
 new_vector <- factor(new_vector)
 str(new_vector)
+##  Factor w/ 3 levels "cat","dog","mouse": 2 1 3 1 3 1 3
 
 # set the order
 fa_levels <- c("dog", "cat", "mouse")
@@ -145,4 +141,6 @@ fa_levels <- c("dog", "cat", "mouse")
 new_vector_reordered = factor(new_vector,
            levels = fa_levels)
 new_vector_reordered
+## [1] dog   cat   mouse cat   mouse cat   mouse
+## Levels: dog cat mouse
 ```

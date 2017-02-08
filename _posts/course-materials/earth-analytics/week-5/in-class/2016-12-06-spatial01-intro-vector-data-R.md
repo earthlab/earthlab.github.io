@@ -4,17 +4,17 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R."
 authors: ['Leah Wasser']
-modified: '2017-02-06'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
+permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
 nav-title: 'Vector data in R'
 module-title: 'Compare remote sensing with in situ data in R'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
 module-type: 'class'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -49,8 +49,8 @@ of the vertices, determines the type of vector that we are working
 with: point, line or polygon.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/pnt_line_poly.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/pnt_line_poly.png" alt="points lines and polygons graphic."></a>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/pnt_line_poly.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/pnt_line_poly.png" alt="points lines and polygons graphic."></a>
     <figcaption> There are 3 types of vector objects: points, lines or
     polygons. Each object type has a different structure.
     Image Source: Colin Williams (NEON)
@@ -201,9 +201,9 @@ sjer_plot_locations
 ## extent      : 254738.6, 258497.1, 4107527, 4112168  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 5
-## names       :  Plot_ID,  Point, northing,  easting, Remarks 
-## min values  : SJER1068, center,  4107527, 254738.6,      NA 
-## max values  :  SJER952, center,  4112168, 258497.1,      NA
+## names       :  Plot_ID,  Point, northing,  easting, plot_type 
+## min values  : SJER1068, center,  4107527, 254738.6,     grass 
+## max values  :  SJER952, center,  4112168, 258497.1,     trees
 ```
 
 Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
@@ -211,8 +211,8 @@ in the CRS **UTM zone 18N**. The CRS is critical to interpreting the object
 `extent` values as it specifies units.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers.">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png"></a>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/spatial_extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers.">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/spatial_extent.png"></a>
     <figcaption>The spatial extent of a shapefile or R spatial object represents
     the geographic "edge" or location that is the furthest north, south east and
     west. Thus is represents the overall geographic coverage of the spatial object.
@@ -232,8 +232,8 @@ may have a name, length, number of lanes, speed limit, type of road and other
 attributes stored with it.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/attribute_table.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/attribute_table.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
     associated attributes that describe or characterize the feature.
     Attribute data are stored in a separate *.dbf file. "></a>
     <figcaption>Each spatial feature in an R spatial object has the same set of
@@ -253,25 +253,25 @@ We view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
 ```r
 # alternate way to view attributes
 sjer_plot_locations@data
-##     Plot_ID  Point northing  easting Remarks
-## 1  SJER1068 center  4111568 255852.4    <NA>
-## 2   SJER112 center  4111299 257407.0    <NA>
-## 3   SJER116 center  4110820 256838.8    <NA>
-## 4   SJER117 center  4108752 256176.9    <NA>
-## 5   SJER120 center  4110476 255968.4    <NA>
-## 6   SJER128 center  4111389 257078.9    <NA>
-## 7   SJER192 center  4111071 256683.4    <NA>
-## 8   SJER272 center  4112168 256717.5    <NA>
-## 9  SJER2796 center  4111534 256034.4    <NA>
-## 10 SJER3239 center  4109857 258497.1    <NA>
-## 11   SJER36 center  4110162 258277.8    <NA>
-## 12  SJER361 center  4107527 256961.8    <NA>
-## 13   SJER37 center  4107579 256148.2    <NA>
-## 14    SJER4 center  4109767 257228.3    <NA>
-## 15    SJER8 center  4110249 254738.6    <NA>
-## 16  SJER824 center  4110048 256185.6    <NA>
-## 17  SJER916 center  4109617 257460.5    <NA>
-## 18  SJER952 center  4110759 255871.2    <NA>
+##     Plot_ID  Point northing  easting plot_type
+## 1  SJER1068 center  4111568 255852.4     trees
+## 2   SJER112 center  4111299 257407.0     trees
+## 3   SJER116 center  4110820 256838.8     grass
+## 4   SJER117 center  4108752 256176.9     trees
+## 5   SJER120 center  4110476 255968.4     grass
+## 6   SJER128 center  4111389 257078.9     trees
+## 7   SJER192 center  4111071 256683.4     grass
+## 8   SJER272 center  4112168 256717.5     trees
+## 9  SJER2796 center  4111534 256034.4      soil
+## 10 SJER3239 center  4109857 258497.1      soil
+## 11   SJER36 center  4110162 258277.8     trees
+## 12  SJER361 center  4107527 256961.8     grass
+## 13   SJER37 center  4107579 256148.2     trees
+## 14    SJER4 center  4109767 257228.3     trees
+## 15    SJER8 center  4110249 254738.6     trees
+## 16  SJER824 center  4110048 256185.6      soil
+## 17  SJER916 center  4109617 257460.5      soil
+## 18  SJER952 center  4110759 255871.2     grass
 ```
 
 In this case, our polygon object only has one attribute: `id`.
@@ -305,7 +305,7 @@ summary(sjer_plot_locations)
 ##                                        Mean   :4110258   Mean   :256674  
 ##                                        3rd Qu.:4111242   3rd Qu.:257191  
 ##                                        Max.   :4112168   Max.   :258497  
-##    Remarks         
+##   plot_type        
 ##  Length:18         
 ##  Class :character  
 ##  Mode  :character  
@@ -329,7 +329,7 @@ plot(sjer_plot_locations, col="blue",
      main="SJER Plot Locations\nMadera County, CA")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -373,7 +373,7 @@ plot(sjer_plot_locations,
   col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">

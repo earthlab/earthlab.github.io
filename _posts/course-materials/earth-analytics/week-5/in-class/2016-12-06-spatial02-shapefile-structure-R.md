@@ -6,9 +6,9 @@ authors: ['Leah Wasser']
 modified: '2017-02-06'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-4/shapefile-structure/
+permalink: /course-materials/earth-analytics/week-5/shapefile-structure/
 nav-title: 'Shapefile structure'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -28,10 +28,10 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson.
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-If you have not already downloaded the week 4 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+
 
 </div>
 
@@ -42,7 +42,6 @@ While text files often are self contained (one CSV) is composed of one unique fi
 many spatial formats are composed of several files. A shapefile is created by
 3 or more files, all of which must retain the same NAME and be
 stored in the same file directory, in order for you to be able to work with them.
-
 
 ### Shapefile Structure
 
