@@ -3,12 +3,12 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-02-06'
+modified: '2017-02-07'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-4/reproject-vector-data/
+permalink: /course-materials/earth-analytics/week-5/reproject-vector-data/
 nav-title: 'Reproject vector data'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -32,7 +32,7 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -52,8 +52,8 @@ For instance, many states prefer to use a **State Plane** projection customized
 for that state.
 
 <figure>
-    <a href="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg">
-    <img src="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg">
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States using data in different projections.">
     </a>
 
     <figcaption>Maps of the United States using data in different projections.
@@ -94,7 +94,7 @@ There are many good sources of boundary base layers that we can use to create a
 basemap. Some `R` packages even have these base layers built in to support quick
 and efficient mapping. In this tutorial, we will use boundary layers for the
 United States, provided by the
-<a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html" target="_blank"> United States Census Bureau.</a>
+<a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html" target="_blank" data-proofer-ignore=''> United States Census Bureau.</a>
 
 It is useful to have shapefiles to work with because we can add additional
 attributes to them if need be - for project specific mapping.
@@ -141,7 +141,7 @@ plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/find-coordinates-1.png" title="Plot of the continental united states." alt="Plot of the continental united states." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/find-coordinates-1.png" title="Plot of the continental united states." alt="Plot of the continental united states." width="100%" />
 
 ## U.S. Boundary Layer
 
@@ -182,7 +182,7 @@ plot(country_boundary_us,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="100%" />
 
 Next, let's add the location of our study area sites.
 As we are adding these layers, take note of the class of each object. We will use
@@ -209,7 +209,7 @@ plot(sjer_aoi,
      main="San Joachin Experimental Range AOI")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/explore-units-1.png" title="plot aoi" alt="plot aoi" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/explore-units-1.png" title="plot aoi" alt="plot aoi" width="100%" />
 
 Our SJER AOI layer plots nicely. Let's next add it as a layer on top of the U.S. states and boundary
 layers in our basemap plot.
@@ -234,7 +234,7 @@ plot(sjer_aoi,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/layer-point-on-states-1.png" title="plot states" alt="plot states" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/layer-point-on-states-1.png" title="plot states" alt="plot states" width="100%" />
 
 What do you notice about the resultant plot? Do you see the AOI boundary in the California area? Is something wrong?
 
@@ -420,7 +420,7 @@ plot(sjer_aoi_WGS84,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/plot-again-1.png" title="US Map with SJER AOI Location" alt="US Map with SJER AOI Location" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/plot-again-1.png" title="US Map with SJER AOI Location" alt="US Map with SJER AOI Location" width="100%" />
 
 But now, the aoi is a polygon and it's too small to see on the map. Let's convert
 the polygon to a polygon CENTROID and plot yet again.
@@ -445,7 +445,7 @@ plot(country_boundary_us,
 points(aoi_centroid, pch=8, col="magenta", cex=1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/plot-centroid-1.png" title="figure out AOI polygon centroid." alt="figure out AOI polygon centroid." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/plot-centroid-1.png" title="figure out AOI polygon centroid." alt="figure out AOI polygon centroid." width="100%" />
 
 Reprojecting our data ensured that things line up on our map! It will also
 allow us to perform any required geoprocessing (spatial calculations /
@@ -453,22 +453,27 @@ transformations) on our data.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework plot 1: Crop, Reproject, Plot data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework plot 1: crop, reproject, plot data
 
 Create a map of our SJER study area as follows:
 
-1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
+1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download.
 2. Create a map that shows the roads layer, study site locations and the sjer_aoi boundary.
 3. Add a **title** to your plot.
 4. Add a **legend** to your plot that shows both the roads and the plot locations.
-5. Plot the roads by road type and add each type to the legend. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
+5. Plot the roads by road type and add each type to the legend. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-5/r-custom-legend/) to help build the legend.
+6. BONUS: Plot the plots by type - adjust the symbology of the plot locations (choose a symbol using pch for each type and adjust the color of the points).
+7. Do your best to make the map look nice!
 
 IMPORTANT: be sure that all of the data are within the same EXTENT and crs of the sjer_aoi
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
+Your map should look something like the map below. You should ofcourse use the
+actual roads types that you find in the metadata rather than "Road type 1, etc"
+
 </div>
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial04-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
 
 
 ```

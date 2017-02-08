@@ -7,14 +7,14 @@ authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
+permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
 nav-title: 'Vector data in R'
 module-title: 'Compare remote sensing with in situ data in R'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
 module-type: 'class'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -49,8 +49,8 @@ of the vertices, determines the type of vector that we are working
 with: point, line or polygon.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/pnt_line_poly.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/pnt_line_poly.png" alt="points lines and polygons graphic."></a>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/pnt_line_poly.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/pnt_line_poly.png" alt="points lines and polygons graphic."></a>
     <figcaption> There are 3 types of vector objects: points, lines or
     polygons. Each object type has a different structure.
     Image Source: Colin Williams (NEON)
@@ -185,8 +185,8 @@ in the CRS **UTM zone 18N**. The CRS is critical to interpreting the object
 `extent` values as it specifies units.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers.">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png"></a>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/spatial_extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers.">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/spatial_extent.png"></a>
     <figcaption>The spatial extent of a shapefile or R spatial object represents
     the geographic "edge" or location that is the furthest north, south east and
     west. Thus is represents the overall geographic coverage of the spatial object.
@@ -206,8 +206,8 @@ may have a name, length, number of lanes, speed limit, type of road and other
 attributes stored with it.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/attribute_table.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/attribute_table.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
     associated attributes that describe or characterize the feature.
     Attribute data are stored in a separate *.dbf file. "></a>
     <figcaption>Each spatial feature in an R spatial object has the same set of

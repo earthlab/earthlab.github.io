@@ -84,7 +84,7 @@ model (DEM), also known as a digital terrain model (DTM) represents the elevatio
 of the earth surfacel. The DEM represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
 
-```{r load-libraries }
+```{r load-libraries,  message=F, warning=F }
 # load libraries
 library(raster)
 library(rgdal)
@@ -223,10 +223,10 @@ Colorado floods.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge - calculate changes in terrain
 
-* Subtract the post-flood DEM from the pre-flood DEM. Do you see any differences in
+* Subtract the pre-flood DEM from the post-flood DEM. Do you see any differences in
 elevation before the after?
 * Create a CHM for both pre-flood and post-flood by subtracting the DEM from the DTM for each year.
-* Next create a CHM DIFFERENCE raster by subtracting the post-flood CHM from the pre-flood CHM.
+* Next create a CHM DIFFERENCE raster by subtracting the pre-flood CHM from the post-flood CHM.
 * Plot a histogram of the CHM DIFFERENCE.
 * Export the files as geotiff's to your output directory. Then, open them in QGIS. Explore the differences.
 
