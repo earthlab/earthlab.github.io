@@ -40,9 +40,9 @@ We can break our data analysis workflow into several steps as follows:
 * **Data Exploration:** understand the range and distribution of values in your data. This may involve plotting histograms scatter plots, etc
 * **More Data Processing & Analysis:** This may include the final data processing steps that you determined based upon the data exploration phase.
 * **Final data analysis:** The final steps of your analysis - often performed using information gathered in the early data processing / exploration stages of your workflow.
-* **Presentation:** Refining your results into a final plot or set of plots that are cleaned up, labeled, etc. 
+* **Presentation:** Refining your results into a final plot or set of plots that are cleaned up, labeled, etc.
 
-Please note - working with data is not a linear process. There are no defined 
+Please note - working with data is not a linear process. There are no defined
 steps. As you work with data more, you will develop your own workflow and approach.
 
 
@@ -55,10 +55,10 @@ library(rgdal)
 setwd("~/Documents/earth-analytics")
 ```
 
-Note: try mapview() is a function that allows you to create interactive maps of 
-spatial data using leaflet as a base. 
+Note: try mapview() is a function that allows you to create interactive maps of
+spatial data using leaflet as a base.
 
-https://cran.r-project.org/web/packages/mapview/index.html 
+https://cran.r-project.org/web/packages/mapview/index.html
 
 
 ```r
@@ -87,7 +87,7 @@ dtm_diff_uncropped <- post_dtm - pre_dtm
 plot(dtm_diff_uncropped)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/diff-data-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/diff-data-1.png" title="difference between pre and post flood dtm." alt="difference between pre and post flood dtm." width="100%" />
 
 Next, crop the data.
 
@@ -159,12 +159,13 @@ histinfo
 ## [25]       0       0       1
 ## 
 ## $density
-##  [1] 2.148997e-06 3.008596e-06 9.312321e-06 1.217765e-05 2.736390e-05
-##  [6] 4.383954e-05 1.418338e-04 3.289398e-04 1.279943e-03 5.654298e-03
-## [11] 4.843549e-01 5.046365e-01 2.713324e-03 4.485673e-04 1.265043e-04
-## [16] 8.853868e-05 7.507163e-05 2.464183e-05 9.025788e-06 1.590258e-05
-## [21] 3.295129e-06 2.865330e-07 2.865330e-07 1.432665e-07 0.000000e+00
-## [26] 0.000000e+00 1.432665e-07
+##  [1] 0.0000021489971 0.0000030085960 0.0000093123209 0.0000121776504
+##  [5] 0.0000273638968 0.0000438395415 0.0001418338109 0.0003289398281
+##  [9] 0.0012799426934 0.0056542979943 0.4843548710602 0.5046365329513
+## [13] 0.0027133237822 0.0004485673352 0.0001265042980 0.0000885386819
+## [17] 0.0000750716332 0.0000246418338 0.0000090257880 0.0000159025788
+## [21] 0.0000032951289 0.0000002865330 0.0000002865330 0.0000001432665
+## [25] 0.0000000000000 0.0000000000000 0.0000001432665
 ## 
 ## $mids
 ##  [1] -10.5  -9.5  -8.5  -7.5  -6.5  -5.5  -4.5  -3.5  -2.5  -1.5  -0.5
