@@ -148,15 +148,14 @@ Learn more about OGR.</a>
 
 ## Shapefile Metadata & Attributes
 
-When we import the `HarClip_UTMZ18` shapefile layer into `R` (as our
-`sjer_crop_extent` object), the `readOGR()` function automatically stores
+When we import the `SJER_plot_centroids` shapefile layer into `R` the `readOGR()` function automatically stores
 information about the data. We are particularly interested in the geospatial
 **metadata**, describing the format, `CRS`, `extent`, and other components of
 the vector data, and the **attributes** which describe properties associated
 with each individual vector object.
 
  <i class="fa fa-star"></i> **Data Tip:** The
- [Shapefile Metadata & Attributes in R]({{site.baseurl}}/R/shapefile-attributes-in-R/)
+ [Shapefile Metadata & Attributes in R](http://www.neondataskills.org/R/shapefile-attributes-in-R/)
 tutorial provides more information on both metadata and attributes
 and using attributes to subset and plot data.
 {: .notice}
