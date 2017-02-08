@@ -2,18 +2,19 @@
 layout: single
 title: "GIS in R: intro to vector format spatial data - points, lines and polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
-shapefile format in R."
+shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-02-07'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
+permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
 nav-title: 'Vector data in R'
-module-title: 'Spatial data in R - compare remote sensing with in situ data in R'
-module-description: 'This tutorial covers the basics principles of working with raster and vector format data in R / R Studio. The culmination of this week is to compare lidar derived estimates of vegetation height to human-made measurements of tree height. To do this you will need to use raster and vector data together in R. You will then compare measurements stored in a tabular format to values extracted from lidar derived rasters.'
+module-title: 'Compare remote sensing with in situ data in R'
+module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
+the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
 module-type: 'class'
-week: 4
+week: 5
 sidebar:
   nav:
 author_profile: false
@@ -29,30 +30,27 @@ order: 1
 
 After completing this tutorial, you will be able to:
 
-* Be able to list and describe the attributes of 3 types of vector data: point, lines and polygons.
-* Be able to open a shapefile in R using the `readOGR()` function.
-* Be able to access the `crs` of a vector dataset in R.
-* Be able to view the attributes for a shapefile layer imported into R.
-* Plot one or  more vector objects in `R` using `plot()`.
+* List and briefly describe the 3 core components of a lidar remote sensing system.
+* Describe what a lidar system measures.
+* Define an active remote sensing system.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
 ## About Vector Data
-
 Vector data are composed of discrete geometric locations (x,y values) known as
 **vertices** that define the "shape" of the spatial object. The organization
 of the vertices, determines the type of vector that we are working
 with: point, line or polygon.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/pnt_line_poly.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/pnt_line_poly.png" alt="points lines and polygons graphic."></a>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/pnt_line_poly.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/pnt_line_poly.png" alt="points lines and polygons graphic."></a>
     <figcaption> There are 3 types of vector objects: points, lines or
     polygons. Each object type has a different structure.
     Image Source: Colin Williams (NEON)
@@ -95,8 +93,7 @@ information about each stream line object.
 ## Import Shapefiles
 
 We will use the `rgdal` package to work with vector data in `R`. Notice that the
-`sp` package automatically loads when `rgdal` is loaded. The <a href="https://cran.r-project.org/web/packages/sp/index.html" target="_blank">`sp` or spatial package
-in R</a>, supports lots of different types of spatial classes and objects. We will also load the
+`sp` package automatically loads when `rgdal` is loaded. We will also load the
 `raster` package so we can explore raster and vector spatial metadata using similar commands.
 
 
@@ -112,11 +109,15 @@ library(raster)
 
 The shapefiles that we will import are:
 
-* A polygon shapefile representing our California field site boundary,
+* A polygon shapefile representing our field site boundary,
 * A line shapefile representing roads, and
-* A point shapefile representing the field plots were vegetation was measured.
+* A point shapefile representing the location of the Fisher
+<a href="http://www.neonscience.org/science-design/collection-methods/flux-tower-measurements" target="_blank">flux tower</a>
+located at the
+<a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> San Joachin field site</a>.
 
-The first shapefile that we will open contains the study plot locations. To import
+The first shapefile that we will open contains the boundary of our study area
+(or our Area Of Interest or AOI, hence the name `aoiBoundary`). To import
 shapefiles we use the `R` function `readOGR()`.
 
 `readOGR()` requires two components:
@@ -124,17 +125,17 @@ shapefiles we use the `R` function `readOGR()`.
 1. The directory where our shapefile lives: `data/week4/D17-California/SJER/vector_data/`
 2. The name of the shapefile (without the extension): `SJER_plot_centroids`
 
-Let's import our field plot locations.
+Let's import our AOI.
 
 
 ```r
-# Import a point shapefile: readOGR("path", "fileName")
+# Import a polygon shapefile: readOGR("path","fileName")
 # no extension needed as readOGR only imports shapefiles
 
-sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data",
+sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
                       layer="SJER_plot_centroids")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/california/SJER/vector_data", layer: "SJER_plot_centroids"
+## Source: "data/week4/california/SJER/vector_data/", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 ```
@@ -147,13 +148,17 @@ Learn more about OGR.</a>
 
 ## Shapefile Metadata & Attributes
 
-When we import the `SJER_plot_centroids` shapefile layer into `R` (as our
-`sjer_crop_extent` object), the `readOGR()` function automatically stores
+When we import the `SJER_plot_centroids` shapefile layer into `R` the `readOGR()` function automatically stores
 information about the data. We are particularly interested in the geospatial
 **metadata**, describing the format, `CRS`, `extent`, and other components of
 the vector data, and the **attributes** which describe properties associated
 with each individual vector object.
 
+ <i class="fa fa-star"></i> **Data Tip:** The
+ [Shapefile Metadata & Attributes in R](http://www.neondataskills.org/R/shapefile-attributes-in-R/)
+tutorial provides more information on both metadata and attributes
+and using attributes to subset and plot data.
+{: .notice}
 
 ## Spatial Metadata
 Key metadata for all shapefiles include:
@@ -201,12 +206,12 @@ sjer_plot_locations
 ```
 
 Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
-in the CRS **UTM zone 11N**. The CRS is critical to interpreting the object
+in the CRS **UTM zone 18N**. The CRS is critical to interpreting the object
 `extent` values as it specifies units.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/spatial_extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers."></a>
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/spatial_extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers."></a>
     <figcaption>The spatial extent of a shapefile or R spatial object represents
     the geographic "edge" or location that is the furthest north, south east and
     west. Thus is represents the overall geographic coverage of the spatial object.
@@ -226,8 +231,8 @@ may have a name, length, number of lanes, speed limit, type of road and other
 attributes stored with it.
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-4/attribute_table.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
+    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/attribute_table.png">
+    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/attribute_table.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
     associated attributes that describe or characterize the feature.
     Attribute data are stored in a separate *.dbf file. "></a>
     <figcaption>Each spatial feature in an R spatial object has the same set of
@@ -245,7 +250,7 @@ We view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
 
 
 ```r
-# view attributes
+# alternate way to view attributes
 sjer_plot_locations@data
 ##     Plot_ID  Point northing  easting plot_type
 ## 1  SJER1068 center  4111568 255852.4     trees
@@ -268,29 +273,7 @@ sjer_plot_locations@data
 ## 18  SJER952 center  4110759 255871.2     grass
 ```
 
-We the @data called the attributes of our shapefile. What format are these
-attributes stored in?
-
-```r
-# view structure of attributes
-str(sjer_plot_locations@data)
-## 'data.frame':	18 obs. of  5 variables:
-##  $ Plot_ID  : chr  "SJER1068" "SJER112" "SJER116" "SJER117" ...
-##  $ Point    : chr  "center" "center" "center" "center" ...
-##  $ northing : num  4111568 4111299 4110820 4108752 4110476 ...
-##  $ easting  : num  255852 257407 256839 256177 255968 ...
-##  $ plot_type: chr  "trees" "trees" "grass" "trees" ...
-
-# view attribute
-sjer_plot_locations$plot_type
-##  [1] "trees" "trees" "grass" "trees" "grass" "trees" "grass" "trees"
-##  [9] "soil"  "soil"  "trees" "grass" "trees" "trees" "trees" "soil" 
-## [17] "soil"  "grass"
-```
-
-The attribute data for our shapefile are stored as a data.frame! We've worked
-with data.frames in the past few weeks. You can access individual attribute values in the
-same way you access them when working with time series data using the `$` sign.
+In this case, our polygon object only has one attribute: `id`.
 
 ## Metadata & Attribute Summary
 We can view a metadata & attribute summary of each shapefile by entering
@@ -345,7 +328,7 @@ plot(sjer_plot_locations, col="blue",
      main="SJER Plot Locations\nMadera County, CA")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -379,7 +362,7 @@ on top of each other in your plot.
 ```r
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
-     main="SJER Field Site Plot Locations - California")
+     main="NEON Harvard Forest\nField Site")
 plot(sjer_roads, add = TRUE)
 
 # Use the pch element to adjust the symbology of the points
@@ -389,26 +372,29 @@ plot(sjer_plot_locations,
   col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Import & plot roads shapefile
 
-* Import the `/data/week4/california/madera-county-roads/tl_2010_05143_roads.shp` shapefile in `R`. Plot the roads layer.
-* Next, plot the roads layer on top of the SJER crop extent layer. What happens?
+Import the madera-county-roads layer. Plot the roads.
+
+Next, try to plot the roads on top of the
+SJER crop extent. What happens?
+
 * Check the CRS of both layers. What do you notice?
 
 </div>
 
 <div class="notice--info" markdown="1">
 
-## Additional resources: Spatial plots in R
+## Additional resources: Plot Parameter Options
 For more on parameter options in the base `R` `plot()` function, check out these
 resources:
 
 * <a href="http://www.statmethods.net/advgraphs/parameters.html" target="_blank">Parameter methods in `R`.</a>
 * <a href="https://codeyarns.files.wordpress.com/2011/07/20110729-vim-named-colors.png?w=700" target="_blank">Color names in `R`</a>
-* <a href="http://www.neondataskills.org/R/shapefile-attributes-in-R/" target="_blank">Shapefile Metadata & Attributes in R</a>
+
 </div>
