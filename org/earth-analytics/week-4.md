@@ -78,7 +78,8 @@ Create a map of our SJER study area as follows:
 IMPORTANT: be sure that all of the data are within the same `EXTENT` and `crs` of the `sjer_aoi`
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
-**BONUS!!!:** Plot the vegetation plots by type - adjust the symbology of the plot locations (choose a symbol using `pch` for each type and adjust the color of the points). Make sure your legend matches the colors and symbols in your plot! Also make sure your plot plots OUTSIDE of the plot extent (not on top of the map itself).
+**BONUS!!!:** Plot the vegetation plots by type - adjust the symbology of the plot locations (choose a symbol using `pch` for each type and adjust the color of the points). Make sure your legend matches the colors and symbols in your plot! Also make sure your plot renders OUTSIDE of the plot extent (not on top of the map itself). Finally - see if you can figure out how to add a space in between the symbols for road types and plots types to your legend - similar
+to the plot on the bottom of the (custom legend lesson)[https://earthlab.github.io/course-materials/earth-analytics/week-4/r-custom-legend/].
 
 ### Plot 2: Field site locations
 
