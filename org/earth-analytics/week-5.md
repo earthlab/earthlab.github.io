@@ -1,7 +1,7 @@
 ---
 layout: single
 category: course-materials
-title: "Week 5"
+title: "Week 4 "
 permalink: /course-materials/earth-analytics/week-4/
 week-landing: 4
 week: 4
@@ -31,8 +31,7 @@ like coordinate reference systems and varying data structures.
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 pm  | Review r studio / r markdown / questions  | Leah  |
-| 3:20 - 4:00  | Open Topography / lidar data   | Chris Crosby, UNAVCO / Open Topography  |
+| 3:00 pm  |   | Leah  |
 | 4:15 - 5:50  | R coding session - Use lidar to characterize vegetation / uncertainty | Leah  |
 
 ### 1. Readings
