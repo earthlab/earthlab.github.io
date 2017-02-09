@@ -544,10 +544,9 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
 
 
 
-```{r reset-margin, message=F, warning=F}
+```{r reset-margin, message=F, warning=F, eval=F}
 # important: remove margins - one you are done, reset the margins
 dev.off()
-
 
 ```
 
@@ -567,7 +566,7 @@ plot(sjer_plots,
      pch=8,
      main="Madera County Roads and plot locations")
 
-plot(sjer_aoi, 
+plot(sjer_aoi,
      add=T,
      border="grey")
 # plot using new colors
