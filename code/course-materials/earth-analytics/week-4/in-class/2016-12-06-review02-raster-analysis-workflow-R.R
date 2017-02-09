@@ -2,9 +2,11 @@
 # load libraries
 library(raster)
 library(rgdal)
+library(ggplot2)
 
 # set working directory
 setwd("~/Documents/earth-analytics")
+options(stringsAsFactors = F)
 
 ## ----load-data-----------------------------------------------------------
 # load data
@@ -72,7 +74,7 @@ hist(dtm_diff,
 ## ----plot-histogram-breaks2, fig.cap="histogram w custom breaks"---------
 # We may want to explore breaks in our histogram before plotting our data
 hist(dtm_diff,
-     breaks=c(-20, -10, -3, -.5, .5, 3, 10, 50),
+     breaks=c(-20, -10, -3, -.3, .3, 3, 10, 50),
      main="Histogram with custom breaks",
      xlab="Height (m)",
      col="springgreen")
@@ -81,7 +83,7 @@ hist(dtm_diff,
 ## ----plot-data, fig.cap="Plot difference dtm."---------------------------
 # plot dtm difference with breaks
 plot(dtm_diff,
-     breaks=c(-20, -10, -3, -1, 1, 3, 10, 50),
+     breaks=c(-20, -10, -3, -.3, .3, 3, 10, 50),
      col=terrain.colors(7))
 
 ## ----set-colors----------------------------------------------------------
@@ -91,11 +93,11 @@ length(c(-20,-10,-3,-1, 1, 3, 10, 50))
 
 ## ----plot-with-unique-colors, fig.cap="Plot difference dtm with custom colors."----
 # create a vector of colors - one for each "bin" of raster cells
-new_colors <- c("palevioletred4", "palevioletred2", "palevioletred1", "ivory1",
-                "seagreen1","seagreen2","seagreen4")
+new_colors <- c("palevioletred4", "palevioletred1", "ivory1",
+                "seagreen1","seagreen4")
 
 plot(dtm_diff,
-     breaks=c(-20, -10, -3, -.5, .5, 3, 10, 50),
+     breaks=c(-20, -3, -.3, .3, 3, 50),
      col=new_colors,
      legend=F,
      main="Plot of DTM differences\n custom colors")
@@ -104,9 +106,8 @@ plot(dtm_diff,
 par(xpd=T)
 # add the legend to the plot
 legend(x=dtm_diff@extent@xmax, y=dtm_diff@extent@ymax, # legend location
-       legend=c("-20 to -10", "-10 to -3",
-                "-3 to -.5", "-.5 to .5",
-                ".5 to 3", "3 to 10", "10 to 50"),
+       legend=c("-20 to -3", "-3 to -.3",
+                "-.3 to .3", ".3 to 3", "3 to 50"),
        fill=new_colors,
        bty="n",
        cex=.7)
@@ -122,7 +123,7 @@ dtm_diff_crop <- crop(dtm_diff, new_extent)
 
 # Plot the cropped raster
 plot(dtm_diff_crop,
-     breaks=c(-20, -10, -3, -1, 1, 3, 10, 50),
+     breaks=c(-20, -3, -.3, .3, 3, 50),
      col=new_colors,
      legend=F,
      main="Lidar DTM Difference \n cropped subset")
@@ -132,9 +133,9 @@ legendx <- dtm_diff_crop@extent@xmax
 legendy <- dtm_diff_crop@extent@ymax
 
 par(xpd=TRUE)
-legend(legendx+100, legendy,
-       legend=c("-20 to -10", "-10 to -3",
-                "-1 to 1", "1 to 3", "3 to 10", "10 to 50"),
+legend(legendx, legendy,
+       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                ".3 to 3", "3 to 50"),
        fill=new_colors,
        bty="n",
        cex=.8)
@@ -144,15 +145,12 @@ dev.off()
 
 ## ----classify-data-------------------------------------------------------
 
-# -20,-10,-3,-1, 1, 3, 10, 50
 # create reclass vector
-reclass_vector <- c(-20,-10, -3,
-                    -10,-3, -2,
+reclass_vector <- c(-20,-3, -2,
                     -3, -.5, -1,
                     -.5, .5, 0,
                     .5, 3, 1,
-                    3, 10, 2,
-                    10, 50, 3)
+                    3, 50, 2)
 
 reclass_matrix <- matrix(reclass_vector,
                          ncol=3,
@@ -170,8 +168,8 @@ plot(diff_dtm_rcl,
      legend=F)
 par(xpd=T)
 legend(dtm_diff@extent@xmax, dtm_diff@extent@ymax,
-       legend=c("-20 to -10", "-10 to -3", "-3 to -.5",
-                "-.5 to .5", "1 to 3", "3 to 10", "10 to 50"),
+       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                ".3 to 3", "3 to 50"), # legend labels
        fill=new_colors,
        bty="n",
        cex=.8)
@@ -181,6 +179,44 @@ hist(diff_dtm_rcl,
      main="Histogram of reclassified data",
      xlab="Height Class")
 
+
+## ----histogram-of-diff-rcl2, fig.cap="histogram of differences with braks"----
+hist(diff_dtm_rcl,
+     main="Histogram of reclassified data",
+     xlab="Height Class",
+     col=my_color,
+     breaks=c(-2.1,-1.1,-.1,.9,1.9,2.9))
+
+histinfo <- hist(diff_dtm_rcl,
+     main="Histogram of reclassified data",
+     xlab="Height Class",
+     col=my_color,
+     breaks=c(-2.1,-1.1,-.1,.9,1.9,2.9))
+histinfo$counts
+
+## ----create-barplot, fig.cap="bar plot"----------------------------------
+# create dataframe
+final_counts <- data.frame(counts=histinfo$counts,
+                           classes=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                ".3 to 3", "3 to 50"))
+str(final_counts)
+
+# plot final plot using ggplot!
+
+ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
+    geom_bar(stat="identity", fill=my_color)
+
+## ----create-barplot2, fig.cap="bar plot"---------------------------------
+# create dataframe
+final_counts$classes <- factor(final_counts$classes,
+                               levels=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                ".3 to 3", "3 to 50"))
+
+# plot final plot using ggplot!
+ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
+    geom_bar(stat="identity", fill=my_color) +
+  ggtitle("Final bar plot with the correct order") +
+  xlab("Classes")
 
 ## ----reclass, fig.cap="histogram of final cleaned data"------------------
 # create a new raster object
