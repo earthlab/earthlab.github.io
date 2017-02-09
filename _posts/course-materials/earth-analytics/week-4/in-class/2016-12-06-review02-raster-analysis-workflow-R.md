@@ -50,9 +50,11 @@ steps. As you work with data more, you will develop your own workflow and approa
 # load libraries
 library(raster)
 library(rgdal)
+library(ggplot2)
 
 # set working directory
 setwd("~/Documents/earth-analytics")
+options(stringsAsFactors = F)
 ```
 
 Note: try mapview() is a function that allows you to create interactive maps of
@@ -159,13 +161,12 @@ histinfo
 ## [25]       0       0       1
 ## 
 ## $density
-##  [1] 0.0000021489971 0.0000030085960 0.0000093123209 0.0000121776504
-##  [5] 0.0000273638968 0.0000438395415 0.0001418338109 0.0003289398281
-##  [9] 0.0012799426934 0.0056542979943 0.4843548710602 0.5046365329513
-## [13] 0.0027133237822 0.0004485673352 0.0001265042980 0.0000885386819
-## [17] 0.0000750716332 0.0000246418338 0.0000090257880 0.0000159025788
-## [21] 0.0000032951289 0.0000002865330 0.0000002865330 0.0000001432665
-## [25] 0.0000000000000 0.0000000000000 0.0000001432665
+##  [1] 2.148997e-06 3.008596e-06 9.312321e-06 1.217765e-05 2.736390e-05
+##  [6] 4.383954e-05 1.418338e-04 3.289398e-04 1.279943e-03 5.654298e-03
+## [11] 4.843549e-01 5.046365e-01 2.713324e-03 4.485673e-04 1.265043e-04
+## [16] 8.853868e-05 7.507163e-05 2.464183e-05 9.025788e-06 1.590258e-05
+## [21] 3.295129e-06 2.865330e-07 2.865330e-07 1.432665e-07 0.000000e+00
+## [26] 0.000000e+00 1.432665e-07
 ## 
 ## $mids
 ##  [1] -10.5  -9.5  -8.5  -7.5  -6.5  -5.5  -4.5  -3.5  -2.5  -1.5  -0.5
@@ -227,7 +228,7 @@ argument a vector of numbers that represent the range for each bin in our histog
 ```r
 # We may want to explore breaks in our histogram before plotting our data
 hist(dtm_diff,
-     breaks=c(-20, -10, -3, -.5, .5, 3, 10, 50),
+     breaks=c(-20, -10, -3, -.3, .3, 3, 10, 50),
      main="Histogram with custom breaks",
      xlab="Height (m)",
      col="springgreen")
@@ -243,7 +244,7 @@ So let's consider that when we select the colors for our plot.
 ```r
 # plot dtm difference with breaks
 plot(dtm_diff,
-     breaks=c(-20, -10, -3, -1, 1, 3, 10, 50),
+     breaks=c(-20, -10, -3, -.3, .3, 3, 10, 50),
      col=terrain.colors(7))
 ```
 
@@ -271,11 +272,11 @@ above we have 8 numbers in our breaks vector. this translates to 7 bins each or 
 
 ```r
 # create a vector of colors - one for each "bin" of raster cells
-new_colors <- c("palevioletred4", "palevioletred2", "palevioletred1", "ivory1",
-                "seagreen1","seagreen2","seagreen4")
+new_colors <- c("palevioletred4", "palevioletred1", "ivory1",
+                "seagreen1","seagreen4")
 
 plot(dtm_diff,
-     breaks=c(-20, -10, -3, -.5, .5, 3, 10, 50),
+     breaks=c(-20, -3, -.3, .3, 3, 50),
      col=new_colors,
      legend=F,
      main="Plot of DTM differences\n custom colors")
@@ -284,9 +285,8 @@ plot(dtm_diff,
 par(xpd=T)
 # add the legend to the plot
 legend(x=dtm_diff@extent@xmax, y=dtm_diff@extent@ymax, # legend location
-       legend=c("-20 to -10", "-10 to -3",
-                "-3 to -.5", "-.5 to .5",
-                ".5 to 3", "3 to 10", "10 to 50"),
+       legend=c("-20 to -3", "-3 to -.3",
+                "-.3 to .3", ".3 to 3", "3 to 50"),
        fill=new_colors,
        bty="n",
        cex=.7)
@@ -315,7 +315,7 @@ dtm_diff_crop <- crop(dtm_diff, new_extent)
 
 # Plot the cropped raster
 plot(dtm_diff_crop,
-     breaks=c(-20, -10, -3, -1, 1, 3, 10, 50),
+     breaks=c(-20, -3, -.3, .3, 3, 50),
      col=new_colors,
      legend=F,
      main="Lidar DTM Difference \n cropped subset")
@@ -325,9 +325,9 @@ legendx <- dtm_diff_crop@extent@xmax
 legendy <- dtm_diff_crop@extent@ymax
 
 par(xpd=TRUE)
-legend(legendx+100, legendy,
-       legend=c("-20 to -10", "-10 to -3",
-                "-1 to 1", "1 to 3", "3 to 10", "10 to 50"),
+legend(legendx, legendy,
+       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                ".3 to 3", "3 to 50"),
        fill=new_colors,
        bty="n",
        cex=.8)
@@ -350,29 +350,24 @@ to classify the data.
 
 ```r
 
-# -20,-10,-3,-1, 1, 3, 10, 50
 # create reclass vector
-reclass_vector <- c(-20,-10, -3,
-                    -10,-3, -2,
+reclass_vector <- c(-20,-3, -2,
                     -3, -.5, -1,
                     -.5, .5, 0,
                     .5, 3, 1,
-                    3, 10, 2,
-                    10, 50, 3)
+                    3, 50, 2)
 
 reclass_matrix <- matrix(reclass_vector,
                          ncol=3,
                          byrow = T)
 
 reclass_matrix
-##       [,1]  [,2] [,3]
-## [1,] -20.0 -10.0   -3
-## [2,] -10.0  -3.0   -2
-## [3,]  -3.0  -0.5   -1
-## [4,]  -0.5   0.5    0
-## [5,]   0.5   3.0    1
-## [6,]   3.0  10.0    2
-## [7,]  10.0  50.0    3
+##       [,1] [,2] [,3]
+## [1,] -20.0 -3.0   -2
+## [2,]  -3.0 -0.5   -1
+## [3,]  -0.5  0.5    0
+## [4,]   0.5  3.0    1
+## [5,]   3.0 50.0    2
 ```
 
 ## Reclassify difference raster
@@ -387,8 +382,8 @@ plot(diff_dtm_rcl,
      legend=F)
 par(xpd=T)
 legend(dtm_diff@extent@xmax, dtm_diff@extent@ymax,
-       legend=c("-20 to -10", "-10 to -3", "-3 to -.5",
-                "-.5 to .5", "1 to 3", "3 to 10", "10 to 50"),
+       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                ".3 to 3", "3 to 50"), # legend labels
        fill=new_colors,
        bty="n",
        cex=.8)
@@ -406,6 +401,73 @@ hist(diff_dtm_rcl,
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/histogram-of-diff-rcl-1.png" title="histogram of differences" alt="histogram of differences" width="100%" />
+
+
+Another take on the histogram - forcing breaks
+
+
+```r
+hist(diff_dtm_rcl,
+     main="Histogram of reclassified data",
+     xlab="Height Class",
+     col=my_color,
+     breaks=c(-2.1,-1.1,-.1,.9,1.9,2.9))
+
+histinfo <- hist(diff_dtm_rcl,
+     main="Histogram of reclassified data",
+     xlab="Height Class",
+     col=my_color,
+     breaks=c(-2.1,-1.1,-.1,.9,1.9,2.9))
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/histogram-of-diff-rcl2-1.png" title="histogram of differences with braks" alt="histogram of differences with braks" width="100%" />
+
+```r
+histinfo$counts
+## [1]    3969  129605 6761395   82631    2400
+```
+
+
+# Ggplot will be better. 
+
+Really this is just a barplot. let's do it using ggplot.
+
+
+```r
+# create dataframe
+final_counts <- data.frame(counts=histinfo$counts,
+                           classes=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                ".3 to 3", "3 to 50"))
+str(final_counts)
+## 'data.frame':	5 obs. of  2 variables:
+##  $ counts : int  3969 129605 6761395 82631 2400
+##  $ classes: chr  "-20 to -3" "-3 to -.3" "-.3 to .3" ".3 to 3" ...
+
+# plot final plot using ggplot!
+
+ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
+    geom_bar(stat="identity", fill=my_color)
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/create-barplot-1.png" title="bar plot" alt="bar plot" width="100%" />
+
+we are close but the order of items is wrong. let's fix it using factors
+
+
+```r
+# create dataframe
+final_counts$classes <- factor(final_counts$classes,
+                               levels=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                ".3 to 3", "3 to 50"))
+
+# plot final plot using ggplot!
+ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
+    geom_bar(stat="identity", fill=my_color) +
+  ggtitle("Final bar plot with the correct order") +
+  xlab("Classes")
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/create-barplot2-1.png" title="bar plot" alt="bar plot" width="100%" />
 
 Now let's look at one last thing. What would the distribution look like if
 we set all values between -.5 to .5 to NA?
@@ -429,10 +491,10 @@ hist(diff_dtm_rcl_na,
 # view summary of data
 summary(diff_dtm_rcl_na)
 ##           layer
-## Min.         -3
+## Min.         -2
 ## 1st Qu.      -1
 ## Median       -1
 ## 3rd Qu.       1
-## Max.          3
+## Max.          2
 ## NA's    6761395
 ```
