@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
-excerpt: "."
+excerpt: ". "
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]

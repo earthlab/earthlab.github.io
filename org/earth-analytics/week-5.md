@@ -66,7 +66,7 @@ Create a map of our SJER study area as follows:
 
 1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
 2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary.
-3. Plot the roads by road type and add each type to the legend. Place visual emphsize on the County adn State roads by adjusting the line width and color. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
+3. Plot the roads by road type and add each type to the legend. Place visual emphsize on the County adn State roads by adjusting the line width and color. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-5/r-custom-legend/) to help build the legend.
 4. Add a **title** to your plot.
 45 Add a **legend** to your plot that shows both the road types and the plot locations.
 

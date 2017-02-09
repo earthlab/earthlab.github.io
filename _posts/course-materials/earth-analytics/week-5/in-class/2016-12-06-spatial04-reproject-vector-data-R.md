@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
-excerpt: "."
+excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-07'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/reproject-vector-data/
