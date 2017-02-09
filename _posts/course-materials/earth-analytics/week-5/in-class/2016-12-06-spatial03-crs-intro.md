@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "GIS in R: Intro to Coordinate Reference Systems"
-excerpt: "This lesson covers the basics of coordinate reference systems."
+excerpt: "This lesson covers the basics of coordinate reference systems. "
 authors: ['Leah Wasser']
-modified: '2017-02-07'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-to-coordinate-reference-systems/
@@ -427,8 +427,8 @@ the graphic below optimize?
 ***
 
 <figure>
-    <a href="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg">
-    <img src="https://source.opennews.org/media/cache/b9/4f/b94f663c79024f0048ae7b4f88060cb5.jpg" alt="Maps of the United States in different CRS including Mercator
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different CRS including Mercator
     (upper left), Albers equal area (lower left), UTM (Upper RIGHT) and
     WGS84 Geographic (Lower RIGHT).">
     </a>
