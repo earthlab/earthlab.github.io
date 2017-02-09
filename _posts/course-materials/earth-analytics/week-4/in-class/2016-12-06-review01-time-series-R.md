@@ -11,7 +11,7 @@ nav-title: 'Week 4 review'
 module-title: 'Review of key concepts in R'
 module-description: 'In this module, we will review some key concepts associated with both
 time series data and raster data in R. '
-module-nav-title: 'Week 4 Review R'
+module-nav-title: 'Spatial Data in R'
 module-type: 'class'
 week: 4
 sidebar:
@@ -76,7 +76,7 @@ precPlot_hourly
 ## Warning: Removed 401 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review01-time-series-R/setup-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review01-time-series-R/setup-1.png" title="plot precip data using ggplot" alt="plot precip data using ggplot" width="100%" />
 
 # interactive plotting
 
@@ -107,7 +107,7 @@ precPlot_hourly_round
 ## Warning: Removed 401 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review01-time-series-R/plot-ggplot-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review01-time-series-R/plot-ggplot-1.png" title="time series plot of precipitation 1948-2013" alt="time series plot of precipitation 1948-2013" width="100%" />
 
 ## Time series - Dygraph
 
