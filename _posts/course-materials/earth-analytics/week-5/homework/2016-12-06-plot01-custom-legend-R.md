@@ -588,11 +588,8 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
 ```r
 # important: remove margins - one you are done, reset the margins
 dev.off()
-## RStudioGD 
-##         2
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/homework/2016-12-06-plot01-custom-legend-R/reset-margin-1.png" title=" " alt=" " width="100%" />
+```
 
 Now, if you want to move the legend out a bit further, what would you do?
 

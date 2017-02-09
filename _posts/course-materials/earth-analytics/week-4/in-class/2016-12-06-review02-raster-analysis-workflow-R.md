@@ -326,7 +326,7 @@ legendy <- dtm_diff_crop@extent@ymax
 
 par(xpd=TRUE)
 legend(legendx, legendy,
-       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"),
        fill=new_colors,
        bty="n",
@@ -382,7 +382,7 @@ plot(diff_dtm_rcl,
      legend=F)
 par(xpd=T)
 legend(dtm_diff@extent@xmax, dtm_diff@extent@ymax,
-       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"), # legend labels
        fill=new_colors,
        bty="n",
@@ -428,7 +428,7 @@ histinfo$counts
 ```
 
 
-# Ggplot will be better. 
+# Ggplot will be better.
 
 Really this is just a barplot. let's do it using ggplot.
 
@@ -436,7 +436,7 @@ Really this is just a barplot. let's do it using ggplot.
 ```r
 # create dataframe
 final_counts <- data.frame(counts=histinfo$counts,
-                           classes=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                           classes=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"))
 str(final_counts)
 ## 'data.frame':	5 obs. of  2 variables:
@@ -457,7 +457,7 @@ we are close but the order of items is wrong. let's fix it using factors
 ```r
 # create dataframe
 final_counts$classes <- factor(final_counts$classes,
-                               levels=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                               levels=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"))
 
 # plot final plot using ggplot!
@@ -468,33 +468,3 @@ ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/create-barplot2-1.png" title="bar plot" alt="bar plot" width="100%" />
-
-Now let's look at one last thing. What would the distribution look like if
-we set all values between -.5 to .5 to NA?
-
-
-```r
-# create a new raster object
-diff_dtm_rcl_na <- diff_dtm_rcl
-# assign values between -.5 and .5 to NA
-diff_dtm_rcl_na[diff_dtm_rcl_na >= -.5 & diff_dtm_rcl_na <= .5] <- NA
-# view histogram
-hist(diff_dtm_rcl_na,
-     main="Histogram of data \n values between -.5 and .5 set to NA",
-     xlab="Difference Class")
-```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/reclass-1.png" title="histogram of final cleaned data" alt="histogram of final cleaned data" width="100%" />
-
-```r
-
-# view summary of data
-summary(diff_dtm_rcl_na)
-##           layer
-## Min.         -2
-## 1st Qu.      -1
-## Median       -1
-## 3rd Qu.       1
-## Max.          2
-## NA's    6761395
-```
