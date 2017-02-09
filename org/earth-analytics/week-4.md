@@ -65,9 +65,9 @@ the plot using the `crop_extent.shp` shapefile that was included in your data
 download and classified the data using values that made sense.
 
 This week, you will recreate the SAME plots however, you will outline the steps that
-are needed to create a meaningful plot and histogram in `R`, in your .Rmd file.
+are needed to create a meaningful plot and histogram in `R`, in your `.Rmd` file.
 Also, you will separate out key components of your analysis, into individual code
-chunks in your .Rmd file.
+chunks in your `.Rmd `file.
 
 ### Part 1: Classified DTM difference map
 
@@ -88,6 +88,7 @@ pre-flood CHM from the post-flood CHM. The steps include:
 classes that you may want to use for your final classified raster. Note - you should spend some time on this step to produce a histogram that looks good and clearly shows areas of positive and negative change.
 1. Plot a map of the difference raster - use breaks and custom colors to "color" positive and negative  difference "bins".
 
+
 #### Final Data Processing
 1. Once your are happy with the plot above, classify your raster using the breaks that you have defined.
 
@@ -107,7 +108,7 @@ the pre and post flood CHM and then perform the difference calculate (**Post-flo
 
 ### BONUS (1 point): Use colorBrewer to create a color ramp
 In the lessons, I show you how to color your map by manually selecting colors.
-Use the RColorBrewer package to create a set of colors to use on your plot.
+Use the `RColorBrewer` package to create a set of colors to use on your plot.
 
 * <a ref="https://www.r-bloggers.com/r-using-rcolorbrewer-to-colour-your-figures-in-r/" target="_blank"> R-Bloggers - using color brewer</a>
 * <a ref="https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf
