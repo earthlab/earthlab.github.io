@@ -134,7 +134,7 @@ legendy <- dtm_diff_crop@extent@ymax
 
 par(xpd=TRUE)
 legend(legendx, legendy,
-       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"),
        fill=new_colors,
        bty="n",
@@ -168,7 +168,7 @@ plot(diff_dtm_rcl,
      legend=F)
 par(xpd=T)
 legend(dtm_diff@extent@xmax, dtm_diff@extent@ymax,
-       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"), # legend labels
        fill=new_colors,
        bty="n",
@@ -197,7 +197,7 @@ histinfo$counts
 ## ----create-barplot, fig.cap="bar plot"----------------------------------
 # create dataframe
 final_counts <- data.frame(counts=histinfo$counts,
-                           classes=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                           classes=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"))
 str(final_counts)
 
@@ -209,7 +209,7 @@ ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
 ## ----create-barplot2, fig.cap="bar plot"---------------------------------
 # create dataframe
 final_counts$classes <- factor(final_counts$classes,
-                               levels=c("-20 to -3", "-3 to -.3", "-.3 to .3", 
+                               levels=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"))
 
 # plot final plot using ggplot!
@@ -217,17 +217,4 @@ ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
     geom_bar(stat="identity", fill=my_color) +
   ggtitle("Final bar plot with the correct order") +
   xlab("Classes")
-
-## ----reclass, fig.cap="histogram of final cleaned data"------------------
-# create a new raster object
-diff_dtm_rcl_na <- diff_dtm_rcl
-# assign values between -.5 and .5 to NA
-diff_dtm_rcl_na[diff_dtm_rcl_na >= -.5 & diff_dtm_rcl_na <= .5] <- NA
-# view histogram
-hist(diff_dtm_rcl_na,
-     main="Histogram of data \n values between -.5 and .5 set to NA",
-     xlab="Difference Class")
-
-# view summary of data
-summary(diff_dtm_rcl_na)
 
