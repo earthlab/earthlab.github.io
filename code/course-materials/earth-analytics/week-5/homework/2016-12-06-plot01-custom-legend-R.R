@@ -301,11 +301,10 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
        cex=.9) # adjust legend font size
 
 
-## ----reset-margin, message=F, warning=F----------------------------------
-# important: remove margins - one you are done, reset the margins
-dev.off()
-
-
+## ----reset-margin, message=F, warning=F, eval=F--------------------------
+## # important: remove margins - one you are done, reset the margins
+## dev.off()
+## 
 
 ## ----custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."----
 
@@ -318,7 +317,7 @@ plot(sjer_plots,
      pch=8,
      main="Madera County Roads and plot locations")
 
-plot(sjer_aoi, 
+plot(sjer_aoi,
      add=T,
      border="grey")
 # plot using new colors

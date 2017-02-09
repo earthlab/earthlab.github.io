@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "GIS in R: custom legends"
-excerpt: "."
+excerpt: " ."
 authors: ['Leah Wasser']
-modified: '2017-02-07'
+modified: '2017-02-08'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-5/r-custom-legend/
@@ -438,6 +438,12 @@ fixed the projection for the roads layer and cropped it! You will have to do the
 this code will work.
 
 
+```
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week4/california/SJER/vector_data", layer: "SJER_crop"
+## with 1 features
+## It has 1 fields
+```
 
 When we create a legend, we will have to add the labels for both the points
 layer and the lines layer.
@@ -520,19 +526,19 @@ legend("bottomright",
 
 ## Force the legend to plot outside
 
-Making your plots look just like what you want can be tricky. Play with the code 
-below to see if you can make your legend plot NEXT TO rather than on top of your 
-plot. 
+Making your plots look just like what you want can be tricky. Play with the code
+below to see if you can make your legend plot NEXT TO rather than on top of your
+plot.
 
 The steps are
 
-* adjust the plot *PAR*amaters using par(). Setting xpd = T tells R to allow the plot the render OUTSIDE of the axes of your plot. Seting $mar sets the margins in the format c(bottom, left, top, right). The code below is telling r to add 7 units of padding on the RIGHT hand side of our plot. 
+* adjust the plot *PAR*amaters using par(). Setting xpd = T tells R to allow the plot the render OUTSIDE of the axes of your plot. Seting $mar sets the margins in the format c(bottom, left, top, right). The code below is telling r to add 7 units of padding on the RIGHT hand side of our plot.
 
 `par(xpd = T, mar = par()$mar + c(0,0,0,7))`
 
 
-When we plot the legend, rather than specifying `bottomright`, we specify the 
-precise coordinate location where we'd like the plot to be. There are a few ways 
+When we plot the legend, rather than specifying `bottomright`, we specify the
+precise coordinate location where we'd like the plot to be. There are a few ways
 to do this. I'll show you one below.
 
 
@@ -541,10 +547,13 @@ to do this. I'll show you one below.
 
 # figure out where the upper RIGHT hand corner of our plot extent is
 
-the_plot_extent <- extent(sjer_plots)
+the_plot_extent <- extent(sjer_aoi)
 # grab the upper right hand corner coordinates
 furthest_pt_east <- the_plot_extent@xmax
 furthest_pt_north <- the_plot_extent@ymax
+# view values
+furthest_pt_east
+## [1] 258867.4
 
 # set the plot rendering space parameters
 par(xpd = T, mar = par()$mar + c(0,0,0,7))
@@ -579,8 +588,7 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
 ```r
 # important: remove margins - one you are done, reset the margins
 dev.off()
-## RStudioGD 
-##         2
+
 ```
 
 Now, if you want to move the legend out a bit further, what would you do?
