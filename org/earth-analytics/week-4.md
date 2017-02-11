@@ -58,7 +58,7 @@ sections of your analysis into SEPARATE code chunks.
 ### About the plots
 
 For your homework last week, you created 2 **classified** and **cropped** raster
-maps that showed positive and negative change bewteen the pre and post flood conditions,
+maps that showed positive and negative change between the pre and post flood conditions,
 as seen in the lidar derived terrain and the canopy height models. To do thus you subtracted the pre-flood DTM from the post-flood DTM (**post_flood_DTM - pre-flood-DTM**). You
 performed the same math on the CHM data. You then cropped
 the plot using the `crop_extent.shp` shapefile that was included in your data
@@ -74,7 +74,7 @@ chunks in your `.Rmd `file.
 In your .Rmd demonstrate all of the steps needed to create a map that shows the
 difference (post-flood minus pre-flood) between the pre
 and post flood digital terrain models (DTMs). To create this map you should subtract the
-pre-flood CHM from the post-flood CHM. The steps include:
+pre-flood DTM from the post-flood DTM. The steps include:
 
 #### Data Processing
 1. Open the pre and post flood raster data.
@@ -104,7 +104,7 @@ from the post-flood CHM.
 
 Follow the steps that you followed above for part one. Note that you will have a few
 additional steps in the data processing section because you will need to first calculate
-the pre and post flood CHM and then perform the difference calculate (**Post-flood-chm minus Pre-flood-chm**).
+the pre and post flood CHM and then perform the difference calculate (**Post-flood-CHM minus Pre-flood-CHM**).
 
 ### BONUS (1 point): Use colorBrewer to create a color ramp
 In the lessons, I show you how to color your map by manually selecting colors.
