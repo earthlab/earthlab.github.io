@@ -24,7 +24,7 @@ order: 2
 
 After completing this tutorial, you will be able to:
 
-*
+* Effectively classify a raster dataset using classes determined by exploring a histogram of the data.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -105,14 +105,15 @@ dtm_diff@data@min
 ```{r plot-histogram, fig.cap="initial histogram"}
 # plot histogram of data
 hist(dtm_diff,
-     main="distribution of raster cell values in the data",
-     xlab="Height (m)")
+     main="Distribution of raster cell values in the DTM difference data",
+     xlab="Height (m)", ylab="Number of Pixels",
+     col="springgreen")
 ```
 
 ```{r plot-histogram-xlim, fig.cap="initial histogram w xlim to zoom in"}
 hist(dtm_diff,
      xlim=c(-2,2),
-     main="histogram \nzoomed in to -2 to 2 on the x axis",
+     main="Histogram of pre-post flood DTM differences \nZoomed in to -2 to 2 on the x axis",
      col="brown")
 
 # see how R is breaking up the data
@@ -142,7 +143,9 @@ In the example below, I used a very large number - 500 so we can see the bins.
 hist(dtm_diff,
      xlim=c(-2,2),
      breaks=500,
-     main="histogram \nzoomed in to -2-2 on the x axis w more breaks")
+     main="Histogram \n Zoomed in to -2-2 on the x axis w more breaks",
+     xlab="Height (m)", ylab="Number of Pixels",
+     col="springgreen")
 ```
 
 ### Histogram with custom breaks
@@ -156,7 +159,7 @@ argument a vector of numbers that represent the range for each bin in our histog
 hist(dtm_diff,
      breaks=c(-20, -10, -3, -.3, .3, 3, 10, 50),
      main="Histogram with custom breaks",
-     xlab="Height (m)",
+     xlab="Height (m)" , ylab="Number of Pixels",
      col="springgreen")
 
 ```
@@ -169,7 +172,8 @@ So let's consider that when we select the colors for our plot.
 # plot dtm difference with breaks
 plot(dtm_diff,
      breaks=c(-20, -10, -3, -.3, .3, 3, 10, 50),
-     col=terrain.colors(7))
+     col=terrain.colors(7),
+     main="DTM Difference \n Using manual breaks")
 ```
 
 ## Custom plot colors
@@ -191,14 +195,13 @@ above we have 8 numbers in our breaks vector. this translates to 7 bins each or 
 
 ```{r plot-with-unique-colors, fig.cap="Plot difference dtm with custom colors."}
 # create a vector of colors - one for each "bin" of raster cells
-new_colors <- c("palevioletred4", "palevioletred1", "ivory1",
-                "seagreen1","seagreen4")
-
+diff_colors <- c("palevioletred4", "palevioletred1", "ivory1",
+                "seagreen1", "seagreen4")
 plot(dtm_diff,
      breaks=c(-20, -3, -.3, .3, 3, 50),
-     col=new_colors,
+     col=diff_colors,
      legend=F,
-     main="Plot of DTM differences\n custom colors")
+     main="Plot of DTM differences\n custom colors & manual breaks")
 
 # make sure legend plots outside of the plot area
 par(xpd=T)
@@ -206,7 +209,7 @@ par(xpd=T)
 legend(x=dtm_diff@extent@xmax, y=dtm_diff@extent@ymax, # legend location
        legend=c("-20 to -3", "-3 to -.3",
                 "-.3 to .3", ".3 to 3", "3 to 50"),
-       fill=new_colors,
+       fill=diff_colors,
        bty="n",
        cex=.7)
 
@@ -222,13 +225,14 @@ using a manually created plot extent. Then plotting the newly cropped raster sub
 # new_extent <- drawExtent()
 new_extent <- extent(473690, 474155.2, 4434849, 4435204)
 new_extent
+
 # crop the raster to a smaller area
 dtm_diff_crop <- crop(dtm_diff, new_extent)
 
 # Plot the cropped raster
 plot(dtm_diff_crop,
      breaks=c(-20, -3, -.3, .3, 3, 50),
-     col=new_colors,
+     col=diff_colors,
      legend=F,
      main="Lidar DTM Difference \n cropped subset")
 
@@ -240,9 +244,10 @@ par(xpd=TRUE)
 legend(legendx, legendy,
        legend=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"),
-       fill=new_colors,
+       fill=diff_colors,
        bty="n",
        cex=.8)
+
 ```
 
 ```{r clear-par-settings }
@@ -258,9 +263,9 @@ to classify the data.
 
 # create reclass vector
 reclass_vector <- c(-20,-3, -2,
-                    -3, -.5, -1,
-                    -.5, .5, 0,
-                    .5, 3, 1,
+                    -3, -.3, -1,
+                    -.3, .3, 0,
+                    .3, 3, 1,
                     3, 50, 2)
 
 reclass_matrix <- matrix(reclass_vector,
@@ -278,13 +283,14 @@ reclass_matrix
 diff_dtm_rcl <- reclassify(dtm_diff, reclass_matrix)
 
 plot(diff_dtm_rcl,
-     col=new_colors,
-     legend=F)
+     col=diff_colors,
+     legend=F,
+     main="Reclassified, Cropped Difference DTM \n difference in meters")
 par(xpd=T)
 legend(dtm_diff@extent@xmax, dtm_diff@extent@ymax,
-       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3",
-                ".3 to 3", "3 to 50"), # legend labels
-       fill=new_colors,
+       legend=c("-20 to -10", "-10 to -3", "-3 to -.3",
+                "-.3 to .3", "1 to 3", "3 to 10", "10 to 50"),
+       fill=diff_colors,
        bty="n",
        cex=.8)
 ```
@@ -294,57 +300,41 @@ Finally view the final histogram
 ```{r histogram-of-diff-rcl, fig.cap="histogram of differences"}
 hist(diff_dtm_rcl,
      main="Histogram of reclassified data",
-     xlab="Height Class")
+     xlab="Height Class (meters)",
+     ylab="Number of Pixels")
 
 ```
 
 
-Another take on the histogram - forcing breaks
+The above histogram looks odd. This is because we are trying to force our discrete
+data into bins. A barplot is a more appropriate plot. 
 
-```{r histogram-of-diff-rcl2, fig.cap="histogram of differences with braks"}
-hist(diff_dtm_rcl,
-     main="Histogram of reclassified data",
-     xlab="Height Class",
-     col=my_color,
-     breaks=c(-2.1,-1.1,-.1,.9,1.9,2.9))
+```{r barplot-of-diff-rcl, fig.cap="histogram of differences"}
+barplot(diff_dtm_rcl,
+     main="Barplot of reclassified data",
+     xlab="Height Class (meters)",
+     ylab="Frequency of Pixels",
+     col=diff_colors)
 
-histinfo <- hist(diff_dtm_rcl,
-     main="Histogram of reclassified data",
-     xlab="Height Class",
-     col=my_color,
-     breaks=c(-2.1,-1.1,-.1,.9,1.9,2.9))
-histinfo$counts
 ```
 
 
-# Ggplot will be better.
 
-Really this is just a barplot. let's do it using ggplot.
+Now let's look at one last thing. What would the distribution look like if
+we set all values between -.3 to .3 to NA?
 
-```{r create-barplot, fig.cap="bar plot"}
-# create dataframe
-final_counts <- data.frame(counts=histinfo$counts,
-                           classes=c("-20 to -3", "-3 to -.3", "-.3 to .3",
-                ".3 to 3", "3 to 50"))
-str(final_counts)
+```{r reclass, fig.cap="histogram of final cleaned data"}
+# create a new raster object
+diff_dtm_rcl_na <- diff_dtm_rcl
+# assign values between -.3 and .3 to NA
+diff_dtm_rcl_na[diff_dtm_rcl_na >= -.3 & diff_dtm_rcl_na <= .3] <- NA
+# view histogram
+barplot(diff_dtm_rcl_na,
+     main="Barplot of data \n values between -.3 and .3 set to NA",
+     xlab="Difference Class",
+     col=diff_colors)
 
-# plot final plot using ggplot!
-
-ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
-    geom_bar(stat="identity", fill=my_color)
+# view summary of data
+summary(diff_dtm_rcl_na)
 ```
 
-we are close but the order of items is wrong. let's fix it using factors
-
-```{r create-barplot2, fig.cap="bar plot"}
-# create dataframe
-final_counts$classes <- factor(final_counts$classes,
-                               levels=c("-20 to -3", "-3 to -.3", "-.3 to .3",
-                ".3 to 3", "3 to 50"))
-
-# plot final plot using ggplot!
-ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
-    geom_bar(stat="identity", fill=my_color) +
-  ggtitle("Final bar plot with the correct order") +
-  xlab("Classes")
-```
