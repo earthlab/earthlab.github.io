@@ -109,13 +109,45 @@ the pre and post flood CHM and then perform the difference calculate (**Post-flo
 In the lessons, I show you how to color your map by manually selecting colors.
 Use the `RColorBrewer` package to create a set of colors to use on your plot.
 
-* <a ref="https://www.r-bloggers.com/r-using-rcolorbrewer-to-colour-your-figures-in-r/" target="_blank"> R-Bloggers - using color brewer</a>
-* <a ref="https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf
-" target="_blank"> Color brewer documentation</a>
+* <a href="https://www.r-bloggers.com/r-using-rcolorbrewer-to-colour-your-figures-in-r/" target="_blank"> R-Bloggers - using color brewer</a>
+* <a href="https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf" target="_blank"> Color brewer documentation</a>
 
 ## Homework due: Feb 15 @ noon.
-Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox by NOON Wednesday 8
+Submit your report in both `.Rmd` and `.PDF` format to the D2l week 4 dropbox by NOON Wednesday 8
 February 2017. NOTE: it is OK if you'd like to submit an html document to D2l.
 If you do, please ZIP the html file up with your .Rmd file.
 
 </div>
+
+### .Pdf Report structure & code: 30%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| PDF and RMD submitted |  | Only one of the 2 files are submitted  | | No files submitted |
+| Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| | Clean coding is not implemented consistently throughout the report. |
+| YAML contains a title, author and date | Author, title and date are in YAML | One element is missing from the YAML | | 2 or more elements are missing from the YAML |
+| Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | | The are more than 3 code errors in the document |
+| All required R packages are listed at the top of the document in a code chunk.  | | Some packages are listed at the top of the document and some are lower down. | | |
+
+### Part 1 - DTM Difference Raster Plot: 35%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title / or the data source is not mentioned in the text. | Plot is missing appropriate labels and is not described adequately in the text of the report. | |Plot is missing|
+| Data are CROPPED using the crop_extent shapefile||| | Data are not cropped to the crop_extent shapefile|
+| Raster data are classified into discrete values || | | Data are not classified into discrete values |
+| Data Exploration Plot 1: Plot a histogram of the difference raster using the base histogram function (don’t worry about custom breaks)||| | Histogram is missing |
+| Data Exploration Plot 2: Plot a second histogram of the difference raster and customize the breaks to mimic the classes that you may want to use for your final classified raster. ||| | Histogram is missing |
+| The colors and classes selected to plot the final difference raster, selected using the previous histogram s clearly show changes. | || | The colors and classes selected do not show change well / don't show change at all. |
+
+
+### Part 1 - CHM Difference: 35%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title / or the data source is not mentioned in the text. | Plot is missing appropriate labels and is not described adequately in the text of the report. | |Plot is missing|
+| Data are CROPPED using the crop_extent shapefile||| | Data are not cropped to the crop_extent shapefile|
+| Raster data are classified into discrete values || | | Data are not classified into discrete values |
+| Data Exploration Plot 1: Plot a histogram of the difference raster using the base histogram function (don’t worry about custom breaks)||| | Histogram is missing |
+| Data Exploration Plot 2: Plot a second histogram of the difference raster and customize the breaks to mimic the classes that you may want to use for your final classified raster. ||| | Histogram is missing |
+| The colors and classes selected to plot the final difference raster, selected using the previous histogram s clearly show changes. | || | The colors and classes selected do not show change well / don't show change at all. |
