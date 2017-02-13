@@ -3,7 +3,7 @@ layout: single
 title: "Raster analysis workflow in R."
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-02-08'
+modified: '2017-02-13'
 category: [course-materials]
 class-lesson: ['week4-review-r']
 permalink: /course-materials/earth-analytics/week-4/raster-analysis-workflow-r/
@@ -24,7 +24,7 @@ order: 2
 
 After completing this tutorial, you will be able to:
 
-*
+* Effectively classify a raster dataset using classes determined by exploring a histogram of the data.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -124,8 +124,9 @@ dtm_diff@data@min
 ```r
 # plot histogram of data
 hist(dtm_diff,
-     main="distribution of raster cell values in the data",
-     xlab="Height (m)")
+     main="Distribution of raster cell values in the DTM difference data",
+     xlab="Height (m)", ylab="Number of Pixels",
+     col="springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/plot-histogram-1.png" title="initial histogram" alt="initial histogram" width="100%" />
@@ -134,7 +135,7 @@ hist(dtm_diff,
 ```r
 hist(dtm_diff,
      xlim=c(-2,2),
-     main="histogram \nzoomed in to -2 to 2 on the x axis",
+     main="Histogram of pre-post flood DTM differences \nZoomed in to -2 to 2 on the x axis",
      col="brown")
 ```
 
@@ -213,7 +214,9 @@ In the example below, I used a very large number - 500 so we can see the bins.
 hist(dtm_diff,
      xlim=c(-2,2),
      breaks=500,
-     main="histogram \nzoomed in to -2-2 on the x axis w more breaks")
+     main="Histogram \n Zoomed in to -2-2 on the x axis w more breaks",
+     xlab="Height (m)", ylab="Number of Pixels",
+     col="springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/plot-histogram-breaks-1.png" title="initial histogram w xlim to zoom in and breaks" alt="initial histogram w xlim to zoom in and breaks" width="100%" />
@@ -230,7 +233,7 @@ argument a vector of numbers that represent the range for each bin in our histog
 hist(dtm_diff,
      breaks=c(-20, -10, -3, -.3, .3, 3, 10, 50),
      main="Histogram with custom breaks",
-     xlab="Height (m)",
+     xlab="Height (m)" , ylab="Number of Pixels",
      col="springgreen")
 ```
 
@@ -245,7 +248,8 @@ So let's consider that when we select the colors for our plot.
 # plot dtm difference with breaks
 plot(dtm_diff,
      breaks=c(-20, -10, -3, -.3, .3, 3, 10, 50),
-     col=terrain.colors(7))
+     col=terrain.colors(7),
+     main="DTM Difference \n Using manual breaks")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/plot-data-1.png" title="Plot difference dtm." alt="Plot difference dtm." width="100%" />
@@ -272,14 +276,13 @@ above we have 8 numbers in our breaks vector. this translates to 7 bins each or 
 
 ```r
 # create a vector of colors - one for each "bin" of raster cells
-new_colors <- c("palevioletred4", "palevioletred1", "ivory1",
-                "seagreen1","seagreen4")
-
+diff_colors <- c("palevioletred4", "palevioletred1", "ivory1",
+                "seagreen1", "seagreen4")
 plot(dtm_diff,
      breaks=c(-20, -3, -.3, .3, 3, 50),
-     col=new_colors,
+     col=diff_colors,
      legend=F,
-     main="Plot of DTM differences\n custom colors")
+     main="Plot of DTM differences\n custom colors & manual breaks")
 
 # make sure legend plots outside of the plot area
 par(xpd=T)
@@ -287,7 +290,7 @@ par(xpd=T)
 legend(x=dtm_diff@extent@xmax, y=dtm_diff@extent@ymax, # legend location
        legend=c("-20 to -3", "-3 to -.3",
                 "-.3 to .3", ".3 to 3", "3 to 50"),
-       fill=new_colors,
+       fill=diff_colors,
        bty="n",
        cex=.7)
 ```
@@ -310,13 +313,14 @@ new_extent
 ## xmax        : 474155.2 
 ## ymin        : 4434849 
 ## ymax        : 4435204
+
 # crop the raster to a smaller area
 dtm_diff_crop <- crop(dtm_diff, new_extent)
 
 # Plot the cropped raster
 plot(dtm_diff_crop,
      breaks=c(-20, -3, -.3, .3, 3, 50),
-     col=new_colors,
+     col=diff_colors,
      legend=F,
      main="Lidar DTM Difference \n cropped subset")
 
@@ -328,7 +332,7 @@ par(xpd=TRUE)
 legend(legendx, legendy,
        legend=c("-20 to -3", "-3 to -.3", "-.3 to .3",
                 ".3 to 3", "3 to 50"),
-       fill=new_colors,
+       fill=diff_colors,
        bty="n",
        cex=.8)
 ```
@@ -352,9 +356,9 @@ to classify the data.
 
 # create reclass vector
 reclass_vector <- c(-20,-3, -2,
-                    -3, -.5, -1,
-                    -.5, .5, 0,
-                    .5, 3, 1,
+                    -3, -.3, -1,
+                    -.3, .3, 0,
+                    .3, 3, 1,
                     3, 50, 2)
 
 reclass_matrix <- matrix(reclass_vector,
@@ -364,9 +368,9 @@ reclass_matrix <- matrix(reclass_vector,
 reclass_matrix
 ##       [,1] [,2] [,3]
 ## [1,] -20.0 -3.0   -2
-## [2,]  -3.0 -0.5   -1
-## [3,]  -0.5  0.5    0
-## [4,]   0.5  3.0    1
+## [2,]  -3.0 -0.3   -1
+## [3,]  -0.3  0.3    0
+## [4,]   0.3  3.0    1
 ## [5,]   3.0 50.0    2
 ```
 
@@ -378,13 +382,14 @@ reclass_matrix
 diff_dtm_rcl <- reclassify(dtm_diff, reclass_matrix)
 
 plot(diff_dtm_rcl,
-     col=new_colors,
-     legend=F)
+     col=diff_colors,
+     legend=F,
+     main="Reclassified, Cropped Difference DTM \n difference in meters")
 par(xpd=T)
 legend(dtm_diff@extent@xmax, dtm_diff@extent@ymax,
-       legend=c("-20 to -3", "-3 to -.3", "-.3 to .3",
-                ".3 to 3", "3 to 50"), # legend labels
-       fill=new_colors,
+       legend=c("-20 to -10", "-10 to -3", "-3 to -.3",
+                "-.3 to .3", "1 to 3", "3 to 10", "10 to 50"),
+       fill=diff_colors,
        bty="n",
        cex=.8)
 ```
@@ -397,74 +402,61 @@ Finally view the final histogram
 ```r
 hist(diff_dtm_rcl,
      main="Histogram of reclassified data",
-     xlab="Height Class")
+     xlab="Height Class (meters)",
+     ylab="Number of Pixels")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/histogram-of-diff-rcl-1.png" title="histogram of differences" alt="histogram of differences" width="100%" />
 
 
-Another take on the histogram - forcing breaks
+The above histogram looks odd. This is because we are trying to force our discrete
+data into bins. A barplot is a more appropriate plot. 
 
 
 ```r
-hist(diff_dtm_rcl,
-     main="Histogram of reclassified data",
-     xlab="Height Class",
-     col=my_color,
-     breaks=c(-2.1,-1.1,-.1,.9,1.9,2.9))
-
-histinfo <- hist(diff_dtm_rcl,
-     main="Histogram of reclassified data",
-     xlab="Height Class",
-     col=my_color,
-     breaks=c(-2.1,-1.1,-.1,.9,1.9,2.9))
+barplot(diff_dtm_rcl,
+     main="Barplot of reclassified data",
+     xlab="Height Class (meters)",
+     ylab="Frequency of Pixels",
+     col=diff_colors)
+## Warning in .local(height, ...): a sample of 14.3% of the raster cells were
+## used to estimate frequencies
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/histogram-of-diff-rcl2-1.png" title="histogram of differences with braks" alt="histogram of differences with braks" width="100%" />
-
-```r
-histinfo$counts
-## [1]    3969  129605 6761395   82631    2400
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/barplot-of-diff-rcl-1.png" title="histogram of differences" alt="histogram of differences" width="100%" />
 
 
-# Ggplot will be better.
 
-Really this is just a barplot. let's do it using ggplot.
+Now let's look at one last thing. What would the distribution look like if
+we set all values between -.3 to .3 to NA?
 
 
 ```r
-# create dataframe
-final_counts <- data.frame(counts=histinfo$counts,
-                           classes=c("-20 to -3", "-3 to -.3", "-.3 to .3",
-                ".3 to 3", "3 to 50"))
-str(final_counts)
-## 'data.frame':	5 obs. of  2 variables:
-##  $ counts : int  3969 129605 6761395 82631 2400
-##  $ classes: chr  "-20 to -3" "-3 to -.3" "-.3 to .3" ".3 to 3" ...
-
-# plot final plot using ggplot!
-
-ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
-    geom_bar(stat="identity", fill=my_color)
+# create a new raster object
+diff_dtm_rcl_na <- diff_dtm_rcl
+# assign values between -.3 and .3 to NA
+diff_dtm_rcl_na[diff_dtm_rcl_na >= -.3 & diff_dtm_rcl_na <= .3] <- NA
+# view histogram
+barplot(diff_dtm_rcl_na,
+     main="Barplot of data \n values between -.3 and .3 set to NA",
+     xlab="Difference Class",
+     col=diff_colors)
+## Warning in .local(height, ...): a sample of 14.3% of the raster cells were
+## used to estimate frequencies
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/create-barplot-1.png" title="bar plot" alt="bar plot" width="100%" />
-
-we are close but the order of items is wrong. let's fix it using factors
-
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/reclass-1.png" title="histogram of final cleaned data" alt="histogram of final cleaned data" width="100%" />
 
 ```r
-# create dataframe
-final_counts$classes <- factor(final_counts$classes,
-                               levels=c("-20 to -3", "-3 to -.3", "-.3 to .3",
-                ".3 to 3", "3 to 50"))
 
-# plot final plot using ggplot!
-ggplot(data=final_counts, aes(x=classes, y=counts, fill=classes)) +
-    geom_bar(stat="identity", fill=my_color) +
-  ggtitle("Final bar plot with the correct order") +
-  xlab("Classes")
+# view summary of data
+summary(diff_dtm_rcl_na)
+##           layer
+## Min.         -2
+## 1st Qu.      -1
+## Median       -1
+## 3rd Qu.       1
+## Max.          2
+## NA's    6467991
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2016-12-06-review02-raster-analysis-workflow-R/create-barplot2-1.png" title="bar plot" alt="bar plot" width="100%" />
