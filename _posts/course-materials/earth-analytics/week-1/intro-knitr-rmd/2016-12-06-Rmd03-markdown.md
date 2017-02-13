@@ -4,7 +4,7 @@ title: "Intro to Markdown"
 excerpt: 'This tutorial cover how to use Markdown syntax in R and then
 render it to html using knitr.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-02-01'
+modified: '2017-02-13'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-to-markdown/
@@ -149,23 +149,6 @@ Does any of the markdown syntax look familiar?
 * Are any words highlighted as code?
 
 If you are unsure, the answers are at the bottom of this page.
-
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: R Markdown Text
-
-1. Remove the template markdown and code chunks added to the `.Rmd` file by `RStudio`.
-(Be sure to keep the YAML header!)
-2. At the very top of your .Rmd document - after the YAML header, add
-the bio and short research description that you wrote last week in markdown syntax to
-the .Rmd file.
-3. Between your profile and the research descriptions, add a header that says
-**About My Project** (or something similar).
-4. Add a new header titled: **Data Activity**. Write some text below that header
-that describes what you are learning in this lesson and demonstrates the use of
-bold, italics and code formatting within a paragraph of text.
-
-</div>
 
 *Got questions? Leave your question in the comment box below.
 It's likely some of your colleagues have the same question, too! And also
