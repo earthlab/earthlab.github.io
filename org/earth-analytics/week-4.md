@@ -22,6 +22,7 @@ Welcome to week {{ page.week }} of Earth Analytics! This week, we will review
 some key concepts associated with working with time series & spatial data and rasters.
 Also, we will cover some key frameworks for organizing an rmarkdown document and
 starting a workflow to explore a dataset.
+
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course. We will use the data that we've been using for the first few weeks of
@@ -113,9 +114,8 @@ Use the `RColorBrewer` package to create a set of colors to use on your plot.
 * <a href="https://www.r-bloggers.com/r-using-rcolorbrewer-to-colour-your-figures-in-r/" target="_blank"> R-Bloggers - using color brewer</a>
 * <a href="https://cran.r-project.org/web/packages/RColorBrewer/RColorBrewer.pdf" target="_blank"> Color brewer documentation</a>
 
-## Homework due: Feb 15 @ noon.
-Submit your report in both `.Rmd` and `.PDF` format to the D2l week 4 dropbox by NOON Wednesday 8
-February 2017. NOTE: it is OK if you'd like to submit an html document to D2l.
+## Homework due: Feb 15 2017 @ noon.
+Submit your report in both `.Rmd` and `.PDF` format to the D2l week 4 dropbox by NOON.NOTE: it is OK if you'd like to submit an html document to D2l.
 If you do, please ZIP the html file up with your .Rmd file.
 
 </div>
