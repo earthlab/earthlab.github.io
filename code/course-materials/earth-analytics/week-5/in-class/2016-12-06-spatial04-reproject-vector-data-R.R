@@ -9,7 +9,7 @@ library(raster)
 
 ## ----read-csv------------------------------------------------------------
 # Import the shapefile data into R
-state_boundary_us <- readOGR("data/week4/usa-boundary-layers",
+state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
 
 # view data structure
@@ -22,7 +22,7 @@ plot(state_boundary_us,
 
 ## ----check-out-coordinates, fig.cap="Plot of the US overlayed with states and a boundary."----
 # Read the .csv file
-country_boundary_us <- readOGR("data/week4/usa-boundary-layers",
+country_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
 
 # look at the data structure
@@ -42,7 +42,7 @@ plot(country_boundary_us,
 
 ## ----explore-units, fig.cap="plot aoi"-----------------------------------
 # Import a point shapefile
-sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
 class(sjer_aoi)
 
@@ -139,12 +139,12 @@ points(aoi_centroid, pch=8, col="magenta", cex=1.5)
 
 ## ----challenge-code-MASS-Map, include=TRUE, results="hide", echo=FALSE, warning=FALSE, message=FALSE, fig.cap="challenge plot"----
 # import data
-sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
-sjer_roads <- readOGR("data/week4/california/madera-county-roads",
+sjer_roads <- readOGR("data/week5/california/madera-county-roads",
                       "tl_2013_06039_roads")
 
-sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
+sjer_plots <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_plot_centroids")
 
 # reproject line and point data
@@ -155,7 +155,7 @@ sjer_roads_utm <- crop(sjer_roads_utm, sjer_aoi)
 sjer_roads_utm$RTTYP[is.na(sjer_roads_utm$RTTYP)] <- "unknown"
 sjer_roads_utm$RTTYP <- as.factor(sjer_roads_utm$RTTYP)
 
-par(xpd = T, mar = par()$mar + c(0,0,0,7))
+par(xpd = T)
 # plot state boundaries
 plot(sjer_aoi,
      main="SJER Area of Interest (AOI)",
@@ -185,7 +185,7 @@ legend(258867.4, 4112362,
        cex=.9)
 
 
-## ----dev-off, echo=F-----------------------------------------------------
+## ----dev-off, echo=F, warning=F, message=F-------------------------------
 # clean out the plot area
 dev.off()
 

@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: custom legends"
 excerpt: " ."
 authors: ['Leah Wasser']
-modified: '2017-02-08'
+modified: '2017-02-14'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-5/r-custom-legend/
@@ -40,7 +40,6 @@ You will need a computer with internet access to complete this lesson and the da
 
 </div>
 
-
 ## Plot Lines by Attribute Value
 To plot vector data with the color of each objected determined by it's associated attribute values, the
 attribute values must be class = `factor`. A **factor** is similar to a category
@@ -60,15 +59,18 @@ attribute values using `as.factor()`.
 # load libraries
 library(raster)
 library(rgdal)
+options(stringsAsFactors = F)
 ```
+
+Next, import and explore the data.
 
 
 ```r
 # import roads
-sjer_roads <- readOGR("data/week4/california/madera-county-roads",
+sjer_roads <- readOGR("data/week5/california/madera-county-roads",
                       "tl_2013_06039_roads")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/california/madera-county-roads", layer: "tl_2013_06039_roads"
+## Source: "data/week5/california/madera-county-roads", layer: "tl_2013_06039_roads"
 ## with 9640 features
 ## It has 4 fields
 # view the original class of the TYPE column
@@ -76,11 +78,20 @@ class(sjer_roads$RTTYP)
 ## [1] "character"
 unique(sjer_roads$RTTYP)
 ## [1] "M" NA  "S" "C"
+```
 
+It looks like we have some missing values in our road types. We want to plot all
+road types even those that are NA. Let's change the roads with an `RTTYP` attribute of
+NA to "unknown".
+
+Following, we can convert the road attribute to a factor.
+
+
+```r
 # set all NA values to "unknown" so they still plot
-sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "unknown"
+sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "Unknown"
 unique(sjer_roads$RTTYP)
-## [1] "M"       "unknown" "S"       "C"
+## [1] "M"       "Unknown" "S"       "C"
 
 # view levels or categories - note that there are no categories yet in our data!
 # the attributes are just read as a list of character elements.
@@ -93,11 +104,11 @@ sjer_roads$RTTYP <- as.factor(sjer_roads$RTTYP)
 class(sjer_roads$RTTYP)
 ## [1] "factor"
 levels(sjer_roads$RTTYP)
-## [1] "C"       "M"       "S"       "unknown"
+## [1] "C"       "M"       "S"       "Unknown"
 
 # how many features are in each category or level?
 summary(sjer_roads$RTTYP)
-##       C       M       S unknown 
+##       C       M       S Unknown 
 ##      10    4456      25    5149
 ```
 
@@ -173,7 +184,7 @@ try.
 class(sjer_roads$RTTYP)
 ## [1] "factor"
 levels(sjer_roads$RTTYP)
-## [1] "C"       "M"       "S"       "unknown"
+## [1] "C"       "M"       "S"       "Unknown"
 # create vector of line widths
 lineWidths <- (c(1, 2, 3, 4))[sjer_roads$RTTYP]
 # adjust line width by level
@@ -319,7 +330,7 @@ other lines can be grey.
 ```r
 # view levels
 levels(sjer_roads$RTTYP)
-## [1] "C"       "M"       "S"       "unknown"
+## [1] "C"       "M"       "S"       "Unknown"
 # make sure the attribute is of class "factor"
 class(sjer_roads$RTTYP)
 ## [1] "factor"
@@ -327,7 +338,7 @@ class(sjer_roads$RTTYP)
 # convert to factor if necessary
 sjer_roads$RTTYP <- as.factor(sjer_roads$RTTYP)
 levels(sjer_roads$RTTYP)
-## [1] "C"       "M"       "S"       "unknown"
+## [1] "C"       "M"       "S"       "Unknown"
 
 # count factor levels
 length(levels(sjer_roads$RTTYP))
@@ -401,10 +412,10 @@ need to define 3 symbols and 3 colors for our legend and our plot.
 
 ```r
 # import points layer
-sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
+sjer_plots <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_plot_centroids")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/california/SJER/vector_data", layer: "SJER_plot_centroids"
+## Source: "data/week5/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 
@@ -440,7 +451,7 @@ this code will work.
 
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/california/SJER/vector_data", layer: "SJER_crop"
+## Source: "data/week5/california/SJER/vector_data", layer: "SJER_crop"
 ## with 1 features
 ## It has 1 fields
 ```
@@ -452,8 +463,9 @@ layer and the lines layer.
 
 
 ```r
+# view all elements in legend
 c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
-## [1] "grass"   "soil"    "trees"   "C"       "M"       "S"       "unknown"
+## [1] "grass"   "soil"    "trees"   "C"       "M"       "S"       "Unknown"
 ```
 
 
@@ -534,7 +546,7 @@ The steps are
 
 * adjust the plot *PAR*amaters using par(). Setting xpd = T tells R to allow the plot the render OUTSIDE of the axes of your plot. Seting $mar sets the margins in the format c(bottom, left, top, right). The code below is telling r to add 7 units of padding on the RIGHT hand side of our plot.
 
-`par(xpd = T, mar = par()$mar + c(0,0,0,7))`
+`par(xpd = T)`
 
 
 When we plot the legend, rather than specifying `bottomright`, we specify the
@@ -554,9 +566,11 @@ furthest_pt_north <- the_plot_extent@ymax
 # view values
 furthest_pt_east
 ## [1] 258867.4
+furthest_pt_north
+## [1] 4112362
 
 # set the plot rendering space parameters
-par(xpd = T, mar = par()$mar + c(0,0,0,7))
+par(xpd = T)
 
 # plot using new colors
 plot(sjer_plots,
@@ -582,14 +596,6 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/adjust-legend-1.png" title="plot with fixed legend" alt="plot with fixed legend" width="100%" />
 
-
-
-
-```r
-# important: remove margins - one you are done, reset the margins
-dev.off()
-
-```
 
 Now, if you want to move the legend out a bit further, what would you do?
 
