@@ -51,5 +51,7 @@ earth-analytics-2017:
         url: /course-materials/earth-analytics/week-2/
       - title: "Week 3: Lidar Data in R"
         url: /course-materials/earth-analytics/week-3/
-      - title: "Week 4: Spatial Data in R"
+      - title: "Week 4: Review: Raster classification in R"
         url: /course-materials/earth-analytics/week-4/
+      - title: "Week 5: Spatial data in R"
+        url: /course-materials/earth-analytics/week-5/
