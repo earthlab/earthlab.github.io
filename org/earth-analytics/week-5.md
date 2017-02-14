@@ -25,6 +25,8 @@ extract data from a raster file. We are on our way towards integrating many diff
 types of data into our analysis which involves knowing how to deal with things
 like coordinate reference systems and varying data structures.
 
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+</div>
 
 </div>
 
