@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-08'
+modified: '2017-02-14'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/reproject-vector-data/
@@ -32,7 +32,7 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -65,10 +65,6 @@ for that state.
     Source: opennews.org</figcaption>
 </figure>
 
-Check out this short video highlighting how map projections can make continents
-seems proportionally larger or smaller than they actually are!
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KUF_Ckv8HbE" frameborder="0" allowfullscreen></iframe>
 
 In this tutorial we will learn how to identify and manage spatial data
 in different projections. We will learn how to `reproject` the data so that they
@@ -110,14 +106,14 @@ from the Census website to support the learning goals of this tutorial.
 
 ```r
 # Import the shapefile data into R
-state_boundary_us <- readOGR("data/week4/usa-boundary-layers",
+state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
+## Source: "data/week5/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
 ## with 58 features
 ## It has 10 fields
 ## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week4/usa-boundary-layers", "US-State-Boundaries-
+## Warning in readOGR("data/week5/usa-boundary-layers", "US-State-Boundaries-
 ## Census-2014"): Z-dimension discarded
 
 # view data structure
@@ -147,21 +143,21 @@ plot(state_boundary_us,
 
 We can add a boundary layer of the United States to our map - to make it look
 nicer. We will import
-`data/week4/usa-boundary-layers/US-Boundary-Dissolved-States`.
+`data/week5/usa-boundary-layers/US-Boundary-Dissolved-States`.
 If we specify a thicker line width using `lwd=4` for the border layer, it will
 make our map pop!
 
 
 ```r
 # Read the .csv file
-country_boundary_us <- readOGR("data/week4/usa-boundary-layers",
+country_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
+## Source: "data/week5/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
 ## with 1 features
 ## It has 9 fields
 ## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week4/usa-boundary-layers", "US-Boundary-
+## Warning in readOGR("data/week5/usa-boundary-layers", "US-Boundary-
 ## Dissolved-States"): Z-dimension discarded
 
 # look at the data structure
@@ -191,10 +187,10 @@ AOI to represent "Area of Interest" in our data.
 
 ```r
 # Import a point shapefile
-sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/california/SJER/vector_data", layer: "SJER_crop"
+## Source: "data/week5/california/SJER/vector_data", layer: "SJER_crop"
 ## with 1 features
 ## It has 1 fields
 class(sjer_aoi)
@@ -453,11 +449,11 @@ transformations) on our data.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework plot 1: crop, reproject, plot data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your skills: crop, reproject, plot data
 
 Create a map of our SJER study area as follows:
 
-1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download.
+1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week5 data download.
 2. Create a map that shows the roads layer, study site locations and the sjer_aoi boundary.
 3. Add a **title** to your plot.
 4. Add a **legend** to your plot that shows both the roads and the plot locations.
@@ -468,8 +464,10 @@ Create a map of our SJER study area as follows:
 IMPORTANT: be sure that all of the data are within the same EXTENT and crs of the sjer_aoi
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
-Your map should look something like the map below. You should ofcourse use the
+Your map should look something like the map below. You should of course use the
 actual roads types that you find in the metadata rather than "Road type 1, etc"
+
+NOTE: this is also a plot you will submit as a part of your homework this week!
 
 </div>
 
