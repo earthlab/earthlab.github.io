@@ -4,12 +4,12 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-02-08'
+modified: '2017-02-14'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
 nav-title: 'Vector data in R'
-module-title: 'Compare remote sensing with in situ data in R'
+module-title: 'Spatial data in R & remote sensing uncertainty'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
@@ -30,15 +30,16 @@ order: 1
 
 After completing this tutorial, you will be able to:
 
-* List and briefly describe the 3 core components of a lidar remote sensing system.
-* Describe what a lidar system measures.
-* Define an active remote sensing system.
+* Be able to describe the characteristics of 3 key vector data structures: points, lines and polygons.
+* Be able to open a shapefile in R using `readOGR()`.
+* Be able to view the metadata of a vector spatial layer in R including CRS
+* Be able to access the tabular (`data.frame`) attributes of a vector spatial layer in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -132,12 +133,15 @@ Let's import our AOI.
 # Import a polygon shapefile: readOGR("path","fileName")
 # no extension needed as readOGR only imports shapefiles
 
-sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
-                      layer="SJER_plot_centroids")
+sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data",
+                               "SJER_plot_centroids")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/california/SJER/vector_data/", layer: "SJER_plot_centroids"
+## Source: "data/week5/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
+
+# note the code below works too
+#sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data/SJER_plot_centroids.shp")
 ```
 
 <i class="fa fa-star"></i> **Data Tip:** The acronym, OGR, refers to the
@@ -330,10 +334,9 @@ plot(sjer_plot_locations, col="blue",
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
-
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Import Line & Polygon Shapefiles
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your knowledge: Import Line & Polygon Shapefiles
 
 Using the steps above, import the `data/week4/california/madera-county-roads/tl_2013_06039_roads`
 and `data/week4/california/SJER/vector_data/SJER_crop.shp` shapefiles into
@@ -349,6 +352,10 @@ Answer the following questions:
 </div>
 
 
+```
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+```
 
 ## Plot Multiple Shapefiles
 The `plot()` function can be used to plot spatial objects. Use the following
@@ -363,16 +370,17 @@ on top of each other in your plot.
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
      main="NEON Harvard Forest\nField Site")
+## Error in plot(sjer_crop_extent, col = "lightgreen", main = "NEON Harvard Forest\nField Site"): object 'sjer_crop_extent' not found
 plot(sjer_roads, add = TRUE)
+## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet
 
 # Use the pch element to adjust the symbology of the points
 plot(sjer_plot_locations,
   add  = TRUE,
   pch = 19,
   col = "purple")
+## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">
