@@ -10,7 +10,7 @@ library(raster)
 
 ## ----load-plot-data, fig.cap="world map plot"----------------------------
 # read shapefile
-worldBound <- readOGR(dsn="data/week4/global/ne_110m_land",
+worldBound <- readOGR(dsn="data/week5/global/ne_110m_land",
                       layer="ne_110m_land")
 
 # convert to dataframe
@@ -35,9 +35,9 @@ loc.df <- data.frame(lon=c(-105.2519, 10.7500, 2.9833),
 # loc.df <- fortify(loc)
 
 # add a point to the map
-mapLocations <- worldMap + geom_point(data=loc.df,
-                        aes(x=lon, y=lat, group=NULL),
-                      colour = "springgreen",
+mapLocations <- worldMap +
+                geom_point(data=loc.df,
+                aes(x=lon, y=lat, group=NULL), colour = "springgreen",
                       size=5)
 
 mapLocations + theme(legend.position="none")
@@ -117,12 +117,12 @@ newTheme <- list(theme(line = element_blank(),
       legend.position="none")) # turn off legend
 
 ## add graticules
-graticule <- readOGR("data/week4/global/ne_110m_graticules_all",
+graticule <- readOGR("data/week5/global/ne_110m_graticules_all",
                      layer="ne_110m_graticules_15")
 # convert spatial object into a ggplot ready, data.frame
 graticule_df <- fortify(graticule)
 
-bbox <- readOGR("data/week4/global/ne_110m_graticules_all", layer="ne_110m_wgs84_bounding_box")
+bbox <- readOGR("data/week5/global/ne_110m_graticules_all", layer="ne_110m_wgs84_bounding_box")
 bbox_df<- fortify(bbox)
 
 
