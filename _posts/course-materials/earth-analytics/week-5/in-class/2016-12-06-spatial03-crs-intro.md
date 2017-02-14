@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Intro to Coordinate Reference Systems"
 excerpt: "This lesson covers the basics of coordinate reference systems. "
 authors: ['Leah Wasser']
-modified: '2017-02-08'
+modified: '2017-02-14'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-to-coordinate-reference-systems/
@@ -28,15 +28,15 @@ spatial data including: Coordinate Reference Systems (CRS), Extent and spatial r
 After completing this tutorial, you will be able to:
 
 * Be able to describe what a Coordinate Reference System (`CRS`) is
-* Be able to list the steps associated with working with 2 datasets stored using difference coordinate reference systems.
-* Understand the basic differences between a geographic and a projected `CRS`.
+* Be able to list the steps associated with plotting 2 datasets stored using different coordinate reference systems.
+* Be able to list 2-3 fundamental differences between a geographic and a projected `CRS`.
 * Become familiar with the Universal Trans Mercator (UTM) and Geographic (WGS84) CRSs
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -143,10 +143,10 @@ library(raster)
 
 ```r
 # read shapefile
-worldBound <- readOGR(dsn="data/week4/global/ne_110m_land",
+worldBound <- readOGR(dsn="data/week5/global/ne_110m_land",
                       layer="ne_110m_land")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week4/global/ne_110m_land", layer: "ne_110m_land"
+## Source: "data/week5/global/ne_110m_land", layer: "ne_110m_land"
 ## with 127 features
 ## It has 2 fields
 
@@ -187,9 +187,9 @@ loc.df <- data.frame(lon=c(-105.2519, 10.7500, 2.9833),
 # loc.df <- fortify(loc)
 
 # add a point to the map
-mapLocations <- worldMap + geom_point(data=loc.df,
-                        aes(x=lon, y=lat, group=NULL),
-                      colour = "springgreen",
+mapLocations <- worldMap +
+                geom_point(data=loc.df,
+                aes(x=lon, y=lat, group=NULL), colour = "springgreen",
                       size=5)
 
 mapLocations + theme(legend.position="none")
@@ -339,12 +339,12 @@ newTheme <- list(theme(line = element_blank(),
       legend.position="none")) # turn off legend
 
 ## add graticules
-graticule <- readOGR("data/week4/global/ne_110m_graticules_all",
+graticule <- readOGR("data/week5/global/ne_110m_graticules_all",
                      layer="ne_110m_graticules_15")
 # convert spatial object into a ggplot ready, data.frame
 graticule_df <- fortify(graticule)
 
-bbox <- readOGR("data/week4/global/ne_110m_graticules_all", layer="ne_110m_wgs84_bounding_box")
+bbox <- readOGR("data/week5/global/ne_110m_graticules_all", layer="ne_110m_wgs84_bounding_box")
 bbox_df<- fortify(bbox)
 
 
@@ -408,14 +408,15 @@ distance and area is beyond the scope of this tutorial, but it's important to
 understand that the `CRS` that you chose for your data, will impact working with
 the data!
 
-<div id="challenge" markdown="1">
-## Challenge
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your knowledge
 
 1. Compare the maps of the globe above. What do you notice about the shape of the
 various countries. Are there any signs of distortion in certain areas on either
 map? Which one is better?
 
-2. Look at the image below - which depicts maps of the United States in 4 different
+2. Look at the image below which depicts maps of the United States in 4 different
 `CRS`s. What visual differences do you notice in each map? Look up each projection
 online, what elements (shape,area or distance) does each projection used in
 the graphic below optimize?
@@ -443,7 +444,7 @@ the graphic below optimize?
 </figure>
 
 
-## Geographic vs Projected CRS
+## Geographic vs. Projected CRS
 
 
 The above maps provide examples of the two main types of coordinate systems:
@@ -453,11 +454,6 @@ globe (e.g. latitude / longitude).
 2. **Projected coordinate Systems:** coordinate systems that are localized to
 minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane)
 
-In the next tutorial, we will discuss the differences between these CRSs in
-more detail. Feel
-free to skip over this section and come back to it with fresh eyes if the
-concept of a `CRS` is becoming too complex. It's easisest to take on in
-bite sized pieces!
 
 
 <div class="notice--info" markdown="1">

@@ -1,18 +1,20 @@
-## ----load-libraries------------------------------------------------------
+## ----load-libraries, message=F, warning=F--------------------------------
 # load libraries
 library(raster)
 library(rgdal)
+options(stringsAsFactors = F)
 
 ## ----convert-to-factor---------------------------------------------------
 # import roads
-sjer_roads <- readOGR("data/week4/california/madera-county-roads",
+sjer_roads <- readOGR("data/week5/california/madera-county-roads",
                       "tl_2013_06039_roads")
 # view the original class of the TYPE column
 class(sjer_roads$RTTYP)
 unique(sjer_roads$RTTYP)
 
+## ----adjust-value-unknown------------------------------------------------
 # set all NA values to "unknown" so they still plot
-sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "unknown"
+sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "Unknown"
 unique(sjer_roads$RTTYP)
 
 # view levels or categories - note that there are no categories yet in our data!
@@ -179,7 +181,7 @@ legend("bottomright",
 
 ## ----legend-points-lines, fig.cap="plot legend with points and lines"----
 # import points layer
-sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
+sjer_plots <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_plot_centroids")
 
 sjer_plots$plot_type <- as.factor(sjer_plots$plot_type)
@@ -206,7 +208,7 @@ legend("bottomright",
 ## ----reproject-data, echo=F, warning=F, message=F, fig.cap="plot legend with points and lines and subheading."----
 
 # load crop extent layer
-sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                     "SJER_crop")
 
 # reproject line and point data
@@ -217,6 +219,7 @@ sjer_roads_utm <- crop(sjer_roads_utm, sjer_aoi)
 
 
 ## ----create-legend-list--------------------------------------------------
+# view all elements in legend
 c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
 
 
@@ -275,9 +278,10 @@ furthest_pt_east <- the_plot_extent@xmax
 furthest_pt_north <- the_plot_extent@ymax
 # view values
 furthest_pt_east
+furthest_pt_north
 
 # set the plot rendering space parameters
-par(xpd = T, mar = par()$mar + c(0,0,0,7))
+par(xpd = T)
 
 # plot using new colors
 plot(sjer_plots,
@@ -301,15 +305,10 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
        cex=.9) # adjust legend font size
 
 
-## ----reset-margin, message=F, warning=F, eval=F--------------------------
-## # important: remove margins - one you are done, reset the margins
-## dev.off()
-## 
-
 ## ----custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."----
 
 # set the plot rendering space parameters
-par(xpd = T, mar = par()$mar + c(0,0,0,7))
+par(xpd = T)
 
 # plot using new colors
 plot(sjer_plots,

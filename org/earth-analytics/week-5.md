@@ -25,20 +25,19 @@ extract data from a raster file. We are on our way towards integrating many diff
 types of data into our analysis which involves knowing how to deal with things
 like coordinate reference systems and varying data structures.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 </div>
 
-</div>
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 pm  |   | Leah  |
-| 4:15 - 5:50  | R coding session - Use lidar to characterize vegetation / uncertainty | Leah  |
+| 3:00 - 3:30  | Uncertainty in remote sensing data | Leah  |
+| 4:00 - 5:50  | R coding session - Use lidar to characterize vegetation / uncertainty | Leah  |
 
 ### 1. Readings
+* <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0054776" target="_blank">Influence of Vegetation Structure on Lidar-derived Canopy Height and Fractional Cover in Forested Riparian Buffers During Leaf-Off and Leaf-On Conditions</a>
 
-
-### 2. Complete the assignment below
+### 2. Complete the assignment below (10 points)
 
 <div class="notice--warning" markdown="1">
 
@@ -51,43 +50,157 @@ Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `PDF` format. Submit both the
 `.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
 
-In your report, include the plots below. Be sure to describe what each plot shows and
-to answer the questions below.
+#### Use knitr code chunk arguments
+In your final report, use the following knitr code chunk arguments to hide messages
+and warnings and code as you see fit.
 
-1. In your own words, describe what a Coordinate Reference System (CRS) is. If you are working with two datasets that are stored using difference CRSs, and want to process or plot them, what do you need to do to ensure they line up on a map and can be processed together?
-2. In this class we learned about lidar and canopy height models. We then compared height values extracted from a canopy height model compared to height values measured by humans at each study site. Are the values the same? Why or why not? Use the plots to discuss why they values are similar / different. Then discuss what factors may result in the values being different.
+* `message=T`, `warning=T` Hide warnings and messages in a code chunk
+* `echo=F` Hide code and just show code output
 
+#### Answer the following questions below in your report
+1. **Write 1 paragraph:** In your own words, describe what a Coordinate Reference System (CRS) is. If you are working with two datasets that are stored using difference CRSs, and want to process or plot them, what do you need to do to ensure they line up on a map and can be processed together?
+2. **Write *atleast* 2 paragraphs:** In this class we learned about lidar and canopy height models. We then compared height values extracted from a canopy height model compared to height values measured by humans at each study site. Compare the results of the scatter plots below (plots 3 and 4).
+Which lidar estimate (max vs average) does a better job of comparing measured
+average or max tree height ? Any ideas why one is better than the other? Discuss
+this referencing what you see in the plots and the readings assigned for homework.
 
-### Plot 1
+#### Include the plots below.
+Be sure to describe what each plot shows in your final report.
+
+#### Plot 1 - Basemap of the study area
+
+Create a basemap that shows the location of the study area within the larger state
+of California / western United States or united states. Pick a spatial extent that
+helps someone from the USA understand where the SJER site is located. HINT: use the
+`ggmap()` lesson from week 4 if you forget how to do this!
+
+#### Plot 2 - Study area map 2
 
 Create a map of our SJER study area as follows:
 
 1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
 2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary.
-3. Plot the roads by road type and add each type to the legend. Place visual emphasis on the County and State roads by adjusting the line width and color. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-5/r-custom-legend/) to help build the legend.
+3. Plot the roads by road type and the plots by plot type.
 4. Add a **title** to your plot.
-45 Add a **legend** to your plot that shows both the road types and the plot locations.
 
-IMPORTANT: be sure that all of the data are within the same EXTENT and crs of the sjer_aoi
-layer. This means that you may have to CROP and reproject your data prior to plotting it!
+IMPORTANT: be sure that all of the data are within the same `EXTENT` and `crs`
+of the `sjer_aoi` layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
-# NOTE: be sure they know how to add points and lines to a legend. Re redit the homework lesson as some of the plots aren't labeled correctly.
+#### **BONUS - 1 point**:
 
-### Plot 2
-Create a plot of field site locations, SIZED according to maximum tree height.
+Add a **legend** to your roads/ study area plot that shows both the road types and the plot locations. [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-5/r-custom-legend/) to help build the legend.
 
-### Plot 3
-Create a scatter plot using `ggplot()` that compares MAXIMUM canopy height model
-height in meters, extracted within a 20 meter radius, compared to maximum tree
-height derived from the in situ field site data. Note: in the lessons we
-compared MEAN tree height rather than
+#### Plot 3 & 4 scatterplots
+Create two scatter plots that compare:
 
-### Plot 4
-Create a box plot using `ggplot()` that shows the DIFFERENCE between the extracted
-Max canopy height model height compared to in situ height per plot.
+* **MAXIMUM** canopy height model height in meters, extracted within a 20 meter radius, compared to **MAXIMUM** tree
+height derived from the in situ field site data.
+* **AVERAGE** canopy height model height in meters, extracted within a 20 meter radius, compared to **AVERAGE** tree
+height derived from the in situ field site data.
 
-## Homework due: Feb 22 2017 @ noon.
-Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox by NOON
-Wednesday 22 February 2017.
+#### Plot 5 & 6 difference bar plots
+Create barplots that shows the DIFFERENCE between:
+
+* Extracted lidar max canopy height model height compared to measured max height per plot.
+* Extracted lidar average canopy height model compared to measured average height per plot.
+For all plots
+
+#### Graduate students only
+Add a regression line to each scatterplot. For both plots write a thoughtful paragraph
+describing what the regression relationship tells you about the relationship
+between lidar and measured vegetation height. Does the comparison between lidar and
+measured average height look stronger? Or Maximum height? Why might one be "better"
+or a strong relationship than the other.
+
+### IMPORTANT: for all plots
+* Label x and y axes appropriately - include units
+* Add a title to your plot that describes what the plot shows
+* Add a 2-3 sentence caption below each plot that describes what it shows HINT: you can use the knitr argument fig.cap="Caption here" if you are knitting to pdf to automatically add captions.
+
+## Homework due: Friday Feb 24 2017 @ noon.
+Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 </div>
+
+
+## .Pdf Report structure & code: 10%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| PDF and RMD submitted |  | Only one of the 2 files are submitted  | | No files submitted |
+| Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| | Clean coding is not implemented consistently throughout the report. |
+| Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | | The are more than 3 code errors in the document |
+| All required R packages are listed at the top of the document in a code chunk.  | | Some packages are listed at the top of the document and some are lower down. | | |
+| Lines of code are broken up at commas to make the code more readable  | |  | | |
+
+
+## Knitr pdf output: 10%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Code chunk arguments are used to hide warnings |  |  | | |
+| Code chunk arguments are used to hide code and just show output |  | | |  |
+| PDf report emphasizes the write up and the code outputs rather than showing each step of the code |  | | |  |
+
+## Report questions: 30%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Student clearly defines Coordinate Reference System (CRS) (1 paragraph is well written and correctly describes what a CRS is.) |  |  | | |
+| Describe what you need to do when you want to plot 2 spatial datasets in 2 different Coordinate Reference System (CRS) (paragraph is well written and correctly describes the key step.) |  |  | | |
+| Student compared the scatter plots of average and max height and determined which relationship is "better" (more comparable)|  |  | | |
+| Student references what they see in the scatter plots and the difference bar plots to make their argument for which one is better. The argument is based upon data results and what they learned in the readings / class. |  |  | | |
+| 1-2 readings from the homework are referenced in this paragraph.|  |  | | |
+
+## Plots are worth 50% of the assignment grade
+
+### Plot 1 ggmap() or maps basemap plot 1
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Code chunk arguments are used to hide warnings |  |  | | |
+| Plot renders on the pdf. |  |  | | |
+| Study area location is correct. |  |  | | |
+| Plots have a 2-3 caption that clearly describes plot contents. |  |  | | |
+
+### Plot 2 Field site detail map
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Roads and plots are included on the map |  |  | | |
+| AOI boundary is included on the map. |  |  | | |
+| Roads are symbolized by type. |  |  | | |
+| Plots are symbolized by type. |  |  | | |
+| Plots has a title that defined plot contents. |  |  | | |
+| Plots have a 2-3 sentence caption that clearly describes plot contents. |  |  | | |
+
+## Plots 3 & 4 - scatterplots insitu vs lidar
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Scatter plot of maximum measured vs lidar tree height is included |  |  | | |
+| Scatter plot of average measured vs lidar tree height is included |  |  | | |
+| Plots have a title that describes plot contents. |  |  | | |
+| X & Y axes are labeled appropriately. |  |  | | |
+| Plots have a 2-3 sentence caption that clearly describes plot contents. |  |  | | |
+
+## Plots 5 & 6 - difference bar plot: insitu vs lidar
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Bar plot of maximum measured minus lidar tree height is included. |  |  | | |
+| Bar plot of average measured minus lidar tree height is included. |  |  | | |
+| Plots have a title that clearly describes plot contents. |  |  | | |
+| X & Y axes are labeled appropriately. |  |  | | |
+| Plots have a 2-3 sentence caption that clearly describes plot contents. |  |  | | |
+
+## Graduate regression scatter plot 1
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Bar plot of maximum measured minus lidar tree height is included. |  |  | | Plot is not included |
+| Bar plot of average measured minus lidar tree height is included. |  |  | |  plot is not included |
+| Plots have a title that clearly describes plot contents. |  |  | | |
+| X & Y axes are labeled appropriately. |  |  | | |
+| Plots have a 2-3 sentence caption that clearly describes plot contents. |  |  | | |
+| 1-2 Paragraphs are included that describe what these plots show in terms of the relationship between lidar and measured tree height and which metrics may or may not be better (average vs maximum height). |  |  | | |
