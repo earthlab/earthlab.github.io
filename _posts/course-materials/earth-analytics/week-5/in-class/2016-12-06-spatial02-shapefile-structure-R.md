@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: files that make up a shapefile"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-08'
+modified: '2017-02-14'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/shapefile-structure/
@@ -30,7 +30,7 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 
 </div>
