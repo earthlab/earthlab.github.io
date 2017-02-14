@@ -32,7 +32,7 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -65,10 +65,6 @@ for that state.
     Source: opennews.org</figcaption>
 </figure>
 
-Check out this short video highlighting how map projections can make continents
-seems proportionally larger or smaller than they actually are!
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KUF_Ckv8HbE" frameborder="0" allowfullscreen></iframe>
 
 In this tutorial we will learn how to identify and manage spatial data
 in different projections. We will learn how to `reproject` the data so that they
@@ -380,7 +376,7 @@ transformations) on our data.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework plot 1: crop, reproject, plot data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your skills: crop, reproject, plot data
 
 Create a map of our SJER study area as follows:
 
@@ -395,12 +391,15 @@ Create a map of our SJER study area as follows:
 IMPORTANT: be sure that all of the data are within the same EXTENT and crs of the sjer_aoi
 layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
-Your map should look something like the map below. You should ofcourse use the
+Your map should look something like the map below. You should of course use the
 actual roads types that you find in the metadata rather than "Road type 1, etc"
+
+NOTE: this is also a plot you will submit as a part of your homework this week!
 
 </div>
 
 ```{r challenge-code-MASS-Map, include=TRUE, results="hide", echo=FALSE, warning=FALSE, message=FALSE, fig.cap="challenge plot"}
+
 # import data
 sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
                       "SJER_crop")
@@ -449,7 +448,8 @@ legend(258867.4, 4112362,
 
 ```
 
-```{r dev-off, echo=F}
+
+```{r dev-off, echo=F, warning=F, message=F}
 # clean out the plot area
 dev.off()
 ```
