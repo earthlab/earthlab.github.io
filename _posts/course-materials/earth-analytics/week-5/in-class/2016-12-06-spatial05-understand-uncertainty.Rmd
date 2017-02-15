@@ -36,9 +36,9 @@ You will need a computer with internet access to complete this lesson and the da
 
 ## Understanding uncertainty and error.
 
-It is important to consider about error and uncertainty when presenting scientific
-results. Most measurements that we make - be they from instruments or from us humans -
-have a certain amount of uncertainty associated with them. We will discuss what
+It is important to consider error and uncertainty when presenting scientific
+results. Most measurements that we make - be they from instruments or humans -
+have uncertainty associated with them. We will discuss what
 that means, below.
 
 ## Uncertainty
@@ -89,9 +89,10 @@ boxplot(tree_heights$heights,
 ```
 
 In the example above, our mean tree height value is towards the center of
-our distribution of measured heights. Thus we might assume that our mean represents
-the average measured value well. And that our range of expected values or
-uncertainty can be seen in the core range displayed in our box plot.
+our distribution of measured heights. We might expect that the sample mean of
+our observations provides a reasonable estimate of the true value. The
+variation among our measured values may also provide some information about the
+precision (or lack thereof) of the measurement process.
 
 <a href="http://www.physics.csbsju.edu/stats/box2.html" target="_blank">Read more about  the basics of a box plot</a>
 
@@ -105,17 +106,25 @@ hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
 
 ## Measurement accuracy
 
-Measurement accuracy is the degree of closely between a measurement and
-the true value of the thing being measured. Error quantifies that difference between
-the true value and the measurement. Next, we'll talk about two different types of
-error - systematic and random error.
+Measurement **accuracy** is a concept that relates to whether there is bias in
+measurements, i.e. whether the expected value of our observations is close to
+the true value. For low accuracy measurements, we may collect many observations,
+and the mean of those observations may not provide a good measure of the truth
+(e.g., the height of the tree). For high accuracy measurements, the mean of
+many observations would provide a good measure of the true value. This is
+different from **precision**, which typically refers to the variation among
+observations. Accuracy and precision are not always tightly coupled. It is
+possible to have measurements that are very precise but inaccurate, very
+imprecise but accurate, etc.
 
 ## Systematic vs Random error
 
-**Systematic error:** a system error is one that tends to shift all measurements
+**Systematic error:** a systematic error is one that tends to shift all measurements
 in a systematic way. This means that the mean value of a set of measurements is
-consistently displaced or varied in a predictable way. Causes of systematic errors
-may be known or unknown but should always be corrected for when present. For instance, no instrument can ever be calibrated perfectly so when a group of measurements systematically differ from the value of a standard reference specimen, an adjustment in the values should be made. Systematic error can be corrected for only when the "true value" (such as the value assigned to a calibration or reference specimen) is known.
+consistently displaced or varied in a predictable way, leading to inaccurate observations.
+Causes of systematic errors may be known or unknown but should always be corrected for when present.
+For instance, no instrument can ever be calibrated perfectly, so when a group of measurements systematically differ from the value of a standard reference specimen, an adjustment in the values should be made.
+Systematic error can be corrected for only when the "true value" (such as the value assigned to a calibration or reference specimen) is known.
 
 *Example:* Remote sensing instruments need to be calibrated. For example a laser in
 a lidar system may be tested in a lab to ensure that the distribution of output light energy
@@ -285,7 +294,7 @@ legend(SJER_chm@extent@xmax+100, SJER_chm@extent@ymax,
 ### Compare lidar derived height to in situ measurements
 
 We can compare maximum tree height values at each plot to the maximum pixel value
-in our chm for each plot. To do this, we define the geographic boundary of our plot
+in our CHM for each plot. To do this, we define the geographic boundary of our plot
 using a polygon - in the case below we use a circle as the boundary. We then extract
 the raster cell values for each circle and calculate the max value for all of the
 pixels that fall within the plot area.
