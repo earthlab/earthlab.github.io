@@ -102,6 +102,7 @@ hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
      xlab="Height (m)", col="purple")
 
 ```
+
 ## Measurement accuracy
 
 Measurement accuracy is the degree of closely between a measurement and
