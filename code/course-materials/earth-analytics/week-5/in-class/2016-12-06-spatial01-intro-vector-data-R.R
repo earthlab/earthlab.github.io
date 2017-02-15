@@ -11,8 +11,12 @@ library(raster)
 # Import a polygon shapefile: readOGR("path","fileName")
 # no extension needed as readOGR only imports shapefiles
 
-sjer_plot_locations <- readOGR("data/week4/california/SJER/vector_data/",
-                      layer="SJER_plot_centroids")
+sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data",
+                               "SJER_plot_centroids")
+
+# note the code below works too
+#sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data/SJER_plot_centroids.shp")
+
 
 ## ----view-metadata-------------------------------------------------------
 # view just the class for the shapefile
@@ -45,10 +49,10 @@ plot(sjer_plot_locations, col="blue",
 
 ## ----import-point-line, echo=FALSE, results="hide"-----------------------
 # import line shapefile
-sjer_roads <- readOGR("data/week4/california/madera-county-roads",
+sjer_roads <- readOGR("data/week5/california/madera-county-roads",
                       layer = "tl_2013_06039_roads")
 
-sjer_crop_extent <- readOGR("data/week4/california/SJER/vector_data/",
+sjer_crop_extent <- readOGR("data/week5/california/SJER/vector_data/",
                             "SJER_crop")
 
 # 1
