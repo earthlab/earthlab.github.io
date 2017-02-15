@@ -150,9 +150,7 @@ building.
 <figure>
    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" target="_blank">
    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
-   <figcaption>An example LiDAR waveform. Source: National Ecological
-   Observatory Network, Boulder, CO - image
-available on <a href="https://flic.kr/s/aHsk4W4cdP" target="_blank"> Flickr</a>.
+   <figcaption>An example LiDAR waveform. Source: NEON, Boulder, CO.
    </figcaption>
 </figure>
 

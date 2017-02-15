@@ -3,7 +3,7 @@ layout: single
 title: "Raster analysis workflow in R."
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-02-13'
+modified: '2017-02-15'
 category: [course-materials]
 class-lesson: ['week4-review-r']
 permalink: /course-materials/earth-analytics/week-4/raster-analysis-workflow-r/
@@ -39,7 +39,7 @@ We can break our data analysis workflow into several steps as follows:
 * **Data Processing:** load and "clean" the data. This may include cropping, dealing with NA values, etc
 * **Data Exploration:** understand the range and distribution of values in your data. This may involve plotting histograms scatter plots, etc
 * **More Data Processing & Analysis:** This may include the final data processing steps that you determined based upon the data exploration phase.
-* **Final data analysis:** The final steps of your analysis - often performed using information gathered in the early data processing / exploration stages of your workflow.
+* **Final Data Analysis:** The final steps of your analysis - often performed using information gathered in the early data processing / exploration stages of your workflow.
 * **Presentation:** Refining your results into a final plot or set of plots that are cleaned up, labeled, etc.
 
 Please note - working with data is not a linear process. There are no defined
@@ -50,6 +50,13 @@ steps. As you work with data more, you will develop your own workflow and approa
 # load libraries
 library(raster)
 library(rgdal)
+## rgdal: version: 1.2-5, (SVN revision 648)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-4
 library(ggplot2)
 
 # set working directory
@@ -276,8 +283,8 @@ above we have 8 numbers in our breaks vector. this translates to 7 bins each or 
 
 ```r
 # create a vector of colors - one for each "bin" of raster cells
-diff_colors <- c("palevioletred4", "palevioletred1", "ivory1",
-                "seagreen1", "seagreen4")
+diff_colors <- c("palevioletred4", "palevioletred2", "palevioletred1", "ivory1",
+                "seagreen1","seagreen2","seagreen4")
 plot(dtm_diff,
      breaks=c(-20, -3, -.3, .3, 3, 50),
      col=diff_colors,
@@ -342,8 +349,8 @@ legend(legendx, legendy,
 
 ```r
 dev.off()
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```
 
 ## Create a final classified dataset
@@ -356,9 +363,9 @@ to classify the data.
 
 # create reclass vector
 reclass_vector <- c(-20,-3, -2,
-                    -3, -.3, -1,
-                    -.3, .3, 0,
-                    .3, 3, 1,
+                    -3, -.5, -1,
+                    -.5, .5, 0,
+                    .5, 3, 1,
                     3, 50, 2)
 
 reclass_matrix <- matrix(reclass_vector,
@@ -368,9 +375,9 @@ reclass_matrix <- matrix(reclass_vector,
 reclass_matrix
 ##       [,1] [,2] [,3]
 ## [1,] -20.0 -3.0   -2
-## [2,]  -3.0 -0.3   -1
-## [3,]  -0.3  0.3    0
-## [4,]   0.3  3.0    1
+## [2,]  -3.0 -0.5   -1
+## [3,]  -0.5  0.5    0
+## [4,]   0.5  3.0    1
 ## [5,]   3.0 50.0    2
 ```
 
@@ -387,8 +394,8 @@ plot(diff_dtm_rcl,
      main="Reclassified, Cropped Difference DTM \n difference in meters")
 par(xpd=T)
 legend(dtm_diff@extent@xmax, dtm_diff@extent@ymax,
-       legend=c("-20 to -10", "-10 to -3", "-3 to -.3",
-                "-.3 to .3", "1 to 3", "3 to 10", "10 to 50"),
+       legend=c("-20 to -10", "-10 to -3", "-3 to -.5",
+                "-.5 to .5", "1 to 3", "3 to 10", "10 to 50"),
        fill=diff_colors,
        bty="n",
        cex=.8)
@@ -410,7 +417,7 @@ hist(diff_dtm_rcl,
 
 
 The above histogram looks odd. This is because we are trying to force our discrete
-data into bins. A barplot is a more appropriate plot. 
+data into bins. A barplot is a more appropriate plot.
 
 
 ```r
@@ -428,17 +435,17 @@ barplot(diff_dtm_rcl,
 
 
 Now let's look at one last thing. What would the distribution look like if
-we set all values between -.3 to .3 to NA?
+we set all values between -.5 to .5 to NA?
 
 
 ```r
 # create a new raster object
 diff_dtm_rcl_na <- diff_dtm_rcl
-# assign values between -.3 and .3 to NA
-diff_dtm_rcl_na[diff_dtm_rcl_na >= -.3 & diff_dtm_rcl_na <= .3] <- NA
+# assign values between -.5 and .5 to NA
+diff_dtm_rcl_na[diff_dtm_rcl_na >= -.5 & diff_dtm_rcl_na <= .5] <- NA
 # view histogram
 barplot(diff_dtm_rcl_na,
-     main="Barplot of data \n values between -.3 and .3 set to NA",
+     main="Histogram of data \n values between -.5 and .5 set to NA",
      xlab="Difference Class",
      col=diff_colors)
 ## Warning in .local(height, ...): a sample of 14.3% of the raster cells were
@@ -457,6 +464,5 @@ summary(diff_dtm_rcl_na)
 ## Median       -1
 ## 3rd Qu.       1
 ## Max.          2
-## NA's    6467991
+## NA's    6761395
 ```
-
