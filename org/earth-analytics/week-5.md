@@ -107,11 +107,10 @@ height derived from the in situ field site data.
 height derived from the in situ field site data.
 
 #### Plot 5 & 6 difference bar plots
-Create barplots that shows the DIFFERENCE between:
+Create barplots that show the DIFFERENCE between:
 
 * Extracted lidar max canopy height model height compared to measured max height per plot.
 * Extracted lidar average canopy height model compared to measured average height per plot.
-For all plots
 
 #### Graduate students only
 Add a regression line to each scatterplot. For both plots write a thoughtful paragraph
