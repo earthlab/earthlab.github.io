@@ -105,7 +105,7 @@ from the Census website to support the learning goals of this tutorial.
 
 ```{r read-csv }
 # Import the shapefile data into R
-state_boundary_us <- readOGR("data/week4/usa-boundary-layers",
+state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
 
 # view data structure
@@ -129,13 +129,13 @@ plot(state_boundary_us,
 
 We can add a boundary layer of the United States to our map - to make it look
 nicer. We will import
-`data/week4/usa-boundary-layers/US-Boundary-Dissolved-States`.
+`data/week5/usa-boundary-layers/US-Boundary-Dissolved-States`.
 If we specify a thicker line width using `lwd=4` for the border layer, it will
 make our map pop!
 
 ```{r check-out-coordinates, fig.cap="Plot of the US overlayed with states and a boundary." }
 # Read the .csv file
-country_boundary_us <- readOGR("data/week4/usa-boundary-layers",
+country_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
 
 # look at the data structure
@@ -160,7 +160,7 @@ AOI to represent "Area of Interest" in our data.
 
 ```{r explore-units, fig.cap="plot aoi"}
 # Import a point shapefile
-sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
 class(sjer_aoi)
 
@@ -401,12 +401,12 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 ```{r challenge-code-MASS-Map, include=TRUE, results="hide", echo=FALSE, warning=FALSE, message=FALSE, fig.cap="challenge plot"}
 
 # import data
-sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
-sjer_roads <- readOGR("data/week4/california/madera-county-roads",
+sjer_roads <- readOGR("data/week5/california/madera-county-roads",
                       "tl_2013_06039_roads")
 
-sjer_plots <- readOGR("data/week4/california/SJER/vector_data",
+sjer_plots <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_plot_centroids")
 
 # reproject line and point data

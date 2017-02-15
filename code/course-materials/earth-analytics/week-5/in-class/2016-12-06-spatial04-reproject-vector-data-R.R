@@ -2,7 +2,7 @@
 # load spatial data packages
 library(rgdal)
 library(raster)
-
+options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
 
@@ -138,6 +138,7 @@ points(aoi_centroid, pch=8, col="magenta", cex=1.5)
 
 
 ## ----challenge-code-MASS-Map, include=TRUE, results="hide", echo=FALSE, warning=FALSE, message=FALSE, fig.cap="challenge plot"----
+
 # import data
 sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
@@ -155,7 +156,7 @@ sjer_roads_utm <- crop(sjer_roads_utm, sjer_aoi)
 sjer_roads_utm$RTTYP[is.na(sjer_roads_utm$RTTYP)] <- "unknown"
 sjer_roads_utm$RTTYP <- as.factor(sjer_roads_utm$RTTYP)
 
-par(xpd = T)
+par(xpd = T, mar = par()$mar + c(0,0,0,7))
 # plot state boundaries
 plot(sjer_aoi,
      main="SJER Area of Interest (AOI)",
