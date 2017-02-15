@@ -233,7 +233,7 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 
 ## View interactive scatterplot
 
-<a href="https://plot.ly/~leahawasser/168/lidar-derived-mean-tree-height-vs-insitu-measured-mean-tree-he/" target="_blank">View scatterplot plotly</a>
+<a href="https://plot.ly/~leahawasser/170/" target="_blank">View scatterplot plotly</a>
 
 
 ## View interactive difference barplot
