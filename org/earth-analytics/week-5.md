@@ -36,6 +36,7 @@ like coordinate reference systems and varying data structures.
 
 ### 1. Readings
 * <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0054776" target="_blank">Influence of Vegetation Structure on Lidar-derived Canopy Height and Fractional Cover in Forested Riparian Buffers During Leaf-Off and Leaf-On Conditions</a>
+* <a href="http://www.sciencedirect.com/science/article/pii/S0303243403000047" target="_blank">The characterisation and measurement of land cover change through remote sensing: problems in operational applications?</a>
 
 ### 2. Complete the assignment below (10 points)
 

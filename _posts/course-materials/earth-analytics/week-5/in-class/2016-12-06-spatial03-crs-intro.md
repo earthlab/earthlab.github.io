@@ -455,7 +455,6 @@ globe (e.g. latitude / longitude).
 minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane)
 
 
-
 <div class="notice--info" markdown="1">
 
 ## Additional Resources

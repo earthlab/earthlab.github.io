@@ -1,0 +1,256 @@
+---
+layout: single
+title: "Understand uncertainty"
+excerpt: ". "
+authors: ['Leah Wasser']
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+category: [course-materials]
+class-lesson: ['class-intro-spatial-r']
+permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
+nav-title: 'Remote sensing uncertainty'
+week: 5
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 5
+---
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+* Be able to list atleast 3 sources of uncertainty / error associated with remote sensing data.
+* Be able to interpret a scatter plot that compares remote sensing values with field measured values to determine how "well" the two metrics compare.
+* Be able to describe 1-3 ways to better understand sources of error associated with a comparison between remote sensing values with field measured values.
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+
+</div>
+
+## Understanding uncertainty and error.
+
+In science, it is important to think about error and uncertainty. 
+
+## Uncertainty 
+
+**Uncertainty:** the range of values within which the value of the measurand can be said to lie within a specified level of confidence. The uncertainty  quantitatively indicates the "quality" of your measurement.It answers the question: "how well does the result represent the value of the quantity being measured?" 
+
+### Tree height measurement example
+
+So for example let's pretend that we measured the height of a tree 10 times. Each
+time our tree height measurement may be slightly different? Why? Because maybe
+each time we visually determined the top fo the tree to be in a slightly different place. Or maybe there was wind that day during measurements that 
+caused the tree to shift as we measured it yielding a slightly different height each time. or... what other reasons can you think of that might impact tree height 
+measurements? 
+
+## What is the true value?
+
+So you may be wondering, what is the true height of our tree? The true value?
+In the cause of a tree in a forest, it's very difficult to determine the 
+true height. So we accept that there will be some variation in our measurements
+and we measure the tree over and over again until we understand the range of 
+heights that we are likely to get when we measure the tree
+
+```{r standard-error, fig.cap="Distribution of tree heights." }
+
+tree_heights <- data.frame(heights=c(10, 10.1, 9.9, 9.5, 9.7, 9.8, 
+                                     9.6, 10.5, 10.7, 10.3, 10.6))
+# what is the average tree height
+mean(tree_heights$heights)
+# what is the standard deviation of measurements?
+sd(tree_heights$heights)
+boxplot(tree_heights$heights,
+        main="Distribution of tree height measurements (m)",
+        ylab="Height (m)")
+
+```
+
+In the case above of our tree heights, our mean value is towards the center of 
+our distribution of measured heights. Thus we might assume that our mean represents
+the average measured value well. And that our range of expected values or uncertainty can be seen in the box plot.
+
+```{r hist-tree-height, fig.cap="Tree height distribution"}
+
+hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
+     main="Distribution of measured tree height values",
+     xlab="Height (m)", col="purple")
+
+```
+
+* http://www.ece.rochester.edu/courses/ECE111/error_uncertainty.pdf
+* https://www.nde-ed.org/GeneralResources/ErrorAnalysis/UncertaintyTerms.htm
+* http://www.peer.eu/fileadmin/user_upload/opportunities/metier/course3/c3_land_surface_processes.pdf
+
+<figure>
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/scaling-trees-nat-geo.jpg">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/scaling-trees-nat-geo.jpg" alt="national geographic scaling trees graphic"></a>
+   <figcaption>Conventional on the ground methods to measure trees are resource
+   intensive and limit the amount of vegetation that can be characterized. Source:
+   National Geographic
+   </figcaption>
+</figure>
+
+<figure>
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" target="_blank">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
+   <figcaption>An example LiDAR waveform. Source: NEON, Boulder, CO.
+   </figcaption>
+</figure>
+
+
+<figure>
+   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/Treeline_ScannedPoints.png">
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
+   <figcaption>Cross section showing LiDAR point cloud data (above) and the
+   corresponding landscape profile (below). Graphic: Leah A. Wasser
+   </figcaption>
+</figure>
+
+
+
+```{r uncertainty-lidar, echo=F, warning=FALSE, message=FALSE, results = "hide" }
+
+# load libraries
+library(raster)
+library(rgdal)
+library(ggplot2)
+library(dplyr)
+
+options(stringsAsFactors = FALSE)
+SJER_chm <- raster("data/week5/california/SJER/2013/lidar/SJER_lidarCHM.tif")
+
+
+SJER_chm[SJER_chm==0] <- NA
+
+SJER_plots <- readOGR("data/week5/california/SJER/vector_data",
+                      "SJER_plot_centroids")
+
+# extract max height
+SJER_height <- extract(SJER_chm,
+                    SJER_plots,
+                    buffer = 20, # specify a 20 m radius
+                    fun=max, # extract the MEAN value from each plot
+                    sp=TRUE, # create spatial object
+                    stringsAsFactors=FALSE)
+
+# import the centroid data and the vegetation structure data
+SJER_insitu <- read.csv("data/week5/california/SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv",
+                        stringsAsFactors = FALSE)
+
+# find the max and mean stem height for each plot
+insitu_stem_height <- SJER_insitu %>%
+  group_by(plotid) %>%
+  summarise(insitu_max = max(stemheight))
+
+# merge the insitu data into the centroids data.frame
+SJER_height <- merge(SJER_height,
+                     insitu_stem_height,
+                   by.x = 'Plot_ID',
+                   by.y = 'plotid')
+```
+
+## Study site location
+
+```{r ggmap, echo=F, warning=F, message=F, results = "hide"}
+library(ggmap)
+cali_map <- get_map(location = "California",
+          source="google",
+          maptype="terrain", crop=FALSE,
+          zoom=6)
+
+# creating a sample data.frame with your lat/lon points
+lon <- c(SJER_chm@extent@xmin)
+lat <- c(SJER_chm@extent@ymin)
+
+# import us data
+state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
+          "US-State-Boundaries-Census-2014")
+df <- as.data.frame(cbind(lon,lat))
+site_location <- SpatialPoints(df, proj4string = crs(SJER_chm))
+site_location_wgs84 <- spTransform(site_location, CRSobj = crs(state_boundary_us))
+
+site_locat_points <- as.data.frame(coordinates(site_location_wgs84))
+```
+
+```{r ggmap-plot, echo=F, warning=F, message=F, results = "hide", fig.cap="ggmap of study area."}
+# create a map with a point location for boulder.
+ggmap(cali_map) + labs(x = "", y = "") +
+  geom_point(data = site_locat_points, aes(x = lon, y = lat, fill = "red", alpha = 0.2), size = 5, shape = 19) +
+  guides(fill=FALSE, alpha=FALSE, size=FALSE)
+
+```
+
+## Study area plots
+
+```{r plot-plots, fig.cap="plots", echo=F}
+# Overlay the centroid points and the stem locations on the CHM plot
+plot(SJER_chm,
+     main="Study area plot locations",
+     col=gray.colors(100, start=.3, end=.9),
+     legend=F,
+     box=F, # turn off black border
+     axes=F) # turn off axis labels and ticks
+
+# pch 0 = square
+plot(SJER_plots,
+     pch = 15,
+     cex = 2,
+     col = "magenta",
+     add=TRUE)
+par(xpd=T)
+legend(SJER_chm@extent@xmax+100, SJER_chm@extent@ymax,
+       legend="Plot \nlocations",
+       pch = 15,
+       col = "magenta",
+       bty="n")
+
+```
+
+##  QGIS imagery layer
+
+qgis.utils.iface.addRasterLayer("http://server.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer?f=json&pretty=true","raster")
+<qgis._core.QgsRasterLayer object at 0x12739ee90>
+
+
+```{r plot-data, fig.cap="final plot", echo=F, warning=F, message=F}
+
+# create plot
+p <-ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_max)) +
+  geom_point() +
+  theme_bw() +
+  ylab("Mean measured height (m)") +
+  xlab("Mean LiDAR pixel (m)") +
+  ggtitle("Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height") +
+  geom_abline(intercept = 0, slope=1) +
+  geom_smooth(method=lm)
+
+p
+
+```
+
+## View interactive scatterplot
+
+<a href="https://plot.ly/~leahawasser/168/lidar-derived-mean-tree-height-vs-insitu-measured-mean-tree-he/" target="_blank">View scatterplot plotly</a>
+
+
+## View interactive difference barplot
+
+<a href="https://plot.ly/~leahawasser/158/chm-minus-insitu-differences/
+" target="_blank">View scatterplot differences</a>
+
+```{r ggplotly, echo=F, eval=F}
+library(plotly)
+
+Sys.setenv("plotly_username"="leahawasser")
+Sys.setenv("plotly_api_key"="#")
+
+plotly_POST(p)
+
+```
