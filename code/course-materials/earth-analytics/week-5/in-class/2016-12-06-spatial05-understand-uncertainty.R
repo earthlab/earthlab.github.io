@@ -112,11 +112,11 @@ legend(SJER_chm@extent@xmax+100, SJER_chm@extent@ymax,
 ## ----plot-data, fig.cap="final plot", echo=F, warning=F, message=F-------
 
 # create plot
-p <-ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_max)) +
+p <-ggplot(SJER_height@data, aes(x = insitu_max, y=SJER_lidarCHM)) +
   geom_point() +
   theme_bw() +
-  ylab("Mean measured height (m)") +
-  xlab("Mean LiDAR pixel (m)") +
+  xlab("Mean measured height (m)") +
+  ylab("Mean LiDAR pixel (m)") +
   ggtitle("Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height") +
   geom_abline(intercept = 0, slope=1) +
   geom_smooth(method=lm)
