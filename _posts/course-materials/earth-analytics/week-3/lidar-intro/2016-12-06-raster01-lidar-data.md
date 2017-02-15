@@ -4,7 +4,7 @@ title: "Introduction to LiDAR Data"
 excerpt: "This lesson reviews what Lidar remote sensing is and discusses the core
 components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-02-01'
+modified: '2017-02-14'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-intro/
@@ -150,9 +150,7 @@ building.
 <figure>
    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" target="_blank">
    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
-   <figcaption>An example LiDAR waveform. Source: National Ecological
-   Observatory Network, Boulder, CO - image
-available on <a href="https://flic.kr/s/aHsk4W4cdP" target="_blank"> Flickr</a>.
+   <figcaption>An example LiDAR waveform. Source: NEON, Boulder, CO.
    </figcaption>
 </figure>
 
