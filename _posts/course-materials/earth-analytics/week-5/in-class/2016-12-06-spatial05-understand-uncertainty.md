@@ -108,6 +108,7 @@ hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial05-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="100%" />
+
 ## Measurement accuracy
 
 Measurement accuracy is the degree of closely between a measurement and
