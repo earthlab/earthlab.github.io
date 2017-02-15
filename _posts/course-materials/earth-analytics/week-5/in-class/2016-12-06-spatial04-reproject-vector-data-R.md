@@ -79,7 +79,7 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 # load spatial data packages
 library(rgdal)
 library(raster)
-
+options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
 ```
@@ -106,15 +106,9 @@ from the Census website to support the learning goals of this tutorial.
 
 ```r
 # Import the shapefile data into R
-state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
+state_boundary_us <- readOGR("data/week4/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
-## with 58 features
-## It has 10 fields
-## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week5/usa-boundary-layers", "US-State-Boundaries-
-## Census-2014"): Z-dimension discarded
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 
 # view data structure
 class(state_boundary_us)
@@ -143,22 +137,16 @@ plot(state_boundary_us,
 
 We can add a boundary layer of the United States to our map - to make it look
 nicer. We will import
-`data/week5/usa-boundary-layers/US-Boundary-Dissolved-States`.
+`data/week4/usa-boundary-layers/US-Boundary-Dissolved-States`.
 If we specify a thicker line width using `lwd=4` for the border layer, it will
 make our map pop!
 
 
 ```r
 # Read the .csv file
-country_boundary_us <- readOGR("data/week5/usa-boundary-layers",
+country_boundary_us <- readOGR("data/week4/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
-## with 1 features
-## It has 9 fields
-## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week5/usa-boundary-layers", "US-Boundary-
-## Dissolved-States"): Z-dimension discarded
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 
 # look at the data structure
 class(country_boundary_us)
@@ -187,12 +175,9 @@ AOI to represent "Area of Interest" in our data.
 
 ```r
 # Import a point shapefile
-sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week4/california/SJER/vector_data",
                       "SJER_crop")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/california/SJER/vector_data", layer: "SJER_crop"
-## with 1 features
-## It has 1 fields
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 class(sjer_aoi)
 ## [1] "SpatialPolygonsDataFrame"
 ## attr(,"package")
@@ -453,7 +438,7 @@ transformations) on our data.
 
 Create a map of our SJER study area as follows:
 
-1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week5 data download.
+1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download.
 2. Create a map that shows the roads layer, study site locations and the sjer_aoi boundary.
 3. Add a **title** to your plot.
 4. Add a **legend** to your plot that shows both the roads and the plot locations.
@@ -471,7 +456,15 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 </div>
 
+
+```
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+```
+
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
+
 
 
 ```
