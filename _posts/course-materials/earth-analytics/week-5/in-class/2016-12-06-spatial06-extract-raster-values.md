@@ -8,13 +8,13 @@ modified: '2017-02-14'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/extract-data-from-raster/
-nav-title: 'Extra data from raster'
+nav-title: 'Extract data from raster'
 week: 5
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -40,7 +40,6 @@ You will need a computer with internet access to complete this lesson and the da
 
 
 
-
 ```r
 # load libraries
 library(raster)
@@ -56,8 +55,8 @@ options(stringsAsFactors = FALSE)
 
 ## Import Canopy Height Model
 
-First, we will import a canopy height model created by the NEON project. In the 
-previous lessons / weeks we learned how to make a canopy height model by 
+First, we will import a canopy height model created by the NEON project. In the
+previous lessons / weeks we learned how to make a canopy height model by
 subtracting the Digital elevation model (DEM) from the Digital surface model (DSM).
 
 
@@ -147,8 +146,8 @@ Next, we will create a boundary region (called a buffer) representing the spatia
 extent of each plot (where trees were measured). We will then extract all CHM pixels
 that fall within the plot boundary to use to estimate tree height for that plot.
 
-There are a few ways to go about this task. If our plots are circular, then we can 
-use the `extract()` function. 
+There are a few ways to go about this task. If our plots are circular, then we can
+use the `extract()` function.
 
 <figure>
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/buffer-circular.png" alt="buffer circular">
@@ -212,8 +211,8 @@ For how to extract square plots using a plot centroid value, check out the
 In our final step, we will extract summary height values from our field data.
 We will use the `dplyr` library to do this efficiently.
 
-First let's see how many plots are in our tree height data. Note that our tree 
-height data is stored in csv format. 
+First let's see how many plots are in our tree height data. Note that our tree
+height data is stored in csv format.
 
 
 ```r
@@ -230,12 +229,12 @@ unique(SJER_plots$Plot_ID)
 
 ## Extract Max Tree Height
 
-Next, we can use dplyr to extract a summary tree height value for each plot. In 
-this case, we will calculate the mean MEASURED tree height value for each 
-plot. This value represents the average tree in each plot. We will also calculate 
-the max height representing the max height for each plot. 
+Next, we can use dplyr to extract a summary tree height value for each plot. In
+this case, we will calculate the mean MEASURED tree height value for each
+plot. This value represents the average tree in each plot. We will also calculate
+the max height representing the max height for each plot.
 
-FInally, we will compare the mean measured tree height per plot to the mean 
+FInally, we will compare the mean measured tree height per plot to the mean
 tree height extracted from the lidar CHM.
 
 
@@ -333,7 +332,7 @@ plot(SJER_height,
 
 # place legend outside of the plot
 par(xpd=T)
-legend(SJER_chm@extent@xmax+250, 
+legend(SJER_chm@extent@xmax+250,
        SJER_chm@extent@ymax,
        legend="plot location \nsized by \ntree height",
        pch=19,
@@ -412,7 +411,7 @@ SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$
 
 
 # create bar plot using ggplot()
-ggplot(data=SJER_height@data, 
+ggplot(data=SJER_height@data,
        aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
        geom_bar(stat="identity") +
        xlab("Plot Name") + ylab("Height difference (m)")
@@ -434,16 +433,16 @@ ggplot(data=SJER_height@data,
 
 You have now successfully created a canopy height model using LiDAR data AND compared LiDAR
 derived vegetation height, within plots, to actual measured tree height data.
-Does the relationship look good or not? Would you use lidar data to estimate tree 
-height over larger areas? Would other metrics be a better comparison (see challenge 
+Does the relationship look good or not? Would you use lidar data to estimate tree
+height over larger areas? Would other metrics be a better comparison (see challenge
 below).
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your skills: LiDAR vs Insitu Comparison
 
-Create a plot of LiDAR max height vs *insitu* max height. Add labels to your plot. 
-Customize the colors, fonts and the look of your plot. If you are happy with the 
+Create a plot of LiDAR max height vs *insitu* max height. Add labels to your plot.
+Customize the colors, fonts and the look of your plot. If you are happy with the
 outcome, share your plot in the comments below!
  </div>
 
