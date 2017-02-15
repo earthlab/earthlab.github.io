@@ -122,7 +122,7 @@ shapefiles we use the `R` function `readOGR()`.
 
 `readOGR()` requires two components:
 
-1. The directory where our shapefile lives: `data/week4/D17-California/SJER/vector_data/`
+1. The directory where our shapefile lives: `data/week5/D17-California/SJER/vector_data/`
 2. The name of the shapefile (without the extension): `SJER_plot_centroids`
 
 Let's import our AOI.
@@ -264,8 +264,8 @@ plot(sjer_plot_locations, col="blue",
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your knowledge: Import Line & Polygon Shapefiles
 
-Using the steps above, import the `data/week4/california/madera-county-roads/tl_2013_06039_roads`
-and `data/week4/california/SJER/vector_data/SJER_crop.shp` shapefiles into
+Using the steps above, import the `data/week5/california/madera-county-roads/tl_2013_06039_roads`
+and `data/week5/california/SJER/vector_data/SJER_crop.shp` shapefiles into
 `R`. Call the roads object `sjer_roads` and the crop layer
 `sjer_crop_extent`.
 
@@ -279,10 +279,10 @@ Answer the following questions:
 
 ```{r import-point-line, echo=FALSE, results="hide" }
 # import line shapefile
-sjer_roads <- readOGR("data/week4/california/madera-county-roads",
+sjer_roads <- readOGR("data/week5/california/madera-county-roads",
                       layer = "tl_2013_06039_roads")
 
-sjer_crop_extent <- readOGR("data/week4/california/SJER/vector_data/",
+sjer_crop_extent <- readOGR("data/week5/california/SJER/vector_data/",
                             "SJER_crop")
 
 # 1
