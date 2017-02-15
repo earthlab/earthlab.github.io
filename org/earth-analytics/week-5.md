@@ -26,6 +26,8 @@ types of data into our analysis which involves knowing how to deal with things
 like coordinate reference systems and varying data structures.
 
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+
+<a href="https://docs.google.com/a/colorado.edu/document/d/1TAHGcro6kJS4lA4IbTNsvKLEkEqtHnXRKu8vyeMFzPI/edit?usp=sharing" target="_blank" class='btn'>View google doc</a>
 </div>
 
 
