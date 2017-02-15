@@ -78,7 +78,7 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 # load spatial data packages
 library(rgdal)
 library(raster)
-
+options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
 

@@ -8,13 +8,13 @@ modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/extract-data-from-raster/
-nav-title: 'Extra data from raster'
+nav-title: 'Extract data from raster'
 week: 5
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
