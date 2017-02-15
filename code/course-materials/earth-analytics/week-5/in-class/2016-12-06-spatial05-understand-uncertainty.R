@@ -1,6 +1,6 @@
 ## ----standard-error, fig.cap="Distribution of tree heights."-------------
-
-tree_heights <- data.frame(heights=c(10, 10.1, 9.9, 9.5, 9.7, 9.8, 
+# create data frame containing made up tree heights
+tree_heights <- data.frame(heights=c(10, 10.1, 9.9, 9.5, 9.7, 9.8,
                                      9.6, 10.5, 10.7, 10.3, 10.6))
 # what is the average tree height
 mean(tree_heights$heights)
@@ -8,14 +8,15 @@ mean(tree_heights$heights)
 sd(tree_heights$heights)
 boxplot(tree_heights$heights,
         main="Distribution of tree height measurements (m)",
-        ylab="Height (m)")
+        ylab="Height (m)",
+        col="springgreen")
 
 
 ## ----hist-tree-height, fig.cap="Tree height distribution"----------------
-
-hist(tree_heights$heights, breaks=c(9,9.5,10.5,11),
-     main="Distribution of tree height values",
-     xlab="height (m)", col="purple")
+# view distribution of tree height values
+hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
+     main="Distribution of measured tree height values",
+     xlab="Height (m)", col="purple")
 
 
 ## ----uncertainty-lidar, echo=F, warning=FALSE, message=FALSE, results = "hide"----
@@ -121,6 +122,18 @@ p <-ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_max)) +
   geom_smooth(method=lm)
 
 p
+
+
+## ----view-diff, echo=F, fig.cap="box plot showing differences between chm and measured heights."----
+# Calculate difference
+SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$insitu_max)
+SJER_height@data$Plot_ID <- gsub("SJER", "", SJER_height@data$Plot_ID)
+# create bar plot using ggplot()
+ggplot(data=SJER_height@data,
+       aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
+       geom_bar(stat="identity") +
+       xlab("Plot Name") + ylab("Height difference (m)") +
+       ggtitle("Difference: \nLidar avg height - in situ avg height (m)")
 
 
 ## ----ggplotly, echo=F, eval=F--------------------------------------------

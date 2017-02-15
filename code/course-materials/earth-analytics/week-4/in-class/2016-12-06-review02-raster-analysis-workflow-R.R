@@ -97,8 +97,8 @@ length(c(-20,-10,-3,-1, 1, 3, 10, 50))
 
 ## ----plot-with-unique-colors, fig.cap="Plot difference dtm with custom colors."----
 # create a vector of colors - one for each "bin" of raster cells
-diff_colors <- c("palevioletred4", "palevioletred1", "ivory1",
-                "seagreen1", "seagreen4")
+diff_colors <- c("palevioletred4", "palevioletred2", "palevioletred1", "ivory1",
+                "seagreen1","seagreen2","seagreen4")
 plot(dtm_diff,
      breaks=c(-20, -3, -.3, .3, 3, 50),
      col=diff_colors,
@@ -152,9 +152,9 @@ dev.off()
 
 # create reclass vector
 reclass_vector <- c(-20,-3, -2,
-                    -3, -.3, -1,
-                    -.3, .3, 0,
-                    .3, 3, 1,
+                    -3, -.5, -1,
+                    -.5, .5, 0,
+                    .5, 3, 1,
                     3, 50, 2)
 
 reclass_matrix <- matrix(reclass_vector,
@@ -174,8 +174,8 @@ plot(diff_dtm_rcl,
      main="Reclassified, Cropped Difference DTM \n difference in meters")
 par(xpd=T)
 legend(dtm_diff@extent@xmax, dtm_diff@extent@ymax,
-       legend=c("-20 to -10", "-10 to -3", "-3 to -.3",
-                "-.3 to .3", "1 to 3", "3 to 10", "10 to 50"),
+       legend=c("-20 to -10", "-10 to -3", "-3 to -.5",
+                "-.5 to .5", "1 to 3", "3 to 10", "10 to 50"),
        fill=diff_colors,
        bty="n",
        cex=.8)
@@ -198,11 +198,11 @@ barplot(diff_dtm_rcl,
 ## ----reclass, fig.cap="histogram of final cleaned data"------------------
 # create a new raster object
 diff_dtm_rcl_na <- diff_dtm_rcl
-# assign values between -.3 and .3 to NA
-diff_dtm_rcl_na[diff_dtm_rcl_na >= -.3 & diff_dtm_rcl_na <= .3] <- NA
+# assign values between -.5 and .5 to NA
+diff_dtm_rcl_na[diff_dtm_rcl_na >= -.5 & diff_dtm_rcl_na <= .5] <- NA
 # view histogram
 barplot(diff_dtm_rcl_na,
-     main="Barplot of data \n values between -.3 and .3 set to NA",
+     main="Histogram of data \n values between -.5 and .5 set to NA",
      xlab="Difference Class",
      col=diff_colors)
 
