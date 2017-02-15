@@ -33,8 +33,9 @@ like coordinate reference systems and varying data structures.
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 - 3:30  | Uncertainty in remote sensing data | Leah  |
-| 4:00 - 5:50  | R coding session - Use lidar to characterize vegetation / uncertainty | Leah  |
+| 3:00 - 4:00  | Coding: Spatial Data in R overview |   |
+| 4:15 - 4:45  | Uncertainty in remote sensing data |   |
+| 4:45 - 5:50  | Coding: Use lidar to characterize vegetation / uncertainty |   |
 
 ### 1. Readings
 * <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0054776" target="_blank">Influence of Vegetation Structure on Lidar-derived Canopy Height and Fractional Cover in Forested Riparian Buffers During Leaf-Off and Leaf-On Conditions</a>
