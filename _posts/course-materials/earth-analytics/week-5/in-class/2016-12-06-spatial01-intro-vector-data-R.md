@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-02-14'
+modified: '2017-02-15'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
@@ -123,7 +123,7 @@ shapefiles we use the `R` function `readOGR()`.
 
 `readOGR()` requires two components:
 
-1. The directory where our shapefile lives: `data/week4/D17-California/SJER/vector_data/`
+1. The directory where our shapefile lives: `data/week5/D17-California/SJER/vector_data/`
 2. The name of the shapefile (without the extension): `SJER_plot_centroids`
 
 Let's import our AOI.
@@ -338,8 +338,8 @@ plot(sjer_plot_locations, col="blue",
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your knowledge: Import Line & Polygon Shapefiles
 
-Using the steps above, import the `data/week4/california/madera-county-roads/tl_2013_06039_roads`
-and `data/week4/california/SJER/vector_data/SJER_crop.shp` shapefiles into
+Using the steps above, import the `data/week5/california/madera-county-roads/tl_2013_06039_roads`
+and `data/week5/california/SJER/vector_data/SJER_crop.shp` shapefiles into
 `R`. Call the roads object `sjer_roads` and the crop layer
 `sjer_crop_extent`.
 
@@ -352,10 +352,6 @@ Answer the following questions:
 </div>
 
 
-```
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
-```
 
 ## Plot Multiple Shapefiles
 The `plot()` function can be used to plot spatial objects. Use the following
@@ -370,17 +366,16 @@ on top of each other in your plot.
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
      main="NEON Harvard Forest\nField Site")
-## Error in plot(sjer_crop_extent, col = "lightgreen", main = "NEON Harvard Forest\nField Site"): object 'sjer_crop_extent' not found
 plot(sjer_roads, add = TRUE)
-## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet
 
 # Use the pch element to adjust the symbology of the points
 plot(sjer_plot_locations,
   add  = TRUE,
   pch = 19,
   col = "purple")
-## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">
