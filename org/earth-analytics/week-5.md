@@ -37,6 +37,9 @@ like coordinate reference systems and varying data structures.
 ### 1. Readings
 * <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0054776" target="_blank">Influence of Vegetation Structure on Lidar-derived Canopy Height and Fractional Cover in Forested Riparian Buffers During Leaf-Off and Leaf-On Conditions</a>
 * <a href="http://www.sciencedirect.com/science/article/pii/S0303243403000047" target="_blank">The characterisation and measurement of land cover change through remote sensing: problems in operational applications?</a>
+*  <a href="https://www.nde-ed.org/GeneralResources/ErrorAnalysis/UncertaintyTerms.htm" target="_blank">Learn more about the various uncertainty terms.</a>
+
+
 
 ### 2. Complete the assignment below (10 points)
 
@@ -64,6 +67,7 @@ and warnings and code as you see fit.
 Which lidar estimate (max vs average) does a better job of comparing measured
 average or max tree height ? Any ideas why one is better than the other? Discuss
 this referencing what you see in the plots and the readings assigned for homework.
+3. **Write *atleast* 1 paragraph:** List atleast 3 sources of uncertainty associated with the lidar derived tree heights and the in situ measurements of tree height. Be sure to reference the plots in your report when discussing this. Note: the assigned readings will help you write this paragraph.
 
 #### Include the plots below.
 Be sure to describe what each plot shows in your final report.
@@ -143,7 +147,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Code chunk arguments are used to hide code and just show output |  | | |  |
 | PDf report emphasizes the write up and the code outputs rather than showing each step of the code |  | | |  |
 
-## Report questions: 30%
+## Report questions: 40%
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -152,8 +156,10 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Student compared the scatter plots of average and max height and determined which relationship is "better" (more comparable)|  |  | | |
 | Student references what they see in the scatter plots and the difference bar plots to make their argument for which one is better. The argument is based upon data results and what they learned in the readings / class. |  |  | | |
 | 1-2 readings from the homework are referenced in this paragraph.|  |  | | |
+| 3 sources of uncertainty are discussed in the homework. |||||
+| The sources of uncertainty either reference the readings or are real uncertainty sources. |||||
 
-## Plots are worth 50% of the assignment grade
+## Plots are worth 40% of the assignment grade
 
 ### Plot 1 ggmap() or maps basemap plot 1
 
