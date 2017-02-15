@@ -308,11 +308,11 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 ```{r plot-data, fig.cap="final plot", echo=F, warning=F, message=F}
 
 # create plot
-p <-ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_max)) +
+p <-ggplot(SJER_height@data, aes(x = insitu_max, y=SJER_lidarCHM)) +
   geom_point() +
   theme_bw() +
-  ylab("Mean measured height (m)") +
-  xlab("Mean LiDAR pixel (m)") +
+  xlab("Mean measured height (m)") +
+  ylab("Mean LiDAR pixel (m)") +
   ggtitle("Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height") +
   geom_abline(intercept = 0, slope=1) +
   geom_smooth(method=lm)
@@ -338,7 +338,7 @@ ggplot(data=SJER_height@data,
 
 ## View interactive scatterplot
 
-<a href="https://plot.ly/~leahawasser/168/lidar-derived-mean-tree-height-vs-insitu-measured-mean-tree-he/" target="_blank">View scatterplot plotly</a>
+<a href="https://plot.ly/~leahawasser/170/" target="_blank">View scatterplot plotly</a>
 
 
 ## View interactive difference barplot
