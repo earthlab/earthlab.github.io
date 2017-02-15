@@ -115,7 +115,7 @@ plot(SJER_height,
 
 # place legend outside of the plot
 par(xpd=T)
-legend(SJER_chm@extent@xmax+250, 
+legend(SJER_chm@extent@xmax+250,
        SJER_chm@extent@ymax,
        legend="plot location \nsized by \ntree height",
        pch=19,
@@ -168,7 +168,7 @@ SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$
 
 
 # create bar plot using ggplot()
-ggplot(data=SJER_height@data, 
+ggplot(data=SJER_height@data,
        aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
        geom_bar(stat="identity") +
        xlab("Plot Name") + ylab("Height difference (m)")
