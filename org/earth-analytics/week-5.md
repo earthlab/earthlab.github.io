@@ -87,7 +87,7 @@ helps someone from the USA understand where the SJER site is located. HINT: use 
 Create a map of our SJER study area as follows:
 
 1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
-2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary.
+2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary (sjer_crop.shp).
 3. Plot the roads by road type and the plots by plot type.
 4. Add a **title** to your plot.
 
