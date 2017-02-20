@@ -1,0 +1,45 @@
+---
+layout: single
+title: "GIS in R: files that make up a shapefile"
+excerpt: ". "
+authors: ['Leah Wasser']
+modified: '2017-02-18'
+category: [course-materials]
+class-lesson: ['spectral-data-fire-r']
+permalink: /course-materials/earth-analytics/week-6/next-lesson/
+nav-title: 'lesson 2'
+week: 6
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 2
+---
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+*
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+
+
+</div>
+
+
+
+
+<div class="notice--info" markdown="1">
+
+## Additional resources:
+
+* 
+
+</div>
