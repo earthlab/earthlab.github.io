@@ -117,7 +117,7 @@ p <-ggplot(SJER_height@data, aes(x = insitu_max, y=SJER_lidarCHM)) +
   theme_bw() +
   xlab("Mean measured height (m)") +
   ylab("Mean LiDAR pixel (m)") +
-  ggtitle("Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height") +
+  ggtitle("Lidar Derived Max Tree Height \nvs. InSitu Measured Max Tree Height") +
   geom_abline(intercept = 0, slope=1) +
   geom_smooth(method=lm)
 
@@ -133,7 +133,7 @@ ggplot(data=SJER_height@data,
        aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
        geom_bar(stat="identity") +
        xlab("Plot Name") + ylab("Height difference (m)") +
-       ggtitle("Difference: \nLidar avg height - in situ avg height (m)")
+       ggtitle("Difference: \nLidar Max height - in situ Max height (m)")
 
 
 ## ----ggplotly, echo=F, eval=F--------------------------------------------
