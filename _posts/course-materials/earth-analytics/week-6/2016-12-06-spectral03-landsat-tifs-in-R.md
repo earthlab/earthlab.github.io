@@ -3,7 +3,7 @@ layout: single
 title: "Landsat tif files in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-20'
+modified: '2017-02-21'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-bands-geotif-in-R/
@@ -34,20 +34,68 @@ You will need a computer with internet access to complete this lesson and the da
 </div>
 
 In the previous lesson, we learned how to import a multi-band image into R using
-the stack() function. We then plotted the data as a composite, RGB (and CIR) image
-using plotRGB(). However, sometimes data are downloaded in individual bands rather
+the `stack()` function. We then plotted the data as a composite, RGB (and CIR) image
+using `plotRGB()`. However, sometimes data are downloaded in individual bands rather
 than a composite raster stack.
 
-In this lesson we will learn how to work with Lansat data in R. In this case, our
+In this lesson we will learn how to work with Landsat data in R. In this case, our
 data are downloaded in .tif format with each file representing a single band rather
 than a stack of bands.
 
 ## About Landsat data
 
-Stuff here including the list of bands, etc etc...
+> At over 40 years, the Landsat series of satellites provides the longest temporal record of moderate resolution multispectral data of the Earth’s surface on a global basis. The Landsat record has remained remarkably unbroken, proving a unique resource to assist a broad range of specialists in managing the world’s food, water, forests, and other natural resources for a growing world population.  It is a record unmatched in quality, detail, coverage, and value. Source: <a href="https://landsat.usgs.gov/about-landsat" target="_blank">USGS</a>
 
-something about how the string of numbers that make up the director and file
-name tell us about the file name....
+
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png">
+    </a>
+    <figcaption>The 40 year history of landsat missions. Source: USGS - https://landsat.usgs.gov/landsat-missions-timeline
+    </figcaption>
+</figure>
+
+Landsat data is a spectral dataset, collected from space. As we discussed in
+the first lesson, the spectral bands and associated spatial resolution of each
+band is listed below.
+
+#### Landsat 8 Bands
+
+| Band | Wavelength range (nanometers) | Spatial Resolution (m) | Spectral Width (nm)|
+|-------------------------------------|------------------|--------------------|----------------|
+| Band 1 - Coastal aerosol | 430 - 450 | 30 | 2.0 |
+| Band 2 - Blue | 450 - 510 | 30 | 6.0 |
+| Band 3 - Green | 530 - 590 | 30 | 6.0 |
+| Band 4 - Red | 640 - 670 | 30 | 0.03 |
+| Band 5 - Near Infrared (NIR) | 850 - 880 | 30 | 3.0 |
+| Band 6 - SWIR 1 | 1570 - 1650 | 30 | 8.0  |
+| Band 7 - SWIR 2 | 2110 - 2290 | 30 | 18 |
+| Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
+| Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
+
+
+### Understanding landsat
+When working with landsat, it is important to understand both the metadata and
+the file naming convention. The metadata tell us about how the data were processed,
+where the data are from and how they are structured.
+
+The file names, tell us what sensor collected the data, the date the data were collected, and more.
+
+<a href="https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers" target="_blank">Landsat file naming convention</a>
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/Collection_FileNameDiffs.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/Collection_FileNameDiffs.png" alt="landsat file naming convention">
+    </a>
+    <figcaption>Landsat file names Source: USGS Landsat - https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers
+    </figcaption>
+</figure>
+
+
+## Landsat tif files in R
+
+Now that we understand how our file is named.
 
 
 ```r
@@ -59,15 +107,25 @@ library(rgeos)
 options(stringsAsFactors = F)
 ```
 
-
 If we look at the directory that contains our landsat data, we will see that
 each of the individual bands is stored individually as a geotiff rather than
 being stored as a stacked or layered raster.
 
-Why...
+Why would they store the data this way?
 
-more here about why this is the case...
+Conventionally landsat was stored in a file format called HDF - hierarchical
+data format. However that format, while extremely efficient, is a bit more
+challenging to work with. In recent years USGS has started to make each band
+of a landsat scene available as a .tif file. This makes it a bit easier to use
+across many different programs and platforms.
 
+We have already been working with the geotiff file format in this class! We
+will thus use many of the same functions we used previously, to work with Landsat.
+
+## Get list of files
+
+To begin, let's explore our file directory in R, We can use `list.files()` to
+grab a list of all files within any directory on our computer.
 
 
 ```r
@@ -85,7 +143,19 @@ list.files("data/week6/landsat/LC80340322016205-SC20170127160728/crop")
 ## [10] "LC80340322016205LGN00_sr_band7_crop.tif"   
 ## [11] "LC80340322016205LGN00_sr_cloud_crop.tif"   
 ## [12] "LC80340322016205LGN00_sr_ipflag_crop.tif"
+```
 
+We can also use list.files with the pattern argument. This allows us to specify
+a particular pattern that further subsets our data. In this case, we just want
+to look at a list of files with the extention: `.tif`. Note that it is important
+that the file **ends with** .tif. So we use the dollar sign at the end of our
+pattern to tell R to only grab files that end with .tif.
+
+`pattern=".tif$"`
+
+
+
+```r
 # but really we just want the tif files
 all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
                       pattern=".tif$",
@@ -106,11 +176,16 @@ all_landsat_bands
 ```
 
 Above, we use the $ after .tif to tell R to look for files that end with .tif.
-However, we want to grab all bands that both end with .tif AND contain the text
-"band" in them. To do this we use the function glob2rx() which allows us to specify
+This is a good start but there is one more condition that we'd like to meet. We
+only want the .tif files that are spectral bands. Notice that some of our files
+have text that includes "mask", flags, etc. Those are all additional layers that
+we don't need right now. We just need the spectral data saved in bands 1_7.
+
+Thus, we want to grab all bands that both end with `.tif` AND contain the text
+"band" in them. To do this we use the function `glob2rx()` which allows us to specify
 both conditions. Here we tell R to select all files that have the word **band**
 in the filename. We use a * sign before and after band because we don't know
-exactly what text will occur before or after band. We use .tif$ to tell R that
+exactly what text will occur before or after band. We use `.tif$` to tell R that
 each file needs to end with .tif.
 
 
@@ -130,7 +205,7 @@ all_landsat_bands
 ```
 
 Now we have a list of all of the landsat bands in our folder. We could chose to
-open each file individually using the raster() function.
+open each file individually using the `raster()` function.
 
 
 ```r
@@ -139,7 +214,7 @@ all_landsat_bands[2]
 ## [1] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
 landsat_band1 <- raster(all_landsat_bands[2])
 plot(landsat_band1,
-     main="Landsat cropped band 1\nColdsprings fire scar",
+     main="Landsat cropped band 2\nColdsprings fire scar",
      col=gray(0:100 / 100))
 ```
 
@@ -148,7 +223,7 @@ plot(landsat_band1,
 However, that is not a very efficient approach.
 It's more efficiently to open all of the layers together as a stack. Then we can
 access each of the bands and plot / use them as we want. We can do that using the
-stack() function.
+`stack()` function.
 
 
 ```r
@@ -176,15 +251,31 @@ plot(landsat_stack_csf,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral03-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="100%" />
 
+
+
+```r
+# get list of each layer name
+names(landsat_stack_csf)
+## [1] "LC80340322016205LGN00_sr_band1_crop"
+## [2] "LC80340322016205LGN00_sr_band2_crop"
+## [3] "LC80340322016205LGN00_sr_band3_crop"
+## [4] "LC80340322016205LGN00_sr_band4_crop"
+## [5] "LC80340322016205LGN00_sr_band5_crop"
+## [6] "LC80340322016205LGN00_sr_band6_crop"
+## [7] "LC80340322016205LGN00_sr_band7_crop"
+# remove the filename from each band name for pretty plotting
+names(landsat_stack_csf) <- gsub(pattern = "LC80340322016205LGN00_sr_", replacement = "", names(landsat_stack_csf))
+plot(landsat_stack_csf,
+     col=gray(20:100 / 100))
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral03-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="100%" />
+
 ## Plot RGB image
 
-Next, let's plot an RGB image using landsat. Refer to the landsat bands table
-below:
-
-
-TABLE HERE
-
-https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/
+Next, let's plot an RGB image using landsat. Refer to the landsat bands in the table
+at the top of this page to figure out the red, green and blue bands. Or read the
+<a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post.
 
 
 ```r
@@ -199,10 +290,10 @@ box(col="white")
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral03-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="100%" />
 
-## create landsat bands
+Now we've created a red, green blue color composite image. Remember this is what
+our eye would see. What happens if we plot the near infrared band instead of red?
+Try the following combination:
 
-CIR
-other combos
 
 
 ```r
@@ -216,3 +307,31 @@ box(col="white")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral03-landsat-tifs-in-R/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="100%" />
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> optional challenge
+Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post as a guide. Plot the following landsat band combinations   :
+* false color
+* color infrared
+* agriculture
+* healthy vegetation
+
+Be sure to add a title to each of your plots. 
+
+</div>
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> optional challenge 2
+Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post as a guide. Plot the following landsat band combinations   :
+* false color
+* color infrared
+* agriculture
+* healthy vegetation
+
+Be sure to add a title to each of your plots. 
+
+</div>

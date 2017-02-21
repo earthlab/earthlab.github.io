@@ -6,10 +6,11 @@ library(rgeos)
 # turn off factors
 options(stringsAsFactors = F)
 
-## ----get-tifs------------------------------------------------------------
+## ----get-all-files-------------------------------------------------------
 # get list of all tifs
 list.files("data/week6/landsat/LC80340322016205-SC20170127160728/crop")
 
+## ----view-tifs-----------------------------------------------------------
 # but really we just want the tif files
 all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
                       pattern=".tif$",
@@ -28,7 +29,7 @@ all_landsat_bands
 all_landsat_bands[2]
 landsat_band1 <- raster(all_landsat_bands[2])
 plot(landsat_band1,
-     main="Landsat cropped band 1\nColdsprings fire scar",
+     main="Landsat cropped band 2\nColdsprings fire scar",
      col=gray(0:100 / 100))
 
 ## ----create-landsat-stack------------------------------------------------
@@ -38,6 +39,14 @@ landsat_stack_csf <- stack(all_landsat_bands)
 landsat_stack_csf
 
 ## ----plot-stack, fig.cap="plot individual landsat bands"-----------------
+plot(landsat_stack_csf,
+     col=gray(20:100 / 100))
+
+## ----clean-upnames, fig.cap="plot individual landsat bands good names"----
+# get list of each layer name
+names(landsat_stack_csf)
+# remove the filename from each band name for pretty plotting
+names(landsat_stack_csf) <- gsub(pattern = "LC80340322016205LGN00_sr_", replacement = "", names(landsat_stack_csf))
 plot(landsat_stack_csf,
      col=gray(20:100 / 100))
 
