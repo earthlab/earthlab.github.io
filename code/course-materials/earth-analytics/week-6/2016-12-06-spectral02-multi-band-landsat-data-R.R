@@ -1,8 +1,11 @@
-## ----crop-naip-imagey, echo=F--------------------------------------------
+## ----crop-naip-imagey, echo=F, results='hide', message=F, warning=F------
+library(raster)
+library(rgeos)
+library(rgdal)
 # import stack
 rgb_image_3bands <- stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 # import vector
-#csf_crop <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
+# csf_crop <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
 
 
 
@@ -14,21 +17,22 @@ plot(rgb_image,
      main="Plot of one band in a multi-band raster",
      col=gray(0:100 / 100))
 
-## ----plot-3-bands, echo=F------------------------------------------------
+## ----plot-3-bands, echo=F, fig.cap="All bands plotted separately"--------
 # use stack function to read in all bands of a color image
 rgb_image_3bands <- stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+names(rgb_image_3bands) <- c("red_band", "green_band", "blue_band", "near_infrared_band")
 
 plot(rgb_image_3bands,
-     col=gray(0:100 / 100),
-     main="Each band of a multi-band raster plotted separately")
+     col=gray(0:100 / 100))
 
 
 ## ----plot-rgb-example, echo=F, fig.cap="3 band image plot rgb"-----------
 # Create an RGB image from the raster stack
-par(col.axis="white",col.lab="white",tck=0)
+par(col.axis="white", col.lab="white", tck=0)
 plotRGB(rgb_image_3bands,
         stretch="lin",
-        axes=TRUE)
+        axes=TRUE, 
+        main="Red, green, blue composite image")
 box(col="white") # turn all of the lines to white
 
 ## ----cir-image, echo=F, fig.cap="3 band cir image"-----------------------
@@ -104,7 +108,7 @@ naip_stack_csf@layers
 # view attributes for one band
 naip_stack_csf[[1]]
 
-# view histogram of all 3 bands
+# view histogram for each band
 hist(naip_stack_csf,
      maxpixels=ncell(naip_stack_csf),
      col="purple")
@@ -159,25 +163,26 @@ plotRGB(naip_stack_csf,
 object.size(naip_stack_csf)
 
 # convert stack to a brick
-naip_brick_csf <- brick(naip_stack_csf)
+naip_brick_brick <- brick(naip_stack_csf)
 
 # view size of the brick
 object.size(naip_brick_csf)
 
 
-## ----plot-brick----------------------------------------------------------
-# plot brick
-plotRGB(naip_brick_csf)
+## ----plot-brick, eval=F--------------------------------------------------
+## # plot brick
+## plotRGB(naip_brick_csf)
+## 
 
-
-## ----challenge, echo=F, warning=F, message=F-----------------------------
+## ----challenge, echo=F, warning=F, message=F, fig.cap="challenge rgb plot 2015 data"----
 # import and plot data
 csf_2015_naip_stack <- stack("data/week6/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif")
 
-csf_2015_naip_stack <- stack("data/week6/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif")
+#csf_2015_naip_stack <- stack("data/week6/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif")
+
 plotRGB(csf_2015_naip_stack)
 
-## ----challenge2, echo=F, warning=F, message=F----------------------------
+## ----challenge2, echo=F, warning=F, message=F, fig.cap="challenge cir plot 2015 data"----
 # rgb image
 plotRGB(csf_2015_naip_stack,
         r=4, g=3, b=2)
