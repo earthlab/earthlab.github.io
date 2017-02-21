@@ -32,7 +32,9 @@ Welcome to week {{ page.week }} of Earth Analytics!
 ### 1. Readings
 
 
+* About landsat 8: https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/
 
+https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html
 
 ### 2. Complete the assignment below (10 points)
 

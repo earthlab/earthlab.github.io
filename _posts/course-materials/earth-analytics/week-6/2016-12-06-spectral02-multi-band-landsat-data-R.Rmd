@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Working with multiple bands in R."
-excerpt: ". "
+excerpt: "In this lesson we will review how to open up a multi-band image in R. "
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -45,12 +45,13 @@ learn how to work with rasters with multiple bands in `R`.
     raster.  Source: Colin Williams, NEON.</figcaption>
 </figure>
 
-To work with multi-band rasters in `R`, we need to change how we import and plot
+Previously, we used the `raster()` function to open raster data in `R`. To work
+with multi-band rasters in `R`, we need to change how we import and plot
 our data in several ways.
 
 * To import multi band raster data we will use the `stack()` function.
 * If our multi-band data are imagery that we wish to composite, we can use
-`plotRGB()` (instead of `plot()`) to plot a 3 band raster image.
+`plotRGB()`, instead of `plot()`, to plot a 3 band raster image.
 
 ## About Multi-Band Imagery
 One type of multi-band raster dataset that is familiar to many of us is a color
@@ -65,22 +66,22 @@ creates the colors that we see in an image.
     <figcaption>A color image consists of 3 bands - red, green and blue. When
     rendered together in a GIS, or even a tool like Photoshop or any other
     image software, they create a color image.
-	Source: National Ecological Observatory Network (NEON).
+	Source: Colin Williams, NEON.
     </figcaption>
 </figure>
 
-We can plot each band of a multi-band image individually.
+We can plot each band of a multi-band image individually using a grayscale
+color gradient. Remember that the LIGHTER colors represent a stronger reflection
+in that band. DARKER colors represent a weaker reflection.
 
-<i class="fa fa-star"></i> **Data Tip:** In many GIS applications, a single band
-would render as a single image in grayscale. We will therefore use a grayscale
-palette to render individual bands.
-{: .notice }
-
-```{r crop-naip-imagey, echo=F}
+```{r crop-naip-imagey, echo=F, results='hide', message=F, warning=F}
+library(raster)
+library(rgeos)
+library(rgdal)
 # import stack
 rgb_image_3bands <- stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 # import vector
-#csf_crop <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
+# csf_crop <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
 
 
 ```
@@ -96,23 +97,31 @@ plot(rgb_image,
      col=gray(0:100 / 100))
 ```
 
+#### Each band plotted separately
 
-```{r plot-3-bands, echo=F}
+Note there are four bands below. You are looking at the blue, green, red and Near
+infrared bands of a NAIP image.
+
+```{r plot-3-bands, echo=F, fig.cap="All bands plotted separately"}
 # use stack function to read in all bands of a color image
 rgb_image_3bands <- stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+names(rgb_image_3bands) <- c("red_band", "green_band", "blue_band", "near_infrared_band")
 
 plot(rgb_image_3bands,
-     col=gray(0:100 / 100),
-     main="Each band of a multi-band raster plotted separately")
+     col=gray(0:100 / 100))
 
 ```
 
+We can plot the red, green and blue bands together to create an RGB image. This is
+what we would see with our eyes if we were in the airplane looking down at the earth.
+
 ```{r plot-rgb-example, echo=F, fig.cap="3 band image plot rgb"}
 # Create an RGB image from the raster stack
-par(col.axis="white",col.lab="white",tck=0)
+par(col.axis="white", col.lab="white", tck=0)
 plotRGB(rgb_image_3bands,
         stretch="lin",
-        axes=TRUE)
+        axes=TRUE, 
+        main="Red, green, blue composite image")
 box(col="white") # turn all of the lines to white
 ```
 
@@ -139,10 +148,6 @@ dev.off()
 ```
 
 
-All rasters in a raster stack must have the same *extent*,
-*CRS* and *resolution*.
-
-
 ## Other Types of Multi-band Raster Data
 
 Multi-band raster data might also contain:
@@ -154,12 +159,10 @@ Multi-band raster data might also contain:
 ## Work with Landsat data in R
 
 Now, we have learned that basic concepts associated with a raster stack. We want
-to work with Landsat data to better understand our study site - which is the cold
+to work with spectral imagery to better understand our study site - which is the cold
 springs fire scare in Colorado.
 
-Landsat has multiple bands -
 
-## which landsat are we using?? we need to figure that out. probably 7?
 
 To work with multi-band raster data we will use the `raster` and `rgdal`
 packages.
@@ -171,10 +174,11 @@ library(rgdal)
 library(rgeos)
 
 ```
+
 In this lesson we will use imagery from the National Agricultural Imagery
 Program (NAIP).
 
-About NAIP:
+### About NAIP:
 
 >The National Agriculture Imagery Program (NAIP) acquires aerial imagery during the agricultural growing seasons in the continental U.S. A primary goal of the NAIP program is to make digital ortho photography available to governmental agencies and the public within a year of acquisition.
 
@@ -265,11 +269,13 @@ Notice that band 2 is the second of 3 bands `band: 2  (of  4  bands)`.
 
 
 ## Raster Stacks in R
-Next, we will work with all three image bands (red, green and blue) as an `R`
+Next, we will work with all four image bands (red, green and blue) as an `R`
 `RasterStack` object. We will then plot a 3-band composite, or full color,
 image.
 
 To bring in all bands of a multi-band raster, we use the`stack()` function.
+IMPORTANT: All rasters in a raster stack must have the same *extent*,
+*CRS* and *resolution*.
 
 ```{r intro-to-raster-stacks }
 # Use stack function to read in all bands
@@ -294,7 +300,7 @@ naip_stack_csf@layers
 # view attributes for one band
 naip_stack_csf[[1]]
 
-# view histogram of all 3 bands
+# view histogram for each band
 hist(naip_stack_csf,
      maxpixels=ncell(naip_stack_csf),
      col="purple")
@@ -303,6 +309,7 @@ hist(naip_stack_csf,
 
 We can view a histogram of each band in our stack. This is useful to better understand
 the distribution of reflectance values for each band.
+
 ```{r plot-all-layers, fig.cap="plot each band for a total of 4 bands"}
 # plot 4 bands separately
 plot(naip_stack_csf,
@@ -444,7 +451,7 @@ and `brick` `R` objects.
 object.size(naip_stack_csf)
 
 # convert stack to a brick
-naip_brick_csf <- brick(naip_stack_csf)
+naip_brick_brick <- brick(naip_stack_csf)
 
 # view size of the brick
 object.size(naip_brick_csf)
@@ -457,21 +464,18 @@ object. Thus, the `RasterBrick` object size is much larger than the
 
 You use `plotRGB` to block a `RasterBrick` too.
 
-``` {r plot-brick}
+``` {r plot-brick, eval=F}
 # plot brick
 plotRGB(naip_brick_csf)
 
 ```
 
 
-
-
-
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 The NAIP image that we've been working with so far is pre-fire.
-Import the `naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif`
+Import the `naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif`
 into R and plot a
 
 1. RGB image
@@ -485,15 +489,16 @@ Then anwer the following questions:
 
 </div>
 
-```{r challenge, echo=F, warning=F, message=F}
+```{r challenge, echo=F, warning=F, message=F, fig.cap="challenge rgb plot 2015 data"}
 # import and plot data
 csf_2015_naip_stack <- stack("data/week6/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif")
 
-csf_2015_naip_stack <- stack("data/week6/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif")
+#csf_2015_naip_stack <- stack("data/week6/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif")
+
 plotRGB(csf_2015_naip_stack)
 ```
 
-``````{r challenge2, echo=F, warning=F, message=F}
+``````{r challenge2, echo=F, warning=F, message=F, fig.cap="challenge cir plot 2015 data"}
 # rgb image
 plotRGB(csf_2015_naip_stack,
         r=4, g=3, b=2)
