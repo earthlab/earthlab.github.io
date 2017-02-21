@@ -45,6 +45,9 @@ plot(all_bands$LC80340322016205LGN00_sr_band1)
 
 ```
 
+## Create fire boundary extent box
+
+
 ```{r cleanup-vector-data, eval=F, echo=F}
 
 # import boundary
@@ -58,13 +61,13 @@ crs(fire_box_spatial) <- crs(fire_boundary)
 
 # reproject to UTM
 fire_box_utm <- spTransform(fire_box_spatial,
-crs(band_one))
+                          crs(band_one))
 # reproject
 fire_boundary_utm <- spTransform(fire_boundary,
-crs(band_one))
+                     crs(band_one))
 
 # expand extent 500 meters in each direction
-buffer_dist <- 2000
+buffer_dist <- 500
 fire_box_utm_ext <- extent(fire_box_utm)
 new_ext <- extent(c(fire_box_utm_ext@xmin - buffer_dist,
 fire_box_utm_ext@xmax + buffer_dist,
@@ -81,14 +84,14 @@ fire_box_spatial_df <- SpatialPolygonsDataFrame(fire_box_spatial, poly_df)
 #plot(band_one)
 plot(fire_box_spatial_df)
 plot(fire_boundary_utm,
-add=T)
+      add=T)
 
 # export new crop box
 writeOGR(fire_box_spatial_df,
-dsn="data/week6/vector_layers",
-layer="fire_crop_box",
-driver="ESRI Shapefile",
-overwrite_layer = T)
+          dsn="data/week6/vector_layers",
+          layer="fire_crop_box_500m",
+          driver="ESRI Shapefile",
+          overwrite_layer = T)
 
 # export reprojected fire boundary layer
 #writeOGR(fire_boundary_utm,
@@ -109,10 +112,14 @@ overwrite_layer = T)
 # the_file <- all_tifs$theFiles[5]
 # crop_extent <- fire_crop_box
 ## Function to crop all rasters
-crop_all_tifs <- function(the_file, crop_extent){
+crop_all_tifs <- function(the_file, crop_extent, compress=F, aStack=F){
   
-  # create raster
-  the_file_raster <- raster(the_file)
+  # create raster or stack
+  if(aStack==F){
+    the_file_raster <- raster(the_file)
+  } else{
+    the_file_raster <- stack(the_file)
+  }
   # create the new filename
   the_path <- paste0(dirname(the_file), "/crop/")
   the_file_name <- gsub(".tif", "_crop.tif", basename(the_file))
@@ -123,17 +130,26 @@ crop_all_tifs <- function(the_file, crop_extent){
     dir.create(the_path,
                recursive=T)
   }
-  
   # crop to extent
   file_crop <- crop(the_file_raster,
                     crop_extent)
   
   # export raster to the crop folder
-  writeRaster(x = file_crop,
+  if(compress==T){ 
+    writeRaster(x = file_crop,
               filename=paste0(the_path, the_file_name),
               format = "GTiff",
+              options=c("INTERLEAVE=BAND", "COMPRESS=LZW"),
+              datatype='INT2S',
               overwrite = T)
-  
+  } else {
+     writeRaster(x = file_crop,
+              filename=paste0(the_path, the_file_name),
+              format = "GTiff",
+              options=c("INTERLEAVE=BAND"),
+              datatype='INT2S',
+              overwrite = T)
+    }
 }
 ```
 
@@ -144,9 +160,9 @@ crop_all_tifs <- function(the_file, crop_extent){
 # get list of tif files
 
 # get crop extent
-fire_crop_box <- readOGR("data/week6/vector_layers/fire_crop_box.shp")
+fire_crop_box <- readOGR("data/week6/vector_layers/fire_crop_box_2000m.shp")
 
-all_tifs <- data.frame(theFiles=list.files("data/week6/Landsat/LC80340322016205-SC20170127160728",
+all_tifs <- data.frame(theFiles=list.files("data/week6/landsat/LC80340322016205-SC20170127160728",
                                            pattern=".tif$",
                                            full.names=T))
 
@@ -155,6 +171,15 @@ for(a_tif_file in all_tifs$theFiles){
                 fire_crop_box) # our crop extent object
 }
 
+# crop second landsat data
+all_tifs <- data.frame(theFiles=list.files("data/week6/landsat/LC80340322016189-SC20170128091153",
+                                           pattern=".tif$",
+                                           full.names=T))
+
+for(a_tif_file in all_tifs$theFiles){
+  crop_all_tifs(a_tif_file,
+                fire_crop_box) # our crop extent object
+}
 
 
 ```
@@ -263,3 +288,46 @@ plot(burn_index2)
 plot(burn_index3)
 
 ```
+
+## open naip imagery 
+```{r}
+# open naip
+naip <- raster("data/week6/ortho/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif")
+
+plot(naip,
+     col=gray(0:100 / 100))
+
+# open naip
+naip_stack <- stack("data/week6/ortho/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif")
+plotRGB(naip_stack)
+# open fire boundary
+fire_boundary <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
+plot(fire_boundary, add=T)
+
+```
+
+
+```{r crop-naip}
+
+# get crop extent
+fire_crop_box_500 <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
+# crop naip 2013 data
+naip_2013 <- "data/week6/naip/m_3910505_nw_13_1_20130926/m_3910505_nw_13_1_20130926.tif"
+naip_2015 <- "data/week6/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif"
+
+# crop data
+crop_all_tifs(naip_2013,
+                fire_crop_box_500, compress=T, aStack=T) # our crop extent object
+
+crop_all_tifs(naip_2015,
+                fire_crop_box_500, compress=T, aStack=T) # our crop extent object
+
+
+
+# import data 
+test <- stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+test
+
+```
+
+
