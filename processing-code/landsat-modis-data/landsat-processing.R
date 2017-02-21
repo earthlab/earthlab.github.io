@@ -1,11 +1,20 @@
+---
+title: "Untitled"
+author: "Leah A. Wasser"
+date: "2/20/2017"
+output: html_document
+---
+
 
 ```{r process-data}
+# load libraries
 library(raster)
 library(rgdal)
 options(stringsAsFactors = F)
-
 ```
+
 It's really useful to be able to grab a list of files
+
 
 ```{r get-tifs}
 # get list of all tifs
