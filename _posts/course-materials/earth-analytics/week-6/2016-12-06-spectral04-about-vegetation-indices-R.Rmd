@@ -16,6 +16,7 @@ comments: true
 order: 4
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -73,7 +74,7 @@ More on NDVI from NASA</a>
 Sometimes we are able to download already calculated NDVI data products. In this
 case, we need to calculate NDVI ourselves using the reflectance data that we have.
 
-```{r load-packages, warning=F, message=F, results="hide"}
+```{r load-packages, warning=F, message=F, results='hide'}
 # load spatial packages
 library(raster)
 library(rgdal)
@@ -188,6 +189,8 @@ function and the classes below.
 | Moderate Severity  | +270 to +660  |
 | High Severity     |  +660 to +1300 |
 
+Your classified map should look something like: 
+
 ```{r classify-output, echo=F, fig.cap="classified NBR output"}
 # create classification matrix
 reclass <- c(-500, -100, 1,
@@ -205,21 +208,19 @@ nbr_classified <- reclassify(landsat_nbr,
 the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
 
 # mar bottom, left, top and right
-par(xpd = F, mar=c(0,0,0,5))
+par(xpd = F, mar=c(0,0,2,5))
 plot(nbr_classified,
      col=the_colors,
      legend=F,
-     main="NBR",
      axes=F,
      box=F,
      main="Landsat NBR - Cold Spring fire site \n Add date of the data here")
 par(xpd = TRUE)
 legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity"),
-       fill=the_colors,
+       fill=rev(the_colors),
        cex=.9,
        bty="n")
-
 
 ```
 
