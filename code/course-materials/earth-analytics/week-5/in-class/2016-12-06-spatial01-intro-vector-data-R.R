@@ -1,6 +1,7 @@
 ## ----load-libraries------------------------------------------------------
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
+library(rgeos)
 # for metadata/attributes- vectors or rasters
 library(raster)
 
