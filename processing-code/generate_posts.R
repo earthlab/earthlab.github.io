@@ -172,7 +172,7 @@ make_post <- function(file, dest_dir = "_posts") {
     if (dir_nonexistent) {
       dir.create(new_prefix, recursive = TRUE)
     }
-    file.copy(file, file.path(dest_dir, sub_dir, new_fname))
+    file.copy(file, file.path(dest_dir, sub_dir, new_fname), overwrite = TRUE)
   } else {
     stop(paste("I don't know how to convert", file, "to a post!"))
   }
