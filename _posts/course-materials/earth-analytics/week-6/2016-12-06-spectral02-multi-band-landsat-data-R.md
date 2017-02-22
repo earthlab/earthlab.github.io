@@ -38,7 +38,9 @@ learn how to work with rasters with multiple bands in `R`.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png" alt="A raster can contain one or more bands. We can use the
+    raster function to import one single band from a single OR multi-band
+    raster. ">
     </a>
     <figcaption>A raster can contain one or more bands. We can use the
     raster function to import one single band from a single OR multi-band
@@ -62,10 +64,12 @@ creates the colors that we see in an image.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/RGBSTack_1.jpg">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/RGBSTack_1.jpg"></a>
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/RGBSTack_1.jpg" alt="A color image consists of 3 bands - red, green and blue. When
+    rendered together in a GIS, or even a tool like Photoshop or any other
+    image software, the 3 bands create a color image."></a>
     <figcaption>A color image consists of 3 bands - red, green and blue. When
     rendered together in a GIS, or even a tool like Photoshop or any other
-    image software, they create a color image.
+    image software, the 3 bands create a color image.
 	Source: Colin Williams, NEON.
     </figcaption>
 </figure>
@@ -166,7 +170,7 @@ plot(naip_csf,
      main="NAIP RGB Imagery - Band 1-Red\nCold Spring Fire Scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/read-single-band-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/read-single-band-1.png" title="naip imagery single band plot." alt="naip imagery single band plot." width="100%" />
 
 ```r
 
@@ -236,7 +240,7 @@ plot(rgb_band2,
      main="RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/read-specific-band-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/read-specific-band-1.png" title="naip imagery band 2 plot." alt="naip imagery band 2 plot." width="100%" />
 
 ```r
 
@@ -456,7 +460,10 @@ the image might improve clarity and contrast using  `stretch="lin"` or
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/imageStretch_dark.jpg">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/imageStretch_dark.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/imageStretch_dark.jpg" alt="When the range of pixel brightness values is closer to 0, a
+    darker image is rendered by default. We can stretch the values to extend to
+    the full 0-255 range of potential values to increase the visual contrast of
+    the image.">
     </a>
     <figcaption>When the range of pixel brightness values is closer to 0, a
     darker image is rendered by default. We can stretch the values to extend to
@@ -467,7 +474,10 @@ the image might improve clarity and contrast using  `stretch="lin"` or
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/imageStretch_light.jpg">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/imageStretch_light.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/imageStretch_light.jpg" alt="When the range of pixel brightness values is closer to 255, a
+    lighter image is rendered by default. We can stretch the values to extend to
+    the full 0-255 range of potential values to increase the visual contrast of
+    the image.">
     </a>
     <figcaption>When the range of pixel brightness values is closer to 255, a
     lighter image is rendered by default. We can stretch the values to extend to

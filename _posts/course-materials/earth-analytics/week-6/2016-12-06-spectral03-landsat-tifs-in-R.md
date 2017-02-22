@@ -50,7 +50,7 @@ than a stack of bands.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png" alt="Landsat 40 year timeline source: USGS.">
     </a>
     <figcaption>The 40 year history of landsat missions. Source: USGS - https://landsat.usgs.gov/landsat-missions-timeline
     </figcaption>
@@ -212,13 +212,13 @@ open each file individually using the `raster()` function.
 # get first file
 all_landsat_bands[2]
 ## [1] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-landsat_band1 <- raster(all_landsat_bands[2])
-plot(landsat_band1,
+landsat_band2 <- raster(all_landsat_bands[2])
+plot(landsat_band2,
      main="Landsat cropped band 2\nColdsprings fire scar",
      col=gray(0:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral03-landsat-tifs-in-R/unnamed-chunk-1-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral03-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="100%" />
 
 However, that is not a very efficient approach.
 It's more efficiently to open all of the layers together as a stack. Then we can
@@ -318,7 +318,7 @@ Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinatio
 * agriculture
 * healthy vegetation
 
-Be sure to add a title to each of your plots. 
+Be sure to add a title to each of your plots.
 
 </div>
 
@@ -332,6 +332,6 @@ Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinatio
 * agriculture
 * healthy vegetation
 
-Be sure to add a title to each of your plots. 
+Be sure to add a title to each of your plots.
 
 </div>

@@ -24,11 +24,11 @@ all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC201701271
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands
 
-## ------------------------------------------------------------------------
+## ----plot-landsat-band2, fig.cap="Landsat band 2 plot"-------------------
 # get first file
 all_landsat_bands[2]
-landsat_band1 <- raster(all_landsat_bands[2])
-plot(landsat_band1,
+landsat_band2 <- raster(all_landsat_bands[2])
+plot(landsat_band2,
      main="Landsat cropped band 2\nColdsprings fire scar",
      col=gray(0:100 / 100))
 
