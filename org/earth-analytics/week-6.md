@@ -84,7 +84,7 @@ caption argument in your code chunks: `fig.cap="caption here".
 Create a MAP of the **difference between NDVI pre vs post fire** (Pre fire - post-fire NDVI).
 
 #### Plot 2
-Create a MAP of the **difference between NBR pre vs post fire** (Pre fire - post-fire NDVI). Be sure to include a legend on your map that helps someone looking at it
+Create a MAP of the **difference between NBR pre vs post fire** (Pre fire - post-fire NBR). Be sure to include a legend on your map that helps someone looking at it
 understand differences
 
 #### Plot 3

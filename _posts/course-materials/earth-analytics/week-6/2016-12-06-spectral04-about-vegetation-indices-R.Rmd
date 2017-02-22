@@ -181,17 +181,17 @@ plot(landsat_nbr,
 When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
 
-| SEVERITY LEVEL  | dNBR RANGE |
+| SEVERITY LEVEL  | | dNBR RANGE |
 |------------------------------|
-| Enhanced Regrowth |    -500 to  -100  |
-| Unburned       |  -100 to +100  |
-| Low Severity     | +100 to +270  |
-| Moderate Severity  | +270 to +660  |
-| High Severity     |  +660 to +1300 |
+| Enhanced Regrowth | |-500 to  -100  |
+| Unburned       |  |-100 to +100  |
+| Low Severity     | |+100 to +270  |
+| Moderate Severity  | |+270 to +660  |
+| High Severity     |  |+660 to +1300 |
 
-Your classified map should look something like: 
 
-```{r classify-output, echo=F, fig.cap="classified NBR output"}
+
+```{r classify-output, echo=F}
 # create classification matrix
 reclass <- c(-500, -100, 1,
              -100, 99, 2,
@@ -206,7 +206,11 @@ reclass_m <- matrix(reclass,
 nbr_classified <- reclassify(landsat_nbr,
                      reclass_m)
 the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
+```
 
+Your classified map should look something like:
+
+```{r classify-output-plot, echo=F, fig.cap="classified NBR output"}
 # mar bottom, left, top and right
 par(xpd = F, mar=c(0,0,2,5))
 plot(nbr_classified,
