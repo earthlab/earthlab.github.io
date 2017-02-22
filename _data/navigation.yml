@@ -43,6 +43,10 @@ earth-analytics-2017:
         url: /course-materials/earth-analytics/
       - title: "Syllabus"
         url: /course-materials/earth-analytics/earth-analytics-syllabus/
+      - title: "Mid-term"
+        url: /course-materials/earth-analytics/mid-term/
+      - title: "Final project"
+        url: /course-materials/earth-analytics/final-project/
   - title: "Course Weeks 1-3"
     children:
       - title: "Week 1: Getting Started With Data"
@@ -55,3 +59,5 @@ earth-analytics-2017:
         url: /course-materials/earth-analytics/week-4/
       - title: "Week 5: Spatial data in R"
         url: /course-materials/earth-analytics/week-5/
+      - title: "Week 6: Fire: spectral remote sensing in R"
+        url: /course-materials/earth-analytics/week-6/
