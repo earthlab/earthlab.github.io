@@ -25,16 +25,24 @@ Welcome to week {{ page.week }} of Earth Analytics!
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 - 4:00  |  |   |
-| 4:15 - 4:45  | |   |
-| 4:45 - 5:50  |  |   |
+| 3:00 - 3:30  | Review last week's assignment / questions |   |
+| 3:30 - 4:15  | Understanding fire with Remote sensing data  | Megan Cattau  |
+| 4:30 - 5:50  | Coding Session: Spectral RS data in R |  Leah  |
 
-### 1. Readings
+### 1a. Remote sensing readings
 
+* <a href="https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/" target="_blank">NASA overview of landsat 8</a>
+* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank">Penn state e-education post on multi-spectral data. Note they discuss AVHRR at the top which we aren't using but be sure to read about Landsat.</a>
 
-* About landsat 8: https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/
+### 1b. Fire readings
 
-https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html
+* <a href="http://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">Denver post article on the cold springs fire.</a>
+* <a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank">Fire science for rainforests -  Cochrane 2003.</a>
+* <a href="https://www.webpages.uidaho.edu/for570/Readings/2006_Lentile_et_al.pdf
+" target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a>
+* <a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices
+ -  Soverel et al 2010.</a>
+
 
 ### 2. Complete the assignment below (10 points)
 
@@ -57,66 +65,37 @@ and warnings and code as you see fit.
 * `echo=F` Hide code and just show code output
 
 #### Answer the following questions below in your report
-1. **Write 1 paragraph:** In your own words, describe what a Coordinate Reference System (CRS) is. If you are working with two datasets that are stored using difference CRSs, and want to process or plot them, what do you need to do to ensure they line up on a map and can be processed together?
-2. **Write *atleast* 2 paragraphs:** In this class we learned about lidar and canopy height models. We then compared height values extracted from a canopy height model compared to height values measured by humans at each study site. Compare the results of the scatter plots below (plots 3 and 4).
-Which lidar estimate (max vs average) does a better job of comparing measured
-average or max tree height ? Any ideas why one is better than the other? Discuss
-this referencing what you see in the plots and the readings assigned for homework.
-3. **Write *atleast* 1 paragraph:** List atleast 3 sources of uncertainty associated with the lidar derived tree heights and the in situ measurements of tree height. Be sure to reference the plots in your report when discussing this. Note: the assigned readings will help you write this paragraph.
+1. What is the key difference between active and passive remote sensing system.
+2. Describe *atleast* 3 differences between how lidar vs landsat remote sensing data.
+2. Explain what a vegetation index is.
 
 #### Include the plots below.
-Be sure to describe what each plot shows in your final report.
+For all plots
+1. Be sure to describe what each plot shows in your final report using a figure
+caption argument in your code chunks: `fig.cap="caption here".
+2. Add appropriate titles that tells someone reading your report what the map shows
 
-#### Plot 1 - Basemap of the study area
+#### Plot 1
+Create a basemap that shows the location of your study area. Use `ggmap()` or the
+maps package or any other R packages that you'd like to create this map in `R`.
 
-Create a basemap that shows the location of the study area within the larger state
-of California / western United States or united states. Pick a spatial extent that
-helps someone from the USA understand where the SJER site is located. HINT: use the
-`ggmap()` lesson from week 4 if you forget how to do this!
+#### Plot 2
+Create a MAP of the difference between NDVI pre vs post fire (Post fire - pre-fire NDVI).
 
-#### Plot 2 - Study area map 2
+#### Plot 3
+Create a MAP of the difference between NBR pre vs post fire (Post fire - pre-fire NDVI). Be sure to include a legend on your map that helps someone looking at it
+understand differences
 
-Create a map of our SJER study area as follows:
+#### Plot 4
+Create a classified map of post fire NBR using the classification thresholds below.
 
-1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download. Adjust line width as necessary.
-2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary.
-3. Plot the roads by road type and the plots by plot type.
-4. Add a **title** to your plot.
+#### Plot 5
+Create a classified map of post fire NDVI using classification values that you
+think make sense based upon exploring the data.
 
-IMPORTANT: be sure that all of the data are within the same `EXTENT` and `crs`
-of the `sjer_aoi` layer. This means that you may have to CROP and reproject your data prior to plotting it!
 
-#### **BONUS - 1 point**:
 
-Add a **legend** to your roads/ study area plot that shows both the road types and the plot locations. [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-5/r-custom-legend/) to help build the legend.
-
-#### Plot 3 & 4 scatterplots
-Create two scatter plots that compare:
-
-* **MAXIMUM** canopy height model height in meters, extracted within a 20 meter radius, compared to **MAXIMUM** tree
-height derived from the in situ field site data.
-* **AVERAGE** canopy height model height in meters, extracted within a 20 meter radius, compared to **AVERAGE** tree
-height derived from the in situ field site data.
-
-#### Plot 5 & 6 difference bar plots
-Create barplots that show the DIFFERENCE between:
-
-* Extracted lidar max canopy height model height compared to measured max height per plot.
-* Extracted lidar average canopy height model compared to measured average height per plot.
-
-#### Graduate students only
-Add a regression line to each scatterplot. For both plots write a thoughtful paragraph
-describing what the regression relationship tells you about the relationship
-between lidar and measured vegetation height. Does the comparison between lidar and
-measured average height look stronger? Or Maximum height? Why might one be "better"
-or a strong relationship than the other.
-
-### IMPORTANT: for all plots
-* Label x and y axes appropriately - include units
-* Add a title to your plot that describes what the plot shows
-* Add a 2-3 sentence caption below each plot that describes what it shows HINT: you can use the knitr argument fig.cap="Caption here" if you are knitting to pdf to automatically add captions.
-
-## Homework due: Friday Feb 24 2017 @ noon.
+## Homework due: Thursday March 2 2017 @ 5PM.
 Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 </div>
