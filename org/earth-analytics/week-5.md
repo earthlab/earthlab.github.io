@@ -61,7 +61,7 @@ with your report, use `knitr` to convert it to `PDF` format. Submit both the
 In your final report, use the following knitr code chunk arguments to hide messages
 and warnings and code as you see fit.
 
-* `message=T`, `warning=T` Hide warnings and messages in a code chunk
+* `message=F`, `warning=F` Hide warnings and messages in a code chunk
 * `echo=F` Hide code and just show code output
 
 #### Answer the following questions below in your report
