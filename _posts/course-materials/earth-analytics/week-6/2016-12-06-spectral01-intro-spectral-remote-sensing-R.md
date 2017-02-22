@@ -113,8 +113,8 @@ represented in that  band. Thus in a band spanning 800-805 nm, the center would
 be 825).
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-6/spectrumZoomed.png">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-6/spectrumZoomed.png" alt="Spectrum zoomed in."></a>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/spectrumZoomed.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/spectrumZoomed.png" alt="Spectrum zoomed in."></a>
     <figcaption>Imaging spectrometers collect reflected light information within defined bands or regions of the electromagnetic spectrum.</figcaption>
 </figure>
 
@@ -135,18 +135,14 @@ If the data are better, why wouldn't we always just collect high resolution data
 pixels?)
 
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-6/pixel-detail.png
-">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-6/pixel-detail.png
-" alt="Detail of a 1 meter pixel."></a>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/pixel-detail.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/pixel-detail.png" alt="Detail of a 1 meter pixel."></a>
     <figcaption>The spatial resolution of a raster represents the area on the
     ground that each pixel covers. Source: Colin Williams, NEON.</figcaption>
 </figure>
 <figure>
-    <a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-3/raster-resolution.png
-">
-    <img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-3/raster-resolution.png
-" alt="Raster resolution."></a>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/raster-resolution.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/raster-resolution.png" alt="Raster resolution."></a>
     <figcaption>Remote sensing data is collected at varying spatial resolutions.
     Remember that the spatial resolution represents that area on the ground
     that each pixel covers. Source: Colin Williams, NEON.</figcaption>
@@ -239,6 +235,6 @@ to work with NAIP imagery in R.
 ## Additional resources:
 
 * <a href="
-http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank">Learn more about band combinations</a>
+http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank" data-proofer-ignore=''>Learn more about band combinations</a>
 
 </div>

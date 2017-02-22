@@ -56,7 +56,7 @@ library(rgdal)
 library(rgeos)
 
 
-## ----read-single-band----------------------------------------------------
+## ----read-single-band, fig.cap="naip imagery single band plot."----------
 # Read in multi-band raster with raster function.
 # Default is the first band only.
 # csf = cold springs fire!
@@ -78,7 +78,7 @@ minValue(naip_csf)
 # view max value
 maxValue(naip_csf)
 
-## ----read-specific-band--------------------------------------------------
+## ----read-specific-band, fig.cap="naip imagery band 2 plot."-------------
 # Can specify which band we want to read in
 rgb_band2 <- raster("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif",
              band = 2)
