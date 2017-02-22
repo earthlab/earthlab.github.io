@@ -4,9 +4,8 @@ library(rgeos)
 library(rgdal)
 # import stack
 rgb_image_3bands <- stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-# import vector
+# import vector that we used to crop the data
 # csf_crop <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
-
 
 
 ## ----demonstrate-RGB-Image, echo=FALSE, fig.cap="single band image"------
@@ -58,7 +57,7 @@ library(rgeos)
 
 ## ----read-single-band, fig.cap="naip imagery single band plot."----------
 # Read in multi-band raster with raster function.
-# Default is the first band only.
+# the first band will be read in automatically
 # csf = cold springs fire!
 naip_csf <- raster("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 
@@ -66,7 +65,7 @@ naip_csf <- raster("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw
 plot(naip_csf,
      col=gray(0:100 / 100),
      axes=FALSE,
-     main="NAIP RGB Imagery - Band 1-Red\nCold Spring Fire Scar")
+     main="NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
 
 # view data dimensions, CRS, resolution, attributes, and band info
 naip_csf
@@ -101,18 +100,19 @@ naip_stack_csf <-
 naip_stack_csf
 
 
-## ----hist-all-layers, fig.cap="histogram of each band for a total of 4 bands"----
+## ----view-layers---------------------------------------------------------
 # view raster attributes
 naip_stack_csf@layers
 
+## ----view-one-band-------------------------------------------------------
 # view attributes for one band
 naip_stack_csf[[1]]
 
+## ----hist-all-layers, fig.cap="histogram of each band for a total of 4 bands"----
 # view histogram for each band
 hist(naip_stack_csf,
      maxpixels=ncell(naip_stack_csf),
      col="purple")
-
 
 ## ----plot-all-layers, fig.cap="plot each band for a total of 4 bands"----
 # plot 4 bands separately
@@ -132,17 +132,23 @@ plot(naip_stack_csf[[2]],
 ## # however the brightest values should be in the NIR band.
 ## 
 
+## ----clear-dev, echo=F, warning=F, message=F, results='hide'-------------
+dev.off()
+
 ## ----plot-rgb-image, fig.cap="RGB image of NAIP imagery."----------------
 # Create an RGB image from the raster stack
 plotRGB(naip_stack_csf,
-        r = 1, g = 2, b = 3)
+        r = 1, g = 2, b = 3,
+        main="RGB image \nColdsprings fire scar")
 
 ## ----plot-rgb-image-title, fig.cap="RGB image of NAIP imagery."----------
 # adjust the plot parameters to render the axes using white
 # this is a way to "trick" R
 par(col.axis="white", col.lab="white", tck=0)
 plotRGB(naip_stack_csf,
-        r = 1, g = 2, b = 3)
+        r = 1, g = 2, b = 3,
+        axes=T,
+        main="NAIP RGB image \nColdsprings fire scar")
 box(col="white") # turn all of the lines to white
 
 
@@ -150,13 +156,20 @@ box(col="white") # turn all of the lines to white
 # what does stretch do?
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
-        stretch = "lin")
+        axes=T,
+        stretch = "lin",
+        main="NAIP RGB plot with linear stretch\nColdsprings fire scar")
 
 ## ----plot-rgb-hist-stretch, fig.cap="plot RGB with his stretch"----------
+par(col.axis="white", col.lab="white", tck=0)
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
+        axes=T,
         scale=800,
-        stretch = "hist")
+        stretch = "hist",
+        main="NAIP RGB plot with hist stretch\nColdsprings fire scar")
+box(col="white") # turn all of the lines to white
+
 
 ## ----raster-bricks-------------------------------------------------------
 # view size of the RGB_stack object that contains our 3 band image
@@ -170,8 +183,12 @@ object.size(naip_brick_csf)
 
 
 ## ----plot-brick----------------------------------------------------------
+par(col.axis="white", col.lab="white", tck=0)
 # plot brick
-plotRGB(naip_brick_csf)
+plotRGB(naip_brick_csf,
+  main="NAIP plot from a rasterbrick",
+  axes=T)
+box(col="white") # turn all of the lines to white
 
 
 ## ----challenge, echo=F, warning=F, message=F, fig.cap="challenge rgb plot 2015 data"----
@@ -179,13 +196,22 @@ plotRGB(naip_brick_csf)
 csf_2015_naip_stack <- stack("data/week6/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif")
 
 #csf_2015_naip_stack <- stack("data/week6/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif")
+par(col.axis="white", col.lab="white", tck=0)
+plotRGB(csf_2015_naip_stack,
+        main="NAIP RGB plot \nColdsprings fire scar",
+        axes=T)
+box(col="white") # turn all of the lines to white
 
-plotRGB(csf_2015_naip_stack)
 
 ## ----challenge2, echo=F, warning=F, message=F, fig.cap="challenge cir plot 2015 data"----
+par(col.axis="white", col.lab="white", tck=0)
 # rgb image
 plotRGB(csf_2015_naip_stack,
-        r=4, g=3, b=2)
+        r=4, g=3, b=2,
+        axes=T,
+        main="NAIP CIR plot \nColdsprings fire scar")
+box(col="white") # turn all of the lines to white
+
 
 ## ----challenge-code-calling-methods, include=TRUE, results="hide", echo=FALSE----
 # 1

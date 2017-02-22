@@ -3,7 +3,7 @@ layout: single
 title: "Working with multiple bands in R."
 excerpt: "In this lesson we will review how to open up a multi-band image in R. "
 authors: ['Leah Wasser']
-modified: '2017-02-21'
+modified: '2017-02-22'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -24,28 +24,26 @@ order: 2
 
 After completing this tutorial, you will be able to:
 
+* Open an RGB image with 3-4 bands in R using `plotRGB()`
+* Export an RGB image as a Geotiff using `writeRaster()`
+* Identify the number of bands stored in a multi-band raster in `R`.
+* Plot various band composits in R including True Color (RGB), and Color Infrared (CIR)
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson and the data for week 6 of the course.
+You will need a computer with internet access to complete this lesson and the
+data for week 6 of the course.
+
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
 </div>
 
 ## About Raster Bands in R
 
 In the previous weeks, we've worked with rasters derived from lidar remote sensing
-instruments. These rasters consisted of one layer or band. In this lesson, we'll
-learn how to work with rasters with multiple bands in `R`.
-
-<figure>
-    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png" alt="A raster can contain one or more bands. We can use the
-    raster function to import one single band from a single OR multi-band
-    raster. ">
-    </a>
-    <figcaption>A raster can contain one or more bands. We can use the
-    raster function to import one single band from a single OR multi-band
-    raster.  Source: Colin Williams, NEON.</figcaption>
-</figure>
+instruments. These rasters consisted of one layer or band and contained information
+related to height derived from lidar data. In this lesson, we'll
+learn how to work with rasters containing spectral (image) data stored within
+multiple bands (or layers) in `R`.
 
 Previously, we used the `raster()` function to open raster data in `R`. To work
 with multi-band rasters in `R`, we need to change how we import and plot
@@ -55,12 +53,24 @@ our data in several ways.
 * If our multi-band data are imagery that we wish to composite, we can use
 `plotRGB()`, instead of `plot()`, to plot a 3 band raster image.
 
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png" alt="A raster can contain one or more bands. We can use the
+    raster function to import one single band from a single OR multi-band
+    raster."
+    </a>
+    <figcaption>A raster can contain one or more bands. We can use the
+    raster function to import one single band from a single OR multi-band
+    raster. Source: Colin Williams, NEON.</figcaption>
+</figure>
+
 ## About Multi-Band Imagery
-One type of multi-band raster dataset that is familiar to many of us is a color
-image. A basic color image consists of three bands: red, green, and blue. Each
+One type of multi-band raster data that is familiar to many of us is a color
+image. A color image consists of three bands: red, green, and blue. Each
 band represents light reflected from the red, green or blue portions of the
 electromagnetic spectrum. The pixel brightness for each band, when composited
-creates the colors that we see in an image.
+creates the colors that we see in an image. These colors are the ones our eyes
+can see within the visible portion of the electromagnetic spectrum.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/RGBSTack_1.jpg">
@@ -75,7 +85,8 @@ creates the colors that we see in an image.
 </figure>
 
 We can plot each band of a multi-band image individually using a grayscale
-color gradient. Remember that the LIGHTER colors represent a stronger reflection
+color gradient. Remember from the videos that we watched in class that the
+LIGHTER colors represent a stronger reflection
 in that band. DARKER colors represent a weaker reflection.
 
 
@@ -87,7 +98,8 @@ in that band. DARKER colors represent a weaker reflection.
 #### Each band plotted separately
 
 Note there are four bands below. You are looking at the blue, green, red and Near
-infrared bands of a NAIP image.
+infrared bands of a NAIP image. What do you notice about the relative darkness /
+lightness of each image? Is one image brighter than the other?
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-3-bands-1.png" title="All bands plotted separately" alt="All bands plotted separately" width="100%" />
 
@@ -96,15 +108,13 @@ what we would see with our eyes if we were in the airplane looking down at the e
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-rgb-example-1.png" title="3 band image plot rgb" alt="3 band image plot rgb" width="100%" />
 
-
 ## CIR image
 
 If the image has a 4th NIR band, you can create a CIR (sometimes called false color)
-image. here, the NIR band is plotted using the "red" band. Thus vegetation, which
+image. In a color infrared image, the NIR band is plotted on the "red" band. Thus vegetation, which
 reflects stronly in the NIR part of the spectrum, is colored "red".
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/cir-image-1.png" title="3 band cir image" alt="3 band cir image" width="100%" />
-
 
 
 ## Other Types of Multi-band Raster Data
@@ -115,13 +125,13 @@ Multi-band raster data might also contain:
 2. **Multi or hyperspectral imagery:** image rasters that have 4 or more
 (multi-spectral) or more than 10-15 (hyperspectral) bands.
 
+We will work with time series data later in the semester.
+
 ## Work with Landsat data in R
 
-Now, we have learned that basic concepts associated with a raster stack. We want
-to work with spectral imagery to better understand our study site - which is the cold
-springs fire scare in Colorado.
-
-
+Now, we have learned that basic concepts associated with a multi-band raster. Next,
+let's explore some spectral imagery in `R` to better understand our study site -
+which is the cold springs fire scare in Colorado near Nederland.
 
 To work with multi-band raster data we will use the `raster` and `rgdal`
 packages.
@@ -141,12 +151,12 @@ Program (NAIP).
 
 >The National Agriculture Imagery Program (NAIP) acquires aerial imagery during the agricultural growing seasons in the continental U.S. A primary goal of the NAIP program is to make digital ortho photography available to governmental agencies and the public within a year of acquisition.
 
-> NAIP is administered by the USDA's Farm Service Agency (FSA) through the Aerial Photography Field Office in Salt Lake City. This "leaf-on" imagery is used as a base layer for GIS programs in FSA's County Service Centers, and is used to maintain the Common Land Unit (CLU) boundaries.
+> NAIP is administered by the USDA's Farm Service Agency (FSA) through the Aerial Photography Field Office in Salt Lake City. This "leaf-on" imagery is used as a base layer for GIS programs in FSA's County Service Centers, and is used to maintain the Common Land Unit (CLU) boundaries. -- USDA NAIP Program
 
 <a href="https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/" target="_blank">Read more about NAIP</a>
 
-NAIP is A great source of high resolution imagery across the United States.
-NAIP imagery is often flown with just a Red, green and Blue band. However,
+NAIP is a great source of high resolution imagery across the United States.
+NAIP imagery is often collected with just a red, green and Blue band. However,
 some flights include a near infrared band which is very useful for quantifying
 vegetation cover and health.
 
@@ -159,7 +169,7 @@ Colorado.
 
 ```r
 # Read in multi-band raster with raster function.
-# Default is the first band only.
+# the first band will be read in automatically
 # csf = cold springs fire!
 naip_csf <- raster("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 
@@ -167,7 +177,7 @@ naip_csf <- raster("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw
 plot(naip_csf,
      col=gray(0:100 / 100),
      axes=FALSE,
-     main="NAIP RGB Imagery - Band 1-Red\nCold Spring Fire Scar")
+     main="NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/read-single-band-1.png" title="naip imagery single band plot." alt="naip imagery single band plot." width="100%" />
@@ -191,8 +201,8 @@ Notice that when we look at the attributes of RGB_Band1, we see:
 
 `band: 1  (of  4  bands)`
 
-This is `R` telling us that this particular raster object has more bands (4)
-associated with it than we imported using the `raster()` function.
+This is `R` telling us that this particular raster object has more bands
+(4 in total). We only imported the first band.
 
 <i class="fa fa-star"></i> **Data Tip:** The number of bands associated with a
 raster object can also be determined using the `nbands` slot. Syntax is
@@ -219,8 +229,10 @@ the case of a RGB image (red, green and blue), band 1 is the red band. When
 we plot the red band, larger numbers (towards 255) represent pixels with more
 red in them (a strong red reflection). Smaller numbers (towards 0) represent
 pixels with less red in them (less red was reflected). To
-plot an RGB image, we mix red + green + blue values into one single color to
-create a full color image - similar to the color image a digital camera creates.
+plot an RGB image, we mix red + green + blue values, using the ratio of each. The
+ratio of each color is determined by how much light was recorded (the reflectance value)
+in each band. This mixture creates one single color than inturn makes up the
+full color image - similar to the color image your camera phone creates.
 
 ### Import A Specific Band
 We can use the `raster()` function to import specific bands in our raster object
@@ -259,10 +271,9 @@ rgb_band2
 
 Notice that band 2 is the second of 3 bands `band: 2  (of  4  bands)`.
 
-
 ## Raster Stacks in R
-Next, we will work with all four image bands (red, green and blue) as an `R`
-`RasterStack` object. We will then plot a 3-band composite, or full color,
+Next, we will work with all four image bands (red, green, blue and near-infrared) as an `R`
+`RasterStack` object. We will then plot a 3-band composite, or full color
 image.
 
 To bring in all bands of a multi-band raster, we use the`stack()` function.
@@ -343,7 +354,12 @@ naip_stack_csf@layers
 ## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
+```
 
+View attributes of one band.
+
+
+```r
 # view attributes for one band
 naip_stack_csf[[1]]
 ## class       : RasterLayer 
@@ -355,7 +371,13 @@ naip_stack_csf[[1]]
 ## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop.1 
 ## values      : 0, 255  (min, max)
+```
 
+We can view a histogram of each band in our stack. This is useful to better understand
+the distribution of reflectance values for each band.
+
+
+```r
 # view histogram for each band
 hist(naip_stack_csf,
      maxpixels=ncell(naip_stack_csf),
@@ -364,8 +386,7 @@ hist(naip_stack_csf,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/hist-all-layers-1.png" title="histogram of each band for a total of 4 bands" alt="histogram of each band for a total of 4 bands" width="100%" />
 
-We can view a histogram of each band in our stack. This is useful to better understand
-the distribution of reflectance values for each band.
+Plot each band individually.
 
 
 ```r
@@ -390,8 +411,9 @@ plot(naip_stack_csf[[2]],
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Making Sense of Single Band Images
-Use the plot() command to compare grayscale plots of band 1 (red), band 2 (green) and band 4 (near infrared). Is the forested area
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: making sense of single band images
+Use the `plot()` command to compare grayscale plots of band 1 (red), band 2
+(green) and band 4 (near infrared). Is the forested area
 darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
 </div>
 
@@ -399,6 +421,7 @@ darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
 
 ## RGB Data
 
+Previously we've explored the single bands in our rasterstack. Next, we'll plot an RGB image.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/RGBSTack_1.jpg">
@@ -408,7 +431,7 @@ darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
     <figcaption>A "true" color image consists of 3 bands - red, green and blue.
     When composited or rendered together in a GIS, or even a image-editor like
     Photoshop the bands create a color image.
-	Source: NEON.
+	Source: Colin Williams, NEON.
     </figcaption>
 </figure>
 
@@ -427,10 +450,13 @@ a color infrared image.
 Let's plot our 3-band image.
 
 
+
+
 ```r
 # Create an RGB image from the raster stack
 plotRGB(naip_stack_csf,
-        r = 1, g = 2, b = 3)
+        r = 1, g = 2, b = 3,
+        main="RGB image \nColdsprings fire scar")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-rgb-image-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="100%" />
@@ -450,14 +476,16 @@ that is drawn alongside of your plot.
 # this is a way to "trick" R
 par(col.axis="white", col.lab="white", tck=0)
 plotRGB(naip_stack_csf,
-        r = 1, g = 2, b = 3)
+        r = 1, g = 2, b = 3,
+        axes=T,
+        main="NAIP RGB image \nColdsprings fire scar")
 box(col="white") # turn all of the lines to white
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-rgb-image-title-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="100%" />
 
 The image above looks pretty good. We can explore whether applying a stretch to
-the image might improve clarity and contrast using  `stretch="lin"` or
+the image might improve clarity and contrast using `stretch="lin"` or
 `stretch="hist"`.
 
 <figure>
@@ -493,7 +521,9 @@ the image might improve clarity and contrast using  `stretch="lin"` or
 # what does stretch do?
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
-        stretch = "lin")
+        axes=T,
+        stretch = "lin",
+        main="NAIP RGB plot with linear stretch\nColdsprings fire scar")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/image-stretch-1.png" title="lin stretch rgb image" alt="lin stretch rgb image" width="100%" />
@@ -502,10 +532,14 @@ What does the image look like using a different stretch? Any better? worse?
 
 
 ```r
+par(col.axis="white", col.lab="white", tck=0)
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
+        axes=T,
         scale=800,
-        stretch = "hist")
+        stretch = "hist",
+        main="NAIP RGB plot with hist stretch\nColdsprings fire scar")
+box(col="white") # turn all of the lines to white
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-rgb-hist-stretch-1.png" title="plot RGB with his stretch" alt="plot RGB with his stretch" width="100%" />
@@ -514,8 +548,6 @@ In this case, the stretch doesn't enhance the contrast our image significantly
 given the distribution of reflectance (or brightness) values is distributed well
 between 0 and 255. We are lucky! Our NAIP imagery has been processed well and
 thus we don't need to worry about image stretch.
-
-
 
 
 ## RasterStack vs RasterBrick in R
@@ -557,12 +589,15 @@ You use `plotRGB` to block a `RasterBrick` too.
 
 
 ```r
+par(col.axis="white", col.lab="white", tck=0)
 # plot brick
-plotRGB(naip_brick_csf)
+plotRGB(naip_brick_csf,
+  main="NAIP plot from a rasterbrick",
+  axes=T)
+box(col="white") # turn all of the lines to white
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title=" " alt=" " width="100%" />
-
 
 <div class="notice--warning" markdown="1">
 
