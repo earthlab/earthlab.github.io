@@ -47,7 +47,7 @@ plot(landsat_nbr,
      axes=F,
      box=F)
 
-## ----classify-output, echo=F, fig.cap="classified NBR output"------------
+## ----classify-output, echo=F---------------------------------------------
 # create classification matrix
 reclass <- c(-500, -100, 1,
              -100, 99, 2,
@@ -63,6 +63,7 @@ nbr_classified <- reclassify(landsat_nbr,
                      reclass_m)
 the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
 
+## ----classify-output-plot, echo=F, fig.cap="classified NBR output"-------
 # mar bottom, left, top and right
 par(xpd = F, mar=c(0,0,2,5))
 plot(nbr_classified,
