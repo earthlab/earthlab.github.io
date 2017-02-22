@@ -24,13 +24,16 @@ order: 3
 
 After completing this tutorial, you will be able to:
 
-*
+* Use `list.files()` to create a subsetted list of file names within a specified directory on your computer.
+* Create a raster stack from a list of .tif files in R.
+* Plot various band combinations using a rasterstack in R with `plotRGB()`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+You will need a computer with internet access to complete this lesson and the
+data for week 6 of the course.
 
-
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
 </div>
 
 In the previous lesson, we learned how to import a multi-band image into R using
@@ -38,9 +41,9 @@ the `stack()` function. We then plotted the data as a composite, RGB (and CIR) i
 using `plotRGB()`. However, sometimes data are downloaded in individual bands rather
 than a composite raster stack.
 
-In this lesson we will learn how to work with Landsat data in R. In this case, our
-data are downloaded in .tif format with each file representing a single band rather
-than a stack of bands.
+In this lesson we will learn how to work with Landsat data in `R`. In this case, our
+data are downloaded in `.tif` format with each `.tif` file representing a single
+band rather than a stack of bands.
 
 ## About Landsat data
 
@@ -56,9 +59,9 @@ than a stack of bands.
     </figcaption>
 </figure>
 
-Landsat data is a spectral dataset, collected from space. As we discussed in
-the first lesson, the spectral bands and associated spatial resolution of each
-band is listed below.
+Landsat data is a spectral dataset, collected from space. The spectral bands
+and associated spatial resolution of the first 9 bands in the Landsat 8 sensor
+are listed below.
 
 #### Landsat 8 Bands
 
@@ -73,7 +76,6 @@ band is listed below.
 | Band 7 - SWIR 2 | 2110 - 2290 | 30 | 18 |
 | Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
 | Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
-
 
 ### Understanding landsat
 When working with landsat, it is important to understand both the metadata and
@@ -91,6 +93,45 @@ The file names, tell us what sensor collected the data, the date the data were c
     <figcaption>Landsat file names Source: USGS Landsat - https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers
     </figcaption>
 </figure>
+
+
+Let's have a look at one of the files and use the image above to guide us through
+underanding the file name.
+
+File: `LC80340322016205LGN00_sr_band1_crop.tif`
+
+| Sensor | Sensor | Satellite | WRS path | WRS row | | | | |
+|-------|
+| L | C | 8 | 034| 032| 2016 |205 | LGN | 00 |
+| Landsat | OLI & TIRS | Landsat 8 | path = 034 | row = 032 | year = 2016 | Julian day= 205 | Ground station: LGN | Archive (first version): 00 |
+
+* L: Landsat
+* X: Sensor
+  * C = OLI & TIRS
+    O = OLI only
+    T = IRS only
+    E = ETM+
+    T = TM
+    M = MSS
+
+* S Satelite
+* PPP
+* RRR
+* YYYY = Year
+* DDD = Julian DAY of the year
+* GSI - Ground station ID
+* VV = Archive Version
+
+<a href="http://gisgeography.com/landsat-file-naming-convention/" target="_blank"> More here breaking down the file name.</a>
+
+## Julian day
+
+We won't spend a lot of time on Julian days. For the purpose of working with Landsat
+and MODIS data, what you need to know that the calendar year Julian day represents
+the numeric day of the year. So jan 1 = day 1. Feb 1 = day 32. And so on.
+
+There are several links at the bottom of this page that provide tables that help
+you <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">convert julian days to actual date</a>.
 
 
 ## Landsat tif files in R
@@ -246,26 +287,24 @@ box(col="white")
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> optional challenge
-Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post as a guide. Plot the following landsat band combinations   :
-* false color
-* color infrared
-* agriculture
-* healthy vegetation
+Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post as a guide. Plot the
+following landsat band combinations:
 
-Be sure to add a title to each of your plots.
+* False color
+* Color infrared
+* Agriculture
+* Healthy vegetation
+
+Be sure to add a title to each of your plots that specifies the band combination.
 
 </div>
 
 
-<div class="notice--warning" markdown="1">
+<div class="notice--info" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> optional challenge 2
-Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post as a guide. Plot the following landsat band combinations   :
-* false color
-* color infrared
-* agriculture
-* healthy vegetation
+## Additional resources
 
-Be sure to add a title to each of your plots.
+* <a href="https://disc.gsfc.nasa.gov/julian_calendar.html" target="_blank">Julian day lookup</a>
+* <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">Landweb NASA Julian day lookup</a>
 
 </div>

@@ -82,7 +82,7 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
 dev.off()
 
 ## ----view-hist, warning=F, echo=F, fig.cap="plot hist"-------------------
-barplot(nbr_classified, 
+barplot(nbr_classified,
         main="Distribution of Classified NBR Values",
         col=the_colors)
 
