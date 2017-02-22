@@ -29,14 +29,13 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+You will need a computer with internet access to complete this lesson and the
+data for week 6 of the course.
 
-
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
 </div>
 
 ## About vegetation indices
-
-
 
 A vegetation index is a single value that quantifies vegetation health or structure.
 The math associated with calculating a vegetation index is derived from the physics
@@ -116,7 +115,7 @@ hist(landsat_ndvi)
 ```
 
 ## Export raster
-When you are done, you may want to export your rasters so you could use them in 
+When you are done, you may want to export your rasters so you could use them in
 QGIS or ArcGIS or share them with your colleagues. To do this you use the writeRaster()
 function.
 
@@ -200,7 +199,7 @@ dev.off()
 ```
 
 ```{r view-hist, warning=F, echo=F, fig.cap="plot hist"}
-barplot(nbr_classified, 
+barplot(nbr_classified,
         main="Distribution of Classified NBR Values",
         col=the_colors)
 ```

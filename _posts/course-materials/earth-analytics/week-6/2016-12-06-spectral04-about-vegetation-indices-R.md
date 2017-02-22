@@ -3,7 +3,7 @@ layout: single
 title: "Landsat tif files in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-21'
+modified: '2017-02-22'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-vegetation-indices-in-R/
@@ -29,9 +29,10 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+You will need a computer with internet access to complete this lesson and the
+data for week 6 of the course.
 
-
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
 </div>
 
 ## About vegetation indices
@@ -130,7 +131,7 @@ hist(landsat_ndvi)
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="100%" />
 
 ## Export raster
-When you are done, you may want to export your rasters so you could use them in 
+When you are done, you may want to export your rasters so you could use them in
 QGIS or ArcGIS or share them with your colleagues. To do this you use the writeRaster()
 function.
 
