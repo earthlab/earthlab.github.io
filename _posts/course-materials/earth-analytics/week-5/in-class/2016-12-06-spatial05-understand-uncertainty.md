@@ -3,7 +3,7 @@ layout: single
 title: "Understand uncertainty"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-15'
+modified: '2017-02-21'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
