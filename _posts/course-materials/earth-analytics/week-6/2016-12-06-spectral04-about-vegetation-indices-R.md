@@ -37,8 +37,6 @@ data for week 6 of the course.
 
 ## About vegetation indices
 
-
-
 A vegetation index is a single value that quantifies vegetation health or structure.
 The math associated with calculating a vegetation index is derived from the physics
 of light reflection and absorption across bands. For instance, it is known that
@@ -54,8 +52,7 @@ greenness ranging from 0-1 where 0 represents minimal or no greenness and 1
 represents maximum greenness.
 
 NDVI is often used for a quantitate proxy measure of vegetation health, cover
-and phenology (life cycle stage) over large areas. Our NDVI data is a Landsat
-derived single band product saved as a GeoTIFF for different times of the year.
+and phenology (life cycle stage) over large areas.
 
 <figure>
  <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg">
@@ -107,11 +104,18 @@ landsat_stack_csf <- stack(all_landsat_bands)
 
 
 ## Calculate NDVI
-(NIR - Red) / (NIR + Red)
+
+The normalized difference vegetation index (NDVI) uses a ratio between near infrared
+and red light within the electromagnetic spectrum. To calculate NDVI we use the
+following formula where NIR is near infrared light and
+red represents red light. For our raster data, we will take the reflectance value
+in the red and near infrared bands to calculate the index.
+.
+`(NIR - Red) / (NIR + Red)`
 
 
 ```r
-
+# calculate NDVI
 landsat_ndvi <- (landsat_stack_csf[[5]] - landsat_stack_csf[[4]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[4]])
 
 plot(landsat_ndvi,
@@ -125,7 +129,9 @@ plot(landsat_ndvi,
 
 ```r
 # view distribution of NDVI values
-hist(landsat_ndvi)
+hist(landsat_ndvi,
+  main="NDVI: Distribution of pixels\n Landsat 2016 Cold Springs fire site",
+  col="springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="100%" />
@@ -146,20 +152,39 @@ writeRaster(x = landsat_ndvi,
               overwrite = T)  # OPTIONAL - be careful. this will OVERWRITE previous files.
 ```
 
-## Calculate NBR
+## Calculate Normalized Burn Ratio (NBR)
 
-This index highlights burned areas in large fire zones greater than 500 acres. The formula is similar to a normalized difference vegetation index (NDVI), except that it uses near-infrared (NIR) and shortwave-infrared (SWIR) wavelengths (Lopez, 1991; Key and Benson, 1995).
+The Normalized burn ratio (NBR) highlights burned areas in large fire zones
+greater than 500 acres. The formula is similar to a normalized difference
+vegetation index (NDVI), except that it uses near-infrared (NIR) and
+shortwave-infrared (SWIR) wavelengths (Lopez, 1991; Key and Benson, 1995).
 
 **NBR = ((NIR - SWIR)/ (NIR + SWIR )) * 1000**
 
-The NBR was originally developed for use with Landsat TM and ETM+ bands 4 and 7, but it will work with any multispectral sensor (including Landsat 8) with a NIR band between 0.76-0.9 µm and a SWIR band between 2.08-2.35
+The NBR was originally developed for use with Landsat TM and ETM+ bands 4 and 7,
+but it will work with any multispectral sensor (including Landsat 8) with a NIR
+band between 0.76-0.9 µm and a SWIR band between 2080 - 2350 nm.
 µm.
 
-Look at the table. what bands do you need to calculate Nbr?
+Looking at the table below, what bands should we use for Landsat 8?
+
+#### Landsat 8 Bands
+
+| Band | Wavelength range (nanometers) | Spatial Resolution (m) | Spectral Width (nm)|
+|-------------------------------------|------------------|--------------------|----------------|
+| Band 1 - Coastal aerosol | 430 - 450 | 30 | 2.0 |
+| Band 2 - Blue | 450 - 510 | 30 | 6.0 |
+| Band 3 - Green | 530 - 590 | 30 | 6.0 |
+| Band 4 - Red | 640 - 670 | 30 | 0.03 |
+| Band 5 - Near Infrared (NIR) | 850 - 880 | 30 | 3.0 |
+| Band 6 - SWIR 1 | 1570 - 1650 | 30 | 8.0  |
+| Band 7 - SWIR 2 | 2110 - 2290 | 30 | 18 |
+| Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
+| Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
 
-When you have calculated NBR - classify the output raster using the classify()
+When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
 
 | SEVERITY LEVEL  | dNBR RANGE |
@@ -170,11 +195,16 @@ function and the classes below.
 | Moderate Severity  | +270 to +660  |
 | High Severity     |  +660 to +1300 |
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
-```r
-dev.off()
 ```
+## Error in .local(x, y, ...): formal argument "main" matched by multiple actual arguments
+## Error in strwidth(legend, units = "user", cex = cex, font = text.font): plot.new has not been called yet
+```
+
+Note that you will have to figure out what date these data are for! I purposefully
+didn't include it in the title of this map.
+
+
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/view-hist-1.png" title="plot hist" alt="plot hist" width="100%" />
 

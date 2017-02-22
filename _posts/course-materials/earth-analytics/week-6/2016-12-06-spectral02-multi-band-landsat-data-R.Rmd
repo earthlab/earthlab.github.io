@@ -598,10 +598,3 @@ methods(class=class(naip_stack_csf[1]))
 #3 There are far more thing one could or wants to ask of a full stack than of
 # a single band.
 ```
-
-<div class="notice--info" markdown="1">
-
-## Additional resources
-
-
-</div>

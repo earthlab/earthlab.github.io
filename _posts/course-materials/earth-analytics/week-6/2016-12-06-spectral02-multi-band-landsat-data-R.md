@@ -34,7 +34,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
 </div>
 
 ## About Raster Bands in R
@@ -635,10 +635,3 @@ We can view various methods available to call on an `R` object with
 </div>
 
 
-
-<div class="notice--info" markdown="1">
-
-## Additional resources
-
-
-</div>
