@@ -2,6 +2,7 @@
 # load spatial data packages
 library(rgdal)
 library(raster)
+library(rgeos)
 options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
