@@ -37,7 +37,7 @@ Welcome to week {{ page.week }} of Earth Analytics!
 ### 1b. Fire readings
 
 * <a href="http://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">Denver post article on the cold springs fire.</a>
-* <a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank">Fire science for rainforests -  Cochrane 2003.</a>
+* <a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank" data-proofer-ignore=''>Fire science for rainforests -  Cochrane 2003.</a>
 * <a href="https://www.webpages.uidaho.edu/for570/Readings/2006_Lentile_et_al.pdf
 " target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a>
 * <a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices

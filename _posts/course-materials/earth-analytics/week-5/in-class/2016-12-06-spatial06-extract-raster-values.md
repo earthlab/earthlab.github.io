@@ -4,7 +4,7 @@ title: "Extract raster values using vector boundaries in R"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser']
-modified: '2017-02-14'
+modified: '2017-02-21'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/extract-data-from-raster/
@@ -44,6 +44,7 @@ You will need a computer with internet access to complete this lesson and the da
 # load libraries
 library(raster)
 library(rgdal)
+library(rgeos)
 library(ggplot2)
 library(dplyr)
 

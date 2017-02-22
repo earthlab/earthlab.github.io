@@ -4,12 +4,12 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-02-15'
+modified: '2017-02-21'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
 nav-title: 'Vector data in R'
-module-title: 'Spatial data in R & remote sensing uncertainty'
+module-title: 'Spatial data in R and remote sensing uncertainty'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
@@ -101,6 +101,7 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 ```r
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
+library(rgeos)
 # for metadata/attributes- vectors or rasters
 library(raster)
 

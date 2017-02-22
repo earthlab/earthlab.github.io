@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 modified: '2017-02-21'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
-permalink: /course-materials/earth-analytics/week-6/use-landsat-raster-stacks-in-r/
+permalink: /course-materials/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
 nav-title: 'Multi-band imagery in R'
 week: 6
 sidebar:
@@ -401,8 +401,10 @@ darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
 
 
 <figure>
-    <a href="{{ site.url }}/images/course-materials/earth-analytics/week6/RGBSTack_1.jpg">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week6/RGBSTack_1.jpg"></a>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/RGBSTack_1.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/RGBSTack_1.jpg" alt="A true color image consists of 3 bands - red, green and blue.
+    When composited or rendered together in a GIS, or even a image-editor like
+    Photoshop the bands create a color image."></a>
     <figcaption>A "true" color image consists of 3 bands - red, green and blue.
     When composited or rendered together in a GIS, or even a image-editor like
     Photoshop the bands create a color image.
@@ -540,7 +542,7 @@ object.size(naip_stack_csf)
 ## 52424 bytes
 
 # convert stack to a brick
-naip_brick_brick <- brick(naip_stack_csf)
+naip_brick_csf <- brick(naip_stack_csf)
 
 # view size of the brick
 object.size(naip_brick_csf)
@@ -557,8 +559,9 @@ You use `plotRGB` to block a `RasterBrick` too.
 ```r
 # plot brick
 plotRGB(naip_brick_csf)
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title=" " alt=" " width="100%" />
 
 
 <div class="notice--warning" markdown="1">

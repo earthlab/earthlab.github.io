@@ -163,16 +163,16 @@ plotRGB(naip_stack_csf,
 object.size(naip_stack_csf)
 
 # convert stack to a brick
-naip_brick_brick <- brick(naip_stack_csf)
+naip_brick_csf <- brick(naip_stack_csf)
 
 # view size of the brick
 object.size(naip_brick_csf)
 
 
-## ----plot-brick, eval=F--------------------------------------------------
-## # plot brick
-## plotRGB(naip_brick_csf)
-## 
+## ----plot-brick----------------------------------------------------------
+# plot brick
+plotRGB(naip_brick_csf)
+
 
 ## ----challenge, echo=F, warning=F, message=F, fig.cap="challenge rgb plot 2015 data"----
 # import and plot data
