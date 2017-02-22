@@ -24,6 +24,8 @@ We will learn how to work with multi-band rasters in R. We will also learn some
 important principles of remote sensing data. Finally we will learn how to calculate
 vegetation indices in R.
 
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
+
 </div>
 
 
@@ -55,7 +57,7 @@ vegetation indices in R.
 
 ### Produce a .pdf report
 
-Create a new `R markdown `document. Name it: **lastName-firstInitial-week5.Rmd**
+Create a new `R markdown `document. Name it: **lastName-firstInitial-week6.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `PDF` format. Submit both the
 `.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
@@ -64,7 +66,7 @@ with your report, use `knitr` to convert it to `PDF` format. Submit both the
 In your final report, use the following knitr code chunk arguments to hide messages
 and warnings and code as you see fit.
 
-* `message=T`, `warning=T` Hide warnings and messages in a code chunk
+* `message=F`, `warning=F` Hide warnings and messages in a code chunk
 * `echo=F` Hide code and just show code output
 
 #### Answer the following questions below in your report
@@ -79,14 +81,14 @@ caption argument in your code chunks: `fig.cap="caption here".
 2. Add appropriate titles that tells someone reading your report what the map shows
 
 #### Plot 1
-Create a MAP of the **difference between NDVI pre vs post fire** (Post fire - pre-fire NDVI).
+Create a MAP of the **difference between NDVI pre vs post fire** (Pre fire - post-fire NDVI).
 
 #### Plot 2
-Create a MAP of the **difference between NBR pre vs post fire** (Post fire - pre-fire NDVI). Be sure to include a legend on your map that helps someone looking at it
+Create a MAP of the **difference between NBR pre vs post fire** (Pre fire - post-fire NDVI). Be sure to include a legend on your map that helps someone looking at it
 understand differences
 
 #### Plot 3
-Create a classified map of post fire NDVI using classification values that you
+Create a classified map of **post fire NDVI** using classification values that you
 think make sense based upon exploring the data.
 
 #### Plot 4

@@ -33,7 +33,7 @@ You will research the topic that you select finding papers and other documentati
 
 **Final project group presentation: Wednesday 3 May 2017 during class.**
 
-**Final individual project due: Submit to D2L by Wednesday 10 May 2017 @ NOON.**
+**Final individual project due: Submit to D2L by Tuesday 9 May 2017 @ 5PM.**
 
 </div>
 
@@ -64,9 +64,12 @@ To complement your final presentation, you will also create a knitr based report
 
 1. An introduction that includes a map of the study area created in R
 2. An overview of the methods - what data did you use and how did you process it in R.
-3. Results - atleast 3 plots that answer the question that you decided to address or the phenomenon that you decided to explore using data.
+3. Results - *atleast* 4 maps / plots that answer the question that you decided to address or the phenomenon that you decided to explore using data.
 4. Summary text - what did you learn about your topic? What did the data tell you?
 
 The report should be written INDEPENDENTLY. We will check for this when grading. However it is OK if you decide to share code with your colleagues given you may all tackle different parts of the data when you work on your project. It is also ok if you share interesting articles and other sources of information about the topic.
 
 The writing of each report however needs to be your own.
+
+
+## Graduate students
