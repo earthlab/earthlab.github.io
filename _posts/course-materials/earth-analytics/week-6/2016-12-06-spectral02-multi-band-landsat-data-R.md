@@ -393,6 +393,19 @@ darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
 
 
 
+## RGB Data
+
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week6/RGBSTack_1.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week6/RGBSTack_1.jpg"></a>
+    <figcaption>A "true" color image consists of 3 bands - red, green and blue.
+    When composited or rendered together in a GIS, or even a image-editor like
+    Photoshop the bands create a color image.
+	Source: NEON.
+    </figcaption>
+</figure>
+
 ### Use plotRGB() to create a composite 3 band image
 To render a 3 band, color image in `R`, we use `plotRGB()`.
 
