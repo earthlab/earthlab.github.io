@@ -43,6 +43,7 @@ You will need a computer with internet access to complete this lesson and the da
 # load libraries
 library(raster)
 library(rgdal)
+library(rgeos)
 library(ggplot2)
 library(dplyr)
 
