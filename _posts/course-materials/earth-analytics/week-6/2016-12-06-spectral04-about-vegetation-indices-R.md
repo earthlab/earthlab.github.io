@@ -188,17 +188,21 @@ Looking at the table below, what bands should we use for Landsat 8?
 When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
 
-| SEVERITY LEVEL  | dNBR RANGE |
+| SEVERITY LEVEL  | | dNBR RANGE |
 |------------------------------|
-| Enhanced Regrowth |    -500 to  -100  |
-| Unburned       |  -100 to +100  |
-| Low Severity     | +100 to +270  |
-| Moderate Severity  | +270 to +660  |
-| High Severity     |  +660 to +1300 |
+| Enhanced Regrowth | |-500 to  -100  |
+| Unburned       |  |-100 to +100  |
+| Low Severity     | |+100 to +270  |
+| Moderate Severity  | |+270 to +660  |
+| High Severity     |  |+660 to +1300 |
 
-Your classified map should look something like: 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+
+
+
+Your classified map should look something like:
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
 Note that you will have to figure out what date these data are for! I purposefully
 didn't include it in the title of this map.
