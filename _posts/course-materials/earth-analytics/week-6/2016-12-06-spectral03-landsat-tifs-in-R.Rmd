@@ -50,7 +50,7 @@ than a stack of bands.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png" alt="Landsat 40 year timeline source: USGS.">
     </a>
     <figcaption>The 40 year history of landsat missions. Source: USGS - https://landsat.usgs.gov/landsat-missions-timeline
     </figcaption>
@@ -173,11 +173,11 @@ all_landsat_bands
 Now we have a list of all of the landsat bands in our folder. We could chose to
 open each file individually using the `raster()` function.
 
-```{r}
+```{r plot-landsat-band2, fig.cap="Landsat band 2 plot"}
 # get first file
 all_landsat_bands[2]
-landsat_band1 <- raster(all_landsat_bands[2])
-plot(landsat_band1,
+landsat_band2 <- raster(all_landsat_bands[2])
+plot(landsat_band2,
      main="Landsat cropped band 2\nColdsprings fire scar",
      col=gray(0:100 / 100))
 ```
@@ -252,7 +252,7 @@ Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinatio
 * agriculture
 * healthy vegetation
 
-Be sure to add a title to each of your plots. 
+Be sure to add a title to each of your plots.
 
 </div>
 
@@ -266,6 +266,6 @@ Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinatio
 * agriculture
 * healthy vegetation
 
-Be sure to add a title to each of your plots. 
+Be sure to add a title to each of your plots.
 
 </div>
