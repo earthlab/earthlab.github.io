@@ -24,6 +24,8 @@ We will learn how to work with multi-band rasters in R. We will also learn some
 important principles of remote sensing data. Finally we will learn how to calculate
 vegetation indices in R.
 
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
+
 </div>
 
 
