@@ -31,7 +31,7 @@ plot(rgb_image_3bands,
 par(col.axis="white", col.lab="white", tck=0)
 plotRGB(rgb_image_3bands,
         stretch="lin",
-        axes=TRUE, 
+        axes=TRUE,
         main="Red, green, blue composite image")
 box(col="white") # turn all of the lines to white
 
