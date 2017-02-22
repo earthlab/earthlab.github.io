@@ -1,4 +1,4 @@
-## ----load-packages, warning=F, message=F, results="hide"-----------------
+## ----load-packages, warning=F, message=F, results='hide'-----------------
 # load spatial packages
 library(raster)
 library(rgdal)
@@ -16,7 +16,7 @@ all_landsat_bands
 landsat_stack_csf <- stack(all_landsat_bands)
 
 ## ----calculate-ndvi, fig.cap="landsat derived NDVI plot"-----------------
-
+# calculate NDVI
 landsat_ndvi <- (landsat_stack_csf[[5]] - landsat_stack_csf[[4]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[4]])
 
 plot(landsat_ndvi,
@@ -24,7 +24,9 @@ plot(landsat_ndvi,
 
 ## ----ndvi-hist, fig.cap="histogram"--------------------------------------
 # view distribution of NDVI values
-hist(landsat_ndvi)
+hist(landsat_ndvi,
+  main="NDVI: Distribution of pixels\n Landsat 2016 Cold Springs fire site",
+  col="springgreen")
 
 
 ## ----export-raster, eval=F-----------------------------------------------
@@ -62,23 +64,22 @@ nbr_classified <- reclassify(landsat_nbr,
 the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
 
 # mar bottom, left, top and right
-par(xpd = F, mar=c(0,0,0,5))
+par(xpd = F, mar=c(0,0,2,5))
 plot(nbr_classified,
      col=the_colors,
      legend=F,
-     main="NBR",
      axes=F,
-     box=F)
+     box=F,
+     main="Landsat NBR - Cold Spring fire site \n Add date of the data here")
 par(xpd = TRUE)
 legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity"),
-       fill=the_colors,
+       fill=rev(the_colors),
        cex=.9,
        bty="n")
 
 
-
-## ----dev-off, warning=F, message=F, results="hide"-----------------------
+## ----dev-off, echo=F, warning=F, message=F, results="hide"---------------
 dev.off()
 
 ## ----view-hist, warning=F, echo=F, fig.cap="plot hist"-------------------

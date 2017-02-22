@@ -16,6 +16,7 @@ comments: true
 order: 4
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -195,11 +196,9 @@ function and the classes below.
 | Moderate Severity  | +270 to +660  |
 | High Severity     |  +660 to +1300 |
 
+Your classified map should look something like: 
 
-```
-## Error in .local(x, y, ...): formal argument "main" matched by multiple actual arguments
-## Error in strwidth(legend, units = "user", cex = cex, font = text.font): plot.new has not been called yet
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
 Note that you will have to figure out what date these data are for! I purposefully
 didn't include it in the title of this map.
