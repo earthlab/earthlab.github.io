@@ -24,6 +24,7 @@ hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
 # load libraries
 library(raster)
 library(rgdal)
+library(rgeos)
 library(ggplot2)
 library(dplyr)
 

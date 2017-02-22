@@ -186,6 +186,7 @@ the actual heights of the trees on the ground?
 # load libraries
 library(raster)
 library(rgdal)
+library(rgeos)
 library(ggplot2)
 library(dplyr)
 

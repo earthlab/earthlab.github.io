@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-15'
+modified: '2017-02-21'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/reproject-vector-data/
@@ -79,6 +79,7 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 # load spatial data packages
 library(rgdal)
 library(raster)
+library(rgeos)
 options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")

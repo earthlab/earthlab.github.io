@@ -2,6 +2,7 @@
 # load libraries
 library(raster)
 library(rgdal)
+library(rgeos)
 library(ggplot2)
 library(dplyr)
 
