@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Landsat tif files in R"
+title: "Vegetation indices in R"
 excerpt: ". "
 authors: ['Leah Wasser']
 modified: '2017-02-22'
