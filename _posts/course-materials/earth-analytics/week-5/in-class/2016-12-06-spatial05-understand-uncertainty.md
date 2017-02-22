@@ -3,7 +3,7 @@ layout: single
 title: "Understand uncertainty"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-20'
+modified: '2017-02-21'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
@@ -189,15 +189,82 @@ the actual heights of the trees on the ground?
 
 
 
+## Study site location
+
+To answer the question above, let's look at some data from a study site location
+in California - the San Joaquin Experimental range field site. You can see the field
+site location on the map below.
 
 
 
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial05-understand-uncertainty/ggmap-plot-1.png" title="ggmap of study area." alt="ggmap of study area." width="100%" />
+
+## Study area plots
+
+At this study site, we have both lidar data - specifically a canopy height model
+that was processed by NEON (National Ecological Observatory Network). We also
+have some "ground truth" data. That is we have measured tree height values collected at a set
+of field site plots by technicians at NEON. We will call these measured values
+*in situ* measurements.
+
+A map of our study plots is below overlaid on top of the canopy height mode.
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial05-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="100%" />
+
+### Compare lidar derived height to in situ measurements
+
+We can compare maximum tree height values at each plot to the maximum pixel value
+in our CHM for each plot. To do this, we define the geographic boundary of our plot
+using a polygon - in the case below we use a circle as the boundary. We then extract
+the raster cell values for each circle and calculate the max value for all of the
+pixels that fall within the plot area.
+
+Then, we calculate the max height of our measured plot tree height data.
+
+Finally we compare the two using a scatter plot to see how closely the data relate.
+Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
+
+<figure>
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/buffer-circular.png" alt="buffer circular">
+    <figcaption>The extract function in R allows you to specify a circular buffer
+    radius around an x,y point location. Values for all pixels in the specified
+    raster that fall within the circular buffer are extracted. In this case, we
+    will tell R to extract the maximum value of all pixels using the fun=max
+    command. Source: Colin Williams, NEON
+    </figcaption>
+</figure>
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial05-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="100%" />
+
+### How different are the data?
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial05-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
+
+## View interactive scatterplot
+
+<a href="https://plot.ly/~leahawasser/170/" target="_blank">View scatterplot plotly</a>
+
+
+## View interactive difference barplot
+
+<a href="https://plot.ly/~leahawasser/158/chm-minus-insitu-differences/
+" target="_blank">View scatterplot differences</a>
 
 
 
+<div class="notice--info" markdown="1">
+## Additional Resources
+
+The materials on this page were compiled using many internet resources including:
+
+* <a href="http://www.ece.rochester.edu/courses/ECE111/error_uncertainty.pdf" target="_blank">Pdf presentation on uncertainty in remote sensing</a>
+* <a href="https://www.nde-ed.org/GeneralResources/ErrorAnalysis/UncertaintyTerms.htm" target="_blank">An overview of key uncertainty terms</a>
+* <a href="http://www.peer.eu/fileadmin/user_upload/opportunities/metier/course3/c3_land_surface_processes.pdf" target="_blank">A pdf that outlines uncertainty relative to land surface processes</a>
 
 
+##  QGIS imagery layer
 
-
-
-
+* Code to add imagery to qgis via the python console:
+ `qgis.utils.iface.addRasterLayer("http://server.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer?f=json&pretty=true","raster")
+<qgis._core.QgsRasterLayer object at 0x12739ee90>`
+</div>
