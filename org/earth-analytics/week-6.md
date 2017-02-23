@@ -96,7 +96,7 @@ Create a classified map of **post fire NBR** using the classification thresholds
 
 | SEVERITY LEVEL  | dNBR RANGE |
 |------------------------------|
-| Enhanced Regrowth |    -500 to  -100  |
+| Enhanced Regrowth | -700 to  -100  |
 | Unburned       |  -100 to +100  |
 | Low Severity     | +100 to +270  |
 | Moderate Severity  | +270 to +660  |
