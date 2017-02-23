@@ -2,7 +2,7 @@
 layout: single
 title: "Landsat tif files in R"
 excerpt: ". "
-authors: ['Leah Wasser']
+authors: ['Megan Cattau', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']

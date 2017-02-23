@@ -2,8 +2,8 @@
 layout: single
 title: "Working with multiple bands in R."
 excerpt: "In this lesson we will review how to open up a multi-band image in R. "
-authors: ['Leah Wasser']
-modified: '2017-02-22'
+authors: ['Megan Cattau', 'Leah Wasser']
+modified: '2017-02-23'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -57,7 +57,7 @@ our data in several ways.
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png">
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png" alt="A raster can contain one or more bands. We can use the
     raster function to import one single band from a single OR multi-band
-    raster."
+    raster.">
     </a>
     <figcaption>A raster can contain one or more bands. We can use the
     raster function to import one single band from a single OR multi-band
@@ -597,7 +597,7 @@ plotRGB(naip_brick_csf,
 box(col="white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title="plot raster brick" alt="plot raster brick" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
