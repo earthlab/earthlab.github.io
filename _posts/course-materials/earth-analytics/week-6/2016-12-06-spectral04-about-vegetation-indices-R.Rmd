@@ -216,13 +216,13 @@ writeRaster(x = nbr_classified,
               filename="data/week6/outputs/nbr_classified.tif",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T) 
+              overwrite = T)
 
 writeRaster(x = landsat_nbr,
               filename="data/week6/outputs/landsat_nbr",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T) 
+              overwrite = T)
 ```
 
 Your classified map should look something like:
@@ -245,9 +245,17 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
 
 ```
 
-Add fire boundary to map. 
+## Compare to fire boundary
 
-```{r classify-output-plot2, echo=F, fig.cap="classified NBR output"}
+As an example to see how our fire boundary relates to the boundary that we've
+identified using MODIS data, we can create a map with both layers. I'm using
+the shapefile in the folder:
+
+`data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
+
+Add fire boundary to map.
+
+```{r classify-output-plot2, echo=F, fig.cap="classified NBR output", results='hide'}
 fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
 # reproject shapefile
 fire_boundary_utm <- spTransform(fire_boundary, crs(nbr_classified))
@@ -288,7 +296,34 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
 dev.off()
 ```
 
-Make it look a bit nicer
+Make it look a bit nicer using a colobrewer palette. I used the
+`RdYlGn` palette:
+
+`brewer.pal(5, 'RdYlGn')`
+
+I also did a bit of legend trickery to get a box with a fill. There's probably
+a better way to do this!
+
+```{r new-legend, eval=F}
+
+legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
+       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
+       col=c(rev(the_colors), "black"),
+       pch=c(15,15, 15, 15, 15,NA),
+       lty = c(NA, NA, NA, NA, NA, 1),
+       cex=.8,
+       bty="n",
+       pt.cex=c(1.75))
+legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
+       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
+       col=c("black"),
+       pch=c(22, 22, 22, 22, 22, NA),
+       lty = c(NA, NA, NA, NA, NA, 1),
+       cex=.8,
+       bty="n",
+       pt.cex=c(1.75))
+```
+
 ```{r classify-output-plot3, echo=F, fig.cap="classified NBR output"}
 # look at colors
 # display.brewer.all()
@@ -301,12 +336,25 @@ plot(nbr_classified,
      axes=F,
      box=F,
      main="Landsat NBR - Cold Spring fire site \n Add date of the data here")
+     plot(fire_boundary_utm, add=T,
+          lwd=5)
 par(xpd = TRUE)
 legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity"),
-       fill=rev(the_colors),
-       cex=.9,
-       bty="n")
+       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
+       col=c(rev(the_colors), "black"),
+       pch=c(15,15, 15, 15, 15,NA),
+       lty = c(NA, NA, NA, NA, NA, 1),
+       cex=.8,
+       bty="n",
+       pt.cex=c(1.75))
+legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
+       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
+       col=c("black"),
+       pch=c(22, 22, 22, 22, 22, NA),
+       lty = c(NA, NA, NA, NA, NA, 1),
+       cex=.8,
+       bty="n",
+       pt.cex=c(1.75))
 
 ```
 
