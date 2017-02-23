@@ -2,8 +2,8 @@
 layout: single
 title: "Landsat tif files in R"
 excerpt: ". "
-authors: ['Leah Wasser']
-modified: '2017-02-22'
+authors: ['Megan Cattau', 'Leah Wasser']
+modified: '2017-02-23'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-bands-geotif-in-R/
