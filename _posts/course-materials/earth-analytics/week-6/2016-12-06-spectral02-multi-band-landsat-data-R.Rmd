@@ -57,7 +57,7 @@ our data in several ways.
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png">
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/single_multi_raster.png" alt="A raster can contain one or more bands. We can use the
     raster function to import one single band from a single OR multi-band
-    raster."
+    raster.">
     </a>
     <figcaption>A raster can contain one or more bands. We can use the
     raster function to import one single band from a single OR multi-band
