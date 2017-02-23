@@ -182,7 +182,7 @@ naip_brick_csf <- brick(naip_stack_csf)
 object.size(naip_brick_csf)
 
 
-## ----plot-brick----------------------------------------------------------
+## ----plot-brick, fig.cap="plot raster brick"-----------------------------
 par(col.axis="white", col.lab="white", tck=0)
 # plot brick
 plotRGB(naip_brick_csf,
