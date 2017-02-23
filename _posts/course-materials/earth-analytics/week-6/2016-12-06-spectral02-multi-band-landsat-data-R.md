@@ -2,8 +2,8 @@
 layout: single
 title: "Working with multiple bands in R."
 excerpt: "In this lesson we will review how to open up a multi-band image in R. "
-authors: ['Leah Wasser']
-modified: '2017-02-22'
+authors: ['Megan Cattau', 'Leah Wasser']
+modified: '2017-02-23'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -186,14 +186,14 @@ plot(naip_csf,
 
 # view data dimensions, CRS, resolution, attributes, and band info
 naip_csf
-## class       : RasterLayer
+## class       : RasterLayer 
 ## band        : 1  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
-## names       : m_3910505_nw_13_1_20130926_crop
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop 
 ## values      : 0, 255  (min, max)
 ```
 
@@ -258,14 +258,14 @@ plot(rgb_band2,
 
 # view attributes of band 2
 rgb_band2
-## class       : RasterLayer
+## class       : RasterLayer 
 ## band        : 2  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
-## names       : m_3910505_nw_13_1_20130926_crop
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop 
 ## values      : 0, 255  (min, max)
 ```
 
@@ -288,13 +288,13 @@ naip_stack_csf <-
 
 # view attributes of stack object
 naip_stack_csf
-## class       : RasterStack
+## class       : RasterStack 
 ## dimensions  : 2312, 4377, 10119624, 4  (nrow, ncol, ncell, nlayers)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4
-## min values  :                                 0,                                 0,                                 0,                                 0
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
+## min values  :                                 0,                                 0,                                 0,                                 0 
 ## max values  :                               255,                               255,                               255,                               255
 ```
 
@@ -309,50 +309,50 @@ distribution of raster band values.
 # view raster attributes
 naip_stack_csf@layers
 ## [[1]]
-## class       : RasterLayer
+## class       : RasterLayer 
 ## band        : 1  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
-## names       : m_3910505_nw_13_1_20130926_crop.1
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop.1 
 ## values      : 0, 255  (min, max)
-##
-##
+## 
+## 
 ## [[2]]
-## class       : RasterLayer
+## class       : RasterLayer 
 ## band        : 2  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
-## names       : m_3910505_nw_13_1_20130926_crop.2
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop.2 
 ## values      : 0, 255  (min, max)
-##
-##
+## 
+## 
 ## [[3]]
-## class       : RasterLayer
+## class       : RasterLayer 
 ## band        : 3  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
-## names       : m_3910505_nw_13_1_20130926_crop.3
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop.3 
 ## values      : 0, 255  (min, max)
-##
-##
+## 
+## 
 ## [[4]]
-## class       : RasterLayer
+## class       : RasterLayer 
 ## band        : 4  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
-## names       : m_3910505_nw_13_1_20130926_crop.4
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 ```
 
@@ -362,14 +362,14 @@ View attributes of one band.
 ```r
 # view attributes for one band
 naip_stack_csf[[1]]
-## class       : RasterLayer
+## class       : RasterLayer 
 ## band        : 1  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
-## names       : m_3910505_nw_13_1_20130926_crop.1
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop.1 
 ## values      : 0, 255  (min, max)
 ```
 
@@ -597,7 +597,7 @@ plotRGB(naip_brick_csf,
 box(col="white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title="plot raster brick" alt="plot raster brick" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -633,3 +633,5 @@ We can view various methods available to call on an `R` object with
 3. Why do you think there is a difference?
 
 </div>
+
+
