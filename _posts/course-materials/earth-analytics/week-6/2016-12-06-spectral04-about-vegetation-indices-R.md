@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Landsat tif files in R"
+title: "Vegetation indices in R"
 excerpt: ". "
-authors: ['Leah Wasser']
-modified: '2017-02-22'
+authors: ['Megan Cattau', 'Leah Wasser']
+modified: '2017-02-23'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-vegetation-indices-in-R/
@@ -80,6 +80,7 @@ case, we need to calculate NDVI ourselves using the reflectance data that we hav
 library(raster)
 library(rgdal)
 library(rgeos)
+library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = F)
 ```
@@ -200,9 +201,44 @@ function and the classes below.
 
 
 
+You can export the rasters if you want.
+
+
+```r
+writeRaster(x = nbr_classified,
+              filename="data/week6/outputs/nbr_classified.tif",
+              format = "GTiff", # save as a tif
+              datatype='INT2S', # save as a INTEGER rather than a float
+              overwrite = T) 
+
+writeRaster(x = landsat_nbr,
+              filename="data/week6/outputs/landsat_nbr",
+              format = "GTiff", # save as a tif
+              datatype='INT2S', # save as a INTEGER rather than a float
+              overwrite = T) 
+```
+
 Your classified map should look something like:
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+
+Add fire boundary to map. 
+
+
+```
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp", layer: "co_cold_springs_20160711_2200_dd83"
+## with 1 features
+## It has 21 fields
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+
+
+
+
+Make it look a bit nicer
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
 Note that you will have to figure out what date these data are for! I purposefully
 didn't include it in the title of this map.
