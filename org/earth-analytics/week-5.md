@@ -80,7 +80,7 @@ Be sure to describe what each plot shows in your final report.
 Create a basemap that shows the location of the study area within the larger state
 of California / western United States or united states. Pick a spatial extent that
 helps someone from the USA understand where the SJER site is located. HINT: use the
-`ggmap()` lesson from week 4 if you forget how to do this!
+[lesson from week 3 on `ggmap()` if you forget how to do this]({{ site.url }}/course-materials/earth-analytics/week-3/ggmap-basemap/)!
 
 #### Plot 2 - Study area map 2
 

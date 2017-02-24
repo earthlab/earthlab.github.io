@@ -209,35 +209,63 @@ writeRaster(x = nbr_classified,
               filename="data/week6/outputs/nbr_classified.tif",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T) 
+              overwrite = T)
 
 writeRaster(x = landsat_nbr,
               filename="data/week6/outputs/landsat_nbr",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T) 
+              overwrite = T)
 ```
 
 Your classified map should look something like:
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
-Add fire boundary to map. 
+## Compare to fire boundary
 
+As an example to see how our fire boundary relates to the boundary that we've
+identified using MODIS data, we can create a map with both layers. I'm using
+the shapefile in the folder:
 
-```
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp", layer: "co_cold_springs_20160711_2200_dd83"
-## with 1 features
-## It has 21 fields
-```
+`data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
+
+Add fire boundary to map.
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
 
 
 
-Make it look a bit nicer
+Make it look a bit nicer using a colobrewer palette. I used the
+`RdYlGn` palette:
+
+`brewer.pal(5, 'RdYlGn')`
+
+I also did a bit of legend trickery to get a box with a fill. There's probably
+a better way to do this!
+
+
+```r
+
+legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
+       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
+       col=c(rev(the_colors), "black"),
+       pch=c(15,15, 15, 15, 15,NA),
+       lty = c(NA, NA, NA, NA, NA, 1),
+       cex=.8,
+       bty="n",
+       pt.cex=c(1.75))
+legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
+       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
+       col=c("black"),
+       pch=c(22, 22, 22, 22, 22, NA),
+       lty = c(NA, NA, NA, NA, NA, 1),
+       cex=.8,
+       bty="n",
+       pt.cex=c(1.75))
+```
+
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
 Note that you will have to figure out what date these data are for! I purposefully
