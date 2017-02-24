@@ -130,7 +130,7 @@ If you do, please ZIP the html file up with your .Rmd file.
 | Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | | The are more than 3 code errors in the document |
 | All required R packages are listed at the top of the document in a code chunk.  | | Some packages are listed at the top of the document and some are lower down. | | |
 
-### Part 1 - DTM Difference Raster Plot: 35%
+### Part 1 - Classified DTM Difference Raster Plot: 35%
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -142,7 +142,7 @@ If you do, please ZIP the html file up with your .Rmd file.
 | The colors and classes selected to plot the final difference raster, selected using the previous histogram s clearly show changes. | || | The colors and classes selected do not show change well / don't show change at all. |
 
 
-### Part 1 - CHM Difference: 35%
+### Part 2 - Classified CHM Difference Raster Plot: 35%
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
