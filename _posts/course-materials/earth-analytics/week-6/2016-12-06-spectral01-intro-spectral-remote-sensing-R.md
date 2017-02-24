@@ -2,8 +2,8 @@
 layout: single
 title: "Intro to spectral remote sensing"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and spaceborne vs airborne sensors. "
-authors: ['Leah Wasser']
-modified: '2017-02-22'
+authors: ['Megan Cattau', 'Leah Wasser']
+modified: '2017-02-23'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/intro-spectral-data-r/
