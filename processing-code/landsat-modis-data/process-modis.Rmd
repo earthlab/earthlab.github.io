@@ -3,26 +3,168 @@ title: "Untitled"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup}
+# import gdal
+library(gdalUtils)
+library(MODIS)
+library(raster)
+# set wd
+setwd("~/Documents/earth-analytics")
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
+# Helper functions
 
 ```{r pressure, echo=FALSE}
-plot(pressure)
+# load functions from source
+# required MODIS and gdalUtils
+source("~/Documents/github/earthlab.github.io/processing-code/landsat-modis-data/process-modis_functions.R")
+
+################# 
+# run function to crop all modis bands
+
+# run function on a h4 file
+the_file <- "data/week6/modis/reflectance/17_july_2016/MOD09GA.A2016199.h09v05.006.2016201065406.hdf"
+process_modis_bands(the_file)
+
+
+the_file <- "data/week6/modis/reflectance/07_july_2016/MOD09GA.A2016189.h09v05.006.2016191073856.hdf"
+process_modis_bands(the_file)
+
+
+# band_path <- the_file
+# export_modis_h4_tifs <- function(band_path){
+#   # this function exports all of the datasets in a MODIS h4 file
+#   
+#   # first get a list of layers
+#   layer_list <- get_subdatasets(band_path)
+#   # then 
+# 
+#   # export the first layer to tif
+#   gdal_translate(band_path[2], dst_dataset = "/state_1km_1.tif")
+#   state_rast <- raster("/state_1km_1.tif")
+# 
+# }
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+## How it works.
+
+1. assign the h4 file name that you want to use
+2. view all layers in the file
+
+```{r how-it-works}
+### file w 7 bands - view all layers in the h4 file
+the_file <- "data/week6/modis/reflectance/07_july_2016/MOD09GA.A2016189.h09v05.006.2016191073856.hdf"
+gdalinfo(the_file)
+
+# Tells me what subdatasets are within my hdf4 MODIS files and makes them into a list
+all_layers <- get_subdatasets(the_file)
+all_layers
+
+# export the first layer to tif
+# gdal_translate(sds[1], dst_dataset = "/NPP2000.tif")
+
+```
+
+
+```{r }
+# Load and plot the new .tif
+
+rast <- raster("/NPP2000.tif")
+plot(rast)
+
+
+# then add the cloud bitmask
+# gdal_translate(modis_july7[2], dst_dataset = "/state_1km_1.tif")
+
+
+
+# export the state layer to tif
+# this contains the cloud mask and is the second layer in the hdf file
+# gdal_translate(modis_july7[2], dst_dataset = "/state_1km_1.tif")
+state_rast <- raster("data/week6/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_state_1km_1.tif")
+
+# view state layer
+hist(state_rast)
+plot(state_rast)
+
+
+#band1 - red
+#band 3 - green
+#band 4 - green
+
+```
+
+The cloud mask needs to be extracted from a bitmask layer. You can use the MODIS
+package to extract and unpack the bitmask. 
+
+
+http://modis-sr.ltdri.org/guide/MOD09_UserGuide_v1_3.pdf
+
+Use detectBitInfo() notice the cloud shadow is at bit shift / mask 0 , 3
+the shadow is at 2, 3
+
+Binary Tranlation
+00 = 0
+01 = 1
+10 = 2
+11 = 3
+
+IN this case, 1 and 2 are clouds
+see the link above - table 16
+
+| State | Translated Value | Cloud Condition| 
+|----|
+| 00 | 0 | clear |
+| 01 | 1 | cloudy |
+| 10 | 2 | mixed |
+| 11 | 3 | not set, assumed clear |
+
+
+
+```{r extract-masked-layers }
+# we can use detect bit info to view the bit structure
+detectBitInfo(state_rast)
+
+## unpack bits  (required MODIS)
+
+cloud_mask <- extractBits(state_rast, bitShift=0, bitMask=3,
+                          decodeOnly=TRUE)
+
+
+# open modis bands
+all_modis_bands <-list.files("data/week6/modis/reflectance/07_july_2016/crop", 
+           pattern=glob2rx("*sur_refl*.tif$"),
+           full.names = T)
+
+all_modis_bands_st <- stack(all_modis_bands)
+
+# this is a 1000 m layer but i want a 500m layer 
+cloud_mask_500m <- resample(cloud_mask,
+         all_modis_bands_st)
+
+# export mask 
+writeRaster(cloud_mask_500m, 
+            filename= "data/week6/modis/reflectance/07_july_2016/crop/cloud_mask_500m.tif",
+              format = "GTiff", # save as a tif
+              datatype='INT2S', # save as a INTEGER rather than a float
+              overwrite = T)
+
+# makeWeights(state_rast, bitShift=0, bitMask=3,
+#            decodeOnly=TRUE)
+
+# get inFo about bit layer for this particular modis product
+detectBitInfo("MOD09GA")
+
+plot(cloud_mask,
+     main="Cloud mask layer")
+barplot(cloud_mask,
+     main="distribution of masked pixels",
+     xlab="Cloud Status",
+     names.arg=c("Clear", "Cloudy", "Mixed"))
+```
+
+
+```{r mask-stack}
+
+```
+
