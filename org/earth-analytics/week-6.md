@@ -164,10 +164,11 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Bar plot of maximum measured minus lidar tree height is included. |  |  | | |
-| Bar plot of average measured minus lidar tree height is included. |  |  | | |
-| Plots have a title that clearly describes plot contents. |  |  | | |
-| X & Y axes are labeled appropriately. |  |  | | |
+| A classified map has been created and renders in the report. |  |  | | |
+| The values chosen to create the classified plot clearly show differences in NDVI values. |  |  | | |
+| The colors chosen to create the classified plot clearly show differences in NDVI values. |  |  | | |
+| Plot has a clear title that describes the data being shown. |  |  | | |
+| Plot has a clear legend that shows the classes chosen and associated colors rendered on the map. |  |  | | |
 | Plots have a 2-3 sentence caption that clearly describes plot contents. |  |  | | |
 
 #### Plots 4 Create a classified map of post fire NBR using the classification thresholds.
@@ -179,4 +180,4 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
 | Plot data are classified using the thresholds specified. |  |  | | |
 | Plot data colors clearly show areas of most intense burn compared to areas of no or less burn severity. |  |  | | |
-| Plot legend clearly shows the classes used in the plot with each class labeled. |  |  | | |
+| Plot has a clear legend that shows the classes chosen and associated colors rendered on the map. |  |  | | |
