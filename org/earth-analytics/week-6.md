@@ -68,6 +68,7 @@ and warnings and code as you see fit.
 
 * `message=F`, `warning=F` Hide warnings and messages in a code chunk
 * `echo=F` Hide code and just show code output
+* `results='hide'` Hide the verbose output from some functions like `readOGR()`.
 
 #### Answer the following questions below in your report
 1. What is the key difference between active and passive remote sensing system.
