@@ -56,9 +56,24 @@ plotRGB(all_modis_bands_st_mask,
         stretch="lin")
 
 fire_bound_sin <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_sin.shp")
-plot(fire_bound_sin, add=T, col="yellow", lwd=1)
+plot(fire_bound_sin,
+     add=T, col="yellow",
+     lwd=1)
+
+plotRGB(all_modis_bands_st_mask,
+        r=1, g =4, b=3,
+        stretch="lin",
+        ext=extent(fire_bound_sin))
+plot(fire_bound_sin, border="yellow", add=T)
+
 
 ## ----create-apply-mask2--------------------------------------------------
+
+get_veg_index <- function(band1, band2){
+  # calculate index
+  index <- (band1-band2) /(band1+band2)
+}
+
 # calculate modis NBR
 modis_nbr <- overlay(all_modis_bands_st_mask[[2]], all_modis_bands_st_mask[[7]],
                      fun=get_veg_index)
@@ -77,8 +92,16 @@ reclass_m <- matrix(reclass,
 modis_nbr_cl <- reclassify(modis_nbr,
                      reclass_m)
 # reclass data
-plot(modis_nbr_cl)
+plot(modis_nbr_cl, ext=extent(fire_bound_sin))
+plot(fire_boundary_sin, add=T)
 
 # get summary counts of each class in raster
 freq(modis_nbr_cl, useNA='no')
+
+# extract values for all pixels that fall within the fire scar zone
+test <- extract(x = modis_nbr_cl,
+                y = fire_boundary_sin,
+                df=T)
+length(test[test==4])
+final_area <- length(test[test==4]) * 500
 

@@ -30,7 +30,9 @@ Welcome to week {{ page.week }} of Earth Analytics!
 | 3:00 - 3:15  | Questions |   |
 | 3:15 - 3:40  | Addititive light models - interactive experiment |   |
 | 3:45 - 4:15  | Dealing with clouds & cloud masks  |    |
+|===
 | 4:30 - 5:50  | Coding Session: Spectral RS data in R |  Leah  |
+
 
 ### 1a. Remote sensing readings
 
@@ -59,9 +61,11 @@ and warnings and code as you see fit.
 * `results='hide'` Hide the verbose output from some functions like `readOGR()`.
 
 #### Answer the following questions below in your report
-1. What is the key difference between active and passive remote sensing system.
-2. Describe *atleast* 3 differences between how lidar vs landsat remote sensing data.
-2. Explain what a vegetation index is.
+
+1. What is the spatial resolution between NAIP, Landsat & MODIS data in meters? Are these data types different in terms of resolution? How might this impact analysis using these data? Use plot 1 BELOW to visually show the difference.
+2. Calculate the area of "high severity" burn in meters using the post-fire data for both Landsat and MODIS. Are the values different? Why / why not? Use plots 3 and 4 to discuss
+any differences that you notice between the two data sets.
+3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work?
 
 #### Include the plots below.
 For all plots
@@ -69,19 +73,34 @@ For all plots
 caption argument in your code chunks: `fig.cap="caption here".
 2. Add appropriate titles that tells someone reading your report what the map shows
 
-#### Plot 1
-Create a MAP of the **difference between NDVI pre vs post fire** (Pre fire - post-fire NDVI).
 
-#### Plot 2
-Create a MAP of the **difference between NBR pre vs post fire** (Pre fire - post-fire NBR). Be sure to include a legend on your map that helps someone looking at it
-understand differences
+#### Plot 1 - Grid of NAIP, Landsat and MODIS
+Use the `plotRGB()` function to plot a color infrared (also called false color)
+images of NAIP, Landsat and MODIS in one figure. For each map be sure to
 
-#### Plot 3
-Create a classified map of **post fire NDVI** using classification values that you
-think make sense based upon exploring the data.
+* Overlay the fire boundary layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`)
+* use the band combination r = infrared band, g= green band, b=blue band. You can use `mfrow=c(rows, columns)`
+* Render the map to the extent of the fire boundary layer using the `ext=extent()` plot argument.
+* Be sure to label each plot with the data type (NAIP vs. Landsat vs. MODIS) and spatial resolution.
 
-#### Plot 4
-Create a classified map of **post fire NBR** using the classification thresholds below.
+Use this figure to help answer question 1 above.
+An example of what this plot should look like (without all of the labels that you need to add, [is here at the bottom of the page.]({{ site.url }}/course-materials/earth-analytics/week-7/grid-of-plots-report/)
+
+#### Plot 2 - Pre-fire NBR landsat
+Create a MAP of the classified pre-burn NBR using a newly downloaded **Landsat** file.
+Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp` on top of the NBR map. Add a legend.
+This file should not have a cloud in the middle of the burn area! You can use Earth Explorer to download the data. Use the classes that you used in your homework from week 6 to
+classify the data.
+
+#### Plot 3 - Post-fire NBR landsat
+Create a MAP of post fire classified NBR using **Landsat** data. Note: you did this for your homework last
+week, re-use the code. However this time, use a cloud mask to remove any clouds in your data. Then, overlay the fire extent layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`) on top of the NBR map.
+Add a legend that shows each NBR class.
+
+#### Plot 4 - Post-fire NBR MODIS
+Create a classified map of **post fire NBR** using MODIS data. Be sure to mask the data
+using a cloud mask BEFORE you calculate NBR and classify it.
+
 
 | SEVERITY LEVEL  | dNBR RANGE |
 |------------------------------|
@@ -93,7 +112,7 @@ Create a classified map of **post fire NBR** using the classification thresholds
 
 ****
 
-## Homework due: Thursday March 2 2017 @ 5PM.
+## Homework due: Thursday March 10 2017 @ NOON.
 Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 </div>
