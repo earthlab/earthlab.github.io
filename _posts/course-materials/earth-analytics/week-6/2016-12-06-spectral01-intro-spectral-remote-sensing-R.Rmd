@@ -37,7 +37,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](<a href="https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
 
 
 
@@ -62,7 +62,7 @@ case the sun.
    <figcaption>LEFT: Remote sensing systems which measure energy that is naturally
    available are called passive sensors. RIGHT: Active sensors emit their own
    energy from a source on the instrument itself. Source:
-    <a href="http://www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/passiv.gif" target="_blank">Natural Resources Canada</a>.
+    <a href="http//www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/passiv.gif" target="_blank">Natural Resources Canada</a>.
    </figcaption>
 </figure>
 
@@ -106,7 +106,7 @@ dataset ever 2-4 years.
    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/space-airborne.png" alt="space vs airborne remote sensing">
    <figcaption>Spaceborn vs airborne remote sensing. Notice that spaceborn data
    are often of lower resolution however beacuse a satellite rotates continuously
-   around the earth, the spatial coverage may be better than airborne data. Source:http://www.cartospace.com/?page_id=22
+   around the earth, the spatial coverage may be better than airborne data. Source:<a href="http://www.cartospace.com/?page_id=22
    </figcaption>
 </figure>
 
@@ -142,7 +142,7 @@ The spectral resolution of a dataset that has more than one band, refers to the
 spectral width of each band in the dataset. In the image above, a band was
 defined as spanning 800-810nm. The spectral width or spectral resolution of the
 band is thus 10 nanometers. To see an example of this, check out the band widths
-for the <a href="http://landsat.usgs.gov/band_designations_landsat_satellites.php" target="_blank">Landsat sensors</a>.
+for the <a href="http//landsat.usgs.gov/band_designations_landsat_satellites.php" target="_blank">Landsat sensors</a>.
 
 While a general spectral resolution of the sensor is often provided, not all
 sensors collect information within bands of uniform widths.
@@ -215,7 +215,7 @@ Landsat 8 bands 1-9 are listed below:
 | Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
 | Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
 
-Above: Source - <a href="http://landsat.usgs.gov" target="_blank">http://landsat.usgs.gov</a>
+Above: Source - <a href="http//landsat.usgs.gov" target="_blank"><a href="http://landsat.usgs.gov</a>
 
 
 
@@ -262,8 +262,8 @@ to work with NAIP imagery in `R`.
 ## Additional resources:
 
 * <a href="
-http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank" data-proofer-ignore=''>Learn more about band combinations</a>
+<a href="http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank" data-proofer-ignore=''>Learn more about band combinations</a>
 * <a href="
-https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank" data-proofer-ignore=''>About multi spectral data - Penn State E-education</a>
+<a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank" data-proofer-ignore=''>About multi spectral data - Penn State E-education</a>
 
 </div>

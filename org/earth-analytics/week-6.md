@@ -95,13 +95,17 @@ think make sense based upon exploring the data.
 #### Plot 4
 Create a classified map of **post fire NBR** using the classification thresholds below.
 
-| SEVERITY LEVEL  | dNBR RANGE |
+| SEVERITY LEVEL  | NBR RANGE |
 |------------------------------|
 | Enhanced Regrowth | -700 to  -100  |
 | Unburned       |  -100 to +100  |
 | Low Severity     | +100 to +270  |
 | Moderate Severity  | +270 to +660  |
 | High Severity     |  +660 to +1300 |
+
+Note: if your min and max NBR values are outside of the range above, you can adjust
+-700 to be your smallest raster value and for high severity you can adjust 1300 to
+be your largest NBR raster value.
 
 ****
 
