@@ -38,7 +38,7 @@ writeOGR(fire_boundary_sin,
 
 ## ----create-apply-mask---------------------------------------------------
 # import cloud mask
-cloud_mask_7July <- raster("data/week6/modis/reflectance/07_july_2016/crop/cloud_mask_500m.tif")
+cloud_mask_7July <- raster("data/week6/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m.tif")
 cloud_mask_7July[cloud_mask_7July > 0] <- NA
 plot(cloud_mask_7July)
 

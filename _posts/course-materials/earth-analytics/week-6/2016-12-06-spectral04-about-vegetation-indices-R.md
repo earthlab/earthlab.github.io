@@ -3,7 +3,7 @@ layout: single
 title: "Vegetation indices in R"
 excerpt: ". "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-02-23'
+modified: '2017-02-28'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-vegetation-indices-in-R/
@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](<a href="https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
 </div>
 
 ## About vegetation indices
@@ -56,8 +56,8 @@ NDVI is often used for a quantitate proxy measure of vegetation health, cover
 and phenology (life cycle stage) over large areas.
 
 <figure>
- <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg">
- <img src="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg" alt="NDVI image from NASA that shows reflectance."></a>
+ <a href="http//earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg">
+ <img src="<a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg" alt="NDVI image from NASA that shows reflectance."></a>
     <figcaption>NDVI is calculated from the visible and near-infrared light
     reflected by vegetation. Healthy vegetation (left) absorbs most of the
     visible light that hits it, and reflects a large portion of
@@ -66,7 +66,7 @@ and phenology (life cycle stage) over large areas.
     </figcaption>
 </figure>
 
-* <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">
+* <a href="http//earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">
 More on NDVI from NASA</a>
 
 ## Calculate NDVI
@@ -191,13 +191,19 @@ function and the classes below.
 
 | SEVERITY LEVEL  | | dNBR RANGE |
 |------------------------------|
-| Enhanced Regrowth | |-500 to  -100  |
-| Unburned       |  |-100 to +100  |
-| Low Severity     | |+100 to +270  |
-| Moderate Severity  | |+270 to +660  |
-| High Severity     |  |+660 to +1300 |
+| Enhanced Regrowth | | -700 to  -100 |
+| Unburned       |  | -100 to +100 |
+| Low Severity     | | +100 to +270 |
+| Moderate Severity  | | +270 to +660 |
+| High Severity     |  | +660 to +1300 |
 
+NOTE: your min an max values for NBR may be slightly different from the table
+shown above! If you have a smaller min value (< -700) then adjust your first class 
+to that smallest number. If you have a largest max value (>1300) then adjust
+your last class to that largest value in your data.
 
+Alternatively, you can set those values to NA if you think they are outside of 
+the valid range of NBR (in this case they are not).
 
 
 
@@ -280,7 +286,7 @@ didn't include it in the title of this map.
 
 ## Additional Resources
 
-* <a href="https://phenology.cr.usgs.gov/ndvi_foundation.php" target="_blank">USGS Remote sensing phenology</a>
-* <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">NASA Earth Observatory - Vegetation indices</a>
+* <a href="<a href="https://phenology.cr.usgs.gov/ndvi_foundation.php" target="_blank">USGS Remote sensing phenology</a>
+* <a href="http//earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">NASA Earth Observatory - Vegetation indices</a>
 
 </div>
