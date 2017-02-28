@@ -1,4 +1,4 @@
-## ----crop-naip-imagey, echo=F, results='hide', message=F, warning=F------
+## ----crop-naip-image, echo=F, results='hide', message=F, warning=F-------
 library(raster)
 library(rgeos)
 library(rgdal)
@@ -7,78 +7,77 @@ library(rgdal)
 # csf_crop <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
 
 
-## ----work-with-modis-----------------------------------------------------
-# open modis bands
-all_modis_bands <-list.files("data/week6/modis/reflectance/07_july_2016/crop",
-           pattern=glob2rx("*sur_refl*.tif$"),
-           full.names = T)
+## ----import-landsat, echo=F, fig.cap="landsat new image"-----------------
+# create a list of all landsat files that have the extension .tif and contain the word band.
+all_landsat_bands_173 <- list.files("data/week6/Landsat/LC80340322016173-SC20170227185411",
+           pattern=glob2rx("*band*.tif$"),
+           full.names = T) # use the dollar sign at the end to get all files that END WITH
+# create spatial raster stack from the list of file names
+all_landsat_bands_173_st <- stack(all_landsat_bands_173)
 
-all_modis_bands_st <- stack(all_modis_bands)
-## 3 = blue, 4 = green, 1= red 2= nir
-plotRGB(all_modis_bands_st,
-        r=1, g =4, b=3,
-        stretch="lin")
+# plot
+par(col.axis="white", col.lab="white", tck=0)
+plotRGB(all_landsat_bands_173_st,
+        r=4, g=3, b=2,
+        stretch="lin",
+        axes=T,
+        main="Newly downloaded landsat scene \nJulian day 173")
+box(col="white")
 
-# view fire overlay boundary
+## ---- echo=F, results="hide"---------------------------------------------
 fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
-fire_boundary_sin <- spTransform(fire_boundary,
-                                 CRS=crs(all_modis_bands_st))
+fire_boundary_utm <- spTransform(fire_boundary, CRS=crs(all_landsat_bands_st))
+# export fire boundary as utm
+# writeOGR(fire_boundary_utm,
+#           dsn="data/week6/vector_layers/fire-boundary-geomac",
+#           layer="co_cold_springs_20160711_2200_dd83_utm",
+#           driver="ESRI Shapefile",
+#           overwrite_layer = T)
 
-# export as sinusoidal
-writeOGR(fire_boundary_sin,
-         dsn = "data/week6/vector_layers/fire-boundary-geomac",
-         layer="co_cold_springs_20160711_2200_sin",
-         driver="ESRI Shapefile",
-         overwrite_layer=TRUE)
+## ----plot-extent, echo=F, fig.cap="rgb with the extent overlayed"--------
+# plot
+par(col.axis="white", col.lab="white", tck=0)
+plotRGB(all_landsat_bands_173_st,
+        r=4, g=3, b=2,
+        stretch="lin",
+        axes=T,
+        main="Newly downloaded landsat scene \nJulian day 173")
+box(col="white")
+plot(fire_boundary_utm,
+     border="yellow",
+     add=T)
 
+## ----import-cloud-mask, echo=F, fig.cap="cloud mask cropped layer", fig.width=7, fig.height=4----
+# crop raster stack
+all_landsat_bands_173_st <- crop(all_landsat_bands_173_st, fire_boundary_utm)
+cloud_mask_173 <- raster("data/week6/Landsat/LC80340322016173-SC20170227185411/LC80340322016173LGN00_cfmask.tif")
+cloud_mask_173_crop <- crop(cloud_mask_173, fire_boundary_utm)
+plot(cloud_mask_173_crop,
+     main="Cropped cloud mask layer for new Landsat scene", 
+     legend=F,
+     box=F, axes=F)
+plot(fire_boundary_utm, add=T)
+par(xpd=T)
+legend(cloud_mask_173_crop@extent@xmax,cloud_mask_173_crop@extent@ymax,
+       legend=c("0 - Clear"),
+       fill="yellow",
+       bty="n")
 
-# plot(fire_boundary_sin, lwd=100)
+## ----cloud-mask-barplot, fig.cap="view cloud mask values"----------------
+barplot(cloud_mask_173_crop,
+     main="cloud mask values \n all 0's")
 
-
-
-## ----create-apply-mask---------------------------------------------------
-# import cloud mask
-cloud_mask_7July <- raster("data/week6/modis/reflectance/07_july_2016/crop/cloud_mask_500m.tif")
-cloud_mask_7July[cloud_mask_7July > 0] <- NA
-plot(cloud_mask_7July)
-
-all_modis_bands_st_mask <- mask(all_modis_bands_st,
-                                cloud_mask_7July)
-
-## 3 = blue, 4 = green, 1= red 2= nir
-plotRGB(all_modis_bands_st,
-        r=1, g =4, b=3,
-        stretch="lin")
-
-## 3 = blue, 4 = green, 1= red 2= nir
-plotRGB(all_modis_bands_st_mask,
-        r=1, g =4, b=3,
-        stretch="lin")
-
-fire_bound_sin <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_sin.shp")
-plot(fire_bound_sin, add=T, col="yellow", lwd=1)
-
-## ----create-apply-mask2--------------------------------------------------
-# calculate modis NBR
-modis_nbr <- overlay(all_modis_bands_st_mask[[2]], all_modis_bands_st_mask[[7]],
-                     fun=get_veg_index)
-
-# create classification matrix
-reclass <- c(cellStats(modis_nbr, min), -.1, 1,
-             -.1, .1, 2,
-             .1, .27, 3,
-             .27, .66, 4,
-             .66, cellStats(modis_nbr, max), 5)
-# reshape the object into a matrix with columns and rows
-reclass_m <- matrix(reclass,
-                ncol=3,
-                byrow=TRUE)
-
-modis_nbr_cl <- reclassify(modis_nbr,
-                     reclass_m)
-# reclass data
-plot(modis_nbr_cl)
-
-# get summary counts of each class in raster
-freq(modis_nbr_cl, useNA='no')
+## ----plot-with-extent, fig.cap="plot w extent defined", fig.width=7, fig.height=4----
+# plot
+par(col.axis="white", col.lab="white", tck=0)
+# plot RGB
+plotRGB(all_landsat_bands_173_st,
+        r=4, g=3, b=2,
+        stretch="lin",
+        main="Final landsat scene with the fire extent overlayed",
+        axes=T)
+box(col="white")
+plot(fire_boundary_utm,
+     add=T,
+     border="yellow")
 
