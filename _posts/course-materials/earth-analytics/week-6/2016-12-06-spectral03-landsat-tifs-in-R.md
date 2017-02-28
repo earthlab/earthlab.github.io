@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](<a href="https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
 </div>
 
 In the previous lesson, we learned how to import a multi-band image into R using
@@ -47,7 +47,7 @@ band rather than a stack of bands.
 
 ## About Landsat data
 
-> At over 40 years, the Landsat series of satellites provides the longest temporal record of moderate resolution multispectral data of the Earth’s surface on a global basis. The Landsat record has remained remarkably unbroken, proving a unique resource to assist a broad range of specialists in managing the world’s food, water, forests, and other natural resources for a growing world population.  It is a record unmatched in quality, detail, coverage, and value. Source: <a href="https://landsat.usgs.gov/about-landsat" target="_blank">USGS</a>
+> At over 40 years, the Landsat series of satellites provides the longest temporal record of moderate resolution multispectral data of the Earth’s surface on a global basis. The Landsat record has remained remarkably unbroken, proving a unique resource to assist a broad range of specialists in managing the world’s food, water, forests, and other natural resources for a growing world population.  It is a record unmatched in quality, detail, coverage, and value. Source: <a href="<a href="https://landsat.usgs.gov/about-landsat" target="_blank">USGS</a>
 
 
 
@@ -55,7 +55,7 @@ band rather than a stack of bands.
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png">
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/TimelineOnlyForWebRGB.png" alt="Landsat 40 year timeline source: USGS.">
     </a>
-    <figcaption>The 40 year history of landsat missions. Source: USGS - https://landsat.usgs.gov/landsat-missions-timeline
+    <figcaption>The 40 year history of landsat missions. Source: USGS - <a href="https://landsat.usgs.gov/landsat-missions-timeline
     </figcaption>
 </figure>
 
@@ -84,13 +84,13 @@ where the data are from and how they are structured.
 
 The file names, tell us what sensor collected the data, the date the data were collected, and more.
 
-<a href="https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers" target="_blank">Landsat file naming convention</a>
+<a href="<a href="https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers" target="_blank">Landsat file naming convention</a>
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/Collection_FileNameDiffs.png">
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/Collection_FileNameDiffs.png" alt="landsat file naming convention">
     </a>
-    <figcaption>Landsat file names Source: USGS Landsat - https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers
+    <figcaption>Landsat file names Source: USGS Landsat - <a href="https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers
     </figcaption>
 </figure>
 
@@ -122,7 +122,7 @@ File: `LC80340322016205LGN00_sr_band1_crop.tif`
 * GSI - Ground station ID
 * VV = Archive Version
 
-<a href="http://gisgeography.com/landsat-file-naming-convention/" target="_blank"> More here breaking down the file name.</a>
+<a href="http//gisgeography.com/landsat-file-naming-convention/" target="_blank"> More here breaking down the file name.</a>
 
 ## Julian day
 
@@ -131,7 +131,7 @@ and MODIS data, what you need to know that the calendar year Julian day represen
 the numeric day of the year. So jan 1 = day 1. Feb 1 = day 32. And so on.
 
 There are several links at the bottom of this page that provide tables that help
-you <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">convert julian days to actual date</a>.
+you <a href="<a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">convert julian days to actual date</a>.
 
 
 ## Landsat tif files in R
@@ -316,7 +316,7 @@ plot(landsat_stack_csf,
 
 Next, let's plot an RGB image using landsat. Refer to the landsat bands in the table
 at the top of this page to figure out the red, green and blue bands. Or read the
-<a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post.
+<a href="<a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post.
 
 
 ```r
@@ -353,7 +353,7 @@ box(col="white")
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> optional challenge
-Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post as a guide. Plot the
+Using the <a href="<a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post as a guide. Plot the
 following landsat band combinations:
 
 * False color
@@ -370,7 +370,7 @@ Be sure to add a title to each of your plots that specifies the band combination
 
 ## Additional resources
 
-* <a href="https://disc.gsfc.nasa.gov/julian_calendar.html" target="_blank">Julian day lookup</a>
-* <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">Landweb NASA Julian day lookup</a>
+* <a href="<a href="https://disc.gsfc.nasa.gov/julian_calendar.html" target="_blank">Julian day lookup</a>
+* <a href="<a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">Landweb NASA Julian day lookup</a>
 
 </div>
