@@ -24,7 +24,7 @@ order: 3
 
 After completing this tutorial, you will be able to:
 
-* Add a variable to the markdown chunk in your .Rmd report.
+* Plot several plots using baseplot functions in a "grid" as one graphic in `R` 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -242,5 +242,3 @@ plotRGB(all_modis_bands_st,
 box(col="white")
 plot(fire_boundary_sin, add=T)
 ```
-
-
