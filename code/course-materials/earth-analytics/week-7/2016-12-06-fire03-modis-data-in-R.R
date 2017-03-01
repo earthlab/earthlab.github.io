@@ -18,7 +18,7 @@ all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
 
-## ----assign-no-data------------------------------------------------------
+## ----assign-no-data, fig.cap="MODIS stack band 2 plot"-------------------
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
 # options("scipen"=100, "digits"=4)
@@ -197,7 +197,7 @@ barplot(modis_nbr_july17_cl,
         col=rev(the_colors),
         names.arg=c("Low Severity","Moderate Severity","High Severity"))
 
-## ----plot-data-reclass, echo=F, fig.width=6, fig.height=4----------------
+## ----plot-data-reclass, echo=F, fig.width=6, fig.height=4, fig.cap="MODIS NBR plot w colors"----
 # the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
 the_colors = c("ivory1","palevioletred1","palevioletred4")
 

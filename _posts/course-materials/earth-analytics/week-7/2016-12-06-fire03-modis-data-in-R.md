@@ -87,8 +87,7 @@ page 14 of the guide. Part of the table can be seen below.
 
 <figure>
 <a href="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png" target="_blank">
-   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png
-" alt="MODIS MOD09GA metadata"></a>
+   <img src="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png" alt="MODIS MOD09GA metadata"></a>
    <figcaption>Notice the valid values for the MOD09GA reflectance product. The range
    is -100 to 16000.
    </figcaption>
@@ -114,7 +113,7 @@ all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
 plot(all_modis_bands_st_july7[[2]])
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/assign-no-data-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/assign-no-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
 
 
 Next we plot MODIS layers. Use the MODIS band chart to figure out what bands you
@@ -262,7 +261,7 @@ barplot(modis_nbr_july17_cl,
 Finally, plot the reclassified data. Note that we only have 3 classes: 2, 3 and 4.
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/plot-data-reclass-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="100%" />
 
 
 
