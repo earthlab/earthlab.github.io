@@ -16,6 +16,7 @@ comments: true
 order: 3
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -138,11 +139,11 @@ hist(all_modis_bands_st_july7)
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
 
-## Scale Factor 
-Looking at the metadata, we can see that our  data have a scale factor. Let's 
+## Scale Factor
+Looking at the metadata, we can see that our  data have a scale factor. Let's
 deal with that before doing anything else. The scale factor is .0001. This means
-we should multiple each layer by that value to get the actual reflectance values 
-of the data. 
+we should multiple each layer by that value to get the actual reflectance values
+of the data.
 
 We can apply this math to all of the layers in our stack using a simple calculation
 shown below:
@@ -158,8 +159,8 @@ hist(all_modis_bands_st_july7)
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="100%" />
 
-Great - now the range of values in our data appear more reasonable. Next, let's 
-get rid of data that are outside of the valid data range. 
+Great - now the range of values in our data appear more reasonable. Next, let's
+get rid of data that are outside of the valid data range.
 
 ## NoData Values
 
