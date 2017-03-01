@@ -25,6 +25,8 @@ order: 2
 After completing this tutorial, you will be able to:
 
 * Remove borders and refine the size of plots in an output rmarkdown report.
+* Adjust the aspect ratio of a plot rendered to a pdf using knitr.
+* Customize the location of legends in a plot in R.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -254,7 +256,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto02-refine-plots-R/fix-plot-legend22-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
 
-On to the pesky white space on either side of the plot. There are several 
+On to the pesky white space on either side of the plot. There are several
 ways to handle this. One is by specifying margins for out plot.
 
 Notice in the plot above that there is
@@ -292,12 +294,12 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```
 
-I can do better than that however. That box around the legend is annoying. Let's 
-remove it using the legend argument: `bty="n"`. Let's also make the legend 
+I can do better than that however. That box around the legend is annoying. Let's
+remove it using the legend argument: `bty="n"`. Let's also make the legend
 fonts a bit smaller using the argument `cex=.9`.
 
 
@@ -324,8 +326,8 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```
 
 If things are still not looking right, we can adjust the size of our output
@@ -403,6 +405,5 @@ plots!
 dev.off()
 ```
 
-That looks better, doesn't it? Leave comments below if you find other 
+That looks better, doesn't it? Leave comments below if you find other
 tricks to make your plot look better!
-
