@@ -49,8 +49,9 @@ from international, national and even local groups.
 
 ## Viz sources
 
-| NASA Worldwind|<a href="http://worldwind.arc.nasa.gov/features.html" target="_blank"></a>| Various satellite data based covering the last 30 or so years
-NASA World Wind imagery (zoom from satellite altitude into any place on Earth, leveraging high resolution imagery and SRTM elevation data to experience Earth in visually rich 3D; links to several websites for data and imagery download)|
+|Site Name / URL | Description|
+|---|
+| <a href="http://worldwind.arc.nasa.gov/" target="_blank">NASA Worldwind</a> | Various satellite data based covering the last 30 or so years - NASA World Wind imagery (zoom from satellite altitude into any place on Earth, leveraging high resolution imagery and SRTM elevation data to experience Earth in visually rich 3D; links to several websites for data and imagery download) |
 
 
 ## National sources
@@ -58,22 +59,20 @@ NASA World Wind imagery (zoom from satellite altitude into any place on Earth, l
 |Site Name / URL | Description|
 |---|
 |  <a href="http://viewer.nationalmap.gov/viewer/" target="_blank">USGS National Map (large scale data)</a> | |
-| <a href="http://nationalatlas.gov/mapmaker" target="_blank">USGS National Atlas (small scale data)</a> | |
-| <a href="http://www.census.gov/geo/www/tlmetadata/metadata.html" target="_blank">US Census Bureau </a> ||
+| <a href="http://www.census.gov/" target="_blank">US Census Bureau </a> ||
 |  <a href="http://www.epa.gov" target="_blank">US Environmental Protection Agency (EPA)</a> | Data for Air, Water, Land, Health (organized in disconnected fashion – search the site on “data download” to find various download pages)	 |
-| <a href="http://www.fws.gov/data/statdata/codata.html" target="_blank">US Fish and Wildlife Service </a> ||
+| <a href="http://www.fws.gov/" target="_blank">US Fish and Wildlife Service </a> | Most of the data are stored on data.gov |
 | <a href="http://www.blm.gov/co/st/en/BLM_Programs/geographical_sciences/gis.html" target="_blank">US Bureau of Land Management</a> ||
 | <a href="http://catalog.data.gov/dataset" target="_blank">Geospatial One Stop (federal portal)</a> ||
 | <a href="http://geonames.usgs.gov/" target="_blank">Geographic Placenames (also in National Map) </a> ||
 | <a href="http://ngmdb.usgs.gov/" target="_blank">USGS National Geologic Map </a> ||
 | <a href="http://nhd.usgs.gov/" target="_blank">USGS NHD – rivers and streams</a> ||
-| <a href="http://earthexplorer.usgs.gov/" target="_blank">USGS Earth Explorer (global remote sensing data incl landcover, terrain)</a> ||
 | <a href="http://www.nasa.gov" target="_blank">NASA </a> ||
 | <a href="http://goes.gsfc.nasa.gov/" target="_blank">NASA Weather Imagery</a> ||
 | <a href="http://www.nps.gov" target="_blank">National Park Service (NPS)	</a> ||
 | <a href="http://datagateway.nrcs.usda.gov/" target="_blank">NRCS Spatial Data Gateway (envir/demog data tiled by county/state)</a> ||
-| 	|	<a href="http://onearth.jpl.nasa.gov/" target="_blank">Jet Propulsion Lab</a> ||
-| <a href="http://www.lat-long.com" target="_blank">(Get coordinates for US places)	</a> ||
+| <a href="https://earthdata.nasa.gov/about/science-system-description/eosdis-components/global-imagery-browse-services-gibs" target="_blank">Jet Propulsion Lab - now served by Earth Data</a> ||
+
 
 
 ## State Sources (examples)
