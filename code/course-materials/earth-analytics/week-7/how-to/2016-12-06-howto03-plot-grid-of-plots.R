@@ -98,7 +98,7 @@ dev.off()
 # import fire overlay boundary
 fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
 
-## ----plot-grid-naip-modis-landsat, echo=F, fig.width=7, fig.height=9-----
+## ----plot-grid-naip-modis-landsat, echo=F, fig.width=7, fig.height=9, fig.cap="grid of plots"----
 # NAIP
 # Use stack function to read in all bands
 naip_stack_csf <-
