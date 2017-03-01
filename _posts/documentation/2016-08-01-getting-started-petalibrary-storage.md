@@ -24,7 +24,7 @@ In this case, Earth Lab members will use an RC account with Duo authentication.
 
 ### Getting a Research Computing (RC) Account
 
-1) Open up a web browser and head to the [RC Account Creation Page](https://portals.rc.colorado.edu/account/request/)
+1) Open up a web browser and head to the [RC Account Creation Page](https://www.rc.colorado.edu/support/getting-started.html)
 
 2) At the bottom of the screen, ensure 'University of Colorado - Boulder' is selected from the dropdown box under 'Select your organization' and press 'Continue'
 
