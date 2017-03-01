@@ -94,11 +94,11 @@ title("My Title", outer=TRUE)
 ## ----dev-off-pls2, message=F, warning=F, results="hide"------------------
 dev.off()
 
-## ----import-boundary, results="hide", echo=F-----------------------------
+## ----import-boundary, echo=F, results='hide'-----------------------------
 # import fire overlay boundary
 fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
 
-## ----plot-grid-naip-modis-landsat, fig.width=7, fig.height=9-------------
+## ----plot-grid-naip-modis-landsat, echo=F, fig.width=7, fig.height=9-----
 # NAIP
 # Use stack function to read in all bands
 naip_stack_csf <-
@@ -115,9 +115,8 @@ plotRGB(naip_stack_csf, 4,3,2,
         main="NAIP CIR image \n Cold Springs Site",
         ext=extent(fire_boundary_utm),
         axes=T)
-plot(fire_boundary_utm, add=T)
 box(col="white") # turn all of the lines to white
-# add fire boundary
+plot(fire_boundary_utm, add=T)
 
 all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
            pattern=glob2rx("*band*.tif$"),

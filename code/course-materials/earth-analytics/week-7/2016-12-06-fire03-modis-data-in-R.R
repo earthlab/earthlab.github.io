@@ -1,8 +1,8 @@
-## ----crop-naip-imagey, echo=F, results='hide', message=F, warning=F------
+## ----crop-naip-imagery, echo=F, results='hide', message=F, warning=F-----
 library(raster)
 library(rgeos)
 library(rgdal)
-# import stack
+options(stringsAsFactors=F)
 # import vector that we used to crop the data
 # csf_crop <- readOGR("data/week6/vector_layers/fire_crop_box_500m.shp")
 
@@ -14,12 +14,12 @@ all_modis_bands_july7 <-list.files("data/week6/modis/reflectance/07_july_2016/cr
            full.names = T)
 # create spatial raster stack
 all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
-
+#all_modis_bands_july7_br <- brick(all_modis_bands_st_july7, datatype='INT2S')
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
 
 ## ----assign-no-data------------------------------------------------------
-# deal with nodata value --  -28672 
+# deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
 # options("scipen"=100, "digits"=4)
 plot(all_modis_bands_st_july7[[2]])
@@ -28,7 +28,7 @@ plot(all_modis_bands_st_july7[[2]])
 # view fire overlay boundary
 fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
 fire_boundary_sin <- spTransform(fire_boundary,
-                                 CRS=crs(all_modis_bands_st))
+                                 CRS=crs(all_modis_bands_st_july7))
 # export as sinusoidal
 # writeOGR(fire_boundary_sin,
 #          dsn = "data/week6/vector_layers/fire-boundary-geomac",
@@ -46,13 +46,13 @@ plotRGB(all_modis_bands_st_july7,
         axes=T)
 box(col="white")
 # add fire boundary to plot
-plot(fire_boundary_sin, 
+plot(fire_boundary_sin,
      add=T,
      border="yellow",
      lwd=50)
 
 
-## ----reset-dev, warning='hide', echo=F, message=F------------------------
+## ----reset-dev, warning=F, echo=F, message=F, results='hide'-------------
 dev.off()
 
 ## ----create-apply-mask, echo=F, fig.cap="cloud mask plot"----------------
@@ -100,7 +100,7 @@ plot(fire_boundary_sin, border="yellow", add=T)
 
 
 ## ----create-apply-mask2, echo=F, fig.cap="Classified pre fire NBR", fig.width=6, fig.height=4----
-# Band 4 includes wavelengths from 0.76-0.90 µm (NIR) and 
+# Band 4 includes wavelengths from 0.76-0.90 µm (NIR) and
 # Band 7 includes wavelengths between 2.09-2.35 µm (SWIR).
 # B2 - B7 / b2 + b7
 get_veg_index <- function(band1, band2){
@@ -132,7 +132,7 @@ plot(modis_nbr_cl,
      main="MODIS NBR for the Cold Springs site",
      legend=F,
      axes=F, box=F)
-plot(fire_boundary_sin, 
+plot(fire_boundary_sin,
      add=T)
 legend("topright",
        legend=c("Moderate burn \nseverity"),
@@ -156,7 +156,7 @@ all_modis_bands_july17 <-list.files("data/week6/modis/reflectance/17_july_2016/c
 
 all_modis_bands_st_july17 <- stack(all_modis_bands_july17)
 
-# deal with nodata value --  -28672 
+# deal with nodata value --  -28672
 all_modis_bands_st_july17[all_modis_bands_st_july17 < -100] <- NA
 
 # import cloud mask & Mask data
@@ -168,17 +168,17 @@ all_modis_bands_st_mask_july17 <- mask(all_modis_bands_st_july17,
 
 ## ----plot-rgb-post-fire, fig.cap="RGB post fire", fig.height=5, fig.width=5----
 par(col.axis="white", col.lab="white", tck=0)
-# clouds removed 
-plotRGB(all_modis_bands_st_mask_july17, 
+# clouds removed
+plotRGB(all_modis_bands_st_mask_july17,
         1,4,3,
         stretch="lin",
-        main="Final data with mask",
+        main="Final data plotted with mask\n Post Fire - 17 July 2016",
         axes=T)
 box(col="white")
 
 ## ----mask-data, echo=F---------------------------------------------------
 # calculate NBR
-modis_nbr_july17 <- overlay(all_modis_bands_st_mask_july17[[2]], 
+modis_nbr_july17 <- overlay(all_modis_bands_st_mask_july17[[2]],
                             all_modis_bands_st_mask_july17[[7]],
                             fun=get_veg_index)
 
@@ -186,14 +186,14 @@ modis_nbr_july17 <- modis_nbr_july17 * 1000
 
 modis_nbr_july17_cl <- reclassify(modis_nbr_july17,
                      reclass_m)
-# crop to final extent 
+# crop to final extent
 
 modis_nbr_july17_cl <- crop(modis_nbr_july17_cl, fire_boundary_sin)
 
 ## ----view-barplot, fig.cap="barplot of final post fire classified data."----
 the_colors = c("palevioletred4","palevioletred1","ivory1")
 barplot(modis_nbr_july17_cl,
-        main="Distribution of burn values",
+        main="Distribution of burn values - Post Fire",
         col=rev(the_colors),
         names.arg=c("Low Severity","Moderate Severity","High Severity"))
 
@@ -205,19 +205,19 @@ the_colors = c("ivory1","palevioletred1","palevioletred4")
 # mar bottom, left, top and right
 par(xpd = F, mar=c(0,0,2,5))
 plot(modis_nbr_july17_cl,
-     main="MODIS NBR for the Cold Springs site",
+     main="MODIS NBR for the Cold Springs site \n Post fire",
      ext=extent(fire_boundary_sin),
      col=the_colors,
      axes=F,
      box=F,
      legend=F)
-plot(fire_boundary_sin, 
+plot(fire_boundary_sin,
      add=T)
 par(xpd = TRUE)
-legend(modis_nbr_july17_cl@extent@xmax-100, modis_nbr_july17_cl@extent@ymax,
+legend(modis_nbr_july17_cl@extent@xmax-50, modis_nbr_july17_cl@extent@ymax,
        c("Low Severity", "Moderate Severity", "High Severity"),
        fill=the_colors,
-       cex=.9,
+       cex=.8,
        bty="n")
 
 final_burn_area_high_sev <- freq(modis_nbr_july17_cl, useNA='no', value=5)
