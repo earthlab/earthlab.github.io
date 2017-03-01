@@ -33,11 +33,12 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6/7 Data (~500 MB)](https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 
-```{r crop-naip-imagery, echo=F, results='hide', message=F, warning=F}
+
+```{r load-libraries, echo=F, results='hide', message=F, warning=F}
 library(raster)
 library(rgeos)
 library(rgdal)
@@ -84,6 +85,11 @@ page 14 of the guide. Part of the table can be seen below.
 
 <a href="http://modis-sr.ltdri.org/guide/MOD09_UserGuide_v1_3.pdf" target="_blank">Click here to check out the MODIS user guide - check out page 14 for the MOD09GA table.</a>
 
+The column headings for the table below:
+
+|Group | Science Data Sets (HDF Layers (21)) | Units | Data Type | Fill Value | Valid Range | Scale Factor |
+|---|
+
 <figure>
 <a href="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png" target="_blank">
    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png" alt="MODIS MOD09GA metadata"></a>
@@ -97,20 +103,50 @@ Looking at the table, answer the following questions
 1. What is valid range of values for our data?
 2. What is the scale factor associated with our data?
 
+## Explore our data
+
+Looking at histograms of our data, we can see that the range of values is not
+what we'd expect. We'd expect values between -100 to 10000 yet instead we have
+much larger numbers.
+
+```{r explore-data, fig.cap="MODIS stack band 2 plot"}
+# options("scipen"=100, "digits"=4)
+hist(all_modis_bands_st_july7)
+```
+
+## Scale Factor 
+Looking at the metadata, we can see that our  data have a scale factor. Let's 
+deal with that before doing anything else. The scale factor is .0001. This means
+we should multiple each layer by that value to get the actual reflectance values 
+of the data. 
+
+We can apply this math to all of the layers in our stack using a simple calculation
+shown below:
+
+```{r scale-data, fig.cap="MODIS stack histogram plot"}
+# deal with nodata value --  -28672
+all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
+# view histogram of each layer in our stack
+# options("scipen"=100, "digits"=4)
+hist(all_modis_bands_st_july7)
+```
+
+Great - now the range of values in our data appear more reasonable. Next, let's 
+get rid of data that are outside of the valid data range. 
+
 ## NoData Values
 
-Let's first deal with no data values. we can see that our data have a "fill" value
+Next, let's deal with no data values. We can see that our data have a "fill" value
 of -28672 which we can presume to be missing data. But also we see that valid
 range values begin at -100. Let's set all values less than -100 to NA to remove
 the extreme negative values that may impact out analysis.
 
-```{r assign-no-data, fig.cap="MODIS stack band 2 plot"}
+```{r assign-no-data, fig.cap="MODIS stack histogram plot with NA removed"}
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
-# options("scipen"=100, "digits"=4)
-plot(all_modis_bands_st_july7[[2]])
+# plot histogram
+hist(all_modis_bands_st_july7)
 ```
-
 
 Next we plot MODIS layers. Use the MODIS band chart to figure out what bands you
 need to plot to create a RGB (true color) image.
@@ -328,6 +364,8 @@ all_modis_bands_july17 <-list.files("data/week6/modis/reflectance/17_july_2016/c
            full.names = T)
 
 all_modis_bands_st_july17 <- stack(all_modis_bands_july17)
+# rescale data
+all_modis_bands_st_july17 <- all_modis_bands_st_july17 * .0001
 
 # deal with nodata value --  -28672
 all_modis_bands_st_july17[all_modis_bands_st_july17 < -100] <- NA

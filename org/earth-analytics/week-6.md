@@ -24,7 +24,8 @@ We will learn how to work with multi-band rasters in R. We will also learn some
 important principles of remote sensing data. Finally we will learn how to calculate
 vegetation indices in R.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+
 
 </div>
 
@@ -72,7 +73,7 @@ and warnings and code as you see fit.
 
 #### Answer the following questions below in your report
 1. What is the key difference between active and passive remote sensing system.
-2. Describe *atleast* 3 differences between how lidar vs landsat remote sensing data.
+2. Describe *atleast* 3 differences between lidar vs landsat remote sensing data.
 2. Explain what a vegetation index is.
 
 #### Include the plots below.
