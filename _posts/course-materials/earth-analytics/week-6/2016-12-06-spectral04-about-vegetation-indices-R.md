@@ -56,7 +56,7 @@ NDVI is often used for a quantitate proxy measure of vegetation health, cover
 and phenology (life cycle stage) over large areas.
 
 <figure>
- <a href="http//earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg">
+ <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg">
  <img src="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg" alt="NDVI image from NASA that shows reflectance."></a>
     <figcaption>NDVI is calculated from the visible and near-infrared light
     reflected by vegetation. Healthy vegetation (left) absorbs most of the
@@ -66,7 +66,7 @@ and phenology (life cycle stage) over large areas.
     </figcaption>
 </figure>
 
-* <a href="http//earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">
+* <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">
 More on NDVI from NASA</a>
 
 ## Calculate NDVI
@@ -287,6 +287,6 @@ didn't include it in the title of this map.
 ## Additional Resources
 
 * <a href="<a href="https://phenology.cr.usgs.gov/ndvi_foundation.php" target="_blank">USGS Remote sensing phenology</a>
-* <a href="http//earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">NASA Earth Observatory - Vegetation indices</a>
+* <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">NASA Earth Observatory - Vegetation indices</a>
 
 </div>
