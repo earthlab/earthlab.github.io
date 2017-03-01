@@ -70,7 +70,7 @@ and warnings and code as you see fit.
 
 #### Answer the following questions below in your report
 
-1. What is the spatial resolution for NAIP, Landsat & MODIS data in meters? Are these data types different in terms of resolution? How could this resolution difference impact analysis using these data? Use plot 1 BELOW to visually show the difference.
+1. What is the spatial resolution of NAIP, Landsat & MODIS data in meters? Are these data types different in terms of resolution? How could this resolution difference impact analysis using these data? Use plot 1 BELOW to visually show the difference.
 2. Calculate the area of "high severity" and the area of "moderate severity" burn in meters using the post-fire data for both Landsat and MODIS. State what the values are in your answer. Are the values different? Why / why not? Use plots 4 and 5 to discuss any differences you notice.
 3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plot 2 in your homework to answer this question.
 
