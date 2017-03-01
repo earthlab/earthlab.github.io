@@ -57,7 +57,7 @@ and phenology (life cycle stage) over large areas.
 
 <figure>
  <a href="http//earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg">
- <img src="<a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg" alt="NDVI image from NASA that shows reflectance."></a>
+ <img src="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg" alt="NDVI image from NASA that shows reflectance."></a>
     <figcaption>NDVI is calculated from the visible and near-infrared light
     reflected by vegetation. Healthy vegetation (left) absorbs most of the
     visible light that hits it, and reflects a large portion of
@@ -191,11 +191,11 @@ function and the classes below.
 | High Severity     |  | +660 to +1300 |
 
 NOTE: your min an max values for NBR may be slightly different from the table
-shown above! If you have a smaller min value (< -700) then adjust your first class 
+shown above! If you have a smaller min value (< -700) then adjust your first class
 to that smallest number. If you have a largest max value (>1300) then adjust
 your last class to that largest value in your data.
 
-Alternatively, you can set those values to NA if you think they are outside of 
+Alternatively, you can set those values to NA if you think they are outside of
 the valid range of NBR (in this case they are not).
 
 ```{r classify-output, echo=F}
