@@ -3,7 +3,7 @@ layout: single
 title: "Get landsat data - Earth Explorer"
 excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-02-28'
+modified: '2017-03-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/get-data-earth-explorer/
@@ -37,6 +37,9 @@ data for week 6 / 7 of the course.
 
 
 In class this week, we will review how to grab data from the Earth Explorer website.
+The Earth Explorer website is a data portal run by the USGS. Here you can find
+many different types of remote sensing and other data for both the US and in
+some cases, the globe.
 
 **IMPORTANT:** Be sure to order your data several days ahead of time or else you won't have it
 in time to finish this assignment.
@@ -45,10 +48,22 @@ in time to finish this assignment.
 
 ### Define study area (AOI)
 
-First, we need to define our area of interest (AOI). Our AOI is defined by the boundary of the
+When searching for data, the first thing we need to do is  to define our area of
+interest (AOI). Our AOI is defined by the boundary of the
 fire extent. We could type in the x,y vertices of each corner of the boundary,
 but if we have an Earth Explorer account,  we can upload a ZIPPED up shapefile that
 contains the boundary instead!
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/spatial_extent.png" alt="Spatial extent.">
+    </a>
+    <figcaption>Remember that the spatial extent, is the geographic area that
+    our data cover on the ground. In the case of vector data - this represents
+    the minimum and maximum x and y values for each corner boundary of the dataset.
+    Source: Colin Williams, NEON.
+    </figcaption>
+</figure>
 
 Important: Be sure to use a square extent. If you
 have too many vertices in your extent polygon, the website won't accept it as an
@@ -117,7 +132,7 @@ shopping cart icon to add the data to your cart.
 * Click on <kbd>Proceed to Checkout</kbd>
 * Then finally, click on <kbd>Submit Order </kbd>
 
-<i fa fa-star></i>**IMPORTANT: **it will take a few days for the link that you can use to download your
+<i fa fa-star></i>**IMPORTANT:** It will take a few days for the link that you can use to download your
 data to be emailed to your account. Order now!
 {: .notice}
 
@@ -128,12 +143,12 @@ In this case, I downloaded a scene very close to Julian day 189.
 
 ## Import new scene
 
-First, let's import our new data and create a raster stack. The code is hidden 
+First, let's import our new data and create a raster stack. The code is hidden
 because you already know how to do this!
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="100%" />
 
-Next I plotted the fire boundary extent on top of my landsat image. 
+Next I plotted the fire boundary extent on top of my landsat image.
 
 
 
@@ -143,10 +158,10 @@ Next I plotted the fire boundary extent on top of my landsat image.
 It's hard to see but can you see the tiny YELLOW outline of our study area? This
 landsat scene is MUCH larger than our study area. We have 2 options
 
-1. crop the data - this will make it easier to work with as it will be smaller. A good move.
-2. Plot only the study area extent: this is ok if we just want to plot our data and don't need to do any additional processing on it. 
+1. **Crop the data:** this will make it easier to work with as it will be smaller. A good move.
+2. **Plot only the study area extent:** this is ok if we just want to plot our data and don't need to do any additional processing on it.
 
-Below i've plotted the cloud mask for the data that I downloaded. It looks like 
+Below i've plotted the cloud mask for the data that I downloaded. It looks like
 the data in our study area are cloud free. How do I know that?
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="100%" />
@@ -161,12 +176,12 @@ barplot(cloud_mask_173_crop,
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire02-get-landsat-data-earth-explorer/cloud-mask-barplot-1.png" title="view cloud mask values" alt="view cloud mask values" width="100%" />
 
 
-Given our data are all 0's we can assume we downloaded the right scene! No clouds 
-in our study area. This means we don't have to worry about masking. 
+Given our data are all 0's we can assume we downloaded the right scene! There
+are no clouds in our study area image. This means we don't have to worry about masking.
 
 
 ```r
-# plot
+# turn axes to white
 par(col.axis="white", col.lab="white", tck=0)
 # plot RGB
 plotRGB(all_landsat_bands_173_st,
@@ -182,5 +197,5 @@ plot(fire_boundary_utm,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="100%" />
 
-Now we can proceed to calculate NBR on the pre-fire landsat image. How does it look?
-
+Now we can proceed to calculate NBR on the pre-fire landsat image. How does it
+look?

@@ -3,7 +3,7 @@ layout: single
 title: "Add variables to an RMD report R."
 excerpt: " "
 authors: ['Leah Wasser']
-modified: '2017-02-28'
+modified: '2017-03-01'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/add-variables-to-rmarkdown-report/
@@ -42,22 +42,30 @@ data for week 6 of the course.
 
 
 
+## Automating report content
+
+Let's pretend that we've calculated a value in our code and we want to include
+it in our R markdown report but we don't want to include the code. Maybe it's a
+number that we want to appear in the TEXT of our report - not as a code chunk
+output. How do we do that?
+
+
 
 ```r
 
 total_area <- (800 * 7) / 2
 ```
 
+We can add any variable that we want to a report using the syntax
+
+`"r total_area"`
+
+However replace the double quotes "" with ticks <kbd>`</kbd>
+
 
 There are **2800 km** of burned area according to modis.
 
-How did we do get that variable value to print in our .Rmd output?
-To do this, we use the following syntax:
-
-<div class="highlighter-rouge">
-<pre class="highlight"><code>2800
-</code></pre>
-</div>
-
 Where the markdown text is surrounded by ticks. Followed by the language "r"
-and then the variable that we want to print in our report!
+and then the variable that we want to print in our report! This is very useful
+when we are trying to create a fully automated report. As we update the data,
+the output numbers if our report also update!

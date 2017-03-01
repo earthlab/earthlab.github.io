@@ -53,7 +53,7 @@ all_landsat_bands_173_st <- crop(all_landsat_bands_173_st, fire_boundary_utm)
 cloud_mask_173 <- raster("data/week6/Landsat/LC80340322016173-SC20170227185411/LC80340322016173LGN00_cfmask.tif")
 cloud_mask_173_crop <- crop(cloud_mask_173, fire_boundary_utm)
 plot(cloud_mask_173_crop,
-     main="Cropped cloud mask layer for new Landsat scene", 
+     main="Cropped cloud mask layer for new Landsat scene",
      legend=F,
      box=F, axes=F)
 plot(fire_boundary_utm, add=T)
@@ -68,7 +68,7 @@ barplot(cloud_mask_173_crop,
      main="cloud mask values \n all 0's")
 
 ## ----plot-with-extent, fig.cap="plot w extent defined", fig.width=7, fig.height=4----
-# plot
+# turn axes to white
 par(col.axis="white", col.lab="white", tck=0)
 # plot RGB
 plotRGB(all_landsat_bands_173_st,
