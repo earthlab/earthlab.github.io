@@ -134,7 +134,7 @@ If you do, please ZIP the html file up with your .Rmd file.
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title / or the data source is not mentioned in the text. | Plot is missing appropriate labels and is not described adequately in the text of the report. | |Plot is missing|
+| Plot is customized with appropriate titles, axis labels and colors.  | Plot is correct but is missing a title. | Plot is missing appropriate labels. | |Plot is missing|
 | Data are CROPPED using the crop_extent shapefile||| | Data are not cropped to the crop_extent shapefile|
 | Raster data are classified into discrete values || | | Data are not classified into discrete values |
 | Data Exploration Plot 1: Plot a histogram of the difference raster using the base histogram function (don’t worry about custom breaks)||| | Histogram is missing |
@@ -146,7 +146,7 @@ If you do, please ZIP the html file up with your .Rmd file.
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Plot is customized with appropriate titles, axis labels and colors. Plot data source is clearly described in the text & the plot data are interpreted relative to the boulder flood. | Plot is correct but is missing a title / or the data source is not mentioned in the text. | Plot is missing appropriate labels and is not described adequately in the text of the report. | |Plot is missing|
+| Plot is customized with appropriate titles, axis labels and colors. | Plot is correct but is missing a title. | Plot is missing appropriate labels and is not described adequately in the text of the report. | |Plot is missing|
 | Data are CROPPED using the crop_extent shapefile||| | Data are not cropped to the crop_extent shapefile|
 | Raster data are classified into discrete values || | | Data are not classified into discrete values |
 | Data Exploration Plot 1: Plot a histogram of the difference raster using the base histogram function (don’t worry about custom breaks)||| | Histogram is missing |

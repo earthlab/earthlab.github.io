@@ -714,29 +714,35 @@ table {
   margin-bottom: 1em;
   width: 100%;
   font-family: -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-  font-size: 0.75em;
-  border-collapse: collapse;
-  border: 1px solid #bdc1c4; }
+  font-size: 0.7em !important;
+  border-collapse: collapse; }
   table + table {
     margin-top: 1em; }
 
 thead {
-  background-color: #f2f3f3;
-  border-bottom: 1px solid #bdc1c4; }
+  border-bottom: 2px solid #bdc1c4;
+  color: #428aa0;
+  font-size: 1.2em; }
+
+tfoot {
+  border-bottom: 2px solid #bdc1c4;
+  border-top: 1px solid #bdc1c4; }
 
 th {
   padding: 0.5em;
   font-weight: bold;
-  text-align: left;
-  border-right: 1px solid #bdc1c4; }
+  text-align: left; }
 
 td {
-  padding: 0.5em;
-  border-bottom: 1px solid #bdc1c4;
-  border-right: 1px solid #bdc1c4; }
+  padding: 0.5em; }
 
 tr, td, th {
   vertical-align: middle; }
+
+tbody tr:nth-child(2n+1) {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #bdc1c4;
+  border-top: 1px solid #bdc1c4; }
 
 /* ==========================================================================
    BUTTONS
