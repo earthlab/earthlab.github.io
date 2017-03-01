@@ -62,7 +62,7 @@ case the sun.
    <figcaption>LEFT: Remote sensing systems which measure energy that is naturally
    available are called passive sensors. RIGHT: Active sensors emit their own
    energy from a source on the instrument itself. Source:
-    <a href="http//www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/passiv.gif" target="_blank">Natural Resources Canada</a>.
+    <a href="http://www.nrcan.gc.ca/" target="_blank">Natural Resources Canada</a>.
    </figcaption>
 </figure>
 
@@ -142,7 +142,7 @@ The spectral resolution of a dataset that has more than one band, refers to the
 spectral width of each band in the dataset. In the image above, a band was
 defined as spanning 800-810nm. The spectral width or spectral resolution of the
 band is thus 10 nanometers. To see an example of this, check out the band widths
-for the <a href="http//landsat.usgs.gov/band_designations_landsat_satellites.php" target="_blank">Landsat sensors</a>.
+for the <a href="http://landsat.usgs.gov/band_designations_landsat_satellites.php" target="_blank">Landsat sensors</a>.
 
 While a general spectral resolution of the sensor is often provided, not all
 sensors collect information within bands of uniform widths.
@@ -215,7 +215,7 @@ Landsat 8 bands 1-9 are listed below:
 | Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
 | Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
 
-Above: Source - <a href="http//landsat.usgs.gov" target="_blank"><a href="http://landsat.usgs.gov</a>
+Above: Source - <a href="http://landsat.usgs.gov" target="_blank"><a href="http://landsat.usgs.gov</a>
 
 
 

@@ -122,7 +122,7 @@ File: `LC80340322016205LGN00_sr_band1_crop.tif`
 * GSI - Ground station ID
 * VV = Archive Version
 
-<a href="http//gisgeography.com/landsat-file-naming-convention/" target="_blank"> More here breaking down the file name.</a>
+<a href="http://gisgeography.com/landsat-file-naming-convention/" target="_blank"> More here breaking down the file name.</a>
 
 ## Julian day
 
