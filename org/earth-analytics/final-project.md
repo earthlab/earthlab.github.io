@@ -38,11 +38,11 @@ You will research the topic that you select finding papers and other documentati
 </div>
 
 ## Final group presentation (20%)
-For your final, as a group you will present the following:
+For your final, as a group, you will present the following:
 
 * The study area that you selected for your project
 * The science topic that you selected for your project.
-* Why the topic / event / phenomenon is important (why should the class care)
+* Why the topic / event / phenomenon is important (why should the class care) - this should include some background that you develop via a literature review.
 * Atleast 2 different types of data from different sources that allow you to answer questions about the topic.
 * Where you got the data and how you processed the data.
 * Results that you found by looking at the data.
@@ -62,8 +62,8 @@ For your final, as a group you will present the following:
 ## Individual Final Report (20%)
 To complement your final presentation, you will also create a knitr based report that summarizes your class project. For your report, select a component of the project that you are most interested in and write a report about it. This will require you to do some research. In your report be sure to cite atleast 3 journal articles about that topic. Also be sure to include data driven plots and maps as appropriate. Your report should include
 
-1. An introduction that includes a map of the study area created in R
-2. An overview of the methods - what data did you use and how did you process it in R.
+1. An introduction that includes a map of the study area created in R and a literature review that includes references to atleast 3 scientific (peer reviewed) papers on the topic.
+2. An overview of the methods - what data did you use and how did you process it in `R`.
 3. Results - *atleast* 4 maps / plots that answer the question that you decided to address or the phenomenon that you decided to explore using data.
 4. Summary text - what did you learn about your topic? What did the data tell you?
 
@@ -72,4 +72,11 @@ The report should be written INDEPENDENTLY. We will check for this when grading.
 The writing of each report however needs to be your own.
 
 
-## Graduate students
+## Graduate students - additional report elements
+In addition to the requirement above, graduate students should develop
+
+1. A more robust literature review on the selected topic. This review should include 5 or more references
+and should be 1.5 to 2 pages in length (~700 words). We won't be counting words, we
+simply want you to create a robust literature review that is of the quality of a
+review that you would include in a paper.
+2. An abstract that provides the big picture of the topic that you selected. this abstract should follow the format of an abstract that would write for a journal submission in your field.
