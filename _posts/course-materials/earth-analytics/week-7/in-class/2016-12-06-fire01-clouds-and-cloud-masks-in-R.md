@@ -20,6 +20,7 @@ comments: true
 order: 1
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -117,7 +118,7 @@ plotRGB(all_landsat_bands_st,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/plotRGB-landsat-1.png" title="RGB image of our landsat data." alt="RGB image of our landsat data." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/plotRGB-landsat-1.png" title="RGB image of our landsat data." alt="RGB image of our landsat data." width="100%" />
 
 ## Raster masks
 
@@ -139,7 +140,7 @@ plot(cloud_mask_189_conf,
   main="Landsat Julian Day 189 - Cloud mask layer.")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/cloud-mask-1.png" title="cloud mask - no shadows." alt="cloud mask - no shadows." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/cloud-mask-1.png" title="cloud mask - no shadows." alt="cloud mask - no shadows." width="100%" />
 
 Next, we can plot the second mask layer. Do you notice any difference between the two?
 
@@ -151,7 +152,7 @@ plot(cloud_mask_189,
   main="Landsat Julian Day 189 - Cloud mask layer with shadows.")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/view-cloud-mask-with-shadows-1.png" title="cloud mask with shadows" alt="cloud mask with shadows" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/view-cloud-mask-with-shadows-1.png" title="cloud mask with shadows" alt="cloud mask with shadows" width="100%" />
 
 ## What do the metadata tell us?
 
@@ -227,7 +228,7 @@ legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax,
        bty="n")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/create-mask-1.png" title="raster mask. green values are not masked." alt="raster mask. green values are not masked." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/create-mask-1.png" title="raster mask. green values are not masked." alt="raster mask. green values are not masked." width="100%" />
 
 Notice in the image above, all pixels that are green represent pixels that are
 OK or not masked. This means they weren't flagged as potential clouds or shadows.
@@ -253,7 +254,7 @@ plotRGB(all_landsat_bands_mask,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/apply-mask-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/apply-mask-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="100%" />
 
 Notice above that I didn't have to use the stretch function to force the data to
 plot in R. This is because the extremely bright pixels which represented clouds,
@@ -273,11 +274,11 @@ plotRGB(all_landsat_bands_mask,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/mask-plot-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/mask-plot-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="100%" />
 
 Next, we can calculate a vegetation indices.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title="landsat NBR plot" alt="landsat NBR plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title="landsat NBR plot" alt="landsat NBR plot" width="100%" />
 
 
 <div class="notice--warning" markdown="1">
