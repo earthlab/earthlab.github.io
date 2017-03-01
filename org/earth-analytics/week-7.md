@@ -65,7 +65,7 @@ and warnings and code as you see fit.
 1. What is the spatial resolution between NAIP, Landsat & MODIS data in meters? Are these data types different in terms of resolution? How might this impact analysis using these data? Use plot 1 BELOW to visually show the difference.
 2. Calculate the area of "high severity" burn in meters using the post-fire data for both Landsat and MODIS. Are the values different? Why / why not? Use plots 3 and 4 to discuss
 any differences that you notice between the two data sets.
-3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work?
+3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plot 2 in your homework to
 
 #### Include the plots below.
 For all plots
@@ -86,29 +86,41 @@ images of NAIP, Landsat and MODIS in one figure. For each map be sure to
 Use this figure to help answer question 1 above.
 An example of what this plot should look like (without all of the labels that you need to add, [is here at the bottom of the page.]({{ site.url }}/course-materials/earth-analytics/week-7/grid-of-plots-report/)
 
-#### Plot 2 - Pre-fire NBR landsat
+#### Plot 2 - Pre-fire NBR using landsat data
 Create a MAP of the classified pre-burn NBR using a newly downloaded **Landsat** file.
 Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp` on top of the NBR map. Add a legend.
 This file should not have a cloud in the middle of the burn area! You can use Earth Explorer to download the data. Use the classes that you used in your homework from week 6 to
 classify the data.
 
-#### Plot 3 - Post-fire NBR landsat
-Create a MAP of post fire classified NBR using **Landsat** data. Note: you did this for your homework last
-week, re-use the code. However this time, use a cloud mask to remove any clouds in your data. Then, overlay the fire extent layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`) on top of the NBR map.
-Add a legend that shows each NBR class.
+#### Plot 3 - Pre-fire NBR using landsat data
+Create a MAP of the classified pre-burn NBR using the **Landsat** data file that
+was provided to you in your data download `data/week6/landsat/LC80340322016189-SC20170128091153/crop`. Be sure to mask the
+clouds from your analysis. Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp` on top of the NBR map. Add a legend that clearly
+explains what each class represents (ie high severity, moderate etc.).
 
-#### Plot 4 - Post-fire NBR MODIS
-Create a classified map of **post fire NBR** using MODIS data. Be sure to mask the data
-using a cloud mask BEFORE you calculate NBR and classify it.
+#### Plot 4 - Post-fire NBR using landsat data
+Create a MAP of post fire classified NBR using **Landsat** data. Note: you did
+this for your homework last
+week, re-use the code. However this time, use a cloud mask to remove any clouds
+in your data. Then, overlay the fire extent layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`) on
+top of the NBR map. Add a legend that shows each NBR class and that clearly
+explains what each class represents (ie high severity, moderate etc.).
+
+
+#### Plot 5 - Post-fire NBR MODIS
+Create a classified map of **post fire NBR** using MODIS data. Be sure to mask
+the data using a cloud mask. Ideally you'll do this BEFORE you calculate NBR and
+classify it. Add a legend that shows each NBR class and that clearly
+explains what each class represents (i.e. high severity, moderate etc.).
 
 
 | SEVERITY LEVEL  | dNBR RANGE |
 |------------------------------|
-| Enhanced Regrowth | -700 to  -100  |
+| Enhanced Regrowth | <= -100  |
 | Unburned       |  -100 to +100  |
 | Low Severity     | +100 to +270  |
 | Moderate Severity  | +270 to +660  |
-| High Severity     |  +660 to +1300 |
+| High Severity     |  >= 660|
 
 ****
 
@@ -118,6 +130,8 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 </div>
 
 ## Grading
+
+NOTE: this will be updated after class today!
 
 #### .Pdf Report structure & code: 10%
 
