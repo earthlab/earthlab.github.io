@@ -167,7 +167,7 @@ fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_
 ```
 
 
-```{r plot-grid-naip-modis-landsat, echo=F, fig.width=7, fig.height=9 }
+```{r plot-grid-naip-modis-landsat, echo=F, fig.width=7, fig.height=9, fig.cap="grid of plots" }
 # NAIP
 # Use stack function to read in all bands
 naip_stack_csf <-

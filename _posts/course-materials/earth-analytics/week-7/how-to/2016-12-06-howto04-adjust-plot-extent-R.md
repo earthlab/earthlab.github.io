@@ -3,7 +3,7 @@ layout: single
 title: "Adjust plot extent in R."
 excerpt: "In this lesson we will review how to adjust the extent of a spatial plot in R using the ext or extent argument and the extent of another layer. "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-02-28'
+modified: '2017-03-01'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/adjust-plot-extent-R/
@@ -71,7 +71,7 @@ plotRGB(all_landsat_bands_st,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto04-adjust-plot-extent-R/plot-landsat-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto04-adjust-plot-extent-R/plot-landsat-1.png" title="landsat plot" alt="landsat plot" width="100%" />
 
 ## Adjust plot extent
 
