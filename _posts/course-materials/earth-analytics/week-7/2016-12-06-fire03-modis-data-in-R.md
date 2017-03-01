@@ -59,58 +59,15 @@ all_modis_bands_july7 <-list.files("data/week6/modis/reflectance/07_july_2016/cr
 all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
 
 # view range of values in stack
-str(all_modis_bands_st_july7[[2]])
-## Formal class 'RasterLayer' [package "raster"] with 12 slots
-##   ..@ file    :Formal class '.RasterFile' [package "raster"] with 13 slots
-##   .. .. ..@ name        : chr "/Users/lewa8222/Documents/earth-analytics/data/week6/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073"| __truncated__
-##   .. .. ..@ datanotation: chr "INT2S"
-##   .. .. ..@ byteorder   : chr "little"
-##   .. .. ..@ nodatavalue : num -Inf
-##   .. .. ..@ NAchanged   : logi FALSE
-##   .. .. ..@ nbands      : int 1
-##   .. .. ..@ bandorder   : chr "BIL"
-##   .. .. ..@ offset      : int 0
-##   .. .. ..@ toptobottom : logi TRUE
-##   .. .. ..@ blockrows   : int 1
-##   .. .. ..@ blockcols   : int 2400
-##   .. .. ..@ driver      : chr "gdal"
-##   .. .. ..@ open        : logi FALSE
-##   ..@ data    :Formal class '.SingleLayerData' [package "raster"] with 13 slots
-##   .. .. ..@ values    : logi(0) 
-##   .. .. ..@ offset    : num 0
-##   .. .. ..@ gain      : num 1
-##   .. .. ..@ inmemory  : logi FALSE
-##   .. .. ..@ fromdisk  : logi TRUE
-##   .. .. ..@ isfactor  : logi FALSE
-##   .. .. ..@ attributes: list()
-##   .. .. ..@ haveminmax: logi TRUE
-##   .. .. ..@ min       : num -32768
-##   .. .. ..@ max       : num 32767
-##   .. .. ..@ band      : int 1
-##   .. .. ..@ unit      : chr ""
-##   .. .. ..@ names     : chr "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1"
-##   ..@ legend  :Formal class '.RasterLegend' [package "raster"] with 5 slots
-##   .. .. ..@ type      : chr(0) 
-##   .. .. ..@ values    : logi(0) 
-##   .. .. ..@ color     : logi(0) 
-##   .. .. ..@ names     : logi(0) 
-##   .. .. ..@ colortable: logi(0) 
-##   ..@ title   : chr(0) 
-##   ..@ extent  :Formal class 'Extent' [package "raster"] with 4 slots
-##   .. .. ..@ xmin: num -10007555
-##   .. .. ..@ xmax: num -8895604
-##   .. .. ..@ ymin: num 3335852
-##   .. .. ..@ ymax: num 4447802
-##   ..@ rotated : logi FALSE
-##   ..@ rotation:Formal class '.Rotation' [package "raster"] with 2 slots
-##   .. .. ..@ geotrans: num(0) 
-##   .. .. ..@ transfun:function ()  
-##   ..@ ncols   : int 2400
-##   ..@ nrows   : int 2400
-##   ..@ crs     :Formal class 'CRS' [package "sp"] with 1 slot
-##   .. .. ..@ projargs: chr "+proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs"
-##   ..@ history : list()
-##   ..@ z       : list()
+all_modis_bands_st_july7[[2]]
+## class       : RasterLayer 
+## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
+## resolution  : 463.3, 463.3  (x, y)
+## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif 
+## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
+## values      : -32768, 32767  (min, max)
 ```
 
 
@@ -159,8 +116,6 @@ plot(all_modis_bands_st_july7[[2]])
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/assign-no-data-1.png" title=" " alt=" " width="100%" />
 
-After assigning our No data values to NA
-
 
 Next we plot MODIS layers. Use the MODIS band chart to figure out what bands you
 need to plot to create a RGB (true color) image. 
@@ -208,18 +163,18 @@ cloud cover "values" and to create a mask.
 Use the cloud cover layer `data/week6/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m` 
 to create your mask.
 
-Set all values >0 to `NA`.
+Set all values >0 in the cloud cover layer to `NA`.
+
+
+```
+## RStudioGD 
+##         2
+```
 
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="100%" />
 
 
-```r
-all_modis_bands_st_mask <- mask(all_modis_bands_st_july7,
-                                cloud_mask_7July)
-
-## 3 = blue, 4 = green, 1= red 2= nir
-```
 
 Plot the masked data. Notice that now the clouds are gone as they have been assigned
 the value `NA`.
@@ -241,7 +196,7 @@ Finally crop the data to see just the pixels that overlay our study area.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/create-apply-mask2-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="100%" />
 
 After we've calculated NBR, we may want to calculate total burn AREA. We can do 
 this using the `freq()` function in R. This function gives us the total number
