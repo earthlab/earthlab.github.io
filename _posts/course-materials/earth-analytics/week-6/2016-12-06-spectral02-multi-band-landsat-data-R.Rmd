@@ -34,7 +34,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7636975){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](<a href="https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
 </div>
 
 ## About Raster Bands in R
@@ -197,14 +197,14 @@ Program (NAIP).
 
 > NAIP is administered by the USDA's Farm Service Agency (FSA) through the Aerial Photography Field Office in Salt Lake City. This "leaf-on" imagery is used as a base layer for GIS programs in FSA's County Service Centers, and is used to maintain the Common Land Unit (CLU) boundaries. -- USDA NAIP Program
 
-<a href="https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/" target="_blank">Read more about NAIP</a>
+<a href="<a href="https://www.fsa.usda.gov/programs-and-services/aerial-photography/imagery-programs/naip-imagery/" target="_blank">Read more about NAIP</a>
 
 NAIP is a great source of high resolution imagery across the United States.
 NAIP imagery is often collected with just a red, green and Blue band. However,
 some flights include a near infrared band which is very useful for quantifying
 vegetation cover and health.
 
-NAIP data access: For this lesson we used the <a href="https://earthexplorer.usgs.gov/" target="_blank">USGS Earth explorer site to
+NAIP data access: For this lesson we used the <a href="<a href="https://earthexplorer.usgs.gov/" target="_blank">USGS Earth explorer site to
 download NAIP imagery. </a>
 
 Next, let's open up our NAIP imagery for the Coldsprings fire study area in
@@ -495,7 +495,7 @@ In most cases, we can work with a `RasterBrick` in the same way we might work
 with a `RasterStack`. However a `RasterBrick` is often more efficient and faster
 to process - which is important when working with larger files.
 
-* <a href="http://www.inside-r.org/packages/cran/raster/docs/brick" target="_blank">
+* <a href="http//www.inside-r.org/packages/cran/raster/docs/brick" target="_blank">
 More on Raster Bricks</a>
 
 We can turn a `RasterStack` into a `RasterBrick` in `R` by using
