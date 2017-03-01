@@ -16,7 +16,7 @@ all_modis_bands_july7 <-list.files("data/week6/modis/reflectance/07_july_2016/cr
 all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
 
 # view range of values in stack
-str(all_modis_bands_st_july7[[2]])
+all_modis_bands_st_july7[[2]]
 
 ## ----assign-no-data------------------------------------------------------
 # deal with nodata value --  -28672 
@@ -36,12 +36,15 @@ fire_boundary_sin <- spTransform(fire_boundary,
 #          driver="ESRI Shapefile",
 #          overwrite_layer=TRUE)
 
-## ----plot-modis-layers, echo=F, fig.cap="plot MODIS stack"---------------
+## ----plot-modis-layers, echo=F, fig.cap="plot MODIS stack", fig.width=5, fig.height=5----
 ## 3 = blue, 4 = green, 1= red 2= nir
+par(col.axis="white", col.lab="white", tck=0)
 plotRGB(all_modis_bands_st_july7,
         r=1, g =4, b=3,
         stretch="lin",
-        main="MODIS post-fire RGB image\n Cold springs fire site")
+        main="MODIS post-fire RGB image\n Cold springs fire site",
+        axes=T)
+box(col="white")
 # add fire boundary to plot
 plot(fire_boundary_sin, 
      add=T,
@@ -49,41 +52,54 @@ plot(fire_boundary_sin,
      lwd=50)
 
 
+## ----reset-dev, warning='hide', echo=F, message=F------------------------
+dev.off()
+
 ## ----create-apply-mask, echo=F, fig.cap="cloud mask plot"----------------
 # import cloud mask
 cloud_mask_7July <- raster("data/week6/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m.tif")
 cloud_mask_7July[cloud_mask_7July > 0] <- NA
-plot(cloud_mask_7July)
+plot(cloud_mask_7July,
+     main="Landsat cloud mask layer",
+     legend=F,
+     axes=F, box=F)
+legend('topright',
+       legend=c("Cloud free", "Clouds"),
+       fill=c("yellow", "white"))
 
-## ----create-mask, fig.cap="Final stack masked"---------------------------
+## ----create-mask, fig.cap="Final stack masked", echo=F-------------------
 all_modis_bands_st_mask <- mask(all_modis_bands_st_july7,
                                 cloud_mask_7July)
 
 ## 3 = blue, 4 = green, 1= red 2= nir
 
-## ----masked-data, echo=F, fig.cap="MODIS with cloud mask"----------------
+## ----masked-data, echo=F, fig.cap="MODIS with cloud mask", fig.width=7, fig.height=4----
 ## 3 = blue, 4 = green, 1= red 2= nir
+par(col.axis="white", col.lab="white", tck=0)
 plotRGB(all_modis_bands_st_mask,
         r=1, g =4, b=3,
         stretch="lin",
         main="MODIS data mask applied\n Cold springs fire AOI",
         axes=T)
-
+box(col="white")
 plot(fire_boundary_sin,
      add=T, col="yellow",
      lwd=1)
 
 ## ----crop-data, echo=F, fig.cap="cropped data"---------------------------
 all_modis_bands_st_mask <- crop(all_modis_bands_st_mask, fire_boundary_sin)
-
+par(col.axis="white", col.lab="white", tck=0)
 plotRGB(all_modis_bands_st_mask,
         r=1, g =4, b=3,
         stretch="lin",
-        ext=extent(fire_boundary_sin))
+        ext=extent(fire_boundary_sin),
+        axes=T,
+        main="Final landsat masked data \n Cold Springs fire scar site")
+box(col="white")
 plot(fire_boundary_sin, border="yellow", add=T)
 
 
-## ----create-apply-mask2, echo=F------------------------------------------
+## ----create-apply-mask2, echo=F, fig.cap="Classified pre fire NBR"-------
 # Band 4 includes wavelengths from 0.76-0.90 µm (NIR) and 
 # Band 7 includes wavelengths between 2.09-2.35 µm (SWIR).
 # B2 - B7 / b2 + b7
