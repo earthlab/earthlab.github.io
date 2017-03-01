@@ -83,10 +83,10 @@ caption argument in your code chunks: `fig.cap="caption here".
 2. Add appropriate titles that tells someone reading your report what the map shows
 
 #### Plot 1
-Create a MAP of the **difference between NDVI pre vs post fire** with Landsat data (Post fire - post-fire NDVI).
+Create a MAP of the **difference between NDVI pre vs post fire** with Landsat data (Post fire - pre-fire NDVI).
 
 #### Plot 2
-Create a MAP of the **difference between NBR pre vs post fire** with Landsat data  (Post fire - post-fire NBR). Be sure to include a legend on your map that helps someone looking at it
+Create a MAP of the **difference between NBR pre vs post fire** with Landsat data  (Post fire - pre-fire NBR). Be sure to include a legend on your map that helps someone looking at it
 understand differences
 
 #### Plot 3
