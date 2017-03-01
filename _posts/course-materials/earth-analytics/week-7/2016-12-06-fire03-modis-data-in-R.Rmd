@@ -374,7 +374,7 @@ barplot(modis_nbr_july17_cl,
 Finally, plot the reclassified data. Note that we only have 3 classes: 2, 3 and 4. 
 
 
-```{r plot-data-reclass, echo=F}
+```{r plot-data-reclass, echo=F, fig.width=6, fig.height=4}
 # the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
 the_colors = c("ivory1","palevioletred1","palevioletred4")
 
