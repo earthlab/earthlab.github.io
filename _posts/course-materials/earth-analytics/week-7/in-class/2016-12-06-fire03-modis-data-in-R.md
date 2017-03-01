@@ -33,8 +33,9 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6/7 Data (~500 MB)](https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
+
 
 
 
@@ -85,6 +86,11 @@ page 14 of the guide. Part of the table can be seen below.
 
 <a href="http://modis-sr.ltdri.org/guide/MOD09_UserGuide_v1_3.pdf" target="_blank">Click here to check out the MODIS user guide - check out page 14 for the MOD09GA table.</a>
 
+The column headings for the table below:
+
+|Group | Science Data Sets (HDF Layers (21)) | Units | Data Type | Fill Value | Valid Range | Scale Factor |
+|---|
+
 <figure>
 <a href="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png" target="_blank">
    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png" alt="MODIS MOD09GA metadata"></a>
@@ -98,9 +104,66 @@ Looking at the table, answer the following questions
 1. What is valid range of values for our data?
 2. What is the scale factor associated with our data?
 
+## Explore our data
+
+Looking at histograms of our data, we can see that the range of values is not
+what we'd expect. We'd expect values between -100 to 10000 yet instead we have
+much larger numbers.
+
+
+```r
+# options("scipen"=100, "digits"=4)
+hist(all_modis_bands_st_july7)
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
+
+## Scale Factor 
+Looking at the metadata, we can see that our  data have a scale factor. Let's 
+deal with that before doing anything else. The scale factor is .0001. This means
+we should multiple each layer by that value to get the actual reflectance values 
+of the data. 
+
+We can apply this math to all of the layers in our stack using a simple calculation
+shown below:
+
+
+```r
+# deal with nodata value --  -28672
+all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
+# view histogram of each layer in our stack
+# options("scipen"=100, "digits"=4)
+hist(all_modis_bands_st_july7)
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="100%" />
+
+Great - now the range of values in our data appear more reasonable. Next, let's 
+get rid of data that are outside of the valid data range. 
+
 ## NoData Values
 
-Let's first deal with no data values. we can see that our data have a "fill" value
+Next, let's deal with no data values. We can see that our data have a "fill" value
 of -28672 which we can presume to be missing data. But also we see that valid
 range values begin at -100. Let's set all values less than -100 to NA to remove
 the extreme negative values that may impact out analysis.
@@ -109,12 +172,11 @@ the extreme negative values that may impact out analysis.
 ```r
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
-# options("scipen"=100, "digits"=4)
-plot(all_modis_bands_st_july7[[2]])
+# plot histogram
+hist(all_modis_bands_st_july7)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/assign-no-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
-
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="100%" />
 
 Next we plot MODIS layers. Use the MODIS band chart to figure out what bands you
 need to plot to create a RGB (true color) image.
@@ -135,7 +197,7 @@ Why is it so hard to figure out where the study area is in this MODIS image?
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="100%" />
 
 ## MODIS cloud mask
 
@@ -167,18 +229,18 @@ Set all values >0 in the cloud cover layer to `NA`.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="100%" />
 
 
 
 Plot the masked data. Notice that now the clouds are gone as they have been assigned
 the value `NA`.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="100%" />
 
 Finally crop the data to see just the pixels that overlay our study area.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="100%" />
 
 
 | SEVERITY LEVEL  | NBR RANGE |
@@ -191,7 +253,7 @@ Finally crop the data to see just the pixels that overlay our study area.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="100%" />
 
 After we've calculated NBR, we may want to calculate total burn AREA. We can do
 this using the `freq()` function in R. This function gives us the total number
@@ -236,7 +298,7 @@ plotRGB(all_modis_bands_st_mask_july17,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="100%" />
 
 Next we calculate NBR on our post fire data. Then we can crop and finally
 plot the final results!
@@ -255,13 +317,13 @@ barplot(modis_nbr_july17_cl,
         names.arg=c("Low Severity","Moderate Severity","High Severity"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="100%" />
 
 
 Finally, plot the reclassified data. Note that we only have 3 classes: 2, 3 and 4.
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="100%" />
 
 
 

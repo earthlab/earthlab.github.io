@@ -31,7 +31,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6/7 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6/7 Data (~500 MB)](https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 
@@ -42,6 +42,7 @@ library(raster)
 library(rgeos)
 library(rgdal)
 ```
+
 
 
 ```r
@@ -164,6 +165,7 @@ When you are done with plotting in a grid space, be sure to reset your plot spac
 using `dev.off()`.
 
 
+
 ```r
 dev.off()
 ```
@@ -174,3 +176,5 @@ Your homework this week should look something like this:
 
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="100%" />
+
+
