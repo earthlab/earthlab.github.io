@@ -99,7 +99,7 @@ box(col="white")
 plot(fire_boundary_sin, border="yellow", add=T)
 
 
-## ----create-apply-mask2, echo=F, fig.cap="Classified pre fire NBR"-------
+## ----create-apply-mask2, echo=F, fig.cap="Classified pre fire NBR", fig.width=6, fig.height=4----
 # Band 4 includes wavelengths from 0.76-0.90 µm (NIR) and 
 # Band 7 includes wavelengths between 2.09-2.35 µm (SWIR).
 # B2 - B7 / b2 + b7
@@ -129,9 +129,14 @@ modis_nbr_cl <- reclassify(modis_nbr,
                      reclass_m)
 # reclass data
 plot(modis_nbr_cl,
-     main="MODIS NBR for the Cold Springs site")
+     main="MODIS NBR for the Cold Springs site",
+     legend=F,
+     axes=F, box=F)
 plot(fire_boundary_sin, 
      add=T)
+legend("topright",
+       legend=c("Moderate burn \nseverity"),
+       fill="yellow")
 
 
 ## ----get-pixel-values----------------------------------------------------
@@ -161,12 +166,15 @@ all_modis_bands_st_mask_july17 <- mask(all_modis_bands_st_july17,
                                 cloud_mask_17July)
 
 
-## ----plot-rgb-post-fire, fig.cap="RGB post fire"-------------------------
+## ----plot-rgb-post-fire, fig.cap="RGB post fire", fig.height=5, fig.width=5----
+par(col.axis="white", col.lab="white", tck=0)
 # clouds removed 
 plotRGB(all_modis_bands_st_mask_july17, 
         1,4,3,
         stretch="lin",
-        main="Final data with mask")
+        main="Final data with mask",
+        axes=T)
+box(col="white")
 
 ## ----mask-data, echo=F---------------------------------------------------
 # calculate NBR
@@ -189,7 +197,7 @@ barplot(modis_nbr_july17_cl,
         col=rev(the_colors),
         names.arg=c("Low Severity","Moderate Severity","High Severity"))
 
-## ----plot-data-reclass, echo=F-------------------------------------------
+## ----plot-data-reclass, echo=F, fig.width=6, fig.height=4----------------
 # the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
 the_colors = c("ivory1","palevioletred1","palevioletred4")
 

@@ -256,7 +256,7 @@ plot(fire_boundary_sin, border="yellow", add=T)
 
 
 
-```{r create-apply-mask2, echo=F, fig.cap="Classified pre fire NBR"}
+```{r create-apply-mask2, echo=F, fig.cap="Classified pre fire NBR", fig.width=6, fig.height=4}
 # Band 4 includes wavelengths from 0.76-0.90 µm (NIR) and 
 # Band 7 includes wavelengths between 2.09-2.35 µm (SWIR).
 # B2 - B7 / b2 + b7
@@ -286,9 +286,14 @@ modis_nbr_cl <- reclassify(modis_nbr,
                      reclass_m)
 # reclass data
 plot(modis_nbr_cl,
-     main="MODIS NBR for the Cold Springs site")
+     main="MODIS NBR for the Cold Springs site",
+     legend=F,
+     axes=F, box=F)
 plot(fire_boundary_sin, 
      add=T)
+legend("topright",
+       legend=c("Moderate burn \nseverity"),
+       fill="yellow")
 
 ```
 
@@ -333,12 +338,15 @@ all_modis_bands_st_mask_july17 <- mask(all_modis_bands_st_july17,
 
 ```
 
-```{r plot-rgb-post-fire, fig.cap="RGB post fire"}
+```{r plot-rgb-post-fire, fig.cap="RGB post fire", fig.height=5, fig.width=5}
+par(col.axis="white", col.lab="white", tck=0)
 # clouds removed 
 plotRGB(all_modis_bands_st_mask_july17, 
         1,4,3,
         stretch="lin",
-        main="Final data with mask")
+        main="Final data with mask",
+        axes=T)
+box(col="white")
 ```
 
 Next we calculate NBR on our post fire data. Then we can crop and finally
