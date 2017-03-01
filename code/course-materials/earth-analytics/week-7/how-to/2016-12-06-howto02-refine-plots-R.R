@@ -8,11 +8,11 @@ library(rgdal)
 
 
 ## ----create-variable-----------------------------------------------------
-
+# import landsat data
 all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
-
+# create spatial stack
 all_landsat_bands_st <- stack(all_landsat_bands)
 
 ## ----plot-rgb, fig.cap="Remove axes labels."-----------------------------
@@ -44,7 +44,7 @@ plotRGB(all_landsat_bands_st,
 box(col="white") # turn all of the lines to white
 
 
-## ----plot-rgb4, fig.cap="Remove axes labels.", fig.width=7, fig.height=6----
+## ----plot-rgb4, fig.cap="Adjust figure width and height.", fig.width=7, fig.height=6----
 # adjust the parameters so the axes colors are white. Also turn off tick marks.
 par(col.axis="white", col.lab="white", tck=0)
 # plot
@@ -57,20 +57,14 @@ plotRGB(all_landsat_bands_st,
 box(col="white") # turn all of the lines to white
 
 
-## ----reset-dev-----------------------------------------------------------
+## ----reset-dev, results='hide'-------------------------------------------
 # reset dev (space where plots are rendered in RStudio)
 dev.off()
 
-## ----plot-ndvi, fig.cap="ndvi plot - no legend"--------------------------
+## ----plot-ndvi2, echo=F--------------------------------------------------
 # calculate NDVI
 ndvi <- (all_landsat_bands_st[[5]] - all_landsat_bands_st[[4]]) / (all_landsat_bands_st[[5]] + all_landsat_bands_st[[4]])
 # plot ndvi
-
-plot(ndvi,
-     legend=F,
-     main="ndvi plot")
-
-## ----plot-ndvi2, fig.cap="ndvi plot - no legend"-------------------------
 # reclassify ndvi
 # create classification matrix
 reclass <- c(-1, .3, 1,
@@ -84,11 +78,29 @@ reclass_m <- matrix(reclass,
 ndvi_classified <- reclassify(ndvi,
                      reclass_m)
 the_colors <- c("grey", "yellow", "springgreen")
+
+
+## ----plot-data1, fig.cap="ndvi plot - no legend"-------------------------
+# plot ndvi with legend
+plot(ndvi_classified,
+     main="ndvi plot",
+     col=the_colors)
+
+## ----plot-data2, fig.cap="ndvi plot - no legend"-------------------------
+# plot ndvi with legend
+plot(ndvi_classified,
+     main="ndvi plot",
+     col=the_colors,
+     axes=F, box=F)
+
+
+## ----plot-data3, fig.cap="ndvi plot - no legend"-------------------------
 # plot ndvi with legend
 plot(ndvi_classified,
      legend=F,
      main="ndvi plot",
-     col=the_colors)
+     col=the_colors,
+     axes=F, box=F)
 legend("topright",
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= the_colors)
@@ -99,22 +111,22 @@ legend("topright",
 plot(ndvi_classified,
      legend=F,
      main="ndvi plot",
-     col=the_colors)
+     col=the_colors,
+     axes=F, box=F)
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd=T)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 
-## ----fix-plot-legend2, fig.cap="plot with legend in the upper right. "----
+## ----fix-plot-legend22, fig.cap="plot with legend in the upper right. "----
 
 # plot ndvi with legend
 plot(ndvi_classified,
      legend=F,
-     main="ndvi plot with axes & box turned off",
+     main="ndvi plot",
      col=the_colors,
-     axes=F,
-     box=F)
+     axes=F, box=F)
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd=T)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -139,6 +151,27 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 
 ## ----dev-off-pls---------------------------------------------------------
+dev.off()
+
+## ----fix-plot-legend33, fig.cap="plot with legend in the upper right. "----
+# set a margin for our figure
+par(xpd=F, mar=c(0,0,2,5))
+# plot ndvi with legend
+plot(ndvi_classified,
+     legend=F,
+     main="ndvi plot with axes & box turned off",
+     col=the_colors,
+     axes=F,
+     box=F)
+# set xpd to T to allow the legend to plot OUTSIDE of the plot area
+par(xpd=T)
+legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
+       legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
+       fill= rev(the_colors),# use rev to reverse the order of colors for the legend
+       bty="n", # turn off legend border
+       cex=.9)  # adjust legend font size
+
+## ----dev-off-pls2--------------------------------------------------------
 dev.off()
 
 ## ----fix-plot-legend4, fig.cap="plot with legend in the upper right.", fig.width=6, fig.height=4----
@@ -183,6 +216,6 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        cex=.8, # make the legend font a bit smaller
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 
-## ----dev-off-pls2, message=F, warning=F, results="hide"------------------
+## ----dev-off-pls3, message=F, warning=F, results="hide"------------------
 dev.off()
 

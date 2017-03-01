@@ -54,13 +54,13 @@ all_landsat_bands_st <- stack(all_landsat_bands)
 ### Creating a grid of plots
 
 You can plot several plots together in the same window using baseplot. To do
-this, we use the parameter value mfrow=c(x,y) where x is the number of rows
+this, we use the parameter value `mfrow=c(x,y)` where x is the number of rows
 that you wish to have in your plot and y is the number of columns. When you plot,
 R will place each plot, in order by row within the grid that you define using
 `mfrow`.
 
 Below, we have created a 2 by 2 grid of plots using `mfrow=c(2,2)` within
-the `par()` function.
+the `par()` function. In this example we have 2 rows and 2 columns.
 
 
 ```{r plot-rgb3, fig.cap="Create 2 x 2 grid of plots."}
@@ -105,7 +105,8 @@ title("My Title", outer=TRUE)
 
 Above, we added an overall title to our grid of plots using the `title()` function.
 However the title is chopped of because there is not enough of a margin at the
-top for it. We can adjust for this too using the
+top for it. We can adjust for this too using the `oma=` parameter argument. `oma`
+sets the outside (o) margin (ma).
 
 `oma=` argument in our `par()` function. Let's try it.
 
@@ -158,9 +159,9 @@ using `dev.off()`.
 dev.off()
 ```
 
-Your homework this week should look something like this
+Your homework this week should look something like this:
 
-```{r import-boundary, results="hide", echo=F}
+```{r import-boundary, echo=F, results='hide'}
 # import fire overlay boundary
 fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
 ```
@@ -223,5 +224,3 @@ plotRGB(all_modis_bands_st,
 box(col="white")
 plot(fire_boundary_sin, add=T)
 ```
-
-

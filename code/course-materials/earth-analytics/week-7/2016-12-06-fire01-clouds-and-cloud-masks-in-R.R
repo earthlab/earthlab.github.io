@@ -60,7 +60,7 @@ legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax,
        bty="n")
 
 
-## ----apply-mask, fig.cap="apply raster mask to stack and plot."----------
+## ----apply-mask, fig.cap="apply raster mask to stack and plot.", fig.height=7, fig.width=5----
 # mask the stack
 all_landsat_bands_mask <- mask(all_landsat_bands_st, mask = cloud_mask_189)
 # plot RGB image
@@ -68,26 +68,25 @@ all_landsat_bands_mask <- mask(all_landsat_bands_st, mask = cloud_mask_189)
 par(col.axis="white", col.lab="white", tck=0)
 # then plot the data
 plotRGB(all_landsat_bands_mask,
-        r=4, g=3, b=2, 
+        r=4, g=3, b=2,
         main="RGB image - are all of the clouds gone from our image?",
-        axes=F)
+        axes=T)
 box(col="white")
 
 
-## ----mask-plot, fig.cap="apply raster mask to stack and plot."-----------
+## ----mask-plot, fig.cap="apply raster mask to stack and plot.", fig.height=7, fig.width=5----
 # plot RGB image
 # first turn all axes to the color white and turn off ticks
 par(col.axis="white", col.lab="white", tck=0)
 # then plot the data
 plotRGB(all_landsat_bands_mask,
-        r=4, g=3, b=2, 
+        r=4, g=3, b=2,
         stretch="lin",
         main="RGB image - are all of the clouds gone from our image? \n linear stretch",
-        axes=F)
+        axes=T)
 box(col="white")
 
-## ----calculate-veg-index, echo=F-----------------------------------------
-
+## ----calculate-veg-index, echo=F, fig.cap="NBG for Landsat Julian Day 189", fig.height=7, fig.width=5----
 ## Create a function to calculate a veg index
 get_veg_index <- function(band1, band2){
   # this function calculates the normalize difference between two bands
@@ -101,5 +100,6 @@ get_veg_index <- function(band1, band2){
 landsat_nbr <- overlay(all_landsat_bands_mask[[4]], all_landsat_bands_mask[[5]],
                        fun=get_veg_index)
 plot(landsat_nbr,
-     main="Landsat derived NBR \n pre-fire conditions - Julian Day 189")
+     main="Landsat derived NBR \n pre-fire conditions - Julian Day 189",
+     box=F, axes=F)
 

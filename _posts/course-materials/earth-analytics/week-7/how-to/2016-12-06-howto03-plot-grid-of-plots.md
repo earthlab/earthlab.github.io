@@ -3,7 +3,7 @@ layout: single
 title: "Plot grid of plots in R. "
 excerpt: " "
 authors: ['Leah Wasser']
-modified: '2017-02-28'
+modified: '2017-03-01'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/grid-of-plots-report/
@@ -56,13 +56,13 @@ all_landsat_bands_st <- stack(all_landsat_bands)
 ### Creating a grid of plots
 
 You can plot several plots together in the same window using baseplot. To do
-this, we use the parameter value mfrow=c(x,y) where x is the number of rows
+this, we use the parameter value `mfrow=c(x,y)` where x is the number of rows
 that you wish to have in your plot and y is the number of columns. When you plot,
 R will place each plot, in order by row within the grid that you define using
 `mfrow`.
 
 Below, we have created a 2 by 2 grid of plots using `mfrow=c(2,2)` within
-the `par()` function.
+the `par()` function. In this example we have 2 rows and 2 columns.
 
 
 
@@ -110,7 +110,8 @@ title("My Title", outer=TRUE)
 
 Above, we added an overall title to our grid of plots using the `title()` function.
 However the title is chopped of because there is not enough of a margin at the
-top for it. We can adjust for this too using the
+top for it. We can adjust for this too using the `oma=` parameter argument. `oma`
+sets the outside (o) margin (ma).
 
 `oma=` argument in our `par()` function. Let's try it.
 
@@ -167,71 +168,9 @@ using `dev.off()`.
 dev.off()
 ```
 
-Your homework this week should look something like this
+Your homework this week should look something like this:
 
 
 
-
-
-```r
-# NAIP
-# Use stack function to read in all bands
-naip_stack_csf <-
-  stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-
-# transform the boundary
-fire_boundary_utm <- spTransform(fire_boundary,
-                                 CRS=crs(naip_stack_csf))
-par(mfrow=c(3,1))
-
-# adjust the parameters so the axes colors are white. Also turn off tick marks.
-par(col.axis="white", col.lab="white", tck=0)
-plotRGB(naip_stack_csf, 4,3,2,
-        main="NAIP CIR image \n Cold Springs Site",
-        ext=extent(fire_boundary_utm),
-        axes=T)
-plot(fire_boundary_utm, add=T)
-box(col="white") # turn all of the lines to white
-# add fire boundary
-
-all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
-           pattern=glob2rx("*band*.tif$"),
-           full.names = T) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands_st <- stack(all_landsat_bands)
-
-par(col.axis="white", col.lab="white", tck=0)
-plotRGB(all_landsat_bands_st, 5,4,3,
-        stretch="hist",
-        main="landsat CIR image",
-        ext=extent(fire_boundary_utm),
-        axes=T)
-box(col="white")
-# add fire boundary
-plot(fire_boundary_utm, add=T)
-
-
-# modis cir imagery
-# open modis bands
-all_modis_bands <-list.files("data/week6/modis/reflectance/17_july_2016/crop",
-           pattern=glob2rx("*sur_refl*.tif$"),
-           full.names = T)
-
-all_modis_bands_st <- stack(all_modis_bands)
-# transform the boundary
-fire_boundary_sin <- spTransform(fire_boundary,
-                                 CRS=crs(all_modis_bands_st))
-## 3 = blue, 4 = green, 1= red 2= nir
-par(col.axis="white", col.lab="white", tck=0)
-plotRGB(all_modis_bands_st,
-        r=2, g =4, b=3,
-        stretch="lin",
-        main="MODIS CIR imagery",
-        ext=extent(fire_boundary_sin),
-        axes=T)
-box(col="white")
-plot(fire_boundary_sin, add=T)
-```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title=" " alt=" " width="100%" />
-
-

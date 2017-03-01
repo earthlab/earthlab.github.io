@@ -3,7 +3,7 @@ layout: single
 title: "Clouds, shadows & cloud masks in R"
 excerpt: "In this lesson, we will learn how to deal with clouds when working with remote sensing data. We will learn how to mask clouds in R using the mask() function. We will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-02-28'
+modified: '2017-03-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/intro-spectral-data-r/
@@ -99,8 +99,9 @@ When we plotted the pre-fire image, we noticed a large cloud in our scene.
 Notice as i'm plotting below, i'm adding a few *par*ameters to force `R` to add a
 title to my plot.
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip: **Check out the additional "How to" lessons for this week to learn more about
+<i class="fa fa-star" aria-hidden="true"></i>**Data Tip:** Check out the additional "How to" lessons for this week to learn more about
 creating nicer plots in `R`.
+{: .notice }
 
 
 ```r
@@ -228,9 +229,9 @@ legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/create-mask-1.png" title="raster mask. green values are not masked." alt="raster mask. green values are not masked." width="100%" />
 
-Notice in the image above, all pixels that are green represent pixels that are 
+Notice in the image above, all pixels that are green represent pixels that are
 OK or not masked. This means they weren't flagged as potential clouds or shadows.
-All pixels that are WHITE are masked - these are areas of clouds and shadows. 
+All pixels that are WHITE are masked - these are areas of clouds and shadows.
 
 ## Apply a mask
 
@@ -246,17 +247,17 @@ all_landsat_bands_mask <- mask(all_landsat_bands_st, mask = cloud_mask_189)
 par(col.axis="white", col.lab="white", tck=0)
 # then plot the data
 plotRGB(all_landsat_bands_mask,
-        r=4, g=3, b=2, 
+        r=4, g=3, b=2,
         main="RGB image - are all of the clouds gone from our image?",
-        axes=F)
+        axes=T)
 box(col="white")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/apply-mask-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="100%" />
 
-Notice above that i didn't have to use the stretch function to force the data to 
-plot in R. This is because the extremely bright pixels which represented clouds, 
-are now removed from our data. 
+Notice above that I didn't have to use the stretch function to force the data to
+plot in R. This is because the extremely bright pixels which represented clouds,
+are now removed from our data.
 
 
 ```r
@@ -265,24 +266,25 @@ are now removed from our data.
 par(col.axis="white", col.lab="white", tck=0)
 # then plot the data
 plotRGB(all_landsat_bands_mask,
-        r=4, g=3, b=2, 
+        r=4, g=3, b=2,
         stretch="lin",
         main="RGB image - are all of the clouds gone from our image? \n linear stretch",
-        axes=F)
+        axes=T)
 box(col="white")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/mask-plot-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="100%" />
 
-Next, we can calculate a vegetation indices. 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title=" " alt=" " width="100%" />
+Next, we can calculate a vegetation indices.
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title="NBG for Landsat Julian Day 189" alt="NBG for Landsat Julian Day 189" width="100%" />
 
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
-* overlay the fire boundary on top of the landsat pre-fire image.
+* Overlay the fire boundary on top of the landsat pre-fire image.
 * If you were asked to QUANTIFY the pre vs post fire burn area extent, what are some problems that you can anticipate
 running into with the cloud cover - even with using the mask?
 </div>
@@ -290,13 +292,13 @@ running into with the cloud cover - even with using the mask?
 
 ## A cloud's covering our study area - what's next?
 
-Now that we have discovered a problem with our data that will impact quantitative 
-analysis of the data, what do we do? 
+Now that we have discovered a problem with our data that will impact quantitative
+analysis of the data, what do we do?
 
-Well, there are several options, most of which we won't discuss in this class. 
-However, one option is that we could go find a better image. We happen to know that 
-the conditions before the fire were rather stable in 2016. So what if we could find 
+Well, there are several options, most of which we won't discuss in this class.
+However, one option is that we could go find a better image. We happen to know that
+the conditions before the fire were rather stable in 2016. So what if we could find
 an image from say - June that doesn't have clouds?
 
 In the next lesson, we will talk about using the EarthExplorer website to download
-remote sensing data. 
+remote sensing data.
