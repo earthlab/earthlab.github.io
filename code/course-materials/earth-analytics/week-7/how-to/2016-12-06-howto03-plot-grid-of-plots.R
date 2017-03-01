@@ -1,4 +1,4 @@
-## ----crop-naip-imagey,results='hide', message=F, warning=F---------------
+## ----crop-naip-imagery, message=F, warning=F-----------------------------
 # load libraries
 library(raster)
 library(rgeos)
@@ -107,6 +107,14 @@ naip_stack_csf <-
 # transform the boundary
 fire_boundary_utm <- spTransform(fire_boundary,
                                  CRS=crs(naip_stack_csf))
+
+## export data
+# writeOGR(fire_boundary_utm,
+#           dsn="data/week6/vector_layers/fire-boundary-geomac",
+#           layer="co_cold_springs_20160711_2200_utm13n",
+#           driver="ESRI Shapefile",
+#           overwrite_layer = T)
+
 par(mfrow=c(3,1))
 
 # adjust the parameters so the axes colors are white. Also turn off tick marks.
@@ -144,6 +152,14 @@ all_modis_bands_st <- stack(all_modis_bands)
 # transform the boundary
 fire_boundary_sin <- spTransform(fire_boundary,
                                  CRS=crs(all_modis_bands_st))
+
+## export data
+# writeOGR(fire_boundary_sin,
+#           dsn="data/week6/vector_layers/fire-boundary-geomac",
+#           layer="co_cold_springs_20160711_2200_sin",
+#           driver="ESRI Shapefile",
+#           overwrite_layer = T)
+
 ## 3 = blue, 4 = green, 1= red 2= nir
 par(col.axis="white", col.lab="white", tck=0)
 plotRGB(all_modis_bands_st,

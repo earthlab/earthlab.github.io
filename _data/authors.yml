@@ -13,12 +13,18 @@
 - name: Max Joseph
   slug: max-joseph
   bio: 'Max is the director of the Analytics Hub at Earth Lab and maintains this website.'
+- name: Megan Cattau
+  slug: megan-cattau
+  bio: ''
 - name: Naupaka Zimmerman
   slug: naupaka-zimmerman
   bio: ''
+- name: NEON Data Skill
+  slug: neon-data-skill
+  bio: ''
 - name: NEON Data Skills
   slug: neon-data-skills
-  bio: 'NEON Data Skills develops tutorials that support the use of NEON data. Check out their <a href=http://www.neondataskills.org target=_blank>website</a>'
+  bio: 'NEON Data Skills develops tutorials that support the use of NEON data. Check out their <a href=http://www.neondataskills.org target=_blank data-proofer-ignore=''>website</a>'
 - name: Reproducible Science Community
   slug: reproducible-science-community
   bio: ''
