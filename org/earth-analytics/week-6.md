@@ -82,26 +82,30 @@ caption argument in your code chunks: `fig.cap="caption here".
 2. Add appropriate titles that tells someone reading your report what the map shows
 
 #### Plot 1
-Create a MAP of the **difference between NDVI pre vs post fire** (Pre fire - post-fire NDVI).
+Create a MAP of the **difference between NDVI pre vs post fire** with Landsat data (Post fire - post-fire NDVI).
 
 #### Plot 2
-Create a MAP of the **difference between NBR pre vs post fire** (Pre fire - post-fire NBR). Be sure to include a legend on your map that helps someone looking at it
+Create a MAP of the **difference between NBR pre vs post fire** with Landsat data  (Post fire - post-fire NBR). Be sure to include a legend on your map that helps someone looking at it
 understand differences
 
 #### Plot 3
-Create a classified map of **post fire NDVI** using classification values that you
+Create a classified map of **post fire NDVI** with Landsat data using classification values that you
 think make sense based upon exploring the data.
 
 #### Plot 4
-Create a classified map of **post fire NBR** using the classification thresholds below.
+Create a classified map of **post fire NBR** with Landsat data using the classification thresholds below.
 
-| SEVERITY LEVEL  | dNBR RANGE |
+| SEVERITY LEVEL  | NBR RANGE |
 |------------------------------|
 | Enhanced Regrowth | -700 to  -100  |
 | Unburned       |  -100 to +100  |
 | Low Severity     | +100 to +270  |
 | Moderate Severity  | +270 to +660  |
 | High Severity     |  +660 to +1300 |
+
+Note: if your min and max NBR values are outside of the range above, you can adjust
+-700 to be your smallest raster value and for high severity you can adjust 1300 to
+be your largest NBR raster value.
 
 ****
 
