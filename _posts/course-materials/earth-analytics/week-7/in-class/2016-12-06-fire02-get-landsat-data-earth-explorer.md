@@ -32,8 +32,12 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 / 7 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6/7 Data (~500 MB)](https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+
 </div>
+
+
+
 
 
 In class this week, we will review how to grab data from the Earth Explorer website.
