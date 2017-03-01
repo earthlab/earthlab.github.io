@@ -9,11 +9,20 @@ library(rgdal)
 
 ## ----work-with-modis-----------------------------------------------------
 # open modis bands (layers with sur_refl in the name)
-all_modis_bands <-list.files("data/week6/modis/reflectance/07_july_2016/crop",
+all_modis_bands_july7 <-list.files("data/week6/modis/reflectance/07_july_2016/crop",
            pattern=glob2rx("*sur_refl*.tif$"),
            full.names = T)
+# create spatial raster stack
+all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
 
-all_modis_bands_st <- stack(all_modis_bands)
+# view range of values in stack
+str(all_modis_bands_st_july7[[2]])
+
+## ----assign-no-data------------------------------------------------------
+# deal with nodata value --  -28672 
+all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
+# options("scipen"=100, "digits"=4)
+plot(all_modis_bands_st_july7[[2]])
 
 ## ----import-shapefile, results='hide', echo=F----------------------------
 # view fire overlay boundary
@@ -29,7 +38,7 @@ fire_boundary_sin <- spTransform(fire_boundary,
 
 ## ----plot-modis-layers, echo=F, fig.cap="plot MODIS stack"---------------
 ## 3 = blue, 4 = green, 1= red 2= nir
-plotRGB(all_modis_bands_st,
+plotRGB(all_modis_bands_st_july7,
         r=1, g =4, b=3,
         stretch="lin",
         main="MODIS post-fire RGB image\n Cold springs fire site")
@@ -47,13 +56,10 @@ cloud_mask_7July[cloud_mask_7July > 0] <- NA
 plot(cloud_mask_7July)
 
 ## ----create-mask, fig.cap="Final stack masked"---------------------------
-all_modis_bands_st_mask <- mask(all_modis_bands_st,
+all_modis_bands_st_mask <- mask(all_modis_bands_st_july7,
                                 cloud_mask_7July)
 
 ## 3 = blue, 4 = green, 1= red 2= nir
-plotRGB(all_modis_bands_st,
-        r=1, g =4, b=3,
-        stretch="lin")
 
 ## ----masked-data, echo=F, fig.cap="MODIS with cloud mask"----------------
 ## 3 = blue, 4 = green, 1= red 2= nir
@@ -93,7 +99,7 @@ modis_nbr <- overlay(all_modis_bands_st_mask[[2]], all_modis_bands_st_mask[[7]],
 modis_nbr <- modis_nbr * 1000
 
 # create classification matrix
-reclass <- c(-700, -100, 1,
+reclass <- c(-1001, -100, 1,
              -100, 100, 2,
              100, 270, 3,
              270, 660, 4,
@@ -119,4 +125,80 @@ freq(modis_nbr_cl, useNA='no')
 final_burn_area_high_sev <- freq(modis_nbr_cl, useNA='no', value=5)
 final_burn_area_moderate_sev <- freq(modis_nbr_cl, useNA='no', value=4)
 
+
+## ----open-post-fire, echo=F----------------------------------------------
+
+# open modis bands (layers with sur_refl in the name)
+all_modis_bands_july17 <-list.files("data/week6/modis/reflectance/17_july_2016/crop",
+           pattern=glob2rx("*sur_refl*.tif$"),
+           full.names = T)
+
+all_modis_bands_st_july17 <- stack(all_modis_bands_july17)
+
+# deal with nodata value --  -28672 
+all_modis_bands_st_july17[all_modis_bands_st_july17 < -100] <- NA
+
+# import cloud mask & Mask data
+cloud_mask_17July <- raster("data/week6/modis/reflectance/17_july_2016/crop/cloud_mask_july17_500m.tif")
+cloud_mask_17July[cloud_mask_17July > 0] <- NA
+all_modis_bands_st_mask_july17 <- mask(all_modis_bands_st_july17,
+                                cloud_mask_17July)
+
+
+## ----plot-rgb-post-fire, fig.cap="RGB post fire"-------------------------
+# clouds removed 
+plotRGB(all_modis_bands_st_mask_july17, 
+        1,4,3,
+        stretch="lin",
+        main="Final data with mask")
+
+## ----mask-data, echo=F---------------------------------------------------
+# calculate NBR
+modis_nbr_july17 <- overlay(all_modis_bands_st_mask_july17[[2]], 
+                            all_modis_bands_st_mask_july17[[7]],
+                            fun=get_veg_index)
+
+modis_nbr_july17 <- modis_nbr_july17 * 1000
+
+modis_nbr_july17_cl <- reclassify(modis_nbr_july17,
+                     reclass_m)
+# crop to final extent 
+
+modis_nbr_july17_cl <- crop(modis_nbr_july17_cl, fire_boundary_sin)
+
+## ----view-barplot, fig.cap="barplot of final post fire classified data."----
+the_colors = c("palevioletred4","palevioletred1","ivory1")
+barplot(modis_nbr_july17_cl,
+        main="Distribution of burn values",
+        col=rev(the_colors),
+        names.arg=c("Low Severity","Moderate Severity","High Severity"))
+
+## ----plot-data-reclass, echo=F-------------------------------------------
+# the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
+the_colors = c("ivory1","palevioletred1","palevioletred4")
+
+# reclass data
+# mar bottom, left, top and right
+par(xpd = F, mar=c(0,0,2,5))
+plot(modis_nbr_july17_cl,
+     main="MODIS NBR for the Cold Springs site",
+     ext=extent(fire_boundary_sin),
+     col=the_colors,
+     axes=F,
+     box=F,
+     legend=F)
+plot(fire_boundary_sin, 
+     add=T)
+par(xpd = TRUE)
+legend(modis_nbr_july17_cl@extent@xmax-100, modis_nbr_july17_cl@extent@ymax,
+       c("Low Severity", "Moderate Severity", "High Severity"),
+       fill=the_colors,
+       cex=.9,
+       bty="n")
+
+final_burn_area_high_sev <- freq(modis_nbr_july17_cl, useNA='no', value=5)
+final_burn_area_moderate_sev <- freq(modis_nbr_july17_cl, useNA='no', value=4)
+
+## ----dev-off, echo=F, results='hide'-------------------------------------
+dev.off()
 
