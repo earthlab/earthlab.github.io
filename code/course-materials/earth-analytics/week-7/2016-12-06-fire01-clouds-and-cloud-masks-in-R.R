@@ -86,7 +86,7 @@ plotRGB(all_landsat_bands_mask,
         axes=T)
 box(col="white")
 
-## ----calculate-veg-index, echo=F, fig.cap="NBG for Landsat Julian Day 189", fig.height=7, fig.width=5----
+## ----calculate-veg-index, echo=F, fig.cap="NBG for Landsat Julian Day 189", fig.height=7, fig.width=5, fig.cap="landsat NBR plot"----
 ## Create a function to calculate a veg index
 get_veg_index <- function(band1, band2){
   # this function calculates the normalize difference between two bands

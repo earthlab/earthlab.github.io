@@ -277,7 +277,7 @@ box(col="white")
 
 Next, we can calculate a vegetation indices.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title="NBG for Landsat Julian Day 189" alt="NBG for Landsat Julian Day 189" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title="landsat NBR plot" alt="landsat NBR plot" width="100%" />
 
 
 <div class="notice--warning" markdown="1">
