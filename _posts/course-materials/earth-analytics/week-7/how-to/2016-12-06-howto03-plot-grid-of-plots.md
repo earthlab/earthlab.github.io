@@ -173,4 +173,4 @@ Your homework this week should look something like this:
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="100%" />
