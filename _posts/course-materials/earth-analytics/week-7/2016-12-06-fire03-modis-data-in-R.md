@@ -225,11 +225,14 @@ Using MODIS data from 7 July 2016 - calculate the total area of land classified 
 
 
 ```r
+par(col.axis="white", col.lab="white", tck=0)
 # clouds removed 
 plotRGB(all_modis_bands_st_mask_july17, 
         1,4,3,
         stretch="lin",
-        main="Final data with mask")
+        main="Final data with mask",
+        axes=T)
+box(col="white")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/2016-12-06-fire03-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="100%" />
