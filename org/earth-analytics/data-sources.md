@@ -59,7 +59,7 @@ from international, national and even local groups.
 |Site Name / URL | Description|
 |---|
 |  <a href="http://viewer.nationalmap.gov/viewer/" target="_blank">USGS National Map (large scale data)</a> | |
-| <a href="http://www.census.gov/" target="_blank">US Census Bureau </a> ||
+| <a href="http://www.census.gov/" target="_blank" data-proofer-ignore=''>US Census Bureau </a> ||
 |  <a href="http://www.epa.gov" target="_blank">US Environmental Protection Agency (EPA)</a> | Data for Air, Water, Land, Health (organized in disconnected fashion – search the site on “data download” to find various download pages)	 |
 | <a href="http://www.fws.gov/" target="_blank">US Fish and Wildlife Service </a> | Most of the data are stored on data.gov |
 | <a href="http://www.blm.gov/co/st/en/BLM_Programs/geographical_sciences/gis.html" target="_blank">US Bureau of Land Management</a> ||
@@ -102,8 +102,8 @@ from international, national and even local groups.
 * <a href="http://www.fao.org/geonetwork/srv/en/main.home#" target="_blank">FAO (United Nations Food and Agriculture Org)</a>
 * <a href="http://www.ciesin.org/" target="_blank">CIESIN (Ctr INt’l Earth Science Info Network</a>
 * <a href="http://www.terrainmap.com/" target="_blank">TERRAIN Map (John Childs data portal) </a>
-* <a href="www.openstreetmap.org/" target="_blank">OSM (Open Street Map)</a>
-* <a href="http://www.fgdc.gov/library" target="_blank"> Metadata and Federal  Data Standards (Federal Geographic Data Committee, FGDC)</a>
+* <a href="http://www.openstreetmap.org/" target="_blank">OSM (Open Street Map)</a>
+* <a href="http://www.fgdc.gov/" target="_blank"> Metadata and Federal  Data Standards (Federal Geographic Data Committee, FGDC)</a>
 
 ## Snow & Ice
 
