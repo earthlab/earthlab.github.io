@@ -55,7 +55,7 @@ There are no new readings for this week.
 
 ### Produce a .pdf report
 
-Create a new `R markdown `document. Name it: **lastName-firstInitial-week6.Rmd**
+Create a new `R markdown `document. Name it: **lastName-firstInitial-week7.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `PDF` format. Submit both the
 `.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
@@ -97,8 +97,8 @@ An example of what this plot should look like (without all of the labels that
 you need to add, [is here at the bottom of the page.]({{ site.url }}/course-materials/earth-analytics/week-7/grid-of-plots-report/)
 
 #### Plot 2 - Pre-fire NBR using landsat data
-Create a MAP of the classified pre-burn NBR using a newly downloaded **Landsat** file.
-Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
+Create a MAP of the classified pre-burn NBR using the landsat scene that you
+downloaded from Earth Explorer this week. Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
 on top of the NBR map. Add a legend. This file should not have a cloud in the
 middle of the burn area! You can use Earth Explorer to download the data. Use
 the classes that you used in your homework from week 6 to classify the data.
