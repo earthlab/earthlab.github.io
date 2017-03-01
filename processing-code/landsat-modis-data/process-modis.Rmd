@@ -164,7 +164,48 @@ barplot(cloud_mask,
 ```
 
 
-```{r mask-stack}
+```{r extract-masked-layers }
 
+state_rast_july17 <- raster("data/week6/modis/reflectance/17_july_2016/crop/MOD09GA.A2016199.h09v05.006.2016201065406_state_1km_1.tif")
+# we can use detect bit info to view the bit structure
+detectBitInfo(state_rast_july17)
+
+## unpack bits  (required MODIS)
+
+cloud_mask_july17 <- extractBits(state_rast_july17, bitShift=0, bitMask=3,
+                          decodeOnly=TRUE)
+
+
+# open modis bands
+all_modis_bands_july17 <-list.files("data/week6/modis/reflectance/17_july_2016/crop", 
+           pattern=glob2rx("*sur_refl*.tif$"),
+           full.names = T)
+
+all_modis_bands_july17_st <- stack(all_modis_bands_july17)
+
+# this is a 1000 m layer but i want a 500m layer 
+cloud_mask_july17_500m <- resample(cloud_mask_july17,
+         all_modis_bands_july17_st)
+
+# export mask 
+writeRaster(cloud_mask_july17_500m, 
+            filename= "data/week6/modis/reflectance/17_july_2016/crop/cloud_mask_july17_500m.tif",
+              format = "GTiff", # save as a tif
+              datatype='INT2S', # save as a INTEGER rather than a float
+              overwrite = T)
+
+# makeWeights(state_rast, bitShift=0, bitMask=3,
+#            decodeOnly=TRUE)
+
+# get inFo about bit layer for this particular modis product
+detectBitInfo("MOD09GA")
+
+plot(cloud_mask_july17_500m,
+     main="Cloud mask layer")
+barplot(cloud_mask,
+     main="distribution of masked pixels",
+     xlab="Cloud Status",
+     names.arg=c("Clear", "Cloudy", "Mixed"))
+plot(all_modis_bands_july17_st[[1]])
 ```
 
