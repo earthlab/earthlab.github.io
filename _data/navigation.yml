@@ -47,18 +47,24 @@ earth-analytics-2017:
         url: /course-materials/earth-analytics/mid-term/
       - title: "Final project"
         url: /course-materials/earth-analytics/final-project/
-  - title: "Course Weeks 1-3"
+      - title: "Data sources"
+        url: /course-materials/earth-analytics/data-sources/
+  - title: "Weeks 1-2 - Time Series"
     children:
       - title: "Week 1: Getting Started With Data"
         url: /course-materials/earth-analytics/week-1/
       - title: "Week 2: Time Series Data in R"
         url: /course-materials/earth-analytics/week-2/
+  - title: "Weeks 3-5 - Lidar & Spatial data in R"
+    children:
       - title: "Week 3: Lidar Data in R"
         url: /course-materials/earth-analytics/week-3/
       - title: "Week 4: Review: Raster classification in R"
         url: /course-materials/earth-analytics/week-4/
       - title: "Week 5: Spatial data in R"
         url: /course-materials/earth-analytics/week-5/
+  - title: "Weeks 6-7 - Fire & Spectral RS"
+    children:
       - title: "Week 6: Fire: spectral remote sensing in R"
         url: /course-materials/earth-analytics/week-6/
       - title: "Week 7: Fire 2: spectral remote sensing"
