@@ -24,7 +24,7 @@ order: 4
 
 After completing this tutorial, you will be able to:
 
-*
+* Adjust the spatial extent of a plot using the `ext=` argument in R. 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 

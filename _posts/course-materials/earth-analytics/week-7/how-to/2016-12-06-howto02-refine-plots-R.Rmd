@@ -25,6 +25,8 @@ order: 2
 After completing this tutorial, you will be able to:
 
 * Remove borders and refine the size of plots in an output rmarkdown report.
+* Adjust the aspect ratio of a plot rendered to a pdf using knitr.
+* Customize the location of legends in a plot in R.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -254,7 +256,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 ```
 
-On to the pesky white space on either side of the plot. There are several 
+On to the pesky white space on either side of the plot. There are several
 ways to handle this. One is by specifying margins for out plot.
 
 Notice in the plot above that there is
@@ -290,8 +292,8 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 dev.off()
 ```
 
-I can do better than that however. That box around the legend is annoying. Let's 
-remove it using the legend argument: `bty="n"`. Let's also make the legend 
+I can do better than that however. That box around the legend is annoying. Let's
+remove it using the legend argument: `bty="n"`. Let's also make the legend
 fonts a bit smaller using the argument `cex=.9`.
 
 ```{r fix-plot-legend33, fig.cap="plot with legend in the upper right. "}
@@ -384,6 +386,5 @@ plots!
 dev.off()
 ```
 
-That looks better, doesn't it? Leave comments below if you find other 
+That looks better, doesn't it? Leave comments below if you find other
 tricks to make your plot look better!
-
