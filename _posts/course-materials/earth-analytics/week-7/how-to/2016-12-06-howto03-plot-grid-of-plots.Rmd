@@ -31,16 +31,17 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6/7 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6/7 Data (~500 MB)](https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 
-```{r crop-naip-imagey,results='hide', message=F, warning=F}
+```{r crop-naip-imagery, message=F, warning=F}
 # load libraries
 library(raster)
 library(rgeos)
 library(rgdal)
 ```
+
 
 ```{r create-variable}
 # import landsat data
@@ -155,6 +156,7 @@ title("My Title", outer=TRUE)
 When you are done with plotting in a grid space, be sure to reset your plot space
 using `dev.off()`.
 
+
 ```{r dev-off-pls2, message=F, warning=F, results="hide"}
 dev.off()
 ```
@@ -176,6 +178,14 @@ naip_stack_csf <-
 # transform the boundary
 fire_boundary_utm <- spTransform(fire_boundary,
                                  CRS=crs(naip_stack_csf))
+
+## export data
+# writeOGR(fire_boundary_utm,
+#           dsn="data/week6/vector_layers/fire-boundary-geomac",
+#           layer="co_cold_springs_20160711_2200_utm13n",
+#           driver="ESRI Shapefile",
+#           overwrite_layer = T)
+
 par(mfrow=c(3,1))
 
 # adjust the parameters so the axes colors are white. Also turn off tick marks.
@@ -213,6 +223,14 @@ all_modis_bands_st <- stack(all_modis_bands)
 # transform the boundary
 fire_boundary_sin <- spTransform(fire_boundary,
                                  CRS=crs(all_modis_bands_st))
+
+## export data
+# writeOGR(fire_boundary_sin,
+#           dsn="data/week6/vector_layers/fire-boundary-geomac",
+#           layer="co_cold_springs_20160711_2200_sin",
+#           driver="ESRI Shapefile",
+#           overwrite_layer = T)
+
 ## 3 = blue, 4 = green, 1= red 2= nir
 par(col.axis="white", col.lab="white", tck=0)
 plotRGB(all_modis_bands_st,
@@ -224,3 +242,5 @@ plotRGB(all_modis_bands_st,
 box(col="white")
 plot(fire_boundary_sin, add=T)
 ```
+
+
