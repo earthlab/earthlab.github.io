@@ -16,7 +16,6 @@ comments: true
 order: 3
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -36,7 +35,6 @@ data for week 6 of the course.
 
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
-
 
 
 ```{r load-libraries, echo=F, results='hide', message=F, warning=F}
@@ -66,7 +64,7 @@ all_modis_bands_july7 <-list.files("data/week6/modis/reflectance/07_july_2016/cr
            full.names = T)
 # create spatial raster stack
 all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
-#all_modis_bands_july7_br <- brick(all_modis_bands_st_july7, datatype='INT2S')
+
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
 ```
@@ -88,8 +86,15 @@ page 14 of the guide. Part of the table can be seen below.
 
 The column headings for the table below:
 
-|Group | Science Data Sets (HDF Layers (21)) | Units | Data Type | Fill Value | Valid Range | Scale Factor |
+| Group | Science Data Sets (HDF Layers (21)) | Units | Data Type | Fill Value | Valid Range | Scale Factor |
 |---|
+| | surf_Refl_b01: 500m Surface Reflectance Band 1 (620-670 nm) | Reflectance | 16-bit signed integer | -28672 | -100 - 16000 | 0.0001 |
+| | surf_Refl_b02: 500m Surface Reflectance Band 2 (841-876 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
+| | surf_Refl_b03: 500m Surface Reflectance Band 3 (459-479 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
+| | surf_Refl_b04: 500m Surface Reflectance Band 4 (545-565 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
+| | surf_Refl_b05: 500m Surface Reflectance Band 5 (1230-1250 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
+| | surf_Refl_b06: 500m Surface Reflectance Band 6 (1628-1652 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
+| | surf_Refl_b07: 500m Surface Reflectance Band 7 (2105-2155 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
 
 <figure>
 <a href="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png" target="_blank">
@@ -110,9 +115,15 @@ Looking at histograms of our data, we can see that the range of values is not
 what we'd expect. We'd expect values between -100 to 10000 yet instead we have
 much larger numbers.
 
-```{r explore-data, fig.cap="MODIS stack band 2 plot"}
-# options("scipen"=100, "digits"=4)
-hist(all_modis_bands_st_july7)
+```{r explore-data, warning=F, message=F, fig.cap="MODIS stack band 2 plot"}
+# turn off scientific notation
+options("scipen"=100, "digits"=4)
+par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+hist(all_modis_bands_st_july7,
+  col="springgreen",
+  xlab="Reflectance Value")
+mtext("Distribution of reflectance values for each band\n Data not scaled", outer = TRUE, cex = 1.5)
+
 ```
 
 ## Scale Factor
@@ -128,8 +139,11 @@ shown below:
 # deal with nodata value --  -28672
 all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
 # view histogram of each layer in our stack
-# options("scipen"=100, "digits"=4)
-hist(all_modis_bands_st_july7)
+par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+hist(all_modis_bands_st_july7,
+   xlab="Reflectance Value",
+   col="springgreen")
+mtext("Distribution of reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
 ```
 
 Great - now the range of values in our data appear more reasonable. Next, let's
@@ -145,8 +159,12 @@ the extreme negative values that may impact out analysis.
 ```{r assign-no-data, fig.cap="MODIS stack histogram plot with NA removed"}
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
+par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
 # plot histogram
-hist(all_modis_bands_st_july7)
+hist(all_modis_bands_st_july7,
+  xlab="Reflectance Value",
+  col="springgreen")
+mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
 ```
 
 Next we plot MODIS layers. Use the MODIS band chart to figure out what bands you
@@ -414,7 +432,7 @@ modis_nbr_july17_cl <- crop(modis_nbr_july17_cl, fire_boundary_sin)
 ## Post fire NBR results
 
 
-```{r view-barplot, fig.cap="barplot of final post fire classified data."}
+```{r view-barplot, fig.cap="barplot of final post fire classified data.", fig.height=5, fig.width=5}
 the_colors = c("palevioletred4","palevioletred1","ivory1")
 barplot(modis_nbr_july17_cl,
         main="Distribution of burn values - Post Fire",
