@@ -3,7 +3,7 @@ layout: single
 title: "Intro to spectral remote sensing"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and spaceborne vs airborne sensors. "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-02-28'
+modified: '2017-03-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/intro-spectral-data-r/
@@ -62,7 +62,7 @@ case the sun.
    <figcaption>LEFT: Remote sensing systems which measure energy that is naturally
    available are called passive sensors. RIGHT: Active sensors emit their own
    energy from a source on the instrument itself. Source:
-    <a href="http://www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/passiv.gif" target="_blank">Natural Resources Canada</a>.
+    <a href="http://www.nrcan.gc.ca/" target="_blank">Natural Resources Canada</a>.
    </figcaption>
 </figure>
 
@@ -198,7 +198,6 @@ distributed across the electromagnetic spectrum compared to the 3 or 4 that
 NAIP imagery has. Landsat also has one panchromatic band that collects information
 across the visible portion of the spectrum at 15 m spatial resolution.
 
-
 Landsat 8 bands 1-9 are listed below:
 
 #### Landsat 8 Bands
@@ -261,9 +260,7 @@ to work with NAIP imagery in `R`.
 
 ## Additional resources:
 
-* <a href="
-<a href="http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank" data-proofer-ignore=''>Learn more about band combinations</a>
-* <a href="
-<a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank" data-proofer-ignore=''>About multi spectral data - Penn State E-education</a>
+* <a href="http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank" data-proofer-ignore=''>Learn more about band combinations</a>
+* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank" data-proofer-ignore=''>About multi spectral data - Penn State E-education</a>
 
 </div>

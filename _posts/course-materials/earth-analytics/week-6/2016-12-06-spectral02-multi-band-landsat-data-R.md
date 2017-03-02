@@ -3,7 +3,7 @@ layout: single
 title: "Working with multiple bands in R."
 excerpt: "In this lesson we will review how to open up a multi-band image in R. "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-02-23'
+modified: '2017-03-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -112,7 +112,7 @@ what we would see with our eyes if we were in the airplane looking down at the e
 
 If the image has a 4th NIR band, you can create a CIR (sometimes called false color)
 image. In a color infrared image, the NIR band is plotted on the "red" band. Thus vegetation, which
-reflects stronly in the NIR part of the spectrum, is colored "red".
+reflects strongly in the NIR part of the spectrum, is colored "red".
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral02-multi-band-landsat-data-R/cir-image-1.png" title="3 band cir image" alt="3 band cir image" width="100%" />
 
@@ -560,7 +560,7 @@ In most cases, we can work with a `RasterBrick` in the same way we might work
 with a `RasterStack`. However a `RasterBrick` is often more efficient and faster
 to process - which is important when working with larger files.
 
-* <a href="http://www.inside-r.org/packages/cran/raster/docs/brick" target="_blank">
+* <a href="http//www.inside-r.org/packages/cran/raster/docs/brick" target="_blank">
 More on Raster Bricks</a>
 
 We can turn a `RasterStack` into a `RasterBrick` in `R` by using
