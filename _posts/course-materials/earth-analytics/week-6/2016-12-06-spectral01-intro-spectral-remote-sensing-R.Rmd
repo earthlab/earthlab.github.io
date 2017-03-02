@@ -198,7 +198,6 @@ distributed across the electromagnetic spectrum compared to the 3 or 4 that
 NAIP imagery has. Landsat also has one panchromatic band that collects information
 across the visible portion of the spectrum at 15 m spatial resolution.
 
-
 Landsat 8 bands 1-9 are listed below:
 
 #### Landsat 8 Bands
@@ -261,9 +260,7 @@ to work with NAIP imagery in `R`.
 
 ## Additional resources:
 
-* <a href="
-<a href="http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank" data-proofer-ignore=''>Learn more about band combinations</a>
-* <a href="
-<a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank" data-proofer-ignore=''>About multi spectral data - Penn State E-education</a>
+* <a href="http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank" data-proofer-ignore=''>Learn more about band combinations</a>
+* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank" data-proofer-ignore=''>About multi spectral data - Penn State E-education</a>
 
 </div>
