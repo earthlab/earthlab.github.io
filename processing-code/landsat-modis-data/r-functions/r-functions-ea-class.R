@@ -86,6 +86,8 @@ writeRaster(x = landsat_ndvi,
 plot(landsat_ndvi,
      main="Landsat derived NDVI\n 23 July 2016")
 
-
+# ideas for loops
+# loop through a list of files and crop each one using a crop extent (i had to do this)
+# crop a raster but make sure the crop layer is in the right CRS
 
 
