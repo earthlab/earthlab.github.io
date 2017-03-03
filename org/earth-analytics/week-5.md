@@ -125,12 +125,12 @@ or a strong relationship than the other.
 * Add a 2-3 sentence caption below each plot that describes what it shows HINT: you can use the knitr argument fig.cap="Caption here" if you are knitting to pdf to automatically add captions.
 
 ## Homework due: Friday Feb 24 2017 @ noon.
-Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
+Submit your report in both `.Rmd` and `.pdf` format to the D2l dropbox.
 
 </div>
 
 
-## .Pdf Report structure & code: 10%
+## .pdf Report structure & code: 10%
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -147,7 +147,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 |---|---|---|---|---|
 | Code chunk arguments are used to hide warnings |  |  | | |
 | Code chunk arguments are used to hide code and just show output |  | | |  |
-| PDf report emphasizes the write up and the code outputs rather than showing each step of the code |  | | |  |
+| .pdf report emphasizes the write up and the code outputs rather than showing each step of the code |  | | |  |
 
 ## Report questions: 40%
 
@@ -156,10 +156,10 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Student clearly defines Coordinate Reference System (CRS) (1 paragraph is well written and correctly describes what a CRS is.) |  |  | | |
 | Describe what you need to do when you want to plot 2 spatial datasets in 2 different Coordinate Reference System (CRS) (paragraph is well written and correctly describes the key step.) |  |  | | |
 | Student compared the scatter plots of average and max height and determined which relationship is "better" (more comparable)|  |  | | |
-| Student references what they see in the scatter plots and the difference bar plots to make their argument for which one is better. The argument is based upon data results and what they learned in the readings / class. |  |  | | |
+| Student references what they see in the scatter plots and the difference bar plots to make their argument for which relationships (average height vs max height) is better. The argument is based upon data results and what they learned in the readings / class. |  |  | | |
 | 1-2 readings from the homework are referenced in this paragraph.|  |  | | |
-| 3 sources of uncertainty are discussed in the homework. |||||
-| The sources of uncertainty either reference the readings or are real uncertainty sources. |||||
+| 3 sources of uncertainty associated with the lidar derived tree heights and the in situ measurements of tree height are discussed in the homework. |||||
+| The sources of uncertainty either reference the readings or are other sources discussed in class or observed by the student. |||||
 
 ## Plots are worth 40% of the assignment grade
 
@@ -170,7 +170,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Code chunk arguments are used to hide warnings |  |  | | |
 | Plot renders on the pdf. |  |  | | |
 | Study area location is correct. |  |  | | |
-| Plots have a 2-3 caption that clearly describes plot contents. |  |  | | |
+| Plots have a 2-3 sentence caption that clearly describes plot contents. |  |  | | |
 
 ### Plot 2 Field site detail map
 
@@ -178,9 +178,9 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 |---|---|---|---|---|
 | Roads and plots are included on the map |  |  | | |
 | AOI boundary is included on the map. |  |  | | |
-| Roads are symbolized by type. |  |  | | |
-| Plots are symbolized by type. |  |  | | |
-| Plots has a title that defined plot contents. |  |  | | |
+| Road lines are symbolized by type. |  |  | | |
+| Plot location points are symbolized by type. |  |  | | |
+| Plots has a title that clearly defines plot contents. |  |  | | |
 | Plots have a 2-3 sentence caption that clearly describes plot contents. |  |  | | |
 
 ## Plots 3 & 4 - scatterplots insitu vs lidar
@@ -205,11 +205,18 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 ## Graduate regression scatter plot 1
 
+**10% of the regression plot grade**
+
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
 | Bar plot of maximum measured minus lidar tree height is included. |  |  | | Plot is not included |
-| Bar plot of average measured minus lidar tree height is included. |  |  | |  plot is not included |
+| Bar plot of average measured minus lidar tree height is included. |  |  | | Plot is not included |
 | Plots have a title that clearly describes plot contents. |  |  | | |
 | X & Y axes are labeled appropriately. |  |  | | |
 | Plots have a 2-3 sentence caption that clearly describes plot contents. |  |  | | |
+
+**90% of the regression plot grade**
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
 | 1-2 Paragraphs are included that describe what these plots show in terms of the relationship between lidar and measured tree height and which metrics may or may not be better (average vs maximum height). |  |  | | |

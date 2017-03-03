@@ -5,7 +5,7 @@ title: "Example data sources"
 permalink: /course-materials/earth-analytics/data-sources/
 sidebar:
   nav: earth-analytics-2017
-comments: false
+comments: true
 author_profile: false
 ---
 
