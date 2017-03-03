@@ -16,6 +16,7 @@ comments: true
 order: 3
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -39,6 +40,7 @@ data for week 6 of the course.
 
 
 
+
 First, let's import MODIS data. Below notice that we have used a slightly different
 version of the `list.files()` `pattern=` argument.
 
@@ -57,7 +59,7 @@ all_modis_bands_july7 <-list.files("data/week6/modis/reflectance/07_july_2016/cr
            full.names = T)
 # create spatial raster stack
 all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
-
+#all_modis_bands_july7_br <- brick(all_modis_bands_st_july7, datatype='INT2S')
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
 ## class       : RasterLayer 
@@ -87,15 +89,8 @@ page 14 of the guide. Part of the table can be seen below.
 
 The column headings for the table below:
 
-| Group | Science Data Sets (HDF Layers (21)) | Units | Data Type | Fill Value | Valid Range | Scale Factor |
+|Group | Science Data Sets (HDF Layers (21)) | Units | Data Type | Fill Value | Valid Range | Scale Factor |
 |---|
-| | surf_Refl_b01: 500m Surface Reflectance Band 1 (620-670 nm) | Reflectance | 16-bit signed integer | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b02: 500m Surface Reflectance Band 2 (841-876 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b03: 500m Surface Reflectance Band 3 (459-479 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b04: 500m Surface Reflectance Band 4 (545-565 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b05: 500m Surface Reflectance Band 5 (1230-1250 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b06: 500m Surface Reflectance Band 6 (1628-1652 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b07: 500m Surface Reflectance Band 7 (2105-2155 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
 
 <figure>
 <a href="{{ site.url }}/images/course-materials/earth-analytics/week-7/MOD09GA-metadata.png" target="_blank">
@@ -118,13 +113,28 @@ much larger numbers.
 
 
 ```r
-# turn off scientific notation
-options("scipen"=100, "digits"=4)
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
-hist(all_modis_bands_st_july7,
-  col="springgreen",
-  xlab="Reflectance Value")
-mtext("Distribution of reflectance values for each band\n Data not scaled", outer = TRUE, cex = 1.5)
+# options("scipen"=100, "digits"=4)
+hist(all_modis_bands_st_july7)
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
+
+## Warning in .hist1(raster(x, y[i]), maxpixels = maxpixels, main =
+## main[y[i]], : 2% of the raster cells were used. 100000 values used.
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
@@ -143,11 +153,8 @@ shown below:
 # deal with nodata value --  -28672
 all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
 # view histogram of each layer in our stack
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
-hist(all_modis_bands_st_july7,
-   xlab="Reflectance Value",
-   col="springgreen")
-mtext("Distribution of reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
+# options("scipen"=100, "digits"=4)
+hist(all_modis_bands_st_july7)
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="100%" />
@@ -166,12 +173,8 @@ the extreme negative values that may impact out analysis.
 ```r
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
 # plot histogram
-hist(all_modis_bands_st_july7,
-  xlab="Reflectance Value",
-  col="springgreen")
-mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
+hist(all_modis_bands_st_july7)
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="100%" />
