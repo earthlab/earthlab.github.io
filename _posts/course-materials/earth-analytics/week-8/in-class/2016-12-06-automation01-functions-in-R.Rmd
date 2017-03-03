@@ -12,7 +12,7 @@ module-title: 'Clouds, shadows & cloud masks in R'
 module-description: 'In this module we will learn more about dealing with clouds, shadows and other elements that can interfere with scientific analysis of remote sensing data. '
 module-nav-title: 'Fire / spectral remote sensing data - in R'
 module-type: 'class'
-week: 7
+week: 8
 sidebar:
   nav:
 author_profile: false
@@ -29,7 +29,7 @@ order: 1
 
 After completing this tutorial, you will be able to:
 
-* 
+*
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
