@@ -72,13 +72,13 @@ and warnings and code as you see fit.
 
 1. What is the spatial resolution of NAIP, Landsat & MODIS data in meters? Are these data types different in terms of resolution? How could this resolution difference impact analysis using these data? Use plot 1 BELOW to visually show the difference.
 2. Calculate the area of "high severity" and the area of "moderate severity" burn in meters using the post-fire data for both Landsat and MODIS. State what the values are in your answer. Are the values different? Why / why not? Use plots 4 and 5 to discuss any differences you notice.
-3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plot 2 in your homework to answer this question.
+3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plots 2 & 3 in your homework to answer this question.
 
 #### Include the plots below.
 For all plots:
 
 1. Be sure to describe what each plot shows in your final report using a figure
-caption argument in your code chunks: `fig.cap="caption here".
+caption argument in your code chunks: `fig.cap="caption here`.
 2. Add appropriate titles that tells someone reading your report what the map shows
 3. Use clear legends as appropriate - especially for the classified data plots!
 
@@ -184,7 +184,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | All three plots are correct (color infrared with NIR light on the red band.) |  |  | | |
 | Plots are stacked vertically (or horizontally) and render properly on the pdf. |  |  | | |
 | Plot contains a meaningful title. |  |  | | |
-| Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
 
 #### Plot 2 - Pre-fire NBR using landsat data
 
@@ -196,7 +196,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Plot renders on the pdf. |  |  | | |
 | Plot has been classified according to burn severity classes specified in the assignment. |  |  | | |
 | Plot contains a meaningful title. |  |  | | |
-| Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
 | Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
 | Fire boundary exent has been overlayed on top of the plot |  |  | | |
 
@@ -209,7 +209,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Plot has been classified according to burn severity classes specified in the assignment. |  |  | | |
 | If there are clouds in the scene, a cloud mask has been applied. |  |  | | |
 | Plot has a clear title that describes the data being shown. |  |  | | |
-| Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
 | Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
 | Fire boundary exent has been overlayed on top of the plot |  |  | | |
 
@@ -222,7 +222,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Plot has been classified according to burn severity classes specified in the assignment. |  |  | | |
 | If there are clouds in the scene, a cloud mask has been applied. |  |  | | |
 | Plot has a clear title that describes the data being shown. |  |  | | |
-| Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
 | Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
 | Fire boundary exent has been overlayed on top of the plot |  |  | | |
 
@@ -234,7 +234,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Plot has been classified according to burn severity classes specified in the assignment. |  |  | | |
 | If there are clouds in the scene, a cloud mask has been applied. |  |  | | |
 | Plot has a clear title that describes the data being shown. |  |  | | |
-| Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
 | Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
 | Fire boundary exent has been overlayed on top of the plot |  |  | | |
 | Data have been scaled using the scale factor & the no data value has been applied for values outside of the range of acceptable values for MODIS reflectance.  |  |  | | |

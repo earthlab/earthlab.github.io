@@ -8,7 +8,7 @@ category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/refine-plots-report/
 nav-title: 'Refine spatial plots'
-week: 7
+week: 8
 sidebar:
   nav:
 author_profile: false
