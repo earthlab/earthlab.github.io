@@ -14,26 +14,32 @@ all_modis_bands_july7 <-list.files("data/week6/modis/reflectance/07_july_2016/cr
            full.names = T)
 # create spatial raster stack
 all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
-#all_modis_bands_july7_br <- brick(all_modis_bands_st_july7, datatype='INT2S')
+
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
 
-## ----explore-data, fig.cap="MODIS stack band 2 plot"---------------------
-# options("scipen"=100, "digits"=4)
-hist(all_modis_bands_st_july7)
+## ----explore-data, warning=F, message=F, fig.cap="MODIS stack band 2 plot"----
+# turn off scientific notation
+options("scipen"=100, "digits"=4)
+hist(all_modis_bands_st_july7,
+  col="springgreen")
 
 ## ----scale-data, fig.cap="MODIS stack histogram plot"--------------------
 # deal with nodata value --  -28672
 all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
 # view histogram of each layer in our stack
-# options("scipen"=100, "digits"=4)
-hist(all_modis_bands_st_july7)
+hist(all_modis_bands_st_july7,
+   xlab="Reflectance Value",
+   col="springgreen")
 
 ## ----assign-no-data, fig.cap="MODIS stack histogram plot with NA removed"----
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
 # plot histogram
-hist(all_modis_bands_st_july7)
+hist(all_modis_bands_st_july7,
+   xlab="Reflectance Value",
+  col="springgreen")
+title(main = "MY Title")
 
 ## ----import-shapefile, results='hide', echo=F----------------------------
 # view fire overlay boundary
@@ -203,7 +209,7 @@ modis_nbr_july17_cl <- reclassify(modis_nbr_july17,
 
 modis_nbr_july17_cl <- crop(modis_nbr_july17_cl, fire_boundary_sin)
 
-## ----view-barplot, fig.cap="barplot of final post fire classified data."----
+## ----view-barplot, fig.cap="barplot of final post fire classified data.", fig.height=5, fig.width=5----
 the_colors = c("palevioletred4","palevioletred1","ivory1")
 barplot(modis_nbr_july17_cl,
         main="Distribution of burn values - Post Fire",
