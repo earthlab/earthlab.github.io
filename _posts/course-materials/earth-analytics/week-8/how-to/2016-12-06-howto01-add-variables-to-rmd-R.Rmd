@@ -5,7 +5,7 @@ excerpt: " "
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
-class-lesson: ['how-to-hints-week7']
+class-lesson: ['how-to-hints-week8']
 permalink: /course-materials/earth-analytics/week-7/add-variables-to-rmarkdown-report/
 nav-title: 'Variables in rmarkdown report'
 module-title: 'Refine plots & add variables to knirt reports'
@@ -13,7 +13,7 @@ module-description: 'This tutorial set covers some basic things you can do to re
 and refining the width and height of plots to optimize space.'
 module-nav-title: 'Refine Rmarkdown reports'
 module-type: 'homework'
-week: 7
+week: 8
 sidebar:
   nav:
 author_profile: false

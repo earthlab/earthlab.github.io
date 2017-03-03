@@ -134,11 +134,11 @@ If you do, please ZIP the html file up with your .Rmd file.
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Plot is customized with appropriate titles, axis labels and colors.  | Plot is correct but is missing a title. | Plot is missing appropriate labels. | |Plot is missing|
-| Data are CROPPED using the crop_extent shapefile||| | Data are not cropped to the crop_extent shapefile|
-| Raster data are classified into discrete values || | | Data are not classified into discrete values |
-| Data Exploration Plot 1: Plot a histogram of the difference raster using the base histogram function (don’t worry about custom breaks)||| | Histogram is missing |
-| Data Exploration Plot 2: Plot a second histogram of the difference raster and customize the breaks to mimic the classes that you may want to use for your final classified raster. ||| | Histogram is missing |
+| DTM Difference plot is customized with appropriate titles, axis labels and colors.  | Plot is correct but is missing a title. | Plot is missing appropriate labels. | | Plot is missing|
+| DTM difference data are CROPPED using the crop_extent shapefile ||| | Data are not cropped to the crop_extent shapefile|
+| Difference DTM is classified into discrete values || | | Data are not classified into discrete values |
+| Data Exploration Plot 1: Plot a histogram of the DTM difference raster using the base histogram function (don’t worry about custom breaks)||| | Histogram is missing |
+| Data Exploration Plot 2: Plot a second histogram of the DTM difference raster and customize the breaks to mimic the classes that you may want to use for your final classified raster. ||| | Histogram is missing |
 | The colors and classes selected to plot the final difference raster, selected using the previous histogram s clearly show changes. | || | The colors and classes selected do not show change well / don't show change at all. |
 
 
@@ -146,9 +146,9 @@ If you do, please ZIP the html file up with your .Rmd file.
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Plot is customized with appropriate titles, axis labels and colors. | Plot is correct but is missing a title. | Plot is missing appropriate labels and is not described adequately in the text of the report. | |Plot is missing|
-| Data are CROPPED using the crop_extent shapefile||| | Data are not cropped to the crop_extent shapefile|
-| Raster data are classified into discrete values || | | Data are not classified into discrete values |
+| Difference CHM plot is customized with appropriate titles, axis labels and colors. | Plot is correct but is missing a title. | Plot is missing appropriate labels and is not described adequately in the text of the report. | |Plot is missing|
+| Difference CHM data are CROPPED using the crop_extent shapefile||| | Data are not cropped to the crop_extent shapefile|
+| Difference CHM is classified into discrete values || | | Data are not classified into discrete values |
 | Data Exploration Plot 1: Plot a histogram of the difference raster using the base histogram function (don’t worry about custom breaks)||| | Histogram is missing |
 | Data Exploration Plot 2: Plot a second histogram of the difference raster and customize the breaks to mimic the classes that you may want to use for your final classified raster. ||| | Histogram is missing |
 | The colors and classes selected to plot the final difference raster, selected using the previous histogram s clearly show changes. | || | The colors and classes selected do not show change well / don't show change at all. |
