@@ -156,11 +156,11 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Plot contains a meaningful title. |  |  | | |
 | Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
 
-#### Plot 2 Create a MAP of the difference between NBR pre vs post fire (Post fire - pre-fire NDVI).
+#### Plot 2 Create a MAP of the difference between NBR pre vs post fire (Post fire - pre-fire NBR).
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Pre and post fire NDVI are created |  |  | | |
+| Pre and post fire NBR are created |  |  | | |
 | Plot renders on the pdf. |  |  | | |
 | Plot contains a meaningful title. |  |  | | |
 | Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |

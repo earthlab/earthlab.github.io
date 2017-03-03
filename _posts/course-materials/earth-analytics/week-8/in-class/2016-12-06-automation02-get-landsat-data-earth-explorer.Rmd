@@ -1,0 +1,40 @@
+---
+layout: single
+title: "Get landsat data - Earth Explorer"
+excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
+authors: ['Leah Wasser']
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+category: [course-materials]
+class-lesson: ['automating-your-science-r']
+permalink: /course-materials/earth-analytics/week-7/get-data-earth-explorer/
+nav-title: 'Get data - earth explorer'
+week: 7
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 2
+---
+
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+* Find and download data from the USGS Earth Explorer Website
+* Filter data by cloud cover to find datasets with the least amount of clouds for a study area.
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson and the
+data for week 6 / 7 of the course.
+
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+
+</div>
+
+
