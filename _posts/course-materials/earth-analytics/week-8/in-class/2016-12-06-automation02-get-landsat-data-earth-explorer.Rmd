@@ -8,7 +8,7 @@ category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-7/get-data-earth-explorer/
 nav-title: 'Get data - earth explorer'
-week: 7
+week: 8
 sidebar:
   nav:
 author_profile: false
@@ -36,5 +36,3 @@ data for week 6 / 7 of the course.
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 
 </div>
-
-
