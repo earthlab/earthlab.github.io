@@ -17,7 +17,7 @@ all_landsat_bands_st <- stack(all_landsat_bands)
 par(mfrow=c(2,2), col.axis="white", col.lab="white", tck=0)
 # plot 1
 plotRGB(all_landsat_bands_st,
-        r=4,b=3,g=2,
+        r=4,g=3,b=2,
         stretch="hist",
         main="Plot 1 - RGB",
         axes=T)
@@ -25,15 +25,15 @@ box(col="white") # turn all of the lines to white
 
 # plot 2
 plotRGB(all_landsat_bands_st,
-        r=5,b=3,g=2,
+        r=5,g=4,b=3,
         stretch="hist",
-        main="Plot 2 - CIR",
+        main="Plot 2 - Color Infrared (CIR)",
         axes=T)
 box(col="white") # turn all of the lines to white
 
 # plot 3
 plotRGB(all_landsat_bands_st,
-        r=7,b=5,g=4,
+        r=7,g=5,b=4,
         stretch="hist",
         main="Plot 3 - Shortwave infrared",
         axes=T)
@@ -41,7 +41,7 @@ box(col="white") # turn all of the lines to white
 
 # plot 4
 plotRGB(all_landsat_bands_st,
-        r=5,b=6,g=4,
+        r=5,g=6,b=4,
         stretch="hist",
         main="Plot 4 - Land / Water",
         axes=T)
@@ -56,7 +56,7 @@ title("My Title", outer=TRUE)
 par(mfrow=c(2,2), oma=c(0,0,2,0), col.axis="white", col.lab="white", tck=0)
 # plot 1
 plotRGB(all_landsat_bands_st,
-        r=4,b=3,g=2,
+        r=4,g=3,b=2,
         stretch="hist",
         main="Plot 1 - RGB",
         axes=T)
@@ -64,24 +64,23 @@ box(col="white") # turn all of the lines to white
 
 # plot 2
 plotRGB(all_landsat_bands_st,
-        r=5,b=3,g=2,
+        r=5,g=4,b=3,
         stretch="hist",
-        main="Plot 2 - CIR",
+        main="Plot 2 - Color Infrared (CIR)",
         axes=T)
 box(col="white") # turn all of the lines to white
 
 # plot 3
 plotRGB(all_landsat_bands_st,
-        r=7,b=5,g=4,
+        r=7,g=5,b=4,
         stretch="hist",
         main="Plot 3 - Shortwave infrared",
         axes=T)
 box(col="white") # turn all of the lines to white
 
-
 # plot 4
 plotRGB(all_landsat_bands_st,
-        r=5,b=6,g=4,
+        r=5,g=6,b=4,
         stretch="hist",
         main="Plot 4 - Land / Water",
         axes=T)
