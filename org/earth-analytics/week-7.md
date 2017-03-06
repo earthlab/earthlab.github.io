@@ -95,7 +95,7 @@ images of NAIP, Landsat and MODIS in one figure using data from AFTER the fire
 
 Use this figure to help answer question 1 above.
 An example of what this plot should look like (without all of the labels that
-you need to add & without the fire boundary), [is here at the bottom of the page.]({{ site.url }}/course-materials/earth-analytics/week-7/grid-of-plots-report/)
+you need to add), [is here at the bottom of the page.]({{ site.url }}/course-materials/earth-analytics/week-7/grid-of-plots-report/)
 
 #### Plot 2 - Pre-fire NBR using landsat data
 Create a MAP of the classified pre-burn NBR using the landsat scene that you
