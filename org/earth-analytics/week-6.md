@@ -142,7 +142,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 |---|---|---|---|---|
 | What is the key difference between active and passive remote sensing system is answered correctly. |  |  | | |
 | Describe atleast 3 differences between how lidar vs landsat remote sensing data is answered correctly.|  |  | | |
-| Explain what a vegetation index is is answered correctly. |||||
+| Explain what a vegetation index is answered correctly. |||||
 
 
 ### Plots are worth 50% of the assignment grade
@@ -154,16 +154,16 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Pre and post fire NDVI are created |  |  | | |
 | Plot renders on the pdf. |  |  | | |
 | Plot contains a meaningful title. |  |  | | |
-| Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
 
-#### Plot 2 Create a MAP of the difference between NBR pre vs post fire (Post fire - pre-fire NDVI).
+#### Plot 2 Create a MAP of the difference between NBR pre vs post fire (Post fire - pre-fire NBR).
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Pre and post fire NDVI are created |  |  | | |
+| Pre and post fire NBR are created |  |  | | |
 | Plot renders on the pdf. |  |  | | |
 | Plot contains a meaningful title. |  |  | | |
-| Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
 | Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
 
 #### Plots 3 - Create a classified map of post fire NDVI using classification values that you think make sense based upon exploring the data.
@@ -183,7 +183,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 |---|---|---|---|---|
 | Plot renders on the pdf. |  |  | | |
 | Plot contains a meaningful title. |  |  | | |
-| Plot has a 2-3 figure caption that clearly describes plot contents. |  |  | | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
 | Plot data are classified using the thresholds specified. |  |  | | |
 | Plot data colors clearly show areas of most intense burn compared to areas of no or less burn severity. |  |  | | |
 | Plot has a clear legend that shows the classes chosen and associated colors rendered on the map. |  |  | | |
