@@ -1,9 +1,12 @@
 ---
-title: "Pre-post fire veg indices - Function"
+title: "Pre-post fire veg indices - Function Lesson"
 author: "Leah A. Wasser"
 date: "3/6/2017"
 output: html_document
 ---
+
+
+# Setup R
 
 ```{r setup}
 knitr::opts_chunk$set(echo = TRUE)
@@ -25,7 +28,7 @@ ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
 
 ```
 
-# Import Landsat - Julian day 189
+# Import Landsat data - Julian day 189
 
 
 ```{r cars}
@@ -37,7 +40,11 @@ all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016189-SC201701280
 # stack the data (create spatial object)
 landsat_stack_csf <- stack(all_landsat_bands)
 
+```
 
+## Calculate NDVI - pre-fire
+
+```{r create-ndvi}
 # calculate normalized index - NDVI
 landsat_ndvi <- (landsat_stack_csf[[5]] - landsat_stack_csf[[4]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[4]])
 
@@ -75,7 +82,7 @@ writeRaster(x = landsat_ndvi,
 
 ```
 
-Next, calculate Normalized Burn Ratio (NBR).
+## Calculate Normalized Burn Ratio (NBR) - Pre fire
 
 ```{r calculate-plot-nbr}
 
@@ -109,8 +116,6 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
 
 ## Open & Process Post-fire data
 
-
-
 ```{r pressure, echo=FALSE}
 
 #### Function: get tif files, make stack ####
@@ -127,7 +132,11 @@ landsat_stack_csf_post <- stack(all_landsat_bands_post)
 # landsat_ndvi_post <- overlay(landsat_stack_csf_post[[5]], landsat_stack_csf_post[[4]], 
 #                        fun=calculate_normalized_index)
 
+```
 
+## Calculate NDVI - post-fire
+
+```{r}
 # calculate NDVI (the way they've been doing it is inefficient but they don't know functions yet)
 landsat_ndvi_post <- (landsat_stack_csf_post[[5]] - landsat_stack_csf_post[[4]]) / (landsat_stack_csf_post[[5]] + landsat_stack_csf_post[[4]])
 
@@ -171,7 +180,7 @@ plot(landsat_ndvi,
 
 ```
 
-## NBR post fire 
+## Calculate NBR post fire 
 Next, calculate Normalized Burn Ratio (NBR).
 
 ```{r calculate-plot-nbr}
