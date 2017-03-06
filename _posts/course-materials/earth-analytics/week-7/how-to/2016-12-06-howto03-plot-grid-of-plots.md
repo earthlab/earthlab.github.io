@@ -3,7 +3,7 @@ layout: single
 title: "Plot grid of plots in R. "
 excerpt: " "
 authors: ['Leah Wasser']
-modified: '2017-03-01'
+modified: '2017-03-06'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/grid-of-plots-report/
@@ -24,7 +24,7 @@ order: 3
 
 After completing this tutorial, you will be able to:
 
-* Plot several plots using baseplot functions in a "grid" as one graphic in `R` 
+* Plot several plots using baseplot functions in a "grid" as one graphic in `R`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -72,7 +72,7 @@ the `par()` function. In this example we have 2 rows and 2 columns.
 par(mfrow=c(2,2), col.axis="white", col.lab="white", tck=0)
 # plot 1
 plotRGB(all_landsat_bands_st,
-        r=4,b=3,g=2,
+        r=4,g=3,b=2,
         stretch="hist",
         main="Plot 1 - RGB",
         axes=T)
@@ -80,15 +80,15 @@ box(col="white") # turn all of the lines to white
 
 # plot 2
 plotRGB(all_landsat_bands_st,
-        r=5,b=3,g=2,
+        r=5,g=4,b=3,
         stretch="hist",
-        main="Plot 2 - CIR",
+        main="Plot 2 - Color Infrared (CIR)",
         axes=T)
 box(col="white") # turn all of the lines to white
 
 # plot 3
 plotRGB(all_landsat_bands_st,
-        r=7,b=5,g=4,
+        r=7,g=5,b=4,
         stretch="hist",
         main="Plot 3 - Shortwave infrared",
         axes=T)
@@ -96,7 +96,7 @@ box(col="white") # turn all of the lines to white
 
 # plot 4
 plotRGB(all_landsat_bands_st,
-        r=5,b=6,g=4,
+        r=5,g=6,b=4,
         stretch="hist",
         main="Plot 4 - Land / Water",
         axes=T)
@@ -123,7 +123,7 @@ sets the outside (o) margin (ma).
 par(mfrow=c(2,2), oma=c(0,0,2,0), col.axis="white", col.lab="white", tck=0)
 # plot 1
 plotRGB(all_landsat_bands_st,
-        r=4,b=3,g=2,
+        r=4,g=3,b=2,
         stretch="hist",
         main="Plot 1 - RGB",
         axes=T)
@@ -131,24 +131,23 @@ box(col="white") # turn all of the lines to white
 
 # plot 2
 plotRGB(all_landsat_bands_st,
-        r=5,b=3,g=2,
+        r=5,g=4,b=3,
         stretch="hist",
-        main="Plot 2 - CIR",
+        main="Plot 2 - Color Infrared (CIR)",
         axes=T)
 box(col="white") # turn all of the lines to white
 
 # plot 3
 plotRGB(all_landsat_bands_st,
-        r=7,b=5,g=4,
+        r=7,g=5,b=4,
         stretch="hist",
         main="Plot 3 - Shortwave infrared",
         axes=T)
 box(col="white") # turn all of the lines to white
 
-
 # plot 4
 plotRGB(all_landsat_bands_st,
-        r=5,b=6,g=4,
+        r=5,g=6,b=4,
         stretch="hist",
         main="Plot 4 - Land / Water",
         axes=T)
