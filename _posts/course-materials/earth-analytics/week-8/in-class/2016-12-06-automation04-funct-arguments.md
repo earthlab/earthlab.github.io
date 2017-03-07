@@ -26,14 +26,11 @@ order: 4
 After completing this tutorial, you will be able to:
 
 * Define the purpose of a function argument.
-* Use default vs required function arguments in a function.
+* Use default vs. required function arguments in a function.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson and the
-data for week 6 / 7 of the course.
-
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+You will need a computer with internet access to complete this lesson.
 
 </div>
 
@@ -52,7 +49,7 @@ For example, we used numerous arguments to plot our data including:
 
 In the example below, we call each argument by name and then assign it a value
 based on the type of argument it is. For example the value for the `main=` argument
-is a text string which is the title that we want R to add to our plot.
+is a text string which is the title that we want `R` to add to our plot.
 
 
 ```r
@@ -66,17 +63,27 @@ plot(landsat_ndvi,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation04-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="100%" />
 
+Function arguments allow us to customize how a function runs. For example, we can
+use the plot function to plot many different types of data! And we can use the
+`main=""` argument to customize the title. We use axes and box to customize how the
+plot looks. This is a powerful function as it can be used to do many different
+things and is customizable in many ways that we may need / want!
+
 ## Matching Arguments
 
-To be precise, R has three ways that arguments are supplied
-by you are matched to the *formal arguments* of the function definition:
+Let's next talk about the order or arguments in a function. `R` has three ways
+that arguments supplied by you are matched to the *formal arguments* of the
+function definition:
 
-1. by complete name
-2. by position
-3. by partial name (matching on initial *n* characters of the argument name) - we are not going to review this in class!
+1. **By complete name:** i.e. you type `main=""` and `R` matches main to the argument called `main`.
+2. **By order or position when you call an argument:** i.e. you call `plot(raster, "title here")`, `R` will read these two variables in the order that you provide them. This can cause the function to fail if they are not in the right order!
+3. **By partial name:** (matching on initial *n* characters of the argument name) - we are not going to review this in class!
 
-Arguments are matched in the manner outlined above in *that order*: by
-complete name, then by partial matching of names, and finally by position.
+Arguments are matched in the manner outlined above.
+
+* R first tries to find arguments according to the complete name,
+* then by partial matching of names,
+* and finally by position.
 
 With that in mind, let's look at the help for `read.csv()`:
 
@@ -102,7 +109,7 @@ Now we understand why the following code returns an error:
 
 
 ```r
-dat <- read.csv(FALSE, "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
+precip_data <- read.csv(FALSE, "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
 ## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
 ```
 
@@ -113,8 +120,8 @@ the argument `header`.
 
 We have passed arguments to functions in two ways:
 
-1. directly: `plot(landsat_ndvi)`,
-2. and by name: `read.csv(file = "data/inflammation-01.csv", header = FALSE)`.
+1. Directly: `plot(landsat_ndvi)`,
+2. and by name: `read.csv(file = "data/week2/precipitation/precip-boulder-aug-oct-2013.csv", header = FALSE)`.
 
 We can pass the arguments to `read.csv` without naming them if they are in the
 order that R expects.
@@ -136,7 +143,7 @@ precip_data <- read.csv(header = FALSE,
 
 ```
 
-What about this code?
+But this code below doesn't work. Make sense?  
 
 
 ```r
