@@ -42,7 +42,7 @@ plot(country_boundary_us,
 
 
 ## ----explore-units, fig.cap="plot aoi"-----------------------------------
-# Import a point shapefile
+# Import a polygon shapefile
 sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
 class(sjer_aoi)
