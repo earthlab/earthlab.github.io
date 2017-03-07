@@ -13,18 +13,22 @@ author_profile: false
 
 {% include toc title="This Week" icon="file-text" %}
 
-
 <div class="notice--info" markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to week {{ page.week }} of Earth Analytics! This week we will dive deeper
-into working with remote sensing data surrounding the Cold Springs fire. Specifically,
-we will learn how to
+Welcome to week {{ page.week }} of Earth Analytics! This week we learn about
+efficient coding practices. Specifically, we will learn how to use functions to
+make our code:
 
-* Download data from Earth Explorer
-* Deal with cloud shadows and cloud coverage
-* Deal with scale factors and no data values
+* Easier to read / simpler
+* More modular
+* More efficient
+
+We will also discuss the DRY principle of programming - Don't Repeat Yourself.
+
+We will continue to use the data from weeks 6-7 in this week. Download it now
+if you don't already have it (which you should)!
 
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 
@@ -72,66 +76,78 @@ with your report, use `knitr` to convert it to `PDF` format. Submit both the
 as instructed above!
 
 #### Use knitr code chunk arguments
-For this weeks assignment, **please do not hide your code**. We will grade the
+For this weeks assignment, you can turn off warnings but **please do not hide your code**.
+We will grade the
 assignment based upon your use of functions to complete your assignment.
 
 #### Answer the following questions below in your report
 
-1. Explain what the acronym **DRY** means? Why is dry important?
+1. Explain what the acronym **DRY** stands for and means.
+2. List 2 ways that the DRY principle can improve your code.
+3. Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function. Use the example below to help you answer the question OR use code to answer the question.
+4. When you document a function, what elements should you include?
 
+```r
+# for example:
+my_variable <- 1+2
+
+# and a variable created within a function
+the_answer <- function(num1, num2){
+  # calculate sum
+  my_variable2 <- num1 + num2
+  return(my_variable)
+  }
+
+# given the code above, will the code below run or return an error?
+`my_variable2`
+```
 
 #### Include the plots below.
-For all plots:
 
-1. Be sure to describe what each plot shows in your final report using a figure
-caption argument in your code chunks: `fig.cap="caption here`.
-2. Add appropriate titles that tells someone reading your report what the map shows
-3. Use clear legends as appropriate - especially for the classified data plots!
+For all plots use the functions that we created in class to:
 
+1. Load the data into a stack
+2. Calculate a veg index
+3. Plot your data
 
+Note: in the previous weeks we multiplied NBR by 1000. We are not doing that this
+week. It is OK! Use the classes below this week which are not scaled by 1000.
 
-
-#### Plot 2 - Pre-fire NBR using landsat data
-Create a MAP of the classified pre-burn NBR using the landsat scene that you
-downloaded from Earth Explorer this week. Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
-on top of the NBR map. Add a legend. This file should not have a cloud in the
-middle of the burn area! You can use Earth Explorer to download the data. Use
-the classes that you used in your homework from week 6 to classify the data.
-
-#### Plot 3 - Pre-fire NBR using landsat data with cloud mask
-Create a MAP of the classified pre-burn NBR using the **Landsat** data file that
-was provided to you in your data download `data/week6/landsat/LC80340322016189-SC20170128091153/crop`.
-Be sure to mask the clouds from your analysis. Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp` on
-top of the NBR map. Add a legend that clearly explains what each class
-represents (ie high severity, moderate etc.).
-
-#### Plot 4 - Post-fire NBR using landsat data
-Create a MAP of post fire classified NBR using **Landsat** data. Note: you did
-this for your homework last
-week, re-use the code. However this time, use a cloud mask to remove any clouds
-in your data. Then, overlay the fire extent layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`) on
-top of the NBR map. Add a legend that shows each NBR class and that clearly
-explains what each class represents (ie high severity, moderate etc.).
-
-#### Plot 5 - Post-fire NBR MODIS
-Create a classified map of **post fire NBR** using MODIS data. Be sure to mask
-the data using a cloud mask. Ideally you'll do this BEFORE you calculate NBR and
-classify it. Add a legend that shows each NBR class and that clearly
-explains what each class represents (i.e. high severity, moderate etc.).
-
-
-| SEVERITY LEVEL  | dNBR RANGE |
+| SEVERITY LEVEL  | Normalized Burn Ratio (NBR) RANGE |
 |------------------------------|
-| Enhanced Regrowth | <= -100  |
-| Unburned       |  -100 to +100  |
-| Low Severity     | +100 to +270  |
-| Moderate Severity  | +270 to +660  |
-| High Severity     |  >= 660|
+| Enhanced Regrowth | <= -.1  |
+| Unburned       |  -.1 to +.1  |
+| Low Severity     | +.1 to +.27  |
+| Moderate Severity  | +.27 to +.66  |
+| High Severity     |  >= .66|
+
+#### Plot 1 - Pre-fire NBR using landsat data
+Create a MAP of the classified pre-burn **NBR** using the landsat scene that you
+downloaded from Earth Explorer last week. Add a legend. This file should not have
+a cloud in the middle of the burn area!
+
+#### Plot 2 - Pre-fire NDVI using landsat data
+Create a MAP of the classified pre-burn **NDVI **using the landsat scene that you
+downloaded from Earth Explorer last week. Add a legend. This file should not have
+a cloud in the middle of the burn area!
+
+#### Plot 3 - Post-fire NBR using landsat data
+Create a MAP of post fire classified **NBR** using **Landsat** data. Add a legend.
+
+#### Plot 4 - Post-fire NDVI using landsat data
+Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
+
+
+#### Bonus! 2 points
+Consider any of the code that we've written to date in this class. Or some other
+code that is useful to you in your work. Write a new function that performs
+atleast **2** tasks. Document the function properly and then demonstrate how it
+works at the end of your report by calling it.
 
 ****
 
-## Homework due: Thursday March 10 2017 @ NOON.
-Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
+## Homework due: Thursday March 16 2017 @ 5PM.
+Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
 
 </div>
 
@@ -146,6 +162,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| | Clean coding is not implemented consistently throughout the report. |
 | Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | | The are more than 3 code errors in the document |
 | All required R packages are listed at the top of the document in a code chunk.  | | Some packages are listed at the top of the document and some are lower down. | | |
+|===
 | Lines of code are broken up at commas to make the code more readable  | |  | | |
 
 
@@ -153,83 +170,42 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Code chunk arguments are used to hide warnings |  |  | | |
-| Code chunk arguments are used to hide code and just show output |  | | |  |
-| PDf report emphasizes the write up and the code outputs rather than showing each step of the code |  | | |  |
-
-####  Report questions: 40%
-
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
-| 1. What is the spatial resolution for NAIP, Landsat & MODIS data in meters? |  |  | | |
-| 1. Are these data types different in terms of resolution? |  |  | | |
-| 1. How could this resolution difference impact analysis using these data? Use plot 1 BELOW to visually show the difference. |  |  | | |
-| 2. Calculate the area of “high severity” and the area of “moderate severity” burn in meters using the post-fire data for both Landsat and MODIS. State what the values are in your answer.|  |  | | |
-| 2. Are the values different? Why / why not? Use plots 4 and 5 to discuss any differences you notice.|  |  | | |
-| 3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plot 2 in your homework to answer this question.|||||
-| 3. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plot 2 in your homework to answer this question.|||||
+| Code chunk arguments are used to hide warnings & messages |  |  | | |
+|===
+| Code is visible in the document to demonstrate use of functions |  | | |  |
 
 
-### Plots are worth 40% of the assignment grade
-
-#### Plot 1 - Grid of NAIP, Landsat and MODIS
+####  Report questions: 30%
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| All three plots are correct (color infrared with NIR light on the red band.) |  |  | | |
-| Plots are stacked vertically (or horizontally) and render properly on the pdf. |  |  | | |
-| Plot contains a meaningful title. |  |  | | |
-| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
-
-#### Plot 2 - Pre-fire NBR using landsat data
-
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
-| A new landsat image has been downloaded to use for this plot. |  |  | | |
-| The landsat image is largely (< 20% clouds) cloud free over the study area. |  |  | | |
-| If there are clouds in the scene, a cloud mask has been applied. |  |  | | |
-| Plot renders on the pdf. |  |  | | |
-| Plot has been classified according to burn severity classes specified in the assignment. |  |  | | |
-| Plot contains a meaningful title. |  |  | | |
-| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
-| Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
-| Fire boundary exent has been overlayed on top of the plot |  |  | | |
+| Explain what the acronym DRY stands for and means.|  |  | | |
+| List 2 ways that the DRY principle can improve your code. |  |  | | |
+| Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |  | | |
+|===
+| When you document a function, what elements should you include? |  |  | | |
 
 
-#### Plot 3 - Pre-fire NBR using landsat data - with cloud mask
+### Code is worth 50% of the assignment grade this week
+
+#### Plots render properly & use functions
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Plot renders on the pdf. |  |  | | |
-| Plot has been classified according to burn severity classes specified in the assignment. |  |  | | |
-| If there are clouds in the scene, a cloud mask has been applied. |  |  | | |
-| Plot has a clear title that describes the data being shown. |  |  | | |
-| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
-| Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
-| Fire boundary exent has been overlayed on top of the plot |  |  | | |
+| Plot 1 - Pre-fire NBR using landsat data plots, includes a legend and a title & is plotted using functions. |  |  | | |
+| Plot 2 - Pre-fire NDVI using landsat data plots, includes a legend and a title & is plotted using functions. |  |  | | |
+| Plot 3 - Post-fire NBR using landsat data plots, includes a legend and a title & is plotted using functions.|  |  | | |
+|===
+| Plot 4 - Pos-fire NDVI using landsat data plots, includes a legend and a title & is plotted using functions.|  |  | | |
 
-
-#### Plot 4 - Post-fire NBR using landsat data
+#### Functions are used to load & process data
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Plot renders on the pdf. |  |  | | |
-| Plot has been classified according to burn severity classes specified in the assignment. |  |  | | |
-| If there are clouds in the scene, a cloud mask has been applied. |  |  | | |
-| Plot has a clear title that describes the data being shown. |  |  | | |
-| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
-| Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
-| Fire boundary exent has been overlayed on top of the plot |  |  | | |
-
-#### Plot 5 - Post-fire NBR MODIS
-
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
-| Plot renders on the pdf. |  |  | | |
-| Plot has been classified according to burn severity classes specified in the assignment. |  |  | | |
-| If there are clouds in the scene, a cloud mask has been applied. |  |  | | |
-| Plot has a clear title that describes the data being shown. |  |  | | |
-| Plot has a 2-3 sentence figure caption that clearly describes plot contents. |  |  | | |
-| Plot includes a clear legend with each "level" of burn severity labeled clearly. |  |  | | |
-| Fire boundary exent has been overlayed on top of the plot |  |  | | |
-| Data have been scaled using the scale factor & the no data value has been applied for values outside of the range of acceptable values for MODIS reflectance.  |  |  | | |
+| Functions are used to load data into a raster stack for each plot. |  |  | | |
+| Functions are used to calculate NBR for pre and post fire plots. |  |  | | |
+| Functions are used to plot NBR for pre and post fire plots. |  |  | | |
+| Functions are used to calculate NDVI for pre and post fire plots. |  |  | | |
+| All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |  | | |
+|===
+| Functions are used to plot NDVI for pre and post fire plots. |  |  | | |
