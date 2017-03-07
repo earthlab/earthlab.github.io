@@ -85,8 +85,10 @@ caption argument in your code chunks: `fig.cap="caption here`.
 
 #### Plot 1 - Grid of NAIP, Landsat and MODIS
 Use the `plotRGB()` function to plot a color infrared (also called false color)
-images of NAIP, Landsat and MODIS in one figure using data from AFTER the fire
-(post-fire). For each map be sure to:
+images of NAIP, Landsat and MODIS in one figure. It doesn't matter whether you use 
+pre-post fire data. However you might want to use pre-fire data for NAIP (that is 
+all that you have). And then cloud free data for landsat and MODIS which may be post 
+fire. For each map be sure to:
 
 * Overlay the fire boundary layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`)
 * Use the band combination r = infrared band, g= green band, b=blue band. You can use `mfrow=c(rows, columns)`
