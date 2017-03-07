@@ -19,7 +19,7 @@ ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
 # get list of tif files
 all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                                 pattern=glob2rx("*band*.tif$"),
-                                full.names = T) 
+                                full.names = T)
 
 # stack the data (create spatial object)
 landsat_stack_csf <- stack(all_landsat_bands)
@@ -28,7 +28,7 @@ landsat_stack_csf <- stack(all_landsat_bands)
 landsat_ndvi <- (landsat_stack_csf[[5]] - landsat_stack_csf[[4]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[4]])
 
 # create classification matrix
-# note i line it up like this so it looks more like the arcgis reclass table! 
+# note i line it up like this so it looks more like the arcgis reclass table!
 reclass <- c(-1, -.2, 1,
              -.2, .2, 2,
              .2, .5, 3,
