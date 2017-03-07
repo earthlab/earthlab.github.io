@@ -46,14 +46,14 @@ from Fahrenheit to Kelvin:
 
 
 ```r
-fahr_to_kelvin <- function(temp) {
-  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
-  return(kelvin)
+fahr_to_kelvin <- function(fahr) {
+  kelvin <- ((fahr - 32) * (5 / 9)) + 273.15
+  kelvin
 }
 ```
 
 We define `fahr_to_kelvin` by assigning it to the output of `function`.
-The list of argument names are contained within parentheses - in this case (temp)
+The list of argument names are contained within parentheses - in this case `temp`
 is the only argument that this function requires.
 
 Next, the body of the function--the
@@ -71,8 +71,7 @@ to send a result back to whoever asked for it.
 >
 > In R, it is not necessary to include the return statement.
 > R automatically returns whichever variable is on the last line of the body
-> of the function. Since we are just learning, we will explicitly define the
-> return statement.
+> of the function.
 {: .notice}
 
 Let's try running our function.
@@ -96,9 +95,9 @@ Now that we've seen how to turn Fahrenheit into Kelvin, it's easy to turn Kelvin
 
 
 ```r
-kelvin_to_celsius <- function(temp) {
-  celsius <- temp - 273.15
-  return(celsius)
+kelvin_to_celsius <- function(kelvin) {
+  celsius <- kelvin - 273.15
+  celsius
 }
 
 # absolute zero in Celsius
@@ -113,10 +112,10 @@ two functions we have already created:
 
 
 ```r
-fahr_to_celsius <- function(temp) {
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
+fahr_to_celsius <- function(fahr) {
+  kelvin <- fahr_to_kelvin(fahr)
+  celsius <- kelvin_to_celsius(kelvin)
+  celsius
 }
 
 # freezing point of water in Celsius
@@ -127,6 +126,9 @@ fahr_to_celsius(32.0)
 This is our first taste of how larger programs are built: we define basic
 operations, then combine them in ever-larger chunks to get the effect we want.
 Real-life functions will usually be larger than the ones shown here--typically half a dozen to a few dozen lines--but they shouldn't ever be much longer than that, or the next person who reads it won't be able to understand what's going on.
+Even more important than avoiding long functions is ensuring that the logic of your function is expressed by the code that comprises your function.
+For instance, it is nearly always better to use meaningful variable names such as `fahr` instead of simply `temp`, which could be taken to mean temporary, or temperature (in what units?).
+You might be surprised at the human mental expense required to comprehend all of the objects and operations in long functions.
 
 ## Chaining Functions
 

@@ -6,9 +6,9 @@ library(rgdal)
 # import and plot landsat
 landsat_ndvi <- raster("data/week6/outputs/landsat_ndvi.tif")
 plot(landsat_ndvi,
-     main="landsat ndvi title - this title is rendered using a function argument",
-     axes=F,
-     box=F)
+     main = "ndvi title - rendered using a function argument",
+     axes = FALSE,
+     box = FALSE)
 
 ## ---- eval=FALSE---------------------------------------------------------
 ## # view help for the csv function
