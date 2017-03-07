@@ -66,7 +66,7 @@
 
 
 {% if page.week %}
-  {% if page.week > 1 and page.week <= 7 %}
+  {% if page.week > 1 and page.week <= 8 %}
   <hr>
    {% assign previousWeek = page.week | minus: 1 %}
    {% capture previous_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ previousWeek }}/{% endcapture %}
