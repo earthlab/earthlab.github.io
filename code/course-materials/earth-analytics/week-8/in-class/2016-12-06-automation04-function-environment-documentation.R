@@ -1,22 +1,20 @@
 ## ----funct-environment---------------------------------------------------
-fahr_to_celsius <- function(temp) {
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
+fahr_to_celsius <- function(fahr) {
+  kelvin <- fahr_to_kelvin(fahr)
+  celsius <- kelvin_to_celsius(kelvin)
+  celsius
 }
 
 fahr_to_celsius(15)
 
 
 ## ----document-function---------------------------------------------------
-# define function
-fahr_to_celsius <- function(temp) {
-  # function that converts temperature in fahrenheit to celsius
-  # input: temperature in degrees F (must be a numeric value)
-  # output: temperature in celsius (numeric)
-  # return: temperature in celsius (numeric)
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
+fahr_to_celsius <- function(fahr) {
+  # convert temperature in fahrenheit to celsius
+  # args: temperature in degrees F (numeric)
+  # returns: temperature in degrees celsius (numeric)
+  kelvin <- fahr_to_kelvin(fahr)
+  celsius <- kelvin_to_celsius(kelvin)
+  celsius
 }
 
