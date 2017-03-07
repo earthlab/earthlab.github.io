@@ -34,10 +34,10 @@ we will learn how to
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
 | 3:00 - 3:10  | Questions |   |
-| 3:10 - 3:45  | Identifying replication in your code - Don't Repeat yourself **DRY** |  Max |
-| 3:45 - 4:30  | Efficient coding approaches / Intro to functions   |    |
+| 3:10 - 3:45  | Identifying replication in your code - Don't Repeat yourself **DRY** |  Dr. Max Joseph |
+| 3:45 - 4:30  | Efficient coding approaches / Intro to functions   |  Dr. Max Joseph  |
 |===
-| 4:40 - 5:50  | Interactive coding -  build custom functions |    |
+| 4:40 - 5:50  | Interactive coding -  build custom functions |  Dr. Max Joseph  |
 
 
 ### 1a. Remote sensing readings
@@ -68,19 +68,17 @@ BUT you will do it using the functions that we have created in class including
 Create a new `R markdown `document. Name it: **lastName-firstInitial-week8.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `PDF` format. Submit both the
-`.Rmd` file and the `.pdf` (or `html` file to D2L. Be sure to name your files as instructed above!
+`.Rmd` file and the `.pdf` (or `html` file to D2L. Be sure to name your files
+as instructed above!
 
 #### Use knitr code chunk arguments
-For this weeks assignment, please do not hide your code. We will grade the
-assignment based upon your use of functions to create your plots.
+For this weeks assignment, **please do not hide your code**. We will grade the
+assignment based upon your use of functions to complete your assignment.
 
 #### Answer the following questions below in your report
 
-1. Explain what the acronym DRY means? Why is dry important?
+1. Explain what the acronym **DRY** means? Why is dry important?
 
- terms of resolution? How could this resolution difference impact analysis using these data? Use plot 1 BELOW to visually show the difference.
-2. Calculate the area of "high severity" and the area of "moderate severity" burn in meters using the post-fire data for both Landsat and MODIS. State what the values are in your answer. Are the values different? Why / why not? Use plots 4 and 5 to discuss any differences you notice.
-3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plots 2 & 3 in your homework to answer this question.
 
 #### Include the plots below.
 For all plots:
@@ -91,19 +89,7 @@ caption argument in your code chunks: `fig.cap="caption here`.
 3. Use clear legends as appropriate - especially for the classified data plots!
 
 
-#### Plot 1 - Grid of NAIP, Landsat and MODIS
-Use the `plotRGB()` function to plot a color infrared (also called false color)
-images of NAIP, Landsat and MODIS in one figure using data from BEFORE the fire
-(pre-fire). For each map be sure to:
 
-* Overlay the fire boundary layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`)
-* Use the band combination r = infrared band, g= green band, b=blue band. You can use `mfrow=c(rows, columns)`
-* Render the map to the extent of the fire boundary layer using the `ext=extent()` plot argument.
-* Be sure to label each plot with the data type (NAIP vs. Landsat vs. MODIS) and spatial resolution.
-
-Use this figure to help answer question 1 above.
-An example of what this plot should look like (without all of the labels that
-you need to add), [is here at the bottom of the page.]({{ site.url }}/course-materials/earth-analytics/week-7/grid-of-plots-report/)
 
 #### Plot 2 - Pre-fire NBR using landsat data
 Create a MAP of the classified pre-burn NBR using the landsat scene that you
