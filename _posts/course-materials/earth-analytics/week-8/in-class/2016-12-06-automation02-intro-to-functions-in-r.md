@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Introduction to functions in R - Efficient scientific programming"
+title: "Build a function in R - Efficient scientific programming"
 excerpt: "This lesson introduces how to create a function in R."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
 modified: '2017-03-07'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/intro-to-functions-r/
-nav-title: 'Intro to functions'
+nav-title: 'Write functions in R'
 week: 8
 sidebar:
   nav:
@@ -193,77 +193,3 @@ Write a function called `outside` that returns a vector made up of just the firs
  outside(dry_principle)
 ## [1] "Don't"  "others"
 ```
-
-
-## The function environment is self-contained
-
-THere are many benefits to using functions in your code including it will make
-your code simpler and easier to read. However another significant benefit is
-that it will save memory and keep your coding environment cleaner. Let's discuss
-that next.
-
-The function environment is self-contained. What this  means is that when you
-run a function, it does not create intermediate variables in your global environment.
-
-For example, above we created a function called `fahr_to_censius`. Within that
-function, we see it creates two variables:
-
-1. `temp_k`
-2. `result`
-
-Run the function below. Then call it `fahr_to_celsius(15)`. Look closely at
-your global environment in `R`. Do you see the variables temp_k or result?
-
-
-
-```r
-fahr_to_celsius <- function(temp) {
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
-}
-
-fahr_to_celsius(15)
-## [1] -9.444444
-```
-
-When we run the function above, it creates a distinct environment where it runs
-the steps required to complete the tasks specified in the function. However,
-the variables defined by the intermediate steps are not retained in your global
-environment. Each variable that you create consumes memory on your computer,
-so this saves memory. It also reduces the "clutter" associated with too many
-variables.
-
-
-## Documentation
-
-We have one more task first, though: we should write some [documentation]({{ page.root }}/reference#documentation) for our function to remind ourselves later what it's for and how to use it.
-
-A common way to put documentation in software is to add [comments]({{ page.root }}/reference/#comment) like this:
-
-
-```r
-# define function
-fahr_to_celsius <- function(temp) {
-  # function that converts temperature in farenheit to celcius
-  # input: temperature in degrees F
-  # output: temperature in censius
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
-}
-```
-
-> ## Writing Documentation
->
-> Formal documentation for R functions is written in separate `.Rd` using a
-> markup language similar to [LaTeX][]. You see the result of this documentation
-> when you look at the help file for a given function, e.g. `?read.csv`.
-> The [roxygen2][] package allows R coders to write documentation alongside
-> the function code and then process it into the appropriate `.Rd` files.
-> You will want to switch to this more formal method of writing documentation
-> when you start writing more complicated R projects.
->
-> [LaTeX]: http://www.latex-project.org/
-> [roxygen2]: http://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html
-{: .notice }

@@ -59,24 +59,3 @@ outside <- function(v) {
  dry_principle <- c("Don't", "repeat", "yourself", "or", "others")
  outside(dry_principle)
 
-## ----funct-environment---------------------------------------------------
-fahr_to_celsius <- function(temp) {
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
-}
-
-fahr_to_celsius(15)
-
-
-## ----document-function---------------------------------------------------
-# define function
-fahr_to_celsius <- function(temp) {
-  # function that converts temperature in farenheit to celcius
-  # input: temperature in degrees F
-  # output: temperature in censius
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
-}
-
