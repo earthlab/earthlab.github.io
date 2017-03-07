@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 5
 ---
 
 
@@ -61,7 +61,7 @@ plot(landsat_ndvi,
      box=F)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation04-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation05-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="100%" />
 
 Function arguments allow us to customize how a function runs. For example, we can
 use the plot function to plot many different types of data! And we can use the
@@ -69,7 +69,7 @@ use the plot function to plot many different types of data! And we can use the
 plot looks. This is a powerful function as it can be used to do many different
 things and is customizable in many ways that we may need / want!
 
-## Matching Arguments
+## Argument order matters
 
 Let's next talk about the order or arguments in a function. `R` has three ways
 that arguments supplied by you are matched to the *formal arguments* of the
@@ -116,7 +116,7 @@ precip_data <- read.csv(FALSE, "data/week2/precipitation/precip-boulder-aug-oct-
 The code above fails because `FALSE` is assigned to `file` and the filename is assigned to
 the argument `header`.
 
-### Default function arguments
+## Default function arguments
 
 We have passed arguments to functions in two ways:
 
@@ -143,7 +143,7 @@ precip_data <- read.csv(header = FALSE,
 
 ```
 
-But this code below doesn't work. Make sense?  
+But this code below doesn't work. Make sense?
 
 
 ```r
