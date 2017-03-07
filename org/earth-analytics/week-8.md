@@ -76,13 +76,14 @@ with your report, use `knitr` to convert it to `PDF` format. Submit both the
 as instructed above!
 
 #### Use knitr code chunk arguments
-For this weeks assignment, you can turn off warnings but **please do not hide your code**.
+
+For this week's assignment, you can turn off warnings but **please do not hide your code**.
 We will grade the
 assignment based upon your use of functions to complete your assignment.
 
 #### Answer the following questions below in your report
 
-1. Explain what the acronym **DRY** stands for and means.
+1. Explain what the acronym **DRY** stands for and means in practice.
 2. List 2 ways that the DRY principle can improve your code.
 3. Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function. Use the example below to help you answer the question OR use code to answer the question.
 4. When you document a function, what elements should you include?
@@ -141,7 +142,7 @@ Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
 #### Bonus! 2 points
 Consider any of the code that we've written to date in this class. Or some other
 code that is useful to you in your work. Write a new function that performs
-atleast **2** tasks. Document the function properly and then demonstrate how it
+at least **2** tasks. Document the function and then demonstrate how it
 works at the end of your report by calling it.
 
 ****
