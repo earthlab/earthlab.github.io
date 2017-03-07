@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Understand the function environment & function arguments in R"
-excerpt: "This lesson introduces the function environment and documenting functions in R. When you run a function intermediate variables are not stored in the global environment. This not only saves memory on your computer but also keeps our environment clean, reducing the risk of conflicting variables. "
+excerpt: "This lesson introduces the function environment and documenting functions in R. When you run a function intermediate variables are not stored in the global environment. This not only saves memory on your computer but also keeps our environment clean, reducing the risk of conflicting variables."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -40,72 +40,74 @@ In this lesson we will explore that further. We will also explore function argum
 
 ## The function environment is self-contained
 
-There are many benefits to using functions in your code including it will make
-your code simpler and easier to read. However another significant benefit is
-that it will save memory and keep your coding environment cleaner.
+There are many benefits to using functions in your code including simplicity,
+and expressiveness. However, functions also save memory by keeping objects out
+of your global environment.
 
 The function environment is self-contained. What this  means is that when you
 run a function, it does not create intermediate variables in your global environment.
 
 For example, in the previous lessons, we created a function called
-`fahr_to_censius`. Within that function, we see it create two variables:
+`fahr_to_celsius`. Within that function, we created two variables:
 
-1. `temp_k`
-2. `result`
+1. `kelvin`
+2. `celsius`
 
 Run the function below. Then call it `fahr_to_celsius(15)`. Look closely at
 your global environment in `R`. Do you see the variables `temp_k` or `result`
 in your list of variables in R Studio?
 
 ```{r funct-environment}
-fahr_to_celsius <- function(temp) {
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
+fahr_to_celsius <- function(fahr) {
+  kelvin <- fahr_to_kelvin(fahr)
+  celsius <- kelvin_to_celsius(kelvin)
+  celsius
 }
 
 fahr_to_celsius(15)
 
 ```
 
-When we run the function above, it creates a distinct environment where it runs
+When we run the function above, it creates a new temporary environment where it runs
 the steps required to complete the tasks specified in the function. However,
 the variables defined by each intermediate steps are not retained in your global
 environment. These variables only exist within the function environment. This
 is convenient for us as programmers because each variable that you create consumes
 memory on your computer. It also reduces the "clutter" associated with too many
 variables in your global environment which could conflict further down in your
-code. For example you may have another variable called "result" in your code
+code. For example you may have another variable called "celsius" in your code
 code further down.
 
 
 ## Documentation
 
 Now that we understand the function environment, let's talk about documenting
-our functions. This documentation is important to both
+our functions. This documentation is important to
 
-1. Remind ourselves later what the function does how to use it and
-2. To help anyone else looking at our code understand what the function does.
+1. Remind ourselves later what the function does
+1. Show how to use the function, and
+1. To help anyone else looking at our code understand what **we think** the function does.
+
+Note that our written documentation can at best describe what **we think** the function does, because ultimately the code itself is the only true documentation for the what the function **actually** does.
+Beware!
 
 A common way to add documentation in software is to add comments to your function
 that specify
 
-1. What the function does
-2. The inputs that the function takes and the associated structure of each input
-3. the outputs the that function provides and it's associated structure.
+1. What does this function do?
+2. What are the arguments (inputs) to the function, and what are these supposed to be (e.g., what class are they? Character, numeric, logical?)
+3. What does the function return, and what kind of object is it?
 
 Like this:
 
 ```{r document-function}
-# define function
-fahr_to_celsius <- function(temp) {
-  # function that converts temperature in fahrenheit to celsius
-  # input: temperature in degrees F (must be a numeric value)
-  # output: temperature in celsius (numeric)
-  # return: temperature in celsius (numeric)
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
+fahr_to_celsius <- function(fahr) {
+  # convert temperature in fahrenheit to celsius
+  # args: temperature in degrees F (numeric)
+  # returns: temperature in degrees celsius (numeric)
+  kelvin <- fahr_to_kelvin(fahr)
+  celsius <- kelvin_to_celsius(kelvin)
+  celsius
 }
 ```
 
