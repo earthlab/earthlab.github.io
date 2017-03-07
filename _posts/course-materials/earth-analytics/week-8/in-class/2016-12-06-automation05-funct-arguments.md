@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Working with function arguments "
+title: "Working with function arguments"
 excerpt: " ."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
 modified: '2017-03-07'
@@ -34,21 +34,19 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-
 In the previous lessons, we have used many different functions and function
 arguments to customize our code.
 
 
 
-
 For example, we used numerous arguments to plot our data including:
 
-1. `main=""` to add a title
-2. `axes=F` to remove the axes of our plot
-3. `box=F` to remove the box surrounding the plot.
+1. `main` to add a title
+2. `axes = FALSE` to remove the axes of our plot
+3. `box = FALSE` to remove the box surrounding the plot.
 
 In the example below, we call each argument by name and then assign it a value
-based on the type of argument it is. For example the value for the `main=` argument
+based on the type of argument it is. For example the value for the `main = ` argument
 is a text string which is the title that we want `R` to add to our plot.
 
 
@@ -56,16 +54,16 @@ is a text string which is the title that we want `R` to add to our plot.
 # import and plot landsat
 landsat_ndvi <- raster("data/week6/outputs/landsat_ndvi.tif")
 plot(landsat_ndvi,
-     main="landsat ndvi title - this title is rendered using a function argument",
-     axes=F,
-     box=F)
+     main = "ndvi title - rendered using a function argument",
+     axes = FALSE,
+     box = FALSE)
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation05-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="100%" />
 
 Function arguments allow us to customize how a function runs. For example, we can
-use the plot function to plot many different types of data! And we can use the
-`main=""` argument to customize the title. We use axes and box to customize how the
+use the `plot()` function to plot many different types of data! And we can use the
+`main` argument to customize the title. We use axes and box to customize how the
 plot looks. This is a powerful function as it can be used to do many different
 things and is customizable in many ways that we may need / want!
 
@@ -75,9 +73,9 @@ Let's next talk about the order or arguments in a function. `R` has three ways
 that arguments supplied by you are matched to the *formal arguments* of the
 function definition:
 
-1. **By complete name:** i.e. you type `main=""` and `R` matches main to the argument called `main`.
+1. **By complete name:** i.e. you type `main = ""` and `R` matches main to the argument called `main`.
 2. **By order or position when you call an argument:** i.e. you call `plot(raster, "title here")`, `R` will read these two variables in the order that you provide them. This can cause the function to fail if they are not in the right order!
-3. **By partial name:** (matching on initial *n* characters of the argument name) - we are not going to review this in class!
+3. **By partial name:** (matching on initial *n* characters of the argument name) - we are not going to review this in class. Beware using this "feature".
 
 Arguments are matched in the manner outlined above.
 
