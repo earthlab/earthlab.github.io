@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-02-21'
+modified: '2017-03-07'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/reproject-vector-data/
@@ -187,7 +187,7 @@ AOI to represent "Area of Interest" in our data.
 
 
 ```r
-# Import a point shapefile
+# Import a polygon shapefile
 sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
 ## OGR data source with driver: ESRI Shapefile 
@@ -477,6 +477,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```
