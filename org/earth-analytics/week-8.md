@@ -151,7 +151,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
 
 </div>
 
-## Grading
+## Grade rubric
 
 
 #### .Pdf Report structure & code: 10%
