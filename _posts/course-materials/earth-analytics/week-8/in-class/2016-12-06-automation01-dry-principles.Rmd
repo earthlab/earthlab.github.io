@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Don't Repeat Yourself - Eliminating repetition in your code"
+title: "Don't Repeat Yourself - Eliminate repetition in your code"
 excerpt: "This lesson will cover the basic principles of using functions and why they are important."
 authors: ['Max Joseph', 'Leah Wasser', 'Software Carpentry', 'Reproducible Science Curriculum Community']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
@@ -114,13 +114,14 @@ In addition to minimizing the number of objects in your global environment, defi
 For instance, if we define an object in our global environment:
 
 ```{r}
+# first define x -x is a global variable
 x <- 10
 ```
 
 Then define and call a function which defines an object called `x`:
 
 ```{r}
-my_function <- function(x) {
+modify_x <- function(x) {
   x <- 2 * x
   x
 }
