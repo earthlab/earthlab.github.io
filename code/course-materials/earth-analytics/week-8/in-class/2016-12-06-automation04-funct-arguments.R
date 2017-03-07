@@ -19,7 +19,7 @@ plot(landsat_ndvi,
 ##          dec = ".", fill = TRUE, comment.char = "", ...)
 
 ## ---- results="hide", error = TRUE---------------------------------------
-dat <- read.csv(FALSE, "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
+precip_data <- read.csv(FALSE, "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
 
 ## ---- eval=F-------------------------------------------------------------
 ## precip_data <- read.csv("data/week2/precipitation/precip-boulder-aug-oct-2013.csv",
