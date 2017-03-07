@@ -75,6 +75,7 @@ and warnings and code as you see fit.
 3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plots 2 & 3 in your homework to answer this question.
 
 #### Include the plots below.
+
 For all plots:
 
 1. Be sure to describe what each plot shows in your final report using a figure
@@ -84,6 +85,7 @@ caption argument in your code chunks: `fig.cap="caption here`.
 
 
 #### Plot 1 - Grid of NAIP, Landsat and MODIS
+
 Use the `plotRGB()` function to plot a color infrared (also called false color)
 images of NAIP, Landsat and MODIS in one figure. It doesn't matter whether you use 
 pre-post fire data. However you might want to use pre-fire data for NAIP (that is 
@@ -100,6 +102,7 @@ An example of what this plot should look like (without all of the labels that
 you need to add), [is here at the bottom of the page.]({{ site.url }}/course-materials/earth-analytics/week-7/grid-of-plots-report/)
 
 #### Plot 2 - Pre-fire NBR using landsat data
+
 Create a MAP of the classified pre-burn NBR using the landsat scene that you
 downloaded from Earth Explorer this week. Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
 on top of the NBR map. Add a legend. This file should not have a cloud in the
@@ -107,6 +110,7 @@ middle of the burn area! You can use Earth Explorer to download the data. Use
 the classes that you used in your homework from week 6 to classify the data.
 
 #### Plot 3 - Pre-fire NBR using landsat data with cloud mask
+
 Create a MAP of the classified pre-burn NBR using the **Landsat** data file that
 was provided to you in your data download `data/week6/landsat/LC80340322016189-SC20170128091153/crop`.
 Be sure to mask the clouds from your analysis. Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp` on
@@ -114,6 +118,7 @@ top of the NBR map. Add a legend that clearly explains what each class
 represents (ie high severity, moderate etc.).
 
 #### Plot 4 - Post-fire NBR using landsat data
+
 Create a MAP of post fire classified NBR using **Landsat** data. Note: you did
 this for your homework last
 week, re-use the code. However this time, use a cloud mask to remove any clouds
@@ -122,6 +127,7 @@ top of the NBR map. Add a legend that shows each NBR class and that clearly
 explains what each class represents (ie high severity, moderate etc.).
 
 #### Plot 5 - Post-fire NBR MODIS
+
 Create a classified map of **post fire NBR** using MODIS data. Be sure to mask
 the data using a cloud mask. Ideally you'll do this BEFORE you calculate NBR and
 classify it. Add a legend that shows each NBR class and that clearly
