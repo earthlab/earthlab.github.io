@@ -1,14 +1,51 @@
 ---
-title: "Pre-post fire veg indices - Understanding Functions"
-author: "Earth Analytics Course - Week 8"
-date: "3/6/2017"
-output: html_document
+layout: single
+title: "An example of creating modular code in R - Efficient scientific programming"
+excerpt: "This lesson provides an example of modularizing code in R. "
+authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
+modified: '2017-03-08'
+category: [course-materials]
+class-lesson: ['automating-your-science-r']
+permalink: /course-materials/earth-analytics/week-8/class-activity-modularity-r/
+nav-title: 'Activity - Identify repitition'
+week: 8
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 3
 ---
 
 
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+*
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson and the
+data that we already downloaded for week 6 of the course.
+
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+</div>
+
+In this lesson, we will practice identifying modular or repeated tasks in your
+code and will work through the exercise of turning code written as a linear
+script into modular code that utilizes functions.
+
+Have a close look at the code below. Are there components of the code that are
+repeated with slightly different argument values?
+
 # Setup R
 
-```{r setup-code }
+
+```r
 knitr::opts_chunk$set(echo = TRUE, eval=F)
 # set working dir
 setwd("~/Documents/earth-analytics")
@@ -28,21 +65,22 @@ ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
 # Import Landsat data - Julian day 189 - pre fire
 
 
-```{r get-files}
+
+```r
 # get list of tif files
 all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016173-SC20170227185411/crop",
                                 pattern=glob2rx("*band*.tif$"),
                                 full.names = T)
 
-# stack landsat bands 
+# stack landsat bands
 landsat_stack_csf_pre <- stack(all_landsat_bands_pre)
-
 
 ```
 
 ## Calculate NDVI - pre-fire
 
-```{r create-ndvi}
+
+```r
 # calculate normalized index - NDVI
 landsat_ndvi_pre <- (landsat_stack_csf_pre[[5]] - landsat_stack_csf_pre[[4]]) / (landsat_stack_csf_pre[[5]] + landsat_stack_csf_pre[[4]])
 
@@ -73,14 +111,15 @@ legend(ndvi_classified_pre@extent@xmax, ndvi_classified_pre@extent@ymax,
 writeRaster(x = ndvi_classified_pre,
             filename="data/week6/outputs/landsat_ndvi_pre.tif",
             format = "GTiff", # save as tif
-            datatype='INT2S', # save as a INTEGER 
+            datatype='INT2S', # save as a INTEGER
             overwrite = T)  # overwrite previous file
 
 ```
 
 ## Calculate Normalized Burn Ratio (NBR) - Pre fire
 
-```{r calculate-plot-nbr}
+
+```r
 # calculate normalized index = NBR
 landsat_nbr_pre <- (landsat_stack_csf_pre[[4]] - landsat_stack_csf_pre[[7]]) / (landsat_stack_csf_pre[[4]] + landsat_stack_csf_pre[[7]])
 
@@ -92,11 +131,12 @@ plot(landsat_nbr_pre,
 
 ## Open & Process Post-fire data
 
-```{r open-post-fire-data}
+
+```r
 # get list of tif files
 all_landsat_bands_post <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
                                 pattern=glob2rx("*band*.tif$"),
-                                full.names = T) 
+                                full.names = T)
 
 # stack the data (create spatial object)
 landsat_stack_csf_post <- stack(all_landsat_bands_post)
@@ -105,7 +145,8 @@ landsat_stack_csf_post <- stack(all_landsat_bands_post)
 
 ## Calculate NDVI - post-fire
 
-```{r}
+
+```r
 # calculate NDVI
 landsat_ndvi_post <- (landsat_stack_csf_post[[5]] - landsat_stack_csf_post[[4]]) / (landsat_stack_csf_post[[5]] + landsat_stack_csf_post[[4]])
 
@@ -136,19 +177,20 @@ writeRaster(x = ndvi_classified_post,
             filename="data/week6/outputs/landsat_ndvi_post.tif",
             format = "GTiff", # save as a tif
             datatype='INT2S', # save as a INT
-            overwrite = T)  
+            overwrite = T)
 
 ```
 
 ## Calculate NBR post fire
 Next, calculate Normalized Burn Ratio (NBR).
 
-```{r calculate-plot-nbr}
+
+```r
 # calculate normalized index = NBR
 landsat_nbr_post <- (landsat_stack_csf_post[[5]] - landsat_stack_csf_post[[7]]) / (landsat_stack_csf_post[[5]] + landsat_stack_csf_post[[7]])
 
 # calculate difference NBR (pre - post)
-landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post 
+landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post
 
 # create classification matrix
 reclass <- c(-1.0, -.1, 1,
@@ -186,11 +228,11 @@ writeRaster(x = landsat_nbr_diff_class,
 Compare pre and post fire.
 
 
-```{r}
+
+```r
 par(mfrow=c(2,1))
 plot(landsat_nbr_pre, zlim=c(-1,1),
      main="pre-fire NBR")
 plot(landsat_nbr_post, zlim=c(-1,1),
      main="post-fire NBR")
 ```
-
