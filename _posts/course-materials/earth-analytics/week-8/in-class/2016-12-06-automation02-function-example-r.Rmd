@@ -94,11 +94,10 @@ get_stack_bands <- function(the_dir_path, the_pattern){
 Here's we've reduced the code by a few lines using a get bands function. Then we 
 can plot like we did before. 
 
-```{r, eval=F}
+```{r plot-rgb, fig.cap="raster stack plot - rgb"}
 # code to go here
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
-
 
 par(col.axis="white", col.lab="white", tck=0)
 # plot brick
@@ -120,8 +119,12 @@ that they want to plot the data.
 ```{r create-plot-function}
 # notice here i set a default stretch to blank
 create_rgb_plot <-function(a_raster_stack, the_plot_title, the_stretch=""){
+  # a function that plots a raster stack turning on axes and setting the parameters to 
+  # white to "hide" the axes for a nice looking plot with a title
+  # inputs: raster stack with multiple spectral raster layers
+  # outputs
   par(col.axis="white", col.lab="white", tck=0)
-  # plot brick
+  # plot raster stack
   plotRGB(a_raster_stack, 
     main=the_plot_title,
     axes=T,
@@ -133,7 +136,7 @@ create_rgb_plot <-function(a_raster_stack, the_plot_title, the_stretch=""){
 ```
 
 
-```{r}
+```{r plot-rgb-function, fig.cap="raster stack plot - rgb"}
 # code to go here
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")

@@ -6,15 +6,8 @@ setwd("~/Documents/earth-analytics")
 # load spatial packages
 library(raster)
 library(rgdal)
-library(rgeos)
-library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = F)
-
-# set colors
-
-nbr_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
-ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
 
 # get list of tif files
 all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
@@ -24,61 +17,80 @@ all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016189-SC201701280
 # stack the data (create spatial object)
 landsat_stack_csf <- stack(all_landsat_bands)
 
-# calculate normalized index - NDVI
-landsat_ndvi <- (landsat_stack_csf[[5]] - landsat_stack_csf[[4]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[4]])
+par(col.axis="white", col.lab="white", tck=0)
+# plot brick
+plotRGB(landsat_stack_csf,
+  r=4,g=3, b=2, 
+  main="RGB Landsat Stack \n pre-fire",
+  axes=T,
+  stretch="hist")
+box(col="white") # turn all of the lines to white
 
-# create classification matrix
-# note i line it up like this so it looks more like the arcgis reclass table!
-reclass <- c(-1, -.2, 1,
-             -.2, .2, 2,
-             .2, .5, 3,
-             .5, 1, 4)
-# reshape the object into a matrix with columns and rows
-reclass_m <- matrix(reclass,
-                    ncol=3,
-                    byrow=TRUE)
 
-ndvi_classified <- reclassify(landsat_ndvi,
-                             reclass_m)
-
-# set colors
-the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
-# plot classified data
-plot(ndvi_classified,
-     box=F, axes=F, legend=F,
-     main="NDVI - Pre fire")
-legend(ndvi_classified@extent@xmax, ndvi_classified@extent@ymax,
-       legend=c("class one", "class two", "class three"),
-       fill = the_colors, bty="n", xpd=T)
 
 
 ## ------------------------------------------------------------------------
-# calculate normalized index = NBR
-landsat_nbr <- (landsat_stack_csf[[4]] - landsat_stack_csf[[7]]) / (landsat_stack_csf[[4]] + landsat_stack_csf[[7]])
 
-# create classification matrix
-reclass <- c(-1.0, -.1, 1,
-             -.1, .1, 2,
-             .1, .27, 3,
-             .27, .66, 4,
-             .66, 1.3, 5)
-# reshape the object into a matrix with columns and rows
-reclass_m <- matrix(reclass,
-                ncol=3,
-                byrow=TRUE)
+# we can do the same things with functions
+get_stack_bands <- function(the_dir_path, the_pattern){
+  # get list of tif files
+  all_landsat_bands <- list.files(the_dir_path,
+                                pattern=glob2rx(the_pattern),
+                                full.names = T)
 
-nbr_classified <- reclassify(landsat_nbr,
-                     reclass_m)
+  # stack the data (create spatial object)
+  landsat_stack_csf <- stack(all_landsat_bands)
+  return(landsat_stack_csf)
+  
+}
 
-# plot classified data
-plot(ndvi_classified,
-     box=F, axes=F, legend=F,
-     main="Landsat NBR - Pre Fire \n Julian Day 189")
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity"),
-       fill=rev(the_colors),
-       cex=.9, bty="n", xpd=T)
+
+
 
 ## ---- eval=F-------------------------------------------------------------
 ## # code to go here
+## landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+##                 the_pattern = "*band*.tif$")
+## 
+## 
+## par(col.axis="white", col.lab="white", tck=0)
+## # plot brick
+## plotRGB(landsat_pre_fire,
+##   r=4,g=3, b=2,
+##   main="RGB Landsat Stack \n pre-fire",
+##   axes=T,
+##   stretch="lin")
+## box(col="white") # turn all of the lines to white
+## 
+
+## ----create-plot-function------------------------------------------------
+# notice here i set a default stretch to blank
+create_rgb_plot <-function(a_raster_stack, the_plot_title, the_stretch=""){
+  par(col.axis="white", col.lab="white", tck=0)
+  # plot brick
+  plotRGB(a_raster_stack, 
+    main=the_plot_title,
+    axes=T,
+    stretch=the_stretch)
+  box(col="white") # turn all of the lines to white
+  
+}
+
+
+## ------------------------------------------------------------------------
+# code to go here
+landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+                the_pattern = "*band*.tif$")
+
+# stack the data in the order that you want to plot
+landsat_pre_fire_RGB <- stack(landsat_pre_fire[[4]], landsat_pre_fire[[3]], landsat_pre_fire[[2]])
+
+# plot the data 
+create_rgb_plot(a_raster_stack = landsat_pre_fire_RGB,
+                the_plot_title = "RGB image",
+                the_stretch="hist")
+
+## ------------------------------------------------------------------------
+
+
 
