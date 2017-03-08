@@ -1,7 +1,7 @@
 ## ------------------------------------------------------------------------
-fahr_to_kelvin <- function(temp) {
-  kelvin <- ((temp - 32) * (5 / 9)) + 273.15
-  return(kelvin)
+fahr_to_kelvin <- function(fahr) {
+  kelvin <- ((fahr - 32) * (5 / 9)) + 273.15
+  kelvin
 }
 
 ## ------------------------------------------------------------------------
@@ -11,19 +11,19 @@ fahr_to_kelvin(32)
 fahr_to_kelvin(212)
 
 ## ----kelv-to-cens--------------------------------------------------------
-kelvin_to_celsius <- function(temp) {
-  celsius <- temp - 273.15
-  return(celsius)
+kelvin_to_celsius <- function(kelvin) {
+  celsius <- kelvin - 273.15
+  celsius
 }
 
 # absolute zero in Celsius
 kelvin_to_celsius(0)
 
 ## ------------------------------------------------------------------------
-fahr_to_celsius <- function(temp) {
-  temp_k <- fahr_to_kelvin(temp)
-  result <- kelvin_to_celsius(temp_k)
-  return(result)
+fahr_to_celsius <- function(fahr) {
+  kelvin <- fahr_to_kelvin(fahr)
+  celsius <- kelvin_to_celsius(kelvin)
+  celsius
 }
 
 # freezing point of water in Celsius
