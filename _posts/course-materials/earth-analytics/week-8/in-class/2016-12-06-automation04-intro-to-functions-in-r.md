@@ -3,7 +3,7 @@ layout: single
 title: "Build a function in R - Efficient scientific programming"
 excerpt: "This lesson introduces how to create a function in R."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-03-07'
+modified: '2017-03-08'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/intro-to-functions-r/
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 ---
 
 
@@ -81,10 +81,8 @@ Calling our own function is no different from calling any other function:
 ```r
 # freezing point of water
 fahr_to_kelvin(32)
-## [1] 273.15
 # boiling point of water
 fahr_to_kelvin(212)
-## [1] 373.15
 ```
 
 We've successfully called the function that we defined, and we have access to the value that we returned.
@@ -102,7 +100,6 @@ kelvin_to_celsius <- function(kelvin) {
 
 # absolute zero in Celsius
 kelvin_to_celsius(0)
-## [1] -273.15
 ```
 
 What about converting Fahrenheit to Celsius?
@@ -120,7 +117,6 @@ fahr_to_celsius <- function(fahr) {
 
 # freezing point of water in Celsius
 fahr_to_celsius(32.0)
-## [1] 0
 ```
 
 This is our first taste of how larger programs are built: we define basic
@@ -141,7 +137,6 @@ together, like so:
 ```r
 # freezing point of water in Celsius
 kelvin_to_celsius(fahr_to_kelvin(32.0))
-## [1] 0
 ```
 
 
@@ -175,8 +170,6 @@ should run is below.
  asterisk <- "***"  # R interprets a variable with a single value as a vector
                     # with one element.
  fence(best_practice, asterisk)
-## [1] "***"       "Write"     "programs"  "for"       "people"    "not"      
-## [7] "computers" "***"
 ```
 
 <div class="notice--warning" markdown="1">
@@ -193,5 +186,4 @@ Write a function called `outside` that returns a vector made up of just the firs
 ```r
  dry_principle <- c("Don't", "repeat", "yourself", "or", "others")
  outside(dry_principle)
-## [1] "Don't"  "others"
 ```

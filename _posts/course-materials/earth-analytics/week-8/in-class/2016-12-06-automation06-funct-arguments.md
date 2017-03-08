@@ -3,7 +3,7 @@ layout: single
 title: "Working with function arguments"
 excerpt: " ."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-03-07'
+modified: '2017-03-08'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/function-arguments-r/
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 ---
 
 
@@ -58,8 +58,6 @@ plot(landsat_ndvi,
      axes = FALSE,
      box = FALSE)
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation05-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="100%" />
 
 Function arguments allow us to customize how a function runs. For example, we can
 use the `plot()` function to plot many different types of data! And we can use the
@@ -108,7 +106,6 @@ Now we understand why the following code returns an error:
 
 ```r
 precip_data <- read.csv(FALSE, "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
-## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
 ```
 
 The code above fails because `FALSE` is assigned to `file` and the filename is assigned to
@@ -147,5 +144,5 @@ But this code below doesn't work. Make sense?
 ```r
 dat <- read.csv(FALSE,
                 "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
-## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
+
 ```
