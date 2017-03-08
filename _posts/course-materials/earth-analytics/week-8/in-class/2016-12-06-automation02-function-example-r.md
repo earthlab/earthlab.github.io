@@ -7,7 +7,7 @@ modified: '2017-03-08'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/function-example-modular-code-r/
-nav-title: 'Function example'
+nav-title: 'Applying functions'
 week: 8
 sidebar:
   nav:
@@ -63,14 +63,13 @@ landsat_stack_csf <- stack(all_landsat_bands)
 par(col.axis="white", col.lab="white", tck=0)
 # plot brick
 plotRGB(landsat_stack_csf,
-  r=4,g=3, b=2, 
+  r=4,g=3, b=2,
   main="RGB Landsat Stack \n pre-fire",
   axes=T,
   stretch="hist")
 box(col="white") # turn all of the lines to white
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-first, -1.png" title="landsat pre fire raster stack plot" alt="landsat pre fire raster stack plot" width="100%" />
+```
 
 
 
@@ -86,7 +85,7 @@ get_stack_bands <- function(the_dir_path, the_pattern){
   # stack the data (create spatial object)
   landsat_stack_csf <- stack(all_landsat_bands)
   return(landsat_stack_csf)
-  
+
 }
 
 ```
@@ -94,8 +93,8 @@ get_stack_bands <- function(the_dir_path, the_pattern){
 
 # Example using functions
 
-Here's we've reduced the code by a few lines using a get bands function. Then we 
-can plot like we did before. 
+Here's we've reduced the code by a few lines using a get bands function. Then we
+can plot like we did before.
 
 
 ```r
@@ -107,20 +106,19 @@ landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC8034032
 par(col.axis="white", col.lab="white", tck=0)
 # plot brick
 plotRGB(landsat_pre_fire,
-  r=4,g=3, b=2, 
+  r=4,g=3, b=2,
   main="RGB Landsat Stack \n pre-fire",
   axes=T,
   stretch="lin")
 box(col="white") # turn all of the lines to white
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-pre-1.png" title="landsat pre fire raster stack plot" alt="landsat pre fire raster stack plot" width="100%" />
+```
 
 
 Now, what if we created a function that adjusted
-all of the parameters that we wanted to set to plot an RGB image? Here we 
+all of the parameters that we wanted to set to plot an RGB image? Here we
 will require the user to send the function a stack with the bands in the order
-that they want to plot the data. 
+that they want to plot the data.
 
 
 ```r
@@ -130,22 +128,23 @@ create_rgb_plot <-function(a_raster_stack, the_plot_title, r=3, g=2, b=1, the_st
   # it sets the plot border and box to white
   # Inputs a_raster_stack - a given raster stack with multiple spectral bands
   # the_plot_title - teh title of the plot - text string format in quotes
-  # red, green, blue - the numeric index location of the bands that you want 
+  # red, green, blue - the numeric index location of the bands that you want
   #  to plot on the red, green and blue channels respectively
   # the_stretch -- defaults to NULL - can take "hist" or "lin" as an option
   par(col.axis="white", col.lab="white", tck=0)
   # plot brick
-  plotRGB(a_raster_stack, 
+  plotRGB(a_raster_stack,
     main=the_plot_title,
     r=r, g=g, b=b,
     axes=T,
     stretch=the_stretch)
   box(col="white") # turn all of the lines to white
-  
+
 }
+
 ```
 
-Let's use the code to plot pre-fire RGB image. 
+Let's use the code to plot pre-fire RGB image.
 
 
 ```r
@@ -153,32 +152,28 @@ Let's use the code to plot pre-fire RGB image.
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
 
-# plot the data 
+# plot the data
 create_rgb_plot(a_raster_stack = landsat_pre_fire,
                 r=4, g = 3, b=2,
                 the_plot_title = "RGB image",
                 the_stretch="hist")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-one-1.png" title="pre-fire rgb image" alt="pre-fire rgb image" width="100%" />
-
-Once our plot parameters are setup, we can use the same code to plot our data 
+Once our plot parameters are setup, we can use the same code to plot our data
 over and over without having to set parameters each time!
 
 Now we can plot a CIR fire image with one function!
 
 
 ```r
-# plot the data 
+# plot the data
 create_rgb_plot(a_raster_stack = landsat_pre_fire,
                 r=5, g = 4, b = 3,
                 the_plot_title = "RGB image",
                 the_stretch="hist")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-one-cir-1.png" title="pre-fire cir image" alt="pre-fire cir image" width="100%" />
-
-Let's run the same functions on another landsat dataset  - post fire. 
+Let's run the same functions on another landsat dataset  - post fire.
 
 
 ```r
@@ -186,43 +181,39 @@ Let's run the same functions on another landsat dataset  - post fire.
 landsat_post_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
                 the_pattern = "*band*.tif$")
 
-# plot the 3 band image of the data 
+# plot the 3 band image of the data
 create_rgb_plot(a_raster_stack = landsat_post_fire,
                 r=4, g = 3, b=2,
                 the_plot_title = "RGB image",
                 the_stretch="hist")
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-post-1.png" title="landsat post fire raster stack plot" alt="landsat post fire raster stack plot" width="100%" />
+```
 
 What if we want to plot a CIR image post fire?
 
 
 ```r
-# plot the 3 band image of the data 
+# plot the 3 band image of the data
 create_rgb_plot(a_raster_stack = landsat_post_fire,
                 r=5, g = 4, b = 3,
                 the_plot_title = "Landsat post fire CIR image",
                 the_stretch="hist")
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-post-CIR-1.png" title="landsat CIR post fire raster stack plot" alt="landsat CIR post fire raster stack plot" width="100%" />
+```
 
 Are our functions general enough to work with MODIS?
 
 
 ```r
-# import MODIS 
+# import MODIS
 modis_pre_fire <- get_stack_bands(the_dir_path = "data/week6/modis/reflectance/07_july_2016/crop",
                 the_pattern = "*sur_refl*.tif$")
 
-# plot the data 
+# plot the data
 create_rgb_plot(a_raster_stack = modis_pre_fire,
                 r=1, g = 4, b=3,
                 the_plot_title = "MODIS RGB image",
                 the_stretch="hist")
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-modis-1.png" title="pre-fire rgb image MODIS" alt="pre-fire rgb image MODIS" width="100%" />
 
 Looks like it works!
