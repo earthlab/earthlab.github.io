@@ -69,3 +69,7 @@ earth-analytics-2017:
         url: /course-materials/earth-analytics/week-6/
       - title: "Week 7: Fire 2: spectral remote sensing"
         url: /course-materials/earth-analytics/week-7/
+  - title: "Weeks 8-9 - Efficient coding"
+    children:
+      - title: "Week 8: Functions"
+        url: /course-materials/earth-analytics/week-8/
