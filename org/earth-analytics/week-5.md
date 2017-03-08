@@ -70,7 +70,7 @@ and warnings and code as you see fit.
 Which lidar estimate (max vs average) does a better job of comparing measured
 average or max tree height ? Any ideas why one is better than the other? Discuss
 this referencing what you see in the plots and the readings assigned for homework.
-3. **Write *atleast* 1 paragraph:** List atleast 3 sources of uncertainty associated with the lidar derived tree heights and the in situ measurements of tree height. Be sure to reference the plots in your report when discussing this. Note: the assigned readings will help you write this paragraph.
+3. **Write *atleast* 1 paragraph:** List atleast 3 sources of uncertainty associated with the lidar derived tree heights and 3 sources of uncertainty associated with *in situ* measurements of tree height. For each source of uncertainty, specify whether it is a random or systematic error source. Be sure to reference the plots in your report when discussing this. Note: the assigned readings will help you write this paragraph.
 
 #### Include the plots below.
 Be sure to describe what each plot shows in your final report.
