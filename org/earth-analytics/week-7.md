@@ -37,7 +37,7 @@ we will learn how to
 | 3:15 - 3:40  | Addititive light models - interactive experiment |   |
 | 3:45 - 4:15  | Dealing with clouds & cloud masks in R  |    |
 | 4:30 - 5:00  | Group activity: Get data from Earth Explorer |    |
-| 5:0 - 5:30  | MODIS data in R - NA values & scale factors - Coding  Session |    |
+| 5:00 - 5:30  | MODIS data in R - NA values & scale factors - Coding  Session |    |
 |===
 | 5:30 - 5:50  | Group project / Home work time |    |
 
