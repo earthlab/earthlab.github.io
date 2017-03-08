@@ -71,7 +71,7 @@ and warnings and code as you see fit.
 #### Answer the following questions below in your report
 
 1. What is the spatial resolution of NAIP, Landsat & MODIS data in meters? Are these data types different in terms of resolution? How could this resolution difference impact analysis using these data? Use plot 1 BELOW to visually show the difference.
-2. Calculate the area of "high severity" and the area of "moderate severity" burn in meters using the post-fire data for both Landsat and MODIS. State what the values are in your answer. Are the values different? Why / why not? Use plots 4 and 5 to discuss any differences you notice.
+2. Calculate the area of "high severity" and the area of "moderate severity" burn in meters using the post-fire data for both Landsat and MODIS. State what the area in meters is for each data type (Landsat and MODIS) in your answer. Are the area values different calculated from MODIS vs Landsat? Why / why not? Use plots 4 and 5 to discuss any differences you notice.
 3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plots 2 & 3 in your homework to answer this question.
 
 #### Include the plots below.
@@ -84,10 +84,10 @@ caption argument in your code chunks: `fig.cap="caption here`.
 3. Use clear legends as appropriate - especially for the classified data plots!
 
 
-#### Plot 1 - Grid of NAIP, Landsat and MODIS
+#### Plot 1 - Grid of plots: NAIP, Landsat and MODIS
 
-Use the `plotRGB()` function to plot a color infrared (also called false color)
-images of NAIP, Landsat and MODIS in one figure. It doesn't matter whether you use
+Use the `plotRGB()` function to create color infrared (also called false color)
+images of NAIP, Landsat and MODIS **in one figure**. It doesn't matter whether you use
 pre-post fire data. However you might want to use pre-fire data for NAIP (that is
 all that you have). And then cloud free data for landsat and MODIS which may be post
 fire. For each map be sure to:
@@ -144,7 +144,7 @@ explains what each class represents (i.e. high severity, moderate etc.).
 
 ****
 
-## Homework due: Thursday March 10 2017 @ NOON.
+## Homework due: Friday March 10, 2017 @ NOON.
 Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 </div>
@@ -178,7 +178,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | 1. What is the spatial resolution for NAIP, Landsat & MODIS data in meters? |  |  | | |
 | 1. Are these data types different in terms of resolution? |  |  | | |
 | 1. How could this resolution difference impact analysis using these data? Use plot 1 BELOW to visually show the difference. |  |  | | |
-| 2. Calculate the area of “high severity” and the area of “moderate severity” burn in meters using the post-fire data for both Landsat and MODIS. State what the values are in your answer.|  |  | | |
+| 2. Calculate the area of “high severity” and the area of “moderate severity” burn in meters using the post-fire data for both Landsat and MODIS. State what the area in meters is for each data type (Landsat and MODIS) in your answer.|  |  | | |
 | 2. Are the values different? Why / why not? Use plots 4 and 5 to discuss any differences you notice.|  |  | | |
 | 3. Describe 3 potential impacts of cloud cover on remote sensing imagery analysis. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plot 2 in your homework to answer this question.|||||
 | 3. What are 2 ways that we can deal with clouds when we encounter them in our work? Refer to plot 2 in your homework to answer this question.|||||
