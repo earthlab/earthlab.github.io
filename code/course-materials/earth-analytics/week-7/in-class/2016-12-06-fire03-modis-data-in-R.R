@@ -18,28 +18,55 @@ all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
 
+# view band names
+names(all_modis_bands_st_july7)
+# clean up the band names for neater plotting
+names(all_modis_bands_st_july7) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
+     names(all_modis_bands_st_july7))
+
+# view cleaned up band names
+names(all_modis_bands_st_july7)
+
 ## ----explore-data, warning=F, message=F, fig.cap="MODIS stack band 2 plot"----
 # turn off scientific notation
 options("scipen"=100, "digits"=4)
+# bottom, left, top and right
+#par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
-  col="springgreen")
+  col="springgreen",
+  xlab="Reflectance Value")
+mtext("Distribution of MODIS reflectance values for each band\n Data not scaled", 
+      outer = TRUE, cex = 1.5)
 
-## ----scale-data, fig.cap="MODIS stack histogram plot"--------------------
+
+## ----echo=F, results='hide'----------------------------------------------
+dev.off()
+
+## ----scale-data, fig.cap="MODIS stack histogram plot", fig.width=7, fig.height=8----
 # deal with nodata value --  -28672
 all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
 # view histogram of each layer in our stack
+# par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
    xlab="Reflectance Value",
    col="springgreen")
+mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
+
+## ----echo=F, results='hide'----------------------------------------------
+dev.off()
 
 ## ----assign-no-data, fig.cap="MODIS stack histogram plot with NA removed"----
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
+#par(mfrow=c(4,2))
 # plot histogram
 hist(all_modis_bands_st_july7,
-   xlab="Reflectance Value",
+  xlab="Reflectance Value",
   col="springgreen")
-title(main = "MY Title")
+mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
+
+## ----echo=F, results='hide'----------------------------------------------
+dev.off()
 
 ## ----import-shapefile, results='hide', echo=F----------------------------
 # view fire overlay boundary
