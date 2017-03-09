@@ -144,6 +144,7 @@ explains what each class represents (i.e. high severity, moderate etc.).
 
 ****
 
+
 ## Homework due: Friday March 10, 2017 @ NOON.
 Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 

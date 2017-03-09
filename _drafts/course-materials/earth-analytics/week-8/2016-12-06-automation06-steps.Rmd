@@ -73,9 +73,9 @@ Quote -- 2 hard things - cache validation & naming things...
 
 3 tips to making good functions
 
-1. express inten
+1. express intent with the function name
 2. be nice to humans
-3. ?????
+3. Make functions self-contained
 4. TOO TAST
 
 this is where the basmati rice picture might be nice...
@@ -85,5 +85,23 @@ this is where the basmati rice picture might be nice...
 
 ## Document the function
 
-* be sure to update comments if you change things 
+* be sure to update comments if you change things
 * Make your function self-contained
+  * good example of using a variable that is not an input in the function itself...
+
+
+## Self contained functions
+
+Use maxes graphic - input --  function -- output
+
+robust to standard global enviornment
+
+
+
+
+****
+piping function
+
+32 %>%
+  function() %>%
+  function()
