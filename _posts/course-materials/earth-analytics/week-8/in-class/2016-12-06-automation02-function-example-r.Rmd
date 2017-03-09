@@ -96,12 +96,7 @@ get_stack_bands <- function(the_dir_path, the_pattern){
 Here's we've reduced the code by a few lines using a get bands function. Then we
 can plot like we did before.
 
-<<<<<<< HEAD
-```{r plot-rgb, fig.cap="raster stack plot - rgb"}
-=======
 ```{r plot-landsat-pre, fig.cap="landsat pre fire raster stack plot"}
->>>>>>> 599b097850692cf12d3ae1162a6118646c5b54e7
-# code to go here
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
 
@@ -123,17 +118,6 @@ will require the user to send the function a stack with the bands in the order
 that they want to plot the data.
 
 ```{r create-plot-function}
-# notice here i set a default stretch to blank
-<<<<<<< HEAD
-create_rgb_plot <-function(a_raster_stack, the_plot_title, the_stretch=""){
-  # a function that plots a raster stack turning on axes and setting the parameters to 
-  # white to "hide" the axes for a nice looking plot with a title
-  # inputs: raster stack with multiple spectral raster layers
-  # outputs
-  par(col.axis="white", col.lab="white", tck=0)
-  # plot raster stack
-  plotRGB(a_raster_stack, 
-=======
 create_rgb_plot <-function(a_raster_stack, the_plot_title, r=3, g=2, b=1, the_stretch=NULL){
   # this function plots an RGB image with a title
   # it sets the plot border and box to white
@@ -145,25 +129,18 @@ create_rgb_plot <-function(a_raster_stack, the_plot_title, r=3, g=2, b=1, the_st
   par(col.axis="white", col.lab="white", tck=0)
   # plot brick
   plotRGB(a_raster_stack,
->>>>>>> 599b097850692cf12d3ae1162a6118646c5b54e7
     main=the_plot_title,
     r=r, g=g, b=b,
     axes=T,
     stretch=the_stretch)
   box(col="white") # turn all of the lines to white
-
 }
 
 ```
 
 Let's use the code to plot pre-fire RGB image.
 
-<<<<<<< HEAD
 ```{r plot-rgb-function, fig.cap="raster stack plot - rgb"}
-=======
-```{r plot-one, fig.cap="pre-fire rgb image"}
->>>>>>> 599b097850692cf12d3ae1162a6118646c5b54e7
-# code to go here
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
 
