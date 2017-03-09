@@ -3,7 +3,7 @@ layout: single
 title: "Vegetation indices in R"
 excerpt: ". "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-02-28'
+modified: '2017-03-08'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-vegetation-indices-in-R/
@@ -92,13 +92,6 @@ all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC201701271
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands
-## [1] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
-## [2] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-## [3] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
-## [4] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
-## [5] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
-## [6] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
-## [7] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
 
 # stack the data
 landsat_stack_csf <- stack(all_landsat_bands)
@@ -124,8 +117,6 @@ plot(landsat_ndvi,
      main="Landsat derived NDVI\n 23 July 2016")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/calculate-ndvi-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
-
 ### View distribution of NDVI values
 
 
@@ -134,9 +125,8 @@ plot(landsat_ndvi,
 hist(landsat_ndvi,
   main="NDVI: Distribution of pixels\n Landsat 2016 Cold Springs fire site",
   col="springgreen")
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="100%" />
+```
 
 ## Export raster
 When you are done, you may want to export your rasters so you could use them in
@@ -165,8 +155,7 @@ shortwave-infrared (SWIR) wavelengths (Lopez, 1991; Key and Benson, 1995).
 
 The NBR was originally developed for use with Landsat TM and ETM+ bands 4 and 7,
 but it will work with any multispectral sensor (including Landsat 8) with a NIR
-band between 0.76-0.9 µm and a SWIR band between 2080 - 2350 nm.
-µm.
+band between 760 - 900 nm and a SWIR band between 2080 - 2350 nm.
 
 Looking at the table below, what bands should we use for Landsat 8?
 
@@ -184,7 +173,7 @@ Looking at the table below, what bands should we use for Landsat 8?
 | Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
 | Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
+
 
 When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
@@ -198,11 +187,11 @@ function and the classes below.
 | High Severity     |  | +660 to +1300 |
 
 NOTE: your min an max values for NBR may be slightly different from the table
-shown above! If you have a smaller min value (< -700) then adjust your first class 
+shown above! If you have a smaller min value (< -700) then adjust your first class
 to that smallest number. If you have a largest max value (>1300) then adjust
 your last class to that largest value in your data.
 
-Alternatively, you can set those values to NA if you think they are outside of 
+Alternatively, you can set those values to NA if you think they are outside of
 the valid range of NBR (in this case they are not).
 
 
@@ -226,7 +215,7 @@ writeRaster(x = landsat_nbr,
 
 Your classified map should look something like:
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+
 
 ## Compare to fire boundary
 
@@ -238,7 +227,7 @@ the shapefile in the folder:
 
 Add fire boundary to map.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+
 
 
 
@@ -272,14 +261,14 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        pt.cex=c(1.75))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+
 
 Note that you will have to figure out what date these data are for! I purposefully
 didn't include it in the title of this map.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/view-hist-1.png" title="plot hist" alt="plot hist" width="100%" />
+
 
 
 <div class="notice--info" markdown="1">
