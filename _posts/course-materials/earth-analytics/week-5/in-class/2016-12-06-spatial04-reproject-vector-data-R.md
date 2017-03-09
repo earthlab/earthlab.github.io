@@ -109,7 +109,7 @@ from the Census website to support the learning goals of this tutorial.
 # Import the shapefile data into R
 state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week5/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
 ## with 58 features
 ## It has 10 fields
@@ -127,7 +127,7 @@ class(state_boundary_us)
 Note: the Z-dimension warning is normal. The `readOGR()` function doesn't import
 z (vertical dimension or height) data by default. This is because not all
 shapefiles contain z dimension data.
-<a href="http://www.inside-r.org/packages/cran/rgdal/docs/ogrInfo" target="_blank">More on readOGR</a>
+<a href="https://www.rdocumentation.org/packages/gdalUtils/versions/2.0.1.7/topics/ogrinfo" target="_blank">More on readOGR</a>
 
 Next, let's plot the U.S. states data.
 
@@ -153,7 +153,7 @@ make our map pop!
 # Read the .csv file
 country_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week5/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
 ## with 1 features
 ## It has 9 fields
@@ -190,7 +190,7 @@ AOI to represent "Area of Interest" in our data.
 # Import a polygon shapefile
 sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week5/california/SJER/vector_data", layer: "SJER_crop"
 ## with 1 features
 ## It has 1 fields
@@ -315,10 +315,10 @@ object compared to the `state_boundary_us` object.
 ```r
 # extent & crs for AOI
 extent(sjer_aoi)
-## class       : Extent 
-## xmin        : 254570.6 
-## xmax        : 258867.4 
-## ymin        : 4107303 
+## class       : Extent
+## xmin        : 254570.6
+## xmax        : 258867.4
+## ymin        : 4107303
 ## ymax        : 4112362
 crs(sjer_aoi)
 ## CRS arguments:
@@ -327,10 +327,10 @@ crs(sjer_aoi)
 
 # extent & crs for object in geographic
 extent(state_boundary_us)
-## class       : Extent 
-## xmin        : -124.7258 
-## xmax        : -66.94989 
-## ymin        : 24.49813 
+## class       : Extent
+## xmin        : -124.7258
+## xmax        : -66.94989
+## ymin        : 24.49813
 ## ymax        : 49.38436
 crs(state_boundary_us)
 ## CRS arguments:
@@ -388,10 +388,10 @@ crs(sjer_aoi_WGS84)
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 # does the extent look like decimal degrees?
 extent(sjer_aoi_WGS84)
-## class       : Extent 
-## xmin        : -119.7626 
-## xmax        : -119.7127 
-## ymin        : 37.0799 
+## class       : Extent
+## xmin        : -119.7626
+## xmax        : -119.7127
+## ymin        : 37.0799
 ## ymax        : 37.12657
 ```
 
@@ -477,6 +477,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## RStudioGD 
+## RStudioGD
 ##         2
 ```
