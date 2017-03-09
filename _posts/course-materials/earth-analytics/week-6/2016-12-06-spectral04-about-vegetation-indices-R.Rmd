@@ -150,8 +150,7 @@ shortwave-infrared (SWIR) wavelengths (Lopez, 1991; Key and Benson, 1995).
 
 The NBR was originally developed for use with Landsat TM and ETM+ bands 4 and 7,
 but it will work with any multispectral sensor (including Landsat 8) with a NIR
-band between 0.76-0.9 µm and a SWIR band between 2080 - 2350 nm.
-µm.
+band between 760 - 900 nm and a SWIR band between 2080 - 2350 nm.
 
 Looking at the table below, what bands should we use for Landsat 8?
 
