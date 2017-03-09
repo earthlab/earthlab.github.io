@@ -3,7 +3,7 @@ layout: single
 title: "MODIS data in in R."
 excerpt: "In this lesson we will explore working with MODIS data in R. "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-03-01'
+modified: '2017-03-09'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/modis-data-in-R/
@@ -62,12 +62,30 @@ all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
 all_modis_bands_st_july7[[2]]
 ## class       : RasterLayer 
 ## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
-## resolution  : 463.3127, 463.3127  (x, y)
+## resolution  : 463.3, 463.3  (x, y)
 ## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
 ## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif 
 ## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
 ## values      : -32768, 32767  (min, max)
+
+# view band names
+names(all_modis_bands_st_july7)
+## [1] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b01_1"
+## [2] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1"
+## [3] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b03_1"
+## [4] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1"
+## [5] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b05_1"
+## [6] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b06_1"
+## [7] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b07_1"
+# clean up the band names for neater plotting
+names(all_modis_bands_st_july7) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
+     names(all_modis_bands_st_july7))
+
+# view cleaned up band names
+names(all_modis_bands_st_july7)
+## [1] "Band01_1" "Band02_1" "Band03_1" "Band04_1" "Band05_1" "Band06_1"
+## [7] "Band07_1"
 ```
 
 
@@ -117,17 +135,23 @@ what we'd expect. We'd expect values between -100 to 10000 yet instead we have
 much larger numbers.
 
 
+
+
 ```r
 # turn off scientific notation
 options("scipen"=100, "digits"=4)
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+# bottom, left, top and right
+#par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
   col="springgreen",
   xlab="Reflectance Value")
-mtext("Distribution of reflectance values for each band\n Data not scaled", outer = TRUE, cex = 1.5)
+mtext("Distribution of MODIS reflectance values for each band\n Data not scaled", 
+      outer = TRUE, cex = 1.5)
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
+
+
 
 ## Scale Factor
 Looking at the metadata, we can see that our  data have a scale factor. Let's
@@ -143,11 +167,11 @@ shown below:
 # deal with nodata value --  -28672
 all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
 # view histogram of each layer in our stack
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+# par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
    xlab="Reflectance Value",
    col="springgreen")
-mtext("Distribution of reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
+mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="100%" />
@@ -163,10 +187,13 @@ range values begin at -100. Let's set all values less than -100 to NA to remove
 the extreme negative values that may impact out analysis.
 
 
+
+
+
 ```r
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+#par(mfrow=c(4,2))
 # plot histogram
 hist(all_modis_bands_st_july7,
   xlab="Reflectance Value",
@@ -175,6 +202,8 @@ mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire03-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="100%" />
+
+
 
 Next we plot MODIS layers. Use the MODIS band chart to figure out what bands you
 need to plot to create a RGB (true color) image.
