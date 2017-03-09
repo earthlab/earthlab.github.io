@@ -182,6 +182,17 @@ for(a_tif_file in all_tifs$theFiles){
 }
 
 
+
+# crop second landsat data
+all_tifs_173 <- data.frame(theFiles=list.files("data/week6/landsat/LC80340322016173-SC20170227185411",
+                                           pattern=".tif$",
+                                           full.names=T))
+
+for(a_tif_file in all_tifs_173$theFiles){
+  crop_all_tifs(a_tif_file,
+                fire_crop_box) # our crop extent object
+}
+
 ```
 
 ## Reproject the extent to the landsat data

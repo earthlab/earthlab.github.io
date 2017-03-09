@@ -111,10 +111,17 @@ For all plots use the functions that we created in class to:
 2. Calculate a veg index
 3. Plot your data
 
+
+#### Plot 1 - Difference Pre - post fire NBR using landsat data
+Create a MAP of the classified pre-burn **NBR** using the landsat scene that you
+downloaded from Earth Explorer last week and the post fire NBR landsat data that you
+have in your data from week 6. Add a legend. Important: there should be no or minimal
+cloud cover in the study area! Use the classification chart below for this plot.
+
 Note: in the previous weeks we multiplied NBR by 1000. We are not doing that this
 week. It is OK! Use the classes below this week which are not scaled by 1000.
 
-| SEVERITY LEVEL  | Normalized Burn Ratio (NBR) RANGE |
+| SEVERITY LEVEL  | difference Normalized Burn Ratio (NBR) RANGE |
 |------------------------------|
 | Enhanced Regrowth | <= -.1  |
 | Unburned       |  -.1 to +.1  |
@@ -122,28 +129,21 @@ week. It is OK! Use the classes below this week which are not scaled by 1000.
 | Moderate Severity  | +.27 to +.66  |
 | High Severity     |  >= .66|
 
-#### Plot 1 - Pre-fire NBR using landsat data
-Create a MAP of the classified pre-burn **NBR** using the landsat scene that you
-downloaded from Earth Explorer last week. Add a legend. This file should not have
-a cloud in the middle of the burn area!
-
-#### Plot 2 - Pre-fire NDVI using landsat data
+#### Plot 2 - Post-fire NDVI using landsat data
 Create a MAP of the classified pre-burn **NDVI **using the landsat scene that you
 downloaded from Earth Explorer last week. Add a legend. This file should not have
 a cloud in the middle of the burn area!
 
-#### Plot 3 - Post-fire NBR using landsat data
-Create a MAP of post fire classified **NBR** using **Landsat** data. Add a legend.
-
-#### Plot 4 - Post-fire NDVI using landsat data
+#### Plot 3 - Post-fire NDVI using MODIS data
 Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
-
 
 #### Bonus! 2 points
 Consider any of the code that we've written to date in this class. Or some other
 code that is useful to you in your work. Write a new function that performs
 at least **2** tasks. Document the function and then demonstrate how it
-works at the end of your report by calling it.
+works at the end of your report by calling it. NOTE: **DO NOT** use the example
+provided in the lessons for week of plotting with `plotRGB()` as your bonus submission!
+You need to write your own function.
 
 ****
 
@@ -193,11 +193,10 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Plot 1 - Pre-fire NBR using landsat data plots, includes a legend and a title & is plotted using functions. |  |  | | |
+| Plot 1 - Pre - post fire NBR using landsat data plots, includes a legend and a title & is plotted using functions. |  |  | | |
 | Plot 2 - Pre-fire NDVI using landsat data plots, includes a legend and a title & is plotted using functions. |  |  | | |
-| Plot 3 - Post-fire NBR using landsat data plots, includes a legend and a title & is plotted using functions.|  |  | | |
 |===
-| Plot 4 - Pos-fire NDVI using landsat data plots, includes a legend and a title & is plotted using functions.|  |  | | |
+| Plot 3 - Post-fire NDVI using landsat data plots, includes a legend and a title & is plotted using functions.|  |  | | |
 
 #### Functions are used to load & process data
 
@@ -205,7 +204,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
 |---|---|---|---|---|
 | Functions are used to load data into a raster stack for each plot. |  |  | | |
 | Functions are used to calculate NBR for pre and post fire plots. |  |  | | |
-| Functions are used to plot NBR for pre and post fire plots. |  |  | | |
+| Functions are used to plot difference NBR. |  |  | | |
 | Functions are used to calculate NDVI for pre and post fire plots. |  |  | | |
 | All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |  | | |
 |===
