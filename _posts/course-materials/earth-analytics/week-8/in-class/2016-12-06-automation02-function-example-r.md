@@ -68,8 +68,9 @@ plotRGB(landsat_stack_csf,
   axes=T,
   stretch="hist")
 box(col="white") # turn all of the lines to white
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-first, -1.png" title="landsat pre fire raster stack plot" alt="landsat pre fire raster stack plot" width="100%" />
 
 
 
@@ -98,10 +99,8 @@ can plot like we did before.
 
 
 ```r
-# code to go here
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
-
 
 par(col.axis="white", col.lab="white", tck=0)
 # plot brick
@@ -111,8 +110,9 @@ plotRGB(landsat_pre_fire,
   axes=T,
   stretch="lin")
 box(col="white") # turn all of the lines to white
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-pre-1.png" title="landsat pre fire raster stack plot" alt="landsat pre fire raster stack plot" width="100%" />
 
 
 Now, what if we created a function that adjusted
@@ -122,7 +122,6 @@ that they want to plot the data.
 
 
 ```r
-# notice here i set a default stretch to blank
 create_rgb_plot <-function(a_raster_stack, the_plot_title, r=3, g=2, b=1, the_stretch=NULL){
   # this function plots an RGB image with a title
   # it sets the plot border and box to white
@@ -139,16 +138,13 @@ create_rgb_plot <-function(a_raster_stack, the_plot_title, r=3, g=2, b=1, the_st
     axes=T,
     stretch=the_stretch)
   box(col="white") # turn all of the lines to white
-
 }
-
 ```
 
 Let's use the code to plot pre-fire RGB image.
 
 
 ```r
-# code to go here
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
 
@@ -158,6 +154,8 @@ create_rgb_plot(a_raster_stack = landsat_pre_fire,
                 the_plot_title = "RGB image",
                 the_stretch="hist")
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-rgb-function-1.png" title="raster stack plot - rgb" alt="raster stack plot - rgb" width="100%" />
 
 Once our plot parameters are setup, we can use the same code to plot our data
 over and over without having to set parameters each time!
@@ -173,6 +171,8 @@ create_rgb_plot(a_raster_stack = landsat_pre_fire,
                 the_stretch="hist")
 ```
 
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-one-cir-1.png" title="pre-fire cir image" alt="pre-fire cir image" width="100%" />
+
 Let's run the same functions on another landsat dataset  - post fire.
 
 
@@ -186,8 +186,9 @@ create_rgb_plot(a_raster_stack = landsat_post_fire,
                 r=4, g = 3, b=2,
                 the_plot_title = "RGB image",
                 the_stretch="hist")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-post-1.png" title="landsat post fire raster stack plot" alt="landsat post fire raster stack plot" width="100%" />
 
 What if we want to plot a CIR image post fire?
 
@@ -198,8 +199,9 @@ create_rgb_plot(a_raster_stack = landsat_post_fire,
                 r=5, g = 4, b = 3,
                 the_plot_title = "Landsat post fire CIR image",
                 the_stretch="hist")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-post-CIR-1.png" title="landsat CIR post fire raster stack plot" alt="landsat CIR post fire raster stack plot" width="100%" />
 
 Are our functions general enough to work with MODIS?
 
@@ -215,5 +217,7 @@ create_rgb_plot(a_raster_stack = modis_pre_fire,
                 the_plot_title = "MODIS RGB image",
                 the_stretch="hist")
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-modis-1.png" title="pre-fire rgb image MODIS" alt="pre-fire rgb image MODIS" width="100%" />
 
 Looks like it works!
