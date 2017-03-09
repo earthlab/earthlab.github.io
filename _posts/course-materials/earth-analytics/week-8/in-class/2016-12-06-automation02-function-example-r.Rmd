@@ -97,10 +97,8 @@ Here's we've reduced the code by a few lines using a get bands function. Then we
 can plot like we did before.
 
 ```{r plot-landsat-pre, fig.cap="landsat pre fire raster stack plot"}
-# code to go here
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
-
 
 par(col.axis="white", col.lab="white", tck=0)
 # plot brick
@@ -120,7 +118,6 @@ will require the user to send the function a stack with the bands in the order
 that they want to plot the data.
 
 ```{r create-plot-function}
-# notice here i set a default stretch to blank
 create_rgb_plot <-function(a_raster_stack, the_plot_title, r=3, g=2, b=1, the_stretch=NULL){
   # this function plots an RGB image with a title
   # it sets the plot border and box to white
@@ -137,15 +134,13 @@ create_rgb_plot <-function(a_raster_stack, the_plot_title, r=3, g=2, b=1, the_st
     axes=T,
     stretch=the_stretch)
   box(col="white") # turn all of the lines to white
-
 }
 
 ```
 
 Let's use the code to plot pre-fire RGB image.
 
-```{r plot-one, fig.cap="pre-fire rgb image"}
-# code to go here
+```{r plot-rgb-function, fig.cap="raster stack plot - rgb"}
 landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
 
