@@ -186,14 +186,14 @@ plot(naip_csf,
 
 # view data dimensions, CRS, resolution, attributes, and band info
 naip_csf
-## class       : RasterLayer 
+## class       : RasterLayer
 ## band        : 1  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
-## names       : m_3910505_nw_13_1_20130926_crop 
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
+## names       : m_3910505_nw_13_1_20130926_crop
 ## values      : 0, 255  (min, max)
 ```
 
@@ -258,14 +258,14 @@ plot(rgb_band2,
 
 # view attributes of band 2
 rgb_band2
-## class       : RasterLayer 
+## class       : RasterLayer
 ## band        : 2  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
-## names       : m_3910505_nw_13_1_20130926_crop 
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
+## names       : m_3910505_nw_13_1_20130926_crop
 ## values      : 0, 255  (min, max)
 ```
 
@@ -288,13 +288,13 @@ naip_stack_csf <-
 
 # view attributes of stack object
 naip_stack_csf
-## class       : RasterStack 
+## class       : RasterStack
 ## dimensions  : 2312, 4377, 10119624, 4  (nrow, ncol, ncell, nlayers)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
-## min values  :                                 0,                                 0,                                 0,                                 0 
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4
+## min values  :                                 0,                                 0,                                 0,                                 0
 ## max values  :                               255,                               255,                               255,                               255
 ```
 
@@ -309,50 +309,50 @@ distribution of raster band values.
 # view raster attributes
 naip_stack_csf@layers
 ## [[1]]
-## class       : RasterLayer 
+## class       : RasterLayer
 ## band        : 1  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
-## names       : m_3910505_nw_13_1_20130926_crop.1 
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
+## names       : m_3910505_nw_13_1_20130926_crop.1
 ## values      : 0, 255  (min, max)
-## 
-## 
+##
+##
 ## [[2]]
-## class       : RasterLayer 
+## class       : RasterLayer
 ## band        : 2  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
-## names       : m_3910505_nw_13_1_20130926_crop.2 
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
+## names       : m_3910505_nw_13_1_20130926_crop.2
 ## values      : 0, 255  (min, max)
-## 
-## 
+##
+##
 ## [[3]]
-## class       : RasterLayer 
+## class       : RasterLayer
 ## band        : 3  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
-## names       : m_3910505_nw_13_1_20130926_crop.3 
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
+## names       : m_3910505_nw_13_1_20130926_crop.3
 ## values      : 0, 255  (min, max)
-## 
-## 
+##
+##
 ## [[4]]
-## class       : RasterLayer 
+## class       : RasterLayer
 ## band        : 4  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
-## names       : m_3910505_nw_13_1_20130926_crop.4 
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
+## names       : m_3910505_nw_13_1_20130926_crop.4
 ## values      : 0, 255  (min, max)
 ```
 
@@ -362,14 +362,14 @@ View attributes of one band.
 ```r
 # view attributes for one band
 naip_stack_csf[[1]]
-## class       : RasterLayer 
+## class       : RasterLayer
 ## band        : 1  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
-## names       : m_3910505_nw_13_1_20130926_crop.1 
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif
+## names       : m_3910505_nw_13_1_20130926_crop.1
 ## values      : 0, 255  (min, max)
 ```
 
@@ -560,7 +560,7 @@ In most cases, we can work with a `RasterBrick` in the same way we might work
 with a `RasterStack`. However a `RasterBrick` is often more efficient and faster
 to process - which is important when working with larger files.
 
-* <a href="http://www.inside-r.org/packages/cran/raster/docs/brick" target="_blank">
+* <a href="https://www.rdocumentation.org/packages/raster/versions/2.5-8/topics/brick" target="_blank">
 More on Raster Bricks</a>
 
 We can turn a `RasterStack` into a `RasterBrick` in `R` by using
@@ -633,5 +633,3 @@ We can view various methods available to call on an `R` object with
 3. Why do you think there is a difference?
 
 </div>
-
-
