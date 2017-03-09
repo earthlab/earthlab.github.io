@@ -116,7 +116,7 @@ class(state_boundary_us)
 Note: the Z-dimension warning is normal. The `readOGR()` function doesn't import
 z (vertical dimension or height) data by default. This is because not all
 shapefiles contain z dimension data.
-<a href="http://www.inside-r.org/packages/cran/rgdal/docs/ogrInfo" target="_blank">More on readOGR</a>
+<a href="https://www.rdocumentation.org/packages/gdalUtils/versions/2.0.1.7/topics/ogrinfo" target="_blank">More on readOGR</a>
 
 Next, let's plot the U.S. states data.
 
