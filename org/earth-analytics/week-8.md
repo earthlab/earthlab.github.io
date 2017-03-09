@@ -87,6 +87,7 @@ assignment based upon your use of functions to complete your assignment.
 2. List 2 ways that the DRY principle can improve your code.
 3. Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function. Use the example below to help you answer the question OR use code to answer the question.
 4. When you document a function, what elements should you include?
+5. Define expressive programming? List 2 things that you can do to make your code more expressive.
 
 ```r
 # for example:
@@ -105,45 +106,27 @@ the_answer <- function(num1, num2){
 
 #### Include the plots below.
 
-For all plots use the functions that we created in class to:
+For all plots use functions as follows:
 
-1. Load the data into a stack
-2. Calculate a veg index
-3. Plot your data
+1. In class we build a function called `load_bands()`. Modify this function to support opening both landsat data and the MODIS data that we used in class. HINT: you will need to add an argument that accounts for the differences in file names and modifies the `glob2rx()` function / list.files argument.
+2. Create a second function that plots NDVI data using classes that you selected for the homework plots from last week.
 
 
-#### Plot 1 - Difference Pre - post fire NBR using landsat data
-Create a MAP of the classified pre-burn **NBR** using the landsat scene that you
-downloaded from Earth Explorer last week and the post fire NBR landsat data that you
-have in your data from week 6. Add a legend. Important: there should be no or minimal
-cloud cover in the study area! Use the classification chart below for this plot.
+BONUS (2 points)
+* Write a third function that calculates NDVI. The function should work with both LANDSAT AND MODIS data. Thus you will not be able to use the function that we created in class.
 
-Note: in the previous weeks we multiplied NBR by 1000. We are not doing that this
-week. It is OK! Use the classes below this week which are not scaled by 1000.
 
-| SEVERITY LEVEL  | difference Normalized Burn Ratio (NBR) RANGE |
-|------------------------------|
-| Enhanced Regrowth | <= -.1  |
-| Unburned       |  -.1 to +.1  |
-| Low Severity     | +.1 to +.27  |
-| Moderate Severity  | +.27 to +.66  |
-| High Severity     |  >= .66|
-
-#### Plot 2 - Pre-fire NDVI using landsat data
+#### Plot 1 - Pre-fire NDVI using landsat data
 Create a MAP of the classified pre-burn **NDVI **using the landsat scene that you
 downloaded from Earth Explorer last week. Add a legend. This file should not have
 a cloud in the middle of the burn area!
 
-#### Plot 3 - Post-fire NDVI using landsat data
+#### Plot 2 - Post-fire NDVI using landsat data
 Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
 
-#### Bonus! 2 points
-Consider any of the code that we've written to date in this class. Or some other
-code that is useful to you in your work. Write a new function that performs
-at least **2** tasks. Document the function and then demonstrate how it
-works at the end of your report by calling it. NOTE: **DO NOT** use the example
-provided in the lessons for week of plotting with `plotRGB()` as your bonus submission!
-You need to write your own function.
+#### Plot 2 - Post-fire NDVI using landsat data
+Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
+
 
 ****
 
