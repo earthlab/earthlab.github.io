@@ -3,7 +3,7 @@ layout: single
 title: "Build a function in R - Efficient scientific programming"
 excerpt: "This lesson introduces how to create a function in R."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-03-07'
+modified: '2017-03-08'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/intro-to-functions-r/
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 ---
 
 
@@ -170,11 +170,12 @@ should run is below.
 
 
 
+
 ```r
- best_practice <- c("Write", "programs", "for", "people", "not", "computers")
- asterisk <- "***"  # R interprets a variable with a single value as a vector
+best_practice <- c("Write", "programs", "for", "people", "not", "computers")
+asterisk <- "***"  # R interprets a variable with a single value as a vector
                     # with one element.
- fence(best_practice, asterisk)
+fence(best_practice, asterisk)
 ## [1] "***"       "Write"     "programs"  "for"       "people"    "not"      
 ## [7] "computers" "***"
 ```
