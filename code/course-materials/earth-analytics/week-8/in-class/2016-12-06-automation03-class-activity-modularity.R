@@ -1,14 +1,4 @@
----
-title: "Pre-post fire veg indices - Understanding Functions"
-author: "Earth Analytics Course - Week 8"
-date: "3/6/2017"
-output: html_document
----
-
-
-# Setup R
-
-```{r setup-code }
+## ----setup-code----------------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE, eval=F)
 # set working dir
 setwd("~/Documents/earth-analytics")
@@ -23,26 +13,19 @@ options(stringsAsFactors = F)
 nbr_colors = c("seagreen4", "seagreen1",  "ivory1", "palevioletred1", "palevioletred4")
 ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
 
-```
 
-# Import Landsat data - Julian day 189 - pre fire
-
-
-```{r get-files}
+## ----get-files-----------------------------------------------------------
 # get list of tif files
 all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                                 pattern=glob2rx("*band*.tif$"),
                                 full.names = T)
 
-# stack landsat bands 
+# stack landsat bands
 landsat_stack_csf_pre <- stack(all_landsat_bands_pre)
 
 
-```
 
-## Calculate NDVI - pre-fire
-
-```{r create-ndvi}
+## ----create-ndvi---------------------------------------------------------
 # calculate normalized index - NDVI
 landsat_ndvi_pre <- (landsat_stack_csf_pre[[5]] - landsat_stack_csf_pre[[4]]) / (landsat_stack_csf_pre[[5]] + landsat_stack_csf_pre[[4]])
 
@@ -73,14 +56,11 @@ legend(ndvi_classified_pre@extent@xmax, ndvi_classified_pre@extent@ymax,
 writeRaster(x = ndvi_classified_pre,
             filename="data/week6/outputs/landsat_ndvi_pre.tif",
             format = "GTiff", # save as tif
-            datatype='INT2S', # save as a INTEGER 
+            datatype='INT2S', # save as a INTEGER
             overwrite = T)  # overwrite previous file
 
-```
 
-## Calculate Normalized Burn Ratio (NBR) - Pre fire
-
-```{r calculate-plot-nbr}
+## ----calculate-plot-nbr-pre----------------------------------------------
 # calculate normalized index = NBR
 landsat_nbr_pre <- (landsat_stack_csf_pre[[4]] - landsat_stack_csf_pre[[7]]) / (landsat_stack_csf_pre[[4]] + landsat_stack_csf_pre[[7]])
 
@@ -88,24 +68,18 @@ landsat_nbr_pre <- (landsat_stack_csf_pre[[4]] - landsat_stack_csf_pre[[7]]) / (
 plot(landsat_nbr_pre,
      box=F, axes=F,
      main="Landsat NBR - Pre Fire \n Julian Day 189")
-```
 
-## Open & Process Post-fire data
-
-```{r open-post-fire-data}
+## ----open-post-fire-data-------------------------------------------------
 # get list of tif files
 all_landsat_bands_post <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
                                 pattern=glob2rx("*band*.tif$"),
-                                full.names = T) 
+                                full.names = T)
 
 # stack the data (create spatial object)
 landsat_stack_csf_post <- stack(all_landsat_bands_post)
 
-```
 
-## Calculate NDVI - post-fire
-
-```{r}
+## ----calculate-ndvi-post-------------------------------------------------
 # calculate NDVI
 landsat_ndvi_post <- (landsat_stack_csf_post[[5]] - landsat_stack_csf_post[[4]]) / (landsat_stack_csf_post[[5]] + landsat_stack_csf_post[[4]])
 
@@ -136,19 +110,15 @@ writeRaster(x = ndvi_classified_post,
             filename="data/week6/outputs/landsat_ndvi_post.tif",
             format = "GTiff", # save as a tif
             datatype='INT2S', # save as a INT
-            overwrite = T)  
+            overwrite = T)
 
-```
 
-## Calculate NBR post fire
-Next, calculate Normalized Burn Ratio (NBR).
-
-```{r calculate-plot-nbr}
+## ----calculate-plot-nbr-post---------------------------------------------
 # calculate normalized index = NBR
 landsat_nbr_post <- (landsat_stack_csf_post[[5]] - landsat_stack_csf_post[[7]]) / (landsat_stack_csf_post[[5]] + landsat_stack_csf_post[[7]])
 
 # calculate difference NBR (pre - post)
-landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post 
+landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post
 
 # create classification matrix
 reclass <- c(-1.0, -.1, 1,
@@ -181,16 +151,11 @@ writeRaster(x = landsat_nbr_diff_class,
               datatype='INT2S', # save as a INTEGER rather than a float
               overwrite = T)
 
-```
 
-Compare pre and post fire.
-
-
-```{r}
+## ------------------------------------------------------------------------
 par(mfrow=c(2,1))
 plot(landsat_nbr_pre, zlim=c(-1,1),
      main="pre-fire NBR")
 plot(landsat_nbr_post, zlim=c(-1,1),
      main="post-fire NBR")
-```
 
