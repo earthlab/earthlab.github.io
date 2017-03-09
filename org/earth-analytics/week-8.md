@@ -32,6 +32,8 @@ if you don't already have it (which you should)!
 
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 
+
+[<i class="fa fa-download" aria-hidden="true"></i> Download class demo file]({{ site.url}}/processing-code/landsat-modis-data/r-functions/landsat-helper-functions.R){:data-proofer-ignore='' .btn } 
 </div>
 
 
@@ -63,11 +65,10 @@ Over the past 2 weeks you have created the following plots:
 2. NDVI from Landsat and MODIS pre & post cold springs fire
 
 This week you will create the same plots that you created in previous weeks,
-BUT you will do it using the functions that we have created in class including
+BUT you will do it using the functions that we have created in class including:
 
 * `load_bands()`
-* `compute_index()`
-* `get_plot()`
+* `reclassify_ndvi())`
 
 Create a new `R markdown `document. Name it: **lastName-firstInitial-week8.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
@@ -87,6 +88,7 @@ assignment based upon your use of functions to complete your assignment.
 2. List 2 ways that the DRY principle can improve your code.
 3. Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function. Use the example below to help you answer the question OR use code to answer the question.
 4. When you document a function, what elements should you include?
+5. Define expressive programming. List 2 things that you can do to make your code more expressive.
 
 ```r
 # for example:
@@ -105,45 +107,29 @@ the_answer <- function(num1, num2){
 
 #### Include the plots below.
 
-For all plots use the functions that we created in class to:
+For all plots use functions as follows:
 
-1. Load the data into a stack
-2. Calculate a veg index
-3. Plot your data
+1. In class we build a function called `load_bands()`. Modify this function to support opening both landsat data and the MODIS data that we used in class. HINT: you will need to add an argument that accounts for the differences in file names and modifies the `glob2rx()` function / list.files argument.
+2. Create & use a second function that reclassifies your calculated NDVI raster for each plot below. Be sure to document your function as covered in class. HINT: you may be able to use the function that we created in class to do this! Or you can make an even BETTER, more generic function that is more flexible.
 
 
-#### Plot 1 - Difference Pre - post fire NBR using landsat data
-Create a MAP of the classified pre-burn **NBR** using the landsat scene that you
-downloaded from Earth Explorer last week and the post fire NBR landsat data that you
-have in your data from week 6. Add a legend. Important: there should be no or minimal
-cloud cover in the study area! Use the classification chart below for this plot.
+#### BONUS (2 points)
+* Write a third function that **calculates** NDVI. The function should work with **both LANDSAT AND MODIS **data. Thus you will not be able to use the function that we created in class.
 
-Note: in the previous weeks we multiplied NBR by 1000. We are not doing that this
-week. It is OK! Use the classes below this week which are not scaled by 1000.
+#### BONUS (1 points)
+* Write a fourth function that plots your data! Use that when creating the plots below.
 
-| SEVERITY LEVEL  | difference Normalized Burn Ratio (NBR) RANGE |
-|------------------------------|
-| Enhanced Regrowth | <= -.1  |
-| Unburned       |  -.1 to +.1  |
-| Low Severity     | +.1 to +.27  |
-| Moderate Severity  | +.27 to +.66  |
-| High Severity     |  >= .66|
-
-#### Plot 2 - Post-fire NDVI using landsat data
+#### Plot 1 - Pre-fire NDVI using landsat data
 Create a MAP of the classified pre-burn **NDVI **using the landsat scene that you
 downloaded from Earth Explorer last week. Add a legend. This file should not have
 a cloud in the middle of the burn area!
 
+#### Plot 2 - Post-fire NDVI using landsat data
+Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
+
 #### Plot 3 - Post-fire NDVI using MODIS data
 Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
 
-#### Bonus! 2 points
-Consider any of the code that we've written to date in this class. Or some other
-code that is useful to you in your work. Write a new function that performs
-at least **2** tasks. Document the function and then demonstrate how it
-works at the end of your report by calling it. NOTE: **DO NOT** use the example
-provided in the lessons for week of plotting with `plotRGB()` as your bonus submission!
-You need to write your own function.
 
 ****
 
@@ -163,6 +149,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
 | Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| | Clean coding is not implemented consistently throughout the report. |
 | Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | | The are more than 3 code errors in the document |
 | All required R packages are listed at the top of the document in a code chunk.  | | Some packages are listed at the top of the document and some are lower down. | | |
+| Define expressive programming? List 2 things that you can do to make your code more expressive.||||
 |===
 | Lines of code are broken up at commas to make the code more readable  | |  | | |
 
@@ -193,19 +180,16 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Plot 1 - Pre - post fire NBR using landsat data plots, includes a legend and a title & is plotted using functions. |  |  | | |
-| Plot 2 - Pre-fire NDVI using landsat data plots, includes a legend and a title & is plotted using functions. |  |  | | |
+| Plot 1 - Pre-fire NDVI using landsat data plots, includes a legend and a title & is plotted using the required functions to load bands and classify the data. |  |  | | |
+| Plot 2 - Post-fire NDVI using landsat data plots, includes a legend and a title & is derived using the load bands and classification functions. |  |  | | |
 |===
-| Plot 3 - Post-fire NDVI using landsat data plots, includes a legend and a title & is plotted using functions.|  |  | | |
+| Plot 3 - Post-fire NDVI using MODIS data plots, includes a legend and a title & is plotted using functions.|  |  | | |
 
 #### Functions are used to load & process data
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
 | Functions are used to load data into a raster stack for each plot. |  |  | | |
-| Functions are used to calculate NBR for pre and post fire plots. |  |  | | |
-| Functions are used to plot difference NBR. |  |  | | |
-| Functions are used to calculate NDVI for pre and post fire plots. |  |  | | |
-| All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |  | | |
+| Functions are used to reclassify NDVI for pre and post fire plots. |  |  | | |
 |===
-| Functions are used to plot NDVI for pre and post fire plots. |  |  | | |
+| All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |  | | |
