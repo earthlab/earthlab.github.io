@@ -67,6 +67,15 @@ all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
 
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
+
+# view band names
+names(all_modis_bands_st_july7)
+# clean up the band names for neater plotting
+names(all_modis_bands_st_july7) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
+     names(all_modis_bands_st_july7))
+
+# view cleaned up band names
+names(all_modis_bands_st_july7)
 ```
 
 
@@ -115,15 +124,23 @@ Looking at histograms of our data, we can see that the range of values is not
 what we'd expect. We'd expect values between -100 to 10000 yet instead we have
 much larger numbers.
 
+
+
 ```{r explore-data, warning=F, message=F, fig.cap="MODIS stack band 2 plot"}
 # turn off scientific notation
 options("scipen"=100, "digits"=4)
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+# bottom, left, top and right
+#par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
   col="springgreen",
   xlab="Reflectance Value")
-mtext("Distribution of reflectance values for each band\n Data not scaled", outer = TRUE, cex = 1.5)
+mtext("Distribution of MODIS reflectance values for each band\n Data not scaled", 
+      outer = TRUE, cex = 1.5)
 
+```
+
+```{r echo=F, results='hide'}
+dev.off()
 ```
 
 ## Scale Factor
@@ -135,15 +152,15 @@ of the data.
 We can apply this math to all of the layers in our stack using a simple calculation
 shown below:
 
-```{r scale-data, fig.cap="MODIS stack histogram plot"}
+```{r scale-data, fig.cap="MODIS stack histogram plot", fig.width=7, fig.height=8}
 # deal with nodata value --  -28672
 all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
 # view histogram of each layer in our stack
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+# par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
    xlab="Reflectance Value",
    col="springgreen")
-mtext("Distribution of reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
+mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
 ```
 
 Great - now the range of values in our data appear more reasonable. Next, let's
@@ -156,15 +173,24 @@ of -28672 which we can presume to be missing data. But also we see that valid
 range values begin at -100. Let's set all values less than -100 to NA to remove
 the extreme negative values that may impact out analysis.
 
+```{r echo=F, results='hide'}
+dev.off()
+```
+
+
 ```{r assign-no-data, fig.cap="MODIS stack histogram plot with NA removed"}
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+#par(mfrow=c(4,2))
 # plot histogram
 hist(all_modis_bands_st_july7,
   xlab="Reflectance Value",
   col="springgreen")
 mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
+```
+
+```{r echo=F, results='hide'}
+dev.off()
 ```
 
 Next we plot MODIS layers. Use the MODIS band chart to figure out what bands you
