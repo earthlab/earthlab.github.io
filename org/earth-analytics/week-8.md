@@ -32,6 +32,8 @@ if you don't already have it (which you should)!
 
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 
+
+[<i class="fa fa-download" aria-hidden="true"></i> Download class demo file]({{ site.url}}/processing-code/landsat-modis-data/r-functions/landsat-helper-functions.R){:data-proofer-ignore='' .btn } 
 </div>
 
 
