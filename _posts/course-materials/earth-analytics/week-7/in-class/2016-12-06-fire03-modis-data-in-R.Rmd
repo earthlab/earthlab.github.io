@@ -116,13 +116,21 @@ what we'd expect. We'd expect values between -100 to 10000 yet instead we have
 much larger numbers.
 
 ```{r explore-data, warning=F, message=F, fig.cap="MODIS stack band 2 plot"}
+# view band names
+names(all_modis_bands_st_july7)
+# clean up the band names for neater plotting
+names(all_modis_bands_st_july7) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
+     names(all_modis_bands_st_july7))
+
 # turn off scientific notation
 options("scipen"=100, "digits"=4)
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+# bottom, left, top and right
+par(mfrow=c(4, 2), oma = c(0, 0, 4, 0), mar = c(5, 0, 2, 4))
 hist(all_modis_bands_st_july7,
   col="springgreen",
   xlab="Reflectance Value")
-mtext("Distribution of reflectance values for each band\n Data not scaled", outer = TRUE, cex = 1.5)
+mtext("Distribution of MODIS reflectance values for each band\n Data not scaled", 
+      outer = TRUE, cex = 1.5)
 
 ```
 
@@ -139,11 +147,11 @@ shown below:
 # deal with nodata value --  -28672
 all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
 # view histogram of each layer in our stack
-par(mfrow=c(4,2), oma = c(0, 0, 2, 0))
+par(mfrow=c(4, 2), oma = c(0, 0, 4, 0), mar = c(5, 0, 2, 4))
 hist(all_modis_bands_st_july7,
    xlab="Reflectance Value",
    col="springgreen")
-mtext("Distribution of reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
+mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
 ```
 
 Great - now the range of values in our data appear more reasonable. Next, let's

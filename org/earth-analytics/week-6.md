@@ -86,15 +86,8 @@ caption argument in your code chunks: `fig.cap="caption here".
 Create a MAP of the **difference between NDVI pre vs post fire** with Landsat data (Post fire - pre-fire NDVI).
 
 #### Plot 2
-Create a MAP of the **difference between NBR pre vs post fire** with Landsat data  (Post fire - pre-fire NBR). Be sure to include a legend on your map that helps someone looking at it
-understand differences
-
-#### Plot 3
-Create a classified map of **post fire NDVI** with Landsat data using classification values that you
-think make sense based upon exploring the data.
-
-#### Plot 4
-Create a classified map of **post fire NBR** with Landsat data using the classification thresholds below.
+Create a MAP of the **difference between NBR pre vs post fire** with Landsat data  (Pre fire - post-fire NBR). Classify that data using the classification thresholds below. Be sure to include a legend on your map that helps someone looking at it
+understand differences.
 
 | SEVERITY LEVEL  | NBR RANGE |
 |------------------------------|
@@ -107,6 +100,14 @@ Create a classified map of **post fire NBR** with Landsat data using the classif
 Note: if your min and max NBR values are outside of the range above, you can adjust
 -700 to be your smallest raster value and for high severity you can adjust 1300 to
 be your largest NBR raster value.
+
+#### Plot 3
+Create a classified map of **post fire NDVI** with Landsat data using classification values that you
+think make sense based upon exploring the data.
+
+#### Plot 4
+Create a map of **post fire NBR** with Landsat data.
+
 
 ****
 
