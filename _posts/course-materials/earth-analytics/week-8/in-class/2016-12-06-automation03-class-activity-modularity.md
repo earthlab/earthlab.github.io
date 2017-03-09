@@ -25,7 +25,7 @@ order: 3
 
 After completing this tutorial, you will be able to:
 
-*
+* Identify chunks of code that are well suited to becoming functions.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -52,14 +52,26 @@ setwd("~/Documents/earth-analytics")
 
 # load spatial packages
 library(raster)
+## Loading required package: sp
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+## 
+##     select
 library(rgdal)
+## rgdal: version: 1.2-5, (SVN revision 648)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-4
 # turn off factors
 options(stringsAsFactors = F)
 
 # set colors for plotting
 nbr_colors = c("seagreen4", "seagreen1",  "ivory1", "palevioletred1", "palevioletred4")
 ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
-
 ```
 
 # Import Landsat data - Julian day 189 - pre fire
@@ -68,7 +80,7 @@ ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
 
 ```r
 # get list of tif files
-all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016173-SC20170227185411/crop",
+all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                                 pattern=glob2rx("*band*.tif$"),
                                 full.names = T)
 
