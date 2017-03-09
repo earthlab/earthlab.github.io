@@ -25,7 +25,7 @@ order: 3
 
 After completing this tutorial, you will be able to:
 
-*
+* Identify chunks of code that are well suited to becoming functions.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -66,7 +66,7 @@ ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
 
 ```{r get-files}
 # get list of tif files
-all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016173-SC20170227185411/crop",
+all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
                                 pattern=glob2rx("*band*.tif$"),
                                 full.names = T)
 

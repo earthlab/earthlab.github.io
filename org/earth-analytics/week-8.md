@@ -129,12 +129,12 @@ week. It is OK! Use the classes below this week which are not scaled by 1000.
 | Moderate Severity  | +.27 to +.66  |
 | High Severity     |  >= .66|
 
-#### Plot 2 - Pre-fire NDVI using landsat data
+#### Plot 2 - Post-fire NDVI using landsat data
 Create a MAP of the classified pre-burn **NDVI **using the landsat scene that you
 downloaded from Earth Explorer last week. Add a legend. This file should not have
 a cloud in the middle of the burn area!
 
-#### Plot 3 - Post-fire NDVI using landsat data
+#### Plot 3 - Post-fire NDVI using MODIS data
 Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
 
 #### Bonus! 2 points

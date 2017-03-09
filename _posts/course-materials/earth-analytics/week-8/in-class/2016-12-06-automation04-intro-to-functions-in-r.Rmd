@@ -166,11 +166,12 @@ fence <- function(original, wrapper) {
  }
 
 ```
-```{r challenge-2 }
- best_practice <- c("Write", "programs", "for", "people", "not", "computers")
- asterisk <- "***"  # R interprets a variable with a single value as a vector
+
+```{r challenge-2, echo=T}
+best_practice <- c("Write", "programs", "for", "people", "not", "computers")
+asterisk <- "***"  # R interprets a variable with a single value as a vector
                     # with one element.
- fence(best_practice, asterisk)
+fence(best_practice, asterisk)
 ```
 
 <div class="notice--warning" markdown="1">
