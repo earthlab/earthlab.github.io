@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Working with the difference Normalized Burn Index - Using spectral remote sensing to understand fire"
+title: "dNBR with MODIS in R"
 excerpt: ". "
 authors: ['Megan Cattau', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
-permalink: /course-materials/earth-analytics/week-6/normalized-burn-index-dNBR/
-nav-title: 'dNBR vegetation index'
+permalink: /course-materials/earth-analytics/week-6/calculate-dNBR-R-Landsat-MODIS/
+nav-title: 'dNBR with Landsat & MODIS'
 week: 6
 sidebar:
   nav:
@@ -37,28 +37,15 @@ data for week 6 of the course.
 </div>
 
 As mentioned previously, we can use NBR to map the extent and severity of a fire.
-Let's explore using MODIS data to calculate NBR. In the example below, we are using
+Let's explore using Landsat & MODIS data to calculate NBR. In the example below, we are using
 the MODIS product **mod09GA** which we downloaded from Earth Explorer. This product
 contains 7 bands including ones in the SWIR and NIR region of the spectrum which we
 require to calculate NBR.
 
+## Calculate dNBR using Landsat data
 
-### NBR & MODIS
-
-Similarly the table below shows the band ranges for the MODIS sensor. What bands
-should we use to calculate NBR using MODIS?
-
-| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
-|-------------------------------------|------------------|--------------------|----------------|
-| Band 1 - red | 620 - 670 | 250 | 2.0 |
-| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
-| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
-| Band 4 - green | 545 - 565 | 500 | 3.0 |
-| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
-| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
-| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
-
-
+Let's get started with calculating dNBR using MODIS data.
+First, let's setup our spatial packages.
 
 ```{r load-packages, warning=F, message=F, results='hide'}
 # load spatial packages
@@ -69,6 +56,8 @@ library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = F)
 ```
+
+First, we open up our landsat data and create a spatial raster stack.
 
 
 ```{r create-landsat-stack }
@@ -81,11 +70,18 @@ all_landsat_bands
 landsat_stack_csf <- stack(all_landsat_bands)
 ```
 
+Next we calculate NBR using the following steps:
 
+1. Open up pre-fire data and calculate NBR
+2. Open up the post-fire data and calculate NBR
+3. Calculate dNBR (difference NBR) by subtracting post-fire NBR from pre-fire NBR.
+4. 
 
+. Note the code to do this is hidden. You will need to figure
+out what bands are required to calculate NBR using Landsat.
 
 ```{r calculate-nbr, echo=F, fig.cap="landsat derived NDVI plot"}
-# bands 7 and 5
+# Landsat 8 requires bands 7 and 5
 landsat_nbr <- ((landsat_stack_csf[[5]] - landsat_stack_csf[[7]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[7]])) * 1000
 
 plot(landsat_nbr,
@@ -292,6 +288,21 @@ barplot(nbr_classified,
         col=the_colors)
 ```
 
+
+### NBR & MODIS
+
+Similarly the table below shows the band ranges for the MODIS sensor. What bands
+should we use to calculate NBR using MODIS?
+
+| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
+|-------------------------------------|------------------|--------------------|----------------|
+| Band 1 - red | 620 - 670 | 250 | 2.0 |
+| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
+| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
+| Band 4 - green | 545 - 565 | 500 | 3.0 |
+| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
+| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
+| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
 
 <div class="notice--info" markdown="1">
 
