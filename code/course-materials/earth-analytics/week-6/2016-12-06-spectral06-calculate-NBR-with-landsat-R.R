@@ -17,7 +17,7 @@ all_landsat_bands_pre
 # stack the data
 landsat_stack_pre <- stack(all_landsat_bands_pre)
 
-## ----calculate-nbr, echo=F, fig.cap="landsat derived NDVI plot"----------
+## ----calculate-nbr, echo=F, fig.cap="landsat derived NDVI plot", fig.width=7, fig.height=5----
 # Landsat 8 requires bands 7 and 5
 landsat_nbr_pre <- ((landsat_stack_pre[[5]] - landsat_stack_pre[[7]]) / (landsat_stack_pre[[5]] + landsat_stack_pre[[7]]))
 
@@ -42,7 +42,7 @@ all_landsat_bands_post
 # stack the data
 landsat_stack_post <- stack(all_landsat_bands_post)
 
-## ----calculate-nbr-post, echo=F, fig.cap="landsat derived NBR post fire"----
+## ----calculate-nbr-post, echo=F, fig.cap="landsat derived NBR post fire", fig.width=7, fig.height=5----
 # Landsat 8 requires bands 7 and 5
 landsat_nbr_post <- ((landsat_stack_post[[5]] - landsat_stack_post[[7]]) / (landsat_stack_post[[5]] + landsat_stack_post[[7]]))
 
@@ -51,7 +51,7 @@ plot(landsat_nbr_post,
      axes=F,
      box=F)
 
-## ---- fig.cap="Difference NBR map"---------------------------------------
+## ---- fig.cap="Difference NBR map", fig.width=7, fig.height=5------------
 # calculate difference
 landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post
 plot(landsat_nbr_diff,
@@ -74,7 +74,7 @@ nbr_classified <- reclassify(landsat_nbr_diff,
                      reclass_m)
 the_colors = c("seagreen4", "seagreen1", "ivory1", "palevioletred1", "palevioletred4")
 
-## ----classify-output-plot, echo=F, fig.cap="classified NBR output"-------
+## ----classify-output-plot, echo=F, fig.cap="classified NBR output", fig.width=7, fig.height=5----
 # mar bottom, left, top and right
 par(xpd = F, mar=c(0,0,2,5))
 plot(nbr_classified,
@@ -91,7 +91,7 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        bty="n")
 
 
-## ----classify-output-plot2, echo=F, fig.cap="classified NBR output", results='hide'----
+## ----classify-output-plot2, echo=F, fig.cap="classified NBR output", results='hide', fig.width=7, fig.height=5----
 fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
 # reproject shapefile
 fire_boundary_utm <- spTransform(fire_boundary, crs(nbr_classified))
@@ -148,10 +148,10 @@ dev.off()
 ##        bty="n",
 ##        pt.cex=c(1.75))
 
-## ----classify-output-plot3, echo=F, fig.cap="classified NBR output"------
+## ----classify-output-plot3, echo=F, fig.cap="classified NBR output", fig.width=7, fig.height=5----
 # look at colors
 # display.brewer.all()
-the_colors <- brewer.pal(5, 'RdYlGn')
+the_colors <- rev(brewer.pal(5, 'RdYlGn'))
 # mar bottom, left, top and right
 par(xpd = F, mar=c(0,0,2,5))
 plot(nbr_classified,
@@ -162,17 +162,17 @@ plot(nbr_classified,
      main="Landsat NBR - Cold Spring fire site \n Add date of the data here")
      plot(fire_boundary_utm, add=T,
           lwd=5)
-par(xpd = TRUE)
 legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c(rev(the_colors), "black"),
+       col=c((the_colors), "black"),
        pch=c(15,15, 15, 15, 15,NA),
        lty = c(NA, NA, NA, NA, NA, 1),
        cex=.8,
        bty="n",
-       pt.cex=c(1.75))
+       pt.cex=c(1.75),
+       xpd=T)
 legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
+       c("", "", " ", " ", " ", " "),
        col=c("black"),
        pch=c(22, 22, 22, 22, 22, NA),
        lty = c(NA, NA, NA, NA, NA, 1),
@@ -181,11 +181,17 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        pt.cex=c(1.75))
 
 
-## ----dev-off, echo=F, warning=F, message=F, results="hide"---------------
+## ----dev-off, echo=F, warning=F, message=F, results="hide", fig.width=7, fig.height=5----
 dev.off()
 
-## ----view-hist, warning=F, echo=F, fig.cap="plot hist"-------------------
+## ----view-bar, warning=F, fig.cap="plot barplot of fire severity values"----
 barplot(nbr_classified,
         main="Distribution of Classified NBR Values",
         col=the_colors)
+
+## ----view-barplot1, warning=F, fig.cap="plot barplot of fire severity values with labels"----
+barplot(nbr_classified,
+        main="Distribution of Classified NBR Values",
+        col=the_colors,
+        names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
 
