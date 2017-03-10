@@ -96,10 +96,8 @@ To calculate the difference, we subtract the post-fire NBR raster from the pre-f
 NBR raster as follows:
 
 <figure>
- <a href="{{ site.url}}/images/course-materials/earth-analytics/week-6/dnbr-equation.jpg
-">
- <img src="{{ site.url}}/images/course-materials/earth-analytics/week-6/dnbr-equation.jpg
-" alt="NBR - US Forest Service."></a>
+ <a href="{{ site.url}}/images/course-materials/earth-analytics/week-6/dnbr-equation.jpg">
+ <img src="{{ site.url}}/images/course-materials/earth-analytics/week-6/dnbr-equation.jpg" alt="NBR - US Forest Service."></a>
     <figcaption>difference NBR (dNBR) equation. Source: http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html
     </figcaption>
 </figure>
