@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](<a href="https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 ## Calculate Normalized Burn Ratio (NBR)
@@ -46,7 +46,7 @@ electromagnetic spectrum (Lopez, 1991; Key and Benson, 1995).
 <figure class="half">
  <a href="{{ site.url}}/images/course-materials/earth-analytics/week-6/nbr_index.png">
  <img src="{{ site.url}}/images/course-materials/earth-analytics/week-6/nbr_index.png" alt="NBR - US Forest Service."></a>
-    <figcaption>THe normalized burn ratio (NBR) index uses the shortwave-infrared (SWIR) and near-infrared (NIR) portions of the electromagnetic
+    <figcaption>The normalized burn ratio (NBR) index uses the shortwave-infrared (SWIR) and near-infrared (NIR) portions of the electromagnetic
     spectrum.
     </figcaption>
 </figure>
@@ -100,7 +100,7 @@ NBR raster as follows:
 ">
  <img src="{{ site.url}}/images/course-materials/earth-analytics/week-6/dnbr-equation.jpg
 " alt="NBR - US Forest Service."></a>
-    <figcaption>d NBR equation. Source: http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html
+    <figcaption>difference NBR (dNBR) equation. Source: http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html
     </figcaption>
 </figure>
 
@@ -127,6 +127,14 @@ As scientists, the best way to make sure our classification approaches represent
 what is actually happening ont he ground in terms of fire severity is to check
 out the actual conditions on the ground. This process of confirming a value that
 we get from remote sensing data by checking it on the ground is called validation.
+
+### NBR & water - false positives
+
+The NBR index can be a powerful tool to identify pixels that have a high likelyhood
+or being "burned". However it is important to know that this index is also
+sensitive to water and thus sometimes, pixels that are classified as "high severity"
+may actually be water. Because of this, it is important to mask out areas of water
+PRIOR to performing any quantitaive analysis on the difference NBR results.
 
 ### NBR & Landsat 8
 
