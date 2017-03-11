@@ -33,7 +33,7 @@ if you don't already have it (which you should)!
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download class demo file]({{ site.url}}/processing-code/landsat-modis-data/r-functions/landsat-helper-functions.R){:data-proofer-ignore='' .btn } 
+[<i class="fa fa-download" aria-hidden="true"></i> Download class demo file]({{ site.url}}/processing-code/landsat-modis-data/r-functions/landsat-helper-functions.R){:data-proofer-ignore='' .btn }
 </div>
 
 
@@ -149,7 +149,6 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
 | Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| | Clean coding is not implemented consistently throughout the report. |
 | Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | | The are more than 3 code errors in the document |
 | All required R packages are listed at the top of the document in a code chunk.  | | Some packages are listed at the top of the document and some are lower down. | | |
-| Define expressive programming? List 2 things that you can do to make your code more expressive.||||
 |===
 | Lines of code are broken up at commas to make the code more readable  | |  | | |
 
@@ -170,8 +169,12 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
 | Explain what the acronym DRY stands for and means.|  |  | | |
 | List 2 ways that the DRY principle can improve your code. |  |  | | |
 | Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |  | | |
-|===
 | When you document a function, what elements should you include? |  |  | | |
+|===
+| Define expressive programming. List 2 things that you can do to make your code more expressive. |  |  | | |
+
+
+
 
 
 ### Code is worth 50% of the assignment grade this week
