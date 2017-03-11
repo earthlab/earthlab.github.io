@@ -178,7 +178,7 @@ landsat_nbr_diff_class <- reclassify(landsat_nbr_diff,
                      reclass_m)
 
 # plot classified data
-par(mfrow=c(3,1))
+par(mfrow=c(1,1))
 plot(landsat_nbr_diff_class,
      box=F, axes=F, legend=F,
      col=nbr_colors,
@@ -215,11 +215,11 @@ legend(landsat_nbr_diff_class@extent@xmax, landsat_nbr_diff_class@extent@ymax,
        cex=.9, bty="n", xpd=T)
 plot(landsat_nbr_pre, zlim=c(-1,1), 
      box=F, axes=F,
-     main="pre-fire NBR", ext=extent(fire_boundary_utm))
+     main="pre-fire NBR")
 plot(fire_boundary_utm, add=T, lwd=2)
 plot(landsat_nbr_post, zlim=c(-1,1),
      box=F, axes=F,
-     main="post-fire NBR", ext=extent(fire_boundary_utm))
+     main="post-fire NBR")
 plot(fire_boundary_utm, add=T, lwd=2)
 ```
 
