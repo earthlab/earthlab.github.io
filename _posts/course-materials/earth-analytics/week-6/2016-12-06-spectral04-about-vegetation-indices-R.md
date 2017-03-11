@@ -3,11 +3,11 @@ layout: single
 title: "Vegetation indices in R"
 excerpt: ". "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-03-08'
+modified: '2017-03-10'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
-permalink: /course-materials/earth-analytics/week-6/landsat-vegetation-indices-in-R/
-nav-title: 'Veg indices in R'
+permalink: /course-materials/earth-analytics/week-6/vegetation-indices-NDVI-in-R/
+nav-title: 'NDVI vegetation index'
 week: 6
 sidebar:
   nav:
@@ -25,7 +25,7 @@ order: 4
 
 After completing this tutorial, you will be able to:
 
-* Calculate NDVI and NBR in R
+* Calculate NDVI in R
 * Describe what a vegetation index is and how it is used with spectral remote sensing data.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](<a href="https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 ## About vegetation indices
@@ -92,6 +92,13 @@ all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC201701271
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands
+## [1] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
+## [2] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
+## [3] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
+## [4] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
+## [5] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
+## [6] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
+## [7] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
 
 # stack the data
 landsat_stack_csf <- stack(all_landsat_bands)
@@ -117,6 +124,8 @@ plot(landsat_ndvi,
      main="Landsat derived NDVI\n 23 July 2016")
 ```
 
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/calculate-ndvi-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
+
 ### View distribution of NDVI values
 
 
@@ -125,8 +134,9 @@ plot(landsat_ndvi,
 hist(landsat_ndvi,
   main="NDVI: Distribution of pixels\n Landsat 2016 Cold Springs fire site",
   col="springgreen")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="100%" />
 
 ## Export raster
 When you are done, you may want to export your rasters so you could use them in
@@ -143,131 +153,6 @@ writeRaster(x = landsat_ndvi,
               datatype='INT2S', # save as a INTEGER rather than a float
               overwrite = T)  # OPTIONAL - be careful. this will OVERWRITE previous files.
 ```
-
-## Calculate Normalized Burn Ratio (NBR)
-
-The Normalized burn ratio (NBR) highlights burned areas in large fire zones
-greater than 500 acres. The formula is similar to a normalized difference
-vegetation index (NDVI), except that it uses near-infrared (NIR) and
-shortwave-infrared (SWIR) wavelengths (Lopez, 1991; Key and Benson, 1995).
-
-**NBR = ((NIR - SWIR)/ (NIR + SWIR )) * 1000**
-
-The NBR was originally developed for use with Landsat TM and ETM+ bands 4 and 7,
-but it will work with any multispectral sensor (including Landsat 8) with a NIR
-band between 760 - 900 nm and a SWIR band between 2080 - 2350 nm.
-
-Looking at the table below, what bands should we use for Landsat 8?
-
-#### Landsat 8 Bands
-
-| Band | Wavelength range (nanometers) | Spatial Resolution (m) | Spectral Width (nm)|
-|-------------------------------------|------------------|--------------------|----------------|
-| Band 1 - Coastal aerosol | 430 - 450 | 30 | 2.0 |
-| Band 2 - Blue | 450 - 510 | 30 | 6.0 |
-| Band 3 - Green | 530 - 590 | 30 | 6.0 |
-| Band 4 - Red | 640 - 670 | 30 | 0.03 |
-| Band 5 - Near Infrared (NIR) | 850 - 880 | 30 | 3.0 |
-| Band 6 - SWIR 1 | 1570 - 1650 | 30 | 8.0  |
-| Band 7 - SWIR 2 | 2110 - 2290 | 30 | 18 |
-| Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
-| Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
-
-
-
-When you have calculated NBR - classify the output raster using the `classify()`
-function and the classes below.
-
-| SEVERITY LEVEL  | | dNBR RANGE |
-|------------------------------|
-| Enhanced Regrowth | | -700 to  -100 |
-| Unburned       |  | -100 to +100 |
-| Low Severity     | | +100 to +270 |
-| Moderate Severity  | | +270 to +660 |
-| High Severity     |  | +660 to +1300 |
-
-NOTE: your min an max values for NBR may be slightly different from the table
-shown above! If you have a smaller min value (< -700) then adjust your first class
-to that smallest number. If you have a largest max value (>1300) then adjust
-your last class to that largest value in your data.
-
-Alternatively, you can set those values to NA if you think they are outside of
-the valid range of NBR (in this case they are not).
-
-
-
-You can export the rasters if you want.
-
-
-```r
-writeRaster(x = nbr_classified,
-              filename="data/week6/outputs/nbr_classified.tif",
-              format = "GTiff", # save as a tif
-              datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T)
-
-writeRaster(x = landsat_nbr,
-              filename="data/week6/outputs/landsat_nbr",
-              format = "GTiff", # save as a tif
-              datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T)
-```
-
-Your classified map should look something like:
-
-
-
-## Compare to fire boundary
-
-As an example to see how our fire boundary relates to the boundary that we've
-identified using MODIS data, we can create a map with both layers. I'm using
-the shapefile in the folder:
-
-`data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
-
-Add fire boundary to map.
-
-
-
-
-
-
-Make it look a bit nicer using a colobrewer palette. I used the
-`RdYlGn` palette:
-
-`brewer.pal(5, 'RdYlGn')`
-
-I also did a bit of legend trickery to get a box with a fill. There's probably
-a better way to do this!
-
-
-```r
-
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c(rev(the_colors), "black"),
-       pch=c(15,15, 15, 15, 15,NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c("black"),
-       pch=c(22, 22, 22, 22, 22, NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
-```
-
-
-
-Note that you will have to figure out what date these data are for! I purposefully
-didn't include it in the title of this map.
-
-
-
 
 
 
