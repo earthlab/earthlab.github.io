@@ -49,11 +49,7 @@ Both will be performed in class NEXT WEEK.
 
 * [Review the mid term assignment page which contains a suggested study area list.]({{ site.url }}/course-materials/earth-analytics/mid-term/)
 
-## Lingering questions
 
-* How to extract values from a raster --
-* Plotting: plot legend outside of plot,
-* Color a bar plot by factor
 
 ## Mid-Term Grade rubric
 
