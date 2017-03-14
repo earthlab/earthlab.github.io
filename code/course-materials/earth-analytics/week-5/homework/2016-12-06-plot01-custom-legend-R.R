@@ -280,9 +280,6 @@ furthest_pt_north <- the_plot_extent@ymax
 furthest_pt_east
 furthest_pt_north
 
-# set the plot rendering space parameters
-par(xpd = T)
-
 # plot using new colors
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
@@ -302,14 +299,11 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
        lty=c(NA,NA, NA, 1, 1, 1, 1),
        col=plot_colors, # set the color of each legend line
        bty="n", # turn off border
-       cex=.9) # adjust legend font size
+       cex=.9, # adjust legend font size
+       xpd=T) # force the legend to plot outside of your extent
 
 
 ## ----custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."----
-
-# set the plot rendering space parameters
-par(xpd = T)
-
 # plot using new colors
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
@@ -331,8 +325,9 @@ legend(x=(furthest_pt_east+300), y=(furthest_pt_north-15),
        pch=c(NA,8,18,8, NA, NA, NA, NA, NA, NA),  # set the symbol for each point
        lty=c(NA,NA,NA, NA, NA, NA,1, 1, 1, 1),
        col=plot_colors, # set the color of each legend line
-       bty="y", # turn off border
-       cex=.7) # adjust legend font size
+       bty="n", # turn off border
+       cex=.7, # adjust legend font size
+       xpd=T)
 
 
 
