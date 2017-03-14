@@ -8,71 +8,51 @@ library(RColorBrewer)
 options(stringsAsFactors = F)
 
 ## ----create-landsat-stack------------------------------------------------
-# create stack
-all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands_pre
+all_landsat_bands
 
 # stack the data
-landsat_stack_pre <- stack(all_landsat_bands_pre)
+landsat_stack_csf <- stack(all_landsat_bands)
 
 ## ----calculate-nbr, echo=F, fig.cap="landsat derived NDVI plot"----------
 # Landsat 8 requires bands 7 and 5
-landsat_nbr_pre <- ((landsat_stack_pre[[5]] - landsat_stack_pre[[7]]) / (landsat_stack_pre[[5]] + landsat_stack_pre[[7]]))
+landsat_nbr <- ((landsat_stack_csf[[5]] - landsat_stack_csf[[7]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[7]])) * 1000
 
-plot(landsat_nbr_pre,
-     main="Landsat derived Normalized Burn Index (NBR)\n Pre-fire - you will need to figure out the date using the Julian Day",
+plot(landsat_nbr,
+     main="Landsat derived NBR\n 23 July 2016",
      axes=F,
      box=F)
-
-## ----export-rasters, eval=F----------------------------------------------
-## writeRaster(x = landsat_nbr_pre,
-##               filename="data/week6/outputs/landsat_nbr",
-##               format = "GTiff", # save as a tif
-##               datatype='INT2S', # save as a INTEGER rather than a float
-##               overwrite = T)
-
-## ----create-landsat-stack-post-------------------------------------------
-all_landsat_bands_post <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
-           pattern=glob2rx("*band*.tif$"),
-           full.names = T) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands_post
-
-# stack the data
-landsat_stack_post <- stack(all_landsat_bands_post)
-
-## ----calculate-nbr-post, echo=F, fig.cap="landsat derived NBR post fire"----
-# Landsat 8 requires bands 7 and 5
-landsat_nbr_post <- ((landsat_stack_post[[5]] - landsat_stack_post[[7]]) / (landsat_stack_post[[5]] + landsat_stack_post[[7]]))
-
-plot(landsat_nbr_post,
-     main="Landsat derived Normalized Burn Index (NBR)\n Post Fire",
-     axes=F,
-     box=F)
-
-## ---- fig.cap="Difference NBR map"---------------------------------------
-# calculate difference
-landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post
-plot(landsat_nbr_diff,
-     main="Difference NBR map \n Pre minus post Cold Springs fire",
-     axes=F, box=F)
 
 ## ----classify-output, echo=F---------------------------------------------
 # create classification matrix
-reclass <- c(-Inf, -.1, 1,
-             -.1, .1, 2,
-             .1, .27, 3,
-             .27, .66, 4,
-             .66, Inf , 5)
+reclass <- c(-700, -100, 1,
+             -100, 100, 2,
+             100, 270, 3,
+             270, 660, 4,
+             660, 1300, 5)
 # reshape the object into a matrix with columns and rows
 reclass_m <- matrix(reclass,
                 ncol=3,
                 byrow=TRUE)
 
-nbr_classified <- reclassify(landsat_nbr_diff,
+nbr_classified <- reclassify(landsat_nbr,
                      reclass_m)
-the_colors = c("seagreen4", "seagreen1", "ivory1", "palevioletred1", "palevioletred4")
+the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
+
+## ----export-rasters, eval=F----------------------------------------------
+## writeRaster(x = nbr_classified,
+##               filename="data/week6/outputs/nbr_classified.tif",
+##               format = "GTiff", # save as a tif
+##               datatype='INT2S', # save as a INTEGER rather than a float
+##               overwrite = T)
+## 
+## writeRaster(x = landsat_nbr,
+##               filename="data/week6/outputs/landsat_nbr",
+##               format = "GTiff", # save as a tif
+##               datatype='INT2S', # save as a INTEGER rather than a float
+##               overwrite = T)
 
 ## ----classify-output-plot, echo=F, fig.cap="classified NBR output"-------
 # mar bottom, left, top and right
@@ -86,7 +66,7 @@ plot(nbr_classified,
 par(xpd = TRUE)
 legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity"),
-       fill=the_colors,
+       fill=rev(the_colors),
        cex=.9,
        bty="n")
 
