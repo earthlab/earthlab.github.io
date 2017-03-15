@@ -7,7 +7,7 @@ permalink: /course-materials/earth-analytics/
 date: 2017-01-17
 header:
   overlay_image: about-header.jpg
-  cta_label: "Students, Register Now!"
+  cta_label: "Register Now for the Fall semester!"
   cta_url:
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
@@ -52,14 +52,12 @@ and impacts.
 * **Fire:** We will use light detection and ranging (lidar) and spectral remote sensing data combined with on
 the ground field measurements to better understand the drivers and impacts of
 wildfires.
-* **Permafrost:**
 * **Climate & Society:** Social media and web as a powerful
 means to understand climate impacts.
 
-Throughout the semester, we will work together to build the
-following skills:
+Throughout the semester, we will build the following skills:
 
-* **Scientific programming:** Use the R / R-studio environment to
+* **Scientific programming:** Use the `R` / R-studio environment to
 access, process & visualize scientific data.
 * **Data Integration:** understand issues associated with
 integration data from various sources (scale, resolution, format)
@@ -67,10 +65,7 @@ integration data from various sources (scale, resolution, format)
 data (NASA, USGS, etc.) via API’s.
 * **Communication/Collaboration:** refine cross- discipline
 collaborative writing and project development skills.
-* **High Performance Computing (HPC):** implement large scale
-data processing tasks on powerful remote servers.
-* **Efficient data approaches:** process data more quickly via
-using multiple “cores”.
+* **Efficient data approaches:** write modular, expressive code.
 
 ### Semester Project
 
