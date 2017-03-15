@@ -2,36 +2,36 @@
 @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
-.logo {
+.remark-slide-content .logo {
   position: absolute;
   bottom: 1px;
   left: 30px;
 }
-.logo img {
+.remark-slide-content .logo img {
   width: 2.5em;
 }
-img {
+.remark-slide-content img {
     max-width: 100%;
     max-height: 100%;
 }
 
-.wCaption img {
+.remark-slide-content .wCaption img {
   max-height: 70%;
   max-width: 70%;
 }
 
-.wCaption-50 img {
+.remark-slide-content .wCaption-50 img {
   max-height: 50%;
   max-width: 50%;
 }
 
  /* Add a Caption to an image */
-.caption {
+.remark-slide-content .caption {
   font-size: .7em;
   font-style: italic;
 }
 
-blockquote {
+.remark-slide-content blockquote {
     background-color: #fff;
     border-radius: .3em;
     display:  block;
@@ -48,13 +48,13 @@ blockquote {
     border-right: 2px solid #52adc8;
 }
 
-blockquote p {
+.remark-slide-content blockquote p {
     line-height: 2.1em;
     color: #272822;
 }
 
 
-body {
+.remark-slide-content body {
   font-family: 'Droid Serif';
   font-size: 1.2em;
 }
@@ -67,35 +67,48 @@ body {
   padding-top: 1em;
 }
 
-ul li, ol li {
+.remark-slide-content ul li, .remark-slide-content ol li {
     padding-top: 1em;
 }
+.remark-slide-content ul li li {
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+}
 
-h1, h2, h3 {
-  font-family: 'Yanone Kaffeesatz';
+
+.remark-slide-content h1, .remark-slide-content h2,  .remark-slide-content h3 {
   font-weight: 400;
   margin-bottom: 0;
 }
+.remark-slide-content h1, .remark-slide-content h2{
+  padding-top: 0;
+  margin-top: 0;
+}
+
+
 .remark-slide-content h1 { font-size: 3em; }
 .remark-slide-content h2 { font-size: 2em; }
 .remark-slide-content h3 { font-size: 1.6em; }
-.footnote {
+.remark-slide-content .remark-slide-content.footnote {
   position: absolute;
   bottom: 3em;
 }
-li p { line-height: 1.25em; }
-.red { color: #fa0000; }
-.large { font-size: 2em; }
-a, a > code {
+.remark-slide-content li p { line-height: 1.25em; }
+.remark-slide-content .red { color: #fa0000; }
+.remark-slide-content .large { font-size: 2em; }
+
+.remark-slide-content a, .remark-slide-content a > code {
   color: rgb(249, 38, 114);
   text-decoration: none;
 }
-code {
+.remark-slide-content code {
   background: #e7e8e2;
   border-radius: 5px;
 }
-.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-.remark-code-line-highlighted     { background-color: #373832; }
+
+.remark-slide-content .remark-code, .remark-slide-content .remark-inline-code { font-family: 'Ubuntu Mono'; }
+.remark-code-line-highlighted  { background-color: #373832; }
 .pull-left {
   float: left;
   width: 47%;
@@ -122,6 +135,8 @@ code {
 .inverse h1, .inverse h2 {
   color: #f3f3f3;
   line-height: 0.8em;
+  padding-top: 0;
+  margin-top: 0;
 }
 /* Slide-specific styling */
 #slide-inverse .footnote {
@@ -248,4 +263,12 @@ code {
 
 .inverse {
   color: #c1c1bd !important
+}
+
+.remark-slide-content .outline-header {
+      color: #ccc;
+      left: 80px;
+      position: absolute;
+      text-align: left;
+      top: 30px;
 }
