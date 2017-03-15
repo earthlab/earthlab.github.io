@@ -27,8 +27,11 @@ If you haven't already, be sure to add your project & group to the google doc be
 <a class="btn .btn--x-large btn-info" href="https://docs.google.com/document/d/1A_qcKrXWfWfaXHA9lmrt3f3OYcFXueuRn_612K6Xyvo/edit" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
 Add your project & group to the class google doc </a>
 
-<a class="btn .btn--large btn-info" href="{{ site.baseurl }}/slide-shows/5-present-your-science-presentation/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
+<a class="btn .btn--large btn-info" href="{{ site.url }}/slide-shows/5-present-your-science-presentation/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
 View Slideshow: Present your science</a>
+
+<a class="btn .btn--large btn-info" href="{{ site.url }}/slide-shows/6-review-week-9/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
+View Slideshow: Review slides </a>
 
 </div>
 
