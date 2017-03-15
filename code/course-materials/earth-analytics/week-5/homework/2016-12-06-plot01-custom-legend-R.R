@@ -1,12 +1,12 @@
-## ----echo=F, message=F, warning=F----------------------------------------
+## ----echo=FALSE, message=FALSE, warning=FALSE----------------------------
 # turn off messages everywhere
-knitr::opts_chunk$set(message = F, warning = F)
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 
-## ----load-libraries, message=F, warning=F--------------------------------
+## ----load-libraries, message=FALSE, warning=FALSE------------------------
 # load libraries
 library(raster)
 library(rgdal)
-options(stringsAsFactors = F)
+options(stringsAsFactors = FALSE)
 
 
 ## ----convert-to-factor---------------------------------------------------
@@ -184,11 +184,12 @@ legend("bottomright",
        cex=.8) # adjust font size
 
 
-## ----legend-points-lines, fig.cap="plot legend with points and lines"----
+## ----import-plots, results='hide'----------------------------------------
 # import points layer
 sjer_plots <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_plot_centroids")
 
+## ----legend-points-lines, fig.cap="plot legend with points and lines"----
 sjer_plots$plot_type <- as.factor(sjer_plots$plot_type)
 levels(sjer_plots$plot_type)
 # grass, soil trees
@@ -210,7 +211,7 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 
 
-## ----reproject-data, echo=F, warning=F, message=F, fig.cap="plot legend with points and lines and subheading."----
+## ----reproject-data, echo=FALSE, warning=FALSE, message=FALSE, results='hide', fig.cap="plot legend with points and lines and subheading."----
 
 # load crop extent layer
 sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
@@ -299,15 +300,15 @@ plot(sjer_roads_utm,
 # add a legend to our map
 legend(x=furthest_pt_east, y=furthest_pt_north,
        legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
-       pch=c(8,18,8, NA, NA, NA, NA),  # set the symbol for each point
-       lty=c(NA,NA, NA, 1, 1, 1, 1) ,
+       pch=c(8, 18, 8, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA, NA, NA, 1, 1, 1, 1) ,
        col=c(plot_colors, challengeColors), # set the color of each legend line
        bty="n", # turn off border
        cex=.9, # adjust legend font size
        xpd=T) # force the legend to plot outside of your extent
 
 
-## ---- echo=F, results='hide', message=F----------------------------------
+## ---- echo=FALSE, results='hide', message=FALSE--------------------------
 dev.off()
 
 ## ----custom-legend-points-lines-22, fig.cap="final legend with points and lines customized 2ß."----
@@ -339,10 +340,43 @@ legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
        xpd=T)
 
 
-## ---- echo=F, results='hide'---------------------------------------------
+## ---- echo=FALSE, results='hide'-----------------------------------------
 dev.off()
 
-## ----custom-legend-points-lines-3, echo=F, fig.cap="final legend with points and lines customized."----
+## ----custom-legend-points-lines-3, fig.cap="final legend with points and lines customized 2ß."----
+# adjust margin to make room for the legend
+par(mar=c(2, 2, 4, 7))
+# plot using new colors
+plot(sjer_aoi,
+     border="grey",
+     lwd=2,
+     main="Madera County Roads and plot locations")
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     add=T,
+     pch=8)
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(challengeColors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
+       legend = c("Plots", levels(sjer_plots$plot_type), "Road Types", levels(sjer_roads$RTTYP)),
+       pch=c(NA, 8, 18, 8, NA, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA,NA, NA, NA, 1, 1, 1, 1),
+       col=c(plot_colors, challengeColors), # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9, # adjust legend font size
+       xpd=T,
+       text.font =c(2, 1, 1, 1, 2, 1, 1, 1, 1))
+
+
+## ---- echo=FALSE, results='hide'-----------------------------------------
+dev.off()
+
+## ----custom-legend-points-lines-4, echo=FALSE, fig.cap="final legend with points and lines customized."----
 
 par(mar=c(2,2,4,7))
 # plot using new colors
@@ -368,7 +402,8 @@ legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
        col=c(plot_colors, challengeColors), # set the color of each legend line
        bty="n", # turn off border
        cex=.9, # adjust legend font size
-       xpd=T)
+       xpd=T,
+       text.font =c(2, 1, 1, 1, 1, 2, 1, 1, 1, 1))
 
 
 ## ----results='hide'------------------------------------------------------
