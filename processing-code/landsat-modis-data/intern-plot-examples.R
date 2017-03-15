@@ -28,6 +28,8 @@ fire_boundary_utm <- spTransform(fire_boundary, CRS=crs(landsat_stack_csf_post))
 
 # calculate NDVI
 landsat_ndvi <- (landsat_stack_csf_post[[5]] - landsat_stack_csf_post[[4]]) / (landsat_stack_csf_post[[5]] + landsat_stack_csf_post[[4]])
+plot(landsat_ndvi,
+     main="NDVI")
 
 plot(landsat_ndvi,
      main="Landsat derived NDVI\n 23 July 2016")
@@ -75,38 +77,41 @@ plot(ndvi_diff)
 plot(ndvi_diff_rcl,
      main="ndvi difference")
 
+plot(ndvi_diff_rcl,
+     main="Change in greeness: Post vs pre Fire \n Landsat NDVI - Cold springs Fire July 2016")
 barplot(ndvi_diff_rcl,
         col=the_colors)
 
 ## Nice reclassified map
 the_colors = c("palevioletred4","ivory1","seagreen4")
 dev.off()
-par(xpd=F, mar=c(1,0,4,5))
+par(xpd=F, mar=c(1,0,4,12), cex.main=1.5)
 plot(ndvi_diff_rcl,
-     main="Change in greeness: Post vs pre Fire \n Landsat NDVI - Cold springs Fire July 2016",
+     main="Change in greeness\n Post vs pre Fire",
      legend=F, box=F, axes=F,
      col=the_colors)
+mtext("Landsat NDVI - Cold springs Fire July 2016")
 plot(fire_boundary_utm, add=T,
      border="blue", lwd=2, lty=4)
 plot(extent(ndvi_diff_rcl), 
      lwd=2,
      add=T)
-
-par(xpd = TRUE)
 legend(ndvi_diff_rcl@extent@xmax-100, ndvi_diff_rcl@extent@ymax,
-       c("Descrease (< -.2)", "No change (-.2-.2)", "Increase (>.2)", "Fire Border"),
+       c("Decrease (< -.2)", "No change (-.2-.2)", "Increase (>.2)", "Fire Border"),
        pch=c(15, 15, 15, NA),
        col=the_colors,
-       cex=.9,
+       cex=1.3,
        bty="n",
-       lty=c(NA, NA, NA, 4))
+       lty=c(NA, NA, NA, 4),
+       xpd = TRUE)
 legend(ndvi_diff_rcl@extent@xmax-100, ndvi_diff_rcl@extent@ymax,
        c("", "", "", ""),
        pch=c(22, 22, 22, NA),
        col="black",
-       cex=.9,
+       cex=1.3,
        bty="n",
-       lty=c(NA, NA, NA, 4))
+       lty=c(NA, NA, NA, 4),
+       xpd = TRUE)
 
 
 
