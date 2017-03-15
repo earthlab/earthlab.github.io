@@ -274,10 +274,9 @@ legend("bottomright",
        cex=.9) # adjust legend font size
 
 ## ----adjust-legend, fig.cap="plot with fixed legend"---------------------
-
 # figure out where the upper RIGHT hand corner of our plot extent is
-
 the_plot_extent <- extent(sjer_aoi)
+
 # grab the upper right hand corner coordinates
 furthest_pt_east <- the_plot_extent@xmax
 furthest_pt_north <- the_plot_extent@ymax
