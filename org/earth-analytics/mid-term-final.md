@@ -57,7 +57,7 @@ ask questions and work on your group project in class.
 * You can reach out to the folks who have presented in this course for guidance / with questions if you want!
 * Be sure to read more about the final project before proposing your mid term topic!
 
-## Submit your final present to D2L by 17 March 2017
+## Submit your final presentation to D2L by 24 March 2017
 
 
 ## Mid Term Quiz - Study Guide
