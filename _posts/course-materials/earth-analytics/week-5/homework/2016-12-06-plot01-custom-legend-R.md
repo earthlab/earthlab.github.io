@@ -538,7 +538,7 @@ legend("bottomright",
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-2-1.png" title="Plot with points and lines customized." alt="Plot with points and lines customized." width="100%" />
 
 
-## Force the legend to plot outside
+## Force the legend to plot next to your plot
 
 Refining the look of your plots takes a bit of patience in R, but it can be
 done! Play with the code below to see if you can make your legend plot NEXT TO
@@ -561,10 +561,9 @@ will use this to place our legend.
 
 
 ```r
-
 # figure out where the upper RIGHT hand corner of our plot extent is
-
 the_plot_extent <- extent(sjer_aoi)
+
 # grab the upper right hand corner coordinates
 furthest_pt_east <- the_plot_extent@xmax
 furthest_pt_north <- the_plot_extent@ymax
