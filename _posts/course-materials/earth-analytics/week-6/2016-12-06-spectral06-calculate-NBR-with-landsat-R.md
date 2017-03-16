@@ -3,11 +3,11 @@ layout: single
 title: "dNBR with MODIS in R"
 excerpt: ". "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-03-10'
+modified: '2017-03-16'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
-permalink: /course-materials/earth-analytics/week-6/calculate-dNBR-R-Landsat-MODIS/
-nav-title: 'dNBR with Landsat & MODIS'
+permalink: /course-materials/earth-analytics/week-6/calculate-dNBR-R-Landsat/
+nav-title: 'dNBR with Landsat'
 week: 6
 sidebar:
   nav:
@@ -181,34 +181,11 @@ Add fire boundary to map.
 
 
 
-Make it look a bit nicer using a colobrewer palette. I used the
+Make it look a bit nicer using a colorbrewer palette. I used the
 `RdYlGn` palette:
 
 `brewer.pal(5, 'RdYlGn')`
 
-I also did a bit of legend trickery to get a box with a fill. There's probably
-a better way to do this!
-
-
-```r
-
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c(rev(the_colors), "black"),
-       pch=c(15,15, 15, 15, 15,NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c("black"),
-       pch=c(22, 22, 22, 22, 22, NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
-```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral06-calculate-NBR-with-landsat-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
