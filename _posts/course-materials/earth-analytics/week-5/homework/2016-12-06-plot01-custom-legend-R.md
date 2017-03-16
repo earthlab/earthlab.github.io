@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: custom legends"
 excerpt: " ."
 authors: ['Leah Wasser']
-modified: '2017-03-14'
+modified: '2017-03-15'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-5/r-custom-legend/
@@ -61,7 +61,7 @@ attribute values using `as.factor()`.
 # load libraries
 library(raster)
 library(rgdal)
-options(stringsAsFactors = F)
+options(stringsAsFactors = FALSE)
 ```
 
 Next, import and explore the data.
@@ -416,11 +416,10 @@ need to define 3 symbols and 3 colors for our legend and our plot.
 # import points layer
 sjer_plots <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_plot_centroids")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/california/SJER/vector_data", layer: "SJER_plot_centroids"
-## with 18 features
-## It has 5 fields
+```
 
+
+```r
 sjer_plots$plot_type <- as.factor(sjer_plots$plot_type)
 levels(sjer_plots$plot_type)
 ## [1] "grass" "soil"  "trees"
@@ -451,12 +450,6 @@ fixed the projection for the roads layer and cropped it! You will have to do the
 this code will work.
 
 
-```
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/california/SJER/vector_data", layer: "SJER_crop"
-## with 1 features
-## It has 1 fields
-```
 
 When we create a legend, we will have to add the labels for both the points
 layer and the lines layer.
@@ -498,17 +491,17 @@ legend("bottomright",
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-1.png" title="final plot custom legend." alt="final plot custom legend." width="100%" />
 
 
-Next we have to tell R, which symbols are lines and which are point symbols. We
+Next we have to tell `R`, which symbols are lines and which are point symbols. We
 can do that using the lty argument. We have 3 unique point symbols and 4 unique
 line symbols. We can include a NA for each element that should not be a line in
 the lty argument:
 
-`lty=c(NA,NA, NA, 1, 1, 1, 1)`
+`lty=c(NA, NA, NA, 1, 1, 1, 1)`
 
-And we include a NA value for each element that should not be a symbol in the
-pch argument:
+And we include a `NA` value for each element that should not be a symbol in the
+`pch` argument:
 
-pch=c(8,18,8, NA, NA, NA, NA)
+`pch=c(8, 18, 8, NA, NA, NA, NA)``
 
 
 ```r
@@ -588,8 +581,8 @@ plot(sjer_roads_utm,
 # add a legend to our map
 legend(x=furthest_pt_east, y=furthest_pt_north,
        legend = c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP)),
-       pch=c(8,18,8, NA, NA, NA, NA),  # set the symbol for each point
-       lty=c(NA,NA, NA, 1, 1, 1, 1) ,
+       pch=c(8, 18, 8, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA, NA, NA, 1, 1, 1, 1) ,
        col=c(plot_colors, challengeColors), # set the color of each legend line
        bty="n", # turn off border
        cex=.9, # adjust legend font size
@@ -600,12 +593,12 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
 
 
 
-Let's use the margin parameter to clean things up. Also notice i'm using the 
-AOI extent layer to create a "box" around my plot. Now things are starting to 
-look much cleaner! 
+Let's use the margin parameter to clean things up. Also notice i'm using the
+AOI extent layer to create a "box" around my plot. Now things are starting to
+look much cleaner!
 
-I've also added some "fake" legend elements to create subheadings like we 
-might add to a map legend in QGIS or ArcGIS. 
+I've also added some "fake" legend elements to create subheadings like we
+might add to a map legend in QGIS or ArcGIS.
 
 `legend = c("Plots", levels(sjer_plots$plot_type), "Road Types", levels(sjer_roads$RTTYP))`
 
@@ -643,13 +636,61 @@ legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
 
 
 
+Let's take customization a step further. I can adjust the font styles in the legend
+too to make it look **even prettier**. To do this, we use the `text.font` argument.
+
+The possible values for the `text.font` argument are:
+
+* 1: normal
+* 2: bold
+* 3: italic
+* 4: bold and italic
+
+Notice below, i am passing a vector of values, one value to represent each 
+element in the legend.
+
+
+```r
+# adjust margin to make room for the legend
+par(mar=c(2, 2, 4, 7))
+# plot using new colors
+plot(sjer_aoi,
+     border="grey",
+     lwd=2,
+     main="Madera County Roads and plot locations")
+plot(sjer_plots,
+     col=(plot_colors)[sjer_plots$plot_type],
+     add=T,
+     pch=8)
+# plot using new colors
+plot(sjer_roads_utm,
+     col=(challengeColors)[sjer_plots$plot_type],
+     pch=8,
+     add=T)
+
+# add a legend to our map
+legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
+       legend = c("Plots", levels(sjer_plots$plot_type), "Road Types", levels(sjer_roads$RTTYP)),
+       pch=c(NA, 8, 18, 8, NA, NA, NA, NA, NA),  # set the symbol for each point
+       lty=c(NA,NA,NA, NA, NA, 1, 1, 1, 1),
+       col=c(plot_colors, challengeColors), # set the color of each legend line
+       bty="n", # turn off border
+       cex=.9, # adjust legend font size
+       xpd=T,
+       text.font =c(2, 1, 1, 1, 2, 1, 1, 1, 1))
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-3-1.png" title="final legend with points and lines customized 2ß." alt="final legend with points and lines customized 2ß." width="100%" />
+
+
+
 Now, if you want to move the legend out a bit further, what would you do?
 
 ## BONUS!
 
-Any idea how I added a space to the legend below to create "sections"? 
+Any idea how I added a space to the legend below to create "sections"?
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-3-1.png" title="final legend with points and lines customized." alt="final legend with points and lines customized." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/homework/2016-12-06-plot01-custom-legend-R/custom-legend-points-lines-4-1.png" title="final legend with points and lines customized." alt="final legend with points and lines customized." width="100%" />
 
 
 ```r
