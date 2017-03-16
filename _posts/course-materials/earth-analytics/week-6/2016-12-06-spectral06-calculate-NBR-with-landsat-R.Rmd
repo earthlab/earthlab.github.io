@@ -6,8 +6,8 @@ authors: ['Megan Cattau', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
-permalink: /course-materials/earth-analytics/week-6/calculate-dNBR-R-Landsat-MODIS/
-nav-title: 'dNBR with Landsat & MODIS'
+permalink: /course-materials/earth-analytics/week-6/calculate-dNBR-R-Landsat/
+nav-title: 'dNBR with Landsat'
 week: 6
 sidebar:
   nav:
@@ -43,7 +43,7 @@ Let's explore creating NBR using Landsat data.
 
 First, let's setup our spatial packages.
 
-```{r load-packages, warning=F, message=F, results='hide'}
+```{r load-packages, warning=FALSE, message=FALSE, results='hide'}
 # load spatial packages
 library(raster)
 library(rgdal)
@@ -77,7 +77,7 @@ Next we calculate dNBR using the following steps:
 . Note the code to do this is hidden. You will need to figure
 out what bands are required to calculate NBR using Landsat.
 
-```{r calculate-nbr, echo=F, fig.cap="landsat derived NDVI plot", fig.width=7, fig.height=5}
+```{r calculate-nbr, echo=FALSE, fig.cap="landsat derived NDVI plot", fig.width=7, fig.height=5}
 # Landsat 8 requires bands 7 and 5
 landsat_nbr_pre <- ((landsat_stack_pre[[5]] - landsat_stack_pre[[7]]) / (landsat_stack_pre[[5]] + landsat_stack_pre[[7]]))
 
@@ -90,7 +90,7 @@ plot(landsat_nbr_pre,
 
 You can export the NBR raster if you want using `writeRaster()`.
 
-```{r export-rasters, eval=F}
+```{r export-rasters, eval=FALSE }
 writeRaster(x = landsat_nbr_pre,
               filename="data/week6/outputs/landsat_nbr",
               format = "GTiff", # save as a tif
@@ -114,7 +114,7 @@ landsat_stack_post <- stack(all_landsat_bands_post)
 Then we calculate NBR on the post data - note the code here is purposefully hidden.
 You need to figure out what bands to use to perform the math!
 
-```{r calculate-nbr-post, echo=F, fig.cap="landsat derived NBR post fire", fig.width=7, fig.height=5}
+```{r calculate-nbr-post, echo=FALSE, fig.cap="landsat derived NBR post fire", fig.width=7, fig.height=5}
 # Landsat 8 requires bands 7 and 5
 landsat_nbr_post <- ((landsat_stack_post[[5]] - landsat_stack_post[[7]]) / (landsat_stack_post[[5]] + landsat_stack_post[[7]]))
 
@@ -174,7 +174,7 @@ the_colors = c("seagreen4", "seagreen1", "ivory1", "palevioletred1", "paleviolet
 
 Your classified map should look something like:
 
-```{r classify-output-plot, echo=F, fig.cap="classified NBR output", fig.width=7, fig.height=5}
+```{r classify-output-plot, echo=FALSE, fig.cap="classified NBR output", fig.width=7, fig.height=5}
 # mar bottom, left, top and right
 par(xpd = F, mar=c(0,0,2,5))
 plot(nbr_classified,
@@ -202,14 +202,14 @@ the shapefile in the folder:
 
 Add fire boundary to map.
 
-```{r classify-output-plot2, echo=F, fig.cap="classified NBR output", results='hide', fig.width=7, fig.height=5}
+```{r classify-output-plot2, echo=FALSE, fig.cap="classified NBR output", results='hide', fig.width=7, fig.height=5}
 fire_boundary <- readOGR("data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
 # reproject shapefile
 fire_boundary_utm <- spTransform(fire_boundary, crs(nbr_classified))
 
 
 # mar bottom, left, top and right
-par(xpd = F, mar=c(0,0,2,5))
+par(mar=c(0,0,2,5))
 plot(nbr_classified,
      col=the_colors,
      legend=F,
@@ -218,65 +218,36 @@ plot(nbr_classified,
      main="Landsat NBR - Cold Spring fire site \n Add date of the data here")
 plot(fire_boundary_utm, add=T,
      lwd=5)
-par(xpd = TRUE)
 legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c(rev(the_colors), "black"),
-       pch=c(15,15, 15, 15, 15,NA),
+       col= "black",
+       pt.bg=rev(the_colors),
+       pch=c(22,22, 22, 22, 22, NA),
        lty = c(NA, NA, NA, NA, NA, 1),
        cex=.8,
        bty="n",
-       pt.cex=c(1.75))
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c("black"),
-       pch=c(22, 22, 22, 22, 22, NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
+       pt.cex=c(1.75),
+       xpd = TRUE)
 
 ```
 
 
-```{r dev-off1, echo=F, warning=F, message=F, results="hide"}
+```{r dev-off1, echo=FALSE, warning=FALSE, message=FALSE, results="hide"}
 dev.off()
 ```
 
-Make it look a bit nicer using a colobrewer palette. I used the
+Make it look a bit nicer using a colorbrewer palette. I used the
 `RdYlGn` palette:
 
 `brewer.pal(5, 'RdYlGn')`
 
-I also did a bit of legend trickery to get a box with a fill. There's probably
-a better way to do this!
 
-```{r new-legend, eval=F}
-
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c(rev(the_colors), "black"),
-       pch=c(15,15, 15, 15, 15,NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c("black"),
-       pch=c(22, 22, 22, 22, 22, NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
-```
-
-```{r classify-output-plot3, echo=F, fig.cap="classified NBR output", fig.width=7, fig.height=5}
+```{r classify-output-plot3, echo=FALSE, fig.cap="classified NBR output", fig.width=7, fig.height=5}
 # look at colors
 # display.brewer.all()
 the_colors <- rev(brewer.pal(5, 'RdYlGn'))
 # mar bottom, left, top and right
-par(xpd = F, mar=c(0,0,2,5))
+par(mar=c(0,0,2,5))
 plot(nbr_classified,
      col=the_colors,
      legend=F,
@@ -285,35 +256,28 @@ plot(nbr_classified,
      main="Landsat NBR - Cold Spring fire site \n Add date of the data here")
      plot(fire_boundary_utm, add=T,
           lwd=5)
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
+legend(nbr_classified@extent@xmax-50, nbr_classified@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c((the_colors), "black"),
-       pch=c(15,15, 15, 15, 15,NA),
+       col= "black",
+       pt.bg = the_colors,
+       pch=c(22, 22, 22, 22, 22, NA),
        lty = c(NA, NA, NA, NA, NA, 1),
        cex=.8,
        bty="n",
        pt.cex=c(1.75),
        xpd=T)
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("", "", " ", " ", " ", " "),
-       col=c("black"),
-       pch=c(22, 22, 22, 22, 22, NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
 
 ```
 
 Note that you will have to figure out what date these data are for! I purposefully
 didn't include it in the title of this map.
 
-```{r dev-off, echo=F, warning=F, message=F, results="hide", fig.width=7, fig.height=5}
+```{r dev-off, echo=FALSE, warning=FALSE, message=FALSE, results="hide", fig.width=7, fig.height=5}
 dev.off()
 ```
 
 
-```{r view-bar, warning=F, fig.cap="plot barplot of fire severity values"}
+```{r view-bar, warning=FALSE, fig.cap="plot barplot of fire severity values"}
 barplot(nbr_classified,
         main="Distribution of Classified NBR Values",
         col=the_colors)
@@ -321,7 +285,7 @@ barplot(nbr_classified,
 
 Add labels to your barplot!
 
-```{r view-barplot1, warning=F, fig.cap="plot barplot of fire severity values with labels"}
+```{r view-barplot1, warning=FALSE, fig.cap="plot barplot of fire severity values with labels"}
 barplot(nbr_classified,
         main="Distribution of Classified NBR Values",
         col=the_colors,
