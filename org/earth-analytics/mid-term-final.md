@@ -57,7 +57,7 @@ ask questions and work on your group project in class.
 * You can reach out to the folks who have presented in this course for guidance / with questions if you want!
 * Be sure to read more about the final project before proposing your mid term topic!
 
-## Submit your final present to D2L by 17 March 2017
+## Submit your final presentation to D2L by 24 March 2017
 
 
 ## Mid Term Quiz - Study Guide
@@ -68,39 +68,43 @@ to taking the quiz.
 
 ### General
 
-* What are questions that we may want to ask before fulling "trusting" data that we haven't worked with before?
-* When we say uncertainty - what do we mean?
+* You recieved a dataset that you haven't worked with before collected by someone else. List 2-3 questions that you might ask prior to working with the data.
+* Describe 2 sources of uncertainty associated with spectral remote sensing data.
+* Descrive 2 sources of uncertainty associated with lidar remote sensing data.
 
 ### Week 1 - topics
 
-* Importance of self-explanatory file names & data organization best practices.
+* Why are self-explanatory file names useful when working on a large project with many files.
+* Why is organizing your data into directories in a project useful when workign on a large project with many files?
 * (Review the reproducibility slide show)[{{ site.url }}/slide-shows/share-publish-archive/]
-* Code chunk arguments
+* List two R markdown code chunk arguments. Next, describe what does each argument does to your document when you knit to HTML or pdf.
 
 
 ### Week 2 - topics
 
 * The 2013 Colorado floods - review readings & video
-* The components of a lidar system. How Lidar systems work.
-* Handling missing data with no data values in `R`
-* Key guidelines of clean coding
-* Working with dates in R. What are the steps to dealing with dates in `R`?
-* What is the difference between a data.frame and a vector in `R`?
-* Data formats (strings vs numbers in `R`)
+* What are 3 key components of a lidar system?
+* Describe one way to deal with missing data in `R`.
+* Following "clean" coding principles and Hadley Wickam's style guide, list 3 things that you can do to make your code easier to read for you, your collaborators and your future self.
+* Working with dates in R. What are the steps to dealing with dates in R?
+* What is the difference between a `data.frame` and a vector c(1, 2, 3, 4) in `R`?
+* Why does the statement `four > five` return a value of `TRUE` in `R`?
+* When you import a `.csv` into `R` and make a change to the data that you've imported in `R`, is the original `.csv` modified?
+
 
 ### Week 3
 
 * Readings and videos on lidar data.
-* How and why do we classify raster data?
-* What is the native format of discrete return lidar data when it's collected by the lidar sensor? (raster or vector)
+* What is the purpose of classifying raster data in R? Provide one example of a raster file that you may classify and list the classes that you would use.
+* What is the native format of **discrete return lidar data** when it's collected by the lidar sensor? (raster or vector)
 * What is a CHM, DSM, DTM?
 * If you import a geotiff (.tif) file into R, what is the structure or type of object that R will create?
-* What does cropping a raster do?
+* In class we used the `crop()` function to crop rasters. What does cropping a raster do to the spatial extent of the raster object in `R`?
 
 
 ### Week 4
 
-* Why is a histogram useful when classifying raster data in R?
+* Why is a histogram of a raster dataset useful when classifying raster data in `R`?
 
 
 ### Week 5
@@ -115,16 +119,24 @@ to taking the quiz.
 ### Week 6
 
 * To date, how many landsat missions have there been since the inception of landsat?
-* What type of data are landsat & MODIS data?
+* What type of data are Landsat & MODIS data (vector or raster)?
 * What are the key differences between Landsat, MODIS & NAIP data?
 * What are the key differences between Landsat data and lidar data?
-* What is active vs passive remote sensing?
-* What is NBR? What is a vegetation index?
+* Describe the key differences between active and passive remote sensing.
+* What is a vegetation index?
+* List one vegetation index that you can use to quantify the extent of a burned area.
 
 
 ### Week 7
 
-* Are clouds problematic when using remote sensing data? If so, why?
-* What is a way we can handle clouds when working with remote sensing data?
-* What is spatial resolution?
-* What is spectral resolution?
+* You recieved a spectral dataset (Landsat) from your colleague. Unfortunately it has cloud cover in the image. How will this impact your study area analysis?
+* What is one way you can account for / deal with clouds in spectral remote sensing data?
+* You recieve a lidar terrain model that is 1 m spatial resolution. What does the 1 meter represent? What is spatial resolution?
+* Define spectral resolution associated with spectral remote sensing data (Landsat, MODIS)?
+
+
+#### Week 8
+
+* Define expressive programming. Provide one example
+* What does DRY stand for?
+* Provide 2 examples of R functions. Then provide 2 examples of function arguments associated with each function.
