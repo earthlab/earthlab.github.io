@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Intro to Coordinate Reference Systems"
 excerpt: "This lesson covers the basics of coordinate reference systems. "
 authors: ['Leah Wasser']
-modified: '2017-02-14'
+modified: '2017-03-15'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-to-coordinate-reference-systems/
@@ -152,7 +152,6 @@ worldBound <- readOGR(dsn="data/week5/global/ne_110m_land",
 
 # convert to dataframe
 worldBound_df <- fortify(worldBound)
-## Regions defined for each Polygons
 
 # plot map
 worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
@@ -230,7 +229,6 @@ worldBound_robin <- spTransform(worldBound,
                                 CRS("+proj=robin"))
 
 worldBound_df_robin <- fortify(worldBound_robin)
-## Regions defined for each Polygons
 
 # force R to plot x and y values without rounding digits
 options(scipen=100)
@@ -462,7 +460,7 @@ minimize visual distortion in a particular region (e.g. Robinson, UTM, State Pla
 * Read more on coordinate systems in the
 <a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" data-proofer-ignore=''>
 QGIS documentation.</a>
-* <a href="http://neondataskills.org/GIS-spatial-data/Working-With-Rasters/" target="_blank">The Relationship Between Raster Resolution, Spatial extent & Number of Pixels - in R - NEON</a>
+* <a href="http://neondataskills.org/GIS-spatial-data/Working-With-Rasters" target="_blank">The Relationship Between Raster Resolution, Spatial extent & Number of Pixels - in R - NEON</a>
 * For more on types of projections, visit
 <a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Datums/003r00000008000000/" target="_blank"> ESRI's ArcGIS reference on projection types.</a>.
 * Read more about <a href="https://source.opennews.org/en-US/learning/choosing-right-map-projection/" target="_blank"> choosing a projection/datum.</a>
