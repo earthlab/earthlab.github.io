@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Intro to spectral remote sensing"
-excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and spaceborne vs airborne sensors. "
+excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Megan Cattau', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -9,7 +9,7 @@ class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/intro-spectral-data-r/
 nav-title: 'Intro spectral data'
 module-title: 'Understanding fire using spectral remote sensing data'
-module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with spaceborne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band compositie images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
+module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
 module-nav-title: 'Fire / spectral remote sensing data - in R'
 module-type: 'class'
 week: 6
@@ -29,7 +29,7 @@ order: 1
 After completing this tutorial, you will be able to:
 
 * Define spectral and spatial resolution. Explain how the two types of resolution are different.
-* Describe atleast 3 differences between NAIP imagery, Landsat 8 and MODIS in terms of how the data are collected, how frequently they are collected and the spatial & spectral resolution.
+* Describe *atleast* 3 differences between NAIP imagery, Landsat 8 and MODIS in terms of how the data are collected, how frequently they are collected and the spatial & spectral resolution.
 * Describe the spatial and temporal tradeoffs between data collected from a satellite vs. an airplane.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -104,8 +104,8 @@ dataset ever 2-4 years.
 
 <figure>
    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/space-airborne.png" alt="space vs airborne remote sensing">
-   <figcaption>Spaceborn vs airborne remote sensing. Notice that spaceborn data
-   are often of lower resolution however beacuse a satellite rotates continuously
+   <figcaption>Space-born vs airborne remote sensing. Notice that space-born data
+   are often of lower resolution however because a satellite rotates continuously
    around the earth, the spatial coverage may be better than airborne data. Source:<a href="http://www.cartospace.com/?page_id=22
    </figcaption>
 </figure>
@@ -123,7 +123,7 @@ wavelength values between 800nm and 850nm might be one
 band captured by an imaging spectrometer. The imaging spectrometer collects
 reflected light energy within a pixel area on the ground. Because an imaging spectrometer
 collects many different types of light - for each pixel, the amount of light energy
-for each type of light or band, will be recorded. So for eample a camera records
+for each type of light or band, will be recorded. So for example a camera records
 the amount of red, green and blue light for each pixel.
 
 Often when you work with a multispectral dataset, the band information is reported as the center
@@ -215,9 +215,6 @@ Landsat 8 bands 1-9 are listed below:
 | Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
 
 Above: Source - <a href="http://landsat.usgs.gov" target="_blank"><a href="http://landsat.usgs.gov</a>
-
-
-
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/Landsat8_BandsUses.png">
