@@ -3,7 +3,7 @@ layout: single
 title: "Working with the difference Normalized Burn Index - Using spectral remote sensing to understand fire"
 excerpt: ". "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-03-10'
+modified: '2017-03-16'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/normalized-burn-index-dNBR/
@@ -85,7 +85,7 @@ difference is best measured immediate before the fire and then immediately after
 NBR is less effective if time has passed and vegetation regrowth / regeneration
 has begun. Once vegetation regeneration has begun, the fire scar will begin
 to reflect a stronger signal in the NIR portion of the spectrum (remember that
-healthy plants reflectly strongly in the NIR portion due to the properties of
+healthy plants reflect strongly in the NIR portion due to the properties of
 chlorophyll).
 
 For this reason, the NBR ratio works better in areas like the United States where
@@ -132,7 +132,7 @@ The NBR index can be a powerful tool to identify pixels that have a high likelyh
 or being "burned". However it is important to know that this index is also
 sensitive to water and thus sometimes, pixels that are classified as "high severity"
 may actually be water. Because of this, it is important to mask out areas of water
-PRIOR to performing any quantitaive analysis on the difference NBR results.
+PRIOR to performing any quantitative analysis on the difference NBR results.
 
 ### NBR & Landsat 8
 
@@ -173,34 +173,6 @@ should we use to calculate NBR using MODIS?
 
 
 
-```r
-# load spatial packages
-library(raster)
-library(rgdal)
-library(rgeos)
-library(RColorBrewer)
-# turn off factors
-options(stringsAsFactors = F)
-```
-
-
-
-```r
-all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
-           pattern=glob2rx("*band*.tif$"),
-           full.names = T) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands
-## [1] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
-## [2] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-## [3] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
-## [4] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
-## [5] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
-## [6] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
-## [7] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
-
-# stack the data
-landsat_stack_csf <- stack(all_landsat_bands)
-```
 
 
 
@@ -212,11 +184,11 @@ function and the classes below.
 
 | SEVERITY LEVEL  | | dNBR RANGE |
 |------------------------------|
-| Enhanced Regrowth | | -700 to  -100 |
-| Unburned       |  | -100 to +100 |
-| Low Severity     | | +100 to +270 |
-| Moderate Severity  | | +270 to +660 |
-| High Severity     |  | +660 to +1300 |
+| Enhanced Regrowth | |   > -.1 |
+| Unburned       |  | -.1 to + .1 |
+| Low Severity     | | +.1 to +.27 |
+| Moderate Severity  | | +.27 to +.66 |
+| High Severity     |  |  > +.66  |
 
 NOTE: your min an max values for NBR may be slightly different from the table
 shown above! If you have a smaller min value (< -700) then adjust your first class
@@ -228,70 +200,13 @@ the valid range of NBR (in this case they are not).
 
 
 
-You can export the rasters if you want.
 
-
-```r
-writeRaster(x = nbr_classified,
-              filename="data/week6/outputs/nbr_classified.tif",
-              format = "GTiff", # save as a tif
-              datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T)
-
-writeRaster(x = landsat_nbr,
-              filename="data/week6/outputs/landsat_nbr",
-              format = "GTiff", # save as a tif
-              datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T)
-```
 
 Your classified map should look something like:
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
-
-## Compare to fire boundary
-
-As an example to see how our fire boundary relates to the boundary that we've
-identified using MODIS data, we can create a map with both layers. I'm using
-the shapefile in the folder:
-
-`data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
-
-Add fire boundary to map.
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
 
 
-
-Make it look a bit nicer using a colobrewer palette. I used the
-`RdYlGn` palette:
-
-`brewer.pal(5, 'RdYlGn')`
-
-I also did a bit of legend trickery to get a box with a fill. There's probably
-a better way to do this!
-
-
-```r
-
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c(rev(the_colors), "black"),
-       pch=c(15,15, 15, 15, 15,NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
-legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
-       c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
-       col=c("black"),
-       pch=c(22, 22, 22, 22, 22, NA),
-       lty = c(NA, NA, NA, NA, NA, 1),
-       cex=.8,
-       bty="n",
-       pt.cex=c(1.75))
-```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
@@ -300,13 +215,21 @@ didn't include it in the title of this map.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/view-hist-1.png" title="plot hist" alt="plot hist" width="100%" />
+
+```r
+barplot(nbr_classified,
+        main="Distribution of Classified NBR Values",
+        col=the_colors,
+        names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="100%" />
 
 
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
 
-* http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html
+* <a href="http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html" target="_blank">Humboldt GSP Course online NBR lesson</a>
 
 </div>
