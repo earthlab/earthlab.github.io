@@ -64,7 +64,19 @@ ask questions and work on your group project in class.
 
 ## Presentation rubric
 
-#### Presentation structure: 35%
+Each section below is equally weighted
+
+#### Science
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Presentation is clear, concise and thoughtfully pulled together. |  | | |  |
+| Students present with confidence / make eye contact / are prepared. | |  | | |
+|===
+| Verbal pauses and fillers are minimized (um, like, etc) | |  | | |
+
+
+#### Presentation structure
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -78,7 +90,7 @@ ask questions and work on your group project in class.
 | The presentation spans no more than 5 minutes! | |  | | |
 
 
-#### Slide presentation: 30%
+#### Slide presentation
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -90,7 +102,7 @@ ask questions and work on your group project in class.
 | Slides can be read from the back of the room. | |  | | |
 
 
-#### Science: 35%
+#### Science
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
