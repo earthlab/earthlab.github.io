@@ -14,7 +14,7 @@ lib: [pandas, cenpy, pysal]
 ---
 
 
-There are several useful online sources for accessing census data provided both by the US census Bureau American Factfinder, and outside sources. These sources, however, are not conducive to large scale data aquisition and analysis. The [Cenpy](https://pypi.python.org/pypi/cenpy/0.9.1) python package allows for programmitic access of this data through the [Census Bureau's API](http://www.census.gov/data/developers/data-sets.html).
+There are several useful online sources for accessing census data provided both by the US census Bureau American Factfinder, and outside sources. These sources, however, are not conducive to large scale data aquisition and analysis. The [Cenpy](https://pypi.python.org/pypi/cenpy/0.9.1) python package allows for programmitic access of this data through the [Census Bureau's API](http://www.census.gov/data/developers/data-sets.html){:data-proofer-ignore=''}.
 
 This tutorial outlines the use of the Cenpy package to search for, and acquire specific census data. Cenpy saves this data as a Pandas dataframe. These dataframes allow for easy access and analysis of data within python. For easy visualization of this data look into the [GeoPandas](http://geopandas.org/) package. This package builds on the base Pandas package to add tools for geospatial data analysis.
 
@@ -42,7 +42,7 @@ import pysal
 ```
 
 ## Finding Data
-The cenpy explorer module allows you to view all of the available [United States Census Bureau API's](http://www.census.gov/data/developers/data-sets.html). 
+The cenpy explorer module allows you to view all of the available [United States Census Bureau API's](http://www.census.gov/data/developers/data-sets.html){:data-proofer-ignore=''}. 
 
 
 ```python
