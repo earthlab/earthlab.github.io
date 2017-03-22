@@ -57,7 +57,52 @@ ask questions and work on your group project in class.
 * You can reach out to the folks who have presented in this course for guidance / with questions if you want!
 * Be sure to read more about the final project before proposing your mid term topic!
 
-## Submit your final presentation to D2L by 24 March 2017
+
+
+
+## Submit your final mid-term presentation to D2L by 24 March 2017
+
+## Presentation rubric
+
+#### Presentation structure: 35%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| All students introduce themselves / their background  |  | | |  |
+| The project topic is clearly and concisely introduced  | | | | |
+| The importance of the project topic to those in the room (the specific audience) is clearly articulated  | | |  |
+| The study area where the project will be performed is clearly identified  | |  | | |
+| 2 specific data sources are identified in the presentation  | |  | | |
+| Everyone in the group presents. | |  | | |
+|===
+| The presentation spans no more than 5 minutes! | |  | | |
+
+
+#### Slide presentation: 30%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Presentation "slides" are simple and easy to read.  |  | | |  |
+| Presentation graphics are relevant to the topic being presented  | | | | |
+| Presentation graphics clearly present a message. | | |  |
+| Data slides (containing maps or plots) area easy to read with clear labels as necessary.  | |  | | |
+|===
+| Slides can be read from the back of the room. | |  | | |
+
+
+#### Science: 35%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| The science question / topic presented is well thought out with potential sources / background clearly articulated  |  | | |  |
+| The data to be used to address the question of interest are clearly defined. | |  | | |
+| The intended approach to how the data will be processed to address the question / topic of interest is clearly defined. | |  | | |
+| The source of the data is clearly defined | |  | | |
+|===
+| Example of potential / expected results are discussed in the presentation.| |  | | |
+
+***
+
 
 
 ## Mid Term Quiz - Study Guide
@@ -68,14 +113,14 @@ to taking the quiz.
 
 ### General
 
-* You recieved a dataset that you haven't worked with before collected by someone else. List 2-3 questions that you might ask prior to working with the data.
+* You received a dataset that you haven't worked with before collected by someone else. List 2-3 questions that you might ask prior to working with the data.
 * Describe 2 sources of uncertainty associated with spectral remote sensing data.
-* Descrive 2 sources of uncertainty associated with lidar remote sensing data.
+* Describe 2 sources of uncertainty associated with lidar remote sensing data.
 
 ### Week 1 - topics
 
 * Why are self-explanatory file names useful when working on a large project with many files.
-* Why is organizing your data into directories in a project useful when workign on a large project with many files?
+* Why is organizing your data into directories in a project useful when working on a large project with many files?
 * (Review the reproducibility slide show)[{{ site.url }}/slide-shows/share-publish-archive/]
 * List two R markdown code chunk arguments. Next, describe what does each argument does to your document when you knit to HTML or pdf.
 
