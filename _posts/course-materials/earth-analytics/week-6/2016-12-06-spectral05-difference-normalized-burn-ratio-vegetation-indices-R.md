@@ -175,8 +175,6 @@ should we use to calculate NBR using MODIS?
 
 
 
-
-
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
 
 When you have calculated NBR - classify the output raster using the `classify()`
@@ -200,8 +198,6 @@ the valid range of NBR (in this case they are not).
 
 
 
-
-
 Your classified map should look something like:
 
 
@@ -209,9 +205,6 @@ Your classified map should look something like:
 
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
-
-Note that you will have to figure out what date these data are for! I purposefully
-didn't include it in the title of this map.
 
 
 

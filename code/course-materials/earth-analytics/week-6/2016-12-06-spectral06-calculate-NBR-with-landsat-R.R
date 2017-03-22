@@ -111,7 +111,7 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity", "Fire boundary"),
        col= "black",
        pt.bg=rev(the_colors),
-       pch=c(22,22, 22, 22, 22, NA),
+       pch=c(22, 22, 22, 22, 22, NA),
        lty = c(NA, NA, NA, NA, NA, 1),
        cex=.8,
        bty="n",
@@ -146,7 +146,6 @@ legend(nbr_classified@extent@xmax-50, nbr_classified@extent@ymax,
        bty="n",
        pt.cex=c(1.75),
        xpd=T)
-
 
 ## ----dev-off, echo=FALSE, warning=FALSE, message=FALSE, results="hide", fig.width=7, fig.height=5----
 dev.off()
