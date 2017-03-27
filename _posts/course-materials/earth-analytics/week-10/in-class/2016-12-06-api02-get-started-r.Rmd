@@ -1,0 +1,145 @@
+---
+layout: single
+title: "An example of creating modular code in R - Efficient scientific programming"
+excerpt: "This lesson provides an example of modularizing code in R. "
+authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+category: [course-materials]
+class-lesson: ['intro-APIs-r']
+permalink: /course-materials/earth-analytics/week-8/function-example-modular-code-r/
+nav-title: 'Applying functions'
+week: 8
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 2
+---
+
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+*
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson and the
+data that we already downloaded for week 6 of the course.
+
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+</div>
+
+
+```{r}
+library("knitr")
+library("dplyr")
+library("ggplot2")
+library("leaflet")
+library("htmlwidgets")
+library("twitteR")
+```
+
+
+Accessing Web-Data
+========================================================
+
+- In the past, we would likely focus on *web scraping*
+    - Human-readable material (HTML files) 'mined' using computer code
+
+- More and more institutions are either...
+    - Making web scraping more difficult, or...
+    - Embracing *APIs* to enable direct requests for machine-readable data
+  
+Working with Web Data
+========================================================
+
+- `R` provides generic tools for working with APIs (and any web-technology really)
+- Several packages available to access specific data providers (like Twitter) directly
+- Web scraping is also possible, and so is direct access to data files over the web
+
+We'll explore most of these today!
+
+A Note of Caution...
+========================================================
+type: alert
+
+- Beware the fact that the web changes constantly!
+- Data available via a *particular* API at a *particular* point in time may not be available indefinitely...
+
+Direct Access to Data
+========================================================
+type: section
+
+We'll start with a simple example: data that may be directly downloaded from the internet.
+
+Data Access from R
+========================================================
+
+- There are several ways that we do can this from `R`
+    - The simplest being to access a text (e.g., `.csv`, `.txt`) file containing data via a `URL`.
+    - `R`'s builtin `read.csv` and `read.table` functions can do this for us quite easily*...
+  
+<small>
+\*Secure transfer protocols (i.e., `https`) are problematic for unix-based base `R` functions, so `RCurl` (which we'll see shortly) provides a solution.
+</small>
+  
+Exploring Birth Rates
+========================================================
+
+Data on birth rates for several countries is available via a [Princeton University website](http://data.princeton.edu/wws509/datasets).
+
+- The dataset contains 3 variables:
+    - Birth rate
+    - Index of social setting
+    - Index of family planning effort
+- It is relatively straightforward to read this using regular `R` functions:
+
+```{r}
+base = "http://data.princeton.edu/wws509"  # Base url
+file = "/datasets/effort.dat"  # File name
+fpe = read.table(paste0(base, file))
+```
+
+Working with Web Data
+========================================================
+
+- This (`fpe`) is a normal `data.frame` like any other in `R`
+    - We can analyze and visualize the data as usual, for example...
+- Here's the top (or 'head') of the `data.frame`:
+```{r}
+head(fpe)
+```
+- And a scatterplot matrix showing relationships between variables:
+```{r eval=FALSE}
+pairs(fpe, panel=panel.smooth)
+```
+
+Pairs Plot in R
+========================================================
+title: false
+
+<center>
+```{r echo=FALSE, fig.width=10, fig.height=10}
+pairs(fpe, panel=panel.smooth)
+```
+</center>
+
+Using RCurl
+========================================================
+type: section
+
+Sometimes base `R` functionality fails when it comes to accessing data from the web... this is where `RCurl` steps in!
+
+The RCurl Package
+========================================================
+
+- Provides a set of tools to allow `R` to act like a *web client*
+- Number of helper functions available:
+    - `getURL` is likely the most useful, and works for pretty much *any* protocol (e.g., `http(s)`, `ftp(S)`)
+    - Helps with web scraping, direct access to web resources, and even APIs
