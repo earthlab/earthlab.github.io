@@ -1,0 +1,38 @@
+---
+layout: single
+title: "Introduction to APIs"
+excerpt: "This lesson will cover the basic principles of using functions and why they are important."
+authors: ['Carson Farmer', 'Leah Wasser']
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+category: [course-materials]
+class-lesson: ['intro-APIs-r']
+permalink: /course-materials/earth-analytics/week-9/intro-to API-r/
+nav-title: "API Intro"
+module-title: "Intro to APIS"
+module-description: ""
+module-nav-title: 'APIs'
+module-type: 'class'
+week: 9
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 1
+---
+
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+*
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson.
+
+</div>
