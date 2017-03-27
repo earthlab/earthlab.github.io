@@ -1,0 +1,135 @@
+---
+layout: single
+title: "An example of creating modular code in R - Efficient scientific programming"
+excerpt: "This lesson provides an example of modularizing code in R. "
+authors: ['Carson Farmer', 'Leah Wasser']
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+category: [course-materials]
+class-lesson: ['intro-APIs-r']
+permalink: /course-materials/earth-analytics/week-10/apis2-r/
+nav-title: 'Work with API 2'
+week: 10
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 3
+---
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+*
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson and the
+data that we already downloaded for week 6 of the course.
+
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+</div>
+
+```{r echo=F}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+
+```
+
+In the previous lesson, we learned how to access human readable text files data 
+programmatically using:
+
+1. download.file() to download a file to your computer and work with it
+1. read.csv() to read in a tabular file stored on a web location. 
+1. using getURL() to read in data files that may be secure (https://) or that require more advanced protocols.
+
+In this lesson, we will learn more about API interfaces - which return data that 
+are *machine readable* and thus are more efficient - particularly for larger 
+data!  In this lesson, the getURL() function will become more valuable to us 
+as we parse data accessed from an API. 
+
+```{r}
+library("knitr")
+library("dplyr")
+library("ggplot2")
+library("leaflet")
+```
+
+
+## stuff about the rest api - as a reminder 
+* where they can get information to figure out how to get the data
+* show the website
+* steps - what they need toknow
+* download data
+* homework - maybe have them download data for different age ranges and some other county?
+* they can use the API documentation to figure out what to parse... 
+
+
+Accessing API Data via getURL
+========================================================
+
+- `getURL` is similar to before, this time adding `URL` parameters:
+
+```{r}
+# Base URL path
+base = "https://data.colorado.gov/resource/tv8u-hswn.json?"
+full = paste0(base, "county=Boulder",
+              "&$where=age between 20 and 40",
+              "&$select=year,age,femalepopulation")
+res = getURL(URLencode(full))
+```
+- Since this is encoded as `JSON`, we'll need to parse it:
+
+Will need to teach them about JSON as a data structure. This is new and different
+and likely worth learning! 
+
+* will need to provide some background - how do we find the categories to get the data we want?
+* apply is a new function -- useful to teach
+* could add ahomeowkr question to create a slightly difference plot with differen variables.
+
+```{r}
+library(rjson)
+library(jsonlite)
+
+# get data - notice they are in json format
+json_text = fromJSON(res)  # Parse JSON
+json_text
+
+# convert EACH row to a numeric format
+json_text$age <- as.numeric(json_text$age)
+json_text$year <- as.numeric(json_text$year)
+json_text$femalepopulation <- as.numeric(json_text$femalepopulation)
+
+# OR use the apply function to convert all rows in the DF to numbers
+pops <- as.data.frame(lapply(json_text, as.numeric))
+
+ggplot(json_text, aes(x=year, y=femalepopulation,
+  group=factor(age), color=age)) + geom_line()
+
+# fromJSON(res) %>% as.data.frame
+
+# pops = do.call("rbind", json_text)  # Combine rows
+# Convert to data.frame with numeric columns
+# pops = as.data.frame(apply(pops, 2, as.numeric))
+```
+
+Plot Projected Populations
+========================================================
+title: false
+
+```{r eval=FALSE}
+ggplot(pops, aes(x=year, y=femalepopulation,
+  group=factor(age), color=age)) + geom_line()
+```
+
+<center>
+```{r echo=FALSE, fig.width=10, fig.height=6}
+ggplot(pops, aes(x=year, y=femalepopulation,
+                 group=factor(age),
+                 color=age)) +
+  geom_line() + pres_theme
+```
+</center>
