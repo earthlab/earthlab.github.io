@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-03-27'
+modified: '2017-03-28'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/apis-r/
@@ -45,27 +45,29 @@ library("ggplot2")
 
 ## Direct data access
 
-Let's start by a directly downloading data from a website of interest.
+Now that we have a general understanding of 2 ways to programmatically access data,
+let's give each way a go. We will start by directly downloading data from a
+website of interest.
 
-In week one, we used download. file to download a file from the web directly
+In week one, we used `download.file()` to download a file from the web directly
 to our computer. When we did this, we were literally downloading that file,
-which happened to be a .csv (text format) file, to our computer.
+which happened to be in `.csv` (comma separated value or basic text format)
+format to our computer.
 
-We specified the location where that file would download to, using the `destfile`
+We specified the location where that file would download to, using the `destfile=`
 argument. Notice below, I specified week 10 as the download location given
-that is our current week.
+that is our current class week.
 
 
 ```r
-# download data
+# download text file to a specified location on our computer
 download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/week10/boulder-precip-aug-oct-2013.csv")
 ```
 
 
-
-If `R` was able to communicate with the server (in this case figshare) and download
-the file, we could then open up the file and plot it
+If `R` was able to communicate with the server (in this case Figshare) and download
+the file, we could then open up the file and plot it.
 
 
 ```r
@@ -90,20 +92,18 @@ ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
 
 There are several ways that we download data from the internet using `R`.
 The simplest option is to download a text (e.g., `.csv`, `.txt`) file
-containing data via a `URL`.
+containing data via a `URL` like we did above.
 
-We can use download.file() to do this OR if we want to import the ddata directly
-into R rather than downloading it, we can use `R`'s builtin `read.csv` and
-`read.table` functions.
+However we can also import data directly
+into R rather than downloading it, using the `read.csv()` and/or
+`read.table` functions. Let's do that next.
 
 <i fa fa-star></i>**Data Tip:** If we have a secure url (secure transfer protocols - i.e., `https`) we may not be
 able to use read.csv. Instead, we need to use `RCurl` (which we'll see later).
-{: .notice}
+{: .notice--warning}
 
-Note that we can also access a text file stored on the internet using `read.csv()`
-or `read.table()`. Let's do that next.
 
-## Use read.csv to read in data from a url
+## Use read.csv() to read in data from a URL
 
 
 ```r
@@ -119,18 +119,24 @@ ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
           subtitle = "August - October 2013")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-5-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/import-plot-data-1.png" title=" " alt=" " width="100%" />
 
 ## Explore other data
 
-Birth rate data on birth rates for several countries are available via a [Princeton University website](http://data.princeton.edu/wws509/datasets).
+Let's try to access another dataset available on a different site to practice
+what we just learned. Birth rate data on birth rates for several countries are
+available via a [Princeton University website](http://data.princeton.edu/wws509/datasets).
 
-- The dataset contains 3 variables:
-    - Birth rate
-    - Index of social setting
-    - Index of family planning effort
+The dataset contains 3 variables:
+* Birth rate
+* Index of social setting
+* Index of family planning effort
 
-- It is relatively straightforward to read this using regular `R` functions:
+We can read these data in `R` using the `read.table()` function.
+
+Note that we are using read.table() rather than read.csv because in this instance,
+the data are not stored in a comma separated format. Rather, they are stored in a
+.dat format.
 
 
 ```r
@@ -141,8 +147,14 @@ birth_rates = read.table(paste0(base, file))
 
 ### About paste0()
 
-Note that we haven't used paste0 yet in this class. This function simply pastes
-together 2 or more strings of text (or variables into a new variable)
+Also note that we are building the URL programmatically using the `paste0()` function.
+This function simply *pastes* together 2 or more strings of text (or variables
+into a new variable). It is useful to build a url this way when we plan to use
+the same API base url over and over, but may be calling various subsets of data
+available from that API.
+
+In this case there may be other datasets in addition to the one located at
+`/datasets/effort.dat`.
 
 
 ```r
@@ -155,7 +167,7 @@ paste0(base, file)
 ## Working with Web Data
 
 The (`birth_rates`) data that we just accessed, imports into the
-`data.frame` format that we are familiar with. We can analyze and visualize the
+`data.frame` format. We can analyze and visualize the
 data using `ggplot()` just like we did with the precipitation data above. For example:
 
 Here's the top (or 'head') of the `data.frame`:
@@ -198,20 +210,24 @@ ggplot(birth_rates, aes(x=effort, y=change)) +
   geom_point() + ggtitle("Decline in birth rate vs. planning effort")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-9-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-7-1.png" title=" " alt=" " width="100%" />
 
 Remember that here, we've imported a tabular data set directly from the website.
 The data file itself is NOT on our computer. We are now moving towards a more
 programmatic approach.
 
-# Except what could be a problem associated with not
-saving a copy of the data somewhere?
 
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i>**Data Tip:** Consider when
+you directly access a dataset via an API that - that data may not always
+be available. It is a good idea to save backup copies of certain datasets on
+your computer in many cases - in the event that the data API goes down, is taken
+away, etc.
+{: .notice--warning }
 
 
 ## Use RCurl to download data
 
-Sometimes the direct download base R protocols that we used above do not work.
+Sometimes the direct download base `R` protocols that we used above do not work.
 Specifically there are problems associated with downloading from secure, https
 URLs. RCurl is a powerful package that:
 
@@ -221,38 +237,38 @@ URLs. RCurl is a powerful package that:
 The `getURL()` function works for most secure web download protocols (e.g., `http(s)`, `ftp(S)`).
 It also helps with web scraping, direct access to web resources, and even APIs
 
-## Download data wiht RCURL
+## Download data with RCURL
 
 #### Gapminder Data
 
-Let's grab some data - called the gapminder data from a secure URL.
-
-- [`@jennybryan`](https://twitter.com/JennyBryan) provides an `R` package to access [Gapminder](http://www.gapminder.org/data/) data for teaching. While we could access
-these data using the R gapminder package, we will instead use RCURL to get it from
- <a href="https://github.com/jennybc/gapminder" target="_blank">Jenny Bryan's Github Page</a>
- instead.
+Let's grab the gapminder data from a secure URL located on
+a GitHub website. <a href="https://twitter.com/JennyBryan" target="_blank">@jennybryan</a>
+provides an `R` package to access the <a href="http://www.gapminder.org/data/" target="_blank">Gapminder data</a> for teaching. However, while we could access
+these data using the R gapminder package, we will instead use `RCURL` to get it from
+ <a href="https://github.com/jennybc/gapminder" target="_blank">Jenny Bryan's Github Page</a> to practice using RCURL.
 
 
 ```r
 library(RCurl)  # Load RCurl (note cases)
 # Store base url (note the secure url)
 file = "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv"
-temp = getURL(file)  # And grab it!
+temp = getURL(file)  # grab the data!
 ```
 
-# Ask carson why RCurl is required here. is it more a windows thing??
+# Ask carson why RCurl is required here. is it more a windows thing?? read.csv(file)
+
 
 
 ```r
 # this works --
-head(read.csv(file))
-##             country.continent.year.lifeExp.pop.gdpPercap
-## 1  Afghanistan\tAsia\t1952\t28.801\t8425333\t779.4453145
-## 2  Afghanistan\tAsia\t1957\t30.332\t9240934\t820.8530296
-## 3   Afghanistan\tAsia\t1962\t31.997\t10267083\t853.10071
-## 4  Afghanistan\tAsia\t1967\t34.02\t11537966\t836.1971382
-## 5 Afghanistan\tAsia\t1972\t36.088\t13079460\t739.9811058
-## 6   Afghanistan\tAsia\t1977\t38.438\t14880372\t786.11336
+head(read.csv(file, sep="\t"))
+##       country continent year lifeExp      pop gdpPercap
+## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+## 2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+## 4 Afghanistan      Asia 1967  34.020 11537966  836.1971
+## 5 Afghanistan      Asia 1972  36.088 13079460  739.9811
+## 6 Afghanistan      Asia 1977  38.438 14880372  786.1134
 ```
 
 ## Get Data with getURL()
@@ -275,12 +291,13 @@ head(gap_data)
 ```
 
 Looking at our data, we have a separator. In this case it's `\t`. We can account
-fo this using `read.csv()` by using the sep= argument.
+fo this using `read.csv()` by using the `sep=` argument.
 
 
 ```r
 # Use textConnection to read content of temp as tsv
-gap_data = read.csv(textConnection(temp), sep="\t")
+gap_data <- read.csv(textConnection(temp),
+                     sep="\t")
 head(gap_data)
 ##       country continent year lifeExp      pop gdpPercap
 ## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
@@ -295,7 +312,7 @@ Next, we can summarize and plot the data!
 
 
 ```r
-# summarize the data
+# summarize the data - median value by content and year
 summary_life_exp <-  gap_data %>%
    group_by(continent, year) %>%
    summarise(median_life = median(lifeExp))
@@ -308,11 +325,12 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-14-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-12-1.png" title=" " alt=" " width="100%" />
 
 
-- As before, this is simply a normal `R` `data.frame`.
-- We can plot a boxplot of `lifeExp` by `continent`  easily:
+Notice that when we import the data from github, using read.csv, it imports into
+a `data.frame` format. Thus, we can plot the data using ggplot() like we are used to.
+Below, we make a boxplot of `lifeExp` by `continent`:
 
 
 ```r
@@ -326,10 +344,10 @@ ggplot(summary_life_exp,
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-15-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-13-1.png" title=" " alt=" " width="100%" />
 
-- Or we can do something a bit more advanced using [`ggplot`](http://docs.ggplot2.org):
-
+We can also create a more advanced plot - overlaying the data points on top of
+our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced ggplot() plotting approaches.
 
 
 ```r
@@ -342,7 +360,7 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-16-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-14-1.png" title=" " alt=" " width="100%" />
 
 
 
@@ -359,10 +377,9 @@ read.csv.https = function(url) {
 ```
 
 
-
 - On Windows you *might* be able to skip the `getURL` part...
 
 
 
-<i fa fa-star></i>**CAUTION:** The web changes constantly! Data available via a *particular* API at a *particular* point in time may not be available indefinitely...
-{: .notice}
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The web changes constantly! Data available via a *particular* API at a *particular* point in time may not be available indefinitely...
+{: .notice--warning}
