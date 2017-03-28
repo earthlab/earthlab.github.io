@@ -191,8 +191,6 @@ landsat_stack_csf <- stack(all_landsat_bands)
 ```
 
 
-
-
 ```{r calculate-nbr, echo=FALSE, fig.cap="landsat derived NDVI plot"}
 # bands 7 and 5
 landsat_nbr <- ((landsat_stack_csf[[5]] - landsat_stack_csf[[7]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[7]]))
@@ -239,8 +237,6 @@ nbr_classified <- reclassify(landsat_nbr,
 the_colors = c("palevioletred4","palevioletred1","ivory1","seagreen1","seagreen4")
 ```
 
-
-
 Your classified map should look something like:
 
 
@@ -277,9 +273,6 @@ legend(nbr_classified@extent@xmax-100, nbr_classified@extent@ymax,
        pt.cex=c(1.75), xpd=TRUE)
 
 ```
-
-Note that you will have to figure out what date these data are for! I purposefully
-didn't include it in the title of this map.
 
 ```{r dev-off, echo=FALSE, warning=FALSE, message=FALSE, results="hide"}
 dev.off()
