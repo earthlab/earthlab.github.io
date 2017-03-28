@@ -216,7 +216,6 @@ Landsat 8 bands 1-9 are listed below:
 
 Above: Source - <a href="http://landsat.usgs.gov" target="_blank"><a href="http://landsat.usgs.gov</a>
 
-
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-6/Landsat8_BandsUses.png">
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-6/Landsat8_BandsUses.png" alt="landsat 8 bands image">
