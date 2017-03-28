@@ -7,7 +7,7 @@ library("dplyr")
 library("ggplot2")
 
 ## ---- eval=FALSE---------------------------------------------------------
-## # download data
+## # download text file to a specified location on our computer
 ## download.file(url = "https://ndownloader.figshare.com/files/7010681",
 ##               destfile = "data/week10/boulder-precip-aug-oct-2013.csv")
 
@@ -26,7 +26,7 @@ ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
           subtitle = "August - October 2013")
 
 
-## ------------------------------------------------------------------------
+## ----import-plot-data----------------------------------------------------
 boulder_precip2 <- read.csv("https://ndownloader.figshare.com/files/7010681")
 # fix date
 boulder_precip2$DATE <- as.Date(boulder_precip2$DATE)
@@ -39,7 +39,7 @@ ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
           subtitle = "August - October 2013")
 
 
-## ------------------------------------------------------------------------
+## ----import-dat-file-----------------------------------------------------
 base = "http://data.princeton.edu/wws509"  # Base url
 file = "/datasets/effort.dat"  # File name
 birth_rates = read.table(paste0(base, file))
@@ -60,11 +60,12 @@ ggplot(birth_rates, aes(x=effort, y=change)) +
 library(RCurl)  # Load RCurl (note cases)
 # Store base url (note the secure url)
 file = "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv"
-temp = getURL(file)  # And grab it!
+temp = getURL(file)  # grab the data!
+
 
 ## ------------------------------------------------------------------------
 # this works --
-head(read.csv(file))
+head(read.csv(file, sep="\t"))
 
 
 ## ------------------------------------------------------------------------
@@ -74,11 +75,12 @@ head(gap_data)
 
 ## ------------------------------------------------------------------------
 # Use textConnection to read content of temp as tsv
-gap_data = read.csv(textConnection(temp), sep="\t")
+gap_data <- read.csv(textConnection(temp),
+                     sep="\t")
 head(gap_data)
 
 ## ------------------------------------------------------------------------
-# summarize the data
+# summarize the data - median value by content and year
 summary_life_exp <-  gap_data %>%
    group_by(continent, year) %>%
    summarise(median_life = median(lifeExp))

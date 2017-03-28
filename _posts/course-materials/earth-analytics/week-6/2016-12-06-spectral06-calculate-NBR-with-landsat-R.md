@@ -3,7 +3,7 @@ layout: single
 title: "dNBR with MODIS in R"
 excerpt: ". "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-03-16'
+modified: '2017-03-28'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/calculate-dNBR-R-Landsat/
@@ -44,26 +44,12 @@ Let's explore creating NBR using Landsat data.
 First, let's setup our spatial packages.
 
 
-```r
-# load spatial packages
-library(raster)
-library(rgdal)
-library(rgeos)
-library(RColorBrewer)
-# turn off factors
-options(stringsAsFactors = F)
-```
 
 Next, we open up our landsat data and create a spatial raster stack.
 
 
 
-```r
-# create stack
-all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
-           pattern=glob2rx("*band*.tif$"),
-           full.names = T) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands_pre
+```
 ## [1] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band1_crop.tif"
 ## [2] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band2_crop.tif"
 ## [3] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band3_crop.tif"
@@ -71,9 +57,6 @@ all_landsat_bands_pre
 ## [5] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band5_crop.tif"
 ## [6] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band6_crop.tif"
 ## [7] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band7_crop.tif"
-
-# stack the data
-landsat_stack_pre <- stack(all_landsat_bands_pre)
 ```
 
 Next we calculate dNBR using the following steps:
@@ -92,23 +75,12 @@ out what bands are required to calculate NBR using Landsat.
 You can export the NBR raster if you want using `writeRaster()`.
 
 
-```r
-writeRaster(x = landsat_nbr_pre,
-              filename="data/week6/outputs/landsat_nbr",
-              format = "GTiff", # save as a tif
-              datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T)
-```
 
 
 Next, we can open the post-fire landsat data to calculate post-fire NBR.
 
 
-```r
-all_landsat_bands_post <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
-           pattern=glob2rx("*band*.tif$"),
-           full.names = T) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands_post
+```
 ## [1] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
 ## [2] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
 ## [3] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
@@ -116,9 +88,6 @@ all_landsat_bands_post
 ## [5] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
 ## [6] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
 ## [7] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
-
-# stack the data
-landsat_stack_post <- stack(all_landsat_bands_post)
 ```
 
 Then we calculate NBR on the post data - note the code here is purposefully hidden.
@@ -127,15 +96,6 @@ You need to figure out what bands to use to perform the math!
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral06-calculate-NBR-with-landsat-R/calculate-nbr-post-1.png" title="landsat derived NBR post fire" alt="landsat derived NBR post fire" width="100%" />
 
 Finally, calculate the DIFFERENCE between the pre and post NBR!!
-
-
-```r
-# calculate difference
-landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post
-plot(landsat_nbr_diff,
-     main="Difference NBR map \n Pre minus post Cold Springs fire",
-     axes=F, box=F)
-```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral06-calculate-NBR-with-landsat-R/unnamed-chunk-1-1.png" title="Difference NBR map" alt="Difference NBR map" width="100%" />
 
@@ -195,24 +155,9 @@ didn't include it in the title of this map.
 
 
 
-
-```r
-barplot(nbr_classified,
-        main="Distribution of Classified NBR Values",
-        col=the_colors)
-```
-
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral06-calculate-NBR-with-landsat-R/view-bar-1.png" title="plot barplot of fire severity values" alt="plot barplot of fire severity values" width="100%" />
 
 Add labels to your barplot!
-
-
-```r
-barplot(nbr_classified,
-        main="Distribution of Classified NBR Values",
-        col=the_colors,
-        names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
-```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral06-calculate-NBR-with-landsat-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="100%" />
 
