@@ -29,7 +29,9 @@ order: 1
 
 After completing this tutorial, you will be able to:
 
-*
+* Be able to describe the difference between human vs machine readable data structures.
+* Be able to describe the difference between data returned using an API compared to downloading a text file directly.
+* Be able to describe 2-3 components of a RESTful API call.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -41,16 +43,22 @@ You will need a computer with internet access to complete this lesson.
 
 This week we will discuss programmatic access of data via Applied Programming
 Interfaces (APIs). Up until this point, we have been downloading data from a
-website (in the case of this course, figshare. The data that we have downloaded
-was specially prepared for this course. However, downloading and unzipping data,
+website (in the case of this course, <a href="https://figshare.com/authors/_/3386570" target="_blank">Figshare</a>). The data that we have downloaded
+was prepared specifically for this course. However, downloading and unzipping data,
 each week is not efficient. Sometimes we want to automate the data download process -
-particularlly when we are trying to download lots of data or particular subsets
-of data to suit an analysis.
+particularly when we are trying to download lots of data or particular subsets
+of data to support an analysis.
 
 ### Download files programmatically
+
 In week one of this course, we downloaded some data using the `download.file()`
-function. In thise case, we accessed data programmiaticaly, but we first downloaded
-it as a csv to our computer, and then proceeded to work with it.
+function. In this case, we accessed data programmatically, but we first downloaded
+it as a `.csv` to our computer, and then proceeded to work with it. This week,
+we will learn about several ways to download / access data programmatically in `R`.
+These ways include
+
+1. Programmatic access to data via downloading a human-readable file
+2. Programmatic access to data via accessing it via an Applied Programming Interface (API)
 
 ## What is an API?
 
@@ -58,70 +66,137 @@ An API is an interface that sits on top of a computer based system that simplifi
 certain tasks such as - getting subsets of data from a large database.
 
 > Web APIs are a way to strip away all the extraneous visual interface that
-> you don’t care about and get the data you want.
+> you don’t care about and get the data that you want.
 
 ### Why Web APIs?
 
-- Get information that would be time-consuming to get otherwise
-- Get information that you can’t get otherwise
-- Automate a analytical workflow that needs live data
-- More direct interface for reading and writing data to a service
-- and more...
+Among other things, APIs allow us to:
+
+* Get information that would be time-consuming to get otherwise
+* Get information that you can’t get otherwise
+* Automate an analytical workflow that needs continuously updated data
+* Access data using a more direct interface
 
 ### What is a Web-API?
 
-Web API's are those that you can use to access data available via an internet
+Web API's allow us to access data available via an internet
 web interface.
 
-Often you can access data from web APIs via a URL that contains
+Often we can access data from web APIs via a URL that contains
 sets of parameters that specifies the type and particular subset of data that
-you are interested in.
+we are interested in.
 
-If you have worked with a database such as SQL or POSTSQL, Or if you've ever
-queried data from a GIS system like ArcGIS, then you can compare this to a SQL
-query.
+If you have worked with a database such as `SQL` or `POSTSQL`, or if you've ever
+queried data from a GIS system like ArcGIS, then you can compare the set of
+parameters associated with a URL string to a SQL query.
 
 
-### Types of web APIs
+### Restful web APIs
 
 There are many different types of web APIs. One of the most common types is
 a `REST`, or `REST`ful, API. A *RESTful* API is a web API that uses
 a URL arguments to specify what information you want returned through the API.
 
-For example, take a close look at the URL below that access the <a href="data.colorado.gov" target="_blank">data.colorado.gov data website</a>. Notice that the URL starts with
-`data.colorado.gov` but then has various parameters embedded within the URL that
-specify the particular type of information that we are looking for.
+### Colorado Population Projections
 
-A few of the parameters that we can see in the url below are listed below:
+The [Colorado Information Marketplace](https://data.colorado.gov) is a
+comprehensive data warehouse with access to a wide range of Colorado-specific
+open datasets available via a RESTful API called the Socrata Open Data API (SODA)
 
-* AGE: where=age%20
-* YEAR: between%2020%20and%2040
-* COUNTY: county=Boulder
-* Columns to get: select=year,age,femalepopulation
+There are lots of API *endpoints* or data sets available via this API. One
+endpoint contains  <a href="https://data.colorado.gov/resource/tv8u-hswn.json" target="_blank">Colorado Population Projections:</a>.
+If you go to this site, you will see data returned
+in a `JSON` format. These data includes population estimates for *males* and
+*females* for every *county* in Colorado for every *year* from 1990 to 2040 for
+multiple *age* groups!
+
+### URL Parameters
+
+Using `URL` parameters, we can define a more specific request to limit what data
+we get back in response to our API request. For example, if we only want data for
+Boulder, Colorado, we can query just that subset of the data using the RESTful call.
+
+note the **?&county=Boulder** part of the url:
+
+<a href="https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder" target="_blank">Like this - https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder</a>.
+
+Parameters associated with accessing data using this API are <a href="https://dev.socrata.com/foundry/data.colorado.gov/tv8u-hswn" target="_blank">documented here</a>.
+
+## Using SOAP
+
+`SOAP` also allows us to specify more complex 'queries'. Here's the API `URL`
+for population projections for female Boulderites aged 20--40 for the years 2016-2025:
+
+<a href="https://data.colorado.gov/resource/tv8u-hswn.json?$where=age between 20 and 40 and year between 2016 and 2025&county=Boulder&$select=year,age,femalepopulation" target="_blank"> https://data.colorado.gov/resource/tv8u-hswn.json?$where=age between 20 and 40 and year between 2016 and 2025&county=Boulder&$select=year,age,femalepopulation</a>.
+
+### API Response
+
+The data that are returned from an API are called the response. The format of the
+returned data or the response is most often in the form of plain text 'file'
+such as a `JSON` or `CSV` file.
+
+For many APIs, you can specify the file [that you want to be returned](https://dev.socrata.com/docs/formats/index.html).
+
+
+
+[`https://data.colorado.gov/resource/tv8u-hswn.`**`{json, csv, geojson, xml}`**](https://data.colorado.gov/resource/tv8u-hswn.json)
+
+Notice that the first few rows of data returned via the query above with a `.csv`
+suffix look like this:
+
+```json
+"age","femalepopulation","year"
+"32","2007","2024"
+"35","1950","2016"
+"37","2039","2019"
+"30","2087","2025"
+"26","1985","2019"
+...
+```
+
+For example, take a close look at the URL below that access <a href="http://data.colorado.gov" target="_blank">http://data.colorado.gov </a>. This is the Colorado state
+data repository.
+
+Next, have a look at an API access URL to some data hosted on this site here:
+
+<a href="https://data.colorado.gov/Demographics/Population-Colorado/eeah-cmy8" target="_blank">View Colorado state population project data in tabular form.</a>
+
+Finally, let's look at the URL which access the API to download the data directly,
 
 
 <a href="https://data.colorado.gov/resource/tv8u-hswn.json?$where=age%20between%2020%20and%2040%20and%20year%20between%202016%20and%202025&county=Boulder&$select=year,age,femalepopulation" target="_blank">https://data.colorado.gov/resource/tv8u-hswn.json?$where=age%20between%2020%20and%2040%20and%20year%20between%202016%20and%202025&county=Boulder&$select=year,age,femalepopulation</a>
 
 
-1. You try to access a `URL` in your browser (a *request*)
-2. A web server somewhere makes a bunch of complicated decisions based on what you've requested
-3. That web server then sends you back some content (a *response*)
+Notice that the URL above, which is accessing the `colorado.data.gov` API, starts with
+`data.colorado.gov` but then has various parameters attached to the end of the URL
+that specify the particular type of information that we are looking for.
 
-https://data.colorado.gov/Demographics/Population-Colorado/eeah-cmy8
+A few of the parameters that we can see in the url below are listed below:
 
-https://data.colorado.gov/resource/eeah-cmy8.json
+* **The Data set itself:** /tv8u-hswn.json
+* **AGE:** where=age%20
+* **YEAR:** between%2020%20and%2040
+* **COUNTY:** county=Boulder
+* **Columns to get:** select=year,age,femalepopulation
 
-https://dev.socrata.com/foundry/data.colorado.gov/tv8u-hswn
+We will work with these data in R directly in the following lessons, but for now
+just notice how the API access works in this case.
 
-## The Difference between download.file & a API call
+1. Data **REQUEST**: You try to access a `URL` in your browser.
+2. **Data processing:** A web server somewhere uses that url to query a specified dataset.
+3. Data **RESPONSE**: That web server then sends you back some content.
 
-So you may be wondering what the biggest difference between downloading data directly
-and an API call. The biggest difference is that an ordinary `URL` sends back
-*human-readable* information. A  web API `URL` sends back  *computer-readable*
+
+## download.file() vs. a API call
+
+The biggest difference between downloading data directly
+and using an API call is that an ordinary `URL` sends back
+**human-readable** information. A  web API `URL` sends back **computer-readable**
 information.
 
-Let's have a closer look at the Colorado.gov API data that are returned.
-They are returned in JSON format.
+Let's have a closer look at the data that the Colorado.gov API data returns.
+These data are returned in **JSON** format - which we will discuss in  more detail
+later in this week's lessons.
 
 
 ```json
@@ -146,74 +221,45 @@ They are returned in JSON format.
 
 ```
 
-Notice that the JSON format is a structured format. We will discuss this format
-in more detail in a later less.
-
-
-
-### Understanding APIs
-
-- First, we need to find one. http://www.programmableweb.com is a great resource for this!
-- Next we need the *API specification*
-    - This is the API's instruction manual/documentation
-    - [Twitter](https://dev.twitter.com/overview/documentation), [New York Times](http://developer.nytimes.com/docs), [Weather Underground](https://www.wunderground.com/weather/api), [EnviroCar](http://envirocar.github.io/enviroCar-server/api/), etc.
-    - These docs describe the different types of *requests* we can make of the data provider
-- For each request `URL` there are 2 important things to consider:
-    - **Parameters** and the **Response**
+Notice **JSON** is a structured format. The consistency of its structure makes
+it easier for us to access and work with it programmatically. This is a
+**computer readable** format.
 
 ### Working with APIs
 
+To use an API we need to understand 2 components:
 
-- **Parameters**
-    - Information you supply *within* the URL to define your request
-- **Response**
-    - Something you get back in response to a request
-- The response can be one of **two things**:
-    - Some *data* or an explanation of why your request *failed*
+- **Parameters:** Information that you supply *within* the URL to define your request
+- **Response:** Something you get back in response to a request
 
-### Colorado Population Projections
+The parameters
+The **response** may be:
+1. Some *data* or
+2. An explanation of why your request *failed*
 
 
-The [Colorado Information Marketplace](https://data.colorado.gov) is a comprehensive data warehouse with access to a wide range of Colorado-specific open datasets available via a RESTful API called the Socrata Open Data API (SODA)
+<div class="notice--info" markdown="1">
 
-- There are lots of API *endpoints* available!
-    - Here is the one for Colorado Population Projections:
-  https://data.colorado.gov/resource/tv8u-hswn.json
-- If you put that into a web-browswer, you'll get all sorts of ugly `JSON` data
-    - Includes population estimates for *males* and *females* for every *county* in Colorado for every *year* from 1990 to 2040 for multiple *age* groups!
+## Additional Resources
 
-### URL Parameters
+### Using APIs
 
-- Using `URL` parameters, we can define a more specific request to limit what data we get back in response
-- For example, say we only want data for Boulder
-    - This parameter is [documented here](https://dev.socrata.com/foundry/data.colorado.gov/tv8u-hswn), along with several others
+So, how do we learn more about APIs? Below are some resources ...
 
-[`https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder`]()
+* <a href="http://www.programmableweb.com" target="_blank">Find APIs and read more about them</a>
+* <a href="https://dev.twitter.com/overview/documentation" target="_blank">Twitter API documentation</a>
+* <a href="http://developer.nytimes.com/docs" target="_blank">New York times API information</a>
+* <a href="https://www.wunderground.com/weather/api" target="_blank">Weather underground API information</a>
+* <a href="http://envirocar.github.io/enviroCar-server/api/" target="_blank">EnviroCar API information</a>
+* <a href="http://developer.nytimes.com/docs" target="_blank">New York times API information</a>
 
-- `SOAP` also allows us to specify more complex 'queries'
-    - Here's the API `URL` for population projections for female Boulderites aged 20--40 for the years 2016--2025:
+The documentation in the URL's above describes the different types of *requests*
+that we can make to the data provider. For each request `URL` we need to specify
+the parameters and consider the response.
 
-[`https://data.colorado.gov/resource/tv8u-hswn.json?$where=age between 20 and 40 and year between 2016 and 2025&county=Boulder&$select=year,age,femalepopulation`]()
+</div>
 
-### API Response
 
-- This is most often in the form of plain text 'file' such as a `JSON` or `CSV` file
-- For many APIs, the file [format you specify](https://dev.socrata.com/docs/formats/index.html) is what you'll get back
-    - In the previous example, we can do:
-
-[`https://data.colorado.gov/resource/tv8u-hswn.`**`{json, csv, geojson, xml}`**](https://data.colorado.gov/resource/tv8u-hswn.json)
-
-- For example, the first few rows of the query from the previous page with a `.csv` suffix look like this:
-
-```json
-"age","femalepopulation","year"
-"32","2007","2024"
-"35","1950","2016"
-"37","2039","2019"
-"30","2087","2025"
-"26","1985","2019"
-...
-```
 
 
 Need something about different protofocols
@@ -222,3 +268,10 @@ http(s)`, `ftp(S)
 
 JSON tutorial
 http://www.w3resource.com/JSON/introduction.php
+
+
+https://data.colorado.gov/Demographics/Population-Colorado/eeah-cmy8
+
+https://data.colorado.gov/resource/eeah-cmy8.json
+
+https://dev.socrata.com/foundry/data.colorado.gov/tv8u-hswn
