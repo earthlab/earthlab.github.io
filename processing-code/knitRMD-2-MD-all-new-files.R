@@ -142,9 +142,9 @@ create_markdown <- function(rmd_file_df, wd){
   cat(y, file=basename(current_file), sep="\n")
   
   # knit to pdf
-  render(basename(current_file), 
-          output_file = pdf_file,
-         output_format = "pdf_document")
+  #render(basename(current_file), 
+  #        output_file = pdf_file,
+  #       output_format = "pdf_document")
   
   if (length(list.files(rmd_file_df$fig_dir)) > 0) {
     # create fig dir path
