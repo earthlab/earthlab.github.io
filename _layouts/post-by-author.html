@@ -27,7 +27,7 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
         <!-- List all posts in the page category  -->
-        <h2>Class Lesson Modules </h2>
+        <h2>Course modules </h2>
         <p>Course material modules are sets of materials developed to teach
           specific learning objectives in a course setting.</p>
 
@@ -93,7 +93,7 @@ layout: default
 
 
 
-        <h2> Tutorials  </h2>
+        <h2> Data tutorials</h2>
         {% assign tutorialCounter = 0 %}
         {% for post in site.categories.tutorials %}
           {% if post.authors contains page.author %}
