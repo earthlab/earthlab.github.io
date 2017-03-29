@@ -1,11 +1,16 @@
-## ----echo=F--------------------------------------------------------------
+## ----echo=FALSE----------------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ## ------------------------------------------------------------------------
+#NOTE: if you have problems with ggmap, try to install from github
+#devtools::install_github("dkahle/ggmap")
+#devtools::install_github("hadley/ggplot2")
+library(ggmap)
+library(ggplot2)
+
 library("knitr")
 library("dplyr")
-library("ggplot2")
 library("RCurl")
 
 ## ------------------------------------------------------------------------
@@ -32,60 +37,89 @@ library(rjson)
 library(jsonlite)
 
 # Convert JSON to data frame
-json_text = fromJSON(pop_proj_data)
-head(json_text)
+pop_proj_data_df = fromJSON(pop_proj_data)
+#unlist(pop_proj_data_df)
+head(pop_proj_data_df)
 
-# convert EACH row to a numeric format
-json_text$age <- as.numeric(json_text$age)
-json_text$year <- as.numeric(json_text$year)
-json_text$femalepopulation <- as.numeric(json_text$femalepopulation)
-
-# OR use the apply function to convert all rows in the DF to numbers
-#pops <- as.data.frame(lapply(json_text, as.numeric))
+# turn columns to numeric and remove NA values
+pop_proj_data_df <- pop_proj_data_df %>%
+  mutate_each_(funs(as.numeric), c( "age", "year", "femalepopulation"))
 
 
+## ---- eval=FALSE---------------------------------------------------------
+## # convert EACH row to a numeric format
+## # note this is the clunky way to do what we did above with dplyr!
+## pop_proj_data_df$age <- as.numeric(pop_proj_data_df$age)
+## pop_proj_data_df$year <- as.numeric(pop_proj_data_df$year)
+## pop_proj_data_df$femalepopulation <- as.numeric(pop_proj_data_df$femalepopulation)
+## 
+## # OR use the apply function to convert all rows in the DF to numbers
+## #pops <- as.data.frame(lapply(pop_proj_data_df, as.numeric))
+## 
+## 
 
 ## ----plot_pop_proj-------------------------------------------------------
 # plot the data
-ggplot(json_text, aes(x=year, y=femalepopulation,
+ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
   group=factor(age), color=age)) + geom_line() +
       labs(x="Year",
            y="Female Population",
           title="Projected Female Population",
           subtitle = "Boulder, CO: 1990 - 2040")
 
-# fromJSON(res) %>% as.data.frame
-
-# pops = do.call("rbind", json_text)  # Combine rows
-# Convert to data.frame with numeric columns
-# pops = as.data.frame(apply(pops, 2, as.numeric))
+## ----echo=FALSE, eval=FALSE----------------------------------------------
+## 
+## # some code i don't use that is fancier...
+## # fromJSON(res) %>% as.data.frame
+## 
+## # pops = do.call("rbind", pop_proj_data_df)  # Combine rows
+## # Convert to data.frame with numeric columns
+## # pops = as.data.frame(apply(pops, 2, as.numeric))
 
 ## ------------------------------------------------------------------------
 
-base = "https://data.colorado.gov/resource/j5pc-4t32.json?"
-full = paste0(base, "station_status=Active",
+water_base_url = "https://data.colorado.gov/resource/j5pc-4t32.json?"
+water_full_url = paste0(water_base_url, "station_status=Active",
             "&county=BOULDER")
-res = getURL(URLencode(full))
-sites <- fromJSON(res)
-head(sites)
+water_data = getURL(URLencode(water_full_url))
+water_data_df <- fromJSON(water_data)
+head(water_data_df)
+str(water_data_df)
+
+## ------------------------------------------------------------------------
+
+water_data_df$location
+water_data_df$location$latitude
+
+## ------------------------------------------------------------------------
+# remove the nested data frame
+water_data_df <- flatten(water_data_df, recursive = TRUE)
+water_data_df$location.latitude
 
 
 ## ------------------------------------------------------------------------
-# turn amount into number
-sites$amount <- as.numeric(sites$amount)
-# lat and long should also be numeric
-sites$location$longitude <- as.numeric(sites$location$longitude)
-sites$location$latitude <- as.numeric(sites$location$latitude)
+str(water_data_df$location.latitude)
 
-ggplot(sites, aes(location$longitude, location$latitude, size=amount,
+## ------------------------------------------------------------------------
+# turn columns to numeric and remove NA values
+water_data_df <- water_data_df %>%
+  mutate_each_(funs(as.numeric), c( "amount", "location.longitude", "location.latitude")) %>%
+  filter(!is.na(location.latitude))
+
+## ----water_data_plot1----------------------------------------------------
+ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=station_type)) +
-  geom_point() + coord_equal()
+  geom_point() + coord_equal() +
+      labs(x="Year",
+           y="Female Population",
+          title="Projected Female Population",
+          subtitle = "Boulder, CO: 1990 - 2040")
+
 
 ## ----create_ggmap--------------------------------------------------------
-library(ggmap)
 boulder <- get_map(location="Boulder, CO, USA",
                   source="google", crop=FALSE, zoom=10)
 ggmap(boulder) +
-  geom_point(data=sites, aes(location$longitude, location$latitude, size=amount,
+  geom_point(data=water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=factor(station_type)))
 
