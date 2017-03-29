@@ -7,7 +7,7 @@ modified: '2017-03-28'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/apis-r/
-nav-title: 'Work with API 1'
+nav-title: 'Human readable files'
 week: 10
 sidebar:
   nav:
@@ -31,7 +31,6 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data that we already downloaded for week 6 of the course.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 
@@ -88,22 +87,26 @@ ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-4-1.png" title=" " alt=" " width="100%" />
 
 
-## Get data via human readable url
+## Download data via human readable url
 
-There are several ways that we download data from the internet using `R`.
-The simplest option is to download a text (e.g., `.csv`, `.txt`) file
-containing data via a `URL` like we did above.
+The file that we downloaded above is a `.csv` or comma separated value format. This
+is a format that is human readable and simple in terms of structure (more on this
+in the next lesson). The `download.file()` function allows us to store a copy of the file
+on our computer. Given the data are small and they could be moved over time,
+this is a good idea as now we have a backup of the data.
 
-However we can also import data directly
-into R rather than downloading it, using the `read.csv()` and/or
-`read.table` functions. Let's do that next.
-
-<i fa fa-star></i>**Data Tip:** If we have a secure url (secure transfer protocols - i.e., `https`) we may not be
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** If we have a secure url (secure transfer protocols - i.e., `https`) we may not be
 able to use read.csv. Instead, we need to use `RCurl` (which we'll see later).
 {: .notice--warning}
 
+## Directly access & import data into R
 
-## Use read.csv() to read in data from a URL
+We can also import data directly into `R` rather than downloading it using the
+`read.csv()` and/or `read.table()` functions. Let's do that next. As you may
+have guessed, `read.csv()` is ideal for data that are separated by commas (.csv)
+files whereas `read.table()` is ideal for data in other formats - separated by
+spaces, tabs and other delimeters.
+
 
 
 ```r
@@ -124,19 +127,33 @@ ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
 ## Explore other data
 
 Let's try to access another dataset available on a different site to practice
-what we just learned. Birth rate data on birth rates for several countries are
-available via a [Princeton University website](http://data.princeton.edu/wws509/datasets).
+what we just learned. Birth rate data for several countries are
+available via a
+<a href="http://data.princeton.edu/wws509/datasets" target="_blank">Princeton University website</a>.
 
-The dataset contains 3 variables:
+### About the birth rate data
+
+The birth rate data show how much effort went into considering family planning efforts
+that were in place to attempt to reduce birth rates in various countries. The outcome
+variable is the associated percent decline in birth rate by country over 10 years.
+An excerpt from the website where we are getting the data is below.
+
+>Here are the famous program effort data from Mauldin and Berelson. This extract
+consist of observations on an index of social setting, an index of family
+planning effort, and the percent decline in the crude birth rate (CBR) between
+1965 and 1975, for 20 countries in Latin America.
+
+The data has 3 variables:
+
 * Birth rate
 * Index of social setting
 * Index of family planning effort
 
 We can read these data in `R` using the `read.table()` function.
 
-Note that we are using read.table() rather than read.csv because in this instance,
-the data are not stored in a comma separated format. Rather, they are stored in a
-.dat format.
+Note that we are using `read.table()` rather than `read.csv()` because in this instance,
+the data are not stored in a `.csv` (comma separated value) format. Rather, they
+are stored in a `.dat` format.
 
 
 ```r
@@ -148,7 +165,7 @@ birth_rates = read.table(paste0(base, file))
 ### About paste0()
 
 Also note that we are building the URL programmatically using the `paste0()` function.
-This function simply *pastes* together 2 or more strings of text (or variables
+This function *pastes* together 2 or more strings of text (or variables
 into a new variable). It is useful to build a url this way when we plan to use
 the same API base url over and over, but may be calling various subsets of data
 available from that API.
@@ -166,7 +183,7 @@ paste0(base, file)
 
 ## Working with Web Data
 
-The (`birth_rates`) data that we just accessed, imports into the
+The `birth_rates` data that we just accessed, imports into the
 `data.frame` format. We can analyze and visualize the
 data using `ggplot()` just like we did with the precipitation data above. For example:
 
@@ -189,35 +206,24 @@ head(birth_rates)
 ## Cuba           89     15     40
 ```
 
-### About the birth rate data
-
-The birth rate data show how much effort went into considering family planning efforts
-that were in place to attempt to reduce birth rates in various countries. The outcome
-variable is the associated percent decline in birth rate by country over 10 years.
-An excerpt from the website where we are getting the data is below.
-
->Here are the famous program effort data from Mauldin and Berelson. This extract
-consist of observations on an index of social setting, an index of family
-planning effort, and the percent decline in the crude birth rate (CBR) between
-1965 and 1975, for 20 countries in Latin America.
-
 We can plot these data to see the relationships between effort and % change in
 birth rates.
 
 
 ```r
 ggplot(birth_rates, aes(x=effort, y=change)) +
-  geom_point() + ggtitle("Decline in birth rate vs. planning effort")
+  geom_point() +
+  ggtitle("Decline in birth rate vs. planning effort")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-7-1.png" title=" " alt=" " width="100%" />
 
 Remember that here, we've imported a tabular data set directly from the website.
-The data file itself is NOT on our computer. We are now moving towards a more
-programmatic approach.
+The data file itself is NOT on our computer so we do not have a backup in the
+event that the data are removed from the Princeton website - out code would not
+run.
 
-
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i>**Data Tip:** Consider when
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Consider when
 you directly access a dataset via an API that - that data may not always
 be available. It is a good idea to save backup copies of certain datasets on
 your computer in many cases - in the event that the data API goes down, is taken
@@ -232,35 +238,41 @@ Specifically there are problems associated with downloading from secure, https
 URLs. RCurl is a powerful package that:
 
 * Provides a set of tools to allow `R` to act like a *web client*
-* Provides a number of helper functions to grab data files from the web:
+* Provides a number of helper functions to grab data files from the web
 
 The `getURL()` function works for most secure web download protocols (e.g., `http(s)`, `ftp(S)`).
-It also helps with web scraping, direct access to web resources, and even APIs
+It also helps with web scraping, direct access to web resources, and even API
+data access.
 
-## Download data with RCURL
+## Download data with RCurl
+
+Next, we will use functions in the RCurl package to download data from GitHub.
+Note that this may work without RCurl but we will practice using RCurl in the examples
+below. GitHub has secure (https) url's.
 
 #### Gapminder Data
 
 Let's grab the gapminder data from a secure URL located on
 a GitHub website. <a href="https://twitter.com/JennyBryan" target="_blank">@jennybryan</a>
-provides an `R` package to access the <a href="http://www.gapminder.org/data/" target="_blank">Gapminder data</a> for teaching. However, while we could access
-these data using the R gapminder package, we will instead use `RCURL` to get it from
- <a href="https://github.com/jennybc/gapminder" target="_blank">Jenny Bryan's Github Page</a> to practice using RCURL.
+provides an `R` package to access the <a href="http://www.gapminder.org/data/" target="_blank">Gapminder data</a> for teaching. However, we will instead use `RCURL` to get it from
+ <a href="https://github.com/jennybc/gapminder" target="_blank">Jenny Bryan's Github Page</a> to practice using RCurl functions.
 
 
 ```r
-library(RCurl)  # Load RCurl (note cases)
-# Store base url (note the secure url)
+# Load RCurl (note cases)
+library(RCurl)
+# Store base url (note the secure -- https:// -- url)
 file = "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv"
-temp = getURL(file)  # grab the data!
+# grab the data!
+temp = getURL(file)
 ```
 
-# Ask carson why RCurl is required here. is it more a windows thing?? read.csv(file)
-
+in this case, using `read.csv()` may also work for you. But we will use `RCurl` to
+ensure data are transferred properly from the secure url.
 
 
 ```r
-# this works --
+# read.csv works too
 head(read.csv(file, sep="\t"))
 ##       country continent year lifeExp      pop gdpPercap
 ## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
@@ -291,7 +303,7 @@ head(gap_data)
 ```
 
 Looking at our data, we have a separator. In this case it's `\t`. We can account
-fo this using `read.csv()` by using the `sep=` argument.
+for this using `read.csv()` by using the `sep=` argument.
 
 
 ```r
@@ -362,15 +374,12 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-14-1.png" title=" " alt=" " width="100%" />
 
+If you are going to be grabbing a lot of `csv` files from secure `urls`, you
+might want to turn the previous code into a function:
 
-
-## LOOK FOR ANOTHER CSV to downnload using this function -- good practice for them
-And maybe this becomes an assignment.
-
-- If you are going to be grabbing a lot of `csv` files from secure `urls`, you might want to turn the previous code into a function:
 
 ```r
-read.csv.https = function(url) {
+read_secure_csv_file = function(url) {
   url = getURL(url)
   return(read.csv(textConnection(url)))
 }
@@ -381,5 +390,12 @@ read.csv.https = function(url) {
 
 
 
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The web changes constantly! Data available via a *particular* API at a *particular* point in time may not be available indefinitely...
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The web
+changes constantly! Data available via a *particular* API at a *particular* point
+in time may not be available indefinitely...
 {: .notice--warning}
+
+
+
+## LOOK FOR ANOTHER CSV to download using this function -- good practice for them
+And maybe this becomes an assignment.

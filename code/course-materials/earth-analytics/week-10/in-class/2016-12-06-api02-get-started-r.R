@@ -54,17 +54,19 @@ head(birth_rates)
 
 ## ------------------------------------------------------------------------
 ggplot(birth_rates, aes(x=effort, y=change)) +
-  geom_point() + ggtitle("Decline in birth rate vs. planning effort")
+  geom_point() +
+  ggtitle("Decline in birth rate vs. planning effort")
 
 ## ----message=FALSE-------------------------------------------------------
-library(RCurl)  # Load RCurl (note cases)
-# Store base url (note the secure url)
+# Load RCurl (note cases)
+library(RCurl)
+# Store base url (note the secure -- https:// -- url)
 file = "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv"
-temp = getURL(file)  # grab the data!
-
+# grab the data!
+temp = getURL(file)
 
 ## ------------------------------------------------------------------------
-# this works --
+# read.csv works too
 head(read.csv(file, sep="\t"))
 
 
@@ -114,7 +116,7 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 
 ## ------------------------------------------------------------------------
-read.csv.https = function(url) {
+read_secure_csv_file = function(url) {
   url = getURL(url)
   return(read.csv(textConnection(url)))
 }

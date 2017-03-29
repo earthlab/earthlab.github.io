@@ -8,8 +8,9 @@ category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/intro-to-API-r/
 nav-title: "API Intro"
-module-title: "Intro to APIS"
-module-description: ""
+module-title: "Introduction to API data access in R"
+module-description: "In this module, we introduce various ways to access, download and work with data programmatically. These methods include downloading text files directly from a website onto your
+computer and into R, reading in data stored in text format from a website, into a data.frame in R and finally, accessing subsets of particular data using REST and SOAP API's in R. "
 module-nav-title: 'APIs'
 module-type: 'class'
 week: 10
