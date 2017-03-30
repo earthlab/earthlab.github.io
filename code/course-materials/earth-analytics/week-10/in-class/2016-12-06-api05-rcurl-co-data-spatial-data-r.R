@@ -9,11 +9,13 @@ water_full_url = paste0(water_base_url, "station_status=Active",
             "&county=BOULDER")
 water_data = getURL(URLencode(water_full_url))
 water_data_df <- fromJSON(water_data)
-head(water_data_df)
+
+
+## ------------------------------------------------------------------------
+# view data structure
 str(water_data_df)
 
 ## ------------------------------------------------------------------------
-
 water_data_df$location
 water_data_df$location$latitude
 
@@ -32,14 +34,14 @@ water_data_df <- water_data_df %>%
   mutate_each_(funs(as.numeric), c( "amount", "location.longitude", "location.latitude")) %>%
   filter(!is.na(location.latitude))
 
-## ----water_data_plot1----------------------------------------------------
+## ----water_data_plot1, fig.width=5, fig.height=5-------------------------
 ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=station_type)) +
   geom_point() + coord_equal() +
-      labs(x="Year",
-           y="Female Population",
-          title="Projected Female Population",
-          subtitle = "Boulder, CO: 1990 - 2040")
+      labs(x="Longitude",
+           y="Latitude",
+          title="Surface Water Site Locations by Type",
+          subtitle = "Boulder, Colorado")
 
 
 ## ----create_ggmap--------------------------------------------------------
