@@ -85,7 +85,7 @@ of the visible changes.
 double clicking doesn't automatically open Google Earth, then Open Google Earth,
 go to File --> Open in Google Earth. Navigate to the
 location of your downloaded file (`~Documents/data/co-flood/locations`) and open it.
-{: .notice }
+{: .notice--success}
 
 * Once you have the `.kmz` file open, notice it is listed in the Temporary Places section
 of the  `places` window. It should automatically zoom you into to an area in North

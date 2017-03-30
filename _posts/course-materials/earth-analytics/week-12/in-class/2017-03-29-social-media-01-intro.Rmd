@@ -11,7 +11,7 @@ nav-title: "Social media intro"
 module-title: "Introduction to API data access in R"
 module-description: "In this module, we introduce various ways to access, download and work with data programmatically. These methods include downloading text files directly from a website onto your
 computer and into R, reading in data stored in text format from a website, into a data.frame in R and finally, accessing subsets of particular data using REST and SOAP API's in R. "
-module-nav-title: 'APIs'
+module-nav-title: 'twitter APIs'
 module-type: 'class'
 week: 12
 sidebar:
@@ -40,7 +40,7 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-  
+
 Working with Social Media Data
 ========================================================
 type: sub-section
@@ -72,7 +72,7 @@ Lots of Setup...
 4. You'll need access tokens
     - Scroll down and click "Create my access token"
     - Page should refresh on "Details" tab with new access tokens
-  
+
 Some More Setup...
 ========================================================
 
@@ -171,7 +171,7 @@ xy = subset(xy, !is.na(x) & !is.na(y))
 ```{r fig.show='hide'}
 m = ggplot(data=xy, aes(x=x, y=y)) +
   stat_density2d(geom="raster", aes(fill=..density..),
-                 contour=FALSE, alpha=1) + 
+                 contour=FALSE, alpha=1) +
   geom_point() + coord_equal()
 print(m)
 ```
@@ -248,7 +248,7 @@ title: false
 <iframe  title="Twitter Map" width="1100" height="900"
   src="./twitter_map.html"
   frameborder="0" allowfullscreen></iframe>
-  
+
 Going a Step Further
 ========================================================
 type: section
@@ -294,14 +294,14 @@ pal = colorNumeric(palette="YlGnBu",
 map = leaflet() %>%  # Map time!
   addProviderTiles("CartoDB.Positron") %>%
   addPolygons(data=merged, popup=popup,
-              fillColor=~pal(pop_total), 
+              fillColor=~pal(pop_total),
               color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1, 
+              fillOpacity=0.7, weight=1,
               smoothFactor=0.2) %>%
   addCircles(data=xy, lng=~x, lat=~y,
              popup=~text, radius=5) %>%
-  addLegend(pal=pal, values=merged$pop_total, 
-            position="bottomright", 
+  addLegend(pal=pal, values=merged$pop_total,
+            position="bottomright",
             title="Total Population")
 ```
 
@@ -316,7 +316,7 @@ title: false
 <iframe  title="Twitter Map" width="1100" height="900"
   src="./dual_map.html"
   frameborder="0" allowfullscreen></iframe>
-  
+
 Controlling for Population
 ========================================================
 
@@ -363,16 +363,16 @@ title: false
 map = leaflet() %>%
   addProviderTiles("CartoDB.Positron", group="Base") %>%
   addPolygons(data=merged, popup=popup,
-              fillColor=~pal(percapita), 
+              fillColor=~pal(percapita),
               color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1, 
+              fillOpacity=0.7, weight=1,
               smoothFactor=0.2, group="Score") %>%
   addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
                    stroke=FALSE, popup=~text, group="Tweets") %>%
   addLayersControl(overlayGroups=c("Tweets", "Score"),
                    options=layersControlOptions(collapsed=FALSE)) %>%
-  addLegend(pal=pal, values=merged$percapita, 
-            position="bottomright", 
+  addLegend(pal=pal, values=merged$percapita,
+            position="bottomright",
             title="Score")
 
 saveWidget(widget=map, file="final_map.html", selfcontained=TRUE)
@@ -381,8 +381,8 @@ saveWidget(widget=map, file="final_map.html", selfcontained=TRUE)
 <iframe  title="Twitter Map" width="1100" height="900"
   src="./final_map.html"
   frameborder="0" allowfullscreen></iframe>
-  
-  
+
+
 Wanna See the Code for That One?
 ========================================================
 
@@ -390,9 +390,9 @@ Wanna See the Code for That One?
 leaflet() %>%
   addProviderTiles("CartoDB.Positron", group="Base") %>%
   addPolygons(data=merged, popup=popup,
-              fillColor=~pal(percapita), 
+              fillColor=~pal(percapita),
               color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1, 
+              fillOpacity=0.7, weight=1,
               smoothFactor=0.2, group="Score") %>%
   addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
                    stroke=FALSE, popup=~text,
@@ -400,8 +400,8 @@ leaflet() %>%
   addLayersControl(overlayGroups=c("Tweets", "Score"),
                    options=layersControlOptions(
                      collapsed=FALSE)) %>%
-  addLegend(pal=pal, values=merged$percapita, 
-            position="bottomright", 
+  addLegend(pal=pal, values=merged$percapita,
+            position="bottomright",
             title="Score")
 ```
 
@@ -409,13 +409,13 @@ That's All Folks!
 ========================================================
 type: section
 
-## Data Harmonization + Working with Web and Social Media Data  
+## Data Harmonization + Working with Web and Social Media Data
 Earth Analytics---Spring 2016
 
-Carson J. Q. Farmer  
+Carson J. Q. Farmer
 [carson.farmer@colorado.edu]()
 
-babs buttenfield  
+babs buttenfield
 [babs@colorado.edu]()
 
 References
