@@ -58,7 +58,7 @@ set that **project directory** as our **working directory** in `R`.
 <i class="fa fa-star"></i> **Data Tip** Directory vs Folder: You can think
 of a directory as a folder. However the term directory considers the relationship
 between that folder and the folders within it and around it (it's full path).
-{: .notice }
+{: .notice--success}
 
 Follow the steps below to create an `earth-analytics` project directory on your
 computer and then a data directory located within that project directory.
@@ -70,7 +70,7 @@ computer and then a data directory located within that project directory.
 read directory name. The name has no spaces and uses all lower case to support
 machine reading down the road. Sometimes this format of naming using dashes is
 referred to as a `slug`.
-{: .notice }
+{: .notice--success}
 
 * Next, open the earth-analytics directory and create a directory within it
 called `data`

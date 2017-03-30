@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-03-29'
+modified: '2017-03-30'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/apis2-r/
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -39,67 +39,55 @@ data that we already downloaded for week 6 of the course.
 In the previous lesson, we learned how to access human readable text files data
 programmatically using:
 
-1. `download.file()` to download a file to your computer and work with it
-1. `read.csv()` to read in a tabular file stored on a web location.
-1. using `getURL()` to read in data files that may be secure (https://) or that require more advanced protocols.
+1. GOOD TO SAVE A COPY OF THE DATA LOCALLY: `download.file()` to download a file to your computer and work with it
+1. WORKS SOMETIMES: `read.csv()` to read in a tabular file stored on the web (not ideal).
+1. OPTIMAL: `getURL()` to read in data files that may be secure (https://) or that require more advanced protocols.
 
-In this lesson, we will learn more about API interfaces - which return data that
-are **machine readable** and thus are more efficient - particularly for larger
-data that contain hierarchical structures. In this lesson, the `getURL()`
+In this lesson, we will learn about API interfaces. An API allows us to access
+data stored on a computer or server using a specific query. API's are powerful
+ways to access data and more specifically the specific type and subset of data
+that we need for our analysis, programmatically.
+
+We will also explore working with the JSON data structure
+which as discussed in lesson one is a **machine readable** structure. Machine readable
+data structures are more efficient - particularly for larger data that contain
+hierarchical structures. In this lesson, the `getURL()`
 function will become more valuable to us as we parse data accessed from an API.
 
 
 ```r
-#NOTE: if you have problems with ggmap, try to install from github
+#NOTE: if you have problems with ggmap, try to install both ggplot and ggmap from github
 #devtools::install_github("dkahle/ggmap")
 #devtools::install_github("hadley/ggplot2")
 library(ggmap)
 library(ggplot2)
-
-library("knitr")
 library("dplyr")
 library("RCurl")
 ```
 
+
+
 ## Review
 
-Remember that in the first lesson in this module, we discussed **REST**ful APIs.
-The request to an **REST**ful API includes a:
-
-1. URL which defines the base location of the data on the web server (online url)
-2. The request which includes the URL AND the associated parameters required to access a particular subset of the data that we wish to access
+Remember that in the first introductory lesson in this module, we discussed **REST**ful APIs. We explored the concept of a **request** and then a subsequent
+**response**. The **request** to an **REST**ful API is composed of a URL and the associated parameters required to access a particular subset of the data that we wish to access.
 
 When you send the request, the web API returns one of the following:
 
  1. The data that we requested or
  2. A *failed to return* message which tells us that something was wrong with our request.
 
-Next, we will use a REST API available to grab data from the <a href="https://data.colorado.gov" target="_blank">Colorado Information Marketplace</a>.
-
-### Colorado Population Projections
-
-The <a href="https://data.colorado.gov" target="_blank">Colorado Information Marketplace</a>
-is a comprehensive data warehouse that contains a wide range of Colorado-specific
-open datasets available via a **REST**ful API called the Socrata Open Data API (SODA).
-
-There are lots of API *endpoints* or data sets available via this API. One
-endpoint contains
-<a href="https://data.colorado.gov/resource/tv8u-hswn.json" target="_blank">Colorado Population Projections:</a>.
-If you go to this site, you will see data returned
-in a `JSON` format. These data include population estimates for *males* and
-*females* for every *county* in Colorado for every *year* from 1990 to 2040 for
-multiple *age* groups!
 
 ## About JSON
-Before we go any further, let's take a moment to describe the **J**ava**S**cript
-**O**bject **N**otation or **JSON** data structure.
-JSON is an ideal format for larger data specifically that have a hierarchical
-structured relationship.
+Before we go any further, let's take a moment to revisit the **J**ava**S**cript
+**O**bject **N**otation or **JSON** data structure that reviewed in the introductory
+lesson in this module. JSON is an ideal format for larger data that
+ have a hierarchical structured relationship.
 
 The structure of a JSON object is as follows:
 
 * The data is in name/value pairs
-* Data is separated by commas
+* Data objects are separated by commas
 * Curly braces `{}` hold objects
 * Square brackets `[]` hold arrays
 * Each data element is enclosed with quotes `""` if it is a character, or without quotes if it is a numeric value
@@ -127,6 +115,13 @@ However, the JSON structure can also be nested. Like this:
 The ability to store nested or hierarchical data within a text file structure makes
 JSON a powerful format to use as we are working with larger datasets.
 
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The GEOJSON
+data structure is a pwerful data structure that supports spatial data. GEOJSON
+can be used to create maps just like shapefiles can. This format is often used
+for web mapping applications like leaflet (which we will learn about later in
+this module).
+{: .notice--success}
+
 
 ### JSON data structures
 
@@ -139,16 +134,32 @@ JSON can store any of the following data types:
 * booleans (TRUE / FALSE)
 * null
 
-Now that we understand a bit about the JSON data structure, let's go back to
-grabbing JSON data from an API.
+Now that we understand a bit about the JSON data structure, let's work with some
+JSON data that we access via an actual API.
+
+We will use a REST API available to grab data from the <a href="https://data.colorado.gov" target="_blank">Colorado Information Marketplace</a>.
+
+### Colorado Population Projections
+
+The <a href="https://data.colorado.gov" target="_blank">Colorado Information Marketplace</a>
+is a comprehensive data warehouse that contains a wide range of Colorado-specific
+open datasets available via a **REST**ful API called the Socrata Open Data API (SODA).
+
+There are lots of API *endpoints* or data sets available via this API. One
+endpoint contains
+<a href="https://data.colorado.gov/resource/tv8u-hswn.json" target="_blank">Colorado Population Projections</a>.
+If you click on the <a href="https://data.colorado.gov/resource/tv8u-hswn.json" target="_blank">Colorado Population Projections data link (JSON format)</a>
+you will see data returned in a `JSON` format. These data include population
+estimates for *males* and *females* for every *county* in Colorado for every *year* from 1990 to 2040 for multiple *age* groups.
 
 ### URL Parameters
 
-Using `URL` parameters, we can define a more specific request to limit what data
-we get back in response to our API request. For example, if we only want data for
-Boulder, Colorado, we can query just that subset of the data using the RESTful call.
-
-note the **?&county=Boulder** part of the url:
+Using `URL` parameters, we can define a more specific **request** to limit what data
+we get back in **response** to our API **request**. For example, if we only want
+data for Boulder, Colorado, we can query just that subset of the data using the
+RESTful call. In the link below, note that the **?&county=Boulder** part of the
+url makes the request to the API to only return data that are for Boulder
+County, Colorado.
 
 <a href="https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder" target="_blank">Like this - https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder</a>.
 
@@ -173,13 +184,19 @@ The data that are returned from an API **request** are called the **response**.
 The format of the returned data or the **response** is most often in the form of
 plain text 'file' such as `JSON` or `.csv`.
 
-NOTE: <a href="https://dev.socrata.com/docs/formats/index.html" target="_blank">For many APIs, you can specify the file that you want to be returned</a>
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Many API's allow
+us to specify the format of the data that we want returned in the response. <a href="https://dev.socrata.com/docs/formats/index.html" target="_blank">The Colorado SODA API is no exception - check out the documentation. </a>
+{: .notice--success}
 
 ## Accessing API Data via getURL
 
 We will use the `getURL()` in the same way that we used it before. However, this
 time we will add the `URL` parameters that specify which subset of the data
 that we want to access.
+
+Note that we are using a new function - `paste0()`, to paste together a complex
+url string. This is useful because we may want to iterative over different subsets
+of the same data.
 
 
 ```r
@@ -191,16 +208,32 @@ full_url = paste0(base_url, "county=Boulder",
 # view full url
 full_url
 ## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation"
+```
+
+After we've created the URL, we can get the data.
+
+
+```r
 # get the data from the specified url
 pop_proj_data = getURL(URLencode(full_url))
-
-#base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
-#res = getForm(base_url, county="Boulder",
-#              age="BOULDER")
 ```
 
 Since these data are in a `JSON` data structure, we'll need to parse them into
 a format that we can work with in R.
+
+<div class="notice--success" markdown="1">
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The getForm()
+is another way to access API driven data. We are not going to cover this in
+this class however it is a good option that results in code that is a bit cleaner
+given the various parameters are passed to the function via argument like
+syntax.
+
+```r
+base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
+getForm(base_url, county="Boulder",
+              age="BOULDER")
+```
+</div>
 
 
 
@@ -235,6 +268,19 @@ pop_proj_data_df <- pop_proj_data_df %>%
   mutate_each_(funs(as.numeric), c( "age", "year", "femalepopulation"))
 ```
 
+
+### mutate_each_ dplyr
+
+Note that we used another new function above -- `mutate_each_()`. The `mutate_each_()`
+function can be used to change the format of (or apply any function on) any columns
+within our data.frame.
+
+In the code above, we told R to apply the `as.numeric()` function to the `age`, `year` and
+`femalepopulation` columns in our `pop_proj_data_df` data.frame object as follows:
+
+* funs(as.numeric): apply the as.numeric function to each column
+* c( "age", "year", "femalepopulation"): a vector of column names - each of which R will apply the specified function (as.numeric in this case) to.
+
 The code above uses dplyr pipes to mutate or change 3 columns in our data.frame
 to a numeric data type. Is it the same as running the code below on each column
 of the data.
@@ -262,248 +308,31 @@ we can plot the data using `ggplot()`.
 ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
   group=factor(age), color=age)) + geom_line() +
       labs(x="Year",
-           y="Female Population",
+           y="Female Population - Age 20-40",
           title="Projected Female Population",
           subtitle = "Boulder, CO: 1990 - 2040")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-next-r/plot_pop_proj-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/plot_pop_proj-1.png" title=" " alt=" " width="100%" />
 
 
 
-- `getForm` allows us to treat an API more like an `R` function
-    - Here, we're using the [DWR Current Surface Water Conditions](https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions-Map-Statewide/j5pc-4t32) via `SODA`
+<div class="notice--warning" markdown="1">
 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
-https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions-Map-Statewide/j5pc-4t32
+Using the population projection data that we just used, create a plot of projected
+MALE population numbers as follows:
 
+* Time span: 1990-2040
+* Column category: malepopulation
+* Age range: 60-80 years old
 
-```r
+Use ggplot() to create your plot and be sure to label x and y axes and give the
+plot a descriptive title.
+</div>
 
-water_base_url = "https://data.colorado.gov/resource/j5pc-4t32.json?"
-water_full_url = paste0(water_base_url, "station_status=Active",
-            "&county=BOULDER")
-water_data = getURL(URLencode(water_full_url))
-water_data_df <- fromJSON(water_data)
-head(water_data_df)
-##                                               station_name amount
-## 1 BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER  33.05
-## 2      FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO  17.00
-## 3                           FOURMILE CREEK AT ORODELL, CO.   0.79
-## 4                              GOODING A AND D PLUMB DITCH   7.20
-## 5                                              NIWOT DITCH   0.71
-## 6               RURAL DITCH TAIL RETURN TO ST. VRAIN CREEK   1.55
-##   station_status  county wd dwr_abbrev
-## 1         Active BOULDER  6   BCSCBCCO
-## 2         Active BOULDER  6   FRMLMRCO
-## 3         Active BOULDER  6   FOUOROCO
-## 4         Active BOULDER  6   GOOPLMCO
-## 5         Active BOULDER  5   NIWDITCO
-## 6         Active BOULDER  5   RUTAILCO
-##                                                    data_source
-## 1 Northern Colorado Water Conservancy District (Data Provider)
-## 2                       U.S. Geological Survey (Data Provider)
-## 3                       U.S. Geological Survey (Data Provider)
-## 4                  Cooperative Program of CDWR, NCWCD & LSPWCD
-## 5                 Cooperative Program of CDWR, NCWCD & SVLHWCD
-## 6                      Cooperative SDR Program of CDWR & NCWCD
-##                                                                                        url
-## 1                       http://www.northernwater.org/WaterProjects/EastSlopeWaterData.aspx
-## 2                                               http://waterdata.usgs.gov/nwis/uv?06727410
-## 3                                               http://waterdata.usgs.gov/nwis/uv?06727500
-## 4 http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=GOOPLMCO&MTYPE=DISCHRG
-## 5 http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=NIWDITCO&MTYPE=DISCHRG
-## 6 http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=RUTAILCO&MTYPE=DISCHRG
-##   div           date_time usgs_station_id variable location.latitude
-## 1   1 2017-03-14T08:45:00          ES1917  DISCHRG         40.053036
-## 2   1 2013-09-20T08:10:00        06727410  DISCHRG         40.042028
-## 3   1 2016-10-03T07:10:00        06727500  DISCHRG         40.018667
-## 4   1 2016-11-16T15:00:00            <NA>  DISCHRG          40.09404
-## 5   1 2017-03-20T13:45:00        NIWDITCO  DISCHRG         40.173949
-## 6   1 2017-03-23T21:45:00        RUTAILCO  DISCHRG              <NA>
-##   location.needs_recoding location.longitude station_type stage flag
-## 1                   FALSE        -105.193048    Diversion  <NA> <NA>
-## 2                   FALSE        -105.364917       Stream  <NA> <NA>
-## 3                   FALSE         -105.32625       Stream  <NA> <NA>
-## 4                   FALSE         -105.05447    Diversion  0.47 <NA>
-## 5                   FALSE        -105.169374    Diversion  0.21 <NA>
-## 6                      NA               <NA>    Diversion  0.18 <NA>
-str(water_data_df)
-## 'data.frame':	53 obs. of  16 variables:
-##  $ station_name   : chr  "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER" "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO" "FOURMILE CREEK AT ORODELL, CO." "GOODING A AND D PLUMB DITCH" ...
-##  $ amount         : chr  "33.05" "17.00" "0.79" "7.20" ...
-##  $ station_status : chr  "Active" "Active" "Active" "Active" ...
-##  $ county         : chr  "BOULDER" "BOULDER" "BOULDER" "BOULDER" ...
-##  $ wd             : chr  "6" "6" "6" "6" ...
-##  $ dwr_abbrev     : chr  "BCSCBCCO" "FRMLMRCO" "FOUOROCO" "GOOPLMCO" ...
-##  $ data_source    : chr  "Northern Colorado Water Conservancy District (Data Provider)" "U.S. Geological Survey (Data Provider)" "U.S. Geological Survey (Data Provider)" "Cooperative Program of CDWR, NCWCD & LSPWCD" ...
-##  $ http_linkage   :'data.frame':	53 obs. of  1 variable:
-##   ..$ url: chr  "http://www.northernwater.org/WaterProjects/EastSlopeWaterData.aspx" "http://waterdata.usgs.gov/nwis/uv?06727410" "http://waterdata.usgs.gov/nwis/uv?06727500" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=GOOPLMCO&MTYPE=DISCHRG" ...
-##  $ div            : chr  "1" "1" "1" "1" ...
-##  $ date_time      : chr  "2017-03-14T08:45:00" "2013-09-20T08:10:00" "2016-10-03T07:10:00" "2016-11-16T15:00:00" ...
-##  $ usgs_station_id: chr  "ES1917" "06727410" "06727500" NA ...
-##  $ variable       : chr  "DISCHRG" "DISCHRG" "DISCHRG" "DISCHRG" ...
-##  $ location       :'data.frame':	53 obs. of  3 variables:
-##   ..$ latitude      : chr  "40.053036" "40.042028" "40.018667" "40.09404" ...
-##   ..$ needs_recoding: logi  FALSE FALSE FALSE FALSE FALSE NA ...
-##   ..$ longitude     : chr  "-105.193048" "-105.364917" "-105.32625" "-105.05447" ...
-##  $ station_type   : chr  "Diversion" "Stream" "Stream" "Diversion" ...
-##  $ stage          : chr  NA NA NA "0.47" ...
-##  $ flag           : chr  NA NA NA NA ...
-```
-
-Remember that the JSON structure is hierarchical and often NESTED. In this case,
-we have a nested data.frame within a data frame.
-
-```r
-
-water_data_df$location
-##     latitude needs_recoding   longitude
-## 1  40.053036          FALSE -105.193048
-## 2  40.042028          FALSE -105.364917
-## 3  40.018667          FALSE  -105.32625
-## 4   40.09404          FALSE  -105.05447
-## 5  40.173949          FALSE -105.169374
-## 6       <NA>             NA        <NA>
-## 7    40.2172          FALSE -105.259161
-## 8  40.160347          FALSE -105.007828
-## 9       <NA>             NA        <NA>
-## 10 40.125542          FALSE -105.303879
-## 11  40.21804          FALSE -105.259987
-## 12 40.006374          FALSE -105.330826
-## 13 39.961655          FALSE  -105.50444
-## 14 39.938598          FALSE -105.349161
-## 15 39.931099          FALSE -105.295822
-## 16 40.256031          FALSE -105.209549
-## 17 40.255581          FALSE -105.209595
-## 18  40.15336          FALSE  -105.08869
-## 19 40.193757          FALSE  -105.21039
-## 20  40.18188          FALSE  -105.19677
-## 21 40.187577          FALSE  -105.18919
-## 22  40.19932          FALSE  -105.22264
-## 23 40.174844          FALSE -105.167873
-## 24  40.18858          FALSE  -105.20928
-## 25 40.134278          FALSE -105.130819
-## 26  40.20419          FALSE  -105.21878
-## 27 40.172925          FALSE -105.167621
-## 28  40.19642          FALSE  -105.20659
-## 29   40.2125          FALSE  -105.25183
-## 30  40.21266          FALSE  -105.25183
-## 31 40.187524          FALSE -105.189132
-## 32 40.153341          FALSE -105.075695
-## 33  40.21139          FALSE  -105.25095
-## 34   40.1946          FALSE   -105.2298
-## 35 40.170997          FALSE -105.160875
-## 36  40.21905          FALSE  -105.25979
-## 37  40.21108          FALSE  -105.25093
-## 38 40.193018          FALSE -105.210388
-## 39 40.172677          FALSE  -105.04463
-## 40 40.172677          FALSE  -105.04463
-## 41  40.19328          FALSE -105.210424
-## 42  40.18503          FALSE  -105.18579
-## 43 40.051652          FALSE -105.178875
-## 44 40.733879          FALSE -105.212237
-## 45 40.849982          FALSE -105.218036
-## 46  39.98617          FALSE  -105.21868
-## 47  40.05366          FALSE  -105.15114
-## 48      <NA>             NA        <NA>
-## 49 40.216093          FALSE -105.258323
-## 50 40.214984          FALSE -105.256647
-## 51 39.931096          FALSE -105.295838
-## 52      <NA>             NA        <NA>
-## 53      <NA>             NA        <NA>
-water_data_df$location$latitude
-##  [1] "40.053036" "40.042028" "40.018667" "40.09404"  "40.173949"
-##  [6] NA          "40.2172"   "40.160347" NA          "40.125542"
-## [11] "40.21804"  "40.006374" "39.961655" "39.938598" "39.931099"
-## [16] "40.256031" "40.255581" "40.15336"  "40.193757" "40.18188" 
-## [21] "40.187577" "40.19932"  "40.174844" "40.18858"  "40.134278"
-## [26] "40.20419"  "40.172925" "40.19642"  "40.2125"   "40.21266" 
-## [31] "40.187524" "40.153341" "40.21139"  "40.1946"   "40.170997"
-## [36] "40.21905"  "40.21108"  "40.193018" "40.172677" "40.172677"
-## [41] "40.19328"  "40.18503"  "40.051652" "40.733879" "40.849982"
-## [46] "39.98617"  "40.05366"  NA          "40.216093" "40.214984"
-## [51] "39.931096" NA          NA
-```
-
-We can remove the nesting using the flatten() function in R! Creates 2 new columns
-in our data.frame. One for latitute and one for longitude. Notice that the name
-of each new column contains the name of the previously nested data.frame followed
-by a period, and then the column name. For example
-
-`location.latitude`
-
-
-
-```r
-# remove the nested data frame
-water_data_df <- flatten(water_data_df, recursive = TRUE)
-water_data_df$location.latitude
-##  [1] "40.053036" "40.042028" "40.018667" "40.09404"  "40.173949"
-##  [6] NA          "40.2172"   "40.160347" NA          "40.125542"
-## [11] "40.21804"  "40.006374" "39.961655" "39.938598" "39.931099"
-## [16] "40.256031" "40.255581" "40.15336"  "40.193757" "40.18188" 
-## [21] "40.187577" "40.19932"  "40.174844" "40.18858"  "40.134278"
-## [26] "40.20419"  "40.172925" "40.19642"  "40.2125"   "40.21266" 
-## [31] "40.187524" "40.153341" "40.21139"  "40.1946"   "40.170997"
-## [36] "40.21905"  "40.21108"  "40.193018" "40.172677" "40.172677"
-## [41] "40.19328"  "40.18503"  "40.051652" "40.733879" "40.849982"
-## [46] "39.98617"  "40.05366"  NA          "40.216093" "40.214984"
-## [51] "39.931096" NA          NA
-```
-Now we can clean up the data. Notice that our longitude and latitude are in quotes.
-What does this mean about the structure of the data?
-
-
-```r
-str(water_data_df$location.latitude)
-##  chr [1:53] "40.053036" "40.042028" "40.018667" "40.09404" ...
-```
-
-
-
-```r
-# turn columns to numeric and remove NA values
-water_data_df <- water_data_df %>%
-  mutate_each_(funs(as.numeric), c( "amount", "location.longitude", "location.latitude")) %>%
-  filter(!is.na(location.latitude))
-```
-
-Now we can plot the data
-
-
-```r
-ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
-  color=station_type)) +
-  geom_point() + coord_equal() +
-      labs(x="Year",
-           y="Female Population",
-          title="Projected Female Population",
-          subtitle = "Boulder, CO: 1990 - 2040")
-```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-next-r/water_data_plot1-1.png" title=" " alt=" " width="100%" />
-
-
-It is often useful to explore you geospatial data in context (that's why `GIS` is so useful!). But instead of exporting your data to a shapefile and working in `QGIS` or similar, we can create maps directly in `R`...
-
-Basic Mapping in R
-
-- That last 'map' was really just a scatterplot of long/lat, with some minor aesthetic tweaks
-- The `ggmap` package provides an interface to Google maps and others
-    - So we can download 'basemaps' on the fly and plot them:
-
-
-```r
-boulder <- get_map(location="Boulder, CO, USA",
-                  source="google", crop=FALSE, zoom=10)
-ggmap(boulder) +
-  geom_point(data=water_data_df, aes(location.longitude, location.latitude, size=amount,
-  color=factor(station_type)))
-```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-next-r/create_ggmap-1.png" title=" " alt=" " width="100%" />
-
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/male-population-1.png" title=" " alt=" " width="100%" />
 
 
 
@@ -515,18 +344,3 @@ ggmap(boulder) +
 * <a href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank">W3schools JSON intro </a>
 
 </div>
-
-
-
-***
-
-## Review - about APIs
-
-Remember we have covered
-
-* where they can get information to figure out how to get the data
-* show the website
-* steps - what they need to know
-* download data
-* homework - maybe have them download data for different age ranges and some other county?
-* they can use the API documentation to figure out what to parse...
