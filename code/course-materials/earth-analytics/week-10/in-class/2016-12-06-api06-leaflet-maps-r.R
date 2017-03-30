@@ -3,16 +3,17 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ## ------------------------------------------------------------------------
-library("knitr")
 library("dplyr")
 library("ggplot2")
 library("RCurl")
 library("rjson")
 library("jsonlite")
+library(leaflet)
+
+## ---- echo=FALSE---------------------------------------------------------
+library("knitr")
 
 ## ----eval=FALSE----------------------------------------------------------
-## library(leaflet)
-## 
 ## map = leaflet() %>%
 ##   addTiles() %>%  # use the default base map which is OpenStreetMap tiles
 ##   addMarkers(lng=174.768, lat=-36.852,
@@ -25,7 +26,7 @@ library("jsonlite")
 
 ## ------------------------------------------------------------------------
 base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
-full_url <- paste0(base, "station_status=Active",
+full_url <- paste0(base_url, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
 water_data_df <- fromJSON(water_data)
@@ -37,13 +38,6 @@ water_data_df <- water_data_df %>%
   mutate_each_(funs(as.numeric), c( "amount", "location.latitude", "location.longitude")) %>%
   filter(!is.na(location.latitude))
 
-# Note the code above is the same as doing the following below:
-#water_data_df$amount <- as.numeric(water_data_df$amount)
-# lat and long should also be numeric
-# i'm also removing the nested location of these variables
-#water_data_df$location.longitude <- as.numeric(water_data_df$location.longitude)
-#water_data_df$location.latitude <- as.numeric(water_data_df$location.latitude)
-
 
 ## ----eval=FALSE----------------------------------------------------------
 ## # create leaflet map
@@ -52,13 +46,13 @@ water_data_df <- water_data_df %>%
 ##   addCircleMarkers(lng=~location.longitude, lat=~location.latitude)
 
 ## ----results="hide", cache=FALSE-----------------------------------------
-map = leaflet(water_data_df)
-map = addTiles(map)
-map = addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
+map <- leaflet(water_data_df)
+map <- addTiles(map)
+map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
 
 
-## ----echo=FALSE----------------------------------------------------------
-saveWidget(widget=map, file="water_map1.html", selfcontained=FALSE)
+## ----echo=FALSE, eval=FALSE----------------------------------------------
+## saveWidget(widget=map, file="water_map1.html", selfcontained=FALSE)
 
 ## ----eval=FALSE----------------------------------------------------------
 ## leaflet(water_data_df) %>%
@@ -71,8 +65,12 @@ map = leaflet(water_data_df) %>%
   addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
 saveWidget(widget=map, file="water_map2.html", selfcontained=FALSE)
 
+## ------------------------------------------------------------------------
+# let's look at the output of our popup text before calling it in leaflet 
+paste0(station_name, "<br/>Discharge: ", amount)
+
 ## ----eval=FALSE----------------------------------------------------------
-## # Nothing special, just found this one online...
+## # Specify custom icon
 ## url = "http://tinyurl.com/jeybtwj"
 ## water = makeIcon(url, url, 24, 24)
 ## 

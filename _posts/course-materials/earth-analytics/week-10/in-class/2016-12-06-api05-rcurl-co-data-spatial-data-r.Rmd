@@ -66,20 +66,85 @@ water_full_url = paste0(water_base_url, "station_status=Active",
             "&county=BOULDER")
 water_data = getURL(URLencode(water_full_url))
 water_data_df <- fromJSON(water_data)
-head(water_data_df)
+
+```
+
+Remember that the JSON structure supports hierarchical data and can be NESTED.
+
+```json
+[ {
+  "station_name" : "SOUTH PLATTE RIVER AT COOPER BRIDGE NEAR BALZAC",
+  "amount" : "262.00",
+  "flag" : "na",
+  "station_status" : "Gage temporarily anavailable",
+  "county" : "MORGAN",
+  "wd" : "1",
+  "dwr_abbrev" : "PLABALCO",
+  "data_source" : "Co. Division of Water Resources",
+  "http_linkage" : {
+    "url" : "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=PLABALCO&MTYPE=DISCHRG"
+  },
+  "div" : "1",
+  "date_time" : "2017-02-15T09:00:00",
+  "stage" : "1.86",
+  "usgs_station_id" : "06759910",
+  "variable" : "DISCHRG",
+  "location" : {
+    "latitude" : "40.357498",
+    "needs_recoding" : false,
+    "longitude" : "-103.528053"
+  },
+  "station_type" : "Stream"
+}
+...
+]
+```
+
+
+If you look at the structure of the .json file below, you can see that the location
+object, is nested with 3 sub objects:
+
+* latitude
+* needs_recoding
+* longitude
+
+
+```json
+[ {
+"div" : "1",
+"date_time" : "2017-02-15T09:00:00",
+"stage" : "1.86",
+"usgs_station_id" : "06759910",
+"variable" : "DISCHRG",
+"location" : {
+  "latitude" : "40.357498",
+  "needs_recoding" : false,
+  "longitude" : "-103.528053"
+},
+"station_type" : "Stream"
+}
+...
+]
+```
+
+Next, let's look at the structure of the data.frame that R creates from the
+.json data.
+
+```{r}
+# view data structure
 str(water_data_df)
 ```
 
-Remember that the JSON structure is hierarchical and often NESTED. In this case,
-we have a nested data.frame within a data frame.
-```{r}
+In this case, we have a data.frame nested within a data.frame.
 
+```{r}
 water_data_df$location
 water_data_df$location$latitude
 ```
 
-We can remove the nesting using the flatten() function in R! Creates 2 new columns
-in our data.frame. One for latitute and one for longitude. Notice that the name
+We can remove the nesting using the `flatten()` function in `R`. When we flatten
+our json data, R creates new columns for each nested data.frame column. In this
+case it creates a unique column for latitute and longitude. Notice that the name
 of each new column contains the name of the previously nested data.frame followed
 by a period, and then the column name. For example
 
@@ -92,13 +157,25 @@ water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
 
 ```
-Now we can clean up the data. Notice that our longitude and latitude are in quotes.
-What does this mean about the structure of the data?
+Now we can clean up the data. Notice that our longitude and latitude values
+are in quotes. What does this mean about the structure of the data?
+
 
 ```{r}
 str(water_data_df$location.latitude)
 ```
 
+In order to map or work with latitude and longitude data, we need numeric values.
+We can use the same dplyr function - `mutate_each_()` - that we used in the
+previous lessons, to convert columns that are numbers to `numeric` rather than
+`char` data types:
+
+Notice in the code below that there is an addition pipe that removes NA values
+(missing latitude values) from the dataset. We know we want to create a map of these
+data. We will not be able to map points with missing X,Y coordinate locations
+so it is best to remove them.
+
+Remove NA Values: `filter(!is.na(location.latitude))`
 
 ```{r}
 # turn columns to numeric and remove NA values
@@ -109,25 +186,26 @@ water_data_df <- water_data_df %>%
 
 Now we can plot the data
 
-```{r water_data_plot1}
+```{r water_data_plot1, fig.width=5, fig.height=5}
 ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=station_type)) +
   geom_point() + coord_equal() +
-      labs(x="Year",
-           y="Female Population",
-          title="Projected Female Population",
-          subtitle = "Boulder, CO: 1990 - 2040")
+      labs(x="Longitude",
+           y="Latitude",
+          title="Surface Water Site Locations by Type",
+          subtitle = "Boulder, Colorado")
 
 ```
 
+Plotting the data using `ggplot()` creates a scatterplot of longitude and latitude,
+with some minor aesthetic tweaks. We really want to create a web
+map like the <a href="https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions-Map-Statewide/j5pc-4t32" target="_blank"> Colorado DWR Current Surface Water Conditions map</a>.
 
-It is often useful to explore you geospatial data in context (that's why `GIS` is so useful!). But instead of exporting your data to a shapefile and working in `QGIS` or similar, we can create maps directly in `R`...
 
-Basic Mapping in R
-
-- That last 'map' was really just a scatterplot of long/lat, with some minor aesthetic tweaks
-- The `ggmap` package provides an interface to Google maps and others
-    - So we can download 'basemaps' on the fly and plot them:
+We can create a non-interactive version of this map using the `ggmap()`
+package in `R`. We used `ggmap()` earlier in the semester. It provides an
+efficient way to quickly draw a basemap on the fly. We can overlay our data
+on top of that basemap to create a nice static map.
 
 ```{r create_ggmap}
 boulder <- get_map(location="Boulder, CO, USA",
@@ -137,12 +215,14 @@ ggmap(boulder) +
   color=factor(station_type)))
 ```
 
+In the next lesson, we will learn how to create interactive maps using the leaflet
+package for `R`.
 
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
 
-* <a href="https://blog.datafiniti.co/4-reasons-you-should-use-json-instead-of-csv-2cac362f1943" target="_blank">why you should use JSON instead of csv.</a>
+* <a href="https://blog.datafiniti.co/4-reasons-you-should-use-json-instead-of-csv-2cac362f1943" target="_blank">Why you should use JSON instead of csv.</a>
 * <a href="https://www.w3schools.com/js/js_json_intro.asp" target="_blank">W3schools JSON intro </a>
 
 </div>
