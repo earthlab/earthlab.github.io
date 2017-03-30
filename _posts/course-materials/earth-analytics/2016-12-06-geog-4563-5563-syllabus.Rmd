@@ -190,4 +190,4 @@ and an individual report that you submit in `R Markdown` and `.html` or `.pdf` f
 is subject to change. This course content schedule is not designed as a
 contract. Rather, it is
 an overview guide to the materials that we will review during the semester.
-{: .notice }
+{: .notice--success}

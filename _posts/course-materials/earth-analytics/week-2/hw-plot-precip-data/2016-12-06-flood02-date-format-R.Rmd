@@ -172,7 +172,7 @@ include the dashes that separate each component in each date cell of our data.
 
 NOTE: look up `?strptime` to see all of the date "elements" that you can use to
 describe the format of a date string in R.
-{: .notice }
+{: .notice--success}
 
 
 ```{r convert-date-time }

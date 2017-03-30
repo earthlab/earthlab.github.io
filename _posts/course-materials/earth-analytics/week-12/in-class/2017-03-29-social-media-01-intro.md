@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to APIs"
 excerpt: "This lesson will cover the basic principles of using functions and why they are important."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-03-30'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/intro-to-API-r/
@@ -78,7 +78,8 @@ Some More Setup...
 
 - Now that we have those details, we need to tell the `twitteR` package to use our credentials when making queries:
 
-```{r eval=FALSE}
+
+```r
 library(twitteR)
 
 # Setup authorization codes/secrets
@@ -92,18 +93,9 @@ setup_twitter_oauth(consumer_key, consumer_secret,
                     access_token, access_secret)
 ```
 
-```{r echo=FALSE, results='hide'}
-options(httr_oauth_cache=TRUE)
 
-# Setup authorization codes/secrets
-consumer_key = "vNvyX2ewRRPSAAkjmOhSgg"
-consumer_secret = "NFgLmY2v7mx1GRNVwzoXE8wEyrUyGoXQ7yT9KVFEg"
-access_token = "600943290-zLYvgerYYOA5OBXPK6bFvPbPY9ZVHObyYDoDTGnH"
-access_secret = "hrWIgvxYxND5Re6o8g0w4xrjqk0pW6PZUBReu3nJG6EYD"
-
-# Authorization 'hand-off'
-setup_twitter_oauth(consumer_key, consumer_secret,
-                    access_token, access_secret)
+```
+## Error in eval(expr, envir, enclos): could not find function "setup_twitter_oauth"
 ```
 
 Time to Start Querying
@@ -111,7 +103,8 @@ Time to Start Querying
 
 - Let's query for the 100 most recent 'forest fire' tweets:
 
-```{r eval=FALSE}
+
+```r
 query = "forest+fire"
 fire_tweets = searchTwitter(query, n=100, lang="en",
                             resultType="recent")
@@ -119,12 +112,14 @@ fire_tweets = searchTwitter(query, n=100, lang="en",
 
 - How about all recent tweets around Boulder (within 10 miles)?
 
-```{r}
+
+```r
 # About the center of Boulder... give or take
 geocode = '40.0150,-105.2705,50mi'
 tweets = searchTwitter("", n=1000, lang="en",
                        geocode=geocode,
                        resultType="recent")
+## Error in eval(expr, envir, enclos): could not find function "searchTwitter"
 ```
 
 - Now what?
@@ -134,18 +129,24 @@ Working with Twitter Responses
 
 - We need to extract some properties from the tweets
   - Such as the Tweet content:
-    ```{r}
+    
+    ```r
     text = sapply(tweets, function(x) x$getText())
+    ## Error in lapply(X = X, FUN = FUN, ...): object 'tweets' not found
     ```
   - And the Tweet location information:
-    ```{r}
+    
+    ```r
     # Grab lat/long and make data.frame out of it
     xy = sapply(tweets, function(x) {
       as.numeric(c(x$getLongitude(),
                    x$getLatitude()))
       })
+    ## Error in lapply(X = X, FUN = FUN, ...): object 'tweets' not found
     xy[!sapply(xy, length)] = NA  # Empty coords get NA
+    ## Error in xy[!sapply(xy, length)] = NA: object 'xy' not found
     xy = as.data.frame(do.call("rbind", xy))
+    ## Error in do.call("rbind", xy): object 'xy' not found
     ```
   - Next, we'll clean things up a bit...
 
@@ -154,26 +155,35 @@ Cleaning Things Up
 
 - Unfortunately, `R` isn't so great with emojis etc, so we'll strip these :(
 
-```{r}
+
+```r
 text = iconv(text, "ASCII", "UTF-8", sub="")
+## Error in as.character(x): cannot coerce type 'closure' to vector of type 'character'
 xy$text = text  # Add tweet text to data.frame
+## Error in xy$text = text: object 'xy' not found
 colnames(xy) = c("x", "y", "text")
+## Error in colnames(xy) = c("x", "y", "text"): object 'xy' not found
 ```
 
 - Next, we'll drop any rows that have missing (`NA`) coordinates
 
-```{r}
+
+```r
 xy = subset(xy, !is.na(x) & !is.na(y))
+## Error in subset(xy, !is.na(x) & !is.na(y)): object 'xy' not found
 ```
 
 - Finally, some simple density estimation/plotting...
 
-```{r fig.show='hide'}
+
+```r
 m = ggplot(data=xy, aes(x=x, y=y)) +
   stat_density2d(geom="raster", aes(fill=..density..),
                  contour=FALSE, alpha=1) +
   geom_point() + coord_equal()
+## Error in ggplot(data = xy, aes(x = x, y = y)): object 'xy' not found
 print(m)
+## Error in print(m): object 'm' not found
 ```
 
 Basic Mapping and Analysis
@@ -181,8 +191,9 @@ Basic Mapping and Analysis
 title: false
 
 <center>
-```{r echo=FALSE, fig.height=10, fig.width=10}
-m + pres_theme
+
+```
+## Error in eval(expr, envir, enclos): object 'm' not found
 ```
 </center>
 
@@ -191,7 +202,8 @@ Adding Some Context...
 
 - Plotting on Stamen Terrain basemap provides useful context...
 
-```{r eval=FALSE, fig.show='hide', message=FALSE, warning=FALSE}
+
+```r
 # Create Boulder basemap (geocoding by name)
 # NOTE: This doesn't work right now...
 Boulder = get_map(location="Boulder, CO, USA",
@@ -211,13 +223,7 @@ Twitter with Context
 ========================================================
 title: false
 <center>
-```{r eval=FALSE, echo=FALSE, fig.height=10, fig.width=10, message=FALSE, warning=FALSE}
-ggmap(Boulder) +
-  geom_point(data=xy, aes(x, y), color="red", size=2, alpha=0.5) +
-  stat_density2d(data=xy, aes(x, y,  fill=..level.., alpha=..level..),
-                              size=0.01, bins=16, geom='polygon') +
-  pres_theme
-```
+
 </center>
 
 Computing 'Clusters'
@@ -225,10 +231,12 @@ Computing 'Clusters'
 
 - Or we can compute clusters 'on the fly', again using the powerful `leaflet` package:
 
-```{r cache=FALSE}
+
+```r
 # URL for 'custom' icon
 url = "http://steppingstonellc.com/wp-content/uploads/twitter-icon-620x626.png"
 twitter = makeIcon(url, url, 32, 31)  # Create Icon!
+## Error in eval(expr, envir, enclos): could not find function "makeIcon"
 
 # How about auto-clustering?!
 map = leaflet(xy) %>%
@@ -236,9 +244,11 @@ map = leaflet(xy) %>%
   addMarkers(lng=~x, lat=~y, popup=~text,
     clusterOptions=markerClusterOptions(),
     icon=twitter)
+## Error in eval(expr, envir, enclos): could not find function "leaflet"
 ```
-```{r echo=FALSE}
-saveWidget(widget=map, file="twitter_map.html", selfcontained=TRUE)
+
+```
+## Error in eval(expr, envir, enclos): could not find function "saveWidget"
 ```
 
 Interactive Map of Twitter Data
@@ -266,7 +276,8 @@ Combining Tweets and Census Info
 ========================================================
 
 - Let's take another look at our Census data (this time grabbing population counts for Boulder region)
-```{r}
+
+```r
 pop = acs.fetch(endyear=2014, span=5, geography=geo,
                 table.number="B01003",
                 col.names="pretty")
@@ -278,19 +289,22 @@ rownames(pop) = 1:nrow(inc)  # Rename rows
 colnames(pop) = c("GEOID", "pop_total")  # Rename columns
 ```
 - Create the merged data.frame!
-```{r}
+
+```r
 merged = geo_join(tracts, pop, "GEOID", "GEOID")
 ```
 
 Big Ol' Chunk of Leaflet Code
 ========================================================
 
-```{r cache=FALSE}
+
+```r
 popup = paste0("GEOID: ", merged$GEOID,
                "<br/>Total Population: ",
                round(merged$pop_total, 2))
 pal = colorNumeric(palette="YlGnBu",
                    domain=merged$pop_total)
+## Error in eval(expr, envir, enclos): could not find function "colorNumeric"
 map = leaflet() %>%  # Map time!
   addProviderTiles("CartoDB.Positron") %>%
   addPolygons(data=merged, popup=popup,
@@ -303,10 +317,12 @@ map = leaflet() %>%  # Map time!
   addLegend(pal=pal, values=merged$pop_total,
             position="bottomright",
             title="Total Population")
+## Error in eval(expr, envir, enclos): could not find function "leaflet"
 ```
 
-```{r echo=FALSE}
-saveWidget(widget=map, file="dual_map.html", selfcontained=TRUE)
+
+```
+## Error in eval(expr, envir, enclos): could not find function "saveWidget"
 ```
 
 Interactive Map of Twitter Data
@@ -321,37 +337,51 @@ Controlling for Population
 ========================================================
 
 - That's all fine and good, but are areas with lots of tweets associated with areas of high population? Its hard to tell from the map...
-```{r}
+
+```r
 library(sp)
 # Make the points a SpatialPointsDataFrame
 coordinates(xy) = ~x+y
+## Error in coordinates(xy) = ~x + y: object 'xy' not found
 proj4string(xy) = CRS("+proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0")
+## Error in proj4string(xy) = CRS("+proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0"): object 'xy' not found
 # Put the x/y data back into the data slot for later...
 xy@data = as.data.frame(xy)
+## Error in as.data.frame(xy): object 'xy' not found
 ```
 - And now we count 'points in polygon':
-```{r}
+
+```r
 overlay = over(xy, merged)
+## Error in over(xy, merged): object 'xy' not found
 res = as.data.frame(table(overlay$GEOID))
+## Error in table(overlay$GEOID): object 'overlay' not found
 colnames(res) = c("GEOID", "count")
+## Error in colnames(res) = c("GEOID", "count"): object 'res' not found
 ```
 
 Tweet Score?
 ========================================================
 
 - We can then join counts back onto the counties:
-```{r}
+
+```r
 merged@data = join(merged@data, res, by="GEOID")
+## Error in as.vector(x): object 'res' not found
 # And compute a 'tweet score'... based on logged pop
 merged$percapita = merged$count/log(merged$pop_total)
+## Error in `[[<-.data.frame`(`*tmp*`, name, value = numeric(0)): replacement has 0 rows, data has 830
 ```
 - Based on this new variable, we setup a new pallette:
-```{r}
+
+```r
 pal = colorNumeric(palette="YlGnBu",
                    domain=merged$percapita)
+## Error in eval(expr, envir, enclos): could not find function "colorNumeric"
 # Also create a nice popup for display...
 popup = paste0("GEOID: ", merged$GEOID, "<br>",
                "Score: ", round(merged$percapita, 2))
+## Error in round(merged$percapita, 2): non-numeric argument to mathematical function
 ```
 - And we plot it!
 
@@ -359,23 +389,10 @@ Plotting the Tweets
 ========================================================
 title: false
 
-```{r cache=FALSE, echo=FALSE}
-map = leaflet() %>%
-  addProviderTiles("CartoDB.Positron", group="Base") %>%
-  addPolygons(data=merged, popup=popup,
-              fillColor=~pal(percapita),
-              color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1,
-              smoothFactor=0.2, group="Score") %>%
-  addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
-                   stroke=FALSE, popup=~text, group="Tweets") %>%
-  addLayersControl(overlayGroups=c("Tweets", "Score"),
-                   options=layersControlOptions(collapsed=FALSE)) %>%
-  addLegend(pal=pal, values=merged$percapita,
-            position="bottomright",
-            title="Score")
 
-saveWidget(widget=map, file="final_map.html", selfcontained=TRUE)
+```
+## Error in eval(expr, envir, enclos): could not find function "leaflet"
+## Error in eval(expr, envir, enclos): could not find function "saveWidget"
 ```
 
 <iframe  title="Twitter Map" width="1100" height="900"
@@ -386,7 +403,8 @@ saveWidget(widget=map, file="final_map.html", selfcontained=TRUE)
 Wanna See the Code for That One?
 ========================================================
 
-```{r eval=FALSE}
+
+```r
 leaflet() %>%
   addProviderTiles("CartoDB.Positron", group="Base") %>%
   addPolygons(data=merged, popup=popup,

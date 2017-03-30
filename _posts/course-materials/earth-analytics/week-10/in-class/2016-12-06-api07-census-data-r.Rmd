@@ -6,14 +6,14 @@ authors: ['Carson Farmer', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
-permalink: /course-materials/earth-analytics/week-10/leaflet-r/
-nav-title: 'Leaflet '
+permalink: /course-materials/earth-analytics/week-10/census-data-r/
+nav-title: 'Census data '
 week: 10
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 7
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -103,7 +103,7 @@ Check Your Email!
 
 
 
-We'll start by looking at Census data for median income in and around Boulder 
+We'll start by looking at Census data for median income in and around Boulder
 County. First, let's load the required `R` packages:
 
 ```{r message=FALSE}
@@ -137,7 +137,7 @@ https://factfinder.census.gov/faces/nav/jsf/pages/searchresults.xhtml?refresh=t#
 # where do we want the data from?
 https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_15_5YR_B19001&prodType=table
 
-table : B19001 
+table : B19001
 
 # where to get FIPS codes
 # what is a FIP code?
@@ -145,7 +145,7 @@ table : B19001
 ========================================================
 
 ```{r message=FALSE, warning=FALSE}
-# we can use the census API to look up terms 
+# we can use the census API to look up terms
 income_tables <- acs.lookup(keyword = "Household Income in the past 12 months", endyear = 2015, case.sensitive = F)
 
 # Fips codes for counties _around_ Boulder

@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-03-29'
+modified: '2017-03-30'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/leaflet-r/
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 6
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -69,10 +69,10 @@ Static maps are useful for adding context, but often times we want to interact w
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
 
 Sometimes we want to interact with our data geographically.  We can create interactive
-web maps using Leaflet. <a href="http://leafletjs.com" target="_blank">Leaflet</a> 
+web maps using Leaflet. <a href="http://leafletjs.com" target="_blank">Leaflet</a>
 is an open-source `JavaScript` library that can be used to create mobile-friendly interactive maps.
 
-Leaflet is designed with *simplicity*, *performance* and *usability* in mind. It also 
+Leaflet is designed with *simplicity*, *performance* and *usability* in mind. It also
 has an easy to use, and <a href="http://leafletjs.com/reference.html" target="_blank">well-documented API</a>
 
 The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package.
@@ -92,14 +92,14 @@ print(map)
 
 
 
-## Map our CO Water Data 
+## Map our CO Water Data
 
 
 - Getting back to our previous example, let's plot the current surface water conditions again, this time using `leaflet`. First we get the data and clean it as follows:
 
 1. We download the data from the colorado.gov SODA API.
 2. We convert the data from JSON to a data.frame in R using fromJSON()
-3. We address column data types to ensure our numeric data are in fact numeric. 
+3. We address column data types to ensure our numeric data are in fact numeric.
 3. we remove NA values
 
 
@@ -109,12 +109,15 @@ full_url <- paste0(base, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
 water_data_df <- fromJSON(water_data)
+## Error: lexical error: invalid char in json text.
+##                                        <!DOCTYPE html>  <html>      <h
+##                      (right here) ------^
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 
 # turn columns to numeric and remove NA values
-water_data_df <- water_data_df %>% 
-  mutate_each_(funs(as.numeric), c( "amount", "location.latitude", "location.longitude")) %>% 
+water_data_df <- water_data_df %>%
+  mutate_each_(funs(as.numeric), c( "amount", "location.latitude", "location.longitude")) %>%
   filter(!is.na(location.latitude))
 
 # Note the code above is the same as doing the following below:
@@ -145,22 +148,28 @@ leaflet(water_data_df) %>%
 
 ```r
 map = leaflet(water_data_df)
+## Error in eval(expr, envir, enclos): could not find function "leaflet"
 map = addTiles(map)
+## Error in eval(expr, envir, enclos): could not find function "addTiles"
 map = addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
+## Error in eval(expr, envir, enclos): could not find function "addCircleMarkers"
 ```
 
 
+```
+## Error in eval(expr, envir, enclos): could not find function "saveWidget"
+```
 
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
 
 ## Customize leaflet maps
 
-We can customize our leaflet map too. Let's add some popups to our map and 
+We can customize our leaflet map too. Let's add some popups to our map and
 adjust the marker symbology!
 
 We can also specify different basemaps to make our map look different. For example,
-we can use a basemap from <a href="https://cartodb.com" target="_blank">CartoDB</a> 
+we can use a basemap from <a href="https://cartodb.com" target="_blank">CartoDB</a>
 called Positron:
 
 
@@ -171,11 +180,15 @@ leaflet(water_data_df) %>%
 ```
 
 
+```
+## Error in eval(expr, envir, enclos): could not find function "leaflet"
+## Error in eval(expr, envir, enclos): could not find function "saveWidget"
+```
 
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map2.html" frameborder="0" allowfullscreen></iframe>
 
-### Further customization 
+### Further customization
 
 We can even specify a *custom* icon, just for fun:
 
@@ -189,14 +202,17 @@ leaflet(water_data_df) %>%
   addProviderTiles("Stamen.Terrain") %>%
   addMarkers(lng=~location.longitude, lat=~location.latitude, icon=water,
              popup=~paste0(station_name,
-                           "<br/>Discharg: ",
+                           "<br/>Discharge: ",
                            amount))
 ```
 
 
+```
+## Error in eval(expr, envir, enclos): could not find function "makeIcon"
+## Error in eval(expr, envir, enclos): could not find function "leaflet"
+## Error in eval(expr, envir, enclos): could not find function "saveWidget"
+```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
-That's it. Experiment with leaflet a bit more to learn more about customizing your maps. 
-
-
+That's it. Experiment with leaflet a bit more to learn more about customizing your maps.
