@@ -102,7 +102,7 @@ title to my plot.
 
 <i class="fa fa-star" aria-hidden="true"></i>**Data Tip:** Check out the additional "How to" lessons for this week to learn more about
 creating nicer plots in `R`.
-{: .notice }
+{: .notice--success}
 
 
 ```r

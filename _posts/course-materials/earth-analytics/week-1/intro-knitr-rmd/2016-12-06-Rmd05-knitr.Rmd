@@ -197,4 +197,4 @@ you might find
 <a href="http://cdn.screenr.com/video/8352c25b-7324-4134-970b-b7c427381adb.mp4" target="_blank">this video from the creator of knitr </a>
 informational. It introduces R Markdown & knitr in conjunction with LaTex and
 other formats.
-{: .notice .warning}
+{: .notice--success.warning}
