@@ -40,13 +40,16 @@ ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
 
 
 ## ----import-dat-file-----------------------------------------------------
-base = "http://data.princeton.edu/wws509"  # Base url
-file = "/datasets/effort.dat"  # File name
-birth_rates = read.table(paste0(base, file))
+the_url <- "http://data.princeton.edu/wws509/datasets/effort.dat"
+the_data <- read.table(the_url)
+head(the_data)
 
-## ------------------------------------------------------------------------
-# paste the base url together with the file name
-paste0(base, file)
+## ----import-dat-file-rcurl-----------------------------------------------
+the_url <- "http://data.princeton.edu/wws509/datasets/effort.dat"
+the_data <- getURL(the_url)
+# read in the data
+birth_rates <- read.table(textConnection(the_data))
+
 
 ## ------------------------------------------------------------------------
 str(birth_rates)
@@ -55,69 +58,42 @@ head(birth_rates)
 ## ------------------------------------------------------------------------
 ggplot(birth_rates, aes(x=effort, y=change)) +
   geom_point() +
-  ggtitle("Decline in birth rate vs. planning effort")
-
-## ----message=FALSE-------------------------------------------------------
-# Load RCurl (note cases)
-library(RCurl)
-# Store base url (note the secure -- https:// -- url)
-file = "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv"
-# grab the data!
-temp = getURL(file)
-
-## ------------------------------------------------------------------------
-# read.csv works too
-head(read.csv(file, sep="\t"))
+      labs(x="Effort",
+           y="Percent Change",
+          title="Decline in birth rate vs. planning effort",
+          subtitle = "For 20 Latin America Countries")
 
 
-## ------------------------------------------------------------------------
-# Use textConnection to read content of temp as tsv
-gap_data = read.csv(textConnection(temp))
-head(gap_data)
+## ----all-data, echo=FALSE------------------------------------------------
+#http://data.princeton.edu/wws509/datasets/#salary
+salary_data <- read.table("http://data.princeton.edu/wws509/datasets/salary.dat",
+                          header = TRUE)
 
-## ------------------------------------------------------------------------
-# Use textConnection to read content of temp as tsv
-gap_data <- read.csv(textConnection(temp),
-                     sep="\t")
-head(gap_data)
-
-## ------------------------------------------------------------------------
-# summarize the data - median value by content and year
-summary_life_exp <-  gap_data %>%
-   group_by(continent, year) %>%
-   summarise(median_life = median(lifeExp))
-
-ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
+ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
   geom_point() +
-      labs(x="Continent",
-           y="Life Expentancy (years)",
-          title="Gapminder Data - Life Expectancy",
-          subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+      labs(x="Experience (years)",
+           y="Salary (US dollars)",
+          title="Annual Salary by Experience",
+          subtitle = "For 52 Small college tenure track professors")
 
 
-## ------------------------------------------------------------------------
-# create box plot
-ggplot(summary_life_exp,
-       aes(continent, median_life)) +
-      geom_boxplot()+
-      labs(x="Continent",
-           y="Life Expentancy (years)",
-          title="Gapminder Data - Life Expectancy",
-          subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+## ----facet-by-rank, echo=FALSE-------------------------------------------
 
+ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
+  geom_point() +
+      labs(x="Experience (years)",
+           y="Salary (US dollars)",
+          title="Annual Salary by Experience",
+          subtitle = "For 52 Small college tenure track professors") +
+    facet_wrap(~rk)
 
-## ------------------------------------------------------------------------
-ggplot(gap_data, aes(x=continent, y=lifeExp)) +
-  geom_boxplot(outlier.colour="hotpink") +
-  geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+
-      labs(x="Continent",
-           y="Life Expentancy (years)",
-          title="Gapminder Data - Life Expectancy",
-          subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
-
-## ------------------------------------------------------------------------
-read_secure_csv_file = function(url) {
-  url = getURL(url)
-  return(read.csv(textConnection(url)))
-}
+## ----all-data-lm, echo=FALSE---------------------------------------------
+ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
+  geom_point() +
+      labs(x="Experience (years)",
+           y="Salary (US dollars)",
+          title="Annual Salary by Experience",
+          subtitle = "For 52 Small college tenure track professors") +
+  geom_smooth(method=lm,   # Add linear regression lines
+                se=FALSE)
 

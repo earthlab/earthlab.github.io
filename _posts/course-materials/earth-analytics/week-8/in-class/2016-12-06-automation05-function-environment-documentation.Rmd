@@ -125,4 +125,4 @@ fahr_to_celsius <- function(fahr) {
 >
 > * <a href="http://www.latex-project.org/" target="_blank">More on LaTeX</a>
 > * <a href="http://cran.r-project.org/web/packages/roxygen2/vignettes/rd.html" target="_blank"> More on roxygen2</a>
-{: .notice }
+{: .notice--success}
