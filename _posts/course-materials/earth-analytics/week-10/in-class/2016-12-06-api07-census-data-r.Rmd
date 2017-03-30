@@ -140,7 +140,7 @@ https://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pi
 table : B19001
 
 # where to get FIPS codes
-# what is a FIP code?
+# what is a FIPS code?
 # etc...
 ========================================================
 
