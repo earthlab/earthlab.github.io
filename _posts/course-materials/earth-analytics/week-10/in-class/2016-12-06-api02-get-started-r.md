@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-03-30'
+modified: '2017-04-04'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/get-data-with-rcurl-r/
@@ -24,8 +24,8 @@ order: 2
 
 After completing this tutorial, you will:
 
-* Be able to access data from a remote URL (http or https) using the getURL and textConnection functions.
-* Explain the difference between accessing data using download.file() compared to getURL().
+* Be able to access data from a remote URL (http or https) using the `getURL()` and `textConnection()` functions.
+* Explain the difference between accessing data using `download.file()` compared to `getURL()`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -39,14 +39,15 @@ data that we already downloaded for week 6 of the course.
 
 
 ```r
-library("dplyr")
-library("ggplot2")
+library(dplyr)
+library(ggplot2)
+library(RCurl)
 ```
 
 ## Direct data access
 
-In this lesson we will review how to access data via a direct download in R.
-We actually did this in the first week of this class using the `download.file()`
+In this lesson we will review how to access data via a direct download in `R`.
+We downloaded data in the first week of this class using `download.file()`
 When we used `download.file()`, we were literally downloading that file,
 which happened to be in `.csv` (comma separated value) text format to our computer.
 
@@ -86,24 +87,29 @@ ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
 
 ## Download data via human readable url
 
-The file that we downloaded above is a `.csv` or comma separated value format. This
+The file that we downloaded above is stored using a `.csv` or comma separated
+value format. This
 is a format that is human readable and structured using a simple, non hierarchical
-(no nesting involved) format compared to JSON which can be hiearchical and thus
+(no nesting involved) format compared to **JSON** which can be hierarchical and thus
 efficiently support more complex data. The `download.file()` function allows us
 to store a copy of the file on our computer. Given the data are small and they
 could be moved over time, this is a good idea as now we have a backup of the data.
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** If we have a secure url (secure transfer protocols - i.e., `https`) we may not be
-able to use read.csv. Instead, we need to use functions in the `RCurl` package.
+able to use `read.csv()`. Instead, we need to use functions in the `RCurl` package.
+With that said `read.csv()` may work for some if not all computers now given
+upgrades to the base R code.
 {: .notice--success}
 
 ## Directly access & import data into R
 
 We can import data directly into `R` rather than downloading it using the
-`read.csv()` and/or `read.table()` functions. This solution will not always
-work, but let's see how it works, next. The `read.csv()` function is ideal for
+`read.csv()` and/or `read.table()` functions. This solution will may have some
+problems when the data are stored on a secure server. However, let's have a look
+at how we use `read.csv()` to directly import data stored on a website or server,
+into `R`. The `read.csv()` function is ideal for
 data that are separated by commas (.csv) files whereas `read.table()` is ideal
-for data in other formats - separated by spaces, tabs and other delimeters.
+for data in other formats - separated by spaces, tabs and other delimiters.
 
 
 
@@ -124,10 +130,13 @@ ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
 
 ### read.csv() vs RCURL
 
-While using read.csv() to get data directly works, it may fail sometimes if:
+While using `read.csv()` to get data directly works, it may fail sometimes if:
 
 1. You are trying to access data from a secure (https or ftps server) or
 2. You are trying to access data from an API that requires authentication (more on that later)
+
+Because of these potential limitations, we are going to use functions in the
+RCurl package for the rest of this module.
 
 ## Use RCurl to download data
 
@@ -142,22 +151,24 @@ resources, and even API data access.
 
 ## Download data with RCurl
 
-Next, we will use functions in the `getURL()` function housed in the RCurl
-package to download data from a Princeton University data website.
+Next, we will use the `RCurl::getURL()` function to download data from a Princeton University data website.
+
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The syntax
+`package::functionName()` is a common way to tell R to use a function from a particular
+package.  In the example above: we specify that we are using getURL() from the
+RCurl package using the syntax: `RCurl::getURL()`. This syntax is not necessary to call
+getURL UNLESS there is another `getURL()` function available in your `R` session.
+{: .notice--success}
 
 ## Access birthrate data using getURL
 
 Birth rate data for several countries are available via a
-<a href="http://data.princeton.edu/wws509/datasets" target="_blank">Princeton University data website</a>.
-
-### About the birth rate data
-
-The birth rate data show how much effort went into considering family planning
+<a href="http://data.princeton.edu/wws509/datasets" target="_blank">Princeton University data website</a>. The birth rate data show how much effort went into considering family planning
 efforts that were in place to attempt to reduce birth rates in various countries.
 The outcome variable is the associated percent decline in birth rate by country
 over 10 years. An excerpt from the website where we are getting the data is below.
 
->Here are the famous program effort data from Mauldin and Berelson. This extract
+>Here are the famous program effort data from Mauldin and Berelson. These data
 consist of observations on an index of social setting, an index of family
 planning effort, and the percent decline in the crude birth rate (CBR) between
 1965 and 1975, for 20 countries in Latin America.
@@ -191,7 +202,7 @@ head(the_data)
 ```
 
 While read.table does work to directly open the data, it is more robust to use
-`getURL()`. `getURL()`, a function that comes from the RCURL R package, allows you to
+`getURL()`. `getURL()`, a function that comes from the RCurl `R` package, allows you to
 consistently access secure servers and also has additional authentication support.
 
 To use getURL to open text files we do the following:
@@ -258,9 +269,13 @@ out code would not run.
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Consider when
 you directly access a dataset via an API that - that data may not always
-be available. It is a good idea to save backup copies of certain datasets on
-your computer in many cases - in the event that the data API goes down, is taken
-away, etc.
+be available. It is often a good idea to save backup copies of certain datasets on
+your computer if the data are not too large. For example, what happens if the
+data API or server goes down, is taken away, etc? Many data repositories have
+documented terms of data longevity - or explicit provisions that specify how long
+the data will be available on the repository and available for (public) use. Look
+into this before assuming the
+data will always be there!
 {: .notice--success }
 
 <div class="notice--warning" markdown="1">
@@ -290,8 +305,8 @@ HINT: these data have a header. You will have to look up the appropriate argumen
 to ensure that the data import properly using `read.table()`.
 
 HINT2: You can add facets or individual plots for particular subsets of data (
-in this case rank) using the facet_wrap() argument in a ggplot plot. For example
- `+ facet_wrap(~dg)` will create a ggplot plot with sub plots filtered by highest
+in this case rank) using the `facet_wrap()` argument in a `ggplot()` plot. For example
+ `+ facet_wrap(~dg)` will create a `ggplot()` plot with sub plots filtered by highest
  degree.)
 
 Plot the following:

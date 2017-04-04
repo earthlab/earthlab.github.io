@@ -3,8 +3,9 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ## ------------------------------------------------------------------------
-library("dplyr")
-library("ggplot2")
+library(dplyr)
+library(ggplot2)
+library(RCurl)
 
 ## ---- eval=FALSE---------------------------------------------------------
 ## # download text file to a specified location on our computer
