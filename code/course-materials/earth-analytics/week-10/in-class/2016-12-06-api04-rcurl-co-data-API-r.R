@@ -57,7 +57,7 @@ pop_proj_data_df <- pop_proj_data_df %>%
 ## # OR use the apply function to convert all rows in the DF to numbers
 ## #pops <- as.data.frame(lapply(pop_proj_data_df, as.numeric))
 
-## ----plot_pop_proj-------------------------------------------------------
+## ----plot_pop_proj, fig.cap="Female population age 20-40."---------------
 # plot the data
 ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
   group=factor(age), color=age)) + geom_line() +
@@ -66,7 +66,7 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
           title="Projected Female Population",
           subtitle = "Boulder, CO: 1990 - 2040")
 
-## ----male-population, echo=FALSE-----------------------------------------
+## ----male-population, echo=FALSE, fig.cap="Male population ages 60-80."----
 # Base URL path
 base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
 full_url_80 = paste0(base_url, "county=Boulder",

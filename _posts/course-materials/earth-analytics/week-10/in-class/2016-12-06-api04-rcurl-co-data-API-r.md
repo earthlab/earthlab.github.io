@@ -319,7 +319,7 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
           subtitle = "Boulder, CO: 1990 - 2040")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/plot_pop_proj-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="100%" />
 
 
 
@@ -340,7 +340,7 @@ plot a descriptive title.
 
 ## Example homework plot
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/male-population-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
 
 
 

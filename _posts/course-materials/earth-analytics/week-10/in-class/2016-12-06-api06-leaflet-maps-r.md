@@ -142,17 +142,16 @@ map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
 
 We can customize our leaflet map too. Let's do the following:
 
-1. add some popups to our map and adjust the marker symbology.
-2. adjust the basemap. Let's use a basemap from
-3. <a href="https://carto.com/blog/getting-to-know-positron-and-dark-matter" target="_blank">CartoDB</a>
-called Positron.
+1. Add custom data-driven popups to our map
+2. Adjust the point symbology
+2. Adjust the basemap. Let's use a basemap from <a href="https://carto.com/blog/getting-to-know-positron-and-dark-matter" target="_blank">CartoDB</a> called Positron.
 
 Notice in the code below that we can specify the popup text using the `popup=`
 argument.
 
 `addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)`
 
-We specify the basemap using the addProviderTiles() argument:
+We specify the basemap using the `addProviderTiles()` argument:
 
 `addProviderTiles("CartoDB.Positron")`
 
@@ -187,7 +186,7 @@ paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 ##  [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"              
 ##  [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"                                     
 ##  [3] "BOULDER RESERVOIR INLET<br/>Discharge: 0"                                           
-##  [4] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 126"
+##  [4] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 12.1"                              
 ##  [5] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                                       
 ##  [6] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                          
 ##  [7] "BONUS DITCH<br/>Discharge: 0"                                                       
@@ -195,7 +194,7 @@ paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 ##  [9] "DAVIS AND DOWNING DITCH<br/>Discharge: 2.27"                                        
 ## [10] "DENIO TAYLOR DITCH<br/>Discharge: 0"                                                
 ## [11] "GOSS DITCH 1<br/>Discharge: 0.01"                                                   
-## [12] "HAGER MEADOWS DITCH<br/>Discharge: 1.77"                                            
+## [12] "HAGER MEADOWS DITCH<br/>Discharge: 1.7"                                             
 ## [13] "JAMES DITCH<br/>Discharge: 0.12"                                                    
 ## [14] "LEFT HAND CREEK AT HOVER ROAD NEAR LONGMONT, CO<br/>Discharge: 1.2"                 
 ## [15] "LONGMONT SUPPLY DITCH<br/>Discharge: 0.82"                                          
@@ -205,36 +204,40 @@ paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 ## [19] "PALMERTON DITCH<br/>Discharge: 0"                                                   
 ## [20] "ROUGH AND READY DITCH<br/>Discharge: 0"                                             
 ## [21] "RUNYON DITCH<br/>Discharge: 0"                                                      
-## [22] "SMEAD DITCH<br/>Discharge: 0"                                                       
-## [23] "SOUTH BRANCH ST. VRAIN CREEK<br/>Discharge: 13.39"                                  
-## [24] "SOUTH FLAT DITCH<br/>Discharge: 0.23"                                               
-## [25] "SUPPLY DITCH<br/>Discharge: 0"                                                      
-## [26] "SWEDE DITCH<br/>Discharge: 0"                                                       
-## [27] "TRUE AND WEBSTER DITCH<br/>Discharge: 0.03"                                         
-## [28] "UNION RESERVOIR<br/>Discharge: 8595"                                                
-## [29] "UNION RESERVOIR<br/>Discharge: 12.17"                                               
-## [30] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.17"                                         
-## [31] "ZWECK AND TURNER DITCH<br/>Discharge: 1.8"                                          
-## [32] "BOULDER CREEK AT NORTH 75TH STREET NEAR BOULDER<br/>Discharge: 68"                  
-## [33] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 2.13"       
-## [34] "DRY CREEK CARRIER<br/>Discharge: 0.84"                                              
-## [35] "LEGGETT DITCH<br/>Discharge: 0.56"                                                  
-## [36] "SAINT VRAIN CREEK BELOW KEN PRATT BLVD AT LONGMONT, CO<br/>Discharge: 28.1"         
-## [37] "SAINT VRAIN SUPPLY CANAL NEAR LYONS, CO<br/>Discharge: 46.7"                        
-## [38] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 43.8"                          
-## [39] "HIGHLAND DITCH AT LYONS, CO<br/>Discharge: 73.7"                                    
-## [40] "SOUTH BOULDER CREEK DIVERSION NEAR ELDORADO SPRINGS<br/>Discharge: 0"               
-## [41] "BOULDER RESERVOIR<br/>Discharge: 4993"                                              
-## [42] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 12.6"                              
-## [43] "SAINT VRAIN CREEK AT LYONS, CO<br/>Discharge: 74.5"                                 
-## [44] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 18.1"                                     
-## [45] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 4.5"                                  
-## [46] "MIDDLE BOULDER CREEK AT NEDERLAND<br/>Discharge: 19.5"                              
-## [47] "SOUTH BOULDER CREEK BELOW GROSS RESERVOIR<br/>Discharge: 84.3"                      
-## [48] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 15.4"
+## [22] "SAINT VRAIN CREEK AT LYONS, CO<br/>Discharge: 73.4"                                 
+## [23] "SMEAD DITCH<br/>Discharge: 0"                                                       
+## [24] "SOUTH BRANCH ST. VRAIN CREEK<br/>Discharge: 14.13"                                  
+## [25] "SOUTH FLAT DITCH<br/>Discharge: 0.23"                                               
+## [26] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 126"
+## [27] "SUPPLY DITCH<br/>Discharge: 0"                                                      
+## [28] "SWEDE DITCH<br/>Discharge: 0"                                                       
+## [29] "TRUE AND WEBSTER DITCH<br/>Discharge: 0.03"                                         
+## [30] "UNION RESERVOIR<br/>Discharge: 8595"                                                
+## [31] "UNION RESERVOIR<br/>Discharge: 12.17"                                               
+## [32] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.17"                                         
+## [33] "ZWECK AND TURNER DITCH<br/>Discharge: 1.8"                                          
+## [34] "BOULDER CREEK AT NORTH 75TH STREET NEAR BOULDER<br/>Discharge: 79"                  
+## [35] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 18.1"                                     
+## [36] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 2.13"       
+## [37] "DRY CREEK CARRIER<br/>Discharge: 0.84"                                              
+## [38] "LEGGETT DITCH<br/>Discharge: 0.45"                                                  
+## [39] "MIDDLE BOULDER CREEK AT NEDERLAND<br/>Discharge: 20.5"                              
+## [40] "SOUTH BOULDER CREEK BELOW GROSS RESERVOIR<br/>Discharge: 84.3"                      
+## [41] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 14.9"                      
+## [42] "SAINT VRAIN CREEK BELOW KEN PRATT BLVD AT LONGMONT, CO<br/>Discharge: 25.9"         
+## [43] "SAINT VRAIN SUPPLY CANAL NEAR LYONS, CO<br/>Discharge: 46.7"                        
+## [44] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 44.5"                          
+## [45] "HIGHLAND DITCH AT LYONS, CO<br/>Discharge: 72.7"                                    
+## [46] "SOUTH BOULDER CREEK DIVERSION NEAR ELDORADO SPRINGS<br/>Discharge: 0"               
+## [47] "BOULDER RESERVOIR<br/>Discharge: 5002"                                              
+## [48] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 4.3"
 ```
 
-Finally, let's see what the custom icon and popup text looks like on our map!
+The `<br/>` element in our popup above is HTML. This adds a line break to our
+popup so the Discharge text and value are on the second line - below the
+station name.
+
+Let's see what the custom icon and popup text looks like on our map.
 
 
 ```r

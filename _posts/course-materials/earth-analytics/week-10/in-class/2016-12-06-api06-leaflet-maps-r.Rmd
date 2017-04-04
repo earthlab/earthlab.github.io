@@ -149,17 +149,16 @@ saveWidget(widget=map, file="water_map1.html", selfcontained=FALSE)
 
 We can customize our leaflet map too. Let's do the following:
 
-1. add some popups to our map and adjust the marker symbology.
-2. adjust the basemap. Let's use a basemap from
-3. <a href="https://carto.com/blog/getting-to-know-positron-and-dark-matter" target="_blank">CartoDB</a>
-called Positron.
+1. Add custom data-driven popups to our map
+2. Adjust the point symbology
+2. Adjust the basemap. Let's use a basemap from <a href="https://carto.com/blog/getting-to-know-positron-and-dark-matter" target="_blank">CartoDB</a> called Positron.
 
 Notice in the code below that we can specify the popup text using the `popup=`
 argument.
 
 `addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)`
 
-We specify the basemap using the addProviderTiles() argument:
+We specify the basemap using the `addProviderTiles()` argument:
 
 `addProviderTiles("CartoDB.Positron")`
 
@@ -196,7 +195,11 @@ a series of text strings and object values.
 paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 ```
 
-Finally, let's see what the custom icon and popup text looks like on our map!
+The `<br/>` element in our popup above is HTML. This adds a line break to our
+popup so the Discharge text and value are on the second line - below the
+station name.
+
+Let's see what the custom icon and popup text looks like on our map.
 
 ```{r eval=FALSE}
 # Specify custom icon
