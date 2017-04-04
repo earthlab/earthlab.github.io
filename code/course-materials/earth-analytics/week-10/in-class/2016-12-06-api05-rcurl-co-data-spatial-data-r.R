@@ -3,6 +3,13 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ## ------------------------------------------------------------------------
+library(dplyr)
+library(ggplot2)
+library(RCurl)
+library(rjson)
+library(jsonlite)
+
+## ------------------------------------------------------------------------
 
 water_base_url = "https://data.colorado.gov/resource/j5pc-4t32.json?"
 water_full_url = paste0(water_base_url, "station_status=Active",
