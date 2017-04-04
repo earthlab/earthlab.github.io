@@ -28,6 +28,8 @@ After completing this tutorial, you will be able to:
 * Describe and recognize query parameters in a RESTful call
 * Describe what a response and a request are relative to data APIs
 * Be able to list the 2 potential responses that you may get when querying a RESTful API.
+* Be able to identify the components of a hierarchically structures JSON file including: objects, arrays and data elements.
+* Use the `mutate_each_()` function with dplyr pipes to adjust the format / data type of multiple columns. 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 

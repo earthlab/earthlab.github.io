@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "An example of creating modular code in R - Efficient scientific programming"
-excerpt: "This lesson provides an example of modularizing code in R. "
+title: "Programmatically accessing geospatial data using API's - Working with and mapping JSON data from the Colorado Information Warehouse in R"
+excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
 authors: ['Carson Farmer', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -24,12 +24,13 @@ order: 5
 
 After completing this tutorial, you will be able to:
 
-*
+* Extract geospatial (x,y) coordinate information embedded within a JSON hierarchical data structure.
+* Use the `flatten()` function to remove nested data.frames from data imported in JSON format.
+* Create a map of geospatial data using `ggmap()`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson.
-
 
 </div>
 
@@ -138,14 +139,16 @@ str(water_data_df)
 In this case, we have a data.frame nested within a data.frame.
 
 ```{r}
-water_data_df$location
-water_data_df$location$latitude
+# view first 6 lines of the location nested data.frame
+head(water_data_df$location)
+# view for 6 lines of the location.latitude column
+head(water_data_df$location$latitude)
 ```
 
 We can remove the nesting using the `flatten()` function in `R`. When we flatten
-our json data, R creates new columns for each nested data.frame column. In this
-case it creates a unique column for latitute and longitude. Notice that the name
-of each new column contains the name of the previously nested data.frame followed
+our `json` data, `R` creates new columns for each nested data.frame column. In this
+case it creates a unique column for latitude and longitude. Notice that the name
+of each new column contains the name of the previously nested `data.frame` followed
 by a period, and then the column name. For example
 
 `location.latitude`
@@ -171,9 +174,25 @@ previous lessons, to convert columns that are numbers to `numeric` rather than
 `char` data types:
 
 Notice in the code below that there is an addition pipe that removes NA values
-(missing latitude values) from the dataset. We know we want to create a map of these
+(missing latitude values) from the dataset. We want to create a map of these
 data. We will not be able to map points with missing X,Y coordinate locations
 so it is best to remove them.
+
+```{r}
+# where are the cells with NA values in our data? 
+is.na(water_data_df$location.latitude)
+```
+
+Note, in the code above, we can identify each location where there is a NA value 
+in our data. If we add an `!` to our code, R returns the INVERSE of the above.
+
+```{r}
+# where are calls with values in our data? 
+!is.na(water_data_df$location.latitude)
+```
+
+Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value 
+in the latitude column.
 
 Remove NA Values: `filter(!is.na(location.latitude))`
 
@@ -193,7 +212,8 @@ ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
       labs(x="Longitude",
            y="Latitude",
           title="Surface Water Site Locations by Type",
-          subtitle = "Boulder, Colorado")
+          subtitle = "Boulder, Colorado") +
+  labs(size="Amount", colour="Station Type")
 
 ```
 

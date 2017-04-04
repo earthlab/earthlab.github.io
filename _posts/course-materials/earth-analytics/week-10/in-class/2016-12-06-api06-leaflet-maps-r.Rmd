@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "An example of creating modular code in R - Efficient scientific programming"
-excerpt: "This lesson provides an example of modularizing code in R. "
+title: "Creating interactive spatial maps in R using leaflet"
+excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -24,7 +24,8 @@ order: 6
 
 After completing this tutorial, you will be able to:
 
-*
+* Create an interactive leaflet map using R and rmarkdown.
+* Customize an interactive map with data-driven popups.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -40,11 +41,11 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ```{r}
-library("dplyr")
-library("ggplot2")
-library("RCurl")
-library("rjson")
-library("jsonlite")
+library(dplyr)
+library(ggplot2)
+library(RCurl)
+library(rjson)
+library(jsonlite)
 library(leaflet)
 ```
 
@@ -167,7 +168,7 @@ leaflet(water_data_df) %>%
   addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
 ```
 
-```{r echo=FALSE, cache=FALSE}
+```{r echo=FALSE, cache=FALSE, eval=FALSE}
 map = leaflet(water_data_df) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
@@ -186,12 +187,12 @@ name AND the discharge value.
 
 `paste0(station_name, "<br/>Discharge: ", amount)`
 
-We are using paste0() to do this. Remeber that paste0() will paste together a
-series of text strings and object values.
+We are using `paste0()` to do this. Remember that `paste0()` will paste together
+a series of text strings and object values.
 
 ```{r}
 # let's look at the output of our popup text before calling it in leaflet
-paste0(station_name, "<br/>Discharge: ", amount)
+paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 ```
 
 Finally, let's see what the custom icon and popup text looks like on our map!
@@ -209,7 +210,7 @@ leaflet(water_data_df) %>%
                            amount))
 ```
 
-```{r echo=FALSE, cache=FALSE}
+```{r echo=FALSE, cache=FALSE, eval=FALSE}
 url = "http://tinyurl.com/jeybtwj"
 water = makeIcon(url, url, 24, 24)
 
@@ -223,6 +224,3 @@ saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
 There is a lot more to learn about leaflet. Here, we've just scratched the surface.
-
-
- 
