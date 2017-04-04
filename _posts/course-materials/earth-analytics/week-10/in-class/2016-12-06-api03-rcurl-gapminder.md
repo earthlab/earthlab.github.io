@@ -7,7 +7,7 @@ modified: '2017-04-04'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/access-gapminder-data-rcurl-r/
-nav-title: 'RCURL - gapminder'
+nav-title: 'Using RCurl functions'
 week: 10
 sidebar:
   nav:
@@ -141,6 +141,7 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
            y="Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+## Error in eval(expr, envir, enclos): object 'year' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/life-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent" alt="GGPLOT of gapminder data - life expectance by continent" width="100%" />
@@ -162,6 +163,7 @@ ggplot(summary_life_exp,
            y="Life Expentancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+## Error in eval(expr, envir, enclos): object 'continent' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent boxplot" alt="GGPLOT of gapminder data - life expectance by continent boxplot" width="100%" />
