@@ -35,7 +35,7 @@ Welcome to week {{ page.week }} of Earth Analytics!
 ### Overview
 
 
-## Homework Plot 1
+#### Homework Plot 1
 
 
 <div class="notice--warning" markdown="1">
@@ -77,7 +77,22 @@ to add a facet for each of the three ranks.
 </div>
 
 
-## plot 2
+
+#### Homework Plot 2
+
+
+{{ site.url }}/course-materials/earth-analytics/week-10/access-gapminder-data-rcurl-r/
+Use the `read_secure_csv_file()` function  to import the gapminder data.
+Then create a plot using the `ggplot()` of two variables of interest. You can
+pick any variables that you want to plot together!
+
+Be sure to:
+
+* Add a title and label the x and y axes appropriately
+* Adjust the colors of your plot to make it look nice
+
+
+#### Homework Plot 3
 
 <div class="notice--warning" markdown="1">
 
@@ -90,9 +105,11 @@ MALE population numbers as follows:
 * Column category: malepopulation
 * Age range: 60-80 years old
 
-Use ggplot() to create your plot and be sure to label x and y axes and give the
+Use `ggplot()` to create your plot and be sure to label x and y axes and give the
 plot a descriptive title.
 </div>
 
+
+#### Bonus Plot - (1 point)
 BONUS -- create a leaflet map
-will need to test this using rmd knit to see if it works...
+will need to test this using .Rmd knit to see if it works...
