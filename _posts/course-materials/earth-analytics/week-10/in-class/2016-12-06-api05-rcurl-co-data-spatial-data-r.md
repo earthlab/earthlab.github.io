@@ -134,25 +134,25 @@ Next, let's look at the structure of the data.frame that R creates from the
 # view data structure
 str(water_data_df)
 ## 'data.frame':	53 obs. of  15 variables:
-##  $ station_name   : chr  "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO" "GOODING A AND D PLUMB DITCH" "BOULDER RESERVOIR INLET" "LEFT HAND CREEK NEAR BOULDER, CO." ...
-##  $ amount         : chr  "17.00" "7.20" "0.00" "12.60" ...
+##  $ station_name   : chr  "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO" "GOODING A AND D PLUMB DITCH" "BOULDER RESERVOIR INLET" "SAINT VRAIN SUPPLY CANAL NEAR LYONS, CO" ...
+##  $ amount         : chr  "17.00" "7.20" "0.00" "46.70" ...
 ##  $ station_status : chr  "Active" "Active" "Active" "Active" ...
 ##  $ county         : chr  "BOULDER" "BOULDER" "BOULDER" "BOULDER" ...
 ##  $ wd             : chr  "6" "6" "6" "5" ...
-##  $ dwr_abbrev     : chr  "FRMLMRCO" "GOOPLMCO" "BFCINFCO" "LEFCRECO" ...
-##  $ data_source    : chr  "U.S. Geological Survey (Data Provider)" "Cooperative Program of CDWR, NCWCD & LSPWCD" "Northern Colorado Water Conservancy District (Data Provider)" "Co. Division of Water Resources" ...
+##  $ dwr_abbrev     : chr  "FRMLMRCO" "GOOPLMCO" "BFCINFCO" "SVSLYOCO" ...
+##  $ data_source    : chr  "U.S. Geological Survey (Data Provider)" "Cooperative Program of CDWR, NCWCD & LSPWCD" "Northern Colorado Water Conservancy District (Data Provider)" "Northern Colorado Water Conservancy District (Station Cooperator)" ...
 ##  $ http_linkage   :'data.frame':	53 obs. of  1 variable:
-##   ..$ url: chr  "http://waterdata.usgs.gov/nwis/uv?06727410" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=GOOPLMCO&MTYPE=DISCHRG" "http://www.northernwater.org/WaterProjects/EastSlopeWaterData.aspx" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=LEFCRECO&MTYPE=DISCHRG" ...
+##   ..$ url: chr  "http://waterdata.usgs.gov/nwis/uv?06727410" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=GOOPLMCO&MTYPE=DISCHRG" "http://www.northernwater.org/WaterProjects/EastSlopeWaterData.aspx" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=SVSLYOCO&MTYPE=DISCHRG" ...
 ##  $ div            : chr  "1" "1" "1" "1" ...
-##  $ date_time      : chr  "2013-09-20T08:10:00" "2016-11-16T15:00:00" "2017-04-03T08:30:00" "2017-04-04T12:15:00" ...
-##  $ usgs_station_id: chr  "06727410" NA "ES1916" "06724500" ...
+##  $ date_time      : chr  "2013-09-20T08:10:00" "2016-11-16T15:00:00" "2017-04-03T08:30:00" "2017-04-04T12:30:00" ...
+##  $ usgs_station_id: chr  "06727410" NA "ES1916" NA ...
 ##  $ variable       : chr  "DISCHRG" "DISCHRG" "DISCHRG" "DISCHRG" ...
 ##  $ location       :'data.frame':	53 obs. of  3 variables:
-##   ..$ latitude      : chr  "40.042028" "40.09404" "40.849982" "40.125542" ...
-##   ..$ needs_recoding: logi  FALSE FALSE FALSE FALSE FALSE NA ...
-##   ..$ longitude     : chr  "-105.364917" "-105.05447" "-105.218036" "-105.303879" ...
-##  $ station_type   : chr  "Stream" "Diversion" "Stream" "Stream" ...
-##  $ stage          : chr  NA "0.47" "0.00" "0.46" ...
+##   ..$ latitude      : chr  "40.042028" "40.09404" "40.849982" "40.2172" ...
+##   ..$ needs_recoding: logi  FALSE FALSE FALSE FALSE FALSE FALSE ...
+##   ..$ longitude     : chr  "-105.364917" "-105.05447" "-105.218036" "-105.259161" ...
+##  $ station_type   : chr  "Stream" "Diversion" "Stream" "Diversion" ...
+##  $ stage          : chr  NA "0.47" "0.00" "0.90" ...
 ```
 
 In this case, we have a data.frame nested within a data.frame.
@@ -165,12 +165,12 @@ head(water_data_df$location)
 ## 1 40.042028          FALSE -105.364917
 ## 2  40.09404          FALSE  -105.05447
 ## 3 40.849982          FALSE -105.218036
-## 4 40.125542          FALSE -105.303879
-## 5 40.160347          FALSE -105.007828
-## 6      <NA>             NA        <NA>
+## 4   40.2172          FALSE -105.259161
+## 5 40.216093          FALSE -105.258323
+## 6 40.214984          FALSE -105.256647
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
-## [1] "40.042028" "40.09404"  "40.849982" "40.125542" "40.160347" NA
+## [1] "40.042028" "40.09404"  "40.849982" "40.2172"   "40.216093" "40.214984"
 ```
 
 We can remove the nesting using the `flatten()` function in `R`. When we flatten
@@ -187,17 +187,17 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
-##  [1] "40.042028" "40.09404"  "40.849982" "40.125542" "40.160347"
-##  [6] NA          "40.256031" "40.255581" "40.15336"  "40.193757"
-## [11] "40.18188"  "40.187577" "40.19932"  "40.174844" "40.18858" 
-## [16] "40.134278" "40.20419"  "40.173949" "40.172925" "40.19642" 
-## [21] "40.2125"   "40.21266"  "40.187524" NA          "40.21804" 
-## [26] "40.21139"  "40.1946"   "40.170997" "40.21905"  "40.21108" 
-## [31] "40.193018" "40.172677" "40.172677" "40.19328"  "40.18503" 
-## [36] "40.051652" "40.006374" "40.053036" "39.98617"  "40.05366" 
-## [41] "39.961655" NA          "39.938598" "39.931099" "40.153341"
-## [46] "40.2172"   "40.216093" "40.214984" "40.733879" "39.931096"
-## [51] NA          NA          "40.018667"
+##  [1] "40.042028" "40.09404"  "40.849982" "40.2172"   "40.216093"
+##  [6] "40.214984" "39.931096" NA          NA          NA         
+## [11] "40.125542" "40.21804"  "40.006374" "39.961655" "39.938598"
+## [16] "39.931099" "40.256031" "40.255581" "40.15336"  "40.193757"
+## [21] "40.18188"  "40.187577" "40.19932"  "40.174844" "40.18858" 
+## [26] "40.134278" "40.20419"  "40.173949" "40.172925" "40.19642" 
+## [31] "40.2125"   "40.21266"  "40.187524" NA          "40.153341"
+## [36] "40.21139"  "40.1946"   "40.170997" "40.160347" "40.21905" 
+## [41] "40.21108"  "40.193018" "40.172677" "40.172677" "40.19328" 
+## [46] "40.18503"  "40.051652" "40.053036" "40.733879" "39.98617" 
+## [51] "40.018667" "40.05366"  NA
 ```
 Now we can clean up the data. Notice that our longitude and latitude values
 are in quotes. What does this mean about the structure of the data?
@@ -206,7 +206,7 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
-##  chr [1:53] "40.042028" "40.09404" "40.849982" "40.125542" ...
+##  chr [1:53] "40.042028" "40.09404" "40.849982" "40.2172" ...
 ```
 
 In order to map or work with latitude and longitude data, we need numeric values.
@@ -223,11 +223,11 @@ so it is best to remove them.
 ```r
 # where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
-##  [1] FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE
 ## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [23] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
-## [45] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE
+## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [34]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
 ```
 
 Note, in the code above, we can identify each location where there is a NA value
@@ -237,11 +237,11 @@ in our data. If we add an `!` to our code, R returns the INVERSE of the above.
 ```r
 # where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
-##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE  TRUE
 ## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [23]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
-## [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE
+## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [34] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
 ```
 
 Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value
@@ -271,7 +271,7 @@ ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   labs(size="Amount", colour="Station Type")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api05-rcurl-co-data-spatial-data-r/water_data_plot1-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api05-rcurl-co-data-spatial-data-r/water_data_plot1-1.png" title="ggplot of water surface data." alt="ggplot of water surface data." width="100%" />
 
 Plotting the data using `ggplot()` creates a scatterplot of longitude and latitude,
 with some minor aesthetic tweaks. We really want to create a web
@@ -287,12 +287,12 @@ on top of that basemap to create a nice static map.
 ```r
 boulder <- get_map(location="Boulder, CO, USA",
                   source="google", crop=FALSE, zoom=10)
+## Error in eval(expr, envir, enclos): could not find function "get_map"
 ggmap(boulder) +
   geom_point(data=water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=factor(station_type)))
+## Error in eval(expr, envir, enclos): could not find function "ggmap"
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api05-rcurl-co-data-spatial-data-r/create_ggmap-1.png" title=" " alt=" " width="100%" />
 
 In the next lesson, we will learn how to create interactive maps using the leaflet
 package for `R`.
