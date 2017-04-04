@@ -16,8 +16,10 @@ water_data_df <- fromJSON(water_data)
 str(water_data_df)
 
 ## ------------------------------------------------------------------------
-water_data_df$location
-water_data_df$location$latitude
+# view first 6 lines of the location nested data.frame
+head(water_data_df$location)
+# view for 6 lines of the location.latitude column
+head(water_data_df$location$latitude)
 
 ## ------------------------------------------------------------------------
 # remove the nested data frame
@@ -27,6 +29,14 @@ water_data_df$location.latitude
 
 ## ------------------------------------------------------------------------
 str(water_data_df$location.latitude)
+
+## ------------------------------------------------------------------------
+# where are the cells with NA values in our data? 
+is.na(water_data_df$location.latitude)
+
+## ------------------------------------------------------------------------
+# where are calls with values in our data? 
+!is.na(water_data_df$location.latitude)
 
 ## ------------------------------------------------------------------------
 # turn columns to numeric and remove NA values
@@ -41,7 +51,8 @@ ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
       labs(x="Longitude",
            y="Latitude",
           title="Surface Water Site Locations by Type",
-          subtitle = "Boulder, Colorado")
+          subtitle = "Boulder, Colorado") +
+  labs(size="Amount", colour="Station Type")
 
 
 ## ----create_ggmap--------------------------------------------------------

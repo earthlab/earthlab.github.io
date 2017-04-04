@@ -3,11 +3,11 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ## ------------------------------------------------------------------------
-library("dplyr")
-library("ggplot2")
-library("RCurl")
-library("rjson")
-library("jsonlite")
+library(dplyr)
+library(ggplot2)
+library(RCurl)
+library(rjson)
+library(jsonlite)
 library(leaflet)
 
 ## ---- echo=FALSE---------------------------------------------------------
@@ -59,15 +59,15 @@ map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
 ##   addProviderTiles("CartoDB.Positron") %>%
 ##   addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
 
-## ----echo=FALSE, cache=FALSE---------------------------------------------
-map = leaflet(water_data_df) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
-saveWidget(widget=map, file="water_map2.html", selfcontained=FALSE)
+## ----echo=FALSE, cache=FALSE, eval=FALSE---------------------------------
+## map = leaflet(water_data_df) %>%
+##   addProviderTiles("CartoDB.Positron") %>%
+##   addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
+## saveWidget(widget=map, file="water_map2.html", selfcontained=FALSE)
 
 ## ------------------------------------------------------------------------
-# let's look at the output of our popup text before calling it in leaflet 
-paste0(station_name, "<br/>Discharge: ", amount)
+# let's look at the output of our popup text before calling it in leaflet
+paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 
 ## ----eval=FALSE----------------------------------------------------------
 ## # Specify custom icon
@@ -81,13 +81,13 @@ paste0(station_name, "<br/>Discharge: ", amount)
 ##                            "<br/>Discharge: ",
 ##                            amount))
 
-## ----echo=FALSE, cache=FALSE---------------------------------------------
-url = "http://tinyurl.com/jeybtwj"
-water = makeIcon(url, url, 24, 24)
-
-map = leaflet(water_data_df) %>%
-  addProviderTiles("Stamen.Terrain") %>%
-  addMarkers(lng=~location.longitude, lat=~location.latitude, icon=water,
-             popup=~paste0(station_name, "<br/>Discharg: ", amount))
-saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
+## ----echo=FALSE, cache=FALSE, eval=FALSE---------------------------------
+## url = "http://tinyurl.com/jeybtwj"
+## water = makeIcon(url, url, 24, 24)
+## 
+## map = leaflet(water_data_df) %>%
+##   addProviderTiles("Stamen.Terrain") %>%
+##   addMarkers(lng=~location.longitude, lat=~location.latitude, icon=water,
+##              popup=~paste0(station_name, "<br/>Discharg: ", amount))
+## saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
 

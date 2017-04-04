@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "An example of creating modular code in R - Efficient scientific programming"
-excerpt: "This lesson provides an example of modularizing code in R. "
+title: "Creating interactive spatial maps in R using leaflet"
+excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-03-30'
+modified: '2017-04-04'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/leaflet-r/
@@ -24,7 +24,8 @@ order: 6
 
 After completing this tutorial, you will be able to:
 
-*
+* Create an interactive leaflet map using R and rmarkdown.
+* Customize an interactive map with data-driven popups.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -38,11 +39,11 @@ You will need a computer with internet access to complete this lesson.
 
 
 ```r
-library("dplyr")
-library("ggplot2")
-library("RCurl")
-library("rjson")
-library("jsonlite")
+library(dplyr)
+library(ggplot2)
+library(RCurl)
+library(rjson)
+library(jsonlite)
 library(leaflet)
 ```
 
@@ -175,17 +176,64 @@ name AND the discharge value.
 
 `paste0(station_name, "<br/>Discharge: ", amount)`
 
-We are using paste0() to do this. Remeber that paste0() will paste together a
-series of text strings and object values.
+We are using `paste0()` to do this. Remember that `paste0()` will paste together
+a series of text strings and object values.
 
 
 ```r
-# let's look at the output of our popup text before calling it in leaflet 
-paste0(station_name, "<br/>Discharge: ", amount)
-## Error in paste0(station_name, "<br/>Discharge: ", amount): object 'station_name' not found
+# let's look at the output of our popup text before calling it in leaflet
+paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
+##  [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"              
+##  [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"                                     
+##  [3] "BOULDER RESERVOIR INLET<br/>Discharge: 0"                                           
+##  [4] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 33.8"                                     
+##  [5] "OLIGARCHY DITCH DIVERSION<br/>Discharge: 0.08"                                      
+##  [6] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 12.6"                              
+##  [7] "SAINT VRAIN CREEK AT LYONS, CO<br/>Discharge: 77.8"                                 
+##  [8] "MIDDLE BOULDER CREEK AT NEDERLAND<br/>Discharge: 16.2"                              
+##  [9] "SOUTH BOULDER CREEK BELOW GROSS RESERVOIR<br/>Discharge: 30.3"                      
+## [10] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 30.4"                      
+## [11] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                                       
+## [12] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                          
+## [13] "BONUS DITCH<br/>Discharge: 0"                                                       
+## [14] "CLOUGH AND TRUE DITCH<br/>Discharge: 0"                                             
+## [15] "DAVIS AND DOWNING DITCH<br/>Discharge: 2.27"                                        
+## [16] "DENIO TAYLOR DITCH<br/>Discharge: 0"                                                
+## [17] "GOSS DITCH 1<br/>Discharge: 0.01"                                                   
+## [18] "HAGER MEADOWS DITCH<br/>Discharge: 1.77"                                            
+## [19] "JAMES DITCH<br/>Discharge: 0.12"                                                    
+## [20] "LEFT HAND CREEK AT HOVER ROAD NEAR LONGMONT, CO<br/>Discharge: 1.4"                 
+## [21] "LONGMONT SUPPLY DITCH<br/>Discharge: 0.82"                                          
+## [22] "NIWOT DITCH<br/>Discharge: 0.71"                                                    
+## [23] "NORTHWEST MUTUAL DITCH<br/>Discharge: 0.02"                                         
+## [24] "PALMERTON DITCH<br/>Discharge: 0"                                                   
+## [25] "ROUGH AND READY DITCH<br/>Discharge: 0"                                             
+## [26] "RUNYON DITCH<br/>Discharge: 0"                                                      
+## [27] "SAINT VRAIN CREEK BELOW KEN PRATT BLVD AT LONGMONT, CO<br/>Discharge: 28.1"         
+## [28] "SMEAD DITCH<br/>Discharge: 0"                                                       
+## [29] "SOUTH BRANCH ST. VRAIN CREEK<br/>Discharge: 13.39"                                  
+## [30] "SOUTH FLAT DITCH<br/>Discharge: 0.23"                                               
+## [31] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 128"
+## [32] "SUPPLY DITCH<br/>Discharge: 0"                                                      
+## [33] "SWEDE DITCH<br/>Discharge: 0"                                                       
+## [34] "TRUE AND WEBSTER DITCH<br/>Discharge: 0.03"                                         
+## [35] "UNION RESERVOIR<br/>Discharge: 8595"                                                
+## [36] "UNION RESERVOIR<br/>Discharge: 12.17"                                               
+## [37] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.17"                                         
+## [38] "ZWECK AND TURNER DITCH<br/>Discharge: 1.68"                                         
+## [39] "BOULDER CREEK AT NORTH 75TH STREET NEAR BOULDER<br/>Discharge: 70"                  
+## [40] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 2.13"       
+## [41] "DRY CREEK CARRIER<br/>Discharge: 0.84"                                              
+## [42] "LEGGETT DITCH<br/>Discharge: 0.56"                                                  
+## [43] "SAINT VRAIN SUPPLY CANAL NEAR LYONS, CO<br/>Discharge: 46.7"                        
+## [44] "BOULDER RESERVOIR<br/>Discharge: 4989"                                              
+## [45] "SOUTH BOULDER CREEK DIVERSION NEAR ELDORADO SPRINGS<br/>Discharge: 0"               
+## [46] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 44.5"                          
+## [47] "HIGHLAND DITCH AT LYONS, CO<br/>Discharge: 74.7"                                    
+## [48] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 4.7"
 ```
 
-Finally, let's see what the custom icon and popup text looks like on our map! 
+Finally, let's see what the custom icon and popup text looks like on our map!
 
 
 ```r
@@ -205,4 +253,4 @@ leaflet(water_data_df) %>%
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
-That's it. Experiment with leaflet a bit more to learn more about customizing your maps.
+There is a lot more to learn about leaflet. Here, we've just scratched the surface.
