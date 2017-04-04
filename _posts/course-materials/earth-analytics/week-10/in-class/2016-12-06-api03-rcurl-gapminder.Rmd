@@ -106,7 +106,7 @@ head(gap_data)
 
 Next, we can summarize and plot the data!
 
-```{r life-by-continent }
+```{r life-by-continent, fig.cap="GGPLOT of gapminder data - life expectance by continent" }
 # summarize the data - median value by content and year
 summary_life_exp <-  gap_data %>%
    group_by(continent, year) %>%
@@ -128,7 +128,7 @@ like we are used to.
 
 Below, we make a boxplot of `lifeExp` by `continent`:
 
-```{r box-plot-by-continent}
+```{r box-plot-by-continent, fig.cap="GGPLOT of gapminder data - life expectance by continent boxplot"}
 # create box plot
 ggplot(summary_life_exp,
        aes(continent, median_life)) +
@@ -143,7 +143,7 @@ ggplot(summary_life_exp,
 We can also create a more advanced plot - overlaying the data points on top of
 our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced `ggplot()` plotting approaches.
 
-```{r box-plot-point-jitter}
+```{r box-plot-point-jitter, fig.cap="GGPLOT of gapminder data - life expectance by continent with jitter and outliers."}
 ggplot(gap_data, aes(x=continent, y=lifeExp)) +
   geom_boxplot(outlier.colour="hotpink") +
   geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+
