@@ -319,6 +319,7 @@ to add a facet for each of the three ranks.
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/all-data-1.png" title=" " alt=" " width="100%" />
 
+## Example homework
 Data faceted by rank. You can add the argument `+ facet_wrap(~variableHere)` to
 create a faceted plot like the one below.
 

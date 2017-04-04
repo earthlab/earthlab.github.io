@@ -31,11 +31,11 @@ water_data_df$location.latitude
 str(water_data_df$location.latitude)
 
 ## ------------------------------------------------------------------------
-# where are the cells with NA values in our data? 
+# where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
 
 ## ------------------------------------------------------------------------
-# where are calls with values in our data? 
+# where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
 
 ## ------------------------------------------------------------------------

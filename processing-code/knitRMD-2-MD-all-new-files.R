@@ -55,17 +55,20 @@ setwd(wd)
 ## subset dataframe to just the files that need a build
 # conditions = date modified is not the same OR there is no md file
 
+
+#file.path(dirname(gsub(".*/_posts","", rmd_files)), gsub(".Rmd$", "", basename(rmd_files)))
+
 populate_all_rmd_df <- function(a_dataframe, all=FALSE){
   all_rmd_files_bld <- a_dataframe %>%
     mutate(md_files = gsub(".Rmd$", ".md", rmd_files)) %>%
     mutate(rmd_modified = file.info(rmd_files)$mtime,
            md_modified = file.info(md_files)$mtime) %>%
-    mutate(base_path = file.path(dirname(rmd_files), gsub(".Rmd$", "", basename(rmd_files))),
+    mutate(base_path = file.path(dirname(gsub(".*/_posts/","", rmd_files)), gsub(".Rmd$", "", basename(rmd_files))),
            code_file = gsub(".Rmd$", ".R", (basename(rmd_files))), # create the code name
            base_path = sub(".*_posts/", "", base_path),
            fig_dir = file.path("images/rfigs", base_path))
 
-    # filter the data to just the modified files if it's not a full rebuild
+# filter the data to just the modified files if it's not a full rebuild
   if (all== FALSE) {
     all_rmd_files_bld <- all_rmd_files_bld %>%
       filter((md_modified < rmd_modified) | is.na(md_modified) == TRUE )
@@ -89,7 +92,7 @@ populate_all_rmd_df <- function(a_dataframe, all=FALSE){
 #################### Set up Image Directory #############################
 
 # in case you just want to test this function
-#rmd_file_df <- all_rmd_files_bld[7, ]
+#rmd_file_df <- all_rmd_files_bld[1, ]
 
 create_markdown <- function(rmd_file_df, wd){
   
@@ -185,7 +188,7 @@ names(all_rmd_files) <- "rmd_files"
 all_rmd_files_bld <- populate_all_rmd_df(all_rmd_files, all=F)
 
 # just one file
-# create_markdown(all_rmd_files_bld[20, ], wd)
+# create_markdown(all_rmd_files_bld[1, ], wd)
 ## run the function
 
 if ((nrow(all_rmd_files_bld)) > 0){
