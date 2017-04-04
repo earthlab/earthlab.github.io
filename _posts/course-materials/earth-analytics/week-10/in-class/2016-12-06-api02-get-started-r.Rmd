@@ -67,7 +67,7 @@ download.file(url = "https://ndownloader.figshare.com/files/7010681",
 If `R` is able to communicate with the server (in this case Figshare) and download
 the file, we can then open up the file and plot the data within it.
 
-```{r}
+```{r boulder-precip, fig.cap="Boulder precip data plot."}
 # read data into R
 boulder_precip <- read.csv("data/week10/boulder-precip-aug-oct-2013.csv")
 
@@ -111,7 +111,7 @@ data that are separated by commas (.csv) files whereas `read.table()` is ideal
 for data in other formats - separated by spaces, tabs and other delimiters.
 
 
-```{r import-plot-data}
+```{r import-plot-data, fig.cap="boulder precip from figshare plot. "}
 boulder_precip2 <- read.csv("https://ndownloader.figshare.com/files/7010681")
 # fix date
 boulder_precip2$DATE <- as.Date(boulder_precip2$DATE)
@@ -227,7 +227,7 @@ head(birth_rates)
 We can plot these data to see the relationships between effort and percent change in
 birth rates.
 
-```{r}
+```{r birth-rates, fig.cap="Birth rates example"}
 ggplot(birth_rates, aes(x=effort, y=change)) +
   geom_point() +
       labs(x="Effort",
@@ -292,7 +292,7 @@ to add a facet for each of the three ranks.
 </div>
 
 
-```{r all-data, echo=FALSE}
+```{r all-data, echo=FALSE, fig.cap="Prof salary data by sex"}
 #http://data.princeton.edu/wws509/datasets/#salary
 salary_data <- read.table("http://data.princeton.edu/wws509/datasets/salary.dat",
                           header = TRUE)
@@ -309,7 +309,7 @@ ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
 Data faceted by rank. You can add the argument `+ facet_wrap(~variableHere)` to
 create a faceted plot like the one below.
 
-```{r facet-by-rank, echo=FALSE}
+```{r facet-by-rank, echo=FALSE, fig.cap="GGPLOT of salary by experience"}
 
 ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
   geom_point() +
@@ -323,7 +323,7 @@ ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
 You can also ad a linear model regression to the data if you want using
 `geom_smooth()`.
 
-```{r all-data-lm, echo=FALSE}
+```{r all-data-lm, echo=FALSE, fig.cap="GGPLOT of gapminder data - life expectance by continent by sex"}
 ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
   geom_point() +
       labs(x="Experience (years)",
