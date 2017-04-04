@@ -29,7 +29,7 @@ gap_data <- read.csv(textConnection(temp),
                      sep="\t")
 head(gap_data)
 
-## ----life-by-continent---------------------------------------------------
+## ----life-by-continent, fig.cap="GGPLOT of gapminder data - life expectance by continent"----
 # summarize the data - median value by content and year
 summary_life_exp <-  gap_data %>%
    group_by(continent, year) %>%
@@ -43,7 +43,7 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 
 
-## ----box-plot-by-continent-----------------------------------------------
+## ----box-plot-by-continent, fig.cap="GGPLOT of gapminder data - life expectance by continent boxplot"----
 # create box plot
 ggplot(summary_life_exp,
        aes(continent, median_life)) +
@@ -54,7 +54,7 @@ ggplot(summary_life_exp,
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 
 
-## ----box-plot-point-jitter-----------------------------------------------
+## ----box-plot-point-jitter, fig.cap="GGPLOT of gapminder data - life expectance by continent with jitter and outliers."----
 ggplot(gap_data, aes(x=continent, y=lifeExp)) +
   geom_boxplot(outlier.colour="hotpink") +
   geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+

@@ -206,7 +206,7 @@ water_data_df <- water_data_df %>%
 
 Now we can plot the data
 
-```{r water_data_plot1, fig.width=5, fig.height=5}
+```{r water_data_plot1, fig.width=5, fig.height=5, fig.cap="ggplot of water surface data."}
 ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=station_type)) +
   geom_point() + coord_equal() +
@@ -228,7 +228,7 @@ package in `R`. We used `ggmap()` earlier in the semester. It provides an
 efficient way to quickly draw a basemap on the fly. We can overlay our data
 on top of that basemap to create a nice static map.
 
-```{r create_ggmap}
+```{r create_ggmap, fig.cap="GGMAP of water surface data"}
 boulder <- get_map(location="Boulder, CO, USA",
                   source="google", crop=FALSE, zoom=10)
 ggmap(boulder) +
