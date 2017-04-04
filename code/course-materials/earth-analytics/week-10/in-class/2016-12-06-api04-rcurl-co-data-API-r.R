@@ -8,8 +8,10 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 #devtools::install_github("hadley/ggplot2")
 library(ggmap)
 library(ggplot2)
-library("dplyr")
-library("RCurl")
+library(dplyr)
+library(RCurl)
+library(rjson)
+library(jsonlite)
 
 ## ----echo=FALSE----------------------------------------------------------
 library("knitr")
@@ -54,8 +56,6 @@ pop_proj_data_df <- pop_proj_data_df %>%
 ## 
 ## # OR use the apply function to convert all rows in the DF to numbers
 ## #pops <- as.data.frame(lapply(pop_proj_data_df, as.numeric))
-## 
-## 
 
 ## ----plot_pop_proj-------------------------------------------------------
 # plot the data

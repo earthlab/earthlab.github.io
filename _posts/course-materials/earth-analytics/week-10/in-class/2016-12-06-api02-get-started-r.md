@@ -223,12 +223,12 @@ birth_rates <- read.table(textConnection(the_data))
 
 ## Working with Web Data
 
-The `birth_rates` data that we just accessed, imports into a
+The `birth_rates` data that we just accessed, import into a
 `data.frame` format that we are used to working with. We can analyze and visualize
 the data using `ggplot()` just like we did with the precipitation data earlier.
 For example:
 
-Here's the top (or 'head') of the `data.frame`:
+Here's the top 6 rows (or `head()`) of the `data.frame`:
 
 
 ```r
@@ -306,7 +306,7 @@ to ensure that the data import properly using `read.table()`.
 
 HINT2: You can add facets or individual plots for particular subsets of data (
 in this case rank) using the `facet_wrap()` argument in a `ggplot()` plot. For example
- `+ facet_wrap(~dg)` will create a `ggplot()` plot with sub plots filtered by highest
+ `+ facet_wrap(~dg)` will create a `f` plot with sub plots filtered by highest
  degree.)
 
 Plot the following:

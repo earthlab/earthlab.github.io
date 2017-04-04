@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "An example of creating modular code in R - Efficient scientific programming"
-excerpt: "This lesson provides an example of modularizing code in R. "
+title: "Access secure data connections using the RCurl R package."
+excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -24,7 +24,7 @@ order: 3
 
 After completing this tutorial, you will be able to:
 
-*
+* Access data from a secure website using getURL() and textConnection() functions in the RCurl package.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -52,10 +52,19 @@ below. GitHub has secure (https) url's.
 
 #### Gapminder Data
 
-Let's grab the gapminder data from a secure URL located on
-a GitHub website. <a href="https://twitter.com/JennyBryan" target="_blank">@jennybryan</a>
-provides an `R` package to access the <a href="http://www.gapminder.org/data/" target="_blank">Gapminder data</a> for teaching. However, we will instead use `RCURL` to get it from
- <a href="https://github.com/jennybc/gapminder" target="_blank">Jenny Bryan's Github Page</a> to practice using RCurl functions.
+Let's grab a gapminder data subset from a secure URL located on
+a GitHub website. The
+<a href=" http://www.gapminder.org/about-gapminder/" target="_blank">Gapminder data</a>,
+contain a suite of census like metrics that describe global development. The data
+are ideal to experiment with when learning about plotting and working with data
+in a tool like `R`.
+
+<a href="https://twitter.com/JennyBryan" target="_blank">@jennybryan</a>
+provides an `R` package to access the
+<a href="http://www.gapminder.org/data/" target="_blank">Gapminder data</a> for
+teaching. However, we will instead use `RCURL` to get it from
+<a href="https://github.com/jennybc/gapminder" target="_blank">Jenny Bryan's Github Page</a>
+to practice using RCurl functions.
 
 ```{r message=FALSE}
 # Store base url (note the secure -- https:// -- url)
@@ -85,7 +94,7 @@ head(gap_data)
 ```
 
 Looking at our data, we have a separator. In this case it's `\t`. We can account
-for this using `read.csv()` by using the `sep=` argument.
+for this separator with the `sep=` argument.
 
 ```{r}
 # Use textConnection to read content of temp as tsv
@@ -112,8 +121,10 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
 ```
 
 
-Notice that when we import the data from github, using read.csv, it imports into
-a `data.frame` format. Thus, we can plot the data using ggplot() like we are used to.
+Notice that when we import the data from github, using `read.csv()`, it imports into
+a `data.frame` format. Given it's a data.frame, we can plot the data using `ggplot()`
+like we are used to.
+
 Below, we make a boxplot of `lifeExp` by `continent`:
 
 ```{r}
@@ -129,7 +140,7 @@ ggplot(summary_life_exp,
 ```
 
 We can also create a more advanced plot - overlaying the data points on top of
-our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced ggplot() plotting approaches.
+our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced `ggplot()` plotting approaches.
 
 ```{r}
 ggplot(gap_data, aes(x=continent, y=lifeExp)) +
@@ -153,5 +164,5 @@ read_secure_csv_file = function(url) {
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The web
 changes constantly! Data available via a *particular* API at a *particular* point
-in time may not be available indefinitely...
+in time may not be available indefinitely. Considering documenting workflows carefully.
 {: .notice--success}

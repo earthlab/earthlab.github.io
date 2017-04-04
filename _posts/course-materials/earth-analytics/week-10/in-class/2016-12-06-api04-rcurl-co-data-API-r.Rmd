@@ -24,14 +24,15 @@ order: 4
 
 After completing this tutorial, you will be able to:
 
-*
+* Access data from a the Colorado information warehouse data RESTful API
+* Describe and recognize query parameters in a RESTful call
+* Describe what a response and a request are relative to data APIs
+* Be able to list the 2 potential responses that you may get when querying a RESTful API.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson and the
-data that we already downloaded for week 6 of the course.
+You will need a computer with internet access to complete this lesson.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 ```{r echo=FALSE}
@@ -42,17 +43,16 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 In the previous lesson, we learned how to access human readable text files data
 programmatically using:
 
-1. GOOD TO SAVE A COPY OF THE DATA LOCALLY: `download.file()` to download a file to your computer and work with it
-1. WORKS SOMETIMES: `read.csv()` to read in a tabular file stored on the web (not ideal).
-1. OPTIMAL: `getURL()` to read in data files that may be secure (https://) or that require more advanced protocols.
+1. `download.file()` to download a file to your computer and work with it (ideal if you want to save a copy of the data to your computer)
+1. `read.csv()` ideal for reading in a tabular file stored on the web but may sometimes fail when there are secure connections involved (e.g. https).
+1. `getURL()` ideal for urls that are both secure (https) and less secure (http). Also useful for API data access.
 
 In this lesson, we will learn about API interfaces. An API allows us to access
 data stored on a computer or server using a specific query. API's are powerful
 ways to access data and more specifically the specific type and subset of data
 that we need for our analysis, programmatically.
 
-We will also explore working with the JSON data structure
-which as discussed in lesson one is a **machine readable** structure. Machine readable
+We will also explore the **machine readable** JSON data structure. Machine readable
 data structures are more efficient - particularly for larger data that contain
 hierarchical structures. In this lesson, the `getURL()`
 function will become more valuable to us as we parse data accessed from an API.
@@ -63,8 +63,10 @@ function will become more valuable to us as we parse data accessed from an API.
 #devtools::install_github("hadley/ggplot2")
 library(ggmap)
 library(ggplot2)
-library("dplyr")
-library("RCurl")
+library(dplyr)
+library(RCurl)
+library(rjson)
+library(jsonlite)
 ```
 
 ```{r echo=FALSE}
@@ -73,8 +75,11 @@ library("knitr")
 
 ## Review
 
-Remember that in the first introductory lesson in this module, we discussed **REST**ful APIs. We explored the concept of a **request** and then a subsequent
-**response**. The **request** to an **REST**ful API is composed of a URL and the associated parameters required to access a particular subset of the data that we wish to access.
+Remember that in the first lesson in this module, we discussed **REST**ful APIs.
+We explored the concept of a **request** and then a subsequent
+**response**. The **request** to an **REST**ful API is composed of a URL and the
+associated parameters required to access a particular subset of the data that we
+wish to access.
 
 When you send the request, the web API returns one of the following:
 
@@ -90,7 +95,7 @@ lesson in this module. JSON is an ideal format for larger data that
 
 The structure of a JSON object is as follows:
 
-* The data is in name/value pairs
+* The data are in name/value pairs
 * Data objects are separated by commas
 * Curly braces `{}` hold objects
 * Square brackets `[]` hold arrays
@@ -174,7 +179,7 @@ Parameters associated with accessing data using this API are <a href="https://de
 The Colorado `SODA` API allows us to write 'queries' that filter out the exact
 subset of the data that we want. Here's the API `URL`
 for population projections for females who live in Boulder that are age 20--40
-for the years 2016-2025:
+for the years 2016--2025:
 
 ```html
 https://data.colorado.gov/resource/tv8u-hswn.json?$where=age between 20 and 40 and year between 2016 and 2025&county=Boulder&$select=year,age,femalepopulation
@@ -242,8 +247,7 @@ getForm(base_url, county="Boulder",
 head(pop_proj_data)
 ```
 
-Lucky for us the `rjson` and `jsonlite` packages
-can help us work with JSON structured data.
+Lucky for us the `rjson` and `jsonlite` packages can read JSON structured data.
 
 ```{r}
 library(rjson)
@@ -270,10 +274,10 @@ within our data.frame.
 In the code above, we told R to apply the `as.numeric()` function to the `age`, `year` and
 `femalepopulation` columns in our `pop_proj_data_df` data.frame object as follows:
 
-* funs(as.numeric): apply the as.numeric function to each column
-* c( "age", "year", "femalepopulation"): a vector of column names - each of which R will apply the specified function (as.numeric in this case) to.
+* `funs(as.numeric)`: apply the as.numeric function to each column
+* `c( "age", "year", "femalepopulation")`: a vector of column names - each of which R will apply the specified function (as.numeric in this case) to.
 
-The code above uses dplyr pipes to mutate or change 3 columns in our data.frame
+The code above uses dplyr pipes to mutate or change 3 columns in our `data.frame`
 to a numeric data type. Is it the same as running the code below on each column
 of the data.
 
@@ -286,8 +290,6 @@ pop_proj_data_df$femalepopulation <- as.numeric(pop_proj_data_df$femalepopulatio
 
 # OR use the apply function to convert all rows in the DF to numbers
 #pops <- as.data.frame(lapply(pop_proj_data_df, as.numeric))
-
-
 ```
 
 Once we have converted the JSON data into a data.frame format that R can work with,
