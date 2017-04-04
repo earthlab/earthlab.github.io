@@ -60,7 +60,7 @@ library("knitr")
 Static maps are useful for creating figures for reports and presentation. Sometimes,
 however, we want to interact with our data. We can use the leaflet package for
 R to overlay our data on top of interactive maps. You can think about it like
-google  maps with your data overlaid on top!
+Google  maps with your data overlaid on top!
 
 ### What is leaflet?
 

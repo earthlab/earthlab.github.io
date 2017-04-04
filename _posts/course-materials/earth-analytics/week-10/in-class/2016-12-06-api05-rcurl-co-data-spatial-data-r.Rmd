@@ -48,13 +48,13 @@ within it that will allow us to create a map of the data.
 
 ## Working with geospatial data
 
-Check out the map <a href="https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions-Map-Statewide/j5pc-4t32" target="_blank"> Colorado DWR Current Surface Water Conditions map</a>. If you rememeber from the previous lesson, APIs can be used for
+Check out the map <a href="https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions-Map-Statewide/j5pc-4t32" target="_blank"> Colorado DWR Current Surface Water Conditions map</a>. If you remember from the previous lesson, APIs can be used for
 many different things. Web developers (people who program and create web sites and
 cool applications) can use API's to create user friendly interfaces - like the
 map in this link that allow us to look at and interact with data. These API's
 are similar to - if not the same as the ones that we often use to access data in R.
 
-In this lesson, we wil access the data used to create the map at the link above -
+In this lesson, we will access the data used to create the map at the link above -
 in R.
 
 * The data that we will use are located here: <a href="https://data.colorado.gov/resource/j5pc-4t32.json" target="_blank">View JSON format data used to create surface water map.</a>
@@ -177,7 +177,7 @@ str(water_data_df$location.latitude)
 ```
 
 In order to map or work with latitude and longitude data, we need numeric values.
-We can use the same dplyr function - `mutate_each_()` - that we used in the
+We can use the same dplyr function - `mutate_at()` - that we used in the
 previous lessons, to convert columns that are numbers to `numeric` rather than
 `char` data types:
 
@@ -207,7 +207,8 @@ Remove NA Values: `filter(!is.na(location.latitude))`
 ```{r}
 # turn columns to numeric and remove NA values
 water_data_df <- water_data_df %>%
-  mutate_each_(funs(as.numeric), c( "amount", "location.longitude", "location.latitude")) %>%
+  mutate_at(c( "amount", "location.longitude", "location.latitude"),
+            as.numeric) %>%
   filter(!is.na(location.latitude))
 ```
 

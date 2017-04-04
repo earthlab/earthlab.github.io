@@ -69,7 +69,7 @@ We can break up programmatic data access into 3 general categories:
 
 The data that we access programmatically may be returned in one of two main formats:
 
-1. **Tabular Human-readable file:** Files that are tabular, include csv's (Comma Separated Values) and even spreadsheets (excel, etc). These files are organized into columns and rows and "flat" in structure rather than hierarchical.
+1. **Tabular Human-readable file:** Files that are tabular, include csv's (Comma Separated Values) and even spreadsheets (MS Excel, etc). These files are organized into columns and rows and "flat" in structure rather than hierarchical.
 2. **Structured Machine-readable files:** Files that are sometimes stored in a text format but are  hierarchical and structured in some way that optimizes machine readability.
 
 
@@ -103,7 +103,7 @@ knitr::kable(boulder_precip)
 ### Human readable data
 
 Notice that the data that we downloaded above using `download.file()` is
-**Tabular** and thus **human-readable**. It contains a tabular
+**tabular** and thus **human-readable**. It contains a tabular
 with rows and columns that we can quickly understand. `R` can import these data
 into a `data.frame` structure and we can work with it programmatically.
 
@@ -113,7 +113,7 @@ point? Our table could get very wide very quickly making is less readable but al
 more computationally intensive to process.
 
 We will talk about structured machine readable data structures later in this module
-which may be less easy for humans to quickly digest when we look at them but
+which may be hard for humans to quickly digest when we look at them but
 are much more efficient to process - particular as our data get large.
 
 ## What is an API?
@@ -211,7 +211,7 @@ Phew! In the previous sentence, we just specified all
 of the variables stored within these data. These variables can be used to query
 the data!
 
-
+<!-- Maybe clarify whether the stuff below is the data (response) or a query -->
 ```json
 [{"age":"0","county":"Adams","femalepopulation":"2404.00","fipscode":"1","malepopulation":"2354.00","totalpopulation":"4758","year":"1990"}
 ,{"age":"1","county":"Adams","femalepopulation":"2375.00","fipscode":"1","malepopulation":"2345.00","totalpopulation":"4720","year":"1990"}
