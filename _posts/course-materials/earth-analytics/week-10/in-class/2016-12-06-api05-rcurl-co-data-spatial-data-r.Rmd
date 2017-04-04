@@ -60,6 +60,13 @@ in R.
 * The data that we will use are located here: <a href="https://data.colorado.gov/resource/j5pc-4t32.json" target="_blank">View JSON format data used to create surface water map.</a>
 * And you can learn more about the data here: <a href="https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions/4yw9-a5y6" target="_blank">View CO Current water surface </a>.
 
+```{r}
+library(dplyr)
+library(ggplot2)
+library(RCurl)
+library(rjson)
+library(jsonlite)
+```
 
 ```{r}
 
