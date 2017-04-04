@@ -16,6 +16,7 @@ comments: true
 order: 5
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -179,19 +180,19 @@ data. We will not be able to map points with missing X,Y coordinate locations
 so it is best to remove them.
 
 ```{r}
-# where are the cells with NA values in our data? 
+# where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
 ```
 
-Note, in the code above, we can identify each location where there is a NA value 
+Note, in the code above, we can identify each location where there is a NA value
 in our data. If we add an `!` to our code, R returns the INVERSE of the above.
 
 ```{r}
-# where are calls with values in our data? 
+# where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
 ```
 
-Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value 
+Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value
 in the latitude column.
 
 Remove NA Values: `filter(!is.na(location.latitude))`

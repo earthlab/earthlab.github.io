@@ -7,7 +7,7 @@ modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/leaflet-r/
-nav-title: 'Leaflet '
+nav-title: 'Interactive maps with leaflet '
 week: 10
 sidebar:
   nav:
@@ -15,6 +15,7 @@ author_profile: false
 comments: true
 order: 6
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -59,7 +60,7 @@ library("knitr")
 Static maps are useful for creating figures for reports and presentation. Sometimes,
 however, we want to interact with our data. We can use the leaflet package for
 R to overlay our data on top of interactive maps. You can think about it like
-google  maps with your data overlane on top!
+google  maps with your data overlaid on top!
 
 ### What is leaflet?
 

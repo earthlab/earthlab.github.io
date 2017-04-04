@@ -303,9 +303,9 @@ ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
            y="Salary (US dollars)",
           title="Annual Salary by Experience",
           subtitle = "For 52 Small college tenure track professors")
-
 ```
 
+## Example homework
 Data faceted by rank. You can add the argument `+ facet_wrap(~variableHere)` to
 create a faceted plot like the one below.
 
