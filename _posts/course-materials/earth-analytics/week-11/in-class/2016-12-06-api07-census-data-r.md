@@ -5,15 +5,15 @@ excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser']
 modified: '2017-04-04'
 category: [course-materials]
-class-lesson: ['intro-APIs-r']
-permalink: /course-materials/earth-analytics/week-10/census-data-r/
+class-lesson: ['census-data-r']
+permalink: /course-materials/earth-analytics/week-11/census-data-r/
 nav-title: 'Census data '
-week: 10
+week: 11
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 1
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
