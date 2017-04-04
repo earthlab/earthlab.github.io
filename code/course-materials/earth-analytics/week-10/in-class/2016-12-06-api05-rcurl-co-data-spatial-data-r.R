@@ -44,7 +44,7 @@ water_data_df <- water_data_df %>%
   mutate_each_(funs(as.numeric), c( "amount", "location.longitude", "location.latitude")) %>%
   filter(!is.na(location.latitude))
 
-## ----water_data_plot1, fig.width=5, fig.height=5-------------------------
+## ----water_data_plot1, fig.width=5, fig.height=5, fig.cap="ggplot of water surface data."----
 ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=station_type)) +
   geom_point() + coord_equal() +
@@ -55,7 +55,7 @@ ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   labs(size="Amount", colour="Station Type")
 
 
-## ----create_ggmap--------------------------------------------------------
+## ----create_ggmap, fig.cap="GGMAP of water surface data"-----------------
 boulder <- get_map(location="Boulder, CO, USA",
                   source="google", crop=FALSE, zoom=10)
 ggmap(boulder) +

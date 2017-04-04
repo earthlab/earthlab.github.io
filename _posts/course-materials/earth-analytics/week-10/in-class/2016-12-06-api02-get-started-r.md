@@ -82,7 +82,7 @@ ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
           subtitle = "August - October 2013")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-4-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/boulder-precip-1.png" title="Boulder precip data plot." alt="Boulder precip data plot." width="100%" />
 
 
 ## Download data via human readable url
@@ -126,7 +126,7 @@ ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
           subtitle = "August - October 2013")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/import-plot-data-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/import-plot-data-1.png" title="boulder precip from figshare plot. " alt="boulder precip from figshare plot. " width="100%" />
 
 ### read.csv() vs RCURL
 
@@ -260,7 +260,7 @@ ggplot(birth_rates, aes(x=effort, y=change)) +
           subtitle = "For 20 Latin America Countries")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/unnamed-chunk-6-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/birth-rates-1.png" title="Birth rates example" alt="Birth rates example" width="100%" />
 
 Remember that here we've imported a tabular dataset directly from the Princeton
 University website. The data file itself is NOT on our computer so we do not
@@ -317,15 +317,15 @@ to add a facet for each of the three ranks.
 </div>
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/all-data-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/all-data-1.png" title="Prof salary data by sex" alt="Prof salary data by sex" width="100%" />
 
 ## Example homework
 Data faceted by rank. You can add the argument `+ facet_wrap(~variableHere)` to
 create a faceted plot like the one below.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/facet-by-rank-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/facet-by-rank-1.png" title="GGPLOT of salary by experience" alt="GGPLOT of salary by experience" width="100%" />
 
 You can also ad a linear model regression to the data if you want using
 `geom_smooth()`.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/all-data-lm-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/all-data-lm-1.png" title="GGPLOT of gapminder data - life expectance by continent by sex" alt="GGPLOT of gapminder data - life expectance by continent by sex" width="100%" />
