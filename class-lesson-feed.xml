@@ -21,7 +21,7 @@ layout:
   {% assign members = site.posts | where:"order", 1 %}
   {% for member in members %}
       <item>
-               <title>{{ member.module-title | cdata_escape }}</title>
+               <title>{{ member.module-title | xml_escape }}</title>
                <link>{{ site.url }}{{ member.permalink }}</link>
                <guid isPermaLink="true">{{ site.url }}{{ member.permalink }}</guid>
                <description>{{ member.module-description | xml_escape }}</description>
