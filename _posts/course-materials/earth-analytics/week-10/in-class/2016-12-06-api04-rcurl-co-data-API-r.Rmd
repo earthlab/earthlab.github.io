@@ -299,7 +299,7 @@ Once we have converted the JSON data into a data.frame format that R can work wi
 we can plot the data using `ggplot()`.
 
 
-```{r plot_pop_proj}
+```{r plot_pop_proj, fig.cap="Female population age 20-40."}
 # plot the data
 ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
   group=factor(age), color=age)) + geom_line() +
@@ -328,7 +328,7 @@ plot a descriptive title.
 
 ## Example homework plot
 
-```{r male-population, echo=FALSE}
+```{r male-population, echo=FALSE, fig.cap="Male population ages 60-80."}
 # Base URL path
 base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
 full_url_80 = paste0(base_url, "county=Boulder",
