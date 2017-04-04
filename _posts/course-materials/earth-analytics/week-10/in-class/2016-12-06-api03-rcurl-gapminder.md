@@ -16,6 +16,7 @@ comments: true
 order: 3
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -36,10 +37,10 @@ data that we already downloaded for week 6 of the course.
 
 
 
-
 ```r
-library("dplyr")
-library("ggplot2")
+library(dplyr)
+library(ggplot2)
+library(RCurl)
 ```
 
 ## Download gapminder data with RCurl
@@ -137,12 +138,12 @@ summary_life_exp <-  gap_data %>%
 ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
   geom_point() +
       labs(x="Continent",
-           y="Life Expentancy (years)",
+           y="Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/unnamed-chunk-7-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/life-by-continent-1.png" title=" " alt=" " width="100%" />
 
 
 Notice that when we import the data from github, using `read.csv()`, it imports into
@@ -163,7 +164,7 @@ ggplot(summary_life_exp,
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/unnamed-chunk-8-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-by-continent-1.png" title=" " alt=" " width="100%" />
 
 We can also create a more advanced plot - overlaying the data points on top of
 our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced `ggplot()` plotting approaches.
@@ -179,7 +180,7 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/unnamed-chunk-9-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-point-jitter-1.png" title=" " alt=" " width="100%" />
 
 If you are going to be grabbing a lot of `csv` files from secure `urls`, you
 might want to turn the previous code into a function:

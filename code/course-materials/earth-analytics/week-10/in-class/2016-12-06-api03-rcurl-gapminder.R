@@ -3,8 +3,9 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ## ------------------------------------------------------------------------
-library("dplyr")
-library("ggplot2")
+library(dplyr)
+library(ggplot2)
+library(RCurl)
 
 ## ----message=FALSE-------------------------------------------------------
 # Store base url (note the secure -- https:// -- url)
@@ -28,7 +29,7 @@ gap_data <- read.csv(textConnection(temp),
                      sep="\t")
 head(gap_data)
 
-## ------------------------------------------------------------------------
+## ----life-by-continent---------------------------------------------------
 # summarize the data - median value by content and year
 summary_life_exp <-  gap_data %>%
    group_by(continent, year) %>%
@@ -37,12 +38,12 @@ summary_life_exp <-  gap_data %>%
 ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
   geom_point() +
       labs(x="Continent",
-           y="Life Expentancy (years)",
+           y="Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 
 
-## ------------------------------------------------------------------------
+## ----box-plot-by-continent-----------------------------------------------
 # create box plot
 ggplot(summary_life_exp,
        aes(continent, median_life)) +
@@ -53,7 +54,7 @@ ggplot(summary_life_exp,
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 
 
-## ------------------------------------------------------------------------
+## ----box-plot-point-jitter-----------------------------------------------
 ggplot(gap_data, aes(x=continent, y=lifeExp)) +
   geom_boxplot(outlier.colour="hotpink") +
   geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+

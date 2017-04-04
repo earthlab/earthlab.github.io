@@ -77,7 +77,6 @@ ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
           title="Annual Salary by Experience",
           subtitle = "For 52 Small college tenure track professors")
 
-
 ## ----facet-by-rank, echo=FALSE-------------------------------------------
 
 ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
