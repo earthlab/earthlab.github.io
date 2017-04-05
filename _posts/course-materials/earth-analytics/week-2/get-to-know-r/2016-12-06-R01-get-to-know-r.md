@@ -157,7 +157,7 @@ boulder_precip
 
 <i class="fa fa-star"></i> **Data Tip:**  In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
 same time as the <kbd>-</kbd> key) will write ` <- ` in a single keystroke.
-{: .notice }
+{: .notice--success}
 
 While the `=` can be used in `R`, it does not always work. Thus we will use `<-`
 for all assignments in `R` from here on in. It is a recommended best practice.
