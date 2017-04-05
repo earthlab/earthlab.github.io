@@ -48,7 +48,8 @@ is.na(water_data_df$location.latitude)
 ## ------------------------------------------------------------------------
 # turn columns to numeric and remove NA values
 water_data_df <- water_data_df %>%
-  mutate_each_(funs(as.numeric), c( "amount", "location.longitude", "location.latitude")) %>%
+  mutate_at(c( "amount", "location.longitude", "location.latitude"),
+            as.numeric) %>%
   filter(!is.na(location.latitude))
 
 ## ----water_data_plot1, fig.width=5, fig.height=5, fig.cap="ggplot of water surface data."----
