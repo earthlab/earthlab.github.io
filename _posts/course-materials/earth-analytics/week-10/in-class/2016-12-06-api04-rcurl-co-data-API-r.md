@@ -223,21 +223,22 @@ After we've created the URL, we can get the data.
 
 ```r
 # get the data from the specified url
-pop_proj_data = getURL(URLencode(full_url))
+pop_proj_data <- getURL(URLencode(full_url))
 ```
 
 Since these data are in a `JSON` data structure, we'll need to parse them into
 a format that we can work with in R.
 
 <div class="notice--success" markdown="1">
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The getForm()
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The `getForm()`
 is another way to access API driven data. We are not going to cover this in
 this class however it is a good option that results in code that is a bit cleaner
 given the various parameters are passed to the function via argument like
 syntax.
 
+
 ```r
-base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
+base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
 getForm(base_url, county="Boulder",
               age="BOULDER")
 ```
@@ -259,7 +260,7 @@ library(rjson)
 library(jsonlite)
 
 # Convert JSON to data frame
-pop_proj_data_df = fromJSON(pop_proj_data)
+pop_proj_data_df <- fromJSON(pop_proj_data)
 #unlist(pop_proj_data_df)
 head(pop_proj_data_df)
 ##   age femalepopulation year
@@ -340,11 +341,6 @@ plot a descriptive title.
 </div>
 
 ## Example homework plot
-
-
-```
-## Error: .cols should be a character/numeric vector or a columns object
-```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
 

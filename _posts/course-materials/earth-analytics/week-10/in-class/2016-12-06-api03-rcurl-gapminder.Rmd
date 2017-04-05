@@ -114,7 +114,13 @@ gap_data <- read.csv(textConnection(gapminder_data_url),
 head(gap_data)
 ```
 
-Next, we can summarize and plot the data!
+Next, we can summarize and plot the data! Notice that when we import the data
+from github, using `read.csv()`, it imports into a `data.frame` format. Given
+it's a `data.frame`, we can plot the data using `ggplot()` like we are used to.
+
+Below, we first summarize the data by median life expectancy per year per continent.
+Then we create box plots - one for each continent.
+
 <!-- #tidylife -->
 
 ```{r life-by-continent, fig.cap="GGPLOT of gapminder data - life expectance by continent" }
@@ -132,10 +138,7 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
 
 ```
 
-<!-- Should this be moved up before you plot with ggplot? -->
-Notice that when we import the data from github, using `read.csv()`, it imports into
-a `data.frame` format. Given it's a data.frame, we can plot the data using `ggplot()`
-like we are used to.
+
 
 Below, we make a boxplot of `lifeExp` by `continent`:
 
@@ -154,18 +157,26 @@ ggplot(summary_life_exp,
 We can also create a more advanced plot - overlaying the data points on top of
 our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced `ggplot()` plotting approaches.
 
-
-<!-- Looks like the outliers are plotted twice here -->
-```{r box-plot-point-jitter, fig.cap="GGPLOT of gapminder data - life expectance by continent with jitter and outliers."}
+```{r box-plot-point-outliers, fig.cap="GGPLOT of gapminder data - life expectance by continent with jitter and outliers."}
 ggplot(gap_data, aes(x=continent, y=lifeExp)) +
   geom_boxplot(outlier.colour="hotpink") +
-  geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+
-      labs(x="Continent",
-           y="Life Expectancy (years)",
-          title="Gapminder Data - Life Expectancy",
-          subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+      labs(x = "Continent",
+           y = "Life Expectancy (years)",
+           title = "Gapminder Data - Life Expectancy",
+           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
+Or create a box plot with the data points overlaid on top.
+
+```{r box-plot-point-jitter, fig.cap="GGPLOT of gapminder data - life expectance by continent with jitter and outliers."}
+ggplot(gap_data, aes(x=continent, y=lifeExp)) +
+  geom_boxplot() +
+  geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+
+      labs(x = "Continent",
+           y = "Life Expectancy (years)",
+           title = "Gapminder Data - Life Expectancy",
+           subtitle = "Data points overlaid on top of the box plot.")
+```
 If you are going to be grabbing a lot of `csv` files from secure `urls`, you
 might want to turn the previous code into a function:
 

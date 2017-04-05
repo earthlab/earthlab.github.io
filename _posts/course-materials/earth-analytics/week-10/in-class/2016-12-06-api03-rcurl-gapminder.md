@@ -25,7 +25,8 @@ order: 3
 
 After completing this tutorial, you will be able to:
 
-* Access data from a secure website using getURL() and textConnection() functions in the RCurl package.
+* Access data from a secure website using `getURL()` and `textConnection()` functions in the RCurl package.
+* Be able to describe the key difference between a `.tsv` and a `.csv` file.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -135,7 +136,13 @@ head(gap_data)
 ## 6 Afghanistan      Asia 1977  38.438 14880372  786.1134
 ```
 
-Next, we can summarize and plot the data!
+Next, we can summarize and plot the data! Notice that when we import the data
+from github, using `read.csv()`, it imports into a `data.frame` format. Given
+it's a `data.frame`, we can plot the data using `ggplot()` like we are used to.
+
+Below, we first summarize the data by median life expectancy per year per continent.
+Then we create box plots - one for each continent.
+
 <!-- #tidylife -->
 
 
@@ -151,15 +158,11 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
            y="Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
-## Error in eval(expr, envir, enclos): object 'year' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/life-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent" alt="GGPLOT of gapminder data - life expectance by continent" width="100%" />
 
-<!-- Should this be moved up before you plot with ggplot? -->
-Notice that when we import the data from github, using `read.csv()`, it imports into
-a `data.frame` format. Given it's a data.frame, we can plot the data using `ggplot()`
-like we are used to.
+
 
 Below, we make a boxplot of `lifeExp` by `continent`:
 
@@ -173,7 +176,6 @@ ggplot(summary_life_exp,
            y="Life Expentancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
-## Error in eval(expr, envir, enclos): object 'continent' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent boxplot" alt="GGPLOT of gapminder data - life expectance by continent boxplot" width="100%" />
@@ -182,20 +184,31 @@ We can also create a more advanced plot - overlaying the data points on top of
 our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced `ggplot()` plotting approaches.
 
 
-<!-- Looks like the outliers are plotted twice here -->
-
 ```r
 ggplot(gap_data, aes(x=continent, y=lifeExp)) +
   geom_boxplot(outlier.colour="hotpink") +
+      labs(x = "Continent",
+           y = "Life Expectancy (years)",
+           title = "Gapminder Data - Life Expectancy",
+           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-point-outliers-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="100%" />
+
+Or create a box plot with the data points overlaid on top.
+
+
+```r
+ggplot(gap_data, aes(x=continent, y=lifeExp)) +
+  geom_boxplot() +
   geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+
-      labs(x="Continent",
-           y="Life Expectancy (years)",
-          title="Gapminder Data - Life Expectancy",
-          subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+      labs(x = "Continent",
+           y = "Life Expectancy (years)",
+           title = "Gapminder Data - Life Expectancy",
+           subtitle = "Data points overlaid on top of the box plot.")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-point-jitter-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="100%" />
-
 If you are going to be grabbing a lot of `csv` files from secure `urls`, you
 might want to turn the previous code into a function:
 
