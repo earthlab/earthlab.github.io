@@ -54,14 +54,22 @@ ggplot(summary_life_exp,
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 
 
-## ----box-plot-point-jitter, fig.cap="GGPLOT of gapminder data - life expectance by continent with jitter and outliers."----
+## ----box-plot-point-outliers, fig.cap="GGPLOT of gapminder data - life expectance by continent with jitter and outliers."----
 ggplot(gap_data, aes(x=continent, y=lifeExp)) +
   geom_boxplot(outlier.colour="hotpink") +
+      labs(x = "Continent",
+           y = "Life Expectancy (years)",
+           title = "Gapminder Data - Life Expectancy",
+           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+
+## ----box-plot-point-jitter, fig.cap="GGPLOT of gapminder data - life expectance by continent with jitter and outliers."----
+ggplot(gap_data, aes(x=continent, y=lifeExp)) +
+  geom_boxplot() +
   geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+
-      labs(x="Continent",
-           y="Life Expectancy (years)",
-          title="Gapminder Data - Life Expectancy",
-          subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+      labs(x = "Continent",
+           y = "Life Expectancy (years)",
+           title = "Gapminder Data - Life Expectancy",
+           subtitle = "Data points overlaid on top of the box plot.")
 
 ## ------------------------------------------------------------------------
 read_secure_csv_file = function(url) {
