@@ -159,7 +159,7 @@ open datasets available via a **REST**ful API called the Socrata Open Data API (
 
 There are lots of API *endpoints* or data sets available via this API. One
 endpoint contains
-<a href="https://data.colorado.gov/resource/tv8u-hswn.json" target="_blank">Colorado Population Projections</a>.
+<a href="https://dev.socrata.com/foundry/data.colorado.gov/tv8u-hswn" target="_blank">Colorado Population Projections</a>.
 If you click on the <a href="https://data.colorado.gov/resource/tv8u-hswn.json" target="_blank">Colorado Population Projections data link (JSON format)</a>
 you will see data returned in a `JSON` format. These data include population
 estimates for *males* and *females* for every *county* in Colorado for every *year* from 1990 to 2040 for multiple *age* groups.
