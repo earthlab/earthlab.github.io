@@ -2,7 +2,7 @@
 layout: single
 title: "Programmatically accessing geospatial data using API's - Working with and mapping JSON data from the Colorado Information Warehouse in R"
 excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
-authors: ['Carson Farmer', 'Leah Wasser']
+authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
 modified: '2017-04-04'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
@@ -45,13 +45,13 @@ within it that will allow us to create a map of the data.
 
 ## Working with geospatial data
 
-Check out the map <a href="https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions-Map-Statewide/j5pc-4t32" target="_blank"> Colorado DWR Current Surface Water Conditions map</a>. If you rememeber from the previous lesson, APIs can be used for
+Check out the map <a href="https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions-Map-Statewide/j5pc-4t32" target="_blank"> Colorado DWR Current Surface Water Conditions map</a>. If you remember from the previous lesson, APIs can be used for
 many different things. Web developers (people who program and create web sites and
 cool applications) can use API's to create user friendly interfaces - like the
 map in this link that allow us to look at and interact with data. These API's
 are similar to - if not the same as the ones that we often use to access data in R.
 
-In this lesson, we wil access the data used to create the map at the link above -
+In this lesson, we will access the data used to create the map at the link above -
 in R.
 
 * The data that we will use are located here: <a href="https://data.colorado.gov/resource/j5pc-4t32.json" target="_blank">View JSON format data used to create surface water map.</a>
@@ -142,25 +142,25 @@ Next, let's look at the structure of the data.frame that R creates from the
 # view data structure
 str(water_data_df)
 ## 'data.frame':	53 obs. of  15 variables:
-##  $ station_name   : chr  "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO" "GOODING A AND D PLUMB DITCH" "BOULDER RESERVOIR INLET" "BIG THOMPSON RIVER ABOVE CANYON MOUTH AT CEDAR COVE, CO" ...
-##  $ amount         : chr  "17.00" "7.20" "0.00" "69.50" ...
+##  $ station_name   : chr  "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO" "GOODING A AND D PLUMB DITCH" "BOULDER RESERVOIR INLET" "GOSS DITCH 1" ...
+##  $ amount         : chr  "17.00" "7.20" "0.00" "0.01" ...
 ##  $ station_status : chr  "Active" "Active" "Active" "Active" ...
 ##  $ county         : chr  "BOULDER" "BOULDER" "BOULDER" "BOULDER" ...
-##  $ wd             : chr  "6" "6" "6" "4" ...
-##  $ dwr_abbrev     : chr  "FRMLMRCO" "GOOPLMCO" "BFCINFCO" "BTABCMCO" ...
-##  $ data_source    : chr  "U.S. Geological Survey (Data Provider)" "Cooperative Program of CDWR, NCWCD & LSPWCD" "Northern Colorado Water Conservancy District (Data Provider)" "Co. Division of Water Resources" ...
+##  $ wd             : chr  "6" "6" "6" "5" ...
+##  $ dwr_abbrev     : chr  "FRMLMRCO" "GOOPLMCO" "BFCINFCO" "GODIT1CO" ...
+##  $ data_source    : chr  "U.S. Geological Survey (Data Provider)" "Cooperative Program of CDWR, NCWCD & LSPWCD" "Northern Colorado Water Conservancy District (Data Provider)" "Cooperative Program of CDWR, NCWCD & SVLHWCD" ...
 ##  $ http_linkage   :'data.frame':	53 obs. of  1 variable:
-##   ..$ url: chr  "http://waterdata.usgs.gov/nwis/uv?06727410" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=GOOPLMCO&MTYPE=DISCHRG" "http://www.northernwater.org/WaterProjects/EastSlopeWaterData.aspx" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=BTABCMCO&MTYPE=DISCHRG" ...
+##   ..$ url: chr  "http://waterdata.usgs.gov/nwis/uv?06727410" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=GOOPLMCO&MTYPE=DISCHRG" "http://www.northernwater.org/WaterProjects/EastSlopeWaterData.aspx" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=GODIT1CO&MTYPE=DISCHRG" ...
 ##  $ div            : chr  "1" "1" "1" "1" ...
-##  $ date_time      : chr  "2013-09-20T08:10:00" "2016-11-16T15:00:00" "2017-04-03T08:30:00" "2017-04-04T15:15:00" ...
-##  $ usgs_station_id: chr  "06727410" NA "ES1916" "BTABCMCO" ...
+##  $ date_time      : chr  "2013-09-20T08:10:00" "2016-11-16T15:00:00" "2017-04-03T08:30:00" "2017-04-04T14:30:00" ...
+##  $ usgs_station_id: chr  "06727410" NA "ES1916" "GODIT1CO" ...
 ##  $ variable       : chr  "DISCHRG" "DISCHRG" "DISCHRG" "DISCHRG" ...
 ##  $ location       :'data.frame':	53 obs. of  3 variables:
-##   ..$ latitude      : chr  "40.042028" "40.09404" "40.849982" NA ...
-##   ..$ needs_recoding: logi  FALSE FALSE FALSE NA FALSE FALSE ...
-##   ..$ longitude     : chr  "-105.364917" "-105.05447" "-105.218036" NA ...
-##  $ station_type   : chr  "Stream" "Diversion" "Stream" "Stream" ...
-##  $ stage          : chr  NA "0.47" "0.00" "3.81" ...
+##   ..$ latitude      : chr  "40.042028" "40.09404" "40.849982" "40.19932" ...
+##   ..$ needs_recoding: logi  FALSE FALSE FALSE FALSE NA FALSE ...
+##   ..$ longitude     : chr  "-105.364917" "-105.05447" "-105.218036" "-105.22264" ...
+##  $ station_type   : chr  "Stream" "Diversion" "Stream" "Diversion" ...
+##  $ stage          : chr  NA "0.47" "0.00" "0.01" ...
 ```
 
 In this case, we have a data.frame nested within a data.frame.
@@ -173,12 +173,12 @@ head(water_data_df$location)
 ## 1 40.042028          FALSE -105.364917
 ## 2  40.09404          FALSE  -105.05447
 ## 3 40.849982          FALSE -105.218036
-## 4      <NA>             NA        <NA>
-## 5 40.125542          FALSE -105.303879
-## 6  40.21804          FALSE -105.259987
+## 4  40.19932          FALSE  -105.22264
+## 5      <NA>             NA        <NA>
+## 6 40.125542          FALSE -105.303879
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
-## [1] "40.042028" "40.09404"  "40.849982" NA          "40.125542" "40.21804"
+## [1] "40.042028" "40.09404"  "40.849982" "40.19932"  NA          "40.125542"
 ```
 
 We can remove the nesting using the `flatten()` function in `R`. When we flatten
@@ -195,16 +195,16 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
-##  [1] "40.042028" "40.09404"  "40.849982" NA          "40.125542"
-##  [6] "40.21804"  "40.160347" "40.006374" "39.961655" "39.938598"
-## [11] "39.931099" "40.256031" "40.255581" "40.15336"  "40.193757"
-## [16] "40.18188"  "40.187577" "40.19932"  "40.174844" "40.18858" 
+##  [1] "40.042028" "40.09404"  "40.849982" "40.19932"  NA         
+##  [6] "40.125542" "40.21804"  "40.160347" "40.006374" "39.961655"
+## [11] "39.938598" "39.931099" "40.256031" "40.255581" "40.15336" 
+## [16] "40.193757" "40.18188"  "40.187577" "40.174844" "40.18858" 
 ## [21] "40.134278" "40.20419"  "40.173949" "40.172925" "40.19642" 
 ## [26] "40.2125"   "40.21266"  "40.187524" NA          "40.153341"
 ## [31] "40.21139"  "40.1946"   "40.170997" "40.21905"  "40.21108" 
 ## [36] "40.193018" "40.172677" "40.172677" "40.19328"  "40.18503" 
-## [41] "40.051652" "40.053036" "40.733879" "39.98617"  "40.05366" 
-## [46] NA          "40.2172"   "39.931096" "40.216093" "40.214984"
+## [41] "40.051652" "40.053036" "39.98617"  "40.05366"  NA         
+## [46] "40.2172"   "40.733879" "39.931096" "40.216093" "40.214984"
 ## [51] NA          NA          "40.018667"
 ```
 Now we can clean up the data. Notice that our longitude and latitude values
@@ -214,11 +214,11 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
-##  chr [1:53] "40.042028" "40.09404" "40.849982" NA ...
+##  chr [1:53] "40.042028" "40.09404" "40.849982" "40.19932" NA ...
 ```
 
 In order to map or work with latitude and longitude data, we need numeric values.
-We can use the same dplyr function - `mutate_each_()` - that we used in the
+We can use the same dplyr function - `mutate_at()` - that we used in the
 previous lessons, to convert columns that are numbers to `numeric` rather than
 `char` data types:
 
@@ -231,11 +231,11 @@ so it is best to remove them.
 ```r
 # where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
-##  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [23] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
 ## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [45] FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE
+## [45]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE
 ```
 
 Note, in the code above, we can identify each location where there is a NA value
@@ -245,11 +245,11 @@ in our data. If we add an `!` to our code, R returns the INVERSE of the above.
 ```r
 # where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
-##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE
 ## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [45]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE
+## [45] FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE
 ```
 
 Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value
@@ -261,7 +261,8 @@ Remove NA Values: `filter(!is.na(location.latitude))`
 ```r
 # turn columns to numeric and remove NA values
 water_data_df <- water_data_df %>%
-  mutate_each_(funs(as.numeric), c( "amount", "location.longitude", "location.latitude")) %>%
+  mutate_at(c( "amount", "location.longitude", "location.latitude"),
+            as.numeric) %>%
   filter(!is.na(location.latitude))
 ```
 
