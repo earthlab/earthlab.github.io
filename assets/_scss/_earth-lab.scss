@@ -82,7 +82,7 @@ div.notice--success, div.notice--warning {
 
 /* For code blocks within .notice tags */
 
-.notice pre {
+.notice pre, .notice--success pre, .notice--warning pre {
     font-size: 0.8em !important;
     padding: 0;
 }

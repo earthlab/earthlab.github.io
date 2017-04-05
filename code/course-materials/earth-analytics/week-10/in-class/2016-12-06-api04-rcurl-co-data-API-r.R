@@ -27,7 +27,12 @@ full_url
 
 ## ------------------------------------------------------------------------
 # get the data from the specified url
-pop_proj_data = getURL(URLencode(full_url))
+pop_proj_data <- getURL(URLencode(full_url))
+
+## ----eval=FALSE----------------------------------------------------------
+## base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
+## getForm(base_url, county="Boulder",
+##               age="BOULDER")
 
 ## ------------------------------------------------------------------------
 # view JSON data structure
@@ -38,7 +43,7 @@ library(rjson)
 library(jsonlite)
 
 # Convert JSON to data frame
-pop_proj_data_df = fromJSON(pop_proj_data)
+pop_proj_data_df <- fromJSON(pop_proj_data)
 #unlist(pop_proj_data_df)
 head(pop_proj_data_df)
 
@@ -68,22 +73,22 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
 
 ## ----male-population, echo=FALSE, fig.cap="Male population ages 60-80."----
 # Base URL path
-base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
-full_url_80 = paste0(base_url, "county=Boulder",
+base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
+full_url_males_80 <- paste0(base_url, "county=Boulder",
               "&$where=age between 60 and 80",
               "&$select=year,age,malepopulation")
 # get the data from the specified url
-pop_proj_data_80 = getURL(URLencode(full_url_80))
+pop_proj_data_males_80 <- getURL(URLencode(full_url_males_80))
 
 # Convert JSON to data frame
-pop_proj_data_80_df = fromJSON(pop_proj_data_80)
+pop_proj_data_males_80_df <- fromJSON(pop_proj_data_males_80)
 
 # turn columns to numeric and remove NA values
-pop_proj_data_80_df <- pop_proj_data_80_df %>%
-  mutate_at(funs(as.numeric), c( "age", "year", "malepopulation"))
+pop_proj_data_males_80_df <- pop_proj_data_males_80_df %>%
+  mutate_at(c( "age", "malepopulation", "year"),as.numeric)
 
 # plot the data
-ggplot(pop_proj_data_80_df, aes(x=year, y=malepopulation,
+ggplot(pop_proj_data_males_80_df, aes(x=year, y=malepopulation,
   group=factor(age), color=age)) + geom_line() +
       labs(x="Year",
            y="Male Population age 60-80",
