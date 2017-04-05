@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-02-21'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
@@ -13,7 +13,8 @@ module-title: 'Spatial data in R and remote sensing uncertainty'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
-module-type: 'class'
+module-type: 'class' 
+course: "Earth Analytics"
 week: 5
 sidebar:
   nav:
@@ -97,7 +98,8 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 `sp` package automatically loads when `rgdal` is loaded. We will also load the
 `raster` package so we can explore raster and vector spatial metadata using similar commands.
 
-```{r load-libraries }
+
+```r
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
@@ -128,16 +130,20 @@ shapefiles we use the `R` function `readOGR()`.
 
 Let's import our AOI.
 
-```{r Import-Shapefile}
+
+```r
 # Import a polygon shapefile: readOGR("path","fileName")
 # no extension needed as readOGR only imports shapefiles
 
 sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data",
                                "SJER_plot_centroids")
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week5/california/SJER/vector_data", layer: "SJER_plot_centroids"
+## with 18 features
+## It has 5 fields
 
 # note the code below works too
 #sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data/SJER_plot_centroids.shp")
-
 ```
 
 <i class="fa fa-star"></i> **Data Tip:** The acronym, OGR, refers to the
@@ -171,18 +177,38 @@ extent for ALL spatial objects in the shapefile.
 
 We can view shapefile metadata using the `class`, `crs` and `extent` methods:
 
-```{r view-metadata }
+
+```r
 # view just the class for the shapefile
 class(sjer_plot_locations)
+## [1] "SpatialPointsDataFrame"
+## attr(,"package")
+## [1] "sp"
 
 # view just the crs for the shapefile
 crs(sjer_plot_locations)
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 
 # view just the extent for the shapefile
 extent(sjer_plot_locations)
+## class       : Extent 
+## xmin        : 254738.6 
+## xmax        : 258497.1 
+## ymin        : 4107527 
+## ymax        : 4112168
 
 # view all metadata at same time
 sjer_plot_locations
+## class       : SpatialPointsDataFrame 
+## features    : 18 
+## extent      : 254738.6, 258497.1, 4107527, 4112168  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## variables   : 5
+## names       :  Plot_ID,  Point, northing,  easting, plot_type 
+## min values  : SJER1068, center,  4107527, 254738.6,     grass 
+## max values  :  SJER952, center,  4112168, 258497.1,     trees
 ```
 
 Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
@@ -228,9 +254,29 @@ attributes stored with it.
 We view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
 (e.g., `sjer_plot_locations@data`).
 
-``` {r Shapefile-attributes-2}
+
+```r
 # alternate way to view attributes
 sjer_plot_locations@data
+##     Plot_ID  Point northing  easting plot_type
+## 1  SJER1068 center  4111568 255852.4     trees
+## 2   SJER112 center  4111299 257407.0     trees
+## 3   SJER116 center  4110820 256838.8     grass
+## 4   SJER117 center  4108752 256176.9     trees
+## 5   SJER120 center  4110476 255968.4     grass
+## 6   SJER128 center  4111389 257078.9     trees
+## 7   SJER192 center  4111071 256683.4     grass
+## 8   SJER272 center  4112168 256717.5     trees
+## 9  SJER2796 center  4111534 256034.4      soil
+## 10 SJER3239 center  4109857 258497.1      soil
+## 11   SJER36 center  4110162 258277.8     trees
+## 12  SJER361 center  4107527 256961.8     grass
+## 13   SJER37 center  4107579 256148.2     trees
+## 14    SJER4 center  4109767 257228.3     trees
+## 15    SJER8 center  4110249 254738.6     trees
+## 16  SJER824 center  4110048 256185.6      soil
+## 17  SJER916 center  4109617 257460.5      soil
+## 18  SJER952 center  4110759 255871.2     grass
 ```
 
 In this case, our polygon object only has one attribute: `id`.
@@ -242,9 +288,35 @@ includes the **class**, the number of **features**, the **extent**, and the
 **coordinate reference system** (`crs`) of the `R` object. The last two lines of
 `summary` show a preview of the `R` object **attributes**.
 
-```{r shapefile-summary}
+
+```r
 # view a summary of metadata & attributes associated with the spatial object
 summary(sjer_plot_locations)
+## Object of class SpatialPointsDataFrame
+## Coordinates:
+##                 min       max
+## coords.x1  254738.6  258497.1
+## coords.x2 4107527.1 4112167.8
+## Is projected: TRUE 
+## proj4string :
+## [+proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0]
+## Number of points: 18
+## Data attributes:
+##    Plot_ID             Point              northing          easting      
+##  Length:18          Length:18          Min.   :4107527   Min.   :254739  
+##  Class :character   Class :character   1st Qu.:4109790   1st Qu.:256063  
+##  Mode  :character   Mode  :character   Median :4110363   Median :256700  
+##                                        Mean   :4110258   Mean   :256674  
+##                                        3rd Qu.:4111242   3rd Qu.:257191  
+##                                        Max.   :4112168   Max.   :258497  
+##   plot_type        
+##  Length:18         
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
 ```
 
 
@@ -252,7 +324,8 @@ summary(sjer_plot_locations)
 Next, let's visualize the data in our `R` `spatialpointsdataframe` object using
 `plot()`.
 
-``` {r plot-shapefile, fig.cap="SJER plot locations."}
+
+```r
 # create a plot of the shapefile
 # 'pch' sets the symbol
 # 'col' sets point symbol color
@@ -260,6 +333,8 @@ plot(sjer_plot_locations, col="blue",
      pch=8,
      main="SJER Plot Locations\nMadera County, CA")
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -278,37 +353,7 @@ Answer the following questions:
 4. How many spatial objects are in each file?
 </div>
 
-```{r import-point-line, echo=FALSE, results="hide" }
-# import line shapefile
-sjer_roads <- readOGR("data/week5/california/madera-county-roads",
-                      layer = "tl_2013_06039_roads")
 
-sjer_crop_extent <- readOGR("data/week5/california/SJER/vector_data/",
-                            "SJER_crop")
-
-# 1
-class(sjer_roads)
-class(sjer_plot_locations)
-
-# 2
-crs(sjer_roads)
-extent(sjer_roads)
-crs(sjer_plot_locations)
-extent(sjer_plot_locations)
-
-# 3
-#sjer_roads contains only lines and sjer_plot_locations contains only 1 point
-
-# 4 -> numerous ways to find this; sjer_roads=13,
-length(sjer_roads)  #easiest, but not previously taught
-sjer_roads  #look at 'features'
-attributes(sjer_roads)  #found in the $data section as above
-
-# Alternative code for 1-4: view metadata/attributes all at once
-sjer_roads
-attributes(sjer_roads)
-
-```
 
 ## Plot Multiple Shapefiles
 The `plot()` function can be used to plot spatial objects. Use the following
@@ -318,7 +363,8 @@ on top of each other in your plot.
 * `add = TRUE`: overlay a shapefile or raster on top the existing plot. This argument mimics layers in a typical GIS application like QGIS.
 * `main=""`: add a title to the plot. To add a line break to your title, use `\n` where the line break should occur.
 
-```{r plot-multiple-shapefiles, fig.cap="plot of sjer plots layered on top of the crop extent." }
+
+```r
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
      main="NEON Harvard Forest\nField Site")
@@ -330,6 +376,8 @@ plot(sjer_plot_locations,
   pch = 19,
   col = "purple")
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">

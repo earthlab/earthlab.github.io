@@ -240,7 +240,7 @@ ggplot(birth_rates, aes(x=effort, y=change)) +
 Remember that here we've imported a tabular dataset directly from the Princeton
 University website. The data file itself is NOT on our computer so we do not
 have a backup in the event that the data are removed from the Princeton website -
-out code would not run.
+our code would not run.
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Consider when
 you directly access a dataset via an API that - that data may not always
@@ -305,7 +305,7 @@ ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
            subtitle = "For 52 Small college tenure track professors")
 ```
 
-## Example homework
+## Example homework plot
 Data faceted by rank. You can add the argument `+ facet_wrap(~variableHere)` to
 create a faceted plot like the one below.
 

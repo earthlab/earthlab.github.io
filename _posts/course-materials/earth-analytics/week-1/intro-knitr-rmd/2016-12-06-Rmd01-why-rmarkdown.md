@@ -13,7 +13,8 @@ module-title: 'Link data, processing and results using R Markdown and Knitr'
 module-nav-title: 'R Markdown Intro'
 module-description: 'This module teaches participants how to use R Markdown
 and knitr to create and publish reports that link analysis, results and documentation.'
-module-type: 'homework'
+module-type: 'homework' 
+course: "Earth Analytics"
 week: 1
 sidebar:
   nav:

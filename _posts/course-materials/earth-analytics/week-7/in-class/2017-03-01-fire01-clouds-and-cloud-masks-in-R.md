@@ -3,7 +3,7 @@ layout: single
 title: "Clouds, shadows & cloud masks in R"
 excerpt: "In this lesson, we will learn how to deal with clouds when working with remote sensing data. We will learn how to mask clouds in R using the mask() function. We will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-03-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/intro-spectral-data-r/
@@ -11,7 +11,8 @@ nav-title: 'Clouds, shadows & masks'
 module-title: 'Clouds, shadows & cloud masks in R'
 module-description: 'In this module we will learn more about dealing with clouds, shadows and other elements that can interfere with scientific analysis of remote sensing data. '
 module-nav-title: 'Fire / spectral remote sensing data - in R'
-module-type: 'class'
+module-type: 'class' 
+course: "Earth Analytics"
 week: 7
 sidebar:
   nav:
@@ -74,26 +75,26 @@ dealing with the uncertainty surrounding clouds and shadows in spectral data.
 
 Let's begin by loading our spatial libraries.
 
-```{r import-libraries }
+
+```r
 # import spatial packages
 library(raster)
 library(rgdal)
 library(rgeos)
 # turn off factors
 options(stringsAsFactors = F)
-
 ```
 
 Next, we will load the landsat bands that we loaded previously in our homework.
 
-```{r load-band-tifs, fig.cap="RGB image of our landsat data." }
+
+```r
 # create a list of all landsat files that have the extension .tif and contain the word band.
 all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 # create spatial raster stack from the list of file names
 all_landsat_bands_st <- stack(all_landsat_bands)
-
 ```
 
 When we plotted the pre-fire image, we noticed a large cloud in our scene.
@@ -104,7 +105,8 @@ title to my plot.
 creating nicer plots in `R`.
 {: .notice--success}
 
-```{r plotRGB-landsat, fig.cap="RGB image of our landsat data."}
+
+```r
 # turn the axis color to white and turn off ticks
 par(col.axis="white", col.lab="white", tck=0)
 # plot the data - be sure to turn AXES to T (we just color them white)
@@ -116,6 +118,8 @@ plotRGB(all_landsat_bands_st,
 # turn the box to white so there is no border on our plot
 box(col="white")
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/plotRGB-landsat-1.png" title="RGB image of our landsat data." alt="RGB image of our landsat data." width="100%" />
 
 ## Raster masks
 
@@ -129,22 +133,27 @@ Earth Explorer, the data came with 2 processed cloud mask raster layers.
 
 Let's have a look at these layers next.
 
-```{r cloud-mask, fig.cap="cloud mask - no shadows."}
+
+```r
 # open cloud mask layer
 cloud_mask_189_conf <- raster("data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_conf_crop.tif")
 plot(cloud_mask_189_conf,
   main="Landsat Julian Day 189 - Cloud mask layer.")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/cloud-mask-1.png" title="cloud mask - no shadows." alt="cloud mask - no shadows." width="100%" />
 
 Next, we can plot the second mask layer. Do you notice any difference between the two?
 
-```{r view-cloud-mask-with-shadows, fig.cap="cloud mask with shadows"}
+
+```r
 # apply shadow mask
 cloud_mask_189 <- raster("data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_crop.tif")
 plot(cloud_mask_189,
   main="Landsat Julian Day 189 - Cloud mask layer with shadows.")
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/view-cloud-mask-with-shadows-1.png" title="cloud mask with shadows" alt="cloud mask with shadows" width="100%" />
 
 ## What do the metadata tell us?
 
@@ -200,7 +209,8 @@ To create the mask this we do the following:
 
 In this case, we want to set all values greater than 0 in the raster mask to `NA`.
 
-```{r create-mask, fig.cap="raster mask. green values are not masked.", fig.width=7, fig.height=5}
+
+```r
 
 par(xpd=F, mar=c(0,0,1,5))
 # create cloud & cloud shadow mask
@@ -217,8 +227,9 @@ legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax,
        c("Not masked", "Masked"),
        fill=c("green", "white"),
        bty="n")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/create-mask-1.png" title="raster mask. green values are not masked." alt="raster mask. green values are not masked." width="100%" />
 
 Notice in the image above, all pixels that are green represent pixels that are
 OK or not masked. This means they weren't flagged as potential clouds or shadows.
@@ -229,7 +240,8 @@ All pixels that are WHITE are masked - these are areas of clouds and shadows.
 We can apply a mask to all of the bands in our raster stack which is convenient!
 Let's use the `mask()` function to mask our data.
 
-```{r apply-mask, fig.cap="apply raster mask to stack and plot.", fig.height=7, fig.width=5}
+
+```r
 # mask the stack
 all_landsat_bands_mask <- mask(all_landsat_bands_st, mask = cloud_mask_189)
 # plot RGB image
@@ -241,14 +253,16 @@ plotRGB(all_landsat_bands_mask,
         main="RGB image - are all of the clouds gone from our image?",
         axes=T)
 box(col="white")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/apply-mask-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="100%" />
 
 Notice above that I didn't have to use the stretch function to force the data to
 plot in R. This is because the extremely bright pixels which represented clouds,
 are now removed from our data.
 
-```{r mask-plot, fig.cap="apply raster mask to stack and plot.", fig.height=7, fig.width=5}
+
+```r
 # plot RGB image
 # first turn all axes to the color white and turn off ticks
 par(col.axis="white", col.lab="white", tck=0)
@@ -261,25 +275,11 @@ plotRGB(all_landsat_bands_mask,
 box(col="white")
 ```
 
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/mask-plot-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="100%" />
+
 Next, we can calculate a vegetation indices.
 
-```{r calculate-veg-index, echo=F, fig.cap="NBG for Landsat Julian Day 189", fig.height=7, fig.width=5, fig.cap="landsat NBR plot"}
-## Create a function to calculate a veg index
-get_veg_index <- function(band1, band2){
-  # this function calculates the normalize difference between two bands
-  # output: a new raster with index values bewteen -1 and 1
-  new_index <- (band2 - band1) / (band2 + band1)
-  return(new_index)
-}
-
-# calculate NBR
-
-landsat_nbr <- overlay(all_landsat_bands_mask[[4]], all_landsat_bands_mask[[5]],
-                       fun=get_veg_index)
-plot(landsat_nbr,
-     main="Landsat derived NBR \n pre-fire conditions - Julian Day 189",
-     box=F, axes=F)
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2016-12-06-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title="landsat NBR plot" alt="landsat NBR plot" width="100%" />
 
 
 <div class="notice--warning" markdown="1">
