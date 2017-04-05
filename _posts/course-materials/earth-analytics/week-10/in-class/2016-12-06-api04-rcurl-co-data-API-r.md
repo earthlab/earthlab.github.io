@@ -2,7 +2,7 @@
 layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
-authors: ['Carson Farmer', 'Leah Wasser']
+authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
 modified: '2017-04-04'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
@@ -30,7 +30,7 @@ After completing this tutorial, you will be able to:
 * Describe what a response and a request are relative to data APIs
 * Be able to list the 2 potential responses that you may get when querying a RESTful API.
 * Be able to identify the components of a hierarchically structures JSON file including: objects, arrays and data elements.
-* Use the `mutate_each_()` function with dplyr pipes to adjust the format / data type of multiple columns.
+* Use the `mutate_at()` function with dplyr pipes to adjust the format / data type of multiple columns.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -124,7 +124,7 @@ The ability to store nested or hierarchical data within a text file structure ma
 JSON a powerful format to use as we are working with larger datasets.
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The GEOJSON
-data structure is a pwerful data structure that supports spatial data. GEOJSON
+data structure is a powerful data structure that supports spatial data. GEOJSON
 can be used to create maps just like shapefiles can. This format is often used
 for web mapping applications like leaflet (which we will learn about later in
 this module).
@@ -272,21 +272,22 @@ head(pop_proj_data_df)
 
 # turn columns to numeric and remove NA values
 pop_proj_data_df <- pop_proj_data_df %>%
-  mutate_each_(funs(as.numeric), c( "age", "year", "femalepopulation"))
+  mutate_at(c( "age", "year", "femalepopulation"), as.numeric)
 ```
 
+<!-- mutate_each is marked for deprecation in favor of mutate_all, mutate_at, and mutate_if  -->
 
-### mutate_each_ dplyr
+### `mutate_at` from dplyr
 
-Note that we used another new function above -- `mutate_each_()`. The `mutate_each_()`
+Note that we used another new function above -- `mutate_at()`. The `mutate_at()`
 function can be used to change the format of (or apply any function on) any columns
 within our data.frame.
 
 In the code above, we told R to apply the `as.numeric()` function to the `age`, `year` and
 `femalepopulation` columns in our `pop_proj_data_df` data.frame object as follows:
 
-* `funs(as.numeric)`: apply the as.numeric function to each column
-* `c( "age", "year", "femalepopulation")`: a vector of column names - each of which R will apply the specified function (as.numeric in this case) to.
+* `c( "age", "year", "femalepopulation")`: a vector of column names to  apply a function (as.numeric in this case).
+* `as.numeric`: apply the as.numeric function to each column
 
 The code above uses dplyr pipes to mutate or change 3 columns in our `data.frame`
 to a numeric data type. Is it the same as running the code below on each column
@@ -300,7 +301,7 @@ pop_proj_data_df$age <- as.numeric(pop_proj_data_df$age)
 pop_proj_data_df$year <- as.numeric(pop_proj_data_df$year)
 pop_proj_data_df$femalepopulation <- as.numeric(pop_proj_data_df$femalepopulation)
 
-# OR use the apply function to convert all rows in the DF to numbers
+# OR use the apply function to convert all rows in the data.frame to numbers
 #pops <- as.data.frame(lapply(pop_proj_data_df, as.numeric))
 ```
 
@@ -315,8 +316,8 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
   group=factor(age), color=age)) + geom_line() +
       labs(x="Year",
            y="Female Population - Age 20-40",
-          title="Projected Female Population",
-          subtitle = "Boulder, CO: 1990 - 2040")
+           title="Projected Female Population",
+           subtitle = "Boulder, CO: 1990 - 2040")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="100%" />
@@ -339,6 +340,11 @@ plot a descriptive title.
 </div>
 
 ## Example homework plot
+
+
+```
+## Error: .cols should be a character/numeric vector or a columns object
+```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api04-rcurl-co-data-API-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
 

@@ -61,8 +61,8 @@ ggplot(birth_rates, aes(x=effort, y=change)) +
   geom_point() +
       labs(x="Effort",
            y="Percent Change",
-          title="Decline in birth rate vs. planning effort",
-          subtitle = "For 20 Latin America Countries")
+           title="Decline in birth rate vs. planning effort",
+           subtitle = "For 20 Latin America Countries")
 
 
 ## ----all-data, echo=FALSE, fig.cap="Prof salary data by sex"-------------
@@ -74,8 +74,8 @@ ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
   geom_point() +
       labs(x="Experience (years)",
            y="Salary (US dollars)",
-          title="Annual Salary by Experience",
-          subtitle = "For 52 Small college tenure track professors")
+           title="Annual Salary by Experience",
+           subtitle = "For 52 Small college tenure track professors")
 
 ## ----facet-by-rank, echo=FALSE, fig.cap="GGPLOT of salary by experience"----
 
@@ -83,8 +83,8 @@ ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
   geom_point() +
       labs(x="Experience (years)",
            y="Salary (US dollars)",
-          title="Annual Salary by Experience",
-          subtitle = "For 52 Small college tenure track professors") +
+           title="Annual Salary by Experience",
+           subtitle = "For 52 Small college tenure track professors") +
     facet_wrap(~rk)
 
 ## ----all-data-lm, echo=FALSE, fig.cap="GGPLOT of gapminder data - life expectance by continent by sex"----
@@ -92,8 +92,8 @@ ggplot(salary_data, aes(x=yr, y=sl, col=sx)) +
   geom_point() +
       labs(x="Experience (years)",
            y="Salary (US dollars)",
-          title="Annual Salary by Experience",
-          subtitle = "For 52 Small college tenure track professors") +
+           title="Annual Salary by Experience",
+           subtitle = "For 52 Small college tenure track professors") +
   geom_smooth(method=lm,   # Add linear regression lines
                 se=FALSE)
 
