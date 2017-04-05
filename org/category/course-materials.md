@@ -23,8 +23,8 @@ Course materials and labs that focus on computational approaches.
   <article class="archive__item" >
   <h2 class="archive__item-title">
   <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}</a></h2>
-
-  <p class='archive__item-excerpt'>{{ module.module-description }}</p>
+  <p class='archive__item-excerpt'><i>{% if module.course %}This teaching module is a part of the {{ module.course }} course. Last taught: {{ module.date | date_to_string }}{% endif %}</i> </p>
+  <p class='archive__item-excerpt'>{{ module.module-description }} <i>Last updated: {{ module.modified | date_to_string }}</i> </p>
 
   {% assign counter = 0 %}
   {% for post in site.categories.[page.category] %}

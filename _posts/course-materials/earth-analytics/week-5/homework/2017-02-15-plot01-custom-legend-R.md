@@ -12,7 +12,8 @@ module-title: 'Custom plots in R'
 module-description: 'This tutorial covers the basics of creating custom plot legends
 in R'
 module-nav-title: 'Spatial Data: Custom plots in R'
-module-type: 'homework'
+module-type: 'homework' 
+course: "Earth Analytics"
 week: 5
 sidebar:
   nav:
