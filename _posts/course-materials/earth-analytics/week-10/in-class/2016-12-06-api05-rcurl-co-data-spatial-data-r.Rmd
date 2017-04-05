@@ -2,7 +2,7 @@
 layout: single
 title: "Programmatically accessing geospatial data using API's - Working with and mapping JSON data from the Colorado Information Warehouse in R"
 excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
-authors: ['Carson Farmer', 'Leah Wasser']
+authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']

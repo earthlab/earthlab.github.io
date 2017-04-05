@@ -2,7 +2,7 @@
 layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
-authors: ['Carson Farmer', 'Leah Wasser']
+authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
@@ -190,7 +190,7 @@ the_data <- read.table(the_url)
 head(the_data)
 ```
 
-While read.table does work to directly open the data, it is more robust to use
+While `read.table()` does work to directly open the data, it is more robust to use
 `getURL()`. `getURL()`, a function that comes from the RCurl `R` package, allows you to
 consistently access secure servers and also has additional authentication support.
 
