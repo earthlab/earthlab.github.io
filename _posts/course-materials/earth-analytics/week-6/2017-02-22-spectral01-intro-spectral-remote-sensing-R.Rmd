@@ -11,7 +11,8 @@ nav-title: 'Intro spectral data'
 module-title: 'Understanding fire using spectral remote sensing data'
 module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
 module-nav-title: 'Fire / spectral remote sensing data - in R'
-module-type: 'class'
+module-type: 'class' 
+course: "Earth Analytics"
 week: 6
 sidebar:
   nav:

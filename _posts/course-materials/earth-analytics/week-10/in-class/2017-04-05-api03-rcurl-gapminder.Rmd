@@ -83,7 +83,7 @@ Tab Separate Values. The difference between .tsv and .csv is the separator:
 * `.csv` uses a COMMA (`,`) to separate individual values in each column and row of the data
 * `.tsv` uses a TAB to separate individual values in each column / row of the data.
 
-We can use the read.csv() function to read in the tsv format.
+We can use the `read.csv()` function to read in the tsv format.
 In this case, using `read.csv()` may also work for you. But we will use `RCurl` to
 ensure data are transferred properly from the secure url.
 
