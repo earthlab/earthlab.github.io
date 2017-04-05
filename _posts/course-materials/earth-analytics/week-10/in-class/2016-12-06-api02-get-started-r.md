@@ -2,7 +2,7 @@
 layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
-authors: ['Carson Farmer', 'Leah Wasser']
+authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
 modified: '2017-04-04'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
@@ -128,7 +128,7 @@ ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/import-plot-data-1.png" title="boulder precip from figshare plot. " alt="boulder precip from figshare plot. " width="100%" />
 
-### read.csv() vs RCURL
+### read.csv() vs RCurl
 
 While using `read.csv()` to get data directly works, it may fail sometimes if:
 
@@ -146,7 +146,7 @@ RCurl is a powerful package that:
 * Provides a number of helper functions to grab data files from the web
 
 The `getURL()` function works for most secure web download protocols (e.g.,
-`http(s)`, `ftp(S)`). It also helps with web scraping, direct access to web
+`http(s)`, `ftp(s)`). It also helps with web scraping, direct access to web
 resources, and even API data access.
 
 ## Download data with RCurl
@@ -201,7 +201,7 @@ head(the_data)
 ## Cuba           89     15     40
 ```
 
-While read.table does work to directly open the data, it is more robust to use
+While `read.table()` does work to directly open the data, it is more robust to use
 `getURL()`. `getURL()`, a function that comes from the RCurl `R` package, allows you to
 consistently access secure servers and also has additional authentication support.
 
@@ -223,8 +223,8 @@ birth_rates <- read.table(textConnection(the_data))
 
 ## Working with Web Data
 
-The `birth_rates` data that we just accessed, import into a
-`data.frame` format that we are used to working with. We can analyze and visualize
+The `birth_rates` data that we just accessed were imported into R as a
+`data.frame`, which we are used to working with. We can analyze and visualize
 the data using `ggplot()` just like we did with the precipitation data earlier.
 For example:
 
@@ -256,8 +256,8 @@ ggplot(birth_rates, aes(x=effort, y=change)) +
   geom_point() +
       labs(x="Effort",
            y="Percent Change",
-          title="Decline in birth rate vs. planning effort",
-          subtitle = "For 20 Latin America Countries")
+           title="Decline in birth rate vs. planning effort",
+           subtitle = "For 20 Latin America Countries")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api02-get-started-r/birth-rates-1.png" title="Birth rates example" alt="Birth rates example" width="100%" />

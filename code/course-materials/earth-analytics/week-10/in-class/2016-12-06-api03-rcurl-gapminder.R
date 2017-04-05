@@ -9,23 +9,23 @@ library(RCurl)
 
 ## ----message=FALSE-------------------------------------------------------
 # Store base url (note the secure -- https:// -- url)
-file = "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv"
+file_url = "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv"
 # grab the data!
-temp = getURL(file)
+gapminder_data_url = getURL(file_url)
 
 ## ------------------------------------------------------------------------
 # read.csv works too
-head(read.csv(file, sep="\t"))
+head(read.csv(file_url, sep="\t"))
 
 
 ## ------------------------------------------------------------------------
 # Use textConnection to read content of temp as tsv
-gap_data = read.csv(textConnection(temp))
+gap_data = read.csv(textConnection(gapminder_data_url))
 head(gap_data)
 
 ## ------------------------------------------------------------------------
 # Use textConnection to read content of temp as tsv
-gap_data <- read.csv(textConnection(temp),
+gap_data <- read.csv(textConnection(gapminder_data_url),
                      sep="\t")
 head(gap_data)
 
@@ -59,7 +59,7 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
   geom_boxplot(outlier.colour="hotpink") +
   geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+
       labs(x="Continent",
-           y="Life Expentancy (years)",
+           y="Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 
