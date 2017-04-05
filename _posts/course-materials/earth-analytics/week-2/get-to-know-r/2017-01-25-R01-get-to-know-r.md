@@ -16,7 +16,8 @@ module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
 We will work with precipitation and stream discharge data for Boulder County
 to better understand the R syntax, various data types and data import and plotting.'
-module-type: 'class'
+module-type: 'class' 
+course: "Earth Analytics"
 week: 2
 sidebar:
   nav:

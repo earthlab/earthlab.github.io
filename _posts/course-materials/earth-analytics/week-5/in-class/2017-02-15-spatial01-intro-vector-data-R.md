@@ -13,7 +13,8 @@ module-title: 'Spatial data in R and remote sensing uncertainty'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
-module-type: 'class'
+module-type: 'class' 
+course: "Earth Analytics"
 week: 5
 sidebar:
   nav:

@@ -63,10 +63,24 @@ IMPORTANT!! for all plots be sure to:
 * Add a title and label the x and y axes appropriately
 * Adjust the colors of your plot to make it look nice
 
-### Plot 1
+## Homework Part 1. Answer the following questions (25%)
+
+1. What does API stand for and what is an API?
+2. Why is programmatic access to data within our code useful?
+3. List 2 characteristics of the JSON file format.
+
+## Homework Part 2. Create the 3 plots below (75%)
+
+#### Plot 1
 
 Using the tools that we learned above, import the Princeton salary data below
 using the RCurl functions `getURL()` & `textConnection()`, combined with `read.table()`.
+
+Plot the following:
+
+Experience (x axis) vs. salary (y axis). Color your points by SEX and use facets
+to add a facet for each of the three ranks. Your plot should look like the
+one on the bottom of [this page]( {{ site.url }}/course-materials/earth-analytics/week-10/get-data-with-rcurl-r/#example-homework).
 
 <a href="http://data.princeton.edu/wws509/datasets/#salary" target="_blank">Learn more about the Princeton salary data</a>
 
@@ -92,21 +106,16 @@ in this case rank) using the `facet_wrap()` argument in a ggplot plot. For examp
  `+ facet_wrap(~dg)` will create a ggplot plot with sub plots filtered by highest
  degree.)
 
-Plot the following:
-
-Experience (x axis) vs. salary (y axis). Color your points by SEX and use facets
-to add a facet for each of the three ranks. Your plot should look like the
-one on the bottom of [this page]( {{ site.url }}/course-materials/earth-analytics/week-10/get-data-with-rcurl-r/#example-homework).
-
-### Plot 2
+#### Plot 2
 
 Use the `read_secure_csv_file()` function to import the gapminder data following
  [this lesson]({{ site.url }}/course-materials/earth-analytics/week-10/access-gapminder-data-rcurl-r/)
 Then create a plot using the `ggplot()` of two variables of interest. You can
-pick any variables that you want to plot together!
+pick any variables that you want to plot together but do not use variables that
+we demonstrate in the online lessons!
 
 
-### Plot 3
+#### Plot 3
 
 Using the population projection data that we used in [this lesson]({{ site.url }}/course-materials/earth-analytics/week-10/apis2-r/#example-homework-plot),
  create a plot of projected
@@ -124,11 +133,67 @@ plot a descriptive title.
 
 Following the class lessons, create an interactive map showing surface water
 site locations using leaflet. The map popup should include the discharge value
-for each site and the station type.
+for each site and the station type. IMPORTANT: there is a bug where leaflet
+maps don't always render properly unless you specify the tile background that
+it should use! If you get a map with a grey background, this may be why!
 
 #### Additional bonus - (1 point)
 
 You will get a second bonus point if you can make each marker unique based on
 station type!
 
+****
+
+## Homework due: Wednesday April 12 2017 @ NOON.
+Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
+
+NOTE: ALL future assignments will be due BEFORE CLASS on Wednesday at NOON. Following
+course policy we will not accept late assignments. Start early and submit your
+assignment BEFORE NOON. 
 </div>
+
+
+## Grade rubric
+
+#### Questions (25%)
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| What does API stand for and what is an API? |  |  | | |
+| Why is programmatic access to data within our code useful? |  |  | | |
+|===
+| List 2 characteristics of the JSON file format. |  |  | | |
+
+#### Plot 1 - Princeton data plot (25%)
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Data are plotted using the ggplot() function (not qplot!). |  |  | | |
+| Data are read in using read.table() directly from the website (if you don't need to use getURL, that is ok. |  |  | | |
+| Data are plotted: Experience (x axis) vs. salary (y axis).  |  |  | | |
+| Data points are colored by sex.  |  |  | | |
+| Ggplot facets are used to plot each subset by RANK.  |  |  | | |
+| X and Y axis are labelled appropriately and the plot has a clear title.  |  |  | | |
+|===
+| Code is well documented and printed on the output html or pdf document.|  |  | | |
+
+#### Plot 2 - Gapminder data plot using function (25%)
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Gapminder data are imported directly into R using the read_secure_csv_file() function. |  |  | | |
+| Two variables are plotted (and they are not the variables used in the lessons). |  |  | | |
+| X and Y axis are labelled appropriately  and the plot has a clear title.  |  |  | | |
+|===
+| Code is well documented and printed on the output html or pdf document.|  |  | | |
+
+#### Plot 3 - Population projection data plot (25%)
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Data are plotted using the subset year:: 1990-2040, male population and age 60-80 years old . |  |  | | |
+| ggplot() function is used to plot the data. |  |  | | |
+| Data are accessed in the code using an API call to the CO Data warehouse site. |  |  | | |
+| X and Y axis are labelled appropriately  and the plot has a clear title.  |  |  | | |
+|===
+| Code is well documented and printed on the output html or pdf document.|  |  | | |
