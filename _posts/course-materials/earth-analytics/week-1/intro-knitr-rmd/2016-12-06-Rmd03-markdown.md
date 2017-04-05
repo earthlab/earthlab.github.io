@@ -57,7 +57,7 @@ output HTML document. We will learn about the markdown syntax next.
 
 <i class="fa fa-star"></i> **Data Tip:** This web page that you are reading right now
 is generated from a markdown document.
-{: .notice }
+{: .notice--success}
 
 In this tutorial, we cover the basic syntax of markdown.
 
@@ -135,7 +135,7 @@ There are many free Markdown editors out there! The
 <a href="http://Atom.io" target="_blank">atom.io</a>
 editor is a powerful text editor package by GitHub, that also has a Markdown
 renderer that allows you to preview the rendered Markdown as you write.
-{: .notice }
+{: .notice--success}
 
 ### Explore Your R Markdown File
 

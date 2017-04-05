@@ -208,7 +208,7 @@ Your final plot should look something like the plot below.
 
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
-{: .notice }
+{: .notice--success}
 
 
 <div class="notice--warning" markdown="1">

@@ -27,10 +27,56 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
         <!-- List all posts in the page category  -->
-        <h2>Class Lessons </h2>
+        <h2>Course modules </h2>
+        <p>Course material modules are sets of materials developed to teach
+          specific learning objectives in a course setting.</p>
+
+        {% assign modules = site.posts | where:"order", 1 %}
+          <!-- Just get modules the author has contributed to  -->
+        {% for module in modules %}
+
+        {% if module.authors contains page.author %}
+        <div class="list__item">
+          <article class="archive__item" >
+          <h2 class="archive__item-title">
+          <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}</a></h2>
+          <p class='archive__item-excerpt'>{{ module.module-description }}</p>
+
+          {% assign counter = 0 %}
+          {% for post in site.categories.['course-materials'] %}
+              {% if post.class-lesson == module.class-lesson %}
+                {% assign counter = counter | plus: 1 %}
+              {% endif %}
+          {% endfor %}
+
+         {% assign slideCounter = 0 %}
+          {% for slides in site.slide-shows %}
+            {% if slides.class-lesson == module.class-lesson %}
+              {% assign slideCounter = slideCounter | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+          <p class="page__meta">collaborators:
+            {% for anAuthor in module.authors %}
+            {% assign currentItem = site.data.authors | where:"name", anAuthor %}
+            <a href="{{ site.url }}{{ site.baseurl }}/authors/{{ currentItem[0].slug }}">{{ currentItem[0].name }}</a>{% if forloop.last == false %}, {% endif %}
+            {% endfor %}
+
+          </p>
+          <p class="page__meta">lessons: {{ counter }}, presentations {{ slideCounter }}</p>
+          </article>
+        </div>
+
+        {% if counter == 0 %}
+         <em>{{ page.author }} hasn't contributed to any course modules... yet. </em>
+        {% endif %}
+
+        {% endif %}
+        {% endfor %}
+
         {% assign lessonCounter = 0 %}
 
-        {% for member in site.data.class-lessons %}
+        {% for member in site.data.course-materials %}
+        {{ member }} Stuff
           {% if member.active %}
             <!-- if member contains the author -->
             {% if member.authors contains page.author %}
@@ -45,11 +91,9 @@ layout: default
           {% endif %}
         {% endfor %}
 
-        {% if lessonCounter == 0 %}
-         <em>Nothing to list here yet! </em>
-        {% endif %}
 
-        <h2> Tutorials  </h2>
+
+        <h2> Data tutorials</h2>
         {% assign tutorialCounter = 0 %}
         {% for post in site.categories.tutorials %}
           {% if post.authors contains page.author %}
