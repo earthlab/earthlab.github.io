@@ -75,11 +75,11 @@ Leaflet:
 The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package! Below, you can see some code that creates a basic web-map.
 
 ```{r eval=FALSE}
-map = leaflet() %>%
+map <- leaflet() %>%
   addTiles() %>%  # use the default base map which is OpenStreetMap tiles
   addMarkers(lng=174.768, lat=-36.852,
              popup="The birthplace of R")
-print(map)
+map
 ```
 ```{r echo=FALSE, eval=FALSE}
 library(htmlwidgets)
