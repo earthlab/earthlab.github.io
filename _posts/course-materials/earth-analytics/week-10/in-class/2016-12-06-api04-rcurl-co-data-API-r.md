@@ -1,12 +1,12 @@
 ---
 layout: single
-title: "An example of creating modular code in R - Efficient scientific programming"
-excerpt: "This lesson provides an example of modularizing code in R. "
+title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
+excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-04-04'
+modified: '2017-04-05'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
-permalink: /course-materials/earth-analytics/week-10/apis2-r/
+permalink: /course-materials/earth-analytics/week-10/API-data-access-r/
 nav-title: 'JSON & RESTful APIs'
 week: 10
 sidebar:
