@@ -69,7 +69,7 @@ IMPORTANT!! for all plots be sure to:
 2. Why is programmatic access to data within our code useful?
 3. List 2 characteristics of the JSON file format.
 
-## Homework Part 2. Create the 3 plots below (66%)
+## Homework Part 2. Create the 2 plots below (66%)
 
 #### Plot 1
 
