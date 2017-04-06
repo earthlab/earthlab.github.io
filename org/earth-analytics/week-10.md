@@ -63,13 +63,13 @@ IMPORTANT!! for all plots be sure to:
 * Add a title and label the x and y axes appropriately
 * Adjust the colors of your plot to make it look nice
 
-## Homework Part 1. Answer the following questions (25%)
+## Homework Part 1. Answer the following questions (33%)
 
 1. What does API stand for and what is an API?
 2. Why is programmatic access to data within our code useful?
 3. List 2 characteristics of the JSON file format.
 
-## Homework Part 2. Create the 3 plots below (75%)
+## Homework Part 2. Create the 3 plots below (66%)
 
 #### Plot 1
 
