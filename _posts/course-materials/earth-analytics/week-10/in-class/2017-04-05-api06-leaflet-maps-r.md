@@ -3,7 +3,7 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-04-04'
+modified: '2017-04-06'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/leaflet-r/
@@ -72,11 +72,11 @@ The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` pa
 
 
 ```r
-map = leaflet() %>%
+map <- leaflet() %>%
   addTiles() %>%  # use the default base map which is OpenStreetMap tiles
   addMarkers(lng=174.768, lat=-36.852,
              popup="The birthplace of R")
-print(map)
+map
 ```
 
 
@@ -185,52 +185,52 @@ a series of text strings and object values.
 paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 ##  [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"              
 ##  [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"                                     
-##  [3] "BOULDER RESERVOIR INLET<br/>Discharge: 0"                                           
-##  [4] "GOSS DITCH 1<br/>Discharge: 0.01"                                                   
-##  [5] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 12.6"                              
-##  [6] "SAINT VRAIN CREEK AT LYONS, CO<br/>Discharge: 75.6"                                 
-##  [7] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 144"
-##  [8] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 23"                                       
-##  [9] "MIDDLE BOULDER CREEK AT NEDERLAND<br/>Discharge: 21.5"                              
-## [10] "SOUTH BOULDER CREEK BELOW GROSS RESERVOIR<br/>Discharge: 34.3"                      
-## [11] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 44.2"                      
-## [12] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                                       
-## [13] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                          
-## [14] "BONUS DITCH<br/>Discharge: 0"                                                       
-## [15] "CLOUGH AND TRUE DITCH<br/>Discharge: 0"                                             
-## [16] "DAVIS AND DOWNING DITCH<br/>Discharge: 2.27"                                        
-## [17] "DENIO TAYLOR DITCH<br/>Discharge: 0"                                                
-## [18] "HAGER MEADOWS DITCH<br/>Discharge: 1.64"                                            
-## [19] "JAMES DITCH<br/>Discharge: 0.12"                                                    
-## [20] "LEFT HAND CREEK AT HOVER ROAD NEAR LONGMONT, CO<br/>Discharge: 1.4"                 
-## [21] "LONGMONT SUPPLY DITCH<br/>Discharge: 0.82"                                          
-## [22] "NIWOT DITCH<br/>Discharge: 0.71"                                                    
-## [23] "NORTHWEST MUTUAL DITCH<br/>Discharge: 0.02"                                         
-## [24] "OLIGARCHY DITCH DIVERSION<br/>Discharge: 0.08"                                      
-## [25] "PALMERTON DITCH<br/>Discharge: 0"                                                   
-## [26] "ROUGH AND READY DITCH<br/>Discharge: 0"                                             
-## [27] "RUNYON DITCH<br/>Discharge: 0"                                                      
-## [28] "SAINT VRAIN CREEK BELOW KEN PRATT BLVD AT LONGMONT, CO<br/>Discharge: 25.9"         
-## [29] "SMEAD DITCH<br/>Discharge: 0"                                                       
-## [30] "SOUTH BRANCH ST. VRAIN CREEK<br/>Discharge: 14.13"                                  
-## [31] "SOUTH FLAT DITCH<br/>Discharge: 0.23"                                               
-## [32] "SUPPLY DITCH<br/>Discharge: 0"                                                      
-## [33] "SWEDE DITCH<br/>Discharge: 0"                                                       
-## [34] "TRUE AND WEBSTER DITCH<br/>Discharge: 0.03"                                         
-## [35] "UNION RESERVOIR<br/>Discharge: 8595"                                                
-## [36] "UNION RESERVOIR<br/>Discharge: 12.17"                                               
-## [37] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.17"                                         
-## [38] "ZWECK AND TURNER DITCH<br/>Discharge: 1.8"                                          
-## [39] "BOULDER CREEK AT NORTH 75TH STREET NEAR BOULDER<br/>Discharge: 88"                  
-## [40] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 2.02"       
-## [41] "DRY CREEK CARRIER<br/>Discharge: 0.84"                                              
-## [42] "LEGGETT DITCH<br/>Discharge: 0.56"                                                  
-## [43] "SAINT VRAIN SUPPLY CANAL NEAR LYONS, CO<br/>Discharge: 48.5"                        
-## [44] "BOULDER RESERVOIR<br/>Discharge: 5011.5"                                            
-## [45] "SOUTH BOULDER CREEK DIVERSION NEAR ELDORADO SPRINGS<br/>Discharge: 0"               
-## [46] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 46.6"                          
-## [47] "HIGHLAND DITCH AT LYONS, CO<br/>Discharge: 72.7"                                    
-## [48] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 4.5"
+##  [3] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 14"                                
+##  [4] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 141"
+##  [5] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                                       
+##  [6] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                          
+##  [7] "BONUS DITCH<br/>Discharge: 0"                                                       
+##  [8] "CLOUGH AND TRUE DITCH<br/>Discharge: 0"                                             
+##  [9] "DAVIS AND DOWNING DITCH<br/>Discharge: 2.39"                                        
+## [10] "DENIO TAYLOR DITCH<br/>Discharge: 0"                                                
+## [11] "GOSS DITCH 1<br/>Discharge: 0.01"                                                   
+## [12] "HAGER MEADOWS DITCH<br/>Discharge: 1.9"                                             
+## [13] "JAMES DITCH<br/>Discharge: 0.08"                                                    
+## [14] "LEFT HAND CREEK AT HOVER ROAD NEAR LONGMONT, CO<br/>Discharge: 0.92"                
+## [15] "LONGMONT SUPPLY DITCH<br/>Discharge: 0.82"                                          
+## [16] "NIWOT DITCH<br/>Discharge: 0.66"                                                    
+## [17] "NORTHWEST MUTUAL DITCH<br/>Discharge: 0.02"                                         
+## [18] "OLIGARCHY DITCH DIVERSION<br/>Discharge: 0.08"                                      
+## [19] "PALMERTON DITCH<br/>Discharge: 0"                                                   
+## [20] "ROUGH AND READY DITCH<br/>Discharge: 0"                                             
+## [21] "RUNYON DITCH<br/>Discharge: 0"                                                      
+## [22] "SAINT VRAIN CREEK AT LYONS, CO<br/>Discharge: 81.1"                                 
+## [23] "SMEAD DITCH<br/>Discharge: 0"                                                       
+## [24] "SOUTH BRANCH ST. VRAIN CREEK<br/>Discharge: 13.76"                                  
+## [25] "SOUTH FLAT DITCH<br/>Discharge: 0.23"                                               
+## [26] "SUPPLY DITCH<br/>Discharge: 0"                                                      
+## [27] "SWEDE DITCH<br/>Discharge: 0"                                                       
+## [28] "TRUE AND WEBSTER DITCH<br/>Discharge: 0.03"                                         
+## [29] "UNION RESERVOIR<br/>Discharge: 8583"                                                
+## [30] "UNION RESERVOIR<br/>Discharge: 9.46"                                                
+## [31] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.17"                                         
+## [32] "ZWECK AND TURNER DITCH<br/>Discharge: 5.03"                                         
+## [33] "BOULDER CREEK AT NORTH 75TH STREET NEAR BOULDER<br/>Discharge: 38"                  
+## [34] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 20.4"                                     
+## [35] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 3.05"       
+## [36] "BOULDER RESERVOIR<br/>Discharge: 5076"                                              
+## [37] "BOULDER RESERVOIR INLET<br/>Discharge: 68"                                          
+## [38] "DRY CREEK CARRIER<br/>Discharge: 0.84"                                              
+## [39] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 5.2"                                  
+## [40] "LEGGETT DITCH<br/>Discharge: 0.12"                                                  
+## [41] "MIDDLE BOULDER CREEK AT NEDERLAND<br/>Discharge: 18.6"                              
+## [42] "SOUTH BOULDER CREEK BELOW GROSS RESERVOIR<br/>Discharge: 25.5"                      
+## [43] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 22.5"                      
+## [44] "SAINT VRAIN CREEK BELOW KEN PRATT BLVD AT LONGMONT, CO<br/>Discharge: 30.3"         
+## [45] "SAINT VRAIN SUPPLY CANAL NEAR LYONS, CO<br/>Discharge: 73.3"                        
+## [46] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 72.3"                          
+## [47] "HIGHLAND DITCH AT LYONS, CO<br/>Discharge: 82"                                      
+## [48] "SOUTH BOULDER CREEK DIVERSION NEAR ELDORADO SPRINGS<br/>Discharge: 0"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our
