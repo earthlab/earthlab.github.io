@@ -47,9 +47,8 @@ head(the_data)
 
 ## ----import-dat-file-rcurl-----------------------------------------------
 the_url <- "http://data.princeton.edu/wws509/datasets/effort.dat"
-the_data <- getURL(the_url)
 # read in the data
-birth_rates <- read.table(textConnection(the_data))
+birth_rates <- read.table(the_url)
 
 
 ## ------------------------------------------------------------------------
