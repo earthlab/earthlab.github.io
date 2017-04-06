@@ -27,6 +27,7 @@ After completing this tutorial, you will be able to:
 * Access data from a remote URL (http or https) using `read.table()` function.
 * Explain the difference between accessing data using `download.file()` compared to `read.table()` or `read.csv()`.
 * Plot tabular data using `ggplot()`
+* Create a plot with data subsetted by a particular variable using facets.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
