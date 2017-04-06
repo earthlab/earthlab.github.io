@@ -63,13 +63,13 @@ IMPORTANT!! for all plots be sure to:
 * Add a title and label the x and y axes appropriately
 * Adjust the colors of your plot to make it look nice
 
-## Homework Part 1. Answer the following questions (25%)
+## Homework Part 1. Answer the following questions (33%)
 
 1. What does API stand for and what is an API?
 2. Why is programmatic access to data within our code useful?
 3. List 2 characteristics of the JSON file format.
 
-## Homework Part 2. Create the 3 plots below (75%)
+## Homework Part 2. Create the 3 plots below (66%)
 
 #### Plot 1
 
@@ -115,18 +115,7 @@ pick any variables that you want to plot together but do not use variables that
 we demonstrate in the online lessons!
 
 
-#### Plot 3
 
-Using the population projection data that we used in [this lesson]({{ site.url }}/course-materials/earth-analytics/week-10/apis2-r/#example-homework-plot),
- create a plot of projected
-MALE population numbers as follows:
-
-* Time span: 1990--2040
-* Column category: malepopulation
-* Age range: 60--80 years old
-
-Use `ggplot()` to create your plot and be sure to label x and y axes and give the
-plot a descriptive title.
 
 
 #### Bonus plot - (1 point)
@@ -149,13 +138,13 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 NOTE: ALL future assignments will be due BEFORE CLASS on Wednesday at NOON. Following
 course policy we will not accept late assignments. Start early and submit your
-assignment BEFORE NOON. 
+assignment BEFORE NOON.
 </div>
 
 
 ## Grade rubric
 
-#### Questions (25%)
+#### Questions (33.3%)
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -164,7 +153,7 @@ assignment BEFORE NOON.
 |===
 | List 2 characteristics of the JSON file format. |  |  | | |
 
-#### Plot 1 - Princeton data plot (25%)
+#### Plot 1 - Princeton data plot (33.3%)
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -177,23 +166,12 @@ assignment BEFORE NOON.
 |===
 | Code is well documented and printed on the output html or pdf document.|  |  | | |
 
-#### Plot 2 - Gapminder data plot using function (25%)
+#### Plot 2 - Gapminder data plot using function (33.3%)
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
 | Gapminder data are imported directly into R using the read_secure_csv_file() function. |  |  | | |
 | Two variables are plotted (and they are not the variables used in the lessons). |  |  | | |
-| X and Y axis are labelled appropriately  and the plot has a clear title.  |  |  | | |
-|===
-| Code is well documented and printed on the output html or pdf document.|  |  | | |
-
-#### Plot 3 - Population projection data plot (25%)
-
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
-| Data are plotted using the subset year:: 1990-2040, male population and age 60-80 years old . |  |  | | |
-| ggplot() function is used to plot the data. |  |  | | |
-| Data are accessed in the code using an API call to the CO Data warehouse site. |  |  | | |
 | X and Y axis are labelled appropriately  and the plot has a clear title.  |  |  | | |
 |===
 | Code is well documented and printed on the output html or pdf document.|  |  | | |
