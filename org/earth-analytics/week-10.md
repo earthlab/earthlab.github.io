@@ -73,8 +73,7 @@ IMPORTANT!! for all plots be sure to:
 
 #### Plot 1
 
-Using the tools that we learned above, import the Princeton salary data below
-using the RCurl functions `getURL()` & `textConnection()`, combined with `read.table()`.
+Using the tools that we learned above, import the Princeton salary data below.
 
 Plot the following:
 
