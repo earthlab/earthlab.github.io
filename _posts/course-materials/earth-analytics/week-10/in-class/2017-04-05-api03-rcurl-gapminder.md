@@ -3,7 +3,7 @@ layout: single
 title: "Access secure data connections using the RCurl R package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-04-04'
+modified: '2017-04-05'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/access-gapminder-data-rcurl-r/
@@ -82,7 +82,7 @@ Tab Separate Values. The difference between .tsv and .csv is the separator:
 * `.csv` uses a COMMA (`,`) to separate individual values in each column and row of the data
 * `.tsv` uses a TAB to separate individual values in each column / row of the data.
 
-We can use the read.csv() function to read in the tsv format.
+We can use the `read.csv()` function to read in the tsv format.
 In this case, using `read.csv()` may also work for you. But we will use `RCurl` to
 ensure data are transferred properly from the secure url.
 
@@ -160,7 +160,7 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/life-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent" alt="GGPLOT of gapminder data - life expectance by continent" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api03-rcurl-gapminder/life-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent" alt="GGPLOT of gapminder data - life expectance by continent" width="100%" />
 
 
 
@@ -178,7 +178,7 @@ ggplot(summary_life_exp,
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent boxplot" alt="GGPLOT of gapminder data - life expectance by continent boxplot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api03-rcurl-gapminder/box-plot-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent boxplot" alt="GGPLOT of gapminder data - life expectance by continent boxplot" width="100%" />
 
 We can also create a more advanced plot - overlaying the data points on top of
 our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced `ggplot()` plotting approaches.
@@ -193,7 +193,7 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
            subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-point-outliers-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api03-rcurl-gapminder/box-plot-point-outliers-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="100%" />
 
 Or create a box plot with the data points overlaid on top.
 
@@ -208,7 +208,7 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
            subtitle = "Data points overlaid on top of the box plot.")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2016-12-06-api03-rcurl-gapminder/box-plot-point-jitter-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api03-rcurl-gapminder/box-plot-point-jitter-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="100%" />
 If you are going to be grabbing a lot of `csv` files from secure `urls`, you
 might want to turn the previous code into a function:
 

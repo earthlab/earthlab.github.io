@@ -10,7 +10,8 @@ module-description: 'This tutorial covers how to plot time series data in R usin
   It also covers converting data stored in data/time format into an R date time class.'
 module-nav-title: 'Time Series Data in R'
 module-title: 'Work with Sensor Network Derived Time Series Data in R'
-module-type: 'homework'
+module-type: 'homework' 
+course: "Earth Analytics"
 nav-title: 'GGPLOT R'
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
 week: 2
