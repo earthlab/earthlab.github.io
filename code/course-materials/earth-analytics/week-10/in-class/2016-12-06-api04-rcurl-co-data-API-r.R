@@ -85,7 +85,7 @@ pop_proj_data_males_80_df <- fromJSON(pop_proj_data_males_80)
 
 # turn columns to numeric and remove NA values
 pop_proj_data_males_80_df <- pop_proj_data_males_80_df %>%
-  mutate_at(c( "age", "malepopulation", "year"),as.numeric)
+  mutate_at(c( "age", "malepopulation", "year"), as.numeric)
 
 # plot the data
 ggplot(pop_proj_data_males_80_df, aes(x=year, y=malepopulation,
