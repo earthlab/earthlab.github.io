@@ -15,7 +15,8 @@ module-description: 'This module introduces the concept of using data to Underst
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
 USGS stream flow data to begin to understand the factors associated with a flood.
 No technical experience is needed to complete this activity.'
-module-type: 'class'
+module-type: 'class' 
+course: "Earth Analytics"
 week: 1
 sidebar:
   nav:
