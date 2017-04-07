@@ -228,3 +228,13 @@ saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
 There is a lot more to learn about leaflet. Here, we've just scratched the surface.
+
+
+```{r echo=FALSE, eval=FALSE}
+leaflet(water_data_df) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
+
+saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
+
+```
