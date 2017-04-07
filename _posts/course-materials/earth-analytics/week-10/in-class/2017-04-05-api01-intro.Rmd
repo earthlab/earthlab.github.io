@@ -110,6 +110,8 @@ boulder_precip <- read.csv("data/week10/boulder-precip-aug-oct-2013.csv")
 ```{r print-table, echo=FALSE}
 knitr::kable(boulder_precip)
 ```
+
+
 ### download.file()
 
 When we use the `download.file()` function, we are telling R to save a copy of the

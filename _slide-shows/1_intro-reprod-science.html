@@ -1,6 +1,6 @@
 ---
 layout: slides
-title: 'Intro to Reproducible Science'
+title: 'Intro to Open, Reproducible Science'
 author: [Francois Michonneau, Hilmar Lapp, Karen Cranston, Jenny Bryan, Leah A. Wasser]
 categories: [slide-shows]
 class-lesson: ['intro-open-science']
@@ -9,7 +9,7 @@ class-lesson: ['intro-open-science']
 name: inverse
 class: center, middle, inverse
 
-## Intro to Reproducible Science
+## Intro to Open, Reproducible Science
 
 Adapted from the Reproducible Science Curriculum
 
@@ -28,13 +28,13 @@ class: center, middle, inverse
 
 
 ---
-class: middle
 
 ## Why Use Reproducible Methods?
 
 * More efficient.
 * Less redundant science.
 * Others can more easily build upon our work.
+
 
 ---
 
@@ -45,27 +45,23 @@ class: middle
 
 .caption[
 Reproducibility spectrum for published research.
-Source: Peng, RD Reproducible
-Research in Computational Science Science (2011): 1226–1227 via Reproducible
-Science Curriculum]
+<a href="http://science.sciencemag.org/content/334/6060/1226" target="_blank">Peng, RD Reproducible
+Research in Computational Science Science (2011): 1226–1227 </a>]
 
 ---
 
-## <a href="http://www.genomebiology.com/2015/16/1/274" target="_blank">Five selfish reasons to work reproducibly</a>
-_Florian Markowetz_
+[Five selfish reasons to work reproducibly](http://www.genomebiology.com/2015/16/1/274) - Florian Markowetz
 
-1. Reproducibility avoid critical mistakes.
+1. Reproducibility helps to avoid mistakes.
 2. Reproducibility makes it easier to write papers.
 3. Reproducibility helps reviewers see it your way.
 4. Reproducibility enables continuity of your work.
 5. Reproducibility helps to build your reputation.
 
 
-
 ---
-class: middle
-## How to Make Work Reproducible
 
+## How to Make Work Reproducible
 
 > For research to be reproducible, the research products (data, code) need to be
 publicly available in a form that people can find and understand them.
@@ -73,7 +69,6 @@ publicly available in a form that people can find and understand them.
 ---
 
 ## Who do we need to share with?
-
 
 * Collaborators
 * Peer reviewers & journal editors
@@ -83,37 +78,31 @@ publicly available in a form that people can find and understand them.
 ---
 class: top center
 
-.wCaption-50[
-![Plos graphic](http://journals.plos.org/plosone/article/figure/image?size=large&id=info:doi/10.1371/journal.pone.0026828.g001)
-]
 
-.caption[**Better Research**: Papers from which data were shared have fewer errors.
+.smaller-image[![Plos graphic](http://journals.plos.org/plosone/article/figure/image?size=large&id=info:doi/10.1371/journal.pone.0026828.g001)]
+
+
+_**Research quality**: Papers from which data were shared have fewer errors.
 <a href="http://dx.doi.org/10.1371/journal.pone.0026828" target="_blank">
-  Wicherts et al (2011) </a>]
+  Wicherts et al (2011) </a>_
 
 ---
-## Better Research - Citation
+class: middle
 
+## Better Research - Citation
 
 <a href="http://dx.doi.org/10.1371/journal.pone.0026828" target="_blank">Wicherts et al (2011)
   Willingness to Share Research Data Is Related to the Strength of the Evidence and the Quality of Reporting of Statistical Results.</a></small>
 
 ---
+class: full center middle
 
-## Tools That Support Reproducibility
-
-**GitHub:**
-* Version Control
-* Collaboration
-* Dissemination
+![Open science flow chart ]({{ site.baseurl }}/images/slide-shows/intro-rr/open-science-diag.png)
 
 ---
+class: full center middle
 
-## Tools That Support Reproducibility
-
-**R Markdown / Jupyter Notebooks:**
-* Code Documentation
-* Dissemination
+![Open science flow chart ]({{ site.baseurl }}/images/slide-shows/intro-rr/open-science.png)
 
 ---
 
@@ -149,6 +138,13 @@ The more self explanatory the better:
   Noble, William Stafford, 2009. A quick guide to organizing computational biology projects. </a>
 ]
 ---
+class: top
+
+### Which Filenames Are Most Self-explanatory?
+
+![human readible file names]({{ site.baseurl }}/images/slide-shows/intro-rr/human-readable-jenny.png)
+
+---
 
 ## 1. Organization - Files
 
@@ -174,18 +170,12 @@ File / Folder Names should be:
 * Human readable.
 * Support sorting.
 
----
-
-### Which Filenames Are Most Self-explanatory?
-
-![human readible file names]({{ site.baseurl }}/images/slide-shows/intro-rr/human-readable-jenny.png)
 
 ---
+class: middle
 
-## More on File Naming
+## Read more
 <a href="https://earthlab.github.io/slide-shows/2-file-naming-jenny-bryan/" target="_blank">More on file naming & organization</a>
-
--- from the Reproducible Science Curriculum.
 
 ---
 
@@ -193,12 +183,30 @@ File / Folder Names should be:
 
 * Use self explanatory variable names.
 * Comment code so your future self can understand it.
+
+---
+## 1. Organization - Code Variables
+
+**Less expressive, harder to intuitively understand**
+```r
+# import data
+sumA <- read.csv("sample1.csv",
+                      header=TRUE,
+                      sep=",")
+
+sumB <- read.csv("sample2.csv",
+                    header=TRUE,
+                    sep=",")
+sum <- sumA + sumB
+
+```
 ---
 
 ## 1. Organization - Code Variables
 
-.one-half[
-**More Readable**
+
+**More expressive, easier to intuitively understand**
+
 ```r
 # import canopy N values for
 # decid & coniferous forest sampling
@@ -214,23 +222,10 @@ decid.N <- read.csv("decid-sampling.csv",
 total.N <- conifer.N + decid.N
 
 ```
-]
-.one-half[
-**Less Readable**
-```r
-# import data
-sumA <- read.csv("sample1.csv",
-                      header=TRUE,
-                      sep=",")
 
-sumB <- read.csv("sample2.csv",
-                    header=TRUE,
-                    sep=",")
-sum <- sumA + sumB
 
-```
-]
 ---
+class: middle
 
 ## 1. Organization Pro-Tip
 
@@ -238,7 +233,7 @@ sum <- sumA + sumB
 
 ---
 
-## 1. Organization - Benefits
+## 1. Organization: benefits
 
 * Your future self will be able to quickly find files.
 * Colleagues will be able to more quickly understand your workflow.
@@ -250,7 +245,7 @@ sum <- sumA + sumB
 
 Document all workflow steps:
 
-* You can remind your future self of your workflow.
+* Remind your future self of your workflow.
 * Others can see and understand your work.
 * Future "re-analysis" of your data is more efficient.
 
@@ -260,7 +255,17 @@ Document all workflow steps:
 
 Code should be easy to understand with clear goals:
 
+
+```r
+### This code .... <explain here>
+### author: Franklin D Roosevelt
+### Last modified: 2 feb 1946
+### Inputs:
+### Output:
+```
+
 ---
+class: middle
 
 ## 2. Documentation - Code
 
@@ -268,12 +273,13 @@ Code should be easy to understand with clear goals:
 > & your future self will inevitably have an easier time working with it down the road.
 
 ---
-
+class: middle
 ## Documentation Pro-Tip 1
 
 > Add comments around functions that describe purpose, inputs and outputs.
 
 ---
+class: middle
 
 ## Documentation Pro-Tip 2
 >  Avoid proprietary formats: Use text files (.txt, .md) that don't require special tools to open.
@@ -289,27 +295,27 @@ Code should be easy to understand with clear goals:
 
 > Use coding approaches that connect data cleaning, analysis & results
 
-Example Tools: R Markdown and IPython / Jupyter notebooks allow you to publish code and results
-in one (or more) output files.
+Example Tools: R Markdown and IPython / Jupyter notebooks...
 ---
 
 ## 3. Automation
 
-Automate your workflows when possible by:
+Automate workflows by:
 
-* Using scripts vs. point & click approaches.
-* Using function-based coding vs. continuous code where tasks are repeated.
-* Developing scripted workflows rather than series of tasks (e.g. makefiles).
+* Using scripts vs. gui based, point & click approaches.
+* Using modular coding approaches vs. continuous code where code segments are repeated.
+* Develop scripted workflows (e.g. MAKE) vs. a manual series of tasks.
 
 ---
 
 ## 3. Automation Benefits - Save Time
 
-* More efficient to modify and repeat an analysis down the road.
+* More efficient to modify and repeat an analysis.
 * Easier for reviewers and colleagues to see even aspect of your methods.
 * Self documenting methods - your future self will likely forget small steps.
 
 ---
+class: middle
 
 ## 3. Automation Pro-Tip
 
@@ -367,6 +373,22 @@ class: center, middle
 * Increased visibility / citation.
 * More efficient, less redundant science.
 
+---
+
+## Tools for reproducible work
+
+**GitHub:**
+* Version Control
+* Collaboration
+* Dissemination
+
+---
+
+## Tools for reproducible work
+
+**R Markdown / Jupyter Notebooks:**
+* Code Documentation
+* Dissemination
 ---
 
 ## 4. Dissemination workflow
