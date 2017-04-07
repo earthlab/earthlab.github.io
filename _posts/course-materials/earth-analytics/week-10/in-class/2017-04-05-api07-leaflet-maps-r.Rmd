@@ -221,7 +221,7 @@ water = makeIcon(url, url, 24, 24)
 map = leaflet(water_data_df) %>%
   addProviderTiles("Stamen.Terrain") %>%
   addMarkers(lng=~location.longitude, lat=~location.latitude, icon=water,
-             popup=~paste0(station_name, "<br/>Discharg: ", amount))
+             popup=~paste0(station_name, "<br/>Discharge: ", amount))
 saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
 ```
 
