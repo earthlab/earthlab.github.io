@@ -42,17 +42,17 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ```{r}
+# load packages
 library(dplyr)
 library(ggplot2)
-library(RCurl)
 library(rjson)
-library(jsonlite)
 library(leaflet)
 ```
 
 
 ```{r, echo=FALSE}
 library("knitr")
+library(htmlwidgets)
 ```
 
 ## Interactive maps with Leaflet
@@ -82,7 +82,7 @@ map <- leaflet() %>%
 map
 ```
 ```{r echo=FALSE, eval=FALSE}
-library(htmlwidgets)
+
 saveWidget(widget=map, file="birthplace_r.html", selfcontained=FALSE)
 ```
 
@@ -94,10 +94,9 @@ saveWidget(widget=map, file="birthplace_r.html", selfcontained=FALSE)
 Let's create our own interactive map using the surface water data that we used
 in the previous lessons, using leaflet. To do this, we will follow the steps below:
 
-1. Request and get the data from the colorado.gov SODA API in `R` using `getURL()`.
-2. Convert the data from JSON to a data.frame in `R` using `fromJSON()`.
-3. Address column data types to ensure our numeric data are in fact numeric.
-3. Remove `NA` (missing data) values.
+1. Request and get the data from the colorado.gov SODA API in `R` using `fromJSON()`.
+1. Address column data types to ensure our quantitative data (number values) data are in fact numeric.
+1. Remove `NA` (missing data) values.
 
 The code below is the same code that we used to process the surface water
 data in the previous lesson.
@@ -130,7 +129,9 @@ leaflet(water_data_df) %>%
 ```
 
 
-The code below provides an example of creating the same map without using pipes.
+<div class="notice--success" markdown="1">
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The code
+below provides an example of creating the same map without using pipes.
 
 ```{r results="hide", cache=FALSE}
 map <- leaflet(water_data_df)
@@ -142,6 +143,7 @@ map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
 ```{r echo=FALSE, eval=FALSE}
 saveWidget(widget=map, file="water_map1.html", selfcontained=FALSE)
 ```
+</div>
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
 
@@ -158,7 +160,8 @@ argument.
 
 `addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)`
 
-We specify the basemap using the `addProviderTiles()` argument:
+We specify the basemap using the `addProviderTiles()` argument. In the example
+below, we use the `CartoDB.Positron` basemap:
 
 `addProviderTiles("CartoDB.Positron")`
 
@@ -179,7 +182,7 @@ saveWidget(widget=map, file="water_map2.html", selfcontained=FALSE)
 
 ### Custom icons
 
-We can even specify a *custom* icon, just for fun. BElow, we are using an icon
+We can specify a *custom* icon, too. Below, we are using an icon
 from the <a href="http://tinyurl.com/jeybtwj" target="_blank">web</a>.
 
 Notice also that we are customizing the popup even more, adding BOTH the station
@@ -192,7 +195,8 @@ a series of text strings and object values.
 
 ```{r}
 # let's look at the output of our popup text before calling it in leaflet
-paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
+# use head() to just look at the first 6 lines of the output
+head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our
@@ -243,17 +247,18 @@ icons <- awesomeIcons(
   markerColor = new
 )
 
-leaflet(water_data_df) %>%
+unique_markers_map2 <- leaflet(water_data_df) %>%
   addProviderTiles("CartoDB.Positron") %>%
-  addAwesomeMarkers(lng=~location.longitude, lat=~location.latitude, icon=icons, 
+  addAwesomeMarkers(lng=~location.longitude, lat=~location.latitude, icon=icons,
                     popup=~station_name,
                     label=~as.character(station_name))
 
-saveWidget(widget=map, file="water_map_unique_markers1.html", selfcontained=FALSE)
+saveWidget(widget=unique_markers_map2, file="water_map_unique_markers1.html", selfcontained=FALSE)
 
 ```
 
-Here we use `addAwesomeMarkers()` and adjust the color accordingly. 
+Here we use `addAwesomeMarkers()` and adjust the color of each point on the map
+accordingly.
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map_unique_markers1.html" frameborder="0" allowfullscreen></iframe>
 
@@ -261,17 +266,18 @@ Here we use `addAwesomeMarkers()` and adjust the color accordingly.
 
 pal <- colorFactor(c("navy", "red", "green"), domain = unique(water_data_df$station_type))
 
-leaflet(water_data_df) %>% addTiles() %>%
+unique_markers_map <- leaflet(water_data_df) %>%
+  addProviderTiles("CartoDB.Positron") %>%
   addCircleMarkers(
     color = ~pal(station_type),
     stroke = FALSE, fillOpacity = 0.5, lng=~location.longitude, lat=~location.latitude,
     label=~as.character(station_type)
   )
 
-saveWidget(widget=map, file="water_map_unique_markers2.html", selfcontained=FALSE)
+saveWidget(widget=unique_markers_map, file="water_map_unique_markers2.html", selfcontained=FALSE)
 
 ```
 
-Here we use `addCircleMarkers()` and adjust the color accordingly. 
+Here we use `addCircleMarkers()` and adjust the color accordingly.
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map_unique_markers2.html" frameborder="0" allowfullscreen></iframe>
