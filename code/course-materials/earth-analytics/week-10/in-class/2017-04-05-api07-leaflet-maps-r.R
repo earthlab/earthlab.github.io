@@ -3,15 +3,15 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
 ## ------------------------------------------------------------------------
+# load packages
 library(dplyr)
 library(ggplot2)
-library(RCurl)
 library(rjson)
-library(jsonlite)
 library(leaflet)
 
 ## ---- echo=FALSE---------------------------------------------------------
 library("knitr")
+library(htmlwidgets)
 
 ## ----eval=FALSE----------------------------------------------------------
 ## map <- leaflet() %>%
@@ -21,7 +21,7 @@ library("knitr")
 ## map
 
 ## ----echo=FALSE, eval=FALSE----------------------------------------------
-## library(htmlwidgets)
+## 
 ## saveWidget(widget=map, file="birthplace_r.html", selfcontained=FALSE)
 
 ## ------------------------------------------------------------------------
@@ -67,7 +67,8 @@ map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
 
 ## ------------------------------------------------------------------------
 # let's look at the output of our popup text before calling it in leaflet
-paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
+# use head() to just look at the first 6 lines of the output
+head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
 
 ## ----eval=FALSE----------------------------------------------------------
 ## # Specify custom icon
@@ -88,7 +89,7 @@ paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 ## map = leaflet(water_data_df) %>%
 ##   addProviderTiles("Stamen.Terrain") %>%
 ##   addMarkers(lng=~location.longitude, lat=~location.latitude, icon=water,
-##              popup=~paste0(station_name, "<br/>Discharg: ", amount))
+##              popup=~paste0(station_name, "<br/>Discharge: ", amount))
 ## saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
 
 ## ----echo=FALSE, eval=FALSE----------------------------------------------
@@ -104,26 +105,27 @@ paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
 ##   markerColor = new
 ## )
 ## 
-## leaflet(water_data_df) %>%
+## unique_markers_map2 <- leaflet(water_data_df) %>%
 ##   addProviderTiles("CartoDB.Positron") %>%
 ##   addAwesomeMarkers(lng=~location.longitude, lat=~location.latitude, icon=icons,
 ##                     popup=~station_name,
 ##                     label=~as.character(station_name))
 ## 
-## saveWidget(widget=map, file="water_map_unique_markers1.html", selfcontained=FALSE)
+## saveWidget(widget=unique_markers_map2, file="water_map_unique_markers1.html", selfcontained=FALSE)
 ## 
 
 ## ---- eval=FALSE, echo=FALSE---------------------------------------------
 ## 
 ## pal <- colorFactor(c("navy", "red", "green"), domain = unique(water_data_df$station_type))
 ## 
-## leaflet(water_data_df) %>% addTiles() %>%
+## unique_markers_map <- leaflet(water_data_df) %>%
+##   addProviderTiles("CartoDB.Positron") %>%
 ##   addCircleMarkers(
 ##     color = ~pal(station_type),
 ##     stroke = FALSE, fillOpacity = 0.5, lng=~location.longitude, lat=~location.latitude,
 ##     label=~as.character(station_type)
 ##   )
 ## 
-## saveWidget(widget=map, file="water_map_unique_markers2.html", selfcontained=FALSE)
+## saveWidget(widget=unique_markers_map, file="water_map_unique_markers2.html", selfcontained=FALSE)
 ## 
 

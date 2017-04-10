@@ -3,7 +3,7 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-04-07'
+modified: '2017-04-10'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/leaflet-r/
@@ -40,11 +40,10 @@ You will need a computer with internet access to complete this lesson.
 
 
 ```r
+# load packages
 library(dplyr)
 library(ggplot2)
-library(RCurl)
 library(rjson)
-library(jsonlite)
 library(leaflet)
 ```
 
@@ -88,10 +87,9 @@ map
 Let's create our own interactive map using the surface water data that we used
 in the previous lessons, using leaflet. To do this, we will follow the steps below:
 
-1. Request and get the data from the colorado.gov SODA API in `R` using `getURL()`.
-2. Convert the data from JSON to a data.frame in `R` using `fromJSON()`.
-3. Address column data types to ensure our numeric data are in fact numeric.
-3. Remove `NA` (missing data) values.
+1. Request and get the data from the colorado.gov SODA API in `R` using `fromJSON()`.
+1. Address column data types to ensure our quantitative data (number values) data are in fact numeric.
+1. Remove `NA` (missing data) values.
 
 The code below is the same code that we used to process the surface water
 data in the previous lesson.
@@ -125,7 +123,9 @@ leaflet(water_data_df) %>%
 ```
 
 
-The code below provides an example of creating the same map without using pipes.
+<div class="notice--success" markdown="1">
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The code
+below provides an example of creating the same map without using pipes.
 
 
 ```r
@@ -135,6 +135,7 @@ map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
 ```
 
 
+</div>
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
 
@@ -151,7 +152,8 @@ argument.
 
 `addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)`
 
-We specify the basemap using the `addProviderTiles()` argument:
+We specify the basemap using the `addProviderTiles()` argument. In the example
+below, we use the `CartoDB.Positron` basemap:
 
 `addProviderTiles("CartoDB.Positron")`
 
@@ -168,7 +170,7 @@ leaflet(water_data_df) %>%
 
 ### Custom icons
 
-We can even specify a *custom* icon, just for fun. BElow, we are using an icon
+We can specify a *custom* icon, too. Below, we are using an icon
 from the <a href="http://tinyurl.com/jeybtwj" target="_blank">web</a>.
 
 Notice also that we are customizing the popup even more, adding BOTH the station
@@ -182,55 +184,14 @@ a series of text strings and object values.
 
 ```r
 # let's look at the output of our popup text before calling it in leaflet
-paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount)
-##  [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"             
-##  [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"                                    
-##  [3] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 18.5"                             
-##  [4] "SAINT VRAIN CREEK AT LYONS, CO<br/>Discharge: 110"                                 
-##  [5] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 25.8"                                    
-##  [6] "MIDDLE BOULDER CREEK AT NEDERLAND<br/>Discharge: 19"                               
-##  [7] "SOUTH BOULDER CREEK BELOW GROSS RESERVOIR<br/>Discharge: 24.6"                     
-##  [8] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 23.2"                     
-##  [9] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                                      
-## [10] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                         
-## [11] "BONUS DITCH<br/>Discharge: 0"                                                      
-## [12] "CLOUGH AND TRUE DITCH<br/>Discharge: 0"                                            
-## [13] "DAVIS AND DOWNING DITCH<br/>Discharge: 2.27"                                       
-## [14] "DENIO TAYLOR DITCH<br/>Discharge: 0"                                               
-## [15] "GOSS DITCH 1<br/>Discharge: 0"                                                     
-## [16] "HAGER MEADOWS DITCH<br/>Discharge: 1.7"                                            
-## [17] "JAMES DITCH<br/>Discharge: 0.08"                                                   
-## [18] "LEFT HAND CREEK AT HOVER ROAD NEAR LONGMONT, CO<br/>Discharge: 1.4"                
-## [19] "LONGMONT SUPPLY DITCH<br/>Discharge: 0.82"                                         
-## [20] "NIWOT DITCH<br/>Discharge: 0.66"                                                   
-## [21] "NORTHWEST MUTUAL DITCH<br/>Discharge: 0"                                           
-## [22] "OLIGARCHY DITCH DIVERSION<br/>Discharge: 0.08"                                     
-## [23] "PALMERTON DITCH<br/>Discharge: 8.92"                                               
-## [24] "ROUGH AND READY DITCH<br/>Discharge: 0"                                            
-## [25] "RUNYON DITCH<br/>Discharge: 0"                                                     
-## [26] "SAINT VRAIN CREEK BELOW KEN PRATT BLVD AT LONGMONT, CO<br/>Discharge: 30.3"        
-## [27] "SMEAD DITCH<br/>Discharge: 0"                                                      
-## [28] "SOUTH BRANCH ST. VRAIN CREEK<br/>Discharge: 13.76"                                 
-## [29] "SOUTH FLAT DITCH<br/>Discharge: 0.23"                                              
-## [30] "SUPPLY DITCH<br/>Discharge: 0"                                                     
-## [31] "SWEDE DITCH<br/>Discharge: 0"                                                      
-## [32] "TRUE AND WEBSTER DITCH<br/>Discharge: 0.03"                                        
-## [33] "UNION RESERVOIR<br/>Discharge: 8564.8"                                             
-## [34] "UNION RESERVOIR<br/>Discharge: 11.37"                                              
-## [35] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.17"                                        
-## [36] "ZWECK AND TURNER DITCH<br/>Discharge: 4.54"                                        
-## [37] "BOULDER CREEK AT NORTH 75TH STREET NEAR BOULDER<br/>Discharge: 36"                 
-## [38] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 3.28"      
-## [39] "BOULDER RESERVOIR INLET<br/>Discharge: 68"                                         
-## [40] "DRY CREEK CARRIER<br/>Discharge: 0.84"                                             
-## [41] "LEGGETT DITCH<br/>Discharge: 0.12"                                                 
-## [42] "SAINT VRAIN SUPPLY CANAL NEAR LYONS, CO<br/>Discharge: 52.1"                       
-## [43] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 87"
-## [44] "SOUTH BOULDER CREEK DIVERSION NEAR ELDORADO SPRINGS<br/>Discharge: 0"              
-## [45] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 50.1"                         
-## [46] "HIGHLAND DITCH AT LYONS, CO<br/>Discharge: 93.8"                                   
-## [47] "BOULDER RESERVOIR<br/>Discharge: 5114"                                             
-## [48] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 6.3"
+# use head() to just look at the first 6 lines of the output
+head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
+## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"             
+## [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"                                    
+## [3] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 16.9"                             
+## [4] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 85"
+## [5] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 21.3"                                    
+## [6] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our
@@ -262,12 +223,13 @@ There is a lot more to learn about leaflet. Here, we've just scratched the surfa
 
 
 
-Here we use `addAwesomeMarkers()` and adjust the color accordingly. 
+Here we use `addAwesomeMarkers()` and adjust the color of each point on the map
+accordingly.
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map_unique_markers1.html" frameborder="0" allowfullscreen></iframe>
 
 
 
-Here we use `addCircleMarkers()` and adjust the color accordingly. 
+Here we use `addCircleMarkers()` and adjust the color accordingly.
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map_unique_markers2.html" frameborder="0" allowfullscreen></iframe>
