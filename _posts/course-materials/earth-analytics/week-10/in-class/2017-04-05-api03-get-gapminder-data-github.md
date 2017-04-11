@@ -3,7 +3,7 @@ layout: single
 title: "Access secure data connections using the RCurl R package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-04-10'
+modified: '2017-04-11'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/access-gapminder-data-rcurl-r/
@@ -219,8 +219,8 @@ summary_life_exp <-  gap_data %>%
 
 ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
   geom_point() +
-      labs(x="Continent",
-           y="Life Expectancy (years)",
+      labs(x="Year",
+           y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page")
 ```
@@ -242,8 +242,8 @@ gap_data %>%
    summarise(median_life = median(lifeExp)) %>%
    ggplot(aes(x=year, y=median_life, colour = continent)) +
       geom_point() +
-      labs(x="Continent",
-           y="Life Expectancy (years)",
+      labs(x="Year",
+           y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Data piped directly into GGPLOT! Plot looks the same!")
 ```
@@ -262,7 +262,7 @@ ggplot(summary_life_exp,
        aes(continent, median_life)) +
       geom_boxplot()+
       labs(x="Continent",
-           y="Life Expentancy (years)",
+           y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
