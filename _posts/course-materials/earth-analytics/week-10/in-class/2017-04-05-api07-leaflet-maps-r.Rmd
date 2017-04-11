@@ -46,6 +46,7 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 library(dplyr)
 library(ggplot2)
 library(rjson)
+library(jsonlite)
 library(leaflet)
 ```
 
