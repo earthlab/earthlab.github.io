@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-04-06'
+modified: '2017-04-10'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/get-data-with-rcurl-r/
@@ -137,48 +137,6 @@ While using `read.csv()` to get data directly works, it may fail sometimes if:
 1. You are trying to access data from a secure (https or ftps server) or
 2. You are trying to access data from an API that requires authentication (more on that later)
 
-
-## Use RCurl to download data
-
-When you run into errors downloading data using `read.csv()`, you may need to instead
-use functions in the RCurl package. RCurl is a powerful package that:
-
-* Provides a set of tools to allow `R` to act like a *web client*
-* Provides a number of helper functions to grab data files from the web
-
-The `getURL()` function works for most secure web download protocols (e.g.,
-`http(s)`, `ftp(s)`). It also helps with web scraping, direct access to web
-resources, and even API data access.
-
-You can use the `RCurl::getURL()` function to download data from a Princeton 
-University data website.
-
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The syntax
-`package::functionName()` is a common way to tell R to use a function from a particular
-package.  In the example above: we specify that we are using getURL() from the
-RCurl package using the syntax: `RCurl::getURL()`. This syntax is not necessary to call
-getURL UNLESS there is another `getURL()` function available in your `R` session.
-{: .notice--success}
-
-### Using getURL and textConnection()
-
-Older versions
-of R, particularly running windows used to have issues with dealing with
-secure (https and ftps) connetion URLs. If you encounter issues importing the
-above data using read.table directly, consider the following approach which
-uses `getURL()` to access the URL and the `textConnection()` function to read
-in text formatted data.
-
-The RCurl `R` package, allows you to consistently access secure servers and also
-has additional authentication support. To use `getURL()` to open text files we
-do the following:
-
-1. We *grab* the URL using getURL()
-2. We read in the data using `read.csv()` (or `read.table()` ) via the `textConnection()` function.
-
-Note that the `textConnection()` function tells `R` that the data that we are
-accessing should be read as a text file. We are not going to use these 
-functions in this example given the data import just fine using read.csv().
 
 ## Access birthrate data
 

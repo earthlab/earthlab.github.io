@@ -7,7 +7,7 @@ modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/API-data-access-r/
-nav-title: 'JSON & RESTful APIs'
+nav-title: 'Get JSON data via RESTful API'
 week: 10
 sidebar:
   nav:
@@ -25,11 +25,11 @@ order: 5
 
 After completing this tutorial, you will be able to:
 
-* Access data from a the Colorado information warehouse data RESTful API
-* Describe and recognize query parameters in a RESTful call
-* Describe what a response and a request are relative to data APIs
+* Access data from the Colorado information warehouse RESTful API.
+* Describe and recognize query parameters in a RESTful call.
+* Define: response and request relative to data API data access.
+* Define API endpoint in the context of the SODA API.
 * Be able to list the 2 potential responses that you may get when querying a RESTful API.
-* Be able to identify the components of a hierarchically structures JSON file including: objects, arrays and data elements.
 * Use the `mutate_at()` function with dplyr pipes to adjust the format / data type of multiple columns.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -43,12 +43,12 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 ```
 
-In the previous lesson, we learned how to access human readable text files data
+In the previous lessons, we learned how to access human readable text files data
 programmatically using:
 
 1. `download.file()` to download a file to your computer and work with it (ideal if you want to save a copy of the data to your computer)
 1. `read.csv()` ideal for reading in a tabular file stored on the web but may sometimes fail when there are secure connections involved (e.g. https).
-1. `getURL()` ideal for urls that are both secure (https) and less secure (http). Also useful for API data access.
+1. `fromJSON()` ideal for data accessed in JSON format.
 
 In this lesson, we will learn about API interfaces. An API allows us to access
 data stored on a computer or server using a specific query. API's are powerful
@@ -57,8 +57,9 @@ that we need for our analysis, programmatically.
 
 We will also explore the **machine readable** JSON data structure. Machine readable
 data structures are more efficient - particularly for larger data that contain
-hierarchical structures. In this lesson, the `getURL()`
-function will become more valuable to us as we parse data accessed from an API.
+hierarchical structures. In this lesson, we will use the `getJSON()` function
+from the `rjson` package to import data from an API, provided in `.json` format into
+a data.frame.
 
 ```{r}
 #NOTE: if you have problems with ggmap, try to install both ggplot and ggmap from github
@@ -67,16 +68,16 @@ function will become more valuable to us as we parse data accessed from an API.
 library(ggmap)
 library(ggplot2)
 library(dplyr)
-library(RCurl)
 library(rjson)
 library(jsonlite)
+library(RCurl)
 ```
 
 ```{r echo=FALSE}
 library("knitr")
 ```
 
-## Review
+## REST API review
 
 Remember that in the first lesson in this module, we discussed **REST**ful APIs.
 We explored the concept of a **request** and then a subsequent
@@ -89,76 +90,23 @@ When you send the request, the web API returns one of the following:
  1. The data that we requested or
  2. A *failed to return* message which tells us that something was wrong with our request.
 
+In this lesson we will access data stored in JSON format from a RESTful API.
 
-## About JSON
-Before we go any further, let's take a moment to revisit the **J**ava**S**cript
-**O**bject **N**otation or **JSON** data structure that reviewed in the introductory
-lesson in this module. JSON is an ideal format for larger data that
- have a hierarchical structured relationship.
-
-The structure of a JSON object is as follows:
-
-* The data are in name/value pairs
-* Data objects are separated by commas
-* Curly braces `{}` hold objects
-* Square brackets `[]` hold arrays
-* Each data element is enclosed with quotes `""` if it is a character, or without quotes if it is a numeric value
-
-```json
- { "name":"Chaya" }
-```
-
-```json
-{ "name":"Chaya", "age":55, "city":"Boulder", "type":"Canine" }
-```
-
-Notice that the data above are structured. Thus, each element contains a particular
-object name. (name, age, city, etc). This is similar to column headings in a .csv.
-However, the JSON structure can also be nested. Like this:
-
-```json
-{"students":[
-    { "firstName":"Serena", "lastName":"Williams" },
-    { "firstName":"Boe", "lastName":"Diddly" },
-    { "firstName":"Al", "lastName":"Gore" }
-]}
-```
-
-The ability to store nested or hierarchical data within a text file structure makes
-JSON a powerful format to use as we are working with larger datasets.
-
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The GEOJSON
-data structure is a powerful data structure that supports spatial data. GEOJSON
-can be used to create maps just like shapefiles can. This format is often used
-for web mapping applications like leaflet (which we will learn about later in
-this module).
-{: .notice--success}
-
-
-### JSON data structures
-
-JSON can store any of the following data types:
-
-* strings
-* numbers
-* objects (JSON object)
-* arrays
-* booleans (TRUE / FALSE)
-* null
-
-Now that we understand a bit about the JSON data structure, let's work with some
-JSON data that we access via an actual API.
-
-We will use a REST API available to grab data from the <a href="https://data.colorado.gov" target="_blank">Colorado Information Marketplace</a>.
-
-### Colorado Population Projections
+## Colorado Population Projection data
 
 The <a href="https://data.colorado.gov" target="_blank">Colorado Information Marketplace</a>
 is a comprehensive data warehouse that contains a wide range of Colorado-specific
 open datasets available via a **REST**ful API called the Socrata Open Data API (SODA).
 
-There are lots of API *endpoints* or data sets available via this API. One
-endpoint contains
+
+### API Endpoints
+
+There are lots of API *endpoints* or data sets available via this API. An endpoint
+refers to a dataset that you can access and query against.
+
+> The “endpoint” of a (SODA) API is simply a unique URL that represents an object or collection of objects. Every Socrata dataset, and even every individual data record, has its own endpoint. The endpoint is what you'll point your HTTP client at to interact with data resources. <a href="https://dev.socrata.com/docs/endpoints.html" target="_blank">Read more about endpoints</a>
+
+One endpoint on the CO information warehouse website contains
 <a href="https://dev.socrata.com/foundry/data.colorado.gov/tv8u-hswn" target="_blank">Colorado Population Projections</a>.
 If you click on the <a href="https://data.colorado.gov/resource/tv8u-hswn.json" target="_blank">Colorado Population Projections data link (JSON format)</a>
 you will see data returned in a `JSON` format. These data include population
@@ -173,7 +121,7 @@ RESTful call. In the link below, note that the **?&county=Boulder** part of the
 url makes the request to the API to only return data that are for Boulder
 County, Colorado.
 
-<a href="https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder" target="_blank">Like this - https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder</a>.
+<a href="https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder" target="_blank">Like this:  https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder</a>.
 
 Parameters associated with accessing data using this API are <a href="https://dev.socrata.com/foundry/data.colorado.gov/tv8u-hswn" target="_blank">documented here</a>.
 
@@ -200,35 +148,66 @@ plain text 'file' such as `JSON` or `.csv`.
 us to specify the format of the data that we want returned in the response. <a href="https://dev.socrata.com/docs/formats/index.html" target="_blank">The Colorado SODA API is no exception - check out the documentation. </a>
 {: .notice--success}
 
-## Accessing API Data via getURL
+## Accessing API Data
 
-We will use the `getURL()` in the same way that we used it before. However, this
-time we will add the `URL` parameters that specify which subset of the data
+The first thing that we need to do is create our API request string. Remember that
+this is a `URL` with parameters parameters that specify which subset of the data
 that we want to access.
 
-Note that we are using a new function - `paste0()`, to paste together a complex
-url string. This is useful because we may want to iterative over different subsets
-of the same data.
+Note that we are using a new function - `paste0()` - to paste together a complex
+URL string. This is useful because we may want to iterate over different subsets
+of the same data (ie reuse the base url or the endpoint but request different
+subsets using different URL parameters).
 
 ```{r}
 # Base URL path
 base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
 full_url = paste0(base_url, "county=Boulder",
-              "&$where=age between 20 and 40",
-              "&$select=year,age,femalepopulation")
+             "&$where=age between 20 and 40",
+             "&$select=year,age,femalepopulation")
+
 # view full url
-full_url
+full_url 
 ```
 
-After we've created the URL, we can get the data.
+After we've created the URL, we can get the data. There are a few ways to access
+the data however the most direct way is to
+
+1. Use `encodeURL()` to replace spaces in our url with the asii value for space `%20`
+1. Use the `fromJSON()` function in the rjson package to import that data into a data.frame object.
+
+Let's give it a try. First, we encode the URL to replace all spaces with the ascii
+value for a space which is `%20`.
 
 ```{r}
-# get the data from the specified url
-pop_proj_data <- getURL(URLencode(full_url))
+# encode the URL with characters for each space.
+full_url <- URLencode(full_url)
+full_url
+
 ```
 
-Since these data are in a `JSON` data structure, we'll need to parse them into
-a format that we can work with in R.
+Then, we import the data directly into a data.frame using the `fromJSON()` function
+that is in the rjson package.
+
+```{r}
+library(rjson)
+
+# Convert JSON to data frame
+pop_proj_data_df <- fromJSON(getURL(full_url))
+head(pop_proj_data_df, n = 2)
+typeof(pop_proj_data_df)
+
+```
+
+
+
+```{r eval=FALSE, echo=FALSE}
+# turn list into data.frame -- this is only needed if you use rjson instead of jsonlite
+pop_proj_data_df <- do.call(rbind.data.frame, pop_proj_data_df)
+head(pop_proj_data_df)
+```
+
+
 
 <div class="notice--success" markdown="1">
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The `getForm()`
@@ -240,50 +219,58 @@ syntax.
 ```{r eval=FALSE}
 base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
 getForm(base_url, county="Boulder",
-              age="BOULDER")
+             age="BOULDER")
 ```
+
+Also note that if we wanted to use `getURL()`, we could do so as follows:
+
+```{r eval=FALSE}
+# get the data from the specified url using RCurl
+pop_proj_data <- getURL(URLencode(full_url))
+```
+
 </div>
 
+Now that our data are in a data.frame format, we can clean them up. Let's have a
+close look at the data structure. Are the values in the correct format to work
+with them quantitatively?
 
 ```{r}
-# view JSON data structure
-head(pop_proj_data)
+# view data structure
+str(pop_proj_data_df)
 ```
 
-Lucky for us the `rjson` and `jsonlite` packages can read JSON structured data.
 
-```{r}
-library(rjson)
-library(jsonlite)
-
-# Convert JSON to data frame
-pop_proj_data_df <- fromJSON(pop_proj_data)
-#unlist(pop_proj_data_df)
-head(pop_proj_data_df)
-
-# turn columns to numeric and remove NA values
-pop_proj_data_df <- pop_proj_data_df %>%
-  mutate_at(c( "age", "year", "femalepopulation"), as.numeric)
-
-```
-
-<!-- mutate_each is marked for deprecation in favor of mutate_all, mutate_at, and mutate_if  -->
+When we import the data from JSON, by default they import in string format. However,
+if we want to plot the data and manipulate the data quantitatively, we need
+our data to be in a numeric format. Let's fix that next.
 
 ### `mutate_at` from dplyr
 
-Note that we used another new function above -- `mutate_at()`. The `mutate_at()`
-function can be used to change the format of (or apply any function on) any columns
-within our data.frame.
+We can uset the `mutate_at()` function in a dplyr pipe to change the format of
+(or apply any function on) any columns within our data.frame. In this case we
+want to convert all of the columns to a numeric format.
 
-In the code above, we told R to apply the `as.numeric()` function to the `age`, `year` and
-`femalepopulation` columns in our `pop_proj_data_df` data.frame object as follows:
+To use `mutate_at()` we specify the column names that we want to convert in a vector
+followed by the function that we wish to apply to each column. THe function in this
+case is `as.numeric()`.
 
-* `c( "age", "year", "femalepopulation")`: a vector of column names to  apply a function (as.numeric in this case).
-* `as.numeric`: apply the as.numeric function to each column
+Because we are using this function in a pipe, our code looks like this:
 
-The code above uses dplyr pipes to mutate or change 3 columns in our `data.frame`
-to a numeric data type. Is it the same as running the code below on each column
-of the data.
+
+```{r}
+# turn columns to numeric and remove NA values
+pop_proj_data_df <- pop_proj_data_df %>%
+ mutate_at(c( "age", "year", "femalepopulation"), as.numeric)
+
+str(pop_proj_data_df)
+```
+
+<div class="notice--success" markdown="1">
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Note that the
+code below, is much more VERBOSE version of what we did above, in a clean way
+using `mutate_at()`. dplyr is a much more efficient way to convert the format of several
+columns of information!
 
 ```{r, eval=FALSE}
 # convert EACH row to a numeric format
@@ -296,18 +283,20 @@ pop_proj_data_df$femalepopulation <- as.numeric(pop_proj_data_df$femalepopulatio
 #pops <- as.data.frame(lapply(pop_proj_data_df, as.numeric))
 ```
 
-Once we have converted the JSON data into a data.frame format that R can work with,
-we can plot the data using `ggplot()`.
+</div>
+
+
+Once we have converted our data to a numeric format, we can plot it using `ggplot()`.
 
 
 ```{r plot_pop_proj, fig.cap="Female population age 20-40."}
 # plot the data
 ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
-  group=factor(age), color=age)) + geom_line() +
-      labs(x="Year",
-           y="Female Population - Age 20-40",
-           title="Projected Female Population",
-           subtitle = "Boulder, CO: 1990 - 2040")
+ group=factor(age), color=age)) + geom_line() +
+     labs(x="Year",
+          y="Female Population - Age 20-40",
+          title="Projected Female Population",
+          subtitle = "Boulder, CO: 1990 - 2040")
 ```
 
 
@@ -333,25 +322,25 @@ plot a descriptive title.
 # Base URL path
 base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
 full_url_males_80 <- paste0(base_url, "county=Boulder",
-              "&$where=age between 60 and 80",
-              "&$select=year,age,malepopulation")
-# get the data from the specified url
-pop_proj_data_males_80 <- getURL(URLencode(full_url_males_80))
+             "&$where=age between 60 and 80",
+             "&$select=year,age,malepopulation")
 
-# Convert JSON to data frame
-pop_proj_data_males_80_df <- fromJSON(pop_proj_data_males_80)
+full_url_males_80 <- URLencode(full_url_males_80)
+# get the data from the specified url
+pop_proj_data_males_80 <- fromJSON(full_url_males_80)
+# turn into dataframe
+# pop_proj_data_males_80_df <- do.call(rbind.data.frame, pop_proj_data_males_80)
 
 # turn columns to numeric and remove NA values
-pop_proj_data_males_80_df <- pop_proj_data_males_80_df %>%
-  mutate_at(c( "age", "malepopulation", "year"), as.numeric)
-
-# plot the data
-ggplot(pop_proj_data_males_80_df, aes(x=year, y=malepopulation,
-  group=factor(age), color=age)) + geom_line() +
-      labs(x="Year",
-           y="Male Population age 60-80",
-          title="Projected Male Population - Age 60-80",
-          subtitle = "Boulder, CO: 1990 - 2040")
+pop_proj_data_males_80_df %>%
+ mutate_at(c( "age", "malepopulation", "year"), as.numeric) %>%
+ # plot the data
+ ggplot(aes(x=year, y=malepopulation,
+   group=factor(age), color=age)) + geom_line() +
+     labs(x="Year",
+          y="Male Population age 60-80",
+         title="Projected Male Population - Age 60-80",
+         subtitle = "Boulder, CO: 1990 - 2040")
 ```
 
 
