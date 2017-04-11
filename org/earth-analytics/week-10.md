@@ -133,7 +133,7 @@ station type!
 ****
 
 ## Homework due: Wednesday April 12 2017 @ NOON.
-Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
+Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 
 NOTE: ALL future assignments will be due BEFORE CLASS on Wednesday at NOON. Following
 course policy we will not accept late assignments. Start early and submit your
