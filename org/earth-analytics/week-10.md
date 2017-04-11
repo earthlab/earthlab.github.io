@@ -19,7 +19,7 @@ author_profile: false
 
 Welcome to week {{ page.week }} of Earth Analytics! In this week we will learn
 how to access data programmatically in your code. We will do this using `download.file()`,
-`read.csv()` and `getURL()` to access data files and data via API calls.
+`read.csv()` and `fromJSON()` to access data files and data via API calls.
 
 </div>
 
@@ -44,7 +44,7 @@ how to access data programmatically in your code. We will do this using `downloa
 This week you will create an html formatted report! We will use html in case
 you'd like to embed interactive leaflet maps in your final report. Do the following:
 
-Create a new `R markdown `document. Name it: **lastName-firstInitial-week8.Rmd**
+Create a new `R markdown `document. Name it: **lastName-firstInitial-week10.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `html` format. Submit both the
 `.Rmd` file and the `.html` file to D2L. Be sure to name your files

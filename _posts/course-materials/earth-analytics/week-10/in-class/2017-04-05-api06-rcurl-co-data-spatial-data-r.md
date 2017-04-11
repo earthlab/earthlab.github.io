@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically accessing geospatial data using API's - Working with and mapping JSON data from the Colorado Information Warehouse in R"
 excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-04-10'
+modified: '2017-04-11'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/co-water-data-spatial-r/
@@ -63,17 +63,27 @@ in R.
 library(dplyr)
 library(ggplot2)
 library(rjson)
+library(jsonlite)
 ```
 
 
 ```r
 # get URL
-water_base_url = "https://data.colorado.gov/resource/j5pc-4t32.json?"
-water_full_url = paste0(water_base_url, "station_status=Active",
+water_base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
+water_full_url <- paste0(water_base_url, "station_status=Active",
             "&county=BOULDER")
-water_data_url = URLencode(water_full_url)
+water_data_url <- URLencode(water_full_url)
+
 water_data_df <- fromJSON(water_data_url)
 ```
+
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **ATTENTION WINDOWS USERS:** 
+We have noticed a bug where on windows machines, sometimes the https URL doesn't work. 
+Instead try the same url as above but without the `s` - like this: `water_base_url <- "http://data.colorado.gov/resource/j5pc-4t32.json?"` This change has resolved many 
+issues on windows machines so give it a try if you are having problems with the API. 
+{: .notice--success }
+
+
 
 Remember that the JSON structure supports hierarchical data and can be NESTED.
 
@@ -139,27 +149,8 @@ Next, let's look at the structure of the data.frame that R creates from the
 
 ```r
 # view data structure
-str(water_data_df)
-## 'data.frame':	54 obs. of  15 variables:
-##  $ station_name   : chr  "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO" "GOODING A AND D PLUMB DITCH" "BIG THOMPSON RIVER ABOVE CANYON MOUTH AT CEDAR COVE, CO" "LEFT HAND CREEK NEAR BOULDER, CO." ...
-##  $ amount         : chr  "17.00" "7.20" "32.30" "16.90" ...
-##  $ station_status : chr  "Active" "Active" "Active" "Active" ...
-##  $ county         : chr  "BOULDER" "BOULDER" "BOULDER" "BOULDER" ...
-##  $ wd             : chr  "6" "6" "4" "5" ...
-##  $ dwr_abbrev     : chr  "FRMLMRCO" "GOOPLMCO" "BTABCMCO" "LEFCRECO" ...
-##  $ data_source    : chr  "U.S. Geological Survey (Data Provider)" "Cooperative Program of CDWR, NCWCD & LSPWCD" "Co. Division of Water Resources" "Co. Division of Water Resources" ...
-##  $ http_linkage   :'data.frame':	54 obs. of  1 variable:
-##   ..$ url: chr  "http://waterdata.usgs.gov/nwis/uv?06727410" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=GOOPLMCO&MTYPE=DISCHRG" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=BTABCMCO&MTYPE=DISCHRG" "http://www.dwr.state.co.us/SurfaceWater/data/detail_graph.aspx?ID=LEFCRECO&MTYPE=DISCHRG" ...
-##  $ div            : chr  "1" "1" "1" "1" ...
-##  $ date_time      : chr  "2013-09-20T08:10:00" "2016-11-16T15:00:00" "2017-04-10T15:15:00" "2017-04-10T15:15:00" ...
-##  $ usgs_station_id: chr  "06727410" NA "BTABCMCO" "06724500" ...
-##  $ variable       : chr  "DISCHRG" "DISCHRG" "DISCHRG" "DISCHRG" ...
-##  $ location       :'data.frame':	54 obs. of  3 variables:
-##   ..$ latitude      : chr  "40.042028" "40.09404" NA "40.125542" ...
-##   ..$ needs_recoding: logi  FALSE FALSE NA FALSE FALSE FALSE ...
-##   ..$ longitude     : chr  "-105.364917" "-105.05447" NA "-105.303879" ...
-##  $ station_type   : chr  "Stream" "Diversion" "Stream" "Stream" ...
-##  $ stage          : chr  NA "0.47" "3.58" "0.55" ...
+typeof(water_data_df)
+## [1] "list"
 ```
 
 In this case, we have a data.frame nested within a data.frame.
@@ -171,13 +162,13 @@ head(water_data_df$location)
 ##    latitude needs_recoding   longitude
 ## 1 40.042028          FALSE -105.364917
 ## 2  40.09404          FALSE  -105.05447
-## 3      <NA>             NA        <NA>
-## 4 40.125542          FALSE -105.303879
-## 5 40.160347          FALSE -105.007828
-## 6 40.006374          FALSE -105.330826
+## 3  40.19642          FALSE  -105.20659
+## 4      <NA>             NA        <NA>
+## 5 40.125542          FALSE -105.303879
+## 6  40.21804          FALSE -105.259987
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
-## [1] "40.042028" "40.09404"  NA          "40.125542" "40.160347" "40.006374"
+## [1] "40.042028" "40.09404"  "40.19642"  NA          "40.125542" "40.21804"
 ```
 
 We can remove the nesting using the `flatten()` function in `R`. When we flatten
@@ -194,16 +185,16 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
-##  [1] "40.042028" "40.09404"  NA          "40.125542" "40.160347"
-##  [6] "40.006374" "40.256031" "40.255581" "40.15336"  "40.193757"
-## [11] "40.18188"  "40.187577" "40.19932"  "40.174844" "40.18858" 
-## [16] "40.134278" "40.20419"  "40.173949" "40.172925" "40.19642" 
-## [21] "40.2125"   "40.21266"  "40.187524" NA          "40.21804" 
-## [26] "40.21139"  "40.1946"   "40.170997" "40.21905"  "40.21108" 
-## [31] "40.193018" "40.172677" "40.172677" "40.19328"  "40.18503" 
-## [36] "40.051652" "40.053036" "40.849982" "39.98617"  "40.05366" 
-## [41] "39.961655" NA          "39.938598" "39.931099" "40.153341"
-## [46] "40.2172"   "40.216093" "40.214984" NA          "39.931096"
+##  [1] "40.042028" "40.09404"  "40.19642"  NA          "40.125542"
+##  [6] "40.21804"  "40.006374" "39.961655" "39.938598" "39.931099"
+## [11] "40.256031" "40.255581" "40.15336"  "40.193757" "40.18188" 
+## [16] "40.187577" "40.19932"  "40.174844" "40.18858"  "40.134278"
+## [21] "40.20419"  "40.173949" "40.172925" "40.2125"   "40.21266" 
+## [26] "40.187524" NA          "40.153341" "40.21139"  "40.1946"  
+## [31] "40.170997" "40.21905"  "40.21108"  "40.193018" "40.172677"
+## [36] "40.172677" "40.19328"  "40.18503"  "40.051652" "40.053036"
+## [41] "40.849982" "39.98617"  "40.05366"  NA          "40.2172"  
+## [46] "40.160347" NA          "39.931096" "40.216093" "40.214984"
 ## [51] NA          NA          "40.733879" "40.018667"
 ```
 Now we can clean up the data. Notice that our longitude and latitude values
@@ -213,7 +204,7 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
-##  chr [1:54] "40.042028" "40.09404" NA "40.125542" ...
+##  chr [1:54] "40.042028" "40.09404" "40.19642" NA "40.125542" ...
 ```
 
 In order to map or work with latitude and longitude data, we need numeric values.
@@ -230,11 +221,11 @@ so it is best to remove them.
 ```r
 # where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
-##  [1] FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [23] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
-## [45] FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE
+## [23] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+## [45] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
 ```
 
 Note, in the code above, we can identify each location where there is a NA value
@@ -244,11 +235,11 @@ in our data. If we add an `!` to our code, R returns the INVERSE of the above.
 ```r
 # where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
-##  [1]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [23]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
-## [45]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE
+## [23]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+## [45]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE
 ```
 
 Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value

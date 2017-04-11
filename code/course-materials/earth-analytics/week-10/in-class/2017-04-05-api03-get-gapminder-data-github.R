@@ -47,8 +47,8 @@ summary_life_exp <-  gap_data %>%
 
 ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
   geom_point() +
-      labs(x="Continent",
-           y="Life Expectancy (years)",
+      labs(x="Year",
+           y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page")
 
@@ -60,8 +60,8 @@ gap_data %>%
    summarise(median_life = median(lifeExp)) %>%
    ggplot(aes(x=year, y=median_life, colour = continent)) +
       geom_point() +
-      labs(x="Continent",
-           y="Life Expectancy (years)",
+      labs(x="Year",
+           y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Data piped directly into GGPLOT! Plot looks the same!")
 
@@ -72,7 +72,7 @@ ggplot(summary_life_exp,
        aes(continent, median_life)) +
       geom_boxplot()+
       labs(x="Continent",
-           y="Life Expentancy (years)",
+           y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 
