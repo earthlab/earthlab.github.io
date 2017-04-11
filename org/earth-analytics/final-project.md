@@ -48,10 +48,10 @@ on 3 May 2017.
 
 The final individual report is due the following week during finals: **Submit your html / pdf file and your .rmd file to D2L by Tuesday 9 May 2017 @ 5PM.**
 
-NOTE 1: we expect groups to be the same as the groups for the mid-term. However it
+* NOTE 1: we expect groups to be the same as the groups for the mid-term. However it
 is OK if you changed your topic, data sources, questions, etc given feedback on
 the mid term presentation.
-NOTE 2: You can decide whether you want to submit your report in `.html` vs `.pdf` format. If you want to include an interactive graphic you will need to use `.html` format!
+* NOTE 2: You can decide whether you want to submit your report in `.html` vs `.pdf` format. If you want to include an interactive graphic you will need to use `.html` format!
 </div>
 
 ## Final group presentation (20%)
@@ -117,7 +117,17 @@ We will grade your final pdf / html document and the code.
 In addition to the requirement above, graduate students should develop
 
 1. A more robust literature review on the selected topic. This literature review
-should include 5 or more peer reviewed references and should be 1.5 to 2 pages in length (~700 words). We won't be counting words, we
+should include 4 or more peer reviewed references and should be 1.5 to 2 pages in length (~700 words). We won't be counting words, we
 simply want you to create a robust literature review that is of the quality of a
 review that you would include in a paper.
 2. An abstract that provides the big picture of the topic that you selected. This abstract should follow the format of an abstract that your would write for a journal submission in your field.
+
+
+## Submission
+
+* **GROUP PRESENTATION:** The final group presentations will occur on the final
+day of class: **Wednesday 3 May 2017 during class.** IMPORTANT: Submit your final presentation to the GROUP DROP
+BOX on D2L PRIOR to class on 3 May 2017.
+
+* **FINAL INDEPENDENT REPORT:** The final individual report is due the following week during finals: **Submit your html / pdf file and your .rmd file to D2L by Tuesday 9 May 2017 @ 5PM.**
+

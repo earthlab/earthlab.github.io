@@ -61,20 +61,33 @@ in R.
 * And you can learn more about the data here: <a href="https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions/4yw9-a5y6" target="_blank">View CO Current water surface </a>.
 
 ```{r}
+# load packages 
 library(dplyr)
 library(ggplot2)
-library(RCurl)
 library(rjson)
 library(jsonlite)
 ```
 
 ```{r}
-
-water_base_url = "https://data.colorado.gov/resource/j5pc-4t32.json?"
-water_full_url = paste0(water_base_url, "station_status=Active",
+# get URL
+water_base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
+water_full_url <- paste0(water_base_url, "station_status=Active",
             "&county=BOULDER")
-water_data = getURL(URLencode(water_full_url))
-water_data_df <- fromJSON(water_data)
+water_data_url <- URLencode(water_full_url)
+
+water_data_df <- fromJSON(water_data_url)
+
+```
+
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **ATTENTION WINDOWS USERS:** 
+We have noticed a bug where on windows machines, sometimes the https URL doesn't work. 
+Instead try the same url as above but without the `s` - like this: `water_base_url <- "http://data.colorado.gov/resource/j5pc-4t32.json?"` This change has resolved many 
+issues on windows machines so give it a try if you are having problems with the API. 
+{: .notice--success }
+
+```{r echo=FALSE, eval=FALSE}
+# turn into data.frame
+water_data_df <- do.call(rbind.data.frame, water_data)
 
 ```
 
@@ -141,7 +154,7 @@ Next, let's look at the structure of the data.frame that R creates from the
 
 ```{r}
 # view data structure
-str(water_data_df)
+typeof(water_data_df)
 ```
 
 In this case, we have a data.frame nested within a data.frame.
