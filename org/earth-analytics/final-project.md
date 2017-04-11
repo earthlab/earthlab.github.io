@@ -43,6 +43,11 @@ however use Landsat and MODIS as two separate sources given the data come from
 two different sensors. The data should be used to answer the question that you
 select for your project.
 
+The final group presentations will occur on the final day of class: **Wednesday 3 May 2017 during class.** IMPORTANT: Submit your final presentation to D2L PRIOR to class
+on 3 May 2017.
+
+The final individual report is due the following week during finals: **Submit your html / pdf file and your .rmd file to D2L by Tuesday 9 May 2017 @ 5PM.**
+
 * NOTE 1: we expect groups to be the same as the groups for the mid-term. However it
 is OK if you changed your topic, data sources, questions, etc given feedback on
 the mid term presentation.
@@ -125,3 +130,4 @@ day of class: **Wednesday 3 May 2017 during class.** IMPORTANT: Submit your fina
 BOX on D2L PRIOR to class on 3 May 2017.
 
 * **FINAL INDEPENDENT REPORT:** The final individual report is due the following week during finals: **Submit your html / pdf file and your .rmd file to D2L by Tuesday 9 May 2017 @ 5PM.**
+
