@@ -67,7 +67,7 @@ IMPORTANT!! for all plots be sure to:
 
 1. What does API stand for and what is an API?
 2. Why is programmatic access to data within our code useful?
-3. List 2 characteristics of the JSON file format.
+3. List 2 characteristics of the `JSON` file format.
 
 ## Homework Part 2. Create the 2 plots below (66%)
 
@@ -133,7 +133,7 @@ station type!
 ****
 
 ## Homework due: Wednesday April 12 2017 @ NOON.
-Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
+Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 
 NOTE: ALL future assignments will be due BEFORE CLASS on Wednesday at NOON. Following
 course policy we will not accept late assignments. Start early and submit your
