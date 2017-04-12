@@ -3,7 +3,7 @@ layout: single
 title: "Access secure data connections using the RCurl R package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-04-11'
+modified: '2017-04-12'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/access-gapminder-data-rcurl-r/
@@ -125,7 +125,7 @@ getURL UNLESS there is another `getURL()` function available in your `R` session
 
 Let's grab a gapminder data subset from a secure URL located on
 a GitHub website. The
-<a href=" http://www.gapminder.org/about-gapminder/" target="_blank">Gapminder data</a>,
+<a href="http://www.gapminder.org/about-gapminder/" target="_blank">Gapminder data</a>,
 contain a suite of census-like metrics that describe global development. The data
 are ideal to experiment with when learning about plotting and working with data
 in a tool like `R`.

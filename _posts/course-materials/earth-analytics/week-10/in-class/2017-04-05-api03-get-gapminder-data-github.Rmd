@@ -119,7 +119,7 @@ getURL UNLESS there is another `getURL()` function available in your `R` session
 
 Let's grab a gapminder data subset from a secure URL located on
 a GitHub website. The
-<a href=" http://www.gapminder.org/about-gapminder/" target="_blank">Gapminder data</a>,
+<a href="http://www.gapminder.org/about-gapminder/" target="_blank">Gapminder data</a>,
 contain a suite of census-like metrics that describe global development. The data
 are ideal to experiment with when learning about plotting and working with data
 in a tool like `R`.

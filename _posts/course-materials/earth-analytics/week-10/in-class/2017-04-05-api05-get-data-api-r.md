@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-04-12'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/API-data-access-r/
@@ -15,7 +15,6 @@ author_profile: false
 comments: true
 order: 5
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -38,10 +37,7 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-```{r echo=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
-```
 
 In the previous lessons, we learned how to access human readable text files data
 programmatically using:
@@ -61,7 +57,8 @@ hierarchical structures. In this lesson, we will use the `getJSON()` function
 from the `rjson` package to import data from an API, provided in `.json` format into
 a data.frame.
 
-```{r}
+
+```r
 #NOTE: if you have problems with ggmap, try to install both ggplot and ggmap from github
 #devtools::install_github("dkahle/ggmap")
 #devtools::install_github("hadley/ggplot2")
@@ -73,9 +70,7 @@ library(jsonlite)
 library(RCurl)
 ```
 
-```{r echo=FALSE}
-library("knitr")
-```
+
 
 ## REST API review
 
@@ -159,7 +154,8 @@ URL string. This is useful because we may want to iterate over different subsets
 of the same data (ie reuse the base url or the endpoint but request different
 subsets using different URL parameters).
 
-```{r}
+
+```r
 # Base URL path
 base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
 full_url = paste0(base_url, "county=Boulder",
@@ -167,7 +163,8 @@ full_url = paste0(base_url, "county=Boulder",
              "&$select=year,age,femalepopulation")
 
 # view full url
-full_url 
+full_url
+## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation"
 ```
 
 After we've created the URL, we can get the data. There are a few ways to access
@@ -179,33 +176,34 @@ the data however the most direct way is to
 Let's give it a try. First, we encode the URL to replace all spaces with the ascii
 value for a space which is `%20`.
 
-```{r}
+
+```r
 # encode the URL with characters for each space.
 full_url <- URLencode(full_url)
 full_url
-
+## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age%20between%2020%20and%2040&$select=year,age,femalepopulation"
 ```
 
 Then, we import the data directly into a data.frame using the `fromJSON()` function
 that is in the rjson package.
 
-```{r}
+
+```r
 library(rjson)
 
 # Convert JSON to data frame
 pop_proj_data_df <- fromJSON(getURL(full_url))
 head(pop_proj_data_df, n = 2)
+##   age femalepopulation year
+## 1  20             2751 1990
+## 2  21             2615 1990
 typeof(pop_proj_data_df)
-
+## [1] "list"
 ```
 
 
 
-```{r eval=FALSE, echo=FALSE}
-# turn list into data.frame -- this is only needed if you use rjson instead of jsonlite
-pop_proj_data_df <- do.call(rbind.data.frame, pop_proj_data_df)
-head(pop_proj_data_df)
-```
+
 
 
 
@@ -216,17 +214,19 @@ this class however it is a good option that results in code that is a bit cleane
 given the various parameters are passed to the function via argument like
 syntax.
 
-```{r eval=FALSE}
-base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
+
+```r
+base_url_example <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
 getForm(base_url, county="Boulder",
              age="BOULDER")
 ```
 
 Also note that if we wanted to use `getURL()`, we could do so as follows:
 
-```{r eval=FALSE}
+
+```r
 # get the data from the specified url using RCurl
-pop_proj_data <- getURL(URLencode(full_url))
+pop_proj_data_example <- getURL(URLencode(full_url))
 ```
 
 </div>
@@ -235,9 +235,14 @@ Now that our data are in a data.frame format, we can clean them up. Let's have a
 close look at the data structure. Are the values in the correct format to work
 with them quantitatively?
 
-```{r}
+
+```r
 # view data structure
 str(pop_proj_data_df)
+## 'data.frame':	1000 obs. of  3 variables:
+##  $ age             : chr  "20" "21" "22" "23" ...
+##  $ femalepopulation: chr  "2751" "2615" "2167" "1798" ...
+##  $ year            : chr  "1990" "1990" "1990" "1990" ...
 ```
 
 
@@ -258,12 +263,17 @@ case is `as.numeric()`.
 Because we are using this function in a pipe, our code looks like this:
 
 
-```{r}
+
+```r
 # turn columns to numeric and remove NA values
 pop_proj_data_df <- pop_proj_data_df %>%
  mutate_at(c( "age", "year", "femalepopulation"), as.numeric)
 
 str(pop_proj_data_df)
+## 'data.frame':	1000 obs. of  3 variables:
+##  $ age             : num  20 21 22 23 24 25 26 27 28 29 ...
+##  $ femalepopulation: num  2751 2615 2167 1798 1692 ...
+##  $ year            : num  1990 1990 1990 1990 1990 1990 1990 1990 1990 1990 ...
 ```
 
 <div class="notice--success" markdown="1">
@@ -272,7 +282,8 @@ code below, is much more VERBOSE version of what we did above, in a clean way
 using `mutate_at()`. dplyr is a much more efficient way to convert the format of several
 columns of information!
 
-```{r, eval=FALSE}
+
+```r
 # convert EACH row to a numeric format
 # note this is the clunky way to do what we did above with dplyr!
 pop_proj_data_df$age <- as.numeric(pop_proj_data_df$age)
@@ -289,7 +300,8 @@ pop_proj_data_df$femalepopulation <- as.numeric(pop_proj_data_df$femalepopulatio
 Once we have converted our data to a numeric format, we can plot it using `ggplot()`.
 
 
-```{r plot_pop_proj, fig.cap="Female population age 20-40."}
+
+```r
 # plot the data
 ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
  group=factor(age), color=age)) + geom_line() +
@@ -298,6 +310,8 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
           title="Projected Female Population",
           subtitle = "Boulder, CO: 1990 - 2040")
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-get-data-api-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="100%" />
 
 
 
@@ -318,30 +332,7 @@ plot a descriptive title.
 
 ## Example homework plot
 
-```{r male-population, echo=FALSE, fig.cap="Male population ages 60-80."}
-# Base URL path
-base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
-full_url_males_80 <- paste0(base_url, "county=Boulder",
-             "&$where=age between 60 and 80",
-             "&$select=year,age,malepopulation")
-
-full_url_males_80 <- URLencode(full_url_males_80)
-# get the data from the specified url
-pop_proj_data_males_80 <- fromJSON(full_url_males_80)
-# turn into dataframe
-# pop_proj_data_males_80_df <- do.call(rbind.data.frame, pop_proj_data_males_80)
-
-# turn columns to numeric and remove NA values
-pop_proj_data_males_80_df %>%
- mutate_at(c( "age", "malepopulation", "year"), as.numeric) %>%
- # plot the data
- ggplot(aes(x=year, y=malepopulation,
-   group=factor(age), color=age)) + geom_line() +
-     labs(x="Year",
-          y="Male Population age 60-80",
-         title="Projected Male Population - Age 60-80",
-         subtitle = "Boulder, CO: 1990 - 2040")
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
 
 
 

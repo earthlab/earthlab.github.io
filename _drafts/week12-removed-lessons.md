@@ -1,10 +1,6 @@
----
-layout: single
-
----
 #### Plot 3
 
-Using the population projection data that we used in [this lesson]({{ site.url }}/course-materials/earth-analytics/week-10/apis2-r/#example-homework-plot),
+Using the population projection data that we used in this lesson ,
  create a plot of projected
 MALE population numbers as follows:
 
