@@ -19,7 +19,7 @@ author_profile: false
 
 Welcome to week {{ page.week }} of Earth Analytics! In this week we will learn
 how to access data programmatically in your code. We will do this using `download.file()`,
-`read.csv()` and `getURL()` to access data files and data via API calls.
+`read.csv()` and `fromJSON()` to access data files and data via API calls.
 
 </div>
 
@@ -44,7 +44,7 @@ how to access data programmatically in your code. We will do this using `downloa
 This week you will create an html formatted report! We will use html in case
 you'd like to embed interactive leaflet maps in your final report. Do the following:
 
-Create a new `R markdown `document. Name it: **lastName-firstInitial-week8.Rmd**
+Create a new `R markdown `document. Name it: **lastName-firstInitial-week10.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `html` format. Submit both the
 `.Rmd` file and the `.html` file to D2L. Be sure to name your files
@@ -67,7 +67,7 @@ IMPORTANT!! for all plots be sure to:
 
 1. What does API stand for and what is an API?
 2. Why is programmatic access to data within our code useful?
-3. List 2 characteristics of the JSON file format.
+3. List 2 characteristics of the `JSON` file format.
 
 ## Homework Part 2. Create the 2 plots below (66%)
 
@@ -133,7 +133,7 @@ station type!
 ****
 
 ## Homework due: Wednesday April 12 2017 @ NOON.
-Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
+Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 
 NOTE: ALL future assignments will be due BEFORE CLASS on Wednesday at NOON. Following
 course policy we will not accept late assignments. Start early and submit your
