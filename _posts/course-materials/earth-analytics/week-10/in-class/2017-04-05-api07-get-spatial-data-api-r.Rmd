@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 7
 ---
 
 
@@ -61,7 +61,7 @@ in R.
 * And you can learn more about the data here: <a href="https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions/4yw9-a5y6" target="_blank">View CO Current water surface </a>.
 
 ```{r}
-# load packages 
+# load packages
 library(dplyr)
 library(ggplot2)
 library(rjson)
