@@ -16,7 +16,6 @@ comments: true
 order: 5
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -167,7 +166,7 @@ full_url = paste0(base_url, "county=Boulder",
              "&$select=year,age,femalepopulation")
 
 # view full url
-full_url 
+full_url
 ```
 
 After we've created the URL, we can get the data. There are a few ways to access
@@ -217,7 +216,7 @@ given the various parameters are passed to the function via argument like
 syntax.
 
 ```{r eval=FALSE}
-base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
+base_url_example <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
 getForm(base_url, county="Boulder",
              age="BOULDER")
 ```
@@ -226,7 +225,7 @@ Also note that if we wanted to use `getURL()`, we could do so as follows:
 
 ```{r eval=FALSE}
 # get the data from the specified url using RCurl
-pop_proj_data <- getURL(URLencode(full_url))
+pop_proj_data_example <- getURL(URLencode(full_url))
 ```
 
 </div>
@@ -327,7 +326,7 @@ full_url_males_80 <- paste0(base_url, "county=Boulder",
 
 full_url_males_80 <- URLencode(full_url_males_80)
 # get the data from the specified url
-pop_proj_data_males_80 <- fromJSON(full_url_males_80)
+pop_proj_data_males_80_df <- fromJSON(full_url_males_80)
 # turn into dataframe
 # pop_proj_data_males_80_df <- do.call(rbind.data.frame, pop_proj_data_males_80)
 

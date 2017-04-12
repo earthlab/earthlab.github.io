@@ -3,11 +3,7 @@ layout: single
 title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-get-data-api-r.md
 modified: '2017-04-12'
-=======
-modified: '2017-04-11'
->>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-rcurl-co-data-API-r.md
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/API-data-access-r/
@@ -19,7 +15,6 @@ author_profile: false
 comments: true
 order: 5
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -168,7 +163,7 @@ full_url = paste0(base_url, "county=Boulder",
              "&$select=year,age,femalepopulation")
 
 # view full url
-full_url 
+full_url
 ## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation"
 ```
 
@@ -221,7 +216,7 @@ syntax.
 
 
 ```r
-base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
+base_url_example <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
 getForm(base_url, county="Boulder",
              age="BOULDER")
 ```
@@ -231,7 +226,7 @@ Also note that if we wanted to use `getURL()`, we could do so as follows:
 
 ```r
 # get the data from the specified url using RCurl
-pop_proj_data <- getURL(URLencode(full_url))
+pop_proj_data_example <- getURL(URLencode(full_url))
 ```
 
 </div>
@@ -337,7 +332,7 @@ plot a descriptive title.
 
 ## Example homework plot
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-rcurl-co-data-API-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
 
 
 
