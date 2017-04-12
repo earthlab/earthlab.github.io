@@ -10,6 +10,8 @@ library(ggmap)
 library(ggplot2)
 library(dplyr)
 library(rjson)
+library(jsonlite)
+library(RCurl)
 
 ## ----echo=FALSE----------------------------------------------------------
 library("knitr")
@@ -20,8 +22,9 @@ base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
 full_url = paste0(base_url, "county=Boulder",
              "&$where=age between 20 and 40",
              "&$select=year,age,femalepopulation")
+
 # view full url
-full_url
+full_url 
 
 ## ------------------------------------------------------------------------
 # encode the URL with characters for each space.
@@ -33,8 +36,15 @@ full_url
 library(rjson)
 
 # Convert JSON to data frame
-pop_proj_data_df <- fromJSON(full_url)
-head(pop_proj_data_df)
+pop_proj_data_df <- fromJSON(getURL(full_url))
+head(pop_proj_data_df, n = 2)
+typeof(pop_proj_data_df)
+
+
+## ----eval=FALSE, echo=FALSE----------------------------------------------
+## # turn list into data.frame -- this is only needed if you use rjson instead of jsonlite
+## pop_proj_data_df <- do.call(rbind.data.frame, pop_proj_data_df)
+## head(pop_proj_data_df)
 
 ## ----eval=FALSE----------------------------------------------------------
 ## base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
@@ -84,10 +94,12 @@ full_url_males_80 <- paste0(base_url, "county=Boulder",
 
 full_url_males_80 <- URLencode(full_url_males_80)
 # get the data from the specified url
-pop_proj_data_males_80_df <- fromJSON(full_url_males_80)
+pop_proj_data_males_80 <- fromJSON(full_url_males_80)
+# turn into dataframe
+# pop_proj_data_males_80_df <- do.call(rbind.data.frame, pop_proj_data_males_80)
 
 # turn columns to numeric and remove NA values
-pop_proj_data_males_80_df <- pop_proj_data_males_80_df %>%
+pop_proj_data_males_80_df %>%
  mutate_at(c( "age", "malepopulation", "year"), as.numeric) %>%
  # plot the data
  ggplot(aes(x=year, y=malepopulation,

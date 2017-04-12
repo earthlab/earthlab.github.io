@@ -7,19 +7,26 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 library(dplyr)
 library(ggplot2)
 library(rjson)
+library(jsonlite)
 
 ## ------------------------------------------------------------------------
 # get URL
-water_base_url = "https://data.colorado.gov/resource/j5pc-4t32.json?"
-water_full_url = paste0(water_base_url, "station_status=Active",
+water_base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
+water_full_url <- paste0(water_base_url, "station_status=Active",
             "&county=BOULDER")
-water_data_url = URLencode(water_full_url)
+water_data_url <- URLencode(water_full_url)
+
 water_data_df <- fromJSON(water_data_url)
 
 
+## ----echo=FALSE, eval=FALSE----------------------------------------------
+## # turn into data.frame
+## water_data_df <- do.call(rbind.data.frame, water_data)
+## 
+
 ## ------------------------------------------------------------------------
 # view data structure
-str(water_data_df)
+typeof(water_data_df)
 
 ## ------------------------------------------------------------------------
 # view first 6 lines of the location nested data.frame
