@@ -3,7 +3,7 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-04-12'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/leaflet-r/
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 8
 ---
 
 
@@ -34,14 +34,12 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-```{r echo=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
-
-```
 
 
 
-```{r}
+
+
+```r
 # load packages
 library(dplyr)
 library(ggplot2)
@@ -50,10 +48,7 @@ library(leaflet)
 ```
 
 
-```{r, echo=FALSE}
-library("knitr")
-library(htmlwidgets)
-```
+
 
 ## Interactive maps with Leaflet
 
@@ -74,17 +69,15 @@ Leaflet:
 
 The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package! Below, you can see some code that creates a basic web-map.
 
-```{r eval=FALSE}
+
+```r
 map <- leaflet() %>%
   addTiles() %>%  # use the default base map which is OpenStreetMap tiles
   addMarkers(lng=174.768, lat=-36.852,
              popup="The birthplace of R")
 map
 ```
-```{r echo=FALSE, eval=FALSE}
 
-saveWidget(widget=map, file="birthplace_r.html", selfcontained=FALSE)
-```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
 
@@ -101,12 +94,15 @@ in the previous lessons, using leaflet. To do this, we will follow the steps bel
 The code below is the same code that we used to process the surface water
 data in the previous lesson.
 
-```{r}
+
+```r
 base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
 full_url <- paste0(base_url, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
+## Error in eval(expr, envir, enclos): could not find function "getURL"
 water_data_df <- fromJSON(water_data)
+## Error in fromJSON(water_data): object 'water_data' not found
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 
@@ -114,14 +110,14 @@ water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df <- water_data_df %>%
   mutate_each_(funs(as.numeric), c( "amount", "location.latitude", "location.longitude")) %>%
   filter(!is.na(location.latitude))
-
 ```
 
 Once our data are cleaned up, we can create our leaflet map. Notice that we are
 using pipes `%>%` to set the parameters for the leaflet map.
 
 
-```{r eval=FALSE}
+
+```r
 # create leaflet map
 leaflet(water_data_df) %>%
   addTiles() %>%
@@ -133,16 +129,14 @@ leaflet(water_data_df) %>%
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The code
 below provides an example of creating the same map without using pipes.
 
-```{r results="hide", cache=FALSE}
+
+```r
 map <- leaflet(water_data_df)
 map <- addTiles(map)
 map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
-
 ```
 
-```{r echo=FALSE, eval=FALSE}
-saveWidget(widget=map, file="water_map1.html", selfcontained=FALSE)
-```
+
 </div>
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
@@ -165,18 +159,14 @@ below, we use the `CartoDB.Positron` basemap:
 
 `addProviderTiles("CartoDB.Positron")`
 
-```{r eval=FALSE}
+
+```r
 leaflet(water_data_df) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
 ```
 
-```{r echo=FALSE, cache=FALSE, eval=FALSE}
-map = leaflet(water_data_df) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
-saveWidget(widget=map, file="water_map2.html", selfcontained=FALSE)
-```
+
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map2.html" frameborder="0" allowfullscreen></iframe>
 
@@ -193,10 +183,17 @@ name AND the discharge value.
 We are using `paste0()` to do this. Remember that `paste0()` will paste together
 a series of text strings and object values.
 
-```{r}
+
+```r
 # let's look at the output of our popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
+## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"             
+## [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"                                    
+## [3] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 76"
+## [4] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                                      
+## [5] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                         
+## [6] "BONUS DITCH<br/>Discharge: 0"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our
@@ -205,7 +202,8 @@ station name.
 
 Let's see what the custom icon and popup text looks like on our map.
 
-```{r eval=FALSE}
+
+```r
 # Specify custom icon
 url = "http://tinyurl.com/jeybtwj"
 water = makeIcon(url, url, 24, 24)
@@ -218,65 +216,21 @@ leaflet(water_data_df) %>%
                            amount))
 ```
 
-```{r echo=FALSE, cache=FALSE, eval=FALSE}
-url = "http://tinyurl.com/jeybtwj"
-water = makeIcon(url, url, 24, 24)
 
-map = leaflet(water_data_df) %>%
-  addProviderTiles("Stamen.Terrain") %>%
-  addMarkers(lng=~location.longitude, lat=~location.latitude, icon=water,
-             popup=~paste0(station_name, "<br/>Discharge: ", amount))
-saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
-```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
 There is a lot more to learn about leaflet. Here, we've just scratched the surface.
 
 
-```{r echo=FALSE, eval=FALSE}
-# water_data_df
-water_data_df$station_type <- factor(water_data_df$station_type)
 
-new <- c("red", "green","blue")[water_data_df$station_type]
-
-icons <- awesomeIcons(
-  icon = 'ios-close',
-  iconColor = 'black',
-  library = 'ion',
-  markerColor = new
-)
-
-unique_markers_map2 <- leaflet(water_data_df) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addAwesomeMarkers(lng=~location.longitude, lat=~location.latitude, icon=icons,
-                    popup=~station_name,
-                    label=~as.character(station_name))
-
-saveWidget(widget=unique_markers_map2, file="water_map_unique_markers1.html", selfcontained=FALSE)
-
-```
 
 Here we use `addAwesomeMarkers()` and adjust the color of each point on the map
 accordingly.
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/water_map_unique_markers1.html" frameborder="0" allowfullscreen></iframe>
 
-```{r, eval=FALSE, echo=FALSE}
 
-pal <- colorFactor(c("navy", "red", "green"), domain = unique(water_data_df$station_type))
-
-unique_markers_map <- leaflet(water_data_df) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addCircleMarkers(
-    color = ~pal(station_type),
-    stroke = FALSE, fillOpacity = 0.5, lng=~location.longitude, lat=~location.latitude,
-    label=~as.character(station_type)
-  )
-
-saveWidget(widget=unique_markers_map, file="water_map_unique_markers2.html", selfcontained=FALSE)
-
-```
 
 Here we use `addCircleMarkers()` and adjust the color accordingly.
 
