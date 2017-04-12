@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-04-10'
+modified: '2017-04-12'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/API-data-access-r/
@@ -307,7 +307,7 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
           subtitle = "Boulder, CO: 1990 - 2040")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-rcurl-co-data-API-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-get-data-api-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="100%" />
 
 
 

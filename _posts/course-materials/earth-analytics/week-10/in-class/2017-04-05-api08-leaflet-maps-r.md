@@ -3,7 +3,7 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-04-10'
+modified: '2017-04-12'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/leaflet-r/
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 8
 ---
 
 
@@ -100,7 +100,9 @@ base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
 full_url <- paste0(base_url, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
+## Error in eval(expr, envir, enclos): could not find function "getURL"
 water_data_df <- fromJSON(water_data)
+## Error in fromJSON(water_data): object 'water_data' not found
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 
@@ -188,10 +190,10 @@ a series of text strings and object values.
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
 ## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"             
 ## [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"                                    
-## [3] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 16.9"                             
-## [4] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 85"
-## [5] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 21.3"                                    
-## [6] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"
+## [3] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 76"
+## [4] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                                      
+## [5] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                         
+## [6] "BONUS DITCH<br/>Discharge: 0"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our
