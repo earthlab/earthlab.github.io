@@ -1,7 +1,7 @@
 ---
 layout: single
 category: course-materials
-title: "Week 10"
+title: "Week 12"
 permalink: /course-materials/earth-analytics/week-12/
 week-landing: 12
 week: 12
@@ -38,6 +38,6 @@ Welcome to week {{ page.week }} of Earth Analytics!
 
 
 ### Complete the assignment below:
- 
+
 
 </div>
