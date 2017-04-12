@@ -79,7 +79,7 @@ Plot the following:
 
 Experience (x axis) vs. salary (y axis). Color your points by SEX and use facets
 to add a facet for each of the three ranks. Your plot should look like the
-one on the bottom of [this page]( {{ site.url }}/course-materials/earth-analytics/week-10/get-data-with-rcurl-r/#example-homework).
+one on the bottom of [this page]( {{ site.url }}/course-materials/earth-analytics/week-10/get-data-with-rcurl-r/#example-homework-plot).
 
 <a href="http://data.princeton.edu/wws509/datasets/#salary" target="_blank">Learn more about the Princeton salary data</a>
 
@@ -112,9 +112,6 @@ Use the `read_secure_csv_file()` function to import the gapminder data following
 Then create a plot using the `ggplot()` of two variables of interest. You can
 pick any variables that you want to plot together but do not use variables that
 we demonstrate in the online lessons!
-
-
-
 
 
 #### Bonus plot - (1 point)
