@@ -20,8 +20,8 @@ This course includes a Mid term project which is 20% of your grade
 
 The mid term will be broken down into 2 parts:
 
-1. An individual "open book", quiz (10%): the point of this quiz is not that you memorize everything that we've learned in class. It's to ensure that you understand key concepts that have been covered throughout the semester. We have covered a lot! The quiz will be timed to ensure you don't spend too much time on it and thus you'll have to prepare for it some.
-2. A 5 minute group presentation that proposed a topic for your final project.
+1. **An individual "open book", quiz (10%):** the goal of this quiz is to ensure that you understand key concepts that have been covered throughout the semester. We have covered a lot! The quiz will be timed to ensure you don't spend too much time on it and thus you'll have to prepare for it some.
+2. **A 5 minute group presentation:** This presentation should propose a topic for your final project.
 </div>
 
 

@@ -44,6 +44,7 @@ You will need a computer with internet access to complete this lesson.
 library(dplyr)
 library(ggplot2)
 library(rjson)
+library(jsonlite)
 library(leaflet)
 ```
 

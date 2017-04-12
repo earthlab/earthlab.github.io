@@ -3,7 +3,11 @@ layout: single
 title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-get-data-api-r.md
 modified: '2017-04-12'
+=======
+modified: '2017-04-11'
+>>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-rcurl-co-data-API-r.md
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/API-data-access-r/
@@ -54,8 +58,9 @@ that we need for our analysis, programmatically.
 
 We will also explore the **machine readable** JSON data structure. Machine readable
 data structures are more efficient - particularly for larger data that contain
-hierarchical structures. In this lesson, the `getURL()`
-function will become more valuable to us as we parse data accessed from an API.
+hierarchical structures. In this lesson, we will use the `getJSON()` function
+from the `rjson` package to import data from an API, provided in `.json` format into
+a data.frame.
 
 
 ```r
@@ -66,6 +71,8 @@ library(ggmap)
 library(ggplot2)
 library(dplyr)
 library(rjson)
+library(jsonlite)
+library(RCurl)
 ```
 
 
@@ -141,15 +148,16 @@ plain text 'file' such as `JSON` or `.csv`.
 us to specify the format of the data that we want returned in the response. <a href="https://dev.socrata.com/docs/formats/index.html" target="_blank">The Colorado SODA API is no exception - check out the documentation. </a>
 {: .notice--success}
 
-## Accessing API Data via getURL
+## Accessing API Data
 
-We will use the `getURL()` in the same way that we used it before. However, this
-time we will add the `URL` parameters that specify which subset of the data
+The first thing that we need to do is create our API request string. Remember that
+this is a `URL` with parameters parameters that specify which subset of the data
 that we want to access.
 
-Note that we are using a new function - `paste0()`, to paste together a complex
-url string. This is useful because we may want to iterative over different subsets
-of the same data.
+Note that we are using a new function - `paste0()` - to paste together a complex
+URL string. This is useful because we may want to iterate over different subsets
+of the same data (ie reuse the base url or the endpoint but request different
+subsets using different URL parameters).
 
 
 ```r
@@ -158,8 +166,9 @@ base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
 full_url = paste0(base_url, "county=Boulder",
              "&$where=age between 20 and 40",
              "&$select=year,age,femalepopulation")
+
 # view full url
-full_url
+full_url 
 ## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation"
 ```
 
@@ -188,20 +197,20 @@ that is in the rjson package.
 library(rjson)
 
 # Convert JSON to data frame
-pop_proj_data_df <- fromJSON(full_url)
-head(pop_proj_data_df)
+pop_proj_data_df <- fromJSON(getURL(full_url))
+head(pop_proj_data_df, n = 2)
 ##   age femalepopulation year
 ## 1  20             2751 1990
 ## 2  21             2615 1990
-## 3  22             2167 1990
-## 4  23             1798 1990
-## 5  24             1692 1990
-## 6  25             1813 1990
+typeof(pop_proj_data_df)
+## [1] "list"
 ```
 
 
-Since these data are in a `JSON` data structure, we'll need to parse them into
-a format that we can work with in R.
+
+
+
+
 
 <div class="notice--success" markdown="1">
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The `getForm()`
@@ -217,7 +226,7 @@ getForm(base_url, county="Boulder",
              age="BOULDER")
 ```
 
-Also note that if we watned to use `getURL()`, we could do so as follows:
+Also note that if we wanted to use `getURL()`, we could do so as follows:
 
 
 ```r
@@ -328,7 +337,7 @@ plot a descriptive title.
 
 ## Example homework plot
 
-
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-rcurl-co-data-API-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
 
 
 

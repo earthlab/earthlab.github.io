@@ -3,7 +3,11 @@ layout: single
 title: "Programmatically accessing geospatial data using API's - Working with and mapping JSON data from the Colorado Information Warehouse in R"
 excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api07-get-spatial-data-api-r.md
 modified: '2017-04-12'
+=======
+modified: '2017-04-11'
+>>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api06-rcurl-co-data-spatial-data-r.md
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/co-water-data-spatial-r/
@@ -63,17 +67,27 @@ in R.
 library(dplyr)
 library(ggplot2)
 library(rjson)
+library(jsonlite)
 ```
 
 
 ```r
 # get URL
-water_base_url = "https://data.colorado.gov/resource/j5pc-4t32.json?"
-water_full_url = paste0(water_base_url, "station_status=Active",
+water_base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
+water_full_url <- paste0(water_base_url, "station_status=Active",
             "&county=BOULDER")
-water_data_url = URLencode(water_full_url)
+water_data_url <- URLencode(water_full_url)
+
 water_data_df <- fromJSON(water_data_url)
 ```
+
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **ATTENTION WINDOWS USERS:** 
+We have noticed a bug where on windows machines, sometimes the https URL doesn't work. 
+Instead try the same url as above but without the `s` - like this: `water_base_url <- "http://data.colorado.gov/resource/j5pc-4t32.json?"` This change has resolved many 
+issues on windows machines so give it a try if you are having problems with the API. 
+{: .notice--success }
+
+
 
 Remember that the JSON structure supports hierarchical data and can be NESTED.
 
@@ -139,6 +153,7 @@ Next, let's look at the structure of the data.frame that R creates from the
 
 ```r
 # view data structure
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api07-get-spatial-data-api-r.md
 str(water_data_df)
 ## 'data.frame':	54 obs. of  15 variables:
 ##  $ station_name   : chr  "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO" "GOODING A AND D PLUMB DITCH" "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO" "LITTLE THOMPSON #1 DITCH" ...
@@ -160,6 +175,10 @@ str(water_data_df)
 ##   ..$ longitude     : chr  "-105.364917" "-105.05447" "-105.007828" "-105.209549" ...
 ##  $ station_type   : chr  "Stream" "Diversion" "Stream" "Diversion" ...
 ##  $ stage          : chr  NA "0.47" NA "0.14" ...
+=======
+typeof(water_data_df)
+## [1] "list"
+>>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api06-rcurl-co-data-spatial-data-r.md
 ```
 
 In this case, we have a data.frame nested within a data.frame.
@@ -171,6 +190,7 @@ head(water_data_df$location)
 ##    latitude needs_recoding   longitude
 ## 1 40.042028          FALSE -105.364917
 ## 2  40.09404          FALSE  -105.05447
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api07-get-spatial-data-api-r.md
 ## 3 40.160347          FALSE -105.007828
 ## 4 40.256031          FALSE -105.209549
 ## 5 40.255581          FALSE -105.209595
@@ -178,6 +198,15 @@ head(water_data_df$location)
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
 ## [1] "40.042028" "40.09404"  "40.160347" "40.256031" "40.255581" "40.15336"
+=======
+## 3  40.19642          FALSE  -105.20659
+## 4      <NA>             NA        <NA>
+## 5 40.125542          FALSE -105.303879
+## 6  40.21804          FALSE -105.259987
+# view for 6 lines of the location.latitude column
+head(water_data_df$location$latitude)
+## [1] "40.042028" "40.09404"  "40.19642"  NA          "40.125542" "40.21804"
+>>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api06-rcurl-co-data-spatial-data-r.md
 ```
 
 We can remove the nesting using the `flatten()` function in `R`. When we flatten
@@ -194,6 +223,7 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api07-get-spatial-data-api-r.md
 ##  [1] "40.042028" "40.09404"  "40.160347" "40.256031" "40.255581"
 ##  [6] "40.15336"  "40.193757" "40.18188"  "40.187577" "40.19932" 
 ## [11] "40.174844" "40.18858"  "40.134278" "40.20419"  "40.173949"
@@ -205,6 +235,19 @@ water_data_df$location.latitude
 ## [41] "40.214984" NA          "39.931096" NA          NA         
 ## [46] NA          "40.125542" "40.21804"  "40.006374" "40.733879"
 ## [51] "40.018667" "39.961655" "39.938598" "39.931099"
+=======
+##  [1] "40.042028" "40.09404"  "40.19642"  NA          "40.125542"
+##  [6] "40.21804"  "40.006374" "39.961655" "39.938598" "39.931099"
+## [11] "40.256031" "40.255581" "40.15336"  "40.193757" "40.18188" 
+## [16] "40.187577" "40.19932"  "40.174844" "40.18858"  "40.134278"
+## [21] "40.20419"  "40.173949" "40.172925" "40.2125"   "40.21266" 
+## [26] "40.187524" NA          "40.153341" "40.21139"  "40.1946"  
+## [31] "40.170997" "40.21905"  "40.21108"  "40.193018" "40.172677"
+## [36] "40.172677" "40.19328"  "40.18503"  "40.051652" "40.053036"
+## [41] "40.849982" "39.98617"  "40.05366"  NA          "40.2172"  
+## [46] "40.160347" NA          "39.931096" "40.216093" "40.214984"
+## [51] NA          NA          "40.733879" "40.018667"
+>>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api06-rcurl-co-data-spatial-data-r.md
 ```
 Now we can clean up the data. Notice that our longitude and latitude values
 are in quotes. What does this mean about the structure of the data?
@@ -213,7 +256,11 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api07-get-spatial-data-api-r.md
 ##  chr [1:54] "40.042028" "40.09404" "40.160347" "40.256031" ...
+=======
+##  chr [1:54] "40.042028" "40.09404" "40.19642" NA "40.125542" ...
+>>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api06-rcurl-co-data-spatial-data-r.md
 ```
 
 In order to map or work with latitude and longitude data, we need numeric values.
@@ -230,11 +277,19 @@ so it is best to remove them.
 ```r
 # where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api07-get-spatial-data-api-r.md
 ##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
 ## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [34] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE
 ## [45]  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+=======
+##  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [23] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
+## [45] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
+>>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api06-rcurl-co-data-spatial-data-r.md
 ```
 
 Note, in the code above, we can identify each location where there is a NA value
@@ -244,11 +299,19 @@ in our data. If we add an `!` to our code, R returns the INVERSE of the above.
 ```r
 # where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api07-get-spatial-data-api-r.md
 ##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
 ## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [34]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
 ## [45] FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+=======
+##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [23]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
+## [45]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE
+>>>>>>> 6a2a8e0b0b30fe6797084c1ac56a6b7e83ec7845:_posts/course-materials/earth-analytics/week-10/in-class/2017-04-05-api06-rcurl-co-data-spatial-data-r.md
 ```
 
 Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value
