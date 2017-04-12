@@ -16,7 +16,6 @@ comments: true
 order: 7
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -79,10 +78,10 @@ water_data_df <- fromJSON(water_data_url)
 
 ```
 
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **ATTENTION WINDOWS USERS:** 
-We have noticed a bug where on windows machines, sometimes the https URL doesn't work. 
-Instead try the same url as above but without the `s` - like this: `water_base_url <- "http://data.colorado.gov/resource/j5pc-4t32.json?"` This change has resolved many 
-issues on windows machines so give it a try if you are having problems with the API. 
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **ATTENTION WINDOWS USERS:**
+We have noticed a bug where on windows machines, sometimes the https URL doesn't work.
+Instead try the same url as above but without the `s` - like this: `water_base_url <- "http://data.colorado.gov/resource/j5pc-4t32.json?"` This change has resolved many
+issues on windows machines so give it a try if you are having problems with the API.
 {: .notice--success }
 
 ```{r echo=FALSE, eval=FALSE}
