@@ -85,20 +85,24 @@ of your project.
 ****
 
 ## Individual Final Report (20%)
-To complement your final presentation, you will also create a  report using rmarkdown and knitr. This report should be structured as a scientific paper / white paper.
-For your report, select a component of the project that you are most interested
-in. Perform a literature review on that topic. In your report be sure to cite *atleast* **2 peer reviewed journal articles** about that topic and then **2 other sources**
-that can be peer reviewed or not peer review including blogs, newspaper articles, etc. Also be sure to include data driven plots and maps as appropriate. Your report should include:
+To complement your final presentation, you will also create a  report using
+rmarkdown and knitr. This report should be structured as a scientific paper /
+white paper. For your report, select a component of the project that you are most
+interested in. Perform a literature review on that topic. In your report be sure
+to cite in your text *atleast* **2 peer reviewed journal articles** about that
+topic and then **2 other sources** that can be peer reviewed or not peer review
+including blogs, newspaper articles, etc. Also be sure to include data driven plots
+and maps as appropriate. Your report should include:
 
-1. An introduction that includes a map of the study area created in `R` and a
-2. literature review that references to **atleast** 2 scientific (peer reviewed) papers and 2 non peer reviewed sources on the topic.
+1. An introduction that includes a map of the study area created in `R`.
+2. Literature review that references to **atleast** 2 scientific (peer reviewed) papers and 2 non peer reviewed sources on the topic.
 2. An written overview of the methods that describes
   * The data that you used
   * The source of the data
   * How the data were processed in `R`.
 3. Results - *atleast* 4 maps / plots that answer the question that you decided to address or the phenomenon that you decided to explore using data.
 4. Summary text - what did you learn about your topic? What did the data tell you?
-5. References
+5. References - list all references that you used to write your report at the end. IMPORTANT: you should also reference your data - where did it come from?!
 
 The report should be written INDEPENDENTLY. We will check for this when grading.
 However it is OK if you decide to share code with your colleagues given you may
@@ -112,6 +116,15 @@ The report should also include the code that you used to create maps and process
 any data used. You can hide this code using code chunk arguments but be sure to
 clearly document your process as we have been discussing in class all semester!
 We will grade your final pdf / html document and the code.
+
+
+#### IMPORTANT
+* Be sure all plots / maps have clearly labeled x and y axes (as apprpriate) and legends
+* All plots / maps should also include a caption that describes what hte data show. You can add the caption in whatever way you'd like to. It is ok if you write your caption using fig.cap= OR if you prefer, add the caption in the markdown text of your document.
+* Spell check / grammar check your paper BEFORE YOU SUBMIT. this is worth 20% of your grade. Take time to make sure it's well written!
+* Hide your code in the .Rmd document UNLESS you feel like your methods are important to call out. (for example you may decide to show some of your methods in the methods section of the report).
+* Turn off warnings and other messages so they do not appear in your final rendered report.
+* Start early - make sure your reports renders to pdf or html WELL BEFORE the assignment is due!  
 
 ## Graduate students - additional report elements
 In addition to the requirement above, graduate students should develop
@@ -130,4 +143,3 @@ day of class: **Wednesday 3 May 2017 during class.** IMPORTANT: Submit your fina
 BOX on D2L PRIOR to class on 3 May 2017.
 
 * **FINAL INDEPENDENT REPORT:** The final individual report is due the following week during finals: **Submit your html / pdf file and your .rmd file to D2L by Tuesday 9 May 2017 @ 5PM.**
-
