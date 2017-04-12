@@ -15,6 +15,7 @@
 <nav class="nav__list">
   <ul>
     <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class Materials</span>
+    {% assign lesson_count = 0 %}
       <ul>
         {% for module in classes %}
         {% if module.order == 1 %}
@@ -26,41 +27,60 @@
         <ul>
 
         {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+      <!-- count lessons -->
+
         {% for alesson in weeks %}
         {% if alesson.class-lesson == theLesson %}
+        {% assign lesson_count = lesson_count | plus: 1 %}
           {% if alesson.url == page.url %}
           <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
           {% else %}
           <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
           {% endif %}
           {% endif %}
+
+
         {% endfor %}
+
+
        </ul>
         {% endfor %}
+
+        <!-- if there are NOT lessons say that -->
+        {% if lesson_count == 0 %}
+        <li><i>There are no class lessons this week.</i></li>
+        {% endif %}
        </ul>
 
-   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Learn how to...</span>
-     <ul>
        {% for module in homework %}
        {% if module.order == 1 %}
            {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
-           {% assign theHomeWorkLesson = module.class-lesson %}
-           <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
-       {% endif %}
 
-       <ul>
-       {% for alesson in weeks %}
-       {% if alesson.class-lesson == theHomeWorkLesson %}
-         {% if alesson.url == page.url %}
-         <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
-         {% else %}
-         <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
-         {% endif %}
-         {% endif %}
+           {% if class_lessons %}
+             <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Learn how to...</span>
+             <ul>
+               {% for module in homework %}
+               {% if module.order == 1 %}
+                   {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
+                   {% assign theHomeWorkLesson = module.class-lesson %}
+                   <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
+               {% endif %}
+               <ul>
+               {% for alesson in weeks %}
+               {% if alesson.class-lesson == theHomeWorkLesson %}
+                 {% if alesson.url == page.url %}
+                 <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+                 {% else %}
+                 <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+                 {% endif %}
+                 {% endif %}
+               {% endfor %}
+                </ul>
+               {% endfor %}
+
+           {% endif %}
+       {% endif %}
        {% endfor %}
-        </ul>
-       {% endfor %}
-     </ul>
    </ul>
 </nav>
 
