@@ -62,7 +62,7 @@ from international, national and even local groups.
 | <a href="http://www.census.gov/" target="_blank" data-proofer-ignore=''>US Census Bureau </a> ||
 |  <a href="http://www.epa.gov" target="_blank">US Environmental Protection Agency (EPA)</a> | Data for Air, Water, Land, Health (organized in disconnected fashion – search the site on “data download” to find various download pages)	 |
 | <a href="http://www.fws.gov/" target="_blank">US Fish and Wildlife Service </a> | Most of the data are stored on data.gov |
-| <a href="http://www.blm.gov/co/st/en/BLM_Programs/geographical_sciences/gis.html" target="_blank">US Bureau of Land Management</a> ||
+| <a href="http://www.blm.gov/" target="_blank">US Bureau of Land Management - note their website has changed so we are linking now to the landing page!</a> ||
 | <a href="http://catalog.data.gov/dataset" target="_blank">Geospatial One Stop (federal portal)</a> ||
 | <a href="http://geonames.usgs.gov/" target="_blank">Geographic Placenames (also in National Map) </a> ||
 | <a href="http://ngmdb.usgs.gov/" target="_blank">USGS National Geologic Map </a> ||

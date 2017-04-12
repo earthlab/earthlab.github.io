@@ -174,7 +174,7 @@ leaflet(water_data_df) %>%
 ### Custom icons
 
 We can specify a *custom* icon, too. Below, we are using an icon
-from the <a href="http://tinyurl.com/jeybtwj" target="_blank">web</a>.
+from the <a href="https://portasilo.com/portasilo/wp-content/uploads/sites/7/2015/02/icon-water.png" target="_blank">web</a>.
 
 Notice also that we are customizing the popup even more, adding BOTH the station
 name AND the discharge value.
@@ -189,11 +189,11 @@ a series of text strings and object values.
 # let's look at the output of our popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"             
-## [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"                                    
+## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"
+## [2] "GOODING A AND D PLUMB DITCH<br/>Discharge: 7.2"
 ## [3] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 76"
-## [4] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                                      
-## [5] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                         
+## [4] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"
+## [5] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"
 ## [6] "BONUS DITCH<br/>Discharge: 0"
 ```
 
@@ -206,7 +206,7 @@ Let's see what the custom icon and popup text looks like on our map.
 
 ```r
 # Specify custom icon
-url = "http://tinyurl.com/jeybtwj"
+url = "https://portasilo.com/portasilo/wp-content/uploads/sites/7/2015/02/icon-water.png"
 water = makeIcon(url, url, 24, 24)
 
 leaflet(water_data_df) %>%
