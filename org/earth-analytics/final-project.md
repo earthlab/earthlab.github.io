@@ -25,33 +25,39 @@ The final project in this course includes:
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Final project
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Earth analytics course final project
 
-Select a science question, phenomenon or event that you wish to address / better
+### 1. Select a science question, phenomenon or events
+Select a topic that you wish to address / better
 understand. Your topic can be related to something we've covered in class or to
 something completely different! You must be able to ask and answer an explicit science
 question using data that you collect / download / find (not data that we have
 used in this course).
 
-You will research the topic that you select finding papers and other documentation
-about it. This research will be the basis of the background of your presentation
-and also of the literature review for your final paper. You will also find *atleast*
-2 distinct data types that are from different sources. A source is defined as a
-collection method / type or sensor so for example the Landsat sensor is type of data.
+### 2. Research your topic
+Find papers and other documentation on your selected topic.
+Use this research to create the background section of your presentation. You will
+also use this to write your literature review for your final paper.
+
+### 3. Find data
+Find *atleast* 2 distinct data types that are from different sources.
+A source is defined as a collection method / type or sensor so for example the Landsat sensor is type of data.
 NLCD and NDVI could both come from Landsat. That represents one data source. You could
 however use Landsat and MODIS as two separate sources given the data come from
 two different sensors. The data should be used to answer the question that you
 select for your project.
+
+### What to submit & when
 
 The final group presentations will occur on the final day of class: **Wednesday 3 May 2017 during class.** IMPORTANT: Submit your final presentation to D2L PRIOR to class
 on 3 May 2017.
 
 The final individual report is due the following week during finals: **Submit your html / pdf file and your .rmd file to D2L by Tuesday 9 May 2017 @ 5PM.**
 
-* NOTE 1: we expect groups to be the same as the groups for the mid-term. However it
+* **NOTE 1:** we expect groups to be the same as the groups for the mid-term. However it
 is OK if you changed your topic, data sources, questions, etc given feedback on
 the mid term presentation.
-* NOTE 2: You can decide whether you want to submit your report in `.html` vs `.pdf` format. If you want to include an interactive graphic you will need to use `.html` format!
+* **NOTE 2:** You can decide whether you want to submit your report in `.html` vs `.pdf` format. If you want to include an interactive graphic you will need to use `.html` format!
 </div>
 
 ## Final group presentation (20%)
