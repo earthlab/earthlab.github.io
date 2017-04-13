@@ -1,0 +1,4 @@
+- tag: remote-sensing
+  topic: ['landsat', 'Modis']
+- tag: earth-science
+  topic: ['fire', 'permafrost']

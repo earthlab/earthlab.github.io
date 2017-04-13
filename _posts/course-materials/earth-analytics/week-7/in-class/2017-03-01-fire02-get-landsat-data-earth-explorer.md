@@ -14,6 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+tags: ['landsat']
 ---
 
 

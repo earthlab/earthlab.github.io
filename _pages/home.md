@@ -33,7 +33,66 @@ github:
   - excerpt: '{::nomarkdown}<iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=mmistakes&repo=minimal-mistakes&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe> <iframe style="display: inline-block;" src="https://ghbtns.com/github-btn.html?user=mmistakes&repo=minimal-mistakes&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="158px" height="30px"></iframe>{:/nomarkdown}'
 intro:
   - excerpt: 'Follow us &nbsp; [<i class="fa fa-twitter"></i> @EarthLabCU](https://twitter.com/EarthLabCU){: .btn .btn--twitter}'
+sidebar:
+  nav: earth-analytics-2017
 ---
+
+## Welcome
+
+This site contains open, tutorials and course materials in the area of data integration
+and data intensive science. Currently, we have {{ site.posts | size }} lessons
+available on our site with more under development!
+
+<div class="sidebar sticky">
+<!-- remove for now
+{% for tag in site.tags %}
+  {% assign t = tag | first %}
+  {% assign posts = tag | last %}
+  <li>{{ t | downcase | replace:" ","-" }}: {{ posts | size }} posts</li>
+{% endfor %}
+-->
+
+<nav class="nav__list">
+  <ul>
+    <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Coding languages</span>
+      <ul>
+            {% for main_lang in site.data.libs %}
+            {% assign main_lang_counter = 0 %}
+            {% for language in main_lang.lang %}
+             {% for post in site.posts %}
+               {% if post.lang contains language %}
+                 {% assign main_lang_counter = main_lang_counter | plus: 1 %}
+                {% endif %}
+             {% endfor %}
+            {% endfor %}
+            <li><span><i class="fa fa-book" aria-hidden="true"></i> {{ main_lang.lang }}: {{ main_lang_counter }} lessons </span></li>
+            {% endfor %}
+        </ul></li>
+    </ul>
+    <ul>
+
+      <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Science</span>
+        <ul>
+                <ul>
+                {% for main_tag in site.data.tag-hier %}
+                {% assign main_tag_counter = 0 %}
+                {% for topics in main_tag.topic %}
+                 {% for post in site.posts %}
+                   {% if post.tags contains topics %}
+                     {% assign main_tag_counter = main_tag_counter | plus: 1 %}
+                    {% endif %}
+                 {% endfor %}
+                {% endfor %}
+
+              <li><span><i class="fa fa-book" aria-hidden="true"></i> {{ main_tag.tag | replace:"-"," "}}: {{ main_tag_counter }} lessons</span></li>
+                {% endfor %}
+              </ul>
+
+
+          </ul></li>
+      </ul>
+</nav>
+</div>
 
 <div class="archive" markdown="1">
 
