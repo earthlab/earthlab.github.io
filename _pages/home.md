@@ -35,7 +35,48 @@ intro:
   - excerpt: 'Follow us &nbsp; [<i class="fa fa-twitter"></i> @EarthLabCU](https://twitter.com/EarthLabCU){: .btn .btn--twitter}'
 ---
 
+<div class="archive" markdown="1">
+
+## Recent course modules
+
+{% assign modules = site.posts | where:"order", 1 %}
+{% for module in modules limit:3 %}
+
+<div class="list__item">
+  <article class="archive__item" >
+  <h2 class="archive__item-title">
+  <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}</a></h2>
+  <p class='archive__item-excerpt'>{{ module.module-description | truncatewords:35 }} <a href="{{ site.url }}{{ module.permalink }}">read more.</a>  </p>
+
+  {% assign counter = 0 %}
+  <!-- this may not work -->
+  {% assign module_posts = site.posts | where:"module-title", {{ module.module-title }} %}
+  {% for post in module_posts %}
+      {% if post.class-lesson == module.class-lesson %}
+        {% assign counter = counter | plus: 1 %}
+      {% endif %}
+  {% endfor %}
+  <p class="archive__item-excerpt"><i>lessons: {{ counter }}, last updated: {{ module.modified | date_to_string }}</i></p>
+  </article>
+</div>
+
+{% endfor %}
+
+
+
+## Recent tutorials
+
+{% for post in site.categories.['tutorials'] limit:3 %}
+<!-- List the most recent 3 tutorials  -->
+<div class="list__item">
+<article class="archive__item">
+  <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
+  <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+</article>
+</div>
+{% endfor %}
+
+</div>
 {% include feature_row id="intro" type="center" %}
 
 {% include feature_row %}
-
