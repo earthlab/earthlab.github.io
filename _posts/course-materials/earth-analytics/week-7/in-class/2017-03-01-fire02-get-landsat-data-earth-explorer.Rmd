@@ -14,6 +14,11 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+tags2:
+  remote-sensing: ['landsat']
+  earth-science: ['fire']
+lang-lib:
+  r: []
 ---
 
 

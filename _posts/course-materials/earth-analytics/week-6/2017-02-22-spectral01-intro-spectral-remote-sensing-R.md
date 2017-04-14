@@ -3,7 +3,7 @@ layout: single
 title: "Intro to spectral remote sensing"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-03-16'
+modified: '2017-04-14'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/intro-spectral-data-r/
@@ -11,7 +11,7 @@ nav-title: 'Intro spectral data'
 module-title: 'Understanding fire using spectral remote sensing data'
 module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
 module-nav-title: 'Fire / spectral remote sensing data - in R'
-module-type: 'class' 
+module-type: 'class'
 course: "Earth Analytics"
 week: 6
 sidebar:
@@ -19,6 +19,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  remote-sensing: ['landsat', 'modis', 'naip']
+  earth-science: ['fire']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
