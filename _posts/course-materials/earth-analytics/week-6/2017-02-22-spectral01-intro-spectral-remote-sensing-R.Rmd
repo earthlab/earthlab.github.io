@@ -23,7 +23,7 @@ tags2:
   remote-sensing: ['landsat', 'modis', 'naip']
   earth-science: ['fire']
 lang-lib:
-  r: []
+  r: ['raster']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

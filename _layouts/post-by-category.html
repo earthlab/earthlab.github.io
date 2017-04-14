@@ -78,9 +78,9 @@ layout: default
       {% endfor %}
     </nav>
 
-{% assign rposts = site.posts | where:"lang.r", '' %}
-{% for posts in rposts%}
- {{ rposts.title }}
+{% for post in site.posts %}
+{{ post.lang-lib[r] }}
+
  {% endfor %}
 
 
