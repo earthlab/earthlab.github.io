@@ -14,7 +14,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
-tags: ['landsat']
+tags2:
+  remote-sensing: ['landsat', 'modis', 'lidar']
+  machine-learning: ['deep-stuff', 'neural-stuff']
 ---
 
 

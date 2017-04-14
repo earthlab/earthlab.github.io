@@ -43,7 +43,25 @@ This site contains open, tutorials and course materials in the area of data inte
 and data intensive science. Currently, we have {{ site.posts | size }} lessons
 available on our site with more under development!
 
+{% for post in site.posts %}
+   {% if post.tags2 %}
+   just RS: {{ post.tags2.remote-sensing }}
+   {% for tag-sect in post.tags2 %}
+      THE first main category: {{ tag-sect | first }}
+      {% assign sub-tags = tag-sect | last %}
+      {% for a-sub-tag in sub-tags %}
+        * {{ a-sub-tag }}
+      {% endfor %}
+   {% endfor %}
+   <ul>
+      <li>{{ post.title }}:{{ post.tags2 }}</li>
+    </ul>
+   {% endif %}
+{% endfor %}
+
 <div class="sidebar sticky">
+
+
 <!-- remove for now
 {% for tag in site.tags %}
   {% assign t = tag | first %}
@@ -75,9 +93,16 @@ available on our site with more under development!
         <ul>
                 <ul>
                 {% for main_tag in site.data.tag-hier %}
+
                 {% assign main_tag_counter = 0 %}
                 {% for topics in main_tag.topic %}
                  {% for post in site.posts %}
+
+                 {% if post.tags2 contains main_tag.tag %}
+                 {% assign the_tag = main_tag.tag %}
+                 **get all subtags:** {{ post.tags2[the_tag] }}
+                 {% endif %}
+
                    {% if post.tags contains topics %}
                      {% assign main_tag_counter = main_tag_counter | plus: 1 %}
                     {% endif %}
