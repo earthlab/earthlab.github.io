@@ -19,7 +19,6 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
-tags: ['landsat', 'modis']
 ---
 
 
