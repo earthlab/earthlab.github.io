@@ -79,7 +79,9 @@ layout: default
     </nav>
 
 {% assign rposts = site.posts | where:"lang.r", '' %}
+{% for posts in rposts%}
  {{ rposts.title }}
+ {% endfor %}
 
 
         <!-- Using downcase to force this to an array so i can use contains below
