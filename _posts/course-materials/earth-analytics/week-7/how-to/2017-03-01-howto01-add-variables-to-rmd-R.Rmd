@@ -12,7 +12,7 @@ module-title: 'Refine plots & add variables to Rmarkdown reports'
 module-description: 'This tutorial set covers some basic things you can do to refine your plots in Rmarkdown document. It covers plotting in grids, adding titles to plotRGB() plots
 and refining the width and height of plots to optimize space.'
 module-nav-title: 'Refine Rmarkdown reports'
-module-type: 'homework' 
+module-type: 'homework'
 course: "Earth Analytics"
 week: 7
 sidebar:
@@ -20,6 +20,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+lang-lib:
+  r: []
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
