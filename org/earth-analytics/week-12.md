@@ -23,11 +23,11 @@ Welcome to week {{ page.week }} of Earth Analytics!
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 - 3:15  | Review - Final Project |   |
-| 3:15 - 4:15  | Introduction to programmatic data access | Leah |
-| 4:30 - 5:15  | Using APIs and creative maps with JSON data  |  Leah |
+| 3:00 - 3:10  | Questions? - Final Project |   |
+| 3:15 - 4:15  | Use Social media data to better address change | Lise St. Dennis |
+| 4:30 - 5:15  | TBD |  Leah |
 |===
-| 4:15 - 5:50  | Group work / Work on your homework |    |
+| 4:15 - 5:50  | Group work / Work on your homework - Please take this time to work on your project and ask any questions that you have! Do not schedule other things during this time. |    |
 
 
 ### 2. Complete the assignment below (10 points)
