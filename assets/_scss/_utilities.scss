@@ -171,7 +171,7 @@ body:hover .visually-hidden button {
   .fa-6 {
     font-size:2em
   }
-  
+
   .fa-4 {
     font-size:1.5em
   }
@@ -364,6 +364,19 @@ body:hover .visually-hidden button {
   }
 }
 
+/*
+not Sticky, fixed to top content
+   ========================================================================== */
+.notsticky {
+  @include breakpoint($large) {
+    @include clearfix();
+    top: 2em;
+
+    > * {
+      display: block;
+    }
+  }
+}
 
 /*
    Wells
