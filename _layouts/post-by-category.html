@@ -69,9 +69,17 @@ layout: default
 
 
 
-      <!-- If the page is a tag2 page -->
+      <!-- If the page is a tag2 page
+
+    -->
     {% if page.main-tag %}
-    <nav>
+What i need to do next is:
+1. figure out how to distinguish posts that are sub tags. the simple way is a sub tag yaml element.
+2. Then add a sort by language to the page
+3. then implement the javascript css to hide and show code chunks... NOTE: this is risky across browsers...
+
+
+    Filter by language: <nav>
       <a href="#allposts">All posts</a>
       {% for language in site.data.libs %}
        <a href='#{{ language.lang }}'>{{ language.lang }}</a>

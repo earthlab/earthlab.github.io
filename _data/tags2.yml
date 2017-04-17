@@ -1,4 +1,4 @@
-- tag: remote-sensing
-  topic: ['landsat', 'Modis']
-- tag: earth-science
-  topic: ['fire', 'permafrost']
+remote-sensing:
+  topics: ['landsat', 'modis', 'lidar', 'naip']
+earth-science:
+  topics: ['fire', 'permafrost']
