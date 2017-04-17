@@ -2,3 +2,5 @@ remote-sensing:
   topics: ['landsat', 'modis', 'lidar', 'naip']
 earth-science:
   topics: ['fire', 'permafrost']
+open-science:
+  topics: ['literate-programming', 'functions']  
