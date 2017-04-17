@@ -53,7 +53,6 @@ wanted to make changes, what process and tools would you use to make those chang
 6. What units are the precipitation data in?
 7. Create a list of the things that would make editing this report easier.
 
-
 ***
 
 ## My Report - 2013 Colorado Flood Data
