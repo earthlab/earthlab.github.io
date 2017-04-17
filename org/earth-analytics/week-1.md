@@ -1,7 +1,7 @@
 ---
 layout: single
 category: course-materials
-title: "Week 1 - Getting Started with Data and R / RStudio"
+title: "Week 1 - Get Started with Data in R / RStudio"
 permalink: /course-materials/earth-analytics/week-1/
 week-landing: 1
 week: 1
