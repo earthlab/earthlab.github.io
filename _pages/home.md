@@ -43,7 +43,7 @@ This site contains open, tutorials and course materials in the area of data inte
 and data intensive science. Currently, we have {{ site.posts | size }} lessons
 available on our site with more under development!
 
-<div class="sidebar sticky">
+<div class="sidebar notsticky">
   {% include sidebar_home.html %}
 </div>
 

@@ -672,6 +672,20 @@ body:hover .visually-hidden button {
       display: block; } }
 
 /*
+not Sticky, fixed to top content
+   ========================================================================== */
+@media (min-width: 64em) {
+  .notsticky {
+    clear: both;
+    top: 2em; }
+    .notsticky::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .notsticky > * {
+      display: block; } }
+
+/*
    Wells
    ========================================================================== */
 .well {
