@@ -1,0 +1,97 @@
+{% assign page_tag = page.tags2 | first %}
+
+<div class="sidebar sticky">
+  <nav class="nav__list">
+    <ul>
+      <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> By science topic</span>
+        <ul>
+          {% for main_tag in site.data.tags2 %}
+            {% assign main_tag_counter = 0 %}
+            {% assign topic = main_tag | first %}
+                {% for post in site.posts %}
+                 {% if post.tags2 contains topic %}
+                 {% assign the_tag = main_tag.tag %}
+                 <!-- this is just to remind myself how to access this element **get all subtags:** {{ post.tags2[the_tag] }} -->
+                 {% assign main_tag_counter = main_tag_counter | plus: 1 %}
+                 {% endif %}
+                {% endfor %}
+
+              {% if page.tags2 contains main_tag.tag %}
+                <li class='active'><a href="{{ site.url }}/{{ main_tag.tag }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ main_tag.tag  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+              {% else %}
+                <li><a href="{{ site.url }}/{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+              {% endif%}
+            {% endfor %}
+          </ul>
+      </li>
+    </ul>
+  </nav>
+
+
+<!-- List the related sub topics if this is a tag sidebar element -->
+{% capture page_tag %} {{ page.tags2 | first }} {% endcapture %}
+
+<nav class="nav__list">
+  <ul>
+   <li><a href="{{ site.url }}/{{ main_tag.tag }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ page_tag }} tags </span></a>
+    <ul>
+<!-- Just get the sub topics associated with the main page tag -->
+
+    {% for main_tag in site.data.tags2 %}
+     {% if page.tags2 contains main_tag[0] %}
+
+      {% for atag in main_tag.last %}
+       {% for sub_topic in atag.last  %}
+       {% assign topic_tag_counter = 0 %}
+        {% for post in site.posts %}
+          {% for tags in post.tags2 %}
+            {% for a_tag in tags.last %}
+            {% if a_tag == sub_topic %}
+             {% assign topic_tag_counter = topic_tag_counter | plus: 1 %}
+            {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endfor %}
+        <li><a href="{{ site.url }}/{{ main_tag[0] }}/{{ sub_topic }}">{{ sub_topic | Capitalize }} {{ topic_tag_counter }}</a></li>
+
+       {% endfor %}
+
+       {% endfor %}
+       {% endif %}
+       {% endfor %}
+    </ul>
+   </li>
+  </ul>
+</nav>
+
+</div>
+
+
+{% comment %}
+  {% for sub_topic in main_tag %}
+  {{ sub_topic }}
+  {% assign topic_tag_counter = 0 %}
+      {% for post in site.posts %}
+        {% for tags in post.tags2 %}
+           {% for a_tag in tags %}
+           {% if a_tag contains sub_topic %}
+            {% assign topic_tag_counter = topic_tag_counter | plus: 1 %}
+           {% endif %}
+           {% endfor %}
+        {% endfor %}
+      {% endfor %}
+      <li><a href="{{ site.url }}/{{ main_tag.tag }}/{{ sub_topic }}">{{ sub_topic }} {{ topic_tag_counter }}</a></li>
+   {% endfor %}
+
+
+   {% for post in site.posts %}
+     {% for tags in post.tags2 %}
+       {% for a_tag in tags %}
+       {% if a_tag == sub_topic %}
+        {% assign topic_tag_counter = topic_tag_counter | plus: 1 %}
+        yes
+       {% endif %}
+       {% endfor %}
+     {% endfor %}
+   {% endfor %}
+  {% endcomment %}

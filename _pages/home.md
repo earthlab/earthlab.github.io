@@ -43,83 +43,8 @@ This site contains open, tutorials and course materials in the area of data inte
 and data intensive science. Currently, we have {{ site.posts | size }} lessons
 available on our site with more under development!
 
-<!--
-{% for post in site.posts %}
-   {% if post.tags2 %}
-   just RS: {{ post.tags2.remote-sensing }}
-   {% for tag-sect in post.tags2 %}
-      THE first main category: {{ tag-sect | first }}
-      {% assign sub-tags = tag-sect | last %}
-      {% for a-sub-tag in sub-tags %}
-        * {{ a-sub-tag }}
-      {% endfor %}
-   {% endfor %}
-   <ul>
-      <li>{{ post.title }}:{{ post.tags2 }}</li>
-    </ul>
-   {% endif %}
-{% endfor %}
--->
-
 <div class="sidebar sticky">
-
-
-<!-- remove for now
-{% for tag in site.tags %}
-  {% assign t = tag | first %}
-  {% assign posts = tag | last %}
-  <li>{{ t | downcase | replace:" ","-" }}: {{ posts | size }} posts</li>
-{% endfor %}
--->
-
-<nav class="nav__list">
-  <ul>
-    <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Lessons by coding language</span>
-      <ul>
-            {% for main_lang in site.data.libs %}
-            {% assign main_lang_counter = 0 %}
-            {% for language in main_lang.lang %}
-             {% for post in site.posts %}
-               {% if post.lang contains language %}
-                 {% assign main_lang_counter = main_lang_counter | plus: 1 %}
-                {% endif %}
-             {% endfor %}
-            {% endfor %}
-            <li><span><i class="fa fa-book" aria-hidden="true"></i> {{ main_lang.lang }}: {{ main_lang_counter }} </span></li>
-            {% endfor %}
-        </ul></li>
-    </ul>
-    <ul>
-
-      <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Lessons by science topic</span>
-        <ul>
-                <ul>
-                {% for main_tag in site.data.tags2 %}
-
-                {% assign main_tag_counter = 0 %}
-                {% for topic in main_tag.tag %}
-                 {% for post in site.posts %}
-
-                 {% if post.tags2 contains topic %}
-                 {% assign the_tag = main_tag.tag %}
-                 <!-- this is just to remind myself how to access this element **get all subtags:** {{ post.tags2[the_tag] }} -->
-                 {% assign main_tag_counter = main_tag_counter | plus: 1 %}
-                 {% endif %}
-
-                 {% endfor %}
-                {% endfor %}
-
-              <li><a href="{{ site.url }}{{ main_tag.tag }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ main_tag.tag  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
-
-
-          <!--  <li><span><i class="fa fa-book" aria-hidden="true"></i>test: {{ main_tag.tag | replace:"-"," "}}: {{ test_tag_counter }} lessons</span></li> -->
-                {% endfor %}
-              </ul>
-
-
-          </ul></li>
-      </ul>
-</nav>
+  {% include sidebar_home.html %}
 </div>
 
 <div class="archive" markdown="1">
