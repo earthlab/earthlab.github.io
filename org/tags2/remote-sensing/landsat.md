@@ -6,5 +6,5 @@ comments: false
 author_profile: false
 tags2:
   remote-sensing: 'landsat'
-main-tag: TRUE
+main-tag: false
 ---
