@@ -69,22 +69,22 @@ layout: default
 
 
 
-      <!-- If the page is a tag2 page
-
-    -->
-    {% if page.main-tag %}
-What i need to do next is:
-1. figure out how to distinguish posts that are sub tags. the simple way is a sub tag yaml element.
-2. Then add a sort by language to the page
-3. then implement the javascript css to hide and show code chunks... NOTE: this is risky across browsers...
-
+      <!-- If the page is a tag2 page    -->
+    {% if page.layout == 'post-by-category' and page.tags2 %}
+    <!--
+    TO DO - in the post by cat layout page.
+    <ul>
+      <ol>cleanup</ol>
+      <ol>Then add a sort by language to the page</ol>
+      <ol>then implement the javascript css to hide and show code chunks... NOTE: this is risky across browsers...</ol>
+    </ul>
 
     Filter by language: <nav>
       <a href="#allposts">All posts</a>
       {% for language in site.data.libs %}
        <a href='#{{ language.lang }}'>{{ language.lang }}</a>
       {% endfor %}
-    </nav>
+    </nav> -->
 
 {% for post in site.posts %}
 {{ post.lang-lib[r] }}
@@ -97,18 +97,33 @@ What i need to do next is:
         force one element to an array i can use contains and it works -->
       {% assign the_tag = page.tags2 | first | downcase %}
     {% for post in site.posts %}
-
     {% if post.tags2 %}
       {% for tag in post.tags2 %}
       {% assign atag = tag | first | downcase %}
          {% if the_tag contains atag %}
-         <div class="list__item">
-           <article class="archive__item">
-             <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
-             <p class="archive__item-excerpt">{{ post.excerpt }}</p>
-           </article>
-         </div>
-           {% endif %}
+          {% if page.main-tag %}
+           <div class="list__item">
+             <article class="archive__item">
+               <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
+               <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+             </article>
+           </div>
+           {% else %}
+           <!-- If the page is a subtag landing page just list the posts for the subtag -->
+             {% for page_subtag in page.tags2 %}
+                {% for post_subtag in post.tags2 %}
+                 {% if post_subtag.last contains page_subtag.last %}
+                 <div class="list__item">
+                   <article class="archive__item">
+                     <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
+                     <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+                   </article>
+                 </div>
+                 {% endif %}
+              {% endfor %}
+             {% endfor %}
+          {% endif %}
+        {% endif %}
       {% endfor %}
     {% endif %}
 
