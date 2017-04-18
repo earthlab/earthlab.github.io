@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Vegetation indices in R"
-excerpt: ". "
+excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, we will review the basic principles associated with calculated a vegetation index from spectral remote sensing data. "
 authors: ['Megan Cattau', 'Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -14,6 +14,11 @@ sidebar:
 author_profile: false
 comments: true
 order: 4
+tags2:
+  remote-sensing: ['landsat', 'modis']
+  earth-science: ['fire']
+lang-lib:
+  r: []
 ---
 
 
