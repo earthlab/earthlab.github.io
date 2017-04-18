@@ -11,7 +11,7 @@ nav-title: 'Clouds, shadows & masks'
 module-title: 'Clouds, shadows & cloud masks in R'
 module-description: 'In this module we will learn more about dealing with clouds, shadows and other elements that can interfere with scientific analysis of remote sensing data. '
 module-nav-title: 'Fire / spectral remote sensing data - in R'
-module-type: 'class' 
+module-type: 'class'
 course: "Earth Analytics"
 week: 7
 sidebar:
@@ -19,6 +19,11 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  remote-sensing: ['landsat', 'modis']
+  earth-science: ['fire']
+lang-lib:
+  r: []
 ---
 
 

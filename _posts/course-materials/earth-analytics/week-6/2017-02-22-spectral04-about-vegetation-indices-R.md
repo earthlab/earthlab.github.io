@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "Vegetation indices in R"
-excerpt: ". "
+excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, we will review the basic principles associated with calculated a vegetation index from spectral remote sensing data. "
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-03-10'
+modified: '2017-04-14'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/vegetation-indices-NDVI-in-R/
@@ -14,6 +14,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 4
+tags2:
+  remote-sensing: ['landsat', 'modis']
+  earth-science: ['fire']
 ---
 
 
@@ -124,7 +127,7 @@ plot(landsat_ndvi,
      main="Landsat derived NDVI\n 23 July 2016")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/calculate-ndvi-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral04-about-vegetation-indices-R/calculate-ndvi-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
 
 ### View distribution of NDVI values
 
@@ -136,7 +139,7 @@ hist(landsat_ndvi,
   col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2016-12-06-spectral04-about-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral04-about-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="100%" />
 
 ## Export raster
 When you are done, you may want to export your rasters so you could use them in
