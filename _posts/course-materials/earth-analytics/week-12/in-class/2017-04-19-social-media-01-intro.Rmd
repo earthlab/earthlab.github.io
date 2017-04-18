@@ -93,10 +93,10 @@ setup_twitter_oauth(consumer_key, consumer_secret,
 options(httr_oauth_cache=TRUE)
 
 # Setup authorization codes/secrets
-consumer_key = "vNvyX2ewRRPSAAkjmOhSgg"
-consumer_secret = "NFgLmY2v7mx1GRNVwzoXE8wEyrUyGoXQ7yT9KVFEg"
-access_token = "600943290-zLYvgerYYOA5OBXPK6bFvPbPY9ZVHObyYDoDTGnH"
-access_secret = "hrWIgvxYxND5Re6o8g0w4xrjqk0pW6PZUBReu3nJG6EYD"
+consumer_key = "YbHGDrZ02nbj6bFvJSv8R3t9V"
+consumer_secret = "3ZtgoXhGslB8ip3yugmrfYBD3UwWcY4Bc4Kfqvk0QyBDJRquzd"
+access_token = "517921400-MtiMhtf9uKoCAlgwHM5Vfrtrq9DjCp5iXsveCvON"
+access_secret = "EVwnAjysE5iHtkqWor0DMe4RTdznxmOnme2cnS5KL7Mtb"
 
 # Authorization 'hand-off'
 setup_twitter_oauth(consumer_key, consumer_secret,
@@ -109,8 +109,8 @@ Time to Start Querying
 - Let's query for the 100 most recent 'forest fire' tweets:
 
 ```{r eval=FALSE}
-query = "forest+fire"
-fire_tweets = searchTwitter(query, n=100, lang="en",
+query <- "forest+fire"
+fire_tweets <- searchTwitter(query, n=100, lang="en",
                             resultType="recent")
 ```
 
@@ -118,10 +118,15 @@ fire_tweets = searchTwitter(query, n=100, lang="en",
 
 ```{r}
 # About the center of Boulder... give or take
-geocode = '40.0150,-105.2705,50mi'
-tweets = searchTwitter("", n=1000, lang="en",
+geocode <- '40.0150,-105.2705,50mi'
+tweets <- searchTwitter("", n=1000, lang="en",
                        geocode=geocode,
                        resultType="recent")
+head(tweets)
+
+tweets_2 <- search_tweets("", n=1000, lang="en",
+              geocode = '40.0150,-105.2705,50mi',
+              include_rts = FALSE)
 ```
 
 - Now what?
@@ -132,12 +137,12 @@ Working with Twitter Responses
 - We need to extract some properties from the tweets
   - Such as the Tweet content:
     ```{r}
-    text = sapply(tweets, function(x) x$getText())
+    text <- sapply(tweets, function(x) x$getText())
     ```
   - And the Tweet location information:
     ```{r}
     # Grab lat/long and make data.frame out of it
-    xy = sapply(tweets, function(x) {
+    xy <- sapply(tweets, function(x) {
       as.numeric(c(x$getLongitude(),
                    x$getLatitude()))
       })
