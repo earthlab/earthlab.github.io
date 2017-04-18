@@ -672,6 +672,20 @@ body:hover .visually-hidden button {
       display: block; } }
 
 /*
+not Sticky, fixed to top content
+   ========================================================================== */
+@media (min-width: 64em) {
+  .notsticky {
+    clear: both;
+    top: 2em; }
+    .notsticky::after {
+      clear: both;
+      content: "";
+      display: table; }
+    .notsticky > * {
+      display: block; } }
+
+/*
    Wells
    ========================================================================== */
 .well {
@@ -2425,7 +2439,7 @@ select:focus {
 
 .archive__item-excerpt {
   margin-top: 0;
-  font-size: 0.75em; }
+  font-size: 0.75em !important; }
   .archive__item-excerpt + p {
     text-indent: 0; }
 
