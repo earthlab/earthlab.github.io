@@ -1,0 +1,10 @@
+- slug: remote-sensing
+  name: tutorials
+  description: "Classroom data lessons."
+  color: '#1abc9c'
+
+- slug: landsat
+  name: Classroom Lessons
+  description: "Classroom data lessons."
+  color: '#1abc9c'
+  dog: [1,2,3]
