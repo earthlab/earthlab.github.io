@@ -3,7 +3,7 @@ layout: single
 title: "Plot grid of plots in R. "
 excerpt: " "
 authors: ['Leah Wasser']
-modified: '2017-03-06'
+modified: '2017-04-18'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/grid-of-plots-report/
@@ -14,6 +14,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
+lang-lib:
+  r: []
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -107,7 +109,7 @@ box(col="white") # turn all of the lines to white
 title("My Title", outer=TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto03-plot-grid-of-plots/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="100%" />
 
 Above, we added an overall title to our grid of plots using the `title()` function.
 However the title is chopped of because there is not enough of a margin at the
@@ -158,7 +160,7 @@ box(col="white") # turn all of the lines to white
 title("My Title", outer=TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto03-plot-grid-of-plots/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
 
 When you are done with plotting in a grid space, be sure to reset your plot space
 using `dev.off()`.
@@ -174,4 +176,4 @@ Your homework this week should look something like this:
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2016-12-06-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="100%" />

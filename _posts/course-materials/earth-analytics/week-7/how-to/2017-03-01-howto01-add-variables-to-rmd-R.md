@@ -3,7 +3,7 @@ layout: single
 title: "Add variables to an RMD report R."
 excerpt: " "
 authors: ['Leah Wasser']
-modified: '2017-04-05'
+modified: '2017-04-18'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/add-variables-to-rmarkdown-report/
@@ -12,7 +12,7 @@ module-title: 'Refine plots & add variables to Rmarkdown reports'
 module-description: 'This tutorial set covers some basic things you can do to refine your plots in Rmarkdown document. It covers plotting in grids, adding titles to plotRGB() plots
 and refining the width and height of plots to optimize space.'
 module-nav-title: 'Refine Rmarkdown reports'
-module-type: 'homework' 
+module-type: 'homework'
 course: "Earth Analytics"
 week: 7
 sidebar:
@@ -20,6 +20,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+lang-lib:
+  r: []
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
