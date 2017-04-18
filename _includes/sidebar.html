@@ -23,7 +23,7 @@
 
     {% if page.class-lesson %}
      <!--  This is the code that populates the side bar navigation if there is a class-->
-      {% include class_navigation_week.html %}
+      {% include sidebar_class_navigation_week.html %}
     {% endif %}
 
     {% if page.module %}
@@ -32,7 +32,7 @@
     {% endif %}
     {% if page.week-landing %}
      <!--  This is the code that populates the side bar navigation if there is a class-->
-      {% include class_navigation_week.html %}
+      {% include sidebar_class_navigation_week.html %}
 
     {% endif %}
 
@@ -101,8 +101,14 @@
   {% endfor %}
 {% endunless %}
 <!-- end language side bar nav -->
+
 </nav>
 
 
 </div>
+{% endif %}
+
+<!-- begin science / science themes side bar nav -->
+{% if page.tags2 %}
+  {% include sidebar_tags2.html %}
 {% endif %}
