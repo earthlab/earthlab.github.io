@@ -51,7 +51,7 @@
 
 .archive__item-excerpt {
   margin-top: 0;
-  font-size: $type-size-6;
+  font-size: $type-size-6!important;
 
   & + p {
     text-indent: 0;
