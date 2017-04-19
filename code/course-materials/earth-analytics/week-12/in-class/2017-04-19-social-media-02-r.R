@@ -162,6 +162,8 @@ fire_tweets <- fire_tweets %>%
 
 # remove http elements manually
 fire_tweets$stripped_text <- gsub("http.*","",fire_tweets$stripped_text)
+fire_tweets$stripped_text <- gsub("https.*","",fire_tweets$stripped_text)
+
 
 ## ------------------------------------------------------------------------
 a_list_of_words <- c("Dog", "dog", "dog", "cat", "cat", ",")
@@ -182,7 +184,10 @@ fire_tweet_text_clean %>%
   ggplot(aes(x = word, y = n)) +
   geom_col() +
   xlab(NULL) +
-  coord_flip()
+  coord_flip() +
+      labs(x="Count",
+      y="Unique words",
+      title="Count of unique words found in tweets")
 
 ## ------------------------------------------------------------------------
 # load list of stop words - from the tidytext package
@@ -201,14 +206,18 @@ nrow(cleaned_tweet_words)
 
 ## ----plot-cleaned-words--------------------------------------------------
 # plot the top 15 words -- notice any issues?
-cleaned_tweets %>%
+cleaned_tweet_words %>%
   count(word, sort=TRUE) %>%
   top_n(15) %>%
   mutate(word = reorder(word, n)) %>%
   ggplot(aes(x = word, y = n)) +
   geom_col() +
   xlab(NULL) +
-  coord_flip()
+  coord_flip() +
+      labs(x="Count",
+      y="Unique words",
+      title="Count of unique words found in tweets",
+      subtitle="Stop words removed from the list")
 
 ## ---- echo=FALSE, eval=FALSE---------------------------------------------
 ## fire_tweets_corpus <- Corpus(VectorSource(fire_tweet_text))
