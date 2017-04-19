@@ -162,11 +162,11 @@ up to 100 API calls an hour.
 
 ### Send a tweet
 
-Note that your tween needs to be 140 characters or less.
+Note that your tweet needs to be 140 characters or less.
 
 ```{r eval=FALSE }
 post_tweet("Look, i'm tweeting from R in my #rstats #earthanalytics class!")
-# this throws an error but then says it's posted.
+# this throws an error but then says it's posted but ofcourse doesn't post.
 ```
 
 ### Search twitter for tweets
