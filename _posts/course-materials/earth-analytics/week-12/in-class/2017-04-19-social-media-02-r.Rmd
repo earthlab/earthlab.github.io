@@ -14,6 +14,11 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+lang-lib:
+  r: ['rtweet', 'tidytext', 'dplyr']
+tags2:
+  social-science: ['social-media']
+  data-analysis-exploration: ['text-mining']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -24,7 +29,9 @@ order: 2
 
 After completing this tutorial, you will be able to:
 
-*
+* Query the twitter RESTful API to access and import into R tweets that contain various text strings.
+* Generate a list of users that are tweeting about a particular topic
+* Use the tidytext package in R to explore and analyze word counts associated with tweets.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -32,65 +39,93 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-Let's take a look at the twitter APIs
+
+In this lesson we will explore analyzing social media data accessed from twitter,
+in R. We will use the Twitter RESTful API to access data about both twitter users 
+and what they are tweeting about
 
 ## Getting Started
 
-TO begin we have to
+To get started we'll need to do the following things:  
 
-- We'll start by querying Twitter's API for a few different query types
-- Building on this, we'll conduct some (very basic) analysis
-- We'll finish with basic web-mapping similar to previous examples
+1. Setup a twitter account if you don't have one already
+2. Using your account, setup an application that we will use to access twitter from R
+3. Download and install the rtweet and tidytext packages for R.
 
+Once we've done these things, we are reading to begin querying Twitter's API to 
+see what we can learn about tweets! 
+
+## Setup Twitter App 
+
+Let's start by setting up an application in twitter that we can use to access
+tweets. To setup your app, follow the documentation from `rtweet` here:
+
+<a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html" target="_blank">setup twitter app</a>
 
 <figure>
 
 <img src="http://www.socialmatt.com/wp-content/uploads/2015/03/Boulder_Twitter_Map_Visualizations.jpg">
 
-<figcaption>Graphic that shows the distrubtion of tweets across the Denver / Boulder region src: http://www.socialmatt.com/amazing-denver-twitter-visualization/</figcaption>
+<figcaption>A heat map of the distrubtion of tweets across the Denver / Boulder region <a href="http://www.socialmatt.com/amazing-denver-twitter-visualization/" target="_blank">source: socialmatt.com</a></figcaption>
 </figure>
 
-To begin, we will need to setup an application in twitter that we can use to access
-tweets. 
 
-To do so - follow the documentation from rtweet here:
+## Twitter in R
 
-<a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html" target="_blank">setup twitter app</a>
+Once we have our twitter app setup, we are ready to dive into accessing tweets in R.
+We will use the rtweet package to do this.  
 
-http://www.socialmatt.com/amazing-denver-twitter-visualization/
-
-
-
-## twitter in R  
-
-We will use the rtweet package to 
-- Now that we have those details, we need to tell the `twitteR` package to use our credentials when making queries:
-
-```{r echo=FALSE}
+```{r setup, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 ```
 
-```{r}
-# load twitter library - this library is recommended now over twitteR
+```{r load-packages}
+# load twitter library - the rtweet library is recommended now over twitteR
 library(rtweet)
+# plotting and pipes - tidyverse!
+library(ggplot2)
+library(dplyr)
+# text mining library
+library(tidytext)
 
 ```
 
-```{r echo=FALSE}
-## whatever name you assigned to your created app
-appname <- "earth-analytics-course"
 
-## api key (example below is not a real key)
-key <- "YbHGDrZ02nbj6bFvJSv8R3t9V"
+```{r create-twitter-token, echo=FALSE, eval=FALSE}
+# when you do this, it
+twitter_token <- create_token(
+  app = appname,
+  consumer_key = key,
+  consumer_secret = secret)
 
-## api secret (example below is not a real key)
-secret <- "3ZtgoXhGslB8ip3yugmrfYBD3UwWcY4Bc4Kfqvk0QyBDJRquzd"
+# get wd
+file_name <- file.path(getwd(), "earth_analytics_twitter_token.rds")
+## save token to home directory
+saveRDS(twitter_token, file = file_name)
 ```
 
-Next, we need to pass a suite of keys to the API 
-```{r, eval=FALSE}
-## whatever name you assigned to your created app
+```{r read-token, echo=FALSE, results='hide'}
+# read in the rds file that allows us to access the API
+# this avoids storing api info on github - rather it's on my computer locally
+readRDS(file = 'earth_analytics_twitter_token.rds')
+```
+
+The first thing that we need to setup in our code is our authentication. When 
+you set up your app, it provides you with 3 unique identification elements:
+
+1. appnam
+2. key
+3. secret
+
+These keys are located in your  twitter app settings in the `Keys and Access 
+Tokens` tab. You will need to copy those into your code as i did below replacing the filler 
+text that i used in this lesson for the text that twitter gives you in your app. 
+
+Next, we need to pass a suite of keys to the API. 
+
+```{r app-name-example, eval=FALSE}
+# whatever name you assigned to your created app
 appname <- "your-app-name"
 
 ## api key (example below is not a real key)
@@ -99,19 +134,14 @@ key <- "yourLongApiKeyHere"
 ## api secret (example below is not a real key)
 secret <- "yourSecretKeyHere"
 
-
 ```
 
-Finally, we can create a token that authenticates our access to tweets!
+Finally, we can create a token that authenticates access to tweets!
 Note that the authentication process below will open a window in your browser.
 
-If it works, it should render the following message in a browser window:
 
-`Authentication complete. Please close this page and return to R.`
-
-```{r}
-## create token named "twitter_token"
-# when you do this, it 
+```{r create-token}
+# create token named "twitter_token"
 twitter_token <- create_token(
   app = appname,
   consumer_key = key,
@@ -119,387 +149,353 @@ twitter_token <- create_token(
 
 ```
 
-Now we are ready to search twitter for recent tweets! Let's start by finding all 
-tweets that use the #rstats hashtag.
 
-```{r}
+If authentication is successful works, it should render the following message in 
+a browser window:
+
+`Authentication complete. Please close this page and return to R.`
+
+## Rate Limits
+https://blog.twitter.com/2008/what-does-rate-limit-exceeded-mean-updated
+up to 100 API calls an hour.
+
+
+### Send a tweet
+
+Note that your tween needs to be 140 characters or less.
+
+```{r eval=FALSE }
+post_tweet("Look, i'm tweeting from R in my #rstats #earthanalytics class!")
+# this throws an error but then says it's posted.
+```
+
+### Search twitter for tweets
+
+Now we are ready to search twitter for recent tweets! Let's start by finding all
+tweets that use the `#rstats` hashtag. Notice below we use the `rtweet::search_tweets()`
+function to search. `search_tweets()` requires the following arguments:
+
+1. q: the query word that you want to look for
+2. n: the number of tweets that you want returned. You can request up to a
+maximum of 18,000 tweets.
+
+To see what other arguments you can use with this function, use the `R` help:
+
+`?search_tweets`
+
+
+```{r get-tweets }
 ## search for 500 tweets using the #rstats hashtag
-team_rstats <- search_tweets("#rstats", n = 500)
-team_rstats
+rstats_tweets <- search_tweets(q="#rstats", n = 500)
+# view the first 3 rows of the dataframe
+head(rstats_tweets, n=3)
+```
 
-# remove retweets
-team_rstats <- search_tweets("#rstats", n = 1500,
+## Retweets
+
+A retweet is when you or someone else shares someone elses tweet so your / their 
+followers can see it. It is similar to sharing in facebook where you can add a 
+quote or text above the retweet if you want or just share the post. Let's use 
+the same query that we used above but this time ignore all retweets by setting 
+the `include_rts` argument to `FALSE`. We can get tweet / retweet stats from 
+our dataframe, separately.
+
+```{r no-retweets }
+# find recent tweets with #rstats but ignore retweets
+rstats_tweets <- search_tweets("#rstats", n = 500,
                              include_rts = FALSE)
-team_rstats
+head(rstats_tweets, n=2)
 
-
-
-# Setup authorization codes/secrets
-consumer_key = "l0ong_@lph@_num3r1C_k3y"
-consumer_secret = "l0ong_@lph@_num3r1C_s3cr37"
-access_token = "l0ong_@lph@_num3r1C_t0k3n"
-access_secret = "l0ong_@lph@_num3r1C_s3cr37"
-
-# Authorization 'hand-off'
-setup_twitter_oauth(consumer_key, consumer_secret,
-                    access_token, access_secret)
 ```
 
-```{r echo=FALSE, results='hide'}
-options(httr_oauth_cache=TRUE)
+Next, let's figure out who is tweeting about `R` / using the `#rstats` hashtag. 
 
-# Setup authorization codes/secrets
-consumer_key = "YbHGDrZ02nbj6bFvJSv8R3t9V"
-consumer_secret = "3ZtgoXhGslB8ip3yugmrfYBD3UwWcY4Bc4Kfqvk0QyBDJRquzd"
-access_token = "517921400-MtiMhtf9uKoCAlgwHM5Vfrtrq9DjCp5iXsveCvON"
-access_secret = "EVwnAjysE5iHtkqWor0DMe4RTdznxmOnme2cnS5KL7Mtb"
+```{r view-screennames}
+# view column with screen names
+head(rstats_tweets$screen_name)
+# get a list of just the unique usernames
+unique(rstats_tweets$screen_name)
 
-# Authorization 'hand-off'
-setup_twitter_oauth(consumer_key, consumer_secret,
-                    access_token, access_secret)
 ```
 
-Time to Start Querying
-========================================================
+We can similarly use the `search_users()` function to just see what users are tweeting
+using a particular hashtag. This function returns just a data.frame of the users 
+and information about their accounts.
 
-- Let's query for the 100 most recent 'forest fire' tweets:
+```{r find-users }
+# what users are tweeting with #rstats
+users <- search_users("#rstats", n=500)
+# just view the first 2 users - the data frame is large!
+head(users, n=2)
+
+```
+
+Let's learn a bit more about these people tweeting about R. First, where are 
+they from?
+
+```{r explore-users }
+# how many locations are represented
+length(unique(users$location))
+
+users %>% 
+  ggplot(aes(location)) +
+  geom_bar() + coord_flip()
+```
+
+Let's sort by count and just plot the top 15 locations.
+
+```{r}
+users %>% 
+  count(location, sort=TRUE) %>% 
+  mutate(location= reorder(location,n)) %>% 
+  top_n(15) %>%
+  ggplot(aes(x=location,y=n)) +
+  geom_col() +
+  coord_flip() 
+```
+
+Looking at our data, what do you notice that might improve this plot?
+There are 314 unique locations in our list. However, everyone didn't specify their
+locations using the approach. For example some just identified their country:
+United States for example and others specified a city and state. We may want to 
+do some cleaning of these data to be able to better plot this. 
+
+Lets have a look at the time zone field next.
+
+
+```{r plot-users-timezone }
+# plot a list of users by time zone
+users %>% ggplot(aes(time_zone)) +
+  geom_bar() + coord_flip()
+
+```
+
+Using the code above, plot users by time zone. List the top 20 time zones. 
+What do you notice about the data?
+
+```{r plot-timezone-cleaned, echo=FALSE }
+users %>% 
+  count(time_zone, sort=TRUE) %>% 
+  mutate(location= reorder(time_zone,n)) %>% 
+  top_n(20) %>%
+  ggplot(aes(x=location,y=n)) +
+  geom_col() +
+  coord_flip() 
+```
+
+
+```{r clean-data, echo=FALSE, eval=FALSE }
+users %>% na.omit() %>%
+  ggplot(aes(time_zone)) +
+  geom_bar() + coord_flip()
+```
+
+The plots above aren't perfect. What do you start to notice about working 
+with these data? Can we simply download them and plot the data?
+
+## Data munging  101 
+
+When we work with data from sources like NASA, USGS, etc there are particular 
+cleaning steps that we often need to do. For instance:
+
+* we may need to remove nodata values
+* we may need to scale the data
+* and others
+
+However, the data generally have a set structure in terms of file formats and metadata.
+
+When we work with social media and other text data the user community creates and 
+curates the content. This means there are NO RULES! This also means that we may 
+have to perform extra steps to clean the data to ensure we are analyzing the right 
+thing. 
+
+
+## Searching for tweets related to fire
+
+Above we learned some things about sorting through social media data and the 
+associated types of issues that we may run into when begining to analyze it. Next,
+let's look at a different workflow - exploring the actual text of the tweets which 
+will involve some text mining. 
+
+In this example, let's find tweets that are using the words "forest fire" in them.
+
 
 ```{r eval=FALSE}
-query <- "forest+fire"
-fire_tweets <- searchTwitter(query, n=100, lang="en",
-                            resultType="recent")
+
+# Find tweet using forest fire in them
+forest_fire_tweets <- search_tweets(q="forest fire", n=100, lang="en",
+                             include_rts = FALSE)
+
+# it doesn't like the type = recent argument - a bug?
 ```
 
-- How about all recent tweets around Boulder (within 10 miles)?
+
+Let's look at the results. Note any issues with our data?
+It seems like when we search for forest fire, we get tweets that contain the words
+forest and fire in them - but these tweets are not necessarily all related to our 
+science topic of interest. Or are they?
+
+If we set our query to `q="forest+fire"` rather than `forest fire` then the 
+API fill find tweets that use the words together in a string rathen than across
+the entire string. Let's try it. 
 
 ```{r}
-# About the center of Boulder... give or take
-geocode <- '40.0150,-105.2705,50mi'
-tweets <- searchTwitter("", n=1000, lang="en",
-                       geocode=geocode,
-                       resultType="recent")
-head(tweets)
-
-# returns a nice data frame
-tweets_2 <- search_tweets("", n=1000, lang="en",
-              geocode = '40.0150,-105.2705,50mi',
-              include_rts = FALSE)
-tweets_2
+# Find tweet using forest fire in them
+fire_tweets <- search_tweets(q="forest+fire", n=100, lang="en",
+                             include_rts = FALSE)
+# check data to see if there are emojis
+head(fire_tweets$text)
 ```
 
-- Now what?
+## Data clean-up
 
-Working with Twitter Responses
-========================================================
+Looking at the data above, it becomes clear that there is a lot of clean-up
+associated with social media data.
 
-- We need to extract some properties from the tweets
-  - Such as the Tweet content:
-    ```{r}
-    text <- sapply(tweets, function(x) x$getText())
-    ```
-  - And the Tweet location information:
-    ```{r}
-    # Grab lat/long and make data.frame out of it
-    xy <- sapply(tweets, function(x) {
-      as.numeric(c(x$getLongitude(),
-                   x$getLatitude()))
-      })
-    xy[!sapply(xy, length)] = NA  # Empty coords get NA
-    xy = as.data.frame(do.call("rbind", xy))
-    ```
-  - Next, we'll clean things up a bit...
+For one, we live in an emoji driven world. Yet it's not necessarily useful
+for us to look at emojis. We can remove them by converting the data as follows.
 
-Cleaning Things Up
-========================================================
-
-- Unfortunately, `R` isn't so great with emojis etc, so we'll strip these :(
+- Unfortunately, `R` isn't so great with emojis etc, so we'll strip these.
 
 ```{r}
-text = iconv(text, "ASCII", "UTF-8", sub="")
-xy$text = text  # Add tweet text to data.frame
-colnames(xy) = c("x", "y", "text")
+# check data to see if there are emojis
+head(fire_tweets$text)
+
+# strip emojis using iconv then remove na
+fire_tweets <- fire_tweets %>%
+  mutate(stripped_text = iconv(forest_fire_tweets$text, "ASCII", "UTF-8", sub=""))
+
 ```
 
-- Next, we'll drop any rows that have missing (`NA`) coordinates
+Next, there are url's in our tweets. If we want to do a text analysis to figure out 
+what words are most common in our tweets, the URL's won't be helpful. Let's remove 
+those. 
 
 ```{r}
-xy = subset(xy, !is.na(x) & !is.na(y))
+# remove urls tidyverse is failing here for some reason
+#fire_tweets %>% 
+#  mutate_at(c("stripped_text"), gsub("http.*","",.))
+
+# remove http elements manually            
+fire_tweets$stripped_text <- gsub("http.*","",fire_tweets$stripped_text)
 ```
 
-- Finally, some simple density estimation/plotting...
+Finally, we can clean up our text. If we are trying to create a list of unique
+words in our tweets, words with capilitalization will be different from words 
+that are all lowercase. Also we don't need punctuation to be returned as a unique
+word. 
 
-```{r fig.show='hide'}
-m = ggplot(data=xy, aes(x=x, y=y)) +
-  stat_density2d(geom="raster", aes(fill=..density..),
-                 contour=FALSE, alpha=1) +
-  geom_point() + coord_equal()
-print(m)
-```
-
-Basic Mapping and Analysis
-========================================================
-title: false
-
-<center>
-```{r echo=FALSE, fig.height=10, fig.width=10}
-m + pres_theme
-```
-</center>
-
-Adding Some Context...
-========================================================
-
-- Plotting on Stamen Terrain basemap provides useful context...
-
-```{r eval=FALSE, fig.show='hide', message=FALSE, warning=FALSE}
-# Create Boulder basemap (geocoding by name)
-# NOTE: This doesn't work right now...
-Boulder = get_map(location="Boulder, CO, USA",
-                  source="stamen", maptype="terrain",
-                  crop=FALSE, zoom=10)
-# Create base ggmap
-ggmap(Boulder) +
-  # Start adding elements...
-  geom_point(data=xy, aes(x, y), color="red",
-             size=5, alpha=0.5) +
-  stat_density2d(data=xy, aes(x, y, fill=..level..,
-                              alpha=..level..),
-                 size=0.01, bins=16, geom='polygon')
-```
-
-Twitter with Context
-========================================================
-title: false
-<center>
-```{r eval=FALSE, echo=FALSE, fig.height=10, fig.width=10, message=FALSE, warning=FALSE}
-ggmap(Boulder) +
-  geom_point(data=xy, aes(x, y), color="red", size=2, alpha=0.5) +
-  stat_density2d(data=xy, aes(x, y,  fill=..level.., alpha=..level..),
-                              size=0.01, bins=16, geom='polygon') +
-  pres_theme
-```
-</center>
-
-Computing 'Clusters'
-========================================================
-
-- Or we can compute clusters 'on the fly', again using the powerful `leaflet` package:
-
-```{r cache=FALSE}
-# URL for 'custom' icon
-url = "http://steppingstonellc.com/wp-content/uploads/twitter-icon-620x626.png"
-twitter = makeIcon(url, url, 32, 31)  # Create Icon!
-
-# How about auto-clustering?!
-map = leaflet(xy) %>%
-  addProviderTiles("Stamen.Terrain") %>%
-  addMarkers(lng=~x, lat=~y, popup=~text,
-    clusterOptions=markerClusterOptions(),
-    icon=twitter)
-```
-```{r echo=FALSE}
-saveWidget(widget=map, file="twitter_map.html", selfcontained=TRUE)
-```
-
-Interactive Map of Twitter Data
-========================================================
-title: false
-
-<iframe  title="Twitter Map" width="1100" height="900"
-  src="./twitter_map.html"
-  frameborder="0" allowfullscreen></iframe>
-
-Going a Step Further
-========================================================
-type: section
-
-It isn't really enough just to grab some web-data and start mapping. Afterall, this session is really about data integration---something web-data and APIs are particularly good for!
-
-Heat Maps are NOT Enough...
-========================================================
-
-<center>
-[![xkcd Heat Maps](http://imgs.xkcd.com/comics/heatmap.png)](http://xkcd.com/1138/)
-</center>
-
-Combining Tweets and Census Info
-========================================================
-
-- Let's take another look at our Census data (this time grabbing population counts for Boulder region)
 ```{r}
-pop = acs.fetch(endyear=2014, span=5, geography=geo,
-                table.number="B01003",
-                col.names="pretty")
-est = pop@estimate  # Grab the Total Population
-# Create a new data.frame
-pop = data.frame(geoid, est[, 1],
-                 stringsAsFactors=FALSE)
-rownames(pop) = 1:nrow(inc)  # Rename rows
-colnames(pop) = c("GEOID", "pop_total")  # Rename columns
+a_list_of_words <- c("Dog", "dog", "dog", "cat", "cat", ",")
+unique(a_list_of_words)
 ```
-- Create the merged data.frame!
+
+
+We can use the `tidytext::unnest_tokens()` function in the tidytext package to 
+magically clean up our text! When we use this function:
+
+1. each word found in the text will be converted to lowercase
+2. punctuation will be removed, and 
+3. a unique id will be added for each occurence of the word 
+
+The unnest_tokens() function takes two arguments:
+
+1. the name of the column where the unique word will be stored and
+2. the column name from the data.frame that you are using that you want to pull unique words from.
+
+In our case, we want to use the `stripped_text` column which is where we have our 
+cleaned up tweet text stored.
+
+
 ```{r}
-merged = geo_join(tracts, pop, "GEOID", "GEOID")
+# remove puncuation, convert to lowercase, add id for each tweet!
+fire_tweet_text_clean <- fire_tweets %>% 
+  dplyr::select(stripped_text) %>% 
+  unnest_tokens(word, stripped_text)
 ```
 
-Big Ol' Chunk of Leaflet Code
-========================================================
+Now we can plot our data. What do you notice? 
 
-```{r cache=FALSE}
-popup = paste0("GEOID: ", merged$GEOID,
-               "<br/>Total Population: ",
-               round(merged$pop_total, 2))
-pal = colorNumeric(palette="YlGnBu",
-                   domain=merged$pop_total)
-map = leaflet() %>%  # Map time!
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data=merged, popup=popup,
-              fillColor=~pal(pop_total),
-              color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1,
-              smoothFactor=0.2) %>%
-  addCircles(data=xy, lng=~x, lat=~y,
-             popup=~text, radius=5) %>%
-  addLegend(pal=pal, values=merged$pop_total,
-            position="bottomright",
-            title="Total Population")
+```{r plot-uncleaned-data }
+# plot the top 15 words -- notice any issues?
+fire_tweet_text_clean %>%
+  count(word, sort=TRUE) %>%
+  top_n(15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = word, y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() 
 ```
 
-```{r echo=FALSE}
-saveWidget(widget=map, file="dual_map.html", selfcontained=TRUE)
-```
+OUr plot of unique words contains some wors that may not be useful to use. For instance
+"a" and "to". In the word of text mining we call those words - 'stop words'. 
+We want to remove these words from our analysis as they are fillers used to compose 
+a sentence. 
 
-Interactive Map of Twitter Data
-========================================================
-title: false
+Lucky for use, the tidytext package has a function that will help us clean up stop 
+words! TO use this we
 
-<iframe  title="Twitter Map" width="1100" height="900"
-  src="./dual_map.html"
-  frameborder="0" allowfullscreen></iframe>
+1. load the "stop_words" data included with tidytext. This data is simply a list of words that we may want to remove in a natural language analysis.
+2. then we use anti_join to remove all stop words from our analysis.
 
-Controlling for Population
-========================================================
+Let's give this a try next!
 
-- That's all fine and good, but are areas with lots of tweets associated with areas of high population? Its hard to tell from the map...
 ```{r}
-library(sp)
-# Make the points a SpatialPointsDataFrame
-coordinates(xy) = ~x+y
-proj4string(xy) = CRS("+proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0")
-# Put the x/y data back into the data slot for later...
-xy@data = as.data.frame(xy)
-```
-- And now we count 'points in polygon':
-```{r}
-overlay = over(xy, merged)
-res = as.data.frame(table(overlay$GEOID))
-colnames(res) = c("GEOID", "count")
-```
+# load list of stop words - from the tidytext package
+data("stop_words")
+# view first 6 words
+head(stop_words)
 
-Tweet Score?
-========================================================
+nrow(fire_tweet_text_clean)
 
-- We can then join counts back onto the counties:
-```{r}
-merged@data = join(merged@data, res, by="GEOID")
-# And compute a 'tweet score'... based on logged pop
-merged$percapita = merged$count/log(merged$pop_total)
-```
-- Based on this new variable, we setup a new pallette:
-```{r}
-pal = colorNumeric(palette="YlGnBu",
-                   domain=merged$percapita)
-# Also create a nice popup for display...
-popup = paste0("GEOID: ", merged$GEOID, "<br>",
-               "Score: ", round(merged$percapita, 2))
-```
-- And we plot it!
+# remove stop words from our list of words 
+cleaned_tweet_words <- fire_tweet_text_clean %>% 
+  anti_join(stop_words)
 
-Plotting the Tweets
-========================================================
-title: false
-
-```{r cache=FALSE, echo=FALSE}
-map = leaflet() %>%
-  addProviderTiles("CartoDB.Positron", group="Base") %>%
-  addPolygons(data=merged, popup=popup,
-              fillColor=~pal(percapita),
-              color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1,
-              smoothFactor=0.2, group="Score") %>%
-  addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
-                   stroke=FALSE, popup=~text, group="Tweets") %>%
-  addLayersControl(overlayGroups=c("Tweets", "Score"),
-                   options=layersControlOptions(collapsed=FALSE)) %>%
-  addLegend(pal=pal, values=merged$percapita,
-            position="bottomright",
-            title="Score")
-
-saveWidget(widget=map, file="final_map.html", selfcontained=TRUE)
+# there should be fewer words now
+nrow(cleaned_tweet_words)
 ```
 
-<iframe  title="Twitter Map" width="1100" height="900"
-  src="./final_map.html"
-  frameborder="0" allowfullscreen></iframe>
+Now that we've performed this final step of cleaning, we can try to plot, once 
+again. 
 
-
-Wanna See the Code for That One?
-========================================================
-
-```{r eval=FALSE}
-leaflet() %>%
-  addProviderTiles("CartoDB.Positron", group="Base") %>%
-  addPolygons(data=merged, popup=popup,
-              fillColor=~pal(percapita),
-              color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1,
-              smoothFactor=0.2, group="Score") %>%
-  addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
-                   stroke=FALSE, popup=~text,
-                   group="Tweets") %>%
-  addLayersControl(overlayGroups=c("Tweets", "Score"),
-                   options=layersControlOptions(
-                     collapsed=FALSE)) %>%
-  addLegend(pal=pal, values=merged$percapita,
-            position="bottomright",
-            title="Score")
+```{r plot-cleaned-words }
+# plot the top 15 words -- notice any issues?
+cleaned_tweets %>%
+  count(word, sort=TRUE) %>%
+  top_n(15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = word, y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() 
 ```
 
-That's All Folks!
-========================================================
-type: section
+Does the plot look better?
 
-## Data Harmonization + Working with Web and Social Media Data
-Earth Analytics---Spring 2016
+```{r, echo=FALSE, eval=FALSE}
+fire_tweets_corpus <- Corpus(VectorSource(fire_tweet_text))
+fire_tweets_dtm <- DocumentTermMatrix(fire_tweets_corpus)
+str(fire_tweets_dtm)
 
-Carson J. Q. Farmer
-[carson.farmer@colorado.edu]()
+freq <- sort(colSums(as.matrix(fire_tweets_dtm)), decreasing=TRUE)
+wf <- data.frame(word=names(freq), freq=freq)
+wf$freq
 
-babs buttenfield
-[babs@colorado.edu]()
+# remove values <=3
+wf %>%
+  subset(freq > 3) %>%
+  ggplot(aes(reorder(word, freq), freq)) +
+        geom_bar(stat="identity", fill="darkred", colour="darkgreen") +
+        coord_flip()
 
-References
-========================================================
-type: sub-section
+```
 
-- Most of the content in this tutorial was 'borrowed' from one of the following sources:
-    - [Leaflet for `R`](https://rstudio.github.io/leaflet/)
-    - [An Introduction to `R` for Spatial Analysis & Mapping](https://us.sagepub.com/en-us/nam/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031)
-    - [Manipulating and mapping US Census data in `R`](http://zevross.com/blog/2015/10/14/manipulating-and-mapping-us-census-data-in-r-using-the-acs-tigris-and-leaflet-packages-3/#census-data-the-hard-way)
-- Data was courtesy of:
-    - [Colorado Information Marketplace](https://data.colorado.gov)
-    - [Twitter's API](https://dev.twitter.com/rest/public)
-    - [US Census ACS 5-Year Data API](https://www.census.gov/data/developers/data-sets/acs-survey-5-year-data.html)
+<div class="notice--info" markdown="1">
 
-Want to Play Some More?
-========================================================
+## Additional Resources
 
-- Check out the [EnviroCar API](http://envirocar.github.io/enviroCar-server/api/)
-    - Data on vehicle trajectories annotated with CO^2 emmisions!
-- [PHL API](http://phlapi.com)---Open Data for the City of Philly
-- [NYC Open Data Portal](https://nycopendata.socrata.com)---Open Data for NYC
-- [SF OpenData](https://data.sfgov.org)---Open Data for San Fran
-- ... you get the point!
-
-- In general, the [Programmable Web](http://www.programmableweb.com/) is a good resource
-    - Here are [146 location APIs](http://www.programmableweb.com/news/146-location-apis-foursquare-panoramio-and-geocoder/2012/06/20) for example...
+* <a href="https://mkearney.github.io/rtweet/articles/intro.html#retrieving-trends" target="_blank">A great overview of the rtweet package by Mike Kearny</a> 
+* <a href="https://francoismichonneau.net/2017/04/tidytext-origins-of-species/" target="_blank">A blog post on tidytext by Francois Michonneau</a> 
+</div>

@@ -18,6 +18,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+lang-lib:
+  r: ['rtweet']
+tags2:
+  social-science: ['social-media']
 ---
 
 

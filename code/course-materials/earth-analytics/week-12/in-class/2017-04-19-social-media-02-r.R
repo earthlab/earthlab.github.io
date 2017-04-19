@@ -1,209 +1,210 @@
-## ----eval=FALSE----------------------------------------------------------
-## library(twitteR)
+## ----setup, echo=FALSE---------------------------------------------------
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+
+
+## ----load-packages-------------------------------------------------------
+# load twitter library - the rtweet library is recommended now over twitteR
+library(rtweet)
+# plotting and pipes - tidyverse!
+library(ggplot2)
+library(dplyr)
+# text mining library
+library(tidytext)
+
+
+## ----create-twitter-token, echo=FALSE, eval=FALSE------------------------
+## # when you do this, it
+## twitter_token <- create_token(
+##   app = appname,
+##   consumer_key = key,
+##   consumer_secret = secret)
 ## 
-## # Setup authorization codes/secrets
-## consumer_key = "l0ong_@lph@_num3r1C_k3y"
-## consumer_secret = "l0ong_@lph@_num3r1C_s3cr37"
-## access_token = "l0ong_@lph@_num3r1C_t0k3n"
-## access_secret = "l0ong_@lph@_num3r1C_s3cr37"
+## # get wd
+## file_name <- file.path(getwd(), "earth_analytics_twitter_token.rds")
+## ## save token to home directory
+## saveRDS(twitter_token, file = file_name)
+
+## ----read-token, echo=FALSE, results='hide'------------------------------
+# read in the rds file that allows us to access the API
+# this avoids storing api info on github - rather it's on my computer locally
+readRDS(file = 'earth_analytics_twitter_token.rds')
+
+## ----app-name-example, eval=FALSE----------------------------------------
+## # whatever name you assigned to your created app
+## appname <- "your-app-name"
 ## 
-## # Authorization 'hand-off'
-## setup_twitter_oauth(consumer_key, consumer_secret,
-##                     access_token, access_secret)
+## ## api key (example below is not a real key)
+## key <- "yourLongApiKeyHere"
+## 
+## ## api secret (example below is not a real key)
+## secret <- "yourSecretKeyHere"
+## 
 
-## ----echo=FALSE, results='hide'------------------------------------------
-options(httr_oauth_cache=TRUE)
+## ----create-token--------------------------------------------------------
+# create token named "twitter_token"
+twitter_token <- create_token(
+  app = appname,
+  consumer_key = key,
+  consumer_secret = secret)
 
-# Setup authorization codes/secrets
-consumer_key = "YbHGDrZ02nbj6bFvJSv8R3t9V"
-consumer_secret = "3ZtgoXhGslB8ip3yugmrfYBD3UwWcY4Bc4Kfqvk0QyBDJRquzd"
-access_token = "517921400-MtiMhtf9uKoCAlgwHM5Vfrtrq9DjCp5iXsveCvON"
-access_secret = "EVwnAjysE5iHtkqWor0DMe4RTdznxmOnme2cnS5KL7Mtb"
 
-# Authorization 'hand-off'
-setup_twitter_oauth(consumer_key, consumer_secret,
-                    access_token, access_secret)
+## ----get-tweets----------------------------------------------------------
+## search for 500 tweets using the #rstats hashtag
+rstats_tweets <- search_tweets(q="#rstats", n = 500)
+# view the first 3 rows of the dataframe
+head(rstats_tweets, n=3)
+
+## ----no-retweets---------------------------------------------------------
+# find recent tweets with #rstats but ignore retweets
+rstats_tweets <- search_tweets("#rstats", n = 500,
+                             include_rts = FALSE)
+head(rstats_tweets, n=2)
+
+
+## ----view-screennames----------------------------------------------------
+# view column with screen names
+head(rstats_tweets$screen_name)
+# get a list of just the unique usernames
+unique(rstats_tweets$screen_name)
+
+
+## ----find-users----------------------------------------------------------
+# what users are tweeting with #rstats
+users <- search_users("#rstats", n=500)
+# just view the first 2 users - the data frame is large!
+head(users, n=2)
+
+
+## ----explore-users-------------------------------------------------------
+# how many locations are represented
+length(unique(users$location))
+
+users %>% 
+  ggplot(aes(location)) +
+  geom_bar() + coord_flip()
+
+## ------------------------------------------------------------------------
+users %>% 
+  count(location, sort=TRUE) %>% 
+  mutate(location= reorder(location,n)) %>% 
+  top_n(15) %>%
+  ggplot(aes(x=location,y=n)) +
+  geom_col() +
+  coord_flip() 
+
+## ----plot-users-timezone-------------------------------------------------
+# plot a list of users by time zone
+users %>% ggplot(aes(time_zone)) +
+  geom_bar() + coord_flip()
+
+
+## ----plot-timezone-cleaned, echo=FALSE-----------------------------------
+users %>% 
+  count(time_zone, sort=TRUE) %>% 
+  mutate(location= reorder(time_zone,n)) %>% 
+  top_n(20) %>%
+  ggplot(aes(x=location,y=n)) +
+  geom_col() +
+  coord_flip() 
+
+## ----clean-data, echo=FALSE, eval=FALSE----------------------------------
+## users %>% na.omit() %>%
+##   ggplot(aes(time_zone)) +
+##   geom_bar() + coord_flip()
 
 ## ----eval=FALSE----------------------------------------------------------
-## query <- "forest+fire"
-## fire_tweets <- searchTwitter(query, n=100, lang="en",
-##                             resultType="recent")
+## 
+## # Find tweet using forest fire in them
+## forest_fire_tweets <- search_tweets(q="forest fire", n=100, lang="en",
+##                              include_rts = FALSE)
+## 
+## # it doesn't like the type = recent argument - a bug?
 
 ## ------------------------------------------------------------------------
-# About the center of Boulder... give or take
-geocode <- '40.0150,-105.2705,50mi'
-tweets <- searchTwitter("", n=1000, lang="en",
-                       geocode=geocode,
-                       resultType="recent")
-head(tweets)
-
-# returns a nice data frame
-tweets_2 <- search_tweets("", n=1000, lang="en",
-              geocode = '40.0150,-105.2705,50mi',
-              include_rts = FALSE)
-tweets_2
+# Find tweet using forest fire in them
+fire_tweets <- search_tweets(q="forest+fire", n=100, lang="en",
+                             include_rts = FALSE)
+# check data to see if there are emojis
+head(fire_tweets$text)
 
 ## ------------------------------------------------------------------------
-text <- sapply(tweets, function(x) x$getText())
+# check data to see if there are emojis
+head(fire_tweets$text)
+
+# strip emojis using iconv then remove na
+fire_tweets <- fire_tweets %>%
+  mutate(stripped_text = iconv(forest_fire_tweets$text, "ASCII", "UTF-8", sub=""))
+
 
 ## ------------------------------------------------------------------------
-# Grab lat/long and make data.frame out of it
-xy <- sapply(tweets, function(x) {
-  as.numeric(c(x$getLongitude(),
-               x$getLatitude()))
-  })
-xy[!sapply(xy, length)] = NA  # Empty coords get NA
-xy = as.data.frame(do.call("rbind", xy))
+# remove urls tidyverse is failing here for some reason
+#fire_tweets %>% 
+#  mutate_at(c("stripped_text"), gsub("http.*","",.))
+
+# remove http elements manually            
+fire_tweets$stripped_text <- gsub("http.*","",fire_tweets$stripped_text)
 
 ## ------------------------------------------------------------------------
-text = iconv(text, "ASCII", "UTF-8", sub="")
-xy$text = text  # Add tweet text to data.frame
-colnames(xy) = c("x", "y", "text")
+a_list_of_words <- c("Dog", "dog", "dog", "cat", "cat", ",")
+unique(a_list_of_words)
 
 ## ------------------------------------------------------------------------
-xy = subset(xy, !is.na(x) & !is.na(y))
+# remove puncuation, convert to lowercase, add id for each tweet!
+fire_tweet_text_clean <- fire_tweets %>% 
+  dplyr::select(stripped_text) %>% 
+  unnest_tokens(word, stripped_text)
 
-## ----fig.show='hide'-----------------------------------------------------
-m = ggplot(data=xy, aes(x=x, y=y)) +
-  stat_density2d(geom="raster", aes(fill=..density..),
-                 contour=FALSE, alpha=1) +
-  geom_point() + coord_equal()
-print(m)
-
-## ----echo=FALSE, fig.height=10, fig.width=10-----------------------------
-m + pres_theme
-
-## ----eval=FALSE, fig.show='hide', message=FALSE, warning=FALSE-----------
-## # Create Boulder basemap (geocoding by name)
-## # NOTE: This doesn't work right now...
-## Boulder = get_map(location="Boulder, CO, USA",
-##                   source="stamen", maptype="terrain",
-##                   crop=FALSE, zoom=10)
-## # Create base ggmap
-## ggmap(Boulder) +
-##   # Start adding elements...
-##   geom_point(data=xy, aes(x, y), color="red",
-##              size=5, alpha=0.5) +
-##   stat_density2d(data=xy, aes(x, y, fill=..level..,
-##                               alpha=..level..),
-##                  size=0.01, bins=16, geom='polygon')
-
-## ----eval=FALSE, echo=FALSE, fig.height=10, fig.width=10, message=FALSE, warning=FALSE----
-## ggmap(Boulder) +
-##   geom_point(data=xy, aes(x, y), color="red", size=2, alpha=0.5) +
-##   stat_density2d(data=xy, aes(x, y,  fill=..level.., alpha=..level..),
-##                               size=0.01, bins=16, geom='polygon') +
-##   pres_theme
-
-## ----cache=FALSE---------------------------------------------------------
-# URL for 'custom' icon
-url = "http://steppingstonellc.com/wp-content/uploads/twitter-icon-620x626.png"
-twitter = makeIcon(url, url, 32, 31)  # Create Icon!
-
-# How about auto-clustering?!
-map = leaflet(xy) %>%
-  addProviderTiles("Stamen.Terrain") %>%
-  addMarkers(lng=~x, lat=~y, popup=~text,
-    clusterOptions=markerClusterOptions(),
-    icon=twitter)
-
-## ----echo=FALSE----------------------------------------------------------
-saveWidget(widget=map, file="twitter_map.html", selfcontained=TRUE)
+## ----plot-uncleaned-data-------------------------------------------------
+# plot the top 15 words -- notice any issues?
+fire_tweet_text_clean %>%
+  count(word, sort=TRUE) %>%
+  top_n(15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = word, y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() 
 
 ## ------------------------------------------------------------------------
-pop = acs.fetch(endyear=2014, span=5, geography=geo,
-                table.number="B01003",
-                col.names="pretty")
-est = pop@estimate  # Grab the Total Population
-# Create a new data.frame
-pop = data.frame(geoid, est[, 1],
-                 stringsAsFactors=FALSE)
-rownames(pop) = 1:nrow(inc)  # Rename rows
-colnames(pop) = c("GEOID", "pop_total")  # Rename columns
+# load list of stop words - from the tidytext package
+data("stop_words")
+# view first 6 words
+head(stop_words)
 
-## ------------------------------------------------------------------------
-merged = geo_join(tracts, pop, "GEOID", "GEOID")
+nrow(fire_tweet_text_clean)
 
-## ----cache=FALSE---------------------------------------------------------
-popup = paste0("GEOID: ", merged$GEOID,
-               "<br/>Total Population: ",
-               round(merged$pop_total, 2))
-pal = colorNumeric(palette="YlGnBu",
-                   domain=merged$pop_total)
-map = leaflet() %>%  # Map time!
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data=merged, popup=popup,
-              fillColor=~pal(pop_total),
-              color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1,
-              smoothFactor=0.2) %>%
-  addCircles(data=xy, lng=~x, lat=~y,
-             popup=~text, radius=5) %>%
-  addLegend(pal=pal, values=merged$pop_total,
-            position="bottomright",
-            title="Total Population")
+# remove stop words from our list of words 
+cleaned_tweet_words <- fire_tweet_text_clean %>% 
+  anti_join(stop_words)
 
-## ----echo=FALSE----------------------------------------------------------
-saveWidget(widget=map, file="dual_map.html", selfcontained=TRUE)
+# there should be fewer words now
+nrow(cleaned_tweet_words)
 
-## ------------------------------------------------------------------------
-library(sp)
-# Make the points a SpatialPointsDataFrame
-coordinates(xy) = ~x+y
-proj4string(xy) = CRS("+proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0")
-# Put the x/y data back into the data slot for later...
-xy@data = as.data.frame(xy)
+## ----plot-cleaned-words--------------------------------------------------
+# plot the top 15 words -- notice any issues?
+cleaned_tweets %>%
+  count(word, sort=TRUE) %>%
+  top_n(15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = word, y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() 
 
-## ------------------------------------------------------------------------
-overlay = over(xy, merged)
-res = as.data.frame(table(overlay$GEOID))
-colnames(res) = c("GEOID", "count")
-
-## ------------------------------------------------------------------------
-merged@data = join(merged@data, res, by="GEOID")
-# And compute a 'tweet score'... based on logged pop
-merged$percapita = merged$count/log(merged$pop_total)
-
-## ------------------------------------------------------------------------
-pal = colorNumeric(palette="YlGnBu",
-                   domain=merged$percapita)
-# Also create a nice popup for display...
-popup = paste0("GEOID: ", merged$GEOID, "<br>",
-               "Score: ", round(merged$percapita, 2))
-
-## ----cache=FALSE, echo=FALSE---------------------------------------------
-map = leaflet() %>%
-  addProviderTiles("CartoDB.Positron", group="Base") %>%
-  addPolygons(data=merged, popup=popup,
-              fillColor=~pal(percapita),
-              color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1,
-              smoothFactor=0.2, group="Score") %>%
-  addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
-                   stroke=FALSE, popup=~text, group="Tweets") %>%
-  addLayersControl(overlayGroups=c("Tweets", "Score"),
-                   options=layersControlOptions(collapsed=FALSE)) %>%
-  addLegend(pal=pal, values=merged$percapita,
-            position="bottomright",
-            title="Score")
-
-saveWidget(widget=map, file="final_map.html", selfcontained=TRUE)
-
-## ----eval=FALSE----------------------------------------------------------
-## leaflet() %>%
-##   addProviderTiles("CartoDB.Positron", group="Base") %>%
-##   addPolygons(data=merged, popup=popup,
-##               fillColor=~pal(percapita),
-##               color="#b2aeae", # This is a 'hex' color
-##               fillOpacity=0.7, weight=1,
-##               smoothFactor=0.2, group="Score") %>%
-##   addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
-##                    stroke=FALSE, popup=~text,
-##                    group="Tweets") %>%
-##   addLayersControl(overlayGroups=c("Tweets", "Score"),
-##                    options=layersControlOptions(
-##                      collapsed=FALSE)) %>%
-##   addLegend(pal=pal, values=merged$percapita,
-##             position="bottomright",
-##             title="Score")
+## ---- echo=FALSE, eval=FALSE---------------------------------------------
+## fire_tweets_corpus <- Corpus(VectorSource(fire_tweet_text))
+## fire_tweets_dtm <- DocumentTermMatrix(fire_tweets_corpus)
+## str(fire_tweets_dtm)
+## 
+## freq <- sort(colSums(as.matrix(fire_tweets_dtm)), decreasing=TRUE)
+## wf <- data.frame(word=names(freq), freq=freq)
+## wf$freq
+## 
+## # remove values <=3
+## wf %>%
+##   subset(freq > 3) %>%
+##   ggplot(aes(reorder(word, freq), freq)) +
+##         geom_bar(stat="identity", fill="darkred", colour="darkgreen") +
+##         coord_flip()
+## 
 
