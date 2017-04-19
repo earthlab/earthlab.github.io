@@ -15,7 +15,7 @@ module-description: 'This module introduces the concept of using data to Underst
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
 USGS stream flow data to begin to understand the factors associated with a flood.
 No technical experience is needed to complete this activity.'
-module-type: 'class' 
+module-type: 'class'
 course: "Earth Analytics"
 week: 1
 sidebar:
@@ -42,7 +42,7 @@ At the end of this activity, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need to download and install Google Earth on your computer and then
-download the kml file below.
+download the `.kml` file below.
 
 <a href="https://www.google.com/earth/download/gep/agree.html" target="_blank" class="btn btn-success btn--x-large">
 Get Google Earth</a>
