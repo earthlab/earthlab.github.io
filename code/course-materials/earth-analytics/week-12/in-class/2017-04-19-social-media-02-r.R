@@ -48,6 +48,10 @@ twitter_token <- create_token(
   consumer_secret = secret)
 
 
+## ----eval=FALSE----------------------------------------------------------
+## post_tweet("Look, i'm tweeting from R in my #rstats #earthanalytics class!")
+## # this throws an error but then says it's posted but ofcourse doesn't post.
+
 ## ----get-tweets----------------------------------------------------------
 ## search for 500 tweets using the #rstats hashtag
 rstats_tweets <- search_tweets(q="#rstats", n = 500)
