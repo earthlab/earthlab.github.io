@@ -109,6 +109,6 @@
 {% endif %}
 
 <!-- begin science / science themes side bar nav -->
-{% if page.tags2 %}
+{% if page.tags2 and layout == 'post-by-category' %}
   {% include sidebar_tags2.html %}
 {% endif %}
