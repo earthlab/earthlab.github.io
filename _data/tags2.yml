@@ -3,4 +3,6 @@ remote-sensing:
 earth-science:
   topics: ['fire', 'permafrost']
 open-science:
-  topics: ['literate-programming', 'functions']  
+  topics: ['literate-programming', 'functions']
+social-science:
+  topics: ['social-media']    
