@@ -5400,6 +5400,12 @@ img.mfp-img {
    Earth Lab Specific css highlighting this will allow us to more easily
    integrate with MIn Minstakes in the future
    ========================================================================== */
+/* search form on the top bar */
+div.search {
+  margin-left: 65%;
+  width: 30%;
+  font-size: .8em; }
+
 div.notice--success, div.notice--warning {
   padding: 2em !important;
   font-size: .8em !important; }
