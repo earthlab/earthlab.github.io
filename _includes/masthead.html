@@ -1,15 +1,15 @@
 {% include base_path %}
-
 <!-- search bar begin  - turning off for now-->
-<!--
-<div id="search">
-      <form role="search" method="get" action="{{ site.url }}/search/">
-          <input id="searchString" name="searchString"
-                 placeholder="Search for lessons here." type="text">
-          <input id="searchButton" name="googleSearchName" type="submit" value="Search">
-      </form>
-</div> -->
-<!-- search bar begin -->
+
+<div class="search">
+<form role="search" method="get" action="{{ site.url }}/search/">
+    <input id="q" name="q"
+           placeholder="Search for data lessons" type="text">
+</form>
+</div>
+
+
+<!-- search bar END -->
 
 <div class="masthead">
   <div class="masthead__inner-wrap">
@@ -26,6 +26,8 @@
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
+    <li>search</li>
+
         </ul>
         <ul class="hidden-links hidden"></ul>
       </nav>
