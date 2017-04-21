@@ -8,5 +8,9 @@ social-science:
   topics: ['social-media']
 time-series:
   topics: []
+data-exploration-and-analysis:
+  topics: ['data-visualization']
+spatial-data-and-gis:
+  topics:
 scientific-programming:
-  topics: ['r']
+  topics: ['r', 'r-studio', 'literate-expressive-programming']

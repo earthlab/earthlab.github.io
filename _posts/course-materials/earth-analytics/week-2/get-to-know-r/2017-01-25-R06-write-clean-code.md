@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "Write Clean Code in R"
-excerpt: "#"
+title: "Write Clean Code - Expressive or literate programming in R - data science for scientists 101"
+excerpt: "This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices. "
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
@@ -16,7 +16,7 @@ author_profile: false
 comments: true
 order: 6
 tags2:
-  scientific-programming: ['r-studio', 'r', 'literate-programming']
+  scientific-programming: ['r-studio', 'r', 'literate-expressive-programming']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

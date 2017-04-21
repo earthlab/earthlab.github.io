@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "Missing data in R"
-excerpt: "This tutorial introduces the concept of missing of no data values in R."
+title: "How to handle missing data or no data values in R - NA and NAN"
+excerpt: "Data can be missing for different reasons. This tutorial introduces how NA can be used in place of missing data values in R. It also introduces how missing data can impact calculations in R. Finally it covers how to import tabular data that may contain missing data values into R."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
