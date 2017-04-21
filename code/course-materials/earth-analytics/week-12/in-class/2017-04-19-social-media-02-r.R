@@ -83,38 +83,53 @@ head(users, n=2)
 # how many locations are represented
 length(unique(users$location))
 
-users %>% 
+users %>%
   ggplot(aes(location)) +
-  geom_bar() + coord_flip()
+  geom_bar() + coord_flip() +
+      labs(x="Count",
+      y="Location",
+      title="Twitter users - unique locations ")
 
 ## ------------------------------------------------------------------------
-users %>% 
-  count(location, sort=TRUE) %>% 
-  mutate(location= reorder(location,n)) %>% 
+users %>%
+  count(location, sort=TRUE) %>%
+  mutate(location= reorder(location,n)) %>%
   top_n(15) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +
-  coord_flip() 
+  coord_flip() +
+      labs(x="Count",
+      y="Location",
+      title="Twitter users - unique locations ")
 
 ## ----plot-users-timezone-------------------------------------------------
 # plot a list of users by time zone
 users %>% ggplot(aes(time_zone)) +
-  geom_bar() + coord_flip()
+  geom_bar() + coord_flip() +
+      labs(x="Count",
+      y="Time Zone",
+      title="Twitter users - unique time zones ")
 
 
 ## ----plot-timezone-cleaned, echo=FALSE-----------------------------------
-users %>% 
-  count(time_zone, sort=TRUE) %>% 
-  mutate(location= reorder(time_zone,n)) %>% 
+users %>%
+  count(time_zone, sort=TRUE) %>%
+  mutate(location= reorder(time_zone,n)) %>%
   top_n(20) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +
-  coord_flip() 
+  coord_flip() +
+      labs(x="Count",
+      y="Time Zone",
+      title="Twitter users - unique time zones ")
 
 ## ----clean-data, echo=FALSE, eval=FALSE----------------------------------
 ## users %>% na.omit() %>%
 ##   ggplot(aes(time_zone)) +
-##   geom_bar() + coord_flip()
+##   geom_bar() + coord_flip() +
+##       labs(x="Count",
+##       y="Time Zone",
+##       title="Twitter users - unique time zones ")
 
 ## ----eval=FALSE----------------------------------------------------------
 ## 
@@ -142,20 +157,22 @@ fire_tweets <- fire_tweets %>%
 
 ## ------------------------------------------------------------------------
 # remove urls tidyverse is failing here for some reason
-#fire_tweets %>% 
+#fire_tweets %>%
 #  mutate_at(c("stripped_text"), gsub("http.*","",.))
 
-# remove http elements manually            
+# remove http elements manually
 fire_tweets$stripped_text <- gsub("http.*","",fire_tweets$stripped_text)
+fire_tweets$stripped_text <- gsub("https.*","",fire_tweets$stripped_text)
+
 
 ## ------------------------------------------------------------------------
 a_list_of_words <- c("Dog", "dog", "dog", "cat", "cat", ",")
 unique(a_list_of_words)
 
 ## ------------------------------------------------------------------------
-# remove puncuation, convert to lowercase, add id for each tweet!
-fire_tweet_text_clean <- fire_tweets %>% 
-  dplyr::select(stripped_text) %>% 
+# remove punctuation, convert to lowercase, add id for each tweet!
+fire_tweet_text_clean <- fire_tweets %>%
+  dplyr::select(stripped_text) %>%
   unnest_tokens(word, stripped_text)
 
 ## ----plot-uncleaned-data-------------------------------------------------
@@ -167,7 +184,10 @@ fire_tweet_text_clean %>%
   ggplot(aes(x = word, y = n)) +
   geom_col() +
   xlab(NULL) +
-  coord_flip() 
+  coord_flip() +
+      labs(x="Count",
+      y="Unique words",
+      title="Count of unique words found in tweets")
 
 ## ------------------------------------------------------------------------
 # load list of stop words - from the tidytext package
@@ -177,8 +197,8 @@ head(stop_words)
 
 nrow(fire_tweet_text_clean)
 
-# remove stop words from our list of words 
-cleaned_tweet_words <- fire_tweet_text_clean %>% 
+# remove stop words from our list of words
+cleaned_tweet_words <- fire_tweet_text_clean %>%
   anti_join(stop_words)
 
 # there should be fewer words now
@@ -186,14 +206,18 @@ nrow(cleaned_tweet_words)
 
 ## ----plot-cleaned-words--------------------------------------------------
 # plot the top 15 words -- notice any issues?
-cleaned_tweets %>%
+cleaned_tweet_words %>%
   count(word, sort=TRUE) %>%
   top_n(15) %>%
   mutate(word = reorder(word, n)) %>%
   ggplot(aes(x = word, y = n)) +
   geom_col() +
   xlab(NULL) +
-  coord_flip() 
+  coord_flip() +
+      labs(x="Count",
+      y="Unique words",
+      title="Count of unique words found in tweets",
+      subtitle="Stop words removed from the list")
 
 ## ---- echo=FALSE, eval=FALSE---------------------------------------------
 ## fire_tweets_corpus <- Corpus(VectorSource(fire_tweet_text))

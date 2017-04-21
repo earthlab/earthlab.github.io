@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Access twitter data using rtweet"
+title: "Get twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
-authors: ['Carson Farmer', 'Leah Wasser']
+authors: ['Leah Wasser','Carson Farmer']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/use-twitter-api-r/
-nav-title: 'Use twitter API'
+nav-title: 'Get twitter data'
 week: 12
 sidebar:
   nav:
@@ -50,7 +50,7 @@ To get started we'll need to do the following things:
 
 1. Setup a twitter account if you don't have one already
 2. Using your account, setup an application that we will use to access twitter from R
-3. Download and install the rtweet and tidytext packages for R.
+3. Download and install the `rtweet` and `tidytext` packages for R.
 
 Once we've done these things, we are reading to begin querying Twitter's API to
 see what we can learn about tweets!
@@ -60,20 +60,23 @@ see what we can learn about tweets!
 Let's start by setting up an application in twitter that we can use to access
 tweets. To setup your app, follow the documentation from `rtweet` here:
 
-<a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html" target="_blank">setup twitter app</a>
+<a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i>
+ TUTORIAL: How to setup a twitter application using your twitter account</a>
+
 
 <figure>
 
-<img src="http://www.socialmatt.com/wp-content/uploads/2015/03/Boulder_Twitter_Map_Visualizations.jpg">
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-12/boulder_twitter_map_visualizations.jpg">
 
-<figcaption>A heat map of the distrubtion of tweets across the Denver / Boulder region <a href="http://www.socialmatt.com/amazing-denver-twitter-visualization/" target="_blank">source: socialmatt.com</a></figcaption>
+<figcaption>A heat map of the distribution of tweets across the Denver / Boulder region <a href="http://www.socialmatt.com/amazing-denver-twitter-visualization/" target="_blank">source: socialmatt.com</a></figcaption>
 </figure>
 
 
 ## Twitter in R
 
 Once we have our twitter app setup, we are ready to dive into accessing tweets in R.
-We will use the rtweet package to do this.
+
+We will use the `rtweet` package to do this.
 
 ```{r setup, echo=FALSE}
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
@@ -155,11 +158,6 @@ a browser window:
 
 `Authentication complete. Please close this page and return to R.`
 
-## Rate Limits
-https://blog.twitter.com/2008/what-does-rate-limit-exceeded-mean-updated
-up to 100 API calls an hour.
-
-
 ### Send a tweet
 
 Note that your tweet needs to be 140 characters or less.
@@ -230,7 +228,7 @@ head(users, n=2)
 
 ```
 
-Let's learn a bit more about these people tweeting about R. First, where are
+Let's learn a bit more about these people tweeting about `R`. First, where are
 they from?
 
 ```{r explore-users }
@@ -239,7 +237,10 @@ length(unique(users$location))
 
 users %>%
   ggplot(aes(location)) +
-  geom_bar() + coord_flip()
+  geom_bar() + coord_flip() +
+      labs(x="Count",
+      y="Location",
+      title="Twitter users - unique locations ")
 ```
 
 Let's sort by count and just plot the top 15 locations.
@@ -251,7 +252,10 @@ users %>%
   top_n(15) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +
-  coord_flip()
+  coord_flip() +
+      labs(x="Count",
+      y="Location",
+      title="Twitter users - unique locations ")
 ```
 
 Looking at our data, what do you notice that might improve this plot?
@@ -266,7 +270,10 @@ Lets have a look at the time zone field next.
 ```{r plot-users-timezone }
 # plot a list of users by time zone
 users %>% ggplot(aes(time_zone)) +
-  geom_bar() + coord_flip()
+  geom_bar() + coord_flip() +
+      labs(x="Count",
+      y="Time Zone",
+      title="Twitter users - unique time zones ")
 
 ```
 
@@ -280,14 +287,20 @@ users %>%
   top_n(20) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +
-  coord_flip()
+  coord_flip() +
+      labs(x="Count",
+      y="Time Zone",
+      title="Twitter users - unique time zones ")
 ```
 
 
 ```{r clean-data, echo=FALSE, eval=FALSE }
 users %>% na.omit() %>%
   ggplot(aes(time_zone)) +
-  geom_bar() + coord_flip()
+  geom_bar() + coord_flip() +
+      labs(x="Count",
+      y="Time Zone",
+      title="Twitter users - unique time zones ")
 ```
 
 The plots above aren't perfect. What do you start to notice about working
@@ -363,6 +376,8 @@ those.
 
 # remove http elements manually
 fire_tweets$stripped_text <- gsub("http.*","",fire_tweets$stripped_text)
+fire_tweets$stripped_text <- gsub("https.*","",fire_tweets$stripped_text)
+
 ```
 
 Finally, we can clean up our text. If we are trying to create a list of unique
@@ -377,23 +392,24 @@ unique(a_list_of_words)
 
 
 We can use the `tidytext::unnest_tokens()` function in the tidytext package to
-magically clean up our text! When we use this function:
+magically clean up our text! When we use this function the following things
+will be cleaned up in the text:
 
-1. each word found in the text will be converted to lowercase
-2. punctuation will be removed, and
-3. a unique id will be added for each occurence of the word
+1. **Convert text to lowercase:** each word found in the text will be converted to lowercase so ensure that we don't get duplicate words due to variation in capitalization.
+2. **Punctuation is removed:** all instances of periods, commas etc will be removed from our list of words , and
+3. **Unique id associated with the tweet:** will be added for each occurrence of the word
 
-The unnest_tokens() function takes two arguments:
+The `unnest_tokens()` function takes two arguments:
 
-1. the name of the column where the unique word will be stored and
-2. the column name from the data.frame that you are using that you want to pull unique words from.
+1. The name of the column where the unique word will be stored and
+2. The column name from the `data.frame` that you are using that you want to pull unique words from.
 
 In our case, we want to use the `stripped_text` column which is where we have our
 cleaned up tweet text stored.
 
 
 ```{r}
-# remove puncuation, convert to lowercase, add id for each tweet!
+# remove punctuation, convert to lowercase, add id for each tweet!
 fire_tweet_text_clean <- fire_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(word, stripped_text)
@@ -410,19 +426,22 @@ fire_tweet_text_clean %>%
   ggplot(aes(x = word, y = n)) +
   geom_col() +
   xlab(NULL) +
-  coord_flip()
+  coord_flip() +
+      labs(x="Count",
+      y="Unique words",
+      title="Count of unique words found in tweets")
 ```
 
-OUr plot of unique words contains some wors that may not be useful to use. For instance
+Our plot of unique words contains some words that may not be useful to use. For instance
 "a" and "to". In the word of text mining we call those words - 'stop words'.
 We want to remove these words from our analysis as they are fillers used to compose
 a sentence.
 
-Lucky for use, the tidytext package has a function that will help us clean up stop
-words! TO use this we
+Lucky for use, the `tidytext` package has a function that will help us clean up stop
+words! To use this we:
 
-1. load the "stop_words" data included with tidytext. This data is simply a list of words that we may want to remove in a natural language analysis.
-2. then we use anti_join to remove all stop words from our analysis.
+1. Load the "stop_words" data included with `tidytext`. This data is simply a list of words that we may want to remove in a natural language analysis.
+2. Then we use anti_join to remove all stop words from our analysis.
 
 Let's give this a try next!
 
@@ -447,17 +466,21 @@ again.
 
 ```{r plot-cleaned-words }
 # plot the top 15 words -- notice any issues?
-cleaned_tweets %>%
+cleaned_tweet_words %>%
   count(word, sort=TRUE) %>%
   top_n(15) %>%
   mutate(word = reorder(word, n)) %>%
   ggplot(aes(x = word, y = n)) +
   geom_col() +
   xlab(NULL) +
-  coord_flip()
+  coord_flip() +
+      labs(x="Count",
+      y="Unique words",
+      title="Count of unique words found in tweets",
+      subtitle="Stop words removed from the list")
 ```
 
-Does the plot look better?
+Does the plot look better than the previous plot??
 
 ```{r, echo=FALSE, eval=FALSE}
 fire_tweets_corpus <- Corpus(VectorSource(fire_tweet_text))
@@ -483,4 +506,6 @@ wf %>%
 
 * <a href="https://mkearney.github.io/rtweet/articles/intro.html#retrieving-trends" target="_blank">A great overview of the rtweet package by Mike Kearny</a>
 * <a href="https://francoismichonneau.net/2017/04/tidytext-origins-of-species/" target="_blank">A blog post on tidytext by Francois Michonneau</a>
+*  <a href="https://blog.twitter.com/2008/what-does-rate-limit-exceeded-mean-updated" target="_blank">About the twitter API rate limit</a>
+
 </div>
