@@ -17,7 +17,7 @@ order: 4
 tags2:
   scientific-programming: ['r-studio', 'r']
   time-series:
-  data-analysis-exploration: ['data-visualization']
+  data-exploration-and-analysis: ['data-visualization']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
