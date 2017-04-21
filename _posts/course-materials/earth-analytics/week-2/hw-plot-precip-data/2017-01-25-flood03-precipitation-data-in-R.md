@@ -1,10 +1,8 @@
 ---
 layout: single
-title: "Plot and Subset Precipitation Data in R - 2013 Colorado Floods"
-excerpt: "This lesson walks through the steps need to download and visualize
-precipitation data in R to better understand the drivers and impacts of the 2013
-Colorado floods."
-authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
+title: "Subset time series data in R - introduction to dplyr pipes and tidyverse coding approaches - Flooding & erosion data"
+excerpt: "This lesson walks through extracting temporal subsets of time series data using dplyr pipes. In the previous lesson we learned how to convert data containing a data field into a data class. In this lesson we use pipes to extract temporal subsets so that we can refine our time series data analysis. Finally we plot the data using ggplot."
+authors: ['Leah Wasser']
 modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
@@ -18,6 +16,8 @@ comments: true
 order: 3
 tags2:
   scientific-programming: ['r-studio', 'r']
+  time-series:
+  data-analysis-exploration: ['data-visualization']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

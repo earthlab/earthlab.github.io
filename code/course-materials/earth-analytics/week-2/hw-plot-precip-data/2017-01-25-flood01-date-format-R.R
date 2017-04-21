@@ -21,10 +21,8 @@ qplot(x=boulder_precip$DATE,
 # plot the data using ggplot
 ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   geom_point() +
-  glabs(x="Date",
-    y="Total Precipitation (Inches)",
-    title="Precipitation Data"
-    subtitle="Boulder, Colorado 2013") 
+  ggtitle("Precipitation Data") +
+  xlab("Date") + ylab("Total Precipitation (Inches)")
 
 
 ## ----structure-----------------------------------------------------------

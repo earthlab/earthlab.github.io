@@ -1,13 +1,12 @@
 ---
 layout: single
-title: "Get to Know R"
-excerpt: "This tutorial introduces the R scientific programming language. It is
-designed for someone who has not used R before. We will work with precipitation and
+title: "The syntax of the R scientific programming language - Data Science for scientists 101"
+excerpt: "This lesson introduces the basic syntax associated with the R scientific programming language. We will introduce assignment operators (<-), comments and basic functions that are available to use in R to perform basic tasks including head(), qplot() to quickly plot data and others. This lesson is designed for someone who has not used R before. We will work with precipitation and
 stream discharge data for Boulder County."
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
-permalink: /course-materials/earth-analytics/week-2/get-to-know-r/
+permalink: /course-materials/earth-analytics/week-2/basic-r-syntax-scientific-programming/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
 modified: '2017-04-21'
