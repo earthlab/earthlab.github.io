@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Work With Date / Time formats in R - Plot Time Series Data - "
+title: "Work With Date - Time formats in R - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in R. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Leah Wasser', 'Data Carpentry']
 modified: '2017-04-21'
@@ -95,7 +95,7 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   glabs(x="Date",
     y="Total Precipitation (Inches)",
     title="Precipitation Data"
-    subtitle="Boulder, Colorado 2013") 
+    subtitle="Boulder, Colorado 2013")
 ## Error: <text>:7:5: unexpected symbol
 ## 6:     title="Precipitation Data"
 ## 7:     subtitle

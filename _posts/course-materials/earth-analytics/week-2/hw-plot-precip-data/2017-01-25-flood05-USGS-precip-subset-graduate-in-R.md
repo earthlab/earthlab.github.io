@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Subset & aggregate time series precipitation data in R"
-excerpt: "This lesson walks aggregating time series data in R."
-authors: ['Leah Wasser', 'Mariela Perignon']
+title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
+excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
+authors: ['Leah Wasser']
 modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
@@ -70,6 +70,7 @@ If you haven't already downloaded this data (from the previous lesson), do so no
 
 To get started, load the `ggplot2` and `dplyr` libraries, setup your working
 directory and set `stringsAsFactors` to FALSE using `options()`.
+
 
 
 
@@ -163,20 +164,10 @@ Next, let's have a look at the data. Plot using `ggplot()`. Format the plot usin
 the colors, labels, etc that are most clear and look the best. Your plot does not
 need to look like the one below!
 
-
-```
-## Warning: Removed 401 rows containing missing values (geom_point).
-```
-
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png" title="hourly precipitation" alt="hourly precipitation" width="100%" />
 
 ## Differences in the data
 Any ideas what might be causing the notable difference in the plotted data through time?
-
-
-```
-## Warning: Removed 401 rows containing missing values (geom_point).
-```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-round-1.png" title="hourly precipitation" alt="hourly precipitation" width="100%" />
 
