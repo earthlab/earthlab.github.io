@@ -1,27 +1,6 @@
 <nav class="nav__list">
-  <ul>
-    <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Lessons by coding language</span>
-      <ul>
-        {% for main_lang in site.data.libs %}
-          {% assign main_lang_counter = 0 %}
-
-          {% for language in main_lang.lang %}
-             {% for post in site.posts %}
-               {% if post.lang contains language %}
-                 {% assign main_lang_counter = main_lang_counter | plus: 1 %}
-                {% endif %}
-             {% endfor %}
-          {% endfor %}
-
-            <li><span><i class="fa fa-book" aria-hidden="true"></i> {{ main_lang.lang }}: {{ main_lang_counter }} </span></li>
-        {% endfor %}
-      </ul>
-    </li>
-  </ul>
-
-
 <ul>
-<li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Lessons by science topic</span>
+<li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Lessons by topic</span>
  <ul>
 {% for main_tag in site.data.tags2 %}
   {% assign main_tag_counter = 0 %}
@@ -31,8 +10,29 @@
    {% assign main_tag_counter = main_tag_counter | plus: 1 %}
    {% endif %}
  {% endfor %}
-  <li><a href="{{ site.url }}tags/{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+  <li><a href="{{ site.url }}tags/{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic  | replace:"-"," " | capitalize }} ({{ main_tag_counter }})</span></a></li>
 {% endfor %}
+    </ul>
+  </li>
+</ul>
+
+
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Lessons by coding language</span>
+    <ul>
+      {% for main_lang in site.data.libs %}
+        {% assign main_lang_counter = 0 %}
+
+        {% for language in main_lang.lang %}
+           {% for post in site.posts %}
+             {% if post.lang contains language %}
+               {% assign main_lang_counter = main_lang_counter | plus: 1 %}
+              {% endif %}
+           {% endfor %}
+        {% endfor %}
+
+          <li><span><i class="fa fa-book" aria-hidden="true"></i> {{ main_lang.lang }}: {{ main_lang_counter }} </span></li>
+      {% endfor %}
     </ul>
   </li>
 </ul>

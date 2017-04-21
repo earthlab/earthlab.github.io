@@ -1,12 +1,12 @@
 ---
 layout: single
-title: "Install QGIS"
-excerpt: "This lesson walks through install QGIS on your laptop."
-authors: ['Leah Wasser', 'NEON Data Skill']
+title: "How to download and install QGIS"
+excerpt: "QGIS is a free, open-souce GIS tool that is comparable to ArcMap. This lesson walks through how to install QGIS on your computer."
+authors: ['Leah Wasser']
 modified: 2016-12-30
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
-permalink: /course-materials/earth-analytics/week-2/install-qgis/
+permalink: /course-materials/earth-analytics/week-2/download-install-qgis/
 nav-title: 'Install QGIS'
 week: 2
 sidebar:
