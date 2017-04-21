@@ -75,6 +75,7 @@ tweets. To setup your app, follow the documentation from `rtweet` here:
 ## Twitter in R
 
 Once we have our twitter app setup, we are ready to dive into accessing tweets in R.
+
 We will use the `rtweet` package to do this.
 
 ```{r setup, echo=FALSE}
@@ -364,22 +365,7 @@ head(fire_tweets$text)
 Looking at the data above, it becomes clear that there is a lot of clean-up
 associated with social media data.
 
-For one, we live in an emoji driven world. Yet it's not necessarily useful
-for us to look at emojis. We can remove them by converting the data as follows.
-
-- Unfortunately, `R` isn't so great with emojis etc, so we'll strip these.
-
-```{r}
-# check data to see if there are emojis
-head(fire_tweets$text)
-
-# strip emojis using iconv then remove na
-fire_tweets <- fire_tweets %>%
-  mutate(stripped_text = iconv(forest_fire_tweets$text, "ASCII", "UTF-8", sub=""))
-
-```
-
-Next, there are url's in our tweets. If we want to do a text analysis to figure out
+First, there are url's in our tweets. If we want to do a text analysis to figure out
 what words are most common in our tweets, the URL's won't be helpful. Let's remove
 those.
 
@@ -395,7 +381,7 @@ fire_tweets$stripped_text <- gsub("https.*","",fire_tweets$stripped_text)
 ```
 
 Finally, we can clean up our text. If we are trying to create a list of unique
-words in our tweets, words with capilitalization will be different from words
+words in our tweets, words with capitalization will be different from words
 that are all lowercase. Also we don't need punctuation to be returned as a unique
 word.
 
@@ -520,6 +506,6 @@ wf %>%
 
 * <a href="https://mkearney.github.io/rtweet/articles/intro.html#retrieving-trends" target="_blank">A great overview of the rtweet package by Mike Kearny</a>
 * <a href="https://francoismichonneau.net/2017/04/tidytext-origins-of-species/" target="_blank">A blog post on tidytext by Francois Michonneau</a>
-*  <a href="https://blog.twitter.com/2008/what-does-rate-limit-exceeded-mean-updated
-" target="_blank">About the twitter API rate limit</a>
+*  <a href="https://blog.twitter.com/2008/what-does-rate-limit-exceeded-mean-updated" target="_blank">About the twitter API rate limit</a>
+
 </div>

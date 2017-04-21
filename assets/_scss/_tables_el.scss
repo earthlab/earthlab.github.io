@@ -2,6 +2,12 @@
    TABLES
    ========================================================================== */
 
+#home-search table {
+  font-size: 1em!important;
+  width: 70%
+}
+
+
 table {
   margin-bottom: 1em;
   width: 100%;
@@ -39,7 +45,9 @@ tr, td, th {
   vertical-align: middle;
 }
 
-tbody tr:nth-child(2n+1) {
+/*  Only apply these styles to main pages but not the search */
+
+.page__content tbody tr:nth-child(2n+1) {
   background-color: #f9f9f9;
   border-bottom: 1px solid $light-gray;
   border-top: 1px solid $light-gray;
