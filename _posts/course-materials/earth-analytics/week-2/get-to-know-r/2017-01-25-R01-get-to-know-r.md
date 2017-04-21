@@ -10,13 +10,13 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/get-to-know-r/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: '2017-02-01'
+modified: '2017-04-21'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
 We will work with precipitation and stream discharge data for Boulder County
 to better understand the R syntax, various data types and data import and plotting.'
-module-type: 'class' 
+module-type: 'class'
 course: "Earth Analytics"
 week: 2
 sidebar:
@@ -24,6 +24,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  scientific-programming: ['r-studio', 'r']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -107,7 +109,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![precip data plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R01-get-to-know-r/open-file-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2017-01-25-R01-get-to-know-r/open-file-1.png" title="precip data plot" alt="precip data plot" width="100%" />
 
 The code above, uses syntax that is unique the `R` programming language.
 Syntax is the characters or commands that `R` understands and associated
