@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Work with Precipitation Data in R - 2013 Colorado Floods"
+title: "Data driven reports - why documentation is important - Data from the 2013 Colorado Floods"
 excerpt: "This lesson provides students with an example of a data driven report to emphasize the importance of connecting data, documentation and results."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
 modified: 2017-04-21

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Flooding & Erosion - Introduction to remote sensing time series data - the 2013 Colorado floods"
+title: "Using before / after remote sensing images to better understand the impacts of flooding & erosion - Google Earth and the 2013 Colorado floods"
 excerpt: "In this lesson, we will use time series imagery from Google Earth to look at the impacts of the floods in Boulder, Colorado. Specifically we will look at spectral remote sensing data before and after the flood to see what changed int he landscape. This lesson requires doesn't require any programming!"
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]

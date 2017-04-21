@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Subset & aggregate time series precipitation data in R"
-excerpt: "This lesson walks aggregating time series data in R."
-authors: ['Leah Wasser', 'Mariela Perignon']
+title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
+excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
+authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
@@ -71,6 +71,10 @@ If you haven't already downloaded this data (from the previous lesson), do so no
 To get started, load the `ggplot2` and `dplyr` libraries, setup your working
 directory and set `stringsAsFactors` to FALSE using `options()`.
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+
+```
 ```{r load-libraries, echo=F }
 
 # setwd("working-dir-path-here")

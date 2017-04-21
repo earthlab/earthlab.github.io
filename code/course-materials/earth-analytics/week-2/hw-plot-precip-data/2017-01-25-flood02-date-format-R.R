@@ -24,7 +24,7 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   glabs(x="Date",
     y="Total Precipitation (Inches)",
     title="Precipitation Data"
-    subtitle="Boulder, Colorado 2013") 
+    subtitle="Boulder, Colorado 2013")
 
 
 ## ----structure-----------------------------------------------------------
