@@ -1,20 +1,20 @@
 ---
 layout: single
-title: "Intro to the CO Floods"
-excerpt: "Understanding the floods with data."
+title: "Flooding & Erosion - Introduction to remote sensing time series data - the 2013 Colorado floods"
+excerpt: "In this lesson, we will use time series imagery from Google Earth to look at the impacts of the floods in Boulder, Colorado. Specifically we will look at spectral remote sensing data before and after the flood to see what changed int he landscape. This lesson requires doesn't require any programming!"
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
 permalink: /course-materials/earth-analytics/week-1/co-floods-1-intro/
-nav-title: 'CO Floods - Google Earth'
+nav-title: 'Google Earth Time series'
 module-nav-title: 'CO Floods Intro'
 dateCreated: 2016-12-06
-modified: 2016-12-12
-module-title: 'Understanding Disturbance With Data - Flooding and Erosion'
+modified: 2017-04-21
+module-title: 'Understand Disturbance With Data - Flooding and Erosion'
 module-description: 'This module introduces the concept of using data to Understand
-a natural phenomenon. Here, we use a combination of NOAA precipitation data and
-USGS stream flow data to begin to understand the factors associated with a flood.
-No technical experience is needed to complete this activity.'
+a natural phenomenon. In this case we will explore flooding and erosion. We use a combination of Google earth imagery, NOAA precipitation data and
+USGS stream flow data to begin to quantify and better understand the drivers and impacts of the 2013 flood as it is seen in Boulder, Colorado.
+No programming experience is needed to complete this module.'
 module-type: 'class'
 course: "Earth Analytics"
 week: 1
@@ -23,6 +23,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  remote-sensing: ['spectral-remote-sensing']
+  earth-science: ['flood-erosion']
+  time-series:
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
