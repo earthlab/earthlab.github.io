@@ -2,9 +2,11 @@ remote-sensing:
   topics: ['landsat', 'modis', 'lidar', 'naip']
 earth-science:
   topics: ['fire', 'permafrost']
-open-science:
-  topics: ['literate-programming', 'functions']
+reproducible-open-science:
+  topics: ['rmarkdown', 'jupyter-notebooks', 'data-management']
 social-science:
   topics: ['social-media']
 time-series:
   topics: []
+scientific-programming:
+  topics: ['r']

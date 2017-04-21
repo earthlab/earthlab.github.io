@@ -5,6 +5,6 @@ permalink: tags/data-type/time-series
 comments: false
 author_profile: false
 tags2:
-  time-series: []
-main-tag: false
+  time-series:
+main-tag: TRUE
 ---

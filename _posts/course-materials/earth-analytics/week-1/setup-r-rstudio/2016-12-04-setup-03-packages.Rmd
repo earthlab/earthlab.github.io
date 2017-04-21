@@ -17,6 +17,8 @@ permalink: /course-materials/earth-analytics/week-1/install-r-packages/
 author_profile: false
 comments: true
 order: 3
+tags2:
+  scientific-programming: ['r-and-r-studio'] 
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 

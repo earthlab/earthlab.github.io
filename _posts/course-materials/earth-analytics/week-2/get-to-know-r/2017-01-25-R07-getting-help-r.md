@@ -8,13 +8,15 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/about-and-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-modified: '2017-02-06'
+modified: '2017-04-21'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 7
+tags2:
+  scientific-programming: ['r-studio', 'r']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

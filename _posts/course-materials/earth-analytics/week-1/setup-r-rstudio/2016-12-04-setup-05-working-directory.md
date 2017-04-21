@@ -13,10 +13,13 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/setup-working-directory/
 dateCreated: 2016-12-12
-modified: '2017-02-01'
+modified: '2017-04-21'
 author_profile: false
 comments: true
 order: 5
+tags2:
+  reproducible-open-science: ['data-management']
+  scientific-programming: ['r-and-r-studio']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
