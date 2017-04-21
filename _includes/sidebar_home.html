@@ -31,7 +31,7 @@
    {% assign main_tag_counter = main_tag_counter | plus: 1 %}
    {% endif %}
  {% endfor %}
-  <li><a href="{{ site.url }}{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+  <li><a href="{{ site.url }}tags/{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
 {% endfor %}
     </ul>
   </li>
