@@ -5,4 +5,6 @@ earth-science:
 open-science:
   topics: ['literate-programming', 'functions']
 social-science:
-  topics: ['social-media']    
+  topics: ['social-media']
+time-series:
+  topics: []

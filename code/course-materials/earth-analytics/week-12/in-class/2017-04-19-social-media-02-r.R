@@ -147,15 +147,6 @@ fire_tweets <- search_tweets(q="forest+fire", n=100, lang="en",
 head(fire_tweets$text)
 
 ## ------------------------------------------------------------------------
-# check data to see if there are emojis
-head(fire_tweets$text)
-
-# strip emojis using iconv then remove na
-fire_tweets <- fire_tweets %>%
-  mutate(stripped_text = iconv(forest_fire_tweets$text, "ASCII", "UTF-8", sub=""))
-
-
-## ------------------------------------------------------------------------
 # remove urls tidyverse is failing here for some reason
 #fire_tweets %>%
 #  mutate_at(c("stripped_text"), gsub("http.*","",.))

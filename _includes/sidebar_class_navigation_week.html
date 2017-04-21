@@ -51,13 +51,15 @@
        </ul>
 
        {% for module in homework %}
+
        {% if module.order == 1 %}
            {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
 
            {% if class_lessons %}
+           {% if forloop.index == 1 %}
              <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Learn how to...</span>
+           {% endif %}
              <ul>
-               {% for module in homework %}
                {% if module.order == 1 %}
                    {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
                    {% assign theHomeWorkLesson = module.class-lesson %}
@@ -74,8 +76,6 @@
                  {% endif %}
                {% endfor %}
                 </ul>
-               {% endfor %}
-
            {% endif %}
        {% endif %}
        {% endfor %}
