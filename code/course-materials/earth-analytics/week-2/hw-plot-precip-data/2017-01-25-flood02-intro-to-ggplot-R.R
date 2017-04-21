@@ -6,7 +6,7 @@ library(ggplot2)
 # download data from figshare
 # note that we already downloaded the data to our laptops previously
 # but in case you don't have it - re-download it by uncommenting the code below.
-# download.file(url = "https://ndownloader.figshare.com/files/7010681",
+#download.file(url = "https://ndownloader.figshare.com/files/7010681",
 #              destfile = "data/boulder-precip.csv")
 
 # import data
@@ -35,8 +35,12 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 ## ----add-title, fig.cap="ggplot with labels"-----------------------------
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
-    glabs(x="Date",
-      y="Precipitation (Inches)",
-      title="Daily Precipitation (inches)"
-      subtitle="Boulder, Colorado 2013")
+    ggtitle("Precipitation - Boulder, Colorado 2013")
+
+## ----add-title2, fig.cap="ggplot with title and labels"------------------
+ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
+    geom_point(alpha = 0.9, aes(color=PRECIP)) +
+    ggtitle("Precipitation - Boulder, Colorado 2013") +
+    xlab("x label here") + ylab("y label here")
+
 

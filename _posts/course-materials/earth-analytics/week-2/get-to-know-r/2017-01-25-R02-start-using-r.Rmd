@@ -1,9 +1,8 @@
 ---
 layout: single
-title: "Objects in R"
-excerpt: "This tutorial introduces the R scientific programming language. It is
-designed for someone who has not used R before. We will work with precipitation and
-stream discharge data for Boulder County."
+title: "Creating variables in R and the string vs numeric data type or class - Data Science for scientists 101"
+excerpt: "This lesson covers creating variables or objects in R. It also introduces some of the basic data types or classes including strings and numbers. This lesson is
+designed for someone who has not used R before."
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
 class-lesson: ['get-to-know-r']

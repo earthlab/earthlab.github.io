@@ -15,7 +15,7 @@ author_profile: false
 comments: true
 order: 6
 tags2:
-  spatial-gis:
+  spatial-data-and-gis:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
