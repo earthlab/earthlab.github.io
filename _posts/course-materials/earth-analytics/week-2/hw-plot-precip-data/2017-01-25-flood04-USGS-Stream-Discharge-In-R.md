@@ -1,15 +1,13 @@
 ---
 layout: single
 title: "Plot Stream Discharge Data in R"
-excerpt: "This lesson walks through the steps need to download and visualize
-USGS Stream Discharge data in R to better understand the drivers and impacts of
-the 2013 Colorado floods."
-authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
+excerpt: "This lesson is a challenge exercise that asks you to use all of the skills used during the week 2 set of lessons in the earth analytics course. Here you will import data and subset it to create a final plot of stream discharge over time."
+authors: ['Leah Wasser', 'NEON Data Skills']
 modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
-permalink: /course-materials/earth-analytics/week-2/plot-stream-discharge-timeseries-r/
+permalink: /course-materials/earth-analytics/week-2/plot-stream-discharge-timeseries-challenge-r/
 nav-title: 'Plot Stream Discharge Data R'
 sidebar:
   nav:
@@ -89,6 +87,8 @@ value in 2013 was significantly larger than what was observed in other years.
 Source: <a href="http://nwis.waterdata.usgs.gov/usa/nwis/peak/?site_no=06730200" target="_blank"> USGS, National Water Information System. </a>
 </figcaption>
 </figure>
+
+
 
 
 ## Work with USGS Stream Gage Data
