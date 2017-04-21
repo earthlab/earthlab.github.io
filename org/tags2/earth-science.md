@@ -1,7 +1,7 @@
 ---
 layout: post-by-category
 title: "Earth science data lessons"
-permalink: earth-science/
+permalink: tags/earth-science/
 comments: false
 author_profile: false
 tags2:
