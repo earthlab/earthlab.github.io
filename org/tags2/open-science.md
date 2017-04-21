@@ -1,10 +1,10 @@
 ---
 layout: post-by-category
-title: "Remote sensing data lessons"
-permalink: tags/remote-sensing/
+title: "Open science data lessons"
+permalink: tags/open-science/
 comments: false
 author_profile: false
 tags2:
-  remote-sensing:
+  earth-science:
 main-tag: TRUE
 ---
