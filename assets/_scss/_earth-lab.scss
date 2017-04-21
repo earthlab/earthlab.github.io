@@ -3,6 +3,20 @@
    integrate with MIn Minstakes in the future
    ========================================================================== */
 
+/* search results on the main search page */
+#main-search {
+    font-size: .8em;
+    width: 75%
+}
+
+/* search form on the top bar */
+#searchString {
+   }
+div.search {
+  margin-left: 65%;
+  width: 30%;
+  font-size: .8em;
+   }
 div.notice--success, div.notice--warning {
    padding: 2em !important;
    font-size: .8em !important;
