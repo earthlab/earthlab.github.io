@@ -727,6 +727,10 @@ a.reversefootnote {
 /* ==========================================================================
    TABLES
    ========================================================================== */
+#home-search table {
+  font-size: 1em !important;
+  width: 70%; }
+
 table {
   margin-bottom: 1em;
   width: 100%;
@@ -756,7 +760,8 @@ td {
 tr, td, th {
   vertical-align: middle; }
 
-tbody tr:nth-child(2n+1) {
+/*  Only apply these styles to main pages but not the search */
+.page__content tbody tr:nth-child(2n+1) {
   background-color: #f9f9f9;
   border-bottom: 1px solid #bdc1c4;
   border-top: 1px solid #bdc1c4; }
@@ -5400,6 +5405,11 @@ img.mfp-img {
    Earth Lab Specific css highlighting this will allow us to more easily
    integrate with MIn Minstakes in the future
    ========================================================================== */
+/* search results on the main search page */
+#main-search {
+  font-size: .8em;
+  width: 75%; }
+
 /* search form on the top bar */
 div.search {
   margin-left: 65%;
