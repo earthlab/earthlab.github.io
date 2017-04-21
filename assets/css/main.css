@@ -685,6 +685,9 @@ not Sticky, fixed to top content
     .notsticky > * {
       display: block; } }
 
+.notsticky a {
+  color: #494e52 !important; }
+
 /*
    Wells
    ========================================================================== */
