@@ -5,7 +5,7 @@ excerpt: "This lesson walks through the steps need to download and visualize
 precipitation data in R to better understand the drivers and impacts of the 2013
 Colorado floods."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-02-01'
+modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -16,6 +16,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
+tags2:
+  scientific-programming: ['r-studio', 'r']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -147,7 +149,7 @@ str(boulder_daily_precip)
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max.
+##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 ##    0.000    0.100    0.100    5.297    0.300 1000.000
 max(boulder_daily_precip$DAILY_PRECIP)
 ## [1] 999.99
@@ -204,7 +206,7 @@ Your final plot should look something like the plot below.
 
 
 
-![precip plot w fixed dates]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood03-precipitation-data-in-R/plot-precip-hourly-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood03-precipitation-data-in-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
 
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
@@ -267,7 +269,7 @@ precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
 precPlot_flood2
 ```
 
-![precip plot subset]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood03-precipitation-data-in-R/check-subset-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood03-precipitation-data-in-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="100%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -285,4 +287,4 @@ HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments wor
 
 </div>
 
-![precip plot subset 2]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood03-precipitation-data-in-R/challenge-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood03-precipitation-data-in-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="100%" />

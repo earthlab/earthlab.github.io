@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Write Reports and Document Workflow Using R Markdown"
-excerpt: 'This tutorial cover how to create an R Markdown file in R and then
-render it to html using knitr.'
+title: "How to create an R Markdown file in R Studio and the R Markdown file structure."
+excerpt: 'The R Markdown file structure includes a YAML header at the top followed by a combination of R (or any other language) code and markdown formatted text. This tutorial covers how to create an R Markdown file in R and then
+render it to html using knitr. Further it covers the basics of the YAML syntax.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-02-01'
+modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr2/
+permalink: /course-materials/earth-analytics/week-1/intro-to-the-rmarkdown-format-and-knitr/
 nav-title: 'Create R Markdown File'
 week: 1
 sidebar:
@@ -15,6 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+tags2:
+  reproducible-open-science: ['rmarkdown']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
