@@ -79,7 +79,7 @@ users <- search_users("#rstats", n=500)
 head(users, n=2)
 
 
-## ----explore-users-------------------------------------------------------
+## ----explore-users, fig.cap="plot of users tweeting about R"-------------
 # how many locations are represented
 length(unique(users$location))
 
@@ -90,7 +90,7 @@ users %>%
       y="Location",
       title="Twitter users - unique locations ")
 
-## ------------------------------------------------------------------------
+## ----users-tweeting, fig.cap="top 15 locations where people are tweeting"----
 users %>%
   count(location, sort=TRUE) %>%
   mutate(location= reorder(location,n)) %>%
@@ -102,7 +102,7 @@ users %>%
       y="Location",
       title="Twitter users - unique locations ")
 
-## ----plot-users-timezone-------------------------------------------------
+## ----plot-users-timezone, fig.cap="Users tweeting by time zone"----------
 # plot a list of users by time zone
 users %>% ggplot(aes(time_zone)) +
   geom_bar() + coord_flip() +
@@ -111,7 +111,7 @@ users %>% ggplot(aes(time_zone)) +
       title="Twitter users - unique time zones ")
 
 
-## ----plot-timezone-cleaned, echo=FALSE-----------------------------------
+## ----plot-timezone-cleaned, echo=FALSE, fig.cap="plot of users by location"----
 users %>%
   count(time_zone, sort=TRUE) %>%
   mutate(location= reorder(time_zone,n)) %>%
@@ -123,7 +123,7 @@ users %>%
       y="Time Zone",
       title="Twitter users - unique time zones ")
 
-## ----clean-data, echo=FALSE, eval=FALSE----------------------------------
+## ----clean-data, echo=FALSE, eval=FALSE, fig.cap="plot of users by time zone cleaned up."----
 ## users %>% na.omit() %>%
 ##   ggplot(aes(time_zone)) +
 ##   geom_bar() + coord_flip() +
@@ -166,7 +166,7 @@ fire_tweet_text_clean <- fire_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(word, stripped_text)
 
-## ----plot-uncleaned-data-------------------------------------------------
+## ----plot-uncleaned-data, fig.cap="plot of users tweeting about fire."----
 # plot the top 15 words -- notice any issues?
 fire_tweet_text_clean %>%
   count(word, sort=TRUE) %>%
@@ -195,7 +195,7 @@ cleaned_tweet_words <- fire_tweet_text_clean %>%
 # there should be fewer words now
 nrow(cleaned_tweet_words)
 
-## ----plot-cleaned-words--------------------------------------------------
+## ----plot-cleaned-words, fig.cap="top 15 words used in tweets"-----------
 # plot the top 15 words -- notice any issues?
 cleaned_tweet_words %>%
   count(word, sort=TRUE) %>%
@@ -210,7 +210,7 @@ cleaned_tweet_words %>%
       title="Count of unique words found in tweets",
       subtitle="Stop words removed from the list")
 
-## ---- echo=FALSE, eval=FALSE---------------------------------------------
+## ---- echo=FALSE, eval=FALSE, fig.cap="corpus plot - not using this"-----
 ## fire_tweets_corpus <- Corpus(VectorSource(fire_tweet_text))
 ## fire_tweets_dtm <- DocumentTermMatrix(fire_tweets_corpus)
 ## str(fire_tweets_dtm)
