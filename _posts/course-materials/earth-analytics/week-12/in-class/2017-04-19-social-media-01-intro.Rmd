@@ -1,15 +1,15 @@
 ---
 layout: single
-title: "Social Media Data"
+title: "Introduction to working with social media data in R - Twitter"
 excerpt: "This lesson will discuss some of the challenges associated with working with social media data in science. These challenges include working with non standard text, large volumes of data, API limitations, and geolocation issues."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/intro-to-social-media-text-mining-r/
-nav-title: "Social media intro"
+nav-title: "Twitter data in R"
 module-title: "Intro to Social Media Data in R"
-module-description: "Coming soon. "
+module-description: "This module explores the use of social media data - specifically Twitter data to better understand the social impacts and perceptions of natural disturbances and other events. Working with social media requires the use of API's to access data, text mining to extract useful information from non-standard text and then finally analysis using text-mining workflows"
 module-nav-title: 'twitter APIs'
 module-type: 'class'
 week: 12
@@ -22,6 +22,8 @@ lang-lib:
   r: ['rtweet']
 tags2:
   social-science: ['social-media']
+  data-analysis-exploration:
+    topics: ['text-mining', 'data-visualization']
 ---
 
 
@@ -58,13 +60,14 @@ snow), disturbances (floods, and other natural disasters) and more.
 
 ### Challenges working with social media data
 
-There are many challenges associated with social media data. Two challenges include
+There are many challenges associated with social media data including:
 
-1. **Non standard text:** because social media data are often a combination of text, graphics and videos, there is a significant text mining component involved. Text mining is the process of examining blocks of text to
-perform quantitative analysis. Often,
+1. **Non standard text:** because social media data are often a combination of text, graphics and videos, there is a significant data cleaning involved. Often,
 we need to find information about something in non-standard text format - some
 words may be capitalized, abbreviations may be used, punctuation and even
 emojiis all have to be considered when working with text.
+1. ***Text mining:** Text mining is the process of examining blocks of text to
+perform quantitative analysis. Pulling useful information out of blocks of non-standard text is it's own science.
 1. **Non standard of lack of consistent geolocation information:** Not all social media is spatially located (geolocated). It's thus often tricky to figure
 out where the data are coming from. Sometimes we have some geolocation information
 in non-standard text formats - for instance Colorado may be in the forms: CO or Co
@@ -73,7 +76,7 @@ or Colorado or COLORADO or Boulder, Colorado.
 only be working with small numbers of tweets (18000 is the max number we can request from twitter at one time). However in reality, collecting tweets could result in billions of records that we need to sort through. This can be a big-data challenge!
 1. **API limitations:** If we can sort through all of the items above, sometimes we are left with a data gathering challenge. Most API's don't allow users to download everything. In the case of twitter we are limited to 6-9 days of historical tweets, 18,000 tweets per API call and also to 100 requests per hour, per account. This means that we need to think strategically about what data we need and what we need to do to get it. This may mean thinking ahead and starting a streaming data collection effort when a particular event (for instance the election or a flood event) starts.
 
-### Twitter
+## Twitter
 
 This week, we are going to look at the use of <a href="http://twitter.com" target="_blank">Twitter</a> as a source of information
 to better understand the impacts of weather and disturbance events on people.
@@ -82,6 +85,29 @@ to better understand the impacts of weather and disturbance events on people.
 
 Many people use twitter to discuss relevant topics. These topics may be related
 anything of interest to those posting on twitter and may including: science, data science, computing, sports, politics, weather, news, media and more.
+
+### Why use twitter?
+
+There are many reasons why twitter is used as a source for information associate with a disturbance including:
+
+1. **Data from mixed sources:** Anyone can use twitter and thus the sources of information can include - (media, individuals, official and others). Mixed sources of information provides a more rounded perspective of the impacts of the particular event and the actions being taken to deal with that event.
+1. **Embedded content:** twitter allows users to embed pictures, videos and more to capture various elements of a disturbance both visually and quantitatively.
+1. **Instantaneous coverage:** Twitter allows users to communicate directly, in real time. Thus reports on what is going on during an event can happen as the incident unfolds.
+
+### The structure of a tweet
+
+There are various components of a tweet that we can use to extract information:
+
+* **User Name:** This is how each unique user is identified.
+* **Time Stamp:** When the tweet was sent.
+* **Tweet Text:** The body of the tweet - needs to be 140 characters of less!
+* Hashtags: Always proceeded by a # symbol. A hashtag is often describes a particular event or can be related to a particular, mor e
+* Links
+* Embedded Media
+* Replies
+* Retweets
+* Favorites
+* Latitude/Longitude
 
 #### Twitter usernames
 Twitter accounts are organized by unique usernames. When you sign up for an account,

@@ -1,10 +1,12 @@
 {% include base_path %}
 
 {% if page.tags2 %}
-  include tags {% include tag2-list.html %}
+  {% include tag2-list.html %}
 {% endif %}
 
-
+{% comment %}
+<!-- Turning this off for the time being -->
 {% if site.category_archive.type and page.categories[0] %}
   {% include category-list.html %}
 {% endif %}
+{% endcomment %}

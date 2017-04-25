@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to lidar raster data products"
 excerpt: "This lesson reviews how to open a lidar raster dataset in R."
 authors: ['Leah Wasser']
-lastModified: '2017-02-01'
+lastModified: '2017-04-25'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
@@ -14,6 +14,12 @@ sidebar:
 author_profile: false
 comments: false
 order: 4
+tags2:
+  scientific-programming: ['r']
+  remote-sensing: [lidar']
+  earth-science: ['vegetation-change']
+  file-types: ['raster']
+  spatial-gis: ['raster-data'] 
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -50,6 +56,8 @@ will learn how to open a plot a lidar raster dataset in `R`.
   </figcaption>
 </figure>
 
+
+
 ## Open Raster Data in R
 
 To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
@@ -78,7 +86,7 @@ plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
 ```
 
-![digital surface model raster plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-open-lidar-raster-data-r/open-plot-raster-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
 
 If we zoom in on a small section of the raster, we can see the individual pixels
 that make up the raster. Each pixel has one value associated with it. In this
@@ -96,7 +104,7 @@ plot(lidar_dem,
      main="Lidar Raster - Zoomed into to one small region")
 ```
 
-![zoom in on a small part of a raster - see the pixels?]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="100%" />
 
 ## Raster Resolution
 
@@ -150,7 +158,7 @@ hist(lidar_dem,
      col="springgreen")
 ```
 
-![histogram of DEM elevation values]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-open-lidar-raster-data-r/view-hist-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/view-hist-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -169,4 +177,4 @@ crs() and xres()  / yres() -->
 
 </div>
 
-![DSM histogram and plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-open-lidar-raster-data-r/class-challenge-1.png)![DSM histogram and plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2016-12-06-raster04-open-lidar-raster-data-r/class-challenge-2.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/class-challenge-1.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" /><img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/class-challenge-2.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" />
