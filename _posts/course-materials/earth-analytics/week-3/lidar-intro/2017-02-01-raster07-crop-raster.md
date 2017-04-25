@@ -19,8 +19,7 @@ tags2:
   scientific-programming: ['r']
   remote-sensing: ['lidar']
   earth-science: ['vegetation-change']
-  data-types: ['raster']
-  spatial-data-and-gis: ['raster-data'] 
+  spatial-data-and-gis: ['raster-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -102,7 +101,7 @@ to use to crop our data. To open a shapefile we use the `readOGR()` function.
 # import the vector boundary
 crop_extent <- readOGR("data/week3/BLDR_LeeHill",
                        "clip-extent")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week3/BLDR_LeeHill", layer: "clip-extent"
 ## with 1 features
 ## It has 1 fields

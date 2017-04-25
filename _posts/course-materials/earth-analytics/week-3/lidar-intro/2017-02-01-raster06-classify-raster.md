@@ -19,7 +19,6 @@ tags2:
   scientific-programming: ['r']
   remote-sensing: ['lidar']
   earth-science: ['vegetation-change']
-  data-types: ['raster']
   spatial-data-and-gis: ['raster-data']
 ---
 
@@ -97,7 +96,7 @@ We can break our raster processing workflow into several steps as follows:
 Please note - working with data is not a linear process. There are no defined
 steps. As you work with data more, you will develop your own workflow and approach.
 
-To get started, let's first open up our raster. In this case we are using the lidar 
+To get started, let's first open up our raster. In this case we are using the lidar
 canopy height model (CHM) that we calculated in the previous lesson.
 
 
@@ -109,13 +108,13 @@ lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
 ### What classification values to use?
 
 We want to classify our raster into 3 classes:
-  
-* Short 
-* Medium
-* Tall  
 
-However what valuerepresents a tall vs a short tree? We need to better 
-understand our data before assigning classification values to it. Let's begin 
+* Short
+* Medium
+* Tall
+
+However what valuerepresents a tall vs a short tree? We need to better
+understand our data before assigning classification values to it. Let's begin
 by looking at the min and max values in our CHM.
 
 
@@ -130,11 +129,11 @@ summary(lidar_chm)
 ## NA's      0.00000
 ```
 
-Looking at the summary above, it appears as if we have a range of values from 
-0 to 26.9300537. 
+Looking at the summary above, it appears as if we have a range of values from
+0 to 26.9300537.
 
 Let's explore the data further by looking at a histogram. A histogram quantifies
-the distribution of values found in our data.   
+the distribution of values found in our data.
 
 
 ```r
@@ -147,8 +146,8 @@ hist(lidar_chm,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/plot-histogram-1.png" title="histogram of lidar chm data" alt="histogram of lidar chm data" width="100%" />
 
-We can further explore our histogram, by constraining the x axis limits using the 
-`lims` argument. The lims argument visually 
+We can further explore our histogram, by constraining the x axis limits using the
+`lims` argument. The lims argument visually
 zooms in on the data in the plot. It does not modify the data!
 
 
@@ -164,7 +163,7 @@ hist(lidar_chm,
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/hist-contrained-1.png" title="plot of chm histogram constrained above 0" alt="plot of chm histogram constrained above 0" width="100%" />
 
 We can look at the values that r used to draw our histogram too. To do this, we assign
-our hist() function to a new variable. Then we look at the variable contents. This 
+our hist() function to a new variable. Then we look at the variable contents. This
 shows us the breaks used to bin our histogram data.
 
 
@@ -181,32 +180,32 @@ histinfo <- hist(lidar_chm)
 histinfo
 ## $breaks
 ##  [1]  0  2  4  6  8 10 12 14 16 18 20 22 24 26
-## 
+##
 ## $counts
 ##  [1] 79585  5974  4582  3780  2746  1628   965   459   191    65    21
 ## [12]     3     1
-## 
+##
 ## $density
 ##  [1] 0.397925 0.029870 0.022910 0.018900 0.013730 0.008140 0.004825
 ##  [8] 0.002295 0.000955 0.000325 0.000105 0.000015 0.000005
-## 
+##
 ## $mids
 ##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25
-## 
+##
 ## $xname
 ## [1] "v"
-## 
+##
 ## $equidist
 ## [1] TRUE
-## 
+##
 ## attr(,"class")
 ## [1] "histogram"
 ```
 
 Each bin represents a bar on our histogram plot. Each bar represents the frequency
-or number of pixels that have a value within that bin. For instance, there 
+or number of pixels that have a value within that bin. For instance, there
 is a break between 0 and 1 in the histogram results above. And there are 76,057 pixels
-in the counts element that fall into that bin. 
+in the counts element that fall into that bin.
 
 
 ```r
@@ -217,8 +216,8 @@ histinfo$breaks
 ##  [1]  0  2  4  6  8 10 12 14 16 18 20 22 24 26
 ```
 
-If we want to customize our histogram further, we can customize the number of 
-breaks that R uses to create it. 
+If we want to customize our histogram further, we can customize the number of
+breaks that R uses to create it.
 
 
 ```r
@@ -239,11 +238,11 @@ that I am interested in exploring.
 
 ### Histogram with custom breaks
 
-We can create custom breaks or bins in a histogram too. To do this, we pass the 
-same breaks argument a vector of numbers that represent the range for each bin 
+We can create custom breaks or bins in a histogram too. To do this, we pass the
+same breaks argument a vector of numbers that represent the range for each bin
 in our histogram.
 
-By using custom breaks, we can explore how our data may look when we classify it. 
+By using custom breaks, we can explore how our data may look when we classify it.
 
 
 ```r
@@ -257,13 +256,13 @@ hist(lidar_chm,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/histogram-breaks-1.png" title="histogram with custom breaks" alt="histogram with custom breaks" width="100%" />
 
-We may want to play with the distribution of breaks. Below it appears as if 
-there are many values close to 0. In the case of this lidar instrument we know that 
+We may want to play with the distribution of breaks. Below it appears as if
+there are many values close to 0. In the case of this lidar instrument we know that
 values between 0 and 2 meters are not reliable (we know this if we read the documentation
 about the NEON sensor and how these data were processed). Let's create a bin between 0-2.
 
-We know we want to create bins for short, medium and tall trees so let's experiment 
-with those bins also. 
+We know we want to create bins for short, medium and tall trees so let's experiment
+with those bins also.
 
 Below i use the following breaks:
 
@@ -285,9 +284,9 @@ hist(lidar_chm,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/histogram-breaks2-1.png" title="histogram with custom breaks" alt="histogram with custom breaks" width="100%" />
 
-You may want to play around with the classes further. Or you may have a scientific 
-reason to select particular classes. Regardless, let's use the classes above to 
-reclassify our CHM raster. 
+You may want to play around with the classes further. Or you may have a scientific
+reason to select particular classes. Regardless, let's use the classes above to
+reclassify our CHM raster.
 
 ## Map raster values to new values
 
@@ -302,9 +301,9 @@ The newly defined values will be as follows:
 * Medium trees: (4m - 7m tall) = 2
 * Tall trees:  (> 7m tall) = 3
 
-Notice in the list above that we set cells with a value between 0 and 2 meters to 
-NA or no data value. This means we are assuming that thereare no trees in those 
-locations! 
+Notice in the list above that we set cells with a value between 0 and 2 meters to
+NA or no data value. This means we are assuming that thereare no trees in those
+locations!
 
 Notice in the matrix below that we use `Inf` to represent the largest or max value
 found in the raster. So our assignment is as follows:
@@ -312,7 +311,7 @@ found in the raster. So our assignment is as follows:
 * 0 - 2 meters -> NA
 * 2 - 4 meters -> 1 (short trees)
 * 4-7 meters -> 2 (medium trees)
-* `>` 7 or 7 - Inf -> 3 (tall trees)  
+* `>` 7 or 7 - Inf -> 3 (tall trees)
 
 Let's create the matrix!
 
@@ -328,8 +327,8 @@ reclass_df
 ```
 
 Next, we reshape our list of numbers below into a matrix with rows and columns.
-The matrix data format supports numeric data and can be one or more dimensions. 
-Our matrix below is similar to a spreadsheet with rows and columns. 
+The matrix data format supports numeric data and can be one or more dimensions.
+Our matrix below is similar to a spreadsheet with rows and columns.
 
 
 ```r
@@ -348,7 +347,7 @@ reclass_m
 ## Reclassify raster
 
 Once we have created our classification matrix, we can reclassify our CHM raster
-using the `reclassify()` function. 
+using the `reclassify()` function.
 
 
 ```r
@@ -358,7 +357,7 @@ chm_classified <- reclassify(lidar_chm,
 ```
 
 We can view the distribution of pixels assigned to each class using the barplot().
-Note that I am not using the histogram function in this case given we only have 3 classes! 
+Note that I am not using the histogram function in this case given we only have 3 classes!
 
 ```r
 # view reclassified data
@@ -368,13 +367,13 @@ barplot(chm_classified,
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/unnamed-chunk-2-1.png" title=" " alt=" " width="100%" />
 
-If the raster classification output has values or 0, we can set those to NA using 
-the syntax below. The left side of this syntax tells R to first select ALL pixels 
-in the raster where 
+If the raster classification output has values or 0, we can set those to NA using
+the syntax below. The left side of this syntax tells R to first select ALL pixels
+in the raster where
 the pixel value = 0. `chm_classified[chm_classified == 0]`. Notice the use of two equal
-signs `==` in this statement. 
+signs `==` in this statement.
 
-The right side of the code says "assign to NA" `<- NA` 
+The right side of the code says "assign to NA" `<- NA`
 
 
 ```r
@@ -383,7 +382,7 @@ chm_classified[chm_classified==0] <- NA
 ```
 
 Then, finally we can plot our raster. Notice the colors that I selected are not ideal!
-You can pick better colors for your plot. 
+You can pick better colors for your plot.
 
 
 ```r
@@ -396,9 +395,9 @@ plot(chm_classified,
 
 ## Add custom legend
 
-Our plot looks OK but the legend doesn't represent the data well. The legend is 
-continuous - with a range between 0 and 3. However we want to plot the data using 
-discrete bins. 
+Our plot looks OK but the legend doesn't represent the data well. The legend is
+continuous - with a range between 0 and 3. However we want to plot the data using
+discrete bins.
 
 Finally, let's clean up our plot legend. Given we have discrete values we will
 create a CUSTOM legend with the 3 categories that we created in our classification matrix.
@@ -422,7 +421,7 @@ legend("topright",
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/plot-w-legend-1.png" title="classified chm with legend." alt="classified chm with legend." width="100%" />
 
 Finally, let's create a color object so we don't have to type out the colors twice.
- 
+
 
 ```r
 # create color object with nice new colors!
@@ -439,7 +438,7 @@ legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = chm_colors,
        border = F,
-       bty="n") 
+       bty="n")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/plot-w-legend-colors-1.png" title="classified chm with legend." alt="classified chm with legend." width="100%" />
@@ -463,7 +462,7 @@ legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = chm_colors,
        border = F,
-       bty="n") 
+       bty="n")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/plot-w-legend-colors2-1.png" title="classified chm with legend." alt="classified chm with legend." width="100%" />
