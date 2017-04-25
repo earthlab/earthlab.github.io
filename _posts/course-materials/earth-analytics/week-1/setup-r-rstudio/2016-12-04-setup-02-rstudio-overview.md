@@ -18,7 +18,7 @@ author_profile: false
 comments: true
 order: 2
 tags2:
-  scientific-programming: ['r-and-r-studio']    
+  scientific-programming: ['RStudio']    
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
