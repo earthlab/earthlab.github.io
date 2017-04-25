@@ -29,9 +29,11 @@
   <!-- This lists the categories -but now listing the hierarchical instead. -->
   {% endcomment %}
 
-  <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags </strong>
+  <i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags
   {% for tags in page.tags2 %}
-  <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i><a href={{ site.url }}/tags/{{ tags.first }}/>{{ tags.first | replace:"-", " " | capitalize }}</a>:</strong>
+  <span class="a-main-tag">
+  <i class="fa fa-fw fa-tag" aria-hidden="true"></i><a href={{ site.url }}/tags/{{ tags.first }}/>{{ tags.first | replace:"-", " " | capitalize }}</a>:
+  </span>
   {% for hash in tags.last %}
     {% for atag in hash %}
     <a href={{ site.url }}/tags/{{ tags.first }}/{{ atag }}/>{{ atag | replace:"-", " " }}</a> {% unless forloop.last %}, {% endunless %}

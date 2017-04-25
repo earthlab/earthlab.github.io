@@ -16,7 +16,7 @@ author_profile: false
 comments: true
 order: 6
 tags2:
-  scientific-programming: ['r-studio', 'r', 'literate-expressive-programming']
+  scientific-programming: ['RStudio', 'r', 'literate-expressive-programming']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

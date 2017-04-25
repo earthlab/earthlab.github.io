@@ -15,7 +15,7 @@ author_profile: false
 comments: true
 order: 5
 tags2:
-  scientific-programming: ['r-studio', 'r']
+  scientific-programming: ['RStudio', 'r']
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 ---
