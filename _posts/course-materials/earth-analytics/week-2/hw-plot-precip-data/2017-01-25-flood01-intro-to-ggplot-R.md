@@ -20,7 +20,7 @@ author_profile: false
 comments: true
 order: 1
 tags2:
-  scientific-programming: ['r-studio', 'r']
+  scientific-programming: ['RStudio', 'r']
   data-exploration-and-analysis: ['data-visualization']
 ---
 
