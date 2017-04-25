@@ -15,6 +15,11 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+tags2:
+  remote-sensing: [lidar']
+  earth-science: ['vegetation-change']
+  file-types: ['raster']
+  spatial-gis: ['raster-data'] 
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

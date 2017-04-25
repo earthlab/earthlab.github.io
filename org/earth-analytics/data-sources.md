@@ -123,6 +123,17 @@ from international, national and even local groups.
 * <a href="http://gtnpdatabase.org/sites/view/49/#.WIaParGZMUG" target="_blank">Toolik lake permafrost data</a>
 
 
-##
-* Remove?? Permafrost data from GTN-P
-<a href="http://gtnpdatabase.org/activelayers" target="_blank">Digital Globe</a>
+***
+
+### Change detection with lidar data - Open Topography
+
+The data below were suggested by Chris Crosby of Open Topography as excellent
+time series data subsets available on Open Topography.
+
+* <a href="http://www.ajiko.co.jp/saigai/kumamoto_2016_04_2/kumamoto_hendou.html" target="_blank"> Kumamoto earth quake animations (not in english!)</a>
+
+Time Series Comparisons
+
+* <a href="" target="_blank"> White Sands, NM dunes - prepared data that explores change detection - .las format -- these data are available from the open topography website</a>
+* <a href="http://opentopo.sdsc.edu/datasets?minX=-124.146&minY=37.788&maxX=-121.619&maxY=39.232" target="_blank">North Bay, California - before / after datasets</a>
+* * <a href="http://opentopo.sdsc.edu/datasets?minX=-119.847&minY=36.88&maxX=-118.868&maxY=37.172" target="_blank"> Southern Sierra where NEON D17 overlaps with the CZO and a USFS dataset</a>

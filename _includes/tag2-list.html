@@ -12,7 +12,7 @@
   {% comment %}
     <!-- Sort alphabetically regardless of case e.g. a B c d E -->
     <!-- modified from http://www.codeofclimber.ru/2015/sorting-site-tags-in-jekyll/ -->
-  {% endcomment %}
+
 
   {% capture page_tags %}{% for tag in page.tags2 %}{{ tag.first | downcase }}#{{ tag.first }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
   {% assign tag_hashes = (page_tags | split: ',' | sort:0) %}
@@ -22,9 +22,21 @@
     {% for hash in tag_hashes %}
       {% assign keyValue = hash | split: '#' %}
       {% capture tag_word %}{{ keyValue[1] | strip_newlines }}{% endcapture %}
-      {{ site.url }}
       <a href="{{ site.url }}/tags/{{ tag_word | slugify }}" class="page__taxonomy-item" rel="tag">{{ tag_word | replace:"-", " "}}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
     {% endfor %}
     </span>
   </p>
+  <!-- This lists the categories -but now listing the hierarchical instead. -->
+  {% endcomment %}
+
+  <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags </strong>
+  {% for tags in page.tags2 %}
+  <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i><a href={{ site.url }}/tags/{{ tags.first }}>{{ tags.first | replace:"-", " " | capitalize }}</a>:</strong>
+  {% for hash in tags.last %}
+    {% for atag in hash %}
+    <a href={{ site.url }}/tags/{{ tags.first }}/{{ atag }}>{{ atag | replace:"-", " " }}</a> {% unless forloop.last %}, {% endunless %}
+    {% endfor %}
+    {% unless forloop.last %}, {% endunless %}
+  {% endfor %}
+{% endfor %}
 {% endif %}

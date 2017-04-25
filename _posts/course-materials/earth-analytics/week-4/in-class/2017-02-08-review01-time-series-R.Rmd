@@ -12,7 +12,7 @@ module-title: 'Review of key concepts in R'
 module-description: 'In this module, we will review some key concepts associated with both
 time series data and raster data in R. '
 module-nav-title: 'Spatial Data in R'
-module-type: 'class' 
+module-type: 'class'
 course: "Earth Analytics"
 week: 4
 sidebar:
