@@ -20,7 +20,7 @@ tags2:
   remote-sensing: [lidar']
   earth-science: ['vegetation-change']
   file-types: ['raster']
-  spatial-gis: ['raster-data'] 
+  spatial-data-and-gis: ['raster-data'] 
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

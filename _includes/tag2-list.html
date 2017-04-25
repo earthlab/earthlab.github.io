@@ -22,7 +22,7 @@
     {% for hash in tag_hashes %}
       {% assign keyValue = hash | split: '#' %}
       {% capture tag_word %}{{ keyValue[1] | strip_newlines }}{% endcapture %}
-      <a href="{{ site.url }}/tags/{{ tag_word | slugify }}" class="page__taxonomy-item" rel="tag">{{ tag_word | replace:"-", " "}}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
+      <a href="{{ site.url }}/tags/{{ tag_word | slugify }}/" class="page__taxonomy-item" rel="tag">{{ tag_word | replace:"-", " "}}</a>{% unless forloop.last %}<span class="sep">, </span>{% endunless %}
     {% endfor %}
     </span>
   </p>
@@ -31,7 +31,7 @@
 
   <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i> Tags </strong>
   {% for tags in page.tags2 %}
-  <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i><a href={{ site.url }}/tags/{{ tags.first }}>{{ tags.first | replace:"-", " " | capitalize }}</a>:</strong>
+  <strong><i class="fa fa-fw fa-tags" aria-hidden="true"></i><a href={{ site.url }}/tags/{{ tags.first }}/>{{ tags.first | replace:"-", " " | capitalize }}</a>:</strong>
   {% for hash in tags.last %}
     {% for atag in hash %}
     <a href={{ site.url }}/tags/{{ tags.first }}/{{ atag }}>{{ atag | replace:"-", " " }}</a> {% unless forloop.last %}, {% endunless %}

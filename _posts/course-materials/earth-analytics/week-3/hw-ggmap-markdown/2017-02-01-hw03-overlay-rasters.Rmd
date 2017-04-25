@@ -16,8 +16,8 @@ comments: true
 order: 3
 tags2:
   scientific-programming: ['r']
-  data-analysis-exploration: ['data-visualization']
-  spatial-gis: ['raster-data', 'vector-data']
+  data-exploration-and-analysis: ['data-visualization']
+  spatial-data-and-gis: ['raster-data', 'vector-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

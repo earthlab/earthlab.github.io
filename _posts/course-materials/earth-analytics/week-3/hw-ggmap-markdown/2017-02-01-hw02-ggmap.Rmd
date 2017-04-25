@@ -17,8 +17,8 @@ order: 2
 tags2:
   scientific-programming: ['r']
   reproducible-open-science: ['rmarkdown']
-  data-analysis-exploration: ['data-visualization']
-  spatial-gis:
+  data-exploration-and-analysis: ['data-visualization']
+  spatial-data-and-gis:
   reproducible-open-science: ['rmarkdown']
 ---
 
