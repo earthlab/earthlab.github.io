@@ -79,7 +79,7 @@ available on our site with more under development!
 
 {% endfor %}
 
-
+<a href="{{ site.url}} /course-materials/">View all modules </a>
 
 ## Recent tutorials
 
