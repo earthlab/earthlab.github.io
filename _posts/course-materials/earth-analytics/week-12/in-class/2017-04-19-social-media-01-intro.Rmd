@@ -22,8 +22,7 @@ lang-lib:
   r: ['rtweet']
 tags2:
   social-science: ['social-media']
-  data-exploration-and-analysis:
-    topics: ['text-mining', 'data-visualization']
+  data-exploration-and-analysis: ['text-mining', 'data-visualization']
 ---
 
 
