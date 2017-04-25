@@ -17,7 +17,7 @@ comments: true
 order: 7
 tags2:
   scientific-programming: ['r']
-  remote-sensing: [lidar']
+  remote-sensing: ['lidar']
   earth-science: ['vegetation-change']
   data-types: ['raster']
   spatial-data-and-gis: ['raster-data'] 
