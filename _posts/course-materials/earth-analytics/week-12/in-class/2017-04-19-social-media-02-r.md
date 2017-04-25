@@ -18,7 +18,7 @@ lang-lib:
   r: ['rtweet', 'tidytext', 'dplyr']
 tags2:
   social-science: ['social-media']
-  data-analysis-exploration: ['text-mining']
+  data-exploration-and-analysis: ['text-mining']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
