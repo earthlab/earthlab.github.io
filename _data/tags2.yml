@@ -13,4 +13,4 @@ data-exploration-and-analysis:
 spatial-data-and-gis:
   topics: ['raster-data', 'vector-data']
 scientific-programming:
-  topics: ['r', 'r-studio', 'literate-expressive-programming']
+  topics: ['r', 'RStudio', 'literate-expressive-programming']

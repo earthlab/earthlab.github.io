@@ -18,7 +18,7 @@ comments: true
 order: 4
 tags2:
   reproducible-open-science: ['data-management']  
-  scientific-programming: ['r-and-r-studio']
+  scientific-programming: ['RStudio']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
