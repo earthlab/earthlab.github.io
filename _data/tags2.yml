@@ -11,6 +11,6 @@ time-series:
 data-exploration-and-analysis:
   topics: ['data-visualization']
 spatial-data-and-gis:
-  topics:
+  topics: ['raster-data', 'vector-data']
 scientific-programming:
   topics: ['r', 'r-studio', 'literate-expressive-programming']
