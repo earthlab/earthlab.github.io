@@ -16,7 +16,7 @@ comments: false
 order: 3
 tags2:
   remote-sensing: ['lidar']
-  earth-science: ['vegetation-change']
+  earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 ---
 

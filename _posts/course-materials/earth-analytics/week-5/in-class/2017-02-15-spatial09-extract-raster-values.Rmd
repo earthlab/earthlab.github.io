@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 8
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

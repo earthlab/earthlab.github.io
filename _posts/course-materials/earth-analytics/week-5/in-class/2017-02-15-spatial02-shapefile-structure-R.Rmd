@@ -14,6 +14,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+tags2:
+  spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
