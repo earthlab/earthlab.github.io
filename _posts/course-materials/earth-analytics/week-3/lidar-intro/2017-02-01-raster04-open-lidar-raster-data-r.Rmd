@@ -17,7 +17,7 @@ order: 4
 tags2:
   scientific-programming: ['r']
   remote-sensing: ['lidar']
-  earth-science: ['vegetation-change']
+  earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 ---
 

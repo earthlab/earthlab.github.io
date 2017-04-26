@@ -5,6 +5,6 @@ permalink: tags/earth-science/vegetation-change/
 comments: false
 author_profile: false
 tags2:
-  earth-science: 'vegetation-change'
+  earth-science: 'vegetation'
 main-tag: false
 ---

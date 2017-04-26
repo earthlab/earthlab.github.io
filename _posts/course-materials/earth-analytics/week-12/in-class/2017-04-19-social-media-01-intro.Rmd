@@ -57,6 +57,13 @@ a near real-time outlook on both social processes such as politics, and current
 day events and also natural processes including weather events (tornados, rainfall,
 snow), disturbances (floods, and other natural disasters) and more.
 
+<figure>
+
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-12/social-media-stats.png" alt="image showing overall stats for several platforms from 2014">
+
+<figcaption>A graphic showing the use of several social media platforms from 2014. Note that while use of these platforms has changed over the past few years this provides a general summary of overall use by platform. <a href="http://www.socialmatt.com/amazing-denver-twitter-visualization/" target="_blank">source: http://www.incite-group.com</a></figcaption>
+</figure>
+
 ### Challenges working with social media data
 
 There are many challenges associated with social media data including:
@@ -65,7 +72,7 @@ There are many challenges associated with social media data including:
 we need to find information about something in non-standard text format - some
 words may be capitalized, abbreviations may be used, punctuation and even
 emojiis all have to be considered when working with text.
-1. ***Text mining:** Text mining is the process of examining blocks of text to
+1. **Text mining:** Text mining is the process of examining blocks of text to
 perform quantitative analysis. Pulling useful information out of blocks of non-standard text is it's own science.
 1. **Non standard of lack of consistent geolocation information:** Not all social media is spatially located (geolocated). It's thus often tricky to figure
 out where the data are coming from. Sometimes we have some geolocation information
@@ -100,15 +107,15 @@ There are various components of a tweet that we can use to extract information:
 * **User Name:** This is how each unique user is identified.
 * **Time Stamp:** When the tweet was sent.
 * **Tweet Text:** The body of the tweet - needs to be 140 characters of less!
-* Hashtags: Always proceeded by a # symbol. A hashtag is often describes a particular event or can be related to a particular, mor e
-* Links
-* Embedded Media
-* Replies
-* Retweets
-* Favorites
-* Latitude/Longitude
+* **Hashtags:** Always proceeded by a # symbol. A hashtag is often describes a particular event or can be related to a particular topic. It is a way for users to communicate with a particular group of people on twitter - for instance those attending a conference `#agu2016` or those using r `#rstats`.
+* **Links:** Links can be embedded within a tweet. Links are a way that users share information.
+* **Embedded Media:** tweets can contain pictures and videos. The most popular tweets often contain pictures.
+* **Replies:** When someone posts a tweet, another user can reply directly to that user - similar to a text message except the message is visible to the public.
+* **Retweets:** a retweet is when someone shares a tweet with their followers.
+* **Favorites:** You can "like" a tweet to keep a history of content that you like in your account.
+* **Latitude/Longitude:** about 1% of all tweets contains coordinate information.
 
-#### Twitter usernames
+### Twitter usernames
 Twitter accounts are organized by unique usernames. When you sign up for an account,
 you create a username that because the way that the twitter community "sees" you.
 Someone can then send you a tweet using the `@username` syntax on twitter.
