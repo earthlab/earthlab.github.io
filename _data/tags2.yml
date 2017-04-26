@@ -1,7 +1,7 @@
 remote-sensing:
   topics: ['landsat', 'modis', 'lidar', 'naip']
 earth-science:
-  topics: ['fire', 'permafrost', 'vegetation-change']
+  topics: ['fire', 'permafrost', 'vegetation']
 reproducible-open-science:
   topics: ['rmarkdown', 'jupyter-notebooks', 'data-management']
 social-science:

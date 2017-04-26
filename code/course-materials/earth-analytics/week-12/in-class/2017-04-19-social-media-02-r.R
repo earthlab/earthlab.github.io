@@ -54,7 +54,8 @@ twitter_token <- create_token(
 
 ## ----get-tweets----------------------------------------------------------
 ## search for 500 tweets using the #rstats hashtag
-rstats_tweets <- search_tweets(q="#rstats", n = 500)
+rstats_tweets <- search_tweets(q="#rstats", 
+                               n = 500)
 # view the first 3 rows of the dataframe
 head(rstats_tweets, n=3)
 
@@ -74,7 +75,8 @@ unique(rstats_tweets$screen_name)
 
 ## ----find-users----------------------------------------------------------
 # what users are tweeting with #rstats
-users <- search_users("#rstats", n=500)
+users <- search_users("#rstats", 
+                      n=500)
 # just view the first 2 users - the data frame is large!
 head(users, n=2)
 
@@ -94,7 +96,7 @@ users %>%
 users %>%
   count(location, sort=TRUE) %>%
   mutate(location= reorder(location,n)) %>%
-  top_n(15) %>%
+  top_n(20) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +
   coord_flip() +
@@ -102,26 +104,18 @@ users %>%
       y="Location",
       title="Twitter users - unique locations ")
 
-## ----plot-users-timezone, fig.cap="Users tweeting by time zone"----------
-# plot a list of users by time zone
-users %>% ggplot(aes(time_zone)) +
-  geom_bar() + coord_flip() +
-      labs(x="Count",
-      y="Time Zone",
-      title="Twitter users - unique time zones ")
-
-
-## ----plot-timezone-cleaned, echo=FALSE, fig.cap="plot of users by location"----
+## ----users-tweeting2, fig.cap="top 15 locations where people are tweeting - na removed"----
 users %>%
-  count(time_zone, sort=TRUE) %>%
-  mutate(location= reorder(time_zone,n)) %>%
+  count(location, sort=TRUE) %>%
+  mutate(location= reorder(location,n)) %>%
+  na.omit() %>% 
   top_n(20) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +
   coord_flip() +
-      labs(x="Count",
-      y="Time Zone",
-      title="Twitter users - unique time zones ")
+      labs(x="Location",
+      y="Count",
+      title="Twitter users - unique locations ")
 
 ## ----clean-data, echo=FALSE, eval=FALSE, fig.cap="plot of users by time zone cleaned up."----
 ## users %>% na.omit() %>%
@@ -131,99 +125,15 @@ users %>%
 ##       y="Time Zone",
 ##       title="Twitter users - unique time zones ")
 
-## ----eval=FALSE----------------------------------------------------------
-## 
-## # Find tweet using forest fire in them
-## forest_fire_tweets <- search_tweets(q="forest fire", n=100, lang="en",
-##                              include_rts = FALSE)
-## 
-## # it doesn't like the type = recent argument - a bug?
-
-## ------------------------------------------------------------------------
-# Find tweet using forest fire in them
-fire_tweets <- search_tweets(q="forest+fire", n=100, lang="en",
-                             include_rts = FALSE)
-# check data to see if there are emojis
-head(fire_tweets$text)
-
-## ------------------------------------------------------------------------
-# remove urls tidyverse is failing here for some reason
-#fire_tweets %>%
-#  mutate_at(c("stripped_text"), gsub("http.*","",.))
-
-# remove http elements manually
-fire_tweets$stripped_text <- gsub("http.*","",fire_tweets$stripped_text)
-fire_tweets$stripped_text <- gsub("https.*","",fire_tweets$stripped_text)
-
-
-## ------------------------------------------------------------------------
-a_list_of_words <- c("Dog", "dog", "dog", "cat", "cat", ",")
-unique(a_list_of_words)
-
-## ------------------------------------------------------------------------
-# remove punctuation, convert to lowercase, add id for each tweet!
-fire_tweet_text_clean <- fire_tweets %>%
-  dplyr::select(stripped_text) %>%
-  unnest_tokens(word, stripped_text)
-
-## ----plot-uncleaned-data, fig.cap="plot of users tweeting about fire."----
-# plot the top 15 words -- notice any issues?
-fire_tweet_text_clean %>%
-  count(word, sort=TRUE) %>%
-  top_n(15) %>%
-  mutate(word = reorder(word, n)) %>%
-  ggplot(aes(x = word, y = n)) +
+## ----plot-timezone-cleaned, echo=FALSE, fig.cap="plot of users by location"----
+users %>%
+  count(time_zone, sort=TRUE) %>%
+  mutate(location= reorder(time_zone,n)) %>%
+  top_n(20) %>%
+  ggplot(aes(x=location,y=n)) +
   geom_col() +
-  xlab(NULL) +
   coord_flip() +
-      labs(x="Count",
-      y="Unique words",
-      title="Count of unique words found in tweets")
-
-## ------------------------------------------------------------------------
-# load list of stop words - from the tidytext package
-data("stop_words")
-# view first 6 words
-head(stop_words)
-
-nrow(fire_tweet_text_clean)
-
-# remove stop words from our list of words
-cleaned_tweet_words <- fire_tweet_text_clean %>%
-  anti_join(stop_words)
-
-# there should be fewer words now
-nrow(cleaned_tweet_words)
-
-## ----plot-cleaned-words, fig.cap="top 15 words used in tweets"-----------
-# plot the top 15 words -- notice any issues?
-cleaned_tweet_words %>%
-  count(word, sort=TRUE) %>%
-  top_n(15) %>%
-  mutate(word = reorder(word, n)) %>%
-  ggplot(aes(x = word, y = n)) +
-  geom_col() +
-  xlab(NULL) +
-  coord_flip() +
-      labs(x="Count",
-      y="Unique words",
-      title="Count of unique words found in tweets",
-      subtitle="Stop words removed from the list")
-
-## ---- echo=FALSE, eval=FALSE, fig.cap="corpus plot - not using this"-----
-## fire_tweets_corpus <- Corpus(VectorSource(fire_tweet_text))
-## fire_tweets_dtm <- DocumentTermMatrix(fire_tweets_corpus)
-## str(fire_tweets_dtm)
-## 
-## freq <- sort(colSums(as.matrix(fire_tweets_dtm)), decreasing=TRUE)
-## wf <- data.frame(word=names(freq), freq=freq)
-## wf$freq
-## 
-## # remove values <=3
-## wf %>%
-##   subset(freq > 3) %>%
-##   ggplot(aes(reorder(word, freq), freq)) +
-##         geom_bar(stat="identity", fill="darkred", colour="darkgreen") +
-##         coord_flip()
-## 
+      labs(y="Count",
+      x="Time Zone",
+      title="Twitter users - unique time zones ")
 

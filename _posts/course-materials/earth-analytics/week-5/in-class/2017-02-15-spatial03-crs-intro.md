@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Intro to Coordinate Reference Systems"
 excerpt: "This lesson covers the basics of coordinate reference systems. "
 authors: ['Leah Wasser']
-modified: '2017-03-16'
+modified: '2017-04-25'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-to-coordinate-reference-systems/
@@ -14,6 +14,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
+tags2:
+  spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -137,7 +139,7 @@ library(rgeos)
 library(raster)
 
 # set your working directory
-# setwd("~/Documents/data")
+# setwd("~/Documents/earth-analytics/")
 ```
 
 
@@ -164,7 +166,7 @@ worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
 worldMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="100%" />
 
 We can add three coordinate locations to our map. Note that the UNITS are
 in decimal **degrees** (latitude, longitude):
@@ -180,22 +182,22 @@ boundary layer.
 ```r
 # define locations of Boulder, CO and Oslo, Norway
 # store them in a data.frame format
-loc.df <- data.frame(lon=c(-105.2519, 10.7500, 2.9833),
+loc_df <- data.frame(lon=c(-105.2519, 10.7500, 2.9833),
                 lat=c(40.0274, 59.9500, 39.6167))
 
 # only needed if the above is a spatial points object
-# loc.df <- fortify(loc)
+# loc_df <- fortify(loc)
 
 # add a point to the map
 mapLocations <- worldMap +
-                geom_point(data=loc.df,
+                geom_point(data=loc_df,
                 aes(x=lon, y=lat, group=NULL), colour = "springgreen",
                       size=5)
 
 mapLocations + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="100%" />
 
 ## Geographic CRS - The Good & The Less Good
 
@@ -244,7 +246,7 @@ robMap <- ggplot(worldBound_df_robin, aes(long,lat, group=group)) +
 robMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="100%" />
 
 Now what happens if you try to add the same Lat / Long coordinate locations that
 we used above, to our map, with the `CRS` of `Robinsons`?
@@ -252,7 +254,7 @@ we used above, to our map, with the `CRS` of `Robinsons`?
 
 ```r
 # add a point to the map
-newMap <- robMap + geom_point(data=loc.df,
+newMap <- robMap + geom_point(data=loc_df,
                       aes(x=lon, y=lat, group=NULL),
                       colour = "springgreen",
                       size=5)
@@ -260,7 +262,7 @@ newMap <- robMap + geom_point(data=loc.df,
 newMap + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="100%" />
 
 Notice above that when we try to add lat/long coordinates in degrees, to a map
 in a different `CRS`, that the points are not in the correct location. We need
@@ -270,17 +272,17 @@ to as **reprojection** but performed by the `spTransform()` function in `R`.
 
 ```r
 # define locations of Boulder, CO and Oslo, Norway
-loc.df
+loc_df
 ##         lon     lat
 ## 1 -105.2519 40.0274
 ## 2   10.7500 59.9500
 ## 3    2.9833 39.6167
 
 # convert to spatial Points data frame
-loc.spdf <- SpatialPointsDataFrame(coords = loc.df, data=loc.df,
+loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
                             proj4string=crs(worldBound))
 
-loc.spdf
+loc_spdf
 ## class       : SpatialPointsDataFrame 
 ## features    : 3 
 ## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
@@ -290,33 +292,35 @@ loc.spdf
 ## min values  : -105.2519, 39.6167 
 ## max values  :     10.75,   59.95
 # reproject data to Robinson
-loc.spdf.rob <- spTransform(loc.spdf, CRSobj = CRS("+proj=robin"))
+loc_spdf_rob <- spTransform(loc.spdf, CRSobj = CRS("+proj=robin"))
+## Error in spTransform(loc.spdf, CRSobj = CRS("+proj=robin")): object 'loc.spdf' not found
 
-loc.rob.df <- as.data.frame(cbind(loc.spdf.rob$lon, loc.spdf.rob$lat))
+loc_rob_df <- as.data.frame(cbind(loc_spdf_rob$lon, loc_spdf_rob$lat))
+## Error in cbind(loc_spdf_rob$lon, loc_spdf_rob$lat): object 'loc_spdf_rob' not found
 # rename each column
-names(loc.rob.df ) <- c("X","Y")
+names(loc_rob_df ) <- c("X","Y")
+## Error in names(loc_rob_df) <- c("X", "Y"): object 'loc_rob_df' not found
 
 # convert spatial object to a data.frame for ggplot
-loc.rob <- fortify(loc.rob.df)
+loc_rob <- fortify(loc_rob_df)
+## Error in fortify(loc_rob_df): object 'loc_rob_df' not found
 
 # notice the coordinate system in the Robinson projection (CRS) is DIFFERENT
 # from the coordinate values for the same locations in a geographic CRS.
-loc.rob
-##            X       Y
-## 1 -9162993.5 4279263
-## 2   811462.5 6331141
-## 3   260256.6 4235608
+loc_rob
+## Error in eval(expr, envir, enclos): object 'loc_rob' not found
 
 # add a point to the map
-newMap <- robMap + geom_point(data=loc.rob,
+newMap <- robMap + geom_point(data=loc_rob,
                       aes(x=X, y=Y, group=NULL),
                       colour = "springgreen",
                       size=5)
+## Error in fortify(data): object 'loc_rob' not found
 
 newMap + theme(legend.position="none")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/reproject-robinson-1.png" title="Map plotted using robinson projection." alt="Map plotted using robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/reproject-robinson-1.png" title="Map plotted using robinson projection." alt="Map plotted using robinson projection." width="100%" />
 
 ## Compare Maps
 
@@ -356,7 +360,7 @@ latLongMap <- ggplot(bbox_df, aes(long,lat, group=group)) +
   coord_equal() + newTheme +
   scale_fill_manual(values=c("black", "white"), guide="none") # change colors & remove legend
 
-latLongMap <- latLongMap + geom_point(data=loc.df,
+latLongMap <- latLongMap + geom_point(data=loc_df,
                       aes(x=lon, y=lat, group=NULL),
                       colour="springgreen",
                       size=5)
@@ -378,17 +382,18 @@ finalRobMap <- ggplot(bbox_robin_df, aes(long,lat, group=group)) +
   scale_fill_manual(values=c("black", "white"), guide="none") # change colors & remove legend
 
 # add a point to the map
-finalRobMap <- finalRobMap + geom_point(data=loc.rob,
+finalRobMap <- finalRobMap + geom_point(data=loc_rob,
                       aes(x=X, y=Y, group=NULL),
                       colour="springgreen",
                       size=5)
+## Error in fortify(data): object 'loc_rob' not found
 
 
 # display side by side
 grid.arrange(latLongMap, finalRobMap)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial03-crs-intro/plot-w-graticules-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/plot-w-graticules-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="100%" />
 
 
 ## Why Multiple CRS?
@@ -446,7 +451,6 @@ the graphic below optimize?
 
 ## Geographic vs. Projected CRS
 
-
 The above maps provide examples of the two main types of coordinate systems:
 
 1. **Geographic coordinate systems:** coordinate systems that span the entire
@@ -454,6 +458,8 @@ globe (e.g. latitude / longitude).
 2. **Projected coordinate Systems:** coordinate systems that are localized to
 minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane)
 
+We will discuss these two coordinate reference systems types in more detail
+in the next lesson.
 
 <div class="notice--info" markdown="1">
 

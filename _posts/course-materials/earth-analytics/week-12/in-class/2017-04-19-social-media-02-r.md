@@ -7,7 +7,7 @@ modified: '2017-04-25'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/use-twitter-api-r/
-nav-title: 'Get twitter data'
+nav-title: 'Explore twitter data'
 week: 12
 sidebar:
   nav:
@@ -63,10 +63,12 @@ tweets. To setup your app, follow the documentation from `rtweet` here:
 <a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i>
  TUTORIAL: How to setup a twitter application using your twitter account</a>
 
+NOTE: you will need to provide your cell phone number to twitter to verify your 
+use of the API. 
 
 <figure>
 
-<img src="{{ site.url }}/images/course-materials/earth-analytics/week-12/boulder_twitter_map_visualizations.jpg">
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-12/boulder_twitter_map_visualizations.jpg" alt="image showing tweet activity across boulder and denver.">
 
 <figcaption>A heat map of the distribution of tweets across the Denver / Boulder region <a href="http://www.socialmatt.com/amazing-denver-twitter-visualization/" target="_blank">source: socialmatt.com</a></figcaption>
 </figure>
@@ -133,7 +135,6 @@ twitter_token <- create_token(
   app = appname,
   consumer_key = key,
   consumer_secret = secret)
-## Error in structure(list(appname = appname, secret = secret, key = key), : object 'appname' not found
 ```
 
 
@@ -170,65 +171,63 @@ To see what other arguments you can use with this function, use the `R` help:
 
 ```r
 ## search for 500 tweets using the #rstats hashtag
-rstats_tweets <- search_tweets(q="#rstats", n = 500)
+rstats_tweets <- search_tweets(q="#rstats", 
+                               n = 500)
+## Error in curl::curl_fetch_memory(url, handle = handle): Couldn't connect to server
 # view the first 3 rows of the dataframe
 head(rstats_tweets, n=3)
-##       screen_name            user_id          created_at
-## 1   codingbot1000 828692314826477569 2017-04-25 20:29:52
-## 2 rodriguesloures 749387892305367042 2017-04-25 20:18:47
-## 3 ExperianDataLab         2596836636 2017-04-25 20:17:38
-##            status_id
-## 1 856968522890489856
-## 2 856965735431720961
-## 3 856965446242717696
-##                                                                                                                                            text
-## 1 RT @nielsberglund: [Blog]: "Interesting Stuff - Week 16" https://t.co/ij282pv2f4\n#datascience #sqlserver #RStats #CLR #sqlserver2017 #python
-## 2                        RT @RLangTip: Find interactive charts you can create with R at the htmlwidgets gallery https://t.co/dBDCUfssba #rstats
-## 3                                   SPEAKER ANNOUNCEMENT: San Francisco EARL https://t.co/1FpkgDFGF0 @Rbloggers #Rstats https://t.co/odL1MBnczT
-##   retweet_count favorite_count is_quote_status quote_status_id is_retweet
-## 1             7              0           FALSE            <NA>       TRUE
-## 2             8              0           FALSE            <NA>       TRUE
-## 3             0              0           FALSE            <NA>      FALSE
-##    retweet_status_id in_reply_to_status_status_id
-## 1 856215363155087361                         <NA>
-## 2 856950770427719680                         <NA>
-## 3               <NA>                         <NA>
+##       screen_name    user_id          created_at          status_id
+## 1 ExperianDataLab 2596836636 2017-04-25 20:17:38 856965446242717696
+## 2 QuantStratTradR  432994402 2017-04-25 20:13:49 856964485877293056
+## 3   mjhendrickson  404107193 2017-04-25 20:11:05 856963798489583616
+##                                                                                                                                          text
+## 1                                 SPEAKER ANNOUNCEMENT: San Francisco EARL https://t.co/1FpkgDFGF0 @Rbloggers #Rstats https://t.co/odL1MBnczT
+## 2               @RobinhoodApp do you guys ever intend to make an #rstats API so that I could have my vol trading strat execute automatically?
+## 3 Visualization is most of the fun of analytics. Here are some ways to do just that in #rstats and #python. Tutorial… https://t.co/JLnSg5h3Dc
+##   retweet_count favorite_count is_quote_status    quote_status_id
+## 1             0              0           FALSE               <NA>
+## 2             0              0           FALSE               <NA>
+## 3             0              0            TRUE 850000363675680769
+##   is_retweet retweet_status_id in_reply_to_status_status_id
+## 1      FALSE              <NA>                         <NA>
+## 2      FALSE              <NA>                         <NA>
+## 3      FALSE              <NA>                         <NA>
 ##   in_reply_to_status_user_id in_reply_to_status_screen_name lang
 ## 1                       <NA>                           <NA>   en
-## 2                       <NA>                           <NA>   en
+## 2                 1265037073                   RobinhoodApp   en
 ## 3                       <NA>                           <NA>   en
-##                     source           media_id
-## 1 twitterbot-codingbot1000               <NA>
-## 2      Twitter for Android               <NA>
-## 3                  dlvr.it 856965444183261184
+##               source           media_id
+## 1            dlvr.it 856965444183261184
+## 2 Twitter Web Client               <NA>
+## 3             Buffer               <NA>
 ##                                        media_url
-## 1                                           <NA>
+## 1 http://pbs.twimg.com/media/C-SNh_VUAAA7bDn.jpg
 ## 2                                           <NA>
-## 3 http://pbs.twimg.com/media/C-SNh_VUAAA7bDn.jpg
+## 3                                           <NA>
 ##                                                      media_url_expanded
-## 1                                                                  <NA>
+## 1 https://twitter.com/ExperianDataLab/status/856965446242717696/photo/1
 ## 2                                                                  <NA>
-## 3 https://twitter.com/ExperianDataLab/status/856965446242717696/photo/1
-##   urls            urls_display                   urls_expanded
-## 1 <NA>          bit.ly/2oW5mjA           http://bit.ly/2oW5mjA
-## 2 <NA> gallery.htmlwidgets.org http://gallery.htmlwidgets.org/
-## 3 <NA>          dlvr.it/NzgL7c           http://dlvr.it/NzgL7c
-##   mentions_screen_name mentions_user_id symbols
-## 1        nielsberglund         57372793      NA
-## 2             RLangTip        295344317      NA
-## 3            Rbloggers        144592995      NA
-##                                                hashtags coordinates
-## 1 datascience sqlserver RStats CLR sqlserver2017 python          NA
-## 2                                                rstats          NA
-## 3                                                Rstats          NA
-##   place_id place_type place_name place_full_name country_code country
-## 1     <NA>       <NA>       <NA>            <NA>         <NA>    <NA>
-## 2     <NA>       <NA>       <NA>            <NA>         <NA>    <NA>
-## 3     <NA>       <NA>       <NA>            <NA>         <NA>    <NA>
-##   bounding_box_coordinates bounding_box_type
-## 1                     <NA>              <NA>
-## 2                     <NA>              <NA>
-## 3                     <NA>              <NA>
+## 3                                                                  <NA>
+##   urls                urls_display
+## 1 <NA>              dlvr.it/NzgL7c
+## 2 <NA>                        <NA>
+## 3 <NA> twitter.com/i/web/status/8…
+##                                         urls_expanded mentions_screen_name
+## 1                               http://dlvr.it/NzgL7c            Rbloggers
+## 2                                                <NA>         RobinhoodApp
+## 3 https://twitter.com/i/web/status/856963798489583616                 <NA>
+##   mentions_user_id symbols      hashtags coordinates place_id place_type
+## 1        144592995      NA        Rstats          NA     <NA>       <NA>
+## 2       1265037073      NA        rstats          NA     <NA>       <NA>
+## 3             <NA>      NA rstats python          NA     <NA>       <NA>
+##   place_name place_full_name country_code country bounding_box_coordinates
+## 1       <NA>            <NA>         <NA>    <NA>                     <NA>
+## 2       <NA>            <NA>         <NA>    <NA>                     <NA>
+## 3       <NA>            <NA>         <NA>    <NA>                     <NA>
+##   bounding_box_type
+## 1              <NA>
+## 2              <NA>
+## 3              <NA>
 ```
 
 ## Retweets
@@ -245,6 +244,7 @@ our dataframe, separately.
 # find recent tweets with #rstats but ignore retweets
 rstats_tweets <- search_tweets("#rstats", n = 500,
                              include_rts = FALSE)
+## Error in curl::curl_fetch_memory(url, handle = handle): Couldn't connect to server
 head(rstats_tweets, n=2)
 ##       screen_name    user_id          created_at          status_id
 ## 1 ExperianDataLab 2596836636 2017-04-25 20:17:38 856965446242717696
@@ -405,7 +405,9 @@ and information about their accounts.
 
 ```r
 # what users are tweeting with #rstats
-users <- search_users("#rstats", n=500)
+users <- search_users("#rstats", 
+                      n=500)
+## Error in curl::curl_fetch_memory(url, handle = handle): Couldn't connect to server
 # just view the first 2 users - the data frame is large!
 head(users, n=2)
 ##      user_id           name screen_name           location
@@ -480,14 +482,16 @@ users %>%
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-02-r/explore-users-1.png" title="plot of users tweeting about R" alt="plot of users tweeting about R" width="100%" />
 
-Let's sort by count and just plot the top 15 locations.
+Let's sort by count and just plot the top locations. To do this we use top_n(). 
+Note that in this case we are grouping our data by user. Thus top_n() will return
+locations with atleast 15 users associated with it. 
 
 
 ```r
 users %>%
   count(location, sort=TRUE) %>%
   mutate(location= reorder(location,n)) %>%
-  top_n(15) %>%
+  top_n(20) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +
   coord_flip() +
@@ -498,29 +502,47 @@ users %>%
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-02-r/users-tweeting-1.png" title="top 15 locations where people are tweeting" alt="top 15 locations where people are tweeting" width="100%" />
 
+It looks like we have some `NA` or no data values in our list. Let's remove those 
+with `na.omit()`.
+
+
+```r
+users %>%
+  count(location, sort=TRUE) %>%
+  mutate(location= reorder(location,n)) %>%
+  na.omit() %>% 
+  top_n(20) %>%
+  ggplot(aes(x=location,y=n)) +
+  geom_col() +
+  coord_flip() +
+      labs(x="Location",
+      y="Count",
+      title="Twitter users - unique locations ")
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-02-r/users-tweeting2-1.png" title="top 15 locations where people are tweeting - na removed" alt="top 15 locations where people are tweeting - na removed" width="100%" />
+
 Looking at our data, what do you notice that might improve this plot?
 There are 314 unique locations in our list. However, everyone didn't specify their
 locations using the approach. For example some just identified their country:
 United States for example and others specified a city and state. We may want to
-do some cleaning of these data to be able to better plot this.
+do some cleaning of these data to be able to better plot this distribution - especially
+if we want to create a map of these data! 
+
+### Users by time zone
 
 Lets have a look at the time zone field next.
 
 
 
-```r
-# plot a list of users by time zone
-users %>% ggplot(aes(time_zone)) +
-  geom_bar() + coord_flip() +
-      labs(x="Count",
-      y="Time Zone",
-      title="Twitter users - unique time zones ")
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-02-r/plot-users-timezone-1.png" title="Users tweeting by time zone" alt="Users tweeting by time zone" width="100%" />
+<div class="notice--warning" markdown="1">
 
-Using the code above, plot users by time zone. List the top 20 time zones.
-What do you notice about the data?
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+
+Use the example above, plot users by time zone. List time zones that have atleast 
+20 users associated with them. What do you notice about the data?
+</div>
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-02-r/plot-timezone-cleaned-1.png" title="plot of users by location" alt="plot of users by location" width="100%" />
 
@@ -539,210 +561,15 @@ cleaning steps that we often need to do. For instance:
 * we may need to scale the data
 * and others
 
-However, the data generally have a set structure in terms of file formats and metadata.
-
-When we work with social media and other text data the user community creates and
-curates the content. This means there are NO RULES! This also means that we may
-have to perform extra steps to clean the data to ensure we are analyzing the right
-thing.
-
-
-## Searching for tweets related to fire
-
-Above we learned some things about sorting through social media data and the
-associated types of issues that we may run into when begining to analyze it. Next,
-let's look at a different workflow - exploring the actual text of the tweets which
-will involve some text mining.
-
-In this example, let's find tweets that are using the words "forest fire" in them.
-
-
-
-```r
-
-# Find tweet using forest fire in them
-forest_fire_tweets <- search_tweets(q="forest fire", n=100, lang="en",
-                             include_rts = FALSE)
-
-# it doesn't like the type = recent argument - a bug?
-```
-
-
-Let's look at the results. Note any issues with our data?
-It seems like when we search for forest fire, we get tweets that contain the words
-forest and fire in them - but these tweets are not necessarily all related to our
-science topic of interest. Or are they?
-
-If we set our query to `q="forest+fire"` rather than `forest fire` then the
-API fill find tweets that use the words together in a string rathen than across
-the entire string. Let's try it.
-
-
-```r
-# Find tweet using forest fire in them
-fire_tweets <- search_tweets(q="forest+fire", n=100, lang="en",
-                             include_rts = FALSE)
-# check data to see if there are emojis
-head(fire_tweets$text)
-## [1] "I liked a @YouTube video https://t.co/RBuPtSbgCX HARDCORE MINECRAFT ★ FOREST FIRE MAYHEM (3)"                                                    
-## [2] "2012: Dust An Elysian Tail\n2013: Fire Emblem Awakening\n2014: Mario Kart 8\n2015: Ori and the Blind Forest\n2016: Fina… https://t.co/qoxMRr01SH"
-## [3] "cant really tell but its super smoky out bc theres a forest fire a few towns over https://t.co/S6Zjp4QOLg"                                       
-## [4] "probably because jack didnt seT THE ENTIRE FOREST ON FIRE THEREFORE DRAW IN ATTENTION"                                                           
-## [5] "I liked a @YouTube video https://t.co/E7IXyxvTiq HARDCORE MINECRAFT ★ FOREST FIRE MAYHEM (3)"                                                    
-## [6] "Gotta get a backwood and roll up the forest fire! \U0001f43b\U0001f525"
-```
-
-## Data clean-up
-
-Looking at the data above, it becomes clear that there is a lot of clean-up
-associated with social media data.
-
-First, there are url's in our tweets. If we want to do a text analysis to figure out
-what words are most common in our tweets, the URL's won't be helpful. Let's remove
-those.
-
-
-```r
-# remove urls tidyverse is failing here for some reason
-#fire_tweets %>%
-#  mutate_at(c("stripped_text"), gsub("http.*","",.))
-
-# remove http elements manually
-fire_tweets$stripped_text <- gsub("http.*","",fire_tweets$stripped_text)
-## Error in `$<-.data.frame`(`*tmp*`, "stripped_text", value = character(0)): replacement has 0 rows, data has 100
-fire_tweets$stripped_text <- gsub("https.*","",fire_tweets$stripped_text)
-## Error in `$<-.data.frame`(`*tmp*`, "stripped_text", value = character(0)): replacement has 0 rows, data has 100
-```
-
-Finally, we can clean up our text. If we are trying to create a list of unique
-words in our tweets, words with capitalization will be different from words
-that are all lowercase. Also we don't need punctuation to be returned as a unique
-word.
-
-
-```r
-a_list_of_words <- c("Dog", "dog", "dog", "cat", "cat", ",")
-unique(a_list_of_words)
-## [1] "Dog" "dog" "cat" ","
-```
-
-
-We can use the `tidytext::unnest_tokens()` function in the tidytext package to
-magically clean up our text! When we use this function the following things
-will be cleaned up in the text:
-
-1. **Convert text to lowercase:** each word found in the text will be converted to lowercase so ensure that we don't get duplicate words due to variation in capitalization.
-2. **Punctuation is removed:** all instances of periods, commas etc will be removed from our list of words , and
-3. **Unique id associated with the tweet:** will be added for each occurrence of the word
-
-The `unnest_tokens()` function takes two arguments:
-
-1. The name of the column where the unique word will be stored and
-2. The column name from the `data.frame` that you are using that you want to pull unique words from.
-
-In our case, we want to use the `stripped_text` column which is where we have our
-cleaned up tweet text stored.
-
-
-
-```r
-# remove punctuation, convert to lowercase, add id for each tweet!
-fire_tweet_text_clean <- fire_tweets %>%
-  dplyr::select(stripped_text) %>%
-  unnest_tokens(word, stripped_text)
-## Error in eval(expr, envir, enclos): object 'stripped_text' not found
-```
-
-Now we can plot our data. What do you notice?
-
-
-```r
-# plot the top 15 words -- notice any issues?
-fire_tweet_text_clean %>%
-  count(word, sort=TRUE) %>%
-  top_n(15) %>%
-  mutate(word = reorder(word, n)) %>%
-  ggplot(aes(x = word, y = n)) +
-  geom_col() +
-  xlab(NULL) +
-  coord_flip() +
-      labs(x="Count",
-      y="Unique words",
-      title="Count of unique words found in tweets")
-## Error in eval(expr, envir, enclos): object 'fire_tweet_text_clean' not found
-```
-
-Our plot of unique words contains some words that may not be useful to use. For instance
-"a" and "to". In the word of text mining we call those words - 'stop words'.
-We want to remove these words from our analysis as they are fillers used to compose
-a sentence.
-
-Lucky for use, the `tidytext` package has a function that will help us clean up stop
-words! To use this we:
-
-1. Load the "stop_words" data included with `tidytext`. This data is simply a list of words that we may want to remove in a natural language analysis.
-2. Then we use anti_join to remove all stop words from our analysis.
-
-Let's give this a try next!
-
-
-```r
-# load list of stop words - from the tidytext package
-data("stop_words")
-# view first 6 words
-head(stop_words)
-## # A tibble: 6 × 2
-##        word lexicon
-##       <chr>   <chr>
-## 1         a   SMART
-## 2       a's   SMART
-## 3      able   SMART
-## 4     about   SMART
-## 5     above   SMART
-## 6 according   SMART
-
-nrow(fire_tweet_text_clean)
-## Error in nrow(fire_tweet_text_clean): object 'fire_tweet_text_clean' not found
-
-# remove stop words from our list of words
-cleaned_tweet_words <- fire_tweet_text_clean %>%
-  anti_join(stop_words)
-## Error in eval(expr, envir, enclos): object 'fire_tweet_text_clean' not found
-
-# there should be fewer words now
-nrow(cleaned_tweet_words)
-## Error in nrow(cleaned_tweet_words): object 'cleaned_tweet_words' not found
-```
-
-Now that we've performed this final step of cleaning, we can try to plot, once
-again.
-
-
-```r
-# plot the top 15 words -- notice any issues?
-cleaned_tweet_words %>%
-  count(word, sort=TRUE) %>%
-  top_n(15) %>%
-  mutate(word = reorder(word, n)) %>%
-  ggplot(aes(x = word, y = n)) +
-  geom_col() +
-  xlab(NULL) +
-  coord_flip() +
-      labs(x="Count",
-      y="Unique words",
-      title="Count of unique words found in tweets",
-      subtitle="Stop words removed from the list")
-## Error in eval(expr, envir, enclos): object 'cleaned_tweet_words' not found
-```
-
-Does the plot look better than the previous plot??
-
+In the next lesson we will dive deeper into the art of "text-mining" to extract
+information about a particular topic from twitter.
 
 
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
 
+* <a href="http://tidytextmining.com/" target="_blank">Tidy text mining online book</a>
 * <a href="https://mkearney.github.io/rtweet/articles/intro.html#retrieving-trends" target="_blank">A great overview of the rtweet package by Mike Kearny</a>
 * <a href="https://francoismichonneau.net/2017/04/tidytext-origins-of-species/" target="_blank">A blog post on tidytext by Francois Michonneau</a>
 *  <a href="https://blog.twitter.com/2008/what-does-rate-limit-exceeded-mean-updated" target="_blank">About the twitter API rate limit</a>

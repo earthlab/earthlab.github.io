@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-03-07'
+modified: '2017-04-25'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/reproject-vector-data/
@@ -13,7 +13,9 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 6
+tags2:
+  spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -109,7 +111,7 @@ from the Census website to support the learning goals of this tutorial.
 # Import the shapefile data into R
 state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
-## OGR data source with driver: ESRI Shapefile
+## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week5/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
 ## with 58 features
 ## It has 10 fields
@@ -138,7 +140,7 @@ plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/find-coordinates-1.png" title="Plot of the continental united states." alt="Plot of the continental united states." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial06-reproject-vector-data-R/find-coordinates-1.png" title="Plot of the continental united states." alt="Plot of the continental united states." width="100%" />
 
 ## U.S. Boundary Layer
 
@@ -153,7 +155,7 @@ make our map pop!
 # Read the .csv file
 country_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
-## OGR data source with driver: ESRI Shapefile
+## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week5/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
 ## with 1 features
 ## It has 9 fields
@@ -179,7 +181,7 @@ plot(country_boundary_us,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial06-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="100%" />
 
 Next, let's add the location of our study area sites.
 As we are adding these layers, take note of the class of each object. We will use
@@ -190,7 +192,7 @@ AOI to represent "Area of Interest" in our data.
 # Import a polygon shapefile
 sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
-## OGR data source with driver: ESRI Shapefile
+## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week5/california/SJER/vector_data", layer: "SJER_crop"
 ## with 1 features
 ## It has 1 fields
@@ -206,7 +208,7 @@ plot(sjer_aoi,
      main="San Joachin Experimental Range AOI")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/explore-units-1.png" title="plot aoi" alt="plot aoi" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial06-reproject-vector-data-R/explore-units-1.png" title="plot aoi" alt="plot aoi" width="100%" />
 
 Our SJER AOI layer plots nicely. Let's next add it as a layer on top of the U.S. states and boundary
 layers in our basemap plot.
@@ -231,7 +233,7 @@ plot(sjer_aoi,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/layer-point-on-states-1.png" title="plot states" alt="plot states" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial06-reproject-vector-data-R/layer-point-on-states-1.png" title="plot states" alt="plot states" width="100%" />
 
 What do you notice about the resultant plot? Do you see the AOI boundary in the California area? Is something wrong?
 
@@ -315,10 +317,10 @@ object compared to the `state_boundary_us` object.
 ```r
 # extent & crs for AOI
 extent(sjer_aoi)
-## class       : Extent
-## xmin        : 254570.6
-## xmax        : 258867.4
-## ymin        : 4107303
+## class       : Extent 
+## xmin        : 254570.6 
+## xmax        : 258867.4 
+## ymin        : 4107303 
 ## ymax        : 4112362
 crs(sjer_aoi)
 ## CRS arguments:
@@ -327,10 +329,10 @@ crs(sjer_aoi)
 
 # extent & crs for object in geographic
 extent(state_boundary_us)
-## class       : Extent
-## xmin        : -124.7258
-## xmax        : -66.94989
-## ymin        : 24.49813
+## class       : Extent 
+## xmin        : -124.7258 
+## xmax        : -66.94989 
+## ymin        : 24.49813 
 ## ymax        : 49.38436
 crs(state_boundary_us)
 ## CRS arguments:
@@ -388,10 +390,10 @@ crs(sjer_aoi_WGS84)
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 # does the extent look like decimal degrees?
 extent(sjer_aoi_WGS84)
-## class       : Extent
-## xmin        : -119.7626
-## xmax        : -119.7127
-## ymin        : 37.0799
+## class       : Extent 
+## xmin        : -119.7626 
+## xmax        : -119.7127 
+## ymin        : 37.0799 
 ## ymax        : 37.12657
 ```
 
@@ -417,7 +419,7 @@ plot(sjer_aoi_WGS84,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/plot-again-1.png" title="US Map with SJER AOI Location" alt="US Map with SJER AOI Location" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-again-1.png" title="US Map with SJER AOI Location" alt="US Map with SJER AOI Location" width="100%" />
 
 But now, the aoi is a polygon and it's too small to see on the map. Let's convert
 the polygon to a polygon CENTROID and plot yet again.
@@ -442,7 +444,7 @@ plot(country_boundary_us,
 points(aoi_centroid, pch=8, col="magenta", cex=1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/plot-centroid-1.png" title="figure out AOI polygon centroid." alt="figure out AOI polygon centroid." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-centroid-1.png" title="figure out AOI polygon centroid." alt="figure out AOI polygon centroid." width="100%" />
 
 Reprojecting our data ensured that things line up on our map! It will also
 allow us to perform any required geoprocessing (spatial calculations /
@@ -472,11 +474,11 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial04-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial06-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
 
 
 
 ```
-## RStudioGD
+## RStudioGD 
 ##         2
 ```
