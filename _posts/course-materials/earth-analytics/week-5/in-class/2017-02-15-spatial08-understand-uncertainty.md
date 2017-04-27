@@ -3,7 +3,7 @@ layout: single
 title: "Understand uncertainty"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-04-26'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
@@ -17,6 +17,7 @@ order: 7
 tags2:
   remote-sensing: ['lidar']
   earth-science: ['vegetation', 'uncertainty']
+  scientific-programming: ['r']  
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -191,10 +192,6 @@ the actual heights of the trees on the ground?
 
 
 
-```
-## Error in UseMethod("extract_"): no applicable method for 'extract_' applied to an object of class "c('RasterLayer', 'Raster', 'BasicRaster')"
-## Error in merge(SJER_height, insitu_stem_height, by.x = "Plot_ID", by.y = "plotid"): object 'SJER_height' not found
-```
 
 ## Study site location
 
@@ -204,7 +201,10 @@ site location on the map below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/ggmap-plot-1.png" title="ggmap of study area." alt="ggmap of study area." width="100%" />
+
+```
+## Error in get("f", environment(CoordMap$train)): object 'f' not found
+```
 
 ## Study area plots
 
@@ -241,20 +241,11 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
     </figcaption>
 </figure>
 
-
-```
-## Error in ggplot(SJER_height@data, aes(x = insitu_max, y = SJER_lidarCHM)): object 'SJER_height' not found
-## Error in eval(expr, envir, enclos): object 'p' not found
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="100%" />
 
 ### How different are the data?
 
-
-```
-## Error in eval(expr, envir, enclos): object 'SJER_height' not found
-## Error in gsub("SJER", "", SJER_height@data$Plot_ID): object 'SJER_height' not found
-## Error in ggplot(data = SJER_height@data, aes(x = Plot_ID, y = ht_diff, : object 'SJER_height' not found
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
 
 ## View interactive scatterplot
 

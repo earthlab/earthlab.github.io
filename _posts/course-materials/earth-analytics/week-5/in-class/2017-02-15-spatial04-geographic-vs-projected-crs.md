@@ -5,7 +5,7 @@ excerpt: "This tutorial focuses on the Universal Trans Mercator (UTM)
 projected Coordinate Reference which divides the globe into zones to optimize
 projection results in each zone. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-04-26'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -18,12 +18,15 @@ comments: true
 order: 4
 tags2:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
+  scientific-programming: ['r']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
-This lesson covers the key spatial attributes that are needed to work with
-spatial data including: Coordinate Reference Systems (CRS), Extent and spatial resolution.
+
+
+This lesson briefly discusses the key differences between projected vs. geographic
+coordinate reference systems.
 
 <div class='notice--success' markdown="1">
 
@@ -31,10 +34,8 @@ spatial data including: Coordinate Reference Systems (CRS), Extent and spatial r
 
 After completing this tutorial, you will be able to:
 
-* Be able to describe what a Coordinate Reference System (`CRS`) is
-* Be able to list the steps associated with plotting 2 datasets stored using different coordinate reference systems.
-* Be able to list 2-3 fundamental differences between a geographic and a projected `CRS`.
-* Become familiar with the Universal Trans Mercator (UTM) and Geographic (WGS84) CRSs
+* List 2-3 fundamental differences between a geographic and a projected `CRS`.
+* Describe the elements of each zone within Universal Trans Mercator (UTM) CRS and Geographic (WGS84) CRSs
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -46,9 +47,8 @@ You will need a computer with internet access to complete this lesson and the da
 
 ## Geographic vs Projected CRS
 
-
-In the previous tutorial, we explored, two different types of Coordinate Reference
-Systems:
+In the previous tutorial, we explored the basic concept of a coordinate reference system. During the lesson we looked at two different types of
+ Coordinate Reference Systems:
 
 1. **Geographic coordinate systems:** coordinate systems that span the entire
 globe (e.g. latitude / longitude).
@@ -58,12 +58,42 @@ minimize visual distortion in a particular region (e.g. Robinson, UTM, State Pla
 In this tutorial, we will discuss the differences between these CRSs in more
 detail.
 
+As we discussed in the previous lesson, each `CRS` is optimized to best represent the:
 
+* shape and/or
+* scale / distance and/or
+* area
 
-## Geographic Coordinate Systems
+of features in a dataset. There is not a single CRS that does a great job at optimizing all three elements: shape, distance AND
+area. Some CRSs are optimized for shape, some are optimized for distance and
+some are optimized for area. Some CRSs are also optimized for particular regions
+- for instance the United States, or Europe.
 
-A geographic coordinate system uses a grid that wraps around the entire globe.
-This means that each point on the globe is defined using the SAME coordinate system. Geographic coordinate systems are best for global analysis however it
+## Intro to Geographic coordinate reference systems
+
+Geographic coordinate systems (which are often but not always in decimal degree
+units) are often optimal when we need to locate places on the Earth. Or when
+we need to create global maps. However, latitude and longitude
+locations are not located using uniform measurement units. Thus, geographic
+CRSs are not ideal for measuring distance. This is why other projected `CRS`
+have been developed.
+
+<figure>
+	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif">
+	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
+	<figcaption>A geographic coordinate system locates latitude and longitude
+	location using angles. Thus the spacing of each line of latitude moving north
+	and south is not uniform.
+	Source: ESRI
+	</figcaption>
+</figure>
+
+## The structure of a geographic CRS
+
+A geographic CRS uses a grid that wraps around the entire globe.
+This means that each point on the globe is defined using the SAME coordinate
+system and the same units as defined within that particular geographic CRS.
+Geographic coordinate reference systems are best for global analysis however it
 is important to remember that distance is distorted using a geographic lat / long
 `CRS`.
 
@@ -71,34 +101,31 @@ The **geographic WGS84 lat/long** `CRS` has an origin - (0,0) -
 located at the intersection of the
 Equator (0° latitude) and Prime Meridian (0° longitude) on the globe.
 
+Let's remind ourselves what data projects in a geographic CRS look like.
 
-```
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
-## Error in fortify(worldGrat30): object 'worldGrat30' not found
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
-## Error in fortify(wgs84Box): object 'wgs84Box' not found
-## Error in ggplot(wgs84Box_df, aes(long, lat, group = group)): object 'wgs84Box_df' not found
-```
-
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title=" " alt=" " width="100%" />
 
 
 <i class="fa fa-star"></i> **Data Note:** The distance between the 2 degrees of
 longitude at the equator (0°) is ~ 69 miles. The distance between 2 degrees of
-longitude at 40°N (or S) is only 53 miles. However measures of distance when using
-lat/long project are not uniform.
+longitude at 40°N (or S) is only 53 miles. This difference in actual distance relative to
+"distance" between the actual parallels and meridians demonstrates how distance
+calculations will be less accurate when using geographic CRSs
 {: .notice}
 
 
 ## Projected Coordinate Reference Systems
 
+As we learned above, geographic coordinate systems are ideal for creating
+global maps. However, they are prone to error when quantifying distance. In contrast, various spatial projections have evolved that can be used to more accurately capture distance, shape and/or area.
 
+### What is a spatial projection
 Spatial projection refers to the mathematical calculations
 performed to flatten the 3D data onto a 2D plane (our computer screen
 or a paper map). Projecting data from a round surface onto a flat surface, results
 in visual modifications to the data when plotted on a map. Some areas are stretched
-and some some are compressed. We can see this when we look at a MAP of the entire
-globe.
-
+and some some are compressed. We can see this distortion when we look at a map
+of the entire globe.
 
 The mathematical calculations used in spatial projections are designed to
 optimize the relative size and shape of a particular region on the globe.
@@ -124,7 +151,7 @@ numbered 0-60 (equivalent to longitude) and regions (north and south)
 
 <i class="fa fa-star"></i> **Data Note:** UTM zones are also defined using bands,
 lettered C-X (equivalent to latitude) however, the band designation is often
-dropped as it isn't esssential to specifying the location.
+dropped as it isn't essential to specifying the location.
 {: .notice}
 
 While UTM zones span the entire globe, UTM uses a regional projection and
@@ -141,38 +168,107 @@ the UTM zone, to avoid negative Easting numbers.
     <a href="https://www.e-education.psu.edu/natureofgeoinfo/sites/www.e-education.psu.edu.natureofgeoinfo/files/image/utm_zone_characteristics.png">
     <img src="https://www.e-education.psu.edu/natureofgeoinfo/sites/www.e-education.psu.edu.natureofgeoinfo/files/image/utm_zone_characteristics.png">
     </a>
-    <figcaption>The 0,0 origin of each UTM zone is located in the **Bottom left** hand corner (south west) of the zone - exactly 500,000 m EAST from the central meridian of the zone.
+    <figcaption>The 0,0 origin of each UTM zone is located in the <strong>Bottom left</strong> hand corner (south west) of the zone - exactly 500,000 m EAST from the central meridian of the zone.
     Source: Penn State E-education</figcaption>
 </figure>
 
 ***
 
-### More on UTM
 
-* <a href="https://www.e-education.psu.edu/geog482spring2/c2_p22.html" target="_blank">
-Penn State E-education overview of UTM</a>
-* <a href="https://www.e-education.psu.edu/geog482spring2/c2_p23.html
-" target="_blank">
-More about UTM Zones - Penn State E-education</a>
-
-***
 
 <figure>
     <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg">
     </a>
-    <figcaption> The gridded UTM coordinate system across the globe.
-    Source: Public domain from Earth Observatory, NASA</figcaption>
+    <figcaption>The gridded UTM coordinate system across the globe.
+    Source: NASA Earth Observatory</figcaption>
 </figure>
 
-# edit this messy
-The coordinates for the NEON Harvard Forest Field Site would be written as:
+### Understand UTM Coordinates
 
-UTM Zone 18N, 730782m, 4712631m
+Let's compare coordinates for one location, but saved in two different CRSs to
+better understand what this looks like. The coordinates for Boulder, Colorado in
+UTM are:
 
-where the N denotes that it is in the Northern, not Southern hemisphere. Occassionally, you may see:
+`UTM Zone 13N easting: 476,911.31m, northing: 4,429,455.35`
 
-Zone 18T, 730782m Easting, 4712631m Northing.
+Remember that N denotes that it is in the Northern hemisphere on the Earth.
+
+Let's plot this coordinate on a map
+
+
+```r
+# create a data.frame with the x,y location
+boulder_df <- data.frame(lon=c(476911.31),
+                lat=c(4429455.35))
+
+# plot boulder
+ggplot() +
+                geom_point(data=boulder_df,
+                aes(x=lon, y=lat, group=NULL), colour = "springgreen",
+                      size=5)
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/unnamed-chunk-1-1.png" title=" " alt=" " width="100%" />
+
+```r
+# convert to spatial points
+coordinates(boulder_df) <- 1:2
+
+class(boulder_df)
+## [1] "SpatialPoints"
+## attr(,"package")
+## [1] "sp"
+crs(boulder_df)
+## CRS arguments: NA
+
+# assign crs - we know it is utm zone 13N
+crs(boulder_df) <- CRS("+init=epsg:2957")
+```
+
+
+
+Note the projection of our data in UTM +init=epsg:2957 +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+
+If we spatially project our data into a geographic coordinate refence system,
+notice how our new coordinates are different - yet they still represent the same
+location.
+
+
+```r
+boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
+coordinates(boulder_df_geog)
+##            lon      lat
+## [1,] -105.2705 40.01498
+```
+
+Now we can plot our data on top of our world map which is also in a geographic CRS.
+
+
+```r
+boulder_df_geog <- as.data.frame(coordinates(boulder_df_geog))
+# plot map
+worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
+  geom_polygon() +
+  xlab("Longitude (Degrees)") + ylab("Latitude (Degrees)") +
+  coord_equal() +
+  ggtitle("Global Map - Geographic Coordinate System - WGS84 Datum\n Units: Degrees - Latitude / Longitude")
+
+# map boulder
+worldMap +
+        geom_point(data=boulder_df_geog,
+        aes(x=lon, y=lat, group=NULL), colour = "springgreen", size=5)
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/unnamed-chunk-4-1.png" title=" " alt=" " width="100%" />
+
+
+
+### Important
+
+While sometimes UTM zones in the north vs south are specified using N and S
+respectively (e.g. UTM Zone 18N) other times you may see a letter as follows:
+Zone 18T, 730782m Easting, 4712631m Northing vs UTM Zone 18N, 730782m, 4712631m.
 
 <i class="fa fa-star"></i>**Data Tip:**  The UTM system doesn't apply to polar
 regions (>80°N or S). Universal Polar Stereographic (UPS) coordinate system is
@@ -180,11 +276,16 @@ used in these area. This is where zones A, B and Y, Z are used if you were
 wondering why they weren't in the UTM lettering system.
 {: .notice }
 
-<div id="challenge" markdown="1">
 
-Practice understanding UTM coordinates:
+<div class="notice--warning" markdown="1">
 
-https://www.e-education.psu.edu/natureofgeoinfo/sites/www.e-education.psu.edu.natureofgeoinfo/files/flash/coord_practice_utm_v06.swf
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+
+The penn state e-education institute has a nice interactive tool that you can
+use to explore utm coordinate reference systems.
+
+<a href="https://www.e-education.psu.edu/natureofgeoinfo/sites/www.e-education.psu.edu.natureofgeoinfo/files/flash/coord_practice_utm_v06.swf" target="_blank">View UTM Interactive tool</a>
+
 </div>
 
 
@@ -203,9 +304,6 @@ the earth.
 respectively.  The origin for NAD 27 is Meades Ranch in Kansas.
 * *ED50* -- European Datum 1950
 
-For more information, read
-*  <a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Datums/003r00000008000000/" target="_blank">ESRI's ArcGIS discussion of Datums.</a>
-*  <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">page 2 in M. Fraiser's CRS Overview.</a>
 
 
 > NOTE: All coordinate reference systems have a vertical and horizontal datum
@@ -227,10 +325,19 @@ we will discuss three of the commonly encountered formats including: **Proj4**,
 **WKT** (Well Known Text) and **EPSG**.
 
 
-***
+<div class="notice--info" markdown="1">
 
 ## Additional Resources
 
-ESRI help on CRS
-QGIS help on CRS
-NCEAS cheatsheets
+### More about the UTM CRS
+* <a href="https://www.e-education.psu.edu/geog482spring2/c2_p22.html" target="_blank">
+Penn State E-education overview of UTM</a>
+* <a href="https://www.e-education.psu.edu/geog482spring2/c2_p23.html
+" target="_blank">
+More about UTM Zones - Penn State E-education</a>
+
+### More about Datums
+*  <a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Datums/003r00000008000000/" target="_blank">ESRI's ArcGIS discussion of Datums.</a>
+*  <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">page 2 in M. Fraiser's CRS Overview.</a>
+
+</div>

@@ -17,6 +17,7 @@ order: 7
 tags2:
   remote-sensing: ['lidar']
   earth-science: ['vegetation', 'uncertainty']
+  scientific-programming: ['r']  
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

@@ -1,7 +1,8 @@
 ## ----eval=FALSE----------------------------------------------------------
 ## # Find the last 1000 tweets using the forest fire hashtag
-## forest_fire_tweets <- search_tweets(q="#forestfire", n=1000, lang="en",
-##                              include_rts = FALSE)
+##   forest_fire_tweets <- search_tweets(q="#forestfire", n=1000,
+##                                       lang="en",
+##                                       include_rts = FALSE)
 ## 
 
 ## ------------------------------------------------------------------------
