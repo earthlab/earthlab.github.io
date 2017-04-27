@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-04-25'
+modified: '2017-04-26'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -72,8 +72,9 @@ In this example, let's find tweets that are using the words "forest fire" in the
 
 ```r
 # Find the last 1000 tweets using the forest fire hashtag
-forest_fire_tweets <- search_tweets(q="#forestfire", n=1000, lang="en",
-                             include_rts = FALSE)
+  forest_fire_tweets <- search_tweets(q="#forestfire", n=1000, 
+                                      lang="en",
+                                      include_rts = FALSE)
 
 ```
 
@@ -92,15 +93,10 @@ the entire string. Let's try it.
 # Find tweet using forest fire in them
 fire_tweets <- search_tweets(q="#forestfire", n=100, lang="en",
                              include_rts = FALSE)
-## Error in curl::curl_fetch_memory(url, handle = handle): Couldn't connect to server
+## Error in eval(expr, envir, enclos): could not find function "search_tweets"
 # check data to see if there are emojis
 head(fire_tweets$text)
-## [1] "I liked a @YouTube video https://t.co/RBuPtSbgCX HARDCORE MINECRAFT ★ FOREST FIRE MAYHEM (3)"                                                    
-## [2] "2012: Dust An Elysian Tail\n2013: Fire Emblem Awakening\n2014: Mario Kart 8\n2015: Ori and the Blind Forest\n2016: Fina… https://t.co/qoxMRr01SH"
-## [3] "cant really tell but its super smoky out bc theres a forest fire a few towns over https://t.co/S6Zjp4QOLg"                                       
-## [4] "probably because jack didnt seT THE ENTIRE FOREST ON FIRE THEREFORE DRAW IN ATTENTION"                                                           
-## [5] "I liked a @YouTube video https://t.co/E7IXyxvTiq HARDCORE MINECRAFT ★ FOREST FIRE MAYHEM (3)"                                                    
-## [6] "Gotta get a backwood and roll up the forest fire! \U0001f43b\U0001f525"
+## Error in head(fire_tweets$text): object 'fire_tweets' not found
 ```
 
 ## Data clean-up
@@ -120,7 +116,9 @@ those.
 
 # remove http elements manually
 fire_tweets$stripped_text <- gsub("http.*","",  fire_tweets$text)
+## Error in gsub("http.*", "", fire_tweets$text): object 'fire_tweets' not found
 fire_tweets$stripped_text <- gsub("https.*","", fire_tweets$stripped_text)
+## Error in gsub("https.*", "", fire_tweets$stripped_text): object 'fire_tweets' not found
 ```
 
 Finally, we can clean up our text. If we are trying to create a list of unique
@@ -159,6 +157,7 @@ cleaned up tweet text stored.
 fire_tweet_text_clean <- fire_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(word, stripped_text)
+## Error in eval(expr, envir, enclos): object 'fire_tweets' not found
 ```
 
 Now we can plot our data. What do you notice?
@@ -177,10 +176,8 @@ fire_tweet_text_clean %>%
       labs(x="Count",
       y="Unique words",
       title="Count of unique words found in tweets")
-## Selecting by n
+## Error in eval(expr, envir, enclos): object 'fire_tweet_text_clean' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-03-r/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="100%" />
 
 Our plot of unique words contains some words that may not be useful to use. For instance
 "a" and "to". In the word of text mining we call those words - 'stop words'.
@@ -199,29 +196,22 @@ Let's give this a try next!
 ```r
 # load list of stop words - from the tidytext package
 data("stop_words")
+## Warning in data("stop_words"): data set 'stop_words' not found
 # view first 6 words
 head(stop_words)
-## # A tibble: 6 × 2
-##        word lexicon
-##       <chr>   <chr>
-## 1         a   SMART
-## 2       a's   SMART
-## 3      able   SMART
-## 4     about   SMART
-## 5     above   SMART
-## 6 according   SMART
+## Error in head(stop_words): object 'stop_words' not found
 
 nrow(fire_tweet_text_clean)
-## [1] 1484
+## Error in nrow(fire_tweet_text_clean): object 'fire_tweet_text_clean' not found
 
 # remove stop words from our list of words
 cleaned_tweet_words <- fire_tweet_text_clean %>%
   anti_join(stop_words)
-## Joining, by = "word"
+## Error in eval(expr, envir, enclos): object 'fire_tweet_text_clean' not found
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 851
+## Error in nrow(cleaned_tweet_words): object 'cleaned_tweet_words' not found
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -242,10 +232,8 @@ cleaned_tweet_words %>%
       x="Unique words",
       title="Count of unique words found in tweets",
       subtitle="Stop words removed from the list")
-## Selecting by n
+## Error in eval(expr, envir, enclos): object 'cleaned_tweet_words' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-03-r/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="100%" />
 
 ## Explore networks of words
 
@@ -264,61 +252,67 @@ library(widyr)
 fire_tweets_paired_words <- fire_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(paired_words, stripped_text, token = "ngrams", n=2)
+## Error in eval(expr, envir, enclos): object 'fire_tweets' not found
 
 fire_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 1,183 × 2
-##       paired_words     n
-##              <chr> <int>
-## 1      forest fire    46
-## 2         a forest    22
-## 3          start a     9
-## 4       the forest     9
-## 5  output recovers     8
-## 6        oil sands     7
-## 7     sands output     7
-## 8         to start     6
-## 9        a youtube     5
-## 10          but it     5
-## # ... with 1,173 more rows
+## Error in eval(expr, envir, enclos): object 'fire_tweets_paired_words' not found
 ```
 
 
 ```r
 library(tidyr)
+## 
+## Attaching package: 'tidyr'
+## The following object is masked from 'package:raster':
+## 
+##     extract
 fire_tweets_separated_words <- fire_tweets_paired_words %>%
   separate(paired_words, c("word1", "word2"), sep = " ")
+## Error in eval(expr, envir, enclos): object 'fire_tweets_paired_words' not found
 
 fire_tweets_filtered <- fire_tweets_separated_words %>%
   filter(!word1 %in% stop_words$word) %>%
   filter(!word2 %in% stop_words$word)
+## Error in eval(expr, envir, enclos): object 'fire_tweets_separated_words' not found
 
 # new bigram counts:
 fire_words_counts <- fire_tweets_filtered %>% 
   count(word1, word2, sort = TRUE)
+## Error in eval(expr, envir, enclos): object 'fire_tweets_filtered' not found
 
 fire_words_counts
-## Source: local data frame [393 x 3]
-## Groups: word1 [296]
-## 
-##       word1      word2     n
-##       <chr>      <chr> <int>
-## 1    forest       fire    46
-## 2    output   recovers     8
-## 3       oil      sands     7
-## 4     sands     output     7
-## 5   youtube      video     5
-## 6    forest    service     4
-## 7       owl        oil     4
-## 8  careless      match     3
-## 9      fire disruption     3
-## 10     fire management     3
-## # ... with 383 more rows
+## Error in eval(expr, envir, enclos): object 'fire_words_counts' not found
 
 # plot? 
 
 library(igraph)
+## 
+## Attaching package: 'igraph'
+## The following objects are masked from 'package:tidyr':
+## 
+##     %>%, crossing
+## The following objects are masked from 'package:dplyr':
+## 
+##     %>%, as_data_frame, groups, union
+## The following object is masked from 'package:raster':
+## 
+##     union
+## The following object is masked from 'package:rgeos':
+## 
+##     union
+## The following objects are masked from 'package:stats':
+## 
+##     decompose, spectrum
+## The following object is masked from 'package:base':
+## 
+##     union
 library(ggraph)
+## 
+## Attaching package: 'ggraph'
+## The following object is masked from 'package:sp':
+## 
+##     geometry
 
 fire_words_counts %>%
         filter(n >= 7) %>%
@@ -329,15 +323,14 @@ fire_words_counts %>%
         geom_node_text(aes(label = name), vjust = 1.8) +
         ggtitle(expression(paste("Word Network of forest fire tweets ", 
                                  italic("Text mining twitter data "))))
+## Error in eval(expr, envir, enclos): object 'fire_words_counts' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-03-r/unnamed-chunk-8-1.png" title=" " alt=" " width="100%" />
 
 
 ```r
 word_cooccurences <- fire_tweets$stripped_text %>%
         pair_count(linenumber, word, sort = TRUE)
-## Error in pair_count_(data, group_col, value_col, unique_pair = unique_pair, : pair_count is deprecated, see pairwise_count in the widyr package instead: https://github.com/dgrtwo/widyr
+## Error in eval(expr, envir, enclos): object 'fire_tweets' not found
 
 word_cooccurences
 ## Error in eval(expr, envir, enclos): object 'word_cooccurences' not found

@@ -4,7 +4,7 @@ title: "Extract raster values using vector boundaries in R"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-04-26'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/extract-data-from-raster/
@@ -15,6 +15,11 @@ sidebar:
 author_profile: false
 comments: true
 order: 8
+tags2:
+  remote-sensing: ['lidar']
+  earth-science: ['vegetation', 'uncertainty']
+  scientific-programming: ['r']
+  spatial-data-and-gis: ['vector-data', 'raster-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -173,7 +178,6 @@ SJER_height <- extract(SJER_chm,
                     fun=mean, # extract the MEAN value from each plot
                     sp=TRUE, # create spatial object
                     stringsAsFactors=FALSE)
-## Error in UseMethod("extract_"): no applicable method for 'extract_' applied to an object of class "c('RasterLayer', 'Raster', 'BasicRaster')"
 ```
 
 #### Explore The Data Distribution
@@ -275,10 +279,46 @@ SJER_height <- merge(SJER_height,
                      insitu_stem_height,
                    by.x = 'Plot_ID',
                    by.y = 'plotid')
-## Error in merge(SJER_height, insitu_stem_height, by.x = "Plot_ID", by.y = "plotid"): object 'SJER_height' not found
 
 SJER_height@data
-## Error in eval(expr, envir, enclos): object 'SJER_height' not found
+##     Plot_ID  Point northing  easting plot_type SJER_lidarCHM insitu_max
+## 1  SJER1068 center  4111568 255852.4     trees     11.544348       19.3
+## 2   SJER112 center  4111299 257407.0     trees     10.355685       23.9
+## 3   SJER116 center  4110820 256838.8     grass      7.511956       16.0
+## 4   SJER117 center  4108752 256176.9     trees      7.675347       11.0
+## 5   SJER120 center  4110476 255968.4     grass      4.591176        8.8
+## 6   SJER128 center  4111389 257078.9     trees      8.979005       18.2
+## 7   SJER192 center  4111071 256683.4     grass      7.240118       13.7
+## 8   SJER272 center  4112168 256717.5     trees      7.103862       12.4
+## 9  SJER2796 center  4111534 256034.4      soil      6.405240        9.4
+## 10 SJER3239 center  4109857 258497.1      soil      6.009128       17.9
+## 11   SJER36 center  4110162 258277.8     trees      6.516288        9.2
+## 12  SJER361 center  4107527 256961.8     grass     13.899027       11.8
+## 13   SJER37 center  4107579 256148.2     trees      7.109851       11.5
+## 14    SJER4 center  4109767 257228.3     trees      5.032620       10.8
+## 15    SJER8 center  4110249 254738.6     trees      3.024286        5.2
+## 16  SJER824 center  4110048 256185.6      soil      7.738203       26.5
+## 17  SJER916 center  4109617 257460.5      soil     11.181955       18.4
+## 18  SJER952 center  4110759 255871.2     grass      4.149286        7.7
+##    insitu_avg
+## 1    3.866667
+## 2    8.221429
+## 3    8.218750
+## 4    6.512500
+## 5    7.600000
+## 6    5.211765
+## 7    6.769565
+## 8    6.819048
+## 9    5.085714
+## 10   3.920833
+## 11   9.200000
+## 12   2.451429
+## 13   7.350000
+## 14   5.910526
+## 15   1.057143
+## 16   5.357895
+## 17   5.791667
+## 18   1.558333
 ```
 
 ## Plot by height
@@ -295,7 +335,6 @@ plot(SJER_height,
      pch=19,
      cex=(SJER_height$SJER_lidarCHM)/10, # size symbols according to tree height attribute normalized by 10
      add=T)
-## Error in plot(SJER_height, pch = 19, cex = (SJER_height$SJER_lidarCHM)/10, : object 'SJER_height' not found
 
 # place legend outside of the plot
 par(xpd=T)
@@ -323,8 +362,9 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
   ylab("Mean measured height") +
   xlab("Mean LiDAR pixel") +
   ggtitle("Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height (m)")
-## Error in ggplot(SJER_height@data, aes(x = SJER_lidarCHM, y = insitu_avg)): object 'SJER_height' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial09-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="100%" />
 
 Next, let's fix the plot adding a 1:1 line and making the x and y axis the same .
 
@@ -339,8 +379,9 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
   xlim(0,15) + ylim(0,15) + # set x and y limits to 0-20
   geom_abline(intercept = 0, slope=1) + # add one to one line
   ggtitle("Lidar Derived Tree Height \nvs. InSitu Measured Tree Height")
-## Error in ggplot(SJER_height@data, aes(x = SJER_lidarCHM, y = insitu_avg)): object 'SJER_height' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial09-extract-raster-values/plot-w-ggplot2-1.png" title="ggplot - measured vs lidar chm w one to one line." alt="ggplot - measured vs lidar chm w one to one line." width="100%" />
 
 We can also add a regression fit to our plot. Explore the GGPLOT options and
 customize your plot.
@@ -355,15 +396,15 @@ p <- ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
     xlim(0,15) + ylim(0,15) + # set x and y limits to 0-20
   geom_abline(intercept = 0, slope=1)+
   geom_smooth(method=lm)
-## Error in ggplot(SJER_height@data, aes(x = SJER_lidarCHM, y = insitu_avg)): object 'SJER_height' not found
 
 p + theme(panel.background = element_rect(colour = "grey")) +
   ggtitle("LiDAR CHM Derived vs Measured Tree Height") +
   theme(plot.title=element_text(family="sans", face="bold", size=20, vjust=1.9)) +
   theme(axis.title.y = element_text(family="sans", face="bold", size=14, angle=90, hjust=0.54, vjust=1)) +
   theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
-## Error in eval(expr, envir, enclos): object 'p' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial09-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="100%" />
 
 
 ## View Difference: lidar vs measured
@@ -372,7 +413,6 @@ p + theme(panel.background = element_rect(colour = "grey")) +
 ```r
 # Calculate difference
 SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$insitu_avg)
-## Error in eval(expr, envir, enclos): object 'SJER_height' not found
 
 
 
@@ -381,7 +421,11 @@ ggplot(data=SJER_height@data,
        aes(x=Plot_ID, y=ht_diff, fill=Plot_ID)) +
        geom_bar(stat="identity") +
        xlab("Plot Name") + ylab("Height difference (m)")
-## Error in ggplot(data = SJER_height@data, aes(x = Plot_ID, y = ht_diff, : object 'SJER_height' not found
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial09-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
+
+```r
        ggtitle("Difference: \nLidar avg height - in situ avg height (m)")
 ## $title
 ## [1] "Difference: \nLidar avg height - in situ avg height (m)"
