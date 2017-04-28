@@ -109,12 +109,12 @@ loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
 
 loc_spdf
 
-## ------------------------------------------------------------------------
+## ----transform-data------------------------------------------------------
 # reproject data to Robinson
 loc_spdf_rob <- spTransform(loc_spdf, CRSobj = CRS("+proj=robin"))
 
 
-## ------------------------------------------------------------------------
+## ----plot-new-map, fig.cap="Map of the globe in robinson projection."----
 # convert the spatial object into a data frame
 loc_rob_df <- as.data.frame(coordinates(loc_spdf_rob))
 
