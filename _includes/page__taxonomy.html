@@ -1,9 +1,12 @@
 {% include base_path %}
 
-{% if site.tag_archive.type and page.tags[0] %}
-  {% include tag-list.html %}
+{% if page.tags2 %}
+  {% include tag2-list.html %}
 {% endif %}
 
+{% comment %}
+<!-- Turning this off for the time being -->
 {% if site.category_archive.type and page.categories[0] %}
   {% include category-list.html %}
 {% endif %}
+{% endcomment %}

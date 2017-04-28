@@ -6,15 +6,14 @@ title: 'Install & setup R and RStudio on your laptop'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'This tutorial walks you through downloading and installing R and RStudio on your computer.'
 dateCreated: 2016-12-12
-modified: '2017-02-01'
+modified: '2017-04-21'
 module-title: 'Setup R, RStudio and Your Working Directory'
 module-description: 'This module walks you through getting R and RStudio setup on your
 laptop. It also introduces file organization strategies.'
-computes. module-type: 'homework' 
 course: "Earth Analytics"
 nav-title: 'Setup RStudio'
 module-nav-title: 'Setup R'
-module-type: 'homework' 
+module-type: 'homework'
 course: "Earth Analytics"
 week: 1
 sidebar:
@@ -25,6 +24,8 @@ permalink: /course-materials/earth-analytics/week-1/setup-r-rstudio/
 author_profile: false
 comments: true
 order: 1
+tags2:
+  scientific-programming: ['RStudio']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

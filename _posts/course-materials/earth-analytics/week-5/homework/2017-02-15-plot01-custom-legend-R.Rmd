@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "GIS in R: custom legends"
-excerpt: " ."
+title: "GIS in R: Plot spatial data and create custom legends in R"
+excerpt: "In this lesson we break down the steps required to create a custom legend for spatial data in R. We discuss creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -12,7 +12,7 @@ module-title: 'Custom plots in R'
 module-description: 'This tutorial covers the basics of creating custom plot legends
 in R'
 module-nav-title: 'Spatial Data: Custom plots in R'
-module-type: 'homework' 
+module-type: 'homework'
 course: "Earth Analytics"
 week: 5
 sidebar:
@@ -20,9 +20,13 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
+  scientific-programming: ['r']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 <div class='notice--success' markdown="1">
 
@@ -620,7 +624,7 @@ The possible values for the `text.font` argument are:
 * 3: italic
 * 4: bold and italic
 
-Notice below, i am passing a vector of values, one value to represent each 
+Notice below, i am passing a vector of values, one value to represent each
 element in the legend.
 
 ```{r custom-legend-points-lines-3, fig.cap="final legend with points and lines customized 2ß."}

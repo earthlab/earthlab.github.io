@@ -37,18 +37,20 @@ sidebar:
   nav: earth-analytics-2017
 ---
 
-## Welcome
 
-This site contains open, tutorials and course materials in the area of data integration
-and data intensive science. Currently, we have {{ site.posts | size }} lessons
-available on our site with more under development!
 
-<!-- hiding this until the functionality is fully working
+<!-- hiding this until the functionality is fully working -->
 <div class="sidebar notsticky">
   {% include sidebar_home.html %}
-</div> -->
+</div>
 
 <div class="archive" markdown="1">
+
+## Welcome to Earth * Data * Science !
+
+This site contains open, tutorials and course materials covering topics including data integration, GIS
+and data intensive science. Currently, we have {{ site.posts | size }} lessons
+available on our site with more under development!
 
 ## Recent course modules
 
@@ -77,7 +79,7 @@ available on our site with more under development!
 
 {% endfor %}
 
-
+<a href="{{ site.url}}/course-materials/">View all modules </a>
 
 ## Recent tutorials
 

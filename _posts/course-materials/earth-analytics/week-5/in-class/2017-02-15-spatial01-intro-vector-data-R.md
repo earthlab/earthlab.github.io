@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-02-21'
+modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
@@ -13,7 +13,7 @@ module-title: 'Spatial data in R and remote sensing uncertainty'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
-module-type: 'class' 
+module-type: 'class'
 course: "Earth Analytics"
 week: 5
 sidebar:
@@ -21,6 +21,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
+  scientific-programming: ['r']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -334,7 +337,7 @@ plot(sjer_plot_locations, col="blue",
      main="SJER Plot Locations\nMadera County, CA")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -377,7 +380,7 @@ plot(sjer_plot_locations,
   col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2016-12-06-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">

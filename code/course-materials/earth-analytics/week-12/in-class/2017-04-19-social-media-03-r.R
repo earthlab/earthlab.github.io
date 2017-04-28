@@ -1,160 +1,138 @@
-## ------------------------------------------------------------------------
-# About the center of Boulder... give or take
-geocode <- '40.0150,-105.2705,50mi'
-boulder_tweets <- search_tweets("", n=1000, lang="en",
-                       geocode=geocode)
-head(boulder_tweets)
-
-## ------------------------------------------------------------------------
-boulder_users <- attributes(boulder_tweets)$users
-boulder_users$location
-
-
-## ------------------------------------------------------------------------
-
-boulder_users$followers_count
-summary(boulder_users$followers_count)
-max_val <- max(boulder_users$followers_count)
-
-# looks like there is an outlier -- let's use breaks to make this easier to look at
-ggplot(boulder_users, aes(followers_count)) +
-         geom_histogram(breaks=c(0,100,1000,10000,100000, 200000,max_val))
-
-
-## ----echo=FALSE, fig.height=10, fig.width=10-----------------------------
-m + pres_theme
-
-## ----eval=FALSE, fig.show='hide', message=FALSE, warning=FALSE-----------
-## # Create Boulder basemap (geocoding by name)
-## # NOTE: This doesn't work right now...
-## Boulder = get_map(location="Boulder, CO, USA",
-##                   source="stamen", maptype="terrain",
-##                   crop=FALSE, zoom=10)
-## # Create base ggmap
-## ggmap(Boulder) +
-##   # Start adding elements...
-##   geom_point(data=xy, aes(x, y), color="red",
-##              size=5, alpha=0.5) +
-##   stat_density2d(data=xy, aes(x, y, fill=..level..,
-##                               alpha=..level..),
-##                  size=0.01, bins=16, geom='polygon')
-
-## ----eval=FALSE, echo=FALSE, fig.height=10, fig.width=10, message=FALSE, warning=FALSE----
-## ggmap(Boulder) +
-##   geom_point(data=xy, aes(x, y), color="red", size=2, alpha=0.5) +
-##   stat_density2d(data=xy, aes(x, y,  fill=..level.., alpha=..level..),
-##                               size=0.01, bins=16, geom='polygon') +
-##   pres_theme
-
-## ----cache=FALSE---------------------------------------------------------
-# URL for 'custom' icon
-url = "http://steppingstonellc.com/wp-content/uploads/twitter-icon-620x626.png"
-twitter = makeIcon(url, url, 32, 31)  # Create Icon!
-
-# How about auto-clustering?!
-map = leaflet(xy) %>%
-  addProviderTiles("Stamen.Terrain") %>%
-  addMarkers(lng=~x, lat=~y, popup=~text,
-    clusterOptions=markerClusterOptions(),
-    icon=twitter)
-
-## ----echo=FALSE, eval=FALSE----------------------------------------------
-## saveWidget(widget=map, file="twitter_map.html", selfcontained=TRUE)
-
-## ------------------------------------------------------------------------
-pop = acs.fetch(endyear=2014, span=5, geography=geo,
-                table.number="B01003",
-                col.names="pretty")
-est = pop@estimate  # Grab the Total Population
-# Create a new data.frame
-pop = data.frame(geoid, est[, 1],
-                 stringsAsFactors=FALSE)
-rownames(pop) = 1:nrow(inc)  # Rename rows
-colnames(pop) = c("GEOID", "pop_total")  # Rename columns
-
-## ------------------------------------------------------------------------
-merged = geo_join(tracts, pop, "GEOID", "GEOID")
-
-## ----cache=FALSE---------------------------------------------------------
-popup = paste0("GEOID: ", merged$GEOID,
-               "<br/>Total Population: ",
-               round(merged$pop_total, 2))
-pal = colorNumeric(palette="YlGnBu",
-                   domain=merged$pop_total)
-map = leaflet() %>%  # Map time!
-  addProviderTiles("CartoDB.Positron") %>%
-  addPolygons(data=merged, popup=popup,
-              fillColor=~pal(pop_total),
-              color="#b2aeae", # This is a 'hex' color
-              fillOpacity=0.7, weight=1,
-              smoothFactor=0.2) %>%
-  addCircles(data=xy, lng=~x, lat=~y,
-             popup=~text, radius=5) %>%
-  addLegend(pal=pal, values=merged$pop_total,
-            position="bottomright",
-            title="Total Population")
-
-## ----echo=FALSE, eval=FALSE----------------------------------------------
-## saveWidget(widget=map, file="dual_map.html", selfcontained=TRUE)
-
-## ------------------------------------------------------------------------
-library(sp)
-# Make the points a SpatialPointsDataFrame
-coordinates(xy) = ~x+y
-proj4string(xy) = CRS("+proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0")
-# Put the x/y data back into the data slot for later...
-xy@data = as.data.frame(xy)
-
-## ------------------------------------------------------------------------
-overlay = over(xy, merged)
-res = as.data.frame(table(overlay$GEOID))
-colnames(res) = c("GEOID", "count")
-
-## ------------------------------------------------------------------------
-merged@data = join(merged@data, res, by="GEOID")
-# And compute a 'tweet score'... based on logged pop
-merged$percapita = merged$count/log(merged$pop_total)
-
-## ------------------------------------------------------------------------
-pal = colorNumeric(palette="YlGnBu",
-                   domain=merged$percapita)
-# Also create a nice popup for display...
-popup = paste0("GEOID: ", merged$GEOID, "<br>",
-               "Score: ", round(merged$percapita, 2))
-
-## ----cache=FALSE, echo=FALSE, eval=FALSE---------------------------------
-## map = leaflet() %>%
-##   addProviderTiles("CartoDB.Positron", group="Base") %>%
-##   addPolygons(data=merged, popup=popup,
-##               fillColor=~pal(percapita),
-##               color="#b2aeae", # This is a 'hex' color
-##               fillOpacity=0.7, weight=1,
-##               smoothFactor=0.2, group="Score") %>%
-##   addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
-##                    stroke=FALSE, popup=~text, group="Tweets") %>%
-##   addLayersControl(overlayGroups=c("Tweets", "Score"),
-##                    options=layersControlOptions(collapsed=FALSE)) %>%
-##   addLegend(pal=pal, values=merged$percapita,
-##             position="bottomright",
-##             title="Score")
-## 
-## saveWidget(widget=map, file="final_map.html", selfcontained=TRUE)
-
 ## ----eval=FALSE----------------------------------------------------------
-## leaflet() %>%
-##   addProviderTiles("CartoDB.Positron", group="Base") %>%
-##   addPolygons(data=merged, popup=popup,
-##               fillColor=~pal(percapita),
-##               color="#b2aeae", # This is a 'hex' color
-##               fillOpacity=0.7, weight=1,
-##               smoothFactor=0.2, group="Score") %>%
-##   addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
-##                    stroke=FALSE, popup=~text,
-##                    group="Tweets") %>%
-##   addLayersControl(overlayGroups=c("Tweets", "Score"),
-##                    options=layersControlOptions(
-##                      collapsed=FALSE)) %>%
-##   addLegend(pal=pal, values=merged$percapita,
-##             position="bottomright",
-##             title="Score")
+## climate_tweets <- search_tweets(q="#climatechange", n=10000,
+##                                       lang="en",
+##                                       include_rts = FALSE)
+
+## ------------------------------------------------------------------------
+# Find tweet using forest fire in them
+climate_tweets <- search_tweets(q="#climatechange", n=4000, lang="en",
+                             include_rts = FALSE)
+# check data to see if there are emojis
+head(climate_tweets$text)
+
+## ------------------------------------------------------------------------
+# remove urls tidyverse is failing here for some reason
+#climate_tweets %>%
+#  mutate_at(c("stripped_text"), gsub("http.*","",.))
+
+# remove http elements manually
+climate_tweets$stripped_text <- gsub("http.*","",  climate_tweets$text)
+climate_tweets$stripped_text <- gsub("https.*","", climate_tweets$stripped_text)
+
+
+## ----unique-words--------------------------------------------------------
+# note the words that are recognized as unique by R
+a_list_of_words <- c("Dog", "dog", "dog", "cat", "cat", ",")
+unique(a_list_of_words)
+
+## ------------------------------------------------------------------------
+# remove punctuation, convert to lowercase, add id for each tweet!
+climate_tweets_clean <- climate_tweets %>%
+  dplyr::select(stripped_text) %>%
+  unnest_tokens(word, stripped_text)
+
+## ----plot-uncleaned-data, fig.cap="plot of users tweeting about fire."----
+# plot the top 15 words -- notice any issues?
+climate_tweets_clean %>%
+  count(word, sort=TRUE) %>%
+  top_n(15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = word, y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() +
+      labs(x="Count",
+      y="Unique words",
+      title="Count of unique words found in tweets")
+
+## ------------------------------------------------------------------------
+# load list of stop words - from the tidytext package
+data("stop_words")
+# view first 6 words
+head(stop_words)
+
+nrow(climate_tweets_clean)
+
+# remove stop words from our list of words
+cleaned_tweet_words <- climate_tweets_clean %>%
+  anti_join(stop_words)
+
+# there should be fewer words now
+nrow(cleaned_tweet_words)
+
+## ----plot-cleaned-words, fig.cap="top 15 words used in tweets"-----------
+# plot the top 15 words -- notice any issues?
+cleaned_tweet_words %>%
+  count(word, sort=TRUE) %>%
+  top_n(15) %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(x = word, y = n)) +
+  geom_col() +
+  xlab(NULL) +
+  coord_flip() +
+      labs(y="Count",
+      x="Unique words",
+      title="Count of unique words found in tweets",
+      subtitle="Stop words removed from the list")
+
+## ------------------------------------------------------------------------
+# library(devtools)
+#install_github("dgrtwo/widyr")
+library(widyr)
+
+# remove punctuation, convert to lowercase, add id for each tweet!
+climate_tweets_paired_words <- climate_tweets %>%
+  dplyr::select(stripped_text) %>%
+  unnest_tokens(paired_words, stripped_text, token = "ngrams", n=2)
+
+climate_tweets_paired_words %>%
+  count(paired_words, sort = TRUE)
+
+
+
+
+## ------------------------------------------------------------------------
+library(tidyr)
+climate_tweets_separated_words <- climate_tweets_paired_words %>%
+  separate(paired_words, c("word1", "word2"), sep = " ")
+
+climate_tweets_filtered <- climate_tweets_separated_words %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word)
+
+# new bigram counts:
+climate_words_counts <- climate_tweets_filtered %>% 
+  count(word1, word2, sort = TRUE)
+
+head(climate_words_counts)
+
+
+## ----word-assoc-plot-----------------------------------------------------
+library(igraph)
+library(ggraph)
+
+# plot climate change word network
+climate_words_counts %>%
+        filter(n >= 14) %>%
+        graph_from_data_frame() %>%
+        ggraph(layout = "fr") +
+        geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
+        geom_node_point(color = "darkslategray4", size = 3) +
+        geom_node_text(aes(label = name), vjust = 1.8, size=3) +
+        labs(title= "Word Network: Tweets using the hashtag - Climate Change", 
+             subtitle="Text mining twitter data ",
+             x="", y="") 
+
+
+## ----echo=FALSE, eval=FALSE----------------------------------------------
+## # what happens if we remove climate change from the plot as that's a given
+## 
+## climate_words_counts %>%
+##         filter(n >= 15 && n < max(max(climate_words_counts$n))) %>%  graph_from_data_frame() %>%
+##         ggraph(layout = "fr") +
+##         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
+##         geom_node_point(color = "darkslategray4", size = 5) +
+##         geom_node_text(aes(label = name), vjust = 1.8) +
+##         ggtitle(expression(paste("Word Network: Tweets using the hashtag - Climate Change",
+##                                  italic("Text mining twitter data "))))
 

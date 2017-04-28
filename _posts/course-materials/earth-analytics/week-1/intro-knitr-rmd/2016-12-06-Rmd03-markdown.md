@@ -1,10 +1,9 @@
 ---
 layout: single
-title: "Intro to Markdown"
-excerpt: 'This tutorial cover how to use Markdown syntax in R and then
-render it to html using knitr.'
+title: "Introduction to Markdown syntax - a primer"
+excerpt: 'This tutorial covers the basics of the markdown syntax. Markdown is a human readable text format that is used in R Markdown files to add text to reports.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-02-13'
+modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-to-markdown/
@@ -15,6 +14,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
+tags2:
+  reproducible-open-science: ['rmarkdown']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 

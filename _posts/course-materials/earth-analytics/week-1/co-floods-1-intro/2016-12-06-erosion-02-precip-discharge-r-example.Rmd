@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Work with Precipitation Data in R - 2013 Colorado Floods"
-excerpt: "This lesson provides students wiht an example of a data driven report to emphsize the importance of connecting data, documentation and results."
+excerpt: "This lesson provides students with an example of a data driven report to emphasize the importance of connecting data, documentation and results."
 authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -14,6 +14,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+tags2:
+  earth-science: ['flood-erosion']
+  time-series:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

@@ -17,6 +17,9 @@ modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 author_profile: false
 comments: true
 order: 5
+tags2:
+  reproducible-open-science: ['data-management']
+  scientific-programming: ['RStudio']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 

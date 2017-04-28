@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Work With Dates in R - Plot Time Series Data"
-excerpt: "This lesson walks through working with time series data in R. you will learn how to convert a data field to a date class that R can understand as a date/time element."
+title: "Work With Date - Time formats in R - Time Series Data "
+excerpt: "This lesson covers how to deal with dates in R. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-02-01'
+modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
@@ -14,6 +14,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+tags2:
+  scientific-programming: ['RStudio', 'r']
+  time-series:
+  data-exploration-and-analysis: ['data-visualization']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -79,7 +83,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![quick plot of precip data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/import-data-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood02-date-format-R/import-data-1.png" title="quick plot of precip data" alt="quick plot of precip data" width="100%" />
 
 We know how to use `ggplot()` now so let's use that instead.
 
@@ -88,11 +92,15 @@ We know how to use `ggplot()` now so let's use that instead.
 # plot the data using ggplot
 ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   geom_point() +
-  ggtitle("Precipitation Data") +
-  xlab("Date") + ylab("Total Precipitation (Inches)")
+  glabs(x="Date",
+    y="Total Precipitation (Inches)",
+    title="Precipitation Data"
+    subtitle="Boulder, Colorado 2013")
+## Error: <text>:7:5: unexpected symbol
+## 6:     title="Precipitation Data"
+## 7:     subtitle
+##        ^
 ```
-
-![ggplot of precip data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/ggplot-plot-1.png)
 
 Notice when we plot the data, the x axis is "messy". It would be easier to read
 if we only had ticks on the x axis for dates incrementally - every few weeks. Or
@@ -223,7 +231,7 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
       ggtitle("Precipitation")
 ```
 
-![precip bar plot]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood02-date-format-R/qplot-data-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood02-date-format-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="100%" />
 
 
 Now, our plot looks a lot nicer!

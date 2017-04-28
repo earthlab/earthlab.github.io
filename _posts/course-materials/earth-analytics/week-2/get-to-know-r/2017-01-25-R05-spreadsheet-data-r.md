@@ -1,20 +1,22 @@
 ---
 layout: single
-title: "Working with spreadsheet (tabular) data in R"
-excerpt: "."
+title: "How to import, work with and plot spreadsheet (tabular) data in R"
+excerpt: "This lesson covers how to import, and work with tabular or spreadsheet data in R. Tabular data can contains different data classes or types in different columns. Here we learn how to identify and convert column classes from characters to numbers."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/spreadsheet-data-in-R/
 nav-title: 'Spreadsheet Data in R'
 dateCreated: 2016-12-13
-modified: '2017-02-01'
+modified: '2017-04-21'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 5
+tags2:
+  scientific-programming: ['RStudio', 'r']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -182,7 +184,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![plot precipitation data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2016-12-06-R05-spreadsheet-data-r/quick-plot-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2017-01-25-R05-spreadsheet-data-r/quick-plot-1.png" title="plot precipitation data" alt="plot precipitation data" width="100%" />
 
 <div class="notice--warning" markdown="1">
 

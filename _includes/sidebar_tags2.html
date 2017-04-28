@@ -16,11 +16,14 @@
                  {% endif %}
                 {% endfor %}
 
-              {% if page.tags2 contains main_tag.tag %}
-                <li class='active'><a href="{{ site.url }}/{{ main_tag.tag }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ main_tag.tag  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
-              {% else %}
-                <li><a href="{{ site.url }}/{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
-              {% endif%}
+              {% if main_tag_counter > 0%}
+                {% if (page.tags2 contains topic) and page.main-tag %}
+                  <li class='active'><a href="{{ site.url }}/tags/{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+                {% else %}
+                  <li><a href="{{ site.url }}/tags/{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+                {% endif %}
+              {% endif %}
+
             {% endfor %}
           </ul>
       </li>
@@ -37,7 +40,7 @@
 
 <nav class="nav__list">
   <ul>
-   <li><a href="{{ site.url }}/{{ main_tag.tag }}"> <span><i class="fa fa-folder-open" aria-hidden="true"></i> {{ page_main_tag | capitalize | replace:"-"," " }} tags </span></a>
+   <li><a href="{{ site.url }}/tags/{{ main_tag.tag }}"> <span><i class="fa fa-folder-open" aria-hidden="true"></i> {{ page_main_tag | capitalize | replace:"-"," " }} tags </span></a>
     <ul>
 
     <!-- Just get the sub topics associated with the main page tag -->
@@ -57,8 +60,15 @@
           {% endfor %}
         {% endfor %}
 
-        <li><a href="{{ site.url }}/{{ main_tag[0] }}/{{ sub_topic }}">{{ sub_topic | capitalize }} {{ topic_tag_counter }}</a></li>
+          {% if topic_tag_counter > 0%}
 
+          {% if page.tags2.first[1] == sub_topic %}
+          <li class='active'><a href="{{ site.url }}/tags/{{ main_tag[0] }}/{{ sub_topic }}">{{ sub_topic | uppercase }} {{ topic_tag_counter }}</a></li>
+          {% else %}
+          <li><a href="{{ site.url }}/tags/{{ main_tag[0] }}/{{ sub_topic }}">{{ sub_topic }} {{ topic_tag_counter }}</a></li>
+          {% endif %}
+
+          {% endif %}
        {% endfor %}
 
        {% endfor %}
