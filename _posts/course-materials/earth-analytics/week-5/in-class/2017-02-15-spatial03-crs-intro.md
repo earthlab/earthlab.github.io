@@ -351,7 +351,7 @@ newMap <- robMap + geom_point(data=loc_rob_df,
 newMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/unnamed-chunk-2-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/plot-new-map-1.png" title="Map of the globe in robinson projection." alt="Map of the globe in robinson projection." width="100%" />
 
 ## Compare Maps
 

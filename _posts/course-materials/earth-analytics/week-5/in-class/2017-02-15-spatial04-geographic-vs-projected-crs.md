@@ -166,7 +166,7 @@ the UTM zone, to avoid negative Easting numbers.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/utm_zone_characteristics.png">
-    <img src="site.url }}/images/course-materials/earth-analytics/week-5/utm_zone_characteristics.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/utm_zone_characteristics.png" alt="utm zone characteristics">
     </a>
     <figcaption>The 0,0 origin of each UTM zone is located in the <strong>Bottom left</strong> hand corner (south west) of the zone - exactly 500,000 m EAST from the central meridian of the zone.
     Source: Penn State E-education</figcaption>
@@ -177,8 +177,8 @@ the UTM zone, to avoid negative Easting numbers.
 
 
 <figure>
-    <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg" src="Nasa image showing the UTM x and y zones">
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/800px-Utm-zones.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/800px-Utm-zones.jpg" alt="Nasa image showing the UTM x and y zones">
     </a>
     <figcaption>The gridded UTM coordinate system across the globe.
     Source: NASA Earth Observatory</figcaption>
