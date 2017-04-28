@@ -156,10 +156,10 @@ shows us the breaks used to bin our histogram data.
 
 
 
-```{r view-hist-info}
+```{r view-hist-info, fig.cap="histogram of lidar data - view data"}
 # see how R is breaking up the data
 histinfo <- hist(lidar_chm)
-histinfo
+
 ```
 
 Each bin represents a bar on our histogram plot. Each bar represents the frequency
@@ -175,7 +175,7 @@ histinfo$breaks
 If we want to customize our histogram further, we can customize the number of
 breaks that R uses to create it.
 
-```{r}
+```{r create-lidar-hist, fig.cap="histogram of lidar chm"}
 # zoom in on x and y axis
 hist(lidar_chm,
      xlim=c(2,25),
@@ -300,7 +300,8 @@ chm_classified <- reclassify(lidar_chm,
 
 We can view the distribution of pixels assigned to each class using the barplot().
 Note that I am not using the histogram function in this case given we only have 3 classes!
-```{r}
+
+```{r barplot-pixels, fig.cap="create barplot of classified rasters"}
 # view reclassified data
 barplot(chm_classified,
         main="Number of pixels in each class")
@@ -314,7 +315,7 @@ signs `==` in this statement.
 
 The right side of the code says "assign to NA" `<- NA`
 
-```{r}
+```{r assign-na-value }
 # assign all pixels that equal 0 to NA or no data value
 chm_classified[chm_classified==0] <- NA
 ```

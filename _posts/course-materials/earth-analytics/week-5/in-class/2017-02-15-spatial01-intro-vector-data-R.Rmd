@@ -23,6 +23,7 @@ comments: true
 order: 1
 tags2:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
+  scientific-programming: ['r']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

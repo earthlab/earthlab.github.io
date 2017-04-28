@@ -4,7 +4,7 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/classify-raster/
@@ -120,13 +120,13 @@ by looking at the min and max values in our CHM.
 
 ```r
 summary(lidar_chm)
-##         lidar_chm
-## Min.      0.00000
-## 1st Qu.   0.00000
-## Median    0.00000
-## 3rd Qu.   0.75000
-## Max.     26.23999
-## NA's      0.00000
+##          lidar_chm
+## Min.     0.0000000
+## 1st Qu.  0.0000000
+## Median   0.0000000
+## 3rd Qu.  0.7800293
+## Max.    24.8500977
+## NA's     0.0000000
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
@@ -174,33 +174,7 @@ shows us the breaks used to bin our histogram data.
 histinfo <- hist(lidar_chm)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/view-hist-info-1.png" title=" " alt=" " width="100%" />
-
-```r
-histinfo
-## $breaks
-##  [1]  0  2  4  6  8 10 12 14 16 18 20 22 24 26
-##
-## $counts
-##  [1] 79585  5974  4582  3780  2746  1628   965   459   191    65    21
-## [12]     3     1
-##
-## $density
-##  [1] 0.397925 0.029870 0.022910 0.018900 0.013730 0.008140 0.004825
-##  [8] 0.002295 0.000955 0.000325 0.000105 0.000015 0.000005
-##
-## $mids
-##  [1]  1  3  5  7  9 11 13 15 17 19 21 23 25
-##
-## $xname
-## [1] "v"
-##
-## $equidist
-## [1] TRUE
-##
-## attr(,"class")
-## [1] "histogram"
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/view-hist-info-1.png" title="histogram of lidar data - view data" alt="histogram of lidar data - view data" width="100%" />
 
 Each bin represents a bar on our histogram plot. Each bar represents the frequency
 or number of pixels that have a value within that bin. For instance, there
@@ -210,10 +184,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 79585  5974  4582  3780  2746  1628   965   459   191    65    21
-## [12]     3     1
+##  [1] 76153  3404  3062  2891  2480  2136  1948  1861  1470  1220   954
+## [12]   736   518   409   285   204   106    73    39    24    12     5
+## [23]     4     6
 histinfo$breaks
-##  [1]  0  2  4  6  8 10 12 14 16 18 20 22 24 26
+##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
+## [24] 23 24
 ```
 
 If we want to customize our histogram further, we can customize the number of
@@ -231,7 +207,7 @@ hist(lidar_chm,
      xlab="Pixel value")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/unnamed-chunk-1-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/create-lidar-hist-1.png" title="histogram of lidar chm" alt="histogram of lidar chm" width="100%" />
 
 Notice that i've adjusted the x and y lims to zoom into the region of the histogram
 that I am interested in exploring.
@@ -359,13 +335,14 @@ chm_classified <- reclassify(lidar_chm,
 We can view the distribution of pixels assigned to each class using the barplot().
 Note that I am not using the histogram function in this case given we only have 3 classes!
 
+
 ```r
 # view reclassified data
 barplot(chm_classified,
         main="Number of pixels in each class")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/unnamed-chunk-2-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-classify-raster/barplot-pixels-1.png" title="create barplot of classified rasters" alt="create barplot of classified rasters" width="100%" />
 
 If the raster classification output has values or 0, we can set those to NA using
 the syntax below. The left side of this syntax tells R to first select ALL pixels
