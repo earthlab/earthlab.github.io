@@ -71,7 +71,7 @@ In this example, let's find tweets that are using the words "forest fire" in the
 
 
 ```r
-climate_tweets <- search_tweets(q="#climatechange", n=1000, 
+climate_tweets <- search_tweets(q="#climatechange", n=10000, 
                                       lang="en",
                                       include_rts = FALSE)
 ```
@@ -93,12 +93,12 @@ climate_tweets <- search_tweets(q="#climatechange", n=4000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "I pledge to #StandForTrees &amp; take responsibility for my impact on the #environment — https://t.co/H3CR5lCbkm #SomeoneLikeYou #ClimateChange"
-## [2] "Man made #climatechange is just a political ideological tool of fear to manipulate the masses which needs no scient… https://t.co/hLUwuvDRdH"   
-## [3] "The 'catastrophe' coming to East Africa that shows the true extent of #climatechange https://t.co/dx3gCwRWtv On you #Trump, #GOP"               
-## [4] "We had another productive meeting w staff in @RepEdRoyce office about #climatechange #ClimateAction and #bipartisansolutions @ehemming"         
-## [5] "@BillNye This is your time.  We need you to deliver.  Don’t let the spangly bow tie get in the way of the message.  #climatechange"             
-## [6] "The principal causes of Poverty are simple to name. Discrimination and social inequality #climatechange… https://t.co/GcdxFW7d47"
+## [1] "#Climatechange Climate Home Weekly wrap: who controls Africa's clean energy destiny? Climate Home…… https://t.co/WOUz5xQekn"                     
+## [2] "Half of All Species Are on the Move—And We're Feeling It @NatGeo https://t.co/iDVP3OO94h #climatechange"                                         
+## [3] "How a Professional #ClimateChange Denier Discovered the Lies and Decided to Fight for Science https://t.co/2WHVWF1BRG"                           
+## [4] "Just cancelled my NYT subscription because of climate-denier @BretStephensNYT #climatechange"                                                    
+## [5] "#Climatechange deniers are like those 40-somethings that tell people they're \"29 again\", only dangerous. #Evidence #factsmatter"               
+## [6] "Trees give. Glad to see trees my mother &amp; father planted growing well! #nextgenclimate #climatemarch #climatechange… https://t.co/M9tcuuH5D1"
 ```
 
 ## Data clean-up
@@ -209,7 +209,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 50110
+## [1] 50079
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -217,7 +217,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 29796
+## [1] 29790
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -262,20 +262,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 30,936 × 2
+## # A tibble: 30,901 × 2
 ##        paired_words     n
 ##               <chr> <int>
-## 1    climate change   233
-## 2  on climatechange   157
+## 1    climate change   231
+## 2  on climatechange   155
 ## 3  of climatechange   153
-## 4  climatechange is   144
-## 5        the latest   141
-## 6              b gt   132
-## 7              lt b   132
-## 8            in the   116
-## 9            of the    92
-## 10        the world    90
-## # ... with 30,926 more rows
+## 4  climatechange is   147
+## 5        the latest   139
+## 6              b gt   134
+## 7              lt b   134
+## 8            in the   114
+## 9            of the    93
+## 10        the world    91
+## # ... with 30,891 more rows
 ```
 
 
@@ -298,12 +298,12 @@ head(climate_words_counts)
 ## 
 ##           word1         word2     n
 ##           <chr>         <chr> <int>
-## 1       climate        change   233
-## 2         clim8        change    66
-## 3 climatechange globalwarming    57
-## 4 climatechange      refugees    57
-## 5            gt         clim8    49
-## 6        change            lt    48
+## 1       climate        change   231
+## 2         clim8        change    67
+## 3 climatechange globalwarming    59
+## 4 climatechange      refugees    58
+## 5            gt         clim8    50
+## 6        change            lt    49
 ```
 
 FInally, plot the data
