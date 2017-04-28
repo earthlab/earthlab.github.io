@@ -1,7 +1,7 @@
 ## ----setup, echo=FALSE---------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
-## ---- geographic-WGS84, echo=FALSE, message=FALSE, results='hide'--------
+## ----geographic-WGS84, echo=FALSE, message=FALSE, results='hide', fig.cap="wgs 84 plot"----
 # read shapefile
 worldBound <- readOGR(dsn="data/week5/global/ne_110m_land",
                       layer="ne_110m_land")
@@ -30,7 +30,7 @@ ggplot(wgs84Box_df, aes(long,lat, group=group)) +
   scale_fill_manual(values=c("black", "white"), guide="none") # change colors &
 
 
-## ------------------------------------------------------------------------
+## ----plot-wgs842, fig.cap="Plot location - wgs84"------------------------
 # create a data.frame with the x,y location
 boulder_df <- data.frame(lon=c(476911.31),
                 lat=c(4429455.35))
@@ -49,14 +49,14 @@ crs(boulder_df)
 # assign crs - we know it is utm zone 13N
 crs(boulder_df) <- CRS("+init=epsg:2957")
 
-## ----echo=FALSE----------------------------------------------------------
+## ----set-crs, echo=FALSE-------------------------------------------------
 boulder_crs <- crs(boulder_df)
 
-## ------------------------------------------------------------------------
+## ----get-coordinates-transform-------------------------------------------
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
 coordinates(boulder_df_geog)
 
-## ------------------------------------------------------------------------
+## ----plot-world-map, fig.cap="global map in wgs84 with points"-----------
 boulder_df_geog <- as.data.frame(coordinates(boulder_df_geog))
 # plot map
 worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
