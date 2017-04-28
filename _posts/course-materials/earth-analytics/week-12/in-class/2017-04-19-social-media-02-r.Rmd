@@ -205,6 +205,7 @@ our dataframe, separately.
 # find recent tweets with #rstats but ignore retweets
 rstats_tweets <- search_tweets("#rstats", n = 500,
                              include_rts = FALSE)
+# view top 2 rows of data
 head(rstats_tweets, n=2)
 
 ```
@@ -212,9 +213,9 @@ head(rstats_tweets, n=2)
 Next, let's figure out who is tweeting about `R` / using the `#rstats` hashtag.
 
 ```{r view-screennames}
-# view column with screen names
+# view column with screen names - top 6 
 head(rstats_tweets$screen_name)
-# get a list of just the unique usernames
+# get a list of unique usernames
 unique(rstats_tweets$screen_name)
 
 ```
@@ -261,7 +262,7 @@ users %>%
   coord_flip() +
       labs(x="Count",
       y="Location",
-      title="Twitter users - unique locations ")
+      title="Where Twitter users are from - unique locations ")
 ```
 
 It looks like we have some `NA` or no data values in our list. Let's remove those 

@@ -63,13 +63,14 @@ head(rstats_tweets, n=3)
 # find recent tweets with #rstats but ignore retweets
 rstats_tweets <- search_tweets("#rstats", n = 500,
                              include_rts = FALSE)
+# view top 2 rows of data
 head(rstats_tweets, n=2)
 
 
 ## ----view-screennames----------------------------------------------------
-# view column with screen names
+# view column with screen names - top 6 
 head(rstats_tweets$screen_name)
-# get a list of just the unique usernames
+# get a list of unique usernames
 unique(rstats_tweets$screen_name)
 
 
@@ -102,7 +103,7 @@ users %>%
   coord_flip() +
       labs(x="Count",
       y="Location",
-      title="Twitter users - unique locations ")
+      title="Where Twitter users are from - unique locations ")
 
 ## ----users-tweeting2, fig.cap="top 15 locations where people are tweeting - na removed"----
 users %>%

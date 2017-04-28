@@ -58,10 +58,8 @@ day events and also natural processes including weather events (tornados, rainfa
 snow), disturbances (floods, and other natural disasters) and more.
 
 <figure>
-
-<img src="{{ site.url }}/images/course-materials/earth-analytics/week-12/social-media-stats.png" alt="image showing overall stats for several platforms from 2014">
-
-<figcaption>A graphic showing the use of several social media platforms from 2014. Note that while use of these platforms has changed over the past few years this provides a general summary of overall use by platform. <a href="http://www.socialmatt.com/amazing-denver-twitter-visualization/" target="_blank">source: http://www.incite-group.com</a></figcaption>
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-12/social-media-3.png" alt="image showing overall stats for several platforms from 2014">
+<figcaption>A graphic showing the use of several social media platforms from 2014. Note that while use of these platforms has changed over the past few years this provides a general summary of overall use by platform. source: https://www.dbsquaredinc.com/social-media514/</figcaption>
 </figure>
 
 ### Challenges working with social media data
