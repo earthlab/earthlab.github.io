@@ -30,16 +30,16 @@ hist(lidar_chm,
      col="springgreen")
 
 
-## ----view-hist-info------------------------------------------------------
+## ----view-hist-info, fig.cap="histogram of lidar data - view data"-------
 # see how R is breaking up the data
 histinfo <- hist(lidar_chm)
-histinfo
+
 
 ## ----view-hist-stats-----------------------------------------------------
 histinfo$counts
 histinfo$breaks
 
-## ------------------------------------------------------------------------
+## ----create-lidar-hist, fig.cap="histogram of lidar chm"-----------------
 # zoom in on x and y axis
 hist(lidar_chm,
      xlim=c(2,25),
@@ -89,12 +89,12 @@ chm_classified <- reclassify(lidar_chm,
                      reclass_m)
 
 
-## ------------------------------------------------------------------------
+## ----barplot-pixels, fig.cap="create barplot of classified rasters"------
 # view reclassified data
 barplot(chm_classified,
         main="Number of pixels in each class")
 
-## ------------------------------------------------------------------------
+## ----assign-na-value-----------------------------------------------------
 # assign all pixels that equal 0 to NA or no data value
 chm_classified[chm_classified==0] <- NA
 
@@ -133,7 +133,7 @@ legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = chm_colors,
        border = F,
-       bty="n") 
+       bty="n")
 
 ## ----plot-w-legend-colors2, fig.cap="classified chm with legend."--------
 # create color object with nice new colors!
@@ -151,5 +151,5 @@ legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = chm_colors,
        border = F,
-       bty="n") 
+       bty="n")
 

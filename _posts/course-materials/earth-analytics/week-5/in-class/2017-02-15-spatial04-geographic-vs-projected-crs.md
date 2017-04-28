@@ -5,7 +5,7 @@ excerpt: "This tutorial focuses on the Universal Trans Mercator (UTM)
 projected Coordinate Reference which divides the globe into zones to optimize
 projection results in each zone. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
-modified: '2017-04-26'
+modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/geographic-vs-projected-coordinate-reference-systems-UTM/
