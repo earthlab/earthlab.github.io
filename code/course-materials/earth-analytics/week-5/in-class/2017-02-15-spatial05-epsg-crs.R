@@ -27,17 +27,17 @@ head(epsg)
 
 ## ------------------------------------------------------------------------
 # view proj 4 string for the epsg code 4326
-epsg %>% 
+epsg %>%
   filter(code==4326)
 
 
 ## ------------------------------------------------------------------------
-latlong <- epsg %>% 
+latlong <- epsg %>%
   filter(str_detect(prj4, 'longlat'))
 head(latlong)
 
 ## ------------------------------------------------------------------------
-utm <- epsg %>% 
+utm <- epsg %>%
   filter(str_detect(prj4, 'utm'))
 head(utm)
 
