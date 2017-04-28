@@ -51,13 +51,15 @@
        </ul>
 
        {% for module in homework %}
+
        {% if module.order == 1 %}
            {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
 
            {% if class_lessons %}
+           {% if forloop.index == 1 %}
              <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Learn how to...</span>
+           {% endif %}
              <ul>
-               {% for module in homework %}
                {% if module.order == 1 %}
                    {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
                    {% assign theHomeWorkLesson = module.class-lesson %}
@@ -74,8 +76,6 @@
                  {% endif %}
                {% endfor %}
                 </ul>
-               {% endfor %}
-
            {% endif %}
        {% endif %}
        {% endfor %}
@@ -84,7 +84,7 @@
 
 
 {% if page.week %}
-  {% if page.week > 1 and page.week <= 12 %}
+  {% if page.week > 1 and page.week <= 14 %}
   <hr>
    {% assign previousWeek = page.week | minus: 1 %}
    {% capture previous_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ previousWeek }}/{% endcapture %}
@@ -97,7 +97,7 @@
     {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
     <h5>go to week<a href="{{ next_week_path }}" > {{ nextWeek }} <i class="fa fa-arrow-circle-right"></i> </a></h5>
     {% endif %}
- {% if page.week >= 2 and page.week <= 11 %}
+ {% if page.week >= 2 and page.week <= 13 %}
   {% assign nextWeek = page.week | plus: 1 %}
   {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
 

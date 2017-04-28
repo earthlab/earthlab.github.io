@@ -15,6 +15,11 @@ sidebar:
 author_profile: false
 comments: true
 order: 5
+tags2:
+  scientific-programming: ['r']
+  remote-sensing: ['lidar']
+  earth-science: ['vegetation']
+  spatial-data-and-gis: ['raster-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -81,8 +86,13 @@ thus easier to work with. In this lesson, we will import and work with
 ### Digital Elevation Model
 In the previous lesson, we opened a digital elevation model. The digital elevation
 model (DEM), also known as a digital terrain model (DTM) represents the elevation
-of the earth surfacel. The DEM represents the ground - and thus DOES NOT INCLUDE
+of the earth's surface. The DEM represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+
+```
 
 ```{r load-libraries,  message=F, warning=F }
 # load libraries

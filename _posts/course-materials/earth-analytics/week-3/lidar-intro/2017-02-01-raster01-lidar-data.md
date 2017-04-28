@@ -4,7 +4,7 @@ title: "Introduction to LiDAR Data"
 excerpt: "This lesson reviews what Lidar remote sensing is and discusses the core
 components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-02-14'
+modified: '2017-04-25'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-intro/
@@ -13,7 +13,7 @@ module-title: 'LiDAR Raster Data R'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Lidar Rasters in R'
-module-type: 'class' 
+module-type: 'class'
 course: "Earth Analytics"
 week: 3
 sidebar:
@@ -21,6 +21,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  remote-sensing: ['lidar']
+  earth-science: ['vegetation']
+  spatial-data-and-gis: ['raster-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

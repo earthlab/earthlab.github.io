@@ -14,6 +14,11 @@ sidebar:
 author_profile: false
 comments: false
 order: 4
+tags2:
+  scientific-programming: ['r']
+  remote-sensing: ['lidar']
+  earth-science: ['vegetation']
+  spatial-data-and-gis: ['raster-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -49,6 +54,10 @@ will learn how to open a plot a lidar raster dataset in `R`.
   converting them to a Raster Format. Source: Tristan Goulden, NEON.
   </figcaption>
 </figure>
+
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+```
 
 ## Open Raster Data in R
 

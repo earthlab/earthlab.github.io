@@ -14,6 +14,10 @@ sidebar:
 author_profile: false
 comments: false
 order: 3
+tags2:
+  remote-sensing: ['lidar']
+  earth-science: ['vegetation']
+  spatial-data-and-gis: ['raster-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

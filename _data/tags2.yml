@@ -1,8 +1,16 @@
 remote-sensing:
   topics: ['landsat', 'modis', 'lidar', 'naip']
 earth-science:
-  topics: ['fire', 'permafrost']
-open-science:
-  topics: ['literate-programming', 'functions']
+  topics: ['fire', 'permafrost', 'vegetation']
+reproducible-open-science:
+  topics: ['rmarkdown', 'jupyter-notebooks', 'data-management']
 social-science:
-  topics: ['social-media']    
+  topics: ['social-media']
+time-series:
+  topics: []
+data-exploration-and-analysis:
+  topics: ['data-visualization']
+spatial-data-and-gis:
+  topics: ['raster-data', 'vector-data']
+scientific-programming:
+  topics: ['r', 'RStudio', 'literate-expressive-programming']

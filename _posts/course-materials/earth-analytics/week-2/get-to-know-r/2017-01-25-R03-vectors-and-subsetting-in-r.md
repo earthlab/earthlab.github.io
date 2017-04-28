@@ -1,21 +1,22 @@
 ---
 layout: single
-title: "Working with vectors and data types in R"
-excerpt: "This tutorial introduces vectors in R. It also introduces subsetting,
-and working with NA values."
+title: "Understand the vector data type in R and classes including strings, numbers and logicals - Data Science for scientists 101"
+excerpt: "This tutorial introduces vectors in R. It also introduces the differences between strings, numbers and logical or boolean values (True / False) in R."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
 class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-02-01'
+modified: '2017-04-21'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 3
+tags2:
+  scientific-programming: ['RStudio', 'r']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 

@@ -1,19 +1,19 @@
 ---
 layout: single
-title: "Introduction to R Markdown & knitr"
-excerpt: "This tutorial introduces the importance of tools supporting documenting & publishing a workflow."
+title: "Introduction to R Markdown & knitr - Connect data, methods and results"
+excerpt: "This lesson reviews some of the basic principles associated with open science. It also introduces the R Markdown format - which can be used to document and publish methods and results in a report format."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr/
-nav-title: 'Intro to R Markdown'
+permalink: /course-materials/earth-analytics/week-1/about-open-science-and-why-open-science-is-important/
+nav-title: 'Why Open Science'
 dateCreated: 2016-12-12
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 module-title: 'Link data, processing and results using R Markdown and Knitr'
 module-nav-title: 'R Markdown Intro'
-module-description: 'This module teaches participants how to use R Markdown
-and knitr to create and publish reports that link analysis, results and documentation.'
-module-type: 'homework' 
+module-description: 'This module reviews how to use R Markdown
+and knitr to create and publish dynamic reports that both link analysis, results and documentation and can be easily updated as data and methods are modified / updates.'
+module-type: 'homework'
 course: "Earth Analytics"
 week: 1
 sidebar:
@@ -21,6 +21,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  reproducible-open-science: ['rmarkdown']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
