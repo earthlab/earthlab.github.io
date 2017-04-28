@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to working with social media data in R - Twitter"
 excerpt: "This lesson will discuss some of the challenges associated with working with social media data in science. These challenges include working with non standard text, large volumes of data, API limitations, and geolocation issues."
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/intro-to-social-media-text-mining-r/
@@ -58,10 +58,8 @@ day events and also natural processes including weather events (tornados, rainfa
 snow), disturbances (floods, and other natural disasters) and more.
 
 <figure>
-
-<img src="{{ site.url }}/images/course-materials/earth-analytics/week-12/social-media-stats.png" alt="image showing overall stats for several platforms from 2014">
-
-<figcaption>A graphic showing the use of several social media platforms from 2014. Note that while use of these platforms has changed over the past few years this provides a general summary of overall use by platform. <a href="http://www.socialmatt.com/amazing-denver-twitter-visualization/" target="_blank">source: http://www.incite-group.com</a></figcaption>
+<img src="{{ site.url }}/images/course-materials/earth-analytics/week-12/social-media-3.png" alt="image showing overall stats for several platforms from 2014">
+<figcaption>A graphic showing the use of several social media platforms from 2014. Note that while use of these platforms has changed over the past few years this provides a general summary of overall use by platform. source: https://www.dbsquaredinc.com/social-media514/</figcaption>
 </figure>
 
 ### Challenges working with social media data

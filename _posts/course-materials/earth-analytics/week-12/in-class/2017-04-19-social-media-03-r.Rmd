@@ -59,7 +59,7 @@ have to perform extra steps to clean the data to ensure we are analyzing the rig
 thing.
 
 
-## Searching for tweets related to fire
+## Searching for tweets related to climate
 
 Above we learned some things about sorting through social media data and the
 associated types of issues that we may run into when beginning to analyze it. Next,
@@ -70,11 +70,9 @@ In this example, let's find tweets that are using the words "forest fire" in the
 
 
 ```{r eval=FALSE}
-# Find the last 1000 tweets using the forest fire hashtag
-  forest_fire_tweets <- search_tweets(q="#forestfire", n=1000, 
+climate_tweets <- search_tweets(q="#climatechange", n=1000, 
                                       lang="en",
                                       include_rts = FALSE)
-
 ```
 
 
@@ -89,10 +87,10 @@ the entire string. Let's try it.
 
 ```{r}
 # Find tweet using forest fire in them
-fire_tweets <- search_tweets(q="#forestfire", n=100, lang="en",
+climate_tweets <- search_tweets(q="#climatechange", n=4000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
-head(fire_tweets$text)
+head(climate_tweets$text)
 ```
 
 ## Data clean-up
@@ -106,12 +104,12 @@ those.
 
 ```{r}
 # remove urls tidyverse is failing here for some reason
-#fire_tweets %>%
+#climate_tweets %>%
 #  mutate_at(c("stripped_text"), gsub("http.*","",.))
 
 # remove http elements manually
-fire_tweets$stripped_text <- gsub("http.*","",  fire_tweets$text)
-fire_tweets$stripped_text <- gsub("https.*","", fire_tweets$stripped_text)
+climate_tweets$stripped_text <- gsub("http.*","",  climate_tweets$text)
+climate_tweets$stripped_text <- gsub("https.*","", climate_tweets$stripped_text)
 
 ```
 
@@ -120,7 +118,7 @@ words in our tweets, words with capitalization will be different from words
 that are all lowercase. Also we don't need punctuation to be returned as a unique
 word.
 
-```{r}
+```{r unique-words}
 # note the words that are recognized as unique by R
 a_list_of_words <- c("Dog", "dog", "dog", "cat", "cat", ",")
 unique(a_list_of_words)
@@ -145,7 +143,7 @@ cleaned up tweet text stored.
 
 ```{r}
 # remove punctuation, convert to lowercase, add id for each tweet!
-fire_tweet_text_clean <- fire_tweets %>%
+climate_tweets_clean <- climate_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(word, stripped_text)
 ```
@@ -154,7 +152,7 @@ Now we can plot our data. What do you notice?
 
 ```{r plot-uncleaned-data, fig.cap="plot of users tweeting about fire." }
 # plot the top 15 words -- notice any issues?
-fire_tweet_text_clean %>%
+climate_tweets_clean %>%
   count(word, sort=TRUE) %>%
   top_n(15) %>%
   mutate(word = reorder(word, n)) %>%
@@ -186,10 +184,10 @@ data("stop_words")
 # view first 6 words
 head(stop_words)
 
-nrow(fire_tweet_text_clean)
+nrow(climate_tweets_clean)
 
 # remove stop words from our list of words
-cleaned_tweet_words <- fire_tweet_text_clean %>%
+cleaned_tweet_words <- climate_tweets_clean %>%
   anti_join(stop_words)
 
 # there should be fewer words now
@@ -228,11 +226,11 @@ ngrams specifies pairs and 2 is the number of words together
 library(widyr)
 
 # remove punctuation, convert to lowercase, add id for each tweet!
-fire_tweets_paired_words <- fire_tweets %>%
+climate_tweets_paired_words <- climate_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(paired_words, stripped_text, token = "ngrams", n=2)
 
-fire_tweets_paired_words %>%
+climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
 
 
@@ -241,40 +239,53 @@ fire_tweets_paired_words %>%
 
 ```{r}
 library(tidyr)
-fire_tweets_separated_words <- fire_tweets_paired_words %>%
+climate_tweets_separated_words <- climate_tweets_paired_words %>%
   separate(paired_words, c("word1", "word2"), sep = " ")
 
-fire_tweets_filtered <- fire_tweets_separated_words %>%
+climate_tweets_filtered <- climate_tweets_separated_words %>%
   filter(!word1 %in% stop_words$word) %>%
   filter(!word2 %in% stop_words$word)
 
 # new bigram counts:
-fire_words_counts <- fire_tweets_filtered %>% 
+climate_words_counts <- climate_tweets_filtered %>% 
   count(word1, word2, sort = TRUE)
 
-fire_words_counts
+head(climate_words_counts)
 
-# plot? 
+```
 
+FInally, plot the data
+
+```{r word-assoc-plot}
 library(igraph)
 library(ggraph)
 
-fire_words_counts %>%
-        filter(n >= 7) %>%
+# plot climate change word network
+climate_words_counts %>%
+        filter(n >= 14) %>%
         graph_from_data_frame() %>%
+        ggraph(layout = "fr") +
+        geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
+        geom_node_point(color = "darkslategray4", size = 3) +
+        geom_node_text(aes(label = name), vjust = 1.8, size=3) +
+        labs(title= "Word Network: Tweets using the hashtag - Climate Change", 
+             subtitle="Text mining twitter data ",
+             x="", y="") 
+
+```
+
+We expect the words climate & change to have a high 
+
+```{r echo=FALSE, eval=FALSE}
+# what happens if we remove climate change from the plot as that's a given
+
+climate_words_counts %>%
+        filter(n >= 15 && n < max(max(climate_words_counts$n))) %>%  graph_from_data_frame() %>%
         ggraph(layout = "fr") +
         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
         geom_node_point(color = "darkslategray4", size = 5) +
         geom_node_text(aes(label = name), vjust = 1.8) +
-        ggtitle(expression(paste("Word Network of forest fire tweets ", 
+        ggtitle(expression(paste("Word Network: Tweets using the hashtag - Climate Change", 
                                  italic("Text mining twitter data "))))
-
-```
-
-```{r}
-word_cooccurences <- fire_tweets$stripped_text %>%
-        pair_count(linenumber, word, sort = TRUE)
-
-word_cooccurences
 ```
 
