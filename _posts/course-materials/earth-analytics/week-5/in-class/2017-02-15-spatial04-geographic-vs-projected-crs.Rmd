@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "GIS in R: Projected vs geographic Coordinate Reference Systems"
-excerpt: "This tutorial focuses on the Universal Trans Mercator (UTM)
+excerpt: "This tutorial describes key differences between projected and geographic coordinate reference systems (CRSs). We focus on the Universal Trans Mercator (UTM)
 projected Coordinate Reference which divides the globe into zones to optimize
-projection results in each zone. It also briefly introduces the concept of a datum."
+projection results in each zone and WGS84 which is a geographic (latitude and longitude) CRS. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
@@ -346,9 +346,9 @@ we will discuss three of the commonly encountered formats including: **Proj4**,
 ## Additional Resources
 
 ### More about the UTM CRS
-* <a href="https://www.e-education.psu.edu/geog482spring2/c2_p22.html" target="_blank">
+* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c2_p22.html" target="_blank">
 Penn State E-education overview of UTM</a>
-* <a href="https://www.e-education.psu.edu/geog482spring2/c2_p23.html
+* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c2_p23.html
 " target="_blank">
 More about UTM Zones - Penn State E-education</a>
 

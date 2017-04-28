@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "GIS in R: Intro to Coordinate Reference Systems"
-excerpt: "This lesson introduces the concept of a coordinate reference system. We will use the R programming language to explore and reproject data into geographic and projected CRSs. "
+title: "GIS in R: Introduction to Coordinate Reference Systems in R "
+excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-04-26'
+modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-to-coordinate-reference-systems/

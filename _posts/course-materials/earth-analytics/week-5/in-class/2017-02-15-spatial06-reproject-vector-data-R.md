@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
-excerpt: ". "
+excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-04-26'
+modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/reproject-vector-data/
@@ -117,8 +117,6 @@ state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
 ## with 58 features
 ## It has 10 fields
 ## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week5/usa-boundary-layers", "US-State-Boundaries-
-## Census-2014"): Z-dimension discarded
 
 # view data structure
 class(state_boundary_us)
@@ -161,8 +159,6 @@ country_boundary_us <- readOGR("data/week5/usa-boundary-layers",
 ## with 1 features
 ## It has 9 fields
 ## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week5/usa-boundary-layers", "US-Boundary-
-## Dissolved-States"): Z-dimension discarded
 
 # look at the data structure
 class(country_boundary_us)
@@ -480,6 +476,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```
