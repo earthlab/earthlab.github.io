@@ -306,7 +306,7 @@ loc_spdf
 Once we have converted our data frame into a spatial data frame, we can then
 reproject our data.
 
-```{r}
+```{r transform-data }
 # reproject data to Robinson
 loc_spdf_rob <- spTransform(loc_spdf, CRSobj = CRS("+proj=robin"))
 
@@ -316,7 +316,7 @@ To make our data place nicely with ggplot, we need to once again convert to a
 dataframe. We can do that by extracting the `coordinates()` and turning that into
 a data.frame using as.data.frame().
 
-```{r}
+```{r plot-new-map, fig.cap="Map of the globe in robinson projection."}
 # convert the spatial object into a data frame
 loc_rob_df <- as.data.frame(coordinates(loc_spdf_rob))
 
