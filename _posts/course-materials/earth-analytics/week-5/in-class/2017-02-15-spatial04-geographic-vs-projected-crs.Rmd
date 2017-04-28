@@ -105,7 +105,7 @@ Equator (0° latitude) and Prime Meridian (0° longitude) on the globe.
 
 Let's remind ourselves what data projects in a geographic CRS look like.
 
-```{r, geographic-WGS84, echo=FALSE, message=FALSE, results='hide'}
+```{r geographic-WGS84, echo=FALSE, message=FALSE, results='hide', fig.cap="wgs 84 plot"}
 # read shapefile
 worldBound <- readOGR(dsn="data/week5/global/ne_110m_land",
                       layer="ne_110m_land")
@@ -161,8 +161,8 @@ The mathematical calculations used in spatial projections are designed to
 optimize the relative size and shape of a particular region on the globe.
 
 <figure>
-    <a href="http://www.progonos.com/furuti/MapProj/Normal/CartDef/MapDef/Img/devSurfaces.png">
-    <img src="http://www.progonos.com/furuti/MapProj/Normal/CartDef/MapDef/Img/devSurfaces.png">
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/dev-crs-surfaces.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/dev-crs-surfaces.png" alt="projection surfaces graphic">
     </a>
     <figcaption>The 3-dimensional globe must be transformed to create a flat
     2-dimensional map. How that transformation or **projection** occurs changes
@@ -195,8 +195,8 @@ the UTM zone, to avoid negative Easting numbers.
 
 
 <figure>
-    <a href="https://www.e-education.psu.edu/natureofgeoinfo/sites/www.e-education.psu.edu.natureofgeoinfo/files/image/utm_zone_characteristics.png">
-    <img src="https://www.e-education.psu.edu/natureofgeoinfo/sites/www.e-education.psu.edu.natureofgeoinfo/files/image/utm_zone_characteristics.png">
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/utm_zone_characteristics.png">
+    <img src="site.url }}/images/course-materials/earth-analytics/week-5/utm_zone_characteristics.png">
     </a>
     <figcaption>The 0,0 origin of each UTM zone is located in the <strong>Bottom left</strong> hand corner (south west) of the zone - exactly 500,000 m EAST from the central meridian of the zone.
     Source: Penn State E-education</figcaption>
@@ -208,7 +208,7 @@ the UTM zone, to avoid negative Easting numbers.
 
 <figure>
     <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg" src="Nasa image showing the UTM x and y zones">
     </a>
     <figcaption>The gridded UTM coordinate system across the globe.
     Source: NASA Earth Observatory</figcaption>
@@ -226,7 +226,7 @@ Remember that N denotes that it is in the Northern hemisphere on the Earth.
 
 Let's plot this coordinate on a map
 
-```{r}
+```{r plot-wgs842, fig.cap="Plot location - wgs84"}
 # create a data.frame with the x,y location
 boulder_df <- data.frame(lon=c(476911.31),
                 lat=c(4429455.35))
@@ -246,7 +246,7 @@ crs(boulder_df)
 crs(boulder_df) <- CRS("+init=epsg:2957")
 ```
 
-```{r echo=FALSE}
+```{r set-crs, echo=FALSE}
 boulder_crs <- crs(boulder_df)
 ```
 
@@ -256,14 +256,14 @@ If we spatially project our data into a geographic coordinate refence system,
 notice how our new coordinates are different - yet they still represent the same
 location.
 
-```{r}
+```{r get-coordinates-transform }
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
 coordinates(boulder_df_geog)
 ```
 
 Now we can plot our data on top of our world map which is also in a geographic CRS.
 
-```{r}
+```{r plot-world-map, fig.cap="global map in wgs84 with points"}
 boulder_df_geog <- as.data.frame(coordinates(boulder_df_geog))
 # plot map
 worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +

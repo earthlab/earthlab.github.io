@@ -103,7 +103,7 @@ Equator (0° latitude) and Prime Meridian (0° longitude) on the globe.
 
 Let's remind ourselves what data projects in a geographic CRS look like.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title="wgs 84 plot" alt="wgs 84 plot" width="100%" />
 
 
 <i class="fa fa-star"></i> **Data Note:** The distance between the 2 degrees of
@@ -131,8 +131,8 @@ The mathematical calculations used in spatial projections are designed to
 optimize the relative size and shape of a particular region on the globe.
 
 <figure>
-    <a href="http://www.progonos.com/furuti/MapProj/Normal/CartDef/MapDef/Img/devSurfaces.png">
-    <img src="http://www.progonos.com/furuti/MapProj/Normal/CartDef/MapDef/Img/devSurfaces.png">
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/dev-crs-surfaces.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/dev-crs-surfaces.png" alt="projection surfaces graphic">
     </a>
     <figcaption>The 3-dimensional globe must be transformed to create a flat
     2-dimensional map. How that transformation or **projection** occurs changes
@@ -165,8 +165,8 @@ the UTM zone, to avoid negative Easting numbers.
 
 
 <figure>
-    <a href="https://www.e-education.psu.edu/natureofgeoinfo/sites/www.e-education.psu.edu.natureofgeoinfo/files/image/utm_zone_characteristics.png">
-    <img src="https://www.e-education.psu.edu/natureofgeoinfo/sites/www.e-education.psu.edu.natureofgeoinfo/files/image/utm_zone_characteristics.png">
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/utm_zone_characteristics.png">
+    <img src="site.url }}/images/course-materials/earth-analytics/week-5/utm_zone_characteristics.png">
     </a>
     <figcaption>The 0,0 origin of each UTM zone is located in the <strong>Bottom left</strong> hand corner (south west) of the zone - exactly 500,000 m EAST from the central meridian of the zone.
     Source: Penn State E-education</figcaption>
@@ -178,7 +178,7 @@ the UTM zone, to avoid negative Easting numbers.
 
 <figure>
     <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Utm-zones.jpg/800px-Utm-zones.jpg" src="Nasa image showing the UTM x and y zones">
     </a>
     <figcaption>The gridded UTM coordinate system across the globe.
     Source: NASA Earth Observatory</figcaption>
@@ -209,7 +209,7 @@ ggplot() +
                       size=5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/unnamed-chunk-1-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-wgs842-1.png" title="Plot location - wgs84" alt="Plot location - wgs84" width="100%" />
 
 ```r
 # convert to spatial points
@@ -260,7 +260,7 @@ worldMap +
         aes(x=lon, y=lat, group=NULL), colour = "springgreen", size=5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/unnamed-chunk-4-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-world-map-1.png" title="global map in wgs84 with points" alt="global map in wgs84 with points" width="100%" />
 
 
 
