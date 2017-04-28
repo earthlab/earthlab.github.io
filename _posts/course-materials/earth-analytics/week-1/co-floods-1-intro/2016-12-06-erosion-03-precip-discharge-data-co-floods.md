@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "Intro to the CO Floods"
-excerpt: "Understanding the floods with data."
+title: "Explore time series data using interactive plots - The 2013 Colorado Floods "
+excerpt: "In this lesson, we will explore 2 different types of time series data that can be used to better understand a flood event: precipitation data and stream discharge data which quantifies the volume and velocity of water moving through a stream channel. Students will explore these data using interactive plot.ly plots. No programming experience is required to complete this lesson."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
 permalink: /course-materials/earth-analytics/week-1/precip-discharge/
 nav-title: 'Interactive Precip & Discharge Data'
 dateCreated: 2016-12-29
-modified: 2016-12-29
+modified: 2017-04-21
 module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
@@ -20,6 +20,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
+tags2:
+  earth-science: ['flood-erosion']
+  time-series:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

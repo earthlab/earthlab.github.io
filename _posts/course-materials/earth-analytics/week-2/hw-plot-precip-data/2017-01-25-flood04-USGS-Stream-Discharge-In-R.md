@@ -1,21 +1,23 @@
 ---
 layout: single
 title: "Plot Stream Discharge Data in R"
-excerpt: "This lesson walks through the steps need to download and visualize
-USGS Stream Discharge data in R to better understand the drivers and impacts of
-the 2013 Colorado floods."
-authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
-modified: '2017-02-06'
+excerpt: "This lesson is a challenge exercise that asks you to use all of the skills used during the week 2 set of lessons in the earth analytics course. Here you will import data and subset it to create a final plot of stream discharge over time."
+authors: ['Leah Wasser', 'NEON Data Skills']
+modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
-permalink: /course-materials/earth-analytics/week-2/plot-stream-discharge-timeseries-r/
+permalink: /course-materials/earth-analytics/week-2/plot-stream-discharge-timeseries-challenge-r/
 nav-title: 'Plot Stream Discharge Data R'
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 4
+tags2:
+  scientific-programming: ['RStudio', 'r']
+  time-series:
+  data-exploration-and-analysis: ['data-visualization']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -87,6 +89,8 @@ Source: <a href="http://nwis.waterdata.usgs.gov/usa/nwis/peak/?site_no=06730200"
 </figure>
 
 
+
+
 ## Work with USGS Stream Gage Data
 
 Let's begin by loading our libraries and setting our working directory.
@@ -146,7 +150,7 @@ out what format elements you'll need to include to get the date right.
 
 Your plot should look something like the one below:
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood04-USGS-Stream-Discharge-In-R/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -163,7 +167,7 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood04-USGS-Stream-Discharge-In-R/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood04-USGS-Stream-Discharge-In-R/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="100%" />
 <div class="notice--info" markdown="1">
 
 ## Additional Resources

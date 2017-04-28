@@ -1,14 +1,13 @@
 ---
 layout: single
 title: "R markdown Resources"
-excerpt: "This lesson contains a list of resources that will help you work with
-R markdown. If you know of other resources, please add them to the comments
-below."
+excerpt: "This lesson contains a list of resources that will help you work with the
+R Markdown format."
 authors: ['Leah Wasser']
-modified: '2017-02-01'
+modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
-permalink: /course-materials/earth-analytics/week-1/intro-rmarkdown-knitr6/
+permalink: /course-materials/earth-analytics/week-1/rmarkdown-resources/
 nav-title: 'R Markdown Resources'
 week: 1
 sidebar:
@@ -16,6 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 6
+tags2:
+  reproducible-open-science: ['rmarkdown']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

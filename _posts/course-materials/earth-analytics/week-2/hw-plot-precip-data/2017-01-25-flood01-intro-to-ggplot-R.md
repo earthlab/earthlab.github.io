@@ -1,25 +1,27 @@
 ---
 layout: single
-title: "Plot with GGPLOT"
-excerpt: 'This lesson walks through using GGPLOT2 to plot data.'
+title: "Customize ggplot plots in R - earth analytics - data science for scientists"
+excerpt: 'This lesson covers how to customize ggplot plot colors and label axes in R. It uses the ggplot2 package.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-02-01'
+modified: '2017-04-21'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
-module-description: 'This tutorial covers how to plot time series data in R using ggplot2.
-  It also covers converting data stored in data/time format into an R date time class.'
-module-nav-title: 'Time Series Data in R'
-module-title: 'Work with Sensor Network Derived Time Series Data in R'
-module-type: 'homework' 
-course: "Earth Analytics"
 nav-title: 'GGPLOT R'
 permalink: /course-materials/earth-analytics/week-2/hw-ggplot2-r/
+module-description: 'This module covers handling with data fields in R so you can efficiently plot time series data using ggplot(). We will use the as.DATE() function to convert dates stored in a data.frame to a date class. We will then plot the time series data using ggplot() and learn how to customize colors and axis labels. '
+module-nav-title: 'Time Series Data in R'
+module-title: 'Work with Sensor Network Derived Time Series Data in R'
+module-type: 'homework'
+course: "Earth Analytics"
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  scientific-programming: ['RStudio', 'r']
+  data-exploration-and-analysis: ['data-visualization']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -63,7 +65,7 @@ library(ggplot2)
 # download data from figshare
 # note that we already downloaded the data to our laptops previously
 # but in case you don't have it - re-download it by uncommenting the code below.
-#download.file(url = "https://ndownloader.figshare.com/files/7010681",
+# download.file(url = "https://ndownloader.figshare.com/files/7010681",
 #              destfile = "data/boulder-precip.csv")
 
 # import data
@@ -97,17 +99,17 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-![quick plot of precip data]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/plot-data-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood01-intro-to-ggplot-R/plot-data-1.png" title="quick plot of precip data" alt="quick plot of precip data" width="100%" />
 
-## Plotting with ggplot2
+## Plot with ggplot2
 
 `ggplot2` is a plotting package that makes it simple to create complex plots
-from data in a dataframe. It uses default settings, which help to create
+from data in a data.frame. It uses default settings, which help to create
 publication quality plots with a minimal amount of settings and tweaking.
 
 ggplot graphics are built step by step by adding new elements.
 
-To build a ggplot we need to:
+To build a ggplot() we need to:
 
 - bind the plot to a specific data frame using the `data` argument
 
@@ -116,6 +118,7 @@ To build a ggplot we need to:
 ggplot(data = boulder_precip)
 
 ```
+
 
 - define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
      such as plotting size, shape color, etc.,
@@ -134,7 +137,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
   geom_point()
 ```
 
-![ggplot boulder precip]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/first-ggplot-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood01-intro-to-ggplot-R/first-ggplot-1.png" title="ggplot boulder precip" alt="ggplot boulder precip" width="100%" />
 
 The `+` in the `ggplot2` package is particularly useful because it allows you
 to modify existing `ggplot` objects. This means you can easily set up plot
@@ -162,7 +165,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(color = "blue")
 ```
 
-![ggplot with blue points]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/adding-colors-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood01-intro-to-ggplot-R/adding-colors-1.png" title="ggplot with blue points" alt="ggplot with blue points" width="100%" />
 
 And adjust the transparency.
 
@@ -172,7 +175,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
 ```
 
-![ggplot with blue points and alpha]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-alpha-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood01-intro-to-ggplot-R/add-alpha-1.png" title="ggplot with blue points and alpha" alt="ggplot with blue points and alpha" width="100%" />
 
 
 Or to color each value in the plot differently:
@@ -183,7 +186,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP))
 ```
 
-![ggplot with colored points]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/color-by-species-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood01-intro-to-ggplot-R/color-by-species-1.png" title="ggplot with colored points" alt="ggplot with colored points" width="100%" />
 
 
 We can turn our plot into a bar plot.
@@ -194,7 +197,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity")
 ```
 
-![ggplot with bars]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/barplot-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood01-intro-to-ggplot-R/barplot-1.png" title="ggplot with bars" alt="ggplot with bars" width="100%" />
 
 Turn the bar outlines blue
 
@@ -204,7 +207,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity", color="blue")
 ```
 
-![ggplot with blue bars]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/bar-color-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood01-intro-to-ggplot-R/bar-color-1.png" title="ggplot with blue bars" alt="ggplot with blue bars" width="100%" />
 
 Change the fill to bright green.
 
@@ -214,33 +217,27 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity", color="blue", fill="green")
 ```
 
-![ggplot with green bars]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/barcolor2-1.png)
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood01-intro-to-ggplot-R/barcolor2-1.png" title="ggplot with green bars" alt="ggplot with green bars" width="100%" />
 
 
-## Adding Labels
+## Add plot labels
 
-You can add labels to your plots as well. Let's add a title, and x and y labels.
-
-```r
-ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
-    geom_point(alpha = 0.9, aes(color=PRECIP)) +
-    ggtitle("Precipitation - Boulder, Colorado 2013")
-```
-
-![ggplot with labels]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-title-1.png)
-
-x and y labels...
-
+You can add labels to your plots as well. Let's add a title, and x and y labels using the glab() argument.
 
 
 ```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
-    ggtitle("Precipitation - Boulder, Colorado 2013") +
-    xlab("x label here") + ylab("y label here")
+    glabs(x="Date",
+      y="Precipitation (Inches)",
+      title="Daily Precipitation (inches)"
+      subtitle="Boulder, Colorado 2013")
+## Error: <text>:6:7: unexpected symbol
+## 5:       title="Daily Precipitation (inches)"
+## 6:       subtitle
+##          ^
 ```
 
-![ggplot with title and labels]({{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2016-12-06-flood01-intro-to-ggplot-R/add-title2-1.png)
 
 
 ## More on customizing your plots

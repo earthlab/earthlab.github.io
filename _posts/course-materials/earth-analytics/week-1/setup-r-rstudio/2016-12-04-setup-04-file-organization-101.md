@@ -11,11 +11,14 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/file-organization-101/
 dateCreated: 2016-12-12
-modified: '2017-02-01'
+modified: '2017-04-21'
 course: 'earth-analytics'
 author_profile: false
 comments: true
 order: 4
+tags2:
+  reproducible-open-science: ['data-management']  
+  scientific-programming: ['RStudio']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
