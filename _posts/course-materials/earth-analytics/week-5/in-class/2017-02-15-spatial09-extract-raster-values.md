@@ -1,10 +1,10 @@
 ---
 layout: single
 title: "Extract raster values using vector boundaries in R"
-excerpt: "This lesson reviews how to extract data from a raster dataset using a
-vector dataset. "
+excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
+vector boundary. We can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where we measured tree heights on the ground. Finally we will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2017-04-26'
+modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/extract-data-from-raster/
@@ -84,8 +84,6 @@ hist(SJER_chm,
      main="Histogram of Canopy Height\n NEON SJER Field Site",
      col="springgreen",
      xlab="Height (m)")
-## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
-## 0% of the raster cells were used. 100000 values used.
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial09-extract-raster-values/import-chm-1.png" title="Histogram of CHM values" alt="Histogram of CHM values" width="100%" />
