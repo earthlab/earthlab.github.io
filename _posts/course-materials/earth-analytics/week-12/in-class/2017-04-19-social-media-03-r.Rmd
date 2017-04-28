@@ -70,7 +70,7 @@ In this example, let's find tweets that are using the words "forest fire" in the
 
 
 ```{r eval=FALSE}
-climate_tweets <- search_tweets(q="#climatechange", n=1000, 
+climate_tweets <- search_tweets(q="#climatechange", n=10000, 
                                       lang="en",
                                       include_rts = FALSE)
 ```

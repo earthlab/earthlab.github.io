@@ -1,5 +1,5 @@
 ## ----eval=FALSE----------------------------------------------------------
-## climate_tweets <- search_tweets(q="#climatechange", n=1000,
+## climate_tweets <- search_tweets(q="#climatechange", n=10000,
 ##                                       lang="en",
 ##                                       include_rts = FALSE)
 
