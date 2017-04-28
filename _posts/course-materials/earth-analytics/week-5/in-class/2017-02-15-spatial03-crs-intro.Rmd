@@ -152,7 +152,7 @@ library(sf)
 In the plot below, we will be using the following theme. You can copy and paste
 this code if you'd like to use the same theme!
 
-```{r}
+```{r set-ggplot-theme }
 # turn off axis elements in ggplot for better visual comparison
 newTheme <- list(theme(line = element_blank(),
       axis.text.x = element_blank(),
@@ -163,7 +163,7 @@ newTheme <- list(theme(line = element_blank(),
       legend.position="none")) # turn off legend
 ```
 
-```{r echo=FALSE}
+```{r plot-world-data, echo=FALSE, fig.cap="Plot of the world boundary using ggplot2."}
 # import_data using sf
 #worldBound_df <- st_read("data/week5/global/ne_110m_land/ne_110m_land.shp")
 # get crs
@@ -175,7 +175,7 @@ ggplot(worldBound_df) +
 ```
 
 
-```{r, results='hide'}
+```{r fortify-data, results='hide'}
 # read shapefile
 worldBound <- readOGR(dsn="data/week5/global/ne_110m_land",
                      layer="ne_110m_land")

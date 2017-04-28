@@ -169,7 +169,7 @@ newTheme <- list(theme(line = element_blank(),
 ## Problem variables: 'geometry'
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/unnamed-chunk-2-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/plot-world-data-1.png" title="Plot of the world boundary using ggplot2." alt="Plot of the world boundary using ggplot2." width="100%" />
 
 
 
@@ -351,7 +351,7 @@ newMap <- robMap + geom_point(data=loc_rob_df,
 newMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/unnamed-chunk-5-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial03-crs-intro/unnamed-chunk-2-1.png" title=" " alt=" " width="100%" />
 
 ## Compare Maps
 

@@ -16,7 +16,7 @@ library(sf)
 # set your working directory
 # setwd("~/Documents/earth-analytics/")
 
-## ------------------------------------------------------------------------
+## ----set-ggplot-theme----------------------------------------------------
 # turn off axis elements in ggplot for better visual comparison
 newTheme <- list(theme(line = element_blank(),
       axis.text.x = element_blank(),
@@ -26,7 +26,7 @@ newTheme <- list(theme(line = element_blank(),
       axis.title.y = element_blank(),
       legend.position="none")) # turn off legend
 
-## ----echo=FALSE----------------------------------------------------------
+## ----plot-world-data, echo=FALSE, fig.cap="Plot of the world boundary using ggplot2."----
 # import_data using sf
 #worldBound_df <- st_read("data/week5/global/ne_110m_land/ne_110m_land.shp")
 # get crs
@@ -36,7 +36,7 @@ ggplot(worldBound_df) +
   geom_sf(data= worldBound_df, aes(fill = ""))
 
 
-## ---- results='hide'-----------------------------------------------------
+## ----fortify-data, results='hide'----------------------------------------
 # read shapefile
 worldBound <- readOGR(dsn="data/week5/global/ne_110m_land",
                      layer="ne_110m_land")
