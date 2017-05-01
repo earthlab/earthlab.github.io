@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "Adjust plot extent in R."
-excerpt: "In this lesson we will review how to adjust the extent of a spatial plot in R using the ext or extent argument and the extent of another layer. "
-authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-04-18'
+excerpt: "In this lesson we will review how to adjust the extent of a spatial plot in R using the ext() or extent argument and the extent of another layer. "
+authors: ['Leah Wasser']
+modified: '2017-05-01'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/adjust-plot-extent-R/
@@ -14,6 +14,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 4
+tags2:
+  scientific-programming: ['r']
+  data-exploration-and-analysis: ['data-visualization']
+  spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []
 ---

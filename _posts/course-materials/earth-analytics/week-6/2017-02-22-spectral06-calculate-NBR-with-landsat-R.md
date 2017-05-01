@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "dNBR with MODIS in R"
-excerpt: ". "
-authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-04-14'
+title: "Calculate and plot difference normalized burn ratio (dNBR) from Landsat remote sensing data in R"
+excerpt: "In this lesson we review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. We finally will classify the dNBR raster."
+authors: ['Leah Wasser','Megan Cattau']
+modified: '2017-05-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/calculate-dNBR-R-Landsat/
@@ -17,6 +17,10 @@ order: 6
 tags2:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
+  scientific-programming: ['r']
+  spatial-data-and-gis: ['raster-data']
+lang-lib:
+  r: []
 ---
 
 
@@ -29,7 +33,7 @@ tags2:
 After completing this tutorial, you will be able to:
 
 * Calculate `dNBR` in `R`
-* Be able to describe how the `dNBR` index is used to quantify fire severity.
+* Describe how the `dNBR` index is used to quantify fire severity.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 

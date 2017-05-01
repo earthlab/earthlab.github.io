@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "MODIS data in in R."
-excerpt: "In this lesson we will explore working with MODIS data in R. "
+excerpt: "In this lesson we will explore how to import and work with MODIS  data in raster geotiff format in R. We will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-04-18'
+modified: '2017-05-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/modis-data-in-R/
@@ -19,6 +19,8 @@ lang-lib:
 tags2:
   remote-sensing: ['modis']
   earth-science: ['fire']
+  scientific-programming: ['r']
+  spatial-data-and-gis: ['raster-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -29,9 +31,9 @@ tags2:
 
 After completing this tutorial, you will be able to:
 
-* Open MODIS imagery in R
-* Create NBR index using MODIS imagery in R
-* Calculate total burned area in R.
+* Open MODIS imagery in `R`
+* Create NBR index using MODIS imagery in `R`
+* Calculate total burned area in `R`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
