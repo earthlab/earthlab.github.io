@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Intro to spectral remote sensing"
+title: "Introduction to spectral remote sensing data"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
-authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-04-14'
+authors: ['Leah Wasser', 'Megan Cattau']
+modified: '2017-05-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/intro-spectral-data-r/
@@ -22,6 +22,8 @@ order: 1
 tags2:
   remote-sensing: ['landsat', 'modis', 'naip']
   earth-science: ['fire']
+lang-lib:
+  r: ['raster']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

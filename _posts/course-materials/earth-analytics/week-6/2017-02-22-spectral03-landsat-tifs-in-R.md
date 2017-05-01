@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "Landsat tif files in R"
-excerpt: "In this lesson we will learn how to work with Landsat data in R. In this case, our data are downloaded in .tif format with each .tif file representing a single band rather than a stack of bands."
-authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-04-14'
+excerpt: "In this lesson we will cover the basics of using LAndsat 7 and 8 in R. We will learn how to import landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally we will plot the data using various 3 band combinations including RGB and color-infrared."
+authors: ['Leah Wasser']
+modified: '2017-05-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-bands-geotif-in-R/
@@ -15,8 +15,12 @@ author_profile: false
 comments: true
 order: 3
 tags2:
-  remote-sensing: ['landsat', 'modis']
+  remote-sensing: ['landsat']
   earth-science: ['fire']
+  scientific-programming: ['r']
+  spatial-data-and-gis: ['raster-data']
+lang-lib:
+  r: []
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
