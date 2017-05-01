@@ -2,7 +2,7 @@
 layout: single
 title: "Data driven reports - why documentation is important - Data from the 2013 Colorado Floods"
 excerpt: "This lesson provides students with an example of a data driven report to emphasize the importance of connecting data, documentation and results."
-authors: ['Leah Wasser', 'NEON Data Skills', 'Mariela Perignon']
+authors: ['Leah Wasser', 'NEON Data Skills']
 modified: 2017-04-21
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
