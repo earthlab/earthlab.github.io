@@ -1,8 +1,8 @@
 ---
 layout: single
-title: "Intro to spectral remote sensing"
+title: "Introduction to spectral remote sensing data"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
-authors: ['Megan Cattau', 'Leah Wasser']
+authors: ['Leah Wasser', 'Megan Cattau']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']

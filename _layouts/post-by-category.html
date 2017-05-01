@@ -106,6 +106,7 @@ layout: default
              <article class="archive__item">
                <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
                <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+               <p class="archive__item-excerpt"><i>last updated: {{ post.modified | replace: "'", "" | date_to_string }}</i></p>
              </article>
            </div>
            {% else %}
@@ -117,6 +118,7 @@ layout: default
                    <article class="archive__item">
                      <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
                      <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+                     <p class="archive__item-excerpt"><i>last updated: {{ post.modified | replace: "'", "" | date_to_string }}</i></p>
                    </article>
                  </div>
                  {% endif %}

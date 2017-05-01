@@ -1,9 +1,13 @@
 ---
  layout: archive
  title: Search
- permalink: /search/
+ permalink: 
  sitemap: false
  ---
+
+<div class="sidebar notsticky">
+     {% include sidebar_home.html %}
+</div>
 
 <div id="home-search" class="home">
    <script>
