@@ -5,6 +5,6 @@ permalink: tags/social-science/
 comments: false
 author_profile: false
 tags2:
-  scientific-programming:
+  social-science:
 main-tag: TRUE
 ---

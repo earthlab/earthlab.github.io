@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Working with multiple bands in R."
-excerpt: "In this lesson we will review how to open up a multi-band image in R. "
-authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-04-14'
+title: "Working with remote sensing imagery that has multiple bands in R - raster data in R."
+excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared ot other band combinations."
+authors: ['Leah Wasser']
+modified: '2017-05-01'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -15,8 +15,12 @@ author_profile: false
 comments: true
 order: 2
 tags2:
-  remote-sensing: ['landsat', 'modis']
+  remote-sensing: ['naip']
   earth-science: ['fire']
+  scientific-programming: ['r']
+  spatial-data-and-gis: ['raster-data']
+lang-lib:
+  r: []
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

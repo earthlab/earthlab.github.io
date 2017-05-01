@@ -3,7 +3,7 @@ layout: single
 title: "Add variables to an RMD report R."
 excerpt: " "
 authors: ['Leah Wasser']
-modified: '2017-04-18'
+modified: '2017-05-01'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/add-variables-to-rmarkdown-report/
@@ -20,6 +20,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
+tags2:
+  scientific-programming: ['r']
+  reproducible-open-science: ['rmarkdown']
 lang-lib:
   r: []
 ---
