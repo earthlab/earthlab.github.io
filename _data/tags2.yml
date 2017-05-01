@@ -9,7 +9,7 @@ social-science:
 time-series:
   topics: []
 data-exploration-and-analysis:
-  topics: ['data-visualization']
+  topics: ['data-visualization', 'text-mining']
 spatial-data-and-gis:
   topics: ['raster-data', 'vector-data']
 scientific-programming:
