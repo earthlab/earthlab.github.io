@@ -1,19 +1,23 @@
 ---
 layout: single
-title: "Refine spatial plots in R. "
-excerpt: " "
+title: "How to remove borders and add legends to spatial plots in R. "
+excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/refine-plots-report/
-nav-title: 'Refine spatial plots'
+nav-title: 'Refine RGB plots'
 week: 7
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 2
+tags2:
+  scientific-programming: ['r']
+  data-exploration-and-analysis: ['data-visualization']
+  spatial-data-and-gis: ['raster-data']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -26,7 +30,7 @@ After completing this tutorial, you will be able to:
 
 * Remove borders and refine the size of plots in an output rmarkdown report.
 * Adjust the aspect ratio of a plot rendered to a pdf using knitr.
-* Customize the location of legends in a plot in R.
+* Customize the location of legends in a plot in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 

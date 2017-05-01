@@ -17,6 +17,8 @@ order: 2
 tags2:
   remote-sensing: ['landsat']
   earth-science: ['fire']
+  scientific-programming: ['r']
+  spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []
 ---
