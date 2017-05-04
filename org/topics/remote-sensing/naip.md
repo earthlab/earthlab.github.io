@@ -6,5 +6,5 @@ comments: false
 author_profile: false
 topics:
   remote-sensing: 'naip'
-is-main-topic:false
+is-main-topic: false
 ---
