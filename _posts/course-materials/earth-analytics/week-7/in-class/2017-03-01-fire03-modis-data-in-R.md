@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "MODIS data in in R."
-excerpt: "In this lesson we will explore how to import and work with MODIS  data in raster geotiff format in R. We will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
+title: "Work with MODIS remote sensing data in in R."
+excerpt: "In this lesson we will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. We will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-05-01'
+modified: '2017-05-04'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/modis-data-in-R/
@@ -19,7 +19,7 @@ lang-lib:
 topics:
   remote-sensing: ['modis']
   earth-science: ['fire']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
 ---
 
