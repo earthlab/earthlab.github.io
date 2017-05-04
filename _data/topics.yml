@@ -1,0 +1,17 @@
+remote-sensing:
+  subtopics: ['landsat', 'modis', 'lidar', 'naip']
+earth-science:
+  subtopics: ['fire', 'permafrost', 'vegetation']
+reproducible-open-science:
+  subtopics: ['rmarkdown', 'jupyter-notebooks', 'data-management']
+social-science:
+  subtopics: ['social-media']
+time-series:
+  subtopics: []
+data-exploration-and-analysis:
+  subtopics: ['data-visualization', 'text-mining']
+spatial-data-and-gis:
+  subtopics: ['raster-data', 'vector-data']
+reproducible-science-and-programming:
+  subtopics: ['RStudio', 'literate-expressive-programming']
+open-science: []

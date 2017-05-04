@@ -21,7 +21,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
-tags2:
+topics:
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']

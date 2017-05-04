@@ -14,8 +14,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
-tags2:
-  scientific-programming: ['r']
+topics:
+  reproducible-science-and-programming: 
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis: ['raster-data', 'vector-data']
 ---

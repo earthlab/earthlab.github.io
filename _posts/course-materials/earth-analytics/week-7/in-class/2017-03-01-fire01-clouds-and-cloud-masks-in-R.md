@@ -19,10 +19,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
-tags2:
+topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
-  scientific-programming: ['r']
+  reproducible-science-and-programming: 
   spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []

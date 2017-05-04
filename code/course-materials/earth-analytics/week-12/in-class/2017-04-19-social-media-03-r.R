@@ -107,7 +107,7 @@ climate_words_counts <- climate_tweets_filtered %>%
 head(climate_words_counts)
 
 
-## ----word-assoc-plot-----------------------------------------------------
+## ----word-assoc-plot, fig.cap="word associations for climate change tweets"----
 library(igraph)
 library(ggraph)
 
@@ -135,4 +135,8 @@ climate_words_counts %>%
 ##         geom_node_text(aes(label = name), vjust = 1.8) +
 ##         ggtitle(expression(paste("Word Network: Tweets using the hashtag - Climate Change",
 ##                                  italic("Text mining twitter data "))))
+
+## ----echo=FALSE----------------------------------------------------------
+# sentiment analysis
+# http://tidytextmining.com/sentiment.html
 
