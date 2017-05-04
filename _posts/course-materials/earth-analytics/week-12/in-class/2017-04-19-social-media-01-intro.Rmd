@@ -20,7 +20,7 @@ comments: true
 order: 1
 lang-lib:
   r: ['rtweet']
-tags2:
+topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining', 'data-visualization']
 ---

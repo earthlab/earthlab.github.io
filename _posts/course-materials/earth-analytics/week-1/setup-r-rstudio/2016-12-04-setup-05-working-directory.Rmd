@@ -1,6 +1,6 @@
 ---
 layout: single
-authors: ['Software Carpentry']
+authors: ['Leah Wasser', 'Software Carpentry']
 category: [course-materials]
 title: 'Create a Project & Working Directory Setup'
 excerpt: 'This lessons covers the concept of a project directory compared to a
@@ -17,9 +17,8 @@ modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 author_profile: false
 comments: true
 order: 5
-tags2:
-  reproducible-open-science: ['data-management']
-  scientific-programming: ['RStudio']
+topics:
+  reproducible-science-and-programming: ['data-management','RStudio']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -35,11 +34,11 @@ use in our lessons.
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
-At the end of this activity, you will:
+At the end of this activity, you will be able to:
 
-* Be able to create an easy to use and we structured project structure.
-* Be able to set a working directory in `R` using code.
-* Be able to set a working directory using the `RStudio` interface.
+* Create an easy to use and we structured project structure.
+* Set a working directory in `R` using code.
+* Set a working directory using the `RStudio` interface.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -80,8 +79,6 @@ called `data`
 
 > We will use the data directory to store the data that we download to use in
 > this course and in the tutorials hosted on this website.
-
-
 
 <figure>
 	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/setup-r-rstudio/working-dir-os.png">

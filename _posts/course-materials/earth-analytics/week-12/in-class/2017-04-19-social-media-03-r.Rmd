@@ -16,9 +16,10 @@ comments: true
 order: 3
 lang-lib:
   r: ['rtweet', 'tidytext', 'dplyr']
-tags2:
+topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
+output: html_document
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
