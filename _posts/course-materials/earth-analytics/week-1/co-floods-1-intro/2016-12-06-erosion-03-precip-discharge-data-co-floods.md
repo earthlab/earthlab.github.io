@@ -20,7 +20,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
-tags2:
+topics:
   earth-science: ['flood-erosion']
   time-series:
 ---
