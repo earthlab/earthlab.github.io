@@ -14,9 +14,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 6
-tags2:
+topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
-  scientific-programming: ['r']
+  reproducible-science-and-programming: 
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

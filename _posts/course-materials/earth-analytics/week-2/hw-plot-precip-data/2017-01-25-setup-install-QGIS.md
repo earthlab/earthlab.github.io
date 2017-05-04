@@ -14,7 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 6
-tags2:
+topics:
   spatial-data-and-gis:
 ---
 

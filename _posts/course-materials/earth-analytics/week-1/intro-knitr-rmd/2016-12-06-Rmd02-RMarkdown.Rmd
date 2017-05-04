@@ -15,8 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
-tags2:
-  reproducible-open-science: ['rmarkdown']
+topics:
+  reproducible-science-and-programming: ['rmarkdown']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
