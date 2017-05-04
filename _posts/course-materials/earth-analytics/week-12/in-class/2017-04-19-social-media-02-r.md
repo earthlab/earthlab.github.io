@@ -16,7 +16,7 @@ comments: true
 order: 2
 lang-lib:
   r: ['rtweet', 'tidytext', 'dplyr']
-tags2:
+topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
 ---

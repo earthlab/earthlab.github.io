@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-03-08'
+modified: '2017-05-02'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/function-example-modular-code-r/
@@ -13,6 +13,8 @@ sidebar:
   nav:
 author_profile: false
 comments: true
+topics:
+  reproducible-science-and-programming: ['literate-programming', 'functions']
 order: 2
 ---
 
@@ -44,7 +46,28 @@ setwd("~/Documents/earth-analytics")
 
 # load spatial packages
 library(raster)
+## Loading required package: sp
+## 
+## Attaching package: 'sp'
+## The following object is masked from 'package:ggraph':
+## 
+##     geometry
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:tidyr':
+## 
+##     extract
+## The following object is masked from 'package:dplyr':
+## 
+##     select
 library(rgdal)
+## rgdal: version: 1.2-6, (SVN revision 651)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-4
 # turn off factors
 options(stringsAsFactors = F)
 ```
@@ -70,7 +93,7 @@ plotRGB(landsat_stack_csf,
 box(col="white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-first, -1.png" title="landsat pre fire raster stack plot" alt="landsat pre fire raster stack plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2017-03-08-automation02-function-example-r/plot-landsat-first, -1.png" title="landsat pre fire raster stack plot" alt="landsat pre fire raster stack plot" width="100%" />
 
 
 
@@ -112,7 +135,7 @@ plotRGB(landsat_pre_fire,
 box(col="white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-pre-1.png" title="landsat pre fire raster stack plot" alt="landsat pre fire raster stack plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2017-03-08-automation02-function-example-r/plot-landsat-pre-1.png" title="landsat pre fire raster stack plot" alt="landsat pre fire raster stack plot" width="100%" />
 
 
 Now, what if we created a function that adjusted
@@ -155,7 +178,7 @@ create_rgb_plot(a_raster_stack = landsat_pre_fire,
                 the_stretch="hist")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-rgb-function-1.png" title="raster stack plot - rgb" alt="raster stack plot - rgb" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2017-03-08-automation02-function-example-r/plot-rgb-function-1.png" title="raster stack plot - rgb" alt="raster stack plot - rgb" width="100%" />
 
 Once our plot parameters are setup, we can use the same code to plot our data
 over and over without having to set parameters each time!
@@ -171,7 +194,7 @@ create_rgb_plot(a_raster_stack = landsat_pre_fire,
                 the_stretch="hist")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-one-cir-1.png" title="pre-fire cir image" alt="pre-fire cir image" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2017-03-08-automation02-function-example-r/plot-one-cir-1.png" title="pre-fire cir image" alt="pre-fire cir image" width="100%" />
 
 Let's run the same functions on another landsat dataset  - post fire.
 
@@ -188,7 +211,7 @@ create_rgb_plot(a_raster_stack = landsat_post_fire,
                 the_stretch="hist")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-post-1.png" title="landsat post fire raster stack plot" alt="landsat post fire raster stack plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2017-03-08-automation02-function-example-r/plot-landsat-post-1.png" title="landsat post fire raster stack plot" alt="landsat post fire raster stack plot" width="100%" />
 
 What if we want to plot a CIR image post fire?
 
@@ -201,7 +224,7 @@ create_rgb_plot(a_raster_stack = landsat_post_fire,
                 the_stretch="hist")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-landsat-post-CIR-1.png" title="landsat CIR post fire raster stack plot" alt="landsat CIR post fire raster stack plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2017-03-08-automation02-function-example-r/plot-landsat-post-CIR-1.png" title="landsat CIR post fire raster stack plot" alt="landsat CIR post fire raster stack plot" width="100%" />
 
 Are our functions general enough to work with MODIS?
 
@@ -218,6 +241,6 @@ create_rgb_plot(a_raster_stack = modis_pre_fire,
                 the_stretch="hist")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2016-12-06-automation02-function-example-r/plot-modis-1.png" title="pre-fire rgb image MODIS" alt="pre-fire rgb image MODIS" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2017-03-08-automation02-function-example-r/plot-modis-1.png" title="pre-fire rgb image MODIS" alt="pre-fire rgb image MODIS" width="100%" />
 
 Looks like it works!

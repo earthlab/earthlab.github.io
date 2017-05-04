@@ -17,9 +17,8 @@ modified: '2017-04-21'
 author_profile: false
 comments: true
 order: 5
-tags2:
-  reproducible-open-science: ['data-management']
-  scientific-programming: ['RStudio']
+topics:
+  reproducible-science-and-programming: ['RStudio','data-management']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 

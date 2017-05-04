@@ -3,7 +3,7 @@ layout: single
 title: "Don't Repeat Yourself - Eliminate repetition in your code"
 excerpt: "This lesson will cover the basic principles of using functions and why they are important."
 authors: ['Max Joseph', 'Leah Wasser', 'Software Carpentry', 'Reproducible Science Curriculum Community']
-modified: '2017-04-05'
+modified: '2017-05-02'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/automate-your-science-r/
@@ -11,13 +11,15 @@ nav-title: "DRY - Don't Repeat Yourself"
 module-title: "Don't Repeat Yourself: Remove repetition in your code using functions in R."
 module-description: "This module will overview the basic principles of DRY - don't repeat yourself. It will then walk you through incorporating functions into your scientific programming to increase efficiency, clarity, and readability. "
 module-nav-title: 'Efficient Programming Using Functions'
-module-type: 'class' 
+module-type: 'class'
 course: "Earth Analytics"
 week: 8
 sidebar:
   nav:
 author_profile: false
 comments: true
+topics: 
+  reproducible-science-and-programming: ['literate-programming', 'functions']
 order: 1
 ---
 
