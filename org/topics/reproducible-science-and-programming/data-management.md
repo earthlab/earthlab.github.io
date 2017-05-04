@@ -1,7 +1,7 @@
 ---
 layout: post-by-category
 title: "Data management lessons"
-permalink: tags/reproducible-open-science/data-management/
+permalink: tags/reproducible-science-and-programming/data-management/
 comments: false
 author_profile: false
 topics:

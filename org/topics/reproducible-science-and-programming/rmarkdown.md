@@ -1,7 +1,7 @@
 ---
 layout: post-by-category
 title: "Open science data lessons"
-permalink: tags/reproducible-open-science/rmarkdown/
+permalink: tags/reproducible-science-and-programming/rmarkdown/
 comments: false
 author_profile: false
 topics:
