@@ -102,7 +102,7 @@ layout: default
       {% for tag in post.topics %}
       {% assign atag = tag | first | downcase %}
          {% if the_tag contains atag %}
-          {% if page.main-tag %}
+          {% if page.is-main-topic %}
            <div class="list__item">
              <article class="archive__item">
                <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
