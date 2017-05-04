@@ -114,12 +114,12 @@ climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "@billmckibben #ClimateChange is real..... expect more extreme weather! https://t.co/oCMIvfEaBL"                                         
-## [2] "#Mission:#Climate @ home &gt; Vegan - huge benefit to earth (by @FilmCriticOne) #ClimateChange #Tip #EarthRightNow"                     
-## [3] "This was forecast years ago in the book, \"The Coming Plague\" -- https://t.co/wOFoyxjojN #climatechange"                               
-## [4] "If the Earth had 2 moons? Hope you're not also dealing with #climatechange! #WaterWorld #MayTheFourthBeWithYou https://t.co/ssbfUGRD1O" 
-## [5] "The US can legally remain in the #ParisAgreement and change their NDC. \n\n#COP21 #Climatechange #franceintheus https://t.co/nLtNWlHvaU"
-## [6] "The latest The Couposh Daily! https://t.co/C8SnrEdpvZ Thanks to @connpost @tessawegert @CTnewshound #ad #climatechange"
+## [1] "Read story of our project #WISE2Climate nature-based solutions for #climatechange #Adaptation @IUCN_Water @ODIdev https://t.co/SZ4Z3vrAOc"   
+## [2] "I approve #FIM2017 as it brings together #weather presenters to improve the understanding of #climatechange @IPCC_CH https://t.co/8RKZOCFjY1"
+## [3] "Horsemen of the Apocalypse \n#ClimateChange #Environment\nhttps://t.co/TIRceG0lHb via @ngbutok https://t.co/hB7JOqGPS4"                      
+## [4] "McCain on #climatechange: Believe #climatechangeisreal. Believe in #nuclearpowerplants. #McCainTownHall"                                     
+## [5] "Dissecting #Boston VII: Erosive Division and #climatechange from the shores of Plum Island https://t.co/D6RK14mWEf https://t.co/1D8obpQHOr"  
+## [6] "Get ready for a shock — NASA will measure greenhouse gases over the mid-Atlantic\nhttps://t.co/0uqSxI820u\n#climatechange"
 ```
 
 ## Data clean-up
@@ -230,7 +230,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 121318
+## [1] 121371
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -238,7 +238,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 71809
+## [1] 71799
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -284,20 +284,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 66,067 × 2
+## # A tibble: 66,051 × 2
 ##        paired_words     n
 ##               <chr> <int>
-## 1    climate change   664
-## 2  climatechange is   409
-## 3        the latest   357
-## 4    climate action   349
-## 5  on climatechange   334
-## 6       petition to   334
-## 7       sign nrdc's   334
-## 8   action petition   332
-## 9          to trump   332
-## 10   nrdc's climate   331
-## # ... with 66,057 more rows
+## 1    climate change   665
+## 2  climatechange is   415
+## 3        the latest   358
+## 4    climate action   346
+## 5  on climatechange   335
+## 6       petition to   331
+## 7       sign nrdc's   331
+## 8   action petition   329
+## 9          to trump   329
+## 10   nrdc's climate   328
+## # ... with 66,041 more rows
 ```
 
 
@@ -320,12 +320,12 @@ head(climate_words_counts)
 ## 
 ##           word1    word2     n
 ##           <chr>    <chr> <int>
-## 1       climate   change   664
-## 2       climate   action   349
-## 3          sign   nrdc's   334
-## 4        action petition   332
-## 5        nrdc's  climate   331
-## 6 climatechange      amp   121
+## 1       climate   change   665
+## 2       climate   action   346
+## 3          sign   nrdc's   331
+## 4        action petition   329
+## 5        nrdc's  climate   328
+## 6 climatechange      amp   122
 ```
 
 FInally, plot the data
@@ -337,7 +337,7 @@ library(ggraph)
 
 # plot climate change word network
 climate_words_counts %>%
-        filter(n >= 14) %>%
+        filter(n >= 24) %>%
         graph_from_data_frame() %>%
         ggraph(layout = "fr") +
         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
