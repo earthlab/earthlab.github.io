@@ -17,7 +17,7 @@ order: 6
 topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []
