@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Get landsat data - Earth Explorer"
+title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
@@ -17,7 +17,7 @@ order: 2
 topics:
   remote-sensing: ['landsat']
   earth-science: ['fire']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []
