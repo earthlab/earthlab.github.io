@@ -24,6 +24,7 @@ output: html_document
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -70,8 +71,30 @@ will involve some text mining.
 In this example, let's find tweets that are using the words "forest fire" in them.
 
 
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+
+```
+
+First, we load the `rtweet` and other needed `R` packages. Note we are introducing
+2 new packages lower in this lesson: igraph and ggraph.
+
+```{r load-packages}
+# load twitter library - the rtweet library is recommended now over twitteR
+library(rtweet)
+# plotting and pipes - tidyverse!
+library(ggplot2)
+library(dplyr)
+# text mining library
+library(tidytext)
+# plotting packages
+library(igraph)
+library(ggraph)
+
+```
+
 ```{r eval=FALSE}
-climate_tweets <- search_tweets(q="#climatechange", n=10000, 
+climate_tweets <- search_tweets(q="#climatechange", n=10000,
                                       lang="en",
                                       include_rts = FALSE)
 ```
@@ -88,7 +111,7 @@ the entire string. Let's try it.
 
 ```{r}
 # Find tweet using forest fire in them
-climate_tweets <- search_tweets(q="#climatechange", n=4000, lang="en",
+climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
@@ -216,8 +239,8 @@ cleaned_tweet_words %>%
 
 ## Explore networks of words
 
-We might also want to explore words that occur together in tweets. LEt's do that 
-next. 
+We might also want to explore words that occur together in tweets. LEt's do that
+next.
 
 ngrams specifies pairs and 2 is the number of words together
 
@@ -248,7 +271,7 @@ climate_tweets_filtered <- climate_tweets_separated_words %>%
   filter(!word2 %in% stop_words$word)
 
 # new bigram counts:
-climate_words_counts <- climate_tweets_filtered %>% 
+climate_words_counts <- climate_tweets_filtered %>%
   count(word1, word2, sort = TRUE)
 
 head(climate_words_counts)
@@ -269,13 +292,13 @@ climate_words_counts %>%
         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
         geom_node_point(color = "darkslategray4", size = 3) +
         geom_node_text(aes(label = name), vjust = 1.8, size=3) +
-        labs(title= "Word Network: Tweets using the hashtag - Climate Change", 
+        labs(title= "Word Network: Tweets using the hashtag - Climate Change",
              subtitle="Text mining twitter data ",
-             x="", y="") 
+             x="", y="")
 
 ```
 
-We expect the words climate & change to have a high 
+We expect the words climate & change to have a high
 
 ```{r echo=FALSE, eval=FALSE}
 # what happens if we remove climate change from the plot as that's a given
@@ -286,7 +309,7 @@ climate_words_counts %>%
         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
         geom_node_point(color = "darkslategray4", size = 5) +
         geom_node_text(aes(label = name), vjust = 1.8) +
-        ggtitle(expression(paste("Word Network: Tweets using the hashtag - Climate Change", 
+        ggtitle(expression(paste("Word Network: Tweets using the hashtag - Climate Change",
                                  italic("Text mining twitter data "))))
 ```
 
@@ -295,5 +318,3 @@ climate_words_counts %>%
 # sentiment analysis
 # http://tidytextmining.com/sentiment.html
 ```
-
-
