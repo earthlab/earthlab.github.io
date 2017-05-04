@@ -16,10 +16,10 @@ comments: true
 order: 3
 lang-lib:
   r: []
-tags2:
+topics:
   remote-sensing: ['modis']
   earth-science: ['fire']
-  scientific-programming: ['r']
+  reproducible-science-and-programming: 
   spatial-data-and-gis: ['raster-data']
 ---
 

@@ -70,7 +70,8 @@ layout: default
 
 
       <!-- If the page is a tag2 page    -->
-    {% if page.layout == 'post-by-category' and page.tags2 %}
+    {% if page.layout == 'post-by-category' and page.topics %}
+
     <!--
     TO DO - in the post by cat layout page.
     <ul>
@@ -95,10 +96,10 @@ layout: default
         <!-- Using downcase to force this to an array so i can use contains below
         i'm not really sure why the text == text argument doesn't work but if i
         force one element to an array i can use contains and it works -->
-      {% assign the_tag = page.tags2 | first | downcase %}
+    {% assign the_tag = page.topics | first | downcase %}
     {% for post in site.posts %}
-    {% if post.tags2 %}
-      {% for tag in post.tags2 %}
+    {% if post.topics %}
+      {% for tag in post.topics %}
       {% assign atag = tag | first | downcase %}
          {% if the_tag contains atag %}
           {% if page.main-tag %}
@@ -111,8 +112,8 @@ layout: default
            </div>
            {% else %}
            <!-- If the page is a subtag landing page just list the posts for the subtag -->
-             {% for page_subtag in page.tags2 %}
-                {% for post_subtag in post.tags2 %}
+             {% for page_subtag in page.topics %}
+                {% for post_subtag in post.topics %}
                  {% if post_subtag.last contains page_subtag.last %}
                  <div class="list__item">
                    <article class="archive__item">

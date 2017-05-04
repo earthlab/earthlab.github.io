@@ -15,8 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
-tags2:
-  scientific-programming: ['RStudio', 'r']
+topics:
+  reproducible-science-and-programming: ['RStudio']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 

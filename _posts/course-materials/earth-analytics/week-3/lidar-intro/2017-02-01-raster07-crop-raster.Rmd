@@ -15,8 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 7
-tags2:
-  scientific-programming: ['r']
+topics:
+  reproducible-science-and-programming: 
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']

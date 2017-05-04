@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-04-28'
+modified: '2017-05-02'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -16,7 +16,7 @@ comments: true
 order: 3
 lang-lib:
   r: ['rtweet', 'tidytext', 'dplyr']
-tags2:
+topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
 ---
@@ -91,14 +91,10 @@ the entire string. Let's try it.
 # Find tweet using forest fire in them
 climate_tweets <- search_tweets(q="#climatechange", n=4000, lang="en",
                              include_rts = FALSE)
+## Error in eval(expr, envir, enclos): could not find function "search_tweets"
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "#Climatechange Climate Home Weekly wrap: who controls Africa's clean energy destiny? Climate Home…… https://t.co/WOUz5xQekn"                     
-## [2] "Half of All Species Are on the Move—And We're Feeling It @NatGeo https://t.co/iDVP3OO94h #climatechange"                                         
-## [3] "How a Professional #ClimateChange Denier Discovered the Lies and Decided to Fight for Science https://t.co/2WHVWF1BRG"                           
-## [4] "Just cancelled my NYT subscription because of climate-denier @BretStephensNYT #climatechange"                                                    
-## [5] "#Climatechange deniers are like those 40-somethings that tell people they're \"29 again\", only dangerous. #Evidence #factsmatter"               
-## [6] "Trees give. Glad to see trees my mother &amp; father planted growing well! #nextgenclimate #climatemarch #climatechange… https://t.co/M9tcuuH5D1"
+## Error in head(climate_tweets$text): object 'climate_tweets' not found
 ```
 
 ## Data clean-up
@@ -118,7 +114,9 @@ those.
 
 # remove http elements manually
 climate_tweets$stripped_text <- gsub("http.*","",  climate_tweets$text)
+## Error in gsub("http.*", "", climate_tweets$text): object 'climate_tweets' not found
 climate_tweets$stripped_text <- gsub("https.*","", climate_tweets$stripped_text)
+## Error in gsub("https.*", "", climate_tweets$stripped_text): object 'climate_tweets' not found
 ```
 
 Finally, we can clean up our text. If we are trying to create a list of unique
@@ -157,6 +155,7 @@ cleaned up tweet text stored.
 climate_tweets_clean <- climate_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(word, stripped_text)
+## Error in eval(expr, envir, enclos): object 'climate_tweets' not found
 ```
 
 Now we can plot our data. What do you notice?
@@ -175,9 +174,8 @@ climate_tweets_clean %>%
       labs(x="Count",
       y="Unique words",
       title="Count of unique words found in tweets")
+## Error in eval(expr, envir, enclos): object 'climate_tweets_clean' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-03-r/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="100%" />
 
 Our plot of unique words contains some words that may not be useful to use. For instance
 "a" and "to". In the word of text mining we call those words - 'stop words'.
@@ -196,28 +194,22 @@ Let's give this a try next!
 ```r
 # load list of stop words - from the tidytext package
 data("stop_words")
+## Warning in data("stop_words"): data set 'stop_words' not found
 # view first 6 words
 head(stop_words)
-## # A tibble: 6 × 2
-##        word lexicon
-##       <chr>   <chr>
-## 1         a   SMART
-## 2       a's   SMART
-## 3      able   SMART
-## 4     about   SMART
-## 5     above   SMART
-## 6 according   SMART
+## Error in head(stop_words): object 'stop_words' not found
 
 nrow(climate_tweets_clean)
-## [1] 50079
+## Error in nrow(climate_tweets_clean): object 'climate_tweets_clean' not found
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
   anti_join(stop_words)
+## Error in eval(expr, envir, enclos): object 'climate_tweets_clean' not found
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 29790
+## Error in nrow(cleaned_tweet_words): object 'cleaned_tweet_words' not found
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -238,9 +230,8 @@ cleaned_tweet_words %>%
       x="Unique words",
       title="Count of unique words found in tweets",
       subtitle="Stop words removed from the list")
+## Error in eval(expr, envir, enclos): object 'cleaned_tweet_words' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-03-r/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="100%" />
 
 ## Explore networks of words
 
@@ -259,23 +250,11 @@ library(widyr)
 climate_tweets_paired_words <- climate_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(paired_words, stripped_text, token = "ngrams", n=2)
+## Error in eval(expr, envir, enclos): object 'climate_tweets' not found
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 30,901 × 2
-##        paired_words     n
-##               <chr> <int>
-## 1    climate change   231
-## 2  on climatechange   155
-## 3  of climatechange   153
-## 4  climatechange is   147
-## 5        the latest   139
-## 6              b gt   134
-## 7              lt b   134
-## 8            in the   114
-## 9            of the    93
-## 10        the world    91
-## # ... with 30,891 more rows
+## Error in eval(expr, envir, enclos): object 'climate_tweets_paired_words' not found
 ```
 
 
@@ -283,27 +262,20 @@ climate_tweets_paired_words %>%
 library(tidyr)
 climate_tweets_separated_words <- climate_tweets_paired_words %>%
   separate(paired_words, c("word1", "word2"), sep = " ")
+## Error in eval(expr, envir, enclos): object 'climate_tweets_paired_words' not found
 
 climate_tweets_filtered <- climate_tweets_separated_words %>%
   filter(!word1 %in% stop_words$word) %>%
   filter(!word2 %in% stop_words$word)
+## Error in eval(expr, envir, enclos): object 'climate_tweets_separated_words' not found
 
 # new bigram counts:
 climate_words_counts <- climate_tweets_filtered %>% 
   count(word1, word2, sort = TRUE)
+## Error in eval(expr, envir, enclos): object 'climate_tweets_filtered' not found
 
 head(climate_words_counts)
-## Source: local data frame [6 x 3]
-## Groups: word1 [5]
-## 
-##           word1         word2     n
-##           <chr>         <chr> <int>
-## 1       climate        change   231
-## 2         clim8        change    67
-## 3 climatechange globalwarming    59
-## 4 climatechange      refugees    58
-## 5            gt         clim8    50
-## 6        change            lt    49
+## Error in head(climate_words_counts): object 'climate_words_counts' not found
 ```
 
 FInally, plot the data
@@ -311,7 +283,22 @@ FInally, plot the data
 
 ```r
 library(igraph)
+## 
+## Attaching package: 'igraph'
+## The following objects are masked from 'package:tidyr':
+## 
+##     %>%, crossing
+## The following objects are masked from 'package:dplyr':
+## 
+##     %>%, as_data_frame, groups, union
+## The following objects are masked from 'package:stats':
+## 
+##     decompose, spectrum
+## The following object is masked from 'package:base':
+## 
+##     union
 library(ggraph)
+## Loading required package: ggplot2
 
 # plot climate change word network
 climate_words_counts %>%
@@ -324,11 +311,14 @@ climate_words_counts %>%
         labs(title= "Word Network: Tweets using the hashtag - Climate Change", 
              subtitle="Text mining twitter data ",
              x="", y="") 
+## Error in eval(expr, envir, enclos): object 'climate_words_counts' not found
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title=" " alt=" " width="100%" />
-
 We expect the words climate & change to have a high 
+
+
+
+
 
 
 
