@@ -130,7 +130,7 @@ library(ggraph)
 
 # plot climate change word network
 climate_words_counts %>%
-        filter(n >= 14) %>%
+        filter(n >= 24) %>%
         graph_from_data_frame() %>%
         ggraph(layout = "fr") +
         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +

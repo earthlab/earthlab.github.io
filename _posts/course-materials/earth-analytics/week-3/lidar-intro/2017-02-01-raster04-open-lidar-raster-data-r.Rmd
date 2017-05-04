@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "Introduction to lidar raster data products"
-excerpt: "This lesson reviews how to open a lidar raster dataset in R."
+excerpt: "This lesson covers the 3 key lidar raster products including the canopy height model (CHM) the digital terrain model (DTM or DEM) and the Digital Surface Model (DSM). Finally, it demonstrated how to open a lidar raster dataset in R."
 authors: ['Leah Wasser']
-lastModified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
@@ -15,7 +15,7 @@ author_profile: false
 comments: false
 order: 4
 topics:
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
