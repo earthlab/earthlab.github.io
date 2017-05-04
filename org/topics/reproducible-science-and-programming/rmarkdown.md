@@ -1,10 +1,10 @@
 ---
 layout: post-by-category
-title: "Open science data lessons"
+title: "Reproducible science and programming: Open science data lessons"
 permalink: tags/reproducible-science-and-programming/rmarkdown/
 comments: false
 author_profile: false
 topics:
-  reproducible-open-science: 'rmarkdown'
+  reproducible-science-and-programming: 'rmarkdown'
 is-main-topic: false
 ---

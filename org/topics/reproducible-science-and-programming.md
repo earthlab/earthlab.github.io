@@ -5,6 +5,6 @@ permalink: tags/reproducible-science-and-programming/
 comments: false
 author_profile: false
 topics:
-  reproducible-open-science:
+  reproducible-science-and-programming:
 is-main-topic: true
 ---
