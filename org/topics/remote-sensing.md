@@ -6,5 +6,5 @@ comments: false
 author_profile: false
 topics:
   remote-sensing:
-is-main-topic:TRUE
+is-main-topic: true
 ---

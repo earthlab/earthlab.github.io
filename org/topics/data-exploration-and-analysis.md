@@ -6,5 +6,5 @@ comments: false
 author_profile: false
 topics:
   data-exploration-and-analysis:
-is-main-topic:TRUE
+is-main-topic: true
 ---
