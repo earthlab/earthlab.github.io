@@ -1,7 +1,7 @@
 ---
 layout: post-by-category
 title: "Reproducible science and programming: Literate expressive programming"
-permalink: tags/scientific-programming/literate-expressive-programming/
+permalink: tags/reproducible-science-and-programming/literate-expressive-programming/
 comments: false
 author_profile: false
 topics:
