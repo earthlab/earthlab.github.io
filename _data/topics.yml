@@ -7,7 +7,7 @@ reproducible-open-science:
 social-science:
   subtopics: ['social-media']
 time-series:
-  subtopics: []
+  subtopics: ['convert-date-time']
 data-exploration-and-analysis:
   subtopics: ['data-visualization', 'text-mining']
 spatial-data-and-gis:
