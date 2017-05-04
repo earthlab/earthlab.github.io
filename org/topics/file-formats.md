@@ -1,7 +1,7 @@
 ---
 layout: post-by-category
-title: "Data lessons by data type"
-permalink: tags/data-type/
+title: "Data lessons by file format"
+permalink: tags/file-formats/
 comments: false
 author_profile: false
 topics:
