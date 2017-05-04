@@ -14,7 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 topics:
-  reproducible-science-and-programming: ['literate-programming', 'functions']
+  reproducible-science-and-programming: ['literate-expressive-programming', 'functions']
 order: 4
 ---
 
