@@ -3,7 +3,7 @@ layout: single
 title: "Understand the function environment & function arguments in R"
 excerpt: "This lesson introduces the function environment and documenting functions in R. When you run a function intermediate variables are not stored in the global environment. This not only saves memory on your computer but also keeps our environment clean, reducing the risk of conflicting variables."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-03-08'
+modified: '2017-05-02'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/function-documentation-environment-r/
@@ -13,6 +13,8 @@ sidebar:
   nav:
 author_profile: false
 comments: true
+topics:
+  reproducible-science-and-programming: ['literate-expressive-programming', 'functions']
 order: 5
 ---
 
@@ -66,7 +68,7 @@ fahr_to_celsius <- function(fahr) {
 }
 
 fahr_to_celsius(15)
-
+## [1] -9.444444
 ```
 
 When we run the function above, it creates a new temporary environment where it runs

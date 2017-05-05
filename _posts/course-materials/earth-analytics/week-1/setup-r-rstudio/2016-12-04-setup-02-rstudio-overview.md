@@ -17,8 +17,8 @@ permalink: /course-materials/earth-analytics/week-1/intro-to-r-and-rstudio/
 author_profile: false
 comments: true
 order: 2
-tags2:
-  scientific-programming: ['RStudio']    
+topics:
+  reproducible-science-and-programming: ['RStudio']    
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

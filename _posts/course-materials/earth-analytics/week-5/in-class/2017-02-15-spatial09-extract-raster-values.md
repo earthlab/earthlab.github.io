@@ -15,10 +15,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 8
-tags2:
+topics:
   remote-sensing: ['lidar']
   earth-science: ['vegetation', 'uncertainty']
-  scientific-programming: ['r']
+  reproducible-science-and-programming: 
   spatial-data-and-gis: ['vector-data', 'raster-data']
 ---
 

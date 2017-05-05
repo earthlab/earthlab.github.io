@@ -15,8 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 6
-tags2:
-  scientific-programming: ['RStudio', 'r', 'literate-expressive-programming']
+topics:
+  reproducible-science-and-programming: ['RStudio', 'literate-expressive-programming']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

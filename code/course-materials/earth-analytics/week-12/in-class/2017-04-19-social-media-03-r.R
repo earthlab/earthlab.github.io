@@ -1,3 +1,20 @@
+## ----setup, echo=FALSE---------------------------------------------------
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+
+
+## ----load-packages-------------------------------------------------------
+# load twitter library - the rtweet library is recommended now over twitteR
+library(rtweet)
+# plotting and pipes - tidyverse!
+library(ggplot2)
+library(dplyr)
+# text mining library
+library(tidytext)
+# plotting packages
+library(igraph)
+library(ggraph)
+
+
 ## ----eval=FALSE----------------------------------------------------------
 ## climate_tweets <- search_tweets(q="#climatechange", n=10000,
 ##                                       lang="en",
@@ -5,7 +22,7 @@
 
 ## ------------------------------------------------------------------------
 # Find tweet using forest fire in them
-climate_tweets <- search_tweets(q="#climatechange", n=4000, lang="en",
+climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
@@ -101,27 +118,27 @@ climate_tweets_filtered <- climate_tweets_separated_words %>%
   filter(!word2 %in% stop_words$word)
 
 # new bigram counts:
-climate_words_counts <- climate_tweets_filtered %>% 
+climate_words_counts <- climate_tweets_filtered %>%
   count(word1, word2, sort = TRUE)
 
 head(climate_words_counts)
 
 
-## ----word-assoc-plot-----------------------------------------------------
+## ----word-assoc-plot, fig.cap="word associations for climate change tweets"----
 library(igraph)
 library(ggraph)
 
 # plot climate change word network
 climate_words_counts %>%
-        filter(n >= 14) %>%
+        filter(n >= 24) %>%
         graph_from_data_frame() %>%
         ggraph(layout = "fr") +
         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
         geom_node_point(color = "darkslategray4", size = 3) +
         geom_node_text(aes(label = name), vjust = 1.8, size=3) +
-        labs(title= "Word Network: Tweets using the hashtag - Climate Change", 
+        labs(title= "Word Network: Tweets using the hashtag - Climate Change",
              subtitle="Text mining twitter data ",
-             x="", y="") 
+             x="", y="")
 
 
 ## ----echo=FALSE, eval=FALSE----------------------------------------------
@@ -135,4 +152,8 @@ climate_words_counts %>%
 ##         geom_node_text(aes(label = name), vjust = 1.8) +
 ##         ggtitle(expression(paste("Word Network: Tweets using the hashtag - Climate Change",
 ##                                  italic("Text mining twitter data "))))
+
+## ----echo=FALSE----------------------------------------------------------
+# sentiment analysis
+# http://tidytextmining.com/sentiment.html
 

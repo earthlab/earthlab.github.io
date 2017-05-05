@@ -19,8 +19,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
-tags2:
-  scientific-programming: ['RStudio', 'r']
+topics:
+  reproducible-science-and-programming: ['RStudio']
   data-exploration-and-analysis: ['data-visualization']
 ---
 
