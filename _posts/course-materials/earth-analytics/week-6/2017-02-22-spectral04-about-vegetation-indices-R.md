@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Vegetation indices in R"
+title: "Calculate a remote sensing derived vegetation index in R"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, we will review the basic principles associated with calculating a vegetation index from raster formated, landsat remote sensing data in R. We will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-05-01'
+modified: '2017-05-04'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/vegetation-indices-NDVI-in-R/
@@ -14,10 +14,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 4
-tags2:
+topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
-  scientific-programming: ['r']
+  reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []
