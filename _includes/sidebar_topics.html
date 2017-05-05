@@ -1,0 +1,92 @@
+{% assign page_tag = page.topics | first %}
+
+<!-- first get the main tag for the page -->
+{% for tags in page.topics %}
+  {% assign page_main_tag = tags.first %}
+{% endfor %}
+
+<div class="sidebar sticky">
+  <nav class="nav__list">
+    <ul>
+      <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> By science topic</span>
+        <ul>
+          {% for main_tag in site.data.topics %}
+            {% assign main_tag_counter = 0 %}
+            {% assign topic = main_tag | first %}
+                {% for post in site.posts %}
+                 {% if post.topics contains topic %}
+                   {% assign the_tag = main_tag.tag %}
+                 <!-- this is just to remind myself how to access this element **get all subtags:** {{ post.topics[the_tag] }} -->
+                 {% assign main_tag_counter = main_tag_counter | plus: 1 %}
+                 {% endif %}
+                {% endfor %}
+
+              {% if main_tag_counter > 0 %}
+                {% if (page.topics contains topic) %}
+                {% if page.is-main-topic %}
+                  <li class='active'><a href="{{ site.url }}/tags/{{ topic }}"> <span><i class="fa fa-folder-open" aria-hidden="true"></i> {{ topic | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+                  {% else %}
+                  <li><a href="{{ site.url }}/tags/{{ topic }}"> <span><i class="fa fa-folder-open" aria-hidden="true"></i> {{ topic | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+                {% endif %}
+                  {% include sidebar_list_subtopics.html %}
+
+                {% else %}
+                  <li><a href="{{ site.url }}/tags/{{ topic }}"> <span><i class="fa fa-book" aria-hidden="true"></i> {{ topic  | replace:"-"," "}}: {{ main_tag_counter }}</span></a></li>
+                {% endif %}
+              {% endif %}
+
+            {% endfor %}
+          </ul>
+      </li>
+    </ul>
+  </nav>
+
+
+<!-- List the related sub topics if this is a tag sidebar element -->
+
+
+<!--
+<nav class="nav__list">
+  <ul>
+   <li><a href="{{ site.url }}/tags/{{ main_tag.tag }}"> <span><i class="fa fa-folder-open" aria-hidden="true"></i> {{ page_main_tag | capitalize | replace:"-"," " }} tags </span></a>
+    <ul> -->
+{% comment %}
+    <!-- Just get the sub topics associated with the main page tag -->
+    {% for main_tag in site.data.topics %}
+     {% if page.topics contains main_tag[0] %}
+
+      {% for atag in main_tag.last %}
+       {% for sub_topic in atag.last  %}
+       {% assign topic_tag_counter = 0 %}
+        {% for post in site.posts %}
+          {% for tags in post.topics %}
+            {% for a_tag in tags.last %}
+            {% if a_tag == sub_topic %}
+             {% assign topic_tag_counter = topic_tag_counter | plus: 1 %}
+            {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endfor %}
+
+          {% if topic_tag_counter > 0%}
+
+          {% if page.topics.first[1] == sub_topic %}
+          <li class='active'><a href="{{ site.url }}/tags/{{ main_tag[0] }}/{{ sub_topic }}">{{ sub_topic | uppercase }} {{ topic_tag_counter }}</a></li>
+          {% else %}
+          <li><a href="{{ site.url }}/tags/{{ main_tag[0] }}/{{ sub_topic }}">{{ sub_topic }} {{ topic_tag_counter }}</a></li>
+          {% endif %}
+
+          {% endif %}
+       {% endfor %}
+
+       {% endfor %}
+       {% endif %}
+       {% endfor %}
+       {% endcomment %}
+<!--
+    </ul>
+   </li>
+  </ul>
+</nav> -->
+
+</div>

@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-04-28'
+modified: '2017-05-04'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -16,12 +16,14 @@ comments: true
 order: 3
 lang-lib:
   r: ['rtweet', 'tidytext', 'dplyr']
-tags2:
+topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
+output: html_document
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 <div class='notice--success' markdown="1">
 
@@ -70,8 +72,27 @@ In this example, let's find tweets that are using the words "forest fire" in the
 
 
 
+
+First, we load the `rtweet` and other needed `R` packages. Note we are introducing
+2 new packages lower in this lesson: igraph and ggraph.
+
+
 ```r
-climate_tweets <- search_tweets(q="#climatechange", n=10000, 
+# load twitter library - the rtweet library is recommended now over twitteR
+library(rtweet)
+# plotting and pipes - tidyverse!
+library(ggplot2)
+library(dplyr)
+# text mining library
+library(tidytext)
+# plotting packages
+library(igraph)
+library(ggraph)
+```
+
+
+```r
+climate_tweets <- search_tweets(q="#climatechange", n=10000,
                                       lang="en",
                                       include_rts = FALSE)
 ```
@@ -89,16 +110,16 @@ the entire string. Let's try it.
 
 ```r
 # Find tweet using forest fire in them
-climate_tweets <- search_tweets(q="#climatechange", n=4000, lang="en",
+climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "#Climatechange Climate Home Weekly wrap: who controls Africa's clean energy destiny? Climate Home…… https://t.co/WOUz5xQekn"                     
-## [2] "Half of All Species Are on the Move—And We're Feeling It @NatGeo https://t.co/iDVP3OO94h #climatechange"                                         
-## [3] "How a Professional #ClimateChange Denier Discovered the Lies and Decided to Fight for Science https://t.co/2WHVWF1BRG"                           
-## [4] "Just cancelled my NYT subscription because of climate-denier @BretStephensNYT #climatechange"                                                    
-## [5] "#Climatechange deniers are like those 40-somethings that tell people they're \"29 again\", only dangerous. #Evidence #factsmatter"               
-## [6] "Trees give. Glad to see trees my mother &amp; father planted growing well! #nextgenclimate #climatemarch #climatechange… https://t.co/M9tcuuH5D1"
+## [1] "Read story of our project #WISE2Climate nature-based solutions for #climatechange #Adaptation @IUCN_Water @ODIdev https://t.co/SZ4Z3vrAOc"   
+## [2] "I approve #FIM2017 as it brings together #weather presenters to improve the understanding of #climatechange @IPCC_CH https://t.co/8RKZOCFjY1"
+## [3] "Horsemen of the Apocalypse \n#ClimateChange #Environment\nhttps://t.co/TIRceG0lHb via @ngbutok https://t.co/hB7JOqGPS4"                      
+## [4] "McCain on #climatechange: Believe #climatechangeisreal. Believe in #nuclearpowerplants. #McCainTownHall"                                     
+## [5] "Dissecting #Boston VII: Erosive Division and #climatechange from the shores of Plum Island https://t.co/D6RK14mWEf https://t.co/1D8obpQHOr"  
+## [6] "Get ready for a shock — NASA will measure greenhouse gases over the mid-Atlantic\nhttps://t.co/0uqSxI820u\n#climatechange"
 ```
 
 ## Data clean-up
@@ -209,7 +230,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 50079
+## [1] 121371
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -217,7 +238,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 29790
+## [1] 71799
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -244,8 +265,8 @@ cleaned_tweet_words %>%
 
 ## Explore networks of words
 
-We might also want to explore words that occur together in tweets. LEt's do that 
-next. 
+We might also want to explore words that occur together in tweets. LEt's do that
+next.
 
 ngrams specifies pairs and 2 is the number of words together
 
@@ -254,6 +275,7 @@ ngrams specifies pairs and 2 is the number of words together
 # library(devtools)
 #install_github("dgrtwo/widyr")
 library(widyr)
+## Error in library(widyr): there is no package called 'widyr'
 
 # remove punctuation, convert to lowercase, add id for each tweet!
 climate_tweets_paired_words <- climate_tweets %>%
@@ -262,20 +284,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 30,901 × 2
+## # A tibble: 66,051 × 2
 ##        paired_words     n
 ##               <chr> <int>
-## 1    climate change   231
-## 2  on climatechange   155
-## 3  of climatechange   153
-## 4  climatechange is   147
-## 5        the latest   139
-## 6              b gt   134
-## 7              lt b   134
-## 8            in the   114
-## 9            of the    93
-## 10        the world    91
-## # ... with 30,891 more rows
+## 1    climate change   665
+## 2  climatechange is   415
+## 3        the latest   358
+## 4    climate action   346
+## 5  on climatechange   335
+## 6       petition to   331
+## 7       sign nrdc's   331
+## 8   action petition   329
+## 9          to trump   329
+## 10   nrdc's climate   328
+## # ... with 66,041 more rows
 ```
 
 
@@ -289,21 +311,21 @@ climate_tweets_filtered <- climate_tweets_separated_words %>%
   filter(!word2 %in% stop_words$word)
 
 # new bigram counts:
-climate_words_counts <- climate_tweets_filtered %>% 
+climate_words_counts <- climate_tweets_filtered %>%
   count(word1, word2, sort = TRUE)
 
 head(climate_words_counts)
 ## Source: local data frame [6 x 3]
 ## Groups: word1 [5]
 ## 
-##           word1         word2     n
-##           <chr>         <chr> <int>
-## 1       climate        change   231
-## 2         clim8        change    67
-## 3 climatechange globalwarming    59
-## 4 climatechange      refugees    58
-## 5            gt         clim8    50
-## 6        change            lt    49
+##           word1    word2     n
+##           <chr>    <chr> <int>
+## 1       climate   change   665
+## 2       climate   action   346
+## 3          sign   nrdc's   331
+## 4        action petition   329
+## 5        nrdc's  climate   328
+## 6 climatechange      amp   122
 ```
 
 FInally, plot the data
@@ -315,20 +337,22 @@ library(ggraph)
 
 # plot climate change word network
 climate_words_counts %>%
-        filter(n >= 14) %>%
+        filter(n >= 24) %>%
         graph_from_data_frame() %>%
         ggraph(layout = "fr") +
         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
         geom_node_point(color = "darkslategray4", size = 3) +
         geom_node_text(aes(label = name), vjust = 1.8, size=3) +
-        labs(title= "Word Network: Tweets using the hashtag - Climate Change", 
+        labs(title= "Word Network: Tweets using the hashtag - Climate Change",
              subtitle="Text mining twitter data ",
-             x="", y="") 
+             x="", y="")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-12/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="100%" />
 
-We expect the words climate & change to have a high 
+We expect the words climate & change to have a high
+
+
 
 
 

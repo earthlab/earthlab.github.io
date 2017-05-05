@@ -23,7 +23,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
-tags2:
+topics:
   remote-sensing: ['spectral-remote-sensing']
   earth-science: ['flood-erosion']
   time-series:

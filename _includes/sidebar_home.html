@@ -2,11 +2,11 @@
 <ul>
 <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Lessons by topic</span>
  <ul>
-{% for main_tag in site.data.tags2 %}
+{% for main_tag in site.data.topics %}
   {% assign main_tag_counter = 0 %}
   {% assign topic = main_tag | first %}
   {% for post in site.posts %}
-   {% if post.tags2 contains topic %}
+   {% if post.topics contains topic %}
    {% assign main_tag_counter = main_tag_counter | plus: 1 %}
    {% endif %}
  {% endfor %}

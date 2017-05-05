@@ -15,7 +15,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
-tags2:
+topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
 ---
 

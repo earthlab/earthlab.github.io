@@ -20,9 +20,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
-tags2:
-  scientific-programming: ['r']
-  reproducible-open-science: ['rmarkdown']
+topics:
+  reproducible-science-and-programming: 
+  reproducible-science-and-programming: ['rmarkdown']
 lang-lib:
   r: []
 ---

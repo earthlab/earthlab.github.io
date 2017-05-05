@@ -19,7 +19,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
-tags2:
+topics:
   remote-sensing: ['landsat', 'modis', 'naip']
   earth-science: ['fire']
 lang-lib:
