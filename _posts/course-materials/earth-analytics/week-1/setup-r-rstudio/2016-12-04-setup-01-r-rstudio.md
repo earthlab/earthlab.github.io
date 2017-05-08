@@ -10,11 +10,9 @@ modified: '2017-04-21'
 module-title: 'Setup R, RStudio and Your Working Directory'
 module-description: 'This module walks you through getting R and RStudio setup on your
 laptop. It also introduces file organization strategies.'
-course: "Earth Analytics"
 nav-title: 'Setup RStudio'
 module-nav-title: 'Setup R'
 module-type: 'homework'
-course: "Earth Analytics"
 week: 1
 sidebar:
   nav:
