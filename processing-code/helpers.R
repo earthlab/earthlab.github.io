@@ -25,7 +25,8 @@ list_posts <- function() {
   post_dir %>%
     file.path(list.files(post_dir, pattern = "\\.md",
                          recursive = TRUE, include.dirs = TRUE)) %>%
-    except(posts_to_ignore())
+    except(posts_to_ignore()) %>%
+    grep(pattern = "_posts", value = TRUE)
 }
 
 yaml2df <- function(file, field) {
