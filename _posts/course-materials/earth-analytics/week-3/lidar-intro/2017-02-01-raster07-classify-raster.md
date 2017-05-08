@@ -22,6 +22,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -124,8 +125,8 @@ summary(lidar_chm)
 ## Min.     0.0000000
 ## 1st Qu.  0.0000000
 ## Median   0.0000000
-## 3rd Qu.  0.7600098
-## Max.    24.9499512
+## 3rd Qu.  0.7399902
+## Max.    23.5500488
 ## NA's     0.0000000
 ```
 
@@ -184,12 +185,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76012  3462  3054  2955  2346  2193  1991  1736  1548  1259   970
-## [12]   722   564   419   295   198   116    67    41    26    12     9
-## [23]     4     1
+##  [1] 75937  3509  3093  2922  2444  2207  1956  1750  1528  1178   963
+## [12]   729   598   420   290   196   120    76    39    23    17     3
+## [23]     2
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23 24
+## [24] 23
 ```
 
 If we want to customize our histogram further, we can customize the number of
