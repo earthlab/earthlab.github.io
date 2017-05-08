@@ -1,6 +1,6 @@
 ---
 layout: single
-authors: ['Leah Wasser', 'Reproducible Science Community']
+authors: ['Leah Wasser', 'Reproducible Science Curriculum Community']
 category: [course-materials]
 title: 'File Organization 101'
 excerpt: 'This lesson provides a broad overview of file organization principles.'
