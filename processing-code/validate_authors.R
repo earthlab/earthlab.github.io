@@ -1,16 +1,7 @@
-
-# Script to generate author yaml and md files from posts ------------------
-
-# First, load some libraries that we'll need to write the YAML
-
-### This code reads through a set of files and parses out the YAML tags
-### It then builds a yml list
-### holy sweet awesomeness batman!
+# Generate author yaml and md files from posts ------------------
 library(yaml)
 library(dplyr)
 source("processing-code/helpers.R")
-# Then setup the code to grab all .md files in the _posts directory 
-# and save the `authors.yml` file.
 
 # produce the authors.yaml file -----------------------------------------
 md_files <- list_posts()
@@ -21,14 +12,16 @@ authors <- lapply(md_files, yaml2df, "authors") %>%
   mutate(name = value,
          slug = tolower(gsub(pattern = " ", x = value, replacement = "-"))) %>%
   select(name, slug) %>%
-  unique() %>%
+  group_by(name, slug) %>%
+  summarize(n = n()) %>%
   arrange(slug)
 
 bios <- read.csv("org/author-bios.csv", stringsAsFactors = FALSE)
 
 authors <- left_join(authors, bios) %>%
   mutate(bio = trimws(bio), 
-         bio = ifelse(is.na(bio), "", bio))
+         bio = ifelse(is.na(bio), "", bio)) %>%
+  select(-n)
 
 finalYAML <- yaml::as.yaml(authors, column.major = FALSE) %>%
   quote_field("bio")
@@ -81,3 +74,10 @@ gen_author_profiles <- function(authors, prefix = "org/authors") {
 }
 
 gen_author_profiles(authors)
+
+# delete unused author markdown files
+expected_md_files <- file.path("org", "authors", paste0(authors$slug, ".md"))
+extant_md_files <- list.files(file.path("org", "authors"), full.names = TRUE)
+
+setdiff(extant_md_files, expected_md_files) %>%
+  unlink
