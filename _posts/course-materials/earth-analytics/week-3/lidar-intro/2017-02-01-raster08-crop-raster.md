@@ -1,26 +1,27 @@
 ---
 layout: single
-title: "Crop a raster in R using a shapefile."
-excerpt: "This lesson presents how to classify a raster dataset and export it as a
+title: "Crop a spatial raster dataset using a shapefile in R."
+excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-05-08'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
-permalink: /course-materials/earth-analytics/week-3/crop-raster/
+permalink: /course-materials/earth-analytics/week-3/crop-raster-data-in-r/
 nav-title: 'Crop a raster'
 week: 3
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 8
 topics:
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -61,7 +62,8 @@ as QGIS.
 
 ## Load libraries
 
-```{r load-libraries, warning=FALSE, message=FALSE }
+
+```r
 # load the raster and rgdal libraries
 library(raster)
 library(rgdal)
@@ -72,7 +74,8 @@ library(rgdal)
 First, we will use the `raster()` function to open a raster layer. Let's open the
 canopy height model that we created in the previous lesson
 
-```{r open-raster, warning=FALSE, message=FALSE, fig.cap="lidar chm plot"}
+
+```r
 # open raster layer
 lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
 
@@ -80,6 +83,8 @@ lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
 plot(lidar_chm,
      col=rev(terrain.colors(50)))
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster08-crop-raster/open-raster-1.png" title="lidar chm plot" alt="lidar chm plot" width="100%" />
 
 ## Open vector layer
 
@@ -92,10 +97,16 @@ to use to crop our data. To open a shapefile we use the `readOGR()` function.
 2. The name of the shapefile (without the extension): clip-extent
 
 
-```{r plot-w-legend, warning=F, message=F, fig.cap="shapefile crop extent plot"}
+
+```r
 # import the vector boundary
 crop_extent <- readOGR("data/week3/BLDR_LeeHill",
                        "clip-extent")
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week3/BLDR_LeeHill", layer: "clip-extent"
+## with 1 features
+## It has 1 fields
+## Integer64 fields read as strings:  id
 
 # plot imported shapefile
 # notice that we use add=T to add a layer on top of an existing plot in R.
@@ -104,6 +115,8 @@ plot(crop_extent,
      axes=T,
      border="blue")
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster08-crop-raster/plot-w-legend-1.png" title="shapefile crop extent plot" alt="shapefile crop extent plot" width="100%" />
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/spatial_extent.png">
@@ -120,15 +133,17 @@ plot(crop_extent,
 Now that we have imported the shapefile. We can use the crop() function in R to
 crop the raster data using the vector shapefile.
 
-```{r crop-and-plot-raster, fig.cap="lidar chm cropped with vector extent on top", warning=F, message=F}
+
+```r
 # crop the lidar raster using the vector extent
 lidar_chm_crop <- crop(lidar_chm, crop_extent)
 plot(lidar_chm_crop, main="Cropped lidar chm")
 
 # add shapefile on top of the existing raster
 plot(crop_extent, add=T)
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster08-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
