@@ -1,22 +1,22 @@
 ---
 layout: single
-title: "Crop a raster in R using a shapefile."
-excerpt: "This lesson presents how to classify a raster dataset and export it as a
+title: "Crop a spatial raster dataset using a shapefile in R."
+excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-05-08'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
-permalink: /course-materials/earth-analytics/week-3/crop-raster/
+permalink: /course-materials/earth-analytics/week-3/crop-raster-data-in-r/
 nav-title: 'Crop a raster'
 week: 3
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 8
 topics:
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
@@ -83,7 +83,7 @@ plot(lidar_chm,
      col=rev(terrain.colors(50)))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster07-crop-raster/open-raster-1.png" title="lidar chm plot" alt="lidar chm plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster08-crop-raster/open-raster-1.png" title="lidar chm plot" alt="lidar chm plot" width="100%" />
 
 ## Open vector layer
 
@@ -101,7 +101,7 @@ to use to crop our data. To open a shapefile we use the `readOGR()` function.
 # import the vector boundary
 crop_extent <- readOGR("data/week3/BLDR_LeeHill",
                        "clip-extent")
-## OGR data source with driver: ESRI Shapefile
+## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week3/BLDR_LeeHill", layer: "clip-extent"
 ## with 1 features
 ## It has 1 fields
@@ -115,7 +115,7 @@ plot(crop_extent,
      border="blue")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster07-crop-raster/plot-w-legend-1.png" title="shapefile crop extent plot" alt="shapefile crop extent plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster08-crop-raster/plot-w-legend-1.png" title="shapefile crop extent plot" alt="shapefile crop extent plot" width="100%" />
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/spatial_extent.png">
@@ -142,7 +142,7 @@ plot(lidar_chm_crop, main="Cropped lidar chm")
 plot(crop_extent, add=T)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster07-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster08-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="100%" />
 
 <div class="notice--warning" markdown="1">
 

@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-05-08'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -14,9 +14,9 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 topics:
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
@@ -113,7 +113,7 @@ plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-chm-dem-dsm/dem-1.png" title="digital elevation model plot" alt="digital elevation model plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-chm-dem-dsm/dem-1.png" title="digital elevation model plot" alt="digital elevation model plot" width="100%" />
 
 Next, let's open the digital SURFACE model (DSM). The DSM represents the top of
 the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that
@@ -129,7 +129,7 @@ plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-chm-dem-dsm/dsm-1.png" title="digital surface model plot" alt="digital surface model plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-chm-dem-dsm/dsm-1.png" title="digital surface model plot" alt="digital surface model plot" width="100%" />
 
 ## Canopy Height Model
 
@@ -160,7 +160,7 @@ plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-chm-dem-dsm/chm-1.png" title="canopy height model plot" alt="canopy height model plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-chm-dem-dsm/chm-1.png" title="canopy height model plot" alt="canopy height model plot" width="100%" />
 
 ## Plots Using Breaks
 
@@ -180,7 +180,7 @@ plot(lidar_chm,
      col=c("white","brown","springgreen","darkgreen"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-chm-dem-dsm/chm-breaks-1.png" title="canopy height model breaks" alt="canopy height model breaks" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-chm-dem-dsm/chm-breaks-1.png" title="canopy height model breaks" alt="canopy height model breaks" width="100%" />
 
 ## Export a raster
 
