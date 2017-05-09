@@ -130,7 +130,7 @@ We will grade your final pdf / html document and the code.
 * Spell check / grammar check your paper BEFORE YOU SUBMIT. this is worth 20% of your grade. Take time to make sure it's well written!
 * Hide your code in the .Rmd document UNLESS you feel like your methods are important to call out. (for example you may decide to show some of your methods in the methods section of the report).
 * Turn off warnings and other messages so they do not appear in your final rendered report.
-* Start early - make sure your reports renders to pdf or html WELL BEFORE the assignment is due!  
+* Start early - make sure your reports renders to pdf or html WELL BEFORE the assignment is due!
 
 ## Graduate students - additional report elements
 In addition to the requirement above, graduate students should develop
@@ -149,3 +149,15 @@ day of class: **Wednesday 3 May 2017 during class.** IMPORTANT: Submit your fina
 BOX on D2L PRIOR to class on 3 May 2017.
 
 * **FINAL INDEPENDENT REPORT:** The final individual report is due the following week during finals: **Submit your html / pdf file and your .rmd file to D2L by Tuesday 9 May 2017 @ 5PM.**
+
+
+### Rubric
+
+#### Science
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Presentation is clear, concise and thoughtfully pulled together. |  | | |  |
+| Students present with confidence / make eye contact / are prepared. | |  | | |
+|===
+| Verbal pauses and fillers are minimized (um, like, etc) | |  | | |
