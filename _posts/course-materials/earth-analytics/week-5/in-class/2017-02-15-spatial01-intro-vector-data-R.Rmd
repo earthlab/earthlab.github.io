@@ -23,7 +23,7 @@ comments: true
 order: 1
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -34,10 +34,10 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Be able to describe the characteristics of 3 key vector data structures: points, lines and polygons.
-* Be able to open a shapefile in R using `readOGR()`.
-* Be able to view the metadata of a vector spatial layer in R including CRS
-* Be able to access the tabular (`data.frame`) attributes of a vector spatial layer in `R`.
+* Describe the characteristics of 3 key vector data structures: points, lines and polygons.
+* Open a shapefile in R using `readOGR()`.
+* View the metadata of a vector spatial layer in R including CRS
+* Access the tabular (`data.frame`) attributes of a vector spatial layer in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -116,14 +116,12 @@ The shapefiles that we will import are:
 
 * A polygon shapefile representing our field site boundary,
 * A line shapefile representing roads, and
-* A point shapefile representing the location of the Fisher
-<a href="http://www.neonscience.org/science-design/collection-methods/flux-tower-measurements" target="_blank">flux tower</a>
-located at the
+* A point shapefile representing the location of field siteslocated at the
 <a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> San Joachin field site</a>.
 
-The first shapefile that we will open contains the boundary of our study area
-(or our Area Of Interest or AOI, hence the name `aoiBoundary`). To import
-shapefiles we use the `R` function `readOGR()`.
+The first shapefile that we will open contains the point locations where trees
+have been measured at the study site. The data are stored in shapefile format.
+To import shapefiles we use the `R` function `readOGR()`.
 
 `readOGR()` requires two components:
 
@@ -134,7 +132,6 @@ Let's import our AOI.
 
 ```{r Import-Shapefile}
 # Import a polygon shapefile: readOGR("path","fileName")
-# no extension needed as readOGR only imports shapefiles
 
 sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data",
                                "SJER_plot_centroids")
