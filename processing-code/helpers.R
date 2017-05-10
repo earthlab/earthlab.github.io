@@ -1,4 +1,5 @@
 library(readr)
+library(tidyr)
 options(stringsAsFactors = FALSE)
 
 # Helper functions for building the website -------------------------------
@@ -61,16 +62,25 @@ yaml2df <- function(file, field) {
   }
   
   # make a data frame with a row for each field element
-  df <- yaml_list[[field]] %>%
-    data.frame()
-  names(df) <- "value"
+  if (is.list(yaml_list[[field]])) {
+    # unnest the lists, computing values and subvalues for yaml entries
+    df <- yaml_list[[field]] %>%
+      lapply(unlist, use.names = TRUE) %>%
+      lapply(FUN = function(x) ifelse(is.null(x), NA, x)) %>%
+      tbl_df %>%
+      tidyr::gather(value, subvalue)
+  } else {
+    # no unnesting necessary - just extract the value
+    df <- yaml_list[[field]] %>%
+      data.frame()
+    names(df) <- "value"
+    df <- df %>%
+      mutate(value = trimws(value)) %>%
+      select(value)
+  }
   
-  # remove spaces and make lowercase: "Matt Oakley -> matt-oakley
   df %>%
-    mutate(file = file, 
-           field = field, 
-           value = trimws(value)) %>%
-    select(file, field, value)
+    mutate(file = file, field = field)
 }
 
 
