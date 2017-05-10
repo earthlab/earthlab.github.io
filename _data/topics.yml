@@ -13,8 +13,10 @@ data-exploration-and-analysis:
 spatial-data-and-gis:
   subtopics: ['raster-data', 'vector-data','coordinate-reference-systems']
 reproducible-science-and-programming:
-  subtopics: ['RStudio', 'literate-expressive-programming','functions', 'r-studio', 'automate-science-workflows', 'git', 'markdown']
+  subtopics: ['RStudio', 'literate-expressive-programming','functions', 
+              'r-studio', 'automate-science-workflows', 'git', 'markdown', 
+              'rmarkdown']
 find-and-manage-data:
-  subtopics: ['data-management', 'find-data']
+  subtopics: ['data-management', 'find-data', 'metadata']
 file-formats:
     subtopics: ['hdf5', 'json', 'csv', 'raster',  'shapefile', 'geotiff']
