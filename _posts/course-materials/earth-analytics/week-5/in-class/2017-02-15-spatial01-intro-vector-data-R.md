@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-04-28'
+modified: '2017-05-10'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
@@ -105,9 +105,26 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 ```r
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
+## Loading required package: sp
+## rgdal: version: 1.2-5, (SVN revision 648)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-4
 library(rgeos)
+## rgeos version: 0.3-22, (SVN revision 544)
+##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
+##  Linking to sp version: 1.2-4 
+##  Polygon checking: TRUE
 # for metadata/attributes- vectors or rasters
 library(raster)
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+## 
+##     select
 
 # set working directory to earth-analytics dir
 # setwd("pathToDirHere")
