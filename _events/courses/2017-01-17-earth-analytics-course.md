@@ -3,7 +3,7 @@ layout: single
 title: "Earth Systems Analytics Course - Spring 2017"
 text: 'Spring 2017 - register now!'
 location: SEEC S125
-permalink: /course-materials/earth-analytics/
+permalink: /course-materials/earth-analytics-spring2-17/
 date: 2017-01-17
 header:
   overlay_image: about-header.jpg
@@ -37,7 +37,7 @@ senior) undergraduate students in the natural/social sciences.
 * **Location:** SEEC S125
 * **Sections:** GEOG 4563 (Junior / Senior Level undergraduate), GEOG 5563 (Graduate)
 
-[View full course syllabus for more information.](https://earthlab.github.io/course-materials/earth-analytics/earth-analytics-syllabus/)
+[View full course syllabus for more information.]({{ site.url }}/course-materials/earth-analytics/earth-analytics-syllabus/)
 
 </div>
 
