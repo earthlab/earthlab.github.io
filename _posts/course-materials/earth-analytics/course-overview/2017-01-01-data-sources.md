@@ -3,10 +3,15 @@ layout: single
 category: course-materials
 title: "Example data sources"
 permalink: /course-materials/earth-analytics/data-sources/
-sidebar:
-  nav: earth-analytics-2017
+module-type: 'overview'
 comments: true
 author_profile: false
+overview-order: 5
+week: 0
+week-landing: 0
+course: "Earth Analytics"
+sidebar:
+  nav:
 ---
 
 {% include toc title="This Week" icon="file-text" %}
