@@ -8,7 +8,7 @@ permalink: /course-materials/internship/
 nav-title: 'Syllabus'
 dateCreated: 2017-05-10
 modified: '2017-05-12'
-module-title: 'Earth Lab Internship '
+module-title: 'Earth Lab Undergraduate Internship '
 module-nav-title: 'Internship'
 module-description: 'The Earth Lab internship provides undergraduate students at the University of
 Colorado Boulder with a real-world data intensive academic experience through
@@ -21,7 +21,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+overview-order: 1
 topics:
 ---
 
