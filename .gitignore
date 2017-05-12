@@ -7,3 +7,5 @@ _site/
 .Rhistory
 pdf/
 tutorials/
+_config-dev.yml
+
