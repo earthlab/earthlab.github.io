@@ -16,7 +16,7 @@ module-description: 'This module introduces the R scientific programming languag
 We will work with precipitation and stream discharge data for Boulder County
 to better understand the R syntax, various data types and data import and plotting.'
 module-type: 'class'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 2
 sidebar:
   nav:
