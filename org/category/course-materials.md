@@ -10,8 +10,8 @@ author_profile: false
 
 ## Courses
 
-[Earth Analytics Course Spring 2017](/course-materials/earth-analytics/)
-[Earth Lab Internship](/course-materials/internship/)
+* [Earth Analytics Course Spring 2017](/course-materials/earth-analytics/)
+* [Earth Lab Internship](/course-materials/internship/)
 
 
 
