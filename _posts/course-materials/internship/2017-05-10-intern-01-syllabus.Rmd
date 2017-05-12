@@ -13,7 +13,7 @@ module-title: 'Earth Lab Internship '
 module-nav-title: 'Internship'
 module-description: 'Text (2-4 sentences) describing the internship.'
 module-type: 'class'
-course: "Earth Lab Internship"
+course: "Internship"
 sidebar:
   nav:
 author_profile: false
