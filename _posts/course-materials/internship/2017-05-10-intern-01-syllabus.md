@@ -9,11 +9,11 @@ permalink: /course-materials/internship/
 nav-title: 'Syllabus'
 dateCreated: 2017-05-10
 modified: '2017-05-12'
-module-title: 'Earth Lab Internship '
+course: "Internship"
 module-nav-title: 'Internship'
 module-description: 'Text (2-4 sentences) describing the internship.'
 module-type: 'class'
-course: "Earth Lab Internship"
+course: "internship"
 sidebar:
   nav:
 author_profile: false
