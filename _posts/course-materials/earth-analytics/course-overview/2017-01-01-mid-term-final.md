@@ -3,10 +3,13 @@ layout: single
 category: course-materials
 title: "Mid term & Final"
 permalink: /course-materials/earth-analytics/mid-term/
-sidebar:
-  nav: earth-analytics-2017
+module-type: 'overview'
 comments: false
 author_profile: false
+overview-order: 3
+course: "Earth Analytics"
+sidebar:
+  nav:
 ---
 
 {% include toc title="Earth Analytics Mid-term" icon="file-text" %}
