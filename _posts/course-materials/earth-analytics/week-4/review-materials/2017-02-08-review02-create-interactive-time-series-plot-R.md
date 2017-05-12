@@ -3,7 +3,7 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-05-09'
+modified: '2017-05-11'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/interactive-time-series-plots-in-r/
@@ -121,9 +121,6 @@ library(dygraphs)
 # create time series objects (class xs)
 library(xts)
 
-
-
-
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)
@@ -131,6 +128,7 @@ discharge_timeSeries <- xts(x = discharge_time$disValue,
 ```
 
 Then you can call the dygraph() function to create your interactive time-series plot.
+
 
 ```r
 # create a basic interactive element
@@ -154,6 +152,4 @@ interact_time2
 
 
 <iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/leaflet-maps/dygraph/time_interactive2.html" frameborder="0" allowfullscreen></iframe>
-
-
 

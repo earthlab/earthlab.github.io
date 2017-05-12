@@ -46,9 +46,6 @@ library(dygraphs)
 # create time series objects (class xs)
 library(xts)
 
-
-
-
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)

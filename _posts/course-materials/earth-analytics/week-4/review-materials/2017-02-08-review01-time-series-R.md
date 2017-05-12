@@ -3,7 +3,7 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-05-09'
+modified: '2017-05-11'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/week4-review-r/
@@ -80,6 +80,22 @@ precPlot_hourly
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/review-materials/2017-02-08-review01-time-series-R/setup-1.png" title="plot precip data using ggplot" alt="plot precip data using ggplot" width="100%" />
 
+
+
+```r
+precip.boulder$HPCP_round <- round(precip.boulder$HPCP, digits = 1)
+
+# plot the data using ggplot2
+precPlot_hourly_round <- ggplot(precip.boulder, aes(DATE, HPCP_round)) +   # the variables of interest
+      geom_point(stat="identity") +   # create a bar graph
+      xlab("Date") + ylab("Precipitation (Inches)") +  # label the x & y axes
+      ggtitle("Hourly Precipitation - Boulder Station\n 1948-2013")  # add a title
+
+precPlot_hourly_round
+## Warning: Removed 401 rows containing missing values (geom_point).
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/review-materials/2017-02-08-review01-time-series-R/plot-ggplot-1.png" title="time series plot of precipitation 1948-2013" alt="time series plot of precipitation 1948-2013" width="100%" />
 ## Factors
 
 
