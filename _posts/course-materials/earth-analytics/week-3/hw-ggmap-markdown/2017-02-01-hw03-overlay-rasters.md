@@ -3,7 +3,7 @@ layout: single
 title: "Layer a raster dataset over a hillshade using R baseplot to create a beautiful basemap that represents topography."
 excerpt: "This lesson covers how to overlay raster data on top of a hillshade in R using baseplot and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-05-08'
 category: [course-materials]
 class-lesson: ['hw-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/overlay-raster-on-hillshade-r/
@@ -15,7 +15,7 @@ author_profile: false
 comments: true
 order: 3
 topics:
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis: ['raster-data', 'vector-data']
 ---
@@ -28,7 +28,7 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Overlay 2 rasters in R
+* Overlay 2 rasters in R to create a plot.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 

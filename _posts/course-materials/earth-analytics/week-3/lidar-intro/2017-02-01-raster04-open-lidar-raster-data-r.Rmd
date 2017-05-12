@@ -21,6 +21,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -29,9 +30,9 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Open a lidar raster dataset in R.
-* Be able to identify the resolution of a raster in R.
-* Be able to plot a lidar raster dataset in R.
+* Open a lidar raster dataset in `R`.
+* Be able to identify the resolution of a raster in `R`.
+* Be able to plot a lidar raster dataset in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
