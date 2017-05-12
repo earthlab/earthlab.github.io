@@ -8,7 +8,7 @@ category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/r-custom-legend/
 nav-title: 'Create custom map legend'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 4
 sidebar:
   nav:

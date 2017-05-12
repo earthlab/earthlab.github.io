@@ -13,7 +13,7 @@ module-description: 'In this module, we will review some key concepts associated
 time series data and raster data in R. '
 module-nav-title: 'Time series data in R & Legends'
 module-type: 'homework'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 4
 sidebar:
   nav:
