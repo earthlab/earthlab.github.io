@@ -7,7 +7,7 @@ module-type: 'overview'
 comments: false
 author_profile: false
 overview-order: 3
-course: "Earth Analytics"
+course: "earth-analytics"
 sidebar:
   nav:
 ---

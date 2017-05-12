@@ -11,7 +11,7 @@ permalink: /course-materials/earth-analytics/earth-analytics-syllabus/
 author_profile: no
 overview-order: 2
 module-type: 'overview'
-course: "Earth Analytics"
+course: "earth-analytics"
 sidebar:
   nav:
 ---

@@ -4,7 +4,7 @@ category: course-materials
 title: "Earth Analytics: Course home page - Earth Lab CU Boulder"
 nav-title: "Course home page"
 permalink: /course-materials/earth-analytics/
-course: "Earth Analytics"
+course: "earth-analytics"
 module-type: 'overview'
 week-landing: 0
 week: 0
