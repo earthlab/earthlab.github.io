@@ -320,8 +320,8 @@ object compared to the `state_boundary_us` object.
 # extent & crs for AOI
 extent(sjer_aoi)
 ## class       : Extent 
-## xmin        : 254570.6 
-## xmax        : 258867.4 
+## xmin        : 254571 
+## xmax        : 258867 
 ## ymin        : 4107303 
 ## ymax        : 4112362
 crs(sjer_aoi)
@@ -332,10 +332,10 @@ crs(sjer_aoi)
 # extent & crs for object in geographic
 extent(state_boundary_us)
 ## class       : Extent 
-## xmin        : -124.7258 
-## xmax        : -66.94989 
-## ymin        : 24.49813 
-## ymax        : 49.38436
+## xmin        : -124.7 
+## xmax        : -66.95 
+## ymin        : 24.5 
+## ymax        : 49.38
 crs(state_boundary_us)
 ## CRS arguments:
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
@@ -393,10 +393,10 @@ crs(sjer_aoi_WGS84)
 # does the extent look like decimal degrees?
 extent(sjer_aoi_WGS84)
 ## class       : Extent 
-## xmin        : -119.7626 
-## xmax        : -119.7127 
-## ymin        : 37.0799 
-## ymax        : 37.12657
+## xmin        : -119.8 
+## xmax        : -119.7 
+## ymin        : 37.08 
+## ymax        : 37.13
 ```
 
 Once our data are reprojected, we can try to plot again.
@@ -462,7 +462,7 @@ Create a map of our SJER study area as follows:
 2. Create a map that shows the roads layer, study site locations and the sjer_aoi boundary.
 3. Add a **title** to your plot.
 4. Add a **legend** to your plot that shows both the roads and the plot locations.
-5. Plot the roads by road type and add each type to the legend. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-5/r-custom-legend/) to help build the legend.
+5. Plot the roads by road type and add each type to the legend. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
 6. BONUS: Plot the plots by type - adjust the symbology of the plot locations (choose a symbol using pch for each type and adjust the color of the points).
 7. Do your best to make the map look nice!
 
