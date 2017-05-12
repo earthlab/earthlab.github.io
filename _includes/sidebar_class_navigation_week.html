@@ -151,7 +151,7 @@
       {% if post.week == page.week %}
        {% if post.url == page.url %}
       <li> <a href="{{ site.url }}{{ post.permalink }}" class='active'><i class="fa fa-folder-open" aria-hidden="true"></i>
-        {% if post.nav-title %}{{ post.nav-title | upcase }} {% else %} {{ post.title | upcase }}{% endif %}</a></li>
+        {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
         {% else %}
         <li class='active-section'> <a href="{{ site.url }}{{ post.permalink }}"><i class="fa fa-folder-open" aria-hidden="true"></i>
           {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
@@ -162,11 +162,10 @@
       <ul>
         {% for module in classes %}
         {% if module.order == 1 %}
+        {% assign theLesson = module.class-lesson %}
+        {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
 
             <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
-
-            {% assign theLesson = module.class-lesson %}
-            {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
 
         {% endif %}
         <ul>
@@ -174,7 +173,8 @@
         {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
 
       <!-- count lessons -->
-
+      {% unless class_lessons %} do stuff
+      {% endunless %}
         {% for alesson in weeks %}
 
         {% if alesson.class-lesson == theLesson %}
@@ -194,6 +194,7 @@
        <ul>
          {% assign modules_count = 0 %}
          {% for hw_module in homework %}
+
          {% assign modules_count = modules_count | plus: 1%}
          {% if hw_module.order == 1 %}
              <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> {{ hw_module.module-nav-title | capitalize }} </span></li>
