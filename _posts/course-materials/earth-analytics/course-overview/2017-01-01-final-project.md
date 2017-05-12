@@ -155,9 +155,10 @@ BOX on D2L PRIOR to class on 3 May 2017.
 * **FINAL INDEPENDENT REPORT:** The final individual report is due the following week during finals: **Submit your html / pdf file and your .rmd file to D2L by Tuesday 9 May 2017 @ 5PM.**
 
 
-## Rubrics
 
-### Presentation rubric
+***
+
+## Presentation rubric
 
 #### General (10%)
 
@@ -165,6 +166,7 @@ BOX on D2L PRIOR to class on 3 May 2017.
 |---|---|---|---|---|
 | Presentation is clear, concise and thoughtfully pulled together. |  | | |  |
 | Students present with confidence / make eye contact / are prepared. | |  | | |
+| Verbal pauses and fillers are minimized (um, like, etc) | |  | | |
 | The presentation considered feedback from the midterm. | |  | | |
 | Everyone in the group presents. | |  | | |
 | The presentation spans no more than 15 minutes | |  | | |
@@ -206,6 +208,76 @@ BOX on D2L PRIOR to class on 3 May 2017.
 | The source of the data used are clearly defined. | |  | | |
 | The methods that clarify how the data were processed are clearly articulated as they relate to the science question / topic. | |  | | |
 | The x, y axes, legends, associated units and other elements of each plot are clearly explained & labeled.  | |  | | |
-| Results of data anlysis are clearly articulated.  | |  | | |
+| Results of data analysis are clearly articulated.  | |  | | |
 |===
 | Conclusions associated with data analysis are clearly articulated and thoughtful. They consider the data analysis as presented.| |  | | |
+
+
+***
+
+## Final report rubric
+
+### Report structure & text writeup: 10%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| .pdf or .html file and .rmd file is submitted |  |  |  |
+| Summary text is provided for plots / plots are discussed in the text |  | |  |
+| Grammar & spelling are accurate throughout the report|  |  |   |
+| File is named with lastName-firstInitial-final-project (or some easy to read name that includes the student's name)|  | |  |
+| Report contains atleast 2 (4 for grad students) scientific peer reviewed citations |  |  |  |
+|===
+| Report contains atleast 4 total citations|  |  |  |
+
+
+### Report code structure & format: 10%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Code is written using "clean" code practices following the Hadley Wickham style guide | | |  |
+| YAML contains a title, author and date | | |  |
+| Comments are used to document code  | | | |
+| Code chunks are hidden / visible as makes sense to support the report   | | | |
+| All required R packages are listed at the top of the document in a code chunk. | | | |
+|===
+| All code chunks run | | | |
+
+### Report plots & data content: 20%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| Report includes a study area map created in R | | |  |
+| Report contains atleast 4 maps / plots that support discussion of the science question or phenomenon selected to study | | |  |
+| Plot 1 - is labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | | | |
+| Plot 2 - is labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | | | |
+| Plot 3 - is labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | | | |
+|===
+| Plot 4 - is labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | | | |
+
+### Report science content: 60%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| The project background is presented clearly and thoughtfully and includes the study area.  | | |  |
+| Project background clearly discusses why the topic is important to study. | | |  |
+| Project background introduces the topic in the context of the literature (both scientific and non scientific as relevant) | | | |
+| Methods: data sources and how the data were acquired are clearly identified / discussed  | | | |
+| Methods: processing / analysis methods are clearly articulated in the report  and also align with comments / processing steps seen in the code implementation | | | |
+| Results:  results include atleast 4 plots / maps that support the report findings | | | |
+| Results discuss findings making reference to the plots as makes sense | | | |
+| Conclusions associated with data analysis are clearly articulated and thoughtful. They consider the data analysis as presented.| |  | | |
+|===
+| References are included as both in text citations and as a list at the end of the report & include data sources. | | | |
+
+## Graduate student additional report components
+
+Graduate students: The science content portion of your paper will be worth 45% rather than 60% with the additional 15% coming from the section below which includes the
+additional literature review and the abstract.
+
+### Graduate students - abstract & additional literature review: 15%
+
+|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
+|---|---|---|---|---|
+| The literature review presents the topic in the context of other science that has been performed surrounding the selected topic | | | |
+| The literature review is 1.5-2 pages ~ 700 words in length | | | |
+| The abstract is concise and clearly summarizes the question, methods  and high level results of the project | | | |
