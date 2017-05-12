@@ -3,10 +3,14 @@ layout: single
 category: course-materials
 title: "Earth Analytics Final Project"
 permalink: /course-materials/earth-analytics/final-project/
-sidebar:
-  nav: earth-analytics-2017
+module-type: 'overview'
 comments: false
 author_profile: false
+overview-order: 4
+week-landing: 0
+course: "Earth Analytics"
+sidebar:
+  nav:
 ---
 
 {% include toc title="This Week" icon="file-text" %}
