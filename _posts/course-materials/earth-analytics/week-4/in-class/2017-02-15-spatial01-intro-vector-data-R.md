@@ -4,11 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R.md
-modified: '2017-05-09'
-=======
-modified: '2017-05-10'
->>>>>>> bedf290922cfb3d2e222fb70afac85c1063e9075:_posts/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R.md
+modified: '2017-05-11'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
@@ -30,6 +26,7 @@ topics:
   reproducible-science-and-programming:
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -38,10 +35,10 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Be able to describe the characteristics of 3 key vector data structures: points, lines and polygons.
-* Be able to open a shapefile in R using `readOGR()`.
-* Be able to view the metadata of a vector spatial layer in R including CRS
-* Be able to access the tabular (`data.frame`) attributes of a vector spatial layer in `R`.
+* Describe the characteristics of 3 key vector data structures: points, lines and polygons.
+* Open a shapefile in R using `readOGR()`.
+* View the metadata of a vector spatial layer in R including CRS
+* Access the tabular (`data.frame`) attributes of a vector spatial layer in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -110,43 +107,13 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 ```r
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
-## Loading required package: sp
-<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R.md
-## rgdal: version: 1.2-6, (SVN revision 651)
-=======
-## rgdal: version: 1.2-5, (SVN revision 648)
->>>>>>> bedf290922cfb3d2e222fb70afac85c1063e9075:_posts/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R.md
-##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
-##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
-##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
-##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
-##  Linking to sp version: 1.2-4
 library(rgeos)
-<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R.md
 ## rgeos version: 0.3-23, (SVN revision 546)
-##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921
-##  Linking to sp version: 1.2-4
-##  Polygon checking: TRUE
-# for metadata/attributes- vectors or rasters
-library(raster)
-##
-## Attaching package: 'raster'
-## The following object is masked from 'package:dplyr':
-##
-=======
-## rgeos version: 0.3-22, (SVN revision 544)
 ##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
 ##  Linking to sp version: 1.2-4 
 ##  Polygon checking: TRUE
 # for metadata/attributes- vectors or rasters
 library(raster)
-## 
-## Attaching package: 'raster'
-## The following object is masked from 'package:dplyr':
-## 
->>>>>>> bedf290922cfb3d2e222fb70afac85c1063e9075:_posts/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R.md
-##     select
 
 # set working directory to earth-analytics dir
 # setwd("pathToDirHere")
@@ -156,14 +123,12 @@ The shapefiles that we will import are:
 
 * A polygon shapefile representing our field site boundary,
 * A line shapefile representing roads, and
-* A point shapefile representing the location of the Fisher
-<a href="http://www.neonscience.org/science-design/collection-methods/flux-tower-measurements" target="_blank">flux tower</a>
-located at the
+* A point shapefile representing the location of field siteslocated at the
 <a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> San Joachin field site</a>.
 
-The first shapefile that we will open contains the plot locations where trees have
-been measured within our study area. To import
-shapefiles we use the `R` function `readOGR()`.
+The first shapefile that we will open contains the point locations where trees
+have been measured at the study site. The data are stored in shapefile format.
+To import shapefiles we use the `R` function `readOGR()`.
 
 `readOGR()` requires two components:
 
@@ -180,11 +145,10 @@ Both ways to open a shapefile are demonstrated below:
 
 ```r
 # Import a polygon shapefile: readOGR("path","fileName")
-# no extension needed as readOGR only imports shapefiles
 
 sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data",
                                "SJER_plot_centroids")
-## OGR data source with driver: ESRI Shapefile
+## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week5/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
@@ -240,21 +204,21 @@ crs(sjer_plot_locations)
 
 # view just the extent for the shapefile
 extent(sjer_plot_locations)
-## class       : Extent
-## xmin        : 254738.6
-## xmax        : 258497.1
-## ymin        : 4107527
+## class       : Extent 
+## xmin        : 254738.6 
+## xmax        : 258497.1 
+## ymin        : 4107527 
 ## ymax        : 4112168
 
 # view all metadata at same time
 sjer_plot_locations
-## class       : SpatialPointsDataFrame
-## features    : 18
+## class       : SpatialPointsDataFrame 
+## features    : 18 
 ## extent      : 254738.6, 258497.1, 4107527, 4112168  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
+## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 5
-## names       :  Plot_ID,  Point, northing,  easting, plot_type
-## min values  : SJER1068, center,  4107527, 254738.6,     grass
+## names       :  Plot_ID,  Point, northing,  easting, plot_type 
+## min values  : SJER1068, center,  4107527, 254738.6,     grass 
 ## max values  :  SJER952, center,  4112168, 258497.1,     trees
 ```
 
@@ -344,26 +308,26 @@ summary(sjer_plot_locations)
 ##                 min       max
 ## coords.x1  254738.6  258497.1
 ## coords.x2 4107527.1 4112167.8
-## Is projected: TRUE
+## Is projected: TRUE 
 ## proj4string :
 ## [+proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
 ## +towgs84=0,0,0]
 ## Number of points: 18
 ## Data attributes:
-##    Plot_ID             Point              northing          easting
-##  Length:18          Length:18          Min.   :4107527   Min.   :254739
-##  Class :character   Class :character   1st Qu.:4109790   1st Qu.:256063
-##  Mode  :character   Mode  :character   Median :4110363   Median :256700
-##                                        Mean   :4110258   Mean   :256674
-##                                        3rd Qu.:4111242   3rd Qu.:257191
-##                                        Max.   :4112168   Max.   :258497
-##   plot_type
-##  Length:18
-##  Class :character
-##  Mode  :character
-##
-##
-##
+##    Plot_ID             Point              northing          easting      
+##  Length:18          Length:18          Min.   :4107527   Min.   :254739  
+##  Class :character   Class :character   1st Qu.:4109790   1st Qu.:256063  
+##  Mode  :character   Mode  :character   Median :4110363   Median :256700  
+##                                        Mean   :4110258   Mean   :256674  
+##                                        3rd Qu.:4111242   3rd Qu.:257191  
+##                                        Max.   :4112168   Max.   :258497  
+##   plot_type        
+##  Length:18         
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
 ```
 
 
@@ -381,7 +345,7 @@ plot(sjer_plot_locations, col="blue",
      main="SJER Plot Locations\nMadera County, CA")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -424,7 +388,7 @@ plot(sjer_plot_locations,
   col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">
