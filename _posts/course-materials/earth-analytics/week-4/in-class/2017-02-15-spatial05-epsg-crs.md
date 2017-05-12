@@ -6,9 +6,9 @@ authors: ['Leah Wasser']
 modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-5/understand-epsg-wkt-and-other-crs-definition-file-types/
+permalink: /course-materials/earth-analytics/week-4/understand-epsg-wkt-and-other-crs-definition-file-types/
 nav-title: 'EPSG, Proj4, WKT crs formats'
-week: 5
+week: 4
 sidebar:
   nav:
 author_profile: false

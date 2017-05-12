@@ -6,9 +6,9 @@ authors: ['Leah Wasser']
 modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-5/intro-to-coordinate-reference-systems/
+permalink: /course-materials/earth-analytics/week-4/intro-to-coordinate-reference-systems/
 nav-title: 'Coordinate reference systems'
-week: 5
+week: 4
 sidebar:
   nav:
 author_profile: false

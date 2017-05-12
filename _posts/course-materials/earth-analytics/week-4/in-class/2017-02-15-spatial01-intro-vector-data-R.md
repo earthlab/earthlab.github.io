@@ -4,10 +4,10 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-05-10'
+modified: '2017-05-11'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-5/intro-vector-data-r/
+permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
 nav-title: 'Vector data in R'
 module-title: 'Spatial data in R and remote sensing uncertainty'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
@@ -15,7 +15,7 @@ the three commonly used data products: the digital elevation model, digital surf
 module-nav-title: 'Spatial Data in R'
 module-type: 'class'
 course: "Earth Analytics"
-week: 5
+week: 4
 sidebar:
   nav:
 author_profile: false
@@ -23,8 +23,9 @@ comments: true
 order: 1
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -34,10 +35,10 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Be able to describe the characteristics of 3 key vector data structures: points, lines and polygons.
-* Be able to open a shapefile in R using `readOGR()`.
-* Be able to view the metadata of a vector spatial layer in R including CRS
-* Be able to access the tabular (`data.frame`) attributes of a vector spatial layer in `R`.
+* Describe the characteristics of 3 key vector data structures: points, lines and polygons.
+* Open a shapefile in R using `readOGR()`.
+* View the metadata of a vector spatial layer in R including CRS
+* Access the tabular (`data.frame`) attributes of a vector spatial layer in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -75,9 +76,10 @@ countries are often represented by polygons. Occasionally, a polygon can have a
 hole in the middle of it (like a doughnut), this is something to be aware of but
 not an issue we will deal with in this tutorial.
 
- <i class="fa fa-star"></i> **Data Tip:** Sometimes, boundary layers such as
- states and countries, are stored as lines rather than polygons. However, these
- boundaries, when represented as a line, will not create a closed object with a defined "area" that can be "filled".
+<i class="fa fa-star"></i> **Data Tip:** Sometimes, boundary layers such as
+states and countries, are stored as lines rather than polygons. However, these
+boundaries, when represented as a line, will not create a closed object with a
+defined "area" that can be "filled".
 {: .notice}
 
 ## Shapefiles: Points, Lines, and Polygons
@@ -105,26 +107,13 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 ```r
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
-## Loading required package: sp
-## rgdal: version: 1.2-5, (SVN revision 648)
-##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
-##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
-##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
-##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
-##  Linking to sp version: 1.2-4
 library(rgeos)
-## rgeos version: 0.3-22, (SVN revision 544)
+## rgeos version: 0.3-23, (SVN revision 546)
 ##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
 ##  Linking to sp version: 1.2-4 
 ##  Polygon checking: TRUE
 # for metadata/attributes- vectors or rasters
 library(raster)
-## 
-## Attaching package: 'raster'
-## The following object is masked from 'package:dplyr':
-## 
-##     select
 
 # set working directory to earth-analytics dir
 # setwd("pathToDirHere")
@@ -134,26 +123,28 @@ The shapefiles that we will import are:
 
 * A polygon shapefile representing our field site boundary,
 * A line shapefile representing roads, and
-* A point shapefile representing the location of the Fisher
-<a href="http://www.neonscience.org/science-design/collection-methods/flux-tower-measurements" target="_blank">flux tower</a>
-located at the
+* A point shapefile representing the location of field siteslocated at the
 <a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> San Joachin field site</a>.
 
-The first shapefile that we will open contains the boundary of our study area
-(or our Area Of Interest or AOI, hence the name `aoiBoundary`). To import
-shapefiles we use the `R` function `readOGR()`.
+The first shapefile that we will open contains the point locations where trees
+have been measured at the study site. The data are stored in shapefile format.
+To import shapefiles we use the `R` function `readOGR()`.
 
 `readOGR()` requires two components:
 
 1. The directory where our shapefile lives: `data/week5/D17-California/SJER/vector_data/`
 2. The name of the shapefile (without the extension): `SJER_plot_centroids`
 
-Let's import our AOI.
+You can call each element separately
+
+`readOGR("path","fileName")`
+
+Or you can simply include the entire path to the shp file in the path argument.
+Both ways to open a shapefile are demonstrated below:
 
 
 ```r
 # Import a polygon shapefile: readOGR("path","fileName")
-# no extension needed as readOGR only imports shapefiles
 
 sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data",
                                "SJER_plot_centroids")
@@ -354,7 +345,7 @@ plot(sjer_plot_locations, col="blue",
      main="SJER Plot Locations\nMadera County, CA")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -397,7 +388,7 @@ plot(sjer_plot_locations,
   col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">

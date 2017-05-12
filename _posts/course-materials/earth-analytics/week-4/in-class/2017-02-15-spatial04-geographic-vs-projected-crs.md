@@ -8,9 +8,9 @@ authors: ['Leah Wasser']
 modified: '2017-04-28'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
-permalink: /course-materials/earth-analytics/week-5/geographic-vs-projected-coordinate-reference-systems-UTM/
+permalink: /course-materials/earth-analytics/week-4/geographic-vs-projected-coordinate-reference-systems-UTM/
 nav-title: 'Geographic vs projected CRS'
-week: 5
+week: 4
 sidebar:
   nav:
 author_profile: false

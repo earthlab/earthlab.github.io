@@ -3,16 +3,16 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-04-25'
+modified: '2017-05-11'
 category: [course-materials]
-class-lesson: ['week4-review-r']
+class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/week4-review-r/
-nav-title: 'Week 4 review'
-module-title: 'Review of key concepts in R'
+nav-title: 'Interactive time series plots in R'
+module-title: 'Review: Factors in R'
 module-description: 'In this module, we will review some key concepts associated with both
 time series data and raster data in R. '
-module-nav-title: 'Spatial Data in R'
-module-type: 'class'
+module-nav-title: 'Time series data in R & Legends'
+module-type: 'homework'
 course: "Earth Analytics"
 week: 4
 sidebar:
@@ -41,15 +41,16 @@ You will need a computer with internet access to complete this lesson and the da
 </div>
 
 
-# Exploring Data
+# Explore time series Data
 
-Is there a visual change in the data over time that may not be related to changes
-in precipitation?
+First, let's review the challenge question from last week. Note below that we've
+loaded the data into R. Do you notice any visual changes in the data over time
+that may not be related to actual changes in precipitation?
 
 
 
 ```r
-library(ggplot2)
+
 # bonus lesson
 precip_file <- "data/week2/precipitation/805333-precip-daily-1948-2013.csv"
 
@@ -77,21 +78,7 @@ precPlot_hourly
 ## Warning: Removed 401 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-08-review01-time-series-R/setup-1.png" title="plot precip data using ggplot" alt="plot precip data using ggplot" width="100%" />
-
-# interactive plotting
-
-Note - don't run this in ggplot
-
-
-```r
-library(plotly)
-
-ggplotly(precPlot_hourly)
-
-```
-
-## talk about adding arguments to code chunks
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/review-materials/2017-02-08-review01-time-series-R/setup-1.png" title="plot precip data using ggplot" alt="plot precip data using ggplot" width="100%" />
 
 
 
@@ -108,21 +95,7 @@ precPlot_hourly_round
 ## Warning: Removed 401 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-08-review01-time-series-R/plot-ggplot-1.png" title="time series plot of precipitation 1948-2013" alt="time series plot of precipitation 1948-2013" width="100%" />
-
-## Time series - Dygraph
-
-
-
-
-
-
-```r
-# create a basic interactive element
-dygraph(discharge_timeSeries) %>% dyRangeSelector()
-
-```
-
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/review-materials/2017-02-08-review01-time-series-R/plot-ggplot-1.png" title="time series plot of precipitation 1948-2013" alt="time series plot of precipitation 1948-2013" width="100%" />
 ## Factors
 
 
