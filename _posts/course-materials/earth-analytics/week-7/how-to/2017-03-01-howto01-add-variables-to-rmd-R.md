@@ -13,7 +13,7 @@ module-description: 'This tutorial set covers some basic things you can do to re
 and refining the width and height of plots to optimize space.'
 module-nav-title: 'Refine Rmarkdown reports'
 module-type: 'homework'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 7
 sidebar:
   nav:
