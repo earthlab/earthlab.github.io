@@ -4,10 +4,9 @@ title: "Earth Lab Internship - Summer 2017 Syllabus"
 excerpt: "The Earth Lab internship course syllabus."
 authors: ['Mollie Buckland']
 category: [course-materials]
-class-lesson: ['earth-lab-internship']
 permalink: /course-materials/internship/
 nav-title: 'Syllabus'
-dateCreated: 2017-5-10
+dateCreated: 2017-05-10
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 module-title: 'Earth Lab Internship '
 module-nav-title: 'Internship'
@@ -15,6 +14,8 @@ module-description: 'The Earth Lab internship provides undergraduate students at
 Colorado Boulder with a real-world data intensive academic experience through
 work on a science project.'
 module-type: 'class'
+course: "internship"
+module-type: 'overview'
 course: "internship"
 sidebar:
   nav:
@@ -25,7 +26,6 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
 
 The Earth Lab internship provides undergraduate students at the University of
 Colorado Boulder with a real-world data intensive academic experience through
@@ -63,6 +63,10 @@ as well as a final presentation and paper. As an intern, you be evaluated and
 given feedback on your writing and presentation skills as wells as the progress
 you make on goals you set at the beginning of the semester.
 
+  * A better understanding of your research group's subject area
+  * Improved scientific writing skills
+  * Improved public speaking skills
+  * Accomplished the goals you set out for yourself at the start of the summer
 
 ## Assignments
 
@@ -70,9 +74,9 @@ There will be several assignments that are due throughout the semester. Criteria
 for each assignment are below.
 
 ### Internship Goals Worksheet: Due May 26th
-During your first week, you need to sit down with your postdoctoral adviser to
-set analytical and content expertise goals to help guide your research for the
-summer.
+Criteria for each assignment you complete is summer are below. Detailed
+information on how each assignment is evaluated will be provided in the seminars
+and as the assignment due dates get closer.
 
 ## Midterm Project: Due June 30th
 The midterm project includes an abstract and a presentation. Presentations
@@ -86,6 +90,8 @@ The mid term abstract should be 250-300 words and should include:
 * *Background:* Briefly discuss the background of your research in the context of existing work and literature.
 * *Methods / Study area:* Briefly descibe the methods you have been using and/or expect to use for your research this semester and the project study area.
 * *Expected Results:* Summarize the results you expect to get from your research this semester.
+* *Methods / Study area:* Briefly describe the methods you have been using
+  and/or expect to use for your research this semester and the project study area.
 
 ### 1b. Midterm Abstract Presentation:*
 
@@ -116,7 +122,7 @@ research. To achieve this goal, we have the following expectations:
   members.
   * Meet you your postdoctoral adviser face-to-face at least once a week.
   This will ensure that your research stays on track and gives you time to ask
-  them any questions you minght have.
+  them any questions you might have.
   * Meet with your faculty adviser at least twice during the semester. Faculty
   members are extremely busy, so work with them and your postdoctoral adviser to
   schedule meetings in advance. Meeting with them just prior to your midterm and
