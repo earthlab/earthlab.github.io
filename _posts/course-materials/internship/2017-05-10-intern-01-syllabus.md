@@ -1,60 +1,120 @@
 ---
 layout: single
-title: "The syntax of the R scientific programming language - Data Science for scientists 101"
-excerpt: "This lesson introduces the basic syntax associated with the R scientific programming language. We will introduce assignment operators (<-), comments and basic functions that are available to use in R to perform basic tasks including head(), qplot() to quickly plot data and others. This lesson is designed for someone who has not used R before. We will work with precipitation and
-stream discharge data for Boulder County."
-authors: ['Mollie Buckland', 'Leah Wasser']
+title: "Earth Lab Internship - Summer 2017 Syllabus"
+excerpt: "-- need to fill in exerpt --"
+authors: ['Mollie Buckland']
 category: [course-materials]
 class-lesson: ['earth-lab-internship']
 permalink: /course-materials/internship/
 nav-title: 'Syllabus'
-dateCreated: 2016-12-13
-modified: '2017-05-10'
+dateCreated: 2017-5-10
+modified: '2017-05-12'
 module-title: 'Earth Lab Internship '
 module-nav-title: 'Internship'
 module-description: 'Text (2-4 sentences) describing the internship.'
 module-type: 'class'
-course: "Earth Analytics"
+course: "Earth Lab Internship"
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 1
 topics:
-
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
-In this tutorial, we will explore the basic syntax (structure) or the `R` programming
-language. We will introduce assignment operators (`<-`, comments (`#`) and functions
-as used in `R`.
+Welcome/welcome back to Earth Lab's internship program! The mission of our
+internship is to immerse undergraduate students, like yourself, in current
+earth-systems research here at CU. We hope that this program gives you the
+confidence to present your research to different audiences in written and verbal
+forms. Through seminars, online training modules and working closely with
+postdoctoral researers, faculty advisors, and the education team, you will learn
+how to effectively communicate your research through writing and public speaking.
+
+The end products of the internship include a midterm presentation and write-up
+as well as a final presentation and paper.  As an intern, you be evaluated and
+given feedback on your writing and presentation skills as wells as the progress
+you make on goals you set at the beginning of the semester.
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
-At the end of this activity, you will be able to:
+At the end of your internship with Earth Lab you will have gained the following
+skills:
 
-* Understand the basic concept of a function and be able to use a function in your code.
-* Know how to use key operator commands in R (`<-`)
+  * A better understanding of your research group's subject area
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+  * Improved scientific writing skills
 
-You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+  * Improved public speaking skills
 
-* [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
-* [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/course-materials/earth-analytics/week-1/intro-to-r-and-rstudio)
+  * Accomplished the goals you set out for yourself at the start of the summer
 
 </div>
 
-In the [previous module](/course-materials/earth-analytics/week-1/setup-r-rstudio), we
-setup `RStudio` and `R` and got to know the `RStudio` interface.
-We also created a basic
-`RMarkdown` report using `RStudio`. In this module, we will explore the basic
-syntax of the `R` programming language. We will learn how to work with packages and
-functions, how to work with vector objects in R and finally how to import data
-into a data.frame which is the `R` equivalent of a spreadsheet.
+## Assignments
+Criteria for each assignment you complete is summer are below. Detailed
+information on how each assignemtn is evaluated will be provided in the seminars
+and as the assignment due dates get closer.
+
+### *Internship Goals Worksheet* - **Due May 26th**
+During your first week, you need to sit down with your postdoctoral adviser to
+set analytical and content expertise goals to help guide your research for the
+summer.
+
+### *Midterm Project* - **Due June 30th**
+  The midterm project will include an abstract and a presentation. Presentations
+will be on Friday June 30th and electronic copies of the abstract and presentation
+are due by the end of that day.
+
+#### *Abstract:* 250-300 word abstract that will include:
+
+  * *Background:* Briefly discuss the background of your research in the context
+  of existing work and literature.
+
+  * *Methods / Study area:* Briefly descibe the methods you have been using
+  and/or expect to use for your research this semester and the project study area.
+
+  * *Expected Results :* Summarize the results you expect to get from your
+  research this semester.
+
+#### *Abstract Presentation:* Prepare a 10-minute presentation based you your
+abstract.
+
+  * Please minimize the amount of text on your slides. The more text on a slide,
+  the less your audience is listening to you!
+
+  * Be sure to carefully consider your audience and what they may or may not
+  know. You will give your presentation to the education team, your postdoctoral
+  adviser and each other. This audience will have a variety of background, so
+  avoid using discipline-specific "jargon" terms.
+
+### *Final Project* - **Due August 26th**
+  The final project will consist of a scientific visualization and a presentation.
+Please, use your imagination and come up with a creative way to visualize your
+summer research.
+
+## Intern Expectations
+A key goal of the interhship program is to fully immerse you in ongoing Earth Lab
+research. To achieve this goal, we have the following expectations:
+
+  * Spend all but two hours of your work hours in the Earth Lab office space.
+  Earth Lab is *full* of knowledgeable people. Spending time in the office gives
+  you the opportunity to collaborate with each other and other Earth Lab team
+  members.
+
+  * Meet you your postdoctoral adviser face-to-face at least once a week.
+  This will ensure that your research stays on track and gives you time to ask
+  them any questions you minght have.
+
+  * Meet with your faculty adviser at least twice during the semester. Faculty
+  members are extremely busy, so work with them and your postdoctoral adviser to
+  schedule meetings in advance. Meeting with them just prior to your midterm and
+  final presentations will give you an opportunity to practice presenting before
+  you present in front of others.
+
+  * Participate in all research group meetings. Most lab groups have weekly
+  meetings to discuss their current research and issues. This is a wonderful
+  opportunity for you to participate in the research process.
