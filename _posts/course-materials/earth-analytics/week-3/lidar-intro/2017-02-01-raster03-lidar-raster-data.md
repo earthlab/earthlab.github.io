@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to lidar raster data products in R - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: '2017-05-04'
+modified: '2017-05-08'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/
@@ -20,6 +20,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -29,7 +30,7 @@ topics:
 After completing this tutorial, you will be able to:
 
 * Describe the basic process of how a lidar point cloud is converted into a raster.
-* Be able to describe the structural differences between a raster dataset and a lidar point cloud.
+* Describe the structural differences between a raster dataset and a lidar point cloud.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 

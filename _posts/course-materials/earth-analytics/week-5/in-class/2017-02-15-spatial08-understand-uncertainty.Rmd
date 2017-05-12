@@ -8,16 +8,21 @@ category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
 nav-title: 'Remote sensing uncertainty'
+module-title: 'Uncertainty and metadata'
+module-description: 'In this module, we will discuss the concept of uncertainty as it relates to both remote sensing and other data. We will also explore some metadata to learn how to understand more about our data. '
+module-nav-title: 'Uncertainty in scientific data & metadata '
+module-type: 'class'
+course: "Earth Analytics"
 week: 5
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 1
 topics:
   remote-sensing: ['lidar']
   earth-science: ['vegetation', 'uncertainty']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
