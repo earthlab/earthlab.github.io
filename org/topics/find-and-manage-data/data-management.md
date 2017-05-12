@@ -5,6 +5,6 @@ permalink: tags/find-and-manage-data/data-management/
 comments: false
 author_profile: false
 topics:
-  file-formats: 'json'
+  find-and-manage-data: 'data-management'
 is-main-topic: false
 ---

@@ -68,7 +68,7 @@ from international, national and even local groups.
 | <a href="http://ngmdb.usgs.gov/" target="_blank">USGS National Geologic Map </a> ||
 | <a href="http://nhd.usgs.gov/" target="_blank">USGS NHD – rivers and streams</a> ||
 | <a href="http://www.nasa.gov" target="_blank">NASA </a> ||
-| <a href="http://goes.gsfc.nasa.gov/" target="_blank">NASA Weather Imagery</a> ||
+| <a href="http://goes.gsfc.nasa.gov/" target="_blank" data-proofer-ignore=''>NASA Weather Imagery</a> ||
 | <a href="http://www.nps.gov" target="_blank">National Park Service (NPS)	</a> ||
 | <a href="http://datagateway.nrcs.usda.gov/" target="_blank">NRCS Spatial Data Gateway (envir/demog data tiled by county/state)</a> ||
 | <a href="https://earthdata.nasa.gov/about/science-system-description/eosdis-components/global-imagery-browse-services-gibs" target="_blank">Jet Propulsion Lab - now served by Earth Data</a> ||
@@ -77,7 +77,7 @@ from international, national and even local groups.
 
 ## State Sources (examples)
 
-* <a href="http://www.oregongeology.org/sub/pub&data/lidarpubs.htm" target="_blank">Oregon</a>
+* <a href="http://www.oregongeology.org/lidar/" target="_blank">Oregon</a>
 * <a href="http://www.asf.alaska.edu" target="_blank">Alaska</a>
 * <a href="http://www.cnhp.colostate.edu/download/gis.asp" target="_blank">Colorado</a> Colorado Natural Heritage Program Conservation Areas, Potential Areas and Terrestrial Ecosystem Patches
 

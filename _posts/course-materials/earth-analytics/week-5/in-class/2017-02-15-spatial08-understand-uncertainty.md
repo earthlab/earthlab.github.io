@@ -13,11 +13,11 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 1
 topics:
   remote-sensing: ['lidar']
   earth-science: ['vegetation', 'uncertainty']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

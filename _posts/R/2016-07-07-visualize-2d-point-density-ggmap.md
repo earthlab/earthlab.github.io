@@ -97,7 +97,7 @@ ggmap(basemap) +
 ![png](/images/visualize-2d-point-density-ggmap_files/visualize-2d-point-density-ggmap_5_2.png)
 
 
-There seems to be a fair bit of overplotting. Let's instead plot a density estimate. There are many ways to compute densities, and if the mechanics of density estimation are important for your application, it is worth investigating packages that specialize in point pattern analysis (e.g., [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html)). If on the other hand, you're lookng for a quick and dirty implementation for the purposes of exploratory data analysis, you can also use ggplot's [`stat_density2d`](http://docs.ggplot2.org/0.9.3.1/stat_density2d.html), which uses [`MASS::kde2d`](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/kde2d.html) on the backend to estimate the density using a bivariate normal kernel.
+There seems to be a fair bit of overplotting. Let's instead plot a density estimate. There are many ways to compute densities, and if the mechanics of density estimation are important for your application, it is worth investigating packages that specialize in point pattern analysis (e.g., [spatstat](https://cran.r-project.org/web/packages/spatstat/index.html)). If on the other hand, you're lookng for a quick and dirty implementation for the purposes of exploratory data analysis, you can also use ggplot's [`stat_density2d`](http://ggplot2.tidyverse.org/reference/geom_density_2d.html), which uses [`MASS::kde2d`](https://stat.ethz.ch/R-manual/R-devel/library/MASS/html/kde2d.html) on the backend to estimate the density using a bivariate normal kernel.
 Combined with the basemap functionality of `ggmap`, visualizing spatial density is fairly straightforward:
 
 
