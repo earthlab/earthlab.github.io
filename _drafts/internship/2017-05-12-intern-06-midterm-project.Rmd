@@ -1,0 +1,24 @@
+---
+layout: single
+title: "Earth Lab Internship Midterm Project"
+excerpt: "Midterm project"
+authors: ['Mollie Buckland']
+category: [course-materials]
+class-lesson: ['earth-lab-internship']
+permalink: /course-materials/internship/abstract-seminar/
+nav-title: 'Internship Midterm Project'
+dateCreated: 2017-05-12
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+course: "Internship"
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 6
+topics:
+
+---
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+**BODY OF MIDTERM PROJECT HERE**
