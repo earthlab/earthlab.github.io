@@ -14,11 +14,11 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 8
+order: 2
 topics:
   remote-sensing: ['lidar']
   earth-science: ['vegetation', 'uncertainty']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   spatial-data-and-gis: ['vector-data', 'raster-data']
 ---
 
