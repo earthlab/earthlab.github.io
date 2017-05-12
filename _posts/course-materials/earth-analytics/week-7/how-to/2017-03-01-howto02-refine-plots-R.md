@@ -3,19 +3,20 @@ layout: single
 title: "How to remove borders and add legends to spatial plots in R. "
 excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
-modified: '2017-05-01'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/refine-plots-report/
 nav-title: 'Refine RGB plots'
 week: 7
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 2
 topics:
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis: ['raster-data']
 ---
@@ -298,7 +299,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## null device
+## null device 
 ##           1
 ```
 
@@ -330,7 +331,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## null device
+## null device 
 ##           1
 ```
 

@@ -9,6 +9,7 @@ class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/interactive-time-series-plots-in-r/
 nav-title: 'Interactive time series plots'
 week: 4
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
@@ -40,13 +41,13 @@ knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 ```
 
-In this lesson we will explore using 2 interactive tools to create interactive 
+In this lesson we will explore using 2 interactive tools to create interactive
 plots of our data:
 
 1. plotly and
-2. dygraphs 
+2. dygraphs
 
-First, we will load all of the needed libraries. 
+First, we will load all of the needed libraries.
 
 ```{r load-libraries}
 # install plotly from git - ropensci
@@ -77,7 +78,7 @@ We can plot the data using ggplot().
 ```{r annual-precip, fig.cap="annual precipation patterns"}
 annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
   geom_point() +
-  labs(x = "Time", 
+  labs(x = "Time",
        y = "discharge value",
        title = "my title")
 
@@ -87,8 +88,8 @@ annual_precip
 ## Time series - Plotly
 
 
-We can use plotly to create an interactive plot that we can use in the 
-R console.  
+We can use plotly to create an interactive plot that we can use in the
+R console.
 
 
 ```{r interactive-plot, warning=FALSE, message=FALSE, eval=FALSE }
@@ -159,4 +160,3 @@ saveWidget(widget=interact_time2, file="time_interactive2.html", selfcontained=F
 ```
 
 <iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/leaflet-maps/dygraph/time_interactive2.html" frameborder="0" allowfullscreen></iframe>
-

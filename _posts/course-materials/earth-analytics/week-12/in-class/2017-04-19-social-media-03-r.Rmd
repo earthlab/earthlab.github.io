@@ -9,6 +9,7 @@ class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/text-mining-twitter-data-intro-r/
 nav-title: 'Text mine twitter data'
 week: 12
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

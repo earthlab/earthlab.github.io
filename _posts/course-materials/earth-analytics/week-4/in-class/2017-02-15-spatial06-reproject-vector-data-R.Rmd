@@ -9,6 +9,7 @@ class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/reproject-vector-data/
 nav-title: 'Reproject vector data'
 week: 4
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
@@ -16,7 +17,7 @@ comments: true
 order: 6
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

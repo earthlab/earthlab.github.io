@@ -9,6 +9,7 @@ class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/intro-to-JSON/
 nav-title: 'Into to JSON'
 week: 10
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

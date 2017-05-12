@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
 excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser']
-modified: '2017-04-24'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -14,6 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 5
+course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
   time-series:
