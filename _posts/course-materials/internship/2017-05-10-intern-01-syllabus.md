@@ -9,7 +9,7 @@ class-lesson: ['earth-lab-internship']
 permalink: /course-materials/internship/
 nav-title: 'Syllabus'
 dateCreated: 2016-12-13
-modified: '2017-05-10'
+modified: '2017-05-12'
 module-title: 'Earth Lab Internship '
 module-nav-title: 'Internship'
 module-description: 'Text (2-4 sentences) describing the internship.'
@@ -27,23 +27,20 @@ topics:
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
-In this tutorial, we will explore the basic syntax (structure) or the `R` programming
-language. We will introduce assignment operators (`<-`, comments (`#`) and functions
-as used in `R`.
+Internship intro text goes here
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
-At the end of this activity, you will be able to:
+At the end of your internship with Earth Lab you will have gained the following skills:
 
-* Understand the basic concept of a function and be able to use a function in your code.
-* Know how to use key operator commands in R (`<-`)
+* Skill one
+* Skill two
+* Maybe no more than 5 high level skills?
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+We may not need this and may opt to setup other sections
 
 * [How to Setup R / RStudio](/course-materials/earth-analytics/week-1/setup-r-rstudio/)
 * [Setup your working directory](/course-materials/earth-analytics/week-1/setup-working-directory/)

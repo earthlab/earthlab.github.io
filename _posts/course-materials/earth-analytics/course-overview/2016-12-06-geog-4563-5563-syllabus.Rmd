@@ -11,6 +11,7 @@ permalink: /course-materials/earth-analytics/earth-analytics-syllabus/
 author_profile: no
 overview-order: 2
 module-type: 'overview'
+course: "Earth Analytics"
 sidebar:
   nav:
 ---
@@ -86,23 +87,42 @@ environment and the `RStudio` interface to work with data.
 
 ## Grading
 All grading for this course will follow the CU grading policies.
-Late assignments will not be accepted in this course. If there are extenuating /
-university approved
-circumstances university-approved activity, illness, injury, family emergency, or religious
-observance that prevents you from completing an assignment on time, please
-get in touch with the instructor or the course TA as soon as possible.
+**Late assignments are not be accepted in this course.** If there are extenuating /
+university approved circumstances university-approved activity, illness, injury,
+family emergency, or religious observance that prevents you from completing an
+assignment on time, please get in touch with the instructor or the course TA as
+soon as possible.
 
 Course grades will be calculated using the following assignments:
 
 | Assignment  | Percent of Credit   |
 |---|---|---|---|---|
-| Homework | 25% |
+| Homework / Assignments | 35% |
 | Mid term project | 20% |
 | Final group presentation | 20% |
 | Final individual project report | 20%  |
-| Class participation | 15% |
+| Participation | 5% |
 
-You must complete all assignments to recieve a passing grade in this course.
+### Final letter grades
+
+Please use the table below to understand how your numeric grade - listed in D2L
+related to your final letter grade in this course.
+
+| Score  | Grade   |
+|---|---|---|---|---|
+| A | 93-100 |
+| A- | 90-92 |
+| B+ | 87-89 |
+| B | 83-86  |
+| B- | 80-82 |
+| C+ | 77-79 |
+| C | 73-76 |
+| C- | 70-72 |
+| D+ | 67-69 |
+| D | 63-66 |
+| D- | 60-62 |
+|===
+| F | 0-59 |
 
 ## Communication
 
