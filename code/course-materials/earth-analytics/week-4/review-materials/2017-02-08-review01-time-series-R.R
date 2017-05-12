@@ -24,6 +24,18 @@ precPlot_hourly <- ggplot(precip.boulder, aes(DATE, HPCP)) +   # the variables o
 
 precPlot_hourly
 
+## ----plot-ggplot, fig.cap="time series plot of precipitation 1948-2013"----
+precip.boulder$HPCP_round <- round(precip.boulder$HPCP, digits = 1)
+
+# plot the data using ggplot2
+precPlot_hourly_round <- ggplot(precip.boulder, aes(DATE, HPCP_round)) +   # the variables of interest
+      geom_point(stat="identity") +   # create a bar graph
+      xlab("Date") + ylab("Precipitation (Inches)") +  # label the x & y axes
+      ggtitle("Hourly Precipitation - Boulder Station\n 1948-2013")  # add a title
+
+precPlot_hourly_round
+
+
 ## ----factors-------------------------------------------------------------
 
 new_vector <- c("dog", "cat", "mouse","cat", "mouse", "cat", "mouse")

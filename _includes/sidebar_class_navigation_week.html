@@ -66,7 +66,7 @@
                {% if module.order == 1 %}
                    {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
                    {% assign theHomeWorkLesson = module.class-lesson %}
-                   <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
+                   <li><i class="fa fa-folder-open" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
                {% endif %}
                <ul>
                {% for alesson in weeks %}
@@ -129,13 +129,13 @@
 {% assign sorted_session_weeks = session_weeks | sort:'week' %}
 
 <ul>
-  <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Course sessions</span>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Course sessions</span>
    <ul>
     {% for post in sorted_session_weeks %}
 
     <!-- Only list the week if it's not the week for the current landing page -->
     {% if post.week != page.week %}
-    <li> <a href="{{ site.url }}{{ post.permalink }}">
+    <li> <a href="{{ site.url }}{{ post.permalink }}"><i class="fa fa-folder-o" aria-hidden="true"></i>
       {% if post.nav-title %}{{ post.nav-title }} {% else %} {{ post.title }}{% endif %}</a></li>
     {% endif %}
       {% if post.week == page.week %}
@@ -144,7 +144,7 @@
         {% for module in classes %}
         {% if module.order == 1 %}
 
-            <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ module.week }}. {{ module.module-nav-title | capitalize }} </span></li>
+            <li><span class="nav__sub-title grey"><i class="fa fa-folder-open" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
 
             {% assign theLesson = module.class-lesson %}
             {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
@@ -167,6 +167,7 @@
           {% endif %}
           {% endif %}
         {% endfor %}
+        {% assign modules_count ==  {{ alesson.order }} %}
        </ul>
         {% endfor %}
       </ul>
@@ -176,7 +177,7 @@
        <ul>
          {% for hw_module in homework %}
          {% if hw_module.order == 1 %}
-             <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ hw_module.module-nav-title | capitalize }} </span></li>
+             <li><span class="nav__sub-title grey"><i class="fa fa-folder-open" aria-hidden="true"></i> {{ hw_module.module-nav-title | capitalize }} </span></li>
              {% assign theLesson = hw_module.class-lesson %}
              {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
 
@@ -191,8 +192,11 @@
 
          {% if alesson.class-lesson == theLesson %}
          {% assign lesson_count = lesson_count | plus: 1 %}
+
+
+         {% assign modules_count = moduls_count | plus: 1 %}
            {% if alesson.url == page.url %}
-           <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+           <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ modules_count }} {{ alesson.nav-title }}</a></li>
            {% else %}
            <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
            {% endif %}
