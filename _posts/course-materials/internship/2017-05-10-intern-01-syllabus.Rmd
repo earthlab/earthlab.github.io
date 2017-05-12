@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Earth Lab Internship - Summer 2017 Syllabus"
-excerpt: "-- need to fill in exerpt --"
+excerpt: "The Earth Lab internship course syllabus."
 authors: ['Mollie Buckland']
 category: [course-materials]
 class-lesson: ['earth-lab-internship']
@@ -11,7 +11,9 @@ dateCreated: 2017-5-10
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 module-title: 'Earth Lab Internship '
 module-nav-title: 'Internship'
-module-description: 'Text (2-4 sentences) describing the internship.'
+module-description: 'The Earth Lab internship provides undergraduate students at the University of
+Colorado Boulder with a real-world data intensive academic experience through
+work on a science project.'
 module-type: 'class'
 course: "internship"
 sidebar:
