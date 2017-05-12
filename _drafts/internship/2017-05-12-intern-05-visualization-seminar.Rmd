@@ -1,0 +1,24 @@
+---
+layout: single
+title: "Earth Lab Internship Scientific Visualization Seminar - Creative Ways to Visualize Your Science"
+excerpt: "Overview of different ways to visualize your research"
+authors: ['Mollie Buckland']
+category: [course-materials]
+class-lesson: ['earth-lab-internship']
+permalink: /course-materials/internship/abstract-seminar/
+nav-title: 'Internship Scientific Visualization Seminar'
+dateCreated: 2017-05-12
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+course: "Internship"
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 5
+topics:
+
+---
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+**BODY OF SCIENTIFIC VISUALIZATION SEMINAR HERE**
