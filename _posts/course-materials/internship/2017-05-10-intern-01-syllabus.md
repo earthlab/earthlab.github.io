@@ -4,16 +4,15 @@ title: "Earth Lab Internship - Summer 2017 Syllabus"
 excerpt: "-- need to fill in excerpt --"
 authors: ['Mollie Buckland']
 category: [course-materials]
-class-lesson: ['earth-lab-internship']
 permalink: /course-materials/internship/
 nav-title: 'Syllabus'
 dateCreated: 2017-05-10
 modified: '2017-05-12'
-course: "Internship"
+module-title: 'Earth Lab Internship '
 module-nav-title: 'Internship'
 module-description: 'Text (2-4 sentences) describing the internship.'
-module-type: 'class'
-course: "internship"
+module-type: 'overview'
+course: "Internship"
 sidebar:
   nav:
 author_profile: false
