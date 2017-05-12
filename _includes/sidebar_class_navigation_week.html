@@ -1,7 +1,15 @@
-{% assign sorted_posts = site.posts | sort:"order" %}
+{% assign the_course = page.course %}
+
+{% assign course_posts = site.posts | where:"course", page.course %}
+{% assign sorted_posts = course_posts | sort:"order" %}
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
 <!--<h3>Week {{ page.week }} Lessons</h3>-->
 
-{% assign modules = site.posts | where:"order", 1 %}
+{% assign modules = sorted_posts | where:"order", 1 %}
 
 {% assign weeks = sorted_posts | where:"week", page.week %}
 
