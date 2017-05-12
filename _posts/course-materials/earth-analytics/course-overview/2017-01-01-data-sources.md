@@ -9,7 +9,7 @@ author_profile: false
 overview-order: 5
 week: 0
 week-landing: 0
-course: "Earth Analytics"
+course: "earth-analytics"
 sidebar:
   nav:
 ---
