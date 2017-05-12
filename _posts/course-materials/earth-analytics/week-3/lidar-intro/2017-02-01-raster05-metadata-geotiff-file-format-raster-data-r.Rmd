@@ -9,6 +9,7 @@ class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/introduction-to-spatial-metadata-r/
 nav-title: 'Embedded metadata - geotiff'
 week: 3
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

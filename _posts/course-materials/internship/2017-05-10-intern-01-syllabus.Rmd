@@ -97,13 +97,12 @@ The mid term abstract should be 250-300 words and should include:
 
 Prepare a 10-minute presentation based you your abstract.
 
-  * Please minimize the amount of text on your slides. The more text on a slide,
-  the less your audience is listening to you!
-
-  * Be sure to carefully consider your audience and what they may or may not
-  know. You will give your presentation to the education team, your postdoctoral
-  adviser and each other. This audience will have a variety of background, so
-  avoid using discipline-specific "jargon" terms.
+* Please minimize the amount of text on your slides. The more text on a slide,
+the less your audience is listening to you!
+* Be sure to carefully consider your audience and what they may or may not
+know. You will give your presentation to the education team, your postdoctoral
+adviser and each other. This audience will have a variety of background, so
+avoid using discipline-specific "jargon" terms.
 
 ### Final Project: Due August 26th
 

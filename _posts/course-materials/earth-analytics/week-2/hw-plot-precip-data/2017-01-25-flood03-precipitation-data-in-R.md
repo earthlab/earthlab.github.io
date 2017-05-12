@@ -3,7 +3,7 @@ layout: single
 title: "Subset time series data in R - introduction to dplyr pipes and tidyverse coding approaches - Flooding & erosion data"
 excerpt: "This lesson walks through extracting temporal subsets of time series data using dplyr pipes. In the previous lesson we learned how to convert data containing a data field into a data class. In this lesson we use pipes to extract temporal subsets so that we can refine our time series data analysis. Finally we plot the data using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-04-21'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -14,6 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
+course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
   time-series:

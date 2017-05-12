@@ -15,7 +15,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
-course: "Earth Analytics"
+course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['rmarkdown']
 ---
