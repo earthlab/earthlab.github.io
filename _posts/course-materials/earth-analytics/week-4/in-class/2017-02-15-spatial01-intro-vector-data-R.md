@@ -4,7 +4,11 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R.md
 modified: '2017-05-09'
+=======
+modified: '2017-05-10'
+>>>>>>> bedf290922cfb3d2e222fb70afac85c1063e9075:_posts/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R.md
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
@@ -107,7 +111,11 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 ## Loading required package: sp
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R.md
 ## rgdal: version: 1.2-6, (SVN revision 651)
+=======
+## rgdal: version: 1.2-5, (SVN revision 648)
+>>>>>>> bedf290922cfb3d2e222fb70afac85c1063e9075:_posts/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R.md
 ##  Geospatial Data Abstraction Library extensions to R successfully loaded
 ##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
 ##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
@@ -115,6 +123,7 @@ library(rgdal)
 ##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
 ##  Linking to sp version: 1.2-4
 library(rgeos)
+<<<<<<< HEAD:_posts/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R.md
 ## rgeos version: 0.3-23, (SVN revision 546)
 ##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921
 ##  Linking to sp version: 1.2-4
@@ -125,6 +134,18 @@ library(raster)
 ## Attaching package: 'raster'
 ## The following object is masked from 'package:dplyr':
 ##
+=======
+## rgeos version: 0.3-22, (SVN revision 544)
+##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
+##  Linking to sp version: 1.2-4 
+##  Polygon checking: TRUE
+# for metadata/attributes- vectors or rasters
+library(raster)
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+## 
+>>>>>>> bedf290922cfb3d2e222fb70afac85c1063e9075:_posts/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-intro-vector-data-R.md
 ##     select
 
 # set working directory to earth-analytics dir
