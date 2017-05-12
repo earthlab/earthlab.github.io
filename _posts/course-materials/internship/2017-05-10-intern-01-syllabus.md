@@ -67,17 +67,17 @@ you make on goals you set at the beginning of the semester.
 There will be several assignments that are due throughout the semester. Criteria
 for each assignment are below.
 
-### 1. Internship Goals Worksheet: Due May 26th
+### Internship Goals Worksheet: Due May 26th
 During your first week, you need to sit down with your postdoctoral adviser to
 set analytical and content expertise goals to help guide your research for the
 summer.
 
-### 1. Midterm Project: Due June 30th
+## Midterm Project: Due June 30th
 The midterm project includes an abstract and a presentation. Presentations
 will be on **Friday June 30th 2017** and electronic copies of the abstract and
 presentation are due by Midnight on June 30th 2017.
 
-#### 1a. Midterm Abstract
+### 1a. Midterm Abstract
 
 The mid term abstract should be 250-300 words and should include:
 
@@ -85,7 +85,7 @@ The mid term abstract should be 250-300 words and should include:
 * *Methods / Study area:* Briefly descibe the methods you have been using and/or expect to use for your research this semester and the project study area.
 * *Expected Results:* Summarize the results you expect to get from your research this semester.
 
-#### 1b. Midterm Abstract Presentation:*
+### 1b. Midterm Abstract Presentation:*
 
 Prepare a 10-minute presentation based you your abstract.
 
