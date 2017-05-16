@@ -37,7 +37,6 @@ yaml2df <- function(file, field) {
   #   - field (string) a yaml field, e.g., authors, lib
   # returns:
   #   - data frame with file, field, and value (one row per element)
-  
   first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
   delims <- which(grepl(pattern = "---", x = first_n_lines))
   
@@ -64,11 +63,13 @@ yaml2df <- function(file, field) {
   # make a data frame with a row for each field element
   if (is.list(yaml_list[[field]])) {
     # unnest the lists, computing values and subvalues for yaml entries
-    df <- yaml_list[[field]] %>%
-      lapply(unlist, use.names = TRUE) %>%
-      lapply(FUN = function(x) ifelse(is.null(x), NA, x)) %>%
-      tbl_df %>%
-      tidyr::gather(value, subvalue)
+    null_entries <- lapply(yaml_list[[field]], length) == 0
+    yaml_list[[field]][null_entries] <- NA
+    
+    df <- tbl_df(yaml_list[[field]]) %>%
+      tidyr::gather(value, subvalue) %>%
+      dplyr::distinct(value, subvalue)
+    
   } else {
     # no unnesting necessary - just extract the value
     df <- yaml_list[[field]] %>%
