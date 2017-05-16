@@ -1,4 +1,5 @@
 library(readr)
+library(tidyr)
 options(stringsAsFactors = FALSE)
 
 # Helper functions for building the website -------------------------------
@@ -36,7 +37,6 @@ yaml2df <- function(file, field) {
   #   - field (string) a yaml field, e.g., authors, lib
   # returns:
   #   - data frame with file, field, and value (one row per element)
-  
   first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
   delims <- which(grepl(pattern = "---", x = first_n_lines))
   
@@ -61,16 +61,27 @@ yaml2df <- function(file, field) {
   }
   
   # make a data frame with a row for each field element
-  df <- yaml_list[[field]] %>%
-    data.frame()
-  names(df) <- "value"
+  if (is.list(yaml_list[[field]])) {
+    # unnest the lists, computing values and subvalues for yaml entries
+    null_entries <- lapply(yaml_list[[field]], length) == 0
+    yaml_list[[field]][null_entries] <- NA
+    
+    df <- tbl_df(yaml_list[[field]]) %>%
+      tidyr::gather(value, subvalue) %>%
+      dplyr::distinct(value, subvalue)
+    
+  } else {
+    # no unnesting necessary - just extract the value
+    df <- yaml_list[[field]] %>%
+      data.frame()
+    names(df) <- "value"
+    df <- df %>%
+      mutate(value = trimws(value)) %>%
+      select(value)
+  }
   
-  # remove spaces and make lowercase: "Matt Oakley -> matt-oakley
   df %>%
-    mutate(file = file, 
-           field = field, 
-           value = trimws(value)) %>%
-    select(file, field, value)
+    mutate(file = file, field = field)
 }
 
 
