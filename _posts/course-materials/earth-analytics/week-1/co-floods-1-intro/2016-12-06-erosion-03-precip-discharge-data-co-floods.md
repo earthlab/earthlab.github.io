@@ -20,7 +20,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
-course: "Earth Analytics"
+course: "earth-analytics"
 topics:
   earth-science: ['flood-erosion']
   time-series:

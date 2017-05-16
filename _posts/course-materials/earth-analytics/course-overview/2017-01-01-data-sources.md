@@ -1,7 +1,8 @@
 ---
 layout: single
 category: course-materials
-title: "Example data sources"
+title: "Final project: example data sources"
+nav-title: "Data source list"
 permalink: /course-materials/earth-analytics/data-sources/
 module-type: 'overview'
 comments: true

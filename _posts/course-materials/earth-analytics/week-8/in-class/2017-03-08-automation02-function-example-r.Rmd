@@ -9,6 +9,7 @@ class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/function-example-modular-code-r/
 nav-title: 'Applying functions'
 week: 8
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

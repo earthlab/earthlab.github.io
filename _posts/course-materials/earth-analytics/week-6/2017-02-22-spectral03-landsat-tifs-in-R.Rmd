@@ -9,6 +9,7 @@ class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-bands-geotif-in-R/
 nav-title: 'Landsat tifs in R'
 week: 6
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
