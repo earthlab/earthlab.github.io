@@ -3,12 +3,13 @@ layout: single
 title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
 excerpt: "In this lesson we review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically we will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-05-04'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/normalized-burn-index-dNBR/
 nav-title: 'dNBR vegetation index'
 week: 6
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

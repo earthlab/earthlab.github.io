@@ -9,6 +9,7 @@ class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
 nav-title: 'Open Raster Data R'
 week: 3
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

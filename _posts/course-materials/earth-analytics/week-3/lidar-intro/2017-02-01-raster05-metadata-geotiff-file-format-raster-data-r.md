@@ -3,12 +3,13 @@ layout: single
 title: "Introduction to spatial metadata embedded within tif tags - raster data in R "
 excerpt: "This lesson introduces the concept of metadata - or data about the data. Metadata describe key characteristics of a data set. For spatial data these characteristics including CRS, resolution and spatial extent. Here we discuss the use of tif tags or metadata embedded within a geotiff file as they can be used to explore data programatically."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-05-08'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/introduction-to-spatial-metadata-r/
 nav-title: 'Embedded metadata - geotiff'
 week: 3
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

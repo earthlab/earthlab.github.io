@@ -14,7 +14,7 @@ module-nav-title: 'R Markdown Intro'
 module-description: 'This module reviews how to use R Markdown
 and knitr to create and publish dynamic reports that both link analysis, results and documentation and can be easily updated as data and methods are modified / updates.'
 module-type: 'homework'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 1
 sidebar:
   nav:

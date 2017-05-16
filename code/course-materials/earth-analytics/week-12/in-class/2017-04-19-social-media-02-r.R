@@ -54,7 +54,7 @@ twitter_token <- create_token(
 
 ## ----get-tweets----------------------------------------------------------
 ## search for 500 tweets using the #rstats hashtag
-rstats_tweets <- search_tweets(q="#rstats", 
+rstats_tweets <- search_tweets(q="#rstats",
                                n = 500)
 # view the first 3 rows of the dataframe
 head(rstats_tweets, n=3)
@@ -68,7 +68,7 @@ head(rstats_tweets, n=2)
 
 
 ## ----view-screennames----------------------------------------------------
-# view column with screen names - top 6 
+# view column with screen names - top 6
 head(rstats_tweets$screen_name)
 # get a list of unique usernames
 unique(rstats_tweets$screen_name)
@@ -76,7 +76,7 @@ unique(rstats_tweets$screen_name)
 
 ## ----find-users----------------------------------------------------------
 # what users are tweeting with #rstats
-users <- search_users("#rstats", 
+users <- search_users("#rstats",
                       n=500)
 # just view the first 2 users - the data frame is large!
 head(users, n=2)
@@ -109,7 +109,7 @@ users %>%
 users %>%
   count(location, sort=TRUE) %>%
   mutate(location= reorder(location,n)) %>%
-  na.omit() %>% 
+  na.omit() %>%
   top_n(20) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +

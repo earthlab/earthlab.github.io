@@ -3,12 +3,13 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-04-10'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/get-data-with-rcurl-r/
 nav-title: 'Intro to RCurl'
 week: 10
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

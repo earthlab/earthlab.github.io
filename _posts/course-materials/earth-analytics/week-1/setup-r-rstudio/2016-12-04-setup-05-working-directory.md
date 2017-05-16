@@ -16,6 +16,7 @@ dateCreated: 2016-12-12
 modified: '2017-04-21'
 author_profile: false
 comments: true
+course: "earth-analytics"
 order: 5
 topics:
   reproducible-science-and-programming: ['RStudio','data-management']

@@ -4,7 +4,7 @@ title: "R markdown Resources"
 excerpt: "This lesson contains a list of resources that will help you work with the
 R Markdown format."
 authors: ['Leah Wasser']
-modified: '2017-04-21'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/rmarkdown-resources/
@@ -15,6 +15,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 6
+course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['rmarkdown']
 ---
