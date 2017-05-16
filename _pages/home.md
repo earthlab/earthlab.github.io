@@ -48,8 +48,17 @@ sidebar:
 
 ## Welcome to Earth * Data * Science !
 
+{% assign course_sessions = site.posts | where:"module-type", 'session' %}
+{% assign course_overview = site.posts | where:"module-type", 'overview' %}
+
+{% assign total_posts = site.posts | size  %}
+{% assign session_posts = course_sessions | size %}
+{% assign overview_posts = course_overview | size %}
+{% assign posts_minus_sessions = total_posts | minus: session_posts  %}
+{% assign posts_minus_overview = posts_minus_sessions | minus: overview_posts %}
+
 This site contains open, tutorials and course materials covering topics including data integration, GIS
-and data intensive science. Currently, we have {{ site.posts | size }} lessons
+and data intensive science. Currently, we have {{ posts_minus_overview }} lessons
 available on our site with more under development!
 
 ## Recent course modules

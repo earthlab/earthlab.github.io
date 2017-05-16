@@ -8,13 +8,14 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/ways-to-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-modified: '2017-04-21'
+modified: '2017-05-12'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 7
+course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---

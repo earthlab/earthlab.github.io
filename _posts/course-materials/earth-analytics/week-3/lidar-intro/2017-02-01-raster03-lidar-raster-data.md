@@ -3,12 +3,13 @@ layout: single
 title: "Introduction to lidar raster data products in R - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: '2017-05-08'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-raster-data/
 nav-title: 'Intro Lidar Raster Data'
 week: 3
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
