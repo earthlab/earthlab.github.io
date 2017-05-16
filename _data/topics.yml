@@ -7,14 +7,16 @@ open-science:
 social-science:
   subtopics: ['social-media']
 time-series:
-  subtopics: ['convert-date-time', 'epoch', 'julian-day', 'day-of-year']
+  subtopics: ['convert-date-time', 'epoch', 'julian-day', 'day-of-year', 'autoregressive']
 data-exploration-and-analysis:
   subtopics: ['data-visualization', 'text-mining', 'machine-learning']
 spatial-data-and-gis:
   subtopics: ['raster-data', 'vector-data','coordinate-reference-systems']
 reproducible-science-and-programming:
-  subtopics: ['RStudio', 'literate-expressive-programming','functions', 'r-studio', 'automate-science-workflows', 'git', 'markdown']
+  subtopics: ['RStudio', 'literate-expressive-programming','functions', 
+              'r-studio', 'automate-science-workflows', 'git', 'markdown', 
+              'rmarkdown', 'data-management']
 find-and-manage-data:
-  subtopics: ['data-management', 'find-data']
+  subtopics: ['data-management', 'find-data', 'metadata']
 file-formats:
     subtopics: ['hdf5', 'json', 'csv', 'raster',  'shapefile', 'geotiff']
