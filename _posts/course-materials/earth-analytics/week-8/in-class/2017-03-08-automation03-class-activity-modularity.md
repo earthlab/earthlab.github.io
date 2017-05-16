@@ -3,12 +3,13 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-05-02'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/class-activity-modularity-r/
 nav-title: 'Activity - Identify repitition'
 week: 8
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

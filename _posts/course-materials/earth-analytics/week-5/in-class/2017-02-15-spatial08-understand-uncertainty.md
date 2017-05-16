@@ -3,11 +3,16 @@ layout: single
 title: "Lidar Remote sensing data - Understand uncertainty / error associated with height metrics extracted from lidar raster data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-04-28'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
 nav-title: 'Remote sensing uncertainty'
+module-title: 'Uncertainty and metadata'
+module-description: 'In this module, we will discuss the concept of uncertainty as it relates to both remote sensing and other data. We will also explore some metadata to learn how to understand more about our data. '
+module-nav-title: 'Uncertainty in scientific data & metadata '
+module-type: 'class'
+course: "earth-analytics"
 week: 5
 sidebar:
   nav:
@@ -201,10 +206,7 @@ site location on the map below.
 
 
 
-
-```
-## Error in get("f", environment(CoordMap$train)): object 'f' not found
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/ggmap-plot-1.png" title="ggmap of study area." alt="ggmap of study area." width="100%" />
 
 ## Study area plots
 

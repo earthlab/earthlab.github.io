@@ -14,9 +14,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
+course: "earth-analytics"
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

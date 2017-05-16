@@ -9,6 +9,7 @@ class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/modis-data-in-R/
 nav-title: 'MODIS data in R'
 week: 7
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

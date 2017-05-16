@@ -9,6 +9,7 @@ class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/leaflet-r/
 nav-title: 'Interactive maps with leaflet '
 week: 10
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
