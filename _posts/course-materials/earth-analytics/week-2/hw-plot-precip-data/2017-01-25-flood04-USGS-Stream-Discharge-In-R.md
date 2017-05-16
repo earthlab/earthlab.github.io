@@ -3,7 +3,7 @@ layout: single
 title: "Plot Stream Discharge Data in R"
 excerpt: "This lesson is a challenge exercise that asks you to use all of the skills used during the week 2 set of lessons in the earth analytics course. Here you will import data and subset it to create a final plot of stream discharge over time."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-04-21'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['hw-ggplot2-r']
 week: 2
@@ -14,6 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 4
+course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
   time-series:

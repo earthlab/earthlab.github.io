@@ -1,10 +1,10 @@
 ---
 layout: post-by-category
-title: "Reproducible science and programming: Data management lessons"
-permalink: tags/reproducible-science-and-programming/data-management/
+title: 'Reproducible Science and Programming - Data Management'
+permalink: /tags/reproducible-science-and-programming/data-management/
 comments: false
 author_profile: false
-topics:
-  reproducible-science-and-programming: 'data-management'
 is-main-topic: false
+topics:
+  reproducible-science-and-programming: data-management
 ---

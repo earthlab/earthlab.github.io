@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to working with social media data in R - Twitter"
 excerpt: "This lesson will discuss some of the challenges associated with working with social media data in science. These challenges include working with non standard text, large volumes of data, API limitations, and geolocation issues."
 authors: ['Leah Wasser']
-modified: '2017-04-28'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/intro-to-social-media-text-mining-r/
@@ -13,6 +13,7 @@ module-description: "This module explores the use of social media data - specifi
 module-nav-title: 'twitter APIs'
 module-type: 'class'
 week: 12
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

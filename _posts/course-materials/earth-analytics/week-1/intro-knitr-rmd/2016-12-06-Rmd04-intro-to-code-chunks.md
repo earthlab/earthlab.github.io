@@ -6,7 +6,7 @@ R Markdown file in R Studio. It also explores how to use comments to document yo
 data exploration and processing workflow.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
-modified: '2017-04-21'
+modified: '2017-05-12'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/rmarkdown-code-chunks-comments-knitr/
 nav-title: 'Code Chunks'
@@ -15,6 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
+course: "earth-analytics"
 order: 4
 topics:
   reproducible-science-and-programming: ['rmarkdown']

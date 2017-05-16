@@ -14,6 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 6
+course: "earth-analytics"
 topics:
   spatial-data-and-gis:
 ---
