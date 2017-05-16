@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-course: "Earth Analytics"
+course: "earth-analytics"
 order: 2
 topics:
   earth-science: ['flood-erosion']

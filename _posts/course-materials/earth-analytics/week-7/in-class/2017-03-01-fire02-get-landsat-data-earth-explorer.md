@@ -3,12 +3,13 @@ layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-05-04'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/get-data-earth-explorer/
 nav-title: 'Get data - earth explorer'
 week: 7
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

@@ -23,7 +23,7 @@ discharge_time$datetime <- as.Date(discharge_time$datetime, format="%m/%d/%y")
 ## ----annual-precip, fig.cap="annual precipation patterns"----------------
 annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
   geom_point() +
-  labs(x = "Time", 
+  labs(x = "Time",
        y = "discharge value",
        title = "my title")
 

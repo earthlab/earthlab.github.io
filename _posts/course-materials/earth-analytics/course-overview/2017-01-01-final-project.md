@@ -2,6 +2,7 @@
 layout: single
 category: course-materials
 title: "Final Project- Earth Analytics Course - GEOG 4563 / 5563"
+nav-title: "Final project"
 permalink: /course-materials/earth-analytics/final-project/
 module-type: 'overview'
 comments: false

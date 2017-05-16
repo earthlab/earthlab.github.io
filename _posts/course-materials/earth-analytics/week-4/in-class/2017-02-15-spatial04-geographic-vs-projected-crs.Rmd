@@ -11,6 +11,7 @@ class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/geographic-vs-projected-coordinate-reference-systems-UTM/
 nav-title: 'Geographic vs projected CRS'
 week: 4
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
@@ -18,7 +19,7 @@ comments: true
 order: 4
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

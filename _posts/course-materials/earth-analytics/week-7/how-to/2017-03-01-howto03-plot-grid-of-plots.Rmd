@@ -9,13 +9,14 @@ class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/grid-of-plots-report/
 nav-title: 'Grid of plots'
 week: 7
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
 comments: true
 order: 3
 topics:
-  reproducible-science-and-programming: 
+  reproducible-science-and-programming:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis: ['raster-data']
 lang-lib:

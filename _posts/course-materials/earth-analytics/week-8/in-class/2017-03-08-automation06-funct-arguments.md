@@ -3,12 +3,13 @@ layout: single
 title: "Working with function arguments"
 excerpt: " ."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-05-02'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/function-arguments-r/
 nav-title: 'Function arguments'
 week: 8
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

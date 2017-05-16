@@ -3,12 +3,13 @@ layout: single
 title: "Build a function in R - Efficient scientific programming"
 excerpt: "This lesson introduces how to create a function in R."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-05-02'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/intro-to-functions-r/
 nav-title: 'Write functions in R'
 week: 8
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
@@ -83,10 +84,10 @@ Calling our own function is no different from calling any other function:
 ```r
 # freezing point of water
 fahr_to_kelvin(32)
-## [1] 273.15
+## [1] 273.1
 # boiling point of water
 fahr_to_kelvin(212)
-## [1] 373.15
+## [1] 373.1
 ```
 
 We've successfully called the function that we defined, and we have access to the value that we returned.
@@ -104,7 +105,7 @@ kelvin_to_celsius <- function(kelvin) {
 
 # absolute zero in Celsius
 kelvin_to_celsius(0)
-## [1] -273.15
+## [1] -273.1
 ```
 
 What about converting Fahrenheit to Celsius?

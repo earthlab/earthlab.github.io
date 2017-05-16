@@ -9,6 +9,7 @@ class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/use-twitter-api-r/
 nav-title: 'Explore twitter data'
 week: 12
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
@@ -63,8 +64,8 @@ tweets. To setup your app, follow the documentation from `rtweet` here:
 <a href="https://cran.r-project.org/web/packages/rtweet/vignettes/auth.html" target="_blank"><i class="fa fa-info-circle" aria-hidden="true"></i>
  TUTORIAL: How to setup a twitter application using your twitter account</a>
 
-NOTE: you will need to provide your cell phone number to twitter to verify your 
-use of the API. 
+NOTE: you will need to provide your cell phone number to twitter to verify your
+use of the API.
 
 <figure>
 
@@ -186,7 +187,7 @@ To see what other arguments you can use with this function, use the `R` help:
 
 ```{r get-tweets }
 ## search for 500 tweets using the #rstats hashtag
-rstats_tweets <- search_tweets(q="#rstats", 
+rstats_tweets <- search_tweets(q="#rstats",
                                n = 500)
 # view the first 3 rows of the dataframe
 head(rstats_tweets, n=3)
@@ -213,7 +214,7 @@ head(rstats_tweets, n=2)
 Next, let's figure out who is tweeting about `R` / using the `#rstats` hashtag.
 
 ```{r view-screennames}
-# view column with screen names - top 6 
+# view column with screen names - top 6
 head(rstats_tweets$screen_name)
 # get a list of unique usernames
 unique(rstats_tweets$screen_name)
@@ -226,7 +227,7 @@ and information about their accounts.
 
 ```{r find-users }
 # what users are tweeting with #rstats
-users <- search_users("#rstats", 
+users <- search_users("#rstats",
                       n=500)
 # just view the first 2 users - the data frame is large!
 head(users, n=2)
@@ -248,9 +249,9 @@ users %>%
       title="Twitter users - unique locations ")
 ```
 
-Let's sort by count and just plot the top locations. To do this we use top_n(). 
+Let's sort by count and just plot the top locations. To do this we use top_n().
 Note that in this case we are grouping our data by user. Thus top_n() will return
-locations with atleast 15 users associated with it. 
+locations with atleast 15 users associated with it.
 
 ```{r users-tweeting, fig.cap="top 15 locations where people are tweeting"}
 users %>%
@@ -265,14 +266,14 @@ users %>%
       title="Where Twitter users are from - unique locations ")
 ```
 
-It looks like we have some `NA` or no data values in our list. Let's remove those 
+It looks like we have some `NA` or no data values in our list. Let's remove those
 with `na.omit()`.
 
 ```{r users-tweeting2, fig.cap="top 15 locations where people are tweeting - na removed"}
 users %>%
   count(location, sort=TRUE) %>%
   mutate(location= reorder(location,n)) %>%
-  na.omit() %>% 
+  na.omit() %>%
   top_n(20) %>%
   ggplot(aes(x=location,y=n)) +
   geom_col() +
@@ -287,7 +288,7 @@ There are 314 unique locations in our list. However, everyone didn't specify the
 locations using the approach. For example some just identified their country:
 United States for example and others specified a city and state. We may want to
 do some cleaning of these data to be able to better plot this distribution - especially
-if we want to create a map of these data! 
+if we want to create a map of these data!
 
 ### Users by time zone
 
@@ -307,7 +308,7 @@ users %>% na.omit() %>%
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
-Use the example above, plot users by time zone. List time zones that have atleast 
+Use the example above, plot users by time zone. List time zones that have atleast
 20 users associated with them. What do you notice about the data?
 </div>
 
