@@ -13,6 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
+course: "earth-analytics"
 order: 2
 topics:
   data-exploration-and-analysis: ['data-visualization']

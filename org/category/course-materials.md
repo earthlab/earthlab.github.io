@@ -10,9 +10,10 @@ author_profile: false
 
 ## Courses
 
-[Earth Analytics Course Spring 2017](/course-materials/earth-analytics/)
-
-
+{% assign courses = site.posts | where:"overview-order", 1 %}
+{% for course in courses %}
+* <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
+{% endfor %}
 
 ## Course Materials
 Course materials and labs that focus on computational approaches.

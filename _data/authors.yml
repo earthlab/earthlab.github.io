@@ -16,12 +16,15 @@
 - name: Megan Cattau
   slug: megan-cattau
   bio: ''
+- name: Mollie Buckland
+  slug: mollie-buckland
+  bio: ''
 - name: Naupaka Zimmerman
   slug: naupaka-zimmerman
   bio: ''
 - name: NEON Data Skills
   slug: neon-data-skills
-  bio: 'NEON Data Skills develops tutorials that support the use of NEON data. Check out their <a href=http://www.neondataskills.org target=_blank data-proofer-ignore=''>website</a>'
+  bio: 'NEON Data Skills develops tutorials that support the use of NEON data. Check out their website at http://www.neondataskills.org'
 - name: Reproducible Science Curriculum Community
   slug: reproducible-science-curriculum-community
   bio: ''

@@ -106,3 +106,16 @@ div.notice--success, div.notice--warning {
     font-size: 0.8em !important;
     padding: 0;
 }
+
+/* Site bar menu items */
+
+.active-menu {
+  border-left: 1px  solid #428aa0;
+  border-right: 2px solid #428aa0;
+  border-bottom: 2px solid #428aa0;
+}
+
+.active-section {
+  background-color: #428aa0;
+  color: #fff;
+}

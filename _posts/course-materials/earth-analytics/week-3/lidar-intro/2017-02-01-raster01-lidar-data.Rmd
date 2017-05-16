@@ -14,7 +14,7 @@ module-description: 'This tutorial covers the basic principles of LiDAR remote s
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Lidar Rasters in R'
 module-type: 'class'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 3
 sidebar:
   nav:

@@ -3,12 +3,13 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-05-09'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/interactive-time-series-plots-in-r/
 nav-title: 'Interactive time series plots'
 week: 4
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
@@ -37,13 +38,13 @@ You will need a computer with internet access to complete this lesson and the da
 
 
 
-In this lesson we will explore using 2 interactive tools to create interactive 
+In this lesson we will explore using 2 interactive tools to create interactive
 plots of our data:
 
 1. plotly and
-2. dygraphs 
+2. dygraphs
 
-First, we will load all of the needed libraries. 
+First, we will load all of the needed libraries.
 
 
 ```r
@@ -76,7 +77,7 @@ We can plot the data using ggplot().
 ```r
 annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
   geom_point() +
-  labs(x = "Time", 
+  labs(x = "Time",
        y = "discharge value",
        title = "my title")
 
@@ -88,8 +89,8 @@ annual_precip
 ## Time series - Plotly
 
 
-We can use plotly to create an interactive plot that we can use in the 
-R console.  
+We can use plotly to create an interactive plot that we can use in the
+R console.
 
 
 
@@ -121,9 +122,6 @@ library(dygraphs)
 # create time series objects (class xs)
 library(xts)
 
-
-
-
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)
@@ -131,6 +129,7 @@ discharge_timeSeries <- xts(x = discharge_time$disValue,
 ```
 
 Then you can call the dygraph() function to create your interactive time-series plot.
+
 
 ```r
 # create a basic interactive element
@@ -154,6 +153,3 @@ interact_time2
 
 
 <iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/leaflet-maps/dygraph/time_interactive2.html" frameborder="0" allowfullscreen></iframe>
-
-
-

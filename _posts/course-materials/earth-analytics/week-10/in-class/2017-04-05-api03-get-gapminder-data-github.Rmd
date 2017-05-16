@@ -9,6 +9,7 @@ class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/access-gapminder-data-rcurl-r/
 nav-title: "Get Data From Github"
 week: 10
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
