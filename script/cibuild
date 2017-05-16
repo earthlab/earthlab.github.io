@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -e # halt script on error
 
-bundle exec jekyll build
+# create a development _config.yml file and comment out url
+cp _config.yml _config-dev.yml
+sed -i -e 's/"http:\/\/earthdatascience.org"/#"http:\/\/earthdatascience.org"/g' _config-dev.yml
+
+# build the site with that url
+bundle exec jekyll build --config _config-dev.yml
 bundle exec htmlproofer ./_site
+
+# remove dev config file
+rm _config-dev.yml
 
