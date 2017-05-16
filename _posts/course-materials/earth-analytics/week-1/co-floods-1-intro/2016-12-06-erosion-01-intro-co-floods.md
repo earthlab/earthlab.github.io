@@ -16,7 +16,7 @@ a natural phenomenon. In this case we will explore flooding and erosion. We use 
 USGS stream flow data to begin to quantify and better understand the drivers and impacts of the 2013 flood as it is seen in Boulder, Colorado.
 No programming experience is needed to complete this module.'
 module-type: 'class'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 1
 sidebar:
   nav:
