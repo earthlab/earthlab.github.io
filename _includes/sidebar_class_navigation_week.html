@@ -26,9 +26,10 @@
 <nav class="nav__list">
   <ul>
     <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class Materials</span>
-    {% assign lesson_count = 0 %}
+
       <ul>
         {% for module in classes %}
+        test
         {% if module.order == 1 %}
             <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
             {% assign theLesson = module.class-lesson %}
@@ -39,7 +40,8 @@
 
         {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
       <!-- count lessons -->
-
+       {{ class_lessons | size }}
+        {% assign lesson_count = 0 %}
         {% for alesson in weeks %}
         {% if alesson.class-lesson == theLesson %}
         {% assign lesson_count = lesson_count | plus: 1 %}
@@ -54,7 +56,7 @@
 
        </ul>
         {% endfor %}
-
+   No lessons here
         <!-- if there are NOT lessons say that -->
         {% if lesson_count == 0 %}
         <li><i>There are no class lessons this week.</i></li>
@@ -155,11 +157,11 @@
         {% else %}
         <li class='active-section'> <a href="{{ site.url }}{{ post.permalink }}"><i class="fa fa-folder-open" aria-hidden="true"></i>
           {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
-
         {% endif %}
 
 <div class='active-menu'>
       <ul>
+        {% assign lesson_count = 0 %}
         {% for module in classes %}
         {% if module.order == 1 %}
         {% assign theLesson = module.class-lesson %}
@@ -170,24 +172,25 @@
         {% endif %}
         <ul>
 
-        {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+      {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
 
       <!-- count lessons -->
-      {% unless class_lessons %} do stuff
-      {% endunless %}
-        {% for alesson in weeks %}
 
-        {% if alesson.class-lesson == theLesson %}
+        {% for alesson in weeks %}
         {% assign lesson_count = lesson_count | plus: 1 %}
+        {% if alesson.class-lesson == theLesson %}
           {% if alesson.url == page.url %}
           <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ page.week }}.{{ alesson.order }} {{ alesson.nav-title }}</a></li>
           {% else %}
           <li><a href= {{ site.url }}{{ alesson.url }}>{{ page.week }}.{{ alesson.order }} {{ alesson.nav-title }}</a></li>
           {% endif %}
           {% endif %}
+
         {% endfor %}
        </ul>
         {% endfor %}
+        
+        {% if lesson_count == 0 %} There are no lessons for this week. {% endif %}
       </ul>
 
       <!-- BEGIN Learn how to lessons -->
