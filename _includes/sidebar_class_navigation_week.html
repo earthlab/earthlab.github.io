@@ -61,7 +61,7 @@
 {% assign session_weeks = course_posts | where:"module-type", 'session' %}
 {% assign sorted_session_weeks = session_weeks | sort:'week' %}
 {% assign session_size = sorted_session_weeks | size %}
-{% if session_size  > 0 %} bigger than 0
+{% if session_size  > 0 %} 
 <ul>
   <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
    <ul>
