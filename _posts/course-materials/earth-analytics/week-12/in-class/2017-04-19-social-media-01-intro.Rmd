@@ -13,6 +13,7 @@ module-description: "This module explores the use of social media data - specifi
 module-nav-title: 'twitter APIs'
 module-type: 'class'
 week: 12
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

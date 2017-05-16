@@ -9,6 +9,7 @@ class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/intro-to-functions-r/
 nav-title: 'Write functions in R'
 week: 8
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

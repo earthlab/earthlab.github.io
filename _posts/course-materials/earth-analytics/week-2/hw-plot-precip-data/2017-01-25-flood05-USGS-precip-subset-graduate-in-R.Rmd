@@ -14,6 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 5
+course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
   time-series:

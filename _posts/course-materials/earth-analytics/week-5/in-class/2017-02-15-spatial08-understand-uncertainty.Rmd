@@ -12,7 +12,7 @@ module-title: 'Uncertainty and metadata'
 module-description: 'In this module, we will discuss the concept of uncertainty as it relates to both remote sensing and other data. We will also explore some metadata to learn how to understand more about our data. '
 module-nav-title: 'Uncertainty in scientific data & metadata '
 module-type: 'class'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 5
 sidebar:
   nav:

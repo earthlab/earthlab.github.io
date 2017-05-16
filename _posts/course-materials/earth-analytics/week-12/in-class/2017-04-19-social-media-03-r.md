@@ -3,12 +3,13 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-05-04'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/text-mining-twitter-data-intro-r/
 nav-title: 'Text mine twitter data'
 week: 12
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
@@ -114,12 +115,12 @@ climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "Read story of our project #WISE2Climate nature-based solutions for #climatechange #Adaptation @IUCN_Water @ODIdev https://t.co/SZ4Z3vrAOc"   
-## [2] "I approve #FIM2017 as it brings together #weather presenters to improve the understanding of #climatechange @IPCC_CH https://t.co/8RKZOCFjY1"
-## [3] "Horsemen of the Apocalypse \n#ClimateChange #Environment\nhttps://t.co/TIRceG0lHb via @ngbutok https://t.co/hB7JOqGPS4"                      
-## [4] "McCain on #climatechange: Believe #climatechangeisreal. Believe in #nuclearpowerplants. #McCainTownHall"                                     
-## [5] "Dissecting #Boston VII: Erosive Division and #climatechange from the shores of Plum Island https://t.co/D6RK14mWEf https://t.co/1D8obpQHOr"  
-## [6] "Get ready for a shock — NASA will measure greenhouse gases over the mid-Atlantic\nhttps://t.co/0uqSxI820u\n#climatechange"
+## [1] "#ClimateChange does't care if you don't believe in it\n#Sustainable #Sustainability #Eco #Environment #Nature #Trees… https://t.co/fPad4BZ0Gy"       
+## [2] "Reality in all parts of the world.\nThe inequity &amp;inequality that #climatechange brings about https://t.co/ru7mOZUZCP"                           
+## [3] "Global warming Is a Blatant Lie &amp; this Short video proves it | Ted Cruz Grills A Moron About #ClimateChange HOLY$&amp;%# https://t.co/sEhEQgb3iQ"
+## [4] "The @WBG_Climate boss wants to ‘activate trillionaire investments’ https://t.co/V5DbKYWOpV #innovate4climate… https://t.co/G7WvzSSulw"               
+## [5] "#Deepstate controlled Noam Chomsky says Republicans destroying 'organized human existence' because '#climatechange'. https://t.co/pcAR60sQxn"        
+## [6] "House climate caucus welcomes Tillerson s Arctic declaration: Washington Examiner: Secretary of…… https://t.co/sVwTE77MSd"
 ```
 
 ## Data clean-up
@@ -230,7 +231,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 121371
+## [1] 124607
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -238,7 +239,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 71799
+## [1] 73457
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -284,20 +285,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 66,051 × 2
-##        paired_words     n
-##               <chr> <int>
-## 1    climate change   665
-## 2  climatechange is   415
-## 3        the latest   358
-## 4    climate action   346
-## 5  on climatechange   335
-## 6       petition to   331
-## 7       sign nrdc's   331
-## 8   action petition   329
-## 9          to trump   329
-## 10   nrdc's climate   328
-## # ... with 66,041 more rows
+## # A tibble: 67,114 × 2
+##         paired_words     n
+##                <chr> <int>
+## 1     climate change   821
+## 2         the latest   492
+## 3   on climatechange   423
+## 4   climatechange is   349
+## 5             in the   344
+## 6   of climatechange   266
+## 7   to climatechange   264
+## 8             of the   250
+## 9  climatechange the   218
+## 10        latest the   190
+## # ... with 67,104 more rows
 ```
 
 
@@ -316,16 +317,16 @@ climate_words_counts <- climate_tweets_filtered %>%
 
 head(climate_words_counts)
 ## Source: local data frame [6 x 3]
-## Groups: word1 [5]
+## Groups: word1 [6]
 ## 
-##           word1    word2     n
-##           <chr>    <chr> <int>
-## 1       climate   change   665
-## 2       climate   action   346
-## 3          sign   nrdc's   331
-## 4        action petition   329
-## 5        nrdc's  climate   328
-## 6 climatechange      amp   122
+##           word1         word2     n
+##           <chr>         <chr> <int>
+## 1       climate        change   821
+## 2       glacier      national   126
+## 3      national          park   126
+## 4 climatechange climatechange   104
+## 5       private           jet   102
+## 6        global       warming   100
 ```
 
 FInally, plot the data
