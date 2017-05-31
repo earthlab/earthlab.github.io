@@ -33,7 +33,7 @@ Twitter API and analyze tweets using various text mining approaches.
 |===
 | 4:30 - 5:40  | Text mining & social media data in R |  Leah |
 
-There may be some time at the end to ask questions about your group projects. 
+There may be some time at the end to ask questions about your group projects.
 
 
 ### 2. No homework this week!
