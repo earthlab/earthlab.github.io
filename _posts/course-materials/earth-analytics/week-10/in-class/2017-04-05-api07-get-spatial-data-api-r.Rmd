@@ -9,6 +9,7 @@ class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/co-water-data-spatial-r/
 nav-title: 'Geospatial data from APIs'
 week: 10
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

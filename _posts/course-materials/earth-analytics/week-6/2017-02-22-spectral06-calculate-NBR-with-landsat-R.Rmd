@@ -9,6 +9,7 @@ class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/calculate-dNBR-R-Landsat/
 nav-title: 'dNBR with Landsat'
 week: 6
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

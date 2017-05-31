@@ -10,6 +10,7 @@ class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
 nav-title: 'CHM, DSM, DEM'
 week: 3
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false

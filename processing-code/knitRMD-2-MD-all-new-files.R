@@ -43,7 +43,7 @@ wd <- "~/Documents/earth-analytics/"
 
 # where the files to render are
 git_repo_base_path <- "~/Documents/Github/earthlab.github.io"
-repo_post_path <- "_posts/course-materials/earth-analytics"
+repo_post_path <- "_posts/course-materials"
 
 ##### Setup Life ####
 

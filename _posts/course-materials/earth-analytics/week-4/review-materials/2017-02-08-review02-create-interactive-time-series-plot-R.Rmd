@@ -1,0 +1,162 @@
+---
+layout: single
+title: "Week 4 Review"
+excerpt: "."
+authors: ['Leah Wasser']
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+category: [course-materials]
+class-lesson: ['hw-custom-legend-r']
+permalink: /course-materials/earth-analytics/week-4/interactive-time-series-plots-in-r/
+nav-title: 'Interactive time series plots'
+week: 4
+course: "earth-analytics"
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 2
+---
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+* Create an interactive time series plot using plot.ly in `R`
+* Create an interactive time series plot using dygraphs in `R`
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
+
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+
+</div>
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
+
+```
+
+In this lesson we will explore using 2 interactive tools to create interactive
+plots of our data:
+
+1. plotly and
+2. dygraphs
+
+First, we will load all of the needed libraries.
+
+```{r load-libraries}
+# install plotly from git - ropensci
+#devtools::install_github('ropensci/plotly')
+
+# load libraries
+library(ggplot2)
+library(xts)
+library(dygraphs)
+library(plotly)
+
+options(stringsAsFactors = FALSE)
+```
+
+
+
+First, let's import some time series data
+
+```{r import-data}
+discharge_time <- read.csv("data/week2/discharge/06730200-discharge-daily-1986-2013.csv")
+
+discharge_time$datetime <- as.Date(discharge_time$datetime, format="%m/%d/%y")
+
+```
+
+We can plot the data using ggplot().
+
+```{r annual-precip, fig.cap="annual precipation patterns"}
+annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
+  geom_point() +
+  labs(x = "Time",
+       y = "discharge value",
+       title = "my title")
+
+annual_precip
+```
+
+## Time series - Plotly
+
+
+We can use plotly to create an interactive plot that we can use in the
+R console.
+
+
+```{r interactive-plot, warning=FALSE, message=FALSE, eval=FALSE }
+# create interactive plotly plot
+ggplotly(annual_precip)
+
+```
+
+
+```{r echo=FALSE, eval=FALSE}
+library(htmlwidgets)
+plotly_annual_precip <- ggplotly(annual_precip)
+# save widget
+saveWidget(widget=plotly_annual_precip, file="plotly_precip.html", selfcontained=FALSE)
+```
+
+
+<iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/leaflet-maps/plotly/plotly_precip.html" frameborder="0" allowfullscreen></iframe>
+
+
+## Time series - Dygraph
+
+Dygraph is a powerful and easy to use interactive time series plot generator.
+Below, notice how we can quickly create a dygraph interactive plot. The output
+format of the plot is html so it won't work with a pdf rmd output but it will
+work with html!
+
+
+```{r pressure }
+# interactive time series
+library(dygraphs)
+# create time series objects (class xs)
+library(xts)
+
+# create time series object
+discharge_timeSeries <- xts(x = discharge_time$disValue,
+                            order.by = discharge_time$datetime)
+
+
+```
+
+Then you can call the dygraph() function to create your interactive time-series plot.
+
+```{r eval=FALSE}
+# create a basic interactive element
+interact_time <- dygraph(discharge_timeSeries)
+interact_time
+```
+
+
+```{r echo=FALSE, eval=FALSE}
+# save widget
+saveWidget(widget=interact_time, file="basic_time_interactive.html", selfcontained=FALSE)
+```
+
+<iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/leaflet-maps/dygraph/basic_time_interactive.html" frameborder="0" allowfullscreen></iframe>
+
+
+```{r interactive-plot-2, eval=F }
+# create a basic interactive element
+interact_time2 <- dygraph(discharge_timeSeries) %>% dyRangeSelector()
+interact_time2
+```
+
+```{r echo=FALSE, eval=FALSE}
+# save widget
+saveWidget(widget=interact_time2, file="time_interactive2.html", selfcontained=FALSE)
+```
+
+<iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/leaflet-maps/dygraph/time_interactive2.html" frameborder="0" allowfullscreen></iframe>

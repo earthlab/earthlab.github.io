@@ -9,6 +9,7 @@ class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/function-documentation-environment-r/
 nav-title: 'Function documentation & environment'
 week: 8
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
