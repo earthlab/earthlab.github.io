@@ -17,6 +17,7 @@ modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 author_profile: false
 comments: true
 order: 5
+course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['data-management','RStudio']
 ---

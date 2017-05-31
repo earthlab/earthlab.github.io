@@ -12,7 +12,7 @@ module-title: "Don't Repeat Yourself: Remove repetition in your code using funct
 module-description: "This module will overview the basic principles of DRY - don't repeat yourself. It will then walk you through incorporating functions into your scientific programming to increase efficiency, clarity, and readability. "
 module-nav-title: 'Efficient Programming Using Functions'
 module-type: 'class'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 8
 sidebar:
   nav:

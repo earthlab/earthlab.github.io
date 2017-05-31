@@ -12,7 +12,7 @@ module-description: 'This module covers handling with data fields in R so you ca
 module-nav-title: 'Time Series Data in R'
 module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-type: 'homework'
-course: "Earth Analytics"
+course: "earth-analytics"
 week: 2
 sidebar:
   nav:

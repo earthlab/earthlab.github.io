@@ -3,12 +3,13 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-05-02'
+modified: '2017-05-12'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/function-example-modular-code-r/
 nav-title: 'Applying functions'
 week: 8
+course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
@@ -46,28 +47,7 @@ setwd("~/Documents/earth-analytics")
 
 # load spatial packages
 library(raster)
-## Loading required package: sp
-## 
-## Attaching package: 'sp'
-## The following object is masked from 'package:ggraph':
-## 
-##     geometry
-## 
-## Attaching package: 'raster'
-## The following object is masked from 'package:tidyr':
-## 
-##     extract
-## The following object is masked from 'package:dplyr':
-## 
-##     select
 library(rgdal)
-## rgdal: version: 1.2-6, (SVN revision 651)
-##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
-##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
-##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
-##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
-##  Linking to sp version: 1.2-4
 # turn off factors
 options(stringsAsFactors = F)
 ```
