@@ -1,88 +1,24 @@
+{% assign the_course = page.course %}
+
+{% assign course_posts = site.posts | where:"course", page.course %}
 {% assign sorted_posts = site.posts | sort:"order" %}
+
+<!-- make sure we're only grabbing pages for the course -->
+
+
+
 <!--<h3>Week {{ page.week }} Lessons</h3>-->
 
-{% assign modules = site.posts | where:"order", 1 %}
+{% assign modules = sorted_posts | where:"order", 1 %}
 
 {% assign weeks = sorted_posts | where:"week", page.week %}
 
 {% assign classes = weeks | where:"module-type", 'class' %}
 {% assign homework = weeks | where:"module-type", 'homework' %}
 
-{% if page.week %}
-  {% capture the_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ page.week }}/{% endcapture %}
-  <h4><a href="{{ the_path }}" ><i class="fa fa-home" aria-hidden="true"></i> Week {{ page.week }}</a></h4>
-{% endif %}
-<nav class="nav__list">
-  <ul>
-    <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> In Class Materials</span>
-    {% assign lesson_count = 0 %}
-      <ul>
-        {% for module in classes %}
-        {% if module.order == 1 %}
-            <li><span class="nav__sub-title grey"><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
-            {% assign theLesson = module.class-lesson %}
-            {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+<!-- commenting this out - this is the old code when only individual module content was on the page vs the entire course-->
 
-        {% endif %}
-        <ul>
-
-        {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
-      <!-- count lessons -->
-
-        {% for alesson in weeks %}
-        {% if alesson.class-lesson == theLesson %}
-        {% assign lesson_count = lesson_count | plus: 1 %}
-          {% if alesson.url == page.url %}
-          <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
-          {% else %}
-          <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
-          {% endif %}
-          {% endif %}
-        {% endfor %}
-
-
-       </ul>
-        {% endfor %}
-
-        <!-- if there are NOT lessons say that -->
-        {% if lesson_count == 0 %}
-        <li><i>There are no class lessons this week.</i></li>
-        {% endif %}
-       </ul>
-
-       {% for module in homework %}
-
-       {% if module.order == 1 %}
-           {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
-
-           {% if class_lessons %}
-           {% if forloop.index == 1 %}
-             <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Learn how to...</span>
-           {% endif %}
-             <ul>
-               {% if module.order == 1 %}
-                   {% assign class_lessons = weeks | where:"class-lesson", module.class-lesson %}
-                   {% assign theHomeWorkLesson = module.class-lesson %}
-                   <li><i class="fa fa-book" aria-hidden="true"></i> {{ module.module-nav-title }} </li>
-               {% endif %}
-               <ul>
-               {% for alesson in weeks %}
-               {% if alesson.class-lesson == theHomeWorkLesson %}
-                 {% if alesson.url == page.url %}
-                 <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
-                 {% else %}
-                 <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
-                 {% endif %}
-                 {% endif %}
-               {% endfor %}
-                </ul>
-           {% endif %}
-       {% endif %}
-       {% endfor %}
-   </ul>
-</nav>
-
-
+{% comment %}
 {% if page.week %}
   {% if page.week > 1 and page.week <= 14 %}
   <hr>
@@ -105,5 +41,146 @@
   {% endif %}
 
 {% endif %}
+<!-- temporarily commenting this out -->
 
-<h5><a href="{{ site.url }}/course-materials/earth-analytics/" ><i class="fa fa-home" aria-hidden="true"></i> Course Home</a></h5>
+{% endcomment %}
+
+<h5><a href="{{ site.url }}/course-materials/earth-analytics/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course | capitalize }} Home</a></h5>
+
+
+<!-- Just get the pages from this course -->
+
+{% assign course_posts = site.posts | where:"course", page.course %}
+{% assign sorted_posts = course_posts | sort:'overview-order' %}
+
+{% assign modules = sorted_posts | where:"module-type", 'overview' %}
+
+<nav class="nav__list">
+
+
+{% assign session_weeks = course_posts | where:"module-type", 'session' %}
+{% assign sorted_session_weeks = session_weeks | sort:'week' %}
+{% assign session_size = sorted_session_weeks | size %}
+{% if session_size  > 0 %} 
+<ul>
+  <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
+   <ul>
+    {% for post in sorted_session_weeks %}
+
+    <!-- Only list the week if it's not the week for the current landing page -->
+    {% if post.week != page.week %}
+    <li> <a href="{{ site.url }}{{ post.permalink }}"><i class="fa fa-folder-o" aria-hidden="true"></i>
+      {% if post.nav-title %}{{ post.week }}. {{ post.nav-title }} {% else %} {{ post.week }}. {{ post.title }}{% endif %}</a></li>
+    {% endif %}
+
+
+      {% if post.week == page.week %}
+       {% if post.url == page.url %}
+      <li> <a href="{{ site.url }}{{ post.permalink }}" class='active'><i class="fa fa-folder-open" aria-hidden="true"></i>
+        {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
+        {% else %}
+        <li class='active-section'> <a href="{{ site.url }}{{ post.permalink }}"><i class="fa fa-folder-open" aria-hidden="true"></i>
+          {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
+        {% endif %}
+
+<div class='active-menu'>
+      <ul>
+        {% assign lesson_count = 0 %}
+        {% for module in classes %}
+        {% if module.order == 1 %}
+        {% assign theLesson = module.class-lesson %}
+        {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+
+            <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
+
+        {% endif %}
+        <ul>
+
+      {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+
+      <!-- count lessons -->
+
+        {% for alesson in weeks %}
+        {% assign lesson_count = lesson_count | plus: 1 %}
+        {% if alesson.class-lesson == theLesson %}
+          {% if alesson.url == page.url %}
+          <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ page.week }}.{{ alesson.order }} {{ alesson.nav-title }}</a></li>
+          {% else %}
+          <li><a href= {{ site.url }}{{ alesson.url }}>{{ page.week }}.{{ alesson.order }} {{ alesson.nav-title }}</a></li>
+          {% endif %}
+          {% endif %}
+
+        {% endfor %}
+       </ul>
+        {% endfor %}
+
+        {% if lesson_count == 0 %} <li>There are no lessons for this week. </li> {% endif %}
+      </ul>
+
+      <!-- BEGIN Learn how to lessons -->
+       <ul>
+         {% assign modules_count = 0 %}
+         {% for hw_module in homework %}
+
+         {% assign modules_count = modules_count | plus: 1%}
+         {% if hw_module.order == 1 %}
+             <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> {{ hw_module.module-nav-title | capitalize }} </span></li>
+             {% assign theLesson = hw_module.class-lesson %}
+             {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+         {% endif %}
+         <ul>
+
+         {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+
+       <!-- count lessons -->
+
+         {% for alesson in weeks %}
+
+         {% if alesson.class-lesson == theLesson %}
+         {% assign lesson_count = lesson_count | plus: 1 %}
+
+
+           {% if alesson.url == page.url %}
+           <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ page.week }}.{{modules_count}}.{{ alesson.order }} {{ alesson.nav-title }}</a></li>
+           {% else %}
+           <li><a href= {{ site.url }}{{ alesson.url }}>{{ page.week }}.{{modules_count}}.{{ alesson.order }} {{ alesson.nav-title }}</a></li>
+           {% endif %}
+           {% endif %}
+         {% endfor %}
+        </ul>
+         {% endfor %}
+       </ul>
+
+
+     </div>
+
+
+      <!-- END BEGIN Learn how to lessons -->
+
+      <!--  -->
+      {% endif %}
+
+    {% endfor %}
+  </ul></li>
+ </ul>
+{% endif %}
+
+ <ul>
+   <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Overview</span>
+    <ul>
+     {% for post in modules %}
+          {% if post.url == page.url %}
+         <li><a href="{{ site.url }}{{ post.permalink }}" class='active'>
+           {% if post.nav-title %}{{ post.nav-title }} {% else %} {{ post.title }}{% endif %}</a></li>
+         {% else %}
+         <li> <a href="{{ site.url }}{{ post.permalink }}">
+           {% if post.nav-title %}{{ post.nav-title }} {% else %} {{ post.title }}{% endif %}</a></li>
+         {% endif %}
+
+     {% endfor %}
+   </ul>
+ </li>
+</ul>
+</nav>
+
+<h5><a href="{{ site.url }}/course-materials/{{ page.course | slugify }}/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course }} Home</a></h5>
