@@ -730,10 +730,6 @@ a.reversefootnote {
 /* ==========================================================================
    TABLES
    ========================================================================== */
-#home-search table {
-  font-size: 1em !important;
-  width: 70%; }
-
 table {
   margin-bottom: 1em;
   width: 100%;
@@ -5412,6 +5408,24 @@ img.mfp-img {
 .a-main-tag {
   font-weight: bold;
   padding-left: .7em; }
+
+/* Search pages for content pages 4 courses... */
+#home-search table {
+  font-size: 1em !important;
+  width: 70%; }
+
+#single-search table {
+  font-size: 1em !important;
+  width: 90%; }
+
+#single-search .gsc-table-result tr {
+  border: none !important; }
+
+.gsc-table-cell-thumbnail.gsc-thumbnail {
+  background-color: #fff; }
+
+#single-search .gsc-table-cell-snippet-close {
+  background-color: #fff; }
 
 /* search results on the main search page */
 #main-search {

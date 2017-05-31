@@ -32,7 +32,7 @@ layout: default
           {% if page.order == 1 %}
           <div class="notice--warning header" markdown="1">
           {% if page.module-description %}
-           <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.course }} MODULE: {{ page.module-title }}</h1>
+           <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
           Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
           {{ page.module-description }}
           {% endif %}
