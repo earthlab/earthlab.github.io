@@ -72,7 +72,10 @@ Learning Objective : graduate cap `<i class="fa fa-graduation-cap" aria-hidden="
 To highlight code for pushing keyboard keys (example shows ctrl key) use:
 <kbd>ctrl</kbd>
 
+## Data tips
 
+<div class="notice" markdown="1">
+<i fa fa-star></i>**Data Tip:**
 ### Minimal mistakes
 
 Styles:
