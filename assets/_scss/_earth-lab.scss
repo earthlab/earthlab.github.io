@@ -1,6 +1,6 @@
 /* ==========================================================================
    Earth Lab Specific css highlighting this will allow us to more easily
-   integrate with MIn Minstakes in the future
+   integrate with Minimal Minstakes in the future
    ========================================================================== */
 
 /* tags on the bottom of the page */
@@ -64,6 +64,10 @@ div.notice--success, div.notice--warning {
   background-color: mix(#000, $info-color, 20%);
   color: #fff;
   padding-left: .7em;
+}
+
+.nav__list .active {
+  margin-top: 1em;
 }
 
 .nav__list li ul li {
@@ -133,6 +137,7 @@ div.notice--success, div.notice--warning {
   border-left: 1px  solid #428aa0;
   border-right: 2px solid #428aa0;
   border-bottom: 2px solid #428aa0;
+  margin-bottom: 1em;
 }
 
 .active-section {

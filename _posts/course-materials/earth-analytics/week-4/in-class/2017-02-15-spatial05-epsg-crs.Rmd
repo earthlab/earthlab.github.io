@@ -20,6 +20,7 @@ topics:
   reproducible-science-and-programming:
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 This lesson discusses ways that coordinate reference system data are stored

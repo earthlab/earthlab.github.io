@@ -4,17 +4,23 @@ title: "Write Clean Code - Expressive or literate programming in R - data scienc
 excerpt: "This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices. "
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [course-materials]
-class-lesson: ['get-to-know-r']
+class-lesson: ['write-clean-code']
 permalink: /course-materials/earth-analytics/week-2/write-clean-code-with-r/
 nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+module-title: 'Clean Code & getting help'
+module-nav-title: 'Clean code & getting help with R'
+module-description: 'This module covers how to write easier to read, clean code.
+Further is covers some basic approaches to getting help when working in R. Finally
+it reviews how to install QGIS - a free and open source GIS tool - on your computer.'
+module-type: 'homework'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 1
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio', 'literate-expressive-programming']
