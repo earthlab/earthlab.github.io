@@ -4,17 +4,17 @@ title: "Get Help with R - data science for scientists 101"
 excerpt: "This tutorial covers ways to get help when you are not sure how to perform a task in R. "
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
-class-lesson: ['get-to-know-r']
+class-lesson: ['write-clean-code']
 permalink: /course-materials/earth-analytics/week-2/ways-to-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-modified: '2017-05-12'
+modified: '2017-06-01'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 2
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']

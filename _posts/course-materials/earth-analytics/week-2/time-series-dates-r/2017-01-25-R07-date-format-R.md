@@ -3,9 +3,9 @@ layout: single
 title: "Work With Date - Time formats in R - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in R. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-05-12'
+modified: '2017-06-01'
 category: [course-materials]
-class-lesson: ['hw-ggplot2-r']
+class-lesson: ['time-series-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
 nav-title: 'Dates in R'
 week: 2
@@ -84,7 +84,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood02-date-format-R/import-data-1.png" title="quick plot of precip data" alt="quick plot of precip data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R07-date-format-R/import-data-1.png" title="quick plot of precip data" alt="quick plot of precip data" width="100%" />
 
 We know how to use `ggplot()` now so let's use that instead.
 
@@ -232,7 +232,7 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
       ggtitle("Precipitation")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/hw-plot-precip-data/2017-01-25-flood02-date-format-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R07-date-format-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="100%" />
 
 
 Now, our plot looks a lot nicer!

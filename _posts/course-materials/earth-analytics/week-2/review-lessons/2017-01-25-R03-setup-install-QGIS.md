@@ -5,7 +5,7 @@ excerpt: "QGIS is a free, open-souce GIS tool that is comparable to ArcMap. This
 authors: ['Leah Wasser']
 modified: 2016-12-30
 category: [course-materials]
-class-lesson: ['hw-ggplot2-r']
+class-lesson: ['write-clean-code']
 permalink: /course-materials/earth-analytics/week-2/download-install-qgis/
 nav-title: 'Install QGIS'
 week: 2
@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 3
 course: "earth-analytics"
 topics:
   spatial-data-and-gis:
