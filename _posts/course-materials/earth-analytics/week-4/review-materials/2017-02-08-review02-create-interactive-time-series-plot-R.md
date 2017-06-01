@@ -3,7 +3,7 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-05-12'
+modified: '2017-06-01'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/interactive-time-series-plots-in-r/
@@ -16,6 +16,7 @@ author_profile: false
 comments: true
 order: 2
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 

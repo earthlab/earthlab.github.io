@@ -5,7 +5,7 @@ excerpt: "This tutorial describes key differences between projected and geograph
 projected Coordinate Reference which divides the globe into zones to optimize
 projection results in each zone and WGS84 which is a geographic (latitude and longitude) CRS. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
-modified: '2017-05-12'
+modified: '2017-06-01'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -21,6 +21,7 @@ topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 

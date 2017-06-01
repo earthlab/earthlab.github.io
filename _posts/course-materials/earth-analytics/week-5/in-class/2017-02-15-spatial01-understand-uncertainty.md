@@ -3,7 +3,7 @@ layout: single
 title: "Lidar Remote sensing data - Understand uncertainty / error associated with height metrics extracted from lidar raster data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-05-12'
+modified: '2017-06-01'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
@@ -99,7 +99,7 @@ boxplot(tree_heights$heights,
         col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="100%" />
 
 In the example above, our mean tree height value is towards the center of
 our distribution of measured heights. We might expect that the sample mean of
@@ -117,7 +117,7 @@ hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
      xlab="Height (m)", col="purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="100%" />
 
 ## Measurement accuracy
 
@@ -206,7 +206,7 @@ site location on the map below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/ggmap-plot-1.png" title="ggmap of study area." alt="ggmap of study area." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/ggmap-plot-1.png" title="ggmap of study area." alt="ggmap of study area." width="100%" />
 
 ## Study area plots
 
@@ -218,7 +218,7 @@ of field site plots by technicians at NEON. We will call these measured values
 
 A map of our study plots is below overlaid on top of the canopy height mode.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="100%" />
 
 ### Compare lidar derived height to in situ measurements
 
@@ -243,11 +243,11 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
     </figcaption>
 </figure>
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="100%" />
 
 ### How different are the data?
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial08-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
 
 ## View interactive scatterplot
 
