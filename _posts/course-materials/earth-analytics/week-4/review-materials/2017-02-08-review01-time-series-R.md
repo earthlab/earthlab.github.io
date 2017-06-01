@@ -3,7 +3,7 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-05-11'
+modified: '2017-06-01'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/week4-review-r/
@@ -39,7 +39,6 @@ You will need a computer with internet access to complete this lesson and the da
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
-
 
 # Explore time series Data
 

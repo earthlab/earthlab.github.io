@@ -40,7 +40,6 @@ You will need a computer with internet access to complete this lesson and the da
 
 </div>
 
-
 # Explore time series Data
 
 First, let's review the challenge question from last week. Note below that we've
