@@ -1,19 +1,6 @@
 ## ----setup, echo=FALSE---------------------------------------------------
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
-## ----load-libraries, warning=FALSE, message=FALSE, echo=FALSE------------
-# load libraries
-library(raster)
-library(rgdal)
-
-## ----open-raster, fig.cap="raster data example of embedded metadata", echo=FALSE----
-# open raster data
-lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-
-# plot raster data
-plot(lidar_dem,
-  axes=FALSE, box=FALSE)
-
 ## ------------------------------------------------------------------------
 # view attributes associated with our DTM geotiff
 GDALinfo("data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
@@ -25,7 +12,7 @@ lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 # view crs
 crs(lidar_dem)
 
-# view extent
+# view extent via the slot - note that slot names can change so this may not always work.
 lidar_dem@extent
 
 
@@ -40,4 +27,15 @@ if(extent_lidar_dem == extent_lidar_dsm){
   print("Both datasets cover the same spatial extent")
 }
 
+
+## ------------------------------------------------------------------------
+compareRaster(lidar_dsm, lidar_dem,
+              extent=TRUE)
+
+## ------------------------------------------------------------------------
+compareRaster(lidar_dsm, lidar_dem,
+              res=TRUE)
+
+## ------------------------------------------------------------------------
+nlayers(lidar_dsm)
 

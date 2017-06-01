@@ -6,7 +6,7 @@ nav-title: "Course home page"
 permalink: /course-materials/earth-analytics/
 course: "earth-analytics"
 module-type: 'overview'
-module-title: "Earth Analytics Course"  
+module-title: "Earth Analytics Course"
 week-landing: 0
 week: 0
 sidebar:
@@ -37,8 +37,8 @@ overview-order: 1
 </div>
 <!-- an overview module specifies the overview content for the course including syllabus and any assignments  module-type: 'session' specified a week or a particular set of content surrounding a topic - eg internship seminar, etc -->
 
-Earth analytics is an advanced, multidisciplinary course will address major
-questions in Earth science and teach students to use the analytical tools
+Earth analytics is an advanced, multidisciplinary course that addresses major
+questions in Earth science and teaches students to use the analytical tools
 necessary to undertake exploration of heterogeneous ‘big scientific data’. This
 course is designed for upper level (junior / senior level) undergraduate students
 and graduate students.
