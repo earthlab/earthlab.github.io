@@ -4,17 +4,17 @@ title: "Get Help with R - data science for scientists 101"
 excerpt: "This tutorial covers ways to get help when you are not sure how to perform a task in R. "
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [course-materials]
-class-lesson: ['get-to-know-r']
+class-lesson: ['write-clean-code']
 permalink: /course-materials/earth-analytics/week-2/ways-to-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-modified: '2017-05-12'
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 2
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
@@ -62,8 +62,7 @@ Below we discuss a few ways that you can get help when you are stuck in R.
 
 If you need help with a specific function, let's say `barplot()`, you can type:
 
-
-```r
+```{r, eval=FALSE, purl=FALSE}
 ?barplot
 ```
 
@@ -73,8 +72,7 @@ for the `barplot()` function.
 If you just need to remind yourself of the names of the arguments that can be used
 with the function, you can use:
 
-
-```r
+```{r, eval=FALSE, purl=FALSE}
 args(lm)
 ```
 
@@ -85,8 +83,7 @@ If you are looking for a function to do a particular task, you can use
 However, this only looks through the installed packages for help pages with a
 match to your search request
 
-
-```r
+```{r, eval=FALSE, purl=FALSE}
 ??kruskal
 ```
 

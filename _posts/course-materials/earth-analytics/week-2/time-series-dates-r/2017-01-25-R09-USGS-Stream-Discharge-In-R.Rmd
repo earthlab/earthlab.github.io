@@ -5,7 +5,7 @@ excerpt: "This lesson is a challenge exercise that asks you to use all of the sk
 authors: ['Leah Wasser', 'NEON Data Skills']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
-class-lesson: ['hw-ggplot2-r']
+class-lesson: ['time-series-r']
 week: 2
 permalink: /course-materials/earth-analytics/week-2/plot-stream-discharge-timeseries-challenge-r/
 nav-title: 'Plot Stream Discharge Data R'
