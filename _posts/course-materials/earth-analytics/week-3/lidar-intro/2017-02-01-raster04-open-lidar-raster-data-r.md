@@ -1,9 +1,11 @@
 ---
 layout: single
 title: "Introduction to lidar raster data products"
-excerpt: "This lesson covers the 3 key lidar raster products including the canopy height model (CHM) the digital terrain model (DTM or DEM) and the Digital Surface Model (DSM). Finally, it demonstrated how to open a lidar raster dataset in R."
+excerpt: "This lesson introduces the raster geotiff file format - which is often used
+to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
+including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-05-12'
+modified: '2017-06-01'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
@@ -32,6 +34,7 @@ topics:
 After completing this tutorial, you will be able to:
 
 * Open a lidar raster dataset in `R`.
+* Be able to list and define 3 spatial attributes of a raster dataset: extent, crs and resolution.
 * Be able to identify the resolution of a raster in `R`.
 * Be able to plot a lidar raster dataset in `R`.
 
@@ -46,7 +49,12 @@ If you have not already downloaded the week 3 data, please do so now.
 
 In the last lesson, we reviewed the basic principles behind what a lidar raster
 dataset is in R and how point clouds are used to derive the raster. In this lesson, we
-will learn how to open a plot a lidar raster dataset in `R`.
+will learn how to open a plot a lidar raster dataset in `R`. We will also discuss
+3 key attributes of a raster dataset:
+
+1. Spatial resolution
+2. Spatial extent and
+3. Coordinate reference systems
 
 <figure>
   <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif">
@@ -74,8 +82,8 @@ library(rgdal)
 ```
 
 We use the `raster("path-to-raster-here")` function to open a raster dataset in `R`.
-Note that we use the `plot()` function to plot the data. The function argument `main=""`
-adds a title to the plot.
+Note that we use the `plot()` function to plot the data. The function argument
+`main=""` adds a title to the plot.
 
 
 ```r
@@ -106,6 +114,114 @@ plot(lidar_dem,
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="100%" />
+
+Next, let's discuss some of the important spatial attributes associated with raster
+data.
+
+## 1. Coordinate reference system
+
+The Coordinate Reference System or `CRS` of a spatial object tells `R` where
+the raster is located in geographic space. It also tells R what method should
+be used to “flatten” or project the raster in geographic space.
+
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
+    </a>
+    <figcaption> Maps of the United States in different projections. Notice the
+    differences in shape associated with each different projection. These
+    differences are a direct result of the calculations used to "flatten" the
+    data onto a 2-dimensional map. Source: M. Corey, opennews.org</figcaption>
+</figure>
+
+### What Makes Spatial Data Line Up On A Map?
+
+We will discuss Coordinate Reference systems in more detail in next weeks class.
+For this week, just remember that data from the same location
+but saved in **different coordinate references systems will not line up in any GIS or other
+program**. Thus, it's important when working with spatial data in a program like
+`R` to identify the coordinate reference system applied to the data and retain
+it throughout data processing and analysis.
+
+### View Raster Coordinate Reference System (CRS) in R
+
+We can view the `CRS` string associated with our `R` object using the`crs()`
+method. We can assign this string to an `R` object, too.
+
+
+```r
+# view resolution units
+crs(lidar_dem)
+## CRS arguments:
+##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
+
+# assign crs to an object (class) to use for reprojection and other tasks
+myCRS <- crs(lidar_dem)
+myCRS
+## CRS arguments:
+##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
+```
+
+The `CRS` string for our `lidar_dem` object tells us that our data are in the UTM
+projection.
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/UTM_zones.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/UTM_zones.png"></a>
+   	<figcaption> The UTM zones across the continental United States. Source:
+   	Chrismurf, wikimedia.org.
+		</figcaption>
+</figure>
+
+The CRS format, returned by R, is in a `PROJ 4` format. This means that the projection
+information is strung together as a series of text elements, each of which
+begins with a `+` sign.
+
+ `+proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0`
+
+We'll focus on the first few components of the CRS in this tutorial.
+
+* `+proj=utm` The projection of the dataset. Our data are in Universal
+Transverse Mercator (UTM).
+* `+zone=18` The UTM projection divides up the world into zones, this element
+tells you which zone the data is in. Harvard Forest is in Zone 18.
+* `+datum=WGS84` The datum was used to define the center point of the
+projection. Our raster uses the `WGS84` datum.
+* `+units=m` This is the **horizontal** units that the data are in. Our units
+are meters.
+
+
+<div class="notice" markdown="1">
+<i fa fa-star></i>**Important:**
+IMPORTANT: We are working with lidar data which has a Z or vertical value as well.
+While the horizontal units often match the vertical units of a raster they don't
+always! Be sure the check the metadata of your data to figure out the vertical
+units!
+</div>
+
+## Spatial extent
+
+Next, let's discuss spatial extent. The spatial extent of a raster or spatial
+object is the geographic area that the raster data covers.
+
+<figure>
+    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
+    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
+    </a>
+    <figcaption> The spatial extent of vector data which we will discuss next week.
+    Notice that the spatial extent represents the rectangular area that the data cover.
+    Thus, if the data are not rectangular - ie points OR an image that is rotated in some way,
+    the spatial extent covers portions of the dataset where there are no data.
+    Image Source: National Ecological Observatory Network (NEON)
+    </figcaption>
+</figure>
+
+The spatial extent of an R spatial object represents the geographic "edge" or
+location that is the furthest north, south, east and west. In other words, `extent`
+represents the overall geographic coverage of the spatial object.
 
 ## Raster Resolution
 
@@ -144,38 +260,16 @@ are in meters. We won't get into too much detail about coordinate refence string
 in this weeks class but they are important to be familiar with when working with spatial
 data. We will cover them in more detail during the semester!
 
-## Distribution of elevation values
 
-We can view the distribution of elevation values in our data too. This is useful
-for identifying outlier data values. Notice that we are using the `xlab` and `ylab`
-arguments to label our plot axes.
+<div class="notice--info" markdown="1">
 
+## Additional Resources
 
-```r
-# plot histogram
-hist(lidar_dem,
-     main="Distribution of surface elevation values",
-     xlab="Elevation (meters)", ylab="Frequency",
-     col="springgreen")
-```
+### About Coordinate Reference Systems
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/view-hist-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
-
-
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> In-class challenge - import DSM
-
-* Import the file: `data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif`
-
-Plot the data and a histogram of the data. What do the elevations in the DSM
-represent? Are they different from the DTM? Discuss this with your neighbor.
-
-* What is the CRS and spatial resolution for this dataset? What units is the spatial
-resolution in?
-<!-- Yes - they are the same for both files you can figure this out using
-crs() and xres()  / yres() -->
+* <a href="http://spatialreference.org/ref/epsg/" target="_blank"> A comprehensive online library of CRS information.</a>
+* <a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank">QGIS Documentation - CRS Overview.</a>
+* <a href="https://source.opennews.org/en-US/learning/choosing-right-map-projection/" target="_blank">Choosing the Right Map Projection.</a>
+* <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank"> NCEAS Overview of CRS in R.</a>
 
 </div>
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/class-challenge-1.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" /><img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/class-challenge-2.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" />

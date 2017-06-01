@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-05-12'
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
 class-lesson: ['class-lidar-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 7
 topics:
   reproducible-science-and-programming:
   remote-sensing: ['lidar']
@@ -91,10 +91,12 @@ model (DEM), also known as a digital terrain model (DTM) represents the elevatio
 of the earth's surface. The DEM represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
 
+```{r setup, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
+```
 
-
-```r
+```{r load-libraries,  message=F, warning=F }
 # load libraries
 library(raster)
 library(rgdal)
@@ -105,24 +107,21 @@ library(rgdal)
 
 First, let's open and plot the digital elevation model.
 
-
-```r
+```{r dem, fig.cap="digital elevation model plot", warning=F, message=F }
 # open raster data
 lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
 plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-chm-dem-dsm/dem-1.png" title="digital elevation model plot" alt="digital elevation model plot" width="100%" />
+```
 
 Next, let's open the digital SURFACE model (DSM). The DSM represents the top of
 the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that
 sit on the earth.
 
-
-```r
+```{r dsm, fig.cap="digital surface model plot", warning=F, message=F }
 # open raster data
 lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
@@ -130,8 +129,6 @@ lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-chm-dem-dsm/dsm-1.png" title="digital surface model plot" alt="digital surface model plot" width="100%" />
 
 ## Canopy Height Model
 
@@ -152,8 +149,7 @@ This math gives you the residual value or difference between the top of the
 earth surface and the ground which should be the heights of the trees (and buildings
 if the data haven't been "cleaned").
 
-
-```r
+```{r chm, fig.cap="canopy height model plot", warning=F, message=F }
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
 
@@ -161,8 +157,6 @@ lidar_chm <- lidar_dsm - lidar_dem
 plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-chm-dem-dsm/chm-1.png" title="canopy height model plot" alt="canopy height model plot" width="100%" />
 
 ## Plots Using Breaks
 
@@ -173,16 +167,14 @@ in a raster. These ranges may be statistically generated or simply visual.
 Let's create breaks in our CHM plot.
 
 
-
-```r
+```{r chm-breaks, fig.cap="canopy height model breaks", warning=F, message=F}
 # plot raster data
 plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
      main="Lidar Canopy Height Model",
      col=c("white","brown","springgreen","darkgreen"))
-```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster06-chm-dem-dsm/chm-breaks-1.png" title="canopy height model breaks" alt="canopy height model breaks" width="100%" />
+```
 
 ## Export a raster
 
@@ -196,11 +188,9 @@ OR, you can create the directory yourself using the finder (MAC) or windows
 explorer.
 
 
-
-```r
+```{r export-raster, warning=F, message=FALSE}
 # check to see if an output directory exists
 dir.exists("data/week3/outputs")
-## [1] TRUE
 
 # if the output directory doesn't exist, create it
 if (dir.exists("data/week3/outputs")) {
@@ -210,12 +200,12 @@ if (dir.exists("data/week3/outputs")) {
     # recursive tells R to create the entire directory path (data/week3/outputs)
     dir.create("data/week3/outputs", recursive=TRUE)
   }
-## [1] "the directory exists!"
 
 # export CHM object to new GeotIFF
 writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
             format="GTiff",  # output format = GeoTIFF
             overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
+
 
 ```
 

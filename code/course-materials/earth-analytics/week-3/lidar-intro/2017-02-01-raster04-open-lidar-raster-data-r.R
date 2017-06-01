@@ -27,6 +27,15 @@ plot(lidar_dem,
      main="Lidar Raster - Zoomed into to one small region")
 
 
+## ----view-resolution-units-----------------------------------------------
+# view resolution units
+crs(lidar_dem)
+
+# assign crs to an object (class) to use for reprojection and other tasks
+myCRS <- crs(lidar_dem)
+myCRS
+
+
 ## ----view-res, warning=F, message=F--------------------------------------
 # what is the x and y resolution for our raster data?
 xres(lidar_dem)
@@ -36,23 +45,5 @@ yres(lidar_dem)
 ## ----crs-view, warning=F, message=F--------------------------------------
 # view coordinate refence system
 crs(lidar_dem)
-
-
-## ----view-hist, fig.cap="histogram of DEM elevation values", warning=F, message=F----
-# plot histogram
-hist(lidar_dem,
-     main="Distribution of surface elevation values",
-     xlab="Elevation (meters)", ylab="Frequency",
-     col="springgreen")
-
-## ----class-challenge, echo=F, fig.cap="DSM histogram and plot", warning=F, message=F----
-lidar_dsm <- raster("data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif")
-hist(lidar_dsm,
-     col="springgreen",
-     xlab="elevation", ylab="frequency",
-     main="DSM Histogram")
-
-plot(lidar_dsm,
-  main="Digital Surface Model")
 
 
