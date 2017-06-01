@@ -83,12 +83,17 @@ commonly used software packages.
    </figcaption>
 </figure>
 
+
+## What is a raster?
+
+Raster or “gridded” data are stored as a grid of values which are rendered on a
+map as pixels. Each pixel value represents an area on the Earth’s surface.
 A raster file is a composed of regular grid of cells, all of which are the same
 size. You've looked at and used rasters before if you've looked at photographs
 or imagery in a tool like Google Earth. However, the raster files that we will
 work with are different from photographs in that they are spatially referenced.
 Each pixel represents an area of land on the ground. That area is defined by
-the **resolution** of the raster.
+the spatial **resolution** of the raster.
 
 
 <figure>
@@ -98,6 +103,9 @@ the **resolution** of the raster.
    size in the x and y direction. Source: Colin Williams, NEON.
    </figcaption>
 </figure>
+
+
+### Raster facts
 
 A few notes about rasters:
 

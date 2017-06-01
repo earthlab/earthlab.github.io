@@ -15,13 +15,12 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 5
+order: 6
 topics:
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
   find-and-manage-data: ['metadata']
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
