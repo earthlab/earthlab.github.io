@@ -169,8 +169,13 @@ div.active-menu {
 .active-menu .nav__sub-title.grey {
   background-color: #e3e3e3;
 }
+div.active-section{
+  box-shadow: 1px 5px 3px #ccc;
+}
 
 .active-section {
-  background-color: #428aa0;
-  color: #fff;
+  background-color: #ccc;
+  font-weight: bold!important;
+  padding: 0.5em!important;
+  border-right: 1px solid #428aa0;
 }
