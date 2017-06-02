@@ -5,9 +5,9 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-06-01'
+modified: '2017-06-02'
 category: [course-materials]
-class-lesson: ['class-lidar-r']
+class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/plot-raster-histograms-r/
 nav-title: 'Plot raster histograms'
 week: 3
@@ -16,7 +16,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 5
+order: 2
 topics:
   reproducible-science-and-programming:
   remote-sensing: ['lidar']
@@ -62,6 +62,7 @@ distribution of our data.
 ## Open Raster Data in R
 
 To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
+Remember we can use the `raster()` function to import the raster object into R.
 
 
 ```r
@@ -80,16 +81,16 @@ plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-plot-raster-histograms-r/load-libraries-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/load-libraries-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
 
 ## Raster Histograms - distribution of elevation values
 
 The histogram below represents the distribution of pixel elevation values in our
-data. This plot is useful for
+data. This plot is useful to:
 
-1. identifying outlier data values
-2. quickly assessing the min and max values in our data
-3. assessing the general distribution of elevation values in the data - i.e. is the area generally flat, hilly, is it high elevation or low elevation.
+1. Identify outlier data values
+2. Assess the min and max values in our data
+3. Explore the general distribution of elevation values in the data - i.e. is the area generally flat, hilly, is it high elevation or low elevation.
 
 Notice that we are using the `xlab` and `ylab`
 arguments  in our plot to label our plot axes.
@@ -103,10 +104,16 @@ hist(lidar_dem,
      col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
 
-We can use the breaks= argument to specify fewer or more breaks in our histogram.
-Note that this argument oes not result in the exact number of breaks that you may 
+## What does a histogram tell us?
+
+A histogram shows us how the data are distributed. Each bin or bar in the plot
+represents the number or frequency of pixels that fall within the range specified
+by the bin.
+
+We can use the `breaks=` argument to specify fewer or more breaks in our histogram.
+Note that this argument does not result in the exact number of breaks that you may
 want in your histogram.
 
 
@@ -119,14 +126,14 @@ hist(lidar_dem,
      col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist2-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist2-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
 
-Alternatively, we can specify specific break points that we want `R` to use when it 
-bins the data. 
+Alternatively, we can specify specific break points that we want `R` to use when it
+bins the data.
 
 `breaks=c(1600, 1800, 2000, 2100)`
 
-In this case, R will count the number of pixels that occur within each value range 
+In this case, `R` will count the number of pixels that occur within each value range
 as follows:
 
 bin 1: number of pixels with values between 1600-1800
@@ -144,7 +151,7 @@ hist(lidar_dem,
      col="wheat3")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist3-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist3-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -162,7 +169,7 @@ crs() and xres()  / yres() -->
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-plot-raster-histograms-r/class-challenge-1.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" /><img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster05-plot-raster-histograms-r/class-challenge-2.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/class-challenge-1.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" /><img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/class-challenge-2.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" />
 
 <div class="notice--info" markdown="1">
 
