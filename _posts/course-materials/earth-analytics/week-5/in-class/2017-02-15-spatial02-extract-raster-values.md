@@ -6,7 +6,7 @@ vector boundary. We can use the extracted pixels to calculate mean and max tree 
 authors: ['Leah Wasser']
 modified: '2017-06-01'
 category: [course-materials]
-class-lesson: ['class-intro-spatial-r']
+class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /course-materials/earth-analytics/week-5/extract-data-from-raster/
 nav-title: 'Extract data from raster'
 week: 5
