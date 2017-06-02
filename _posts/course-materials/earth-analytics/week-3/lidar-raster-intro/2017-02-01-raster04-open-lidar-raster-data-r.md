@@ -5,18 +5,25 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-06-01'
+modified: '2017-06-02'
 category: [course-materials]
-class-lesson: ['class-lidar-r']
+class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
 nav-title: 'Open Raster Data R'
+module-title: 'LiDAR Raster Data R'
+module-description: 'This module introduces the raster spatial data format as it
+relates to working with lidar data in R. We will cover how to open, crop and classify raster data in
+R. Also we will cover three commonly used lidar data products: the digital elevation model, digital surface model and the canopy height model.'
+module-nav-title: 'Lidar Raster data in R'
+module-type: 'class'
 week: 3
 course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 4
+order: 1
+class-order: 2
 topics:
   reproducible-science-and-programming:
   remote-sensing: ['lidar']
@@ -95,7 +102,7 @@ plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster04-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
 
 If we zoom in on a small section of the raster, we can see the individual pixels
 that make up the raster. Each pixel has one value associated with it. In this
@@ -113,7 +120,7 @@ plot(lidar_dem,
      main="Lidar Raster - Zoomed into to one small region")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-intro/2017-02-01-raster04-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster04-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="100%" />
 
 Next, let's discuss some of the important spatial attributes associated with raster
 data.
