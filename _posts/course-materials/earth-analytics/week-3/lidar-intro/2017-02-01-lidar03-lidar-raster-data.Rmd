@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Introduction to lidar raster data products in R - remote sensing data"
+title: "How lidar point clouds are converted to raster data formats - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
