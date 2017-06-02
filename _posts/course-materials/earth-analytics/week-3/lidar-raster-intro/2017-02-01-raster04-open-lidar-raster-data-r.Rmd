@@ -7,16 +7,23 @@ including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
 modified: '`r format(Sys.time(), "%Y-%m-%d")`'
 category: [course-materials]
-class-lesson: ['class-lidar-r']
+class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
 nav-title: 'Open Raster Data R'
+module-title: 'LiDAR Raster Data R'
+module-description: 'This module introduces the raster spatial data format as it
+relates to working with lidar data in R. We will cover how to open, crop and classify raster data in
+R. Also we will cover three commonly used lidar data products: the digital elevation model, digital surface model and the canopy height model.'
+module-nav-title: 'Lidar Raster data in R'
+module-type: 'class'
 week: 3
 course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 4
+order: 1
+class-order: 2
 topics:
   reproducible-science-and-programming:
   remote-sensing: ['lidar']
