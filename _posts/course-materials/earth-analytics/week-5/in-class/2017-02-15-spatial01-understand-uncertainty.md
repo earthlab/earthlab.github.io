@@ -5,7 +5,7 @@ excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the typ
 authors: ['Leah Wasser']
 modified: '2017-06-01'
 category: [course-materials]
-class-lesson: ['class-intro-spatial-r']
+class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
 nav-title: 'Remote sensing uncertainty'
 module-title: 'Uncertainty and metadata'
