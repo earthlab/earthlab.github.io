@@ -117,7 +117,7 @@ Now run the code in this chunk.
 
 You can run code chunks:
 
-* **Line-by-line:** with cursor on current line, <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (Windows/Linux) or
+* **Line-by-line:** With cursor on current line, <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (Windows/Linux) or
 <kbd>Command</kbd> + <kbd>Enter</kbd> (Mac OS X).
 * **By chunk:** You can run the entire chunk (or multiple chunks) by
 clicking on the `Chunks` dropdown button in the upper right corner of the script
