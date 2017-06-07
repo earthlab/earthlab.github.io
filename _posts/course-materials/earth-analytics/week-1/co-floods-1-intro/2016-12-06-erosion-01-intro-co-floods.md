@@ -12,7 +12,7 @@ dateCreated: 2016-12-06
 modified: 2017-04-21
 module-title: 'Understand Disturbance With Data - Flooding and Erosion'
 module-description: 'This module introduces the concept of using data to Understand
-a natural phenomenon. In this case we will explore flooding and erosion. We use a combination of Google earth imagery, NOAA precipitation data and
+a natural phenomenon. In this case we will explore flooding and erosion. We use a combination of Google Earth imagery, NOAA precipitation data and
 USGS stream flow data to begin to quantify and better understand the drivers and impacts of the 2013 flood as it is seen in Boulder, Colorado.
 No programming experience is needed to complete this module.'
 module-type: 'class'
