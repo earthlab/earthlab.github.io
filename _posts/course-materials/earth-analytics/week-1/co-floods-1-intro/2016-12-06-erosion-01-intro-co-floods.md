@@ -123,8 +123,8 @@ directions of your instructor (Google Doc, word document, etherpad, etc.).
 
 * What differences do you see between 2012 and 2013?
   * For each difference: What do you think caused that difference?
-  * For each difference: How can you quantitatively record the differences?
+  * For each difference: How can you quantitatively record the difference?
 * For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
-* Was the cause - caused by something else? IE did something else DRIVE the cause?
+* Was the cause - caused by something else (i.e. did something else DRIVE the cause)?
 * Create a diagram that illustrates the causes and effects (or drivers and impacts) of the flood. Is it a linear diagram? Is it quantifiable?
 </div>
