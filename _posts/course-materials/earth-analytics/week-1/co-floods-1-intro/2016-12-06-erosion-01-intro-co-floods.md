@@ -121,8 +121,8 @@ damage file. Scroll to 10/2012 and then to 10/2013. Do you see any differences?
 As a group, discuss the following questions. Record your answers following the
 directions of your instructor (Google Doc, word document, etherpad, etc.).
 
-* What differences to you see between 2012 and 2013?
-  * For each difference: What you think caused that difference?
+* What differences do you see between 2012 and 2013?
+  * For each difference: What do you think caused that difference?
   * For each difference: How can you quantitatively record the differences?
 * For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
 * Was the cause - caused by something else? IE did something else DRIVE the cause?
