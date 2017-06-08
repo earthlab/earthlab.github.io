@@ -175,14 +175,14 @@ not as a date.
 * **DAILY_PRECIP**: The total precipitation in inches. Important: the metadata
 notes that the value 999.99 indicates missing data. Also important,
 hours with no precipitation are not recorded.
-* **YEAR**: the year the data were collected
-* **JULIAN**: the JULIAN DAY the data were collected.
+* **YEAR**: The year the data were collected.
+* **JULIAN**: The JULIAN DAY the data were collected.
 
 
 Additional information about the data, known as metadata, is available in the
 <a href="https://ndownloader.figshare.com/files/7283453">PRECIP_HLY_documentation.pdf</a>.
 The metadata tell us that the noData value for these data is 999.99. IMPORTANT:
-we have modified these data a bit for ease of teaching and learning. Specifically,
+We have modified these data a bit for ease of teaching and learning. Specifically,
 we've aggregated the data to represent daily sum values and added some noData
 values to ensure you learn how to clean them!
 
