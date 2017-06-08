@@ -47,7 +47,7 @@ directory with it.
 ## Creating Objects
 
 You can get output from `R` by typing a mathematical equation into the console -
-For example, if you type in `3 + 5`, `R` will calculate the output value.
+For example, if you type in `3 + 5`, `R` will calculate the output value:
 
 ```{r basic-math }
 # add 3 + 5
