@@ -58,7 +58,7 @@ our project set up. We are going to create an `earth-analytics` project director
 (or folder) where we will store data and files used in the class. We will then
 set that **project directory** as our **working directory** in `R`.
 
-<i class="fa fa-star"></i> **Data Tip** Directory vs Folder: You can think
+<i class="fa fa-star"></i> **Data Tip:** Directory vs Folder: You can think
 of a directory as a folder. However the term directory considers the relationship
 between that folder and the folders within it and around it (it's full path).
 {: .notice--success}
@@ -69,7 +69,7 @@ computer and then a data directory located within that project directory.
 * Navigate to the `Documents` directory on your computer.
 * In the directory, create a NEW DIRECTORY called `earth-analytics`.
 
-<i class="fa fa-star"></i> **Data Tip** Notice that we are creating a easy to
+<i class="fa fa-star"></i> **Data Tip:** Notice that we are creating a easy to
 read directory name. The name has no spaces and uses all lower case to support
 machine reading down the road. Sometimes this format of naming using dashes is
 referred to as a `slug`.
