@@ -42,7 +42,7 @@ At the end of this activity, you will:
 ## What is a Package?
 
 A package, in `R` is a bundle of pre-built functionality. Think of it like a
-toolbox. Except for the tools, may do things like calculate a mathematical function
+toolbox. Except for the tools may do things like calculate a mathematical function
 e.g. `sum` or create a plot.
 
 ## Install a Package
@@ -63,7 +63,7 @@ install.packages("rmarkdown")
 install.packages("ggplot2")
 ```
 
-<i class="fa fa-star"></i> **Data Tip** You can install as many packages as you one in one string of code as follows
+<i class="fa fa-star"></i> **Data Tip** You can install as many packages as you want in one string of code as follows
 `install.packages(c("name-one", "name-two"))`
 {: .notice--success}
 
@@ -79,7 +79,7 @@ library(ggplot2)
 
 ```
 Note that you don't need to use quotes around the package name when you call it
-using the `library()` function. But you do need the quotes when you install a
+using the `library()` function. But you do need the quotes when you install a package.
 
 
 In our case, the `knitr` and `rmarkdown` packages load buttons and options within
