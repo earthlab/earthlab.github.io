@@ -37,7 +37,7 @@ use in our lessons.
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* Create an easy to use and we structured project structure.
+* Create an easy to use and well structured project structure.
 * Set a working directory in `R` using code.
 * Set a working directory using the `RStudio` interface.
 
@@ -54,7 +54,7 @@ your computer to complete this tutorial.
 ## Create earth-analytics project directory
 
 Now that we have the basics of good project structure out of the way, let's get
-our project setup. We are going to create an `earth-analytics` project directory
+our project set up. We are going to create an `earth-analytics` project directory
 (or folder) where we will store data and files used in the class. We will then
 set that **project directory** as our **working directory** in `R`.
 
