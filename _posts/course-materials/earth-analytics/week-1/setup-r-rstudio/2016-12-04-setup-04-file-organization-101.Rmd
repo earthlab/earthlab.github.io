@@ -27,7 +27,7 @@ to setup our working directory. A **working directory** is an organized space or
 to think about the organization of that directory, to make our own future lives
 easier (so we can find things) and also to make it easier to collaborate with other people.
 
-## Setup your project
+## Setup Your Project
 
 Project organization is integral to efficient research. A well organized project
 structure will allow you to more easily find components of your project AND
@@ -89,7 +89,7 @@ A well structured project directory should:
 	</figcaption>
 </figure>
 
-### Which Filenames Are Most Self-explanatory?
+### Which Filenames are Most Self-explanatory?
 
 Your goal when structuring a project directory is to use a naming
 convention that someone who is not familiar with your project can quickly understand.
