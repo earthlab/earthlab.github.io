@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-06-02'
+modified: '2017-06-14'
 category: [course-materials]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
@@ -134,7 +134,10 @@ be used to “flatten” or project the raster in geographic space.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different projections. Notice the
+    differences in shape associated with each different projection. These
+    differences are a direct result of the calculations used to "flatten" the
+    data onto a 2-dimensional map. Source: M. Corey, opennews.org">
     </a>
     <figcaption> Maps of the United States in different projections. Notice the
     differences in shape associated with each different projection. These
@@ -177,7 +180,8 @@ projection.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/UTM_zones.png">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/UTM_zones.png"></a>
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/UTM_zones.png" alt="The UTM zones across the continental United States. Source:
+   	Chrismurf, wikimedia.org."></a>
    	<figcaption> The UTM zones across the continental United States. Source:
    	Chrismurf, wikimedia.org.
 		</figcaption>
@@ -216,11 +220,15 @@ object is the geographic area that the raster data covers.
 
 <figure>
     <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
-    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
+    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png" alt="The spatial extent of vector data which we will discuss next week.
+    Notice that the spatial extent represents the rectangular area that the data cover.
+    Thus, if the data are not rectangular - ie points OR an image that is rotated in some way,
+    the spatial extent covers portions of the dataset where there are no data.
+    Image Source: National Ecological Observatory Network (NEON)">
     </a>
     <figcaption> The spatial extent of vector data which we will discuss next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
-    Thus, if the data are not rectangular - ie points OR an image that is rotated in some way,
+    Thus, if the data are not rectangular - i.e. points OR an image that is rotated in some way,
     the spatial extent covers portions of the dataset where there are no data.
     Image Source: National Ecological Observatory Network (NEON)
     </figcaption>
