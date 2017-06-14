@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-05-12'
+modified: '2017-06-14'
 week: 2
 sidebar:
   nav:
@@ -22,7 +22,6 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
 
 <div class='notice--success' markdown="1">
 
