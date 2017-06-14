@@ -3,7 +3,7 @@ layout: single
 title: "Customize ggplot plots in R - earth analytics - data science for scientists"
 excerpt: 'This lesson covers how to customize ggplot plot colors and label axes in R. It uses the ggplot2 package.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-06-01'
+modified: '2017-06-14'
 category: [course-materials]
 class-lesson: ['time-series-r']
 nav-title: 'GGPLOT R'
@@ -12,6 +12,7 @@ module-description: 'This module covers handling date fields in R so you can eff
 module-nav-title: 'Time Series Data in R'
 module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-type: 'class'
+class-order: 2
 course: "earth-analytics"
 week: 2
 sidebar:
