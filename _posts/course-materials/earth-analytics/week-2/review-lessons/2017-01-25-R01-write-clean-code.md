@@ -8,7 +8,7 @@ class-lesson: ['write-clean-code']
 permalink: /course-materials/earth-analytics/week-2/write-clean-code-with-r/
 nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
-modified: '2017-06-01'
+modified: '2017-06-14'
 module-title: 'Clean Code & getting help'
 module-nav-title: 'Clean code & getting help with R'
 module-description: 'This module covers how to write easier to read, clean code.
@@ -27,6 +27,7 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 This lesson reviews best practices associated with clean coding.
 
