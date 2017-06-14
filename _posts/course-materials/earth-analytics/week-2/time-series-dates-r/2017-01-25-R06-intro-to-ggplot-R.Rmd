@@ -12,6 +12,7 @@ module-description: 'This module covers handling date fields in R so you can eff
 module-nav-title: 'Time Series Data in R'
 module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-type: 'class'
+class-order: 2
 course: "earth-analytics"
 week: 2
 sidebar:
