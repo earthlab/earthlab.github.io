@@ -85,7 +85,7 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   geom_point() +
   glabs(x="Date",
     y="Total Precipitation (Inches)",
-    title="Precipitation Data"
+    title="Precipitation Data",
     subtitle="Boulder, Colorado 2013")
 
 ```
@@ -178,8 +178,8 @@ Our format string will look like this: `%Y-%m-%d`. Notice that we are telling
 R where to find the year (%Y), month (%m) and day (%d). Also notice that we
 include the dashes that separate each component in each date cell of our data.
 
-NOTE: look up `?strptime` to see all of the date "elements" that you can use to
-describe the format of a date string in R.
+<i class="fa fa-star"></i> **Data Tip:** Look up `?strptime` to see all of the date "elements" that you can use to
+describe the format of a date string in `R`.
 {: .notice--success}
 
 

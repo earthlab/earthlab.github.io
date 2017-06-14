@@ -51,4 +51,9 @@ bundle exec jekyll serve
 Currently, we are using less. to install less
 
 1. install nodejs (npm) https://nodejs.org/en/
-2. install less : `sudo npm install less -g` NOTE: you need administration access to install 
+2. install less : `sudo npm install less -g` NOTE: you need administration access to install
+
+## License
+
+Please see license information, here https://github.com/earthlab/earthlab.github.io/blob/master/LICENSE
+- all materials are Creative comments by attribution. If you use our materials - please cite us! 

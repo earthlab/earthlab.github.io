@@ -72,10 +72,11 @@ To get started, load the `ggplot2` and `dplyr` libraries, setup your working
 directory and set `stringsAsFactors` to FALSE using `options()`.
 
 ```{r echo=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 ```
-```{r load-libraries, echo=F }
+```{r load-libraries, echo=FALSE }
 
 # setwd("working-dir-path-here")
 
