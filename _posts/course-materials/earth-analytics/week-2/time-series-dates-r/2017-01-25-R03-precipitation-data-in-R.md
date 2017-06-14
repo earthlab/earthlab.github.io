@@ -3,7 +3,7 @@ layout: single
 title: "Subset time series data in R - introduction to dplyr pipes and tidyverse coding approaches - Flooding & erosion data"
 excerpt: "This lesson walks through extracting temporal subsets of time series data using dplyr pipes. In the previous lesson we learned how to convert data containing a data field into a data class. In this lesson we use pipes to extract temporal subsets so that we can refine our time series data analysis. Finally we plot the data using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-06-01'
+modified: '2017-06-14'
 category: [course-materials]
 class-lesson: ['time-series-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -22,7 +22,6 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
 
 
 
@@ -151,7 +150,7 @@ str(boulder_daily_precip)
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
 ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-##    0.000    0.100    0.100    5.297    0.300 1000.000
+##    0.000    0.100    0.100    5.297    0.300  999.990
 max(boulder_daily_precip$DAILY_PRECIP)
 ## [1] 999.99
 ```
@@ -207,7 +206,7 @@ Your final plot should look something like the plot below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R08-precipitation-data-in-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R03-precipitation-data-in-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
 
 <i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
@@ -270,7 +269,7 @@ precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
 precPlot_flood2
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R08-precipitation-data-in-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R03-precipitation-data-in-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="100%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -288,4 +287,4 @@ HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments wor
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R08-precipitation-data-in-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R03-precipitation-data-in-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="100%" />

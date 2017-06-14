@@ -9,13 +9,14 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/basic-r-syntax-scientific-programming/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: '2017-04-21'
+modified: '2017-06-14'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
 We will work with precipitation and stream discharge data for Boulder County
 to better understand the R syntax, various data types and data import and plotting.'
 module-type: 'class'
+class-order: 1
 course: "earth-analytics"
 week: 2
 sidebar:
@@ -28,7 +29,6 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
 
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming
 language. We will introduce assignment operators (`<-`, comments (`#`) and functions

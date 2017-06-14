@@ -87,6 +87,7 @@
 <div class='active-menu'>
       <ul>
         {% assign module_names = classes | where:"order", 1 %}
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
         {% assign module_names = module_names | sort:"class-order" %}
 
         {% assign lesson_count = 0 %}
@@ -99,7 +100,6 @@
         <ul>
 
       {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
-
       <!-- count lessons -->
 
         {% for alesson in weeks %}

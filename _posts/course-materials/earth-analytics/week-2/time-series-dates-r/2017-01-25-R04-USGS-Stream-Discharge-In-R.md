@@ -3,7 +3,7 @@ layout: single
 title: "Plot Stream Discharge Data in R"
 excerpt: "This lesson is a challenge exercise that asks you to use all of the skills used during the week 2 set of lessons in the earth analytics course. Here you will import data and subset it to create a final plot of stream discharge over time."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-06-01'
+modified: '2017-06-14'
 category: [course-materials]
 class-lesson: ['time-series-r']
 week: 2
@@ -22,6 +22,7 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 In this data lesson, we explore and visualize stream discharge time series
 data collected by the United States Geological Survey (USGS). You will use everything
@@ -151,7 +152,7 @@ out what format elements you'll need to include to get the date right.
 
 Your plot should look something like the one below:
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R09-USGS-Stream-Discharge-In-R/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R04-USGS-Stream-Discharge-In-R/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -168,7 +169,7 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R09-USGS-Stream-Discharge-In-R/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R04-USGS-Stream-Discharge-In-R/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="100%" />
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
