@@ -208,7 +208,7 @@ Your final plot should look something like the plot below.
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R03-precipitation-data-in-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
 
-<i fa fa-star></i>**Data Tip:**For a more thorough review of date/time classes, see the NEON tutorial
+<i class="fa fa-star"></i>**Data Tip:** For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
 {: .notice--success}
 

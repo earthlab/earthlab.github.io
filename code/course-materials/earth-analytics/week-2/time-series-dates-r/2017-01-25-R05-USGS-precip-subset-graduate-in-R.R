@@ -1,8 +1,9 @@
 ## ----echo=FALSE----------------------------------------------------------
+
 knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
 
-## ----load-libraries, echo=F----------------------------------------------
+## ----load-libraries, echo=FALSE------------------------------------------
 
 # setwd("working-dir-path-here")
 
