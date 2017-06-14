@@ -3,7 +3,7 @@ layout: single
 title: "Customize ggplot plots in R - earth analytics - data science for scientists"
 excerpt: 'This lesson covers how to customize ggplot plot colors and label axes in R. It uses the ggplot2 package.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-06-14'
 category: [course-materials]
 class-lesson: ['time-series-r']
 nav-title: 'GGPLOT R'
@@ -26,6 +26,7 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 In this tutorial, we will explore more advanced plotting techniques using `ggplot2`.
 
@@ -57,7 +58,8 @@ features.
 
 Let's explore the code below to create a quick plot.
 
-```{r plot-data, fig.cap="quick plot of precip data"}
+
+```r
 
 # load the ggplot2 library for plotting
 library(ggplot2)
@@ -73,19 +75,33 @@ boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder_precip)
+##     X       DATE PRECIP
+## 1 756 2013-08-21    0.1
+## 2 757 2013-08-26    0.1
+## 3 758 2013-08-27    0.1
+## 4 759 2013-09-01    0.0
+## 5 760 2013-09-09    0.1
+## 6 761 2013-09-10    1.0
 
 # when we download the data we create a dataframe
 # view each column of the data frame using its name (or header)
 boulder_precip$DATE
+##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
+##  [6] "2013-09-10" "2013-09-11" "2013-09-12" "2013-09-13" "2013-09-15"
+## [11] "2013-09-16" "2013-09-22" "2013-09-23" "2013-09-27" "2013-09-28"
+## [16] "2013-10-01" "2013-10-04" "2013-10-11"
 
 # view the precip column
 boulder_precip$PRECIP
+##  [1] 0.1 0.1 0.1 0.0 0.1 1.0 2.3 9.8 1.9 1.4 0.4 0.1 0.3 0.3 0.1 0.0 0.9
+## [18] 0.1
 
 # q plot stands for quick plot. Let's use it to plot our data
 qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/plot-data-1.png" title="quick plot of precip data" alt="quick plot of precip data" width="100%" />
 
 ## Plot with ggplot2
 
@@ -99,7 +115,8 @@ To build a ggplot() we need to:
 
 - bind the plot to a specific data frame using the `data` argument
 
-```{r, eval=FALSE, purl=FALSE, fig.cap="ggplot binding"}
+
+```r
 ggplot(data = boulder_precip)
 
 ```
@@ -108,25 +125,29 @@ ggplot(data = boulder_precip)
 - define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
      such as plotting size, shape color, etc.,
 
-```{r, eval=FALSE, purl=FALSE, fig.cap="ggplot example plot precip"}
+
+```r
 ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP))
 ```
 
 - add `geoms` -- graphical representation of the data in the plot (points,
      lines, bars). To add a geom to the plot use `+` operator:
 
-```{r first-ggplot, purl=FALSE, fig.cap="ggplot boulder precip"}
+
+```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
   geom_point()
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/first-ggplot-1.png" title="ggplot boulder precip" alt="ggplot boulder precip" width="100%" />
 
 The `+` in the `ggplot2` package is particularly useful because it allows you
 to modify existing `ggplot` objects. This means you can easily set up plot
 "templates" and conveniently explore different types of plots, so the above
 plot can also be generated with code like this:
 
-```{r, first-ggplot-with-plus, eval=FALSE, purl=FALSE, fig.cap="first ggplot"}
+
+```r
 # Create the plot object (nothing will render on your screen)
 precip_plot <-  ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP))
 
@@ -135,77 +156,88 @@ precip_plot + geom_point()
 
 ```
 
-```{r, eval=FALSE, purl=TRUE, echo=FALSE, purl=FALSE, fig.cap="2nd ggplot"}
-# Create
-precip_plot <-  ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP))
 
-# Draw the plot
-precip_plot + geom_point()
-```
 
 
 We can also apply a color to our points
 
-```{r adding-colors, purl=FALSE, fig.cap="ggplot with blue points"}
+
+```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(color = "blue")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/adding-colors-1.png" title="ggplot with blue points" alt="ggplot with blue points" width="100%" />
 
 And adjust the transparency.
 
-```{r add-alpha, fig.cap="ggplot with blue points and alpha"}
+
+```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha=.5, color = "blue")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/add-alpha-1.png" title="ggplot with blue points and alpha" alt="ggplot with blue points and alpha" width="100%" />
 
 
 Or to color each value in the plot differently:
 
-```{r color-by-species, purl=FALSE, fig.cap="ggplot with colored points"}
+
+```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP))
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/color-by-species-1.png" title="ggplot with colored points" alt="ggplot with colored points" width="100%" />
 
 
 We can turn our plot into a bar plot.
 
-```{r barplot, purl=FALSE, fig.cap="ggplot with bars"}
+
+```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/barplot-1.png" title="ggplot with bars" alt="ggplot with bars" width="100%" />
 
 Turn the bar outlines blue
 
-```{r bar-color, purl=FALSE, fig.cap="ggplot with blue bars"}
+
+```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity", color="blue")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/bar-color-1.png" title="ggplot with blue bars" alt="ggplot with blue bars" width="100%" />
 
 Change the fill to bright green.
 
-```{r barcolor2, purl=FALSE, fig.cap="ggplot with green bars"}
+
+```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_bar(stat="identity", color="blue", fill="green")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/barcolor2-1.png" title="ggplot with green bars" alt="ggplot with green bars" width="100%" />
 
 
 ## Add plot labels
 
 You can add labels to your plots as well. Let's add a title, and x and y labels using the glab() argument.
 
-```{r add-title, fig.cap="ggplot with labels" }
+
+```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
     glabs(x="Date",
       y="Precipitation (Inches)",
       title="Daily Precipitation (inches)"
       subtitle="Boulder, Colorado 2013")
+## Error: <text>:6:7: unexpected symbol
+## 5:       title="Daily Precipitation (inches)"
+## 6:       subtitle
+##          ^
 ```
 
 

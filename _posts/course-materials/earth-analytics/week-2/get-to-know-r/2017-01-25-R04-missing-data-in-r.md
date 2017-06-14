@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/missing-data-in-r-na/
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
-modified: '2017-05-12'
+modified: '2017-06-14'
 week: 2
 sidebar:
   nav:
@@ -21,6 +21,7 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 This lesson covers how to work with no data values in `R`.
 

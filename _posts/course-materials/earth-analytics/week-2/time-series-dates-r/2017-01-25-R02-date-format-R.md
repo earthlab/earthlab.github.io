@@ -3,7 +3,7 @@ layout: single
 title: "Work With Date - Time formats in R - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in R. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-06-14'
 category: [course-materials]
 class-lesson: ['time-series-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
@@ -22,6 +22,7 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 ## Get started with date formats in R
 
@@ -56,7 +57,8 @@ into a date / time format in R.
 First let's revisit the boulder precip data that we've been working with in
 this module.
 
-```{r import-data, fig.cap="quick plot of precip data"}
+
+```r
 # load the ggplot2 library for plotting
 library(ggplot2)
 
@@ -71,14 +73,24 @@ boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder_precip)
+##     X       DATE PRECIP
+## 1 756 2013-08-21    0.1
+## 2 757 2013-08-26    0.1
+## 3 758 2013-08-27    0.1
+## 4 759 2013-09-01    0.0
+## 5 760 2013-09-09    0.1
+## 6 761 2013-09-10    1.0
 
 qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R02-date-format-R/import-data-1.png" title="quick plot of precip data" alt="quick plot of precip data" width="100%" />
+
 We know how to use `ggplot()` now so let's use that instead.
 
-```{r ggplot-plot, fig.cap="ggplot of precip data" }
+
+```r
 # plot the data using ggplot
 ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   geom_point() +
@@ -86,7 +98,10 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
     y="Total Precipitation (Inches)",
     title="Precipitation Data"
     subtitle="Boulder, Colorado 2013")
-
+## Error: <text>:7:5: unexpected symbol
+## 6:     title="Precipitation Data"
+## 7:     subtitle
+##        ^
 ```
 
 Notice when we plot the data, the x axis is "messy". It would be easier to read
@@ -97,9 +112,13 @@ Let's look closely at the STRUCTURE of the data to understand why R is placing
 so many labels on the x axis.
 
 
-```{r structure}
-str(boulder_precip)
 
+```r
+str(boulder_precip)
+## 'data.frame':	18 obs. of  3 variables:
+##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
+##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
+##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
 ```
 
 
@@ -137,12 +156,14 @@ Note that the Date column in our data.frame is of class character (chr). This
 means that R  is reading it in as letters and numbers rather than dates that
 contain a value that is sequential.
 
-```{r view-class }
+
+```r
 # View data class for each column that we wish to plot
 class(boulder_precip$DATE)
+## [1] "character"
 
 class(boulder_precip$PRECIP)
-
+## [1] "numeric"
 ```
 
 Thus, when we plot, `R` tries to plot EVERY date value in our data, on
@@ -182,31 +203,37 @@ describe the format of a date string in R.
 {: .notice--success}
 
 
-```{r convert-date-time }
+
+```r
 # convert date column to date class
 boulder_precip$DATE <- as.Date(boulder_precip$DATE,
                         format="%Y-%m-%d")
 
 # view R class of data
 class(boulder_precip$DATE)
+## [1] "Date"
 
 # view results
 head(boulder_precip$DATE)
+## [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
+## [6] "2013-09-10"
 ```
 
 Now that we have adjusted the date, let's plot again. Notice that it plots
 much more quickly now that R recognizes `date` as a date class. `R` can
 aggregate ticks on the x-axis by year instead of trying to plot every day!
 
-```{r qplot-data, fig.cap="precip bar plot"}
+
+```r
 # quickly plot the data and include a title using main=""
 # In title string we can use '\n' to force the string to break onto a new line
 
 ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
       geom_bar(stat="identity") +
       ggtitle("Precipitation")
-
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R02-date-format-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="100%" />
 
 
 Now, our plot looks a lot nicer!

@@ -3,7 +3,7 @@ layout: single
 title: "Plot Stream Discharge Data in R"
 excerpt: "This lesson is a challenge exercise that asks you to use all of the skills used during the week 2 set of lessons in the earth analytics course. Here you will import data and subset it to create a final plot of stream discharge over time."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+modified: '2017-06-14'
 category: [course-materials]
 class-lesson: ['time-series-r']
 week: 2
@@ -22,6 +22,7 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 In this data lesson, we explore and visualize stream discharge time series
 data collected by the United States Geological Survey (USGS). You will use everything
@@ -90,16 +91,14 @@ Source: <a href="http://nwis.waterdata.usgs.gov/usa/nwis/peak/?site_no=06730200"
 </figure>
 
 
-```{r echo=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning=FALSE)
 
-```
 
 ## Work with USGS Stream Gage Data
 
 Let's begin by loading our libraries and setting our working directory.
 
-```{r load-libraries}
+
+```r
 # set your working directory
 # setwd("working-dir-path-here")
 
@@ -116,13 +115,20 @@ options(stringsAsFactors = FALSE)
 Let's first import our data using the `read.csv()` function.
 
 
-```{r import-discharge-2 }
+
+```r
 discharge <- read.csv("data/week2/discharge/06730200-discharge-daily-1986-2013.csv",
                       header=TRUE)
 
 # view first 6 lines of data
 head(discharge)
-
+##   agency_cd site_no datetime disValue qualCode
+## 1      USGS 6730200  10/1/86       30        A
+## 2      USGS 6730200  10/2/86       30        A
+## 3      USGS 6730200  10/3/86       30        A
+## 4      USGS 6730200  10/4/86       30        A
+## 5      USGS 6730200  10/5/86       30        A
+## 6      USGS 6730200  10/6/86       30        A
 ```
 
 
@@ -141,26 +147,12 @@ out what format elements you'll need to include to get the date right.
 </div>
 
 
-```{r convert-time, echo=F }
-# convert to date class -
-discharge$datetime <- as.Date(discharge$datetime, format="%m/%d/%y")
 
-# looks like there aren't any no data values to deal with.
-```
 
 
 Your plot should look something like the one below:
 
-```{r plot-flood-data, echo=F, fig.cap="plot of discharge vs time" }
-# check out our date range
-stream_discharge_30yrs  <- ggplot(discharge, aes(datetime, disValue)) +
-              geom_point() +
-              ggtitle("Stream Discharge (CFS) - Boulder Creek, 1986-2016") +
-              xlab("Year") + ylab("Discharge (CFS)")
-
-stream_discharge_30yrs
-
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R04-USGS-Stream-Discharge-In-R/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -175,22 +167,9 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 </div>
 
 
-```{r define-time-subset, echo=F}
-discharge_augSept_2013 <- discharge %>%
-                  filter((datetime >= as.Date('2013-08-15') & datetime <= as.Date('2013-10-15')))
 
-```
 
-```{r plot-challenge, echo=F, fig.cap="ggplot subsetted discharge data"}
-# plot the data - Aug 15-October 15
-stream.discharge_3mo <- ggplot(discharge_augSept_2013,
-          aes(datetime, disValue)) +
-          geom_point() +
-          xlab("Month / Day") + ylab("Discharge (Cubic Feet per Second)") +
-          ggtitle("Daily Stream Discharge (CFS) for Boulder Creek 8/15 - 10/15 2013")
-
-stream.discharge_3mo
-```
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R04-USGS-Stream-Discharge-In-R/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="100%" />
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
