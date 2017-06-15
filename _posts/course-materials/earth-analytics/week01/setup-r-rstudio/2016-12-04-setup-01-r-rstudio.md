@@ -13,6 +13,7 @@ laptop. It also introduces file organization strategies.'
 nav-title: 'Setup RStudio'
 module-nav-title: 'Setup R'
 module-type: 'homework'
+class-order: 1
 week: 1
 sidebar:
   nav:
