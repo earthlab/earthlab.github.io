@@ -93,7 +93,7 @@
         {% assign lesson_count = 0 %}
 
         {% for module in module_names %}
-
+      
         {% assign theLesson = module.class-lesson %}
         {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
           <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>

@@ -12,6 +12,7 @@ module-description: 'This module covers handling date fields in R so you can eff
 module-nav-title: 'Time Series Data in R'
 module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-type: 'class'
+class-order: 2
 course: "earth-analytics"
 week: 2
 sidebar:
@@ -232,7 +233,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
       y="Precipitation (Inches)",
       title="Daily Precipitation (inches)",
       subtitle="Boulder, Colorado 2013")
-## Error in eval(expr, envir, enclos): could not find function "glabs"
+## Error in glabs(x = "Date", y = "Precipitation (Inches)", title = "Daily Precipitation (inches)", : could not find function "glabs"
 ```
 
 
