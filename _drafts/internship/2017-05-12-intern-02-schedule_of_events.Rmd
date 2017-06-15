@@ -1,0 +1,39 @@
+---
+layout: single
+title: "Earth Lab Summer Internship Calendar"
+excerpt: "Summer 2017 Earth Lab Schedule of events"
+authors: ['Mollie Buckland']
+category: [course-materials]
+class-lesson: ['earth-lab-internship']
+permalink: /course-materials/internship/abstract-seminar/
+nav-title: 'Summer Internship Calendar'
+dateCreated: 2017-05-12
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+course: "Internship"
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 2
+topics:
+
+---
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+# Earth Lab Summer 2017 Important Dates
+
+## Assignments
+  * **Friday May 26th** - Electronic copy of internship goals due to Mollie by 
+  the end of the day
+  * **Friday June 30th** - Midterm presentations; electronic copy of presentation
+  and abstract due to Mollie by the end of the day
+  * **Friday August 25th** - Final project presentation session
+
+## Seminars
+  Seminars are still being planned and dates are TBD
+
+## Holidays
+  * **Monday May 20th** - Memorial Day *CAMPUS CLOSED*
+  * **Tuesday July 4th** - Independence Day *CAMPUS CLOSED*
+  

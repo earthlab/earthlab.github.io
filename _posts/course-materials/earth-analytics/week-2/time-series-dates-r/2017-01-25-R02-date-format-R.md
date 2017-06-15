@@ -96,12 +96,9 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   geom_point() +
   glabs(x="Date",
     y="Total Precipitation (Inches)",
-    title="Precipitation Data"
+    title="Precipitation Data",
     subtitle="Boulder, Colorado 2013")
-## Error: <text>:7:5: unexpected symbol
-## 6:     title="Precipitation Data"
-## 7:     subtitle
-##        ^
+## Error in glabs(x = "Date", y = "Total Precipitation (Inches)", title = "Precipitation Data", : could not find function "glabs"
 ```
 
 Notice when we plot the data, the x axis is "messy". It would be easier to read
@@ -198,8 +195,8 @@ Our format string will look like this: `%Y-%m-%d`. Notice that we are telling
 R where to find the year (%Y), month (%m) and day (%d). Also notice that we
 include the dashes that separate each component in each date cell of our data.
 
-NOTE: look up `?strptime` to see all of the date "elements" that you can use to
-describe the format of a date string in R.
+<i class="fa fa-star"></i> **Data Tip:** Look up `?strptime` to see all of the date "elements" that you can use to
+describe the format of a date string in `R`.
 {: .notice--success}
 
 
