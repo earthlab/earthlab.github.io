@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-06-14'
+modified: '2017-06-15'
 week: 2
 sidebar:
   nav:
@@ -20,6 +20,7 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 <div class='notice--success' markdown="1">
 
@@ -41,7 +42,7 @@ directory with it.
 </div>
 
 
-## Vectors and data types
+## Vectors and Data Types
 
 A vector is the most common data structure in `R`. A vector is defined as a
 group of values, which most often are either numbers or characters. You can
@@ -75,7 +76,7 @@ length(animals)
 ## [1] 3
 ```
 
-## Vector data types
+## Vector Data Types
 
 An important feature of a vector, is that all of the elements are the same data
 type. The function `class()` shows us the class (the data type) of an object:
@@ -117,7 +118,7 @@ weight_g
 In the examples above, we saw 2 of the 6 **atomic vector** types that `R` uses:
 
 1. `"character"` and
-2. `"numeric"`.
+2. `"numeric"`
 
 These are the basic data tpes that all `R` objects are built
 from. The other 4 are:
@@ -128,7 +129,7 @@ from. The other 4 are:
   `1+4i`) and that's all we're going to say about them
 * `"raw"` that we won't discuss further
 
-## Data type vs. data structure
+## Data Type vs. Data Structure
 Vectors are one of the many **data structures** that `R` uses. Other important
 ones include: lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
 factors (`factor`). We will look at `data.frames` when we open our `boulder_precip`
@@ -166,7 +167,7 @@ tricky <- c(1, 2, 3, '4')
 
 
 
-## Subsetting vectors
+## Subsetting Vectors
 
 If we want to extract one or several values from a vector, we must provide one
 or several indices in square brackets. For instance:

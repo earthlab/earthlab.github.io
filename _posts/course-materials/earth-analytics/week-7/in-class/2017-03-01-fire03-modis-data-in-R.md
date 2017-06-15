@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS remote sensing data in in R."
 excerpt: "In this lesson we will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. We will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-05-12'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /course-materials/earth-analytics/week-7/modis-data-in-R/
@@ -46,6 +46,9 @@ data for week 6 of the course.
 
 
 
+```
+## Error in library(rgeos): there is no package called 'rgeos'
+```
 
 First, let's import MODIS data. Below notice that we have used a slightly different
 version of the `list.files()` `pattern=` argument.

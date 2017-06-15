@@ -4,7 +4,7 @@ title: "Crop a spatial raster dataset using a shapefile in R."
 excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-06-02'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/crop-raster-data-in-r/

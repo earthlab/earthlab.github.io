@@ -3,7 +3,7 @@ layout: single
 title: "Work With Date - Time formats in R - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in R. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-06-14'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['time-series-r']
 permalink: /course-materials/earth-analytics/week-2/date-class-in-r/
@@ -22,7 +22,6 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
 
 ## Get started with date formats in R
 
@@ -96,9 +95,12 @@ ggplot(data=boulder_precip, aes(x=DATE, y=PRECIP)) +
   geom_point() +
   glabs(x="Date",
     y="Total Precipitation (Inches)",
-    title="Precipitation Data",
+    title="Precipitation Data"
     subtitle="Boulder, Colorado 2013")
-## Error in glabs(x = "Date", y = "Total Precipitation (Inches)", title = "Precipitation Data", : could not find function "glabs"
+## Error: <text>:7:5: unexpected symbol
+## 6:     title="Precipitation Data"
+## 7:     subtitle
+##        ^
 ```
 
 Notice when we plot the data, the x axis is "messy". It would be easier to read
@@ -195,8 +197,8 @@ Our format string will look like this: `%Y-%m-%d`. Notice that we are telling
 R where to find the year (%Y), month (%m) and day (%d). Also notice that we
 include the dashes that separate each component in each date cell of our data.
 
-<i class="fa fa-star"></i> **Data Tip:** Look up `?strptime` to see all of the date "elements" that you can use to
-describe the format of a date string in `R`.
+NOTE: look up `?strptime` to see all of the date "elements" that you can use to
+describe the format of a date string in R.
 {: .notice--success}
 
 

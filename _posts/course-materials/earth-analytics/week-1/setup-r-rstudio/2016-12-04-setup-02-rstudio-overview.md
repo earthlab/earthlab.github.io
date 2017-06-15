@@ -6,7 +6,7 @@ title: 'Get to Know RStudio'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'This tutorial walks you through downloading and installing R and RStudio on your computer.'
 dateCreated: 2016-12-12
-modified: '2017-04-21'
+modified: '2017-06-15'
 nav-title: 'RStudio Intro'
 week: 1
 sidebar:
@@ -29,7 +29,7 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
-* Be able to describe the main use for each of the 4 main 4 panes in the `RStudio` interface
+* Be able to describe the main use for each of the four main panes in the `RStudio` interface
 
 </div>
 
@@ -39,7 +39,7 @@ Let's explore [RStudio](https://www.rstudio.com/), the Integrated Development
 Environment (IDE) that we will use to write code, navigate files on our computer,
 inspect variables and more. The RStudio IDE open source product is free under the [Affero General Public License (AGPL) v3](https://www.gnu.org/licenses/agpl-3.0.en.html).
 
-When you first open it, the `RStudio` interface is divided into 4 "Panes" as
+When you first open it, the `RStudio` interface is divided into four "Panes" as
 described below:
 
 1. Top LEFT: the **editor** where you edit scripts, documents and can "send" code to run in the console,
@@ -76,10 +76,10 @@ follow. When we run a program, we tell the computer to follow those instructions
 We write, or *code*, instructions in `R` because it is a common language that
 both the computer and we can understand.
 
-### Definitions To Remember
+### Definitions to Remember
 
 * **COMMANDS**: the "instructions" that we tell the computer to follow
-* **EXECUTE** a program: (also called *running*). When we execute a program, we
+* **EXECUTE**: (also called *running*). When we execute a program, we
 are telling the computer to run it.
 
 ## Scripts vs. Console vs. R Markdown
@@ -93,7 +93,7 @@ The main benefit of using scripts is it allows us to save our workflow. We want
 our code and workflow to be reproducible so that anyone (including ourselves)
 can easily replicate the workflow at a later time.
 
-### Why use the console
+### Why Use the Console
 The console pane (in `RStudio`, the bottom left panel) is the place where `R` is
 waiting for you to tell it what to do, and where it will show the results of a
 command that has been executed. You can type commands directly into the console

@@ -7,7 +7,7 @@ category: [course-materials]
 permalink: /course-materials/internship/
 nav-title: 'Syllabus'
 dateCreated: 2017-05-10
-modified: '2017-05-12'
+modified: '2017-06-15'
 module-title: 'Earth Lab Undergraduate Internship '
 module-nav-title: 'Internship'
 module-description: 'The Earth Lab internship provides undergraduate students at the University of

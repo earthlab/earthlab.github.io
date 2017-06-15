@@ -4,7 +4,7 @@ title: "How to create an R Markdown file in R Studio and the R Markdown file str
 excerpt: 'The R Markdown file structure includes a YAML header at the top followed by a combination of R (or any other language) code and markdown formatted text. This tutorial covers how to create an R Markdown file in R and then
 render it to html using knitr. Further it covers the basics of the YAML syntax.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-05-12'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-to-the-rmarkdown-format-and-knitr/
@@ -63,7 +63,7 @@ full screen mode.
 Now that you see how R Markdown can be used in RStudio, you are
 ready to create your own `.RMD` document. Do the following:
 
-1. Using the Create a new R Markdown file and choose HTML as the desired output format.
+1. Create a new R Markdown file and choose HTML as the desired output format.
 2. Enter a Title (Earth Analytics Week 1) and Author Name (your name). Then click OK.
 3. Save the file using the following format: **FirstInitial-LastName-week-1.Rmd**
 NOTE: The document title is not the same as the file name.
@@ -94,7 +94,7 @@ Next, let's break down the structure of an R Markdown file.
 	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png">
 	<img src="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/intro-knitr-rmd/NewRmd-html-screenshot.png" alt="create new rmd document"></a>
 	<figcaption>Screenshot of a new R Markdown document in RStudio. Checkout the three
-  types of information: 1. the YAML header at the very top 2:. Chunks of r code
+  types of information: 1. the YAML header at the very top 2. Chunks of r code
   separated by <code>```</code> and 3. Text written using markdown syntax.
 	</figcaption>
 </figure>
@@ -108,8 +108,8 @@ can change the appearance of your RStudio by **Tools** > **Options**
 
 There are three parts to an `.RMD` file:
 
-* **Header:** the text at the top of the document, written in *YAML* format.
-* **Markdown sections:** text that describes your workflow written using *markdown syntax*.
+* **Header:** The text at the top of the document, written in *YAML* format.
+* **Markdown sections:** Text that describes your workflow written using *markdown syntax*.
 * **Code chunks:** Chunks of R code that can be run and also can be rendered
 using `knitr` to an output document.
 

@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-06-14'
+modified: '2017-06-15'
 week: 2
 sidebar:
   nav:
@@ -23,13 +23,14 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* Be able to create, modify and use objects or variables in `R`.
-* Be able to define the key differences between the str (string) and num (number) classes in `R` in terms of how R can or can not perform calculations with each.
+* Create, modify and use objects or variables in `R`.
+* Define the key differences between the str (string) and num (number) classes in `R` in terms of how R can or can not perform calculations with each.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -43,10 +44,10 @@ directory with it.
 </div>
 
 
-## Creating objects
+## Creating Objects
 
 You can get output from `R` by typing a mathematical equation into the console -
-For example, if you type in `3 + 5`, `R` will calculate the output value.
+For example, if you type in `3 + 5`, `R` will calculate the output value:
 
 
 ```r
@@ -80,12 +81,12 @@ objects to ensure your code is easy to follow.
 We will discuss best practicing for coding in this module - in the [clean coding
 lesson](/course-materials/earth-analytics/week-2/write-clean-code-with-r/).
 
-1. **Keep object names short:** this makes them easier to read when scanning through code.
-2. **Use meaningful names:** For example: `precip` is a more useful name that tells us something about the object compared to `x`
+1. **Keep object names short:** This makes them easier to read when scanning through code.
+2. **Use meaningful names:** For example: `precip` is a more useful name that tells us something about the object compared to `x`.
 3. **Don't start names with numbers!** Objects that start with a number are NOT VALID in R.
 4. **Avoid names that are existing functions in R:** e.g.,
 `if`, `else`, `for`, see
-[here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
+[here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html).
 
 A few other notes about object names in `R`:
 
@@ -94,7 +95,7 @@ A few other notes about object names in `R`:
 * Use nouns for variable names, and verbs for function names.
 * Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning in R (for methods) and other programming languages. Instead use underscores `my_dataset`.
 
-## View object value
+## View Object Value
 When assigning a value to an object, `R` does not print anything. You can force
 it to print the value by using parentheses or by typing the name:
 
@@ -148,7 +149,7 @@ What do you think is the current content of the object `weight_lb`? 126.5 or 200
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge activity
 
-What are the values of each object defined in EACH LINE OF code below?
+What are the values of each object defined in EACH LINE of code below?
 
 
 ```r

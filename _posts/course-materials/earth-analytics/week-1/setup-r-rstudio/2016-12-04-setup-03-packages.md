@@ -6,7 +6,7 @@ title: 'Install & Use Packages in R'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Packages are sets of functions that perform tasks that help us work with various data structures in R. This tutorial walks you through installing and loading R packages R in RStudio.'
 dateCreated: 2016-12-12
-modified: '2017-04-21'
+modified: '2017-06-15'
 nav-title: 'Install Packages'
 week: 1
 sidebar:
@@ -42,7 +42,7 @@ At the end of this activity, you will:
 ## What is a Package?
 
 A package, in `R` is a bundle of pre-built functionality. Think of it like a
-toolbox. Except for the tools, may do things like calculate a mathematical function
+toolbox. Except for the tools may do things like calculate a mathematical function
 e.g. `sum` or create a plot.
 
 ## Install a Package
@@ -63,7 +63,7 @@ install.packages("rmarkdown")
 install.packages("ggplot2")
 ```
 
-<i class="fa fa-star"></i> **Data Tip** You can install as many packages as you one in one string of code as follows
+<i class="fa fa-star"></i> **Data Tip** You can install as many packages as you want in one string of code as follows
 `install.packages(c("name-one", "name-two"))`
 {: .notice--success}
 
@@ -79,7 +79,7 @@ library(ggplot2)
 
 ```
 Note that you don't need to use quotes around the package name when you call it
-using the `library()` function. But you do need the quotes when you install a
+using the `library()` function. But you do need the quotes when you install a package.
 
 
 In our case, the `knitr` and `rmarkdown` packages load buttons and options within

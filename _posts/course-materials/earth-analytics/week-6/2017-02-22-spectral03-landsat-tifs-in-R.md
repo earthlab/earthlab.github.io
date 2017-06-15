@@ -3,7 +3,7 @@ layout: single
 title: "Landsat remote sensing tif files in R"
 excerpt: "In this lesson we will cover the basics of using LAndsat 7 and 8 in R. We will learn how to import landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally we will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-05-12'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/landsat-bands-geotif-in-R/
@@ -152,6 +152,7 @@ Now that we understand how our file is named.
 library(raster)
 library(rgdal)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 # turn off factors
 options(stringsAsFactors = F)
 ```

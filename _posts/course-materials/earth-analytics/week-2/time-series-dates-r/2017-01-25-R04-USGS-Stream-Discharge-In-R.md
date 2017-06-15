@@ -3,7 +3,7 @@ layout: single
 title: "Plot Stream Discharge Data in R"
 excerpt: "This lesson is a challenge exercise that asks you to use all of the skills used during the week 2 set of lessons in the earth analytics course. Here you will import data and subset it to create a final plot of stream discharge over time."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-06-14'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['time-series-r']
 week: 2
@@ -22,7 +22,6 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
 
 In this data lesson, we explore and visualize stream discharge time series
 data collected by the United States Geological Survey (USGS). You will use everything

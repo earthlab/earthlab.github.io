@@ -3,7 +3,7 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-06-01'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/interactive-time-series-plots-in-r/
@@ -55,7 +55,9 @@ First, we will load all of the needed libraries.
 # load libraries
 library(ggplot2)
 library(xts)
+## Error in library(xts): there is no package called 'xts'
 library(dygraphs)
+## Error in library(dygraphs): there is no package called 'dygraphs'
 library(plotly)
 
 options(stringsAsFactors = FALSE)
@@ -120,13 +122,15 @@ work with html!
 ```r
 # interactive time series
 library(dygraphs)
+## Error in library(dygraphs): there is no package called 'dygraphs'
 # create time series objects (class xs)
 library(xts)
+## Error in library(xts): there is no package called 'xts'
 
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)
-
+## Error in xts(x = discharge_time$disValue, order.by = discharge_time$datetime): could not find function "xts"
 ```
 
 Then you can call the dygraph() function to create your interactive time-series plot.

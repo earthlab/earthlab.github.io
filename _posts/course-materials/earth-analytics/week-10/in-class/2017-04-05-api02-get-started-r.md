@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-05-12'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['intro-APIs-r']
 permalink: /course-materials/earth-analytics/week-10/get-data-with-rcurl-r/
@@ -45,6 +45,7 @@ data that we already downloaded for week 6 of the course.
 library(dplyr)
 library(ggplot2)
 library(RCurl)
+## Error in library(RCurl): there is no package called 'RCurl'
 ```
 
 ## Direct data access
