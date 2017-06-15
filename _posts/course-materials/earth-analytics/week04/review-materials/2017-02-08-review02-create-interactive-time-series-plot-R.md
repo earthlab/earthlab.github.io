@@ -55,9 +55,7 @@ First, we will load all of the needed libraries.
 # load libraries
 library(ggplot2)
 library(xts)
-## Error in library(xts): there is no package called 'xts'
 library(dygraphs)
-## Error in library(dygraphs): there is no package called 'dygraphs'
 library(plotly)
 
 options(stringsAsFactors = FALSE)
@@ -87,7 +85,7 @@ annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
 annual_precip
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/review-materials/2017-02-08-review02-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-08-review02-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="100%" />
 
 ## Time series - Plotly
 
@@ -122,15 +120,13 @@ work with html!
 ```r
 # interactive time series
 library(dygraphs)
-## Error in library(dygraphs): there is no package called 'dygraphs'
 # create time series objects (class xs)
 library(xts)
-## Error in library(xts): there is no package called 'xts'
 
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)
-## Error in xts(x = discharge_time$disValue, order.by = discharge_time$datetime): could not find function "xts"
+
 ```
 
 Then you can call the dygraph() function to create your interactive time-series plot.

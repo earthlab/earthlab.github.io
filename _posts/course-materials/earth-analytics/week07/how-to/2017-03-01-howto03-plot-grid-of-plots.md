@@ -47,7 +47,6 @@ data for week 6/7 of the course.
 # load libraries
 library(raster)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(rgdal)
 ```
 
@@ -115,7 +114,7 @@ box(col="white") # turn all of the lines to white
 title("My Title", outer=TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="100%" />
 
 Above, we added an overall title to our grid of plots using the `title()` function.
 However the title is chopped of because there is not enough of a margin at the
@@ -166,7 +165,7 @@ box(col="white") # turn all of the lines to white
 title("My Title", outer=TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
 
 When you are done with plotting in a grid space, be sure to reset your plot space
 using `dev.off()`.
@@ -182,4 +181,4 @@ Your homework this week should look something like this:
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="100%" />

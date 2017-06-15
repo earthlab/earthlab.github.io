@@ -108,7 +108,10 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
+## rgeos version: 0.3-23, (SVN revision 546)
+##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
+##  Linking to sp version: 1.2-4 
+##  Polygon checking: TRUE
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -342,7 +345,7 @@ plot(sjer_plot_locations, col="blue",
      main="SJER Plot Locations\nMadera County, CA")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -385,7 +388,7 @@ plot(sjer_plot_locations,
   col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="100%" />
 
 
 <div class="notice--warning" markdown="1">

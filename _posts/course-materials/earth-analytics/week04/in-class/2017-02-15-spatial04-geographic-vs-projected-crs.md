@@ -105,7 +105,7 @@ Equator (0° latitude) and Prime Meridian (0° longitude) on the globe.
 
 Let's remind ourselves what data projects in a geographic CRS look like.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title="wgs 84 plot" alt="wgs 84 plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title="wgs 84 plot" alt="wgs 84 plot" width="100%" />
 
 
 <i class="fa fa-star"></i> **Data Note:** The distance between the 2 degrees of
@@ -211,7 +211,7 @@ ggplot() +
                       size=5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-wgs842-1.png" title="Plot location - wgs84" alt="Plot location - wgs84" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-wgs842-1.png" title="Plot location - wgs84" alt="Plot location - wgs84" width="100%" />
 
 ```r
 # convert to spatial points
@@ -262,7 +262,7 @@ worldMap +
         aes(x=lon, y=lat, group=NULL), colour = "springgreen", size=5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-world-map-1.png" title="global map in wgs84 with points" alt="global map in wgs84 with points" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-world-map-1.png" title="global map in wgs84 with points" alt="global map in wgs84 with points" width="100%" />
 
 
 

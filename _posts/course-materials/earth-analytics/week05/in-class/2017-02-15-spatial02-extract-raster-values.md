@@ -51,7 +51,6 @@ You will need a computer with internet access to complete this lesson and the da
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(ggplot2)
 library(dplyr)
 
@@ -90,7 +89,7 @@ hist(SJER_chm,
 ## 0% of the raster cells were used. 100000 values used.
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial02-extract-raster-values/import-chm-1.png" title="Histogram of CHM values" alt="Histogram of CHM values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/import-chm-1.png" title="Histogram of CHM values" alt="Histogram of CHM values" width="100%" />
 
 
 There are a lot of values in our CHM that == 0. Let's set those to `NA` and plot
@@ -109,7 +108,7 @@ hist(SJER_chm,
      xlab="Height (m)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial02-extract-raster-values/view-histogram-na-0-1.png" title="histogram of chm values" alt="histogram of chm values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/view-histogram-na-0-1.png" title="histogram of chm values" alt="histogram of chm values" width="100%" />
 
 ## Part 2. Does our CHM data compare to field measured tree heights?
 
@@ -146,7 +145,7 @@ plot(SJER_plots,
      add=TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial02-extract-raster-values/read-plot-data-1.png" title="canopy height model / plot locations plot" alt="canopy height model / plot locations plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/read-plot-data-1.png" title="canopy height model / plot locations plot" alt="canopy height model / plot locations plot" width="100%" />
 
 ### Extract CMH data within 20 m radius of each plot centroid.
 
@@ -347,7 +346,7 @@ legend(SJER_chm@extent@xmax+250,
        bty='n')
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial02-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="100%" />
 
 
 ### Plot Data (CHM vs Measured)
@@ -366,7 +365,7 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
   ggtitle("Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height (m)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="100%" />
 
 Next, let's fix the plot adding a 1:1 line and making the x and y axis the same .
 
@@ -383,7 +382,7 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
   ggtitle("Lidar Derived Tree Height \nvs. InSitu Measured Tree Height")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot2-1.png" title="ggplot - measured vs lidar chm w one to one line." alt="ggplot - measured vs lidar chm w one to one line." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot2-1.png" title="ggplot - measured vs lidar chm w one to one line." alt="ggplot - measured vs lidar chm w one to one line." width="100%" />
 
 We can also add a regression fit to our plot. Explore the GGPLOT options and
 customize your plot.
@@ -406,7 +405,7 @@ p + theme(panel.background = element_rect(colour = "grey")) +
   theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial02-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="100%" />
 
 
 ## View Difference: lidar vs measured
@@ -425,7 +424,7 @@ ggplot(data=SJER_height@data,
        xlab("Plot Name") + ylab("Height difference (m)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial02-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
 
 ```r
        ggtitle("Difference: \nLidar avg height - in situ avg height (m)")

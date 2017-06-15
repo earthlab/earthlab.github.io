@@ -85,7 +85,6 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 library(rgdal)
 library(raster)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
@@ -144,7 +143,7 @@ plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial06-reproject-vector-data-R/find-coordinates-1.png" title="Plot of the continental united states." alt="Plot of the continental united states." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/find-coordinates-1.png" title="Plot of the continental united states." alt="Plot of the continental united states." width="100%" />
 
 ## U.S. Boundary Layer
 
@@ -185,7 +184,7 @@ plot(country_boundary_us,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial06-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="100%" />
 
 Next, let's add the location of our study area sites.
 As we are adding these layers, take note of the class of each object. We will use
@@ -212,7 +211,7 @@ plot(sjer_aoi,
      main="San Joachin Experimental Range AOI")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial06-reproject-vector-data-R/explore-units-1.png" title="plot aoi" alt="plot aoi" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/explore-units-1.png" title="plot aoi" alt="plot aoi" width="100%" />
 
 Our SJER AOI layer plots nicely. Let's next add it as a layer on top of the U.S. states and boundary
 layers in our basemap plot.
@@ -237,7 +236,7 @@ plot(sjer_aoi,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial06-reproject-vector-data-R/layer-point-on-states-1.png" title="plot states" alt="plot states" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/layer-point-on-states-1.png" title="plot states" alt="plot states" width="100%" />
 
 What do you notice about the resultant plot? Do you see the AOI boundary in the California area? Is something wrong?
 
@@ -423,7 +422,7 @@ plot(sjer_aoi_WGS84,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-again-1.png" title="US Map with SJER AOI Location" alt="US Map with SJER AOI Location" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-again-1.png" title="US Map with SJER AOI Location" alt="US Map with SJER AOI Location" width="100%" />
 
 But now, the aoi is a polygon and it's too small to see on the map. Let's convert
 the polygon to a polygon CENTROID and plot yet again.
@@ -448,7 +447,7 @@ plot(country_boundary_us,
 points(aoi_centroid, pch=8, col="magenta", cex=1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-centroid-1.png" title="figure out AOI polygon centroid." alt="figure out AOI polygon centroid." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-centroid-1.png" title="figure out AOI polygon centroid." alt="figure out AOI polygon centroid." width="100%" />
 
 Reprojecting our data ensured that things line up on our map! It will also
 allow us to perform any required geoprocessing (spatial calculations /
@@ -478,12 +477,7 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 </div>
 
-
-```
-## Error: requireNamespace("rgeos") is not TRUE
-```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial06-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
 
 
 

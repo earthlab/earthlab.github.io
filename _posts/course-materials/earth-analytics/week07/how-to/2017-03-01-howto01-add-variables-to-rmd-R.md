@@ -46,9 +46,6 @@ data for week 6 of the course.
 
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 ## Automating report content
 

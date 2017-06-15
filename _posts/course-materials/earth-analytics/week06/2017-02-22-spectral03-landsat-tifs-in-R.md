@@ -152,7 +152,6 @@ Now that we understand how our file is named.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 # turn off factors
 options(stringsAsFactors = F)
 ```
@@ -268,7 +267,7 @@ plot(landsat_band2,
      col=gray(0:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral03-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="100%" />
 
 However, that is not a very efficient approach.
 It's more efficiently to open all of the layers together as a stack. Then we can
@@ -299,7 +298,7 @@ plot(landsat_stack_csf,
      col=gray(20:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral03-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="100%" />
 
 
 
@@ -319,7 +318,7 @@ plot(landsat_stack_csf,
      col=gray(20:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral03-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="100%" />
 
 ## Plot RGB image
 
@@ -338,7 +337,7 @@ plotRGB(landsat_stack_csf,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral03-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="100%" />
 
 Now we've created a red, green blue color composite image. Remember this is what
 our eye would see. What happens if we plot the near infrared band instead of red?
@@ -356,7 +355,7 @@ plotRGB(landsat_stack_csf,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral03-landsat-tifs-in-R/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="100%" />
 
 
 <div class="notice--warning" markdown="1">

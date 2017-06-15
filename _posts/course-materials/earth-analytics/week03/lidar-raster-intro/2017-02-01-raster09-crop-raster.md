@@ -85,7 +85,7 @@ plot(lidar_chm,
      col=rev(terrain.colors(50)))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster09-crop-raster/open-raster-1.png" title="lidar chm plot" alt="lidar chm plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster09-crop-raster/open-raster-1.png" title="lidar chm plot" alt="lidar chm plot" width="100%" />
 
 ## Open vector layer
 
@@ -117,7 +117,7 @@ plot(crop_extent,
      border="blue")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster09-crop-raster/plot-w-legend-1.png" title="shapefile crop extent plot" alt="shapefile crop extent plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster09-crop-raster/plot-w-legend-1.png" title="shapefile crop extent plot" alt="shapefile crop extent plot" width="100%" />
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/spatial_extent.png">
@@ -144,7 +144,7 @@ plot(lidar_chm_crop, main="Cropped lidar chm")
 plot(crop_extent, add=T)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster09-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster09-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="100%" />
 
 <div class="notice--warning" markdown="1">
 

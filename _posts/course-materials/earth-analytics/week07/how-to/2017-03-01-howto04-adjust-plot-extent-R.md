@@ -56,9 +56,6 @@ data for week 6 of the course.
 
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 
 
@@ -81,7 +78,7 @@ plotRGB(all_landsat_bands_st,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-landsat-1.png" title="landsat plot" alt="landsat plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-landsat-1.png" title="landsat plot" alt="landsat plot" width="100%" />
 
 ## Adjust plot extent
 
@@ -117,4 +114,4 @@ box(col="white")
 plot(fire_boundary_utm, add=T)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-with-boundary-1.png" title="Plot with the fire boundary" alt="Plot with the fire boundary" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-with-boundary-1.png" title="Plot with the fire boundary" alt="Plot with the fire boundary" width="100%" />

@@ -185,7 +185,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/get-to-know-r/2017-01-25-R05-spreadsheet-data-r/quick-plot-1.png" title="plot precipitation data" alt="plot precipitation data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/get-to-know-r/2017-01-25-R05-spreadsheet-data-r/quick-plot-1.png" title="plot precipitation data" alt="plot precipitation data" width="100%" />
 
 <div class="notice--warning" markdown="1">
 

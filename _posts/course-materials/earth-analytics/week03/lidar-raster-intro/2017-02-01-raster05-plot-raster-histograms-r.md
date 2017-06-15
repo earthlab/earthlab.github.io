@@ -81,7 +81,7 @@ plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/load-libraries-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/load-libraries-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
 
 ## Raster Histograms - distribution of elevation values
 
@@ -104,7 +104,7 @@ hist(lidar_dem,
      col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
 
 ## What does a histogram tell us?
 
@@ -126,7 +126,7 @@ hist(lidar_dem,
      col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist2-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist2-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
 
 Alternatively, we can specify specific break points that we want `R` to use when it
 bins the data.
@@ -151,7 +151,7 @@ hist(lidar_dem,
      col="wheat3")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist3-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/view-hist3-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -169,7 +169,7 @@ crs() and xres()  / yres() -->
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/class-challenge-1.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" /><img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/class-challenge-2.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/class-challenge-1.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" /><img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-plot-raster-histograms-r/class-challenge-2.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="100%" />
 
 <div class="notice--info" markdown="1">
 

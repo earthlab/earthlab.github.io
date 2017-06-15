@@ -153,23 +153,20 @@ data to be emailed to your account. Order now!
 In this case, I downloaded a scene very close to Julian day 189.
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 ## Import new scene
 
 First, let's import our new data and create a raster stack. The code is hidden
 because you already know how to do this!
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="100%" />
 
 Next I plotted the fire boundary extent on top of my landsat image.
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="100%" />
 
 It's hard to see but can you see the tiny YELLOW outline of our study area? This
 landsat scene is MUCH larger than our study area. We have 2 options
@@ -180,7 +177,7 @@ landsat scene is MUCH larger than our study area. We have 2 options
 Below i've plotted the cloud mask for the data that I downloaded. It looks like
 the data in our study area are cloud free. How do I know that?
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="100%" />
 
 
 
@@ -189,7 +186,7 @@ barplot(cloud_mask_173_crop,
      main="cloud mask values \n all 0's")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/cloud-mask-barplot-1.png" title="view cloud mask values" alt="view cloud mask values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/cloud-mask-barplot-1.png" title="view cloud mask values" alt="view cloud mask values" width="100%" />
 
 
 Given our data are all 0's we can assume we downloaded the right scene! There
@@ -211,7 +208,7 @@ plot(fire_boundary_utm,
      border="yellow")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="100%" />
 
 Now we can proceed to calculate NBR on the pre-fire landsat image. How does it
 look?

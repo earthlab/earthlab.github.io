@@ -63,11 +63,9 @@ function will become more valuable to us as we parse data accessed from an API.
 #devtools::install_github("dkahle/ggmap")
 #devtools::install_github("hadley/ggplot2")
 library(ggmap)
-## Error in library(ggmap): there is no package called 'ggmap'
 library(ggplot2)
 library(dplyr)
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 ```
 
 

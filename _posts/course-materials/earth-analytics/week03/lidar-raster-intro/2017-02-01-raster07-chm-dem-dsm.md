@@ -115,7 +115,7 @@ plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster07-chm-dem-dsm/dem-1.png" title="digital elevation model plot" alt="digital elevation model plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster07-chm-dem-dsm/dem-1.png" title="digital elevation model plot" alt="digital elevation model plot" width="100%" />
 
 Next, let's open the digital SURFACE model (DSM). The DSM represents the top of
 the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that
@@ -131,7 +131,7 @@ plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster07-chm-dem-dsm/dsm-1.png" title="digital surface model plot" alt="digital surface model plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster07-chm-dem-dsm/dsm-1.png" title="digital surface model plot" alt="digital surface model plot" width="100%" />
 
 ## Canopy Height Model
 
@@ -162,7 +162,7 @@ plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster07-chm-dem-dsm/chm-1.png" title="canopy height model plot" alt="canopy height model plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster07-chm-dem-dsm/chm-1.png" title="canopy height model plot" alt="canopy height model plot" width="100%" />
 
 ## Plots Using Breaks
 
@@ -182,7 +182,7 @@ plot(lidar_chm,
      col=c("white","brown","springgreen","darkgreen"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster07-chm-dem-dsm/chm-breaks-1.png" title="canopy height model breaks" alt="canopy height model breaks" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster07-chm-dem-dsm/chm-breaks-1.png" title="canopy height model breaks" alt="canopy height model breaks" width="100%" />
 
 ## Export a raster
 

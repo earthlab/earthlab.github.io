@@ -45,10 +45,8 @@ You will need a computer with internet access to complete this lesson.
 library(dplyr)
 library(ggplot2)
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 library(jsonlite)
 library(leaflet)
-## Error in library(leaflet): there is no package called 'leaflet'
 ```
 
 
@@ -104,9 +102,7 @@ base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
 full_url <- paste0(base_url, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
-## Error in getURL(URLencode(full_url)): could not find function "getURL"
 water_data_df <- fromJSON(water_data)
-## Error in fromJSON(water_data): object 'water_data' not found
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 
@@ -136,11 +132,8 @@ below provides an example of creating the same map without using pipes.
 
 ```r
 map <- leaflet(water_data_df)
-## Error in leaflet(water_data_df): could not find function "leaflet"
 map <- addTiles(map)
-## Error in addTiles(map): could not find function "addTiles"
 map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
-## Error in addCircleMarkers(map, lng = ~location.longitude, lat = ~location.latitude): could not find function "addCircleMarkers"
 ```
 
 
@@ -196,11 +189,11 @@ a series of text strings and object values.
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
 ## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"
-## [2] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                         
-## [3] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                            
-## [4] "BONUS DITCH<br/>Discharge: 0.04"                                      
-## [5] "CLOUGH AND TRUE DITCH<br/>Discharge: 4.34"                            
-## [6] "DAVIS AND DOWNING DITCH<br/>Discharge: 5.88"
+## [2] "MIDDLE SAINT VRAIN AT PEACEFUL VALLEY<br/>Discharge: 194"             
+## [3] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                         
+## [4] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                            
+## [5] "BONUS DITCH<br/>Discharge: 0.04"                                      
+## [6] "CLOUGH AND TRUE DITCH<br/>Discharge: 4.34"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our

@@ -46,9 +46,6 @@ data for week 6 of the course.
 
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 First, let's import MODIS data. Below notice that we have used a slightly different
 version of the `list.files()` `pattern=` argument.
@@ -160,7 +157,7 @@ mtext("Distribution of MODIS reflectance values for each band\n Data not scaled"
       outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
 
 
 
@@ -185,7 +182,7 @@ hist(all_modis_bands_st_july7,
 mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="100%" />
 
 Great - now the range of values in our data appear more reasonable. Next, let's
 get rid of data that are outside of the valid data range.
@@ -212,7 +209,7 @@ hist(all_modis_bands_st_july7,
 mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="100%" />
 
 
 
@@ -235,7 +232,7 @@ Why is it so hard to figure out where the study area is in this MODIS image?
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="100%" />
 
 ## MODIS cloud mask
 
@@ -267,18 +264,18 @@ Set all values >0 in the cloud cover layer to `NA`.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="100%" />
 
 
 
 Plot the masked data. Notice that now the clouds are gone as they have been assigned
 the value `NA`.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="100%" />
 
 Finally crop the data to see just the pixels that overlay our study area.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="100%" />
 
 
 | SEVERITY LEVEL  | NBR RANGE |
@@ -291,7 +288,7 @@ Finally crop the data to see just the pixels that overlay our study area.
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="100%" />
 
 After we've calculated NBR, we may want to calculate total burn AREA. We can do
 this using the `freq()` function in R. This function gives us the total number
@@ -336,7 +333,7 @@ plotRGB(all_modis_bands_st_mask_july17,
 box(col="white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="100%" />
 
 Next we calculate NBR on our post fire data. Then we can crop and finally
 plot the final results!
@@ -355,13 +352,13 @@ barplot(modis_nbr_july17_cl,
         names.arg=c("Low Severity","Moderate Severity","High Severity"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="100%" />
 
 
 Finally, plot the reclassified data. Note that we only have 3 classes: 2, 3 and 4.
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/in-class/2017-03-01-fire03-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="100%" />
 
 
 

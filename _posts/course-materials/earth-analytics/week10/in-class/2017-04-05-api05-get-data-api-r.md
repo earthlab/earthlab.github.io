@@ -64,14 +64,11 @@ a data.frame.
 #devtools::install_github("dkahle/ggmap")
 #devtools::install_github("hadley/ggplot2")
 library(ggmap)
-## Error in library(ggmap): there is no package called 'ggmap'
 library(ggplot2)
 library(dplyr)
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 library(jsonlite)
 library(RCurl)
-## Error in library(RCurl): there is no package called 'RCurl'
 ```
 
 
@@ -194,15 +191,15 @@ that is in the rjson package.
 
 ```r
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 
 # Convert JSON to data frame
 pop_proj_data_df <- fromJSON(getURL(full_url))
-## Error in getURL(full_url): could not find function "getURL"
 head(pop_proj_data_df, n = 2)
-## Error in head(pop_proj_data_df, n = 2): object 'pop_proj_data_df' not found
+##   age femalepopulation year
+## 1  20             2751 1990
+## 2  21             2615 1990
 typeof(pop_proj_data_df)
-## Error in typeof(pop_proj_data_df): object 'pop_proj_data_df' not found
+## [1] "list"
 ```
 
 
@@ -243,7 +240,10 @@ with them quantitatively?
 ```r
 # view data structure
 str(pop_proj_data_df)
-## Error in str(pop_proj_data_df): object 'pop_proj_data_df' not found
+## 'data.frame':	1000 obs. of  3 variables:
+##  $ age             : chr  "20" "21" "22" "23" ...
+##  $ femalepopulation: chr  "2751" "2615" "2167" "1798" ...
+##  $ year            : chr  "1990" "1990" "1990" "1990" ...
 ```
 
 
@@ -269,10 +269,12 @@ Because we are using this function in a pipe, our code looks like this:
 # turn columns to numeric and remove NA values
 pop_proj_data_df <- pop_proj_data_df %>%
  mutate_at(c( "age", "year", "femalepopulation"), as.numeric)
-## Error in eval(lhs, parent, parent): object 'pop_proj_data_df' not found
 
 str(pop_proj_data_df)
-## Error in str(pop_proj_data_df): object 'pop_proj_data_df' not found
+## 'data.frame':	1000 obs. of  3 variables:
+##  $ age             : num  20 21 22 23 24 25 26 27 28 29 ...
+##  $ femalepopulation: num  2751 2615 2167 1798 1692 ...
+##  $ year            : num  1990 1990 1990 1990 1990 1990 1990 1990 1990 1990 ...
 ```
 
 <div class="notice--success" markdown="1">
@@ -308,8 +310,9 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
           y="Female Population - Age 20-40",
           title="Projected Female Population",
           subtitle = "Boulder, CO: 1990 - 2040")
-## Error in ggplot(pop_proj_data_df, aes(x = year, y = femalepopulation, : object 'pop_proj_data_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week10/in-class/2017-04-05-api05-get-data-api-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="100%" />
 
 
 
@@ -330,7 +333,7 @@ plot a descriptive title.
 
 ## Example homework plot
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-10/in-class/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week10/in-class/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
 
 
 

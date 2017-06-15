@@ -181,12 +181,9 @@ should we use to calculate NBR using MODIS?
 
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week06/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
 
 When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
@@ -215,7 +212,7 @@ Your classified map should look something like:
 
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week06/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
 
 
 
@@ -227,7 +224,7 @@ barplot(nbr_classified,
         names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-6/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week06/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="100%" />
 
 
 <div class="notice--info" markdown="1">

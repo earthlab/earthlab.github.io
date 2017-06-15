@@ -99,7 +99,7 @@ boxplot(tree_heights$heights,
         col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="100%" />
 
 In the example above, our mean tree height value is towards the center of
 our distribution of measured heights. We might expect that the sample mean of
@@ -117,7 +117,7 @@ hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
      xlab="Height (m)", col="purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="100%" />
 
 ## Measurement accuracy
 
@@ -197,9 +197,6 @@ the actual heights of the trees on the ground?
 
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 ## Study site location
 
@@ -208,14 +205,10 @@ in California - the San Joaquin Experimental range field site. You can see the f
 site location on the map below.
 
 
-```
-## Error in library(ggmap): there is no package called 'ggmap'
-## Error in get_map(location = "California", source = "google", maptype = "terrain", : could not find function "get_map"
-```
 
 
 ```
-## Error in ggmap(cali_map): could not find function "ggmap"
+## Error in get("f", environment(CoordMap$train)): object 'f' not found
 ```
 
 ## Study area plots
@@ -228,7 +221,7 @@ of field site plots by technicians at NEON. We will call these measured values
 
 A map of our study plots is below overlaid on top of the canopy height mode.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="100%" />
 
 ### Compare lidar derived height to in situ measurements
 
@@ -253,11 +246,11 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
     </figcaption>
 </figure>
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="100%" />
 
 ### How different are the data?
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
 
 ## View interactive scatterplot
 

@@ -102,7 +102,7 @@ plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster04-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster04-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
 
 If we zoom in on a small section of the raster, we can see the individual pixels
 that make up the raster. Each pixel has one value associated with it. In this
@@ -120,7 +120,7 @@ plot(lidar_dem,
      main="Lidar Raster - Zoomed into to one small region")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-3/lidar-raster-intro/2017-02-01-raster04-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster04-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="100%" />
 
 Next, let's discuss some of the important spatial attributes associated with raster
 data.
@@ -134,7 +134,10 @@ be used to “flatten” or project the raster in geographic space.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different projections. Notice the
+    differences in shape associated with each different projection. These
+    differences are a direct result of the calculations used to "flatten" the
+    data onto a 2-dimensional map. Source: M. Corey, opennews.org">
     </a>
     <figcaption> Maps of the United States in different projections. Notice the
     differences in shape associated with each different projection. These
@@ -177,7 +180,8 @@ projection.
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/UTM_zones.png">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/UTM_zones.png"></a>
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/UTM_zones.png" alt="The UTM zones across the continental United States. Source:
+   	Chrismurf, wikimedia.org."></a>
    	<figcaption> The UTM zones across the continental United States. Source:
    	Chrismurf, wikimedia.org.
 		</figcaption>
@@ -216,17 +220,21 @@ object is the geographic area that the raster data covers.
 
 <figure>
     <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
-    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
+    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png" alt="The spatial extent of vector data which we will discuss next week.
+    Notice that the spatial extent represents the rectangular area that the data cover.
+    Thus, if the data are not rectangular - i.e. points OR an image that is rotated in some way,
+    the spatial extent covers portions of the dataset where there are no data.
+    Image Source: National Ecological Observatory Network (NEON)">
     </a>
     <figcaption> The spatial extent of vector data which we will discuss next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
-    Thus, if the data are not rectangular - ie points OR an image that is rotated in some way,
+    Thus, if the data are not rectangular - i.e. points OR an image that is rotated in some way,
     the spatial extent covers portions of the dataset where there are no data.
     Image Source: National Ecological Observatory Network (NEON)
     </figcaption>
 </figure>
 
-The spatial extent of an R spatial object represents the geographic "edge" or
+The spatial extent of an `R` spatial object represents the geographic "edge" or
 location that is the furthest north, south, east and west. In other words, `extent`
 represents the overall geographic coverage of the spatial object.
 

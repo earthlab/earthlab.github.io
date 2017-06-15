@@ -62,7 +62,7 @@ plot(landsat_ndvi,
      box = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-8/in-class/2017-03-08-automation06-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week08/in-class/2017-03-08-automation06-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="100%" />
 
 Function arguments allow us to customize how a function runs. For example, we can
 use the `plot()` function to plot many different types of data! And we can use the

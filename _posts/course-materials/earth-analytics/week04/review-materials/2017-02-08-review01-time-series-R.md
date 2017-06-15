@@ -77,7 +77,7 @@ precPlot_hourly
 ## Warning: Removed 401 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/review-materials/2017-02-08-review01-time-series-R/setup-1.png" title="plot precip data using ggplot" alt="plot precip data using ggplot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-08-review01-time-series-R/setup-1.png" title="plot precip data using ggplot" alt="plot precip data using ggplot" width="100%" />
 
 
 
@@ -94,7 +94,7 @@ precPlot_hourly_round
 ## Warning: Removed 401 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/review-materials/2017-02-08-review01-time-series-R/plot-ggplot-1.png" title="time series plot of precipitation 1948-2013" alt="time series plot of precipitation 1948-2013" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-08-review01-time-series-R/plot-ggplot-1.png" title="time series plot of precipitation 1948-2013" alt="time series plot of precipitation 1948-2013" width="100%" />
 ## Factors
 
 
@@ -102,7 +102,7 @@ precPlot_hourly_round
 
 new_vector <- c("dog", "cat", "mouse","cat", "mouse", "cat", "mouse")
 str(new_vector)
-##  chr [1:7] "dog" "cat" "mouse" "cat" "mouse" "cat" "mouse"
+##  chr [1:7] "dog" "cat" "mouse" "cat" "mouse" "cat" ...
 
 new_vector <- factor(new_vector)
 str(new_vector)

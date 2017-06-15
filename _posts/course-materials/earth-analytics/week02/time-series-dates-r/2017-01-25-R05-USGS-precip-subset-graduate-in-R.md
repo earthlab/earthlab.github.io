@@ -132,7 +132,7 @@ Next, check out the data. Are there no data values? If so, make sure to adjust y
 data import code above to account for no data values. Then determine how many no
 data values you have in your dataset.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/no-data-values-hist-1.png" title="histogram of data" alt="histogram of data" width="100%" /><img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/no-data-values-hist-2.png" title="histogram of data" alt="histogram of data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/no-data-values-hist-1.png" title="histogram of data" alt="histogram of data" width="100%" /><img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/no-data-values-hist-2.png" title="histogram of data" alt="histogram of data" width="100%" />
 
 
 
@@ -165,12 +165,12 @@ Next, let's have a look at the data. Plot using `ggplot()`. Format the plot usin
 the colors, labels, etc that are most clear and look the best. Your plot does not
 need to look like the one below!
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png" title="hourly precipitation" alt="hourly precipitation" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png" title="hourly precipitation" alt="hourly precipitation" width="100%" />
 
 ## Differences in the data
 Any ideas what might be causing the notable difference in the plotted data through time?
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-round-1.png" title="hourly precipitation" alt="hourly precipitation" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-round-1.png" title="hourly precipitation" alt="hourly precipitation" width="100%" />
 
 It is difficult to interpret this plot which spans so many years at such a fine
 temporal scale. For our research project, we only need to explore 30 years of data.
@@ -201,7 +201,7 @@ head(daily_sum_precip$day)
 ## [6] "1948-08-04"
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-daily-1.png" title="Daily precip plot" alt="Daily precip plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-daily-1.png" title="Daily precip plot" alt="Daily precip plot" width="100%" />
 
 Next we `summarize()` the precipitation column (total_precip) - grouped by day.
 What this means is that we ADD UP all of the values for each day to get a grand
@@ -240,7 +240,7 @@ names(daily_sum_precip)
 
 Now plot the daily data.
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png" title="Daily precipitation for boulder" alt="Daily precipitation for boulder" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png" title="Daily precipitation for boulder" alt="Daily precipitation for boulder" width="100%" />
 
 
 Finally, plot a temporal subsets of the data from 2000-2013. We learned how to
@@ -263,7 +263,7 @@ previously to subset! An example of the subsetted plot is below.
 ## Warning: Removed 4 rows containing missing values (position_stack).
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/subset-data-1.png" title="final precip plot daily sum" alt="final precip plot daily sum" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/subset-data-1.png" title="final precip plot daily sum" alt="final precip plot daily sum" width="100%" />
 
 <div class="notice--info" markdown="1">
 

@@ -141,13 +141,11 @@ the central meridian on the globe (0,0).
 library(rgdal)
 library(ggplot2)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(raster)
 
 #install.packages('sf')
 # testing the sf package out for these lessons!
 library(sf)
-## Error in library(sf): there is no package called 'sf'
 # set your working directory
 # setwd("~/Documents/earth-analytics/")
 ```
@@ -196,7 +194,7 @@ worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
 worldMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="100%" />
 
 We can add three coordinate locations to our map. Note that the UNITS are
 in decimal **degrees** (latitude, longitude):
@@ -224,7 +222,7 @@ mapLocations <- worldMap +
 mapLocations
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial03-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="100%" />
 
 ## Geographic CRS - The Good & The Less Good
 
@@ -273,7 +271,7 @@ robMap <- ggplot(worldBound_df_robin, aes(long,lat, group=group)) +
 robMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="100%" />
 
 Now what happens if you try to add the same Lat / Long coordinate locations that
 we used above, to our map, that is using the `Robinson` `CRS` as it's coordinate
@@ -290,7 +288,7 @@ newMap <- robMap + geom_point(data=loc_df,
 newMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="100%" />
 
 Notice above that when we try to add lat/long coordinates in degrees to a map
 in a different `CRS`, that the points are not in the correct location. We need
@@ -352,7 +350,7 @@ newMap <- robMap + geom_point(data=loc_rob_df,
 newMap
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial03-crs-intro/plot-new-map-1.png" title="Map of the globe in robinson projection." alt="Map of the globe in robinson projection." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/plot-new-map-1.png" title="Map of the globe in robinson projection." alt="Map of the globe in robinson projection." width="100%" />
 
 ## Compare Maps
 
@@ -382,7 +380,7 @@ ggplot() +
   geom_path(data=graticule_df, aes(long, lat, group=group), linetype="dashed", color="grey70")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial03-crs-intro/plot-grat-1.png" title="graticules plot" alt="graticules plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/plot-grat-1.png" title="graticules plot" alt="graticules plot" width="100%" />
 
 Also we will import a bounding box to make our plot look nicer!
 
@@ -446,7 +444,7 @@ require(gridExtra)
 grid.arrange(latLongMap, finalRobMap)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-4/in-class/2017-02-15-spatial03-crs-intro/render-maps-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/render-maps-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="100%" />
 
 
 ## Why Multiple CRS?

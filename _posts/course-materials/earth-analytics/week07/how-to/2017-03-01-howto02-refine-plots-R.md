@@ -43,9 +43,6 @@ data for week 6 of the course.
 
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 In the previous lessons, we opened landsat and MODIS data in R. In this lesson,
 we will learn how to refine our plots in R to make our report look nicer and
@@ -74,7 +71,7 @@ plotRGB(all_landsat_bands_st,
         main="title here")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
 
 
 If we add the `axes=T` argument to our plot, our title plots but we also get
@@ -94,7 +91,7 @@ plotRGB(all_landsat_bands_st,
         axes=T)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb2-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb2-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
 
 The final step is to turn off box which leaves that annoying line on the left
 hand side and bottom of the plot.
@@ -113,7 +110,7 @@ plotRGB(all_landsat_bands_st,
 box(col="white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb3-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb3-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
 
 This looks nice, but now the plot itself is too tall. There is extra white space
 above and below the plot that we don't need. This is because the `dev` space
@@ -140,7 +137,7 @@ plotRGB(all_landsat_bands_st,
 box(col="white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb4-1.png" title="Adjust figure width and height." alt="Adjust figure width and height." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb4-1.png" title="Adjust figure width and height." alt="Adjust figure width and height." width="100%" />
 
 Notice that now my plot has less white space above and below the image. This is because
 it's no longer plotting using a square aspect ratio - we've adjusted that! You can
@@ -180,7 +177,7 @@ plot(ndvi_classified,
      col=the_colors)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/plot-data1-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/plot-data1-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="100%" />
 First let's get rid of the unnecessary axes and turn off the legend.
 We can remote the axes & box that surrounds our image using: `axes=F` and `box=F`.
 
@@ -193,7 +190,7 @@ plot(ndvi_classified,
      axes=F, box=F)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/plot-data2-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/plot-data2-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="100%" />
 
 Next, we turn off the legend and add our own legend. However, the legend isn't
 exactly where we want it to be here. It's above the plot and we'd like it to be
@@ -212,7 +209,7 @@ legend("topright",
        fill= the_colors)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/plot-data3-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/plot-data3-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="100%" />
 
 We can force the legend to plot outside of our axes using the parameter
 `xpd=T`. We can locate the legend in the upper right hand corner OUTSIDE
@@ -242,7 +239,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
 
 Now, another problem with our legend. *The order of our colors is all wrong:* Grey should represent "no vegetation" and green should represent health vegetation. We can use `rev()` on our list of colors to reverse the order of colors drawn on the legend.
 
@@ -262,7 +259,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend22-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend22-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
 
 On to the pesky white space on either side of the plot. There are several
 ways to handle this. One is by specifying margins for out plot.
@@ -297,7 +294,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend3-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend3-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
 
 
 ```r
@@ -330,7 +327,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        cex=.9)  # adjust legend font size
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend33-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend33-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="100%" />
 
 ```r
 dev.off()
@@ -372,7 +369,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend4-1.png" title="plot with legend in the upper right." alt="plot with legend in the upper right." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend4-1.png" title="plot with legend in the upper right." alt="plot with legend in the upper right." width="100%" />
 
 While we are at it, let's add a border using a crop extent
 shapefile that was used to clip these data
@@ -403,7 +400,7 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-7/how-to/2017-03-01-howto02-refine-plots-R/import-shape-1.png" title="add crop box" alt="add crop box" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week07/how-to/2017-03-01-howto02-refine-plots-R/import-shape-1.png" title="add crop box" alt="add crop box" width="100%" />
 
 Again - always reset dev when you've been adjusting `par()` values for
 plots!
