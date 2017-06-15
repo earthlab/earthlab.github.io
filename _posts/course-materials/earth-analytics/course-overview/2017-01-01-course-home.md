@@ -39,7 +39,7 @@ overview-order: 1
 
 Earth analytics is an advanced, multidisciplinary course that addresses major
 questions in Earth science and teaches students to use the analytical tools
-necessary to undertake exploration of heterogeneous ‘big scientific data’. This
+necessary to undertake exploration of heterogeneous ‘big scientific data.’ This
 course is designed for upper level (junior / senior level) undergraduate students
 and graduate students.
 
@@ -48,7 +48,7 @@ scientific questions. We will use a suite of different types of publicly availab
 data including:
 
 * Satellite and airborne lidar and spectral remote sensing data,
-* Data collected using distributed in situ (on the ground) sensor networks
+* Data collected using distributed in situ (on the ground) sensor networks,
 * Social media data, and
 * Demographic (census) data.
 

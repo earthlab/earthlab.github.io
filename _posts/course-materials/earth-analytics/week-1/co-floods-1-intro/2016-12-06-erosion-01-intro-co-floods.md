@@ -12,7 +12,7 @@ dateCreated: 2016-12-06
 modified: 2017-04-21
 module-title: 'Understand Disturbance With Data - Flooding and Erosion'
 module-description: 'This module introduces the concept of using data to Understand
-a natural phenomenon. In this case we will explore flooding and erosion. We use a combination of Google earth imagery, NOAA precipitation data and
+a natural phenomenon. In this case we will explore flooding and erosion. We use a combination of Google Earth imagery, NOAA precipitation data and
 USGS stream flow data to begin to quantify and better understand the drivers and impacts of the 2013 flood as it is seen in Boulder, Colorado.
 No programming experience is needed to complete this module.'
 module-type: 'class'
@@ -121,10 +121,10 @@ damage file. Scroll to 10/2012 and then to 10/2013. Do you see any differences?
 As a group, discuss the following questions. Record your answers following the
 directions of your instructor (Google Doc, word document, etherpad, etc.).
 
-* What differences to you see between 2012 and 2013?
-  * For each difference: What you think caused that difference?
-  * For each difference: How can you quantitatively record the differences?
+* What differences do you see between 2012 and 2013?
+  * For each difference: What do you think caused that difference?
+  * For each difference: How can you quantitatively record the difference?
 * For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
-* Was the cause - caused by something else? IE did something else DRIVE the cause?
+* Was the cause - caused by something else (i.e. did something else DRIVE the cause)?
 * Create a diagram that illustrates the causes and effects (or drivers and impacts) of the flood. Is it a linear diagram? Is it quantifiable?
 </div>

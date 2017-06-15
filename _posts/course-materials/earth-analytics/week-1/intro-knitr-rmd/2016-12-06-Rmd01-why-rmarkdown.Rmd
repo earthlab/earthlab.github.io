@@ -41,7 +41,7 @@ At the end of this activity, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 Before you start this tutorial, be sure that you have  R and R studio setup on
-your computer. Also we recommend have you have an `earth-analytics` directory
+your computer. Also we recommend that you have an `earth-analytics` directory
 setup on your computer with a `/data` directory with it. Follow the links below
 for help getting R, R studio and your data directory setup.
 
@@ -105,8 +105,8 @@ analysis and visualization code & outputs.
 ## Why R Markdown?
 There are many advantages to using R Markdown in your work:
 
-* **Human readable:** it's much easier to read a web page or a report containing text and figures.
-* **Simple syntax:** markdown and `rmd` can be learned quickly.
+* **Human readable:** It's much easier to read a web page or a report containing text and figures.
+* **Simple syntax:** Markdown and `rmd` can be learned quickly.
 * **A Reminder for Your Future Self** All components of your work are clearly documented. You don't have to rememberwhat steps, assumptions, tests were used.
 * **Easy to Modify:** You can easily extend or refine analyses by modifying existing or adding new
 code blocks.

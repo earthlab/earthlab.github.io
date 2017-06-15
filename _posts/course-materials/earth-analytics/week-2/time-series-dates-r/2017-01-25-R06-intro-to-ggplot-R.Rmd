@@ -151,7 +151,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 ```
 
-And adjust the transparency.
+And adjust the transparency
 
 ```{r add-alpha, fig.cap="ggplot with blue points and alpha"}
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
@@ -160,7 +160,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 ```
 
 
-Or to color each value in the plot differently:
+Or to color each value in the plot differently
 
 ```{r color-by-species, purl=FALSE, fig.cap="ggplot with colored points"}
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
@@ -169,7 +169,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 ```
 
 
-We can turn our plot into a bar plot.
+We can turn our plot into a bar plot
 
 ```{r barplot, purl=FALSE, fig.cap="ggplot with bars"}
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
@@ -185,7 +185,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 ```
 
-Change the fill to bright green.
+Change the fill to bright green
 
 ```{r barcolor2, purl=FALSE, fig.cap="ggplot with green bars"}
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
@@ -194,7 +194,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 ```
 
 
-## Add plot labels
+## Add Plot Labels
 
 You can add labels to your plots as well. Let's add a title, and x and y labels using the glab() argument.
 
@@ -209,7 +209,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 
 
-## More on customizing your plots
+## More on Customizing Your Plots
 
 There are many different tutorials out there on customizing ggplot plots. A
 few are listed below.

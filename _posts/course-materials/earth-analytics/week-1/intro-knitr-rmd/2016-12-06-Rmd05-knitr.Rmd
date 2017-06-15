@@ -87,8 +87,8 @@ and the size of your data.
 	</figcaption>
 </figure>
 
-To knit in RStudio, click the **knit** pull down button. You want to use the
-**knit HTML** option for this lesson.
+To knit in RStudio, click the **Knit** pull down button. You want to use the
+**Knit HTML** option for this lesson.
 
 When you click the **Knit HTML** button, a  window will open in your console
 titled R Markdown. This
