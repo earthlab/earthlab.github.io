@@ -21,7 +21,6 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
-
 This lesson walks you through installing QGIS on your laptop.
 
 <div class='notice--success' markdown="1">

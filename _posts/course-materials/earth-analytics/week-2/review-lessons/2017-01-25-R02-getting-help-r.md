@@ -8,7 +8,7 @@ class-lesson: ['write-clean-code']
 permalink: /course-materials/earth-analytics/week-2/ways-to-get-help-with-R/
 nav-title: 'About R / Getting Help'
 dateCreated: 2016-12-13
-modified: '2017-06-14'
+modified: '2017-06-15'
 week: 2
 sidebar:
   nav:
@@ -21,7 +21,6 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
 
 Getting help
 

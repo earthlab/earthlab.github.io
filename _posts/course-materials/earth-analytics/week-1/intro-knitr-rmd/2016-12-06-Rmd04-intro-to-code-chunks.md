@@ -6,7 +6,7 @@ R Markdown file in R Studio. It also explores how to use comments to document yo
 data exploration and processing workflow.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
-modified: '2017-05-12'
+modified: '2017-06-15'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/rmarkdown-code-chunks-comments-knitr/
 nav-title: 'Code Chunks'
@@ -117,7 +117,7 @@ Now run the code in this chunk.
 
 You can run code chunks:
 
-* **Line-by-line:** with cursor on current line, <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (Windows/Linux) or
+* **Line-by-line:** With cursor on current line, <kbd>Ctrl</kbd> + <kbd>Enter</kbd> (Windows/Linux) or
 <kbd>Command</kbd> + <kbd>Enter</kbd> (Mac OS X).
 * **By chunk:** You can run the entire chunk (or multiple chunks) by
 clicking on the `Chunks` dropdown button in the upper right corner of the script

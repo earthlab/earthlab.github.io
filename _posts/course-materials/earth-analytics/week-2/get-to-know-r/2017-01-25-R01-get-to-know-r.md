@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "The syntax of the R scientific programming language - Data Science for scientists 101"
+title: "The syntax of the R scientific programming language - Data Science for Scientists 101"
 excerpt: "This lesson introduces the basic syntax associated with the R scientific programming language. We will introduce assignment operators (<-), comments and basic functions that are available to use in R to perform basic tasks including head(), qplot() to quickly plot data and others. This lesson is designed for someone who has not used R before. We will work with precipitation and
 stream discharge data for Boulder County."
 authors: ['Leah Wasser', 'Data Carpentry']
@@ -9,14 +9,13 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/basic-r-syntax-scientific-programming/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: '2017-06-14'
+modified: '2017-06-15'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
 We will work with precipitation and stream discharge data for Boulder County
 to better understand the R syntax, various data types and data import and plotting.'
 module-type: 'class'
-class-order: 1
 course: "earth-analytics"
 week: 2
 sidebar:
@@ -30,6 +29,7 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming
 language. We will introduce assignment operators (`<-`, comments (`#`) and functions
 as used in `R`.
@@ -40,7 +40,7 @@ as used in `R`.
 At the end of this activity, you will be able to:
 
 * Understand the basic concept of a function and be able to use a function in your code.
-* Know how to use key operator commands in R (`<-`)
+* Know how to use key operator commands in R (`<-`).
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -62,11 +62,11 @@ syntax of the `R` programming language. We will learn how to work with packages 
 functions, how to work with vector objects in R and finally how to import data
 into a data.frame which is the `R` equivalent of a spreadsheet.
 
-Let's start by looking at the code we used in the previous module. Here, we
+Let's start by looking at the code we used in the previous module. Here, we:
 
 1. Downloaded some data from figshare using the `download.file()` function.
-2. Imported the data into r using the `read.csv()` function
-3. Plotted the data using the `qplot()` function (which is a part of the `ggplot2` package)
+2. Imported the data into r using the `read.csv()` function.
+3. Plotted the data using the `qplot()` function (which is a part of the `ggplot2` package).
 
 
 
@@ -215,7 +215,7 @@ the value 16 was the argument that we gave to the `sqrt()` function.
 Below, we use the `qplot()` function which is a part of the `ggplot2` package.
 `qplot()` needs two arguments to execute properly:
 
-1. The value that you want to plot on the `x=` axis and
+1. The value that you want to plot on the `x=` axis
 2. The value that you want to plot on the `y=` axis
 
 ```r
@@ -333,7 +333,7 @@ args(lm)
 Use the `RMarkdown` document that we created as homework for today's class. If
 you don't have a document already, create a new one, naming it: "lastname-firstname-wk2.Rmd.
 Add the code below in a code chunk. Edit the code that you just pasted into
-your `.Rmd` document as follows
+your `.Rmd` document as follows:
 
 1. The plot isn't pretty. Let's fix the x and y labels.
 Look up the arguments for the `qplot()` function using either args(qplot) OR `?qplot`

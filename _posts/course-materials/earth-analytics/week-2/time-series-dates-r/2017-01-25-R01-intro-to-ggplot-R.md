@@ -3,7 +3,7 @@ layout: single
 title: "Customize ggplot plots in R - earth analytics - data science for scientists"
 excerpt: 'This lesson covers how to customize ggplot plot colors and label axes in R. It uses the ggplot2 package.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-06-14'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['time-series-r']
 nav-title: 'GGPLOT R'
@@ -12,7 +12,6 @@ module-description: 'This module covers handling date fields in R so you can eff
 module-nav-title: 'Time Series Data in R'
 module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-type: 'class'
-class-order: 2
 course: "earth-analytics"
 week: 2
 sidebar:
@@ -26,7 +25,6 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
 
 In this tutorial, we will explore more advanced plotting techniques using `ggplot2`.
 
@@ -169,7 +167,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/adding-colors-1.png" title="ggplot with blue points" alt="ggplot with blue points" width="100%" />
 
-And adjust the transparency.
+And adjust the transparency
 
 
 ```r
@@ -180,7 +178,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/add-alpha-1.png" title="ggplot with blue points and alpha" alt="ggplot with blue points and alpha" width="100%" />
 
 
-Or to color each value in the plot differently:
+Or to color each value in the plot differently
 
 
 ```r
@@ -191,7 +189,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/color-by-species-1.png" title="ggplot with colored points" alt="ggplot with colored points" width="100%" />
 
 
-We can turn our plot into a bar plot.
+We can turn our plot into a bar plot
 
 
 ```r
@@ -211,7 +209,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/bar-color-1.png" title="ggplot with blue bars" alt="ggplot with blue bars" width="100%" />
 
-Change the fill to bright green.
+Change the fill to bright green
 
 
 ```r
@@ -222,7 +220,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R01-intro-to-ggplot-R/barcolor2-1.png" title="ggplot with green bars" alt="ggplot with green bars" width="100%" />
 
 
-## Add plot labels
+## Add Plot Labels
 
 You can add labels to your plots as well. Let's add a title, and x and y labels using the glab() argument.
 
@@ -232,17 +230,14 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
     glabs(x="Date",
       y="Precipitation (Inches)",
-      title="Daily Precipitation (inches)"
+      title="Daily Precipitation (inches)",
       subtitle="Boulder, Colorado 2013")
-## Error: <text>:6:7: unexpected symbol
-## 5:       title="Daily Precipitation (inches)"
-## 6:       subtitle
-##          ^
+## Error in glabs(x = "Date", y = "Precipitation (Inches)", title = "Daily Precipitation (inches)", : could not find function "glabs"
 ```
 
 
 
-## More on customizing your plots
+## More on Customizing Your Plots
 
 There are many different tutorials out there on customizing ggplot plots. A
 few are listed below.

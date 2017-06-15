@@ -3,7 +3,7 @@ layout: single
 title: "Week 4 Review"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-06-01'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/week4-review-r/
@@ -102,7 +102,7 @@ precPlot_hourly_round
 
 new_vector <- c("dog", "cat", "mouse","cat", "mouse", "cat", "mouse")
 str(new_vector)
-##  chr [1:7] "dog" "cat" "mouse" "cat" "mouse" "cat" ...
+##  chr [1:7] "dog" "cat" "mouse" "cat" "mouse" "cat" "mouse"
 
 new_vector <- factor(new_vector)
 str(new_vector)

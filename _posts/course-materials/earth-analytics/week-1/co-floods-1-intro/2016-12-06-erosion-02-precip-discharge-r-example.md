@@ -3,7 +3,7 @@ layout: single
 title: "Work with Precipitation Data in R - 2013 Colorado Floods"
 excerpt: "This lesson provides students with an example of a data driven report to emphasize the importance of connecting data, documentation and results."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-05-12'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['co-floods-1-intro']
 permalink: /course-materials/earth-analytics/week-1/co-floods-data-example-r/
@@ -20,6 +20,7 @@ topics:
   time-series:
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 Several factors contributed to extreme flooding that occurred in Boulder,
@@ -32,7 +33,7 @@ information about the event.
 
 After completing this tutorial, you will be able to:
 
-* List some of the components of a project that make it more easily re-usable (reproducible) to you when working with other people
+* List some of the components of a project that make it more easily reusable (reproducible) to you when working with other people
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need

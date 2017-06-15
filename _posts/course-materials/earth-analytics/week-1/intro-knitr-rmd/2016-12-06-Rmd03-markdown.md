@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Markdown syntax - a primer"
 excerpt: 'This tutorial covers the basics of the markdown syntax. Markdown is a human readable text format that is used in R Markdown files to add text to reports.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-05-12'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-to-markdown/

@@ -8,7 +8,7 @@ class-lesson: ['co-floods-1-intro']
 permalink: /course-materials/earth-analytics/week-1/precip-discharge/
 nav-title: 'Interactive Precip & Discharge Data'
 dateCreated: 2016-12-29
-modified: 2017-04-21
+modified: '2017-06-15'
 module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
@@ -25,6 +25,7 @@ topics:
   earth-science: ['flood-erosion']
   time-series:
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 

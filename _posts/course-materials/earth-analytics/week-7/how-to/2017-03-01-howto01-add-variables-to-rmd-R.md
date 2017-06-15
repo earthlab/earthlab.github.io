@@ -3,7 +3,7 @@ layout: single
 title: "Add variables to an RMD report R."
 excerpt: " "
 authors: ['Leah Wasser']
-modified: '2017-05-01'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/add-variables-to-rmarkdown-report/
@@ -46,6 +46,9 @@ data for week 6 of the course.
 
 
 
+```
+## Error in library(rgeos): there is no package called 'rgeos'
+```
 
 ## Automating report content
 

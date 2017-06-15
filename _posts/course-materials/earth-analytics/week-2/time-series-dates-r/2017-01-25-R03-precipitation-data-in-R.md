@@ -3,7 +3,7 @@ layout: single
 title: "Subset time series data in R - introduction to dplyr pipes and tidyverse coding approaches - Flooding & erosion data"
 excerpt: "This lesson walks through extracting temporal subsets of time series data using dplyr pipes. In the previous lesson we learned how to convert data containing a data field into a data class. In this lesson we use pipes to extract temporal subsets so that we can refine our time series data analysis. Finally we plot the data using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-06-14'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['time-series-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -25,6 +25,7 @@ topics:
 
 
 
+
 In this lesson, we will learn how to import a larger dataset, and test our
 skills cleaning and plotting the data.
 
@@ -35,12 +36,12 @@ skills cleaning and plotting the data.
 
 After completing this tutorial, you will be able to:
 
-* Import a text file into R.
+* Import a text file into R
 * Plot quantitative time series data using ggplot
-* Ensure that NoData values do not interfere with quantitative analysis by setting them to `NA` in `R`.
-* Use the `na.rm` argument when performing math with large datasets.
+* Ensure that NoData values do not interfere with quantitative analysis by setting them to `NA` in `R`
+* Use the `na.rm` argument when performing math with large datasets
 * Subset data using the dplyr `filter()` function
-* Use dplyr pipes to filter data in R.
+* Use dplyr pipes to filter data in R
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -158,7 +159,7 @@ max(boulder_daily_precip$DAILY_PRECIP)
 ### About the Data
 
 Viewing the structure of these data, we can see that different types of data are included in
-this file.
+this file:
 
 * **STATION** and **STATION_NAME**: Identification of the COOP station.
 * **ELEVATION, LATITUDE** and **LONGITUDE**: The spatial location of the station.
@@ -168,14 +169,14 @@ not as a date.
 * **DAILY_PRECIP**: The total precipitation in inches. Important: the metadata
 notes that the value 999.99 indicates missing data. Also important,
 hours with no precipitation are not recorded.
-* **YEAR**: the year the data were collected
-* **JULIAN**: the JULIAN DAY the data were collected.
+* **YEAR**: The year the data were collected.
+* **JULIAN**: The JULIAN DAY the data were collected.
 
 
 Additional information about the data, known as metadata, is available in the
 <a href="https://ndownloader.figshare.com/files/7283453">PRECIP_HLY_documentation.pdf</a>.
 The metadata tell us that the noData value for these data is 999.99. IMPORTANT:
-we have modified these data a bit for ease of teaching and learning. Specifically,
+We have modified these data a bit for ease of teaching and learning. Specifically,
 we've aggregated the data to represent daily sum values and added some noData
 values to ensure you learn how to clean them!
 
@@ -191,13 +192,13 @@ Using everything you've learned in the previous lessons:
 * Import the dataset: `data/week2/precipitation/805325-precip-dailysum-2003-2013.csv`
 * Clean the data by assigning noData values to `NA`
 * Make sure the date column is a date class
-* When you are done, plot it using `ggplot()`.
-  * Be sure to include a TITLE, and label the X and Y axes.
+* When you are done, plot it using `ggplot()`
+  * Be sure to include a TITLE, and label the X and Y axes
   * Change the color of the plotted points
 
 Some notes to help you along:
 
-* Date: be sure to take of the date format when you import the data.
+* Date: Be sure to take off the date format when you import the data.
 * NoData Values: We know that the no data value = 999.99. We can account for this
 when we read in the data. Remember how?
 
@@ -208,7 +209,7 @@ Your final plot should look something like the plot below.
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-2/time-series-dates-r/2017-01-25-R03-precipitation-data-in-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
 
-<i class="fa fa-star"></i>**Data Tip:** For a more thorough review of date/time classes, see the NEON tutorial
+<i fa fa-star></i>**Data Tip:** For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
 {: .notice--success}
 
@@ -217,7 +218,7 @@ Your final plot should look something like the plot below.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
-Take a close look at the plot.
+Take a close look at the plot:
 
 * What does each point represent?
 * Use the `min()` and `max()` functions to determine the minimum and maximum precipitation values for the 10 year span?
@@ -227,7 +228,7 @@ Take a close look at the plot.
 ## Subset the Data
 
 If we wanted to zoom in and look at some data over a smaller time period, we can
-subset it. Let create a subset of data for the time period around the flood between 15
+subset it. Let's create a subset of data for the time period around the flood between 15
 August to 15 October 2013. We will use the `filter()` function in the `dplyr` package
 to do this.
 
@@ -247,7 +248,7 @@ precip_boulder_AugOct <- boulder_daily_precip %>%
 ```
 
 In the code above, we use the pipe to send the `boulder_daily_precip` data through
-a filter step. In that filter step, we filter our only the rows withing the
+a filter step. In that filter step, we filter out only the rows within the
 date range that we specified. Since `%>%` takes the object on its left and passes
 it as the first argument to the function on its right, we don’t need to explicitly include it as an argument to the `filter()` function.
 

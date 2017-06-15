@@ -3,7 +3,7 @@ layout: single
 title: "How to remove borders and add legends to spatial plots in R. "
 excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
-modified: '2017-05-12'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['how-to-hints-week7']
 permalink: /course-materials/earth-analytics/week-7/refine-plots-report/
@@ -43,6 +43,9 @@ data for week 6 of the course.
 
 
 
+```
+## Error in library(rgeos): there is no package called 'rgeos'
+```
 
 In the previous lessons, we opened landsat and MODIS data in R. In this lesson,
 we will learn how to refine our plots in R to make our report look nicer and

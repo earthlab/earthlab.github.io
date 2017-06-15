@@ -1,6 +1,6 @@
 ---
 layout: single
-authors: ['Software Carpentry']
+authors: ['Leah Wasser', 'Software Carpentry']
 category: [course-materials]
 title: 'Create a Project & Working Directory Setup'
 excerpt: 'This lessons covers the concept of a project directory compared to a
@@ -13,18 +13,18 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/setup-working-directory/
 dateCreated: 2016-12-12
-modified: '2017-04-21'
+modified: '2017-06-15'
 author_profile: false
 comments: true
-course: "earth-analytics"
 order: 5
+course: "earth-analytics"
 topics:
-  reproducible-science-and-programming: ['RStudio','data-management']
+  reproducible-science-and-programming: ['data-management','RStudio']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
-## Setup your working directory
+## Setup Your Working Directory
 
 As we learned in the previous tutorial, project organization is integral to
 efficient research. In this tutorial, we will create the project directory that
@@ -35,11 +35,11 @@ use in our lessons.
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
-At the end of this activity, you will:
+At the end of this activity, you will be able to:
 
-* Be able to create an easy to use and we structured project structure.
-* Be able to set a working directory in `R` using code.
-* Be able to set a working directory using the `RStudio` interface.
+* Create an easy to use and well structured project structure.
+* Set a working directory in `R` using code.
+* Set a working directory using the `RStudio` interface.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -51,14 +51,14 @@ your computer to complete this tutorial.
 </div>
 
 
-## Create earth-analytics project directory
+## Create earth-analytics Project Directory
 
 Now that we have the basics of good project structure out of the way, let's get
-our project setup. We are going to create an `earth-analytics` project directory
+our project set up. We are going to create an `earth-analytics` project directory
 (or folder) where we will store data and files used in the class. We will then
 set that **project directory** as our **working directory** in `R`.
 
-<i class="fa fa-star"></i> **Data Tip** Directory vs Folder: You can think
+<i class="fa fa-star"></i> **Data Tip:** Directory vs Folder: You can think
 of a directory as a folder. However the term directory considers the relationship
 between that folder and the folders within it and around it (it's full path).
 {: .notice--success}
@@ -69,7 +69,7 @@ computer and then a data directory located within that project directory.
 * Navigate to the `Documents` directory on your computer.
 * In the directory, create a NEW DIRECTORY called `earth-analytics`.
 
-<i class="fa fa-star"></i> **Data Tip** Notice that we are creating a easy to
+<i class="fa fa-star"></i> **Data Tip:** Notice that we are creating a easy to
 read directory name. The name has no spaces and uses all lower case to support
 machine reading down the road. Sometimes this format of naming using dashes is
 referred to as a `slug`.
@@ -80,8 +80,6 @@ called `data`
 
 > We will use the data directory to store the data that we download to use in
 > this course and in the tutorials hosted on this website.
-
-
 
 <figure>
 	<a href="{{ site.baseurl }}/images/course-materials/earth-analytics/week-1/setup-r-rstudio/working-dir-os.png">
@@ -132,7 +130,7 @@ If your working directory path does not match the location where you created you
 set the working directory with `R` code OR we can use the `RStudio` interface to
 set the working directory.
 
-### Set working directory in RStudio interface
+### Set Working Directory in RStudio Interface
 
 Let's set the working directory using the `RStudio` interface.
 
@@ -161,7 +159,7 @@ Your window should look like the screen shot below:
 </figure>
 
 
-## Set working directory using code
+## Set Working Directory Using Code
 
 We can set the working directory  using code in R too. You don't have to do this
 if you already set the working directory above. However, it's good to know how

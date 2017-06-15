@@ -3,7 +3,7 @@ layout: single
 title: "Lidar Remote sensing data - Understand uncertainty / error associated with height metrics extracted from lidar raster data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-06-01'
+modified: '2017-06-15'
 category: [course-materials]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /course-materials/earth-analytics/week-5/understand-uncertainty-lidar/
@@ -197,6 +197,9 @@ the actual heights of the trees on the ground?
 
 
 
+```
+## Error in library(rgeos): there is no package called 'rgeos'
+```
 
 ## Study site location
 
@@ -205,8 +208,15 @@ in California - the San Joaquin Experimental range field site. You can see the f
 site location on the map below.
 
 
+```
+## Error in library(ggmap): there is no package called 'ggmap'
+## Error in get_map(location = "California", source = "google", maptype = "terrain", : could not find function "get_map"
+```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week-5/in-class/2017-02-15-spatial01-understand-uncertainty/ggmap-plot-1.png" title="ggmap of study area." alt="ggmap of study area." width="100%" />
+
+```
+## Error in ggmap(cali_map): could not find function "ggmap"
+```
 
 ## Study area plots
 

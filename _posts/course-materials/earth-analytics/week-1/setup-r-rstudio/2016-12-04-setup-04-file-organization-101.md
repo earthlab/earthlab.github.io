@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: course-materials/earth-analytics/week-1/file-organization-101/
 dateCreated: 2016-12-12
-modified: '2017-04-21'
+modified: '2017-06-15'
 course: 'earth-analytics'
 author_profile: false
 comments: true
@@ -22,12 +22,12 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
-In the previous lessons, we setup R and RStudio. The last part of our setup is
+In the previous lessons, we setup `R` and `RStudio`. The last part of our setup is
 to setup our working directory. A **working directory** is an organized space or directory on our computer where we keep our data, scripts and outputs. It is important
 to think about the organization of that directory, to make our own future lives
 easier (so we can find things) and also to make it easier to collaborate with other people.
 
-## Setup your project
+## Setup Your Project
 
 Project organization is integral to efficient research. A well organized project
 structure will allow you to more easily find components of your project AND
@@ -78,9 +78,9 @@ A well structured project directory should:
 * Utilize a naming convention that is:
    * **Human readable** - use directory names that are easy to understand.
    * **Machine readable** - avoid funky characters OR SPACES.
-   * **Support sorting**  - If you have a list of input files, it's nice to be able to sort them to quickly see what's there and find What you need.
+   * **Supportive of sorting**  - If you have a list of input files, it's nice to be able to sort them to quickly see what's there and find What you need.
 * **Preserve raw data so it's not modified:** We'll worry about this later.
-* Have easy to read directory names that contains components of the project (e.g. code, data, outputs, figures, etc)
+* Have easy to read directory names that contain components of the project (e.g. code, data, outputs, figures, etc)
 
 <figure>
 	<a href="{{ site.baseurl }}/images/slide-shows/intro-rr/file-organization.png">
@@ -89,7 +89,7 @@ A well structured project directory should:
 	</figcaption>
 </figure>
 
-### Which Filenames Are Most Self-explanatory?
+### Which Filenames are Most Self-explanatory?
 
 Your goal when structuring a project directory is to use a naming
 convention that someone who is not familiar with your project can quickly understand.
