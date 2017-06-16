@@ -1,22 +1,21 @@
 ---
 layout: single
-title: "Week 4 Review"
-excerpt: "."
+title: "Getting started with interactive scatter plots and time series plots using plotly and dygraphs in R and R studio"
+excerpt: "In this lesson we review how to create interactive plots using plotly and dygraphs in R. These plots can be embedded in html format .Rmd documents to support interactive data-driven reports."
 authors: ['Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-06-16'
 category: [course-materials]
-class-lesson: ['hw-custom-legend-r']
-permalink: /course-materials/earth-analytics/week-4/interactive-time-series-plots-in-r/
+class-lesson: ['time-series-r']
+permalink: /course-materials/earth-analytics/week-2/interactive-time-series-plots-in-r/
 nav-title: 'Interactive time series plots'
-week: 4
+week: 2
 course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+order: 6
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -85,7 +84,7 @@ annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
 annual_precip
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-08-review02-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week02/time-series-dates-r/2017-01-25-R06-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="100%" />
 
 ## Time series - Plotly
 

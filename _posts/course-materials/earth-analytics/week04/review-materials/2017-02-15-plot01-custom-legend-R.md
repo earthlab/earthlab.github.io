@@ -8,18 +8,23 @@ category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/r-custom-legend/
 nav-title: 'Create custom map legend'
-course: "earth-analytics"
+module-title: 'Review: Custom legends in R'
+module-description: 'In this module, we will review some key concepts associated with both
+time series data and raster data in R. '
+module-nav-title: 'Custom legends - R'
+module-type: 'homework'
 week: 4
 course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 1
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -71,7 +76,7 @@ Next, import and explore the data.
 # import roads
 sjer_roads <- readOGR("data/week5/california/madera-county-roads",
                       "tl_2013_06039_roads")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week5/california/madera-county-roads", layer: "tl_2013_06039_roads"
 ## with 9640 features
 ## It has 4 fields
@@ -110,7 +115,7 @@ levels(sjer_roads$RTTYP)
 
 # how many features are in each category or level?
 summary(sjer_roads$RTTYP)
-##       C       M       S Unknown 
+##       C       M       S Unknown
 ##      10    4456      25    5149
 ```
 

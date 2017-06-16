@@ -7,7 +7,7 @@ category: [course-materials]
 permalink: /course-materials/internship/
 nav-title: 'Syllabus'
 dateCreated: 2017-05-10
-modified: '2017-06-15'
+modified: '2017-06-16'
 module-title: 'Earth Lab Undergraduate Internship '
 module-nav-title: 'Internship'
 module-description: 'The Earth Lab internship provides undergraduate students at the University of
@@ -55,7 +55,7 @@ with experience
 3. Working with data programmatically in tools like `R` and `Python`.
 
 Through seminars, online training modules and working closely with
-postdoctoral reseachers, faculty advisors, and the education team, you will learn
+postdoctoral researchers, faculty advisors, and the education team, you will learn
 how to effectively communicate your research through writing and public speaking.
 
 The end products of the internship include a midterm presentation and write-up
@@ -88,7 +88,7 @@ presentation are due by Midnight on June 30th 2017.
 The mid term abstract should be 250-300 words and should include:
 
 * *Background:* Briefly discuss the background of your research in the context of existing work and literature.
-* *Methods / Study area:* Briefly descibe the methods you have been using and/or expect to use for your research this semester and the project study area.
+* *Methods / Study area:* Briefly describe the methods you have been using and/or expect to use for your research this semester and the project study area.
 * *Expected Results:* Summarize the results you expect to get from your research this semester.
 * *Methods / Study area:* Briefly describe the methods you have been using
   and/or expect to use for your research this semester and the project study area.
@@ -104,7 +104,7 @@ know. You will give your presentation to the education team, your postdoctoral
 adviser and each other. This audience will have a variety of background, so
 avoid using discipline-specific "jargon" terms.
 
-### Final Project: Due August 26th
+## Final Project: Due August 18th
 
 The final project will consist of a scientific visualization and a presentation.
 Please, use your imagination and come up with a creative way to visualize your
