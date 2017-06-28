@@ -13,10 +13,8 @@ module-nav-title: 'Internship'
 module-description: 'The Earth Lab internship provides undergraduate students at the University of
 Colorado Boulder with a real-world data intensive academic experience through
 work on a science project.'
-module-type: 'class'
 course: "internship"
 module-type: 'overview'
-course: "internship"
 sidebar:
   nav:
 author_profile: false
