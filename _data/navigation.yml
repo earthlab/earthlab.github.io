@@ -7,6 +7,9 @@ main:
   - title: "Course Materials"
     url: /course-materials/
 
+  - title: "Blog"
+    url: /blog/
+
   - title: "Tools"
     url: /tools/
 
@@ -15,9 +18,6 @@ main:
 
   - title: "About"
     url: /about/
-
-  - title: "Earth Lab CU"
-    url: http://www.colorado.edu/earthlab
 
 
 open-science:
