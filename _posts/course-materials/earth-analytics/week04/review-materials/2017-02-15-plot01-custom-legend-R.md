@@ -3,28 +3,23 @@ layout: single
 title: "GIS in R: Plot spatial data and create custom legends in R"
 excerpt: "In this lesson we break down the steps required to create a custom legend for spatial data in R. We discuss creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-07-10'
 category: [course-materials]
 class-lesson: ['hw-custom-legend-r']
 permalink: /course-materials/earth-analytics/week-4/r-custom-legend/
 nav-title: 'Create custom map legend'
-module-title: 'Review: Custom legends in R'
-module-description: 'In this module, we will review some key concepts associated with both
-time series data and raster data in R. '
-module-nav-title: 'Custom legends - R'
-module-type: 'homework'
+course: "earth-analytics"
 week: 4
 course: "earth-analytics"
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 3
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -57,7 +52,7 @@ By default, `R` will import spatial object attributes as `factors`.
 <i class="fa fa-star"></i> **Data Tip:** If our data attribute values are not
 read in as factors, we can convert the categorical
 attribute values using `as.factor()`.
-{: .notice}
+{: .notice--success}
 
 
 
@@ -76,7 +71,7 @@ Next, import and explore the data.
 # import roads
 sjer_roads <- readOGR("data/week5/california/madera-county-roads",
                       "tl_2013_06039_roads")
-## OGR data source with driver: ESRI Shapefile
+## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week5/california/madera-county-roads", layer: "tl_2013_06039_roads"
 ## with 9640 features
 ## It has 4 fields
@@ -115,7 +110,7 @@ levels(sjer_roads$RTTYP)
 
 # how many features are in each category or level?
 summary(sjer_roads$RTTYP)
-##       C       M       S Unknown
+##       C       M       S Unknown 
 ##      10    4456      25    5149
 ```
 
@@ -227,7 +222,7 @@ Create a plot of roads using the following line thicknesses:
 <i class="fa fa-star"></i> **Data Tip:** Given we have a factor with 4 levels,
 we can create an vector of numbers, each of which specifies the thickness of each
 feature in our `SpatialLinesDataFrame` by factor level (category): `c(6,4,1,2)[sjer_roads$RTTYP]`
-{: .notice}
+{: .notice--success}
 
 ## Add Plot Legend
 We can add a legend to our plot too. When we add a legend, we use the following
@@ -319,7 +314,7 @@ legend("bottomright",
 using the palette method. For example `palette(rainbow(6))` or
 `palette(terrain.colors(6))`. You can reset the palette colors using
 `palette("default")`!
-{: .notice}
+{: .notice--success}
 
 ##  Plot Lines by Attribute
 
@@ -455,6 +450,9 @@ fixed the projection for the roads layer and cropped it! You will have to do the
 this code will work.
 
 
+```
+## Error: requireNamespace("rgeos") is not TRUE
+```
 
 When we create a legend, we will have to add the labels for both the points
 layer and the lines layer.

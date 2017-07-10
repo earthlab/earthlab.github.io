@@ -74,7 +74,7 @@ Install the packages in the directory in the order indicated.
 open these packages because they are from an unknown developer, right click on
 the package and select Open With >Installer (default). You will then be asked
 if you want to open the package. Select Open, and the installer will open.
-{: .notice}
+{: .notice--success}
 
 Once all of the packages are installed, open QGIS to ensure that it is properly
 installed.

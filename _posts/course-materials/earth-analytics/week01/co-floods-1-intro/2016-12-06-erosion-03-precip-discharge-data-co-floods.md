@@ -8,7 +8,7 @@ class-lesson: ['co-floods-1-intro']
 permalink: /course-materials/earth-analytics/week-1/precip-discharge/
 nav-title: 'Interactive Precip & Discharge Data'
 dateCreated: 2016-12-29
-modified: '2017-06-15'
+modified: '2017-07-10'
 module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
@@ -71,7 +71,7 @@ Then answer the questions below.
 
 <i class="fa fa-star"></i> **Precipitation:** is the moisture that
 falls from clouds including rain, hail and snow.
-{: .notice}
+{: .notice--success}
 
 <figure>
  <a href="https://plot.ly/~NEONDataSkills/6/total-monthly-precipitation-boulder-co-station/" target="_blank">
@@ -105,7 +105,7 @@ directions of your instructor (Google Doc, Word document, Etherpad, etc.).
 <i class="fa fa-star"></i> **Stream Discharge**, quantifies the volume of water
 moving down a stream. Discharge is an ideal metric to quantify stream flow, which
 increases significantly during a flood event.
-{: .notice}
+{: .notice--success}
 
 
 <figure>

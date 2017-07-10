@@ -4,7 +4,7 @@ title: "About the geotiff ().tif) raster file format - - raster data in R "
 excerpt: "This lesson introduces the geotiff file format. Further it introduces the
 concept of metadata - or data about the data. Metadata describe key characteristics of a data set. For spatial data these characteristics including CRS, resolution and spatial extent. Here we discuss the use of tif tags or metadata embedded within a geotiff file as they can be used to explore data programatically."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-06-15'
+modified: '2017-07-10'
 category: [course-materials]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/introduction-to-spatial-metadata-r/
@@ -67,7 +67,7 @@ the file itself.
 <i class="fa fa-star"></i> **Data Note:**  Your camera uses embedded tags to store
 information about pictures that you take including the camera make and model,
 and the time the image was taken.
-{: .notice }
+{: .notice--success }
 
 More about the  `.tif` format:
 

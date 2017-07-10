@@ -4,7 +4,7 @@ title: "How to create an R Markdown file in R Studio and the R Markdown file str
 excerpt: 'The R Markdown file structure includes a YAML header at the top followed by a combination of R (or any other language) code and markdown formatted text. This tutorial covers how to create an R Markdown file in R and then
 render it to html using knitr. Further it covers the basics of the YAML syntax.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-06-15'
+modified: '2017-07-10'
 category: [course-materials]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/intro-to-the-rmarkdown-format-and-knitr/
@@ -104,7 +104,7 @@ from `RStudio` with appearance preferences set to `Twilight` with `Monaco` font.
 can change the appearance of your RStudio by **Tools** > **Options**
 (or **Global Options** depending on the operating system). For more, see the
 <a href="https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio" target="_blank">Customizing RStudio page</a>.
-{: .notice}
+{: .notice--success}
 
 There are three parts to an `.RMD` file:
 

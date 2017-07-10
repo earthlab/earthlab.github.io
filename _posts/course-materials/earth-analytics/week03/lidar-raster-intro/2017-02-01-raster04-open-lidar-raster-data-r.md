@@ -205,7 +205,7 @@ projection. Our raster uses the `WGS84` datum.
 are meters.
 
 
-<div class="notice" markdown="1">
+<div class="notice--success" markdown="1">
 <i fa fa-star></i>**Important:**
 IMPORTANT: We are working with lidar data which has a Z or vertical value as well.
 While the horizontal units often match the vertical units of a raster they don't

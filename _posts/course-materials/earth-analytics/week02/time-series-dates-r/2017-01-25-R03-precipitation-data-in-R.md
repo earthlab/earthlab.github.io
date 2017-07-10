@@ -3,7 +3,7 @@ layout: single
 title: "Subset time series data in R - introduction to dplyr pipes and tidyverse coding approaches - Flooding & erosion data"
 excerpt: "This lesson walks through extracting temporal subsets of time series data using dplyr pipes. In the previous lesson we learned how to convert data containing a data field into a data class. In this lesson we use pipes to extract temporal subsets so that we can refine our time series data analysis. Finally we plot the data using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-07-10'
 category: [course-materials]
 class-lesson: ['time-series-r']
 permalink: /course-materials/earth-analytics/week-2/precip-in-r/
@@ -151,7 +151,7 @@ str(boulder_daily_precip)
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
 ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-##    0.000    0.100    0.100    5.297    0.300 1000.000
+##    0.000    0.100    0.100    5.297    0.300  999.990
 max(boulder_daily_precip$DAILY_PRECIP)
 ## [1] 999.99
 ```
