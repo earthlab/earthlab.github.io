@@ -8,7 +8,7 @@ class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/about-open-science-and-why-open-science-is-important/
 nav-title: 'Why Open Science'
 dateCreated: 2016-12-12
-modified: '2017-06-15'
+modified: '2017-07-10'
 module-title: 'Link data, processing and results using R Markdown and Knitr'
 module-nav-title: 'R Markdown Intro'
 module-description: 'This module reviews how to use R Markdown
@@ -118,7 +118,7 @@ slide shows and more.
 <i class="fa fa-star"></i> **Data Tip:**
 <a href="https://rpubs.com/" target= "_blank ">RPubs</a> is a one way to
 share and publish code online.
-{: .notice}
+{: .notice--success}
 
 ### RMD is beneficial to your colleagues
 The link between data, code and results make `.Rmd` powerful. You can share your
@@ -138,7 +138,7 @@ figure or to analyze the data.
 
 <i class="fa fa-star"></i> **Data Tip:** Many of the Earth Lab lessons- including
 this one - were created using R Markdown!
-{: .notice}
+{: .notice--success}
 
 
 ## Use Knitr to convert .Rmd to .html

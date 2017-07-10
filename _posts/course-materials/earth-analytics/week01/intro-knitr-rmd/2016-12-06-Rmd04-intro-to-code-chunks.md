@@ -6,7 +6,7 @@ R Markdown file in R Studio. It also explores how to use comments to document yo
 data exploration and processing workflow.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [course-materials]
-modified: '2017-06-15'
+modified: '2017-07-10'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /course-materials/earth-analytics/week-1/rmarkdown-code-chunks-comments-knitr/
 nav-title: 'Code Chunks'
@@ -57,7 +57,7 @@ Let's break down code chunks in `.Rmd` files.
 <i class="fa fa-star"></i> **Data Tip**: You can add code output or an R object
 name to markdown segments of an RMD. For more, view this
 <a href="http://rmarkdown.rstudio.com/authoring_quick_tour.html#inline_r_code" target="_blank"> R Markdown documentation</a>.
-{: .notice}
+{: .notice--success}
 
 ## Code chunks
 

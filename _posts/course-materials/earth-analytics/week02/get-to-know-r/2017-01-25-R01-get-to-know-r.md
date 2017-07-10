@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /course-materials/earth-analytics/week-2/basic-r-syntax-scientific-programming/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: '2017-06-15'
+modified: '2017-07-10'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
@@ -169,7 +169,7 @@ When we are defining arguments for functions we do use the `=` sign. We will
 discuss function arguments below.
 
 
-<div class="notice" markdown="1">
+<div class="notice--success" markdown="1">
 <i class="fa fa-star"></i> **Data Tip:** Check out the links below for discussions on using `=` vs `<-` in R.
 
 * <a href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html"  target="_blank">Revolutionary analytics blog - equals vs assignment.</a>

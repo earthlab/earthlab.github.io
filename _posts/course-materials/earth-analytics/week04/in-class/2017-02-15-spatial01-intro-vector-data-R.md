@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-07-10'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
@@ -80,7 +80,7 @@ not an issue we will deal with in this tutorial.
 states and countries, are stored as lines rather than polygons. However, these
 boundaries, when represented as a line, will not create a closed object with a
 defined "area" that can be "filled".
-{: .notice}
+{: .notice--success}
 
 ## Shapefiles: Points, Lines, and Polygons
 Geospatial data in vector format are often stored in a `shapefile` format.
@@ -108,10 +108,7 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
-## rgeos version: 0.3-23, (SVN revision 546)
-##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
-##  Linking to sp version: 1.2-4 
-##  Polygon checking: TRUE
+## Error in library(rgeos): there is no package called 'rgeos'
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -161,7 +158,7 @@ sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data",
 OpenGIS Simple Features Reference Implementation.
 <a href="https://trac.osgeo.org/gdal/wiki/FAQGeneral" target="_blank">
 Learn more about OGR.</a>
-{: .notice}
+{: .notice--success}
 
 ## Shapefile Metadata & Attributes
 
@@ -175,7 +172,7 @@ with each individual vector object.
  [Shapefile Metadata & Attributes in R](http://www.neondataskills.org/R/shapefile-attributes-in-R/)
 tutorial provides more information on both metadata and attributes
 and using attributes to subset and plot data.
-{: .notice}
+{: .notice--success}
 
 ## Spatial Metadata
 Key metadata for all shapefiles include:
