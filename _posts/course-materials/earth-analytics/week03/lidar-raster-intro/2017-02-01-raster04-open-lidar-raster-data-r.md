@@ -255,6 +255,17 @@ yres(lidar_dem)
 ## [1] 1
 ```
 
+<figure>
+    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png
+">
+    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png" alt="The spatial resolution of a raster refers the size of each cell. This size in turn relates to the area on the ground that the pixel represents. Source: Colin Williams, National Ecological Observatory Network (NEON) ">
+    </a>
+    <figcaption> The spatial resolution of a raster refers the size of each cell.
+    This size in turn relates to the area on the ground that the pixel represents.
+    Source: Colin Williams, National Ecological Observatory Network (NEON)
+    </figcaption>
+</figure>
+
 ### Resolution units
 
 Resolution as a number doesn't mean anything unless we know the units. We can
@@ -263,7 +274,7 @@ string.
 
 
 ```r
-# view coordinate refence system
+# view coordinate reference system
 crs(lidar_dem)
 ## CRS arguments:
 ##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
@@ -271,7 +282,7 @@ crs(lidar_dem)
 ```
 
 Notice this string contains an element called **units=m**. This means the units
-are in meters. We won't get into too much detail about coordinate refence strings
+are in meters. We won't get into too much detail about coordinate reference strings
 in this weeks class but they are important to be familiar with when working with spatial
 data. We will cover them in more detail during the semester!
 
