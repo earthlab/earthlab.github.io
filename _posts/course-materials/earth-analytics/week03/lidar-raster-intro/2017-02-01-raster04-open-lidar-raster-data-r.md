@@ -136,7 +136,7 @@ be used to “flatten” or project the raster in geographic space.
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different projections. Notice the
     differences in shape associated with each different projection. These
-    differences are a direct result of the calculations used to "flatten" the
+    differences are a direct result of the calculations used to 'flatten' the
     data onto a 2-dimensional map. Source: M. Corey, opennews.org">
     </a>
     <figcaption> Maps of the United States in different projections. Notice the

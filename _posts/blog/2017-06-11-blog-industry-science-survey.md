@@ -4,8 +4,8 @@ title: "What data skills are in demand in the earth science field?"
 excerpt: "The combination of data science skills, earth science expertise and interdisciplinary collaboration skills has emerged as an avenue to fascinating, rewarding, and well-paid career paths. With the goal of understanding what specific skills lead job-seekers to find fulfilling employment today, the Earth Analytics Education Initiative conducted a survey of earth science hiring managers and the academic community in the fall of 2016. "
 tags: ['earth-analytics', 'career-development']
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: '2017-07-07'
-categories: [blog]
+modified: '2017-07-10'
+category: [blog]
 permalink: /blog/earth-analytics-careers-what-skills-are-in-demand/
 sidebar:
   nav:
@@ -659,23 +659,23 @@ We want candidates who are equipped to transform cutting edge science from acade
 
 Anomaly Detection
 Artificial Intelligence
-Classification
+Classification 
 Cluster analysis
-Data Compression
-Data Engineering
-Data Fusion
-Data Mining
+Data Compression 
+Data Engineering 
+Data Fusion 
+Data Mining 
 Data Warehousing
 Database Management
 Machine Learning
 Mathematics
 Modeling
-Neural networks
+Neural networks 
 Pattern Recognition
 Rule learning
 Signal Processing
 Statistics
-Time series
+Time series 
 Visualization
 
 
