@@ -338,6 +338,8 @@ a data.frame using as.data.frame().
 # convert the spatial object into a data frame
 loc_rob_df <- as.data.frame(coordinates(loc_spdf_rob))
 
+# turn off scientific notation
+options(scipen=10000)
 # add a point to the map
 newMap <- robMap + geom_point(data=loc_rob_df,
                       aes(x=lon, y=lat, group=NULL),
@@ -424,11 +426,10 @@ finalRobMap <- ggplot(bbox_robin_df, aes(long, lat, group=group)) +
   scale_fill_manual(values=c("black", "white"), guide="none") # change colors & remove legend
 
 # add a location layer in robinson as points to the map
-finalRobMap <- finalRobMap + geom_point(data=loc_rob,
-                      aes(x=X, y=Y, group=NULL),
+finalRobMap <- finalRobMap + geom_point(data=loc_rob_df,
+                      aes(x=lon, y=lat, group=NULL),
                       colour="springgreen",
                       size=5)
-## Error in fortify(data): object 'loc_rob' not found
 ```
 
 Below we plot the two maps on top of each other to make them easier to compare.
