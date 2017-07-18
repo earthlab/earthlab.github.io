@@ -3,7 +3,7 @@ layout: single
 title: "Working with remote sensing imagery that has multiple bands in R - NAIP raster data in R."
 excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared ot other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-07-10'
+modified: '2017-07-18'
 category: [course-materials]
 class-lesson: ['spectral-data-fire-r']
 permalink: /course-materials/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -98,9 +98,6 @@ LIGHTER colors represent a stronger reflection
 in that band. DARKER colors represent a weaker reflection.
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 
 
@@ -153,7 +150,6 @@ packages.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 ```
 
 In this lesson we will use imagery from the National Agricultural Imagery
@@ -583,14 +579,14 @@ and `brick` `R` objects.
 ```r
 # view size of the RGB_stack object that contains our 3 band image
 object.size(naip_stack_csf)
-## 53904 bytes
+## 52424 bytes
 
 # convert stack to a brick
 naip_brick_csf <- brick(naip_stack_csf)
 
 # view size of the brick
 object.size(naip_brick_csf)
-## 13208 bytes
+## 12912 bytes
 ```
 
 Notice that in the `RasterBrick`, all of the bands are stored within the actual
