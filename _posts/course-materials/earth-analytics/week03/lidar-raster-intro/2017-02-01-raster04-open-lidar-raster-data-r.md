@@ -273,8 +273,7 @@ yres(lidar_dem)
 ```
 
 <figure>
-    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png
-">
+    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png">
     <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png" alt="The spatial resolution of a raster refers the size of each cell. This size in turn relates to the area on the ground that the pixel represents. Source: Colin Williams, National Ecological Observatory Network (NEON) ">
     </a>
     <figcaption> The spatial resolution of a raster refers the size of each cell.
