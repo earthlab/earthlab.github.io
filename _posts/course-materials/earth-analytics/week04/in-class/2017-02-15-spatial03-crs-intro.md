@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Introduction to Coordinate Reference Systems in R "
 excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-07-10'
+modified: '2017-07-19'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/intro-to-coordinate-reference-systems/
@@ -19,7 +19,6 @@ topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -46,6 +45,43 @@ You will need a computer with internet access to complete this lesson and the da
 </div>
 
 ## Intro to coordinate reference systems
+
+In summary - a coordinate reference system (CRS) refers to the way in which spatial data that represent
+the earth's surface (which is round / 3 dimensional) are flattened so that we can "Draw" them
+on a 2-dimensional surface. However each using a different (sometimes) mathematical approach to
+performing the flattening resulting in different coordinate system grids (discussed
+below). These approaches to flattening the data are specifically designed to optimize
+the accuracy of the data in terms of length and area (more on that later too).
+
+In this lesson we will explore what a CRS is. And how it can impact your data
+when you are working with it in a tool like R (or any other tool).
+
+***
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different CRS including Mercator
+    (upper left), Albers equal area (lower left), UTM (Upper RIGHT) and
+    WGS84 Geographic (Lower RIGHT).">
+    </a>
+
+    <figcaption>Maps of the United States in different CRS including Mercator
+    (upper left), Albers equal area (lower left), UTM (Upper RIGHT) and
+    WGS84 Geographic (Lower RIGHT).
+    Notice the differences in shape and orientation associated with each
+    CRS. These differences are a direct result of the
+    calculations used to "flatten" the data onto a two dimensional map.
+    Source: opennews.org</figcaption>
+</figure>
+
+
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-9/human-head-projections.jpg">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-9/human-head-projections.jpg" alt="The human head projected using different coordinate reference systems. SOURCE: Scientific American.">
+    </a>
+
+    <figcaption>The human head projected using different coordinate reference systems. SOURCE: Scientific American. Do any of these happen to bare a striking resemblance to Jay Leno? </figcaption>
+</figure>
 
 The short video below highlights how map projections can make continents
 look proportionally larger or smaller than they actually are.
@@ -141,7 +177,6 @@ the central meridian on the globe (0,0).
 library(rgdal)
 library(ggplot2)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(raster)
 
 #install.packages('sf')
@@ -339,6 +374,8 @@ a data.frame using as.data.frame().
 # convert the spatial object into a data frame
 loc_rob_df <- as.data.frame(coordinates(loc_spdf_rob))
 
+# turn off scientific notation
+options(scipen=10000)
 # add a point to the map
 newMap <- robMap + geom_point(data=loc_rob_df,
                       aes(x=lon, y=lat, group=NULL),
@@ -425,11 +462,10 @@ finalRobMap <- ggplot(bbox_robin_df, aes(long, lat, group=group)) +
   scale_fill_manual(values=c("black", "white"), guide="none") # change colors & remove legend
 
 # add a location layer in robinson as points to the map
-finalRobMap <- finalRobMap + geom_point(data=loc_rob,
-                      aes(x=X, y=Y, group=NULL),
+finalRobMap <- finalRobMap + geom_point(data=loc_rob_df,
+                      aes(x=lon, y=lat, group=NULL),
                       colour="springgreen",
                       size=5)
-## Error in fortify(data): object 'loc_rob' not found
 ```
 
 Below we plot the two maps on top of each other to make them easier to compare.
@@ -483,23 +519,6 @@ the graphic below optimize?
 
 
 
-***
-
-<figure>
-    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
-    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different CRS including Mercator
-    (upper left), Albers equal area (lower left), UTM (Upper RIGHT) and
-    WGS84 Geographic (Lower RIGHT).">
-    </a>
-
-    <figcaption>Maps of the United States in different CRS including Mercator
-    (upper left), Albers equal area (lower left), UTM (Upper RIGHT) and
-    WGS84 Geographic (Lower RIGHT).
-    Notice the differences in shape and orientation associated with each
-    CRS. These differences are a direct result of the
-    calculations used to "flatten" the data onto a two dimensional map.
-    Source: opennews.org</figcaption>
-</figure>
 
 
 ## Geographic vs. Projected CRS

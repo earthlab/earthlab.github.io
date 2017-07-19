@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-07-10'
+modified: '2017-07-19'
 category: [course-materials]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
@@ -219,6 +219,23 @@ Next, let's discuss spatial extent. The spatial extent of a raster or spatial
 object is the geographic area that the raster data covers.
 
 <figure>
+    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/raster-spatial-extent-coordinates.png">
+    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which we will discuss next week.
+    Notice that the spatial extent represents the rectangular area that the data cover.
+    Thus, if the data are not rectangular - i.e. points OR an image that is rotated in some way,
+    the spatial extent covers portions of the dataset where there are no data.
+    Image Source: National Ecological Observatory Network (NEON)">
+    </a>
+    <figcaption> The spatial extent of raster data.
+    Notice that the spatial extent represents the rectangular area that the data cover.
+    Thus, if the data are not rectangular - i.e. points OR an image that is rotated in some way,
+    the spatial extent covers portions of the dataset where there are no data.
+    Image Source: National Ecological Observatory Network (NEON)
+    </figcaption>
+</figure>
+
+
+<figure>
     <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
     <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png" alt="The spatial extent of vector data which we will discuss next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
@@ -256,8 +273,7 @@ yres(lidar_dem)
 ```
 
 <figure>
-    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png
-">
+    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png">
     <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png" alt="The spatial resolution of a raster refers the size of each cell. This size in turn relates to the area on the ground that the pixel represents. Source: Colin Williams, National Ecological Observatory Network (NEON) ">
     </a>
     <figcaption> The spatial resolution of a raster refers the size of each cell.
