@@ -34,12 +34,14 @@
       {% include module_navigation.html %}
     {% endif %}
 
-
-
   {% endif %}
   </div>
 {% endif %}
 
+{% if page.category contains 'blog' or page.categories contains 'blog' %}
+<!--  If it's a blog post customize the side bar -->
+  {% include sidebar_list_blog_by_tags.html %}
+{% endif %}
 
 {% if page.lang or page.language or page.library %}
 <div class="sidebar sticky">
