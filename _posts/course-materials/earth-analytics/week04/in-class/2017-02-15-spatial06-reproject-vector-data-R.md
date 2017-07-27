@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-07-18'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/reproject-vector-data/
@@ -309,7 +309,7 @@ often recorded in *Decimal Degrees*.
 <i class="fa fa-star"></i> **Data Tip:** the last portion of each `proj4` string
 is `+towgs84=0,0,0 `. This is a conversion factor that is used if a datum
 conversion is required. We will not deal with datums in this tutorial series.
-{: .notice}
+{: .notice--success}
 
 ## CRS Units - View Object Extent
 
@@ -376,7 +376,7 @@ use the `crs()` of the `state_boundary_us` object as follows:
 <i class="fa fa-star"></i> **Data Tip:** `spTransform()` will only work if your
 original spatial object has a CRS assigned to it AND if that CRS is the
 correct CRS!
-{: .notice}
+{: .notice--success}
 
 Next, let's reproject our point layer into the geographic - latitude and
 longitude `WGS84` coordinate reference system (CRS).

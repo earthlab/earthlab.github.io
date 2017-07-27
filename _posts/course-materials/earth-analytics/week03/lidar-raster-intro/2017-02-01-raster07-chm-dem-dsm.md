@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create
 a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-07-18'
 category: [course-materials]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -219,7 +219,7 @@ writeRaster(lidar_chm, "data/week3/outputs/lidar_chm.tiff",
 
 ```
 
-<div class="notice" markdown="1">
+<div class="notice--success" markdown="1">
 <i fa fa-star></i>**Data Tip:**
 We can simplify the directory code above by using the exclamation `!` which tells
 R to return the INVERSE or opposite of the function you have requested R run.

@@ -9,7 +9,7 @@ permalink: /course-materials/earth-analytics/week-1/co-floods-1-intro/
 nav-title: 'Google Earth Time series'
 module-nav-title: 'CO Floods Intro'
 dateCreated: 2016-12-06
-modified: '2017-06-15'
+modified: '2017-07-10'
 module-title: 'Understand Disturbance With Data - Flooding and Erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. In this case we will explore flooding and erosion. We use a combination of Google Earth imagery, NOAA precipitation data and

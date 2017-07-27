@@ -3,7 +3,7 @@ layout: single
 title: "Build a function in R - Efficient scientific programming"
 excerpt: "This lesson introduces how to create a function in R."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-07-18'
 category: [course-materials]
 class-lesson: ['automating-your-science-r']
 permalink: /course-materials/earth-analytics/week-8/intro-to-functions-r/
@@ -75,7 +75,7 @@ to send a result back to whoever asked for it.
 > In R, it is not necessary to include the return statement.
 > R automatically returns whichever variable is on the last line of the body
 > of the function.
-{: .notice}
+{: .notice--success}
 
 Let's try running our function.
 Calling our own function is no different from calling any other function:
@@ -84,10 +84,10 @@ Calling our own function is no different from calling any other function:
 ```r
 # freezing point of water
 fahr_to_kelvin(32)
-## [1] 273.1
+## [1] 273.15
 # boiling point of water
 fahr_to_kelvin(212)
-## [1] 373.1
+## [1] 373.15
 ```
 
 We've successfully called the function that we defined, and we have access to the value that we returned.
@@ -105,7 +105,7 @@ kelvin_to_celsius <- function(kelvin) {
 
 # absolute zero in Celsius
 kelvin_to_celsius(0)
-## [1] -273.1
+## [1] -273.15
 ```
 
 What about converting Fahrenheit to Celsius?

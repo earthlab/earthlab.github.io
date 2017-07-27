@@ -5,7 +5,7 @@ excerpt: "This tutorial describes key differences between projected and geograph
 projected Coordinate Reference which divides the globe into zones to optimize
 projection results in each zone and WGS84 which is a geographic (latitude and longitude) CRS. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-07-18'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -113,7 +113,7 @@ longitude at the equator (0°) is ~ 69 miles. The distance between 2 degrees of
 longitude at 40°N (or S) is only 53 miles. This difference in actual distance relative to
 "distance" between the actual parallels and meridians demonstrates how distance
 calculations will be less accurate when using geographic CRSs
-{: .notice}
+{: .notice--success}
 
 
 ## Projected Coordinate Reference Systems
@@ -154,7 +154,7 @@ numbered 0-60 (equivalent to longitude) and regions (north and south)
 <i class="fa fa-star"></i> **Data Note:** UTM zones are also defined using bands,
 lettered C-X (equivalent to latitude) however, the band designation is often
 dropped as it isn't essential to specifying the location.
-{: .notice}
+{: .notice--success}
 
 While UTM zones span the entire globe, UTM uses a regional projection and
 associated coordinate system. The coordinate system grid for each
@@ -276,7 +276,7 @@ Zone 18T, 730782m Easting, 4712631m Northing vs UTM Zone 18N, 730782m, 4712631m.
 regions (>80°N or S). Universal Polar Stereographic (UPS) coordinate system is
 used in these area. This is where zones A, B and Y, Z are used if you were
 wondering why they weren't in the UTM lettering system.
-{: .notice }
+{: .notice--success }
 
 
 <div class="notice--warning" markdown="1">
