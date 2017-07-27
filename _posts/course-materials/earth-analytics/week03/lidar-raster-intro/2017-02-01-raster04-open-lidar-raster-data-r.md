@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-06-15'
+modified: '2017-07-25'
 category: [course-materials]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /course-materials/earth-analytics/week-3/open-lidar-raster-r/
@@ -30,7 +30,6 @@ topics:
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -136,7 +135,7 @@ be used to “flatten” or project the raster in geographic space.
     <a href="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg">
     <img src="{{ site.url }}/images/course-materials/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different projections. Notice the
     differences in shape associated with each different projection. These
-    differences are a direct result of the calculations used to "flatten" the
+    differences are a direct result of the calculations used to 'flatten' the
     data onto a 2-dimensional map. Source: M. Corey, opennews.org">
     </a>
     <figcaption> Maps of the United States in different projections. Notice the
@@ -205,7 +204,7 @@ projection. Our raster uses the `WGS84` datum.
 are meters.
 
 
-<div class="notice" markdown="1">
+<div class="notice--success" markdown="1">
 <i fa fa-star></i>**Important:**
 IMPORTANT: We are working with lidar data which has a Z or vertical value as well.
 While the horizontal units often match the vertical units of a raster they don't
@@ -217,6 +216,23 @@ units!
 
 Next, let's discuss spatial extent. The spatial extent of a raster or spatial
 object is the geographic area that the raster data covers.
+
+<figure>
+    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/raster-spatial-extent-coordinates.png">
+    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which we will discuss next week.
+    Notice that the spatial extent represents the rectangular area that the data cover.
+    Thus, if the data are not rectangular - i.e. points OR an image that is rotated in some way,
+    the spatial extent covers portions of the dataset where there are no data.
+    Image Source: National Ecological Observatory Network (NEON)">
+    </a>
+    <figcaption> The spatial extent of raster data.
+    Notice that the spatial extent represents the rectangular area that the data cover.
+    Thus, if the data are not rectangular - i.e. points OR an image that is rotated in some way,
+    the spatial extent covers portions of the dataset where there are no data.
+    Image Source: National Ecological Observatory Network (NEON)
+    </figcaption>
+</figure>
+
 
 <figure>
     <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-5/spatial_extent.png">
@@ -255,6 +271,16 @@ yres(lidar_dem)
 ## [1] 1
 ```
 
+<figure>
+    <a href="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png">
+    <img src="{{ site.baseurl}}/images/course-materials/earth-analytics/week-3/pixel-resolution.png" alt="The spatial resolution of a raster refers the size of each cell. This size in turn relates to the area on the ground that the pixel represents. Source: Colin Williams, National Ecological Observatory Network (NEON) ">
+    </a>
+    <figcaption> The spatial resolution of a raster refers the size of each cell.
+    This size in turn relates to the area on the ground that the pixel represents.
+    Source: Colin Williams, National Ecological Observatory Network (NEON)
+    </figcaption>
+</figure>
+
 ### Resolution units
 
 Resolution as a number doesn't mean anything unless we know the units. We can
@@ -263,7 +289,7 @@ string.
 
 
 ```r
-# view coordinate refence system
+# view coordinate reference system
 crs(lidar_dem)
 ## CRS arguments:
 ##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
@@ -271,7 +297,7 @@ crs(lidar_dem)
 ```
 
 Notice this string contains an element called **units=m**. This means the units
-are in meters. We won't get into too much detail about coordinate refence strings
+are in meters. We won't get into too much detail about coordinate reference strings
 in this weeks class but they are important to be familiar with when working with spatial
 data. We will cover them in more detail during the semester!
 
