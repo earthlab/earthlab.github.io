@@ -7,9 +7,6 @@ main:
   - title: "Course Materials"
     url: /course-materials/
 
-  - title: "Blog"
-    url: /blog/
-
   - title: "Tools"
     url: /tools/
 
