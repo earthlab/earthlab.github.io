@@ -154,6 +154,7 @@ ensure that the working directory is set.
 # load libraries
 library(tidyr)
 library(gstat)
+## Error in library(gstat): there is no package called 'gstat'
 library(rgdal)
 library(raster)
 library(rgeos)
@@ -187,14 +188,10 @@ year 2000.
 ```r
 # import the data
 sea_level_2000_sp <- readOGR("gulf-data/sea-level/sea_level_2000.shp")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "gulf-data/sea-level/sea_level_2000.shp", layer: "sea_level_2000"
-## with 16 features
-## It has 12 fields
+## Error in ogrListLayers(dsn = dsn): Cannot open data source
 # check out the elevation values - this is what we will be interpolating.
 sea_level_2000_sp$elev_mm
-##  [1] 7133 7085 6989 7079 7300 7012 7021 7138 6983 7064 6959 6901 7138 7015
-## [15] 7211 7110
+## Error in eval(expr, envir, enclos): object 'sea_level_2000_sp' not found
 ```
 
 If you have a csv, you'll need to convert it to a spatial points object.
@@ -268,14 +265,18 @@ to.
 #### view grid with points overlayed
 plot(grd, cex = 1.5, col = "grey",
      main = "Empty spatial grid with point location overlaid on top")
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/spatial-modules/gridding-and-interpolation/2017-07-25-intro-to-IDW-interpolation-in-r/plot-grid-1.png" title="Map of empty grid layer with points overlayed on top." alt="Map of empty grid layer with points overlayed on top." width="100%" />
+
+```r
 plot(sea_level_2000_sp,
        pch = 15,
        col = "red",
        cex = 1,
        add = TRUE)
+## Error in plot(sea_level_2000_sp, pch = 15, col = "red", cex = 1, add = TRUE): object 'sea_level_2000_sp' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/spatial-modules/gridding-and-interpolation/2017-07-25-intro-to-IDW-interpolation-in-r/unnamed-chunk-5-1.png" title=" " alt=" " width="100%" />
 
 In the last step we use `idw()` to interpolate our points to a grid.
 `idw()` takes several arguments
@@ -283,37 +284,34 @@ In the last step we use `idw()` to interpolate our points to a grid.
 1. first the formula: elev_mm ~ 1 tells r to use the x,y coordinates combined with the elev_mm value to perform the griding
 1. locations = represents the spatial points objects that you wish to grid
 1. newdata = represents the grid object that you will insert the values into
-1. finally we specify the power. Generall power values range between 1-3 with a smaller number creating a smoother surface (stronger influence from surrounding points) and a larger number creating a surface that is more true to the actual data and in turn a less smooth surface potentially.
+1. finally we specify the power. Generally power values range between 1-3 with a smaller number creating a smoother surface (stronger influence from surrounding points) and a larger number creating a surface that is more true to the actual data and in turn a less smooth surface potentially.
 
 
 
 ```r
 # make sure both layers have the same CRS
 crs(sea_level_2000_sp)
-## CRS arguments:
-##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+## Error in crs(sea_level_2000_sp): object 'sea_level_2000_sp' not found
 crs(grd)
 ## CRS arguments: NA
 crs(grd) <- crs(sea_level_2000_sp)
+## Error in crs(sea_level_2000_sp): object 'sea_level_2000_sp' not found
 # interpolate the data
 idw_pow1 <- idw(formula = elev_mm ~ 1,
            locations = sea_level_2000_sp,
            newdata = grd,
            idp = 1)
-## [inverse distance weighted interpolation]
+## Error in idw(formula = elev_mm ~ 1, locations = sea_level_2000_sp, newdata = grd, : could not find function "idw"
 
 # Notice that the output data is a SpatialPixelsDataFrame
 class(idw_pow1)
-## [1] "SpatialPixelsDataFrame"
-## attr(,"package")
-## [1] "sp"
+## Error in eval(expr, envir, enclos): object 'idw_pow1' not found
 # plot the data
 plot(idw_pow1,
      main = "IDW raster: Power = 1",
      col = terrain.colors(55))
+## Error in plot(idw_pow1, main = "IDW raster: Power = 1", col = terrain.colors(55)): object 'idw_pow1' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/spatial-modules/gridding-and-interpolation/2017-07-25-intro-to-IDW-interpolation-in-r/unnamed-chunk-6-1.png" title=" " alt=" " width="100%" />
 
 ## Export to geotiff
 
@@ -340,15 +338,14 @@ idw_pow3 <- idw(formula = elev_mm ~ 1,
            locations = sea_level_2000_sp,
            newdata = grd,
            idp = 3)
-## [inverse distance weighted interpolation]
+## Error in idw(formula = elev_mm ~ 1, locations = sea_level_2000_sp, newdata = grd, : could not find function "idw"
 
 # plot the data
 plot(idw_pow3,
      main = "IDW raster: Power = 3",
      col = terrain.colors(55))
+## Error in plot(idw_pow3, main = "IDW raster: Power = 3", col = terrain.colors(55)): object 'idw_pow3' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/spatial-modules/gridding-and-interpolation/2017-07-25-intro-to-IDW-interpolation-in-r/unnamed-chunk-7-1.png" title=" " alt=" " width="100%" />
 
 Finally, let's explore how distance impacts our interpolation.
 
@@ -360,13 +357,12 @@ idw_dist1 <- idw(formula = elev_mm ~ 1,
            newdata = grd,
            idp = 1,
            maxdist = 4)
-## [inverse distance weighted interpolation]
+## Error in idw(formula = elev_mm ~ 1, locations = sea_level_2000_sp, newdata = grd, : could not find function "idw"
 # plot the data
 plot(idw_dist1,
      main = "IDW: distance = 1 degree, power = 1")
+## Error in plot(idw_dist1, main = "IDW: distance = 1 degree, power = 1"): object 'idw_dist1' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/spatial-modules/gridding-and-interpolation/2017-07-25-intro-to-IDW-interpolation-in-r/unnamed-chunk-8-1.png" title=" " alt=" " width="100%" />
 
 
 ```r
@@ -376,31 +372,27 @@ idw_dist5 <- idw(formula = elev_mm ~ 1,
            newdata = grd,
            idp = .2,
            maxdist = 5)
-## [inverse distance weighted interpolation]
+## Error in idw(formula = elev_mm ~ 1, locations = sea_level_2000_sp, newdata = grd, : could not find function "idw"
 
 plot(idw_dist5,
      main = "IDW: distance = 5 degrees, power = 1")
+## Error in plot(idw_dist5, main = "IDW: distance = 5 degrees, power = 1"): object 'idw_dist5' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/spatial-modules/gridding-and-interpolation/2017-07-25-intro-to-IDW-interpolation-in-r/unnamed-chunk-9-1.png" title=" " alt=" " width="100%" />
 
 Let's increase the distance even more.
 
 
-```r
+```rd
 # interpolate the data
 idw_dist15 <- idw(formula = elev_mm ~ 1,
            locations = sea_level_2000_sp,
            newdata = grd,
            idp = .2,
            maxdist = 15)
-## [inverse distance weighted interpolation]
 
 plot(idw_dist15,
      main = "IDW: distance = 15 degrees, power = .2")
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/spatial-modules/gridding-and-interpolation/2017-07-25-intro-to-IDW-interpolation-in-r/unnamed-chunk-10-1.png" title=" " alt=" " width="100%" />
 
 
 <div class="notice--info" markdown="1">

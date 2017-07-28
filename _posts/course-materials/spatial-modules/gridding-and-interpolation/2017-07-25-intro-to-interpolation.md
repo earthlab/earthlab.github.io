@@ -78,8 +78,8 @@ dataset. It also may yield the largest file size!
 ## About Rasters
 
 <figure>
-    <a href="{{ site.url }}/images/hyperspectral/pixelDetail.png">
-    <img src="{{ site.url }}/images/hyperspectral/pixelDetail.png"></a>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/pixel-resolution.png">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/pixel-resolution.png"></a>
     <figcaption>The spatial resolution of a raster refers the size of each cell
     in meters. This size in turn relates to the area on the ground that the pixel
     represents.</figcaption>
