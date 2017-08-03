@@ -1,2 +1,4 @@
 User-agent: *
+Disallow: /events/
 Disallow: /pdf/
+Sitemap: https://earthdatascience.org/sitemap.xml
