@@ -10,7 +10,6 @@ module-title: 'Convert points to grids or rasters R - spatial interpolation 101 
 module-description: 'An interpolation overview.'
 permalink: /course-materials/intro-to-spatial-interpolation-concepts/
 nav-title: 'Intro to gridding'
-module-type: "class"
 sidebar:
   nav:
 class-lesson: ['intro-interpolation']

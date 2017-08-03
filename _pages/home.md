@@ -61,7 +61,32 @@ This site contains open, tutorials and course materials covering topics includin
 and data intensive science. Currently, we have {{ posts_minus_overview }} lessons
 available on our site with more under development!
 
-## Recent course modules
+## Newest lessons
+
+<div class="list__item">
+We are always adding to our course lesson materials. Below are the top 3
+newest lessons that we've added to our courses.
+</div>
+
+{% assign lesson_posts = site.posts | where:"module-type", "class" or "homework" %}
+{% for post in lesson_posts limit:3 %}
+  <div class="list__item">
+  <article class="archive__item">
+    <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
+    <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+    <p class="archive__item-excerpt"><i>{% if post.course %}Course: {{ post.course }},{% endif %} {% if post.modified %}last updated: {{ post.modified | date_to_string }}{% endif %}</i></p>
+  </article>
+  </div>
+
+{% endfor %}
+
+## Recent course lesson sets
+
+<div class="list__item">
+Below, are the most recently develop course units. These units include a series
+of lessons that are developed around a particular topic. You may want to take
+the entire lesson set.
+</div>
 
 {% assign modules = site.posts | where:"order", 1 %}
 {% for module in modules limit:3 %}

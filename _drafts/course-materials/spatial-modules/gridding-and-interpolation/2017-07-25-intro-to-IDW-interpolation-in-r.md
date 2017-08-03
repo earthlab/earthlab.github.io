@@ -10,7 +10,6 @@ module-title: 'Convert points to rasters using Inverse Distance Weighted (IDW) i
 module-description: 'In this module we overview various interpolation approaches and explore how to apply them using the R programming language.'
 permalink: /course-materials/intro-to-spatial-interpolation-in-r/
 nav-title: 'IDW in R'
-module-type: "class"
 sidebar:
   nav:
 class-lesson: ['intro-interpolation']
