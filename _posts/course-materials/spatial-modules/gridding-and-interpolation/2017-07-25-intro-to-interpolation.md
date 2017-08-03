@@ -95,15 +95,19 @@ through a process sometimes called gridding. Gridding is the process of taking a
 set of points and using them to create a surface composed of a regular grid.
 
 
-![Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format. Credits: Tristan Goulden, National Ecological Observatory Network](http://neondataskills.org/images/gridding.gif)
+<figure>
+    <a href="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif">
+    <img src="{{ site.url }}/images/course-materials/earth-analytics/week-3/gridding.gif" alt = "Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format. Credits: Tristan Goulden, National Ecological Observatory Network"></a>
+    <figcaption>Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format. Credits: Tristan Goulden, National Ecological Observatory Network</figcaption>
+</figure>
+
                        |
 
 ## Gridding Points
 
 <figure>
     <a href="{{ site.url }}/images/course-materials/spatial/spatial-modules/interpolation-101/gridded.png">
-    <img src="{{ site.url }}/images/course-materials/spatial-modules/interpolation-101/gridded.png" alt = "When you directly grid a dataset, values will only be calculated
-	for cells that overlap with data points. Thus, data gaps will not be filled."></a>
+    <img src="{{ site.url }}/images/course-materials/spatial-modules/interpolation-101/gridded.png" alt = "When you directly grid a dataset, values will only be calculated for cells that overlap with data points. Thus, data gaps will not be filled."></a>
     <figcaption>When you directly grid a dataset, values will only be calculated
 	for cells that overlap with data points. Thus, data gaps will not be filled.
 	</figcaption>
@@ -159,10 +163,7 @@ from nearby points.
 
 <figure>
     <a href="https://docs.qgis.org/2.2/en/_images/idw_interpolation.png">
-	<img src="https://docs.qgis.org/2.2/en/_images/idw_interpolation.png" alt ="IDW interpolation calculates the value of an unknown cell center value (a
-	query point) using 	surrounding points with the assumption that closest points
-	will be the most similar to the value of interest."></a>
-
+	<img src="https://docs.qgis.org/2.2/en/_images/idw_interpolation.png" alt ="IDW interpolation calculates the value of an unknown cell center value (a query point) using surrounding points with the assumption that closest points will be the most similar to the value of interest."></a>
     <figcaption>
 	IDW interpolation calculates the value of an unknown cell center value (a
 	query point) using 	surrounding points with the assumption that closest points
@@ -190,8 +191,7 @@ trend / relationship between points and does not accommodate trends within the d
 
 <figure>
     <a href="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image001.gif">
-	<img src="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image001.gif" alt ="IDW interpolation looks at the linear distance between the unknown value
-	and surrounding points.">
+	<img src="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image001.gif" alt = "IDW interpolation looks at the linear distance between the unknown value and surrounding points.">
 	</a>
 
     <figcaption>
@@ -215,10 +215,7 @@ further away from the cell have a greater impact on the cell's calculated value.
 <figure>
     <a href="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image003.gif
 "><img src="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image003.gif
-" alt ="The solid line represents more power and the dashed line represents less power.
-The higher the power, the more localized an affect a sample point's value has on
-the resulting surface. A smaller power value yields are smoothed or more averaged
-surface. IMAGE SOURCE: http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted.htm
+" alt ="The solid line represents more power and the dashed line represents less power. The higher the power, the more localized an affect a sample point's value has on the resulting surface. A smaller power value yields are smoothed or more averaged surface. IMAGE SOURCE: http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted.htm
 "></a>
 
     <figcaption>
@@ -277,8 +274,7 @@ high and low values not already represented in your data.
 
 <figure>
     <a href="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Spline_files/image001.gif">
-	<img src="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Spline_files/image001.gif" alt ="Spline interpolation fits a surface between the sample points of known values
-	to estimate a value for the unknown cell.">
+	<img src="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Spline_files/image001.gif" alt ="Spline interpolation fits a surface between the sample points of known values to estimate a value for the unknown cell.">
 	</a>
 
     <figcaption>
@@ -326,8 +322,7 @@ years.
 
 #### More on Spline
 
-* <a href="http://help.arcgis.com/EN/arcgisdesktop/10.0/help/index.html#//009z00000078000000.htm" target="_blank">ESRI background on spline
-interpolation.</a>
+* <a href="http://help.arcgis.com/EN/arcgisdesktop/10.0/help/index.html#//009z00000078000000.htm" target="_blank">ESRI background on spline interpolation.</a>
 
 
 ### Natural Neighbor Interpolation
@@ -343,12 +338,7 @@ This interpolation method works equally well on regular vs irregularly spaced da
 
 <figure>
     <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Euclidean_Voronoi_diagram.svg/2000px-Euclidean_Voronoi_diagram.svg.png">
-	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Euclidean_Voronoi_diagram.svg/2000px-Euclidean_Voronoi_diagram.svg.png" alt ="A Voronoi diagram is created by taking pairs of points that are close together
-	and drawing a line that is equidistant between them and perpendicular to the
-	line connecting them. Natural Neighbor interpolation uses the area of each
-	polygon associated with the surrounding points to derive a weight that is then
-	used to calculate an estimated value for the query point of interest.
-	Source: Wikipedia">
+	<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Euclidean_Voronoi_diagram.svg/2000px-Euclidean_Voronoi_diagram.svg.png" alt ="A Voronoi diagram is created by taking pairs of points that are close together 	and drawing a line that is equidistant between them and perpendicular to the 	line connecting them. Natural Neighbor interpolation uses the area of each 	polygon associated with the surrounding points to derive a weight that is then 	used to calculate an estimated value for the query point of interest. Source: Wikipedia">
 	</a>
 
     <figcaption>
@@ -364,8 +354,7 @@ This interpolation method works equally well on regular vs irregularly spaced da
 
 <figure>
     <a href="http://resources.esri.com/help/9.3/arcgisdesktop/com/gp_toolref/spatial_analyst_tools/sa_interp_natneigh_hiw_voroni.png">
-	<img src="http://resources.esri.com/help/9.3/arcgisdesktop/com/gp_toolref/spatial_analyst_tools/sa_interp_natneigh_hiw_voroni.png" alt ="To calculate the weighted area around a query point, a secondary Voronoi diagram is created using the immediately neighboring points and mapped on top of the original Voronoi diagram created using the known sample points.
-	Image Source: ESRI">
+	<img src="http://resources.esri.com/help/9.3/arcgisdesktop/com/gp_toolref/spatial_analyst_tools/sa_interp_natneigh_hiw_voroni.png" alt ="To calculate the weighted area around a query point, a secondary Voronoi diagram is created using the immediately neighboring points and mapped on top of the original Voronoi diagram created using the known sample points. Image Source: ESRI">
 	</a>
 
     <figcaption>
