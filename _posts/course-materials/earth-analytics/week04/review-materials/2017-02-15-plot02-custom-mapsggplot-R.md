@@ -3,7 +3,7 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-07-28'
+modified: '2017-07-31'
 category: [course-materials]
 class-lesson: ['hw-custom-maps-r']
 permalink: /course-materials/earth-analytics/week-4/r-make-maps-with-ggplot-in-R/
@@ -31,8 +31,8 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Add a custom legend to a map in `R`.
-* Plot a vector dataset by attributes in `R`.
+* Create a map in `R` using `ggplot()`.
+* Plot a vector dataset by attributes in `R` using `ggplot()`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -42,15 +42,18 @@ You will need a computer with internet access to complete this lesson and the da
 
 </div>
 
-## Plot Lines by Attribute Value
+## Making maps with GGPLOT
 
-To plot vector data with the color of each objected determined by it's associated attribute values, the
-attribute values must be class = `factor`. A **factor** is similar to a category
-- you can group vector objects by a particular category value - for example you
-can group all lines of `TYPE=footpath`. However, in `R`, a factor can also have
-a determined *order*.
+In the previous lesson, we used base plot() to create a map of vector data -
+our roads data - in `R`. In this lesson we will create the same maps, however
+instead we will use ggplot(). ggplot is a powerful tool for making custom maps.
+Compared to base plot, you will find creating custom legends to be simpler and cleaner,
+and creating nicely formatted themed maps to be simpler as well.
 
-By default, `R` will import spatial object attributes as `factors`.
+However, we will have to convert our data from spatial (sp) objects to data.frames
+to use ggplot. The process isn't bad once you have the steps down! Let's check
+it out.
+
 
 <i class="fa fa-star"></i> **Data Tip:** If our data attribute values are not
 read in as factors, we can convert the categorical
@@ -58,6 +61,8 @@ attribute values using `as.factor()`.
 {: .notice--success}
 
 
+
+First, let's import all of the needed libraries.
 
 
 ```r
@@ -89,28 +94,18 @@ class(sjer_roads$RTTYP)
 ## [1] "character"
 unique(sjer_roads$RTTYP)
 ## [1] "M" NA  "S" "C"
-# quick plot
+# quick plot using base plot
 plot(sjer_roads)
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/convert-to-factor-1.png" title=" " alt=" " width="100%" />
 
-## Simplify geometry
-This roads data contains many roads. The complexity of the data is slowing things
-down in R. Given we are just going to plot the data, let's simplify it some by reducing the number of verticies. We can us `rgeos::Gsimplify` to do this.
 
 
-```r
-sjer_roads <- gSimplify(sjer_roads_full, tol = .001)
-plot(sjer_roads,
-     main = "Roads data - simplified vertices")
-```
 
 It looks like we have some missing values in our road types. We want to plot all
 road types even those that are NA. Let's change the roads with an `RTTYP` attribute of
 NA to "unknown".
-
-Following, we can convert the road attribute to a factor.
 
 
 ```r
@@ -118,20 +113,14 @@ Following, we can convert the road attribute to a factor.
 sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "Unknown"
 unique(sjer_roads$RTTYP)
 ## [1] "M"       "Unknown" "S"       "C"
-sjer_roads$RTTYP <- as.factor(sjer_roads$RTTYP)
-
-# how many features are in each category or level?
-summary(sjer_roads$RTTYP)
-##       C       M       S Unknown 
-##      10    4456      25    5149
 ```
 
 ## Convert spatial data to a data.frame
 
-When we're plotting with baseplot, we can plot spatial sp or raster objects directly
-without convertting them. However `ggplot()` requires a data.frame. Thus we will
+When we're plotting with base `plot()`, we can plot spatial `sp` or `raster` objects directly
+without converting them. However `ggplot()` requires a `data.frame`. Thus we will
 need to convert our data. We can convert he data using the `tidy()` function from
-the broom package in R.
+the broom package in `R`.
 
 <i class="fa fa-star"></i> **Data Tip:** the tidy function used to be the fortify
 function! The code for the `tidy()` function is exactly the same as the `fortify()` code.
@@ -139,9 +128,9 @@ function! The code for the `tidy()` function is exactly the same as the `fortify
 
 Below we convert the data by:
 
-1. calling the tidy function on our `sjer_roads` spatial object
-1. add an id field to the spatial object data frame
-1. joining the table from the spatial object to the data.frame output of the tidy() function
+1. Calling the tidy function on our `sjer_roads` spatial object
+1. Adding an id field to the spatial object data frame which represents each unique feature  (each road line) in the data
+1. Joining the table from the spatial object to the data.frame output of the `tidy()` function
 
 Let's convert our spatial object to a `data.frame`.
 
@@ -160,8 +149,8 @@ sjer_roads_df <- left_join(sjer_roads_df,
 Once we've done this, we are ready to plot with `ggplot()`. Note the following when
 we plot.
 
-1. the x and y values are long and lat. These are columns that the `tidy()` function generates from a spatial object.
-1. the group function allows R to figure out what vertices below to which feature. So in this case we are plotting lines - each of which consist of 2 or more vertices that are connected.
+1. The x and y values are long and lat. These are columns that the `tidy()` function generates from a spatial object.
+1. The group function allows `R` to figure out what vertices below to which feature. So in this case we are plotting lines - each of which consist of 2 or more vertices that are connected.
 
 
 ```r
@@ -176,7 +165,10 @@ ggplot() +
 We can color each line by type too by adding the attribute that we wish to use
 for categories or types to the color  = argument.
 
-Below we set the colors to `color = factor(RTTYP)`.
+Below we set the colors to `color = factor(RTTYP)`. Note that we are coercing the
+attribute `RTTYP` to a factor. You can think of this as temporarily grouping the
+data by the `RTTYP` category for plotting purposes only. We aren't modifying the
+data we are just telling ggplot that the data are categorical with explicit groups.
 
 
 ```r
@@ -192,17 +184,17 @@ labs(color = 'Road Types', # change the legend type
 
 We can customize the colors on our map too. Below we do a few things
 
-1. we figure out how many unique road types we have
-1. we specify the colors that we want to apply to each road type
-1. finally we plot the data - we will use the `scale_colour_manual(values = c("color1", "color2", "color3", "color4"))`
+1. We figure out how many unique road types we have
+1. We specify the colors that we want to apply to each road type
+1. Finally we plot the data - we will use the `scale_colour_manual(values = c("color1", "color2", "color3", "color4"))` to specify what colors we want to use for what attribute value.
 
-Let's plot our roads data by the `RTTP` attribute and apply unique colors.
+Let's plot our roads data by the `RTTYP` attribute and apply unique colors.
 
 
 ```r
 # count the number of unique values or levels
 length(levels(sjer_roads$RTTYP))
-## [1] 4
+## [1] 0
 
 # create a color palette of 4 colors - one for each factor level
 road_palette <- c("green", "grey40", "purple", "grey")
@@ -221,15 +213,20 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="100%" />
 
-Finally we can remove the axis ticks and labels using a theme() element.
+Notice that above the colors are applied to each category (C, M, S and Unknown) in order.
+In this case the order is alphabetical.
+
+### Remove ggplot axis ticks
+
+Finally we can remove the axis ticks and labels using a `theme()` element.
 Themes are used in `ggplot()` to customize the look of a plot. You can customize
 any element of the plot including fonts, colors and more!
 
-Below we do the following
+Below we do the following:
 
-1. we remove the x and y axis ticks and label using the theme argument
-1. we remove the x and y labels using the x and y = elements in the labs() function
-3. we customize the legend title using labs(`color =`)
+1. We remove the x and y axis ticks and label using the theme argument
+1. We remove the x and y labels using the x and y = elements in the labs() function
+3. We customize the legend title using labs(`color =`)
 
 Let's give it a try.
 
@@ -249,7 +246,8 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-axis-cleand-1.png" title="Roads ggplot map with axes customized." alt="Roads ggplot map with axes customized." width="100%" />
 
-Finally we can use `coord_fixed()` to ensure a to scale x and y axis.
+Finally we can use `coord_fixed()` to scale the x and y axis equally by lat and long
+values.
 
 
 ```r
@@ -268,14 +266,15 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-ratio-1.png" title="Roads ggplot map with aspect ratio fixed." alt="Roads ggplot map with aspect ratio fixed." width="100%" />
 
+<!--
 # r for spatial analysis --
 # https://us.sagepub.com/en-us/nam/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031
+-->
 
 ### Adjust Line Width
 
-We can adjust the width of our plot lines using `size`. We can set all lines
-to be thicker or thinner using `size =` argument. Note that you want to set the
-size **outside** of the aesthetics function rather than within it!
+We can adjust the width of the lines on our plot using `size`. We can set all lines
+to be thicker or thinner using `size =` argument.
 
 
 ```r
@@ -297,13 +296,19 @@ ggplot() +
 ### Adjust Line Width by Attribute
 
 If we want a unique line width for each factor level or attribute category
-in our spatial object, we can use the same syntax that we used for colors, above.
+in our spatial object, we can use a similar syntax to the one we used for colors.
+Here we use scale_size_manual() to set the line width for each category in the
+`RTTYP` attribute. Similar to the colors set above, `ggplot()` will apply the line
+width in the order of the factor levels in the data. This is by default alphabetical.
 
-`lwd=c("widthOne", "widthTwo","widthThree")[object$factor]`
+`scale_size_manual(values = c(.5, 1, 1, .5))`
 
-Note that this requires the attribute to be of class `factor`. Let's give it a
-try.
+Note that similar to colors, we have adjusted the lines using two steps
 
+1. We've set the size to `factor(RTTYP)` a
+2. We've assigned the size using the `size_scale_manual()` function
+
+Let's see how it looks.
 
 
 ```r
@@ -327,9 +332,10 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-line-width2-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="100%" />
 
+### Merge the legends
 
-The map above looks ok but we have multiple legends when we really just want one 
-legend for both color and size. We can merge the legend using the guides() function. 
+The map above looks ok but we have multiple legends when we really just want one
+legend for both color and size. We can merge the legend using the `guides()` function.
 Here we specify each legend element that we wish to merge together as follows:
 
 `guides(colour = guide_legend("Legend title here"), size = guide_legend("Same legend title here"))`
@@ -362,78 +368,16 @@ ggplot() +
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Plot line width by attribute
 
-We can customize the width of each line, according to specific attribute value,
-too. To do this, we create a vector of line width values, and map that vector
-to the factor levels - using the same syntax that we used above for colors.
-HINT: `lwd=(vector of line width thicknesses)[spatialObject$factorAttribute]`
-
-Create a plot of roads using the following line thicknesses:
-
-1. **unknown** lwd = 3
-2. **M** lwd = 1
-3. **S** lwd = 2
-4. **C** lwd = 1.5
+Create your own custom map of roads. Adjust the line width and the colors
+of the roads to make a map that emphasizes roads of value S (thicker lines) and that de-emphasizes
+roads with an RTTYP attribute value of unknown (thinner lines, lighter color).
 
 </div>
 
 
 
-
-<i class="fa fa-star"></i> **Data Tip:** We can modify the defaul R color palette
-using the palette method. For example `palette(rainbow(6))` or
-`palette(terrain.colors(6))`. You can reset the palette colors using
-`palette("default")`!
-{: .notice--success}
-
-
-##  Plot Lines by Attribute
-
-Create a plot that emphasizes only roads designated as C or S (County or State).
-To emphasize these types of roads, make the lines that are C or S, THICKER than
-the other lines.
-NOTE: this attribute information is located in the `sjer_roads$RTTYP`
-attribute.
-
-Be sure to add a title and legend to your map! You might consider a color
-palette that has all County and State roads displayed in a bright color. All
-other lines can be grey.
-
-
-
-```r
-# view levels
-levels(sjer_roads$RTTYP)
-## [1] "C"       "M"       "S"       "Unknown"
-# make sure the attribute is of class "factor"
-class(sjer_roads$RTTYP)
-## [1] "factor"
-
-# convert to factor if necessary
-sjer_roads$RTTYP <- as.factor(sjer_roads$RTTYP)
-levels(sjer_roads$RTTYP)
-## [1] "C"       "M"       "S"       "Unknown"
-
-# count factor levels
-length(levels(sjer_roads$RTTYP))
-## [1] 4
-# set colors so only the allowed roads are magenta
-# note there are 3 levels so we need 3 colors
-challengeColors <- c("magenta","grey","magenta","grey")
-challengeColors
-## [1] "magenta" "grey"    "magenta" "grey"
-
-# plot using new colors
-plot(sjer_roads,
-     col=(challengeColors)[sjer_roads$RTTYP],
-     lwd=c(4,1,1,1)[sjer_roads$RTTYP],
-     main="SJER Roads")
-
-# add a legend to our map
-legend("bottomright",
-       levels(sjer_roads$RTTYP),
-       fill=challengeColors,
-       bty="n", # turn off border
-       cex=.8) # adjust font size
+```
+## Error: Insufficient values in manual scale. 4 needed but only 1 provided.
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="100%" />
@@ -526,7 +470,7 @@ ggplot() +
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/combine-layers-custom-ext-1.png" title="Plot of both points and lines with ggplot with custom extent" alt="Plot of both points and lines with ggplot with custom extent" width="100%" />
 
 
-## Data crop vs map zoom 
+## Data crop vs map zoom
 
 A better approach is to crop our data to a study region. That way we aren't
 retaining information that we done need which will make plotting faster.
@@ -624,6 +568,8 @@ sjer_plots_df <- as.data.frame(sjer_plots, region = "id")
 ```
 
 Now that we have all of our layers converted and cleaned up we can plot them.
+Notice that plotting is much faster when we crop the data to only the study location
+that we are interested in.
 
 Weird stuff is happening with the legend and colors and stuff...
 
@@ -633,9 +579,18 @@ ggplot() +
   geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
                fill = "white", color = "black") +
   geom_path(data = sjer_roads_df, aes(x = long, y = lat,
-                                      group = group, colour = RTTYP)) +
+                                      group = group, colour = factor(RTTYP))) +
   geom_point(data = sjer_plots_df, aes(x = coords.x1,
                                        y = coords.x2, colour = 'school')) +
+  guides(color = guide_legend(override.aes = list(shape = c(NA, NA, NA, 16), linetype = c(1,1,1,0))))
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/combine-all-layers-1.png" title=" " alt=" " width="100%" />
+
+```r
+#+
+#  guides(colour = guide_legend("Road Type"), size = guide_legend("Road Type"))
+
   #scale_colour_manual(values = c("purple", "green", "blue", "yellow", "magenta"),
    #                    guide = guide_legend(override.aes = list(
     #                     linetype = c(rep("blank", 4), "solid", "dashed"),
@@ -643,10 +598,43 @@ ggplot() +
   # sguide_legend(override.aes = list(shape = 22))
 
 # guide_legend(override.aes = list(shape = 22, size = 5))) something like this to make it plot correctly
-## Error: <text>:16:0: unexpected end of input
-## 14: 
-## 15: # guide_legend(override.aes = list(shape = 22, size = 5))) something like this to make it plot correctly
-##    ^
+```
+
+
+
+
+```r
+
+ggplot() +
+  geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
+               fill = "white", color = "black") +
+  geom_path(data = sjer_roads_df, aes(x = long, y = lat,
+                                      group = group, colour = factor(RTTYP), size = factor(RTTYP))) +
+  scale_linetype_manual("Road Type", c("M" = 2,3,4)) +
+  scale_size_manual("Road Type", values = c("M" = .5,
+                                            "S" = 2,
+                                            "Unknown" = .5)) +
+  geom_point(data = sjer_plots_df, aes(x = coords.x1,
+                                       y = coords.x2, shape = factor(plot_type)), size = 3) +
+  
+  scale_colour_manual("Road Type", values = c("M" = "grey", 
+                                "Unknown" = "grey", 
+                                 "S" = "magenta")) +
+  scale_fill_manual("Plot Type", values = c("trees" = "springgreen", 
+                                 "grass" = "green", 
+                                 "soil" = "brown")) +  
+  scale_shape_manual("Plot Type", values = c("grass" = 21,
+                                             "soil" = 12,
+                                             "trees" = 18)) 
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/unnamed-chunk-2-1.png" title=" " alt=" " width="100%" />
+
+```r
+
+#+
+#  guides(color = guide_legend("Road Type", override.aes = list(shape = c(NA, NA, NA, 16, 16, 16), "sdf", linetype = c(1,1,1,0,0,0))))
+
 ```
 
 
@@ -735,6 +723,7 @@ plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
+## Error in plotSpatialLines(x, ...): object 'challengeColors' not found
 
 # add a legend to our map
 legend("bottomright",
@@ -768,12 +757,18 @@ plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
      main="Madera County Roads and plot locations")
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-2-1.png" title="Plot with points and lines customized." alt="Plot with points and lines customized." width="100%" />
+
+```r
 
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
+## Error in plotSpatialLines(x, ...): object 'challengeColors' not found
 
 # add a legend to our map
 legend("bottomright",
@@ -783,9 +778,8 @@ legend("bottomright",
        col=c(plot_colors, challengeColors), # set the color of each legend line
        bty="n", # turn off border
        cex=.9) # adjust legend font size
+## Error in legend("bottomright", legend = c(levels(sjer_plots$plot_type), : object 'challengeColors' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-2-1.png" title="Plot with points and lines customized." alt="Plot with points and lines customized." width="100%" />
 
 
 ## Force the legend to plot next to your plot
@@ -828,12 +822,18 @@ plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
      main="Madera County Roads and plot locations")
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/adjust-legend-1.png" title="plot with fixed legend" alt="plot with fixed legend" width="100%" />
+
+```r
 
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
+## Error in plotSpatialLines(x, ...): object 'challengeColors' not found
 
 # add a legend to our map
 legend(x=furthest_pt_east, y=furthest_pt_north,
@@ -844,9 +844,8 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
        bty="n", # turn off border
        cex=.9, # adjust legend font size
        xpd=T) # force the legend to plot outside of your extent
+## Error in legend(x = furthest_pt_east, y = furthest_pt_north, legend = c(levels(sjer_plots$plot_type), : object 'challengeColors' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/adjust-legend-1.png" title="plot with fixed legend" alt="plot with fixed legend" width="100%" />
 
 
 
@@ -872,11 +871,17 @@ plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      add=T,
      pch=8)
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-22-1.png" title="final legend with points and lines customized 2ß." alt="final legend with points and lines customized 2ß." width="100%" />
+
+```r
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
+## Error in plotSpatialLines(x, ...): object 'challengeColors' not found
 
 # add a legend to our map
 legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
@@ -887,9 +892,8 @@ legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
        bty="n", # turn off border
        cex=.9, # adjust legend font size
        xpd=T)
+## Error in legend(x = (furthest_pt_east + 50), y = (furthest_pt_north - : object 'challengeColors' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-22-1.png" title="final legend with points and lines customized 2ß." alt="final legend with points and lines customized 2ß." width="100%" />
 
 
 
@@ -919,11 +923,17 @@ plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      add=T,
      pch=8)
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-3-1.png" title="final legend with points and lines customized 2ß." alt="final legend with points and lines customized 2ß." width="100%" />
+
+```r
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
+## Error in plotSpatialLines(x, ...): object 'challengeColors' not found
 
 # add a legend to our map
 legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
@@ -935,9 +945,8 @@ legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
        cex=.9, # adjust legend font size
        xpd=T,
        text.font =c(2, 1, 1, 1, 2, 1, 1, 1, 1))
+## Error in legend(x = (furthest_pt_east + 50), y = (furthest_pt_north - : object 'challengeColors' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-3-1.png" title="final legend with points and lines customized 2ß." alt="final legend with points and lines customized 2ß." width="100%" />
 
 
 
@@ -948,6 +957,11 @@ Now, if you want to move the legend out a bit further, what would you do?
 Any idea how I added a space to the legend below to create "sections"?
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-4-1.png" title="final legend with points and lines customized." alt="final legend with points and lines customized." width="100%" />
+
+```
+## Error in plotSpatialLines(x, ...): object 'challengeColors' not found
+## Error in legend(x = (furthest_pt_east + 50), y = (furthest_pt_north - : object 'challengeColors' not found
+```
 
 
 ```r
