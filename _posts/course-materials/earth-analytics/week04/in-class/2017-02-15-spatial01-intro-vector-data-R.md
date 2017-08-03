@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-07-18'
+modified: '2017-07-26'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/intro-vector-data-r/
@@ -25,6 +25,7 @@ topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -106,13 +107,6 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 ```r
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
-## rgdal: version: 1.2-7, (SVN revision 660)
-##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
-##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
-##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
-##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
-##  Linking to sp version: 1.2-4
 library(rgeos)
 ## rgeos version: 0.3-23, (SVN revision 546)
 ##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 

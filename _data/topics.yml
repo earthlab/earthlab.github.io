@@ -11,10 +11,10 @@ time-series:
 data-exploration-and-analysis:
   subtopics: ['data-visualization', 'text-mining', 'machine-learning']
 spatial-data-and-gis:
-  subtopics: ['raster-data', 'vector-data','coordinate-reference-systems']
+  subtopics: ['raster-data', 'vector-data','coordinate-reference-systems', 'gridding-and-spatial-interpolation', 'maps-in-r']
 reproducible-science-and-programming:
-  subtopics: ['RStudio', 'literate-expressive-programming','functions', 
-              'r-studio', 'automate-science-workflows', 'git', 'markdown', 
+  subtopics: ['RStudio', 'literate-expressive-programming','functions',
+              'r-studio', 'automate-science-workflows', 'git', 'markdown',
               'rmarkdown', 'data-management']
 find-and-manage-data:
   subtopics: ['data-management', 'find-data', 'metadata']

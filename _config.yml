@@ -1,10 +1,10 @@
 # Site Settings
 locale                   : "en-US"
-title                    : "Earth Data Science - Earth Lab"
-title_separator          : "-"
+title                    : "Earth Data Science | Earth Lab"
+title_separator          : "|"
 name                     : "Earth Analytics"
 description              : "Code, tutorials, and tools for modern Earth analytics"
-url                      : "//earthdatascience.org"
+url                      : "https://earthdatascience.org"
 baseurl                  :
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"

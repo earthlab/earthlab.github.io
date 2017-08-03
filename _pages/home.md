@@ -1,13 +1,15 @@
 ---
 layout: splash
 permalink: /
+splash_header: 'Free online courses, tutorials and tools'
+title: 'Earth Lab: Free, online courses, tutorials and tools'
 header:
   overlay_image: about-header.jpg
   cta_label: "Join our meetup!"
   cta_url: "/meetup/"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
-excerpt: 'We support computationally intensive, transformative science'
+excerpt: 'Learn to use earth science and other data in R & Python'
 intro:
   - excerpt: 'Follow us &nbsp; [<i class="fa fa-twitter"></i> @EarthLabCU](https://twitter.com/EarthLabCU){: .btn .btn--twitter}'
 feature_row:
@@ -37,8 +39,6 @@ sidebar:
   nav: earth-analytics-2017
 ---
 
-
-
 <!-- hiding this until the functionality is fully working -->
 <div class="sidebar notsticky">
   {% include sidebar_home.html %}
@@ -46,7 +46,7 @@ sidebar:
 
 <div class="archive" markdown="1">
 
-## Welcome to Earth * Data * Science !
+## Welcome to Earth Data Science !
 
 {% assign course_sessions = site.posts | where:"module-type", 'session' %}
 {% assign course_overview = site.posts | where:"module-type", 'overview' %}
@@ -61,7 +61,32 @@ This site contains open, tutorials and course materials covering topics includin
 and data intensive science. Currently, we have {{ posts_minus_overview }} lessons
 available on our site with more under development!
 
-## Recent course modules
+## Newest lessons
+
+<div class="list__item">
+We are always adding to our course lesson materials. Below are the top 3
+newest lessons that we've added to our courses.
+</div>
+
+{% assign lesson_posts = site.posts | where:"module-type", "class" or "homework" %}
+{% for post in lesson_posts limit:3 %}
+  <div class="list__item">
+  <article class="archive__item">
+    <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
+    <p class="archive__item-excerpt">{{ post.excerpt }}</p>
+    <p class="archive__item-excerpt"><i>{% if post.course %}Course: {{ post.course }},{% endif %} {% if post.modified %}last updated: {{ post.modified | date_to_string }}{% endif %}</i></p>
+  </article>
+  </div>
+
+{% endfor %}
+
+## Recent course lesson sets
+
+<div class="list__item">
+Below, are the most recently develop course units. These units include a series
+of lessons that are developed around a particular topic. You may want to take
+the entire lesson set.
+</div>
 
 {% assign modules = site.posts | where:"order", 1 %}
 {% for module in modules limit:3 %}
