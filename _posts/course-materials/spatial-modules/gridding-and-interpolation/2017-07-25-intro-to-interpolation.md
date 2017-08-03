@@ -106,7 +106,7 @@ set of points and using them to create a surface composed of a regular grid.
 ## Gridding Points
 
 <figure>
-    <a href="{{ site.url }}/images/course-materials/spatial/spatial-modules/interpolation-101/gridded.png">
+    <a href="{{ site.url }}/images/course-materials/spatial-modules/interpolation-101/gridded.png">
     <img src="{{ site.url }}/images/course-materials/spatial-modules/interpolation-101/gridded.png" alt = "When you directly grid a dataset, values will only be calculated for cells that overlap with data points. Thus, data gaps will not be filled."></a>
     <figcaption>When you directly grid a dataset, values will only be calculated
 	for cells that overlap with data points. Thus, data gaps will not be filled.
