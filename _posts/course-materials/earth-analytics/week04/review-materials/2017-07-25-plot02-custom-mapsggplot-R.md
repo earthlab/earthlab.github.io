@@ -8,9 +8,9 @@ category: [course-materials]
 class-lesson: ['hw-custom-maps-r']
 permalink: /course-materials/earth-analytics/week-4/r-make-maps-with-ggplot-in-R/
 nav-title: 'Maps with ggplot'
-module-type: "class"
 week: 4
 course: "earth-analytics"
+module-type: "class"
 sidebar:
   nav:
 author_profile: false
@@ -207,7 +207,7 @@ road_palette <- c("C" = "green",
                   "S" = "purple",
                   "Unknown" = "grey")
 road_palette
-##        C        M        S  Unknown
+##        C        M        S  Unknown 
 ##  "green" "grey40" "purple"   "grey"
 
 # plot with custom colors

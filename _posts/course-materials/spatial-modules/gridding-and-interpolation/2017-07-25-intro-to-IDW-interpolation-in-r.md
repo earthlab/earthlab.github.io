@@ -78,7 +78,7 @@ necessarily statistically correlated.
 
 <figure>
     <a href="https://docs.qgis.org/2.2/en/_images/idw_interpolation.png">
-	<img src="https://docs.qgis.org/2.2/en/_images/idw_interpolation.png"></a>
+	<img src="https://docs.qgis.org/2.2/en/_images/idw_interpolation.png" alt="IDW interpolation calculates the value of an unknown cell center value (a 	query point) using 	surrounding points with the assumption that closest points will be the most similar to the value of interest."></a>
 
     <figcaption>
 	IDW interpolation calculates the value of an unknown cell center value (a
@@ -106,7 +106,7 @@ trend / relationship between points and does not accommodate trends within the d
 
 <figure>
     <a href="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image001.gif">
-	<img src="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image001.gif">
+	<img src="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image001.gif" alt="IDW interpolation looks at the linear distance between the unknown value and surrounding points.">
 	</a>
 
   <figcaption>
@@ -129,7 +129,7 @@ further away from the cell have a greater impact on the cell's calculated value.
 <figure>
     <a href="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image003.gif
 "><img src="http://www.geography.hunter.cuny.edu/~jochen/GTECH361/lectures/lecture10/3Dconcepts/Inverse%20Distance%20Weighted_files/image003.gif
-"></a>
+" alt="The solid line represents more power and the dashed line represents less power. The higher the power, the more localized an affect a sample point's value has on the resulting surface. A smaller power value yields are smoothed or more averaged surface."></a>
 
     <figcaption>
 	The solid line represents more power and the dashed line represents less power.
@@ -383,16 +383,18 @@ plot(idw_dist5,
 Let's increase the distance even more.
 
 
-```rd
+```r
 # interpolate the data
 idw_dist15 <- idw(formula = elev_mm ~ 1,
            locations = sea_level_2000_sp,
            newdata = grd,
            idp = .2,
            maxdist = 15)
+## Error in idw(formula = elev_mm ~ 1, locations = sea_level_2000_sp, newdata = grd, : could not find function "idw"
 
 plot(idw_dist15,
      main = "IDW: distance = 15 degrees, power = .2")
+## Error in plot(idw_dist15, main = "IDW: distance = 15 degrees, power = .2"): object 'idw_dist15' not found
 ```
 
 
