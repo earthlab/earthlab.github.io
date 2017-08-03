@@ -6,7 +6,7 @@ title: 'Convert points to rasters using IDW deterministic interpolation using R 
 excerpt: 'In this lesson, we dive deeper into the IDW interpolation method. We use R to interpolate some sparse points with the gstat::idw function.'
 dateCreated: 2016-10-25
 modified: 2017-07-25
-module-title: 'Intro to gridding & interpolation in R - Raster and gstat'
+module-title: 'Convert points to rasters using Inverse Distance Weighted (IDW) interpolation in R - spatial data in R'
 module-description: 'In this module we overview various interpolation approaches and explore how to apply them using the R programming language.'
 permalink: /course-materials/intro-to-spatial-interpolation-in-r/
 nav-title: 'IDW in R'
