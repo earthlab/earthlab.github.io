@@ -12,7 +12,7 @@ permalink: /course-materials/intro-to-spatial-interpolation-concepts/
 nav-title: 'Intro to gridding'
 sidebar:
   nav:
-module: ['intro-interpolation']
+class-lesson: ['intro-interpolation']
 topics:
   spatial-data-and-gis: ['raster-data', 'gridding-and-spatial-interpolation']
 author_profile: false

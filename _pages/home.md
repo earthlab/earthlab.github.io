@@ -1,13 +1,15 @@
 ---
 layout: splash
 permalink: /
+splash_header: 'Free online courses, tutorials and tools'
+title: 'Earth Lab: Free, online courses, tutorials and tools'
 header:
   overlay_image: about-header.jpg
   cta_label: "Join our meetup!"
   cta_url: "/meetup/"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
-excerpt: 'We support computationally intensive, transformative science'
+excerpt: 'Learn to use earth science and other data in R & Python'
 intro:
   - excerpt: 'Follow us &nbsp; [<i class="fa fa-twitter"></i> @EarthLabCU](https://twitter.com/EarthLabCU){: .btn .btn--twitter}'
 feature_row:
@@ -37,8 +39,6 @@ sidebar:
   nav: earth-analytics-2017
 ---
 
-
-
 <!-- hiding this until the functionality is fully working -->
 <div class="sidebar notsticky">
   {% include sidebar_home.html %}
@@ -46,7 +46,7 @@ sidebar:
 
 <div class="archive" markdown="1">
 
-## Welcome to Earth * Data * Science !
+## Welcome to Earth Data Science !
 
 {% assign course_sessions = site.posts | where:"module-type", 'session' %}
 {% assign course_overview = site.posts | where:"module-type", 'overview' %}
