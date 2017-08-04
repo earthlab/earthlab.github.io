@@ -114,12 +114,14 @@ list_to_df <- function(x) {
   res
 }
 
+post_libs <- libs$value
+
 lib_md_df <- yaml.load_file("_data/libs.yml") %>%
   lapply(list_to_df) %>%
   bind_rows() %>%
   mutate(filename = file.path("org", "lang-lib", "libs", paste0(libs, ".md")),
          md_exists = file.exists(filename), 
-         in_post = libs %in% libs$value)
+         in_post = libs %in% post_libs)
 
 # check for extant markdown files that should not exist
 libs_w_md <- list.files(path = "org/lang-lib/libs/", ".md") %>%
