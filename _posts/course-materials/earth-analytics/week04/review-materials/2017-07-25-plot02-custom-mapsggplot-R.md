@@ -3,7 +3,7 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-08-03'
+modified: '2017-08-04'
 category: [course-materials]
 class-lesson: ['hw-custom-maps-r']
 permalink: /course-materials/earth-analytics/week-4/r-make-maps-with-ggplot-in-R/
@@ -255,8 +255,17 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleand-1.png" title="Roads ggplot map with axes customized." alt="Roads ggplot map with axes customized." width="100%" />
 
-Finally we can use `coord_fixed()` to scale the x and y axis equally by long and
+Finally we can use `coord_quickmap()` to scale the x and y axis equally by long and
 lat values.
+
+coord_quickmap()
+<i class="fa fa-star"></i> **Data Tip:** There are many different ways to ensure
+`ggplot()` plots data using x and y axis distances that represent the data properly.
+`coord_fixed()` can be used to specify a uniform x and y axis scale. `coord_quickmap()`
+quickly adjusts the x and y axis scales using an estimated value of the coordinate
+reference system that your data are in. coord_map can be used to handle proper 
+projections that you specify as arguments within the `coord_map()` function.
+{: .notice }
 
 
 ```r
@@ -270,7 +279,7 @@ ggplot() +
        color = "Road type",
        x = "", y = "") +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
-  coord_fixed()
+  coord_quickmap()
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-ratio-1.png" title="Roads ggplot map with aspect ratio fixed." alt="Roads ggplot map with aspect ratio fixed." width="100%" />
@@ -637,15 +646,12 @@ ggplot() +
                                       group = group, colour = factor(RTTYP))) +
   geom_point(data = sjer_plots_df, aes(x = coords.x1,
                                        y = coords.x2), shape = 18) +
-  labs(title = "GGPLOT map of roads, study area and plot locations")
+  labs(title = "GGPLOT map of roads, study area and plot locations") 
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-all-layers-1.png" title="ggplot map with roads and plots" alt="ggplot map with roads and plots" width="100%" />
 
-```r
-
-
-#+
+<!-- #+
 #  guides(colour = guide_legend("Road Type"), size = guide_legend("Road Type"))
   #scale_colour_manual(values = c("purple", "green", "blue", "yellow", "magenta"),
    #                    guide = guide_legend(override.aes = list(
@@ -654,9 +660,9 @@ ggplot() +
   # sguide_legend(override.aes = list(shape = 22))
 
 # guide_legend(override.aes = list(shape = 22, size = 5))) something like this to make it plot correctly
-```
+-->
 
-FInally, let's clean up our map even more. That's apply unique symbols to our plots
+Finally, let's clean up our map even more. That's apply unique symbols to our plots
 using the `plot_type` attribute. Note that it can be difficult to apply unique colors
 to multiple object types in a ggplot map. Thus we will keep our symbology simple.
 Let's make all of the roads the same width and map colors and symbols to the plot
@@ -688,16 +694,17 @@ ggplot() +
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot1-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="100%" />
 
 Finally, let's clean up our map further. We can use some of the built in functionality
-of cowplot to adjust the theme() settings in ggplot.
+of cowplot to adjust the `theme()` settings in ggplot.
 
-NOTE: cowplot does the SAME things that you can do with theme() in ggplot. It just
+NOTE: cowplot does the SAME things that you can do with `theme()` in ggplot. It just
 simplies the code that you need to clean up your plot! By default it removes the
 grey background on your plots. However let's adjust it even further.
 
 
 
 ```r
-library(cowplot)
+
+# library(cowplot)
 # plot ggplot
 ggplot() +
   geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
@@ -753,14 +760,58 @@ ggplot() +
                                              "trees" = 8)) +
   labs(title = "ggplot() map of roads, plots and study area",
        x = "", y = "") +
-  background_grid(major = "none", minor = "none") +
+  cowplot::background_grid(major = "none", minor = "none") +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
-        axis.line=element_blank())
+        axis.line = element_blank()) 
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-3-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="100%" />
 
+## Legends and scale bars
+
+We can use the `ggsn` package to magically add a legend and a scale bar to our final 
+map. We can also use this to create a "blank" map background - removing all 
+grid background elements. Let's give it a go.
+
+
+```r
+library(ggsn)
+# get x and y location for scalebar
+roads_ext <- extent(sjer_roads_utmcrop)
+x_scale_loc <- roads_ext@xmax
+y_scale_loc <- roads_ext@ymin
+
+# plot ggplot
+ggplot() +
+  geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
+               fill = "white", color = "black") +
+  geom_path(data = sjer_roads_df, aes(x = long, y = lat,
+                                      group = group, size = factor(RTTYP)), colour = "grey") +
+  scale_size_manual("Road Type", values = c("M" = .3,
+                                            "S" = .8,
+                                            "Unknown" = .3)) +
+  geom_point(data = sjer_plots_df, aes(x = coords.x1,
+                                       y = coords.x2, shape = factor(plot_type), color = factor(plot_type)), size = 3) +
+  scale_color_manual("Plot Type", values = c("trees" = "darkgreen",
+                                 "grass" = "darkgreen",
+                                 "soil" = "brown")) +
+  scale_shape_manual("Plot Type", values = c("grass" = 18,
+                                             "soil" = 15,
+                                             "trees" = 8)) +
+  labs(title = "ggplot() map of roads, plots and study area",
+       subtitle = "with north arrow and scale bar",
+       x = "", y = "") + 
+  # scalebar isn't quite working just yet.... coming soon! 
+  ggsn::scalebar(data = sjer_roads_df, dist = 10, dd2km = FALSE, model = "WGS84", location = "topright",
+                 st.dist = .03, st.size = 5, height = .7, anchor = c(x = x_scale_loc, y = (y_scale_loc - 260))) +
+  ggsn::north(sjer_roads_df, scale = .08) + 
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
+        axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+        axis.line = element_blank()) 
+```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-scalebar-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="100%" />
 
 
 <div class="notice--info" markdown="1">
@@ -772,6 +823,11 @@ ggplot() +
 </div>
 
 
-<!--   #scalebar(lon = -130, lat = 26, distanceLon = 500, distanceLat = 100, distanceLegend = 200, dist.unit = "km", orientation = FALSE)
+<!--  
+
+blank() +
+    north(map) +
+    scalebar(map, dist = 5, dd2km = TRUE, model = 'WGS84')
+#scalebar(lon = -130, lat = 26, distanceLon = 500, distanceLat = 100, distanceLegend = 200, dist.unit = "km", orientation = FALSE)
 # https://stackoverflow.com/questions/39185291/legends-for-multiple-fills-in-ggplot/39185552
 -->
