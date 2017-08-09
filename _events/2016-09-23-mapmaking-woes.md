@@ -6,4 +6,5 @@ link: https://github.com/earthlab/meetup/issues/14
 date: 2016-09-23
 startTime: '13:00'
 endTime: '14:00'
+sitemap: false
 ---

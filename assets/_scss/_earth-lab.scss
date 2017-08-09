@@ -3,6 +3,11 @@
    integrate with Minimal Minstakes in the future
    ========================================================================== */
 
+/* reduce padding in the top bar  */
+.masthead__inner-wrap {
+       padding: 0 1em!important;
+   }
+
 /* tags on the bottom of the page */
 .a-main-tag {
        font-weight: bold;

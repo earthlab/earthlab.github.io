@@ -3,7 +3,7 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-08-09'
+modified: '2017-08-04'
 category: [course-materials]
 class-lesson: ['hw-custom-maps-r']
 permalink: /course-materials/earth-analytics/week-4/r-make-maps-with-ggplot-in-R/
@@ -78,9 +78,6 @@ library(dplyr)
 # library(cowplot)
 # note that you don't need to call maptools to run the code below but it needs to be installed.
 library(maptools)
-# to add a north arrow and a scale bar to the map
-library(ggsn)
-## Error in library(ggsn): there is no package called 'ggsn'
 options(stringsAsFactors = FALSE)
 ```
 
@@ -165,7 +162,7 @@ we plot.
 # plot the lines data, apply a diff color to each factor level)
 ggplot() +
   geom_path(data = sjer_roads_df, aes(x = long, y = lat, group = group)) +
-  labs(title = "ggplot map of roads") 
+  labs(title = "ggplot map of roads")
 ```
 
 <img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/plot-roads-data-1.png" title="Basic ggplot of roads." alt="Basic ggplot of roads." width="100%" />
@@ -706,6 +703,8 @@ grey background on your plots. However let's adjust it even further.
 
 
 ```r
+
+# library(cowplot)
 # plot ggplot
 ggplot() +
   geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
@@ -765,51 +764,19 @@ ggplot() +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
         axis.line = element_blank()) 
-## Error in loadNamespace(name): there is no package called 'cowplot'
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-3-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="100%" />
 
 ## Legends and scale bars
 
 We can use the `ggsn` package to magically add a legend and a scale bar to our final 
-map. We can also use this package to create a "blank" map background - removing all 
+map. We can also use this to create a "blank" map background - removing all 
 grid background elements. Let's give it a go.
-
-We can add a scale bar using the scalebar() function. Note that there is also a
-scalebar function in the raster package so we are explicetly telling R to use the 
-function from the ggsn package using the syntax
-
-`ggsn::scalebar()`
-
-Also note that there is a bug in the ggsn package currently where the documentation
-tells us to use `dd2km = FALSE` for data not in geographic lat / long. However, 
-for this to work, we need to simply omit the argument from function as follows:
-
-For data in UTM Meters: 
-`ggsn::scalebar(data = sjer_roads_df, dist = .5, location = "bottomright")`
-
-For data in geographic lat/long - wgs 84 datum:
-`ggsn::scalebar(data = sjer_roads_df, dd2km = TRUE, model = "WGS84", dist = .5, location = "bottomright")`
-
-Below I set the legend location explicitely using the following arguments:
-
-* location: place the scalebar in the bottom right hand corner of the plot
-* anchor: this allows meto specify the bottom corner location of my scalebar explicately 
-* st.size and st.dist: allow you to set the size of the text and distance of the text from the scalebar respectively
-
-
-`ggsn::scalebar(data = sjer_roads_df, dist = .5, location = "bottomright",
-                 st.dist = .05, st.size = 5, height = .06, anchor = c(x = x_scale_loc, y = (y_scale_loc - 360)))`
-
-Finally we can add a north arrow using:
-
-`ggsn::north(sjer_roads_df, scale = .08)`
-
-We can adjust the size and location of the north arrow as well.
 
 
 ```r
 library(ggsn)
-## Error in library(ggsn): there is no package called 'ggsn'
 # get x and y location for scalebar
 roads_ext <- extent(sjer_roads_utmcrop)
 x_scale_loc <- roads_ext@xmax
@@ -836,14 +803,15 @@ ggplot() +
        subtitle = "with north arrow and scale bar",
        x = "", y = "") + 
   # scalebar isn't quite working just yet.... coming soon! 
-  ggsn::scalebar(data = sjer_roads_df, dist = .5, location = "bottomright",
-                 st.dist = .03, st.size = 4, height = .02, anchor = c(x = x_scale_loc, y = (y_scale_loc - 360))) +
+  ggsn::scalebar(data = sjer_roads_df, dist = 10, dd2km = FALSE, model = "WGS84", location = "topright",
+                 st.dist = .03, st.size = 5, height = .7, anchor = c(x = x_scale_loc, y = (y_scale_loc - 260))) +
   ggsn::north(sjer_roads_df, scale = .08) + 
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
-        axis.line = element_blank()) + blank()
-## Error in loadNamespace(name): there is no package called 'ggsn'
+        axis.line = element_blank()) 
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-scalebar-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="100%" />
 
 
 <div class="notice--info" markdown="1">

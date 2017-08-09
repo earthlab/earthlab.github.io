@@ -3,7 +3,11 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
+<<<<<<< HEAD
 modified: '2017-08-09'
+=======
+modified: '2017-08-03'
+>>>>>>> d81d96935c2f049c7de4b1f43f6ec280e3717c4c
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/reproject-vector-data/
@@ -499,6 +503,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```

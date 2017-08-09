@@ -3,25 +3,26 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-08-01'
+modified: '2017-08-09'
 category: [course-materials]
 class-lesson: ['hw-custom-maps-r']
 permalink: /course-materials/earth-analytics/week-4/r-make-maps-with-ggplot-in-R/
 nav-title: 'Maps with ggplot'
 week: 4
 course: "earth-analytics"
+module-type: "class"
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 1
+order: 2
 class-order: 2
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems', 'maps-in-r']
   reproducible-science-and-programming:
 ---
 
-# remove module-type: 'class' so it doesn't render live
+<!--# remove module-type: 'class' so it doesn't render live -->
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -44,16 +45,15 @@ You will need a computer with internet access to complete this lesson and the da
 
 ## Making maps with GGPLOT
 
-In the previous lesson, we used base plot() to create a map of vector data -
+In the previous lesson, we used base `plot()` to create a map of vector data -
 our roads data - in `R`. In this lesson we will create the same maps, however
-instead we will use `ggplot()`. ggplot is a powerful tool for making custom maps.
+instead we will use `ggplot()`. `ggplot` is a powerful tool for making custom maps.
 Compared to base plot, you will find creating custom legends to be simpler and cleaner,
 and creating nicely formatted themed maps to be simpler as well.
 
 However, we will have to convert our data from spatial (`sp`) objects to data.frames
 to use ggplot. The process isn't bad once you have the steps down! Let's check
 it out.
-
 
 <i class="fa fa-star"></i> **Data Tip:** If our data attribute values are not
 read in as factors, we can convert the categorical
@@ -74,8 +74,13 @@ library(broom)
 library(RColorBrewer)
 library(rgeos)
 library(dplyr)
+# use the cowplot library to create cleaner ggplot maps - we will load this at the very end so you can see how it works and what it does! Don't load it just yet.
+# library(cowplot)
 # note that you don't need to call maptools to run the code below but it needs to be installed.
 library(maptools)
+# to add a north arrow and a scale bar to the map
+library(ggsn)
+## Error in library(ggsn): there is no package called 'ggsn'
 options(stringsAsFactors = FALSE)
 ```
 
@@ -101,7 +106,7 @@ plot(sjer_roads,
      main = "Quick plot of roads data")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/convert-to-factor-1.png" title="Quick plot of the roads data." alt="Quick plot of the roads data." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/convert-to-factor-1.png" title="Quick plot of the roads data." alt="Quick plot of the roads data." width="100%" />
 
 
 
@@ -160,10 +165,10 @@ we plot.
 # plot the lines data, apply a diff color to each factor level)
 ggplot() +
   geom_path(data = sjer_roads_df, aes(x = long, y = lat, group = group)) +
-  labs(title = "ggplot map of roads")
+  labs(title = "ggplot map of roads") 
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/plot-roads-data-1.png" title="Basic ggplot of roads." alt="Basic ggplot of roads." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/plot-roads-data-1.png" title="Basic ggplot of roads." alt="Basic ggplot of roads." width="100%" />
 
 We can color each line by type too by adding the attribute that we wish to use
 for categories or types to the color  = argument.
@@ -183,7 +188,7 @@ labs(color = 'Road Types', # change the legend type
      title = "Roads colored by the RTTP attribute")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-axis-cleaned-1.png" title="Basic plot with title and legend title" alt="Basic plot with title and legend title" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleaned-1.png" title="Basic plot with title and legend title" alt="Basic plot with title and legend title" width="100%" />
 
 We can customize the colors on our map too. Below we do a few things
 
@@ -200,9 +205,9 @@ length(levels(sjer_roads$RTTYP))
 ## [1] 0
 
 # create a color palette of 4 colors - one for each factor level
-road_palette <- c("C" = "green", 
-                  "M" = "grey40", 
-                  "S" = "purple", 
+road_palette <- c("C" = "green",
+                  "M" = "grey40",
+                  "S" = "purple",
                   "Unknown" = "grey")
 road_palette
 ##        C        M        S  Unknown 
@@ -218,7 +223,7 @@ ggplot() +
        subtitle = "Colored by road type")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="100%" />
 
 Notice that above the colors are applied to each category (C, M, S and Unknown) in order.
 In this case the order is alphabetical.
@@ -251,10 +256,19 @@ ggplot() +
   theme(axis.text = element_blank(), axis.ticks = element_blank())
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-axis-cleand-1.png" title="Roads ggplot map with axes customized." alt="Roads ggplot map with axes customized." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleand-1.png" title="Roads ggplot map with axes customized." alt="Roads ggplot map with axes customized." width="100%" />
 
-Finally we can use `coord_fixed()` to scale the x and y axis equally by long and
+Finally we can use `coord_quickmap()` to scale the x and y axis equally by long and
 lat values.
+
+coord_quickmap()
+<i class="fa fa-star"></i> **Data Tip:** There are many different ways to ensure
+`ggplot()` plots data using x and y axis distances that represent the data properly.
+`coord_fixed()` can be used to specify a uniform x and y axis scale. `coord_quickmap()`
+quickly adjusts the x and y axis scales using an estimated value of the coordinate
+reference system that your data are in. coord_map can be used to handle proper 
+projections that you specify as arguments within the `coord_map()` function.
+{: .notice }
 
 
 ```r
@@ -268,10 +282,10 @@ ggplot() +
        color = "Road type",
        x = "", y = "") +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
-  coord_fixed()
+  coord_quickmap()
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-ratio-1.png" title="Roads ggplot map with aspect ratio fixed." alt="Roads ggplot map with aspect ratio fixed." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-ratio-1.png" title="Roads ggplot map with aspect ratio fixed." alt="Roads ggplot map with aspect ratio fixed." width="100%" />
 
 <!--
 # r for spatial analysis --
@@ -299,7 +313,7 @@ ggplot() +
   coord_fixed()
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-line-width-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="100%" />
 
 ### Adjust Line Width by Attribute
 
@@ -311,7 +325,7 @@ width in the order of the factor levels in the data. This is by default alphabet
 
 `scale_size_manual(values = c(.5, 1, 1, .5))`
 
-However it's better to be explicit and set which attribute value should be 
+However it's better to be explicit and set which attribute value should be
 associated with each line width. Like this:
 
 `scale_size_manual(values = c("C" = .5, "M" = 1, "S" = 1, "Unknown" = .5))`
@@ -344,7 +358,7 @@ ggplot() +
   coord_fixed()
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-line-width2-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width2-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="100%" />
 
 ### Merge the legends
 
@@ -376,7 +390,7 @@ ggplot() +
   coord_fixed()
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-line-width-custom-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-custom-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="100%" />
 
 But this is ugly, right? Let's make the line widths a bit thinner to clean
 things up.
@@ -391,7 +405,7 @@ ggplot() +
                                       group = group,
                                       colour = factor(RTTYP),
                                       size = factor(RTTYP))) +
-  scale_size_manual(values = c(.3, .6, .6, .3)) +
+  scale_size_manual(values = c("C" = .3, "M" = .6, "S" = .6, "Unknown" = .3)) +
       scale_colour_manual(values = road_palette) +
   guides(colour = guide_legend("Road Type"), size = guide_legend("Road Type")) +
   labs(title = "Madera County Roads ",
@@ -402,7 +416,7 @@ ggplot() +
   coord_fixed()
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/roads-line-width-custom2-1.png" title="Roads ggplot map with line width set. Thinner lines." alt="Roads ggplot map with line width set. Thinner lines." width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-custom2-1.png" title="Roads ggplot map with line width set. Thinner lines." alt="Roads ggplot map with line width set. Thinner lines." width="100%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -415,7 +429,7 @@ roads with an RTTYP attribute value of unknown (thinner lines, lighter color).
 </div>
 
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="100%" />
 
 
 <!-- C = County
@@ -427,12 +441,12 @@ U = U.S.-->
 
 ## Adding points and lines to a legend
 
-Next, let's add points to our map and and of course the map legend too. 
-We will import the shapefile `data/week5/california/SJER/vector_data/sjer_plot_centroids.shp` layer. This 
-data represents study plot locations from our field work in southern 
-California. 
+Next, let's add points to our map and and of course the map legend too.
+We will import the shapefile `data/week5/california/SJER/vector_data/sjer_plot_centroids.shp` layer. This
+data represents study plot locations from our field work in southern
+California.
 
-Let's import that data and perform any cleanup that is required. 
+Let's import that data and perform any cleanup that is required.
 
 
 
@@ -453,9 +467,11 @@ Next we can `tidy()` up the data as we did before... or can we?
 
 ```r
 sjer_plots_df <- tidy(sjer_plots, region = "id")
+## Warning in tidy.default(sjer_plots, region = "id"): No method for tidying
+## an S3 object of class SpatialPointsDataFrame , using as.data.frame
 ```
 
-Note that this time we imported point data. We can't use the tidy function 
+Note that this time we imported point data. We can't use the tidy function
 on points data. Instead, we simply convert it to a data.frame using the function
 `as.data.frame`.
 
@@ -477,16 +493,16 @@ ggplot() +
   labs(title = "Plot locations")
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/ggplot-points-1.png" title="ggplot with points" alt="ggplot with points" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/ggplot-points-1.png" title="ggplot with points" alt="ggplot with points" width="100%" />
 
-Great! We've now plotted our data using ggplot. Let's next combine the roads 
+Great! We've now plotted our data using ggplot. Let's next combine the roads
 with the points in one clean map.
 
 ## Layering data in ggplot
 
 We can layer multiple ggplot objects by adding a new `geom_` function to our plot.
 For the roads data, we used `geom_path()` and for points we use `geom_point()`.
-Note that we add an addition data layer to our ggplot map using the `+` sign. 
+Note that we add an addition data layer to our ggplot map using the `+` sign.
 
 
 ```r
@@ -498,7 +514,7 @@ ggplot() +
   geom_point(data = sjer_plots_df, aes(x = coords.x1, y = coords.x2))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/combine-layers-1.png" title="Plot of both points and lines with ggplot" alt="Plot of both points and lines with ggplot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-1.png" title="Plot of both points and lines with ggplot" alt="Plot of both points and lines with ggplot" width="100%" />
 
 
 Next we have a few options - our roads layer is a much larger spatial extent
@@ -515,9 +531,9 @@ ggplot() +
   coord_fixed(xlim = c(-119.8, -119.7), ylim = c(37.05, 37.15))
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/combine-layers-custom-ext-1.png" title="Plot of both points and lines with ggplot with custom extent" alt="Plot of both points and lines with ggplot with custom extent" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-custom-ext-1.png" title="Plot of both points and lines with ggplot with custom extent" alt="Plot of both points and lines with ggplot with custom extent" width="100%" />
 
-## Data crop vs map zoom
+## Data crop vs. map zoom
 
 A better approach is to crop our data to a study region. That way we aren't
 retaining information that we done need which will make plotting faster.
@@ -533,7 +549,7 @@ sjer_plots <- readOGR("data/week5/california/SJER/vector_data/SJER_plot_centroid
 sjer_roads <- readOGR("data/week5/california/madera-county-roads/tl_2013_06039_roads.shp")
 ```
 
-Then explore the data to determine whether we need to clean the data up. 
+Then explore the data to determine whether we need to clean the data up.
 
 
 ```r
@@ -549,20 +565,31 @@ crs(sjer_plots)
 crs(sjer_roads)
 ## CRS arguments:
 ##  +proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0
+```
 
+It looks like our data are not all in the same coordinate reference system (CRS).
+Let's go ahead and reproject the data so they are in the same CRS. Also below
+we spatially CROP the roads data since we only need road information for our
+study area. This will also making plotting faster.
+
+
+```r
 # reproject the roads to utm
 sjer_roads_utm <- spTransform(sjer_roads, CRS = crs(study_area))
+
+# assign NA values in the roads layer to "unknown" so we can plot all lines
 sjer_roads_utm$RTTYP[is.na(sjer_roads_utm$RTTYP)] <- "Unknown"
 unique(sjer_roads_utm$RTTYP)
 ## [1] "M"       "Unknown" "S"       "C"
-# crop the roads to our study area
 
+# crop the roads data to our study area for quicker plotting
 sjer_roads_utmcrop <- crop(sjer_roads_utm, study_area)
+
 # quick plot to make sure the data look like we expect them too post crop
 plot(sjer_roads_utmcrop)
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/clean-data-1.png" title="quick plot of the data" alt="quick plot of the data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/reproject-plot-1.png" title="quick plot of the data" alt="quick plot of the data" width="100%" />
 
 ```r
 
@@ -581,23 +608,20 @@ crs(sjer_roads_utmcrop)
 ## +towgs84=0,0,0
 ```
 
-Convert the study_area object to a data frame for ggplot.
-In this case we only have one extent boundary for the study area - so we won't
-need to add the attributes.
+Next, we convert the study_area spatial object to a data.frame so we can plot it
+using ggplot. In this case we only have one extent boundary for the study area -
+so we won't need to add the attributes.
 
 
 ```r
-# turn study area data into data frame
+# convert study area data into data.frame
 study_area$id <- rownames(study_area@data)
 study_area_df <- tidy(study_area, region = "id")
 
-# be sure your dataframe has an id column
-
-# convert roads layer (utm projection) to data frame
-
-# convert spatial object to a ggplot ready data frame
+# convert roads layer to ggplot ready data.frame
 sjer_roads_df <- tidy(sjer_roads_utmcrop, region = "id")
-# make sure the shapefile attribute table has an id column
+
+# make sure the shapefile attribute table has an id column so we can add spatial attributes
 sjer_roads_utmcrop$id <- rownames(sjer_roads_utmcrop@data)
 # join the attribute table from the spatial object to the new data frame
 sjer_roads_df <- left_join(sjer_roads_df,
@@ -605,7 +629,8 @@ sjer_roads_df <- left_join(sjer_roads_df,
                            by = "id")
 
 
-# convert spatial object to a ggplot ready data frame
+# convert spatial object to a ggplot ready data frame - note this is a points layer
+# so we don't use the tidy function
 sjer_plots_df <- as.data.frame(sjer_plots, region = "id")
 ```
 
@@ -613,26 +638,24 @@ Now that we have all of our layers converted and cleaned up we can plot them.
 Notice that plotting is much faster when we crop the data to only the study location
 that we are interested in.
 
-Weird stuff is happening with the legend and colors and stuff...
+
 
 ```r
-# need to figure out how to plot with a black border and no fill
+# plot using ggplot
 ggplot() +
   geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
                fill = "white", color = "black") +
   geom_path(data = sjer_roads_df, aes(x = long, y = lat,
                                       group = group, colour = factor(RTTYP))) +
   geom_point(data = sjer_plots_df, aes(x = coords.x1,
-                                       y = coords.x2, colour = 'school')) +
-  guides(color = guide_legend(override.aes = list(shape = c(NA, NA, NA, 16), linetype = c(1,1,1,0))))
+                                       y = coords.x2), shape = 18) +
+  labs(title = "GGPLOT map of roads, study area and plot locations") 
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/combine-all-layers-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-all-layers-1.png" title="ggplot map with roads and plots" alt="ggplot map with roads and plots" width="100%" />
 
-```r
-#+
+<!-- #+
 #  guides(colour = guide_legend("Road Type"), size = guide_legend("Road Type"))
-
   #scale_colour_manual(values = c("purple", "green", "blue", "yellow", "magenta"),
    #                    guide = guide_legend(override.aes = list(
     #                     linetype = c(rep("blank", 4), "solid", "dashed"),
@@ -640,137 +663,203 @@ ggplot() +
   # sguide_legend(override.aes = list(shape = 22))
 
 # guide_legend(override.aes = list(shape = 22, size = 5))) something like this to make it plot correctly
-```
+-->
 
-
+Finally, let's clean up our map even more. That's apply unique symbols to our plots
+using the `plot_type` attribute. Note that it can be difficult to apply unique colors
+to multiple object types in a ggplot map. Thus we will keep our symbology simple.
+Let's make all of the roads the same width and map colors and symbols to the plot
+locations only. The plot locations are what we want to stand out anyway!
 
 
 ```r
-
-# https://stackoverflow.com/questions/39185291/legends-for-multiple-fills-in-ggplot/39185552
-
+# plot ggplot
 ggplot() +
   geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
                fill = "white", color = "black") +
   geom_path(data = sjer_roads_df, aes(x = long, y = lat,
-                                      group = group, colour = factor(RTTYP), size = factor(RTTYP))) +
-  scale_linetype_manual("Road Type", c("M" = 2, 3, 4)) +
-  scale_size_manual("Road Type", values = c("M" = .5,
-                                            "S" = 2,
-                                            "Unknown" = .5)) +
+                                      group = group, size = factor(RTTYP)), colour = "grey") +
+  scale_size_manual("Road Type", values = c("M" = .3,
+                                            "S" = .8,
+                                            "Unknown" = .3)) +
   geom_point(data = sjer_plots_df, aes(x = coords.x1,
-                                       y = coords.x2, shape = factor(plot_type)), size = 3) +
-
-  scale_colour_manual("Road Type", values = c("M" = "grey",
-                                "Unknown" = "grey",
-                                 "S" = "magenta")) +
-  scale_fill_manual("Plot Type", values = c("trees" = "springgreen",
-                                 "grass" = "green",
+                                       y = coords.x2, shape = factor(plot_type), color = factor(plot_type)), size = 3) +
+  scale_color_manual("Plot Type", values = c("trees" = "darkgreen",
+                                 "grass" = "darkgreen",
                                  "soil" = "brown")) +
-  scale_shape_manual("Plot Type", values = c("grass" = 21,
-                                             "soil" = 12,
-                                             "trees" = 18)) +
-  scalebar(lon = -130, lat = 26, distanceLon = 500, distanceLat = 100, distanceLegend = 200, dist.unit = "km", orientation = FALSE)
-## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet
-
-#+
-#  guides(color = guide_legend("Road Type", override.aes = list(shape = c(NA, NA, NA, 16, 16, 16), "sdf", linetype = c(1,1,1,0,0,0))))
-
-## scale bars and legend
-# http://oswaldosantos.github.io/ggsn/
+  scale_shape_manual("Plot Type", values = c("grass" = 18,
+                                             "soil" = 15,
+                                             "trees" = 8)) +
+  labs(title = "ggplot map of roads, plots and study area") +
+  theme_bw()
 ```
 
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot1-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="100%" />
+
+Finally, let's clean up our map further. We can use some of the built in functionality
+of cowplot to adjust the `theme()` settings in ggplot.
+
+NOTE: cowplot does the SAME things that you can do with `theme()` in ggplot. It just
+simplies the code that you need to clean up your plot! By default it removes the
+grey background on your plots. However let's adjust it even further.
 
 
 
 ```r
-# get rid of this
-sjer_plots$plot_type <- as.factor(sjer_plots$plot_type)
-levels(sjer_plots$plot_type)
-## [1] "grass" "soil"  "trees"
-# grass, soil trees
-plot_colors <- c("chartreuse4", "burlywood4", "darkgreen")
+# plot ggplot
+ggplot() +
+  geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
+               fill = "white", color = "black") +
+  geom_path(data = sjer_roads_df, aes(x = long, y = lat,
+                                      group = group, size = factor(RTTYP)), colour = "grey") +
+  scale_size_manual("Road Type", values = c("M" = .3,
+                                            "S" = .8,
+                                            "Unknown" = .3)) +
+  geom_point(data = sjer_plots_df, aes(x = coords.x1,
+                                       y = coords.x2, shape = factor(plot_type), color = factor(plot_type)), size = 3) +
+  scale_color_manual("Plot Type", values = c("trees" = "darkgreen",
+                                 "grass" = "darkgreen",
+                                 "soil" = "brown")) +
+  scale_shape_manual("Plot Type", values = c("grass" = 18,
+                                             "soil" = 15,
+                                             "trees" = 8)) +
+  labs(title = "ggplot map of roads, plots and study area") +
+  theme_bw()
 ```
 
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-cowplot-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="100%" />
 
-Let's take customization a step further. I can adjust the font styles in the legend
-too to make it look **even prettier**. To do this, we use the `text.font` argument.
+## Adjust ggplot theme settings
 
-The possible values for the `text.font` argument are:
+Finally, we can use a combination of cowplot and ggplot `theme()` settings to
+remove the x and y axis labels, ticks and lines. We use `background_grid()` to remove the
+grey grid from our plot. Then we use the theme() function to remove:
 
-* 1: normal
-* 2: bold
-* 3: italic
-* 4: bold and italic
+* the x and y axis text and ticks
+* the axes lines - `axis.line`
 
-Notice below, i am passing a vector of values, one value to represent each
-element in the legend.
+Let's see how it looks.
 
 
 ```r
-# adjust margin to make room for the legend
-par(mar=c(2, 2, 4, 7))
-# plot using new colors
-plot(sjer_aoi,
-     border="grey",
-     lwd=2,
-     main="Madera County Roads and plot locations")
-plot(sjer_plots,
-     col=(plot_colors)[sjer_plots$plot_type],
-     add=T,
-     pch=8)
-# plot using new colors
-plot(sjer_roads_utm,
-     col=(challengeColors)[sjer_plots$plot_type],
-     pch=8,
-     add=T)
-
-# add a legend to our map
-legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
-       legend = c("Plots", levels(sjer_plots$plot_type), "Road Types", levels(sjer_roads$RTTYP)),
-       pch=c(NA, 8, 18, 8, NA, NA, NA, NA, NA),  # set the symbol for each point
-       lty=c(NA,NA,NA, NA, NA, 1, 1, 1, 1),
-       col=c(plot_colors, challengeColors), # set the color of each legend line
-       bty="n", # turn off border
-       cex=.9, # adjust legend font size
-       xpd=T,
-       text.font =c(2, 1, 1, 1, 2, 1, 1, 1, 1))
+# plot ggplot
+ggplot() +
+  geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
+               fill = "white", color = "black") +
+  geom_path(data = sjer_roads_df, aes(x = long, y = lat,
+                                      group = group, size = factor(RTTYP)), colour = "grey") +
+  scale_size_manual("Road Type", values = c("M" = .3,
+                                            "S" = .8,
+                                            "Unknown" = .3)) +
+  geom_point(data = sjer_plots_df, aes(x = coords.x1,
+                                       y = coords.x2, shape = factor(plot_type), color = factor(plot_type)), size = 3) +
+  scale_color_manual("Plot Type", values = c("trees" = "darkgreen",
+                                 "grass" = "darkgreen",
+                                 "soil" = "brown")) +
+  scale_shape_manual("Plot Type", values = c("grass" = 18,
+                                             "soil" = 15,
+                                             "trees" = 8)) +
+  labs(title = "ggplot() map of roads, plots and study area",
+       x = "", y = "") +
+  cowplot::background_grid(major = "none", minor = "none") +
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
+        axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+        axis.line = element_blank()) 
+## Error in loadNamespace(name): there is no package called 'cowplot'
 ```
 
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-3-1.png" title="final legend with points and lines customized 2ß." alt="final legend with points and lines customized 2ß." width="100%" />
+## Legends and scale bars
+
+We can use the `ggsn` package to magically add a legend and a scale bar to our final 
+map. We can also use this package to create a "blank" map background - removing all 
+grid background elements. Let's give it a go.
+
+We can add a scale bar using the scalebar() function. Note that there is also a
+scalebar function in the raster package so we are explicetly telling R to use the 
+function from the ggsn package using the syntax
+
+`ggsn::scalebar()`
+
+Also note that there is a bug in the ggsn package currently where the documentation
+tells us to use `dd2km = FALSE` for data not in geographic lat / long. However, 
+for this to work, we need to simply omit the argument from function as follows:
+
+For data in UTM Meters: 
+`ggsn::scalebar(data = sjer_roads_df, dist = .5, location = "bottomright")`
+
+For data in geographic lat/long - wgs 84 datum:
+`ggsn::scalebar(data = sjer_roads_df, dd2km = TRUE, model = "WGS84", dist = .5, location = "bottomright")`
+
+Below I set the legend location explicitely using the following arguments:
+
+* location: place the scalebar in the bottom right hand corner of the plot
+* anchor: this allows meto specify the bottom corner location of my scalebar explicately 
+* st.size and st.dist: allow you to set the size of the text and distance of the text from the scalebar respectively
 
 
+`ggsn::scalebar(data = sjer_roads_df, dist = .5, location = "bottomright",
+                 st.dist = .05, st.size = 5, height = .06, anchor = c(x = x_scale_loc, y = (y_scale_loc - 360)))`
 
-Now, if you want to move the legend out a bit further, what would you do?
+Finally we can add a north arrow using:
 
-## BONUS!
+`ggsn::north(sjer_roads_df, scale = .08)`
 
-Any idea how I added a space to the legend below to create "sections"?
-
-<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week04/review-materials/2017-02-15-plot02-custom-mapsggplot-R/custom-legend-points-lines-4-1.png" title="final legend with points and lines customized." alt="final legend with points and lines customized." width="100%" />
+We can adjust the size and location of the north arrow as well.
 
 
 ```r
-# important: once you are done, reset par which resets plot margins
-# otherwise margins will carry over to your next plot and cause problems!
-dev.off()
+library(ggsn)
+## Error in library(ggsn): there is no package called 'ggsn'
+# get x and y location for scalebar
+roads_ext <- extent(sjer_roads_utmcrop)
+x_scale_loc <- roads_ext@xmax
+y_scale_loc <- roads_ext@ymin
+
+# plot ggplot
+ggplot() +
+  geom_polygon(data = study_area_df, aes(x = long, y = lat, group = group),
+               fill = "white", color = "black") +
+  geom_path(data = sjer_roads_df, aes(x = long, y = lat,
+                                      group = group, size = factor(RTTYP)), colour = "grey") +
+  scale_size_manual("Road Type", values = c("M" = .3,
+                                            "S" = .8,
+                                            "Unknown" = .3)) +
+  geom_point(data = sjer_plots_df, aes(x = coords.x1,
+                                       y = coords.x2, shape = factor(plot_type), color = factor(plot_type)), size = 3) +
+  scale_color_manual("Plot Type", values = c("trees" = "darkgreen",
+                                 "grass" = "darkgreen",
+                                 "soil" = "brown")) +
+  scale_shape_manual("Plot Type", values = c("grass" = 18,
+                                             "soil" = 15,
+                                             "trees" = 8)) +
+  labs(title = "ggplot() map of roads, plots and study area",
+       subtitle = "with north arrow and scale bar",
+       x = "", y = "") + 
+  # scalebar isn't quite working just yet.... coming soon! 
+  ggsn::scalebar(data = sjer_roads_df, dist = .5, location = "bottomright",
+                 st.dist = .03, st.size = 4, height = .02, anchor = c(x = x_scale_loc, y = (y_scale_loc - 360))) +
+  ggsn::north(sjer_roads_df, scale = .08) + 
+  theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
+        axis.text.y = element_blank(), axis.ticks.y = element_blank(),
+        axis.line = element_blank()) + blank()
+## Error in loadNamespace(name): there is no package called 'ggsn'
 ```
 
 
+<div class="notice--info" markdown="1">
+
+## Additional Resources
+
+* <a href="http://oswaldosantos.github.io/ggsn/" target="_blank">Add scale bars and legends to your ggplot map </a>
+
+</div>
 
 
+<!--  
 
-
-from the 
-In the data below, we've create a custom legend where each symbol type and color
-is defined using a vector. We have 3 levels: grass, soil and trees. Thus we
-need to define 3 symbols and 3 colors for our legend and our plot.
-
-`pch=c(8,18,8)`
-
-`plot_colors <- c("chartreuse4", "burlywood4", "darkgreen")`
-
-## note that because we are importing points, we have to do things a bit differently
-We won't use tidy - istead we will simply coerce (convert) to a a data frame with xy values.
-
-Next - let's plot the data with ggplot.
+blank() +
+    north(map) +
+    scalebar(map, dist = 5, dd2km = TRUE, model = 'WGS84')
+#scalebar(lon = -130, lat = 26, distanceLon = 500, distanceLat = 100, distanceLegend = 200, dist.unit = "km", orientation = FALSE)
+# https://stackoverflow.com/questions/39185291/legends-for-multiple-fills-in-ggplot/39185552
+-->
