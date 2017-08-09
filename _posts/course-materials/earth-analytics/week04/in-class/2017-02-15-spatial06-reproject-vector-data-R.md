@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-07-18'
+modified: '2017-08-09'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/reproject-vector-data/
@@ -83,8 +83,25 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 ```r
 # load spatial data packages
 library(rgdal)
+## Loading required package: sp
+## rgdal: version: 1.2-8, (SVN revision 663)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-5
 library(raster)
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+## 
+##     select
 library(rgeos)
+## rgeos version: 0.3-23, (SVN revision 546)
+##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921 
+##  Linking to sp version: 1.2-4 
+##  Polygon checking: TRUE
 options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
@@ -463,7 +480,7 @@ Create a map of our SJER study area as follows:
 2. Create a map that shows the roads layer, study site locations and the sjer_aoi boundary.
 3. Add a **title** to your plot.
 4. Add a **legend** to your plot that shows both the roads and the plot locations.
-5. Plot the roads by road type and add each type to the legend. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-custom-legend/) to help build the legend.
+5. Plot the roads by road type and add each type to the legend. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/course-materials/earth-analytics/week-4/r-create-custom-legend-with-base-plot/) to help build the legend.
 6. BONUS: Plot the plots by type - adjust the symbology of the plot locations (choose a symbol using pch for each type and adjust the color of the points).
 7. Do your best to make the map look nice!
 

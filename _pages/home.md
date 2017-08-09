@@ -46,7 +46,7 @@ sidebar:
 
 <div class="archive" markdown="1">
 
-## Welcome to Earth * Data * Science !
+## Welcome to Earth Data Science !
 
 {% assign course_sessions = site.posts | where:"module-type", 'session' %}
 {% assign course_overview = site.posts | where:"module-type", 'overview' %}
