@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-08-03'
+modified: '2017-08-09'
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /course-materials/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -89,9 +89,7 @@ library(dplyr)
 library(tidytext)
 # plotting packages
 library(igraph)
-## Error in library(igraph): there is no package called 'igraph'
 library(ggraph)
-## Error in library(ggraph): there is no package called 'ggraph'
 ```
 
 
@@ -118,12 +116,12 @@ climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] ".@accuweather asks -- Are we doing enough to fight #climatechange? @MichaelEMann weighs in: https://t.co/BouVCgMoQy https://t.co/PFDzjWD1Rg"
-## [2] "AutReport: Australian Government (@BOM_au) caught red-handed falsifying climate data https://t.co/mIj5vsANpO… https://t.co/VIb7MwcVev"      
-## [3] "Perspective | I worked on the #EPA’s #climatechange website. Its removal is a declaration of war. https://t.co/YIJ5EBgFgO"                  
-## [4] "A #redteam may be the wrong tool for #climatechange science, but the right tool for climate policy https://t.co/SVlgtZqL2E #sciencepolicy"  
-## [5] "Huge Dead Zone In Gulf Of Mexico Traced To Midwest Meat Industry - https://t.co/0KxbEPwbMf #ClimateChange"                                  
-## [6] "Perspective | I worked on the #EPA’s #climatechange website. Its removal is a declaration of war. https://t.co/uxEzfCPOeh"
+## [1] "Scientist released US gov #ClimateChange report to @nytimes. A lot there so maybe start w/@colbertlateshow's summary https://t.co/UEKQPKc0mK"
+## [2] "Spicing things right the fuck up by having Earl Grey instead of English Breakfast tea. With milk NATURALLY. #climatechange"                  
+## [3] "In  reality, #climatechange touches all areas of security, peace building, and development. #ClimateWednesday #Youth4Peace #YouthDay"        
+## [4] "Seeking to green your city's purchasing? @ASU's @SustainPurch offers 8 actionable recommendations #climatechange… https://t.co/7W4fX9tyJ4"   
+## [5] "Going to get much harder for client change deniers. Science + basic life experience ultimately overwhelming. #climatechange #globalwarming"  
+## [6] "In Sweltering South, #ClimateChange Is Now a #Workplace #Hazard https://t.co/Nfhc0yVeUY"
 ```
 
 ## Data clean-up
@@ -234,7 +232,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 74800
+## [1] 125848
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -242,7 +240,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 43662
+## [1] 73480
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -279,7 +277,6 @@ ngrams specifies pairs and 2 is the number of words together
 # library(devtools)
 #install_github("dgrtwo/widyr")
 library(widyr)
-## Error in library(widyr): there is no package called 'widyr'
 
 # remove punctuation, convert to lowercase, add id for each tweet!
 climate_tweets_paired_words <- climate_tweets %>%
@@ -288,20 +285,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 42,138 x 2
-##              paired_words     n
-##                     <chr> <int>
-##  1         climate change   366
-##  2              the world   334
-##  3     with climatechange   262
-##  4             around the   255
-##  5       climatechange is   242
-##  6       of climatechange   242
-##  7 climatechange refugees   232
-##  8                i stand   232
-##  9        refugees around   231
-## 10             stand with   231
-## # ... with 42,128 more rows
+## # A tibble: 64,350 x 2
+##         paired_words     n
+##                <chr> <int>
+##  1    climate change   968
+##  2  of climatechange   737
+##  3  climatechange is   524
+##  4         impact of   500
+##  5 government report   486
+##  6    drastic impact   471
+##  7      report finds   462
+##  8     finds drastic   423
+##  9            on u.s   383
+## 10            of the   375
+## # ... with 64,340 more rows
 ```
 
 
@@ -319,18 +316,15 @@ climate_words_counts <- climate_tweets_filtered %>%
   count(word1, word2, sort = TRUE)
 
 head(climate_words_counts)
-## Source: local data frame [6 x 3]
-## Groups: word1 [6]
-## 
 ## # A tibble: 6 x 3
-##           word1     word2     n
-##           <chr>     <chr> <int>
-## 1       climate    change   366
-## 2 climatechange  refugees   232
-## 3       healthy    people   139
-## 4         humid heatwaves   139
-## 5         south      asia   128
-## 6            al      gore   104
+##           word1         word2     n
+##           <chr>         <chr> <int>
+## 1       climate        change   968
+## 2    government        report   486
+## 3       drastic        impact   471
+## 4 climatechange        report   224
+## 5        emails        reveal   217
+## 6          term climatechange   210
 ```
 
 FInally, plot the data
@@ -338,9 +332,7 @@ FInally, plot the data
 
 ```r
 library(igraph)
-## Error in library(igraph): there is no package called 'igraph'
 library(ggraph)
-## Error in library(ggraph): there is no package called 'ggraph'
 
 # plot climate change word network
 climate_words_counts %>%
@@ -353,8 +345,9 @@ climate_words_counts %>%
         labs(title= "Word Network: Tweets using the hashtag - Climate Change",
              subtitle="Text mining twitter data ",
              x="", y="")
-## Error in graph_from_data_frame(.): could not find function "graph_from_data_frame"
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week12/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="100%" />
 
 We expect the words climate & change to have a high
 
