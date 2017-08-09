@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-08-03'
+modified: '2017-08-09'
 category: [course-materials]
 class-lesson: ['class-intro-spatial-r']
 permalink: /course-materials/earth-analytics/week-4/reproject-vector-data/
@@ -83,8 +83,25 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 ```r
 # load spatial data packages
 library(rgdal)
+## Loading required package: sp
+## rgdal: version: 1.2-8, (SVN revision 663)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.2, released 2016/10/24
+##  Path to GDAL shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.1, 04 March 2015, [PJ_VERSION: 491]
+##  Path to PROJ.4 shared files: /Users/lewa8222/Library/R/3.3/library/rgdal/proj
+##  Linking to sp version: 1.2-5
 library(raster)
+##
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+##
+##     select
 library(rgeos)
+## rgeos version: 0.3-23, (SVN revision 546)
+##  GEOS runtime version: 3.4.2-CAPI-1.8.2 r3921
+##  Linking to sp version: 1.2-4
+##  Polygon checking: TRUE
 options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
@@ -114,7 +131,7 @@ from the Census website to support the learning goals of this tutorial.
 # Import the shapefile data into R
 state_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week5/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
 ## with 58 features
 ## It has 10 fields
@@ -158,7 +175,7 @@ make our map pop!
 # Read the .csv file
 country_boundary_us <- readOGR("data/week5/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week5/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
 ## with 1 features
 ## It has 9 fields
@@ -195,7 +212,7 @@ AOI to represent "Area of Interest" in our data.
 # Import a polygon shapefile
 sjer_aoi <- readOGR("data/week5/california/SJER/vector_data",
                       "SJER_crop")
-## OGR data source with driver: ESRI Shapefile 
+## OGR data source with driver: ESRI Shapefile
 ## Source: "data/week5/california/SJER/vector_data", layer: "SJER_crop"
 ## with 1 features
 ## It has 1 fields
@@ -320,10 +337,10 @@ object compared to the `state_boundary_us` object.
 ```r
 # extent & crs for AOI
 extent(sjer_aoi)
-## class       : Extent 
-## xmin        : 254570.6 
-## xmax        : 258867.4 
-## ymin        : 4107303 
+## class       : Extent
+## xmin        : 254570.6
+## xmax        : 258867.4
+## ymin        : 4107303
 ## ymax        : 4112362
 crs(sjer_aoi)
 ## CRS arguments:
@@ -332,10 +349,10 @@ crs(sjer_aoi)
 
 # extent & crs for object in geographic
 extent(state_boundary_us)
-## class       : Extent 
-## xmin        : -124.7258 
-## xmax        : -66.94989 
-## ymin        : 24.49813 
+## class       : Extent
+## xmin        : -124.7258
+## xmax        : -66.94989
+## ymin        : 24.49813
 ## ymax        : 49.38436
 crs(state_boundary_us)
 ## CRS arguments:
@@ -393,10 +410,10 @@ crs(sjer_aoi_WGS84)
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 # does the extent look like decimal degrees?
 extent(sjer_aoi_WGS84)
-## class       : Extent 
-## xmin        : -119.7626 
-## xmax        : -119.7127 
-## ymin        : 37.0799 
+## class       : Extent
+## xmin        : -119.7626
+## xmax        : -119.7127
+## ymin        : 37.0799
 ## ymax        : 37.12657
 ```
 
@@ -482,6 +499,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## RStudioGD 
+## RStudioGD
 ##         2
 ```
