@@ -4,7 +4,11 @@ title                    : "Earth Data Science | Earth Lab"
 title_separator          : "|"
 name                     : "Earth Analytics"
 description              : "Code, tutorials, and tools for modern Earth analytics"
+<<<<<<< HEAD
 url                      : #"https://earthdatascience.org"
+=======
+url                      : "//earthdatascience.org"
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c
 baseurl                  :
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -30,7 +34,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : "earthlabcu"
 facebook:
   username               :
   app_id                 :

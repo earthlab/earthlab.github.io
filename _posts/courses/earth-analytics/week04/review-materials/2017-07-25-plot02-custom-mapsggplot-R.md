@@ -3,7 +3,11 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
+<<<<<<< HEAD:_posts/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R.md
 modified: '2017-08-14'
+=======
+modified: '2017-08-09'
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c:_posts/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R.md
 category: [course-materials]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/week-4/r-make-maps-with-ggplot-in-R/
@@ -766,10 +770,14 @@ ggplot() +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
         axis.line = element_blank()) 
+## Error in loadNamespace(name): there is no package called 'cowplot'
 ```
 
+<<<<<<< HEAD:_posts/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R.md
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-3-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="100%" />
 
+=======
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c:_posts/course-materials/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R.md
 ## Legends and scale bars
 
 We can use the `ggsn` package to magically add a legend and a scale bar to our final 

@@ -3,7 +3,11 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
+<<<<<<< HEAD:_posts/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 modified: '2017-08-14'
+=======
+modified: '2017-08-09'
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c:_posts/course-materials/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 category: [course-materials]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -89,9 +93,7 @@ library(dplyr)
 library(tidytext)
 # plotting packages
 library(igraph)
-## Error in library(igraph): there is no package called 'igraph'
 library(ggraph)
-## Error in library(ggraph): there is no package called 'ggraph'
 ```
 
 
@@ -118,12 +120,21 @@ climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
+<<<<<<< HEAD:_posts/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ## [1] "In educating others about #GlobalWarming , please avoid the fossil fuel industry's misleading term #ClimateChange."                                       
 ## [2] "The biggest threat facing the nation is stupid leadership not #climatechange #friendlydb #freespeech"                                                     
 ## [3] "MT: #ClimateChange is coming for another beloved ocean animal. via @PopSci  @therightblue https://t.co/hbPceHeGcj https://t.co/wFU9xJK9m3"                
 ## [4] "Seeking #practices, #policies, #technologies, &amp; more that help tackle global #climatechange. https://t.co/Z9jf6yBrZn"                                 
 ## [5] "Fun &amp; Inspiring!\nA must read! \U0001f603 https://t.co/lrsKlkpuDn\n\n#money #sustainability #aid #tech #innovation #business… https://t.co/WSXyxrpc3S"
 ## [6] "#climatechange #climate refugees will be pouring into America soon.\nCanada 'll build a wall to stop American Climat… https://t.co/Pr7aP2ZDqw"
+=======
+## [1] "Scientist released US gov #ClimateChange report to @nytimes. A lot there so maybe start w/@colbertlateshow's summary https://t.co/UEKQPKc0mK"
+## [2] "Spicing things right the fuck up by having Earl Grey instead of English Breakfast tea. With milk NATURALLY. #climatechange"                  
+## [3] "In  reality, #climatechange touches all areas of security, peace building, and development. #ClimateWednesday #Youth4Peace #YouthDay"        
+## [4] "Seeking to green your city's purchasing? @ASU's @SustainPurch offers 8 actionable recommendations #climatechange… https://t.co/7W4fX9tyJ4"   
+## [5] "Going to get much harder for client change deniers. Science + basic life experience ultimately overwhelming. #climatechange #globalwarming"  
+## [6] "In Sweltering South, #ClimateChange Is Now a #Workplace #Hazard https://t.co/Nfhc0yVeUY"
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c:_posts/course-materials/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ```
 
 ## Data clean-up
@@ -234,7 +245,11 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
+<<<<<<< HEAD:_posts/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ## [1] 124297
+=======
+## [1] 125848
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c:_posts/course-materials/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -242,7 +257,11 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
+<<<<<<< HEAD:_posts/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ## [1] 72739
+=======
+## [1] 73480
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c:_posts/course-materials/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -279,7 +298,6 @@ ngrams specifies pairs and 2 is the number of words together
 # library(devtools)
 #install_github("dgrtwo/widyr")
 library(widyr)
-## Error in library(widyr): there is no package called 'widyr'
 
 # remove punctuation, convert to lowercase, add id for each tweet!
 climate_tweets_paired_words <- climate_tweets %>%
@@ -288,6 +306,7 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
+<<<<<<< HEAD:_posts/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ## # A tibble: 67,794 x 2
 ##           paired_words     n
 ##                  <chr> <int>
@@ -302,6 +321,22 @@ climate_tweets_paired_words %>%
 ##  9 about climatechange   190
 ## 10                is a   185
 ## # ... with 67,784 more rows
+=======
+## # A tibble: 64,350 x 2
+##         paired_words     n
+##                <chr> <int>
+##  1    climate change   968
+##  2  of climatechange   737
+##  3  climatechange is   524
+##  4         impact of   500
+##  5 government report   486
+##  6    drastic impact   471
+##  7      report finds   462
+##  8     finds drastic   423
+##  9            on u.s   383
+## 10            of the   375
+## # ... with 64,340 more rows
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c:_posts/course-materials/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ```
 
 
@@ -319,6 +354,7 @@ climate_words_counts <- climate_tweets_filtered %>%
   count(word1, word2, sort = TRUE)
 
 head(climate_words_counts)
+<<<<<<< HEAD:_posts/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ## Source: local data frame [6 x 3]
 ## Groups: word1 [4]
 ## 
@@ -331,6 +367,17 @@ head(climate_words_counts)
 ## 4        global         warming   133
 ## 5 climatechange realdonaldtrump    99
 ## 6           ice           sheet    99
+=======
+## # A tibble: 6 x 3
+##           word1         word2     n
+##           <chr>         <chr> <int>
+## 1       climate        change   968
+## 2    government        report   486
+## 3       drastic        impact   471
+## 4 climatechange        report   224
+## 5        emails        reveal   217
+## 6          term climatechange   210
+>>>>>>> 3400483006d5fe55f51bb6f4628f355e2b36071c:_posts/course-materials/earth-analytics/week12/in-class/2017-04-19-social-media-03-r.md
 ```
 
 FInally, plot the data
@@ -338,9 +385,7 @@ FInally, plot the data
 
 ```r
 library(igraph)
-## Error in library(igraph): there is no package called 'igraph'
 library(ggraph)
-## Error in library(ggraph): there is no package called 'ggraph'
 
 # plot climate change word network
 climate_words_counts %>%
@@ -353,8 +398,9 @@ climate_words_counts %>%
         labs(title= "Word Network: Tweets using the hashtag - Climate Change",
              subtitle="Text mining twitter data ",
              x="", y="")
-## Error in graph_from_data_frame(.): could not find function "graph_from_data_frame"
 ```
+
+<img src="{{ site.url }}/images/rfigs/course-materials/earth-analytics/week12/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="100%" />
 
 We expect the words climate & change to have a high
 
