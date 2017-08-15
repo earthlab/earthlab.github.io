@@ -3,8 +3,8 @@ layout: single
 title: "Plot grid of spatial plots in R. "
 excerpt: "In this lesson we cover using par() or parameter settings in R to plot several raster RGB plots in R in a grid. "
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['how-to-hints-week7']
 permalink: /courses/earth-analytics/week-7/grid-of-plots-report/
 nav-title: 'Grid of plots'
@@ -47,6 +47,7 @@ data for week 6/7 of the course.
 # load libraries
 library(raster)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 library(rgdal)
 ```
 

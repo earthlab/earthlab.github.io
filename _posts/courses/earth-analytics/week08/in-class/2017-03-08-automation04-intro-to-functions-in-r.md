@@ -3,8 +3,8 @@ layout: single
 title: "Build a function in R - Efficient scientific programming"
 excerpt: "This lesson introduces how to create a function in R."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/week-8/intro-to-functions-r/
 nav-title: 'Write functions in R'

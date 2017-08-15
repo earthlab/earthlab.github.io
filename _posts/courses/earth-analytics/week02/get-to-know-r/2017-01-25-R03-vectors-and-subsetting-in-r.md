@@ -3,12 +3,12 @@ layout: single
 title: "Understand the vector data type in R and classes including strings, numbers and logicals - Data Science for scientists 101"
 excerpt: "This tutorial introduces vectors in R. It also introduces the differences between strings, numbers and logical or boolean values (True / False) in R."
 authors: ['Data Carpentry', 'Leah Wasser']
-category: [course-materials]
+category: [courses]
 class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/week-2/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-08-14'
+modified: '2017-08-15'
 week: 2
 sidebar:
   nav:
@@ -35,8 +35,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to Setup R / R Studio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
 
 
 </div>

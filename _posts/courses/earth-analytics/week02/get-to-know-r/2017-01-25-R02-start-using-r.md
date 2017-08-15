@@ -4,12 +4,12 @@ title: "Creating variables in R and the string vs numeric data type or class - D
 excerpt: "This lesson covers creating variables or objects in R. It also introduces some of the basic data types or classes including strings and numbers. This lesson is
 designed for someone who has not used R before."
 authors: ['Leah Wasser', 'Data Carpentry']
-category: [course-materials]
+category: [courses]
 class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/week-2/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-08-14'
+modified: '2017-08-15'
 week: 2
 sidebar:
   nav:
@@ -38,8 +38,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to Setup R / R Studio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
 
 </div>
 

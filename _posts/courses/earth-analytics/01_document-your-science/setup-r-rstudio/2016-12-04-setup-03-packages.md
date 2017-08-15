@@ -1,12 +1,12 @@
 ---
 layout: single
 authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
-category: [course-materials]
+category: [courses]
 title: 'Install & Use Packages in R'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Packages are sets of functions that perform tasks that help us work with various data structures in R. This tutorial walks you through installing and loading R packages R in RStudio.'
 dateCreated: 2016-12-12
-modified: '2017-08-14'
+modified: '2017-08-15'
 nav-title: 'Install Packages'
 week: 0
 sidebar:

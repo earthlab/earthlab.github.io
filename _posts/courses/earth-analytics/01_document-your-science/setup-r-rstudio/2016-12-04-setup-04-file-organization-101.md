@@ -1,7 +1,7 @@
 ---
 layout: single
 authors: ['Leah Wasser', 'Reproducible Science Curriculum Community']
-category: [course-materials]
+category: [courses]
 title: 'File Organization 101'
 excerpt: 'This lesson provides a broad overview of file organization principles.'
 nav-title: 'File Organization 101'
@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: courses/earth-analytics/document-your-science/file-organization-101/
 dateCreated: 2016-12-12
-modified: '2017-08-14'
+modified: '2017-08-15'
 course: 'earth-analytics'
 author_profile: false
 comments: true

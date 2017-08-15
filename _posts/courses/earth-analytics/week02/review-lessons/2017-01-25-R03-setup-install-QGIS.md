@@ -4,7 +4,7 @@ title: "How to download and install QGIS"
 excerpt: "QGIS is a free, open-souce GIS tool that is comparable to ArcMap. This lesson walks through how to install QGIS on your computer."
 authors: ['Leah Wasser']
 modified: 2016-12-30
-category: [course-materials]
+category: [courses]
 class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/week-2/download-install-qgis/
 nav-title: 'Install QGIS'

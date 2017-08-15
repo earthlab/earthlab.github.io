@@ -4,8 +4,8 @@ title: "Crop a spatial raster dataset using a shapefile in R."
 excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/crop-raster-data-in-r/
 nav-title: 'Crop a raster'
@@ -41,9 +41,9 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory set up on your computer with a `/data`
 directory with it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
-* [Intro to the R & RStudio interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
+* [How to setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
+* [Intro to the R & RStudio interface](/courses/earth-analytics/week-1/intro-to-r-and-rstudio)
 
 ### R libraries to install:
 

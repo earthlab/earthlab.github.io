@@ -3,12 +3,12 @@ layout: single
 title: "Explore time series data using interactive plots - The 2013 Colorado Floods "
 excerpt: "In this lesson, we will explore 2 different types of time series data that can be used to better understand a flood event: precipitation data and stream discharge data which quantifies the volume and velocity of water moving through a stream channel. Students will explore these data using interactive plot.ly plots. No programming experience is required to complete this lesson."
 authors: ['Leah Wasser', 'NEON Data Skills']
-category: [course-materials]
+category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/precip-discharge/
 nav-title: 'Interactive Precip & Discharge Data'
 dateCreated: 2016-12-29
-modified: '2017-08-14'
+modified: '2017-08-15'
 module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
@@ -50,10 +50,13 @@ You need a computer with internet to complete this lesson.
 
 ## Exploring Flood Damage
 
-In the previous lesson, we looked at visible damage caused by the 2013 floods.
-However, what actually caused that damage? We refer to causes of disturbance events
-like floods as DRIVERS in science. In this lesson we will explore some data that
-begins to quantify some of the drivers of the 2013 Colorado floods.
+In the previous lesson, we
+
+1. Looked at visible damage caused by the 2013 floods using Google Earth imagery and
+2. Explored an extremely well written report on the floods identifying things that may make the report better.
+
+In this lesson you will explore two of the  drivers of the flood and
+associated flood impacts. A **driver** is a cause of a disturbance events.
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/document-your-science/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.jpg">
@@ -86,17 +89,18 @@ falls from clouds including rain, hail and snow.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Precip Data
 
-### What do the data tell you about precipitation?
+### What do the data tell you about precipitation patterns?
 
-As a group, discuss the following questions. Record your answers following the
-directions of your instructor (Google Doc, Word document, Etherpad, etc.).
+As a group, discuss the following questions. Record your answers in the
+Google doc that your instructor shared with you for today's class. As
+you explore the data, keep in mind that the the flood event occured September 2013.
 
-* What interesting things do you observe in the data? Are there any data points that seem different from the rest?
+
+* What patterns do you observe in the data? Note any data points that appear to be visibly different from the other data points in the plots?
+  * Do you think the differences that you note are statistically significant? Do you have enough information to determine this?
   * For each difference: What you think caused that difference?
   * For each difference: How can you quantitatively record the differences?
-* What do you think caused or drove the point(s) that your observed in the above question?
-* Was the cause - caused by something else? I.E. did something else DRIVE the cause?
-* Create a diagram that illustrates the causes and effects (or drivers and impacts) of the flood. Is it a linear diagram? Is it quantifiable?
+* What other factors may have contributed to the patterns that you observe in precipitation? What other data would you like to see to better "tell the story" of what took place during the flood?
 </div>
 
 
@@ -130,13 +134,18 @@ increases significantly during a flood event.
 
 ### What do the data tell you about stream discharge?
 
-As a group, discuss the following questions. Record your answers following the
-directions of your instructor (Google Doc, word document, etherpad, etc.).
+As a group, discuss the following questions. Record your answers in the
+same Google doc that we used above.
 
-* What differences do you see between 2012 and 2013?
+* What differences do you see in stream discharge between 2012 and 2013?
   * For each difference: What you think caused that difference?
   * For each difference: How can you quantitatively record the differences?
-* For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
-* Was the cause - caused by something else? IE did something else DRIVE the cause?
-* Create a diagram that illustrates the causes and effects (or drivers and impacts) of the flood. Is it a linear diagram? Is it quantifiable?
+* For each CAUSE listed above, could you somehow quantitatively record the magnitude (size or impact) of the cause?
+* Was the cause - caused by (driven by) something else?
+
+### Finally -- Create a diagram that illustrates the drivers and impacts of a flood
+
+Work with your group to create a diagram of the 2013 floods. In this diagram include
+everything that you think contributed to the flood itself (based on the discussions
+that we had in class and what you know). Post your diagram to the piazza discussion board under **week1**. 
 </div>

@@ -4,8 +4,8 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/classify-raster/
 nav-title: 'Classify a raster'
@@ -42,9 +42,9 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory set up on your computer with a `/data`
 directory with it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
-* [Intro to the R & RStudio interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
+* [How to setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
+* [Intro to the R & RStudio interface](/courses/earth-analytics/week-1/intro-to-r-and-rstudio)
 
 ### R libraries to install:
 
@@ -121,13 +121,13 @@ by looking at the min and max values in our CHM.
 
 ```r
 summary(lidar_chm)
-##         lidar_chm
-## Min.      0.00000
-## 1st Qu.   0.00000
-## Median    0.00000
-## 3rd Qu.   0.75000
-## Max.     24.26001
-## NA's      0.00000
+##          lidar_chm
+## Min.     0.0000000
+## 1st Qu.  0.0000000
+## Median   0.0000000
+## 3rd Qu.  0.7199707
+## Max.    23.7700195
+## NA's     0.0000000
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
@@ -185,12 +185,10 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76029  3430  3091  2845  2488  2166  1971  1825  1524  1225   986
-## [12]   709   573   374   282   182   131    81    37    25    16     4
-## [23]     3     1     2
+##  [1] 79598  5953  4614  3744  2660  1702  1010   446   177    70    19
+## [12]     6     0     1
 histinfo$breaks
-##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23 24 25
+##  [1]  0  2  4  6  8 10 12 14 16 18 20 22 24 26 28
 ```
 
 If we want to customize our histogram further, we can customize the number of

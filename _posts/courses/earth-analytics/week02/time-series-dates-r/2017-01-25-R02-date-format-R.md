@@ -3,8 +3,8 @@ layout: single
 title: "Work With Date - Time formats in R - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in R. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/week-2/date-class-in-r/
 nav-title: 'Dates in R'
@@ -43,9 +43,9 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
+* [How to Setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
+* [Intro to the R & RStudio Interface](/courses/earth-analytics/week-1/intro-to-r-and-rstudio)
 
 </div>
 

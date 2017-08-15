@@ -3,8 +3,8 @@ layout: single
 title: "Clean remote sensing data in R - Clouds, shadows & cloud masks"
 excerpt: "In this lesson, we will learn how to deal with clouds when working with spectral remote sensing data. We will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. We will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/intro-spectral-data-r/
 nav-title: 'Clouds, shadows & masks'
@@ -88,6 +88,7 @@ Let's begin by loading our spatial libraries.
 library(raster)
 library(rgdal)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 # turn off factors
 options(stringsAsFactors = F)
 ```

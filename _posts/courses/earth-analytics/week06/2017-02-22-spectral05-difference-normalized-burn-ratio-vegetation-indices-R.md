@@ -3,8 +3,8 @@ layout: single
 title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
 excerpt: "In this lesson we review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically we will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/normalized-burn-index-dNBR/
 nav-title: 'dNBR vegetation index'
@@ -181,6 +181,9 @@ should we use to calculate NBR using MODIS?
 
 
 
+```
+## Error in library(rgeos): there is no package called 'rgeos'
+```
 
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />

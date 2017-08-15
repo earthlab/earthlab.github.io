@@ -3,8 +3,8 @@ layout: single
 title: "Calculate a remote sensing derived vegetation index in R"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, we will review the basic principles associated with calculating a vegetation index from raster formated, landsat remote sensing data in R. We will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/vegetation-indices-NDVI-in-R/
 nav-title: 'NDVI vegetation index'
@@ -88,6 +88,7 @@ case, we need to calculate NDVI ourselves using the reflectance data that we hav
 library(raster)
 library(rgdal)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = F)

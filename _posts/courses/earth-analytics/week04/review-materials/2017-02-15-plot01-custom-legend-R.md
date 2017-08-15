@@ -3,8 +3,8 @@ layout: single
 title: "GIS in R: Plot spatial data and create custom legends in R"
 excerpt: "In this lesson we break down the steps required to create a custom legend for spatial data in R. We discuss creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/week-4/r-create-custom-legend-with-base-plot/
 nav-title: 'Maps with base plot'
@@ -456,6 +456,9 @@ fixed the projection for the roads layer and cropped it! You will have to do the
 this code will work.
 
 
+```
+## Error: requireNamespace("rgeos") is not TRUE
+```
 
 When we create a legend, we will have to add the labels for both the points
 layer and the lines layer.

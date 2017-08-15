@@ -3,8 +3,8 @@ layout: single
 title: "Introduction to Markdown syntax - a primer"
 excerpt: 'Learn how to write using the markdown syntax - in a R Markdown document.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/intro-to-markdown/
 nav-title: 'Intro to Markdown'

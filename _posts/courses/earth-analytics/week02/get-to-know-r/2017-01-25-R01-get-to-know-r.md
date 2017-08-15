@@ -4,12 +4,12 @@ title: "The syntax of the R scientific programming language - Data Science for S
 excerpt: "This lesson introduces the basic syntax associated with the R scientific programming language. We will introduce assignment operators (<-), comments and basic functions that are available to use in R to perform basic tasks including head(), qplot() to quickly plot data and others. This lesson is designed for someone who has not used R before. We will work with precipitation and
 stream discharge data for Boulder County."
 authors: ['Leah Wasser', 'Data Carpentry']
-category: [course-materials]
+category: [courses]
 class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/week-2/basic-r-syntax-scientific-programming/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: '2017-08-14'
+modified: '2017-08-15'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.
@@ -49,13 +49,13 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
+* [How to Setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
+* [Intro to the R & RStudio Interface](/courses/earth-analytics/week-1/intro-to-r-and-rstudio)
 
 </div>
 
-In the [previous module](/courses/earth-analytics/document-your-science/setup-r-rstudio), we
+In the [previous module](/courses/earth-analytics/week-1/setup-r-rstudio), we
 setup `RStudio` and `R` and got to know the `RStudio` interface.
 We also created a basic
 `RMarkdown` report using `RStudio`. In this module, we will explore the basic

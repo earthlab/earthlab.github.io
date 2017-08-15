@@ -3,8 +3,8 @@ layout: single
 title: "GIS in R: Introduction to Coordinate Reference Systems in R "
 excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/week-4/intro-to-coordinate-reference-systems/
 nav-title: 'Coordinate reference systems'
@@ -177,6 +177,7 @@ the central meridian on the globe (0,0).
 library(rgdal)
 library(ggplot2)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 library(raster)
 
 #install.packages('sf')

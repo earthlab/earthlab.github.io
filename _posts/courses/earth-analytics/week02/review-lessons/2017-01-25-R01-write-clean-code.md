@@ -3,12 +3,12 @@ layout: single
 title: "Write Clean Code - Expressive or literate programming in R - data science for scientists 101"
 excerpt: "This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices. "
 authors: ['Leah Wasser', 'Data Carpentry']
-category: [course-materials]
+category: [courses]
 class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/week-2/write-clean-code-with-r/
 nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
-modified: '2017-08-14'
+modified: '2017-08-15'
 module-title: 'Clean Code & getting help'
 module-nav-title: 'Clean code & getting help with R'
 module-description: 'This module covers how to write easier to read, clean code.
@@ -43,8 +43,8 @@ You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to Setup R / R Studio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
 
 ***
 

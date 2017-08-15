@@ -3,8 +3,8 @@ layout: single
 title: "Customize ggplot plots in R - earth analytics - data science for scientists"
 excerpt: 'This lesson covers how to customize ggplot plot colors and label axes in R. It uses the ggplot2 package.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['time-series-r']
 nav-title: 'GGPLOT R'
 permalink: /courses/earth-analytics/week-2/hw-ggplot2-r/
@@ -44,9 +44,9 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
+* [How to Setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
+* [Intro to the R & RStudio Interface](/courses/earth-analytics/week-1/intro-to-r-and-rstudio)
 
 </div>
 

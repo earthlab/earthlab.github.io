@@ -3,8 +3,8 @@ layout: single
 title: "Lidar Remote sensing data - Understand uncertainty / error associated with height metrics extracted from lidar raster data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/week-5/understand-uncertainty-lidar/
 nav-title: 'Remote sensing uncertainty'
@@ -197,6 +197,9 @@ the actual heights of the trees on the ground?
 
 
 
+```
+## Error in library(rgeos): there is no package called 'rgeos'
+```
 
 ## Study site location
 

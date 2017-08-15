@@ -3,8 +3,8 @@ layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/get-data-earth-explorer/
 nav-title: 'Get data - earth explorer'
@@ -153,6 +153,9 @@ data to be emailed to your account. Order now!
 In this case, I downloaded a scene very close to Julian day 189.
 
 
+```
+## Error in library(rgeos): there is no package called 'rgeos'
+```
 
 ## Import new scene
 

@@ -3,8 +3,8 @@ layout: single
 title: "Get twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/week-12/use-twitter-api-r/
 nav-title: 'Explore twitter data'

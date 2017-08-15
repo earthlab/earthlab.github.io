@@ -3,12 +3,12 @@ layout: single
 title: "How to import, work with and plot spreadsheet (tabular) data in R"
 excerpt: "This lesson covers how to import, and work with tabular or spreadsheet data in R. Tabular data can contains different data classes or types in different columns. Here we learn how to identify and convert column classes from characters to numbers."
 authors: ['Data Carpentry', 'Leah Wasser']
-category: [course-materials]
+category: [courses]
 class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/week-2/spreadsheet-data-in-R/
 nav-title: 'Spreadsheet Data in R'
 dateCreated: 2016-12-13
-modified: '2017-08-14'
+modified: '2017-08-15'
 week: 2
 sidebar:
   nav:
@@ -39,8 +39,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to Setup R / R Studio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
 
 
 </div>

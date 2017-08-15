@@ -3,8 +3,8 @@ layout: single
 title: "Layer a \raster dataset over a hillshade using R baseplot to create a beautiful basemap that represents topography"
 excerpt: "This lesson covers how to overlay raster data on a hillshade in R using baseplot and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['hw-lidar-r']
 permalink: /courses/earth-analytics/week-3/overlay-raster-on-hillshade-r/
 nav-title: 'Overlay rasters'
@@ -40,8 +40,8 @@ directory with it.
 * Install **devtools**: `install.packages('devtools')`
 * Install **ggmap** from github: `devtools::install_github("dkahle/ggmap")`
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
 
 </div>
 

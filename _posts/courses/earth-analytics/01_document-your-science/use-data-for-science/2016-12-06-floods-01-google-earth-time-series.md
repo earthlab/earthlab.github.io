@@ -1,20 +1,18 @@
 ---
 layout: single
-title: "Learn about floods using Google Earth time series images"
+title: "Use Google Earth time series images to explore flood impacts"
 excerpt: "Learn how to use the time series feature in Google Earth to view before / after images of a location."
 authors: ['Leah Wasser', 'NEON Data Skills']
-category: [course-materials]
+category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/google-earth-time-series/
 nav-title: 'Google Earth time series'
 module-nav-title: 'Use data for science'
 dateCreated: 2016-12-06
-modified: '2017-08-14'
+modified: '2017-08-15'
 module-title: 'Understand Disturbance With Data - Flooding and Erosion'
-module-description: 'This module introduces the concept of using data to Understand
-a natural phenomenon. In this case we will explore flooding and erosion. We use a combination of Google Earth imagery, NOAA precipitation data and
-USGS stream flow data to begin to quantify and better understand the drivers and impacts of the 2013 flood as it is seen in Boulder, Colorado.
-No programming experience is needed to complete this module.'
+module-description: 'This module uses time series data to explore the impacts of a flood. Learn how to use Google Earth imagery, NOAA precipitation data and
+USGS stream flow data to explore the 2013 Colorado floods.'
 module-type: 'class'
 class-order: 1
 course: "earth-analytics"
@@ -29,7 +27,6 @@ topics:
   earth-science: ['flood-erosion']
   time-series:
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 

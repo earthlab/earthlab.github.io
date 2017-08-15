@@ -3,12 +3,12 @@ layout: single
 title: "Introduction to R Markdown & knitr - Connect data, methods and results"
 excerpt: "Learn what open science is and how R Markdown can help you document your work."
 authors: ['Leah Wasser', 'NEON Data Skills']
-category: [course-materials]
+category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/about-open-science-and-why-open-science-is-important/
 nav-title: 'Why Open Science'
 dateCreated: 2016-12-12
-modified: '2017-08-14'
+modified: '2017-08-15'
 module-title: 'Link data, processing and results using R Markdown and Knitr'
 module-nav-title: 'R Markdown Intro'
 module-description: 'This module reviews how to use R Markdown

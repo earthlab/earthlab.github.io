@@ -3,8 +3,8 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/leaflet-r/
 nav-title: 'Interactive maps with leaflet '
@@ -189,12 +189,12 @@ a series of text strings and object values.
 # let's look at the output of our popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"     
-## [2] "PALMERTON DITCH<br/>Discharge: 12.65"                                      
-## [3] "SAINT VRAIN CREEK BELOW KEN PRATT BLVD AT LONGMONT, CO<br/>Discharge: 81.5"
-## [4] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0.72"                              
-## [5] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0.03"                              
-## [6] "BONUS DITCH<br/>Discharge: 4.06"
+## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"
+## [2] "PALMERTON DITCH<br/>Discharge: 12.65"                                 
+## [3] "UNION RESERVOIR<br/>Discharge: 24.32"                                 
+## [4] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 33.4"                
+## [5] "MIDDLE SAINT VRAIN AT PEACEFUL VALLEY<br/>Discharge: 28.7"            
+## [6] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 61.2"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our

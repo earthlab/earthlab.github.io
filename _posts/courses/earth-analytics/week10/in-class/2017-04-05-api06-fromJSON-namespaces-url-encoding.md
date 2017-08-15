@@ -3,8 +3,8 @@ layout: single
 title: "Understand namespaces in R - what package does your fromJSON() function come from?"
 excerpt: "This lesson covers namespaces in R and how we can tell R where to get a function from (what code to use) in R."
 authors: ['Leah Wasser']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/namespaces-in-r/
 nav-title: 'Namespaces in R'

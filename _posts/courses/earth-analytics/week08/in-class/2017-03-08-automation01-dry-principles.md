@@ -3,8 +3,8 @@ layout: single
 title: "Don't Repeat Yourself - Eliminate repetition in your code"
 excerpt: "This lesson will cover the basic principles of using functions and why they are important."
 authors: ['Max Joseph', 'Leah Wasser', 'Software Carpentry', 'Reproducible Science Curriculum Community']
-modified: '2017-08-14'
-category: [course-materials]
+modified: '2017-08-15'
+category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/week-8/automate-your-science-r/
 nav-title: "DRY - Don't Repeat Yourself"

@@ -1,7 +1,7 @@
 ---
 layout: single
 authors: ['Leah Wasser', 'Software Carpentry']
-category: [course-materials]
+category: [courses]
 title: 'Create a Project & Working Directory Setup'
 excerpt: 'This lessons covers the concept of a project directory compared to a
 working directory as used in R Studio. It also reviews how to set up a clearly
@@ -13,7 +13,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: courses/earth-analytics/document-your-science/setup-working-directory/
 dateCreated: 2016-12-12
-modified: '2017-08-14'
+modified: '2017-08-15'
 author_profile: false
 comments: true
 order: 5

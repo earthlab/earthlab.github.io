@@ -3,12 +3,12 @@ layout: single
 title: "How to handle missing data or no data values in R - NA and NAN"
 excerpt: "Data can be missing for different reasons. This tutorial introduces how NA can be used in place of missing data values in R. It also introduces how missing data can impact calculations in R. Finally it covers how to import tabular data that may contain missing data values into R."
 authors: ['Data Carpentry', 'Leah Wasser']
-category: [course-materials]
+category: [courses]
 class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/week-2/missing-data-in-r-na/
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
-modified: '2017-08-14'
+modified: '2017-08-15'
 week: 2
 sidebar:
   nav:
@@ -38,8 +38,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to Setup R / R Studio](/courses/earth-analytics/week-1/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
 
 
 </div>
