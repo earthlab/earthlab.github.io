@@ -4,7 +4,7 @@ title: "Earth Lab Internship - Summer 2017 Syllabus"
 excerpt: "The Earth Lab internship course syllabus."
 authors: ['Mollie Buckland']
 category: [course-materials]
-permalink: /course-materials/internship/
+permalink: /courses/internship/
 nav-title: 'Syllabus'
 dateCreated: 2017-05-10
 modified: '2017-08-14'

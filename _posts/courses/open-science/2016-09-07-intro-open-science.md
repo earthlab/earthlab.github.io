@@ -12,7 +12,7 @@ module-title: 'Introduction to Open Science Teaching Activity'
 module-description: 'A hands-on activity where students review a project for
 readability, organization, etc and identify key elements that would
 make it more usable and readily reproducible.'
-permalink: /course-materials/intro-open-science/
+permalink: /courses/intro-open-science/
 nav-title: 'Lesson Overview'
 sidebar:
   nav:

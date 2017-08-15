@@ -6,7 +6,7 @@ excerpt: 'Instructor notes for the open science lesson.'
 category: [course-materials]
 nav-title: 'Instructor Notes'
 module: ['intro-open-science']
-permalink: /course-materials/open-science-instructor-notes/
+permalink: /courses/open-science-instructor-notes/
 sidebar:
   nav:
 author_profile: false
