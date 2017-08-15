@@ -1,7 +1,7 @@
 ---
 layout: single
-title: "Getting started with interactive scatter plots and time series plots using plotly and dygraphs in R and R studio"
-excerpt: "In this lesson we review how to create interactive plots using plotly and dygraphs in R. These plots can be embedded in html format .Rmd documents to support interactive data-driven reports."
+title: "Create interactive plots in R - time series & scatterplots using plotly and dygraphs"
+excerpt: "Learn how to create interactive reports using plotly and dygraphs in R for plotting. "
 authors: ['Leah Wasser']
 modified: '2017-08-14'
 category: [course-materials]
@@ -54,8 +54,11 @@ First, we will load all of the needed libraries.
 # load libraries
 library(ggplot2)
 library(xts)
+## Error in library(xts): there is no package called 'xts'
 library(dygraphs)
+## Error in library(dygraphs): there is no package called 'dygraphs'
 library(plotly)
+## Error in library(plotly): there is no package called 'plotly'
 
 options(stringsAsFactors = FALSE)
 ```
@@ -119,13 +122,15 @@ work with html!
 ```r
 # interactive time series
 library(dygraphs)
+## Error in library(dygraphs): there is no package called 'dygraphs'
 # create time series objects (class xs)
 library(xts)
+## Error in library(xts): there is no package called 'xts'
 
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)
-
+## Error in xts(x = discharge_time$disValue, order.by = discharge_time$datetime): could not find function "xts"
 ```
 
 Then you can call the dygraph() function to create your interactive time-series plot.
