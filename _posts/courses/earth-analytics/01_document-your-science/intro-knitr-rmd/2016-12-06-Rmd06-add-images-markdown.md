@@ -9,7 +9,7 @@ class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/add-images-to-rmarkdown-report/
 nav-title: 'Add images to R Markdown'
 course: "earth-analytics"
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false
@@ -46,7 +46,7 @@ directory with it.
 
 ## Add an image to your report
 
-You can add images to an R markdown report using markdown syntax as follows:
+You can add images to an R Markdown report using markdown syntax as follows:
 
 ```md
 ![alt text here](path-to-image-here)

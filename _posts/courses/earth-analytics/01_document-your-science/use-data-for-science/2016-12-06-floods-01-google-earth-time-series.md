@@ -16,7 +16,7 @@ USGS stream flow data to explore the 2013 Colorado floods.'
 module-type: 'class'
 class-order: 1
 course: "earth-analytics"
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false

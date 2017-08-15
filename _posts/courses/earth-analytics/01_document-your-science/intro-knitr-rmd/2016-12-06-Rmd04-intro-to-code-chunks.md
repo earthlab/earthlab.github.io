@@ -8,7 +8,7 @@ modified: '2017-08-15'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/rmarkdown-code-chunks-comments-knitr/
 nav-title: 'Code Chunks'
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false
@@ -21,7 +21,7 @@ topics:
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
-Next, we will talk about code chunks in `R markdown` files.
+Next, we will talk about code chunks in `R Markdown` files.
 
 <div class='notice--success' markdown="1">
 

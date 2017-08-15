@@ -14,7 +14,7 @@ module-description: 'This module introduces the concept of using data to Underst
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
 USGS stream flow data to begin to understand the factors associated with a flood.
 No technical experience is needed to complete this activity.'
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false
@@ -143,9 +143,21 @@ same Google doc that we used above.
 * For each CAUSE listed above, could you somehow quantitatively record the magnitude (size or impact) of the cause?
 * Was the cause - caused by (driven by) something else?
 
+
+</div>
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Driver / impact diagrams
+
 ### Finally -- Create a diagram that illustrates the drivers and impacts of a flood
 
 Work with your group to create a diagram of the 2013 floods. In this diagram include
 everything that you think contributed to the flood itself (based on the discussions
-that we had in class and what you know). Post your diagram to the piazza discussion board under **week1**. 
+that we had in class and what you know). When you are happy with your diagram,
+create a digital version of it (take a picture using a phone, etc). Then, post your diagram to the piazza discussion board under **week1**. NOTE: look for the post titled "Week 1: driver / impact diagrams"
+
+When everyone has posted - scroll through ALL of the diagrams and "select" the one that you think is best using the <kbd>good note</kbd> marker at the bottom of that post.  
+
 </div>

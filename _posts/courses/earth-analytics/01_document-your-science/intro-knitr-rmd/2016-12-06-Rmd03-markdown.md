@@ -8,7 +8,7 @@ category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/intro-to-markdown/
 nav-title: 'Intro to Markdown'
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false

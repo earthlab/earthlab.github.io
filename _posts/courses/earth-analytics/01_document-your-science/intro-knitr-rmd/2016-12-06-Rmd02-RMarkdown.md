@@ -8,7 +8,7 @@ category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/intro-to-the-rmarkdown-format-and-knitr/
 nav-title: 'Create R Markdown File'
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false

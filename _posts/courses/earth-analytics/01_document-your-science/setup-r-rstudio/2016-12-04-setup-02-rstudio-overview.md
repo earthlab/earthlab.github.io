@@ -8,7 +8,7 @@ excerpt: 'This tutorial walks you through downloading and installing R and RStud
 dateCreated: 2016-12-12
 modified: '2017-08-15'
 nav-title: 'RStudio Intro'
-week: 0
+week: 1
 sidebar:
   nav:
 course: 'earth-analytics'

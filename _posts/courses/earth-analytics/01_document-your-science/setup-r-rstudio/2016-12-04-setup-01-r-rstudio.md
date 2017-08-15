@@ -14,7 +14,7 @@ nav-title: 'Setup RStudio'
 module-nav-title: 'Setup R'
 module-type: 'class'
 class-order: 2
-week: 0
+week: 1
 sidebar:
   nav:
 course: 'earth-analytics'

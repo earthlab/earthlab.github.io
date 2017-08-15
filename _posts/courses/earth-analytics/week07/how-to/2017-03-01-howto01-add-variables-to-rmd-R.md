@@ -53,7 +53,7 @@ data for week 6 of the course.
 ## Automating report content
 
 Let's pretend that we've calculated a value in our code and we want to include
-it in our R markdown report but we don't want to include the code. Maybe it's a
+it in our R Markdown report but we don't want to include the code. Maybe it's a
 number that we want to appear in the TEXT of our report - not as a code chunk
 output. How do we do that?
 

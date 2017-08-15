@@ -8,7 +8,7 @@ category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/data-driven-reports/
 nav-title: 'Data driven report'
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false

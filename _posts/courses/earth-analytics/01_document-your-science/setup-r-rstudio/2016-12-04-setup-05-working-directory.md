@@ -7,7 +7,7 @@ excerpt: 'This lessons covers the concept of a project directory compared to a
 working directory as used in R Studio. It also reviews how to set up a clearly
 organized project directory and associated file structure.'
 nav-title: 'Setup Working Directory'
-week: 0
+week: 1
 sidebar:
   nav:
 class-lesson: ['setup-r-rstudio']

@@ -8,7 +8,7 @@ excerpt: 'Packages are sets of functions that perform tasks that help us work wi
 dateCreated: 2016-12-12
 modified: '2017-08-15'
 nav-title: 'Install Packages'
-week: 0
+week: 1
 sidebar:
   nav:
 course: 'earth-analytics'

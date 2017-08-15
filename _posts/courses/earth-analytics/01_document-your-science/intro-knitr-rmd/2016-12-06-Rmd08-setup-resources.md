@@ -8,12 +8,12 @@ category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/rmarkdown-resources/
 nav-title: 'R Markdown Resources'
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 8
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['rmarkdown']
@@ -22,7 +22,7 @@ topics:
 {% include toc title="In This Lesson" icon="file-text" %}
 
 This lesson contains a list of resources that will help you work with
-R markdown. If you know of other resources, please add them to the comments
+R Markdown. If you know of other resources, please add them to the comments
 below and we will review / add them to the page.
 
 <div class="notice--info" markdown="1">

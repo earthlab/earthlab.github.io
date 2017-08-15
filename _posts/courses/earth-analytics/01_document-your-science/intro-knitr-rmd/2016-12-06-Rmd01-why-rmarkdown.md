@@ -16,7 +16,7 @@ and knitr to create and publish dynamic reports that both link analysis, results
 module-type: 'class'
 class-order: 3
 course: "earth-analytics"
-week: 0
+week: 1
 sidebar:
   nav:
 author_profile: false
