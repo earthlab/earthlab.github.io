@@ -1,24 +1,24 @@
 ---
 layout: single
-title: "Earth Systems Analytics Course - Spring 2017"
-text: 'Spring 2017 - register now!'
+title: "Earth Systems Analytics Course - Fall 2017"
+text: 'Fall 2017!'
 location: SEEC S125
-permalink: /courses/earth-analytics-spring2-17/
-date: 2017-01-17
+permalink: /courses/earth-analytics-fall2017/
+date: 2017-08-28
 header:
   overlay_image: about-header.jpg
-  cta_label: "Register Now for the Fall semester!"
+  cta_label: "Earth analytics - learn R!"
   cta_url:
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
-excerpt: 'Earth Analytics Spring 2017 - Fuse Data Science Skills with Earth System Science Knowledge.'
+excerpt: 'Earth Analytics Fall 2017 - Fuse Data Science Skills with Earth System Science Knowledge.'
 sidebar:
   nav: earth-analytics-2017
-startTime: '3:00'
-endTime: '17:50'
+startTime: '9:30'
+endTime: '12:20'
 ---
 
-## <i class="fa fa-home" aria-hidden="true"></i> Earth Analytics Spring 2017
+## <i class="fa fa-home" aria-hidden="true"></i> Earth Analytics Fall 2017
 
 This advanced, multidisciplinary course covers addressing major
 questions in Earth science using computationally intensive approaches. Students
@@ -32,8 +32,8 @@ senior) undergraduate students in the natural/social sciences.
 
 **Instructor:** Dr. Leah A. Wasser
 
-* **Teaching Assistant:** Sepideh Khanghah
-* **Time:** Wednesday 3:00 pm -  5:50 pm
+* **Teaching Assistant:**
+* **Time:** Monday 9:30 pm -  12:20 pm
 * **Location:** SEEC S125
 * **Sections:** GEOG 4563 (Junior / Senior Level undergraduate), GEOG 5563 (Graduate)
 
@@ -41,7 +41,7 @@ senior) undergraduate students in the natural/social sciences.
 
 </div>
 
-All students enrolled in the spring 2017 semester of Earth Analytics can request
+All students enrolled in the fall 2017 semester of Earth Analytics can request
 access to <a href="http://www.datacamp.com" target="_blank">Data Camp</a>! Email the instructor for details!
 
 ### Example Course Science Topics (Topics subject to change):
@@ -57,7 +57,7 @@ means to understand climate impacts.
 
 Throughout the semester, we will build the following skills:
 
-* **Scientific programming:** Use the `R` / `R Studio` environment to
+* **Scientific programming:** Use the `R` / R-studio environment to
 access, process & visualize scientific data.
 * **Data Integration:** understand issues associated with
 integration data from various sources (scale, resolution, format)
