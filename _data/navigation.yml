@@ -49,7 +49,7 @@ earth-analytics-2017:
   - title: "Weeks 1-2 - Time Series"
     children:
       - title: "Week 1: Getting Started With Data"
-        url: /courses/earth-analytics/week-1/
+        url: /courses/earth-analytics/document-your-science/
       - title: "Week 2: Time Series Data in R"
         url: /courses/earth-analytics/week-2/
   - title: "Weeks 3-5 - Lidar & Spatial data in R"

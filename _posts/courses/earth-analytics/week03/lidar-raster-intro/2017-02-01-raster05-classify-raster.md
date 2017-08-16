@@ -42,9 +42,9 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory set up on your computer with a `/data`
 directory with it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
-* [Intro to the R & RStudio interface](/courses/earth-analytics/week-1/intro-to-r-and-rstudio)
+* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [Intro to the R & RStudio interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
 
 ### R libraries to install:
 
@@ -121,17 +121,17 @@ by looking at the min and max values in our CHM.
 
 ```r
 summary(lidar_chm)
-##          lidar_chm
-## Min.     0.0000000
-## 1st Qu.  0.0000000
-## Median   0.0000000
-## 3rd Qu.  0.7199707
-## Max.    23.7700195
-## NA's     0.0000000
+##         lidar_chm
+## Min.         0.00
+## 1st Qu.      0.00
+## Median       0.00
+## 3rd Qu.      0.73
+## Max.        23.95
+## NA's         0.00
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
-0 to 26.9300537.
+0 to 26.9301.
 
 Let's explore the data further by looking at a histogram. A histogram quantifies
 the distribution of values found in our data.
@@ -185,10 +185,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 79598  5953  4614  3744  2660  1702  1010   446   177    70    19
-## [12]     6     0     1
+##  [1] 75780  3337  3167  2964  2400  2173  1979  1780  1579  1284   951
+## [12]   794   562   410   346   174   138    79    45    25    14    10
+## [23]     4     3     1     1
 histinfo$breaks
-##  [1]  0  2  4  6  8 10 12 14 16 18 20 22 24 26 28
+##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
+## [24] 23 24 25 26
 ```
 
 If we want to customize our histogram further, we can customize the number of

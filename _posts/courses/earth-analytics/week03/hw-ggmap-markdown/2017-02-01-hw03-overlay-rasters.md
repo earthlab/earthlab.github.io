@@ -40,8 +40,8 @@ directory with it.
 * Install **devtools**: `install.packages('devtools')`
 * Install **ggmap** from github: `devtools::install_github("dkahle/ggmap")`
 
-* [How to setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
+* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 </div>
 

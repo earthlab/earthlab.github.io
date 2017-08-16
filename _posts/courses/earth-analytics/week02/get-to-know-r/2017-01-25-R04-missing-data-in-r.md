@@ -38,8 +38,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/week-1/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
+* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 
 </div>
@@ -100,7 +100,7 @@ mean(temp_df2$avg_temp)
 ## [1] NA
 
 mean(temp_df$avg_temp, na.rm = TRUE)
-## [1] -231.5455
+## [1] -231.5
 mean(temp_df2$avg_temp, na.rm = TRUE)
 ## [1] 56.25
 ```

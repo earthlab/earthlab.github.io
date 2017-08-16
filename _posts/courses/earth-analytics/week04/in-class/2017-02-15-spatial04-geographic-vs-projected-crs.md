@@ -81,8 +81,8 @@ CRSs are not ideal for measuring distance. This is why other projected `CRS`
 have been developed.
 
 <figure>
-	<a href="{{ site.baseurl }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif">
-	<img src="{{ site.baseurl }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
+	<a href="{{ site.url }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif">
+	<img src="{{ site.url }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
 	<figcaption>A geographic coordinate system locates latitude and longitude
 	location using angles. Thus the spacing of each line of latitude moving north
 	and south is not uniform.
@@ -240,8 +240,8 @@ location.
 ```r
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
 coordinates(boulder_df_geog)
-##            lon      lat
-## [1,] -105.2705 40.01498
+##         lon   lat
+## [1,] -105.3 40.01
 ```
 
 Now we can plot our data on top of our world map which is also in a geographic CRS.

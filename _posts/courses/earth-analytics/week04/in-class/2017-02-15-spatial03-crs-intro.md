@@ -268,8 +268,8 @@ have been developed.
 
 
 <figure>
-	<a href="{{ site.baseurl }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif">
-	<img src="{{ site.baseurl }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
+	<a href="{{ site.url }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif">
+	<img src="{{ site.url }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
 	<figcaption>A geographic coordinate system locates latitude and longitude
 	location using angles. Thus the spacing of each line of latitude moving north
 	and south is not uniform.
@@ -337,10 +337,10 @@ need to convert that data.frame to a spatial data.frame to use spTransform().
 ```r
 # data.frame containing locations of Boulder, CO and Oslo, Norway
 loc_df
-##         lon     lat
-## 1 -105.2519 40.0274
-## 2   10.7500 59.9500
-## 3    2.9833 39.6167
+##        lon   lat
+## 1 -105.252 40.03
+## 2   10.750 59.95
+## 3    2.983 39.62
 
 # convert dataframe to spatial points data frame
 loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
@@ -349,7 +349,7 @@ loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
 loc_spdf
 ## class       : SpatialPointsDataFrame 
 ## features    : 3 
-## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
+## extent      : -105.3, 10.75, 39.62, 59.95  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 2
 ## names       :       lon,     lat 

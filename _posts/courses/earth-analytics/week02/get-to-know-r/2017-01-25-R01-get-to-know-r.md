@@ -49,13 +49,13 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / RStudio](/courses/earth-analytics/week-1/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/courses/earth-analytics/week-1/intro-to-r-and-rstudio)
+* [How to Setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [Intro to the R & RStudio Interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
 
 </div>
 
-In the [previous module](/courses/earth-analytics/week-1/setup-r-rstudio), we
+In the [previous module](/courses/earth-analytics/document-your-science/setup-r-rstudio), we
 setup `RStudio` and `R` and got to know the `RStudio` interface.
 We also created a basic
 `RMarkdown` report using `RStudio`. In this module, we will explore the basic

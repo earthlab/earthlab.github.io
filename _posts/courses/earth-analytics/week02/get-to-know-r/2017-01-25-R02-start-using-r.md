@@ -38,8 +38,8 @@ You need R and RStudio to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/week-1/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/week-1/setup-working-directory/)
+* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 </div>
 
@@ -56,7 +56,7 @@ For example, if you type in `3 + 5`, `R` will calculate the output value:
 ## [1] 8
 # divide 12 by 7
 12/7
-## [1] 1.714286
+## [1] 1.714
 ```
 
 However, is it more useful to assign _values_ to
