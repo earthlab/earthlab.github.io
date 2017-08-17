@@ -14,3 +14,9 @@ env:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES=true # speeds up installation of html-proofer
 
 sudo: false # route your build to the container-based infrastructure for a faster build
+
+
+addons:
+  apt:
+    packages:
+      - libssl1.0.0 # update ssl validation to try to avoid continual ssl errors
