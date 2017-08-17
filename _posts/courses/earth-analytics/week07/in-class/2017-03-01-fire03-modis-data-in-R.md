@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS remote sensing data in in R."
 excerpt: "In this lesson we will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. We will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/modis-data-in-R/
@@ -46,9 +46,6 @@ data for week 6 of the course.
 
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 First, let's import MODIS data. Below notice that we have used a slightly different
 version of the `list.files()` `pattern=` argument.
@@ -63,7 +60,7 @@ Let's import our MODIS image stack.
 
 ```r
 # open modis bands (layers with sur_refl in the name)
-all_modis_bands_july7 <-list.files("data/week6/modis/reflectance/07_july_2016/crop",
+all_modis_bands_july7 <-list.files("data/week06/modis/reflectance/07_july_2016/crop",
            pattern=glob2rx("*sur_refl*.tif$"),
            full.names = T)
 # create spatial raster stack
@@ -73,10 +70,10 @@ all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
 all_modis_bands_st_july7[[2]]
 ## class       : RasterLayer 
 ## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
-## resolution  : 463.3127, 463.3127  (x, y)
+## resolution  : 463.3, 463.3  (x, y)
 ## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif 
 ## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
 ## values      : -32768, 32767  (min, max)
 
@@ -259,7 +256,7 @@ The MODIS data are also stored natively in a H4 format which we will not be disc
 in this class. For the purposes of this assignment, use the table above to assign
 cloud cover "values" and to create a mask.
 
-Use the cloud cover layer `data/week6/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m`
+Use the cloud cover layer `data/week06/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m`
 to create your mask.
 
 Set all values >0 in the cloud cover layer to `NA`.

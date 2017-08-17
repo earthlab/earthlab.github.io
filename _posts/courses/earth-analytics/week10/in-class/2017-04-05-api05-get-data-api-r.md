@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/API-data-access-r/

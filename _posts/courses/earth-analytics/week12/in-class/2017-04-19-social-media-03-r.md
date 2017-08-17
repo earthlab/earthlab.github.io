@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -23,6 +23,7 @@ topics:
   data-exploration-and-analysis: ['text-mining']
 output: html_document
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -81,18 +82,14 @@ First, we load the `rtweet` and other needed `R` packages. Note we are introduci
 ```r
 # load twitter library - the rtweet library is recommended now over twitteR
 library(rtweet)
-## Error in library(rtweet): there is no package called 'rtweet'
 # plotting and pipes - tidyverse!
 library(ggplot2)
 library(dplyr)
 # text mining library
 library(tidytext)
-## Error in library(tidytext): there is no package called 'tidytext'
 # plotting packages
 library(igraph)
-## Error in library(igraph): there is no package called 'igraph'
 library(ggraph)
-## Error in library(ggraph): there is no package called 'ggraph'
 ```
 
 
@@ -117,10 +114,14 @@ the entire string. Let's try it.
 # Find tweet using forest fire in them
 climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
-## Error in search_tweets(q = "#climatechange", n = 10000, lang = "en", include_rts = FALSE): could not find function "search_tweets"
 # check data to see if there are emojis
 head(climate_tweets$text)
-## Error in head(climate_tweets$text): object 'climate_tweets' not found
+## [1] "Study estimates #fossilfuelsubsidies leading to trillions in health costs...\nhttps://t.co/LNU9L4CoJv #Environment #Health #ClimateChange"
+## [2] "When \"balance\" is unbalanced. #climatechange #bbcradio4 #bbcnews. From https://t.co/43J6cXohr1 https://t.co/asHfpK3WIu"                 
+## [3] "Investigating the Enigma of Clouds and Climate Change: Clouds perform an… https://t.co/6IpXvFeoNn #ClimateChange #solarenergy #FossilFuel"
+## [4] "The many (of us) will not let a one waver us. #ParisAgreement #climatechange https://t.co/kySfaL25DQ"                                     
+## [5] "How do clouds influence #climatechange? #Eclipse2017 brings us a step closer to finding out https://t.co/vTh393lYrw"                      
+## [6] "For black Miami neighborhoods, gentrification may include another interesting factor: #climatechange. https://t.co/ZBJuVpOcLn"
 ```
 
 ## Data clean-up
@@ -140,9 +141,7 @@ those.
 
 # remove http elements manually
 climate_tweets$stripped_text <- gsub("http.*","",  climate_tweets$text)
-## Error in gsub("http.*", "", climate_tweets$text): object 'climate_tweets' not found
 climate_tweets$stripped_text <- gsub("https.*","", climate_tweets$stripped_text)
-## Error in gsub("https.*", "", climate_tweets$stripped_text): object 'climate_tweets' not found
 ```
 
 Finally, we can clean up our text. If we are trying to create a list of unique
@@ -181,7 +180,6 @@ cleaned up tweet text stored.
 climate_tweets_clean <- climate_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(word, stripped_text)
-## Error in eval(lhs, parent, parent): object 'climate_tweets' not found
 ```
 
 Now we can plot our data. What do you notice?
@@ -200,8 +198,9 @@ climate_tweets_clean %>%
       labs(x="Count",
       y="Unique words",
       title="Count of unique words found in tweets")
-## Error in eval(lhs, parent, parent): object 'climate_tweets_clean' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="100%" />
 
 Our plot of unique words contains some words that may not be useful to use. For instance
 "a" and "to". In the word of text mining we call those words - 'stop words'.
@@ -222,19 +221,26 @@ Let's give this a try next!
 data("stop_words")
 # view first 6 words
 head(stop_words)
-## Error in head(stop_words): object 'stop_words' not found
+## # A tibble: 6 x 2
+##        word lexicon
+##       <chr>   <chr>
+## 1         a   SMART
+## 2       a's   SMART
+## 3      able   SMART
+## 4     about   SMART
+## 5     above   SMART
+## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## Error in nrow(climate_tweets_clean): object 'climate_tweets_clean' not found
+## [1] 122003
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
   anti_join(stop_words)
-## Error in eval(lhs, parent, parent): object 'climate_tweets_clean' not found
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## Error in nrow(cleaned_tweet_words): object 'cleaned_tweet_words' not found
+## [1] 73022
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -255,8 +261,9 @@ cleaned_tweet_words %>%
       x="Unique words",
       title="Count of unique words found in tweets",
       subtitle="Stop words removed from the list")
-## Error in eval(lhs, parent, parent): object 'cleaned_tweet_words' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="100%" />
 
 ## Explore networks of words
 
@@ -276,33 +283,52 @@ library(widyr)
 climate_tweets_paired_words <- climate_tweets %>%
   dplyr::select(stripped_text) %>%
   unnest_tokens(paired_words, stripped_text, token = "ngrams", n=2)
-## Error in eval(lhs, parent, parent): object 'climate_tweets' not found
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## Error in eval(lhs, parent, parent): object 'climate_tweets_paired_words' not found
+## # A tibble: 67,378 x 2
+##         paired_words     n
+##                <chr> <int>
+##  1    climate change   637
+##  2  climatechange is   361
+##  3  of climatechange   335
+##  4  to climatechange   286
+##  5  on climatechange   277
+##  6            in the   270
+##  7            of the   243
+##  8        the latest   237
+##  9              is a   174
+## 10 climatechange the   173
+## # ... with 67,368 more rows
 ```
 
 
 ```r
 library(tidyr)
-## Error in library(tidyr): there is no package called 'tidyr'
 climate_tweets_separated_words <- climate_tweets_paired_words %>%
   separate(paired_words, c("word1", "word2"), sep = " ")
-## Error in eval(lhs, parent, parent): object 'climate_tweets_paired_words' not found
 
 climate_tweets_filtered <- climate_tweets_separated_words %>%
   filter(!word1 %in% stop_words$word) %>%
   filter(!word2 %in% stop_words$word)
-## Error in eval(lhs, parent, parent): object 'climate_tweets_separated_words' not found
 
 # new bigram counts:
 climate_words_counts <- climate_tweets_filtered %>%
   count(word1, word2, sort = TRUE)
-## Error in eval(lhs, parent, parent): object 'climate_tweets_filtered' not found
 
 head(climate_words_counts)
-## Error in head(climate_words_counts): object 'climate_words_counts' not found
+## Source: local data frame [6 x 3]
+## Groups: word1 [4]
+## 
+## # A tibble: 6 x 3
+##           word1         word2     n
+##           <chr>         <chr> <int>
+## 1       climate        change   637
+## 2 climatechange climatechange   146
+## 3 climatechange           amp   127
+## 4        global       warming   123
+## 5 climatechange globalwarming   110
+## 6     antarctic           ice   107
 ```
 
 FInally, plot the data
@@ -310,9 +336,7 @@ FInally, plot the data
 
 ```r
 library(igraph)
-## Error in library(igraph): there is no package called 'igraph'
 library(ggraph)
-## Error in library(ggraph): there is no package called 'ggraph'
 
 # plot climate change word network
 climate_words_counts %>%
@@ -325,8 +349,9 @@ climate_words_counts %>%
         labs(title= "Word Network: Tweets using the hashtag - Climate Change",
              subtitle="Text mining twitter data ",
              x="", y="")
-## Error in eval(lhs, parent, parent): object 'climate_words_counts' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="100%" />
 
 We expect the words climate & change to have a high
 

@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/get-data-with-rcurl-r/
@@ -62,7 +62,7 @@ that is our current class week.
 ```r
 # download text file to a specified location on our computer
 download.file(url = "https://ndownloader.figshare.com/files/7010681",
-              destfile = "data/week10/boulder-precip-aug-oct-2013.csv")
+              destfile = "data/week010/boulder-precip-aug-oct-2013.csv")
 ```
 
 
@@ -72,7 +72,8 @@ the file, we can then open up the file and plot the data within it.
 
 ```r
 # read data into R
-boulder_precip <- read.csv("data/week10/boulder-precip-aug-oct-2013.csv")
+boulder_precip <- read.csv("data/week010/boulder-precip-aug-oct-2013.csv")
+## Error in file(file, "rt"): cannot open the connection
 
 # fix date
 boulder_precip$DATE <- as.Date(boulder_precip$DATE)

@@ -3,7 +3,7 @@ layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/get-data-earth-explorer/
@@ -87,7 +87,7 @@ To begin:
 * Zip up extent file that you want to use. Be sure to use a square extent, if you
 have too many vertices it won't work. Lucky for us there is a zip file already zipped
 up and ready to go in our week6 data!
-  `data/week6/vector_layers/fire_boundary_box_shp.zip`
+  `data/week06/vector_layers/fire_boundary_box_shp.zip`
 * Next, go to <a href="http://earthexplorer.usgs.gov" target="_blank">the Earth Explorer website</a>. Login. If you don't have a login already, create an account.
 
 Now, it's time to search for data.
@@ -153,9 +153,6 @@ data to be emailed to your account. Order now!
 In this case, I downloaded a scene very close to Julian day 189.
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 ## Import new scene
 

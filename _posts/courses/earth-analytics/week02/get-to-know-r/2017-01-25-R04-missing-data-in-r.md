@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/week-2/missing-data-in-r-na/
 nav-title: 'Missing data'
 dateCreated: 2016-12-13
-modified: '2017-08-15'
+modified: '2017-08-17'
 week: 2
 sidebar:
   nav:
@@ -77,13 +77,13 @@ cell, a single blank space, and the value -999, you would use:
 ```r
 # download file
 download.file("https://ndownloader.figshare.com/files/7275959",
-              "data/week2/temperature_example.csv")
+              "data/week02/temperature_example.csv")
 
 # import data but don't specify no data values - what happens?
-temp_df <- read.csv(file = "data/week2/temperature_example.csv")
+temp_df <- read.csv(file = "data/week02/temperature_example.csv")
 
 # import data but specify no data values - what happens?
-temp_df2 <- read.csv(file = "data/week2/temperature_example.csv",
+temp_df2 <- read.csv(file = "data/week02/temperature_example.csv",
                      na.strings = c("NA", " ", "-999"))
 ```
 

@@ -3,7 +3,7 @@ layout: single
 title: "Clean remote sensing data in R - Clouds, shadows & cloud masks"
 excerpt: "In this lesson, we will learn how to deal with clouds when working with spectral remote sensing data. We will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. We will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/intro-spectral-data-r/
@@ -88,7 +88,6 @@ Let's begin by loading our spatial libraries.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 # turn off factors
 options(stringsAsFactors = F)
 ```
@@ -98,7 +97,7 @@ Next, we will load the landsat bands that we loaded previously in our homework.
 
 ```r
 # create a list of all landsat files that have the extension .tif and contain the word band.
-all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands <- list.files("data/week06/Landsat/LC80340322016189-SC20170128091153/crop",
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 # create spatial raster stack from the list of file names
@@ -144,7 +143,7 @@ Let's have a look at these layers next.
 
 ```r
 # open cloud mask layer
-cloud_mask_189_conf <- raster("data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_conf_crop.tif")
+cloud_mask_189_conf <- raster("data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_conf_crop.tif")
 plot(cloud_mask_189_conf,
   main="Landsat Julian Day 189 - Cloud mask layer.")
 ```
@@ -156,7 +155,7 @@ Next, we can plot the second mask layer. Do you notice any difference between th
 
 ```r
 # apply shadow mask
-cloud_mask_189 <- raster("data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_crop.tif")
+cloud_mask_189 <- raster("data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_crop.tif")
 plot(cloud_mask_189,
   main="Landsat Julian Day 189 - Cloud mask layer with shadows.")
 ```
@@ -170,7 +169,7 @@ However what do the values stored in those rasters mean? We can refer to the
 metadata provided when we downloaded the Landsat data to learn more about how
 each layer in our landsat dataset are both stored and calculated.
 
-Let's open the metadata file: `data/week6/landsat/LC80340322016189-SC20170128091153/LC80340322016189LGN00.xml`
+Let's open the metadata file: `data/week06/landsat/LC80340322016189-SC20170128091153/LC80340322016189LGN00.xml`
 What does it tell us?
 
 <figure>

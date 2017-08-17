@@ -5519,6 +5519,13 @@ div.notice--success, div.notice--warning {
   font-size: 0.8em !important;
   padding: 0; }
 
+/* grade rubrics in notice divs */
+.notice--info td {
+  font-size: 1.3em; }
+
+.notice--info th {
+  font-size: 1.3em; }
+
 /* Site bar menu items */
 .nav__list .active {
   border-radius: 0 !important; }

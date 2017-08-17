@@ -4,7 +4,7 @@ title: "About the geotiff (.tif) raster file format - raster data in R "
 excerpt: "This lesson introduces the geotiff file format. Further it introduces the
 concept of metadata - or data about the data. Metadata describe key characteristics of a data set. For spatial data these characteristics including CRS, resolution and spatial extent. Here we discuss the use of tif tags or metadata embedded within a geotiff file as they can be used to explore data programatically."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/introduction-to-spatial-metadata-r/
@@ -89,7 +89,7 @@ geotiff before we open it in `R`.
 
 ```r
 # view attributes associated with our DTM geotiff
-GDALinfo("data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+GDALinfo("data/week03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 ## rows        2000 
 ## columns     4000 
 ## bands       1 
@@ -102,10 +102,12 @@ GDALinfo("data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 ## oblique.y   0 
 ## driver      GTiff 
 ## projection  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs 
-## file        data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif 
+## file        data/week03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif 
 ## apparent band summary:
-##    GDType hasNoDataValue   NoDataValue blockSize1 blockSize2
-## 1 Float32           TRUE -3.402823e+38        128        128
+##    GDType hasNoDataValue                              NoDataValue
+## 1 Float32           TRUE -340282346638528859811704183484516925440
+##   blockSize1 blockSize2
+## 1        128        128
 ## apparent band statistics:
 ##          Bmin       Bmax Bmean Bsd
 ## 1 -4294967295 4294967295    NA  NA
@@ -127,7 +129,7 @@ We can also extract or view individual metadata attributes.
 ```r
 # view attributes / metadata of raster
 # open raster data
-lidar_dem <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+lidar_dem <- raster(x="data/week03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 # view crs
 crs(lidar_dem)
 ## CRS arguments:
@@ -152,7 +154,7 @@ Let's find out the answer to this question using R.
 
 
 ```r
-lidar_dsm <- raster(x="data/week3/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+lidar_dsm <- raster(x="data/week03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
 extent_lidar_dsm <- extent(lidar_dsm)
 extent_lidar_dem <- extent(lidar_dem)

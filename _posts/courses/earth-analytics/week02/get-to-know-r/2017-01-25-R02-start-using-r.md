@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/week-2/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-08-15'
+modified: '2017-08-17'
 week: 2
 sidebar:
   nav:
@@ -56,7 +56,7 @@ For example, if you type in `3 + 5`, `R` will calculate the output value:
 ## [1] 8
 # divide 12 by 7
 12/7
-## [1] 1.714
+## [1] 1.714286
 ```
 
 However, is it more useful to assign _values_ to

@@ -3,7 +3,7 @@ layout: single
 title: "Working with remote sensing imagery that has multiple bands in R - NAIP raster data in R."
 excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared ot other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -98,9 +98,6 @@ LIGHTER colors represent a stronger reflection
 in that band. DARKER colors represent a weaker reflection.
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 
 
@@ -153,7 +150,6 @@ packages.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 ```
 
 In this lesson we will use imagery from the National Agricultural Imagery
@@ -183,7 +179,7 @@ Colorado.
 # Read in multi-band raster with raster function.
 # the first band will be read in automatically
 # csf = cold springs fire!
-naip_csf <- raster("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+naip_csf <- raster("data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 
 # Plot band 1
 plot(naip_csf,
@@ -204,7 +200,7 @@ naip_csf
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop 
 ## values      : 0, 255  (min, max)
 ```
@@ -254,7 +250,7 @@ want to work with). To import the green band, we would use `band=2`.
 
 ```r
 # Can specify which band we want to read in
-rgb_band2 <- raster("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif",
+rgb_band2 <- raster("data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif",
              band = 2)
 
 # plot band 2
@@ -276,7 +272,7 @@ rgb_band2
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop 
 ## values      : 0, 255  (min, max)
 ```
@@ -296,7 +292,7 @@ IMPORTANT: All rasters in a raster stack must have the same *extent*,
 ```r
 # Use stack function to read in all bands
 naip_stack_csf <-
-  stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+  stack("data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 
 # view attributes of stack object
 naip_stack_csf
@@ -327,7 +323,7 @@ naip_stack_csf@layers
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop.1 
 ## values      : 0, 255  (min, max)
 ## 
@@ -339,7 +335,7 @@ naip_stack_csf@layers
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop.2 
 ## values      : 0, 255  (min, max)
 ## 
@@ -351,7 +347,7 @@ naip_stack_csf@layers
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop.3 
 ## values      : 0, 255  (min, max)
 ## 
@@ -363,7 +359,7 @@ naip_stack_csf@layers
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 ```
@@ -380,7 +376,7 @@ naip_stack_csf[[1]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop.1 
 ## values      : 0, 255  (min, max)
 ```

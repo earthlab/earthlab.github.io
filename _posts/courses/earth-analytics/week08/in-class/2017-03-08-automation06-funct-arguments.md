@@ -3,7 +3,7 @@ layout: single
 title: "Working with function arguments"
 excerpt: " ."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/week-8/function-arguments-r/
@@ -55,7 +55,7 @@ is a text string which is the title that we want `R` to add to our plot.
 
 ```r
 # import and plot landsat
-landsat_ndvi <- raster("data/week6/outputs/landsat_ndvi.tif")
+landsat_ndvi <- raster("data/week06/outputs/landsat_ndvi.tif")
 plot(landsat_ndvi,
      main = "ndvi title - rendered using a function argument",
      axes = FALSE,
@@ -110,7 +110,7 @@ Now we understand why the following code returns an error:
 
 
 ```r
-precip_data <- read.csv(FALSE, "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
+precip_data <- read.csv(FALSE, "data/week02/precipitation/precip-boulder-aug-oct-2013.csv")
 ## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
 ```
 
@@ -122,14 +122,14 @@ the argument `header`.
 We have passed arguments to functions in two ways:
 
 1. Directly: `plot(landsat_ndvi)`,
-2. and by name: `read.csv(file = "data/week2/precipitation/precip-boulder-aug-oct-2013.csv", header = FALSE)`.
+2. and by name: `read.csv(file = "data/week02/precipitation/precip-boulder-aug-oct-2013.csv", header = FALSE)`.
 
 We can pass the arguments to `read.csv` without naming them if they are in the
 order that R expects.
 
 
 ```r
-precip_data <- read.csv("data/week2/precipitation/precip-boulder-aug-oct-2013.csv",
+precip_data <- read.csv("data/week02/precipitation/precip-boulder-aug-oct-2013.csv",
                 FALSE)
 ```
 
@@ -140,7 +140,7 @@ Does the code below return an error?
 ```r
 # import csv
 precip_data <- read.csv(header = FALSE,
-                file = "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
+                file = "data/week02/precipitation/precip-boulder-aug-oct-2013.csv")
 
 ```
 
@@ -149,6 +149,6 @@ But this code below doesn't work. Make sense?
 
 ```r
 dat <- read.csv(FALSE,
-                "data/week2/precipitation/precip-boulder-aug-oct-2013.csv")
+                "data/week02/precipitation/precip-boulder-aug-oct-2013.csv")
 ## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
 ```

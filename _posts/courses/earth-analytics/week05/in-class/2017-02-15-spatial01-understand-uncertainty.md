@@ -3,7 +3,7 @@ layout: single
 title: "Lidar Remote sensing data - Understand uncertainty / error associated with height metrics extracted from lidar raster data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/week-5/understand-uncertainty-lidar/
@@ -89,10 +89,10 @@ tree_heights <- data.frame(heights=c(10, 10.1, 9.9, 9.5, 9.7, 9.8,
                                      9.6, 10.5, 10.7, 10.3, 10.6))
 # what is the average tree height
 mean(tree_heights$heights)
-## [1] 10.06364
+## [1] 10.06
 # what is the standard deviation of measurements?
 sd(tree_heights$heights)
-## [1] 0.4129715
+## [1] 0.413
 boxplot(tree_heights$heights,
         main="Distribution of tree height measurements (m)",
         ylab="Height (m)",
@@ -198,7 +198,7 @@ the actual heights of the trees on the ground?
 
 
 ```
-## Error in library(rgeos): there is no package called 'rgeos'
+## Error in UseMethod("extract_"): no applicable method for 'extract_' applied to an object of class "c('RasterLayer', 'Raster', 'BasicRaster')"
 ```
 
 ## Study site location
@@ -253,9 +253,19 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
     </figcaption>
 </figure>
 
+
+```
+## Error in FUN(X[[i]], ...): object 'insitu_max' not found
+```
+
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="100%" />
 
 ### How different are the data?
+
+
+```
+## Error in `$<-.data.frame`(`*tmp*`, ht_diff, value = numeric(0)): replacement has 0 rows, data has 18
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
 

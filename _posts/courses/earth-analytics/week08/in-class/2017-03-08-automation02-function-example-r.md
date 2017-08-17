@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/week-8/function-example-modular-code-r/
@@ -56,7 +56,7 @@ options(stringsAsFactors = F)
 
 ```r
 # get list of tif files
-all_landsat_bands <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands <- list.files("data/week06/Landsat/LC80340322016189-SC20170128091153/crop",
                                 pattern=glob2rx("*band*.tif$"),
                                 full.names = T)
 
@@ -102,7 +102,7 @@ can plot like we did before.
 
 
 ```r
-landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week06/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
 
 par(col.axis="white", col.lab="white", tck=0)
@@ -148,7 +148,7 @@ Let's use the code to plot pre-fire RGB image.
 
 
 ```r
-landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+landsat_pre_fire <- get_stack_bands(the_dir_path = "data/week06/Landsat/LC80340322016189-SC20170128091153/crop",
                 the_pattern = "*band*.tif$")
 
 # plot the data
@@ -181,7 +181,7 @@ Let's run the same functions on another landsat dataset  - post fire.
 
 ```r
 # create stack
-landsat_post_fire <- get_stack_bands(the_dir_path = "data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
+landsat_post_fire <- get_stack_bands(the_dir_path = "data/week06/Landsat/LC80340322016205-SC20170127160728/crop",
                 the_pattern = "*band*.tif$")
 
 # plot the 3 band image of the data
@@ -211,7 +211,7 @@ Are our functions general enough to work with MODIS?
 
 ```r
 # import MODIS
-modis_pre_fire <- get_stack_bands(the_dir_path = "data/week6/modis/reflectance/07_july_2016/crop",
+modis_pre_fire <- get_stack_bands(the_dir_path = "data/week06/modis/reflectance/07_july_2016/crop",
                 the_pattern = "*sur_refl*.tif$")
 
 # plot the data

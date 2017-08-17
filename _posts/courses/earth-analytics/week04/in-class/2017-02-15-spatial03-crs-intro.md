@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Introduction to Coordinate Reference Systems in R "
 excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/week-4/intro-to-coordinate-reference-systems/
@@ -177,7 +177,6 @@ the central meridian on the globe (0,0).
 library(rgdal)
 library(ggplot2)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(raster)
 
 #install.packages('sf')
@@ -208,7 +207,7 @@ newTheme <- list(theme(line = element_blank(),
 
 ```r
 # read shapefile
-worldBound <- readOGR(dsn="data/week5/global/ne_110m_land",
+worldBound <- readOGR(dsn="data/week05/global/ne_110m_land",
                      layer="ne_110m_land")
 # convert to dataframe
 worldBound_df <- fortify(worldBound)
@@ -401,7 +400,7 @@ lines.
 
 ```r
 ## import graticule shapefile data
-graticule <- readOGR("data/week5/global/ne_110m_graticules_all",
+graticule <- readOGR("data/week05/global/ne_110m_graticules_all",
                      layer="ne_110m_graticules_15")
 # convert spatial sp object into a ggplot ready, data.frame
 graticule_df <- fortify(graticule)
@@ -422,7 +421,7 @@ Also we will import a bounding box to make our plot look nicer!
 
 
 ```r
-bbox <- readOGR("data/week5/global/ne_110m_graticules_all/ne_110m_wgs84_bounding_box.shp")
+bbox <- readOGR("data/week05/global/ne_110m_graticules_all/ne_110m_wgs84_bounding_box.shp")
 bbox_df <- fortify(bbox)
 
 latLongMap <- ggplot(bbox_df, aes(long,lat, group=group)) +

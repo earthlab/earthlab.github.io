@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and plot difference normalized burn ratio (dNBR) from Landsat remote sensing data in R"
 excerpt: "In this lesson we review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. We finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/calculate-dNBR-R-Landsat/
@@ -57,7 +57,6 @@ First, let's setup our spatial packages.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = F)
@@ -69,17 +68,17 @@ Next, we open up our landsat data and create a spatial raster stack.
 
 ```r
 # create stack
-all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands_pre <- list.files("data/week06/Landsat/LC80340322016189-SC20170128091153/crop",
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands_pre
-## [1] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band1_crop.tif"
-## [2] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band2_crop.tif"
-## [3] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band3_crop.tif"
-## [4] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band4_crop.tif"
-## [5] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band5_crop.tif"
-## [6] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band6_crop.tif"
-## [7] "data/week6/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band7_crop.tif"
+## [1] "data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band1_crop.tif"
+## [2] "data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band2_crop.tif"
+## [3] "data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band3_crop.tif"
+## [4] "data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band4_crop.tif"
+## [5] "data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band5_crop.tif"
+## [6] "data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band6_crop.tif"
+## [7] "data/week06/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band7_crop.tif"
 
 # stack the data
 landsat_stack_pre <- stack(all_landsat_bands_pre)
@@ -103,7 +102,7 @@ You can export the NBR raster if you want using `writeRaster()`.
 
 ```r
 writeRaster(x = landsat_nbr_pre,
-              filename="data/week6/outputs/landsat_nbr",
+              filename="data/week06/outputs/landsat_nbr",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
               overwrite = T)
@@ -114,17 +113,17 @@ Next, we can open the post-fire landsat data to calculate post-fire NBR.
 
 
 ```r
-all_landsat_bands_post <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
+all_landsat_bands_post <- list.files("data/week06/Landsat/LC80340322016205-SC20170127160728/crop",
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands_post
-## [1] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
-## [2] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-## [3] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
-## [4] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
-## [5] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
-## [6] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
-## [7] "data/week6/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
+## [1] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
+## [2] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
+## [3] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
+## [4] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
+## [5] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
+## [6] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
+## [7] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
 
 # stack the data
 landsat_stack_post <- stack(all_landsat_bands_post)
@@ -181,7 +180,7 @@ As an example to see how our fire boundary relates to the boundary that we've
 identified using MODIS data, we can create a map with both layers. I'm using
 the shapefile in the folder:
 
-`data/week6/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
+`data/week06/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
 
 Add fire boundary to map.
 

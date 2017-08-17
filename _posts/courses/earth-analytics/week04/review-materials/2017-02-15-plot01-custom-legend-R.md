@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Plot spatial data and create custom legends in R"
 excerpt: "In this lesson we break down the steps required to create a custom legend for spatial data in R. We discuss creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/week-4/r-create-custom-legend-with-base-plot/
@@ -75,10 +75,10 @@ Next, import and explore the data.
 
 ```r
 # import roads
-sjer_roads <- readOGR("data/week5/california/madera-county-roads",
+sjer_roads <- readOGR("data/week05/california/madera-county-roads",
                       "tl_2013_06039_roads")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/california/madera-county-roads", layer: "tl_2013_06039_roads"
+## Source: "data/week05/california/madera-county-roads", layer: "tl_2013_06039_roads"
 ## with 9640 features
 ## It has 4 fields
 # view the original class of the TYPE column
@@ -420,7 +420,7 @@ need to define 3 symbols and 3 colors for our legend and our plot.
 
 ```r
 # import points layer
-sjer_plots <- readOGR("data/week5/california/SJER/vector_data",
+sjer_plots <- readOGR("data/week05/california/SJER/vector_data",
                       "SJER_plot_centroids")
 ```
 
@@ -456,9 +456,6 @@ fixed the projection for the roads layer and cropped it! You will have to do the
 this code will work.
 
 
-```
-## Error: requireNamespace("rgeos") is not TRUE
-```
 
 When we create a legend, we will have to add the labels for both the points
 layer and the lines layer.
@@ -571,7 +568,7 @@ furthest_pt_east <- the_plot_extent@xmax
 furthest_pt_north <- the_plot_extent@ymax
 # view values
 furthest_pt_east
-## [1] 258867.4
+## [1] 258867
 furthest_pt_north
 ## [1] 4112362
 

@@ -3,7 +3,7 @@ layout: single
 title: "Work With Date - Time formats in R - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in R. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/week-2/date-class-in-r/

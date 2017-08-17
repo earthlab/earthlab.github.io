@@ -3,7 +3,7 @@ layout: single
 title: "Subset time series data in R - introduction to dplyr pipes and tidyverse coding approaches - Flooding & erosion data"
 excerpt: "This lesson walks through extracting temporal subsets of time series data using dplyr pipes. In the previous lesson we learned how to convert data containing a data field into a data class. In this lesson we use pipes to extract temporal subsets so that we can refine our time series data analysis. Finally we plot the data using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/week-2/precip-in-r/
@@ -111,10 +111,10 @@ We can use `read.csv()` to import the `.csv` file.
 ```r
 # download the data
 # download.file(url = "https://ndownloader.figshare.com/files/7283285",
-#              destfile = "data/week2/805325-precip-dailysum_2003-2013.csv")
+#              destfile = "data/week02/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-boulder_daily_precip <- read.csv("data/week2/precipitation/805325-precip-dailysum-2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week02/precipitation/805325-precip-dailysum-2003-2013.csv",
          header = TRUE)
 
 
@@ -189,7 +189,7 @@ You can download the original complete data subset with additional documentation
 
 Using everything you've learned in the previous lessons:
 
-* Import the dataset: `data/week2/precipitation/805325-precip-dailysum-2003-2013.csv`
+* Import the dataset: `data/week02/precipitation/805325-precip-dailysum-2003-2013.csv`
 * Clean the data by assigning noData values to `NA`
 * Make sure the date column is a date class
 * When you are done, plot it using `ggplot()`

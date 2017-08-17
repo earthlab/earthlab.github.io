@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/week-4/intro-vector-data-r/
@@ -108,7 +108,6 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -129,7 +128,7 @@ To import shapefiles we use the `R` function `readOGR()`.
 
 `readOGR()` requires two components:
 
-1. The directory where our shapefile lives: `data/week5/D17-California/SJER/vector_data/`
+1. The directory where our shapefile lives: `data/week05/D17-California/SJER/vector_data/`
 2. The name of the shapefile (without the extension): `SJER_plot_centroids`
 
 You can call each element separately
@@ -143,15 +142,15 @@ Both ways to open a shapefile are demonstrated below:
 ```r
 # Import a polygon shapefile: readOGR("path","fileName")
 
-sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data",
+sjer_plot_locations <- readOGR(dsn="data/week05/california/SJER/vector_data",
                                "SJER_plot_centroids")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/california/SJER/vector_data", layer: "SJER_plot_centroids"
+## Source: "data/week05/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 
 # note the code below works too
-#sjer_plot_locations <- readOGR(dsn="data/week5/california/SJER/vector_data/SJER_plot_centroids.shp")
+#sjer_plot_locations <- readOGR(dsn="data/week05/california/SJER/vector_data/SJER_plot_centroids.shp")
 ```
 
 <i class="fa fa-star"></i> **Data Tip:** The acronym, OGR, refers to the
@@ -348,8 +347,8 @@ plot(sjer_plot_locations, col="blue",
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your knowledge: Import Line & Polygon Shapefiles
 
-Using the steps above, import the `data/week5/california/madera-county-roads/tl_2013_06039_roads`
-and `data/week5/california/SJER/vector_data/SJER_crop.shp` shapefiles into
+Using the steps above, import the `data/week05/california/madera-county-roads/tl_2013_06039_roads`
+and `data/week05/california/SJER/vector_data/SJER_crop.shp` shapefiles into
 `R`. Call the roads object `sjer_roads` and the crop layer
 `sjer_crop_extent`.
 

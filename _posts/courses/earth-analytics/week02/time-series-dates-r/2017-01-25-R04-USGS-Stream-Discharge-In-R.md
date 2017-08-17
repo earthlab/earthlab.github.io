@@ -3,7 +3,7 @@ layout: single
 title: "Plot Stream Discharge Data in R"
 excerpt: "This lesson is a challenge exercise that asks you to use all of the skills used during the week 2 set of lessons in the earth analytics course. Here you will import data and subset it to create a final plot of stream discharge over time."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -116,7 +116,7 @@ Let's first import our data using the `read.csv()` function.
 
 
 ```r
-discharge <- read.csv("data/week2/discharge/06730200-discharge-daily-1986-2013.csv",
+discharge <- read.csv("data/week02/discharge/06730200-discharge-daily-1986-2013.csv",
                       header=TRUE)
 
 # view first 6 lines of data

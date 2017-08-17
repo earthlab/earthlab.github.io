@@ -4,7 +4,7 @@ title: "Extract raster values using vector boundaries in R"
 excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
 vector boundary. We can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where we measured tree heights on the ground. Finally we will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/week-5/extract-data-from-raster/
@@ -51,7 +51,6 @@ You will need a computer with internet access to complete this lesson and the da
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(ggplot2)
 library(dplyr)
 
@@ -70,14 +69,14 @@ subtracting the Digital elevation model (DEM) from the Digital surface model (DS
 
 ```r
 # import canopy height model (CHM).
-SJER_chm <- raster("data/week5/california/SJER/2013/lidar/SJER_lidarCHM.tif")
+SJER_chm <- raster("data/week05/california/SJER/2013/lidar/SJER_lidarCHM.tif")
 SJER_chm
 ## class       : RasterLayer 
 ## dimensions  : 5059, 4296, 21733464  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 254571, 258867, 4107303, 4112362  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week5/california/SJER/2013/lidar/SJER_lidarCHM.tif 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week05/california/SJER/2013/lidar/SJER_lidarCHM.tif 
 ## names       : SJER_lidarCHM 
 ## values      : 0, 45.88  (min, max)
 
@@ -126,10 +125,10 @@ located in `SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv`.
 
 ```r
 # import plot centroids
-SJER_plots <- readOGR("data/week5/california/SJER/vector_data",
+SJER_plots <- readOGR("data/week05/california/SJER/vector_data",
                       "SJER_plot_centroids")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/california/SJER/vector_data", layer: "SJER_plot_centroids"
+## Source: "data/week05/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 
@@ -180,6 +179,7 @@ SJER_height <- extract(SJER_chm,
                     fun=mean, # extract the MEAN value from each plot
                     sp=TRUE, # create spatial object
                     stringsAsFactors=FALSE)
+## Error in UseMethod("extract_"): no applicable method for 'extract_' applied to an object of class "c('RasterLayer', 'Raster', 'BasicRaster')"
 ```
 
 #### Explore The Data Distribution
@@ -225,7 +225,7 @@ height data is stored in csv format.
 
 ```r
 # import the centroid data and the vegetation structure data
-SJER_insitu <- read.csv("data/week5/california/SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv",
+SJER_insitu <- read.csv("data/week05/california/SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv",
                         stringsAsFactors = FALSE)
 
 # get list of unique plots
@@ -257,12 +257,12 @@ head(insitu_stem_height)
 ## # A tibble: 6 x 3
 ##     plotid insitu_max insitu_avg
 ##      <chr>      <dbl>      <dbl>
-## 1 SJER1068       19.3   3.866667
-## 2  SJER112       23.9   8.221429
-## 3  SJER116       16.0   8.218750
-## 4  SJER117       11.0   6.512500
-## 5  SJER120        8.8   7.600000
-## 6  SJER128       18.2   5.211765
+## 1 SJER1068       19.3      3.867
+## 2  SJER112       23.9      8.221
+## 3  SJER116       16.0      8.219
+## 4  SJER117       11.0      6.513
+## 5  SJER120        8.8      7.600
+## 6  SJER128       18.2      5.212
 ```
 
 
@@ -283,44 +283,44 @@ SJER_height <- merge(SJER_height,
                    by.y = 'plotid')
 
 SJER_height@data
-##     Plot_ID  Point northing  easting plot_type SJER_lidarCHM insitu_max
-## 1  SJER1068 center  4111568 255852.4     trees     11.544348       19.3
-## 2   SJER112 center  4111299 257407.0     trees     10.355685       23.9
-## 3   SJER116 center  4110820 256838.8     grass      7.511956       16.0
-## 4   SJER117 center  4108752 256176.9     trees      7.675347       11.0
-## 5   SJER120 center  4110476 255968.4     grass      4.591176        8.8
-## 6   SJER128 center  4111389 257078.9     trees      8.979005       18.2
-## 7   SJER192 center  4111071 256683.4     grass      7.240118       13.7
-## 8   SJER272 center  4112168 256717.5     trees      7.103862       12.4
-## 9  SJER2796 center  4111534 256034.4      soil      6.405240        9.4
-## 10 SJER3239 center  4109857 258497.1      soil      6.009128       17.9
-## 11   SJER36 center  4110162 258277.8     trees      6.516288        9.2
-## 12  SJER361 center  4107527 256961.8     grass     13.899027       11.8
-## 13   SJER37 center  4107579 256148.2     trees      7.109851       11.5
-## 14    SJER4 center  4109767 257228.3     trees      5.032620       10.8
-## 15    SJER8 center  4110249 254738.6     trees      3.024286        5.2
-## 16  SJER824 center  4110048 256185.6      soil      7.738203       26.5
-## 17  SJER916 center  4109617 257460.5      soil     11.181955       18.4
-## 18  SJER952 center  4110759 255871.2     grass      4.149286        7.7
-##    insitu_avg
-## 1    3.866667
-## 2    8.221429
-## 3    8.218750
-## 4    6.512500
-## 5    7.600000
-## 6    5.211765
-## 7    6.769565
-## 8    6.819048
-## 9    5.085714
-## 10   3.920833
-## 11   9.200000
-## 12   2.451429
-## 13   7.350000
-## 14   5.910526
-## 15   1.057143
-## 16   5.357895
-## 17   5.791667
-## 18   1.558333
+##    Plot_ID  Point northing easting plot_type SJER_lidarCHM insitu_max.x
+## 1     1068 center  4111568  255852     trees        11.544         19.3
+## 2      112 center  4111299  257407     trees        10.356         23.9
+## 3      116 center  4110820  256839     grass         7.512         16.0
+## 4      117 center  4108752  256177     trees         7.675         11.0
+## 5      120 center  4110476  255968     grass         4.591          8.8
+## 6      128 center  4111389  257079     trees         8.979         18.2
+## 7      192 center  4111071  256683     grass         7.240         13.7
+## 8      272 center  4112168  256717     trees         7.104         12.4
+## 9     2796 center  4111534  256034      soil         6.405          9.4
+## 10    3239 center  4109857  258497      soil         6.009         17.9
+## 11      36 center  4110162  258278     trees         6.516          9.2
+## 12     361 center  4107527  256962     grass        13.899         11.8
+## 13      37 center  4107579  256148     trees         7.110         11.5
+## 14       4 center  4109767  257228     trees         5.033         10.8
+## 15       8 center  4110249  254739     trees         3.024          5.2
+## 16     824 center  4110048  256186      soil         7.738         26.5
+## 17     916 center  4109617  257460      soil        11.182         18.4
+## 18     952 center  4110759  255871     grass         4.149          7.7
+##    insitu_avg.x ht_diff insitu_max.y insitu_max insitu_avg.y
+## 1         3.867  7.6777         19.3         NA           NA
+## 2         8.221  2.1343         23.9         NA           NA
+## 3         8.219 -0.7068         16.0         NA           NA
+## 4         6.513  1.1628         11.0         NA           NA
+## 5         7.600 -3.0088          8.8         NA           NA
+## 6         5.212  3.7672         18.2         NA           NA
+## 7         6.770  0.4706         13.7         NA           NA
+## 8         6.819  0.2848         12.4         NA           NA
+## 9         5.086  1.3195          9.4         NA           NA
+## 10        3.921  2.0883         17.9         NA           NA
+## 11        9.200 -2.6837          9.2         NA           NA
+## 12        2.451 11.4476         11.8         NA           NA
+## 13        7.350 -0.2401         11.5         NA           NA
+## 14        5.911 -0.8779         10.8         NA           NA
+## 15        1.057  1.9671          5.2         NA           NA
+## 16        5.358  2.3803         26.5         NA           NA
+## 17        5.792  5.3903         18.4         NA           NA
+## 18        1.558  2.5910          7.7         NA           NA
 ```
 
 ## Plot by height
@@ -364,6 +364,7 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
   ylab("Mean measured height") +
   xlab("Mean LiDAR pixel") +
   ggtitle("Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height (m)")
+## Error in FUN(X[[i]], ...): object 'insitu_avg' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="100%" />
@@ -381,6 +382,7 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
   xlim(0,15) + ylim(0,15) + # set x and y limits to 0-20
   geom_abline(intercept = 0, slope=1) + # add one to one line
   ggtitle("Lidar Derived Tree Height \nvs. InSitu Measured Tree Height")
+## Error in FUN(X[[i]], ...): object 'insitu_avg' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot2-1.png" title="ggplot - measured vs lidar chm w one to one line." alt="ggplot - measured vs lidar chm w one to one line." width="100%" />
@@ -404,6 +406,7 @@ p + theme(panel.background = element_rect(colour = "grey")) +
   theme(plot.title=element_text(family="sans", face="bold", size=20, vjust=1.9)) +
   theme(axis.title.y = element_text(family="sans", face="bold", size=14, angle=90, hjust=0.54, vjust=1)) +
   theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
+## Error in FUN(X[[i]], ...): object 'insitu_avg' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="100%" />
@@ -415,6 +418,7 @@ p + theme(panel.background = element_rect(colour = "grey")) +
 ```r
 # Calculate difference
 SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$insitu_avg)
+## Error in `$<-.data.frame`(`*tmp*`, ht_diff, value = numeric(0)): replacement has 0 rows, data has 18
 
 
 

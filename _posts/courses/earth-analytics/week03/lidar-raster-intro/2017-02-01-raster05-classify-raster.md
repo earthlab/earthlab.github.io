@@ -4,7 +4,7 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/classify-raster/
@@ -103,7 +103,7 @@ canopy height model (CHM) that we calculated in the previous lesson.
 
 ```r
 # open canopy height model
-lidar_chm <- raster("data/week3/BLDR_LeeHill/outputs/lidar_chm.tif")
+lidar_chm <- raster("data/week03/BLDR_LeeHill/outputs/lidar_chm.tif")
 ```
 
 ### What classification values to use?
@@ -125,8 +125,8 @@ summary(lidar_chm)
 ## Min.         0.00
 ## 1st Qu.      0.00
 ## Median       0.00
-## 3rd Qu.      0.73
-## Max.        23.95
+## 3rd Qu.      0.74
+## Max.        25.36
 ## NA's         0.00
 ```
 
@@ -185,12 +185,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 75780  3337  3167  2964  2400  2173  1979  1780  1579  1284   951
-## [12]   794   562   410   346   174   138    79    45    25    14    10
-## [23]     4     3     1     1
+##  [1] 76158  3399  2997  2954  2389  2109  1956  1859  1516  1245   906
+## [12]   788   554   442   259   199   105    73    44    25    12     3
+## [23]     4     4
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23 24 25 26
+## [24] 23 24
 ```
 
 If we want to customize our histogram further, we can customize the number of

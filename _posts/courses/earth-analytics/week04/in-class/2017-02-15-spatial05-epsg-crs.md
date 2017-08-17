@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Understand EPSG, WKT and other CRS definition styles"
 excerpt: "This lesson discusses ways that coordinate reference system data are stored including  proj4, well known text (wkt) and EPSG codes. "
 authors: ['Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/week-4/understand-epsg-wkt-and-other-crs-definition-file-types/
@@ -91,7 +91,7 @@ library(stringr)
 
 ```r
 # import data
-aoi <- readOGR("data/week5/california/SJER/vector_data/sjer_crop.shp")
+aoi <- readOGR("data/week05/california/SJER/vector_data/sjer_crop.shp")
 ```
 
 
@@ -140,9 +140,9 @@ Next, let's have a look at another CRS definition.
 
 ```r
 # import data
-world <- readOGR("data/week5/global/ne_110m_land/ne_110m_land.shp")
+world <- readOGR("data/week05/global/ne_110m_land/ne_110m_land.shp")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week5/global/ne_110m_land/ne_110m_land.shp", layer: "ne_110m_land"
+## Source: "data/week05/global/ne_110m_land/ne_110m_land.shp", layer: "ne_110m_land"
 ## with 127 features
 ## It has 2 fields
 crs(world)

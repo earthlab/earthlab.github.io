@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-08-15'
+modified: '2017-08-17'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/week-8/class-activity-modularity-r/
@@ -70,7 +70,7 @@ ndvi_colors = c("brown","ivory1","seagreen1","seagreen4")
 
 ```r
 # get list of tif files
-all_landsat_bands_pre <- list.files("data/week6/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands_pre <- list.files("data/week06/Landsat/LC80340322016189-SC20170128091153/crop",
                                 pattern=glob2rx("*band*.tif$"),
                                 full.names = T)
 
@@ -111,7 +111,7 @@ legend(ndvi_classified_pre@extent@xmax, ndvi_classified_pre@extent@ymax,
 
 ### export NDVI raster with unique name
 writeRaster(x = ndvi_classified_pre,
-            filename="data/week6/outputs/landsat_ndvi_pre.tif",
+            filename="data/week06/outputs/landsat_ndvi_pre.tif",
             format = "GTiff", # save as tif
             datatype='INT2S', # save as a INTEGER
             overwrite = T)  # overwrite previous file
@@ -136,7 +136,7 @@ plot(landsat_nbr_pre,
 
 ```r
 # get list of tif files
-all_landsat_bands_post <- list.files("data/week6/Landsat/LC80340322016205-SC20170127160728/crop",
+all_landsat_bands_post <- list.files("data/week06/Landsat/LC80340322016205-SC20170127160728/crop",
                                 pattern=glob2rx("*band*.tif$"),
                                 full.names = T)
 
@@ -176,7 +176,7 @@ legend(ndvi_classified_post@extent@xmax, ndvi_classified_post@extent@ymax,
 
 ### Optional -- export NDVI raster with unique name
 writeRaster(x = ndvi_classified_post,
-            filename="data/week6/outputs/landsat_ndvi_post.tif",
+            filename="data/week06/outputs/landsat_ndvi_post.tif",
             format = "GTiff", # save as a tif
             datatype='INT2S', # save as a INT
             overwrite = T)
@@ -220,7 +220,7 @@ legend(landsat_nbr_diff_class@extent@xmax-100, landsat_nbr_diff_class@extent@yma
 
 
 writeRaster(x = landsat_nbr_diff_class,
-              filename="data/week6/outputs/landsat_nbr_diff_class.tif",
+              filename="data/week06/outputs/landsat_nbr_diff_class.tif",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
               overwrite = T)
