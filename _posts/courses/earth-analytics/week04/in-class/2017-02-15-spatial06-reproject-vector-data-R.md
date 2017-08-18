@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-08-18'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/week-4/reproject-vector-data/
@@ -111,21 +111,13 @@ from the Census website to support the learning goals of this tutorial.
 
 ```r
 # Import the shapefile data into R
-state_boundary_us <- readOGR("data/week05/usa-boundary-layers",
+state_boundary_us <- readOGR("data/week_03/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week05/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
-## with 58 features
-## It has 10 fields
-## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week05/usa-boundary-layers", "US-State-Boundaries-
-## Census-2014"): Z-dimension discarded
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 
 # view data structure
 class(state_boundary_us)
-## [1] "SpatialPolygonsDataFrame"
-## attr(,"package")
-## [1] "sp"
+## Error in eval(expr, envir, enclos): object 'state_boundary_us' not found
 ```
 
 Note: the Z-dimension warning is normal. The `readOGR()` function doesn't import
@@ -140,50 +132,41 @@ Next, let's plot the U.S. states data.
 # view column names
 plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data")
+## Error in plot(state_boundary_us, main = "Map of Continental US State Boundaries\n US Census Bureau Data"): object 'state_boundary_us' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/find-coordinates-1.png" title="Plot of the continental united states." alt="Plot of the continental united states." width="100%" />
 
 ## U.S. Boundary Layer
 
 We can add a boundary layer of the United States to our map - to make it look
 nicer. We will import
-`data/week05/usa-boundary-layers/US-Boundary-Dissolved-States`.
+`data/week_03/usa-boundary-layers/US-Boundary-Dissolved-States`.
 If we specify a thicker line width using `lwd=4` for the border layer, it will
 make our map pop!
 
 
 ```r
 # Read the .csv file
-country_boundary_us <- readOGR("data/week05/usa-boundary-layers",
+country_boundary_us <- readOGR("data/week_03/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week05/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
-## with 1 features
-## It has 9 fields
-## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week05/usa-boundary-layers", "US-Boundary-
-## Dissolved-States"): Z-dimension discarded
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 
 # look at the data structure
 class(country_boundary_us)
-## [1] "SpatialPolygonsDataFrame"
-## attr(,"package")
-## [1] "sp"
+## Error in eval(expr, envir, enclos): object 'country_boundary_us' not found
 
 # view column names
 plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n US Census Bureau Data",
      border="gray40")
+## Error in plot(state_boundary_us, main = "Map of Continental US State Boundaries\n US Census Bureau Data", : object 'state_boundary_us' not found
 
 # view column names
 plot(country_boundary_us,
      lwd=4,
      border="gray18",
      add = TRUE)
+## Error in plot(country_boundary_us, lwd = 4, border = "gray18", add = TRUE): object 'country_boundary_us' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="100%" />
 
 Next, let's add the location of our study area sites.
 As we are adding these layers, take note of the class of each object. We will use
@@ -192,25 +175,19 @@ AOI to represent "Area of Interest" in our data.
 
 ```r
 # Import a polygon shapefile
-sjer_aoi <- readOGR("data/week05/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week_03/california/SJER/vector_data",
                       "SJER_crop")
-## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week05/california/SJER/vector_data", layer: "SJER_crop"
-## with 1 features
-## It has 1 fields
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 class(sjer_aoi)
-## [1] "SpatialPolygonsDataFrame"
-## attr(,"package")
-## [1] "sp"
+## Error in eval(expr, envir, enclos): object 'sjer_aoi' not found
 
 # plot point - looks ok?
 plot(sjer_aoi,
      pch = 19,
      col = "purple",
      main="San Joachin Experimental Range AOI")
+## Error in plot(sjer_aoi, pch = 19, col = "purple", main = "San Joachin Experimental Range AOI"): object 'sjer_aoi' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/explore-units-1.png" title="plot aoi" alt="plot aoi" width="100%" />
 
 Our SJER AOI layer plots nicely. Let's next add it as a layer on top of the U.S. states and boundary
 layers in our basemap plot.
@@ -221,21 +198,22 @@ layers in our basemap plot.
 plot(state_boundary_us,
      main="Map of Continental US State Boundaries \n with SJER AOI",
      border="gray40")
+## Error in plot(state_boundary_us, main = "Map of Continental US State Boundaries \n with SJER AOI", : object 'state_boundary_us' not found
 
 # add US border outline
 plot(country_boundary_us,
      lwd=4,
      border="gray18",
      add = TRUE)
+## Error in plot(country_boundary_us, lwd = 4, border = "gray18", add = TRUE): object 'country_boundary_us' not found
 
 # add AOI boundary
 plot(sjer_aoi,
      pch = 19,
      col = "purple",
      add = TRUE)
+## Error in plot(sjer_aoi, pch = 19, col = "purple", add = TRUE): object 'sjer_aoi' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/layer-point-on-states-1.png" title="plot states" alt="plot states" width="100%" />
 
 What do you notice about the resultant plot? Do you see the AOI boundary in the California area? Is something wrong?
 
@@ -247,17 +225,13 @@ U.S. boundary layers.
 ```r
 # view CRS of our site data
 crs(sjer_aoi)
-## CRS arguments:
-##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## Error in crs(sjer_aoi): object 'sjer_aoi' not found
 
 # view crs of census data
 crs(state_boundary_us)
-## CRS arguments:
-##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+## Error in crs(state_boundary_us): object 'state_boundary_us' not found
 crs(country_boundary_us)
-## CRS arguments:
-##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+## Error in crs(country_boundary_us): object 'country_boundary_us' not found
 ```
 
 It looks like our data are in different CRS. We can tell this by looking at
@@ -319,26 +293,15 @@ object compared to the `state_boundary_us` object.
 ```r
 # extent & crs for AOI
 extent(sjer_aoi)
-## class       : Extent 
-## xmin        : 254571 
-## xmax        : 258867 
-## ymin        : 4107303 
-## ymax        : 4112362
+## Error in extent(sjer_aoi): object 'sjer_aoi' not found
 crs(sjer_aoi)
-## CRS arguments:
-##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## Error in crs(sjer_aoi): object 'sjer_aoi' not found
 
 # extent & crs for object in geographic
 extent(state_boundary_us)
-## class       : Extent 
-## xmin        : -124.7 
-## xmax        : -66.95 
-## ymin        : 24.5 
-## ymax        : 49.38
+## Error in extent(state_boundary_us): object 'state_boundary_us' not found
 crs(state_boundary_us)
-## CRS arguments:
-##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+## Error in crs(state_boundary_us): object 'state_boundary_us' not found
 ```
 
 Note the difference in the units for each object. The extent for
@@ -385,18 +348,14 @@ longitude `WGS84` coordinate reference system (CRS).
 # reproject data
 sjer_aoi_WGS84 <- spTransform(sjer_aoi,
                                 crs(state_boundary_us))
+## Error in spTransform(sjer_aoi, crs(state_boundary_us)): object 'sjer_aoi' not found
 
 # what is the CRS of the new object
 crs(sjer_aoi_WGS84)
-## CRS arguments:
-##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+## Error in crs(sjer_aoi_WGS84): object 'sjer_aoi_WGS84' not found
 # does the extent look like decimal degrees?
 extent(sjer_aoi_WGS84)
-## class       : Extent 
-## xmin        : -119.8 
-## xmax        : -119.7 
-## ymin        : 37.08 
-## ymax        : 37.13
+## Error in extent(sjer_aoi_WGS84): object 'sjer_aoi_WGS84' not found
 ```
 
 Once our data are reprojected, we can try to plot again.
@@ -407,21 +366,22 @@ Once our data are reprojected, we can try to plot again.
 plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n With SJER AOI",
      border="gray40")
+## Error in plot(state_boundary_us, main = "Map of Continental US State Boundaries\n With SJER AOI", : object 'state_boundary_us' not found
 
 # add US border outline
 plot(country_boundary_us,
      lwd=4,
      border="gray18",
      add = TRUE)
+## Error in plot(country_boundary_us, lwd = 4, border = "gray18", add = TRUE): object 'country_boundary_us' not found
 
 # add AOI
 plot(sjer_aoi_WGS84,
      pch = 19,
      col = "purple",
      add = TRUE)
+## Error in plot(sjer_aoi_WGS84, pch = 19, col = "purple", add = TRUE): object 'sjer_aoi_WGS84' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-again-1.png" title="US Map with SJER AOI Location" alt="US Map with SJER AOI Location" width="100%" />
 
 But now, the aoi is a polygon and it's too small to see on the map. Let's convert
 the polygon to a polygon CENTROID and plot yet again.
@@ -430,23 +390,25 @@ the polygon to a polygon CENTROID and plot yet again.
 ```r
 # get coordinate center of the polygon
 aoi_centroid <- coordinates(sjer_aoi_WGS84)
+## Error in coordinates(sjer_aoi_WGS84): object 'sjer_aoi_WGS84' not found
 
 # plot state boundaries
 plot(state_boundary_us,
      main="Map of Continental US State Boundaries\n With SJER AOI",
      border="gray40")
+## Error in plot(state_boundary_us, main = "Map of Continental US State Boundaries\n With SJER AOI", : object 'state_boundary_us' not found
 
 # add US border outline
 plot(country_boundary_us,
      lwd=4,
      border="gray18",
      add = TRUE)
+## Error in plot(country_boundary_us, lwd = 4, border = "gray18", add = TRUE): object 'country_boundary_us' not found
 
 # add point location of the centroid to the plot
 points(aoi_centroid, pch=8, col="magenta", cex=1.5)
+## Error in points(aoi_centroid, pch = 8, col = "magenta", cex = 1.5): object 'aoi_centroid' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-centroid-1.png" title="figure out AOI polygon centroid." alt="figure out AOI polygon centroid." width="100%" />
 
 Reprojecting our data ensured that things line up on our map! It will also
 allow us to perform any required geoprocessing (spatial calculations /
@@ -476,7 +438,20 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="100%" />
+
+```
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## Error in spTransform(sjer_roads, crs(sjer_aoi)): object 'sjer_roads' not found
+## Error in crop(sjer_roads_utm, sjer_aoi): object 'sjer_roads_utm' not found
+## Error in sjer_roads_utm$RTTYP[is.na(sjer_roads_utm$RTTYP)] <- "unknown": object 'sjer_roads_utm' not found
+## Error in as.factor(sjer_roads_utm$RTTYP): object 'sjer_roads_utm' not found
+## Error in plot(sjer_aoi, main = "SJER Area of Interest (AOI)", border = "gray18", : object 'sjer_aoi' not found
+## Error in plot(sjer_plots, pch = c(19, 8, 19)[factor(sjer_plots$plot_type)], : object 'sjer_plots' not found
+## Error in plot(sjer_roads_utm, col = c("orange", "black", "brown")[sjer_roads_utm$RTTYP], : object 'sjer_roads_utm' not found
+## Error in factor(sjer_plots$plot_type): object 'sjer_plots' not found
+```
 
 
 

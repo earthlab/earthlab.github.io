@@ -3,7 +3,7 @@ layout: single
 title: "Work with Precipitation Data in R: 2013 Colorado floods"
 excerpt: "Learn why documentation is important when analyzing data by evaluating someone elses report on the Colorado floods."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-08-18'
 category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/data-driven-reports/
@@ -82,10 +82,10 @@ impacted Colorado. See below.
 
 ```r
 # download.file(url = "https://ndownloader.figshare.com/files/7270970",
-#              "data/week01/805325-precip_daily_2003-2013.csv")
+#              "data/week_01/805325-precip_daily_2003-2013.csv")
 
 # import precip data into R data.frame
-precip_boulder <- read.csv("data/week01/805325-precip_daily_2003-2013.csv",
+precip_boulder <- read.csv("data/week_01/805325-precip_daily_2003-2013.csv",
                            header = TRUE)
 
 

@@ -4,7 +4,7 @@ title: "Crop a spatial raster dataset using a shapefile in R."
 excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-08-18'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/crop-raster-data-in-r/
@@ -78,7 +78,7 @@ canopy height model that we created in the previous lesson
 
 ```r
 # open raster layer
-lidar_chm <- raster("data/week03/BLDR_LeeHill/outputs/lidar_chm.tif")
+lidar_chm <- raster("data/week_03/BLDR_LeeHill/outputs/lidar_chm.tif")
 
 # plot CHM
 plot(lidar_chm,
@@ -94,17 +94,17 @@ to use to crop our data. To open a shapefile we use the `readOGR()` function.
 
 `readOGR()` requires two components:
 
-1. The directory where our shapefile lives: data/week03/BLDR_LeeHill/
+1. The directory where our shapefile lives: data/week_03/BLDR_LeeHill/
 2. The name of the shapefile (without the extension): clip-extent
 
 
 
 ```r
 # import the vector boundary
-crop_extent <- readOGR("data/week03/BLDR_LeeHill",
+crop_extent <- readOGR("data/week_03/BLDR_LeeHill",
                        "clip-extent")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week03/BLDR_LeeHill", layer: "clip-extent"
+## Source: "data/week_03/BLDR_LeeHill", layer: "clip-extent"
 ## with 1 features
 ## It has 1 fields
 ## Integer64 fields read as strings:  id
@@ -157,7 +157,7 @@ difference between two canopy height models.
 extracted from the pre and post flood Digital Terrain Models before and after the flood.
 
 Create the same two plots except this time CROP each of the rasters that you plotted
-using the shapefile: `data/week03/BLDR_LeeHill/crop_extent.shp`
+using the shapefile: `data/week_03/BLDR_LeeHill/crop_extent.shp`
 
 For each plot, be sure to:
 

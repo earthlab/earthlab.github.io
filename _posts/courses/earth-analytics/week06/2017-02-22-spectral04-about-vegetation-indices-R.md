@@ -3,7 +3,7 @@ layout: single
 title: "Calculate a remote sensing derived vegetation index in R"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, we will review the basic principles associated with calculating a vegetation index from raster formated, landsat remote sensing data in R. We will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-08-17'
+modified: '2017-08-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/vegetation-indices-NDVI-in-R/
@@ -96,17 +96,17 @@ options(stringsAsFactors = F)
 
 
 ```r
-all_landsat_bands <- list.files("data/week06/Landsat/LC80340322016205-SC20170127160728/crop",
+all_landsat_bands <- list.files("data/week_06/Landsat/LC80340322016205-SC20170127160728/crop",
            pattern=glob2rx("*band*.tif$"),
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands
-## [1] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
-## [2] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-## [3] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
-## [4] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
-## [5] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
-## [6] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
-## [7] "data/week06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
+## [1] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
+## [2] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
+## [3] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
+## [4] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
+## [5] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
+## [6] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
+## [7] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
 
 # stack the data
 landsat_stack_csf <- stack(all_landsat_bands)
@@ -156,7 +156,7 @@ function.
 # export raster
 # NOTE: this won't work if you don't have an outputs directory in your week6 dir!
 writeRaster(x = landsat_ndvi,
-              filename="data/week06/outputs/landsat_ndvi.tif",
+              filename="data/week_06/outputs/landsat_ndvi.tif",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
               overwrite = T)  # OPTIONAL - be careful. this will OVERWRITE previous files.

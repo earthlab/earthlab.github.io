@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-08-18'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/plot-raster-histograms-r/
@@ -73,7 +73,7 @@ library(rgdal)
 # setwd("earth-analytics-dir-path-here")
 
 # open raster data
-lidar_dem <- raster(x="data/week03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
 plot(lidar_dem,
@@ -157,7 +157,7 @@ hist(lidar_dem,
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> In-class challenge - import DSM
 
-* Import the file: `data/week03/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif`
+* Import the file: `data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif`
 
 Plot the data and a histogram of the data. What do the elevations in the DSM
 represent? Are they different from the DTM? Discuss this with your neighbor.
