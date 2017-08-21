@@ -1,19 +1,19 @@
 ---
 layout: single
-title: "Subset time series data in R - introduction to dplyr pipes and tidyverse coding approaches - Flooding & erosion data"
-excerpt: "This lesson walks through extracting temporal subsets of time series data using dplyr pipes. In the previous lesson we learned how to convert data containing a data field into a data class. In this lesson we use pipes to extract temporal subsets so that we can refine our time series data analysis. Finally we plot the data using ggplot."
+title: "Use tidyverse pipes to subset time series data in R"
+excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['time-series-r']
-permalink: /courses/earth-analytics/time-series-data/precip-in-r/
-nav-title: 'Subset time series data in R'
+permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/
+nav-title: 'Subset time series data'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 2
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
@@ -36,12 +36,9 @@ skills cleaning and plotting the data.
 
 After completing this tutorial, you will be able to:
 
-* Import a text file into R
-* Plot quantitative time series data using ggplot
-* Ensure that NoData values do not interfere with quantitative analysis by setting them to `NA` in `R`
-* Use the `na.rm` argument when performing math with large datasets
 * Subset data using the dplyr `filter()` function
-* Use dplyr pipes to filter data in R
+* Use `dplyr` pipes to manipulate data in `R`
+* Describe what a pipe does and how it is used to manipulate data in `R`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -74,14 +71,14 @@ paste your files to make this look right.
 <a href="{{ site.url }}/images/courses/earth-analytics/week-2/week2-data.png">
 <img src="{{ site.url }}/images/courses/earth-analytics/week-2/week2-data.png" alt="week 2 file organization">
 </a>
-<figcaption>Your `week2` file directory should look like the one above. Note that
-the data directly under the week-2 folder.</figcaption>
+<figcaption>Your `week_02` file directory should look like the one above. Note that
+the data directory is directly under the earth-analytics folder.</figcaption>
 </figure>
 
 ## Get started with time series data
-Let's get started by loading the `ggplot2` and `dplyr` libraries. Also, let's set
-our working directory. Finally, set `stringsAsFactors` to `FALSE` globally as
-shown below.
+To begin, load the `ggplot2` and `dplyr` libraries. Also, set your
+working directory. Finally, set `stringsAsFactors` to `FALSE` globally using
+`options(stringsAsFactors = FALSE)`.
 
 
 ```r
@@ -89,23 +86,22 @@ shown below.
 # setwd("working-dir-path-here")
 
 # load packages
-library(ggplot2) # efficient plotting
-library(dplyr) # efficient data manipulation
+library(ggplot2)
+library(dplyr)
 
-# set strings as factors to false for everything
+# set strings as factors to false
 options(stringsAsFactors = FALSE)
 ```
 
-
 ## Import precipitation time series
 
-We will use a precipitation dataset derived from data accessed through the
+We will use a precipitation dataset collected by the
 National Centers for Environmental Information (formerly
 National Climate Data Center) Cooperative Observer Network (COOP)
-station 050843 in Boulder, CO. The data time span is: 1 January 2003 through 31
-December 2013.
+station 050843 in Boulder, CO. The data cover the time span between 1 January
+2003 through 31 December 2013.
 
-We can use `read.csv()` to import the `.csv` file.
+To begin, use `read.csv()` to import the `.csv` file.
 
 
 ```r
@@ -205,9 +201,91 @@ when we read in the data. Remember how?
 Your final plot should look something like the plot below.
 </div>
 
+### Import data and reassign na values
+
+To begin, import the data. Be sure to use the na.strings argument to remove na values.
+Also our data have a header (the first row represents column names) so set `header = TRUE`
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-precipitation-data-in-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
+```r
+# import data
+boulder_daily_precip <- read.csv("data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv",
+         header = TRUE,
+         na.strings = 999.99)
+```
+
+
+Next, take care of the date field. In this case we have month/day/year. We can
+use `?strptime` to figure out which letters we need to use in the format = argument
+to ensure our data elements (month, day and year) are understood by `R`.
+
+In this case we want to use
+
+* %m - for month
+* %d - for day
+* %y - for year
+
+Also take note of the format of our date. In this case, each date element is
+separated by a `/`.
+
+
+```r
+# format date field
+boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
+                                     format = "%m/%d/%y")
+```
+
+Finally, we can plot the data using `ggplot()`. Notice that when we plot, we first
+add populate the `data` and `aes` (aesthetics).
+
+* **data =** contain the data frame that we want to plot
+* **aes =** contain the x and y variables that we want to plot.
+
+Finally `geom_point()` represents the geometry that you want to plot. In this case
+you are creating a scatter plot (using points).
+
+
+```r
+
+# plot the data using ggplot2
+ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
+      geom_point() +
+      labs(title = "Precipitation - Boulder, Colorado")
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
+
+Don't forget to add x and y axis labels to your plot!
+Use the labs argument to add a title, x and y label (and subtitle if you'd like) to your plot.
+
+
+
+```r
+ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
+      geom_point(color = "purple") +
+      labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
+           x = "Date",
+           y = "Precipitation (Inches)")
+## Warning: Removed 4 rows containing missing values (geom_point).
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-1.png" title="plot with titles and labels" alt="plot with titles and labels" width="100%" />
+
+You can add a ggplot theme to adjust the look of your plot quickly too. Below
+we use `theme_bw()`
+
+
+```r
+ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
+      geom_point() +
+      labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
+           x = "Date",
+           y = "Precipitation (Inches)") + theme_bw()
+## Warning: Removed 4 rows containing missing values (geom_point).
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-and-theme-1.png" title="plot with titles and labels black and white" alt="plot with titles and labels black and white" width="100%" />
+
 
 <i fa fa-star></i>**Data Tip:** For a more thorough review of date/time classes, see the NEON tutorial
 <a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
@@ -227,16 +305,15 @@ Take a close look at the plot:
 
 ## Subset the Data
 
-If we wanted to zoom in and look at some data over a smaller time period, we can
-subset it. Let's create a subset of data for the time period around the flood between 15
-August to 15 October 2013. We will use the `filter()` function in the `dplyr` package
-to do this.
+You may want to only work with a subset of your time series data. Let's create a subset of data for the time period around the flood between 15
+August to 15 October 2013. We use the `filter()` function in the `dplyr` package
+to do this. But first, let's explore the concept of a pipe in `R`.
 
 ### Introduction to the pipe %<%
 
 Pipes let you take the output of one function and send it directly to the next,
 which is useful when you need to do many things to the same data set. Pipes in R
-look like %>% and are made available via the `magrittr` package, installed
+look like `%>%` and are made available via the `magrittr` package, installed
 automatically with `dplyr`.
 
 
@@ -270,7 +347,7 @@ precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
 precPlot_flood2
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-precipitation-data-in-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="100%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -278,7 +355,7 @@ precPlot_flood2
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Create a subset from the same dates in 2012 to compare to the 2013 plot.
-Use the ylim() argument to ensure the y axis range is the SAME as the previous
+Use the `ylim()` argument to ensure the y axis range is the SAME as the previous
 plot - from 0 to 10".
 
 How different was the rainfall in 2012?
@@ -288,4 +365,4 @@ HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments wor
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-precipitation-data-in-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="100%" />

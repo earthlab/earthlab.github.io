@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/week-4/reproject-vector-data/
@@ -84,6 +84,7 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 library(rgdal)
 library(raster)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
@@ -456,6 +457,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```

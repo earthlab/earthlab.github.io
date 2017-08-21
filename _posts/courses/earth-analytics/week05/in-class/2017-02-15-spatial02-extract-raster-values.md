@@ -4,7 +4,7 @@ title: "Extract raster values using vector boundaries in R"
 excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
 vector boundary. We can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where we measured tree heights on the ground. Finally we will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/week-5/extract-data-from-raster/
@@ -51,6 +51,7 @@ You will need a computer with internet access to complete this lesson and the da
 library(raster)
 library(rgdal)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 library(ggplot2)
 library(dplyr)
 

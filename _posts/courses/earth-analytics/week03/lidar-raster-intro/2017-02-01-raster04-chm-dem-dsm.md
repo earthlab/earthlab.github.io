@@ -3,7 +3,7 @@ layout: single
 title: "Canopy height models, digital surface models & digital elevation models - work with lidar data in R"
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/lidar-chm-dem-dsm/
@@ -109,13 +109,13 @@ First, let's open and plot the digital elevation model.
 ```r
 # open raster data
 lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)")
+## Error in plot(lidar_dem, main = "Lidar Digital Elevation Model (DEM)"): object 'lidar_dem' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster04-chm-dem-dsm/dem-1.png" title="digital elevation model plot" alt="digital elevation model plot" width="100%" />
 
 Next, let's open the digital SURFACE model (DSM). The DSM represents the top of
 the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that
@@ -125,13 +125,13 @@ sit on the Earth.
 ```r
 # open raster data
 lidar_dsm <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)")
+## Error in plot(lidar_dsm, main = "Lidar Digital Surface Model (DSM)"): object 'lidar_dsm' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster04-chm-dem-dsm/dsm-1.png" title="digital surface model plot" alt="digital surface model plot" width="100%" />
 
 ## Canopy height model
 
@@ -156,13 +156,13 @@ if the data haven't been "cleaned").
 ```r
 # open raster data
 lidar_chm <- lidar_dsm - lidar_dem
+## Error in eval(expr, envir, enclos): object 'lidar_dsm' not found
 
 # plot raster data
 plot(lidar_chm,
      main="Lidar Canopy Height Model (CHM)")
+## Error in plot(lidar_chm, main = "Lidar Canopy Height Model (CHM)"): object 'lidar_chm' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster04-chm-dem-dsm/chm-1.png" title="canopy height model plot" alt="canopy height model plot" width="100%" />
 
 ## Plots using breaks
 
@@ -180,9 +180,8 @@ plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
      main="Lidar Canopy Height Model",
      col=c("white","brown","springgreen","darkgreen"))
+## Error in plot(lidar_chm, breaks = c(0, 2, 10, 20, 30), main = "Lidar Canopy Height Model", : object 'lidar_chm' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster04-chm-dem-dsm/chm-breaks-1.png" title="canopy height model breaks" alt="canopy height model breaks" width="100%" />
 
 ## Export a raster
 
@@ -200,7 +199,7 @@ Explorer.
 ```r
 # check to see if an output directory exists
 dir.exists("data/week_03/outputs")
-## [1] TRUE
+## [1] FALSE
 
 # if the output directory doesn't exist, create it
 if (dir.exists("data/week_03/outputs")) {
@@ -210,13 +209,12 @@ if (dir.exists("data/week_03/outputs")) {
     # recursive tells R to create the entire directory path (data/week_03/outputs)
     dir.create("data/week_03/outputs", recursive=TRUE)
   }
-## [1] "the directory exists!"
 
 # export CHM object to new GeotIFF
 writeRaster(lidar_chm, "data/week_03/outputs/lidar_chm.tiff",
             format="GTiff",  # output format = GeoTIFF
             overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
-
+## Error in writeRaster(lidar_chm, "data/week_03/outputs/lidar_chm.tiff", : object 'lidar_chm' not found
 ```
 
 <div class="notice--success" markdown="1">

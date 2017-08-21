@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-08-18'
+modified: '2017-08-19'
 week: 2
 sidebar:
   nav:

@@ -8,7 +8,7 @@ class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/time-series-data/write-clean-code-with-r/
 nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
-modified: '2017-08-18'
+modified: '2017-08-19'
 module-title: 'Clean Code & getting help'
 module-nav-title: 'Clean code & getting help with R'
 module-description: 'This module covers how to write easier to read, clean code.

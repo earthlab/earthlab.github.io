@@ -4,7 +4,7 @@ title: "About the geotiff (.tif) raster file format - raster data in R "
 excerpt: "This lesson introduces the geotiff file format. Further it introduces the
 concept of metadata - or data about the data. Metadata describe key characteristics of a data set. For spatial data these characteristics including CRS, resolution and spatial extent. Here we discuss the use of tif tags or metadata embedded within a geotiff file as they can be used to explore data programatically."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/introduction-to-spatial-metadata-r/
@@ -90,27 +90,7 @@ geotiff before we open it in `R`.
 ```r
 # view attributes associated with our DTM geotiff
 GDALinfo("data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-## rows        2000 
-## columns     4000 
-## bands       1 
-## lower left origin.x        472000 
-## lower left origin.y        4434000 
-## res.x       1 
-## res.y       1 
-## ysign       -1 
-## oblique.x   0 
-## oblique.y   0 
-## driver      GTiff 
-## projection  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs 
-## file        data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif 
-## apparent band summary:
-##    GDType hasNoDataValue   NoDataValue blockSize1 blockSize2
-## 1 Float32           TRUE -3.402823e+38        128        128
-## apparent band statistics:
-##          Bmin       Bmax Bmean Bsd
-## 1 -4294967295 4294967295    NA  NA
-## Metadata:
-## AREA_OR_POINT=Area
+## Error in .local(.Object, ...):
 ```
 
 The information returned from `GDALinfo()` includes:
@@ -128,19 +108,14 @@ We can also extract or view individual metadata attributes.
 # view attributes / metadata of raster
 # open raster data
 lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 # view crs
 crs(lidar_dem)
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## Error in crs(lidar_dem): object 'lidar_dem' not found
 
 # view extent via the slot - note that slot names can change so this may not always work.
 lidar_dem@extent
-## class       : Extent 
-## xmin        : 472000 
-## xmax        : 476000 
-## ymin        : 4434000 
-## ymax        : 4436000
+## Error in eval(expr, envir, enclos): object 'lidar_dem' not found
 ```
 
 If we extract metadata from our data, we can then perform tests on the data as
@@ -153,15 +128,18 @@ Let's find out the answer to this question using R.
 
 ```r
 lidar_dsm <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 extent_lidar_dsm <- extent(lidar_dsm)
+## Error in extent(lidar_dsm): object 'lidar_dsm' not found
 extent_lidar_dem <- extent(lidar_dem)
+## Error in extent(lidar_dem): object 'lidar_dem' not found
 
 # Do the two datasets cover the same spatial extents?
 if(extent_lidar_dem == extent_lidar_dsm){
   print("Both datasets cover the same spatial extent")
 }
-## [1] "Both datasets cover the same spatial extent"
+## Error in eval(expr, envir, enclos): object 'extent_lidar_dem' not found
 ```
 
 Does the data have the same spatial extents?
@@ -170,7 +148,7 @@ Does the data have the same spatial extents?
 ```r
 compareRaster(lidar_dsm, lidar_dem,
               extent=TRUE)
-## [1] TRUE
+## Error in compareRaster(lidar_dsm, lidar_dem, extent = TRUE): object 'lidar_dsm' not found
 ```
 
 or resolution?
@@ -179,7 +157,7 @@ or resolution?
 ```r
 compareRaster(lidar_dsm, lidar_dem,
               res=TRUE)
-## [1] TRUE
+## Error in compareRaster(lidar_dsm, lidar_dem, res = TRUE): object 'lidar_dsm' not found
 ```
 
 
@@ -193,7 +171,7 @@ in R.
 
 ```r
 nlayers(lidar_dsm)
-## [1] 1
+## Error in nlayers(lidar_dsm): object 'lidar_dsm' not found
 ```
 
 Now that we better understand the geotiff file format, we will work with some

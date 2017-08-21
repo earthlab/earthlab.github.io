@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/open-lidar-raster-r/
@@ -96,13 +96,13 @@ Note that we use the `plot()` function to plot the data. The function argument
 ```r
 # open raster data
 lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
+## Error in plot(lidar_dem, main = "Digital Elevation Model - Pre 2013 Flood"): object 'lidar_dem' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster01-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="100%" />
 
 If we zoom in on a small section of the raster, we can see the individual pixels
 that make up the raster. Each pixel has one value associated with it. In this
@@ -118,9 +118,8 @@ plot(lidar_dem,
   xlim=c(473000, 473030), # define the x limits
   ylim=c(4434000, 4434030), # define y limits for the plot
      main="Lidar Raster - Zoomed into one small region")
+## Error in plot(lidar_dem, xlim = c(473000, 473030), ylim = c(4434000, 4434030), : object 'lidar_dem' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster01-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="100%" />
 
 Next, let's discuss some of the important spatial attributes associated with raster
 data.
@@ -163,16 +162,13 @@ method. We can assign this string to an `R` object too.
 ```r
 # view resolution units
 crs(lidar_dem)
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## Error in crs(lidar_dem): object 'lidar_dem' not found
 
 # assign crs to an object (class) to use for reprojection and other tasks
 myCRS <- crs(lidar_dem)
+## Error in crs(lidar_dem): object 'lidar_dem' not found
 myCRS
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## Error in eval(expr, envir, enclos): object 'myCRS' not found
 ```
 
 The `CRS` string for our `lidar_dem` object tells us that our data are in the UTM
@@ -267,9 +263,9 @@ using the `crs()` function which we will use next.
 ```r
 # what is the x and y resolution for our raster data?
 xres(lidar_dem)
-## [1] 1
+## Error in xres(lidar_dem): object 'lidar_dem' not found
 yres(lidar_dem)
-## [1] 1
+## Error in yres(lidar_dem): object 'lidar_dem' not found
 ```
 
 <figure>
@@ -292,9 +288,7 @@ string.
 ```r
 # view coordinate reference system
 crs(lidar_dem)
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## Error in crs(lidar_dem): object 'lidar_dem' not found
 ```
 
 Notice this string contains an element called **units=m**. This means the units

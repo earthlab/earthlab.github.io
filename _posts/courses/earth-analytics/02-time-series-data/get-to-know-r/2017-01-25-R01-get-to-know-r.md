@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/basic-r-syntax-scientific-programming/
 nav-title: 'Get to Know R'
 dateCreated: 2016-12-13
-modified: '2017-08-18'
+modified: '2017-08-19'
 module-title: 'Get to Know R'
 module-nav-title: 'Get to Know R'
 module-description: 'This module introduces the R scientific programming language.

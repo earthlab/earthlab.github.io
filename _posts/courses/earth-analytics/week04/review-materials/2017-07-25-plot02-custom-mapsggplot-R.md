@@ -3,7 +3,7 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/week-4/r-make-maps-with-ggplot-in-R/
@@ -71,16 +71,21 @@ library(raster)
 library(rgdal)
 library(ggplot2)
 library(broom)
+## Error in library(broom): there is no package called 'broom'
 library(RColorBrewer)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 library(dplyr)
 library(ggsn)
+## Error in library(ggsn): there is no package called 'ggsn'
 # use the cowplot library to create cleaner ggplot maps - we will load this at the very end so you can see how it works and what it does! Don't load it just yet.
 # library(cowplot)
 # note that you don't need to call maptools to run the code below but it needs to be installed.
 library(maptools)
+## Error in library(maptools): there is no package called 'maptools'
 # to add a north arrow and a scale bar to the map
 library(ggsn)
+## Error in library(ggsn): there is no package called 'ggsn'
 options(stringsAsFactors = FALSE)
 ```
 
@@ -147,7 +152,7 @@ Let's convert our spatial object to a `data.frame`.
 ```r
 # convert spatial object to a ggplot ready data frame
 sjer_roads_df <- tidy(sjer_roads, region = "id")
-## Error in tidy(sjer_roads, region = "id"): object 'sjer_roads' not found
+## Error in tidy(sjer_roads, region = "id"): could not find function "tidy"
 # make sure the shapefile attribute table has an id column
 sjer_roads$id <- rownames(sjer_roads@data)
 ## Error in rownames(sjer_roads@data): object 'sjer_roads' not found
@@ -469,7 +474,7 @@ Next we can `tidy()` up the data as we did before... or can we?
 
 ```r
 sjer_plots_df <- tidy(sjer_plots, region = "id")
-## Error in tidy(sjer_plots, region = "id"): object 'sjer_plots' not found
+## Error in tidy(sjer_plots, region = "id"): could not find function "tidy"
 ```
 
 Note that this time we imported point data. We can't use the tidy function
@@ -608,11 +613,11 @@ so we won't need to add the attributes.
 study_area$id <- rownames(study_area@data)
 ## Error in rownames(study_area@data): object 'study_area' not found
 study_area_df <- tidy(study_area, region = "id")
-## Error in tidy(study_area, region = "id"): object 'study_area' not found
+## Error in tidy(study_area, region = "id"): could not find function "tidy"
 
 # convert roads layer to ggplot ready data.frame
 sjer_roads_df <- tidy(sjer_roads_utmcrop, region = "id")
-## Error in tidy(sjer_roads_utmcrop, region = "id"): object 'sjer_roads_utmcrop' not found
+## Error in tidy(sjer_roads_utmcrop, region = "id"): could not find function "tidy"
 
 # make sure the shapefile attribute table has an id column so we can add spatial attributes
 sjer_roads_utmcrop$id <- rownames(sjer_roads_utmcrop@data)
@@ -801,6 +806,7 @@ We can adjust the size and location of the north arrow as well.
 
 ```r
 library(ggsn)
+## Error in library(ggsn): there is no package called 'ggsn'
 # get x and y location for scalebar
 roads_ext <- extent(sjer_roads_utmcrop)
 ## Error in extent(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found

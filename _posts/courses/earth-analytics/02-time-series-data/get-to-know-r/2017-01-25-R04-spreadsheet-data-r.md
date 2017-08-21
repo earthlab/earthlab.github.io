@@ -1,20 +1,20 @@
 ---
 layout: single
 title: "How to import, work with and plot spreadsheet (tabular) data in R"
-excerpt: "This lesson covers how to import, and work with tabular or spreadsheet data in R. Tabular data can contains different data classes or types in different columns. Here we learn how to identify and convert column classes from characters to numbers."
+excerpt: "Learn how to import and plot data in R using the read_csv & qplot / ggplot functions."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [courses]
 class-lesson: ['get-to-know-r']
-permalink: /courses/earth-analytics/time-series-data/spreadsheet-data-in-R/
-nav-title: 'Spreadsheet Data in R'
+permalink: /courses/earth-analytics/time-series-data/open-plot-spreadsheet-data-in-R/
+nav-title: 'Open spreadsheet data'
 dateCreated: 2016-12-13
-modified: '2017-08-18'
+modified: '2017-08-19'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 4
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
@@ -35,7 +35,7 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need R and RStudio to complete this tutorial. Also we recommend have you
+You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
@@ -69,7 +69,7 @@ download a datafile. In this case, the data are housed on
 popular data repository that is free to use if your data are cumulatively
 smaller than 20gb.
 
-Notice that download.file() function has two **ARGUMENTS**:
+Notice that `download.file()` function has two **ARGUMENTS**:
 
 1. **url**: this is the path to the data file that you wish to download
 2. **destfile**: this is the location on your computer (in this case: `/data`) and name of the
@@ -117,8 +117,8 @@ number: numeric values (can contain decimals places)
 
 ## Introduction to the Data.Frame
 
-When we read data into R using read.csv() it imports it into a data frame format.
-Data frames are the _de facto_ data structure for most tabular data, and what we
+When we read data into R using `read.csv()` it imports it into a data frame format.
+Data frames are the **de facto** data structure for most tabular data, and what we
 use for statistics and plotting.
 
 A data frame is a collection of vectors of identical lengths. Each vector
@@ -137,7 +137,7 @@ followed by the name of the column (or the column header):
 
 
 ```r
-# when we download the data we create a dataframe
+# when we download the data we create a data.frame
 # view each column of the data frame using its name (or header)
 boulder_precip$DATE
 ##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
@@ -151,7 +151,6 @@ boulder_precip$PRECIP
 ## [18] 0.1
 ```
 
-
 ## View Structure of a Data Frame
 
 We can explore the format of our data frame in a similar way to how we explored
@@ -160,7 +159,7 @@ vectors in the third lesson of this module. Let's take a look.
 
 
 ```r
-# when we download the data we create a dataframe
+# when we download the data we create a data.frame
 # view each column of the data frame using its name (or header)
 # how many rows does the data frame have
 nrow(boulder_precip)
@@ -181,11 +180,11 @@ qplot() rather than the R base plot functionality. We are doing this because
 
 ```r
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder_precip$DATE,
-      y=boulder_precip$PRECIP)
+qplot(x = boulder_precip$DATE,
+      y = boulder_precip$PRECIP)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-spreadsheet-data-r/quick-plot-1.png" title="plot precipitation data" alt="plot precipitation data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R04-spreadsheet-data-r/quick-plot-1.png" title="plot precipitation data" alt="plot precipitation data" width="100%" />
 
 <div class="notice--warning" markdown="1">
 

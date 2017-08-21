@@ -3,7 +3,7 @@ layout: single
 title: "Layer a \raster dataset over a hillshade using R baseplot to create a beautiful basemap that represents topography"
 excerpt: "This lesson covers how to overlay raster data on a hillshade in R using baseplot and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['hw-lidar-r']
 permalink: /courses/earth-analytics/week-3/overlay-raster-on-hillshade-r/
@@ -64,19 +64,21 @@ for the hillshade plot as the legend we want to see is the DEM elevation values.
 ```r
 # open raster DTM data
 lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # open dem hillshade
 lidar_dem_hill <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM_hill.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dem_hill,
      main="Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade",
      col=grey(1:100/100),
      legend=F)
+## Error in plot(lidar_dem_hill, main = "Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade", : object 'lidar_dem_hill' not found
 
 plot(lidar_dem,
      main="Lidar Digital Elevation Model (DEM)",
      add=T, alpha=.5)
+## Error in plot(lidar_dem, main = "Lidar Digital Elevation Model (DEM)", : object 'lidar_dem' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/hw-ggmap-markdown/2017-02-01-hw03-overlay-rasters/create-base-map-1.png" title="overlay plot" alt="overlay plot" width="100%" />

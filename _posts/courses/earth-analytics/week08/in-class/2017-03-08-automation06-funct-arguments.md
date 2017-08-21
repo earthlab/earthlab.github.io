@@ -3,7 +3,7 @@ layout: single
 title: "Working with function arguments"
 excerpt: " ."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-08-18'
+modified: '2017-08-19'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/week-8/function-arguments-r/
