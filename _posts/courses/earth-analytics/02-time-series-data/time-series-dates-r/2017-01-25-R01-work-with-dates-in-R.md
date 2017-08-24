@@ -3,13 +3,13 @@ layout: single
 title: "Work With Date - Time formats in R - Time Series Data "
 excerpt: "Learn how to work with date and time fields in R."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-08-19'
+modified: '2017-08-24'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/date-class-in-r/
 nav-title: 'Dates in R'
 module-description: 'This module covers how to work with, plot and subset data with date fields in R. It also covers how to plot data using ggplot.'
-module-nav-title: 'Time Series Data in R'
+module-nav-title: 'Time series data in R'
 module-title: 'Work with Sensor Network Derived Time Series Data in R'
 module-type: 'class'
 class-order: 2
