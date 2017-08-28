@@ -113,7 +113,7 @@ the entire lesson set.
 
 {% endfor %}
 
-<a href="{{ site.url}}/course-materials/">View all modules </a>
+<a href="{{ site.url}}/courses/">View all modules </a>
 
 ## Recent tutorials
 

@@ -15,6 +15,7 @@
 {% endif %}
 
 {% comment %}
+<!-- This is all commented out -->
 <nav class="breadcrumbs">
   <ol itemscope itemtype="http://schema.org/BreadcrumbList">
     {% assign crumbs = page.url | split: '/' %}
@@ -51,6 +52,8 @@
  <ol itemscope itemtype="http://schema.org/BreadcrumbList">
 <a href="{{ site.url }}{{ site.baseurl }}">{{ site.data.language.breadcrumb_start }}</a>
  {% assign crumbs = page.url | split: '/' %}
+ <!-- there is an offset of 1 so subtract 2 from the final crumb number-->
+ {% assign crumb_size = crumbs | size | minus:2 %}
    {% for crumb in crumbs offset: 1 %}
    {% if forloop.first %}
      <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -62,7 +65,7 @@
     {% if forloop.last %}
         <li class="current">{{ page.title }}</li>
     {% else %}
-        <li><a href="{{ site.url }}{{ site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'-',' ' | capitalize }}</a>
+        <li><a href="{{ site.url }}{{ site.baseurl }}{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{% if forloop.index == crumb_size %}{% if page.module-type != 'session' %} {% if page.week %}Week {{ page.week }}. {% endif %}{% endif %} {% endif %}{{ crumb | replace:'-',' ' | capitalize }} </a>
         <span class="sep">{{ site.data.ui-text[site.locale].breadcrumb_separator }}</span></li>
     {% endif %}
   {% endfor %}

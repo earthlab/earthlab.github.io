@@ -4,7 +4,7 @@ Slide classes
 name: inverse
 class: center, middle, inverse
 * center: center things on the page
-* full: full screen without hte logo
+* full: full screen without the logo
 
 
 # image size

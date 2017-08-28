@@ -24,19 +24,19 @@
   {% if page.week > 1 and page.week <= 14 %}
   <hr>
    {% assign previousWeek = page.week | minus: 1 %}
-   {% capture previous_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ previousWeek }}/{% endcapture %}
+   {% capture previous_week_path %}{{ site.url }}/courses/earth-analytics/week-{{ previousWeek }}/{% endcapture %}
    <h5><a href="{{ previous_week_path }}" ><i class="fa fa-arrow-circle-left"></i> {{ previousWeek }} </a>
    go to week
    {% endif %}
 
    {% if page.week == 1 %}
     {% assign nextWeek = page.week | plus: 1 %}
-    {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
+    {% capture next_week_path %}{{ site.url }}/courses/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
     <h5>go to week<a href="{{ next_week_path }}" > {{ nextWeek }} <i class="fa fa-arrow-circle-right"></i> </a></h5>
     {% endif %}
  {% if page.week >= 2 and page.week <= 13 %}
   {% assign nextWeek = page.week | plus: 1 %}
-  {% capture next_week_path %}{{ site.url }}/course-materials/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
+  {% capture next_week_path %}{{ site.url }}/courses/earth-analytics/week-{{ nextWeek }}/{% endcapture %}
 
   <a href="{{ next_week_path }}" > {{ nextWeek }} <i class="fa fa-arrow-circle-right"></i> </a></h5>
   {% endif %}
@@ -46,7 +46,7 @@
 
 {% endcomment %}
 
-<h5><a href="{{ site.url }}/course-materials/earth-analytics/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course | capitalize }} Home</a></h5>
+<h5><a href="{{ site.url }}/courses/earth-analytics/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course | capitalize }} Home</a></h5>
 
 
 <!-- Just get the pages from this course -->
@@ -93,7 +93,7 @@
         {% assign lesson_count = 0 %}
 
         {% for module in module_names %}
-      
+
         {% assign theLesson = module.class-lesson %}
         {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
           <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
@@ -185,4 +185,4 @@
 </ul>
 </nav>
 
-<h5><a href="{{ site.url }}/course-materials/{{ page.course | slugify }}/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course }} Home</a></h5>
+<h5><a href="{{ site.url }}/courses/{{ page.course | slugify }}/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course }} Home</a></h5>
