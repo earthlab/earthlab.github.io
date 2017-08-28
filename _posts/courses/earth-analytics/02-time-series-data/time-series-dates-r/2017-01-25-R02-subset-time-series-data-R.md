@@ -3,7 +3,7 @@ layout: single
 title: "Use tidyverse pipes to subset time series data in R"
 excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-28'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/
@@ -20,6 +20,7 @@ topics:
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -135,7 +136,7 @@ head(boulder_daily_precip)
 str(boulder_daily_precip)
 ## 'data.frame':	792 obs. of  9 variables:
 ##  $ DATE        : chr  "1/1/03" "1/5/03" "2/1/03" "2/2/03" ...
-##  $ DAILY_PRECIP: num  0 1000 0 1000 0.4 ...
+##  $ DAILY_PRECIP: num  0e+00 1e+03 0e+00 1e+03 4e-01 ...
 ##  $ STATION     : chr  "COOP:050843" "COOP:050843" "COOP:050843" "COOP:050843" ...
 ##  $ STATION_NAME: chr  "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" ...
 ##  $ ELEVATION   : num  1650 1650 1650 1650 1650 ...
