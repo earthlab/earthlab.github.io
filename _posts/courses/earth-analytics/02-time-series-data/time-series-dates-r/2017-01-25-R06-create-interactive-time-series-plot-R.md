@@ -3,7 +3,7 @@ layout: single
 title: "Create interactive plots in R - time series & scatterplots using plotly and dygraphs"
 excerpt: "Learn how to create interactive reports using plotly and dygraphs in R for plotting. "
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-21'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/interactive-time-series-plots-in-r/
@@ -54,11 +54,8 @@ First, we will load all of the needed libraries.
 # load libraries
 library(ggplot2)
 library(xts)
-## Error in library(xts): there is no package called 'xts'
 library(dygraphs)
-## Error in library(dygraphs): there is no package called 'dygraphs'
 library(plotly)
-## Error in library(plotly): there is no package called 'plotly'
 
 options(stringsAsFactors = FALSE)
 ```
@@ -87,7 +84,7 @@ annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
 annual_precip
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R06-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="100%" />
 
 ## Time series - Plotly
 
@@ -122,15 +119,13 @@ work with html!
 ```r
 # interactive time series
 library(dygraphs)
-## Error in library(dygraphs): there is no package called 'dygraphs'
 # create time series objects (class xs)
 library(xts)
-## Error in library(xts): there is no package called 'xts'
 
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)
-## Error in xts(x = discharge_time$disValue, order.by = discharge_time$datetime): could not find function "xts"
+
 ```
 
 Then you can call the dygraph() function to create your interactive time-series plot.
