@@ -5609,7 +5609,7 @@ div.active-section {
   padding-top: 1em; }
 
 .remark-slide-content ul li, .remark-slide-content ol li {
-  padding-top: 1em; }
+  padding-top: .6em; }
 
 .remark-slide-content ul li li {
   font-size: 0.8em;
@@ -5628,10 +5628,10 @@ div.active-section {
   font-size: 3em; }
 
 .remark-slide-content h2 {
-  font-size: 2em; }
+  font-size: 1.5em; }
 
 .remark-slide-content h3 {
-  font-size: 1.6em; }
+  font-size: 1.3em; }
 
 .remark-slide-content .remark-slide-content.footnote {
   position: absolute;
@@ -5811,5 +5811,14 @@ div.active-section {
   position: absolute;
   text-align: left;
   top: 30px; }
+
+/*  Also apply these to slides search */
+.remark-slide tbody tr:nth-child(2n+1) {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #bdc1c4;
+  border-top: 1px solid #bdc1c4; }
+
+.remark-slide tbody {
+  font-size: .9em; }
 
 /*# sourceMappingURL=main.css.map */

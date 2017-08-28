@@ -3,7 +3,7 @@ layout: single
 title: "Summarize time series data by month or year using tidyverse pipes in R"
 excerpt: "Learn how to summarize time series data by day, month or year with Tidyverse pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-08-21'
+modified: '2017-08-28'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/
@@ -20,6 +20,7 @@ topics:
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -310,10 +311,12 @@ instead of modifying an existing column, we will create a new month column.
 boulder_daily_precip <- boulder_daily_precip %>%
   mutate(month = month(DATE))
 
-#boulder_daily_precip <- boulder_daily_precip %>%
-#  mutate(year_mon = as.yearmon(DATE))
+
 #boulder_daily_precip$test <- as.Date(paste0(boulder_daily_precip$month_year,"-01"),"%Y-%m-%d")
 ```
+
+
+
 
 Now that we have a new column we can create a summary precipitation value for
 each month. To do this, we need to do the following:
