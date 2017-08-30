@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Explore precipitation and stream flow data using using interactive plots: the 2013 Colorado Floods "
+title: "Explore precipitation and stream flow data using interactive plots: the 2013 Colorado Floods "
 excerpt: "Practice interpreting data on plots that show rainfall (precipitation) and stream flow (discharge) as it changes over time. "
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [courses]
@@ -8,7 +8,7 @@ class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/precip-discharge/
 nav-title: 'Interactive data plots'
 dateCreated: 2016-12-29
-modified: '2017-08-17'
+modified: '2017-08-29'
 module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and

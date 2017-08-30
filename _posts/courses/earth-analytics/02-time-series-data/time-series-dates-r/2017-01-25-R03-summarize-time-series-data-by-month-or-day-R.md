@@ -7,7 +7,7 @@ modified: '2017-08-29'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/
-nav-title: 'Aggregate time series data'
+nav-title: 'Summarize time series data'
 week: 2
 sidebar:
   nav:
@@ -171,10 +171,10 @@ ggplot(aes(x = DATE, y = DAILY_PRECIP)) +
       labs(title = "Precipitation - Boulder, Colorado",
            subtitle = "The data frame is sent to the plot using pipes",
            y = "Daily precipitation (inches)",
-           x = "Date") + theme_bw()
+           x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-precip-hourly-pipes-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-precip-hourly-pipes-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
 
 The code below created the same plot as above.
 
@@ -187,10 +187,10 @@ ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
       labs(title = "Precipitation - Boulder, Colorado",
            subtitle = "Note using pipes",
            y = "Daily precipitation (inches)",
-           x = "Date") + theme_bw()
+           x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
 
 ### Create facets
 
@@ -207,16 +207,19 @@ line to our ggplot code:
 
 # plot the data using ggplot2 and pipes
 boulder_daily_precip %>%
+  na.omit() %>% 
 ggplot(aes(x = DATE, y = DAILY_PRECIP)) +
-      geom_point() +
+      geom_point(color = "darkorchid4") +
       facet_wrap( ~ YEAR ) +
       labs(title = "Precipitation - Boulder, Colorado",
-           subtitle = "The data frame is sent to the plot using pipes",
+           subtitle = "Use facets to plot by a variable - year in this case",
            y = "Daily precipitation (inches)",
-           x = "Date") + theme_bw()
+           x = "Date") + theme_bw(base_size = 15) +
+     # adjust the x axis breaks 
+     scale_x_date(date_breaks = "5 years", date_labels = "%m-%Y")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/facet-plot-1.png" title="create facets using facet_wrap" alt="create facets using facet_wrap" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/facet-plot-1.png" title="create facets using facet_wrap" alt="create facets using facet_wrap" width="90%" />
 
 Our plot looks ok but there is a problem with the x axis. Each date is unique
 to that particular `YEAR`. We need to plot a variable on the x axis that is the same
@@ -236,10 +239,10 @@ ggplot(aes(x = JULIAN, y = DAILY_PRECIP)) +
       labs(title = "Daily Precipitation - Boulder, Colorado",
            subtitle = "Data plotted by year",
            y = "Daily Precipitation (inches)",
-           x = "Day of Year") + theme_bw()
+           x = "Day of Year") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/facet-plot2-1.png" title="create facets using facet_wrap" alt="create facets using facet_wrap" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/facet-plot2-1.png" title="create facets using facet_wrap" alt="create facets using facet_wrap" width="90%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -262,26 +265,26 @@ boulder_daily_precip %>%
       labs(title = "Daily Precipitation - Boulder, Colorado",
            subtitle = "Data plotted by year",
            y = "Daily precipitation (inches)",
-           x = "Date") + theme_bw()
+           x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/subset-data-1.png" title=" " alt=" " width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/subset-data-1.png" title=" " alt=" " width="90%" />
 
-## Aggregate data by month
+## Summarize data by month
 
 In the example above, we plotted our data plot by day of the year. This column,
 however already existed in our data. However,
 what if we don't have these columns in our data?
 
-Next, you will create a month column in the data which will allow us to aggregate
+Next, you will create a month column in the data which will allow us to summarize
 the data by month. Note that you could do this for any particular time subset that
 you want. We are just using month as an example.
 
 We use the `lubridate` package to quickly extract the month from an existing
 date formatted field.
 
-**IMPORTANT:** this will only work on data where you've already converted the date
-into a date class that R can  understand.
+<i fa fa-star></i>**IMPORTANT:** this will only work on data where you've already converted the date
+into a date class that `R` can read as a date.
 {: .notice--success }
 
 Below, you extract just the date from the date field using the month() function.
@@ -310,7 +313,6 @@ instead of modifying an existing column, we will create a new month column.
 # add a month column to our boulder_daily_precip data.frame
 boulder_daily_precip <- boulder_daily_precip %>%
   mutate(month = month(DATE))
-
 
 #boulder_daily_precip$test <- as.Date(paste0(boulder_daily_precip$month_year,"-01"),"%Y-%m-%d")
 ```
@@ -345,10 +347,10 @@ boulder_daily_precip_month %>%
       labs(title = "Daily Precipitation - Boulder, Colorado",
            subtitle = "Data plotted by year",
            y = "Daily precipitation (inches)",
-           x = "Date") + theme_bw()
+           x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-1.png" title="monthly summary of precipitation plot" alt="monthly summary of precipitation plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-1.png" title="monthly summary of precipitation plot" alt="monthly summary of precipitation plot" width="90%" />
 
 The plot above is not quite what we want. We want to be able to group by both
 month and year. To do this we send the `group_by()` function both columns.
@@ -379,10 +381,10 @@ boulder_daily_precip_month %>%
       labs(title = "Total Monthly Precipitation - Boulder, Colorado",
            subtitle = "Data plotted by year",
            y = "Daily precipitation (inches)",
-           x = "Month") + theme_bw()
+           x = "Month") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-year-1.png" title="monthly summary of precipitation plot grouped by month and year" alt="monthly summary of precipitation plot grouped by month and year" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-year-1.png" title="monthly summary of precipitation plot grouped by month and year" alt="monthly summary of precipitation plot grouped by month and year" width="90%" />
 
 ### Clean up x and y axes
 
@@ -436,7 +438,6 @@ Note that `%b` represents the abbreviated month which will be plotted as labels
 on the x-axis.
 
 
-
 ```r
 
 boulder_daily_precip_month %>%
@@ -447,8 +448,8 @@ boulder_daily_precip_month %>%
       labs(title = "Montly Total Daily Precipitation - Boulder, Colorado",
            subtitle = "Data plotted by year",
            y = "Daily precipitation (inches)",
-           x = "Month") + theme_bw() +
+           x = "Month") + theme_bw(base_size = 15) +
   scale_x_date(date_labels = "%b")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-year2-1.png" title="monthly summary of precipitation plot grouped by month and year" alt="monthly summary of precipitation plot grouped by month and year" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-year2-1.png" title="monthly summary of precipitation plot grouped by month and year" alt="monthly summary of precipitation plot grouped by month and year" width="90%" />
