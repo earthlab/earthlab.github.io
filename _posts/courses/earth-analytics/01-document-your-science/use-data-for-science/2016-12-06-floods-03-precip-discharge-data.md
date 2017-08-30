@@ -8,8 +8,8 @@ class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/precip-discharge/
 nav-title: 'Interactive data plots'
 dateCreated: 2016-12-29
-modified: '2017-08-29'
-module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
+modified: '2017-08-30'
+module-title: 'Understanding disturbance with data - flooding & erosion'
 module-description: 'This module introduces the concept of using data to Understand
 a natural phenomenon. Here, we use a combination of NOAA precipitation data and
 USGS stream flow data to begin to understand the factors associated with a flood.
@@ -27,7 +27,7 @@ topics:
 ---
 
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 In this classroom activity we will look at different types of data
 that scientifically quantify / document the drivers (causes of) and impacts of
@@ -35,11 +35,11 @@ a disturbance event like a flood.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Describe two related drivers of a flood event.
-* Interpret plots containing time series data related to flood drivers.
+* Describe two related drivers of a flood event
+* Interpret plots containing time series data related to flood drivers
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -48,7 +48,7 @@ You need a computer with internet to complete this lesson.
 
 </div>
 
-## Exploring Flood Damage
+## Exploring flood damage
 
 In the previous lesson, we
 
@@ -87,7 +87,7 @@ falls from clouds including rain, hail and snow.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Precip Data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Precip data
 
 ### What do the data tell you about precipitation patterns?
 
@@ -104,7 +104,7 @@ you explore the data, keep in mind that the the flood event occured September 20
 </div>
 
 
-## Stream Flow (Discharge)
+## Stream flow (Discharge)
 
 <i class="fa fa-star"></i> **Stream Discharge**, quantifies the volume of water
 moving down a stream. Discharge is an ideal metric to quantify stream flow, which

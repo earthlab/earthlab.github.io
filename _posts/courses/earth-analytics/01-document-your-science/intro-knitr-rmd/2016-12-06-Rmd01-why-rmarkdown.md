@@ -6,11 +6,11 @@ authors: ['Leah Wasser', 'NEON Data Skills']
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/about-open-science-and-why-open-science-is-important/
-nav-title: 'Why Open Science'
+nav-title: 'Why open science'
 dateCreated: 2016-12-12
-modified: '2017-08-17'
-module-title: 'Link data, processing and results using R Markdown and Knitr'
-module-nav-title: 'R Markdown Intro'
+modified: '2017-08-30'
+module-title: 'Link data, processing and results using R Markdown and knitr'
+module-nav-title: 'R Markdown intro'
 module-description: 'This module reviews how to use R Markdown
 and knitr to create and publish dynamic reports that both link analysis, results and documentation and can be easily updated as data and methods are modified / updates.'
 module-type: 'class'
@@ -28,27 +28,27 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
-In this tutorial we will use the `knitr` and `rmarkdown` packages in
+In this tutorial we will use the `knitr` and `R Markdown` packages in
 `RStudio` to create a report that links our analysis, results and associated data.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* List benefits of using R Markdown to create reports.
-* Explain how R Markdown is a useful tool in Open Science approaches.
-* Explain one way that R Markdown can benefit your research.
+* List benefits of using `R Markdown` to create reports
+* Explain how R Markdown is a useful tool in Open Science approaches
+* Explain one way that `R Markdown` can benefit your research
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-Before you start this tutorial, be sure that you have  R and R studio setup on
+Before you start this tutorial, be sure that you have  R and R studio set up on
 your computer. Also we recommend that you have an `earth-analytics` directory
 setup on your computer with a `/data` directory with it. Follow the links below
-for help getting R, R studio and your data directory setup.
+for help getting `R`, `RStudio` and your data directory setup.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 
 </div>
@@ -58,26 +58,26 @@ for help getting R, R studio and your data directory setup.
 Open science in a nutshell is about making scientific methods, data and outcomes
 available to everyone. It can be broken down into several parts (<a href="http://www.openscience.org/blog/?p=269" target="_blank">Gezelter 2009</a>):
 
-* Transparency in experimental methodology, observation, and collection of data.
-* Public availability and reusability of scientific data.
-* Public accessibility and transparency of scientific communication.
-* Using web-based tools to facilitate scientific collaboration.
+* Transparency in experimental methodology, observation, and collection of data
+* Public availability and reusability of scientific data
+* Public accessibility and transparency of scientific communication
+* Using web-based tools to facilitate scientific collaboration
 
 In this tutorial, we are not going to focus on all aspects of open science as
 listed above. However, we will introduce one tool that can be used to make our
 workflows:
 
-1. More transparent and
-2. More available and accesible to the public and our colleages.
+1. More transparent
+2. More available and accessible to the public and our colleagues
 
 In this tutorial, we will learn how to document our work - by connecting data,
 methods and outputs in one or more reports or documents. We will introduce the
 `R Markdown` file format which can be used to generate reports that connect our
 data, code (methods used to process the data) and outputs. We will use the
-`rmarkdown` and `knitr` package to write R Markdown files in `Rstudio` and
-publish them in different formats (html, pdf, etc).
+`rmarkdown` and `knitr` package to write `R Markdown` files in `Rstudio` and
+publish them in different formats (`html`, `pdf`, etc).
 
-### Open Science Slideshow
+### Open science slideshow
 
 Click through the slideshow below to learn more about open science.
 <a class="btn btn-info" href="{{ site.url }}/slide-shows/share-publish-archive/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
@@ -88,7 +88,7 @@ View Slideshow: Share, Publish & Archive Code & Data</a>
 Simply put, `.Rmd` is a text based file format that allows you to include both
 descriptive text, code blocks and code output. You can run the code in `R` and
 using a package called `knitr` (which we will talk about next) you can export the
-text formated .Rmd file to a nicely rendered, shareable format like pdf or html.
+text formated `.Rmd` file to a nicely rendered, shareable format like `pdf` or `html`.
 When you knit (or use `knitr`) the code is run and so your code outputs including
 plots, and other figures appear in the rendered document.
 
@@ -101,22 +101,23 @@ underlying R code or data changes)."
 -- <a href="http://rmarkdown.rstudio.com/" target="_blank">RStudio documentation</a>.
 
 
-We use R Markdown (.Rmd) files to document workflows and to share data processing,
+We use `R Markdown`(`.Rmd`) files to document workflows and to share data processing,
 analysis and visualization code & outputs.
 
 ## Why R Markdown?
-There are many advantages to using R Markdown in your work:
+There are many advantages to using `R Markdown` in your work:
 
 * **Human readable:** It's much easier to read a web page or a report containing text and figures.
-* **Simple syntax:** Markdown and `rmd` can be learned quickly.
-* **A Reminder for Your Future Self** All components of your work are clearly documented. You don't have to rememberwhat steps, assumptions, tests were used.
-* **Easy to Modify:** You can easily extend or refine analyses by modifying existing or adding new
-code blocks.
-* **Flexible export formats:** Analysis results can be disseminated in various formats including HTML, PDF,
-slide shows and more.
+* **Simple syntax:** Markdown and `.Rmd` can be learned quickly.
+* **A Reminder for Your Future Self** All components of your work are clearly documented.
+You don't have to rememberwhat steps, assumptions, tests were used.
+* **Easy to Modify:** You can easily extend or refine analyses by modifying existing
+or adding new code blocks.
+* **Flexible export formats:** Analysis results can be disseminated in various
+formats including `html`, `pdf`, slide shows and more.
 * **Easy to share:** Code and data can be shared with a colleague to replicate the workflow.
 
-<i class="fa fa-star"></i> **Data Tip:**
+<i class="fa fa-star"></i> **Data tip:**
 <a href="https://rpubs.com/" target= "_blank ">RPubs</a> is a one way to
 share and publish code online.
 {: .notice--success}
@@ -137,12 +138,12 @@ This creates an efficient workflow. Your future self will appreciate it too.
 R Markdown provides documentation for you to see what code you used to create a
 figure or to analyze the data.
 
-<i class="fa fa-star"></i> **Data Tip:** Many of the Earth Lab lessons- including
+<i class="fa fa-star"></i> **Data tip:** Many of the Earth Lab lessons- including
 this one - were created using R Markdown!
 {: .notice--success}
 
 
-## Use Knitr to convert .Rmd to .html
+## Use knitr to convert .Rmd to .html
 
 We use the `R` `knitr` package to render our markdown and create easy to read
 documents from `.Rmd` files. We will cover how to use `knitr` later in this

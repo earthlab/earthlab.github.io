@@ -4,10 +4,10 @@ title: "Understand and use code chunks in R Markdown and comment your code"
 excerpt: 'Learn how code chunks are written and formatted within an R Markdown file in R Studio.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [courses]
-modified: '2017-08-17'
+modified: '2017-08-30'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/rmarkdown-code-chunks-comments-knitr/
-nav-title: 'Code Chunks'
+nav-title: 'Code chunks'
 week: 1
 sidebar:
   nav:
@@ -18,25 +18,25 @@ order: 4
 topics:
   reproducible-science-and-programming: ['rmarkdown']
 ---
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 
 Next, we will talk about code chunks in `R Markdown` files.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will:
 
-* Be able to add code to a code chunk in an .Rmd file
-* Be able to add options to a code chunk in R Studio
+* Be able to add code to a code chunk in an `.Rmd` file
+* Be able to add options to a code chunk in `RStudio`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need the most current version of R and, preferably, RStudio loaded on
+You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
 
-### Install R Packages
+### Install R packages
 
 * **knitr:** `install.packages("knitr")`
 * **rmarkdown:** `install.packages("rmarkdown")`
@@ -46,20 +46,20 @@ your computer to complete this tutorial.
 We have we have already learned that an `.Rmd` document contains three parts
 
 1. A `YAML` header
-2. Text chunks in markdown syntax that describe your processing workflow or are the text for your report.
-3. Code chunks that process, visualize and/or analyze your data.
+2. Text chunks in markdown syntax that describe your processing workflow or are the text for your report
+3. Code chunks that process, visualize and/or analyze your data
 
 Let's break down code chunks in `.Rmd` files.
 
 
-<i class="fa fa-star"></i> **Data Tip**: You can add code output or an R object
+<i class="fa fa-star"></i> **Data tip**: You can add code output or an `R` object
 name to markdown segments of an RMD. For more, view this
 <a href="http://rmarkdown.rstudio.com/authoring_quick_tour.html#inline_r_code" target="_blank"> R Markdown documentation</a>.
 {: .notice--success}
 
 ## Code chunks
 
-Code chunks in an R Markdown document contain your `R` code. All code chunks
+Code chunks in an `R Markdown` document contain your `R` code. All code chunks
  start and end with <code>```</code> -- three backticks or
 graves. On your keyboard, the backticks can be found on the same key as the
 tilde (~). Graves are not the same as an apostrophe!
@@ -161,22 +161,22 @@ will be no outputs from the code.
 
 One example of using `eval=FALSE` is for a code chunk that exports a file such
 as a figure graphic or a text file. We may want to show / document the code that
-we used to export that graphic in our html or pdf document, but we don't need to
-actually export that file each time we create a revised html or pdf document.
+we used to export that graphic in our `html` or `pdf` document, but we don't need to
+actually export that file each time we create a revised `html` or `pdf` document.
 
 ### 3 common chunk options: eval, echo & results
 Three common code chunk options are:
 
 * `eval = FALSE`: Do not **eval**uate (or run) this code chunk when
 knitting the RMD document. The code in this chunk will still render in our knitted
-HTML output, however it will not be evaluated or run by `R`.
+`html` output, however it will not be evaluated or run by `R`.
 * `echo=FALSE`: Hide the code in the output. The code is
-evaluated when the RMD file is knit, however only the output is rendered on the
+evaluated when the `Rmd` file is knit, however only the output is rendered on the
 output document.
 * `results=hide`: The code chunk will be evaluated but the results or the code
 will not be rendered on the output document. This is useful if you are viewing the
 structure of a large object (e.g. outputs of a large `data.frame` which is
-  the equivalent of a spreadsheet in `r`).
+  the equivalent of a spreadsheet in `R`).
 
 Multiple code chunk options can be used for the same chunk.
 
@@ -219,11 +219,11 @@ with plots where you have a lot of code generating those plots.
 
 </div>
 
-We will knit our R Markdown document to `.html` in the next lesson.
+We will knit our `R Markdown` document to `.html` in the next lesson.
 
 <div class="notice--info" markdown="1">
 
-## Additional Resources
+## Additional resources
 
 * <a href="http://rmarkdown.rstudio.com/authoring_rcodechunks.html" target="_blank"> RStudio documentation.</a>
 * <a href="http://yihui.name/knitr/demo/output/" target="_blank"> knitr documentation.</a>

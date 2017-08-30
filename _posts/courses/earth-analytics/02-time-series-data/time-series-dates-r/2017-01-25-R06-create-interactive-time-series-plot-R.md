@@ -3,7 +3,7 @@ layout: single
 title: "Create interactive plots in R - time series & scatterplots using plotly and dygraphs"
 excerpt: "Learn how to create interactive reports using plotly and dygraphs in R for plotting. "
 authors: ['Leah Wasser']
-modified: '2017-08-29'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/interactive-time-series-plots-in-r/
@@ -22,18 +22,18 @@ order: 6
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* Create an interactive time series plot using plot.ly in `R`
-* Create an interactive time series plot using dygraphs in `R`
+* Create an interactive time series plot using `plot.ly` in `R`
+* Create an interactive time series plot using `dygraphs` in `R`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download week 4 data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -42,8 +42,8 @@ You will need a computer with internet access to complete this lesson and the da
 In this lesson we will explore using 2 interactive tools to create interactive
 plots of our data:
 
-1. plotly and
-2. dygraphs
+1. `plotly` and
+2. `dygraphs`
 
 First, we will load all of the needed libraries.
 
@@ -88,13 +88,13 @@ annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
 annual_precip
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R06-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R06-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="90%" />
 
-## Time series - Plotly
+## Time series - plotly
 
 
-We can use plotly to create an interactive plot that we can use in the
-R console.
+We can use `plotly` to create an interactive plot that we can use in the
+`R` console.
 
 
 
@@ -111,12 +111,12 @@ ggplotly(annual_precip)
 <iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/leaflet-maps/plotly/plotly_precip.html" frameborder="0" allowfullscreen></iframe>
 
 
-## Time series - Dygraph
+## Time series - dygraph
 
-Dygraph is a powerful and easy to use interactive time series plot generator.
+`Dygraph` is a powerful and easy to use interactive time series plot generator.
 Below, notice how we can quickly create a dygraph interactive plot. The output
-format of the plot is html so it won't work with a pdf rmd output but it will
-work with html!
+format of the plot is `html` so it won't work with a `pdf` `rmd` output but it will
+work with `html`!
 
 
 
@@ -134,7 +134,7 @@ discharge_timeSeries <- xts(x = discharge_time$disValue,
 ## Error in xts(x = discharge_time$disValue, order.by = discharge_time$datetime): could not find function "xts"
 ```
 
-Then you can call the dygraph() function to create your interactive time-series plot.
+Then you can call the `dygraph()` function to create your interactive time-series plot.
 
 
 ```r

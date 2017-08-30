@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/open-plot-spreadsheet-data-in-R/
 nav-title: 'Open spreadsheet data'
 dateCreated: 2016-12-13
-modified: '2017-08-19'
+modified: '2017-08-30'
 week: 2
 sidebar:
   nav:
@@ -20,18 +20,18 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 This lesson introduces the data.frame which is very similar to working with
 a spreadsheet in `R`.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Open .csv or text file containing tabular (spreadsheet) formatted data in R.
-* Quickly plot the data using the GGPLOT2 function qplot()
+* Open `.csv` or text file containing tabular (spreadsheet) formatted data in `R`.
+* Quickly plot the data using the `GGPLOT2` function `qplot()`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -39,7 +39,7 @@ You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 
@@ -115,9 +115,9 @@ number: numeric values (can contain decimals places)
 
 </div>
 
-## Introduction to the Data.Frame
+## Introduction to the data frame
 
-When we read data into R using `read.csv()` it imports it into a data frame format.
+When we read data into `R` using `read.csv()` it imports it into a data frame format.
 Data frames are the **de facto** data structure for most tabular data, and what we
 use for statistics and plotting.
 
@@ -130,7 +130,7 @@ A data frame can be created by hand, but most commonly they are generated when
 you important a text file or spreadsheet into R using the
 functions `read.csv()` or `read.table()`.
 
-## Extracting / Specifying "columns" By Name
+## Extracting / specifying "columns" by name
 
 You can extract just one single column from your data.frame using the `$` symbol
 followed by the name of the column (or the column header):
@@ -151,7 +151,8 @@ boulder_precip$PRECIP
 ## [18] 0.1
 ```
 
-## View Structure of a Data Frame
+
+## View structure of a data frame
 
 We can explore the format of our data frame in a similar way to how we explored
 vectors in the third lesson of this module. Let's take a look.
@@ -171,7 +172,7 @@ boulder_precip$PRECIP
 ## [18] 0.1
 ```
 
-## Plotting our Data
+## Plotting our data
 
 We can quickly plot our data too. Note that we are using the `ggplot2` function
 qplot() rather than the R base plot functionality. We are doing this because
@@ -184,7 +185,7 @@ qplot(x = boulder_precip$DATE,
       y = boulder_precip$PRECIP)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R04-spreadsheet-data-r/quick-plot-1.png" title="plot precipitation data" alt="plot precipitation data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R04-spreadsheet-data-r/quick-plot-1.png" title="plot precipitation data" alt="plot precipitation data" width="90%" />
 
 <div class="notice--warning" markdown="1">
 

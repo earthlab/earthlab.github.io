@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "Get Help with R - data science for scientists 101"
+title: "Get help with R - data science for scientists 101"
 excerpt: "This tutorial covers ways to get help when you are not sure how to perform a task in R. "
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [courses]
 class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/time-series-data/ways-to-get-help-with-R/
-nav-title: 'About R / Getting Help'
+nav-title: 'About R / get help'
 dateCreated: 2016-12-13
-modified: '2017-08-29'
+modified: '2017-08-30'
 week: 2
 sidebar:
   nav:
@@ -20,17 +20,17 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 Getting help
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* List 2 ways that you can get help when you are stuck using R.
-* List several features of R that makes it a versatile tool for scientific programming.
+* List 2 ways that you can get help when you are stuck using `R`
+* List several features of `R` that makes it a versatile tool for scientific programming
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -41,21 +41,21 @@ A computer with internet access.
 ## Basics of R
 
 `R` is a versatile, open source programming/scripting language that's useful both
-for statistics but also data science. Inspired by the programming language S.
+for statistics but also data science. Inspired by the programming language `S`.
 
 * Free/Libre/Open Source Software under the [GPL version 2](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
-* Superior (if not just comparable) to commercial alternatives. R has over 7,000
+* Superior (if not just comparable) to commercial alternatives. `R` has over 7,000
   user contributed packages at this time. It's widely used both in academia and
   industry.
 * Available on all platforms.
 * Not just for statistics, but also general purpose programming.
-* For people who have experience in programmming: R is both an object-oriented
+* For people who have experience in programmming: `R` is both an object-oriented
   and a so-called [functional language](http://adv-r.had.co.nz/Functional-programming.html).
 * Large and growing community of peers.
 
 ## Seeking help
 
-Below we discuss a few ways that you can get help when you are stuck in R.
+Below we discuss a few ways that you can get help when you are stuck in `R`.
 
 
 ## I know the name of the function I want to use, but I'm not sure how to use it
@@ -67,7 +67,7 @@ If you need help with a specific function, let's say `barplot()`, you can type:
 ?barplot
 ```
 
-When you use the `?barplot` in the R console, you asking R to look for the documentation
+When you use the `?barplot` in the `R` console, you asking `R` to look for the documentation
 for the `barplot()` function.
 
 If you just need to remind yourself of the names of the arguments that can be used
@@ -97,7 +97,7 @@ the help files across all packages available.
 ## I am stuck... I get an error message that I don't understand
 
 Start by googling the error message. However, this doesn't always work very well
-because often, package developers rely on the error catching provided by R. You
+because often, package developers rely on the error catching provided by `R`. You
 end up with general error messages that might not be very helpful to diagnose a
 problem (e.g. "subscript out of bounds"). If the message is very generic, you might
 also include the name of the function or package you're using in your query.
@@ -117,7 +117,7 @@ but it is full of useful information.
 
 <div class='notice--info' markdown="1">
 
-# Where to Get Help
+# Where to get help
 
 * Ask your colleagues: if you know someone with more experience than you,
   they might be able to help you.
@@ -130,7 +130,7 @@ but it is full of useful information.
 
 ## More resources
 
-* The [Posting Guide](http://www.r-project.org/posting-guide.html) for the R
+* The [Posting Guide](http://www.r-project.org/posting-guide.html) for the `R`
   mailing lists.
 * <a href="http://blog.revolutionanalytics.com/2014/01/how-to-ask-for-r-help.html" target="_blank" data-proofer-ignore=''>How to ask for R help useful guidelines</a>
 * <a href="http://codeblog.jonskeet.uk/2010/08/29/writing-the-perfect-question/" target="_blank" data-proofer-ignore=''>

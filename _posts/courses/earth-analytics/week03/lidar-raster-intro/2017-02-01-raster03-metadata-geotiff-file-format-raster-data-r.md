@@ -4,7 +4,7 @@ title: "About the geotiff (.tif) raster file format - raster data in R "
 excerpt: "This lesson introduces the geotiff file format. Further it introduces the
 concept of metadata - or data about the data. Metadata describe key characteristics of a data set. For spatial data these characteristics including CRS, resolution and spatial extent. Here we discuss the use of tif tags or metadata embedded within a geotiff file as they can be used to explore data programatically."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/introduction-to-spatial-metadata-r/
@@ -22,20 +22,19 @@ topics:
   find-and-manage-data: ['metadata']
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* Access metadata stored within a geotiff raster file via tif tags in R
+* Access metadata stored within a `geotiff` raster file via tif tags in `R`
 * Describe the difference between embedded metadata and non embedded metadata
 * Use `GDALinfo()` to quickly view key spatial metadata attributes associated with a spatial file
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -62,10 +61,10 @@ its spatial resolution?
 5. **Layers:** How many layers are in the .tif file. (more on that later)
 
 We discussed spatial extent and resolution in the previous lesson. When we work with
-geotiffs the spatial information that describes the raster data are embedded within
+`geotiff`s the spatial information that describes the raster data are embedded within
 the file itself.
 
-<i class="fa fa-star"></i> **Data Note:**  Your camera uses embedded tags to store
+<i class="fa fa-star"></i> **Data note:**  Your camera uses embedded tags to store
 information about pictures that you take including the camera make and model,
 and the time the image was taken.
 {: .notice--success }
@@ -77,20 +76,40 @@ More about the  `.tif` format:
 
 ### Geotiffs in R
 
-The `raster` package in `R` allows us to both open geotiff files and also directly
+The `raster` package in `R` allows us to both open `geotiff` files and also directly
 access `.tif tags` programmatically. We can quickly view the spatial **extent**,
 **coordinate reference system** and **resolution** of our raster data.
 
-NOTE: not all geotiffs contain tif tags!
+NOTE: not all `geotiff`s contain `tif` tags!
 
 We can use `GDALinfo()` to view all of the relevant tif tags embedded within a
-geotiff before we open it in `R`.
+`geotiff` before we open it in `R`.
 
 
 ```r
 # view attributes associated with our DTM geotiff
 GDALinfo("data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-## Error in .local(.Object, ...):
+## rows        2000 
+## columns     4000 
+## bands       1 
+## lower left origin.x        472000 
+## lower left origin.y        4434000 
+## res.x       1 
+## res.y       1 
+## ysign       -1 
+## oblique.x   0 
+## oblique.y   0 
+## driver      GTiff 
+## projection  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs 
+## file        data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif 
+## apparent band summary:
+##    GDType hasNoDataValue   NoDataValue blockSize1 blockSize2
+## 1 Float32           TRUE -3.402823e+38        128        128
+## apparent band statistics:
+##          Bmin       Bmax Bmean Bsd
+## 1 -4294967295 4294967295    NA  NA
+## Metadata:
+## AREA_OR_POINT=Area
 ```
 
 The information returned from `GDALinfo()` includes:
@@ -108,14 +127,19 @@ We can also extract or view individual metadata attributes.
 # view attributes / metadata of raster
 # open raster data
 lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 # view crs
 crs(lidar_dem)
-## Error in crs(lidar_dem): object 'lidar_dem' not found
+## CRS arguments:
+##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 
 # view extent via the slot - note that slot names can change so this may not always work.
 lidar_dem@extent
-## Error in eval(expr, envir, enclos): object 'lidar_dem' not found
+## class       : Extent 
+## xmin        : 472000 
+## xmax        : 476000 
+## ymin        : 4434000 
+## ymax        : 4436000
 ```
 
 If we extract metadata from our data, we can then perform tests on the data as
@@ -123,23 +147,20 @@ we process it. For instance, we can ask the question:
 
 > Do both datasets have the same spatial extent?
 
-Let's find out the answer to this question using R.
+Let's find out the answer to this question using `R`.
 
 
 ```r
 lidar_dsm <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 extent_lidar_dsm <- extent(lidar_dsm)
-## Error in extent(lidar_dsm): object 'lidar_dsm' not found
 extent_lidar_dem <- extent(lidar_dem)
-## Error in extent(lidar_dem): object 'lidar_dem' not found
 
 # Do the two datasets cover the same spatial extents?
 if(extent_lidar_dem == extent_lidar_dsm){
   print("Both datasets cover the same spatial extent")
 }
-## Error in eval(expr, envir, enclos): object 'extent_lidar_dem' not found
+## [1] "Both datasets cover the same spatial extent"
 ```
 
 Does the data have the same spatial extents?
@@ -148,7 +169,7 @@ Does the data have the same spatial extents?
 ```r
 compareRaster(lidar_dsm, lidar_dem,
               extent=TRUE)
-## Error in compareRaster(lidar_dsm, lidar_dem, extent = TRUE): object 'lidar_dsm' not found
+## [1] TRUE
 ```
 
 or resolution?
@@ -157,22 +178,22 @@ or resolution?
 ```r
 compareRaster(lidar_dsm, lidar_dem,
               res=TRUE)
-## Error in compareRaster(lidar_dsm, lidar_dem, res = TRUE): object 'lidar_dsm' not found
+## [1] TRUE
 ```
 
 
 ## Single layer (or band) vs multi-layer (band geotiffs)
 
 We will discuss this further when we work with RGB (color) imagery in later weeks
-of this course, however geotiffs can also store more than one band or layer. We
+of this course, however `geotiff`s can also store more than one band or layer. We
 can see if a raster object has more than one layer using the `nlayers()` function
-in R.
+in `R`.
 
 
 ```r
 nlayers(lidar_dsm)
-## Error in nlayers(lidar_dsm): object 'lidar_dsm' not found
+## [1] 1
 ```
 
-Now that we better understand the geotiff file format, we will work with some
-other LiDAR raster data layers.
+Now that we better understand the `geotiff` file format, we will work with some
+other lidar raster data layers.

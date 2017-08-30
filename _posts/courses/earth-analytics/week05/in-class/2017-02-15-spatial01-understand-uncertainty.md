@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Lidar Remote sensing data - Understand uncertainty / error associated with height metrics extracted from lidar raster data in R"
+title: "Lidar remote sensing data - Understand uncertainty / error associated with height metrics extracted from lidar raster data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/week-5/understand-uncertainty-lidar/
@@ -25,21 +25,25 @@ topics:
   reproducible-science-and-programming:
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* Be able to list atleast 3 sources of uncertainty / error associated with remote sensing data.
-* Be able to interpret a scatter plot that compares remote sensing values with field measured values to determine how "well" the two metrics compare.
-* Be able to describe 1-3 ways to better understand sources of error associated with a comparison between remote sensing values with field measured values.
+* Be able to list atleast 3 sources of uncertainty / error associated with remote 
+sensing data
+* Be able to interpret a scatter plot that compares remote sensing values with field 
+measured values to determine how "well" the two metrics compare
+* Be able to describe 1-3 ways to better understand sources of error associated 
+with a comparison between remote sensing values with field measured values
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+You will need a computer with internet access to complete this lesson and the data 
+for week 5 of the course.
 
 </div>
 
@@ -64,7 +68,8 @@ So for example let's pretend that we measured the height of a tree 10 times. Eac
 time our tree height measurement may be slightly different? Why? Because maybe
 each time we visually determined the top of the tree to be in a slightly different
 place. Or maybe there was wind that day during measurements that
-caused the tree to shift as we measured it yielding a slightly different height each time. or... what other reasons can you think of that might impact tree height
+caused the tree to shift as we measured it yielding a slightly different height 
+each time. or... what other reasons can you think of that might impact tree height
 measurements?
 
 <figure>
@@ -99,7 +104,7 @@ boxplot(tree_heights$heights,
         col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="90%" />
 
 In the example above, our mean tree height value is towards the center of
 our distribution of measured heights. We might expect that the sample mean of
@@ -117,7 +122,7 @@ hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
      xlab="Height (m)", col="purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="90%" />
 
 ## Measurement accuracy
 
@@ -132,24 +137,34 @@ observations. Accuracy and precision are not always tightly coupled. It is
 possible to have measurements that are very precise but inaccurate, very
 imprecise but accurate, etc.
 
-## Systematic vs Random error
+## Systematic vs random error
 
 **Systematic error:** a systematic error is one that tends to shift all measurements
 in a systematic way. This means that the mean value of a set of measurements is
 consistently displaced or varied in a predictable way, leading to inaccurate observations.
-Causes of systematic errors may be known or unknown but should always be corrected for when present.
-For instance, no instrument can ever be calibrated perfectly, so when a group of measurements systematically differ from the value of a standard reference specimen, an adjustment in the values should be made.
-Systematic error can be corrected for only when the "true value" (such as the value assigned to a calibration or reference specimen) is known.
+Causes of systematic errors may be known or unknown but should always be corrected 
+for when present. For instance, no instrument can ever be calibrated perfectly, 
+so when a group of measurements systematically differ from the value of a standard 
+reference specimen, an adjustment in the values should be made. Systematic error 
+can be corrected for only when the "true value" (such as the value assigned to a 
+calibration or reference specimen) is known.
 
 *Example:* Remote sensing instruments need to be calibrated. For example a laser in
-a lidar system may be tested in a lab to ensure that the distribution of output light energy
-is consistent every time the laser "fires".
+a lidar system may be tested in a lab to ensure that the distribution of output light 
+energy is consistent every time the laser "fires".
 
-**Random error:** is a component of the total error which, in the course of a number of measurements, varies in an unpredictable way. It is not possible to correct for random error.  Random errors can occur for a variety of reasons such as:
+**Random error:** is a component of the total error which, in the course of a number 
+of measurements, varies in an unpredictable way. It is not possible to correct for 
+random error.  Random errors can occur for a variety of reasons such as:
 
-* Lack of equipment sensitivity. An instrument may not be able to respond to or indicate a change in some quantity that is too small or the observer may not be able to discern the change.
-* Noise in the measurement.  Noise is extraneous disturbances that are unpredictable or random and cannot be completely accounted for.
-* Imprecise definition. It is difficult to exactly define the dimensions of a object.  For example, it is difficult to determine the ends of a crack with measuring its length.  Two people may likely pick two different starting and ending points.
+* Lack of equipment sensitivity. An instrument may not be able to respond to or 
+indicate a change in some quantity that is too small or the observer may not be 
+able to discern the change.
+* Noise in the measurement. Noise is extraneous disturbances that are unpredictable 
+or random and cannot be completely accounted for.
+* Imprecise definition. It is difficult to exactly define the dimensions of a object.  
+For example, it is difficult to determine the ends of a crack with measuring its 
+length.  Two people may likely pick two different starting and ending points.
 
 *Example:* random error may be introduced when we measure tree heights as discussed above.
 
@@ -222,18 +237,18 @@ site location on the map below.
 
 At this study site, we have both lidar data - specifically a canopy height model
 that was processed by NEON (National Ecological Observatory Network). We also
-have some "ground truth" data. That is we have measured tree height values collected at a set
-of field site plots by technicians at NEON. We will call these measured values
-*in situ* measurements.
+have some "ground truth" data. That is we have measured tree height values collected 
+at a set of field site plots by technicians at NEON. We will call these measured 
+values *in situ* measurements.
 
 A map of our study plots is below overlaid on top of the canopy height mode.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="90%" />
 
 ### Compare lidar derived height to in situ measurements
 
 We can compare maximum tree height values at each plot to the maximum pixel value
-in our CHM for each plot. To do this, we define the geographic boundary of our plot
+in our `CHM` for each plot. To do this, we define the geographic boundary of our plot
 using a polygon - in the case below we use a circle as the boundary. We then extract
 the raster cell values for each circle and calculate the max value for all of the
 pixels that fall within the plot area.
@@ -253,11 +268,11 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
     </figcaption>
 </figure>
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="90%" />
 
 ### How different are the data?
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="90%" />
 
 ## View interactive scatterplot
 
@@ -272,7 +287,7 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 
 
 <div class="notice--info" markdown="1">
-## Additional Resources
+## Additional resources
 
 The materials on this page were compiled using many internet resources including:
 
