@@ -83,7 +83,6 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 library(rgdal)
 library(raster)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
@@ -457,6 +456,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```

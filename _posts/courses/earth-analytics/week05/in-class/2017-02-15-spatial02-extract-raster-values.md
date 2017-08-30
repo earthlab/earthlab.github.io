@@ -51,7 +51,6 @@ You will need a computer with internet access to complete this lesson and the da
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(ggplot2)
 library(dplyr)
 

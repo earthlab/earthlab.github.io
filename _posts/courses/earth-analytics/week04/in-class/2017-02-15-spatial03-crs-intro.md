@@ -176,7 +176,6 @@ the central meridian on the globe (0,0).
 library(rgdal)
 library(ggplot2)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(raster)
 
 #install.packages('sf')

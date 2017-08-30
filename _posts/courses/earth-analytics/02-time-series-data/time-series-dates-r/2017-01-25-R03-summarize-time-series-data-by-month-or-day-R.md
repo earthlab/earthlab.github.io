@@ -3,7 +3,7 @@ layout: single
 title: "Summarize time series data by month or year using tidyverse pipes in R"
 excerpt: "Learn how to summarize time series data by day, month or year with Tidyverse pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-08-29'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/

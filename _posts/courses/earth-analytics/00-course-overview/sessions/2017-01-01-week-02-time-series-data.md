@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & Time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-08-29'
+modified: '2017-08-30'
 week-landing: 2
 week: 2
 sidebar:
@@ -181,13 +181,13 @@ formats by Wed 1 February 2017 @ NOON**
 
 ## Homework plots
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-solution-plot-1-1.png" title="homework plot one" alt="homework plot one" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-solution-plot-1-1.png" title="homework plot one" alt="homework plot one" width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot-2-1.png" title="homework plot 2" alt="homework plot 2" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot-2-1.png" title="homework plot 2" alt="homework plot 2" width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot3-1.png" title="homework plot 3" alt="homework plot 3" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot3-1.png" title="homework plot 3" alt="homework plot 3" width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot4-1.png" title="homework plot 4" alt="homework plot 4" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot4-1.png" title="homework plot 4" alt="homework plot 4" width="90%" />
 
 
 

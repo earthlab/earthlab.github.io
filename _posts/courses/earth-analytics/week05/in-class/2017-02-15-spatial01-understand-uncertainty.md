@@ -212,9 +212,6 @@ the actual heights of the trees on the ground?
 
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 ## Study site location
 
