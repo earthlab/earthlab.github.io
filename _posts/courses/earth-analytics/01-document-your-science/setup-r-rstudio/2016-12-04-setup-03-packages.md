@@ -2,12 +2,12 @@
 layout: single
 authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
 category: [courses]
-title: 'Install & use packages in R'
+title: 'Install & Use Packages in R'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn what a package is in R and how to install packages to work with your data.'
 dateCreated: 2016-12-12
 modified: '2017-08-30'
-nav-title: 'Install packages'
+nav-title: 'Install R packages'
 week: 1
 sidebar:
   nav:
@@ -23,32 +23,27 @@ topics:
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
-##  Install a package
-
-In this tutorial, we will walk you through installing the `rmarkdown`, `knitr`
-and `ggplot2` packages for `R`.
-
-
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
-* Know how to install an `R` package using `Rstudio`
-* Be able to explain what a package is in `R`
+* Know how to install an `R` package using `Rstudio`.
+* Be able to explain what a package is in `R`.
 
 </div>
 
-## What is a package?
+## What is a Package?
 
 A package, in `R` is a bundle of pre-built functionality. Think of it like a
 toolbox. Except for the tools may do things like calculate a mathematical function
 e.g. `sum` or create a plot.
 
-## Install a package
+## Install a Package
 
 In `R` we install packages using the `install.packages("packageNameHere")` function. Let's get
-`R Markdown` and `knitr` installed so we can use them in our exercises. In the `R`
+`rmarkdown`, `knitr` and several data manipulation packages installed that we will
+use in the upcoming weeks. In the `R`
 console within `Rstudio`, use the code below to install packages individually.
 
 
@@ -67,11 +62,12 @@ install.packages("ggplot2")
 install.packages("dplyr")
 ```
 
-<i class="fa fa-star"></i> **Data tip** You can install as many packages as you want in one string of code as follows
+<i class="fa fa-star"></i> **Data Tip** You can install as many packages as you want in one string of code as follows
 `install.packages(c("name-one", "name-two"))`
 {: .notice--success}
 
-## Call package in R
+
+## Call Package in R
 
 Once the package is installed, to use it, you call the package at the top of
 your script like this:
@@ -86,8 +82,7 @@ library(ggplot2)
 Note that you don't need to use quotes around the package name when you call it
 using the `library()` function. But you do need the quotes when you install a package.
 
-
-In our case, the `knitr` and `R Markdown` packages load buttons and options within
+In our case, the `knitr` and `rmarkdown` packages load buttons and options within
 the `Rstudio` environment that we can use. Thus we won't have to call these two
 packages in our code in this lesson. However, when we use `ggplot2` to plot,
 we will have to call it. We will see how calling a package works in a later set
@@ -95,8 +90,8 @@ of lessons.
 
 ### What does loading a library do?
 
-When you load a library in R, you are telling R to make all of the FUNCTIONS
-availbale in the package (think of functions like tools that perform tasks - for
+When you load a library in `R`, you are telling `R` to make all of the FUNCTIONS
+available in the package (think of functions like tools that perform tasks - for
 example `plot()`) available to you in your code.
 
 
@@ -111,24 +106,10 @@ from including:
 * and more
 
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data tip** While some `R` packages are just fine to use. Keep in mind that not all `R` packages are secure. <a href="https://ropensci.org/blog/blog/2017/07/25/notary" target="_blank">Learn more. </a>
-{: .notice--success }
+Important. Note all `R` packages are secure. <a href="https://ropensci.org/blog/blog/2017/07/25/notary" target="_blank">Learn more. </a>
 
 ### Advanced - install multiple packages at once
-You can also install multiple `R` packages at the same time. To do that, you
-send the `install.packages()` function a vector or list of package names.
-
-A vector is a list of objects. the syntax for a vector is:
-
-`c("object1", "object2")`
-
-you can also store numbers in a vector.
-
-`c(1, 5, 74)`
-
-So if we want to install `rmarkdown`, `ggplot2` and `dplyr` all at once,
-we do this:
-
+You can also install multiple R packages at the same time. To do that,
 
 
 ```r
