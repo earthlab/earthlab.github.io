@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/open-lidar-raster-r/
@@ -41,7 +41,7 @@ topics:
 After completing this tutorial, you will be able to:
 
 * Open a lidar raster dataset in `R`
-* List and define 3 spatial attributes of a raster dataset: extent, crs and resolution
+* List and define 3 spatial attributes of a raster dataset: extent, `crs` and resolution
 * Identify the resolution of a raster in `R`
 * Plot a lidar raster dataset in `R`
 
@@ -55,7 +55,7 @@ If you have not already downloaded the week 3 data, please do so now.
 </div>
 
 In the last lesson, we reviewed the basic principles behind what a lidar raster
-dataset is in R and how point clouds are used to derive the raster. In this lesson, we
+dataset is in `R` and how point clouds are used to derive the raster. In this lesson, we
 will learn how to open and plot a lidar raster dataset in `R`. We will also discuss
 3 key attributes of a raster dataset:
 
@@ -96,13 +96,13 @@ Note that we use the `plot()` function to plot the data. The function argument
 ```r
 # open raster data
 lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
-## Error in plot(lidar_dem, main = "Digital Elevation Model - Pre 2013 Flood"): object 'lidar_dem' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster01-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="90%" />
 
 If we zoom in on a small section of the raster, we can see the individual pixels
 that make up the raster. Each pixel has one value associated with it. In this
@@ -118,8 +118,9 @@ plot(lidar_dem,
   xlim=c(473000, 473030), # define the x limits
   ylim=c(4434000, 4434030), # define y limits for the plot
      main="Lidar Raster - Zoomed into one small region")
-## Error in plot(lidar_dem, xlim = c(473000, 473030), ylim = c(4434000, 4434030), : object 'lidar_dem' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster01-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="90%" />
 
 Next, let's discuss some of the important spatial attributes associated with raster
 data.
@@ -127,7 +128,7 @@ data.
 ## 1. Coordinate reference system
 
 The coordinate reference system (`CRS`) of a spatial object tells `R` where
-the raster is located in geographic space. It also tells R what method should
+the raster is located in geographic space. It also tells `R` what method should
 be used to “flatten” or project the raster in geographic space.
 
 
@@ -162,13 +163,16 @@ method. We can assign this string to an `R` object too.
 ```r
 # view resolution units
 crs(lidar_dem)
-## Error in crs(lidar_dem): object 'lidar_dem' not found
+## CRS arguments:
+##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 
 # assign crs to an object (class) to use for reprojection and other tasks
 myCRS <- crs(lidar_dem)
-## Error in crs(lidar_dem): object 'lidar_dem' not found
 myCRS
-## Error in eval(expr, envir, enclos): object 'myCRS' not found
+## CRS arguments:
+##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 ```
 
 The `CRS` string for our `lidar_dem` object tells us that our data are in the UTM
@@ -192,8 +196,8 @@ begins with a `+` sign.
 We'll focus on the first few components of the `CRS` in this tutorial.
 
 * `+proj=utm` The projection of the dataset. Our data are in Universal
-Transverse Mercator (UTM).
-* `+zone=18` The UTM projection divides up the world into zones, this element
+Transverse Mercator (`UTM`).
+* `+zone=18` The `UTM` projection divides up the world into zones, this element
 tells you which zone the data is in. Harvard Forest is in Zone 18.
 * `+datum=WGS84` The datum was used to define the center point of the
 projection. Our raster uses the `WGS84` datum.
@@ -263,9 +267,9 @@ using the `crs()` function which we will use next.
 ```r
 # what is the x and y resolution for our raster data?
 xres(lidar_dem)
-## Error in xres(lidar_dem): object 'lidar_dem' not found
+## [1] 1
 yres(lidar_dem)
-## Error in yres(lidar_dem): object 'lidar_dem' not found
+## [1] 1
 ```
 
 <figure>
@@ -288,7 +292,9 @@ string.
 ```r
 # view coordinate reference system
 crs(lidar_dem)
-## Error in crs(lidar_dem): object 'lidar_dem' not found
+## CRS arguments:
+##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 ```
 
 Notice this string contains an element called **units=m**. This means the units

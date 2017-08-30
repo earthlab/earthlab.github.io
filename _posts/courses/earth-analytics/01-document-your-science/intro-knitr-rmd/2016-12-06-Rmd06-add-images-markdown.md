@@ -3,7 +3,7 @@ layout: single
 title: "Add images to an R Markdown report"
 excerpt: "This lesson covers how to use markdown to add images to a report. It also discusses good file management practices associated with saving images within your project directory to avoid losing them if you have to go back and work on the report in the future."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/add-images-to-rmarkdown-report/
@@ -28,8 +28,8 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Add an image to an R Markdown report
-* Describe the ideal location to store an image associated with an r markdown report
+* Add an image to an `R markdown` report
+* Describe the ideal location to store an image associated with an `R markdown` report
 so that `knitr` can find it when it renders a file
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -46,18 +46,18 @@ directory with it.
 
 ## Add an image to your report
 
-You can add images to an R Markdown report using markdown syntax as follows:
+You can add images to an `R Markdown` report using markdown syntax as follows:
 
 ```md
 ![alt text here](path-to-image-here)
 ```
 
-However, when you knit the report, R will only be able to find your image if you
+However, when you knit the report, `R` will only be able to find your image if you
 have placed it in the right place - RELATIVE to your `.Rmd` file. This is where
 good file management becomes extremely important.
 
 To make this simple, let's set up a directory named **images** in your earth-analytics
-project / working directory. If your .Rmd file is located in the root of this directory
+project / working directory. If your `.Rmd` file is located in the root of this directory
 and all images that you want to include in your report are located in the
 images directory within the earth-analytics directory, then the path that you
 would use for each image would look like:

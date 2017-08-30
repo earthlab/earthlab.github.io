@@ -9,7 +9,7 @@ permalink: /courses/earth-analytics/document-your-science/google-earth-time-seri
 nav-title: 'Google Earth time series'
 module-nav-title: 'Use data for science'
 dateCreated: 2016-12-06
-modified: '2017-08-17'
+modified: '2017-08-30'
 module-title: 'Understand Disturbance With Data - Flooding and Erosion'
 module-description: 'This module uses time series data to explore the impacts of a flood. Learn how to use Google Earth imagery, NOAA precipitation data and
 USGS stream flow data to explore the 2013 Colorado floods.'
@@ -35,7 +35,7 @@ to explore changes in the landscape associated with the 2013 Colorado floods.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
 * Use the timeline function in Google Earth to view time series imagery data
@@ -97,7 +97,7 @@ location of your downloaded file (`~Documents/data/co-flood/locations`) and open
 * Once you have the `.kmz` file open, notice it is listed in the **Temporary Places** section
 of the  `places` window. It should automatically zoom you into to an area in North
 Boulder, Colorado. If it doesn't double click on the text `Locations of Significant Damage`.
-* Click on the show historical imagery button in google earth
+* Click on the show historical imagery button in Google Earth
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/document-your-science/intro-co-floods/google-earth-time.png">
@@ -111,8 +111,8 @@ Boulder, Colorado. If it doesn't double click on the text `Locations of Signific
 * When you click on the show historical imagery, a slider will appear in the upper
 LEFT hand corner of your window. Scroll back and forth through time to get used
 to the slider
-* Finally, double click on one of the thumbtacks from locations of significant
-damage file. Scroll to 10/2012 and then to 10/2013. Do you see any differences?
+* Finally, double click on one of the thumbtacks from `Locations of Significant Damage`.
+Scroll to 10/2012 and then to 10/2013. Do you see any differences?
 * Check out the other thumbtack. What differences do you see?
 
 

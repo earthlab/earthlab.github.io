@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Plot spatial data and create custom legends in R"
 excerpt: "In this lesson we break down the steps required to create a custom legend for spatial data in R. We discuss creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/week-4/r-create-custom-legend-with-base-plot/
@@ -27,26 +27,26 @@ topics:
 
 
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* Add a custom legend to a map in `R`.
-* Plot a vector dataset by attributes in `R`.
+* Add a custom legend to a map in `R`
+* Plot a vector dataset by attributes in `R`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download week 5 data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
-## Plot Lines by Attribute Value
+## Plot lines by attribute value
 To plot vector data with the color of each objected determined by it's associated attribute values, the
 attribute values must be class = `factor`. A **factor** is similar to a category
 - you can group vector objects by a particular category value - for example you
@@ -55,7 +55,7 @@ a determined *order*.
 
 By default, `R` will import spatial object attributes as `factors`.
 
-<i class="fa fa-star"></i> **Data Tip:** If our data attribute values are not
+<i class="fa fa-star"></i> **Data tip:** If our data attribute values are not
 read in as factors, we can convert the categorical
 attribute values using `as.factor()`.
 {: .notice--success}
@@ -86,8 +86,8 @@ unique(sjer_roads$RTTYP)
 ```
 
 It looks like we have some missing values in our road types. We want to plot all
-road types even those that are NA. Let's change the roads with an `RTTYP` attribute of
-NA to "unknown".
+road types even those that are `NA`. Let's change the roads with an `RTTYP` attribute of
+`NA` to "unknown".
 
 Following, we can convert the road attribute to a factor.
 
@@ -160,7 +160,7 @@ plot(sjer_roads,
 ## Error in plot(sjer_roads, col = roadColors, lwd = 2, main = "Madera County Roads"): object 'sjer_roads' not found
 ```
 
-### Adjust Line Width
+### Adjust line width
 We can also adjust the width of our plot lines using `lwd`. We can set all lines
 to be thicker or thinner using `lwd=`.
 
@@ -174,7 +174,7 @@ plot(sjer_roads,
 ## Error in plot(sjer_roads, col = roadColors, main = "Madera County Roads\n All Lines Thickness=6", : object 'sjer_roads' not found
 ```
 
-### Adjust Line Width by Attribute
+### Adjust line width by attribute
 
 If we want a unique line width for each factor level or attribute category
 in our spatial object, we can use the same syntax that we used for colors, above.
@@ -228,12 +228,12 @@ Create a plot of roads using the following line thicknesses:
 ## Error in plot(sjer_roads, col = roadColors, main = "Madera County Roads \n Line width varies by Type Attribute Value", : object 'sjer_roads' not found
 ```
 
-<i class="fa fa-star"></i> **Data Tip:** Given we have a factor with 4 levels,
+<i class="fa fa-star"></i> **Data tip:** Given we have a factor with 4 levels,
 we can create an vector of numbers, each of which specifies the thickness of each
 feature in our `SpatialLinesDataFrame` by factor level (category): `c(6,4,1,2)[sjer_roads$RTTYP]`
 {: .notice--success}
 
-## Add Plot Legend
+## Add plot legend
 We can add a legend to our plot too. When we add a legend, we use the following
 elements to specify labels and colors:
 
@@ -319,13 +319,13 @@ legend("bottomright",
 ## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
 ```
 
-<i class="fa fa-star"></i> **Data Tip:** You can modify the defaul R color palette
+<i class="fa fa-star"></i> **Data tip:** You can modify the defaul R color palette
 using the palette method. For example `palette(rainbow(6))` or
 `palette(terrain.colors(6))`. You can reset the palette colors using
 `palette("default")`!
 {: .notice--success}
 
-##  Plot Lines by Attribute
+##  Plot lines by attribute
 
 Create a plot that emphasizes only roads designated as C or S (County or State).
 To emphasize these types of roads, make the lines that are C or S, THICKER than
@@ -457,7 +457,7 @@ legend("bottomright",
 ```
 
 Next, let's try to plot our roads on top of the plot locations. Then let's create
-a custom legend that contains both lines and points. NOTE: in this example i've
+a custom legend that contains both lines and points. NOTE: in this example I've
 fixed the projection for the roads layer and cropped it! You will have to do the same before
 this code will work.
 
@@ -511,8 +511,8 @@ legend("bottomright",
 
 Next we have to tell `R`, which symbols are lines and which are point symbols. We
 can do that using the lty argument. We have 3 unique point symbols and 4 unique
-line symbols. We can include a NA for each element that should not be a line in
-the lty argument:
+line symbols. We can include a `NA` for each element that should not be a line in
+the `lty` argument:
 
 `lty=c(NA, NA, NA, 1, 1, 1, 1)`
 
@@ -552,7 +552,7 @@ legend("bottomright",
 
 ## Force the legend to plot next to your plot
 
-Refining the look of your plots takes a bit of patience in R, but it can be
+Refining the look of your plots takes a bit of patience in `R`, but it can be
 done! Play with the code below to see if you can make your legend plot NEXT TO
 rather than on top of your plot.
 
@@ -562,7 +562,7 @@ The steps are:
 2. Set the `xpd=T` argument in your legend to enforce plotting outside of the plot extent and
 3. OPTIONAL:  adjust the plot **PAR**ameters using `par()`. You can set the **mar**gin
 of your plot using `mar=`. This provides extra space on the right (if you'd like your legend to plot on the right) for your legend and avoids things being "chopped off". Provide the `mar=` argument in the
-format: `c(bottom, left, top, right)`. The code below is telling r to add 7 units
+format: `c(bottom, left, top, right)`. The code below is telling `R` to add 7 units
 of padding on the RIGHT hand side of our plot. The default units are INCHES.
 
 **IMPORTANT:** be cautious with margins. Sometimes they can cause problems when you
@@ -616,12 +616,12 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
 
 
 
-Let's use the margin parameter to clean things up. Also notice i'm using the
+Let's use the margin parameter to clean things up. Also notice I'm using the
 AOI extent layer to create a "box" around my plot. Now things are starting to
 look much cleaner!
 
 I've also added some "fake" legend elements to create subheadings like we
-might add to a map legend in QGIS or ArcGIS.
+might add to a map legend in `QGIS` or `ArcGIS`.
 
 `legend = c("Plots", levels(sjer_plots$plot_type), "Road Types", levels(sjer_roads$RTTYP))`
 

@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Work With Date - Time formats in R - Time Series Data "
+title: "Work with date - time formats in R - time series data "
 excerpt: "Learn how to work with date and time fields in R."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-08-29'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/date-class-in-r/
@@ -36,12 +36,12 @@ plotting and working with time series data in R.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 At the end of this activity, you will be able to:
 
 * Convert a column in a `data.frame` containing dates / times to a date/time object that can be used in `R`.
-* Describe how converting data containing dates to the class 'date' in R makes it easier to  plot data
+* Be able to describe how we can use the data class 'date' to create easier to read time series plots in `R`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -51,7 +51,7 @@ directory with it.
 
 * [How to Setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
+* [Intro to the R & RStudio interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
 
 </div>
 
@@ -59,7 +59,7 @@ directory with it.
 In this tutorial, we will learn how to convert data that contain dates and times
 into a date / time format in `R`.
 
-First let's revisit the `boulder_precip` data that we've been working with in
+First let's revisit the `boulder_precip` data variable that we've been working with in
 this module.
 
 
@@ -100,7 +100,7 @@ ggplot(data=boulder_precip, aes(x = DATE, y = PRECIP)) +
     subtitle = "Boulder, Colorado 2013")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R01-work-with-dates-in-R/ggplot-plot-1.png" title="ggplot of precip data" alt="ggplot of precip data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R01-work-with-dates-in-R/ggplot-plot-1.png" title="ggplot of precip data" alt="ggplot of precip data" width="90%" />
 
 Notice when we plot the data, the x axis is "messy". It would be easier to read
 if we only had ticks on the x axis for dates incrementally - every few weeks. Or
@@ -140,8 +140,7 @@ A `data.frame` column can only store on type. This means that a column can not
 store both numbers and strings. If a column contains a list of numbers and one
 letter, then the entire column will stored as a `chr` (character).
 
-Storing
-variables using different `classes` is a strategic decision by `R` (and
+Storing variables using different `classes` is a strategic decision by `R` (and
 other programming languages) that optimizes processing and storage. It allows:
 
 * data to be processed more quickly & efficiently.
@@ -150,7 +149,7 @@ other programming languages) that optimizes processing and storage. It allows:
 Remember, that we also discussed classes during class in these lessons: [vectors in R - data classes](/courses/earth-analytics/week-2/work-with-data-types-r/)
 
 ## Dates stored as characters
-Note that the Date column in our data.frame is of class character (`chr`). This
+Note that the Date column in our `data.frame` is of class character (`chr`). This
 means that `R`  is reading it in as letters and numbers rather than dates that
 contain a value that is sequential.
 
@@ -233,7 +232,7 @@ ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP)) +
            x = "Date", y = "Daily Precipitation (Inches)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R01-work-with-dates-in-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R01-work-with-dates-in-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="90%" />
 
 Now, our plot looks a lot nicer!
 

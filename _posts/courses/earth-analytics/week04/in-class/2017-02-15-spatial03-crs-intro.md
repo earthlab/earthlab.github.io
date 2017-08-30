@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "GIS in R: Introduction to Coordinate Reference Systems in R "
+title: "GIS in R: Introduction to coordinate reference systems in R "
 excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/week-4/intro-to-coordinate-reference-systems/
@@ -20,21 +20,21 @@ topics:
   reproducible-science-and-programming:
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 
 
 This lesson covers the key spatial attributes that are needed to work with
-spatial data including: Coordinate Reference Systems (CRS), Extent and spatial resolution.
+spatial data including: Coordinate Reference Systems (`CRS`), extent and spatial resolution.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
 * Be able to describe what a Coordinate Reference System (`CRS`) is
-* Be able to list the steps associated with plotting 2 datasets stored using different coordinate reference systems.
+* Be able to list the steps associated with plotting 2 datasets stored using different coordinate reference systems
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -46,15 +46,15 @@ You will need a computer with internet access to complete this lesson and the da
 
 ## Intro to coordinate reference systems
 
-In summary - a coordinate reference system (CRS) refers to the way in which spatial data that represent
+In summary - a coordinate reference system (`CRS`) refers to the way in which spatial data that represent
 the earth's surface (which is round / 3 dimensional) are flattened so that we can "Draw" them
 on a 2-dimensional surface. However each using a different (sometimes) mathematical approach to
 performing the flattening resulting in different coordinate system grids (discussed
 below). These approaches to flattening the data are specifically designed to optimize
 the accuracy of the data in terms of length and area (more on that later too).
 
-In this lesson we will explore what a CRS is. And how it can impact your data
-when you are working with it in a tool like R (or any other tool).
+In this lesson we will explore what a `CRS` is. And how it can impact your data
+when you are working with it in a tool like `R` (or any other tool).
 
 ***
 
@@ -104,13 +104,12 @@ consists of an X and a Y value located within a 2 (or more) -dimensional space.
 </figure>
 
 While the above coordinate system is 2-dimensional, we live on a 3-dimensional
-earth that happens to be "round". To define the location of objects on the earth, which is round, we need
-a coordinate system that adapts to the Earth's shape. When we make maps on paper
-or on a flat computer screen, we move from a 3-Dimensional space (the globe) to
-a 2-Dimensional space (our computer
-screens or a piece of paper). The components of the CRS define how the
-"flattening" of data that exists in a 3-D globe space. The CRS also defines the
-the coordinate system itself.
+earth that happens to be "round. To define the location of objects on the earth, 
+which is round, we need a coordinate system that adapts to the Earth's shape. 
+When we make maps on paper or on a flat computer screen, we move from a 3-Dimensional 
+space (the globe) to a 2-Dimensional space (our computer screens or a piece of paper). 
+The components of the `CRS` define how the "flattening" of data that exists in a 3-D 
+globe space. The `CRS` also defines the the coordinate system itself.
 
 <figure>
 	<a href="http://ayresriverblog.com/wp-content/uploads/2011/05/image.png">
@@ -126,37 +125,37 @@ the coordinate system itself.
 coordinate-based local, regional or global system used to locate geographical
 entities. -- Wikipedia
 
-## The Components of a CRS
+## The components of a CRS
 
 The coordinate reference system is made up of several key components:
 
-* **Coordinate System:** the X, Y grid upon which our data is overlayed and how we define where a point is located in space.
+* **Coordinate system:** the X, Y grid upon which our data is overlayed and how 
+we define where a point is located in space.
 * **Horizontal and vertical units:** The units used to define the grid along the
 x, y (and z) axis.
-* **Datum:** A modeled version of the shape of the earth which defines the
-origin used to place the coordinate system in space. We will explain this further,
-below.
+* **Datum:** A modeled version of the shape of the earth which defines the origin 
+used to place the coordinate system in space. We will explain this further below.
 * **Projection Information:** the mathematical equation used to flatten objects
 that are on a round surface (e.g. the earth) so we can view them on a flat surface
 (e.g. our computer screens or a paper map).
 
-## Why CRS is Important
+## Why CRS is important
 
 It is important to understand the coordinate system that your data uses -
 particularly if you are working with different data stored in different coordinate
 systems. If you have data from the same location that are stored in different
 coordinate reference systems, **they will not line up in any GIS or other program**
-unless you have a program like ArcGIS or QGIS that supports **projection on the
+unless you have a program like `ArcGIS` or `QGIS` that supports **projection on the
 fly**. Even if you work in a tool that supports projection on the fly, you will
 want to all of your data in the same projection for performing analysis and processing
 tasks.
 
-<i class="fa fa-star"></i> **Data Tip:** Spatialreference.org provides an
+<i class="fa fa-star"></i> **Data tip:** Spatialreference.org provides an
 excellent <a href="http://spatialreference.org/ref/epsg/" target="_blank">online
 library of CRS information.</a>
 {: .notice--success}
 
-### Coordinate System & Units
+### Coordinate system & Units
 
 We can define a spatial location, such as a plot location, using an x- and a
 y-value - similar to our cartesian coordinate system displayed in the figure,
@@ -177,7 +176,6 @@ the central meridian on the globe (0,0).
 library(rgdal)
 library(ggplot2)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(raster)
 
 #install.packages('sf')
@@ -260,13 +258,12 @@ mapLocations
 ## Error in eval(expr, envir, enclos): object 'mapLocations' not found
 ```
 
-## Geographic CRS - The Good & The Less Good
+## Geographic CRS - the good & the less good
 
 Geographic coordinate systems in decimal degrees are helpful when we need to
-locate places on the Earth. However, latitude and longitude
-locations are not located using uniform measurement units. Thus, geographic
-CRSs are not ideal for measuring distance. This is why other projected `CRS`
-have been developed.
+locate places on the Earth. However, latitude and longitude locations are not 
+located using uniform measurement units. Thus, geographic 'CRS's are not ideal for 
+measuring distance. This is why other projected `CRS` have been developed.
 
 
 <figure>
@@ -335,7 +332,7 @@ to first convert the points to thenew projection - a process called
 in `R`.
 
 Our points are stored in a data.frame which is not a spatial object. Thus, we will
-need to convert that data.frame to a spatial data.frame to use spTransform().
+need to convert that `data.frame` to a spatial `data.frame` to use `spTransform()`.
 
 
 ```r
@@ -367,7 +364,7 @@ loc_spdf_rob <- spTransform(loc_spdf, CRSobj = CRS("+proj=robin"))
 
 To make our data place nicely with ggplot, we need to once again convert to a
 dataframe. We can do that by extracting the `coordinates()` and turning that into
-a data.frame using as.data.frame().
+a `data.frame` using `as.data.frame()`.
 
 
 ```r
@@ -388,7 +385,7 @@ newMap
 ## Error in eval(expr, envir, enclos): object 'newMap' not found
 ```
 
-## Compare Maps
+## Compare maps
 
 Both of the plots above look visually different and also use a different
 coordinate system. Let's look at both, side by side, with the actual **graticules**
@@ -446,7 +443,7 @@ latLongMap <- latLongMap +
 ## Error in eval(expr, envir, enclos): object 'latLongMap' not found
 ```
 
-Below, we reproject our graticules and the bounding box to the robinson projection.
+Below, we reproject our graticules and the bounding box to the Robinson projection.
 
 
 ```r
@@ -480,7 +477,7 @@ finalRobMap <- finalRobMap + geom_point(data=loc_rob_df,
 ```
 
 Below we plot the two maps on top of each other to make them easier to compare.
-To do this, we use the `grid.arrange()` function from the gridExtra package.
+To do this, we use the `grid.arrange()` function from the `gridExtra` package.
 
 
 ```r
@@ -491,26 +488,25 @@ grid.arrange(latLongMap, finalRobMap)
 ```
 
 
-## Why Multiple CRS?
+## Why multiple CRS?
 
-You may be wondering, why bother with different CRSs if it makes our
+You may be wondering, why bother with different `CRS`s if it makes our
 analysis more complicated? Well, each `CRS` is optimized to best represent the:
 
 * shape and/or
 * scale / distance and/or
 * area
 
-of features in the data. And no one CRS is great at optimizing all three elements: shape, distance AND
-area. Some CRSs are optimized for shape, some are optimized for distance and
-some are optimized for area. Some
-CRSs are also optimized for particular regions -
+of features in the data. And no one `CRS` is great at optimizing all three elements: shape, distance AND
+area. Some `CRS`s are optimized for shape, some are optimized for distance and
+some are optimized for area. Some `CRS`s are also optimized for particular regions -
 for instance the United States, or Europe. Discussing `CRS` as it optimizes shape,
 distance and area is beyond the scope of this tutorial, but it's important to
 understand that the `CRS` that you chose for your data, will impact working with
 the data.
 
-We will discuss some of the differences between the projected UTM CRS and geographic
-WGS84 in the next lesson.
+We will discuss some of the differences between the projected `UTM` `CRS` and geographic
+`WGS84` in the next lesson.
 
 <div class="notice--warning" markdown="1">
 
@@ -531,13 +527,13 @@ the graphic below optimize?
 
 
 
-## Geographic vs. Projected CRS
+## Geographic vs. projected CRS
 
 The above maps provide examples of the two main types of coordinate systems:
 
 1. **Geographic coordinate systems:** coordinate systems that span the entire
 globe (e.g. latitude / longitude).
-2. **Projected coordinate Systems:** coordinate systems that are localized to
+2. **Projected coordinate systems:** coordinate systems that are localized to
 minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane)
 
 We will discuss these two coordinate reference systems types in more detail
@@ -545,7 +541,7 @@ in the next lesson.
 
 <div class="notice--info" markdown="1">
 
-## Additional Resources
+## Additional resources
 
 * Read more on coordinate systems in the
 <a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" data-proofer-ignore=''>

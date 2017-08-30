@@ -3,7 +3,7 @@ layout: single
 title: "How lidar point clouds are converted to raster data formats - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/week-3/lidar-raster-data/
@@ -51,7 +51,7 @@ will learn how a point cloud is converted into a gridded or raster data format.
 Remember that lidar is an active remote sensing system that records reflected
 or returned light energy. A discrete return lidar system, records the strongest
 reflections of light as discrete or individual points. Each point has an associated
-X, Y and Z value associated with it. It also has an intensity which represents
+`X`, `Y` and `Z` value associated with it. It also has an intensity which represents
 the amount of reflected light energy that returned to the sensor.
 
 <figure>
@@ -172,4 +172,4 @@ We will not be talking about interpolation in today's class.
 </figure>
 
 
-In the next lesson, we will learn how to open a lidar raster dataset in R.
+In the next lesson, we will learn how to open a lidar raster dataset in `R`.

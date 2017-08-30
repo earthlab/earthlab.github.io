@@ -3,7 +3,7 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/week-4/r-make-maps-with-ggplot-in-R/
@@ -24,22 +24,22 @@ topics:
 
 <!--# remove module-type: 'class' so it doesn't render live -->
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* Create a map in `R` using `ggplot()`.
-* Plot a vector dataset by attributes in `R` using `ggplot()`.
+* Create a map in `R` using `ggplot()`
+* Plot a vector dataset by attributes in `R` using `ggplot()`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download week 5 data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -51,11 +51,11 @@ instead we will use `ggplot()`. `ggplot` is a powerful tool for making custom ma
 Compared to base plot, you will find creating custom legends to be simpler and cleaner,
 and creating nicely formatted themed maps to be simpler as well.
 
-However, we will have to convert our data from spatial (`sp`) objects to data.frames
-to use ggplot. The process isn't bad once you have the steps down! Let's check
+However, we will have to convert our data from spatial (`sp`) objects to `data.frame`s
+to use `ggplot`. The process isn't bad once you have the steps down! Let's check
 it out.
 
-<i class="fa fa-star"></i> **Data Tip:** If our data attribute values are not
+<i class="fa fa-star"></i> **Data tip:** If our data attribute values are not
 read in as factors, we can convert the categorical
 attribute values using `as.factor()`.
 {: .notice--success}
@@ -71,21 +71,16 @@ library(raster)
 library(rgdal)
 library(ggplot2)
 library(broom)
-## Error in library(broom): there is no package called 'broom'
 library(RColorBrewer)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(dplyr)
 library(ggsn)
-## Error in library(ggsn): there is no package called 'ggsn'
 # use the cowplot library to create cleaner ggplot maps - we will load this at the very end so you can see how it works and what it does! Don't load it just yet.
 # library(cowplot)
 # note that you don't need to call maptools to run the code below but it needs to be installed.
 library(maptools)
-## Error in library(maptools): there is no package called 'maptools'
 # to add a north arrow and a scale bar to the map
 library(ggsn)
-## Error in library(ggsn): there is no package called 'ggsn'
 options(stringsAsFactors = FALSE)
 ```
 
@@ -117,8 +112,8 @@ plot(sjer_roads,
 
 
 It looks like we have some missing values in our road types. We want to plot all
-road types even those that are NA. Let's change the roads with an `RTTYP` attribute of
-NA to "unknown".
+road types even those that are `NA`. Let's change the roads with an `RTTYP` attribute
+of `NA` to "unknown".
 
 
 ```r
@@ -136,14 +131,15 @@ without converting them. However `ggplot()` requires a `data.frame`. Thus we wil
 need to convert our data. We can convert he data using the `tidy()` function from
 the broom package in `R`.
 
-<i class="fa fa-star"></i> **Data Tip:** the tidy function used to be the fortify
+<i class="fa fa-star"></i> **Data tip:** the tidy function used to be the fortify
 function! The code for the `tidy()` function is exactly the same as the `fortify()` code.
 {: .notice--success}
 
 Below we convert the data by:
 
 1. Calling the `tidy()` function on our `sjer_roads` spatial object
-1. Adding an id field to the spatial object data frame which represents each unique feature  (each road line) in the data
+1. Adding an id field to the spatial object data frame which represents each unique
+feature (each road line) in the data
 1. Joining the table from the spatial object to the data.frame output of the `tidy()` function
 
 Let's convert our spatial object to a `data.frame`.
@@ -152,7 +148,7 @@ Let's convert our spatial object to a `data.frame`.
 ```r
 # convert spatial object to a ggplot ready data frame
 sjer_roads_df <- tidy(sjer_roads, region = "id")
-## Error in tidy(sjer_roads, region = "id"): could not find function "tidy"
+## Error in tidy(sjer_roads, region = "id"): object 'sjer_roads' not found
 # make sure the shapefile attribute table has an id column
 sjer_roads$id <- rownames(sjer_roads@data)
 ## Error in rownames(sjer_roads@data): object 'sjer_roads' not found
@@ -166,8 +162,11 @@ sjer_roads_df <- left_join(sjer_roads_df,
 Once we've done this, we are ready to plot with `ggplot()`. Note the following when
 we plot.
 
-1. The x and y values are long and lat. These are columns that the `tidy()` function generates from a spatial object.
-1. The group function allows `R` to figure out what vertices below to which feature. So in this case we are plotting lines - each of which consist of 2 or more vertices that are connected.
+1. The x and y values are long and lat. These are columns that the `tidy()` function
+generates from a spatial object.
+1. The group function allows `R` to figure out what vertices below to which feature.
+So in this case we are plotting lines - each of which consist of 2 or more vertices
+that are connected.
 
 
 ```r
@@ -184,7 +183,7 @@ for categories or types to the color  = argument.
 Below we set the colors to `color = factor(RTTYP)`. Note that we are coercing the
 attribute `RTTYP` to a factor. You can think of this as temporarily grouping the
 data by the `RTTYP` category for plotting purposes only. We aren't modifying the
-data we are just telling ggplot that the data are categorical with explicit groups.
+data we are just telling `ggplot` that the data are categorical with explicit groups.
 
 
 ```r
@@ -197,11 +196,11 @@ labs(color = 'Road Types', # change the legend type
 ## Error in fortify(data): object 'sjer_roads_df' not found
 ```
 
-We can customize the colors on our map too. Below we do a few things
+We can customize the colors on our map too. Below we do a few things:
 
 1. We figure out how many unique road types we have
 1. We specify the colors that we want to apply to each road type
-1. Finally we plot the data - we will use the `scale_colour_manual(values = c("rdType1" = "color1", "rdType2" = "color2", "rdType3" = "color3", "rdType4" = "color4"))` to specify what colors we want to use for what attribute value.
+1. Finally we plot the data - we will use the `scale_colour_manual(values = c("rdType1" = "color1", "rdType2" = "color2", "rdType3" = "color3", "rdType4" = "color4"))` to specify what colors we want to use for what attribute value
 
 Let's plot our roads data by the `RTTYP` attribute and apply unique colors.
 
@@ -267,11 +266,11 @@ Finally we can use `coord_quickmap()` to scale the x and y axis equally by long 
 lat values.
 
 coord_quickmap()
-<i class="fa fa-star"></i> **Data Tip:** There are many different ways to ensure
+<i class="fa fa-star"></i> **Data tip:** There are many different ways to ensure
 `ggplot()` plots data using x and y axis distances that represent the data properly.
 `coord_fixed()` can be used to specify a uniform x and y axis scale. `coord_quickmap()`
 quickly adjusts the x and y axis scales using an estimated value of the coordinate
-reference system that your data are in. coord_map can be used to handle proper
+reference system that your data are in. `coord_map` can be used to handle proper
 projections that you specify as arguments within the `coord_map()` function.
 {: .notice--success }
 
@@ -296,7 +295,7 @@ ggplot() +
 # https://us.sagepub.com/en-us/nam/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031
 -->
 
-### Adjust Line Width
+### Adjust line width
 
 We can adjust the width of the lines on our plot using `size =`. If we use `size = 4`
 with a numeric value (e.g. 4) then we set all of line features in our data to the
@@ -318,7 +317,7 @@ ggplot() +
 ## Error in fortify(data): object 'sjer_roads_df' not found
 ```
 
-### Adjust Line Width by Attribute
+### Adjust line width by attribute
 
 If we want a unique line width for each factor level or attribute category
 in our spatial object, we can use a similar syntax to the one we used for colors.
@@ -422,9 +421,9 @@ ggplot() +
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Plot line width by attribute
 
-Create your own custom map of roads. Adjust the line width and the colors
-of the roads to make a map that emphasizes roads of value S (thicker lines) and that de-emphasizes
-roads with an RTTYP attribute value of unknown (thinner lines, lighter color).
+Create your own custom map of roads. Adjust the line width and the colors of the
+roads to make a map that emphasizes roads of value S (thicker lines) and that de-emphasizes
+roads with an `RTTYP` attribute value of unknown (thinner lines, lighter color).
 
 </div>
 
@@ -474,7 +473,7 @@ Next we can `tidy()` up the data as we did before... or can we?
 
 ```r
 sjer_plots_df <- tidy(sjer_plots, region = "id")
-## Error in tidy(sjer_plots, region = "id"): could not find function "tidy"
+## Error in tidy(sjer_plots, region = "id"): object 'sjer_plots' not found
 ```
 
 Note that this time we imported point data. We can't use the tidy function
@@ -489,7 +488,7 @@ sjer_plots_df <- as.data.frame(sjer_plots, region = "id")
 ## Error in as.data.frame(sjer_plots, region = "id"): object 'sjer_plots' not found
 ```
 
-Next, let's plot the data using ggplot.
+Next, let's plot the data using `ggplot`.
 
 
 
@@ -501,12 +500,12 @@ ggplot() +
 ## Error in fortify(data): object 'sjer_plots_df' not found
 ```
 
-Great! We've now plotted our data using ggplot. Let's next combine the roads
+Great! We've now plotted our data using `ggplot`. Let's next combine the roads
 with the points in one clean map.
 
 ## Layering data in ggplot
 
-We can layer multiple ggplot objects by adding a new `geom_` function to our plot.
+We can layer multiple `ggplot` objects by adding a new `geom_` function to our plot.
 For the roads data, we used `geom_path()` and for points we use `geom_point()`.
 Note that we add an addition data layer to our ggplot map using the `+` sign.
 
@@ -569,8 +568,8 @@ crs(sjer_roads)
 ## Error in crs(sjer_roads): object 'sjer_roads' not found
 ```
 
-It looks like our data are not all in the same coordinate reference system (CRS).
-Let's go ahead and reproject the data so they are in the same CRS. Also below
+It looks like our data are not all in the same coordinate reference system (`CRS`).
+Let's go ahead and reproject the data so they are in the same `CRS`. Also below
 we spatially CROP the roads data since we only need road information for our
 study area. This will also making plotting faster.
 
@@ -603,8 +602,8 @@ crs(sjer_roads_utmcrop)
 ## Error in crs(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found
 ```
 
-Next, we convert the study_area spatial object to a data.frame so we can plot it
-using ggplot. In this case we only have one extent boundary for the study area -
+Next, we convert the study_area spatial object to a `data.frame` so we can plot it
+using `ggplot`. In this case we only have one extent boundary for the study area -
 so we won't need to add the attributes.
 
 
@@ -613,11 +612,11 @@ so we won't need to add the attributes.
 study_area$id <- rownames(study_area@data)
 ## Error in rownames(study_area@data): object 'study_area' not found
 study_area_df <- tidy(study_area, region = "id")
-## Error in tidy(study_area, region = "id"): could not find function "tidy"
+## Error in tidy(study_area, region = "id"): object 'study_area' not found
 
 # convert roads layer to ggplot ready data.frame
 sjer_roads_df <- tidy(sjer_roads_utmcrop, region = "id")
-## Error in tidy(sjer_roads_utmcrop, region = "id"): could not find function "tidy"
+## Error in tidy(sjer_roads_utmcrop, region = "id"): object 'sjer_roads_utmcrop' not found
 
 # make sure the shapefile attribute table has an id column so we can add spatial attributes
 sjer_roads_utmcrop$id <- rownames(sjer_roads_utmcrop@data)
@@ -667,7 +666,7 @@ ggplot() +
 
 Finally, let's clean up our map even more. That's apply unique symbols to our plots
 using the `plot_type` attribute. Note that it can be difficult to apply unique colors
-to multiple object types in a ggplot map. Thus we will keep our symbology simple.
+to multiple object types in a `ggplot` map. Thus we will keep our symbology simple.
 Let's make all of the roads the same width and map colors and symbols to the plot
 locations only. The plot locations are what we want to stand out anyway!
 
@@ -696,9 +695,9 @@ ggplot() +
 ```
 
 Finally, let's clean up our map further. We can use some of the built in functionality
-of cowplot to adjust the `theme()` settings in ggplot.
+of `cowplot` to adjust the `theme()` settings in `ggplot`.
 
-NOTE: cowplot does the SAME things that you can do with `theme()` in ggplot. It just
+NOTE: `cowplot` does the SAME things that you can do with `theme()` in `ggplot`. It just
 simplies the code that you need to clean up your plot! By default it removes the
 grey background on your plots. However let's adjust it even further.
 
@@ -729,9 +728,9 @@ ggplot() +
 
 ## Adjust ggplot theme settings
 
-Finally, we can use a combination of cowplot and ggplot `theme()` settings to
+Finally, we can use a combination of `cowplot` and `ggplot` `theme()` settings to
 remove the x and y axis labels, ticks and lines. We use `background_grid()` to remove the
-grey grid from our plot. Then we use the theme() function to remove:
+grey grid from our plot. Then we use the `theme()` function to remove:
 
 * the x and y axis text and ticks
 * the axes lines - `axis.line`
@@ -772,27 +771,28 @@ We can use the `ggsn` package to magically add a legend and a scale bar to our f
 map. We can also use this package to create a "blank" map background - removing all
 grid background elements. Let's give it a go.
 
-We can add a scale bar using the scalebar() function. Note that there is also a
-scalebar function in the raster package so we are explicetly telling R to use the
-function from the ggsn package using the syntax
+We can add a scale bar using the `scalebar()` function. Note that there is also a
+scalebar function in the raster package so we are explicitly telling `R` to use the
+function from the `ggsn` package using the syntax
 
 `ggsn::scalebar()`
 
-Also note that there is a bug in the ggsn package currently where the documentation
+Also note that there is a bug in the `ggsn` package currently where the documentation
 tells us to use `dd2km = FALSE` for data not in geographic lat / long. However,
 for this to work, we need to simply omit the argument from function as follows:
 
-For data in UTM Meters:
+For data in UTM meters:
 `ggsn::scalebar(data = sjer_roads_df, dist = .5, location = "bottomright")`
 
 For data in geographic lat/long - wgs 84 datum:
 `ggsn::scalebar(data = sjer_roads_df, dd2km = TRUE, model = "WGS84", dist = .5, location = "bottomright")`
 
-Below I set the legend location explicitely using the following arguments:
+Below I set the legend location explicitly using the following arguments:
 
 * location: place the scalebar in the bottom right hand corner of the plot
-* anchor: this allows meto specify the bottom corner location of my scalebar explicately
-* st.size and st.dist: allow you to set the size of the text and distance of the text from the scalebar respectively
+* anchor: this allows me to specify the bottom corner location of my scalebar explicitly
+* st.size and st.dist: this allows me to set the size of the text and distance of
+the text from the scalebar respectively
 
 `ggsn::scalebar(data = sjer_roads_df, dist = .5, location = "bottomright",
                  st.dist = .05, st.size = 5, height = .06, anchor = c(x = x_scale_loc, y = (y_scale_loc - 360)))`
@@ -806,7 +806,6 @@ We can adjust the size and location of the north arrow as well.
 
 ```r
 library(ggsn)
-## Error in library(ggsn): there is no package called 'ggsn'
 # get x and y location for scalebar
 roads_ext <- extent(sjer_roads_utmcrop)
 ## Error in extent(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found
@@ -848,7 +847,7 @@ ggplot() +
 
 <div class="notice--info" markdown="1">
 
-## Additional Resources
+## Additional resources
 
 * <a href="http://oswaldosantos.github.io/ggsn/" target="_blank">Add scale bars and legends to your ggplot map </a>
 

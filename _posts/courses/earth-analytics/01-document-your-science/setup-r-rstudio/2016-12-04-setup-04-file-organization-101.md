@@ -2,7 +2,7 @@
 layout: single
 authors: ['Leah Wasser', 'Reproducible Science Curriculum Community']
 category: [courses]
-title: 'File Organization 101'
+title: 'File organization 101'
 excerpt: 'Learn key principles for naming and organizing files and folders in a working directory.'
 nav-title: 'File organization tips'
 week: 1
@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: courses/earth-analytics/document-your-science/file-organization-101/
 dateCreated: 2016-12-12
-modified: '2017-08-17'
+modified: '2017-08-30'
 course: 'earth-analytics'
 author_profile: false
 comments: true
@@ -20,14 +20,15 @@ topics:
   reproducible-science-and-programming: ['RStudio','data-management']
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 In the previous lessons, we setup `R` and `RStudio`. The last part of our setup is
-to setup our working directory. A **working directory** is an organized space or directory on our computer where we keep our data, scripts and outputs. It is important
+to setup our working directory. A **working directory** is an organized space or
+directory on our computer where we keep our data, scripts and outputs. It is important
 to think about the organization of that directory, to make our own future lives
 easier (so we can find things) and also to make it easier to collaborate with other people.
 
-## Setup Your Project
+## Set up your project
 
 Project organization is integral to efficient research. A well organized project
 structure will allow you to more easily find components of your project AND
@@ -37,12 +38,12 @@ and results. In this tutorial, we will create a well-organized **working directo
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will:
 
-* Be able to describe the key characteristics of a well structured project.
-* Be able to summarize in 1-3 sentences why good project structure can make your work more efficient and make it easier to collaborate with colleagues.
-* Be able to explain what a working directory is.
+* Be able to describe the key characteristics of a well structured project
+* Be able to summarize in 1-3 sentences why good project structure can make your work more efficient and make it easier to collaborate with colleagues
+* Be able to explain what a working directory is
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -54,12 +55,12 @@ your computer to complete this tutorial.
 
 </div>
 
-## Characteristics of a Well Structured Project / Working Directory
+## Characteristics of a well structured project / working directory
 
 Please note that in this lesson, we will be using our project directory as our
 working directory. Thus these terms will be used intechangably throughout.
 
-### 1. Organization - Files & Directories
+### 1. Organization - Files & directories
 
 When it comes to structuring the names of the files and folders that create your
 project, the more self explanatory, the better.
@@ -89,7 +90,7 @@ A well structured project directory should:
 	</figcaption>
 </figure>
 
-### Which Filenames are Most Self-explanatory?
+### Which filenames are most self-explanatory?
 
 Your goal when structuring a project directory is to use a naming
 convention that someone who is not familiar with your project can quickly understand.
