@@ -61,6 +61,13 @@ This site contains open, tutorials and course materials covering topics includin
 and data intensive science. Currently, we have {{ posts_minus_overview }} lessons
 available on our site with more under development!
 
+## Online courses
+
+{% assign courses = site.posts | where:"overview-order", 1 %}
+{% for course in courses %}
+* <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
+{% endfor %}
+
 ## Newest lessons
 
 <div class="list__item">

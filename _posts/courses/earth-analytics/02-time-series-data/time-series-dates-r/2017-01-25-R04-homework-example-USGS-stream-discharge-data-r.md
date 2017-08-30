@@ -4,7 +4,7 @@ title: "Homework challenge: Plot USGS stream discharge data in R"
 excerpt: "This lesson illustrated what your final stream discharge homework
 plots should look like for the week. Use all of the skills that you've learned in the previous lessons to complete it."
 authors: ['Leah Wasser']
-modified: '2017-08-28'
+modified: '2017-08-29'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
@@ -153,7 +153,7 @@ out what format elements you'll need to include to get the date right.
 
 Your plot should look something like the one below:
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="70%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -170,7 +170,7 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="70%" />
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
