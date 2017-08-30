@@ -88,6 +88,7 @@ working directory. Finally, set `stringsAsFactors` to `FALSE` globally using
 
 # load packages
 library(ggplot2)
+library(lubridate)
 library(dplyr)
 
 # set strings as factors to false
@@ -182,7 +183,7 @@ You can download the original complete data subset with additional documentation
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 Using everything you've learned in the previous lessons:
 
@@ -254,38 +255,80 @@ ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
       labs(title = "Precipitation - Boulder, Colorado")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="70%" />
+
+
+### NA values and warnings
+
+When we plot the data, we get a warning that says:
+
+`## Warning: Removed 4 rows containing missing values (geom_point).`
+
+We can get rid of this warning by removing NA or missing data values from our
+data. A warning is just R's way of letting you know that something may be wrong.
+In this case, it can't plot 4 data points because there are missing data values
+there.
+
+Let's remove the missing data value rows using a `dplyr` pipe and the `na.omit()` function.
+We will talk about pipes in just a minute!
+
+
+```r
+boulder_daily_precip <- boulder_daily_precip %>%
+  na.omit()
+```
+
+Now we can plot the data without a warning!
+
+
+```r
+
+# plot the data using ggplot2
+ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
+      geom_point(color = "darkorchid4") +
+      labs(title = "Precipitation - Boulder, Colorado")
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly2-1.png" title="precip plot w fixed dates and no na values" alt="precip plot w fixed dates and no na values" width="70%" />
 
 Don't forget to add x and y axis labels to your plot!
-Use the labs argument to add a title, x and y label (and subtitle if you'd like) to your plot.
+Use the `labs()` function to add a title, x and y label (and subtitle if you'd like) to your plot.
 
+
+```r
+labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
+     x = "Date",
+     y = "Precipitation (Inches)")
+```
 
 
 ```r
 ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
-      geom_point(color = "purple") +
+      geom_point(color = "darkorchid4") +
       labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
            x = "Date",
            y = "Precipitation (Inches)")
-## Warning: Removed 4 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-1.png" title="plot with titles and labels" alt="plot with titles and labels" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-1.png" title="plot with titles and labels" alt="plot with titles and labels" width="70%" />
 
 You can add a ggplot theme to adjust the look of your plot quickly too. Below
-we use `theme_bw()`
+we use `theme_bw()`. Below we also adjust the base font size to make the labels
+a bit larger `base_size = 11`.
+
+<i class="fa fa-star" aria-hidden="true"></i>**Data Tip:** <a href="http://ggplot2.tidyverse.org/reference/ggtheme.html" target="_blank">Learn more about built in ggplot themes</a>
+{: .notice--success }
 
 
 ```r
 ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
-      geom_point() +
+      geom_point(color = "darkorchid4") +
       labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
            x = "Date",
-           y = "Precipitation (Inches)") + theme_bw()
-## Warning: Removed 4 rows containing missing values (geom_point).
+           y = "Precipitation (Inches)") + theme_bw(base_size = 11)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-and-theme-1.png" title="plot with titles and labels black and white" alt="plot with titles and labels black and white" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-and-theme-1.png" title="plot with titles and labels black and white" alt="plot with titles and labels black and white" width="70%" />
 
 
 <i fa fa-star></i>**Data Tip:** For a more thorough review of date/time classes, see the NEON tutorial
@@ -304,18 +347,99 @@ Take a close look at the plot:
 
 </div>
 
-## Subset the Data
+### Introduction to the pipe %<%
+
+Above we used pipes to manipulate our data. Specifically we removed `NA` values
+in a pipe with `na.omit()`.
+
+Pipes let you take the output of one function and send it directly to the next,
+which is useful when you need to do many things to the same data set. Pipes in `R`
+look like `%>%` and are made available via the `magrittr` package, installed
+automatically with `dplyr`.
+
+
+
+```r
+boulder_daily_precip <- boulder_daily_precip %>%
+  na.omit()
+```
+
+
+Pipes are nice to use when coding because:
+
+1. they remove intermediately created variables (keeping our environment cleaner / fewer variables are saved memory)
+1. they combine multiple steps of processing into a clean set of steps that is easy to read once you become familiar with the pipes syntax
+
+We can do all of the same things that we did with above with one pipe. Let's see
+how:
+
+
+```r
+# format date field without pipes
+boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
+                                     format = "%m/%d/%y")
+```
+
+With pipes we can use the mutate function to either create a new column or
+modify the format or contents of an existing column.
+
+
+```r
+boulder_daily_precip <- boulder_daily_precip %>%
+  mutate(DATE = as.Date(boulder_daily_precip$DATE, format = "%m/%d/%y"))
+```
+
+We can then add the `na.omit()` function to the above code
+
+
+```r
+boulder_daily_precip <- boulder_daily_precip %>%
+  mutate(DATE = as.Date(boulder_daily_precip$DATE, format = "%m/%d/%y")) %>%
+  na.omit()
+```
+
+Notice that each time you assign the pipe to a variable, you are overwriting
+that variable.
+
+`boulder_daily_precip <- boulder_daily_precip`
+
+In this case we are just updating our current `boulder_daily_precip` variable.
+
+The process above avoids processing the data in separate steps, and potentially
+creating new variables each time. We can even send the output to ggplot().
+When we send output to ggplot() in a pipe, we don't need the use the
+data argument (`data = boulder_daily_precip`) because we send the data throught
+the pipe. Like this:
+
+Note: that because you are creating a plot with the code below, you don't need
+to assign the pipe to a variable. Thus you leave out the
+
+`boulder_daily_precip <-`
+
+assignment.
+
+
+```r
+
+boulder_daily_precip %>%
+  mutate(DATE = as.Date(boulder_daily_precip$DATE, format = "%m/%d/%y")) %>%
+  na.omit() %>%
+ggplot(aes(DATE, DAILY_PRECIP)) +
+      geom_point(color = "darkorchid4") +
+      labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
+           subtitle = "plotted using pipes",
+           x = "Date",
+           y = "Precipitation (Inches)") + theme_bw()
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-pipe-1.png" title="data plotted with a pipe" alt="data plotted with a pipe" width="70%" />
+
+
+## Subset the data
 
 You may want to only work with a subset of your time series data. Let's create a subset of data for the time period around the flood between 15
 August to 15 October 2013. We use the `filter()` function in the `dplyr` package
-to do this. But first, let's explore the concept of a pipe in `R`.
-
-### Introduction to the pipe %<%
-
-Pipes let you take the output of one function and send it directly to the next,
-which is useful when you need to do many things to the same data set. Pipes in R
-look like `%>%` and are made available via the `magrittr` package, installed
-automatically with `dplyr`.
+to do this and pipes!
 
 
 
@@ -340,20 +464,19 @@ max(precip_boulder_AugOct$DATE)
 ## [1] "2013-10-11"
 
 # create new plot
-precPlot_flood2 <- ggplot(data=precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
-  geom_bar(stat="identity") +
+ggplot(data = precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
+  geom_bar(stat = "identity", fill = "darkorchid4") +
   xlab("Date") + ylab("Precipitation (inches)") +
-  ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek")
-
-precPlot_flood2
+  ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek") +
+  theme_bw()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="70%" />
 
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 Create a subset from the same dates in 2012 to compare to the 2013 plot.
 Use the `ylim()` argument to ensure the y axis range is the SAME as the previous
@@ -366,4 +489,4 @@ HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments wor
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="70%" />

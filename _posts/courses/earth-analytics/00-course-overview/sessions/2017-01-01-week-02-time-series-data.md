@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & Time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-08-19'
+modified: '2017-08-29'
 week-landing: 2
 week: 2
 sidebar:
@@ -50,10 +50,10 @@ you complete the assignment.
 
 ## Important - Data Organization
 Before you begin this lesson, be sure that you've downloaded the dataset above.
-You will need to UNZIP the zip file. When you do this, be sure that your directory
-looks like the image below: note that all of the data are within the week2
-directory. They are not nested within another directory. You may have to copy and
-paste your files to make this look right.
+You will need to **unzip** the zip file. When you do this, be sure that your directory
+looks like the image below: note that all of the data are within the **week-02**
+directory. The data are not nested within another directory. You may have to copy
+and paste your files into the correct directory to make this look right.
 
 <figure>
 <a href="{{ site.url }}/images/courses/earth-analytics/week-2/week2-data.png">
@@ -63,12 +63,16 @@ paste your files to make this look right.
 the data directly under the week-2 folder.</figcaption>
 </figure>
 
-### 2. Readings
+### Why data organization matters
 
+It is important that your data are organized the same as the rest of the classes
+because:
 
+1. When the instructors grade your assignments, we will be able to run your code if your directory looks like the instructors.
+1. It will be easier for you to follow along in class if your directory is the same as the instructors.
+1. It is good practice to learn how to organize your files in a way that makes it easier for your future self to find and work with your data!
 
-
-### 3. Videos
+### 2. Videos
 
 Watch the following videos:
 
@@ -79,9 +83,9 @@ Watch the following videos:
 <iframe width="560" height="315" src="//www.youtube.com/embed/EYbhNSUnIdU?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
-### 4. Install QGIS & review homework lessons
+### 3. Install QGIS & review homework lessons
 
-Install QGIS. Use the install QGIS homework lesson as a guide if needed.
+Install **QGIS**. Use the install QGIS homework lesson as a guide if needed.
 Then review all of the homework lessons - they will help you complete the
 submission below.
 
@@ -139,12 +143,10 @@ data demonstrate an impact and / or a driver of the 2013 flood event.
 Be sure that you code follows the style guidelines outlined in the
 [write clean code lessons]({{ site.url }}/courses/earth-analytics/time-series-data/write-clean-code-with-r/)
 
-* syntax, clean code style, function (does it run without errors)
-* 
 Be sure to:
 
-* LABEL all plots clearly. This includes a title, x and y axis labels
-* Write [clean code](/courses/earth-analytics/week-2/write-clean-code-with-r/). This includes comments that document / describe the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
+* Label each plot clearly. This includes a title, x and y axis labels
+* Write [clean code]({{ site.url }}/courses/earth-analytics/week-2/write-clean-code-with-r/). This includes comments that document / describe the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
 * Convert date fields as appropriate
 * Clean no data values as appropriate
 * Show all of your code in the output `.html` file.
@@ -156,14 +158,15 @@ from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. Use the [bo
 you through creating this plot. This lesson will give you a more real world experience
 with working with less than perfect data!
 
-You can receive a bonus point for
+#### Bonus point (for grads and undergrads)
 
-1. Identifying an anomaly in the data when you plot it and
-2. Suggesting how to address that anomaly.
+Generate and add to your report the plot of precipitation for 1948 - 2013
+described above that graduate students have to create.
 
-#### Undergrads Bonus
-If you complete the bonus activity and add the 1948 - 2013 plot to your report,
-you will receive a bonus point!
+Receive a bonus point for:
+
+1. Identifying an anomaly or change in the data that you can clearly see when you plot it and
+2. Suggesting how to address that anomaly in R to clean things up
 
 ***
 
@@ -175,6 +178,20 @@ format report using `knitr`.
 formats by Wed 1 February 2017 @ NOON**
 
 </div>
+
+## Homework plots
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-solution-plot-1-1.png" title="homework plot one" alt="homework plot one" width="70%" />
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot-2-1.png" title="homework plot 2" alt="homework plot 2" width="70%" />
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot3-1.png" title="homework plot 3" alt="homework plot 3" width="70%" />
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot4-1.png" title="homework plot 4" alt="homework plot 4" width="70%" />
+
+
+
+
 
 ## Report grade rubric
 

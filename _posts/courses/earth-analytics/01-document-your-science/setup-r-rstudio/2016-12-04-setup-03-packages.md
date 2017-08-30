@@ -6,7 +6,7 @@ title: 'Install & Use Packages in R'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn what a package is in R and how to install packages to work with your data.'
 dateCreated: 2016-12-12
-modified: '2017-08-17'
+modified: '2017-08-29'
 nav-title: 'Install R packages'
 week: 1
 sidebar:
@@ -106,10 +106,24 @@ from including:
 * and more
 
 
-Important. Note all `R` packages are secure. <a href="https://ropensci.org/blog/blog/2017/07/25/notary" target="_blank">Learn more. </a>
+<i class="fa fa-star" aria-hidden="true"></i>**Data tip** While some `R` packages are just fine to use. Keep in mind that not all `R` packages are secure. <a href="https://ropensci.org/blog/blog/2017/07/25/notary" target="_blank">Learn more. </a>
+{: .notice--success }
 
 ### Advanced - install multiple packages at once
-You can also install multiple R packages at the same time. To do that,
+You can also install multiple `R` packages at the same time. To do that, you
+send the `install.packages()` function a vector or list of package names.
+
+A vector is a list of objects. the syntax for a vector is:
+
+`c("object1", "object2")`
+
+you can also store numbers in a vector.
+
+`c(1, 5, 74)`
+
+So if we want to install `rmarkdown`, `ggplot2` and `dplyr` all at once,
+we do this:
+
 
 
 ```r
