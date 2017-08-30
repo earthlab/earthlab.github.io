@@ -4,7 +4,7 @@ title: "Extract raster values using vector boundaries in R"
 excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
 vector boundary. We can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where we measured tree heights on the ground. Finally we will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/week-5/extract-data-from-raster/
@@ -23,17 +23,17 @@ topics:
   spatial-data-and-gis: ['vector-data', 'raster-data']
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* Use the `extract()` function to extract raster values using a vector extent or set of extents.
-* Create a scatter plot with a one to one line in `R`.
-* Understand the concept of uncertainty as it's associated with remote sensing data.
+* Use the `extract()` function to extract raster values using a vector extent or set of extents
+* Create a scatter plot with a one-to-one line in `R`
+* Understand the concept of uncertainty as it's associated with remote sensing data
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -61,11 +61,11 @@ options(stringsAsFactors = FALSE)
 # setwd("path-here/earth-analytics")
 ```
 
-## Import Canopy Height Model
+## Import canopy height model
 
 First, we will import a canopy height model created by the NEON project. In the
 previous lessons / weeks we learned how to make a canopy height model by
-subtracting the Digital elevation model (DEM) from the Digital surface model (DSM).
+subtracting the digital elevation model (`DEM`) from the digital surface model (`DSM`).
 
 
 ```r
@@ -90,10 +90,10 @@ hist(SJER_chm,
 ## 0% of the raster cells were used. 100000 values used.
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/import-chm-1.png" title="Histogram of CHM values" alt="Histogram of CHM values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/import-chm-1.png" title="Histogram of CHM values" alt="Histogram of CHM values" width="90%" />
 
 
-There are a lot of values in our CHM that == 0. Let's set those to `NA` and plot
+There are a lot of values in our `CHM` that == 0. Let's set those to `NA` and plot
 again.
 
 
@@ -109,15 +109,15 @@ hist(SJER_chm,
      xlab="Height (m)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/view-histogram-na-0-1.png" title="histogram of chm values" alt="histogram of chm values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/view-histogram-na-0-1.png" title="histogram of chm values" alt="histogram of chm values" width="90%" />
 
 ## Part 2. Does our CHM data compare to field measured tree heights?
 
 We now have a canopy height model for our study area in California. However, how
-do the height values extracted from the CHM compare to our laboriously collected,
+do the height values extracted from the `CHM` compare to our laboriously collected,
 field measured canopy height data? To figure this out, we will use *in situ* collected
 tree height data, measured within circular plots across our study area. We will compare
-the maximum measured tree height value to the maximum LiDAR derived height value
+the maximum measured tree height value to the maximum lidar derived height value
 for each circular plot using regression.
 
 For this activity, we will use the a `csv` (comma separate value) file,
@@ -146,12 +146,12 @@ plot(SJER_plots,
      add=TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/read-plot-data-1.png" title="canopy height model / plot locations plot" alt="canopy height model / plot locations plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/read-plot-data-1.png" title="canopy height model / plot locations plot" alt="canopy height model / plot locations plot" width="90%" />
 
-### Extract CMH data within 20 m radius of each plot centroid.
+### Extract CMH data within 20 m radius of each plot centroid
 
 Next, we will create a boundary region (called a buffer) representing the spatial
-extent of each plot (where trees were measured). We will then extract all CHM pixels
+extent of each plot (where trees were measured). We will then extract all `CHM` pixels
 that fall within the plot boundary to use to estimate tree height for that plot.
 
 There are a few ways to go about this task. If our plots are circular, then we can
@@ -167,7 +167,7 @@ use the `extract()` function.
     </figcaption>
 </figure>
 
-### Extract Plot Data Using Circle: 20m Radius Plots
+### Extract plot data using circle: 20m radius plots
 
 
 ```r
@@ -182,7 +182,7 @@ SJER_height <- extract(SJER_chm,
                     stringsAsFactors=FALSE)
 ```
 
-#### Explore The Data Distribution
+#### Explore the data distribution
 
 If you want to explore the data distribution of pixel height values in each plot,
 you could remove the `fun` call to max and generate a list.
@@ -202,7 +202,7 @@ through several plots and create histograms using a `for loop`.
 ```
 
 
-### Derive Square Plot boundaries, then CHM values around a point
+### Derive square plot boundaries, then CHM values around a point
 For how to extract square plots using a plot centroid value, check out the
 <a href="http://neondataskills.org/working-with-field-data/Field-Data-Polygons-From-Centroids" target="_blank"> extracting square shapes activity </a>.
 
@@ -220,7 +220,7 @@ In our final step, we will extract summary height values from our field data.
 We will use the `dplyr` library to do this efficiently.
 
 First let's see how many plots are in our tree height data. Note that our tree
-height data is stored in csv format.
+height data is stored in `csv` format.
 
 
 ```r
@@ -235,7 +235,7 @@ unique(SJER_plots$Plot_ID)
 ## [13] "SJER37"   "SJER4"    "SJER8"    "SJER824"  "SJER916"  "SJER952"
 ```
 
-## Extract Max Tree Height
+## Extract max tree height
 
 Next, we can use dplyr to extract a summary tree height value for each plot. In
 this case, we will calculate the mean MEASURED tree height value for each
@@ -243,7 +243,7 @@ plot. This value represents the average tree in each plot. We will also calculat
 the max height representing the max height for each plot.
 
 FInally, we will compare the mean measured tree height per plot to the mean
-tree height extracted from the lidar CHM.
+tree height extracted from the lidar `CHM`.
 
 
 ```r
@@ -266,13 +266,13 @@ head(insitu_stem_height)
 ```
 
 
-### Merge InSitu Data With Spatial data.frame
+### Merge insitu data With spatial data.frame
 
-Once we have our summarized insitu data, we can `merge` it into the centroids
-`data.frame`. Merge requires two data.frames and the names of the columns
+Once we have our summarized insitu data, we 'an `merge` it into the centroids
+`data.frame`. Merge requires two `data.frame`s and the names of the columns
 containing the unique ID that we will merge the data on. In this case, we will
 merge the data on the plot_id column. Notice that it's spelled slightly differently
-in both data.frames so we'll need to tell R what it's called in each data.frame.
+in both `data.frame`s so we'll need to tell `R` what it's called in each `data.frame`.
 
 
 ```r
@@ -347,11 +347,11 @@ legend(SJER_chm@extent@xmax+250,
        bty='n')
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="90%" />
 
 
-### Plot Data (CHM vs Measured)
-Let's create a plot that illustrates the relationship between in situ measured
+### Plot data (CHM vs measured)
+Let's create a plot that illustrates the relationship between insitu measured
 max canopy height values and lidar derived max canopy height values.
 
 
@@ -366,7 +366,7 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
   ggtitle("Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height (m)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="90%" />
 
 Next, let's fix the plot adding a 1:1 line and making the x and y axis the same .
 
@@ -383,9 +383,9 @@ ggplot(SJER_height@data, aes(x=SJER_lidarCHM, y = insitu_avg)) +
   ggtitle("Lidar Derived Tree Height \nvs. InSitu Measured Tree Height")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot2-1.png" title="ggplot - measured vs lidar chm w one to one line." alt="ggplot - measured vs lidar chm w one to one line." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot2-1.png" title="ggplot - measured vs lidar chm w one to one line." alt="ggplot - measured vs lidar chm w one to one line." width="90%" />
 
-We can also add a regression fit to our plot. Explore the GGPLOT options and
+We can also add a regression fit to our plot. Explore the `GGPLOT` options and
 customize your plot.
 
 
@@ -406,10 +406,10 @@ p + theme(panel.background = element_rect(colour = "grey")) +
   theme(axis.title.x = element_text(family="sans", face="bold", size=14, angle=00, hjust=0.54, vjust=-.2))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="90%" />
 
 
-## View Difference: lidar vs measured
+## View difference: lidar vs measured
 
 
 ```r
@@ -425,7 +425,7 @@ ggplot(data=SJER_height@data,
        xlab("Plot Name") + ylab("Height difference (m)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial02-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="90%" />
 
 ```r
        ggtitle("Difference: \nLidar avg height - in situ avg height (m)")
@@ -439,7 +439,7 @@ ggplot(data=SJER_height@data,
 ## [1] "labels"
 ```
 
-You have now successfully created a canopy height model using LiDAR data AND compared LiDAR
+You have now successfully created a canopy height model using lidar data AND compared lidar
 derived vegetation height, within plots, to actual measured tree height data.
 Does the relationship look good or not? Would you use lidar data to estimate tree
 height over larger areas? Would other metrics be a better comparison (see challenge
@@ -447,9 +447,9 @@ below).
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your skills: LiDAR vs Insitu Comparison
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your skills: lidar vs insitu comparison
 
-Create a plot of LiDAR max height vs *insitu* max height. Add labels to your plot.
+Create a plot of lidar max height vs *insitu* max height. Add labels to your plot.
 Customize the colors, fonts and the look of your plot. If you are happy with the
 outcome, share your plot in the comments below!
  </div>

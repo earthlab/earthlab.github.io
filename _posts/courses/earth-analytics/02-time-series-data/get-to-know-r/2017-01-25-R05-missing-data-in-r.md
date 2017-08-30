@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/missing-data-in-r-na/
 nav-title: 'Clean missing data'
 dateCreated: 2016-12-13
-modified: '2017-08-19'
+modified: '2017-08-30'
 week: 2
 sidebar:
   nav:
@@ -20,13 +20,13 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 This lesson covers how to work with no data values in `R`.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
 * Understand why it is important to make note of missing data values.
@@ -34,16 +34,16 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need R and RStudio to complete this tutorial. Also we recommend have you
+You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 </div>
 
-## Missing data - No Data Values
+## Missing data - no data values
 
 Sometimes, our data are missing values. Imagine a spreadsheet in Microsoft excel
 with cells that are blank. If the cells are blank, we don't know for sure whether
@@ -82,7 +82,9 @@ str(boulder_precip)
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
 ```
 
-Next, let's calculate the mean of both precip and temperature in our data.
+In the example below, note how a mean value is calculated differently depending
+upon on how `NA` values are treated when the data are imported.
+
 
 
 ```r
@@ -110,7 +112,7 @@ ggplot(data = boulder_precip, aes(x = DATE, y = TEMP)) +
 ## Error in FUN(X[[i]], ...): object 'TEMP' not found
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/quick-plot-1.png" title="quick plot of temperature" alt="quick plot of temperature" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/quick-plot-1.png" title="quick plot of temperature" alt="quick plot of temperature" width="90%" />
 
 Looking at our data, it appears as if we have some extremely large negative values
 hovering around -1000. However why did our mean return NA?
@@ -214,7 +216,7 @@ ggplot(data = boulder_precip_na, aes(x = DATE, y = TEMP)) +
 ## Error in FUN(X[[i]], ...): object 'TEMP' not found
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/plot-2nodata-1.png" title="Plot of temperature with missing data accounted for" alt="Plot of temperature with missing data accounted for" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/plot-2nodata-1.png" title="Plot of temperature with missing data accounted for" alt="Plot of temperature with missing data accounted for" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -255,7 +257,7 @@ heights[complete.cases(heights)]
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge activity
 
 * **Question**: Why does the following piece of code return a warning?
 

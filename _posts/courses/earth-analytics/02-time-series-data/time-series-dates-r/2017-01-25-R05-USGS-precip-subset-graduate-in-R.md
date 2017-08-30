@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
 excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser']
-modified: '2017-08-29'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -26,7 +26,7 @@ topics:
 
 # I should teach them how to aggregate AFTEr the subset lesson using the SAME data. Then this lesson can just be an example of what the data should look like but they'll have to plot it...  so add R03 -- summarize time series by month using pipes
 
-Bonus / graduate activity. In this lesson, you will PLOT precipitation data in R.
+Bonus / graduate activity. In this lesson, you will PLOT precipitation data in `R`.
 However, these data were collected over several decades and sometimes there are
 multiple data points per day. The data are also not cleaned. You will find
 heading names that may not be meaningful, and other issues with the data.
@@ -38,53 +38,53 @@ to process the data.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* Aggregate data by a day in R
-* View names and rename columns in a dataframe.
+* Aggregate data by a day in `R`
+* View names and rename columns in a dataframe
 
-### Things You'll Need To Complete This Lesson
+### Things you'll need To complete this lesson
 
-Please be sure you have the most current version of R and, preferably,
+Please be sure you have the most current version of `R` and, preferably,
 `RStudio` to write your code.
 
- **R Skill Level:** Intermediate - To succeed in this tutorial, you will need to
+ **R skill level:** Intermediate - To succeed in this tutorial, you will need to
 have basic knowledge for use of the `R` software program.
 
-### R Libraries to Install:
+### R libraries to install:
 
 * **ggplot2:** `install.packages("ggplot2")`
 * **plotly:** `install.packages("dplyr")`
 
-#### Data Download
+#### Data download
 
 If you haven't already downloaded this data (from the previous lesson), do so now.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 2 Data](https://ndownloader.figshare.com/files/7426738){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download week 2 data](https://ndownloader.figshare.com/files/7426738){:data-proofer-ignore='' .btn }
 
 </div>
 
 
-## Work with Precipitation Data
+## Work with precipitation data
 
-## R Libraries
+## R libraries
 
-To get started, load the `ggplot2` and `dplyr` libraries, setup your working
+To get started, load the `ggplot2` and `dplyr` libraries, set up your working
 directory and set `stringsAsFactors` to FALSE using `options()`.
 
 
 
 
 
-## Import Precipitation Data
+## Import precipitation data
 
 We will use the `805333-precip-daily-1948-2013.csv` dataset for this assignment.
 in this analysis. This dataset contains the precipitation values collected daily
 from the COOP station 050843 in Boulder, CO for 1 January 2003 through 31 December 2013.
 
-Import the data into R and then view the data structure.
+Import the data into `R` and then view the data structure.
 
 
 ```
@@ -114,7 +114,7 @@ Import the data into R and then view the data structure.
 ##  $ Quality.Flag    : chr  " " " " " " " " ...
 ```
 
-## About the Data
+## About the data
 
 The structure of the data are similar to what you saw in previous lessons. HPCP
 is the total precipitation given in inches, recorded
@@ -122,19 +122,19 @@ for the hour ending at the time specified by DATE. There is a designated missing
 data value of 999.99. Note that hours with no precipitation are not recorded.
 
 
-The metadata for this file is located in your week2 directory:
+The metadata for this file is located in your `week2` directory:
 `PRECIP_HLY_documentation.pdf` file that can be downloaded along with the data.
 (Note, as of Sept. 2016, there is a mismatch in the data downloaded and the
 documentation. The differences are in the units and missing data value:
 inches/999.99 (standard) or millimeters/25399.75 (metric)).
 
-### NoData Values
+### NoData values
 
 Next, check out the data. Are there no data values? If so, make sure to adjust your
 data import code above to account for no data values. Then determine how many no
 data values you have in your dataset.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/no-data-values-hist-1.png" title="histogram of data" alt="histogram of data" width="70%" /><img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/no-data-values-hist-2.png" title="histogram of data" alt="histogram of data" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/no-data-values-hist-1.png" title="histogram of data" alt="histogram of data" width="90%" /><img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/no-data-values-hist-2.png" title="histogram of data" alt="histogram of data" width="90%" />
 
 
 
@@ -145,7 +145,7 @@ sum(is.na(precip.boulder))
 ## [1] 401
 ```
 
-### Convert Date and Time
+### Convert date and time
 
 Compared to the previous lessons, notice that we now have date & time in our date field.
 To deal with both date and time, we use the `as.POSIXct()` method rather than
@@ -158,21 +158,21 @@ format argument as follows:
 
 
 * For more information on date/time classes, see the NEON tutorial
-<a href="http://neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
+<a href="http://neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing with dates & times in R - as.Date, POSIXct, POSIXlt*</a>.
 
 
-## Plot Precipitation Data
+## Plot precipitation data
 
 Next, let's have a look at the data. Plot using `ggplot()`. Format the plot using
-the colors, labels, etc that are most clear and look the best. Your plot does not
+the colors, labels, etc. that are most clear and look the best. Your plot does not
 need to look like the one below!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png" title="hourly precipitation" alt="hourly precipitation" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
 
 ## Differences in the data
 Any ideas what might be causing the notable difference in the plotted data through time?
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-round-1.png" title="hourly precipitation" alt="hourly precipitation" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-precip-hourly-round-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
 
 It is difficult to interpret this plot which spans so many years at such a fine
 temporal scale. For our research project, we only need to explore 30 years of data.
@@ -187,7 +187,9 @@ To aggregate data by a particular variable or time period, we can create a new c
 in our dataset called day. We will take all of the values for each day and add them
 using the `sum()` function. We can do all of this efficiently using dplyr mutate() function.
 
-We use the `mutate()` function to add a new column called **day** to a new data.frame called **daily_sum_precip**. Note that we used `as.Date()` to just grab the dates rather than dates and times which are stored in the POSIX format.
+We use the `mutate()` function to add a new column called **day** to a new data.frame c
+alled **daily_sum_precip**. Note that we used `as.Date()` to just grab the dates
+rather than dates and times which are stored in the POSIX format.
 
 
 
@@ -203,7 +205,7 @@ head(daily_sum_precip$day)
 ## [6] "1948-08-04"
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-daily-1.png" title="Daily precip plot" alt="Daily precip plot" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/plot-daily-1.png" title="Daily precip plot" alt="Daily precip plot" width="90%" />
 
 Next we `summarize()` the precipitation column (total_precip) - grouped by day.
 What this means is that we ADD UP all of the values for each day to get a grand
@@ -242,7 +244,7 @@ names(daily_sum_precip)
 
 Now plot the daily data.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png" title="Daily precipitation for boulder" alt="Daily precipitation for boulder" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/daily-prec-plot-1.png" title="Daily precipitation for boulder" alt="Daily precipitation for boulder" width="90%" />
 
 
 Finally, plot a temporal subsets of the data from 2000-2013. We learned how to
@@ -251,11 +253,11 @@ do this in the previous lessons.
 
 Now we can easily see the dramatic rainfall event in mid-September!
 
-<i class="fa fa-star"></i> **R Tip:** If you are using a date-time class, instead
+<i class="fa fa-star"></i> **R tip:** If you are using a date-time class, instead
 of just a date class, you need to use `scale_x_datetime()`.
 {: .notice--success}
 
-#### Subset The Data
+#### Subset the data
 
 If we wanted to, we could subset this data set using the same code that we used
 previously to subset! An example of the subsetted plot is below.
@@ -265,11 +267,11 @@ previously to subset! An example of the subsetted plot is below.
 ## Warning: Removed 4 rows containing missing values (position_stack).
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/subset-data-1.png" title="final precip plot daily sum" alt="final precip plot daily sum" width="70%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-USGS-precip-subset-graduate-in-R/subset-data-1.png" title="final precip plot daily sum" alt="final precip plot daily sum" width="90%" />
 
 <div class="notice--info" markdown="1">
 
-## Additional Resources
+## Additional resources
 
 * <a href="http://stackoverflow.com/questions/11395927/how-to-subset-data-frame-by-weeks-and-then-sum" target="_blank">How to subset data by weeks</a>
 </div>

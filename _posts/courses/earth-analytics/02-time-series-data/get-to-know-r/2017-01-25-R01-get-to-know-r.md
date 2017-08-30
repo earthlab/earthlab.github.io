@@ -1,17 +1,17 @@
 ---
 layout: single
-title: "The syntax of the R scientific programming language - Data Science for Scientists 101"
+title: "The syntax of the R scientific programming language - Data science for scientists 101"
 excerpt: "This lesson introduces the basic syntax associated with the R scientific programming language. We will introduce assignment operators (<-), comments and basic functions that are available to use in R to perform basic tasks including head(), qplot() to quickly plot data and others. This lesson is designed for someone who has not used R before. We will work with precipitation and
 stream discharge data for Boulder County."
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [courses]
 class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/basic-r-syntax-scientific-programming/
-nav-title: 'Get to Know R'
+nav-title: 'Get to know R'
 dateCreated: 2016-12-13
-modified: '2017-08-19'
-module-title: 'Get to Know R'
-module-nav-title: 'Get to Know R'
+modified: '2017-08-30'
+module-title: 'Get to know R'
+module-nav-title: 'Get to know R'
 module-description: 'This module introduces the R scientific programming language.
 We will work with precipitation and stream discharge data for Boulder County
 to better understand the R syntax, various data types and data import and plotting.'
@@ -28,20 +28,20 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming
-language. We will introduce assignment operators (`<-`, comments (`#`) and functions
+language. We will introduce assignment operators (`<-`), comments (`#`) and functions
 as used in `R`.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Understand the basic concept of a function and be able to use a function in your code.
-* Know how to use key operator commands in R (`<-`).
+* Understand the basic concept of a function and be able to use a function in your code
+* Know how to use key operator commands in `R` (`<-`)
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -49,19 +49,18 @@ You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
-* [Intro to the R & RStudio Interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
+* [Intro to the R & RStudio interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
 
 </div>
 
 In the [previous module](/courses/earth-analytics/document-your-science/setup-r-rstudio), we
 setup `RStudio` and `R` and got to know the `RStudio` interface.
-We also created a basic
-`RMarkdown` report using `RStudio`. In this module, we will explore the basic
-syntax of the `R` programming language. We will learn how to work with packages and
-functions, how to work with vector objects in R and finally how to import data
-into a data.frame which is the `R` equivalent of a spreadsheet.
+We also created a basic `RMarkdown` report using `RStudio`. In this module, we will
+explore the basic syntax of the `R` programming language. We will learn how to work
+with packages and functions, how to work with vector objects in R and finally how
+to import data into a data.frame which is the `R` equivalent of a spreadsheet.
 
 Let's start by looking at the code we used in the previous module. Here, we:
 
@@ -109,7 +108,7 @@ qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R01-get-to-know-r/open-file-1.png" title="precip data plot" alt="precip data plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R01-get-to-know-r/open-file-1.png" title="precip data plot" alt="precip data plot" width="90%" />
 
 The code above, uses syntax that is unique the `R` programming language.
 Syntax is the characters or commands that `R` understands and associated
@@ -117,7 +116,7 @@ organization / format of the code including spacing and comments.
 
 Let's break down the syntax of the code above, to better understand what it's doing.
 
-## Intro to the R Syntax
+## Intro to the R syntax
 
 ### Assignment operator <-
 
@@ -158,7 +157,7 @@ boulder_precip
 ## 18 773 2013-10-11    0.1
 ```
 
-<i class="fa fa-star"></i> **Data Tip:**  In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
+<i class="fa fa-star"></i> **Data tip:**  In RStudio, typing <kbd>Alt</kbd> + <kbd>-</kbd> (push <kbd>Alt</kbd> at the
 same time as the <kbd>-</kbd> key) will write ` <- ` in a single keystroke.
 {: .notice--success}
 
@@ -170,7 +169,7 @@ discuss function arguments below.
 
 
 <div class="notice--success" markdown="1">
-<i class="fa fa-star"></i> **Data Tip:** Check out the links below for discussions on using `=` vs `<-` in R.
+<i class="fa fa-star"></i> **Data tip:** Check out the links below for discussions on using `=` vs `<-` in R.
 
 * <a href="http://blog.revolutionanalytics.com/2008/12/use-equals-or-arrow-for-assignment.html"  target="_blank">Revolutionary analytics blog - equals vs assignment.</a>
 
@@ -209,7 +208,7 @@ sqrt(16)
 In the example above, the `sqrt` function is built into `R` and takes the square
 root of any number that you provide to it.
 
-## Function Arguments
+## Function arguments
 
 A function often has one or more inputs called *arguments*. In the example above,
 the value 16 was the argument that we gave to the `sqrt()` function.
@@ -311,7 +310,7 @@ arguments.  If you don't, someone reading your code might have to look up
 definition of a function with unfamiliar arguments to understand what you're
 doing.
 
-## Get Information About A Function
+## Get information about a function
 
 If you need help with a specific function, let's say `barplot()`, you can type:
 

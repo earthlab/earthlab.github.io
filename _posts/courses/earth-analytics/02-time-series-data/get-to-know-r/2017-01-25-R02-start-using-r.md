@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-08-19'
+modified: '2017-08-30'
 week: 2
 sidebar:
   nav:
@@ -21,30 +21,30 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Create, modify and use objects or variables in `R`.
-* Define the key differences between the str (string) and num (number) classes in `R` in terms of how R can or can not perform calculations with each.
+* Create, modify and use objects or variables in `R`
+* Define the key differences between the str (string) and num (number) classes in `R` in terms of how R can or can not perform calculations with each
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need R and RStudio to complete this tutorial. Also we recommend have you
+You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 </div>
 
 
-## Creating Objects
+## Creating objects
 
 You can get output from `R` by typing a mathematical equation into the console -
 For example, if you type in `3 + 5`, `R` will calculate the output value:
@@ -73,7 +73,7 @@ weight_kg
 ## [1] 55
 ```
 
-## Use Useful Object Names
+## Use useful object names
 Objects can be given any name such as `x`, `current_temperature`, or
 `subject_id`. However, it is best to use clear and descriptive words when naming
 objects to ensure your code is easy to follow.
@@ -95,7 +95,7 @@ A few other notes about object names in `R`:
 * Use nouns for variable names, and verbs for function names.
 * Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning in R (for methods) and other programming languages. Instead use underscores `my_dataset`.
 
-## View Object Value
+## View object value
 When assigning a value to an object, `R` does not print anything. You can force
 it to print the value by using parentheses or by typing the name:
 
@@ -147,7 +147,7 @@ What do you think is the current content of the object `weight_lb`? 126.5 or 200
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge activity
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
 
 What are the values of each object defined in EACH LINE of code below?
 

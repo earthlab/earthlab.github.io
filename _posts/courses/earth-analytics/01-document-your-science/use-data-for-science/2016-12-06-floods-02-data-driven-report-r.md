@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Work with Precipitation Data in R: 2013 Colorado floods"
+title: "Work with precipitation data in R: 2013 Colorado floods"
 excerpt: "Learn why documentation is important when analyzing data by evaluating someone elses report on the Colorado floods."
 authors: ['Leah Wasser']
-modified: '2017-08-28'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/data-driven-reports/
@@ -21,17 +21,18 @@ topics:
 ---
 
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 In this lesson we will review a data driven report created by a "fictitious" colleague on the 2013 floods.
 
 <div class='notice--success' markdown='1'>
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* List characteristics of a project that make it more easily reusable (reproducible) to you when working with other people
+* List some of the components of a project that make it more easily reusable
+(reproducible) to you when working with other people
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -78,7 +79,7 @@ impacted Colorado. See below.
 
 
 
-Some terrain data. 
+Some terrain data.
 
 
 ```r
@@ -89,7 +90,7 @@ plot(lidar_dsm,
      main="Lidar Digital Surface Model (DSM)\n Study area map")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/plot-raster-1.png" title="Study area map" alt="Study area map" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/plot-raster-1.png" title="Study area map" alt="Study area map" width="90%" />
 
 
 ```r
@@ -110,14 +111,14 @@ precip_boulder$HPCP[precip_boulder$HPCP == 999.99] <- NA
 
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/daily-summaries-1.png" title="plot 1" alt="plot 1" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/daily-summaries-1.png" title="plot 1" alt="plot 1" width="90%" />
 
-## Fall 2013 Precipitation
+## Fall 2013 precipitation
 
 Let's check out the data for a few months.
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/subset-data-1.png" title="plot 2 precip" alt="plot 2 precip" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/subset-data-1.png" title="plot 2 precip" alt="plot 2 precip" width="90%" />
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/all-boulder-station-data-1.png" title="plot 3 discharge" alt="plot 3 discharge" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/all-boulder-station-data-1.png" title="plot 3 discharge" alt="plot 3 discharge" width="90%" />

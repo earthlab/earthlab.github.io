@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "GIS in R: how to reproject vector data in different coordinate reference systems (crs) in R"
+title: "GIS in R: How to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/week-4/reproject-vector-data/
@@ -24,34 +24,33 @@ topics:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 
 After completing this tutorial, you will be able to:
 
-* Describe atleast 2 reasons that a data provider may chose to store a dataset in a particular CRS.
-* Reproject a vector dataset to another CRS in R.
-* Identify the CRS of a spatial dataset in R.
+* Describe atleast 2 reasons that a data provider may chose to store a dataset in a particular `CRS`
+* Reproject a vector dataset to another `CRS` in `R`
+* Identify the `CRS` of a spatial dataset in `R`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download week 5 data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
-## Working With Spatial Data From Different Sources
+## Working with spatial data from different sources
 
-We often need to gather spatial datasets for from
-different sources and/or data that cover different spatial `extents`. Spatial
-data from different sources and that cover different extents are often in
-different Coordinate Reference Systems (CRS).
+We often need to gather spatial datasets for from different sources and/or data
+that cover different spatial `extents`. Spatial data from different sources and
+that cover different extents are often in different Coordinate Reference Systems (`CRS`).
 
-Some reasons for data being in different CRSs include:
+Some reasons for data being in different `CRS`s include:
 
-1. The data are stored in a particular CRS convention used by the data
+1. The data are stored in a particular `CRS` convention used by the data
 provider which might be a federal agency, or a state planning office.
-2. The data are stored in a particular CRS that is customized to a region.
+2. The data are stored in a particular `CRS` that is customized to a region.
 For instance, many states prefer to use a **State Plane** projection customized
 for that state.
 
@@ -74,7 +73,7 @@ In this tutorial we will learn how to identify and manage spatial data
 in different projections. We will learn how to `reproject` the data so that they
 are in the same projection to support plotting / mapping. Note that these skills
 are also required for any geoprocessing / spatial analysis. Data need to be in
-the same CRS to ensure accurate results.
+the same `CRS` to ensure accurate results.
 
 We will use the `rgdal` and `raster` libraries in this tutorial.
 
@@ -90,7 +89,7 @@ options(stringsAsFactors = F)
 # setwd("pathToDirHere")
 ```
 
-## Import US Boundaries - Census Data
+## Import US boundaries - Census data
 
 There are many good sources of boundary base layers that we can use to create a
 basemap. Some `R` packages even have these base layers built in to support quick
@@ -101,7 +100,7 @@ United States, provided by the
 It is useful to have shapefiles to work with because we can add additional
 attributes to them if need be - for project specific mapping.
 
-## Read US Boundary File
+## Read US boundary file
 
 We will use the `readOGR()` function to import the
 `/usa-boundary-layers/US-State-Boundaries-Census-2014` layer into `R`. This layer
@@ -136,7 +135,7 @@ plot(state_boundary_us,
 ## Error in plot(state_boundary_us, main = "Map of Continental US State Boundaries\n US Census Bureau Data"): object 'state_boundary_us' not found
 ```
 
-## U.S. Boundary Layer
+## U.S. boundary layer
 
 We can add a boundary layer of the United States to our map - to make it look
 nicer. We will import
@@ -171,7 +170,7 @@ plot(country_boundary_us,
 
 Next, let's add the location of our study area sites.
 As we are adding these layers, take note of the class of each object. We will use
-AOI to represent "Area of Interest" in our data.
+`AOI` to represent "Area of Interest" in our data.
 
 
 ```r
@@ -190,8 +189,8 @@ plot(sjer_aoi,
 ## Error in plot(sjer_aoi, pch = 19, col = "purple", main = "San Joachin Experimental Range AOI"): object 'sjer_aoi' not found
 ```
 
-Our SJER AOI layer plots nicely. Let's next add it as a layer on top of the U.S. states and boundary
-layers in our basemap plot.
+Our SJER `AOI` layer plots nicely. Let's next add it as a layer on top of the U.S.
+states and boundary layers in our basemap plot.
 
 
 ```r
@@ -216,9 +215,10 @@ plot(sjer_aoi,
 ## Error in plot(sjer_aoi, pch = 19, col = "purple", add = TRUE): object 'sjer_aoi' not found
 ```
 
-What do you notice about the resultant plot? Do you see the AOI boundary in the California area? Is something wrong?
+What do you notice about the resultant plot? Do you see the AOI boundary in the
+California area? Is something wrong?
 
-Let's check out the CRS (`crs()`) of both datasets to see if we can identify any
+Let's check out the `CRS` (`crs()`) of both datasets to see if we can identify any
 issues that might cause the point location to not plot properly on top of our
 U.S. boundary layers.
 
@@ -236,17 +236,17 @@ crs(country_boundary_us)
 ```
 
 It looks like our data are in different CRS. We can tell this by looking at
-the CRS strings in `proj4` format.
+the `CRS` strings in `proj4` format.
 
-## Understanding CRS in Proj4 Format
-The CRS for our data are given to us by `R` in `proj4` format. Let's break
+## Understanding CRS in proj4 format
+The `CRS` for our data are given to us by `R` in `proj4` format. Let's break
 down the pieces of `proj4` string. The string contains all of the individual
-CRS elements that `R` or another GIS might need. Each element is specified
+`CRS` elements that `R` or another GIS might need. Each element is specified
 with a `+` sign, similar to how a `.csv` file is delimited or broken up by
-a `,`. After each `+` we see the CRS element being defined. For example
+a `,`. After each `+` we see the `CRS` element being defined. For example
 projection (`proj=`) and datum (`datum=`).
 
-### UTM Proj4 String
+### UTM proj4 string
 Our project string for `sjer_aoi` specifies the UTM projection as follows:
 
 `+proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0`
@@ -259,10 +259,10 @@ the coordinate system used in the projection)
 * **ellps=WGS84:** the ellipsoid (how the earth's  roundness is calculated) for
 the data is WGS84
 
-Note that the `zone` is unique to the UTM projection. Not all CRS will have a
+Note that the `zone` is unique to the UTM projection. Not all `CRS` will have a
 zone.
 
-### Geographic (lat / long) Proj4 String
+### Geographic (lat / long) proj4 string
 
 Our project string for `state_boundary_us` and `country_boundary_us` specifies
 the lat/long projection as follows:
@@ -280,12 +280,12 @@ Note that there are no specified units above. This is because this geographic
 coordinate reference system is in latitude and longitude which is most
 often recorded in *Decimal Degrees*.
 
-<i class="fa fa-star"></i> **Data Tip:** the last portion of each `proj4` string
+<i class="fa fa-star"></i> **Data tip:** the last portion of each `proj4` string
 is `+towgs84=0,0,0 `. This is a conversion factor that is used if a datum
 conversion is required. We will not deal with datums in this tutorial series.
 {: .notice--success}
 
-## CRS Units - View Object Extent
+## CRS units - view object extent
 
 Next, let's view the extent or spatial coverage for the `sjer_aoi` spatial
 object compared to the `state_boundary_us` object.
@@ -307,12 +307,12 @@ crs(state_boundary_us)
 
 Note the difference in the units for each object. The extent for
 `state_boundary_us` is in latitude and longitude which yields smaller numbers
-representing decimal degree units. Our AOI boundary point is in UTM, is
+representing decimal degree units. Our `AOI` boundary point is in UTM, is
 represented in meters.
 
 ***
 
-## Proj4 & CRS Resources
+## Proj4 & CRS resources
 
 * <a href="http://proj.maptools.org/faq.html" target="_blank">More information on the proj4 format.</a>
 * <a href="http://spatialreference.org" target="_blank">A fairly comprehensive list of CRS by format.</a>
@@ -321,28 +321,28 @@ into the `R` console.
 
 ***
 
-## Reproject Vector Data
+## Reproject vector data
 
-Now we know our data are in different CRS. To address this, we have to modify
-or **reproject** the data so they are all in the **same** CRS. We can use
+Now we know our data are in different `CRS`. To address this, we have to modify
+or **reproject** the data so they are all in the **same** `CRS`. We can use
 `spTransform()` function to reproject our data. When we reproject the data, we
-specify the CRS that we wish to transform our data to. This CRS contains
+specify the `CRS` that we wish to transform our data to. This `CRS` contains
 the datum, units and other information that `R` needs to **reproject** our data.
 
 The `spTransform()` function requires two inputs:
 
 1. the name of the object that you wish to transform
-2. the CRS that you wish to transform that object too. In this case we can
+2. the `CRS` that you wish to transform that object too. In this case we can
 use the `crs()` of the `state_boundary_us` object as follows:
 `crs(state_boundary_us)`
 
-<i class="fa fa-star"></i> **Data Tip:** `spTransform()` will only work if your
+<i class="fa fa-star"></i> **Data tip:** `spTransform()` will only work if your
 original spatial object has a CRS assigned to it AND if that CRS is the
 correct CRS!
 {: .notice--success}
 
 Next, let's reproject our point layer into the geographic - latitude and
-longitude `WGS84` coordinate reference system (CRS).
+longitude `WGS84` coordinate reference system (`CRS`).
 
 
 ```r
@@ -422,7 +422,7 @@ transformations) on our data.
 Create a map of our SJER study area as follows:
 
 1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download.
-2. Create a map that shows the roads layer, study site locations and the sjer_aoi boundary.
+2. Create a map that shows the roads layer, study site locations and the `sjer_aoi` boundary.
 3. Add a **title** to your plot.
 4. Add a **legend** to your plot that shows both the roads and the plot locations.
 5. Plot the roads by road type and add each type to the legend. HINT: use the metadata included in your data download to figure out what each type of road represents ("C", "S", etc.). [Use the homework lesson on custom legends]({{ site.url }}/courses/earth-analytics/week-4/r-create-custom-legend-with-base-plot/) to help build the legend.

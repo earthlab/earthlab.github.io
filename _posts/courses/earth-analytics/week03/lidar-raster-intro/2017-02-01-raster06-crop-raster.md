@@ -4,7 +4,7 @@ title: "Crop a spatial raster dataset using a shapefile in R."
 excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/crop-raster-data-in-r/
@@ -56,10 +56,10 @@ If you have not already downloaded the week 3 data, please do so now.
 </div>
 
 In this lesson, we will learn how to crop a raster dataset in `R`. Previously,
-we reclassified a raster in R, however the edges of our raster dataset were uneven.
+we reclassified a raster in `R`, however the edges of our raster dataset were uneven.
 In this lesson, we will learn how to crop a raster - to create a new raster
 object / file that we can share with colleagues and / or open in other tools such
-as QGIS.
+as `QGIS`.
 
 ## Load libraries
 
@@ -85,7 +85,7 @@ plot(lidar_chm,
      col=rev(terrain.colors(50)))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster06-crop-raster/open-raster-1.png" title="lidar chm plot" alt="lidar chm plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster06-crop-raster/open-raster-1.png" title="lidar chm plot" alt="lidar chm plot" width="90%" />
 
 ## Open vector layer
 
@@ -117,7 +117,7 @@ plot(crop_extent,
      border="blue")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster06-crop-raster/plot-w-legend-1.png" title="shapefile crop extent plot" alt="shapefile crop extent plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster06-crop-raster/plot-w-legend-1.png" title="shapefile crop extent plot" alt="shapefile crop extent plot" width="90%" />
 
 <figure>
     <a href="{{ site.url }}/images/courses/earth-analytics/week-3/spatial_extent.png">
@@ -129,7 +129,7 @@ plot(crop_extent,
     </figcaption>
 </figure>
 
-Now that we have imported the shapefile. We can use the crop() function in R to
+Now that we have imported the shapefile. We can use the `crop()` function in `R` to
 crop the raster data using the vector shapefile.
 
 
@@ -142,7 +142,7 @@ plot(lidar_chm_crop, main="Cropped lidar chm")
 plot(crop_extent, add=T)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster06-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster06-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -150,10 +150,10 @@ plot(crop_extent, add=T)
 
 In the previous lesson, you created 2 plots:
 
-1. A classified raster map that shows **positive and negative change** in the canopy 
-height model before and after the flood. To do this you will need to calculate the 
+1. A classified raster map that shows **positive and negative change** in the canopy
+height model before and after the flood. To do this you will need to calculate the
 difference between two canopy height models.
-2. A classified raster map that shows **positive and negative change** in terrain 
+2. A classified raster map that shows **positive and negative change** in terrain
 extracted from the pre and post flood Digital Terrain Models before and after the flood.
 
 Create the same two plots except this time CROP each of the rasters that you plotted

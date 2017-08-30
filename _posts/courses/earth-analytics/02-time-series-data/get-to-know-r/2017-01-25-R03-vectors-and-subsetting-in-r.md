@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Understand the vector data type in R and classes including strings, numbers and logicals - Data Science for scientists 101"
+title: "Understand the vector data type in R and classes including strings, numbers and logicals - Data science for scientists 101"
 excerpt: "This tutorial introduces vectors in R. It also introduces the differences between strings, numbers and logical or boolean values (True / False) in R."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [courses]
@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-08-19'
+modified: '2017-08-30'
 week: 2
 sidebar:
   nav:
@@ -19,30 +19,30 @@ course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
 * Understand the structure of and be able to create a vector object in R.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need R and RStudio to complete this tutorial. Also we recommend have you
+You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [How to Setup R / R Studio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 
 </div>
 
 
-## Vectors and Data Types
+## Vectors and data types
 
 A vector is the most common data structure in `R`. A vector is defined as a
 group of values, which most often are either numbers or characters. You can
@@ -76,7 +76,7 @@ length(animals)
 ## [1] 3
 ```
 
-## Vector Data Types
+## Vector data types
 
 An important feature of a vector, is that all of the elements are the same data
 type. The function `class()` shows us the class (the data type) of an object:
@@ -129,7 +129,7 @@ from. The other 4 are:
   `1+4i`) and that's all we're going to say about them
 * `"raw"` that we won't discuss further
 
-## Data Type vs. Data Structure
+## Data type vs. data structure
 Vectors are one of the many **data structures** that `R` uses. Other important
 ones include: lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
 factors (`factor`). We will look at `data.frames` when we open our `boulder_precip`
@@ -167,7 +167,7 @@ tricky <- c(1, 2, 3, '4')
 
 
 
-## Subsetting Vectors
+## Subsetting vectors
 
 If we want to extract one or several values from a vector, we must provide one
 or several indices in square brackets. For instance:
@@ -181,14 +181,13 @@ animals[c(3, 2)]
 ## [1] "dog" "rat"
 ```
 
-<i fa fa-star></i>**Data Tip:** R indexes start at 1. Programming languages like
-Fortran, MATLAB, and R start
-counting at 1, because that's what human beings typically do. Languages in the C
-family (including C++, Java, Perl, and Python) count from 0 because that's
-simpler for computers to do.
+<i fa fa-star></i>**Data tip:** `R` indexes start at 1. Programming languages like
+`Fortran`, `MATLAB`, and `R` start counting at 1, because that's what human beings
+typically do. Languages in the `C` family (including `C++`, `Java`, `Perl`, and
+`Python`) count from 0 because that's simpler for computers to do.
 {: .notice--success}
 
-## Subset Vectors
+## Subset vectors
 
 We can subset vectors too. For instance, if you wanted to select only the
 values above 50:

@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Markdown syntax - a primer"
 excerpt: 'Learn how to write using the markdown syntax - in a R Markdown document.'
 authors: [Leah Wasser, NEON Data Skills]
-modified: '2017-08-17'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/intro-to-markdown/
@@ -18,18 +18,18 @@ order: 3
 topics:
   reproducible-science-and-programming: ['rmarkdown']
 ---
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In this lesson" icon="file-text" %}
 
 Here, we break down the basic syntax for a markdown file. We also cover how to
 create and format markdown (`.md`) files.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Use basic markdown syntax to format a document including: headers, bold and italics.
-* Be able to explain what the markdown format is.
+* Use basic markdown syntax to format a document including: headers, bold and italics
+* Be able to explain what the markdown format is
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -41,29 +41,29 @@ your computer to complete this tutorial.
 ## About markdown
 
 Markdown is a human readable syntax for formatting text documents. Markdown can
-be used to produce nicely formatted documents including pdf's, web pages and more.
+be used to produce nicely formatted documents including `pdf`s, web pages and more.
 When you format text using markdown in a document, it is similar to using the
 format tools (bold, heading 1, heading 2, etc) in a word processing tool like Microsoft
-Word of Google Docs.
+Word or Google Docs.
 
-### Markdown Syntax in .Rmd files
+### Markdown syntax in .Rmd files
 
 An `R Markdown` file can contain text written using the markdown syntax.
 Markdown text, can be whatever you want. It may describe the data that you are
 using, how it's being processed and what the outputs are. You may even add some
 text that interprets or discusses the outputs.
 
-When you render your document to HTML, this markdown will appear as text on the
-output HTML document. We will learn about the markdown syntax next.
+When you render your document to `html`, this markdown will appear as text on the
+output `html` document. We will learn about the markdown syntax next.
 
 
-<i class="fa fa-star"></i> **Data Tip:** This web page that you are reading right now
+<i class="fa fa-star"></i> **Data tip:** This web page that you are reading right now
 is generated from a markdown document.
 {: .notice--success}
 
 In this tutorial, we cover the basic syntax of markdown.
 
-## Markdown Syntax
+## Markdown syntax
 
 Markdown is simple plain text, that is styled using special characters, including:
 
@@ -104,7 +104,7 @@ used in text. To add emphasis to other text use **bold** or *italics*.
 
 ***
 
-### Horizontal Lines (rules)
+### Horizontal lines (rules)
 
 Create a rule:
 
@@ -114,7 +114,7 @@ Below is the rule rendered:
 
 ***
 
-## Section Headings
+## Section headings
 
 We create a heading using the pound (`#`) sign. For the headers to render
 properly there must be a space between the # and the header text.
@@ -132,14 +132,14 @@ Heading one is 1 `#` sign, heading two is 2 `##` signs, etc as follows:
 
 
 
-<i class="fa fa-star"></i> **Data Tip:**
+<i class="fa fa-star"></i> **Data tip:**
 There are many free Markdown editors out there! The
 <a href="http://Atom.io" target="_blank">atom.io</a>
 editor is a powerful text editor package by GitHub, that also has a Markdown
 renderer that allows you to preview the rendered Markdown as you write.
 {: .notice--success}
 
-### Explore Your R Markdown File
+### Explore your R Markdown file
 
 Look closely at the pre-populated markdown and R code chunks in the `.Rmd`
 file that we created above.
@@ -160,12 +160,12 @@ likely someone else knows the answer.*
 
 <div class="notice--info" markdown="1">
 
-## Additional Resources
+## Additional resources
 
 * <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">GitHub Guide on Markdown</a>
 * <a href="http://rmarkdown.rstudio.com/authoring_basics.html" target="_blank"> RStudio Markdown Overview</a>
 
-#### Answers to the Default Text Markdown Syntax Questions
+#### Answers to the default text Markdown syntax questions
 
 * Are any words in bold? - Yes, “Knit” on line 10
 * Are any words in italics? - No

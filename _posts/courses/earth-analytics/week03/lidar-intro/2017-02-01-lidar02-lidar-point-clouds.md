@@ -4,7 +4,7 @@ title: "Get to know lidar (Light Detection and Ranging) point cloud data - activ
 excerpt: "This lesson covers what a lidar point cloud is. We will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/week-3/explore-lidar-point-clouds-plasio/
@@ -62,8 +62,8 @@ In this lesson we will explore some point cloud data using the plas.io viewer.
  </figure>
 
 
-In this activity, you will open a .las file, in the <a href="http://plas.io" target="_blank"> 
-plas.io free online lidar data viewer.</a> You will then explore some of the attributes 
+In this activity, you will open a `.las` file, in the <a href="http://plas.io" target="_blank"> 
+`plas.io` free online lidar data viewer.</a> You will then explore some of the attributes 
 associated with a lidar data point cloud.
 
 ### Lidar attribute data
@@ -86,14 +86,14 @@ NaCL LASzip module.
 ## 1. Open a .las file in plas.io ###
 
 1. If you haven't already, download the week 3 dataset - linked at the top of this 
-page. It contains several .laz format point cloud datasets that we will use in this 
+page. It contains several `.laz` format point cloud datasets that we will use in this 
 lesson.
-2. When the download is complete, drag one of the .laz files into the <a href="http://plas.io" target="_blank"> 
+2. When the download is complete, drag one of the `.laz` files into the <a href="http://plas.io" target="_blank"> 
 plas.io website.</a> window.
 3. Zoom and pan around the data.
 4. Use the particle size slider to adjust the size of each individual lidar point. 
 NOTE: the particle size slider is located a little more than half way down the 
-plas.io toolbar in the "Data" section
+`plas.io` toolbar in the "Data" section
 
 If the data imported into the plas.io viewer correctly, you should see something similar to the screenshot below:
 
@@ -103,13 +103,13 @@ If the data imported into the plas.io viewer correctly, you should see something
 </figure>
 
 ### Navigate around your data in plas.io
-You might prefer to use a mouse to explore your data in plas.io. Let's test the 
+You might prefer to use a mouse to explore your data in `plas.io`. Let's test the 
 navigation out:
 
 1. Left click on the screen and drag the data on the screen. Notice that this tilts 
-the data up and down.
+the data up and down
 2. Right click on the screen and drag noticing that this moves the entire dataset around
-3. Use the scroll bar on your mouse to zoom in and out.
+3. Use the scroll bar on your mouse to zoom in and out
 
 ### How the points are colored - why is everything grey when the data are loaded?
 Notice that the data, upon initial view, are colored in a black - white color scheme. 
@@ -128,7 +128,7 @@ light energy returned. Lighter colors represent MORE light returned.
 
 ## 2. Adjust the intensity threshold
 
-Next, scroll down through the tools in plas.io. Look for the Intensity Scaling slider. 
+Next, scroll down through the tools in `plas.io`. Look for the Intensity Scaling slider. 
 The intensity scaling slider allows you to define the thresholds of light to dark 
 intensity values displayed in the image (similar to stretching values in an image 
 processing software or even in photoshop).
@@ -184,7 +184,7 @@ In this case, these data are classified as either ground, or non-ground. To view
 Finally, spend some time exploring the data. What features do you see in this dataset? What does the topography look like? Is the site flat? Hilly? Mountainous? What do the lidar data tell you, just upon initial inspection?
 
 ## Summary
-*	The plas.io online point cloud viewer allows you to quickly view and explore lidar data point clouds.
+*	The `plas.io` online point cloud viewer allows you to quickly view and explore lidar data point clouds.
 *	Each lidar data point will have an associated set of attributes. You can check the metadata to determine which attributes the dataset contains. NEON data, provided above, contain both classification and intensity values.
 *	Classification values represent the type of object that the light energy reflected off of. Classification values are often ground vs non ground. Some lidar data files might have buildings, water bodies and other natural and man made elements classified.
 *	Lidar data often has an intensity value associated with it. This represents the amount of light energy that reflected off an object and returned to the sensor.
