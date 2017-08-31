@@ -125,8 +125,8 @@ summary(lidar_chm)
 ## Min.     0.0000000
 ## 1st Qu.  0.0000000
 ## Median   0.0000000
-## 3rd Qu.  0.6900635
-## Max.    22.8900146
+## 3rd Qu.  0.6700439
+## Max.    26.6400146
 ## NA's     0.0000000
 ```
 
@@ -145,7 +145,7 @@ hist(lidar_chm,
      col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-histogram-1.png" title="histogram of lidar chm data" alt="histogram of lidar chm data" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-histogram-1.png" title="histogram of lidar chm data" alt="histogram of lidar chm data" width="90%" />
 
 We can further explore our histogram by constraining the `x axis` limits using the
 `lims` argument. The lims argument visually
@@ -161,7 +161,7 @@ hist(lidar_chm,
      col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/hist-contrained-1.png" title="plot of chm histogram constrained above 0" alt="plot of chm histogram constrained above 0" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/hist-contrained-1.png" title="plot of chm histogram constrained above 0" alt="plot of chm histogram constrained above 0" width="90%" />
 
 We can look at the values that `R` used to draw our histogram too. To do this, we assign
 our `hist()` function to a new variable. Then we look at the variable contents. This
@@ -175,7 +175,7 @@ shows us the breaks used to bin our histogram data.
 histinfo <- hist(lidar_chm)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/view-hist-info-1.png" title="histogram of lidar data - view data" alt="histogram of lidar data - view data" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/view-hist-info-1.png" title="histogram of lidar data - view data" alt="histogram of lidar data - view data" width="90%" />
 
 Each bin represents a bar on our histogram plot. Each bar represents the frequency
 or number of pixels that have a value within that bin. For instance, there
@@ -185,12 +185,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76001  3381  3123  2931  2483  2090  1979  1846  1505  1237   939
-## [12]   745   550   422   297   183   122    74    41    22    17     9
-## [23]     2     1
+##  [1] 76388  3314  3107  2792  2472  2178  1910  1707  1525  1179   944
+## [12]   807   547   406   295   161   115    76    38    18    12     5
+## [23]     2     1     1
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23 24
+## [24] 23 24 25
 ```
 
 If we want to customize our histogram further, we can customize the number of
@@ -208,7 +208,7 @@ hist(lidar_chm,
      xlab="Pixel value")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/create-lidar-hist-1.png" title="histogram of lidar chm" alt="histogram of lidar chm" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/create-lidar-hist-1.png" title="histogram of lidar chm" alt="histogram of lidar chm" width="90%" />
 
 Notice that I've adjusted the x and y lims to zoom into the region of the histogram
 that I am interested in exploring.
@@ -231,7 +231,7 @@ hist(lidar_chm,
      col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/histogram-breaks-1.png" title="histogram with custom breaks" alt="histogram with custom breaks" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/histogram-breaks-1.png" title="histogram with custom breaks" alt="histogram with custom breaks" width="90%" />
 
 We may want to play with the distribution of breaks. Below it appears as if
 there are many values close to 0. In the case of this lidar instrument we know that
@@ -259,7 +259,7 @@ hist(lidar_chm,
      col="springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/histogram-breaks2-1.png" title="histogram with custom breaks" alt="histogram with custom breaks" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/histogram-breaks2-1.png" title="histogram with custom breaks" alt="histogram with custom breaks" width="90%" />
 
 You may want to play around with the classes further. Or you may have a scientific
 reason to select particular classes. Regardless, let's use the classes above to
@@ -343,7 +343,7 @@ barplot(chm_classified,
         main="Number of pixels in each class")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/barplot-pixels-1.png" title="create barplot of classified rasters" alt="create barplot of classified rasters" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/barplot-pixels-1.png" title="create barplot of classified rasters" alt="create barplot of classified rasters" width="90%" />
 
 If the raster classification output has values of 0, we can set those to `NA` using
 the syntax below. The left side of this syntax tells `R` to first select ALL pixels
@@ -369,7 +369,7 @@ plot(chm_classified,
      col=c("red", "blue", "green"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/reclassify-plot-raster-1.png" title="classified chm plot" alt="classified chm plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/reclassify-plot-raster-1.png" title="classified chm plot" alt="classified chm plot" width="90%" />
 
 ## Add custom legend
 
@@ -396,7 +396,7 @@ legend("topright",
        bty="n") # turn off legend border
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />
 
 Finally, let's create a color object so we don't have to type out the colors twice.
 
@@ -419,7 +419,7 @@ legend("topright",
        bty="n")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-colors-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-colors-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />
 
 Finally, we may want to remove the box from our plot.
 
@@ -443,7 +443,7 @@ legend("topright",
        bty="n")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-colors2-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-colors2-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />
 
 <div class="notice--warning" markdown="1">
 

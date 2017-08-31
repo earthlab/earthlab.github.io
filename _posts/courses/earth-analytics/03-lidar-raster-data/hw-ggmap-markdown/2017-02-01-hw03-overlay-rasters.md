@@ -13,7 +13,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 2
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming:
@@ -79,4 +79,4 @@ plot(lidar_dem,
      add=T, alpha=.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/hw-ggmap-markdown/2017-02-01-hw03-overlay-rasters/create-base-map-1.png" title="overlay plot" alt="overlay plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/hw-ggmap-markdown/2017-02-01-hw03-overlay-rasters/create-base-map-1.png" title="overlay plot" alt="overlay plot" width="90%" />
