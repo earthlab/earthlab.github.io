@@ -102,7 +102,7 @@ plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster01-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster01-open-lidar-raster-data-r/open-plot-raster-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="90%" />
 
 If we zoom in on a small section of the raster, we can see the individual pixels
 that make up the raster. Each pixel has one value associated with it. In this
@@ -120,7 +120,7 @@ plot(lidar_dem,
      main="Lidar Raster - Zoomed into one small region")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week03/lidar-raster-intro/2017-02-01-raster01-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster01-open-lidar-raster-data-r/plot-zoomed-in-raster-1.png" title="zoom in on a small part of a raster - see the pixels?" alt="zoom in on a small part of a raster - see the pixels?" width="90%" />
 
 Next, let's discuss some of the important spatial attributes associated with raster
 data.

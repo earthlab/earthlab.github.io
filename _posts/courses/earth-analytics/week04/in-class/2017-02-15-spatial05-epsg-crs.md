@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 modified: '2017-08-30'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
-permalink: /courses/earth-analytics/week-4/understand-epsg-wkt-and-other-crs-definition-file-types/
+permalink: /courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
 nav-title: 'EPSG, Proj4, WKT crs formats'
 week: 4
 course: "earth-analytics"
@@ -94,15 +94,16 @@ library(stringr)
 
 ```r
 # import data
-aoi <- readOGR("data/week_03/california/SJER/vector_data/sjer_crop.shp")
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
+aoi <- readOGR("data/week_04/california/SJER/vector_data/sjer_crop.shp")
 ```
 
 
 ```r
 # view crs of the aoi
 crs(aoi)
-## Error in crs(aoi): object 'aoi' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 ```
 
 Notice that the `crs` returned from our crop data layer is a string of
@@ -142,10 +143,14 @@ Next, let's have a look at another `CRS` definition.
 
 ```r
 # import data
-world <- readOGR("data/week_03/global/ne_110m_land/ne_110m_land.shp")
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
+world <- readOGR("data/week_04/global/ne_110m_land/ne_110m_land.shp")
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week_04/global/ne_110m_land/ne_110m_land.shp", layer: "ne_110m_land"
+## with 127 features
+## It has 2 fields
 crs(world)
-## Error in crs(world): object 'world' not found
+## CRS arguments:
+##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 ```
 
 Our projection string for the `world` data imported above looks different:

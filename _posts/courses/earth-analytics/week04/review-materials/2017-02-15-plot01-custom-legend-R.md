@@ -75,14 +75,17 @@ Next, import and explore the data.
 
 ```r
 # import roads
-sjer_roads <- readOGR("data/week_03/california/madera-county-roads",
+sjer_roads <- readOGR("data/week_04/california/madera-county-roads",
                       "tl_2013_06039_roads")
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week_04/california/madera-county-roads", layer: "tl_2013_06039_roads"
+## with 9640 features
+## It has 4 fields
 # view the original class of the TYPE column
 class(sjer_roads$RTTYP)
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
+## [1] "character"
 unique(sjer_roads$RTTYP)
-## Error in unique(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] "M" NA  "S" "C"
 ```
 
 It looks like we have some missing values in our road types. We want to plot all
@@ -95,27 +98,26 @@ Following, we can convert the road attribute to a factor.
 ```r
 # set all NA values to "unknown" so they still plot
 sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "Unknown"
-## Error in sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "Unknown": object 'sjer_roads' not found
 unique(sjer_roads$RTTYP)
-## Error in unique(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] "M"       "Unknown" "S"       "C"
 
 # view levels or categories - note that there are no categories yet in our data!
 # the attributes are just read as a list of character elements.
 levels(sjer_roads$RTTYP)
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
+## NULL
 
 # Convert the TYPE attribute into a factor
 # Only do this IF the data do not import as a factor!
 sjer_roads$RTTYP <- as.factor(sjer_roads$RTTYP)
-## Error in as.factor(sjer_roads$RTTYP): object 'sjer_roads' not found
 class(sjer_roads$RTTYP)
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
+## [1] "factor"
 levels(sjer_roads$RTTYP)
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] "C"       "M"       "S"       "Unknown"
 
 # how many features are in each category or level?
 summary(sjer_roads$RTTYP)
-## Error in summary(sjer_roads$RTTYP): object 'sjer_roads' not found
+##       C       M       S Unknown 
+##      10    4456      25    5149
 ```
 
 When we use `plot()`, we can specify the colors to use for each attribute using
@@ -139,7 +141,7 @@ Let's give this a try.
 ```r
 # count the number of unique values or levels
 length(levels(sjer_roads$RTTYP))
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] 4
 
 # create a color palette of 4 colors - one for each factor level
 roadPalette <- c("blue", "green", "grey", "purple")
@@ -148,17 +150,17 @@ roadPalette
 # create a vector of colors - one for each feature in our vector object
 # according to its attribute value
 roadColors <- c("blue", "green", "grey", "purple")[sjer_roads$RTTYP]
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
 head(roadColors)
-## Error in head(roadColors): object 'roadColors' not found
+## [1] "green" "green" "green" "green" "green" "green"
 
 # plot the lines data, apply a diff color to each factor level)
 plot(sjer_roads,
      col=roadColors,
      lwd=2,
      main="Madera County Roads")
-## Error in plot(sjer_roads, col = roadColors, lwd = 2, main = "Madera County Roads"): object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="90%" />
 
 ### Adjust line width
 We can also adjust the width of our plot lines using `lwd`. We can set all lines
@@ -171,8 +173,9 @@ plot(sjer_roads,
      col=roadColors,
      main="Madera County Roads\n All Lines Thickness=6",
      lwd=6)
-## Error in plot(sjer_roads, col = roadColors, main = "Madera County Roads\n All Lines Thickness=6", : object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/adjust-line-width-1.png" title="map of madera roads" alt="map of madera roads" width="90%" />
 
 ### Adjust line width by attribute
 
@@ -187,20 +190,20 @@ try.
 
 ```r
 class(sjer_roads$RTTYP)
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
+## [1] "factor"
 levels(sjer_roads$RTTYP)
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] "C"       "M"       "S"       "Unknown"
 # create vector of line widths
 lineWidths <- (c(1, 2, 3, 4))[sjer_roads$RTTYP]
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
 # adjust line width by level
 # in this case, boardwalk (the first level) is the widest.
 plot(sjer_roads,
      col=roadColors,
      main="Madera County Roads \n Line width varies by TYPE Attribute Value",
      lwd=lineWidths)
-## Error in plot(sjer_roads, col = roadColors, main = "Madera County Roads \n Line width varies by TYPE Attribute Value", : object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/line-width-unique-1.png" title="Map with legend that shows unique line widths." alt="Map with legend that shows unique line widths." width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -220,13 +223,7 @@ Create a plot of roads using the following line thicknesses:
 
 </div>
 
-
-```
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
-## Error in eval(expr, envir, enclos): object 'lineWidth' not found
-## Error in plot(sjer_roads, col = roadColors, main = "Madera County Roads \n Line width varies by Type Attribute Value", : object 'sjer_roads' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/roads-map-1.png" title="roads map modified" alt="roads map modified" width="90%" />
 
 <i class="fa fa-star"></i> **Data tip:** Given we have a factor with 4 levels,
 we can create an vector of numbers, each of which specifies the thickness of each
@@ -253,7 +250,6 @@ Let's add a legend to our plot.
 plot(sjer_roads,
      col=roadColors,
      main="Madera County Roads\n Default Legend")
-## Error in plot(sjer_roads, col = roadColors, main = "Madera County Roads\n Default Legend"): object 'sjer_roads' not found
 
 # we can use the color object that we created above to color the legend objects
 roadPalette
@@ -264,8 +260,9 @@ legend("bottomright",   # location of legend
       legend=levels(sjer_roads$RTTYP), # categories or elements to render in
 			 # the legend
       fill=roadPalette) # color palette to use to fill objects in legend.
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/add-legend-to-plot-1.png" title="SJER roads map with custom legend." alt="SJER roads map with custom legend." width="90%" />
 
 We can tweak the appearance of our legend too.
 
@@ -280,15 +277,15 @@ Let's try it out.
 plot(sjer_roads,
      col=roadColors,
      main="Madera County Roads \n Modified Legend - smaller font and no border")
-## Error in plot(sjer_roads, col = roadColors, main = "Madera County Roads \n Modified Legend - smaller font and no border"): object 'sjer_roads' not found
 # add a legend to our map
 legend("bottomright",
        legend=levels(sjer_roads$RTTYP),
        fill=roadPalette,
        bty="n", # turn off the legend border
        cex=.8) # decrease the font / legend size
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/modify-legend-plot-1.png" title="modified custom legend" alt="modified custom legend" width="90%" />
 
 We can modify the colors used to plot our lines by creating a new color vector,
 directly in the plot code too rather than creating a separate object.
@@ -309,15 +306,15 @@ newColors
 plot(sjer_roads,
      col=(newColors)[sjer_roads$RTTYP],
      main="Madera County Roads \n Pretty Colors")
-## Error in plot(sjer_roads, col = (newColors)[sjer_roads$RTTYP], main = "Madera County Roads \n Pretty Colors"): object 'sjer_roads' not found
 
 # add a legend to our map
 legend("bottomright",
        levels(sjer_roads$RTTYP),
        fill=newColors,
        bty="n", cex=.8)
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/plot-different-colors-1.png" title="adjust colors" alt="adjust colors" width="90%" />
 
 <i class="fa fa-star"></i> **Data tip:** You can modify the defaul R color palette
 using the palette method. For example `palette(rainbow(6))` or
@@ -341,20 +338,19 @@ other lines can be grey.
 ```r
 # view levels
 levels(sjer_roads$RTTYP)
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] "C"       "M"       "S"       "Unknown"
 # make sure the attribute is of class "factor"
 class(sjer_roads$RTTYP)
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
+## [1] "factor"
 
 # convert to factor if necessary
 sjer_roads$RTTYP <- as.factor(sjer_roads$RTTYP)
-## Error in as.factor(sjer_roads$RTTYP): object 'sjer_roads' not found
 levels(sjer_roads$RTTYP)
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] "C"       "M"       "S"       "Unknown"
 
 # count factor levels
 length(levels(sjer_roads$RTTYP))
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] 4
 # set colors so only the allowed roads are magenta
 # note there are 3 levels so we need 3 colors
 challengeColors <- c("magenta","grey","magenta","grey")
@@ -366,7 +362,6 @@ plot(sjer_roads,
      col=(challengeColors)[sjer_roads$RTTYP],
      lwd=c(4,1,1,1)[sjer_roads$RTTYP],
      main="SJER Roads")
-## Error in plot(sjer_roads, col = (challengeColors)[sjer_roads$RTTYP], lwd = c(4, : object 'sjer_roads' not found
 
 # add a legend to our map
 legend("bottomright",
@@ -374,8 +369,9 @@ legend("bottomright",
        fill=challengeColors,
        bty="n", # turn off border
        cex=.8) # adjust font size
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="90%" />
 
 Finall, let's adjust the legend. We want the legend SYMBOLS to represent the
 actual symbology in the map - which contains lines, not polygons.
@@ -387,7 +383,6 @@ plot(sjer_roads,
      col=(challengeColors)[sjer_roads$RTTYP],
      lwd=c(4,1,2,1)[sjer_roads$RTTYP], # color each line in the map by attribute
      main="Madera County Roads\n County and State recognized roads")
-## Error in plot(sjer_roads, col = (challengeColors)[sjer_roads$RTTYP], lwd = c(4, : object 'sjer_roads' not found
 
 # add a legend to our map
 legend("bottomright",
@@ -397,8 +392,9 @@ legend("bottomright",
        col=challengeColors, # set the color of each legend line
        bty="n", # turn off border
        cex=.8) # adjust font size
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/final-custom-legend-1.png" title="Custom legend with lines" alt="Custom legend with lines" width="90%" />
 
 <!-- C = County
 I = Interstate
@@ -424,17 +420,15 @@ need to define 3 symbols and 3 colors for our legend and our plot.
 
 ```r
 # import points layer
-sjer_plots <- readOGR("data/week_03/california/SJER/vector_data",
+sjer_plots <- readOGR("data/week_04/california/SJER/vector_data",
                       "SJER_plot_centroids")
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 ```
 
 
 ```r
 sjer_plots$plot_type <- as.factor(sjer_plots$plot_type)
-## Error in as.factor(sjer_plots$plot_type): object 'sjer_plots' not found
 levels(sjer_plots$plot_type)
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
+## [1] "grass" "soil"  "trees"
 # grass, soil trees
 plot_colors <- c("chartreuse4", "burlywood4", "darkgreen")
 
@@ -443,7 +437,6 @@ plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
      main="Madera County Roads\n County and State recognized roads")
-## Error in plot(sjer_plots, col = (plot_colors)[sjer_plots$plot_type], pch = 8, : object 'sjer_plots' not found
 
 
 # add a legend to our map
@@ -453,8 +446,9 @@ legend("bottomright",
        col=plot_colors, # set the color of each legend line
        bty="n", # turn off border
        cex=.9) # adjust legend font size
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/legend-points-lines-1.png" title="plot legend with points and lines" alt="plot legend with points and lines" width="90%" />
 
 Next, let's try to plot our roads on top of the plot locations. Then let's create
 a custom legend that contains both lines and points. NOTE: in this example I've
@@ -463,9 +457,7 @@ this code will work.
 
 
 ```
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
-## Error in spTransform(sjer_roads, crs(sjer_aoi)): object 'sjer_roads' not found
-## Error in crop(sjer_roads_utm, sjer_aoi): object 'sjer_roads_utm' not found
+## Error: requireNamespace("rgeos") is not TRUE
 ```
 
 When we create a legend, we will have to add the labels for both the points
@@ -477,7 +469,7 @@ layer and the lines layer.
 ```r
 # view all elements in legend
 c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
+## [1] "grass"   "soil"    "trees"   "C"       "M"       "S"       "Unknown"
 ```
 
 
@@ -489,14 +481,12 @@ plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
      main="Madera County Roads and plot locations")
-## Error in plot(sjer_plots, col = (plot_colors)[sjer_plots$plot_type], pch = 8, : object 'sjer_plots' not found
 
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
-## Error in plot(sjer_roads_utm, col = (challengeColors)[sjer_plots$plot_type], : object 'sjer_roads_utm' not found
 
 # add a legend to our map
 legend("bottomright",
@@ -505,8 +495,9 @@ legend("bottomright",
        col=plot_colors, # set the color of each legend line
        bty="n", # turn off border
        cex=.9) # adjust legend font size
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/custom-legend-points-lines-1.png" title="final plot custom legend." alt="final plot custom legend." width="90%" />
 
 
 Next we have to tell `R`, which symbols are lines and which are point symbols. We
@@ -529,14 +520,12 @@ plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
      main="Madera County Roads and plot locations")
-## Error in plot(sjer_plots, col = (plot_colors)[sjer_plots$plot_type], pch = 8, : object 'sjer_plots' not found
 
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
-## Error in plot(sjer_roads_utm, col = (challengeColors)[sjer_plots$plot_type], : object 'sjer_roads_utm' not found
 
 # add a legend to our map
 legend("bottomright",
@@ -546,8 +535,9 @@ legend("bottomright",
        col=c(plot_colors, challengeColors), # set the color of each legend line
        bty="n", # turn off border
        cex=.9) # adjust legend font size
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/custom-legend-points-lines-2-1.png" title="Plot with points and lines customized." alt="Plot with points and lines customized." width="90%" />
 
 
 ## Force the legend to plot next to your plot
@@ -575,32 +565,27 @@ will use this to place our legend.
 ```r
 # figure out where the upper RIGHT hand corner of our plot extent is
 the_plot_extent <- extent(sjer_aoi)
-## Error in extent(sjer_aoi): object 'sjer_aoi' not found
 
 # grab the upper right hand corner coordinates
 furthest_pt_east <- the_plot_extent@xmax
-## Error in eval(expr, envir, enclos): object 'the_plot_extent' not found
 furthest_pt_north <- the_plot_extent@ymax
-## Error in eval(expr, envir, enclos): object 'the_plot_extent' not found
 # view values
 furthest_pt_east
-## Error in eval(expr, envir, enclos): object 'furthest_pt_east' not found
+## [1] 258867.4
 furthest_pt_north
-## Error in eval(expr, envir, enclos): object 'furthest_pt_north' not found
+## [1] 4112362
 
 # plot using new colors
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
      main="Madera County Roads and plot locations")
-## Error in plot(sjer_plots, col = (plot_colors)[sjer_plots$plot_type], pch = 8, : object 'sjer_plots' not found
 
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
-## Error in plot(sjer_roads_utm, col = (challengeColors)[sjer_plots$plot_type], : object 'sjer_roads_utm' not found
 
 # add a legend to our map
 legend(x=furthest_pt_east, y=furthest_pt_north,
@@ -611,8 +596,9 @@ legend(x=furthest_pt_east, y=furthest_pt_north,
        bty="n", # turn off border
        cex=.9, # adjust legend font size
        xpd=T) # force the legend to plot outside of your extent
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/adjust-legend-1.png" title="plot with fixed legend" alt="plot with fixed legend" width="90%" />
 
 
 
@@ -634,18 +620,15 @@ plot(sjer_aoi,
      border="grey",
      lwd=2,
      main="Madera County Roads and plot locations")
-## Error in plot(sjer_aoi, border = "grey", lwd = 2, main = "Madera County Roads and plot locations"): object 'sjer_aoi' not found
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      add=T,
      pch=8)
-## Error in plot(sjer_plots, col = (plot_colors)[sjer_plots$plot_type], add = T, : object 'sjer_plots' not found
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
-## Error in plot(sjer_roads_utm, col = (challengeColors)[sjer_plots$plot_type], : object 'sjer_roads_utm' not found
 
 # add a legend to our map
 legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
@@ -656,8 +639,9 @@ legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
        bty="n", # turn off border
        cex=.9, # adjust legend font size
        xpd=T)
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/custom-legend-points-lines-22-1.png" title="final legend with points and lines customized 2ß." alt="final legend with points and lines customized 2ß." width="90%" />
 
 
 
@@ -683,18 +667,15 @@ plot(sjer_aoi,
      border="grey",
      lwd=2,
      main="Madera County Roads and plot locations")
-## Error in plot(sjer_aoi, border = "grey", lwd = 2, main = "Madera County Roads and plot locations"): object 'sjer_aoi' not found
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      add=T,
      pch=8)
-## Error in plot(sjer_plots, col = (plot_colors)[sjer_plots$plot_type], add = T, : object 'sjer_plots' not found
 # plot using new colors
 plot(sjer_roads_utm,
      col=(challengeColors)[sjer_plots$plot_type],
      pch=8,
      add=T)
-## Error in plot(sjer_roads_utm, col = (challengeColors)[sjer_plots$plot_type], : object 'sjer_roads_utm' not found
 
 # add a legend to our map
 legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
@@ -706,8 +687,9 @@ legend(x=(furthest_pt_east+50), y=(furthest_pt_north-15),
        cex=.9, # adjust legend font size
        xpd=T,
        text.font =c(2, 1, 1, 1, 2, 1, 1, 1, 1))
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/custom-legend-points-lines-3-1.png" title="final legend with points and lines customized 2ß." alt="final legend with points and lines customized 2ß." width="90%" />
 
 
 
@@ -717,13 +699,7 @@ Now, if you want to move the legend out a bit further, what would you do?
 
 Any idea how I added a space to the legend below to create "sections"?
 
-
-```
-## Error in plot(sjer_aoi, border = "grey", lwd = 2, main = "Madera County Roads and plot locations"): object 'sjer_aoi' not found
-## Error in plot(sjer_plots, col = (plot_colors)[sjer_plots$plot_type], add = T, : object 'sjer_plots' not found
-## Error in plot(sjer_roads_utm, col = (challengeColors)[sjer_plots$plot_type], : object 'sjer_roads_utm' not found
-## Error in levels(sjer_plots$plot_type): object 'sjer_plots' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/custom-legend-points-lines-4-1.png" title="final legend with points and lines customized." alt="final legend with points and lines customized." width="90%" />
 
 
 ```r

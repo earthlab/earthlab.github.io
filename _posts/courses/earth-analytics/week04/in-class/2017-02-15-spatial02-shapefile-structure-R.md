@@ -7,7 +7,7 @@ authors: ['Leah Wasser']
 modified: '2017-08-30'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
-permalink: /courses/earth-analytics/week-4/shapefile-structure/
+permalink: /courses/earth-analytics/spatial-data-r/shapefile-structure/
 nav-title: 'Shapefile structure'
 week: 4
 sidebar:

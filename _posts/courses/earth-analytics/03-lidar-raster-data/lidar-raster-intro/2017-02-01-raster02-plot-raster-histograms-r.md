@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-08-30'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/plot-raster-histograms-r/
@@ -74,13 +74,13 @@ library(rgdal)
 
 # open raster data
 lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot raster data
 plot(lidar_dem,
      main="Digital Elevation Model - Pre 2013 Flood")
-## Error in plot(lidar_dem, main = "Digital Elevation Model - Pre 2013 Flood"): object 'lidar_dem' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/load-libraries-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="90%" />
 
 ## Raster histograms - distribution of elevation values
 
@@ -102,8 +102,9 @@ hist(lidar_dem,
      main="Distribution of surface elevation values",
      xlab="Elevation (meters)", ylab="Frequency",
      col="springgreen")
-## Error in hist(lidar_dem, main = "Distribution of surface elevation values", : object 'lidar_dem' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/view-hist-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="90%" />
 
 ## What does a histogram tell us?
 
@@ -123,8 +124,9 @@ hist(lidar_dem,
      main="Distribution of surface elevation values with breaks",
      xlab="Elevation (meters)", ylab="Frequency",
      col="springgreen")
-## Error in hist(lidar_dem, breaks = 3, main = "Distribution of surface elevation values with breaks", : object 'lidar_dem' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/view-hist2-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="90%" />
 
 Alternatively, we can specify specific break points that we want `R` to use when it
 bins the data.
@@ -147,8 +149,9 @@ hist(lidar_dem,
      breaks=c(1600, 1800, 2000, 2100),
      xlab="Elevation (meters)", ylab="Frequency",
      col="wheat3")
-## Error in hist(lidar_dem, main = "Distribution of surface elevation values", : object 'lidar_dem' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/view-hist3-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -166,12 +169,7 @@ crs() and xres()  / yres() -->
 
 </div>
 
-
-```
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
-## Error in hist(lidar_dsm, col = "springgreen", xlab = "elevation", ylab = "frequency", : object 'lidar_dsm' not found
-## Error in plot(lidar_dsm, main = "Digital Surface Model"): object 'lidar_dsm' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/class-challenge-1.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="90%" /><img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/class-challenge-2.png" title="DSM histogram and plot" alt="DSM histogram and plot" width="90%" />
 
 <div class="notice--info" markdown="1">
 
