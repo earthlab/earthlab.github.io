@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Introduction to coordinate reference systems in R "
 excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-01'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/
@@ -176,7 +176,6 @@ the central meridian on the globe (0,0).
 library(rgdal)
 library(ggplot2)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(raster)
 
 #install.packages('sf')
@@ -208,8 +207,10 @@ newTheme <- list(theme(line = element_blank(),
 ```r
 # read shapefile
 worldBound <- readOGR(dsn="data/week_04/global/ne_110m_land/ne_110m_land.shp")
+## Error in ogrListLayers(dsn = dsn): Cannot open data source
 # convert to dataframe
 worldBound_df <- fortify(worldBound)
+## Error in fortify(worldBound): object 'worldBound' not found
 ```
 
 
@@ -222,11 +223,11 @@ worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
        y="Latitude (Degrees)",
       title="Global Map - Geographic Coordinate System ",
       subtitle = "WGS84 Datum, Units: Degrees - Latitude / Longitude")
+## Error in ggplot(worldBound_df, aes(long, lat, group = group)): object 'worldBound_df' not found
 
 worldMap
+## Error in eval(expr, envir, enclos): object 'worldMap' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="90%" />
 
 We can add three coordinate locations to our map. Note that the UNITS are
 in decimal **degrees** (latitude, longitude):
@@ -250,11 +251,11 @@ mapLocations <- worldMap +
                 geom_point(data=loc_df,
                 aes(x=lon, y=lat, group=NULL), colour = "springgreen",
                       size=5)
+## Error in eval(expr, envir, enclos): object 'worldMap' not found
 
 mapLocations
+## Error in eval(expr, envir, enclos): object 'mapLocations' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/add-lat-long-locations-1.png" title="Map plotted using geographic projection with location points added." alt="Map plotted using geographic projection with location points added." width="90%" />
 
 ## Geographic CRS - the good & the less good
 
@@ -286,8 +287,10 @@ different shape compared to the map that we created above in the `CRS`:
 # reproject data from longlat to robinson CRS
 worldBound_robin <- spTransform(worldBound,
                                 CRS("+proj=robin"))
+## Error in spTransform(worldBound, CRS("+proj=robin")): object 'worldBound' not found
 
 worldBound_df_robin <- fortify(worldBound_robin)
+## Error in fortify(worldBound_robin): object 'worldBound_robin' not found
 
 # force R to plot x and y values without rounding digits
 # options(scipen=100)
@@ -298,11 +301,11 @@ robMap <- ggplot(worldBound_df_robin, aes(long,lat, group=group)) +
        x = "X Coordinates (meters)",
        y ="Y Coordinates (meters)") +
   coord_equal()
+## Error in ggplot(worldBound_df_robin, aes(long, lat, group = group)): object 'worldBound_df_robin' not found
 
 robMap
+## Error in eval(expr, envir, enclos): object 'robMap' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="90%" />
 
 Now what happens if you try to add the same Lat / Long coordinate locations that
 we used above, to our map, that is using the `Robinson` `CRS` as it's coordinate
@@ -315,11 +318,11 @@ newMap <- robMap + geom_point(data=loc_df,
                       aes(x=lon, y=lat, group=NULL),
                       colour = "springgreen",
                       size=5)
+## Error in eval(expr, envir, enclos): object 'robMap' not found
 
 newMap
+## Error in eval(expr, envir, enclos): object 'newMap' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="90%" />
 
 Notice above that when we try to add lat/long coordinates in degrees to a map
 in a different `CRS`, that the points are not in the correct location. We need
@@ -342,16 +345,10 @@ loc_df
 # convert dataframe to spatial points data frame
 loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
                             proj4string=crs(worldBound))
+## Error in crs(worldBound): object 'worldBound' not found
 
 loc_spdf
-## class       : SpatialPointsDataFrame 
-## features    : 3 
-## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
-## variables   : 2
-## names       :       lon,     lat 
-## min values  : -105.2519, 39.6167 
-## max values  :     10.75,   59.95
+## Error in eval(expr, envir, enclos): object 'loc_spdf' not found
 ```
 
 Once we have converted our data frame into a spatial data frame, we can then
@@ -361,6 +358,7 @@ reproject our data.
 ```r
 # reproject data to Robinson
 loc_spdf_rob <- spTransform(loc_spdf, CRSobj = CRS("+proj=robin"))
+## Error in spTransform(loc_spdf, CRSobj = CRS("+proj=robin")): object 'loc_spdf' not found
 ```
 
 To make our data place nicely with ggplot, we need to once again convert to a
@@ -371,6 +369,7 @@ a `data.frame` using `as.data.frame()`.
 ```r
 # convert the spatial object into a data frame
 loc_rob_df <- as.data.frame(coordinates(loc_spdf_rob))
+## Error in coordinates(loc_spdf_rob): object 'loc_spdf_rob' not found
 
 # turn off scientific notation
 options(scipen=10000)
@@ -379,11 +378,11 @@ newMap <- robMap + geom_point(data=loc_rob_df,
                       aes(x=lon, y=lat, group=NULL),
                       colour = "springgreen",
                       size=5)
+## Error in eval(expr, envir, enclos): object 'robMap' not found
 
 newMap
+## Error in eval(expr, envir, enclos): object 'newMap' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/plot-new-map-1.png" title="Map of the globe in robinson projection." alt="Map of the globe in robinson projection." width="90%" />
 
 ## Compare maps
 
@@ -400,8 +399,10 @@ lines.
 ## import graticule shapefile data
 graticule <- readOGR("data/week_04/global/ne_110m_graticules_all",
                      layer="ne_110m_graticules_15")
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 # convert spatial sp object into a ggplot ready, data.frame
 graticule_df <- fortify(graticule)
+## Error in fortify(graticule): object 'graticule' not found
 ```
 
 Let's check out our graticules. Notice they are just parellels and meridians.
@@ -411,15 +412,15 @@ Let's check out our graticules. Notice they are just parellels and meridians.
 # plot graticules
 ggplot() +
   geom_path(data=graticule_df, aes(long, lat, group=group), linetype="dashed", color="grey70")
+## Error in fortify(data): object 'graticule_df' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/plot-grat-1.png" title="graticules plot" alt="graticules plot" width="90%" />
 
 Also we will import a bounding box to make our plot look nicer!
 
 
 ```r
 bbox <- readOGR("data/week_04/global/ne_110m_graticules_all/ne_110m_wgs84_bounding_box.shp")
+## Error in ogrListLayers(dsn = dsn): Cannot open data source
 bbox_df <- fortify(bbox)
 
 latLongMap <- ggplot(bbox_df, aes(long,lat, group=group)) +
@@ -430,6 +431,7 @@ latLongMap <- ggplot(bbox_df, aes(long,lat, group=group)) +
   newTheme +
 
   scale_fill_manual(values=c("black", "white"), guide="none") # change colors & remove legend
+## Error in fortify(data): object 'worldBound_df' not found
 
 # add our location points to the map
 latLongMap <- latLongMap +
@@ -437,6 +439,7 @@ latLongMap <- latLongMap +
                       aes(x=lon, y=lat, group=NULL),
                       colour="springgreen",
                       size=5)
+## Error in eval(expr, envir, enclos): object 'latLongMap' not found
 ```
 
 Below, we reproject our graticules and the bounding box to the Robinson projection.
@@ -445,9 +448,13 @@ Below, we reproject our graticules and the bounding box to the Robinson projecti
 ```r
 # reproject grat into robinson
 graticule_robin <- spTransform(graticule, CRS("+proj=robin"))  # reproject graticule
+## Error in spTransform(graticule, CRS("+proj=robin")): object 'graticule' not found
 grat_df_robin <- fortify(graticule_robin)
+## Error in fortify(graticule_robin): object 'graticule_robin' not found
 bbox_robin <- spTransform(bbox, CRS("+proj=robin"))  # reproject bounding box
+## Error in (function (classes, fdef, mtable) : unable to find an inherited method for function 'spTransform' for signature '"standardGeneric", "CRS"'
 bbox_robin_df <- fortify(bbox_robin)
+## Error in fortify(bbox_robin): object 'bbox_robin' not found
 
 # plot using robinson
 
@@ -458,12 +465,14 @@ finalRobMap <- ggplot(bbox_robin_df, aes(long, lat, group=group)) +
   labs(title="World Map Projected - Robinson (Meters)") +
   coord_equal() + newTheme +
   scale_fill_manual(values=c("black", "white"), guide="none") # change colors & remove legend
+## Error in ggplot(bbox_robin_df, aes(long, lat, group = group)): object 'bbox_robin_df' not found
 
 # add a location layer in robinson as points to the map
 finalRobMap <- finalRobMap + geom_point(data=loc_rob_df,
                       aes(x=lon, y=lat, group=NULL),
                       colour="springgreen",
                       size=5)
+## Error in eval(expr, envir, enclos): object 'finalRobMap' not found
 ```
 
 Below we plot the two maps on top of each other to make them easier to compare.
@@ -474,9 +483,8 @@ To do this, we use the `grid.arrange()` function from the `gridExtra` package.
 require(gridExtra)
 # display side by side
 grid.arrange(latLongMap, finalRobMap)
+## Error in arrangeGrob(...): object 'latLongMap' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial03-crs-intro/render-maps-1.png" title="plots in different projections, side by side." alt="plots in different projections, side by side." width="90%" />
 
 
 ## Why multiple CRS?
