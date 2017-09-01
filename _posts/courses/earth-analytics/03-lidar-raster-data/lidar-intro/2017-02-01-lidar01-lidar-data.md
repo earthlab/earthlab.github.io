@@ -4,7 +4,7 @@ title: "Introduction to Light Detection and Ranging (lidar) remote sensing data"
 excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core
 components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-01'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/week-3/lidar-intro/
