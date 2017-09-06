@@ -3,7 +3,7 @@ layout: single
 title: "Plot data and customize plots with ggplot plots in R - earth analytics - data science for scientists"
 excerpt: 'Learn how to plot data and customize your plots using ggplot in R.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-08-30'
+modified: '2017-09-06'
 category: [courses]
 class-lesson: ['get-to-know-r']
 nav-title: 'Plot data with ggplot'
@@ -224,14 +224,40 @@ You can add labels to your plots as well. Let's add a title, and x and y labels 
 ```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
     geom_point(alpha = 0.9, aes(color=PRECIP)) +
-    glabs(x="Date",
+    labs(x="Date",
       y="Precipitation (Inches)",
       title="Daily Precipitation (inches)",
       subtitle="Boulder, Colorado 2013")
-## Error in glabs(x = "Date", y = "Precipitation (Inches)", title = "Daily Precipitation (inches)", : could not find function "glabs"
 ```
 
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/add-title-1.png" title="ggplot with labels" alt="ggplot with labels" width="90%" />
 
+## Finally, explore using themes 
+
+
+```r
+ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
+    geom_point(alpha = 0.9, aes(color = PRECIP)) +
+    labs(x = "Date",
+      y = "Precipitation (Inches)",
+      title = "Daily Precipitation (inches)",
+      subtitle = "Boulder, Colorado 2013") + theme_bw()
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/add-title-theme-1.png" title="ggplot with labels and themes" alt="ggplot with labels and themes" width="90%" />
+
+Make font size for all labels larger by setting the base size!
+
+```r
+ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
+    geom_point(alpha = 0.9, aes(color = PRECIP)) +
+    labs(x = "Date",
+      y = "Precipitation (Inches)",
+      title = "Daily Precipitation (inches)",
+      subtitle = "Boulder, Colorado 2013") + theme_bw(base_size = 9)
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/add-title-theme-font-1.png" title="ggplot with labels and themes" alt="ggplot with labels and themes" width="90%" />
 
 ## More on customizing your plots
 

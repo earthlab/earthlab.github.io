@@ -1,9 +1,9 @@
 ---
 layout: single
 category: courses
-title: "Intro to R & Time series data"
+title: "Intro to R & work with time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-08-30'
+modified: '2017-09-06'
 week-landing: 2
 week: 2
 sidebar:
@@ -20,14 +20,16 @@ module-type: 'session'
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 2!
 
-Welcome to week {{ page.week }} of Earth Analytics! In week 2 we will learn how to work with
-data in `R` and `RStudio`. We will also learn how to work with data collected
-by in situ sensor networks including the USGS stream gage network data and
-NOAA / National Weather Service precipitation data. These data are collected through
-time and thus require knowledge of both working with date fields, dealing with
-missing data and also efficient plotting and subsetting of large datasets. All
-of the data we work with are for the Boulder region and can be used to quantify
-drivers of the 2013 flood event.
+Welcome to week {{ page.week }} of Earth Analytics! In week 02 we will learn how to work with
+data in `R` and `RStudio`. We will also learn how to work with time series data.
+To work with time series data you need to know how to deal with date and time fields and
+missing data. It is also helpful to know how to subset the data by date.
+
+The data that we use this week is collected by US Agency managed sensor networks.
+We will use the USGS stream gage network data and
+NOAA / National Weather Service precipitation data.
+All of the data we work with were collected in Boulder, Colorado around the time
+of the 2013 floods.
 
 Read the assignment below carefully. Use the class and homework lessons to help
 you complete the assignment.
@@ -35,32 +37,33 @@ you complete the assignment.
 
 ## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class schedule
 
-| time        | topic                                                     | speaker |  |  |
-|:------------|:----------------------------------------------------------|:--------|:-|:-|
-| 3:00 pm     | Review RStudio / R Markdown / questions                  | Leah    |  |  |
-| 3:20 - 4:00 | R coding session - Intro to Scientific programming with R | Leah    |  |  |
-| 4:15 - 5:50 | R coding session continued                                | Leah    |  |  |
+| time           | topic                                                     | speaker |  |  |
+|:---------------|:----------------------------------------------------------|:--------|:-|:-|
+| 9:30 - 9:45 AM | Review RStudio / R Markdown / questions                   | Leah    |  |  |
+| 9:45 - 10:45   | R coding session - Intro to Scientific programming with R | Leah    |  |  |
+| 10:45 - 11:00  | Break                                                     |         |  |  |
+| 11:00 - 12:20  | R coding session continued                                | Leah    |  |  |
 
 
 ## <i class="fa fa-pencil"></i> Homework Week 2
 
 ### 1. Download data
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 2 Data](https://ndownloader.figshare.com/files/7426738){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download week 02 data](https://ndownloader.figshare.com/files/7426738){:data-proofer-ignore='' .btn }
 
 ## Important - Data Organization
 Before you begin this lesson, be sure that you've downloaded the dataset above.
 You will need to **unzip** the zip file. When you do this, be sure that your directory
-looks like the image below: note that all of the data are within the **week-02**
+looks like the image below: note that all of the data are within the **week_02**
 directory. The data are not nested within another directory. You may have to copy
 and paste your files into the correct directory to make this look right.
 
 <figure>
-<a href="{{ site.url }}/images/courses/earth-analytics/week-2/week2-data.png">
-<img src="{{ site.url }}/images/courses/earth-analytics/week-2/week2-data.png" alt="week 2 file organization">
+<a href="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png">
+<img src="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png" alt="week 2 file organization">
 </a>
-<figcaption>Your `week2` file directory should look like the one above. Note that
-the data directly under the week-2 folder.</figcaption>
+<figcaption>Your `week_02` file directory should look like the one above. Note that
+the data directly under the week_02 folder.</figcaption>
 </figure>
 
 ### Why data organization matters
@@ -94,19 +97,19 @@ submission below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission: due Friday Sept 15 @ 8pm)
 
-### 1. Create R Markdown document
+#### 1. Create R Markdown document
 
 Create a new `R Markdown` document. Name it: `youLastName-yourFirstName-week2.rmd`
 
-### 2. Add the text that you wrote last week about the flood events
+#### 2. Add the text that you wrote last week about the flood events
 
-Add the text that you write for the first homework assignment to this report.
+Add the text that you wrote for the first homework assignment to the top of your report.
 Then think about where in that text the plots below might fit best to better describe
 the events that occurred during the 2013 floods.
 
-### 3. Add 4 plots to your R Markdown document
+#### 3. Add 4 plots to your R Markdown document
 
 Add the plots described below to your R Markdown file. **IMPORTANT** Please add a
 figure caption to each plot that describes the contents of the plot.
@@ -126,8 +129,9 @@ Use the `data/week_02/discharge/06730200-discharge-daily-1986-2013.csv` file to 
 
 Note: If you did the challenge activities, you have already created these plots.
 
+#### For all your plots be sure to do the following
 
-#### Label plots appropriately
+### Label plots appropriately
 
 Be sure that each plot has:
 
@@ -138,44 +142,49 @@ Be sure that each plot has:
 Below each plot, describe and interpret what the plot shows. Describe how the
 data demonstrate an impact and / or a driver of the 2013 flood event.
 
-#### Write clean code
+### Write clean code
 
-Be sure that you code follows the style guidelines outlined in the
+Be sure that your code follows the style guidelines outlined in the
 [write clean code lessons]({{ site.url }}/courses/earth-analytics/time-series-data/write-clean-code-with-r/)
 
 Be sure to:
 
-* Label each plot clearly. This includes a title, x and y axis labels
+* Label each plot clearly. This includes a `title`, `x` and `y` axis labels
 * Write [clean code]({{ site.url }}/courses/earth-analytics/week-2/write-clean-code-with-r/). This includes comments that document / describe the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
 * Convert date fields as appropriate
 * Clean no data values as appropriate
 * Show all of your code in the output `.html` file.
 
-#### 3. Graduate students: add a 5th plot to your .Rmd file
+#### 4. Graduate students: add a 5th plot to your `.Rmd` file
 
 In addition to the plots above, add a plot of precipitation that spans
-from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. Use the [bonus lesson]({{ site.url }}/courses/earth-analytics/week-2/aggregate-time-series-data-r/) to guide
-you through creating this plot. This lesson will give you a more real world experience
-with working with less than perfect data!
+from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. For you plot
+be sure to
+
+1. Subset the data temporally: Jan 1 2013 - Oct 15 2013
+2. Summarize the data: plot DAILY total (sum) precipitation
+
+
+Use the [bonus lesson]({{ site.url }}/courses/earth-analytics/week-2/aggregate-time-series-data-r/) to guide
+you through creating this plot.
 
 #### Bonus point (for grads and undergrads)
 
 Generate and add to your report the plot of precipitation for 1948 - 2013
-described above that graduate students have to create.
+described above (required for all graduate students).
 
-Receive a bonus point for:
+Then, receive a bonus point for:
 
-1. Identifying an anomaly or change in the data that you can clearly see when you plot it and
-2. Suggesting how to address that anomaly in R to clean things up
+1. identifying an anomaly or change in the data that you can clearly see when you plot it and
+2. suggest how to address that anomaly in `R` to make a more uniform looking plot.
 
 ***
 
-## Homework due: Feb 1 @ NOON
+## Final submission
 
-When you are happy with your report, convert your R Markdown file into `.html`
+When you are happy with your report, convert your `R Markdown` file into `.html`
 format report using `knitr`.
-**Submit your final report to the d2l drop box in both `.html` and `.Rmd`
-formats by Wed 1 February 2017 @ NOON**
+**Submit your final report to the d2l drop box in both `.html` and `.Rmd`**
 
 </div>
 
@@ -190,8 +199,17 @@ formats by Wed 1 February 2017 @ NOON**
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot4-1.png" title="homework plot 4" alt="homework plot 4" width="90%" />
 
 
+## Graduate plot
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/graduate-plot1-1.png" title="Grad only homework plot 1" alt="Grad only homework plot 1" width="90%" />
+
+## Bonus plots
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/bonus-plot1-1.png" title="homework plot 4" alt="homework plot 4" width="90%" />
 
 
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/bonus-plot-2-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
 
 ## Report grade rubric
 
