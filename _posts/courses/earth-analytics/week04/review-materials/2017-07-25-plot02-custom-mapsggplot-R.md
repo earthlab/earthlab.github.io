@@ -3,7 +3,7 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-06'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/custom-maps-r/r-make-maps-with-ggplot-in-R/
@@ -87,10 +87,10 @@ options(stringsAsFactors = FALSE)
 Next, import and explore the data.
 
 
+
 ```r
 # import roads
 sjer_roads <- readOGR("data/week_04/california/madera-county-roads/tl_2013_06039_roads.shp")
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
 ```
 
 View attributes of and plot the data.
@@ -99,14 +99,15 @@ View attributes of and plot the data.
 ```r
 # view the original class of the TYPE column
 class(sjer_roads$RTTYP)
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
+## [1] "character"
 unique(sjer_roads$RTTYP)
-## Error in unique(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] "M" NA  "S" "C"
 # quick plot using base plot
 plot(sjer_roads,
      main = "Quick plot of roads data")
-## Error in plot(sjer_roads, main = "Quick plot of roads data"): object 'sjer_roads' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/convert-to-factor-1.png" title="Quick plot of the roads data." alt="Quick plot of the roads data." width="90%" />
 
 
 
@@ -119,9 +120,8 @@ of `NA` to "unknown".
 ```r
 # set all NA values to "unknown" so they still plot
 sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "Unknown"
-## Error in sjer_roads$RTTYP[is.na(sjer_roads$RTTYP)] <- "Unknown": object 'sjer_roads' not found
 unique(sjer_roads$RTTYP)
-## Error in unique(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] "M"       "Unknown" "S"       "C"
 ```
 
 ## Convert spatial data to a data.frame
@@ -148,15 +148,12 @@ Let's convert our spatial object to a `data.frame`.
 ```r
 # convert spatial object to a ggplot ready data frame
 sjer_roads_df <- tidy(sjer_roads, region = "id")
-## Error in tidy(sjer_roads, region = "id"): object 'sjer_roads' not found
 # make sure the shapefile attribute table has an id column
 sjer_roads$id <- rownames(sjer_roads@data)
-## Error in rownames(sjer_roads@data): object 'sjer_roads' not found
 # join the attribute table from the spatial object to the new data frame
 sjer_roads_df <- left_join(sjer_roads_df,
                            sjer_roads@data,
                            by = "id")
-## Error in left_join(sjer_roads_df, sjer_roads@data, by = "id"): object 'sjer_roads_df' not found
 ```
 
 Once we've done this, we are ready to plot with `ggplot()`. Note the following when
@@ -174,8 +171,9 @@ that are connected.
 ggplot() +
   geom_path(data = sjer_roads_df, aes(x = long, y = lat, group = group)) +
   labs(title = "ggplot map of roads")
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/plot-roads-data-1.png" title="Basic ggplot of roads." alt="Basic ggplot of roads." width="90%" />
 
 We can color each line by type too by adding the attribute that we wish to use
 for categories or types to the color  = argument.
@@ -193,8 +191,9 @@ ggplot() +
                                       group = group, color = factor(RTTYP))) +
 labs(color = 'Road Types', # change the legend type
      title = "Roads colored by the RTTP attribute")
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleaned-1.png" title="Basic plot with title and legend title" alt="Basic plot with title and legend title" width="90%" />
 
 We can customize the colors on our map too. Below we do a few things:
 
@@ -208,7 +207,7 @@ Let's plot our roads data by the `RTTYP` attribute and apply unique colors.
 ```r
 # count the number of unique values or levels
 length(levels(sjer_roads$RTTYP))
-## Error in levels(sjer_roads$RTTYP): object 'sjer_roads' not found
+## [1] 0
 
 # create a color palette of 4 colors - one for each factor level
 road_palette <- c("C" = "green",
@@ -227,8 +226,9 @@ ggplot() +
       scale_colour_manual(values = road_palette) +
   labs(title = "Madera County Roads ",
        subtitle = "Colored by road type")
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="90%" />
 
 Notice that above the colors are applied to each category (C, M, S and Unknown) in order.
 In this case the order is alphabetical.
@@ -259,8 +259,9 @@ ggplot() +
        color = "Road type",
        x = "", y = "") +
   theme(axis.text = element_blank(), axis.ticks = element_blank())
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleand-1.png" title="Roads ggplot map with axes customized." alt="Roads ggplot map with axes customized." width="90%" />
 
 Finally we can use `coord_quickmap()` to scale the x and y axis equally by long and
 lat values.
@@ -287,8 +288,9 @@ ggplot() +
        x = "", y = "") +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
   coord_quickmap()
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-ratio-1.png" title="Roads ggplot map with aspect ratio fixed." alt="Roads ggplot map with aspect ratio fixed." width="90%" />
 
 <!--
 # r for spatial analysis --
@@ -314,8 +316,9 @@ ggplot() +
        x = "", y = "") +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
   coord_fixed()
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
 
 ### Adjust line width by attribute
 
@@ -358,8 +361,9 @@ ggplot() +
        x = "", y = "") +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
   coord_fixed()
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width2-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
 
 ### Merge the legends
 
@@ -389,8 +393,9 @@ ggplot() +
        x = "", y = "") +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
   coord_fixed()
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-custom-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
 
 But this is ugly, right? Let's make the line widths a bit thinner to clean
 things up.
@@ -414,8 +419,9 @@ ggplot() +
        x = "", y = "") +
   theme(axis.text = element_blank(), axis.ticks = element_blank()) +
   coord_fixed()
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-custom2-1.png" title="Roads ggplot map with line width set. Thinner lines." alt="Roads ggplot map with line width set. Thinner lines." width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -428,10 +434,7 @@ roads with an `RTTYP` attribute value of unknown (thinner lines, lighter color).
 </div>
 
 
-
-```
-## Error in fortify(data): object 'sjer_roads_df' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="90%" />
 
 
 <!-- C = County
@@ -456,16 +459,12 @@ Let's import that data and perform any cleanup that is required.
 # import points layer
 sjer_plots <- readOGR("data/week_04/california/SJER/vector_data",
                       "SJER_plot_centroids")
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
 # given we want to plot 2 layers together, let's check the crs before going any further
 crs(sjer_plots)
-## Error in crs(sjer_plots): object 'sjer_plots' not found
 crs(sjer_roads)
-## Error in crs(sjer_roads): object 'sjer_roads' not found
 
 # reproject to lat / long
 sjer_plots <- spTransform(sjer_plots, crs(sjer_roads))
-## Error in spTransform(sjer_plots, crs(sjer_roads)): object 'sjer_plots' not found
 ```
 
 Next we can `tidy()` up the data as we did before... or can we?
@@ -473,7 +472,8 @@ Next we can `tidy()` up the data as we did before... or can we?
 
 ```r
 sjer_plots_df <- tidy(sjer_plots, region = "id")
-## Error in tidy(sjer_plots, region = "id"): object 'sjer_plots' not found
+## Warning in tidy.default(sjer_plots, region = "id"): No method for tidying
+## an S3 object of class SpatialPointsDataFrame , using as.data.frame
 ```
 
 Note that this time we imported point data. We can't use the tidy function
@@ -485,7 +485,6 @@ on points data. Instead, we simply convert it to a data.frame using the function
 ```r
 # convert spatial object to a ggplot ready data frame
 sjer_plots_df <- as.data.frame(sjer_plots, region = "id")
-## Error in as.data.frame(sjer_plots, region = "id"): object 'sjer_plots' not found
 ```
 
 Next, let's plot the data using `ggplot`.
@@ -497,8 +496,9 @@ Next, let's plot the data using `ggplot`.
 ggplot() +
   geom_point(data = sjer_plots_df, aes(x = coords.x1, y = coords.x2)) +
   labs(title = "Plot locations")
-## Error in fortify(data): object 'sjer_plots_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/ggplot-points-1.png" title="ggplot with points" alt="ggplot with points" width="90%" />
 
 Great! We've now plotted our data using `ggplot`. Let's next combine the roads
 with the points in one clean map.
@@ -517,8 +517,9 @@ ggplot() +
                                       y = lat, group = group),
             color = "grey") +
   geom_point(data = sjer_plots_df, aes(x = coords.x1, y = coords.x2))
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-1.png" title="Plot of both points and lines with ggplot" alt="Plot of both points and lines with ggplot" width="90%" />
 
 
 Next we have a few options - our roads layer is a much larger spatial extent
@@ -533,8 +534,9 @@ ggplot() +
             color = "grey") +
   geom_point(data = sjer_plots_df, aes(x = coords.x1, y = coords.x2)) +
   coord_fixed(xlim = c(-119.8, -119.7), ylim = c(37.05, 37.15))
-## Error in fortify(data): object 'sjer_roads_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-custom-ext-1.png" title="Plot of both points and lines with ggplot with custom extent" alt="Plot of both points and lines with ggplot with custom extent" width="90%" />
 
 ## Data crop vs. map zoom
 
@@ -548,11 +550,8 @@ our data as we go.
 ```r
 # import all layers
 study_area <- readOGR("data/week_04/california/SJER/vector_data/SJER_crop.shp")
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
 sjer_plots <- readOGR("data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp")
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
 sjer_roads <- readOGR("data/week_04/california/madera-county-roads/tl_2013_06039_roads.shp")
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
 ```
 
 Then explore the data to determine whether we need to clean the data up.
@@ -561,11 +560,16 @@ Then explore the data to determine whether we need to clean the data up.
 ```r
 # view crs of all layers
 crs(study_area)
-## Error in crs(study_area): object 'study_area' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 crs(sjer_plots)
-## Error in crs(sjer_plots): object 'sjer_plots' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 crs(sjer_roads)
-## Error in crs(sjer_roads): object 'sjer_roads' not found
+## CRS arguments:
+##  +proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0
 ```
 
 It looks like our data are not all in the same coordinate reference system (`CRS`).
@@ -577,29 +581,36 @@ study area. This will also making plotting faster.
 ```r
 # reproject the roads to utm
 sjer_roads_utm <- spTransform(sjer_roads, CRS = crs(study_area))
-## Error in spTransform(sjer_roads, CRS = crs(study_area)): object 'sjer_roads' not found
 
 # assign NA values in the roads layer to "unknown" so we can plot all lines
 sjer_roads_utm$RTTYP[is.na(sjer_roads_utm$RTTYP)] <- "Unknown"
-## Error in sjer_roads_utm$RTTYP[is.na(sjer_roads_utm$RTTYP)] <- "Unknown": object 'sjer_roads_utm' not found
 unique(sjer_roads_utm$RTTYP)
-## Error in unique(sjer_roads_utm$RTTYP): object 'sjer_roads_utm' not found
+## [1] "M"       "Unknown" "S"       "C"
 
 # crop the roads data to our study area for quicker plotting
 sjer_roads_utmcrop <- crop(sjer_roads_utm, study_area)
-## Error in crop(sjer_roads_utm, study_area): object 'sjer_roads_utm' not found
 
 # quick plot to make sure the data look like we expect them too post crop
 plot(sjer_roads_utmcrop)
-## Error in plot(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/reproject-plot-1.png" title="quick plot of the data" alt="quick plot of the data" width="90%" />
+
+```r
 
 # view crs of all layers
 crs(study_area)
-## Error in crs(study_area): object 'study_area' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 crs(sjer_plots)
-## Error in crs(sjer_plots): object 'sjer_plots' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 crs(sjer_roads_utmcrop)
-## Error in crs(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 ```
 
 Next, we convert the study_area spatial object to a `data.frame` so we can plot it
@@ -610,28 +621,22 @@ so we won't need to add the attributes.
 ```r
 # convert study area data into data.frame
 study_area$id <- rownames(study_area@data)
-## Error in rownames(study_area@data): object 'study_area' not found
 study_area_df <- tidy(study_area, region = "id")
-## Error in tidy(study_area, region = "id"): object 'study_area' not found
 
 # convert roads layer to ggplot ready data.frame
 sjer_roads_df <- tidy(sjer_roads_utmcrop, region = "id")
-## Error in tidy(sjer_roads_utmcrop, region = "id"): object 'sjer_roads_utmcrop' not found
 
 # make sure the shapefile attribute table has an id column so we can add spatial attributes
 sjer_roads_utmcrop$id <- rownames(sjer_roads_utmcrop@data)
-## Error in rownames(sjer_roads_utmcrop@data): object 'sjer_roads_utmcrop' not found
 # join the attribute table from the spatial object to the new data frame
 sjer_roads_df <- left_join(sjer_roads_df,
                            sjer_roads_utmcrop@data,
                            by = "id")
-## Error in left_join(sjer_roads_df, sjer_roads_utmcrop@data, by = "id"): object 'sjer_roads_df' not found
 
 
 # convert spatial object to a ggplot ready data frame - note this is a points layer
 # so we don't use the tidy function
 sjer_plots_df <- as.data.frame(sjer_plots, region = "id")
-## Error in as.data.frame(sjer_plots, region = "id"): object 'sjer_plots' not found
 ```
 
 Now that we have all of our layers converted and cleaned up we can plot them.
@@ -650,8 +655,9 @@ ggplot() +
   geom_point(data = sjer_plots_df, aes(x = coords.x1,
                                        y = coords.x2), shape = 18) +
   labs(title = "GGPLOT map of roads, study area and plot locations")
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-all-layers-1.png" title="ggplot map with roads and plots" alt="ggplot map with roads and plots" width="90%" />
 
 <!-- #+
 #  guides(colour = guide_legend("Road Type"), size = guide_legend("Road Type"))
@@ -691,8 +697,9 @@ ggplot() +
                                              "trees" = 8)) +
   labs(title = "ggplot map of roads, plots and study area") +
   theme_bw()
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot1-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
 Finally, let's clean up our map further. We can use some of the built in functionality
 of `cowplot` to adjust the `theme()` settings in `ggplot`.
@@ -723,8 +730,9 @@ ggplot() +
                                              "trees" = 8)) +
   labs(title = "ggplot map of roads, plots and study area") +
   theme_bw()
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-cowplot-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
 ## Adjust ggplot theme settings
 
@@ -762,8 +770,9 @@ ggplot() +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
         axis.line = element_blank())
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-3-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
 ## Legends and scale bars
 
@@ -808,11 +817,8 @@ We can adjust the size and location of the north arrow as well.
 library(ggsn)
 # get x and y location for scalebar
 roads_ext <- extent(sjer_roads_utmcrop)
-## Error in extent(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found
 x_scale_loc <- roads_ext@xmax
-## Error in eval(expr, envir, enclos): object 'roads_ext' not found
 y_scale_loc <- roads_ext@ymin
-## Error in eval(expr, envir, enclos): object 'roads_ext' not found
 
 # plot ggplot
 ggplot() +
@@ -841,8 +847,9 @@ ggplot() +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
         axis.line = element_blank()) + blank()
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-scalebar-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
 
 <div class="notice--info" markdown="1">
