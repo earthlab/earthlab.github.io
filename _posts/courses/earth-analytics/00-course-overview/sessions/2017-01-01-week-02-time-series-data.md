@@ -168,8 +168,9 @@ be sure to
 Use the [bonus lesson]({{ site.url }}/courses/earth-analytics/week-2/aggregate-time-series-data-r/) to guide
 you through creating this plot.
 
-#### Bonus point (for grads and undergrads)
+#### Bonus points (for grads and undergrads)
 
+**Bonus opportunity 1 (1 point)**
 Generate and add to your report the plot of precipitation for 1948 - 2013
 described above (required for all graduate students).
 
@@ -177,6 +178,9 @@ Then, receive a bonus point for:
 
 1. identifying an anomaly or change in the data that you can clearly see when you plot it and
 2. suggest how to address that anomaly in `R` to make a more uniform looking plot.
+
+**Bonus opportunity 1 (1 point)**
+* create an interactive plot with a slider (range selector) using `dygraphs`
 
 ***
 
@@ -295,8 +299,8 @@ format report using `knitr`.
 | Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event. | NA                             | Plot is not interpreted in the text.           |  |
 
 
-#### Grading bonus points
+#### Grading bonus points (2 points potential)
 ***
 
-* Undergraduate Bonus point: If the undergraduate completes a plot of precipitation that spans from 1948 - 2013 they can get 1 extra bonus point (out of 5 points total for the homework)
-* Graduate Bonus point: If an graduate student clearly identifies the issue in the 1948-2013 data that makes the plot look "uneven", they get a bonus point.
+* 1 point: Identify and fix the anomaly in the precipitation `805333-precip-daily-1948-2013.csv`
+* 1 point: Create an interactive plot using `dygraphs` in your output html file you
