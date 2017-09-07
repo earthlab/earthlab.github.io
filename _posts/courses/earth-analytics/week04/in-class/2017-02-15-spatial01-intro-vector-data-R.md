@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-06'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-vector-data-r/
@@ -25,7 +25,6 @@ topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -108,10 +107,6 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
-## rgeos version: 0.3-23, (SVN revision 546)
-##  GEOS runtime version: 3.6.1-CAPI-1.10.1 r0 
-##  Linking to sp version: 1.2-4 
-##  Polygon checking: TRUE
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -148,7 +143,10 @@ Both ways to open a shapefile are demonstrated below:
 
 sjer_plot_locations <- readOGR(dsn="data/week_04/california/SJER/vector_data",
                                "SJER_plot_centroids")
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week_04/california/SJER/vector_data", layer: "SJER_plot_centroids"
+## with 18 features
+## It has 5 fields
 
 # note the code below works too
 #sjer_plot_locations <- readOGR(dsn="data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp")
@@ -189,19 +187,34 @@ We can view shapefile metadata using the `class`, `crs` and `extent` methods:
 ```r
 # view just the class for the shapefile
 class(sjer_plot_locations)
-## Error in eval(expr, envir, enclos): object 'sjer_plot_locations' not found
+## [1] "SpatialPointsDataFrame"
+## attr(,"package")
+## [1] "sp"
 
 # view just the crs for the shapefile
 crs(sjer_plot_locations)
-## Error in crs(sjer_plot_locations): object 'sjer_plot_locations' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 
 # view just the extent for the shapefile
 extent(sjer_plot_locations)
-## Error in extent(sjer_plot_locations): object 'sjer_plot_locations' not found
+## class       : Extent 
+## xmin        : 254738.6 
+## xmax        : 258497.1 
+## ymin        : 4107527 
+## ymax        : 4112168
 
 # view all metadata at same time
 sjer_plot_locations
-## Error in eval(expr, envir, enclos): object 'sjer_plot_locations' not found
+## class       : SpatialPointsDataFrame 
+## features    : 18 
+## extent      : 254738.6, 258497.1, 4107527, 4112168  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
+## variables   : 5
+## names       :  Plot_ID,  Point, northing,  easting, plot_type 
+## min values  : SJER1068, center,  4107527, 254738.6,     grass 
+## max values  :  SJER952, center,  4112168, 258497.1,     trees
 ```
 
 Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
@@ -251,7 +264,25 @@ We view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
 ```r
 # alternate way to view attributes
 sjer_plot_locations@data
-## Error in eval(expr, envir, enclos): object 'sjer_plot_locations' not found
+##     Plot_ID  Point northing  easting plot_type
+## 1  SJER1068 center  4111568 255852.4     trees
+## 2   SJER112 center  4111299 257407.0     trees
+## 3   SJER116 center  4110820 256838.8     grass
+## 4   SJER117 center  4108752 256176.9     trees
+## 5   SJER120 center  4110476 255968.4     grass
+## 6   SJER128 center  4111389 257078.9     trees
+## 7   SJER192 center  4111071 256683.4     grass
+## 8   SJER272 center  4112168 256717.5     trees
+## 9  SJER2796 center  4111534 256034.4      soil
+## 10 SJER3239 center  4109857 258497.1      soil
+## 11   SJER36 center  4110162 258277.8     trees
+## 12  SJER361 center  4107527 256961.8     grass
+## 13   SJER37 center  4107579 256148.2     trees
+## 14    SJER4 center  4109767 257228.3     trees
+## 15    SJER8 center  4110249 254738.6     trees
+## 16  SJER824 center  4110048 256185.6      soil
+## 17  SJER916 center  4109617 257460.5      soil
+## 18  SJER952 center  4110759 255871.2     grass
 ```
 
 In this case, our polygon object only has one attribute: `id`.
@@ -267,7 +298,31 @@ includes the **class**, the number of **features**, the **extent**, and the
 ```r
 # view a summary of metadata & attributes associated with the spatial object
 summary(sjer_plot_locations)
-## Error in summary(sjer_plot_locations): object 'sjer_plot_locations' not found
+## Object of class SpatialPointsDataFrame
+## Coordinates:
+##                 min       max
+## coords.x1  254738.6  258497.1
+## coords.x2 4107527.1 4112167.8
+## Is projected: TRUE 
+## proj4string :
+## [+proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0]
+## Number of points: 18
+## Data attributes:
+##    Plot_ID             Point              northing          easting      
+##  Length:18          Length:18          Min.   :4107527   Min.   :254739  
+##  Class :character   Class :character   1st Qu.:4109790   1st Qu.:256063  
+##  Mode  :character   Mode  :character   Median :4110363   Median :256700  
+##                                        Mean   :4110258   Mean   :256674  
+##                                        3rd Qu.:4111242   3rd Qu.:257191  
+##                                        Max.   :4112168   Max.   :258497  
+##   plot_type        
+##  Length:18         
+##  Class :character  
+##  Mode  :character  
+##                    
+##                    
+## 
 ```
 
 
@@ -283,8 +338,9 @@ Next, let's visualize the data in our `R` `spatialpointsdataframe` object using
 plot(sjer_plot_locations, col="blue",
      pch=8,
      main="SJER Plot Locations\nMadera County, CA")
-## Error in plot(sjer_plot_locations, col = "blue", pch = 8, main = "SJER Plot Locations\nMadera County, CA"): object 'sjer_plot_locations' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -304,21 +360,6 @@ Answer the following questions:
 </div>
 
 
-```
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
-## Error in eval(expr, envir, enclos): object 'sjer_plot_locations' not found
-## Error in crs(sjer_roads): object 'sjer_roads' not found
-## Error in extent(sjer_roads): object 'sjer_roads' not found
-## Error in crs(sjer_plot_locations): object 'sjer_plot_locations' not found
-## Error in extent(sjer_plot_locations): object 'sjer_plot_locations' not found
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
-## Error in eval(expr, envir, enclos): object 'sjer_roads' not found
-```
 
 ## Plot Multiple Shapefiles
 The `plot()` function can be used to plot spatial objects. Use the following
@@ -333,17 +374,16 @@ on top of each other in your plot.
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
      main="NEON Harvard Forest\nField Site")
-## Error in plot(sjer_crop_extent, col = "lightgreen", main = "NEON Harvard Forest\nField Site"): object 'sjer_crop_extent' not found
 plot(sjer_roads, add = TRUE)
-## Error in plot(sjer_roads, add = TRUE): object 'sjer_roads' not found
 
 # Use the pch element to adjust the symbology of the points
 plot(sjer_plot_locations,
   add  = TRUE,
   pch = 19,
   col = "purple")
-## Error in plot(sjer_plot_locations, add = TRUE, pch = 19, col = "purple"): object 'sjer_plot_locations' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-multiple-shapefiles-1.png" title="plot of sjer plots layered on top of the crop extent." alt="plot of sjer plots layered on top of the crop extent." width="90%" />
 
 
 <div class="notice--warning" markdown="1">

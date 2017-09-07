@@ -5,7 +5,7 @@ excerpt: "This tutorial describes key differences between projected and geograph
 projected Coordinate Reference which divides the globe into zones to optimize
 projection results in each zone and WGS84 which is a geographic (latitude and longitude) CRS. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-06'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -21,7 +21,6 @@ topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -105,16 +104,7 @@ Equator (0° latitude) and Prime Meridian (0° longitude) on the globe.
 
 Let's remind ourselves what data projects in a geographic CRS look like.
 
-
-```
-## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
-## Error in fortify(worldBound): object 'worldBound' not found
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
-## Error in fortify(worldGrat30): object 'worldGrat30' not found
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
-## Error in fortify(wgs84Box): object 'wgs84Box' not found
-## Error in ggplot(wgs84Box_df, aes(long, lat, group = group)): object 'wgs84Box_df' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title="wgs 84 plot" alt="wgs 84 plot" width="90%" />
 
 
 <i class="fa fa-star"></i> **Data Note:** The distance between the 2 degrees of
@@ -248,9 +238,9 @@ location.
 
 ```r
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
-## Error in crs(worldBound): object 'worldBound' not found
 coordinates(boulder_df_geog)
-## Error in coordinates(boulder_df_geog): object 'boulder_df_geog' not found
+##            lon      lat
+## [1,] -105.2705 40.01498
 ```
 
 Now we can plot our data on top of our world map which is also in a geographic CRS.
@@ -258,21 +248,20 @@ Now we can plot our data on top of our world map which is also in a geographic C
 
 ```r
 boulder_df_geog <- as.data.frame(coordinates(boulder_df_geog))
-## Error in coordinates(boulder_df_geog): object 'boulder_df_geog' not found
 # plot map
 worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
   geom_polygon() +
   xlab("Longitude (Degrees)") + ylab("Latitude (Degrees)") +
   coord_equal() +
   ggtitle("Global Map - Geographic Coordinate System - WGS84 Datum\n Units: Degrees - Latitude / Longitude")
-## Error in ggplot(worldBound_df, aes(long, lat, group = group)): object 'worldBound_df' not found
 
 # map boulder
 worldMap +
         geom_point(data=boulder_df_geog,
         aes(x=lon, y=lat, group=NULL), colour = "springgreen", size=5)
-## Error in eval(expr, envir, enclos): object 'worldMap' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-world-map-1.png" title="global map in wgs84 with points" alt="global map in wgs84 with points" width="90%" />
 
 
 

@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Understand EPSG, WKT and other CRS definition styles"
 excerpt: "This lesson discusses ways that coordinate reference system data are stored including  proj4, well known text (wkt) and EPSG codes. "
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-06'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
@@ -19,7 +19,6 @@ topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
-
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -62,9 +61,9 @@ formats.
 
 Often we have `CRS` information in one format and we need to translate and use it in a tool like `R`.
 
-One of the most powerful websites to look up `CRS` strings is <a href="http://spatialreference.org/" target="_blank">Spatialreference.org</a>. 
-You can use the search on the site to find an `EPSG` code. Once you find the page 
-associated with your `CRS` of interest you can then look at all of the various formats 
+One of the most powerful websites to look up `CRS` strings is <a href="http://spatialreference.org/" target="_blank">Spatialreference.org</a>.
+You can use the search on the site to find an `EPSG` code. Once you find the page
+associated with your `CRS` of interest you can then look at all of the various formats
 associated with that `CRS`:
 <a href="http://spatialreference.org/ref/epsg/4326/" target="_blank">EPSG 4326 - WGS84 geographic</a>
 
@@ -95,21 +94,22 @@ library(stringr)
 ```r
 # import data
 aoi <- readOGR("data/week_04/california/SJER/vector_data/sjer_crop.shp")
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
 ```
 
 
 ```r
 # view crs of the aoi
 crs(aoi)
-## Error in crs(aoi): object 'aoi' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 ```
 
 Notice that the `crs` returned from our crop data layer is a string of
-characters and numbers that are combined using `+` signs. The `CRS` for our data are 
-in the `proj4` format. The string contains all of the individual `CRS` elements 
-that `R` or another `GIS` might need. Each element is specified with a `+` sign, 
-similar to how a `.csv` file is delimited or broken up by a `,`. After each `+` 
+characters and numbers that are combined using `+` signs. The `CRS` for our data are
+in the `proj4` format. The string contains all of the individual `CRS` elements
+that `R` or another `GIS` might need. Each element is specified with a `+` sign,
+similar to how a `.csv` file is delimited or broken up by a `,`. After each `+`
 we see the `CRS` element being defined. For example `+proj=` and `+datum=`.
 
 This is a `proj4` string:
@@ -143,9 +143,13 @@ Next, let's have a look at another `CRS` definition.
 ```r
 # import data
 world <- readOGR("data/week_04/global/ne_110m_land/ne_110m_land.shp")
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
+## OGR data source with driver: ESRI Shapefile 
+## Source: "data/week_04/global/ne_110m_land/ne_110m_land.shp", layer: "ne_110m_land"
+## with 127 features
+## It has 2 fields
 crs(world)
-## Error in crs(world): object 'world' not found
+## CRS arguments:
+##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 ```
 
 Our projection string for the `world` data imported above looks different:
@@ -278,7 +282,7 @@ head(utm)
 ### Create CRS objects
 
 `R` has a class of type `crs`. We can use this to create `CRS` objects using both the
-text string itself and / or the `EPSG` code. Let's give it a try. We will use our 
+text string itself and / or the `EPSG` code. Let's give it a try. We will use our
 geographic definition as an example.
 
 
@@ -315,8 +319,8 @@ a_crs_object_epsg
 We won't spend a lot of time on the Well-known text (`WKT`) format. However, it's
 useful to recognize this format given many tools - including ESRI's `ArcMap` and
 `ENVI` use this format. Well-known text (`WKT`) is a for compact machine- and
-human-readable representation of geometric objects. It defines elements of 
-coordinate reference system (`CRS`) definitions using a combination of brackets `[]` 
+human-readable representation of geometric objects. It defines elements of
+coordinate reference system (`CRS`) definitions using a combination of brackets `[]`
 and elements separated by commas (`,`).
 
 Here is an example of `WKT` for WGS84 geographic:
@@ -329,7 +333,7 @@ Notice here that the elements are described explicitly using all caps - for exam
 * UNIT
 * DATUM
 
-Sometimes `WKT` structured CRS information are embedded in a metadata file - similar 
+Sometimes `WKT` structured CRS information are embedded in a metadata file - similar
 to the structure seen below:
 
 ```xml
