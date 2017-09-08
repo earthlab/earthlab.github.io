@@ -78,13 +78,13 @@ boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder_precip)
-##     X       DATE PRECIP
-## 1 756 2013-08-21    0.1
-## 2 757 2013-08-26    0.1
-## 3 758 2013-08-27    0.1
-## 4 759 2013-09-01    0.0
-## 5 760 2013-09-09    0.1
-## 6 761 2013-09-10    1.0
+##    ID    DATE PRECIP TEMP
+## 1 756 8/21/13    0.1   55
+## 2 757 8/26/13    0.1   25
+## 3 758 8/27/13    0.1   NA
+## 4 759  9/1/13    0.0 -999
+## 5 760  9/9/13    0.1   15
+## 6 761 9/10/13    1.0   25
 ```
 
 Next, plot the data using `ggplot()`.
@@ -113,10 +113,11 @@ so many labels on the x axis.
 
 ```r
 str(boulder_precip)
-## 'data.frame':	18 obs. of  3 variables:
-##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
-##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
+## 'data.frame':	18 obs. of  4 variables:
+##  $ ID    : int  756 757 758 759 760 761 762 763 764 765 ...
+##  $ DATE  : chr  "8/21/13" "8/26/13" "8/27/13" "9/1/13" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
+##  $ TEMP  : int  55 25 NA -999 15 25 65 NA 95 -999 ...
 ```
 
 
@@ -212,8 +213,7 @@ class(boulder_precip$DATE)
 
 # view results
 head(boulder_precip$DATE)
-## [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
-## [6] "2013-09-10"
+## [1] NA NA NA NA NA NA
 ```
 
 Now that we have adjusted the date, let's plot again. Notice that it plots
@@ -230,6 +230,11 @@ ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP)) +
       labs(title = "Total daily precipitation in Boulder, Colorado",
            subtitle = "Fall 2013",
            x = "Date", y = "Daily Precipitation (Inches)")
+## Warning in min(x): no non-missing arguments to min; returning Inf
+## Warning in max(x): no non-missing arguments to max; returning -Inf
+## Warning in min(diff(sort(x))): no non-missing arguments to min; returning
+## Inf
+## Warning: Removed 18 rows containing missing values (position_stack).
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R01-work-with-dates-in-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="90%" />
