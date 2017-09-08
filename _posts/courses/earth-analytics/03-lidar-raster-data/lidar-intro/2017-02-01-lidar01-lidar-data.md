@@ -1,17 +1,15 @@
 ---
 layout: single
 title: "Introduction to Light Detection and Ranging (lidar) remote sensing data"
-excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core
-components of a lidar remote sensing system."
+excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-08'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/week-3/lidar-intro/
 nav-title: 'Intro to lidar data'
 module-title: 'Intro to lidar data'
-module-description: 'This tutorial covers the basic principles of lidar remote sensing and
-the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally, it walks through opening lidar derived raster data in R / RStudio'
+module-description: 'This tutorial covers the basic principles of lidar remote sensing and the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally, it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Intro to lidar data'
 module-type: 'class'
 course: "earth-analytics"
@@ -99,11 +97,11 @@ characteristics.
 
 To measure vegetation across large areas we need remote sensing methods that can
 collect many measurements quickly using automated sensors. These measurements can
-be used to estimate forest structure across larger areas. Lidar (also sometimes 
-referred to as active laser scanning) is one remote sensing method that can be 
-used to map structure including vegetation height, density and other characteristics 
-across a region. Lidar directly measures the height and density of vegetation 
-(as well as buildings and other objects) on the ground making it an ideal tool for 
+be used to estimate forest structure across larger areas. Lidar (also sometimes
+referred to as active laser scanning) is one remote sensing method that can be
+used to map structure including vegetation height, density and other characteristics
+across a region. Lidar directly measures the height and density of vegetation
+(as well as buildings and other objects) on the ground making it an ideal tool for
 scientists studying vegetation over large areas.
 
 <figure class="half">
@@ -121,8 +119,8 @@ scientists studying vegetation over large areas.
 Lidar is an **active remote sensing** system. An
 <a href="http://www.nrcan.gc.ca/node/14639" target="_blank">active system means that the
 system itself generates energy </a> - in this case light - to measure things on the
-ground. In a lidar system, light is emitted from a rapidly firing laser. This light 
-travels to the ground and reflects off of things like buildings and tree branches. 
+ground. In a lidar system, light is emitted from a rapidly firing laser. This light
+travels to the ground and reflects off of things like buildings and tree branches.
 The reflected light energy then returns to the lidar sensor where it is recorded.
 
 A lidar system measures the time it takes for emitted light to travel to the
@@ -175,7 +173,7 @@ There are many different uses for lidar data:
    </figcaption>
 </figure>
 
-- Lidar data have also been used to derive information about vegetation structure 
+- Lidar data have also been used to derive information about vegetation structure
 including:
 	- Canopy height
 	- Canopy cover
@@ -194,12 +192,12 @@ including:
 
 
 ## Discrete vs. full waveform lidar
-A waveform or distribution of light energy is what returns to the lidar sensor. 
+A waveform or distribution of light energy is what returns to the lidar sensor.
 This return may be recorded in two different ways:
 
-1. A **discrete return lidar system** identifies individual (discrete) peaks and 
-records a point at each peak location in the waveform curve. These discrete or 
-individual points are called returns. A discrete system may record 1-4 (and 
+1. A **discrete return lidar system** identifies individual (discrete) peaks and
+records a point at each peak location in the waveform curve. These discrete or
+individual points are called returns. A discrete system may record 1-4 (and
 sometimes more) returns from each laser pulse.
 2. A **full waveform lidar system** records a distribution of returned light
 energy. Full waveform lidar data are thus more complex to process, however, they

@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/basic-r-syntax-scientific-programming/
 nav-title: 'Get to know R'
 dateCreated: 2016-12-13
-modified: '2017-08-30'
+modified: '2017-09-08'
 module-title: 'Get to know R'
 module-nav-title: 'Get to know R'
 module-description: 'This module introduces the R scientific programming language.
@@ -46,8 +46,8 @@ At the end of this activity, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+an `earth-analytics` directory set up on your computer with a `/data`
+directory within it.
 
 * [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
@@ -194,7 +194,7 @@ use your script.
 ### Functions and their arguments
 
 Finally we have functions. Functions are "canned scripts" that automate a task
-that may other take several lines of code that you have to type in.
+that may otherwise require typing in several lines of code.
 
 For example:
 

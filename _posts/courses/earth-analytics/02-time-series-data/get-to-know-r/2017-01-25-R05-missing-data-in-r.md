@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/missing-data-in-r-na/
 nav-title: 'Clean missing data'
 dateCreated: 2016-12-13
-modified: '2017-08-30'
+modified: '2017-09-08'
 week: 2
 sidebar:
   nav:
@@ -21,6 +21,8 @@ topics:
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
+
+
 
 This lesson covers how to work with no data values in `R`.
 
@@ -36,7 +38,7 @@ At the end of this activity, you will be able to:
 
 You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+directory within it.
 
 * [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
@@ -64,22 +66,30 @@ The default setting for most base functions that read data into `R` is to
 interpret `NA` as a missing value.
 
 Let's have a closer look at this using the boulder_precip data that we've
-used in the previous lessons.
+used in the previous lessons. Please download the data again as there have
+been some changes made!
 
 
 ```r
 # download file
-#download.file("https://ndownloader.figshare.com/files/7275959",
-#              "data/week_02/temperature_example.csv")
+download.file("https://ndownloader.figshare.com/files/9282364",
+              "data/boulder-precip.csv",
+              method = "libcurl")
+```
 
+Then we can open the data.
+
+
+```r
 # import data but don't specify no data values - what happens?
 boulder_precip <- read.csv(file = "data/boulder-precip.csv")
 
 str(boulder_precip)
-## 'data.frame':	18 obs. of  3 variables:
-##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
-##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
+## 'data.frame':	18 obs. of  4 variables:
+##  $ ID    : int  756 757 758 759 760 761 762 763 764 765 ...
+##  $ DATE  : chr  "8/21/13" "8/26/13" "8/27/13" "9/1/13" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
+##  $ TEMP  : int  55 25 NA -999 15 25 65 NA 95 -999 ...
 ```
 
 In the example below, note how a mean value is calculated differently depending
@@ -88,12 +98,10 @@ upon on how `NA` values are treated when the data are imported.
 
 
 ```r
-
+# view mean values
 mean(boulder_precip$PRECIP)
 ## [1] 1.055556
 mean(boulder_precip$TEMP)
-## Warning in mean.default(boulder_precip$TEMP): argument is not numeric or
-## logical: returning NA
 ## [1] NA
 ```
 
@@ -101,15 +109,17 @@ Notice that we are able to calculate a mean value for PRECIP but TEMP returns a
 NA value. Why? Let's plot our data to figure out what might be going on.
 
 
+
 ```r
 # are there data in the TEMP column of our data?
 boulder_precip$TEMP
-## NULL
+##  [1]   55   25   NA -999   15   25   65   NA   95 -999   85 -999   85   85
+## [15] -999   57   60   65
 # plot the data with ggplot
 ggplot(data = boulder_precip, aes(x = DATE, y = TEMP)) +
   geom_point() +
   labs(title = "Temperature data for Boulder, CO")
-## Error in FUN(X[[i]], ...): object 'TEMP' not found
+## Warning: Removed 2 rows containing missing values (geom_point).
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/quick-plot-1.png" title="quick plot of temperature" alt="quick plot of temperature" width="90%" />
@@ -146,9 +156,7 @@ temperature column above.
 mean(boulder_precip$PRECIP)
 ## [1] 1.055556
 mean(boulder_precip$TEMP, na.rm = TRUE)
-## Warning in mean.default(boulder_precip$TEMP, na.rm = TRUE): argument is not
-## numeric or logical: returning NA
-## [1] NA
+## [1] -204.9375
 ```
 
 
@@ -158,7 +166,7 @@ examples.
 {: .notice--success}
 
 So now you have successfully calculated the mean value of both precipitation and
-temperature in our spreadsheet. However does the mean temperature value (NA make
+temperature in our spreadsheet. However does the mean temperature value (-204.9375 make
 sense looking at the data? It seems a bit low - we know that there aren't temperature
 values of -200 here in Boulder, Colorado!
 
@@ -170,8 +178,8 @@ is -999.
 ```r
 # calculate mean usign the na.rm argument
 summary(boulder_precip$TEMP, na.rm = TRUE)
-## Length  Class   Mode 
-##      0   NULL   NULL
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##  -999.0  -238.5    56.0  -204.9    70.0    95.0       2
 ```
 
 
@@ -198,7 +206,7 @@ This should solve all of our missing data problems!
 boulder_precip_na <- read.csv(file = "data/boulder-precip.csv",
                      na.strings = c("NA", " ", "-999"))
 boulder_precip_na$TEMP
-## NULL
+##  [1] 55 25 NA NA 15 25 65 NA 95 NA 85 NA 85 85 NA 57 60 65
 ```
 
 Does our new plot look better?
@@ -207,13 +215,14 @@ Does our new plot look better?
 ```r
 # are there data in the TEMP column of our data?
 boulder_precip$TEMP
-## NULL
+##  [1]   55   25   NA -999   15   25   65   NA   95 -999   85 -999   85   85
+## [15] -999   57   60   65
 # plot the data with ggplot
 ggplot(data = boulder_precip_na, aes(x = DATE, y = TEMP)) +
   geom_point() +
   labs(title = "Temperature data for Boulder, CO",
        subtitle = "missing data accounted for")
-## Error in FUN(X[[i]], ...): object 'TEMP' not found
+## Warning: Removed 6 rows containing missing values (geom_point).
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/plot-2nodata-1.png" title="Plot of temperature with missing data accounted for" alt="Plot of temperature with missing data accounted for" width="90%" />

@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/open-plot-spreadsheet-data-in-R/
 nav-title: 'Open spreadsheet data'
 dateCreated: 2016-12-13
-modified: '2017-08-30'
+modified: '2017-09-08'
 week: 2
 sidebar:
   nav:
@@ -37,7 +37,7 @@ At the end of this activity, you will be able to:
 
 You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+directory within it.
 
 * [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)

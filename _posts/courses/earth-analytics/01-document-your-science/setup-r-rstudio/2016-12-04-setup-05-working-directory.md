@@ -107,8 +107,8 @@ When you set a default working directory, every time you open `RStudio` it will
 default to that working directory being set. This can be nice if you are going
 to always work in the same directory (like we will in all of our tutorials).
 
-Finally, let's see what your main working directory. We use the  `getwd()` function
-to find out what our current working directory is in R.
+Finally, let's see what your main working directory looks like. We use the  `getwd()` function
+to find out what our current working directory is in `R`.
 
 
 ```r

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & work with time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-09-06'
+modified: '2017-09-08'
 week-landing: 2
 week: 2
 sidebar:
@@ -68,8 +68,7 @@ the data directly under the week_02 folder.</figcaption>
 
 ### Why data organization matters
 
-It is important that your data are organized the same as the rest of the classes
-because:
+It is important that your data are organized as specified in the lessons because:
 
 1. When the instructors grade your assignments, we will be able to run your code if your directory looks like the instructors.
 1. It will be easier for you to follow along in class if your directory is the same as the instructors.
@@ -114,8 +113,7 @@ the events that occurred during the 2013 floods.
 Add the plots described below to your R Markdown file. **IMPORTANT** Please add a
 figure caption to each plot that describes the contents of the plot.
 
-Add the code to produce the following 4 plots in your `R Markdown` document, [using the homework lessons
-as a guide to walk you through]({{ site.url }}/courses/earth-analytics/week-2/hw-ggplot2-r).
+Add the code to produce the following 4 plots in your `R Markdown` document, [using the homework lessons as a guide to walk you through]({{site.url}}/courses/earth-analytics/time-series-data/plot-data-with-ggplot2-r/).
 
 Use the `data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv` file to create:
 
@@ -147,12 +145,13 @@ data demonstrate an impact and / or a driver of the 2013 flood event.
 Be sure that your code follows the style guidelines outlined in the
 [write clean code lessons]({{ site.url }}/courses/earth-analytics/time-series-data/write-clean-code-with-r/)
 
+
 Be sure to:
 
 * Label each plot clearly. This includes a `title`, `x` and `y` axis labels
-* Write [clean code]({{ site.url }}/courses/earth-analytics/week-2/write-clean-code-with-r/). This includes comments that document / describe the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
-* Convert date fields as appropriate
-* Clean no data values as appropriate
+* Write [clean code]({{ site.url }}/courses/earth-analytics/time-series-data/write-clean-code-with-r/). This includes comments that document / describe the steps you take in your code and clean syntax following <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide.</a>
+* Convert date fields as appropriate.
+* Clean no data values as appropriate.
 * Show all of your code in the output `.html` file.
 
 #### 4. Graduate students: add a 5th plot to your `.Rmd` file
