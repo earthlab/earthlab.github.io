@@ -3,7 +3,7 @@ layout: single
 title: "Summarize time series data by month or year using tidyverse pipes in R"
 excerpt: "Learn how to summarize time series data by day, month or year with Tidyverse pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-09-06'
+modified: '2017-09-08'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/
@@ -208,7 +208,7 @@ line to our ggplot code:
 
 # plot the data using ggplot2 and pipes
 boulder_daily_precip %>%
-  na.omit() %>% 
+  na.omit() %>%
 ggplot(aes(x = DATE, y = DAILY_PRECIP)) +
       geom_point(color = "darkorchid4") +
       facet_wrap( ~ YEAR ) +
@@ -216,7 +216,7 @@ ggplot(aes(x = DATE, y = DAILY_PRECIP)) +
            subtitle = "Use facets to plot by a variable - year in this case",
            y = "Daily precipitation (inches)",
            x = "Date") + theme_bw(base_size = 15) +
-     # adjust the x axis breaks 
+     # adjust the x axis breaks
      scale_x_date(date_breaks = "5 years", date_labels = "%m-%Y")
 ```
 
@@ -250,8 +250,8 @@ ggplot(aes(x = JULIAN, y = DAILY_PRECIP)) +
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Create a subset plot that only shows data for Julian day range: 230-290. This 
-date range is approximately the end of August - Oct (2013). 
+Create a subset plot that only shows data for Julian day range: 230-290. This
+date range is approximately the end of August - Oct (2013).
 
 
 </div>
