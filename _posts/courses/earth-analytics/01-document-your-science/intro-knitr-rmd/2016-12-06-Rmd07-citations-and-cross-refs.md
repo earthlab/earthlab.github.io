@@ -110,7 +110,7 @@ An example of a `BibText` formatted citation is below.
   author = { S.W. Anderson and S.P. Anderson and R.S Anderson},
   journal = {Geology},
   year = {2015},
-  pages = {31,94}
+  pages = {31,94},
   url = {https://www.R-project.org/},
 }
 
