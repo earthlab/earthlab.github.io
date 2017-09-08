@@ -3,7 +3,7 @@ layout: single
 title: "Add citations and cross references to an R Markdown report - bookdown"
 excerpt: "Learn how to use bookdown in R to add citations and cross references to your data-driven reports."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-09-08'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/add-citations-to-rmarkdown-report/
@@ -45,63 +45,64 @@ directory with it.
 To begin, be sure that `bookdown` is already installed on your computer.
 
 
-
 ```r
-# install.packages("bookdown")
+
+# make sure bookdown is installed
+install.packages("bookdown")
 
 ```
 
 ## Introducing bookdown
 
 `Bookdown` is an `R Markdown` extension that can be used to create reports. In
-this lesson however we will review briefly how to use bookdown to create single
-document reports.
+this lesson however we will review briefly how to use `bookdown` to create single
+document reports. The steps are as follows:
 
-To begin using `bookdown` we can add the following text to our rmarkdown document.
-This tells `R` to use `bookdown` rather than the conventional `R Markdown`. Notice below
-you use `html_document2` to create html output with inline citations.
+### 1. Add the following code to your `yaml` header in your `R Markdown` document.
 
-You can select other outputs including:
-
-* `tufte_html2()`,
-* `pdf_document2()`,
-* `word_document2()`,
-* `tufte_handout2()`,
-* and `tufte_book2()`
-
-<a href="https://bookdown.org/yihui/bookdown/a-single-document.html#ref-R-rticles" target="_blank">Learn more about bookdown output options here.</a>
-
+Note that this code replaces the `output: html_document` that is the default for
+R Markdown.
 
 ```md
 output:
   bookdown::html_document2: default
 ```
 
-If you want - you can also apply custom stylesheets (you have to create the .css
-file or use someone elses!), add figure captions, apply themes that are built
-into `R Markdown` and `bookdown` and specify a table of contents.
+This tells `R` to use `bookdown` rather than the conventional `R Markdown`. Notice below
+you use `html_document2` to create html output with inline citations.
 
-Explore the options below to see what they do when you add them to your YAML
-output at the top of your `R Markdown` document.
+To achieve different styling and formats, you can replace `html_document2` with other outputs including:
+
+* `tufte_html2`,
+* `pdf_document2`,
+* `word_document2`,
+* `tufte_handout2`,
+* and `tufte_book2`
+
+<a href="https://bookdown.org/yihui/bookdown/a-single-document.html#ref-R-rticles" target="_blank">Learn more about bookdown output options here.</a>
+
+Your R Markdown YAML header will thus look like this:
 
 ```md
+---
+title: "Your title here"
+author: "Your name here"
 output:
-  bookdown::html_document2:
-    css: styles.css
-    fig_caption: yes
-    theme: flatly
-    toc: yes
-    toc_depth: 1
+  bookdown::html_document2: default
+---
 
 ```
 
-## Adding citations
+### 2. Create a BibTex file containing references
 
-Finally you can add citations to a report. To do this you need to do the following:
+Next, create a `BibTex` file containing all of the citations that you will use
+in your report. A `BibTex` file is a text formatted, machine readable reference
+list. You can create BibTex reference lists in many reference manager tools
+including **Zotero** and **Mendeley** or you can go the hard route and make one
+on your own. A `BibTex` file should be named with a `.bib` extension for example
+`references.bib` and needs to be saved using the UTF-8 encoding.
 
-1. Create a `BibTex` file containing all of the citations that you will use in your report. A `BibTex` file is a text formatted, machine readable reference list. You can create BibTex reference lists in many reference manager tools including **Zotero** and **Mendeley** or you can go the hard route and make one on your own. A `BibTex` file should be named with a `.bib` extension for example `references.bib` and needs to be saved using the UTF-8 encoding.
-2. Make references to that citation using whatever name you used to "name" your citation in the `BibTex` file. In the example below, we called the reference `anderson2015` so we'd reference it using `@anderson2015` in our document.
-
+An example of a `BibText` formatted citation is below.
 
 ```md
 @Manual{anderson2015,
@@ -115,8 +116,75 @@ Finally you can add citations to a report. To do this you need to do the followi
 
 ```
 
-To reference a citation in your document, simply use `@` and the name of the
-reference that you wish to add. In the case above you'd use `@anderson-2015`.
+Be sure to save that file in the same working directory with your .Rmd file!
+
+### 3. Add a link to your BibText file to the yaml header
+
+Using the code below, add a link to your BibTex file.
+
+```md
+bibliography: your-bib-file.bib
+```
+
+Now your entire YAML header looks like this:
+
+```md
+---
+title: "Your title here"
+author: "Your name here"
+output:
+  bookdown::html_document2: default
+bibliography: your-bib-file.bib
+---
+```
+
+You can also add the link-citations: yes argument to your YAML header to ensure
+that R creates links from your citation to the bibliography below. Like this:
+
+```md
+---
+title: "Your title here"
+author: "Your name here"
+output:
+  bookdown::html_document2: default
+bibliography: your-bib-file.bib
+link-citations: yes
+---
+```
+
+## Add in-text citations / references to your report
+
+Finally you can add citations to a report. To do this you use the syntax
+
+`@anderson2015`
+
+Where anderson2015 is the **name** of the Anderson citation (used an example below).
+The `@` sign tells `R` to find that particular citation in the `.bib` file.
+
+## Add unique styles
+
+If you want - you can also apply custom stylesheets (you have to create the .css
+file or use someone elses!), add figure captions, apply themes that are built
+into `R Markdown` and `bookdown` and specify a table of contents.
+
+Explore the options below to see what they do when you add them to your YAML
+output at the top of your `R Markdown` document.
+
+```md
+---
+title: "Your title here"
+author: "Your name here"
+output:
+  bookdown::html_document2:
+    css: styles.css
+    fig_caption: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 1
+bibliography: your-bib-file.bib
+link-citations: yes
+---
+```
 
 <div class="notice--info" markdown="1">
 

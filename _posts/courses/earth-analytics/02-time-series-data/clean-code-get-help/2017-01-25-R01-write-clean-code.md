@@ -5,10 +5,10 @@ excerpt: "This lesson covers the basics of clean coding meaning that we ensure t
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [courses]
 class-lesson: ['write-clean-code']
-permalink: /course-materials/earth-analytics/week-2/write-clean-code-with-r/
+permalink: /courses/earth-analytics/time-series-data/write-clean-code-with-r/
 nav-title: 'Write clean code'
 dateCreated: 2016-12-13
-modified: '2017-08-30'
+modified: '2017-09-08'
 module-title: 'Clean code & getting help'
 module-nav-title: 'Clean code & getting help with R'
 module-description: 'This module covers how to write easier to read, clean code.
