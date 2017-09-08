@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-08-30'
+modified: '2017-09-08'
 week: 2
 sidebar:
   nav:
@@ -36,7 +36,7 @@ At the end of this activity, you will be able to:
 
 You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
 have an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+directory within it.
 
 * [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
@@ -79,14 +79,12 @@ Objects can be given any name such as `x`, `current_temperature`, or
 objects to ensure your code is easy to follow.
 
 We will discuss best practicing for coding in this module - in the [clean coding
-lesson](/courses/earth-analytics/week-2/write-clean-code-with-r/).
+lesson](/courses/earth-analytics/time-series-data/write-clean-code-with-r/).
 
 1. **Keep object names short:** This makes them easier to read when scanning through code.
-2. **Use meaningful names:** For example: `precip` is a more useful name that tells us something about the object compared to `x`.
-3. **Don't start names with numbers!** Objects that start with a number are NOT VALID in R.
-4. **Avoid names that are existing functions in R:** e.g.,
-`if`, `else`, `for`, see
-[here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html).
+2. **Use meaningful names:** For example, `precip` is a more useful name that tells us something about the object compared to `x`.
+3. **Don't start names with numbers!** Objects that start with a number are NOT VALID in `R`.
+4. **Avoid names that are existing functions in R:** e.g.`if`, `else`, `for`, see [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html).
 
 A few other notes about object names in `R`:
 

@@ -3,7 +3,7 @@ layout: single
 title: "Use tidyverse pipes to subset time series data in R"
 excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-09-06'
+modified: '2017-09-08'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/
@@ -89,11 +89,6 @@ working directory. Finally, set `stringsAsFactors` to `FALSE` globally using
 # load packages
 library(ggplot2)
 library(lubridate)
-## 
-## Attaching package: 'lubridate'
-## The following object is masked from 'package:base':
-## 
-##     date
 library(dplyr)
 
 # set strings as factors to false

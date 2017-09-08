@@ -3,7 +3,7 @@ layout: single
 title: "Work with date - time formats in R - time series data "
 excerpt: "Learn how to work with date and time fields in R."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-08-30'
+modified: '2017-09-08'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/date-class-in-r/

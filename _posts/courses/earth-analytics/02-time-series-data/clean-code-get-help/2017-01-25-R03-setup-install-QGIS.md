@@ -67,8 +67,7 @@ Install the packages in the directory in the order indicated.
 1. `GDAL Complete.pkg`
 2. `NumPy.pkg`
 3. `matplotlib.pkg`
-4. `QGIS.pkg` - **NOTE: you need to install `GDAL`, `NumPy` and `matplotlib` in order to
-  successfully install `QGIS` on your Mac!**
+4. `QGIS.pkg` - **NOTE: you need to install `GDAL`, `NumPy` and `matplotlib` in order to successfully install `QGIS` on your Mac!**
 
 <i class="fa fa-star"></i> **Data tip:** If your computer doesn't allow you to
 open these packages because they are from an unknown developer, right click on
