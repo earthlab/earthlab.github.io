@@ -143,7 +143,7 @@ In this case we will reassign the date column to the values populated by
 the as.Date() function with converts the class of the column to a date class.
 Like this:
 
-`mutate(DATE = as.Date(boulder_daily_precip$DATE, format = "%m/%d/%y"))`
+`mutate(DATE = as.Date(DATE, format = "%m/%d/%y"))`
 
 Because we are using a pipe we need to reassign our data.frame output to the
 `boulder_daily_precip` object.
@@ -153,8 +153,7 @@ Because we are using a pipe we need to reassign our data.frame output to the
 ```r
 # Create a new data.frame with the newly formatted date field
 boulder_daily_precip <- boulder_daily_precip %>%
-  mutate(DATE = as.Date(boulder_daily_precip$DATE,
-                        format = "%m/%d/%y"))
+  mutate(DATE = as.Date(DATE, format = "%m/%d/%y"))
 ```
 
 Finally, we plot the data using `ggplot()`.
