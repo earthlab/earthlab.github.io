@@ -3,7 +3,7 @@ layout: single
 title: "Summarize time series data by month or year using tidyverse pipes in R"
 excerpt: "Learn how to summarize time series data by day, month or year with Tidyverse pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/
@@ -34,14 +34,14 @@ including month, day and year.
 
 After completing this tutorial, you will be able to:
 
-* Summarize time series data by a particular time unit (eg month to year, day to month, using pipes etc.)
+* Summarize time series data by a particular time unit (e.g. month to year, day to month, using pipes etc.)
 * Use `dplyr` pipes to manipulate data in `R`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+directory within it.
 
 * [How to Setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
@@ -93,7 +93,8 @@ To begin, use `read.csv()` to import the `.csv` file as we did in the last lesso
 ```r
 # download the data
 # download.file(url = "https://ndownloader.figshare.com/files/7283285",
-#              destfile = "data/week_02/805325-precip-dailysum_2003-2013.csv")
+#              destfile = "data/week_02/805325-precip-dailysum_2003-2013.csv",
+#              method = "libcurl")
 
 # import data
 boulder_daily_precip <- read.csv("data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv",
@@ -207,7 +208,7 @@ line to our ggplot code:
 
 # plot the data using ggplot2 and pipes
 boulder_daily_precip %>%
-  na.omit() %>% 
+  na.omit() %>%
 ggplot(aes(x = DATE, y = DAILY_PRECIP)) +
       geom_point(color = "darkorchid4") +
       facet_wrap( ~ YEAR ) +
@@ -215,7 +216,7 @@ ggplot(aes(x = DATE, y = DAILY_PRECIP)) +
            subtitle = "Use facets to plot by a variable - year in this case",
            y = "Daily precipitation (inches)",
            x = "Date") + theme_bw(base_size = 15) +
-     # adjust the x axis breaks 
+     # adjust the x axis breaks
      scale_x_date(date_breaks = "5 years", date_labels = "%m-%Y")
 ```
 
@@ -249,7 +250,8 @@ ggplot(aes(x = JULIAN, y = DAILY_PRECIP)) +
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Create a subset plot - ...for september.
+Create a subset plot that only shows data for Julian day range: 230-290. This
+date range is approximately the end of August - Oct (2013).
 
 
 </div>
@@ -323,7 +325,7 @@ boulder_daily_precip <- boulder_daily_precip %>%
 Now that we have a new column we can create a summary precipitation value for
 each month. To do this, we need to do the following:
 
-1. `group_by()`: Group the data by month AND year (so we have unique values for each month)
+1. `group_by()`: group the data by month AND year (so we have unique values for each month)
 1. `summarise()`: add up all precipitation values for each month to get our summary statistic
 1. `ggplot()`: plot the newly summarized data!
 

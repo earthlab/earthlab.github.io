@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Introduction to coordinate reference systems in R "
 excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/
@@ -19,6 +19,7 @@ topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
+
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -104,11 +105,11 @@ consists of an X and a Y value located within a 2 (or more) -dimensional space.
 </figure>
 
 While the above coordinate system is 2-dimensional, we live on a 3-dimensional
-earth that happens to be "round. To define the location of objects on the earth, 
-which is round, we need a coordinate system that adapts to the Earth's shape. 
-When we make maps on paper or on a flat computer screen, we move from a 3-Dimensional 
-space (the globe) to a 2-Dimensional space (our computer screens or a piece of paper). 
-The components of the `CRS` define how the "flattening" of data that exists in a 3-D 
+earth that happens to be "round. To define the location of objects on the earth,
+which is round, we need a coordinate system that adapts to the Earth's shape.
+When we make maps on paper or on a flat computer screen, we move from a 3-Dimensional
+space (the globe) to a 2-Dimensional space (our computer screens or a piece of paper).
+The components of the `CRS` define how the "flattening" of data that exists in a 3-D
 globe space. The `CRS` also defines the the coordinate system itself.
 
 <figure>
@@ -129,11 +130,11 @@ entities. -- Wikipedia
 
 The coordinate reference system is made up of several key components:
 
-* **Coordinate system:** the X, Y grid upon which our data is overlayed and how 
+* **Coordinate system:** the X, Y grid upon which our data is overlayed and how
 we define where a point is located in space.
 * **Horizontal and vertical units:** The units used to define the grid along the
 x, y (and z) axis.
-* **Datum:** A modeled version of the shape of the earth which defines the origin 
+* **Datum:** A modeled version of the shape of the earth which defines the origin
 used to place the coordinate system in space. We will explain this further below.
 * **Projection Information:** the mathematical equation used to flatten objects
 that are on a round surface (e.g. the earth) so we can view them on a flat surface
@@ -259,8 +260,8 @@ mapLocations
 ## Geographic CRS - the good & the less good
 
 Geographic coordinate systems in decimal degrees are helpful when we need to
-locate places on the Earth. However, latitude and longitude locations are not 
-located using uniform measurement units. Thus, geographic 'CRS's are not ideal for 
+locate places on the Earth. However, latitude and longitude locations are not
+located using uniform measurement units. Thus, geographic 'CRS's are not ideal for
 measuring distance. This is why other projected `CRS` have been developed.
 
 

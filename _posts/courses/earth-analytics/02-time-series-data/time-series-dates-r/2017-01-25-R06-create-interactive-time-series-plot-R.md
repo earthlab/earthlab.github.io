@@ -3,7 +3,7 @@ layout: single
 title: "Create interactive plots in R - time series & scatterplots using plotly and dygraphs"
 excerpt: "Learn how to create interactive reports using plotly and dygraphs in R for plotting. "
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/interactive-time-series-plots-in-r/
@@ -55,15 +55,18 @@ First, we will load all of the needed libraries.
 # load libraries
 library(ggplot2)
 library(xts)
+## Error in library(xts): there is no package called 'xts'
 library(dygraphs)
+## Error in library(dygraphs): there is no package called 'dygraphs'
 library(plotly)
+## Error in library(plotly): there is no package called 'plotly'
 
 options(stringsAsFactors = FALSE)
 ```
 
 
 
-First, let's import some time series data
+Next, let's import some time series data
 
 
 ```r
@@ -111,7 +114,7 @@ ggplotly(annual_precip)
 ## Time series - dygraph
 
 `Dygraph` is a powerful and easy to use interactive time series plot generator.
-Below, notice how we can quickly create a dygraph interactive plot. The output
+Below, notice how we can quickly create a `dygraph` interactive plot. The output
 format of the plot is `html` so it won't work with a `pdf` `rmd` output but it will
 work with `html`!
 
@@ -120,13 +123,15 @@ work with `html`!
 ```r
 # interactive time series
 library(dygraphs)
+## Error in library(dygraphs): there is no package called 'dygraphs'
 # create time series objects (class xs)
 library(xts)
+## Error in library(xts): there is no package called 'xts'
 
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)
-
+## Error in xts(x = discharge_time$disValue, order.by = discharge_time$datetime): could not find function "xts"
 ```
 
 Then you can call the `dygraph()` function to create your interactive time-series plot.

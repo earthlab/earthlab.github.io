@@ -4,7 +4,7 @@ title: "Homework challenge: Plot USGS stream discharge data in R"
 excerpt: "This lesson illustrated what your final stream discharge homework
 plots should look like for the week. Use all of the skills that you've learned in the previous lessons to complete it."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -80,8 +80,8 @@ increases significantly during a flood event.
 Read more about stream discharge data collected by USGS.</a>
 
 <figure>
-<a href="{{ site.url }}/images/courses/earth-analytics/week-2/USGS-peak-discharge.gif">
-<img src="{{ site.url }}/images/courses/earth-analytics/week-2/USGS-peak-discharge.gif" alt="Plot of stream discharge from the USGS boulder creek stream gage"></a>
+<a href="{{ site.url }}/images/courses/earth-analytics/week-02/USGS-peak-discharge.gif">
+<img src="{{ site.url }}/images/courses/earth-analytics/week-02/USGS-peak-discharge.gif" alt="Plot of stream discharge from the USGS boulder creek stream gage"></a>
 <figcaption>
 The USGS tracks stream discharge through time at locations across the United
 States. Note the pattern observed in the plot above. The peak recorded discharge

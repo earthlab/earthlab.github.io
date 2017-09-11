@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/basic-r-syntax-scientific-programming/
 nav-title: 'Get to know R'
 dateCreated: 2016-12-13
-modified: '2017-08-30'
+modified: '2017-09-10'
 module-title: 'Get to know R'
 module-nav-title: 'Get to know R'
 module-description: 'This module introduces the R scientific programming language.
@@ -45,12 +45,12 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
+have an `earth-analytics` directory setup on your computer with a `/data`
+directory within it.
 
 * [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 * [Intro to the R & RStudio interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
 
 </div>
@@ -59,13 +59,13 @@ In the [previous module](/courses/earth-analytics/document-your-science/setup-r-
 setup `RStudio` and `R` and got to know the `RStudio` interface.
 We also created a basic `RMarkdown` report using `RStudio`. In this module, we will
 explore the basic syntax of the `R` programming language. We will learn how to work
-with packages and functions, how to work with vector objects in R and finally how
-to import data into a data.frame which is the `R` equivalent of a spreadsheet.
+with packages and functions, how to work with vector objects in `R` and finally how
+to import data into a `data.frame` which is the `R` equivalent of a spreadsheet.
 
-Let's start by looking at the code we used in the previous module. Here, we:
+Let's start by looking at the code we used in the previous module. Here we:
 
 1. Downloaded some data from figshare using the `download.file()` function.
-2. Imported the data into r using the `read.csv()` function.
+2. Imported the data into `R` using the `read.csv()` function.
 3. Plotted the data using the `qplot()` function (which is a part of the `ggplot2` package).
 
 
@@ -110,7 +110,7 @@ qplot(x=boulder_precip$DATE,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R01-get-to-know-r/open-file-1.png" title="precip data plot" alt="precip data plot" width="90%" />
 
-The code above, uses syntax that is unique the `R` programming language.
+The code above uses syntax that is unique the `R` programming language.
 Syntax is the characters or commands that `R` understands and associated
 organization / format of the code including spacing and comments.
 
@@ -121,13 +121,13 @@ Let's break down the syntax of the code above, to better understand what it's do
 ### Assignment operator <-
 
 First, notice the use of `<-`. `<-` is the assignment operator. It is similar to
-an equals (=) sign. It assigns
-values on the right to objects on the left. So, after executing `x <- 3`, the
-value of `x` is `3` (`x=3`). The arrow can be read as 3 **goes into** `x`.
+an equals (=) sign. It assigns values on the right to objects on the left. So, 
+after executing `x <- 3`, the value of `x` is `3` (`x=3`). The arrow can be read 
+as 3 **goes into** `x`.
 
-In the example below, we assigned the data file that we read into R named `boulder-precip.csv`
+In the example below, we assigned the data file that we read into `R` named `boulder-precip.csv`
 to the variable name `boulder_precip`. After you run the line of code below,
-what happens in R?
+what happens in `R`?
 
 
 ```r
@@ -186,15 +186,14 @@ library(ggplot2)
 
 Use `#` sign is used to add comments to your code. A comment is a line of information
 in your code that is not executed by R. Anything to the right of a `#` is ignored
-by `R`. Comments are a way for you
-to DOCUMENT the steps of your code - both for yourself and for others who may
-use your script.
+by `R`. Comments are a way for you to DOCUMENT the steps of your code - both for 
+yourself and for others who may use your script.
 
 
 ### Functions and their arguments
 
 Finally we have functions. Functions are "canned scripts" that automate a task
-that may other take several lines of code that you have to type in.
+that may otherwise require typing in several lines of code.
 
 For example:
 
@@ -339,7 +338,7 @@ your `.Rmd` document as follows:
 Look up the arguments for the `qplot()` function using either args(qplot) OR `?qplot`
 in the R console. Then fix the labels of your plot in your script.
 
-HINT: google is your friend. Feel free to use it to help edit the code.
+HINT: Google is your friend. Feel free to use it to help edit the code.
 
 2. What other things can you modify to make the plot look prettier. Explore. Are
 there things that you'd like to do that you can't?

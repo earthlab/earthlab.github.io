@@ -3,7 +3,7 @@ layout: single
 title: "Use tidyverse pipes to subset time series data in R"
 excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/
@@ -43,12 +43,12 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
+have an `earth-analytics` directory setup on your computer with a `/data`
+directory within it.
 
-* [How to Setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 * [Intro to the R & RStudio Interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
 
 ### R Libraries to Install:
@@ -69,8 +69,8 @@ directory. They are not nested within another directory. You may have to copy an
 paste your files to make this look right.
 
 <figure>
-<a href="{{ site.url }}/images/courses/earth-analytics/week-2/week2-data.png">
-<img src="{{ site.url }}/images/courses/earth-analytics/week-2/week2-data.png" alt="week 2 file organization">
+<a href="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png">
+<img src="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png" alt="week 2 file organization">
 </a>
 <figcaption>Your `week_02` file directory should look like the one above. Note that
 the data directory is directly under the earth-analytics folder.</figcaption>
@@ -89,11 +89,6 @@ working directory. Finally, set `stringsAsFactors` to `FALSE` globally using
 # load packages
 library(ggplot2)
 library(lubridate)
-## 
-## Attaching package: 'lubridate'
-## The following object is masked from 'package:base':
-## 
-##     date
 library(dplyr)
 
 # set strings as factors to false
@@ -142,7 +137,7 @@ head(boulder_daily_precip)
 str(boulder_daily_precip)
 ## 'data.frame':	792 obs. of  9 variables:
 ##  $ DATE        : chr  "1/1/03" "1/5/03" "2/1/03" "2/2/03" ...
-##  $ DAILY_PRECIP: num  0e+00 1e+03 0e+00 1e+03 4e-01 ...
+##  $ DAILY_PRECIP: num  0 1000 0 1000 0.4 ...
 ##  $ STATION     : chr  "COOP:050843" "COOP:050843" "COOP:050843" "COOP:050843" ...
 ##  $ STATION_NAME: chr  "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" "BOULDER 2 CO US" ...
 ##  $ ELEVATION   : num  1650 1650 1650 1650 1650 ...
@@ -210,7 +205,7 @@ Your final plot should look something like the plot below.
 
 ### Import data and reassign na values
 
-To begin, import the data. Be sure to use the na.strings argument to remove na values.
+To begin, import the data. Be sure to use the `na.strings` argument to remove `NA` values.
 Also our data have a header (the first row represents column names) so set `header = TRUE`
 
 
@@ -242,8 +237,8 @@ boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
                                      format = "%m/%d/%y")
 ```
 
-Finally, we can plot the data using `ggplot()`. Notice that when we plot, we first
-add populate the `data` and `aes` (aesthetics).
+Finally, we can plot the data using `ggplot()`. Notice that when we plot, we first 
+populate the `data` and `aes` (aesthetics).
 
 * **data =** contain the data frame that we want to plot
 * **aes =** contain the x and y variables that we want to plot.
@@ -270,7 +265,7 @@ When we plot the data, we get a warning that says:
 `## Warning: Removed 4 rows containing missing values (geom_point).`
 
 We can get rid of this warning by removing NA or missing data values from our
-data. A warning is just R's way of letting you know that something may be wrong.
+data. A warning is just `R`'s way of letting you know that something may be wrong.
 In this case, it can't plot 4 data points because there are missing data values
 there.
 
@@ -375,7 +370,7 @@ Pipes are nice to use when coding because:
 1. they remove intermediately created variables (keeping our environment cleaner / fewer variables are saved memory)
 1. they combine multiple steps of processing into a clean set of steps that is easy to read once you become familiar with the pipes syntax
 
-We can do all of the same things that we did with above with one pipe. Let's see
+We can do all of the same things that we did above with one pipe. Let's see
 how:
 
 

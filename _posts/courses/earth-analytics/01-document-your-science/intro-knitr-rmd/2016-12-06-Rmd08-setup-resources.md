@@ -3,7 +3,7 @@ layout: single
 title: "R Markdown resources"
 excerpt: "Find resources that will help you use the R Markdown format."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/rmarkdown-resources/
@@ -22,7 +22,7 @@ topics:
 {% include toc title="In this lesson" icon="file-text" %}
 
 This lesson contains a list of resources that will help you work with
-R Markdown. If you know of other resources, please add them to the comments
+`R Markdown`. If you know of other resources, please add them to the comments
 below and we will review / add them to the page.
 
 <div class="notice--info" markdown="1">
@@ -41,10 +41,8 @@ below and we will review / add them to the page.
 
 ## R Markdown resources
 
-* <a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf" target="_blank"> R Markdown Cheatsheet</a>: a very handy reference for using R
-Markdown
-* <a href="http://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" target="_blank"> R Markdown Reference Guide</a>: a more expensive reference for R
-Markdown
-* <a href="http://rmarkdown.rstudio.com/articles_intro.html" target="_blank"> Introduction to R Markdown by Garrett Grolemund</a>: a tutorial for learning R Markdown
+* <a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf" target="_blank"> R Markdown Cheatsheet</a>
+* <a href="http://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf" target="_blank"> R Markdown Reference Guide</a>
+* <a href="http://rmarkdown.rstudio.com/articles_intro.html" target="_blank"> Introduction to `R Markdown` by Garrett Grolemund</a>
 
 </div>

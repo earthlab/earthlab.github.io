@@ -4,7 +4,7 @@ title: "GIS in R: shp, shx and dbf + prj - the files that make up a shapefile"
 excerpt: "This lesson reviews the core files that are required to use a shapefile including: shp, shx and dbf. It also covers the .prj format which is used to
 define the coordinate reference system (CRS) of the data. "
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/shapefile-structure/
@@ -19,6 +19,7 @@ course: "earth-analytics"
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
 ---
+
 
 {% include toc title="In this lesson" icon="file-text" %}
 

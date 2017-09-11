@@ -6,7 +6,7 @@ title: 'Get to know RStudio'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn how to work with R using the RStudio application.'
 dateCreated: 2016-12-12
-modified: '2017-08-30'
+modified: '2017-09-10'
 nav-title: 'RStudio intro'
 week: 1
 sidebar:
@@ -60,8 +60,8 @@ preferences: (From the RStudio drop down choose: `RStudio -> Preferences -> Pane
 You can also drag the panes using your mouse to move / resize them.
 
 <figure>
-	<a href="{{ site.url }}/images/courses/earth-analytics/week-2/get-to-know-r/rstudio-interface.png">
-	<img src="{{ site.url }}/images/courses/earth-analytics/week-2/get-to-know-r/rstudio-interface.png" alt="rstudio interface">
+	<a href="{{ site.url }}/images/courses/earth-analytics/week-02/get-to-know-r/rstudio-interface.png">
+	<img src="{{ site.url }}/images/courses/earth-analytics/week-02/get-to-know-r/rstudio-interface.png" alt="rstudio interface">
 	</a>
 	<figcaption>The RStudio IDE (Integrated Development Environment) is divided into
   four panes in its default layout.

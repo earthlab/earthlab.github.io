@@ -3,7 +3,7 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/custom-maps-r/r-make-maps-with-ggplot-in-R/
@@ -89,6 +89,7 @@ options(stringsAsFactors = FALSE)
 ```
 
 Next, import and explore the data.
+
 
 
 ```r

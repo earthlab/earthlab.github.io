@@ -31,7 +31,7 @@ After completing this tutorial, you will be able to:
 
 * Install `QGIS` on your laptop
 
-To install `QGIS`, you'll need a laptop with admin priviledges to install software.
+To install `QGIS`, you'll need a laptop with admin privileges to install software.
 
 </div>
 
@@ -41,7 +41,7 @@ equivalent to ESRI's `ArcGIS`. To install `QGIS`:
 
 Download the `QGIS` installer on the
 <a href="http://www.qgis.org/en/site/forusers/download.html" target="_blank">
-`QGIS` download page here</a>. Follow the installation directions below for your
+QGIS download page here</a>. Follow the installation directions below for your
 operating system.
 
 ### Windows
@@ -67,8 +67,7 @@ Install the packages in the directory in the order indicated.
 1. `GDAL Complete.pkg`
 2. `NumPy.pkg`
 3. `matplotlib.pkg`
-4. `QGIS.pkg` - **NOTE: you need to install `GDAL`, `NumPy` and `matplotlib` in order to
-  successfully install `QGIS` on your Mac!**
+4. `QGIS.pkg` - **NOTE: you need to install `GDAL`, `NumPy` and `matplotlib` in order to successfully install `QGIS` on your Mac!**
 
 <i class="fa fa-star"></i> **Data tip:** If your computer doesn't allow you to
 open these packages because they are from an unknown developer, right click on
