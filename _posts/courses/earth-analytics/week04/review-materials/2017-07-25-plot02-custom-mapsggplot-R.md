@@ -22,7 +22,6 @@ topics:
   reproducible-science-and-programming:
 ---
 
-
 <!--# remove module-type: 'class' so it doesn't render live -->
 
 {% include toc title="In this lesson" icon="file-text" %}
@@ -77,15 +76,12 @@ library(rgeos)
 ## Error in library(rgeos): there is no package called 'rgeos'
 library(dplyr)
 library(ggsn)
-## Error in library(ggsn): there is no package called 'ggsn'
 # use the cowplot library to create cleaner ggplot maps - we will load this at the very end so you can see how it works and what it does! Don't load it just yet.
 # library(cowplot)
 # note that you don't need to call maptools to run the code below but it needs to be installed.
 library(maptools)
-## Error in library(maptools): there is no package called 'maptools'
 # to add a north arrow and a scale bar to the map
 library(ggsn)
-## Error in library(ggsn): there is no package called 'ggsn'
 options(stringsAsFactors = FALSE)
 ```
 
@@ -622,7 +618,7 @@ so we won't need to add the attributes.
 # convert study area data into data.frame
 study_area$id <- rownames(study_area@data)
 study_area_df <- tidy(study_area, region = "id")
-## Error in loadNamespace(name): there is no package called 'maptools'
+## Error: isTRUE(gpclibPermitStatus()) is not TRUE
 
 # convert roads layer to ggplot ready data.frame
 sjer_roads_df <- tidy(sjer_roads_utmcrop, region = "id")
@@ -815,7 +811,6 @@ We can adjust the size and location of the north arrow as well.
 
 ```r
 library(ggsn)
-## Error in library(ggsn): there is no package called 'ggsn'
 # get x and y location for scalebar
 roads_ext <- extent(sjer_roads_utmcrop)
 ## Error in extent(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found

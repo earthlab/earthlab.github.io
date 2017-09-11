@@ -54,7 +54,7 @@ directory within it.
 
 * **ggplot2:** `install.packages("ggplot2")`
 * **dplyr:** `install.packages("dplyr")`
-
+* **lubridate:** `install.packages("lubridate")`
 
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 2 Data](https://ndownloader.figshare.com/files/7426738){:data-proofer-ignore='' .btn }
 
