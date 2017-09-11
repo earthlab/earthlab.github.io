@@ -101,7 +101,7 @@ submission below.
 
 #### 1. Create an R Markdown document
 
-Create a new `R Markdown` document. Name it: `youLastName-yourFirstName-week02.rmd`
+Create a new `R Markdown` document. Name it: `yourLastName-yourFirstInitial-week02.rmd`
 
 #### 2. Add the text that you wrote last week about the flood events
 

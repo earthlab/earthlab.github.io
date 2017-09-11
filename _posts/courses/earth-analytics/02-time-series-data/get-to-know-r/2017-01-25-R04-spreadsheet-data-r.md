@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/open-plot-spreadsheet-data-in-R/
 nav-title: 'Open spreadsheet data'
 dateCreated: 2016-12-13
-modified: '2017-09-10'
+modified: '2017-09-11'
 week: 2
 sidebar:
   nav:
@@ -123,13 +123,13 @@ When we read data into `R` using `read.csv()` it imports it into a data frame fo
 Data frames are the **de facto** data structure for most tabular data, and what we
 use for statistics and plotting.
 
-A data frame is a collection of vectors of identical lengths. Each vector
+A `data.frame` is a collection of vectors of identical lengths. Each vector
 represents a column, and each vector can be of a different data type (e.g.
 characters, integers, factors). The `str()` function is useful to inspect the
 data types of the columns.
 
-A data frame can be created by hand but most commonly they are generated when
-you important a text file or spreadsheet into `R` using the
+A `data.frame` can be created by hand but most commonly they are generated when
+you import a text file or spreadsheet into `R` using the
 functions `read.csv()` or `read.table()`.
 
 ## Extracting / specifying "columns" by name

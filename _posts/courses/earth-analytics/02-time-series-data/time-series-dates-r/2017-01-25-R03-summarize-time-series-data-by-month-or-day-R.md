@@ -3,7 +3,7 @@ layout: single
 title: "Summarize time series data by month or year using tidyverse pipes in R"
 excerpt: "Learn how to summarize time series data by day, month or year with Tidyverse pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-11'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/
@@ -145,7 +145,7 @@ Like this:
 
 `mutate(DATE = as.Date(DATE, format = "%m/%d/%y"))`
 
-Because we are using a pipe we need to reassign our data.frame output to the
+Because we are using a pipe we need to reassign our `data.frame` output to the
 `boulder_daily_precip` object.
 
 
