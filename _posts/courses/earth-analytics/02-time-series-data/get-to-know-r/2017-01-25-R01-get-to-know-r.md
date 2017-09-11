@@ -28,6 +28,7 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 
@@ -121,8 +122,8 @@ Let's break down the syntax of the code above, to better understand what it's do
 ### Assignment operator <-
 
 First, notice the use of `<-`. `<-` is the assignment operator. It is similar to
-an equals (=) sign. It assigns values on the right to objects on the left. So, 
-after executing `x <- 3`, the value of `x` is `3` (`x=3`). The arrow can be read 
+an equals (=) sign. It assigns values on the right to objects on the left. So,
+after executing `x <- 3`, the value of `x` is `3` (`x=3`). The arrow can be read
 as 3 **goes into** `x`.
 
 In the example below, we assigned the data file that we read into `R` named `boulder-precip.csv`
@@ -186,7 +187,7 @@ library(ggplot2)
 
 Use `#` sign is used to add comments to your code. A comment is a line of information
 in your code that is not executed by R. Anything to the right of a `#` is ignored
-by `R`. Comments are a way for you to DOCUMENT the steps of your code - both for 
+by `R`. Comments are a way for you to DOCUMENT the steps of your code - both for
 yourself and for others who may use your script.
 
 

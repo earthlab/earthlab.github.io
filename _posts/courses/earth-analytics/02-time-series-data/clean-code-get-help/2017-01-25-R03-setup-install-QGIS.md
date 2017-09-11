@@ -19,6 +19,7 @@ topics:
   spatial-data-and-gis:
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 This lesson walks you through installing `QGIS` on your laptop.

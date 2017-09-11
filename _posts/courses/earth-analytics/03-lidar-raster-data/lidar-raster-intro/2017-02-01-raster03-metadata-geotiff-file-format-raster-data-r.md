@@ -22,6 +22,7 @@ topics:
   find-and-manage-data: ['metadata']
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -103,8 +104,10 @@ GDALinfo("data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 ## projection  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs 
 ## file        data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif 
 ## apparent band summary:
-##    GDType hasNoDataValue   NoDataValue blockSize1 blockSize2
-## 1 Float32           TRUE -3.402823e+38        128        128
+##    GDType hasNoDataValue                              NoDataValue
+## 1 Float32           TRUE -340282346638528859811704183484516925440
+##   blockSize1 blockSize2
+## 1        128        128
 ## apparent band statistics:
 ##          Bmin       Bmax Bmean Bsd
 ## 1 -4294967295 4294967295    NA  NA

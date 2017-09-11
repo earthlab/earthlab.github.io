@@ -20,6 +20,7 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 This lesson introduces the data.frame which is very similar to working with

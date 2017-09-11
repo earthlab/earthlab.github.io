@@ -22,6 +22,7 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 In this data lesson, we explore and visualize stream discharge time series

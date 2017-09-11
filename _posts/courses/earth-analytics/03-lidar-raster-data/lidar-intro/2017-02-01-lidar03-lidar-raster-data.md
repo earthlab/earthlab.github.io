@@ -21,7 +21,6 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
-
 {% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -112,7 +111,7 @@ A few notes about rasters:
 -  Each cell is called a pixel.
 -  Each pixel represents an area on the ground.
 -  The resolution of the raster is the area that each pixel represents
-on the ground. So a 1-meter resolution raster means that each pixel represents 
+on the ground. So a 1-meter resolution raster means that each pixel represents
 a 1m by 1m area on the ground.
 
 A raster dataset can have attributes associated with it as well. For instance in a

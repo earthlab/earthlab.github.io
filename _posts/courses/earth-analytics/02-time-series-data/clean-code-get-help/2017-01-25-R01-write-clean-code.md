@@ -26,6 +26,7 @@ topics:
   reproducible-science-and-programming: ['RStudio', 'literate-expressive-programming']
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 This lesson reviews best practices associated with clean coding.

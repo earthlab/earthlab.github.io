@@ -20,7 +20,6 @@ topics:
   reproducible-science-and-programming:
 ---
 
-
 {% include toc title="In this lesson" icon="file-text" %}
 
 

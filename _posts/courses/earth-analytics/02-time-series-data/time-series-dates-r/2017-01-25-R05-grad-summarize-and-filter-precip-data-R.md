@@ -21,7 +21,6 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 Bonus / Graduate activity. In this lesson, you will PLOT precipitation data in `R`.

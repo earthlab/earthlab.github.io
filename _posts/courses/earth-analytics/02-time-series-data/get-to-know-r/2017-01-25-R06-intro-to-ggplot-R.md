@@ -20,6 +20,7 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 In this tutorial, we will explore more advanced plotting techniques using `ggplot2`.
@@ -218,7 +219,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 ## Add plot labels
 
-You can add labels to your plots as well. Let's add a title, and x and y labels 
+You can add labels to your plots as well. Let's add a title, and x and y labels
 using the glab() argument.
 
 

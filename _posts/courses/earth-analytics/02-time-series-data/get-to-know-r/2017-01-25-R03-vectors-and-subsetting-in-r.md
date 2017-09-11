@@ -19,6 +19,7 @@ course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 

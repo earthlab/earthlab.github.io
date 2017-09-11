@@ -24,7 +24,6 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
-
 {% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -89,7 +88,7 @@ data. This plot is useful to:
 
 1. Identify outlier data values
 2. Assess the min and max values in our data
-3. Explore the general distribution of elevation values in the data (i.e. is the 
+3. Explore the general distribution of elevation values in the data (i.e. is the
 area generally flat, hilly, high elevation or low elevation)
 
 Notice that we are using the `xlab` and `ylab`

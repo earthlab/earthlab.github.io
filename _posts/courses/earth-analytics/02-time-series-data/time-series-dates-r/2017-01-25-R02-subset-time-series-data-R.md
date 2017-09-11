@@ -21,7 +21,6 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
@@ -237,7 +236,7 @@ boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
                                      format = "%m/%d/%y")
 ```
 
-Finally, we can plot the data using `ggplot()`. Notice that when we plot, we first 
+Finally, we can plot the data using `ggplot()`. Notice that when we plot, we first
 populate the `data` and `aes` (aesthetics).
 
 * **data =** contain the data frame that we want to plot

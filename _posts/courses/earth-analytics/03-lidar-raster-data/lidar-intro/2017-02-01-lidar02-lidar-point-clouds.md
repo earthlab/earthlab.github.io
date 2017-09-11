@@ -22,7 +22,6 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
-
 {% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -33,7 +32,7 @@ After completing this tutorial, you will be able to:
 
 * List 4 common attributes of each point in a lidar point cloud
 * Briefly describe how a lidar system collects lidar points
-* Be able to describe the difference between how a discrete and full waveform 
+* Be able to describe the difference between how a discrete and full waveform
 lidar system collect data
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -62,37 +61,37 @@ In this lesson we will explore some point cloud data using the plas.io viewer.
  </figure>
 
 
-In this activity, you will open a `.las` file, in the <a href="http://plas.io" target="_blank"> 
-`plas.io` free online lidar data viewer.</a> You will then explore some of the attributes 
+In this activity, you will open a `.las` file, in the <a href="http://plas.io" target="_blank">
+`plas.io` free online lidar data viewer.</a> You will then explore some of the attributes
 associated with a lidar data point cloud.
 
 ### Lidar attribute data
-Remember that not all lidar data are created equally. Different lidar data may have 
-different attributes. In this activity, we will look at data that contain both 
+Remember that not all lidar data are created equally. Different lidar data may have
+different attributes. In this activity, we will look at data that contain both
 intensity values and a ground vs non ground classification.
 
 ## About plas.io
-> Plasio is a project by Uday Verma and Howard Butler that implements point cloud 
-rendering capability in a browser. Specifically, it provides a functional implementation 
-of the ASPRS LAS format, and it can consume LASzip-compressed data using LASzip 
-NaCl module. Plasio is Chrome-only at this time, but it is hoped that other 
+> Plasio is a project by Uday Verma and Howard Butler that implements point cloud
+rendering capability in a browser. Specifically, it provides a functional implementation
+of the ASPRS LAS format, and it can consume LASzip-compressed data using LASzip
+NaCl module. Plasio is Chrome-only at this time, but it is hoped that other
 contributors can step forward to bring it to other browsers.
 >
-> It is expected that most WebGL-capable browers should be able to support plasio, 
-and it contains nothing that is explicitly Chrome-specific beyond the optional 
+> It is expected that most WebGL-capable browers should be able to support plasio,
+and it contains nothing that is explicitly Chrome-specific beyond the optional
 NaCL LASzip module.
 > src: https://github.com/verma/plasio
 
 ## 1. Open a .las file in plas.io ###
 
-1. If you haven't already, download the week 3 dataset - linked at the top of this 
-page. It contains several `.laz` format point cloud datasets that we will use in this 
+1. If you haven't already, download the week 3 dataset - linked at the top of this
+page. It contains several `.laz` format point cloud datasets that we will use in this
 lesson.
-2. When the download is complete, drag one of the `.laz` files into the <a href="http://plas.io" target="_blank"> 
+2. When the download is complete, drag one of the `.laz` files into the <a href="http://plas.io" target="_blank">
 plas.io website.</a> window.
 3. Zoom and pan around the data.
-4. Use the particle size slider to adjust the size of each individual lidar point. 
-NOTE: the particle size slider is located a little more than half way down the 
+4. Use the particle size slider to adjust the size of each individual lidar point.
+NOTE: the particle size slider is located a little more than half way down the
 `plas.io` toolbar in the "Data" section
 
 If the data imported into the plas.io viewer correctly, you should see something similar to the screenshot below:
@@ -103,19 +102,19 @@ If the data imported into the plas.io viewer correctly, you should see something
 </figure>
 
 ### Navigate around your data in plas.io
-You might prefer to use a mouse to explore your data in `plas.io`. Let's test the 
+You might prefer to use a mouse to explore your data in `plas.io`. Let's test the
 navigation out:
 
-1. Left click on the screen and drag the data on the screen. Notice that this tilts 
+1. Left click on the screen and drag the data on the screen. Notice that this tilts
 the data up and down
 2. Right click on the screen and drag noticing that this moves the entire dataset around
 3. Use the scroll bar on your mouse to zoom in and out
 
 ### How the points are colored - why is everything grey when the data are loaded?
-Notice that the data, upon initial view, are colored in a black - white color scheme. 
-These colors represent the data's intensity values. Remember that the intensity value 
-for each lidar point represents the amount of light energy that reflected off of 
-an object and returned to the sensor. In this case, darker colors represent LESS 
+Notice that the data, upon initial view, are colored in a black - white color scheme.
+These colors represent the data's intensity values. Remember that the intensity value
+for each lidar point represents the amount of light energy that reflected off of
+an object and returned to the sensor. In this case, darker colors represent LESS
 light energy returned. Lighter colors represent MORE light returned.
 
 <figure>
@@ -128,12 +127,12 @@ light energy returned. Lighter colors represent MORE light returned.
 
 ## 2. Adjust the intensity threshold
 
-Next, scroll down through the tools in `plas.io`. Look for the Intensity Scaling slider. 
-The intensity scaling slider allows you to define the thresholds of light to dark 
-intensity values displayed in the image (similar to stretching values in an image 
+Next, scroll down through the tools in `plas.io`. Look for the Intensity Scaling slider.
+The intensity scaling slider allows you to define the thresholds of light to dark
+intensity values displayed in the image (similar to stretching values in an image
 processing software or even in photoshop).
 
-Drag the slider back and forth. Notice that you can brighten up the data using the 
+Drag the slider back and forth. Notice that you can brighten up the data using the
 slider.
 
 <figure>
@@ -146,8 +145,8 @@ slider.
 
 ## 3. Change the lidar point cloud color options to classification
 
-In addition to intensity values, these lidar data also have a classification value. 
-Lidar data classification values are numeric, ranging from 0-20 or higher. Some 
+In addition to intensity values, these lidar data also have a classification value.
+Lidar data classification values are numeric, ranging from 0-20 or higher. Some
 common classes include:
 
 - 0 Not classified

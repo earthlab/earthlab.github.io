@@ -19,6 +19,7 @@ topics:
   reproducible-science-and-programming: ['rmarkdown']
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 This lesson contains a list of resources that will help you work with

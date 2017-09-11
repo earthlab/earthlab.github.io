@@ -26,7 +26,6 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 ## Get started with date formats in R

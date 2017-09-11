@@ -21,6 +21,7 @@ topics:
   spatial-data-and-gis: ['raster-data', 'vector-data']
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">

@@ -26,6 +26,7 @@ topics:
   reproducible-science-and-programming:
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">

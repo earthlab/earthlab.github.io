@@ -31,7 +31,6 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
-
 {% include toc title="In this lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -222,7 +221,7 @@ object is the geographic area that the raster data covers.
     <a href="{{ site.baseurl}}/images/courses/earth-analytics/week-3/raster-spatial-extent-coordinates.png">
     <img src="{{ site.baseurl}}/images/courses/earth-analytics/week-3/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which we will discuss next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
-    Thus, if the data are not rectangular (i.e. points OR an image that is rotated 
+    Thus, if the data are not rectangular (i.e. points OR an image that is rotated
     in some way) the spatial extent covers portions of the dataset where there are no data.
     Image Source: National Ecological Observatory Network (NEON).">
     </a>

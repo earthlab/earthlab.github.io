@@ -14,6 +14,7 @@ course: "earth-analytics"
 module-type: 'session'
 ---
 
+
 {% include toc title="This Week" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
