@@ -3,7 +3,7 @@ layout: single
 title: "R Markdown resources"
 excerpt: "Find resources that will help you use the R Markdown format."
 authors: ['Leah Wasser']
-modified: '2017-09-07'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/rmarkdown-resources/
@@ -18,6 +18,7 @@ course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['rmarkdown']
 ---
+
 
 {% include toc title="In this lesson" icon="file-text" %}
 

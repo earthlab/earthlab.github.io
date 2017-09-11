@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/open-plot-spreadsheet-data-in-R/
 nav-title: 'Open spreadsheet data'
 dateCreated: 2016-12-13
-modified: '2017-09-08'
+modified: '2017-09-10'
 week: 2
 sidebar:
   nav:
@@ -20,6 +20,7 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 This lesson introduces the data.frame which is very similar to working with
@@ -30,17 +31,17 @@ a spreadsheet in `R`.
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Open `.csv` or text file containing tabular (spreadsheet) formatted data in `R`.
+* Open `.csv` or text file containing tabular (spreadsheet) formatted data in `R`
 * Quickly plot the data using the `GGPLOT2` function `qplot()`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
+You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory within it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 
 </div>
@@ -123,12 +124,12 @@ Data frames are the **de facto** data structure for most tabular data, and what 
 use for statistics and plotting.
 
 A data frame is a collection of vectors of identical lengths. Each vector
-represents a column, and each vector can be of a different data type (e.g.,
+represents a column, and each vector can be of a different data type (e.g.
 characters, integers, factors). The `str()` function is useful to inspect the
 data types of the columns.
 
-A data frame can be created by hand, but most commonly they are generated when
-you important a text file or spreadsheet into R using the
+A data frame can be created by hand but most commonly they are generated when
+you important a text file or spreadsheet into `R` using the
 functions `read.csv()` or `read.table()`.
 
 ## Extracting / specifying "columns" by name
@@ -175,7 +176,7 @@ boulder_precip$PRECIP
 ## Plotting our data
 
 We can quickly plot our data too. Note that we are using the `ggplot2` function
-qplot() rather than the R base plot functionality. We are doing this because
+`qplot()` rather than the `R` base plot functionality. We are doing this because
 `ggplot2` is generally more powerful and efficient to use for plotting.
 
 

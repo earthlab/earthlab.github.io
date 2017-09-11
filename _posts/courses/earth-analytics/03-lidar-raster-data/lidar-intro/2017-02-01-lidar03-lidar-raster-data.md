@@ -3,7 +3,7 @@ layout: single
 title: "How lidar point clouds are converted to raster data formats - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/week-3/lidar-raster-data/
@@ -20,7 +20,6 @@ topics:
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 ---
-
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -112,7 +111,7 @@ A few notes about rasters:
 -  Each cell is called a pixel.
 -  Each pixel represents an area on the ground.
 -  The resolution of the raster is the area that each pixel represents
-on the ground. So a 1-meter resolution raster means that each pixel represents 
+on the ground. So a 1-meter resolution raster means that each pixel represents
 a 1m by 1m area on the ground.
 
 A raster dataset can have attributes associated with it as well. For instance in a

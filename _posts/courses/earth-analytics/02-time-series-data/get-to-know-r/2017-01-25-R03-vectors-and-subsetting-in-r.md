@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-09-08'
+modified: '2017-09-10'
 week: 2
 sidebar:
   nav:
@@ -19,6 +19,7 @@ course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 
@@ -27,16 +28,16 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Understand the structure of and be able to create a vector object in R.
+* Understand the structure of and be able to create a vector object in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
+You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
 have an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+directory within it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 
 </div>
@@ -78,7 +79,7 @@ length(animals)
 
 ## Vector data types
 
-An important feature of a vector, is that all of the elements are the same data
+An important feature of a vector is that all of the elements are the same data
 type. The function `class()` shows us the class (the data type) of an object:
 
 
@@ -124,7 +125,7 @@ These are the basic data tpes that all `R` objects are built
 from. The other 4 are:
 
 * `"logical"` for `TRUE` and `FALSE` (the boolean data type)
-* `"integer"` for integer numbers (e.g., `2L`, the `L` indicates to R that it's an integer)
+* `"integer"` for integer numbers (e.g. `2L`, the `L` indicates to R that it's an integer)
 * `"complex"` to represent complex numbers with real and imaginary parts (e.g.,
   `1+4i`) and that's all we're going to say about them
 * `"raw"` that we won't discuss further

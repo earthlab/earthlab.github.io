@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
 excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser']
-modified: '2017-09-08'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -21,10 +21,9 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
-Bonus / graduate activity. In this lesson, you will PLOT precipitation data in `R`.
+Bonus / Graduate activity. In this lesson, you will PLOT precipitation data in `R`.
 However, these data were collected over several decades and sometimes there are
 multiple data points per day. The data are also not cleaned. You will find
 heading names that may not be meaningful, and other issues with the data.
@@ -134,7 +133,7 @@ data value of 999.99**. Note that hours with no precipitation are not recorded.
 
 The metadata for this file is located in your `week_02` directory:
 `PRECIP_HLY_documentation.pdf` file that can be downloaded along with the data.
-(Note, as of Sept. 2016, there is a mismatch in the data downloaded and the
+(Note: as of Sept. 2016, there is a mismatch in the data downloaded and the
 documentation. The differences are in the units and missing data value:
 inches/999.99 (standard) or millimeters/25399.75 (metric)).
 

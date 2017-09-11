@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: How to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-09-06'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/reproject-vector-data/
@@ -19,7 +19,6 @@ topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems']
   reproducible-science-and-programming:
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -84,6 +83,7 @@ We will use the `rgdal` and `raster` libraries in this tutorial.
 library(rgdal)
 library(raster)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 options(stringsAsFactors = F)
 # set working directory to data folder
 # setwd("pathToDirHere")
@@ -118,6 +118,8 @@ state_boundary_us <- readOGR("data/week_04/usa-boundary-layers",
 ## with 58 features
 ## It has 10 fields
 ## Integer64 fields read as strings:  ALAND AWATER
+## Warning in readOGR("data/week_04/usa-boundary-layers", "US-State-
+## Boundaries-Census-2014"): Z-dimension discarded
 
 # view data structure
 class(state_boundary_us)
@@ -160,6 +162,8 @@ country_boundary_us <- readOGR("data/week_04/usa-boundary-layers",
 ## with 1 features
 ## It has 9 fields
 ## Integer64 fields read as strings:  ALAND AWATER
+## Warning in readOGR("data/week_04/usa-boundary-layers", "US-Boundary-
+## Dissolved-States"): Z-dimension discarded
 
 # look at the data structure
 class(country_boundary_us)
@@ -472,6 +476,11 @@ actual roads types that you find in the metadata rather than "Road type 1, etc"
 NOTE: this is also a plot you will submit as a part of your homework this week!
 
 </div>
+
+
+```
+## Error: requireNamespace("rgeos") is not TRUE
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial06-reproject-vector-data-R/challenge-code-MASS-Map-1.png" title="challenge plot" alt="challenge plot" width="90%" />
 

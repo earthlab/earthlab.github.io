@@ -4,7 +4,7 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/classify-raster/
@@ -22,7 +22,6 @@ topics:
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 ---
-
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -121,13 +120,13 @@ by looking at the `min` and `max` values in our `CHM`.
 
 ```r
 summary(lidar_chm)
-##          lidar_chm
-## Min.     0.0000000
-## 1st Qu.  0.0000000
-## Median   0.0000000
-## 3rd Qu.  0.7099609
-## Max.    23.6600342
-## NA's     0.0000000
+##         lidar_chm
+## Min.     0.000000
+## 1st Qu.  0.000000
+## Median   0.000000
+## 3rd Qu.  0.710083
+## Max.    25.500000
+## NA's     0.000000
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
@@ -185,12 +184,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76344  3368  3051  2789  2445  2143  1986  1802  1517  1159   913
-## [12]   773   536   415   274   193   139    63    36    28    12    10
-## [23]     3     1
+##  [1] 76298  3455  2972  2926  2446  2100  1952  1737  1517  1221   933
+## [12]   764   553   436   279   173   101    65    29    23    13     5
+## [23]     2
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23 24
+## [24] 23
 ```
 
 If we want to customize our histogram further, we can customize the number of

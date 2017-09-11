@@ -6,7 +6,7 @@ title: 'Get to know RStudio'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn how to work with R using the RStudio application.'
 dateCreated: 2016-12-12
-modified: '2017-09-06'
+modified: '2017-09-10'
 nav-title: 'RStudio intro'
 week: 1
 sidebar:
@@ -20,6 +20,7 @@ order: 2
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---
+
 
 {% include toc title="In this lesson" icon="file-text" %}
 

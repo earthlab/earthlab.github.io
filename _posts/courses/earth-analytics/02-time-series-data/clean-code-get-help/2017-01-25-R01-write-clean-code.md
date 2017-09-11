@@ -8,7 +8,7 @@ class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/time-series-data/write-clean-code-with-r/
 nav-title: 'Write clean code'
 dateCreated: 2016-12-13
-modified: '2017-09-08'
+modified: '2017-09-10'
 module-title: 'Clean code & getting help'
 module-nav-title: 'Clean code & getting help with R'
 module-description: 'This module covers how to write easier to read, clean code.
@@ -26,6 +26,7 @@ topics:
   reproducible-science-and-programming: ['RStudio', 'literate-expressive-programming']
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 This lesson reviews best practices associated with clean coding.
@@ -39,9 +40,9 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
+You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
 have an `earth-analytics` directory setup on your computer with a `/data`
-directory with it.
+directory within it.
 
 * [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 * [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
@@ -55,7 +56,7 @@ directory with it.
 
 
 Clean code means that your code is organized in a way that is easy for you and
-for someone else to follow / read. Certain conventions are suggested to make code
+for someone else to follow and read. Certain conventions are suggested to make code
 easier to read. For example, many guides suggest the use of a space after a comment.
 Like so:
 
@@ -65,7 +66,7 @@ Like so:
 ```
 
 While these types of guidelines may seem unimportant when you first begin to code,
-after a while you're realize that consistently formatted code is much easier
+after a while you'll realize that consistently formatted code is much easier
 for your eye to scan and quickly understand.
 
 ## Consistent, clean code
@@ -75,17 +76,17 @@ From here on in, we will follow this guide for all of the assignments in this cl
 
 ## Object naming best practices
 
-1. **Keep object names short:** this makes them easier to read when scanning through code
-2. **Use meaningful names:** For example: `precip` is a more useful name that tells us something about the object compared to `x`
+1. **Keep object names short:** This makes them easier to read when scanning through code
+2. **Use meaningful names:** For example, `precip` is a more useful name that tells us something about the object compared to `x`
 3. **Don't start names with numbers!** Objects that start with a number are NOT VALID in `R`
-4. **Avoid names that are existing functions in R:** e.g.,`if`, `else`, `for`, see
+4. **Avoid names that are existing functions in R:** e.g.`if`, `else`, `for`, see
 [here](https://stat.ethz.ch/R-manual/R-devel/library/base/html/Reserved.html)
 
 A few other notes about object names in `R`:
 
-* `R` is case sensitive (e.g., `weight_kg` is different from `Weight_kg`).
-* Avoid other function names (e.g., `c`, `T`, `mean`, `data`, `df`, `weights`).
-* Use nouns for variable names, and verbs for function names.
+* `R` is case sensitive (e.g. `weight_kg` is different from `Weight_kg`).
+* Avoid other function names (e.g. `c`, `T`, `mean`, `data`, `df`, `weights`).
+* Use nouns for variable names and verbs for function names.
 * Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning
 in `R` (for methods) and other programming languages. Instead use underscores `my_dataset`.
 
@@ -97,7 +98,7 @@ in `R` (for methods) and other programming languages. Instead use underscores `m
 Take a look at the code below.
 
 * Create a list of all of the things that could be improved to make the code
-easier to read / work with.
+easier to read and work with.
 * Add to that list things that don't fit the Hadley Wickham style guide standards.
 * Try to run the code in `R`. Any issues?
 

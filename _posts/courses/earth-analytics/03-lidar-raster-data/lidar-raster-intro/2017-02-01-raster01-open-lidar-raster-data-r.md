@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/open-lidar-raster-r/
@@ -30,7 +30,6 @@ topics:
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 ---
-
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -222,7 +221,7 @@ object is the geographic area that the raster data covers.
     <a href="{{ site.baseurl}}/images/courses/earth-analytics/week-3/raster-spatial-extent-coordinates.png">
     <img src="{{ site.baseurl}}/images/courses/earth-analytics/week-3/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which we will discuss next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
-    Thus, if the data are not rectangular (i.e. points OR an image that is rotated 
+    Thus, if the data are not rectangular (i.e. points OR an image that is rotated
     in some way) the spatial extent covers portions of the dataset where there are no data.
     Image Source: National Ecological Observatory Network (NEON).">
     </a>

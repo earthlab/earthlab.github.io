@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-09-01'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/week-3/plot-raster-histograms-r/
@@ -23,7 +23,6 @@ topics:
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 ---
-
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -89,7 +88,7 @@ data. This plot is useful to:
 
 1. Identify outlier data values
 2. Assess the min and max values in our data
-3. Explore the general distribution of elevation values in the data (i.e. is the 
+3. Explore the general distribution of elevation values in the data (i.e. is the
 area generally flat, hilly, high elevation or low elevation)
 
 Notice that we are using the `xlab` and `ylab`

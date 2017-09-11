@@ -19,6 +19,7 @@ topics:
   spatial-data-and-gis:
 ---
 
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 This lesson walks you through installing `QGIS` on your laptop.
@@ -31,7 +32,7 @@ After completing this tutorial, you will be able to:
 
 * Install `QGIS` on your laptop
 
-To install `QGIS`, you'll need a laptop with admin priviledges to install software.
+To install `QGIS`, you'll need a laptop with admin privileges to install software.
 
 </div>
 
@@ -41,7 +42,7 @@ equivalent to ESRI's `ArcGIS`. To install `QGIS`:
 
 Download the `QGIS` installer on the
 <a href="http://www.qgis.org/en/site/forusers/download.html" target="_blank">
-`QGIS` download page here</a>. Follow the installation directions below for your
+QGIS download page here</a>. Follow the installation directions below for your
 operating system.
 
 ### Windows

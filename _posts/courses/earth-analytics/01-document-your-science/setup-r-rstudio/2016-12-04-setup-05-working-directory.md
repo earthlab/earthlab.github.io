@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: courses/earth-analytics/document-your-science/setup-working-directory/
 dateCreated: 2016-12-12
-modified: '2017-08-30'
+modified: '2017-09-10'
 author_profile: false
 comments: true
 order: 5
@@ -19,6 +19,7 @@ course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['data-management','RStudio']
 ---
+
 {% include toc title="In this lesson" icon="file-text" %}
 
 
@@ -107,8 +108,8 @@ When you set a default working directory, every time you open `RStudio` it will
 default to that working directory being set. This can be nice if you are going
 to always work in the same directory (like we will in all of our tutorials).
 
-Finally, let's see what your main working directory looks like. We use the  `getwd()` function
-to find out what our current working directory is in `R`.
+Finally, let's see what your main working directory looks like. Use the  `getwd()`
+function to find out what your current working directory is in `R`.
 
 
 ```r

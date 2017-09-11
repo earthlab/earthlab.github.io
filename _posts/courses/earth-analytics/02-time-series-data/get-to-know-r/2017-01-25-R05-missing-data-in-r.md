@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/missing-data-in-r-na/
 nav-title: 'Clean missing data'
 dateCreated: 2016-12-13
-modified: '2017-09-08'
+modified: '2017-09-10'
 week: 2
 sidebar:
   nav:
@@ -19,6 +19,7 @@ course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---
+
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -36,20 +37,20 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You need `R` and `RStudio` to complete this tutorial. Also we recommend have you
+You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
 have an `earth-analytics` directory setup on your computer with a `/data`
 directory within it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 </div>
 
 ## Missing data - no data values
 
-Sometimes, our data are missing values. Imagine a spreadsheet in Microsoft excel
+Sometimes, our data are missing values. Imagine a spreadsheet in Microsoft Excel
 with cells that are blank. If the cells are blank, we don't know for sure whether
-those data weren't collected, or something someone forgot to fill in. To account
+those data weren't collected, or someone forgot to fill them in. To account
 for data that are missing (not by mistake) we can put a value in those cells
 that represents `no data`.
 
@@ -65,7 +66,7 @@ planets <- c("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus",
 The default setting for most base functions that read data into `R` is to
 interpret `NA` as a missing value.
 
-Let's have a closer look at this using the boulder_precip data that we've
+Let's have a closer look at this using the `boulder_precip` data that we've
 used in the previous lessons. Please download the data again as there have
 been some changes made!
 
@@ -105,8 +106,8 @@ mean(boulder_precip$TEMP)
 ## [1] NA
 ```
 
-Notice that we are able to calculate a mean value for PRECIP but TEMP returns a
-NA value. Why? Let's plot our data to figure out what might be going on.
+Notice that we are able to calculate a mean value for `PRECIP` but `TEMP` returns a
+`NA` value. Why? Let's plot our data to figure out what might be going on.
 
 
 
@@ -131,7 +132,7 @@ When performing mathematical operations on numbers in `R`, most functions will
 return the value `NA` if the data you are working with include missing or nodata values.
 
 Returning NA values allows you to see that you have missing data in your dataset.
-You can then decide how you want to handle the missing data. If you add the
+You can then decide how you want to handle the missing data. Youcan add the
 argument `na.rm=TRUE` to calculate the result while ignoring the missing values.
 
 
@@ -147,7 +148,7 @@ max(heights, na.rm = TRUE)
 ## [1] 6
 ```
 
-Let's try to add the na.rm argument to our code mean calculateion on the
+Let's try to add the na.rm argument to our code mean calculation on the
 temperature column above.
 
 
@@ -186,14 +187,14 @@ summary(boulder_precip$TEMP, na.rm = TRUE)
 ## Finding & assigning no data values
 
 Sometimes, you'll find a dataset that uses another value for missing data. In some
-disciplines, for example -999 is frequently used. If there are multiple types of
+disciplines, for example -999, is frequently used. If there are multiple types of
 missing values in your dataset, you can extend what `R` considers a missing value when it reads
-the file in using  "`na.strings`" argument.
+the file in using the "`na.strings`" argument.
 
-Below use the na.strings argument on our data. Notice that we can tell R
-that there are several potential ways that are data documents nodata values.
+Below use the `na.strings` argument on our data. Notice that we can tell `R`
+that there are several potential ways that our data documents nodata values.
 
-YOu can provide r with a vector of missing date values as follows:
+You can provide `R` with a vector of missing date values as follows:
 
 `c("NA", " ", "-999")`
 

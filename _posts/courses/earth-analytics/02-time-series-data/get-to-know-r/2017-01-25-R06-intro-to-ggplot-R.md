@@ -3,7 +3,7 @@ layout: single
 title: "Plot data and customize plots with ggplot plots in R - earth analytics - data science for scientists"
 excerpt: 'Learn how to plot data and customize your plots using ggplot in R.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-09-08'
+modified: '2017-09-10'
 category: [courses]
 class-lesson: ['get-to-know-r']
 nav-title: 'Plot data with ggplot'
@@ -19,6 +19,7 @@ topics:
   reproducible-science-and-programming: ['RStudio']
   data-exploration-and-analysis: ['data-visualization']
 ---
+
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -61,29 +62,29 @@ library(ggplot2)
 # download data from figshare
 # note that we already downloaded the data to our laptops previously
 # but in case you don't have it - re-download it by uncommenting the code below.
-# download.file(url = "https://ndownloader.figshare.com/files/7010681",
-#              destfile = "data/boulder-precip.csv")
+# download.file("https://ndownloader.figshare.com/files/9282364",
+#              "data/boulder-precip.csv",
+#              method = "libcurl")
 
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder_precip)
-##     X       DATE PRECIP
-## 1 756 2013-08-21    0.1
-## 2 757 2013-08-26    0.1
-## 3 758 2013-08-27    0.1
-## 4 759 2013-09-01    0.0
-## 5 760 2013-09-09    0.1
-## 6 761 2013-09-10    1.0
+##    ID    DATE PRECIP TEMP
+## 1 756 8/21/13    0.1   55
+## 2 757 8/26/13    0.1   25
+## 3 758 8/27/13    0.1   NA
+## 4 759  9/1/13    0.0 -999
+## 5 760  9/9/13    0.1   15
+## 6 761 9/10/13    1.0   25
 
 # when we download the data we create a dataframe
 # view each column of the data frame using its name (or header)
 boulder_precip$DATE
-##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
-##  [6] "2013-09-10" "2013-09-11" "2013-09-12" "2013-09-13" "2013-09-15"
-## [11] "2013-09-16" "2013-09-22" "2013-09-23" "2013-09-27" "2013-09-28"
-## [16] "2013-10-01" "2013-10-04" "2013-10-11"
+##  [1] "8/21/13"  "8/26/13"  "8/27/13"  "9/1/13"   "9/9/13"   "9/10/13" 
+##  [7] "9/11/13"  "9/12/13"  "9/13/13"  "9/15/13"  "9/16/13"  "9/22/13" 
+## [13] "9/23/13"  "9/27/13"  "9/28/13"  "10/1/13"  "10/4/13"  "10/11/13"
 
 # view the precip column
 boulder_precip$PRECIP
@@ -107,7 +108,7 @@ publication quality plots with a minimal amount of settings and tweaking.
 
 To build a `ggplot()` we need to:
 
-- bind the plot to a specific data frame using the `data` argument
+- Bind the plot to a specific data frame using the `data` argument
 
 
 ```r
@@ -116,7 +117,7 @@ ggplot(data = boulder_precip)
 ```
 
 
-- define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
+- Define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
      such as plotting size, shape color, etc.,
 
 
@@ -124,7 +125,7 @@ ggplot(data = boulder_precip)
 ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP))
 ```
 
-- add `geoms` -- graphical representation of the data in the plot (points,
+- Add `geoms` -- graphical representation of the data in the plot (points,
      lines, bars). To add a geom to the plot use `+` operator:
 
 
@@ -205,7 +206,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/bar-color-1.png" title="ggplot with blue bars" alt="ggplot with blue bars" width="90%" />
 
-Change the fill to bright green
+Or change the fill to bright green
 
 
 ```r
@@ -218,7 +219,8 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 ## Add plot labels
 
-You can add labels to your plots as well. Let's add a title, and x and y labels using the glab() argument.
+You can add labels to your plots as well. Let's add a title, and x and y labels
+using the glab() argument.
 
 
 ```r
@@ -232,7 +234,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/add-title-1.png" title="ggplot with labels" alt="ggplot with labels" width="90%" />
 
-## Finally, explore using themes 
+## Finally, explore using themes
 
 
 ```r

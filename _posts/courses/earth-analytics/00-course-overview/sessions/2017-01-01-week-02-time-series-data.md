@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & work with time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-09-08'
+modified: '2017-09-10'
 week-landing: 2
 week: 2
 sidebar:
@@ -13,6 +13,7 @@ author_profile: false
 course: "earth-analytics"
 module-type: 'session'
 ---
+
 
 {% include toc title="This Week" icon="file-text" %}
 
@@ -70,7 +71,7 @@ the data directly under the week_02 folder.</figcaption>
 
 It is important that your data are organized as specified in the lessons because:
 
-1. When the instructors grade your assignments, we will be able to run your code if your directory looks like the instructors.
+1. When the instructors grade your assignments, we will be able to run your code if your directory looks like the instructors'.
 1. It will be easier for you to follow along in class if your directory is the same as the instructors.
 1. It is good practice to learn how to organize your files in a way that makes it easier for your future self to find and work with your data!
 
@@ -78,10 +79,10 @@ It is important that your data are organized as specified in the lessons because
 
 Watch the following videos:
 
-#### The Story of LiDAR Data video
+#### The story of lidar data video
 <iframe width="560" height="315" src="//www.youtube.com/embed/m7SXoFv6Sdc?rel=0" frameborder="0" allowfullscreen></iframe>
 
-#### How LiDAR Works
+#### How lidar works
 <iframe width="560" height="315" src="//www.youtube.com/embed/EYbhNSUnIdU?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
@@ -96,9 +97,9 @@ submission below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission: due Friday Sept 15 @ 8pm)
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission: due Friday Sept 15 @ 8pm
 
-#### 1. Create R Markdown document
+#### 1. Create an R Markdown document
 
 Create a new `R Markdown` document. Name it: `youLastName-yourFirstName-week02.rmd`
 
@@ -133,9 +134,9 @@ Note: If you did the challenge activities, you have already created these plots.
 
 Be sure that each plot has:
 
-1. A figure caption that describes the contents of the plot.
+1. A figure caption that describes the contents of the plot
 2. X and Y axis labels that include appropriate units
-3. A carefully composed title that describes the contents of the plot.
+3. A carefully composed title that describes the contents of the plot
 
 Below each plot, describe and interpret what the plot shows. Describe how the
 data demonstrate an impact and / or a driver of the 2013 flood event.
@@ -157,7 +158,7 @@ Be sure to:
 #### 4. Graduate students: add a 5th plot to your `.Rmd` file
 
 In addition to the plots above, add a plot of precipitation that spans
-from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. For you plot
+from 1948 - 2013 using the `805333-precip-daily-1948-2013.csv` file. For your plot
 be sure to
 
 1. Subset the data temporally: Jan 1 2013 - Oct 15 2013
@@ -175,11 +176,11 @@ described above (required for all graduate students).
 
 Then, receive a bonus point for:
 
-1. identifying an anomaly or change in the data that you can clearly see when you plot it and
-2. suggest how to address that anomaly in `R` to make a more uniform looking plot.
+1. Identifying an anomaly or change in the data that you can clearly see when you plot it
+2. Suggesting how to address that anomaly in `R` to make a more uniform looking plot
 
 **Bonus opportunity 1 (1 point)**
-* create an interactive plot with a slider (range selector) using `dygraphs`
+* Create an interactive plot with a slider (range selector) using `dygraphs`
 
 ***
 
@@ -230,7 +231,7 @@ format report using `knitr`.
 | Introductory text at the top of the document is thoughtful and well written.                                                                                      | It is well written.                                                                                                                                            | NA                                                   | Introductory text is not well written.                        |  |
 
 
-### Report Content - Code Format: 20%
+### Report content - code format: 20%
 
 | Element                                                                               | 5 points                                                                                          | 3 Points                                                                                      | 0 Points                                                            |  |
 |:--------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------|:--------------------------------------------------------------------|:-|
