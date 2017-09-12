@@ -3,12 +3,12 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
 excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-12'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
 permalink: /courses/earth-analytics/time-series-data/aggregate-time-series-data-r/
-nav-title: 'Bonus: Aggregate data'
+nav-title: 'Bonus: Summarize & filter data'
 sidebar:
   nav:
 author_profile: false
@@ -23,15 +23,15 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
-Bonus / Graduate activity. In this lesson, you will PLOT precipitation data in `R`.
+Bonus / Graduate activity. In this lesson, you will plot precipitation data in `R`.
 However, these data were collected over several decades and sometimes there are
 multiple data points per day. The data are also not cleaned. You will find
 heading names that may not be meaningful, and other issues with the data.
 
-This lesson provides the basic skills that you need to create a plot of daily
-precipitation, for 30 years surrounding the 2013 flood. You will use the skills
-that you learned in the previous lessons, coupled with the skills in this lesson
-to process the data.
+This lesson shows you what the plots should look like but does not
+provide each and every step that you need to process the data.
+You have the skills that you need from the other lessons
+covered this week! 
 
 <div class='notice--success' markdown="1">
 
@@ -40,7 +40,7 @@ to process the data.
 After completing this tutorial, you will be able to:
 
 * Aggregate data by a day in `R`
-* View names and rename columns in a dataframe
+* View names and rename columns in a `data.frame`
 
 ### Things you'll need To complete this lesson
 
