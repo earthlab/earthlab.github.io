@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & work with time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-09-10'
+modified: '2017-09-12'
 week-landing: 2
 week: 2
 sidebar:
@@ -101,7 +101,7 @@ submission below.
 
 #### 1. Create an R Markdown document
 
-Create a new `R Markdown` document. Name it: `yourLastName-yourFirstInitial-week02.rmd`
+Create a new `R Markdown` document. Name it: `youLastName-yourFirstName-week02.rmd`
 
 #### 2. Add the text that you wrote last week about the flood events
 
@@ -111,22 +111,21 @@ the events that occurred during the 2013 floods.
 
 #### 3. Add 4 plots to your R Markdown document
 
-Add the plots described below to your R Markdown file. **IMPORTANT** Please add a
+Add the plots described below to your `R Markdown` file. **IMPORTANT** Please add a
 figure caption to each plot that describes the contents of the plot.
 
-Add the code to produce the following 4 plots in your `R Markdown` document, [using the homework lessons as a guide to walk you through]({{site.url}}/courses/earth-analytics/time-series-data/plot-data-with-ggplot2-r/).
+Add the code to produce the following 4 plots in your `R Markdown` document, [using the homework lessons as a guide to walk you through]({{site.url}}/courses/earth-analytics/time-series-data/plot-data-with-ggplot2-r/). Use the pipes syntax that we learned in
+class to subset and summarize the data as required. 
 
 Use the `data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv` file to create:
 
-* **PLOT 1:** a plot of precipitation from 2003 to 2013 using `ggplot()`.
-* **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013
+* **PLOT 1:** a plot of precipitation from 2003 to 2013 using the `ggplot()` function.
+* **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using the `ggplot()` function.
 
 Use the `data/week_02/discharge/06730200-discharge-daily-1986-2013.csv` file to create:
 
-* **PLOT 3:** a plot of stream discharge from 1986 to 2016 using `ggplot()`.
-* **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013
-
-Note: If you did the challenge activities, you have already created these plots.
+* **PLOT 3:** a plot of stream discharge from 1986 to 2016 using `ggplot()` function.
+* **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using the `ggplot()` function.
 
 #### For all your plots be sure to do the following
 
@@ -137,6 +136,7 @@ Be sure that each plot has:
 1. A figure caption that describes the contents of the plot
 2. X and Y axis labels that include appropriate units
 3. A carefully composed title that describes the contents of the plot
+
 
 Below each plot, describe and interpret what the plot shows. Describe how the
 data demonstrate an impact and / or a driver of the 2013 flood event.
@@ -165,7 +165,7 @@ be sure to
 2. Summarize the data: plot DAILY total (sum) precipitation
 
 
-Use the [bonus lesson]({{ site.url }}/courses/earth-analytics/week-2/aggregate-time-series-data-r/) to guide
+Use the [bonus lesson]({{ site.url }}/courses/earth-analytics/time-series-data/aggregate-time-series-data-r/) to guide
 you through creating this plot.
 
 #### Bonus points (for grads and undergrads)
