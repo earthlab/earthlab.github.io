@@ -4,10 +4,10 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-12'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
-permalink: /courses/earth-analytics/week-3/classify-raster/
+permalink: /courses/earth-analytics/lidar-raster-data-r/classify-raster/
 nav-title: 'Classify a raster'
 week: 3
 course: "earth-analytics"
@@ -121,12 +121,12 @@ by looking at the `min` and `max` values in our `CHM`.
 ```r
 summary(lidar_chm)
 ##         lidar_chm
-## Min.     0.000000
-## 1st Qu.  0.000000
-## Median   0.000000
-## 3rd Qu.  0.710083
-## Max.    25.500000
-## NA's     0.000000
+## Min.      0.00000
+## 1st Qu.   0.00000
+## Median    0.00000
+## 3rd Qu.   0.75000
+## Max.     24.47009
+## NA's      0.00000
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
@@ -154,10 +154,10 @@ zooms in on the data in the plot. It does not modify the data!
 ```r
 # zoom in on x and y axis
 hist(lidar_chm,
-     xlim=c(2,25),
-     ylim=c(0,4000),
-     main="Histogram of canopy height model differences \nZoomed in to -2 to 2 on the x axis",
-     col="springgreen")
+     xlim = c(2,25),
+     ylim = c(0,4000),
+     main = "Histogram of canopy height model differences \nZoomed in to -2 to 2 on the x axis",
+     col = "springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/hist-contrained-1.png" title="plot of chm histogram constrained above 0" alt="plot of chm histogram constrained above 0" width="90%" />
@@ -184,12 +184,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76298  3455  2972  2926  2446  2100  1952  1737  1517  1221   933
-## [12]   764   553   436   279   173   101    65    29    23    13     5
-## [23]     2
+##  [1] 76107  3309  3083  2906  2512  2050  1988  1847  1517  1226   997
+## [12]   744   569   394   274   184   131    79    43    21     8     4
+## [23]     3     3     1
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23
+## [24] 23 24 25
 ```
 
 If we want to customize our histogram further, we can customize the number of
@@ -199,12 +199,12 @@ breaks that `R` uses to create it.
 ```r
 # zoom in on x and y axis
 hist(lidar_chm,
-     xlim=c(2,25),
-     ylim=c(0,1000),
-     breaks=100,
-     main="Histogram of canopy height model differences \nZoomed in to -2 to 2 on the x axis",
-     col="springgreen",
-     xlab="Pixel value")
+     xlim = c(2,25),
+     ylim = c(0,1000),
+     breaks = 100,
+     main = "Histogram of canopy height model differences \nZoomed in to -2 to 2 on the x axis",
+     col = "springgreen",
+     xlab = "Pixel value")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/create-lidar-hist-1.png" title="histogram of lidar chm" alt="histogram of lidar chm" width="90%" />
@@ -224,10 +224,10 @@ By using custom breaks, we can explore how our data may look when we classify it
 ```r
 # We may want to explore breaks in our histogram before plotting our data
 hist(lidar_chm,
-     breaks=c(0, 5, 10, 15, 20, 30),
-     main="Histogram with custom breaks",
-     xlab="Height (m)" , ylab="Number of Pixels",
-     col="springgreen")
+     breaks = c(0, 5, 10, 15, 20, 30),
+     main = "Histogram with custom breaks",
+     xlab = "Height (m)" , ylab = "Number of Pixels",
+     col = "springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/histogram-breaks-1.png" title="histogram with custom breaks" alt="histogram with custom breaks" width="90%" />
@@ -243,7 +243,7 @@ with those bins also.
 Below I use the following breaks:
 
 * 0 - 2 = no trees
-* 2-4 = short trees
+* 2 - 4 = short trees
 * 4 - 7 = medium trees
 * `>` 7 = tall trees
 
@@ -310,8 +310,8 @@ Our matrix below is similar to a spreadsheet with rows and columns.
 ```r
 # reshape the object into a matrix with columns and rows
 reclass_m <- matrix(reclass_df,
-                ncol=3,
-                byrow=TRUE)
+                ncol = 3,
+                byrow = TRUE)
 reclass_m
 ##      [,1] [,2] [,3]
 ## [1,]    0    2   NA
@@ -339,7 +339,7 @@ Note that I am not using the histogram function in this case given we only have 
 ```r
 # view reclassified data
 barplot(chm_classified,
-        main="Number of pixels in each class")
+        main = "Number of pixels in each class")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/barplot-pixels-1.png" title="create barplot of classified rasters" alt="create barplot of classified rasters" width="90%" />
@@ -355,7 +355,7 @@ The right side of the code says "assign to NA" `<- NA`
 
 ```r
 # assign all pixels that equal 0 to NA or no data value
-chm_classified[chm_classified==0] <- NA
+chm_classified[chm_classified == 0] <- NA
 ```
 
 Then, finally we can plot our raster. Notice the colors that I selected are not ideal!
@@ -365,7 +365,7 @@ You can pick better colors for your plot.
 ```r
 # plot reclassified data
 plot(chm_classified,
-     col=c("red", "blue", "green"))
+     col = c("red", "blue", "green"))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/reclassify-plot-raster-1.png" title="classified chm plot" alt="classified chm plot" width="90%" />
@@ -384,14 +384,14 @@ create a CUSTOM legend with the 3 categories that we created in our classificati
 ```r
 # plot reclassified data
 plot(chm_classified,
-     legend=F,
-     col=c("red", "blue", "green"), axes=F,
-     main="Classified Canopy Height Model \n short, medium, tall trees")
+     legend = FALSE,
+     col = c("red", "blue", "green"), axes= FALSE,
+     main = "Classified Canopy Height Model \n short, medium, tall trees")
 
 legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = c("red", "blue", "green"),
-       border = F,
+       border = FALSE,
        bty="n") # turn off legend border
 ```
 
@@ -406,15 +406,17 @@ chm_colors <- c("palegoldenrod", "palegreen2", "palegreen4")
 
 # plot reclassified data
 plot(chm_classified,
-     legend=F,
-     col=chm_colors,
-     axes=F,
+     legend = FALSE,
+     col = chm_colors,
+     axes = FALSE,
+     # remove the box around the plot
+     box = FALSE,
      main="Classified Canopy Height Model \n short, medium, tall trees")
 
 legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = chm_colors,
-       border = F,
+       border = FALSE,
        bty="n")
 ```
 
@@ -429,17 +431,17 @@ chm_colors <- c("palegoldenrod", "palegreen2", "palegreen4")
 
 # plot reclassified data
 plot(chm_classified,
-     legend=F,
-     col=chm_colors,
-     axes=F,
-     box=F,
-     main="Classified Canopy Height Model \n short, medium, tall trees")
+     legend = FALSE,
+     col = chm_colors,
+     axes = FALSE,
+     box = FALSE,
+     main = "Classified Canopy Height Model \n short, medium, tall trees")
 
 legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = chm_colors,
-       border = F,
-       bty="n")
+       border = FALSE,
+       bty = "n")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-colors2-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />

@@ -3,10 +3,10 @@ layout: single
 title: "How lidar point clouds are converted to raster data formats - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-12'
 category: [courses]
 class-lesson: ['class-lidar-r']
-permalink: /courses/earth-analytics/week-3/lidar-raster-data/
+permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-raster-data/
 nav-title: 'Intro lidar raster data'
 week: 3
 course: "earth-analytics"
@@ -54,8 +54,8 @@ reflections of light as discrete or individual points. Each point has an associa
 the amount of reflected light energy that returned to the sensor.
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/waveform.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" target="_blank">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" alt="Example of a lidar waveform"></a>
    <figcaption>An example lidar waveform. Source: NEON.
    </figcaption>
 </figure>
@@ -70,10 +70,10 @@ easier for many people to work with and also is supported by many different
 commonly used software packages.
 
 <figure class="half">
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-points-hill.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-points-hill.png" alt="lidar data on top of a raster."></a>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-points-hill-zoomout.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-points-hill-zoomout.png" alt="LEFT: Lidar data points overlayed on top of a hillshade which represents elevationin a graphical 3-dimensional view. RIGHT: If you zoom in on a portion of the data, you will see
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-points-hill.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-points-hill.png" alt="lidar data on top of a raster."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-points-hill-zoomout.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-points-hill-zoomout.png" alt="LEFT: Lidar data points overlayed on top of a hillshade which represents elevationin a graphical 3-dimensional view. RIGHT: If you zoom in on a portion of the data, you will see
    that the elevation data consists of cells or pixels, And there are lidar data
    points that fall within most of the pixels."></a>
    <figcaption>LEFT: Lidar data points overlayed on top of a hillshade which represents elevationin a graphical 3-dimensional view. RIGHT: If you zoom in on a portion of the data, you will see
@@ -96,8 +96,8 @@ the spatial **resolution** of the raster.
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/raster-concept.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/raster-concept.png" alt="Raster data concept diagram."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/raster-concept.png" target="_blank">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/raster-concept.png" alt="Raster data concept diagram."></a>
    <figcaption>A raster is composed of a regular grid of cells. Each cell is the same
    size in the x and y direction. Source: Colin Williams, NEON.
    </figcaption>
@@ -121,8 +121,8 @@ represents a lidar intensity value or the amount of light energy returned to and
 recorded by the sensor.
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/raster-resolution.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/raster-resolution.png" alt="Raster data resolution concept diagram."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/raster-resolution.png" target="_blank">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/raster-resolution.png" alt="Raster data resolution concept diagram."></a>
    <figcaption>Rasters can be stored at different resolutions. The resolution simply
    represents the size of each pixel cell. Source: Colin Williams, NEON.
    </figcaption>
@@ -162,8 +162,8 @@ which is useful to know, if you are doing research.
 We will not be talking about interpolation in today's class.
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/week-3/gridding.gif">
-  <img src="{{ site.url }}/images/courses/earth-analytics/week-3/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
+  <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/gridding.gif">
+  <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
   <figcaption>
   Animation Showing the general process of taking lidar point clouds and
   converting them to a Raster Format. Source: Tristan Goulden, NEON.

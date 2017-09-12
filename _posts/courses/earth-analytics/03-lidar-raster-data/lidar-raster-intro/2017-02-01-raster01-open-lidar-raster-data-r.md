@@ -5,10 +5,10 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-12'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
-permalink: /courses/earth-analytics/week-3/open-lidar-raster-r/
+permalink: /courses/earth-analytics/lidar-raster-data-r/open-lidar-raster-r/
 nav-title: 'Open raster data R'
 module-title: 'Lidar raster data R'
 module-description: 'This module introduces the raster spatial data format as it
@@ -63,8 +63,8 @@ will learn how to open and plot a lidar raster dataset in `R`. We will also disc
 3. Coordinate reference system
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/week-3/gridding.gif">
-  <img src="{{ site.url }}/images/courses/earth-analytics/week-3/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
+  <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/gridding.gif">
+  <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
   <figcaption>
   Animation that shows the general process of taking lidar point clouds and
   converting them to a Raster Format. Source: Tristan Goulden, NEON.
@@ -178,8 +178,8 @@ The `CRS` string for our `lidar_dem` object tells us that our data are in the UT
 projection.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-3/UTM_zones.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-3/UTM_zones.png" alt="The UTM zones across the continental United States. Source:
+    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/UTM_zones.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/UTM_zones.png" alt="The UTM zones across the continental United States. Source:
    	Chrismurf, wikimedia.org."></a>
    	<figcaption> The UTM zones across the continental United States. Source:
    	Chrismurf, wikimedia.org.
@@ -218,8 +218,8 @@ Next, let's discuss spatial extent. The spatial extent of a raster or spatial
 object is the geographic area that the raster data covers.
 
 <figure>
-    <a href="{{ site.baseurl}}/images/courses/earth-analytics/week-3/raster-spatial-extent-coordinates.png">
-    <img src="{{ site.baseurl}}/images/courses/earth-analytics/week-3/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which we will discuss next week.
+    <a href="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/raster-spatial-extent-coordinates.png">
+    <img src="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which we will discuss next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
     Thus, if the data are not rectangular (i.e. points OR an image that is rotated
     in some way) the spatial extent covers portions of the dataset where there are no data.
@@ -272,8 +272,8 @@ yres(lidar_dem)
 ```
 
 <figure>
-    <a href="{{ site.baseurl}}/images/courses/earth-analytics/week-3/pixel-resolution.png">
-    <img src="{{ site.baseurl}}/images/courses/earth-analytics/week-3/pixel-resolution.png" alt="The spatial resolution of a raster refers the size of each cell. This size in turn relates to the area on the ground that the pixel represents. Source: Colin Williams, National Ecological Observatory Network (NEON) ">
+    <a href="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/pixel-resolution.png">
+    <img src="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/pixel-resolution.png" alt="The spatial resolution of a raster refers the size of each cell. This size in turn relates to the area on the ground that the pixel represents. Source: Colin Williams, National Ecological Observatory Network (NEON) ">
     </a>
     <figcaption> The spatial resolution of a raster refers the size of each cell.
     This size in turn relates to the area on the ground that the pixel represents.

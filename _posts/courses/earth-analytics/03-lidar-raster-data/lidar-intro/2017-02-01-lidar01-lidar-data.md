@@ -3,10 +3,10 @@ layout: single
 title: "Introduction to Light Detection and Ranging (lidar) remote sensing data"
 excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-12'
 category: [courses]
 class-lesson: ['class-lidar-r']
-permalink: /courses/earth-analytics/week-3/lidar-intro/
+permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-intro/
 nav-title: 'Intro to lidar data'
 module-title: 'Intro to lidar data'
 module-description: 'This tutorial covers the basic principles of lidar remote sensing and the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally, it walks through opening lidar derived raster data in R / RStudio'
@@ -52,8 +52,8 @@ system that can be used to measure vegetation height across wide areas.
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-trees.jpg">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-trees.jpg" alt="Lidar data collected by NEON AOP"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-trees.jpg">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-trees.jpg" alt="Lidar data collected by NEON AOP"></a>
    <figcaption>Lidar data collected at the Soaproot Saddle site by the National
 Ecological Observatory Network Airborne Observation Platform (NEON AOP). Source:
 Keith Krauss, NEON.
@@ -85,8 +85,8 @@ landscape and record things that we can use to estimate conditions and
 characteristics.
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/scaling-trees-nat-geo.jpg">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/scaling-trees-nat-geo.jpg" alt="national geographic scaling trees graphic"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/scaling-trees-nat-geo.jpg">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/scaling-trees-nat-geo.jpg" alt="national geographic scaling trees graphic"></a>
    <figcaption>Conventional on the ground methods to measure trees are resource
    intensive and limit the amount of vegetation that can be characterized. Source:
    National Geographic.
@@ -150,8 +150,8 @@ often represent objects on the ground like a branch, a group of leaves or a
 building.
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/waveform.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" target="_blank">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" alt="Example of a lidar waveform"></a>
    <figcaption>An example lidar waveform. Source: NEON, Boulder, CO.
    </figcaption>
 </figure>
@@ -163,8 +163,8 @@ There are many different uses for lidar data:
 - Lidar data classically have been used to derive high resolution elevation data
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/high-res-topo.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/high-res-topo.png" alt="high resolution vs low resolution topography."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/high-res-topo.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/high-res-topo.png" alt="high resolution vs low resolution topography."></a>
    <figcaption>Lidar data have historically been used to generate high
    resolution elevation datasets. Source: National Ecological Observatory
    Network - image
@@ -182,8 +182,8 @@ including:
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/Treeline_ScannedPoints.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
    <figcaption>Cross section showing lidar point cloud data (above) and the
    corresponding landscape profile (below). Graphic: Leah A. Wasser.
    </figcaption>
@@ -203,8 +203,8 @@ energy. Full waveform lidar data are thus more complex to process, however, they
 can often capture more information compared to discrete return lidar systems.
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/waveform.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" target="_blank">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" alt="Example of a lidar waveform"></a>
    <figcaption>An example lidar waveform. Source: NEON.
    </figcaption>
 </figure>
@@ -252,8 +252,8 @@ vegetation type.
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/Treeline_ScannedPoints.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
    <figcaption>Cross section showing lidar point cloud data (above) and the
    corresponding landscape profile (below). Graphic: Leah A. Wasser.
    </figcaption>
@@ -272,8 +272,8 @@ needs to be processed in order to get usable values from it.
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-cross-section.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-cross-section.png" alt="A cross section of 3-dimensional lidar data. Brown points represent ground,
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-cross-section.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-cross-section.png" alt="A cross section of 3-dimensional lidar data. Brown points represent ground,
    green represent vegetation (trees)."></a>
    <figcaption>A cross section of 3-dimensional lidar data. This point cloud data
    product is classified into the classes: vegetation and ground points. Brown points represent ground,
