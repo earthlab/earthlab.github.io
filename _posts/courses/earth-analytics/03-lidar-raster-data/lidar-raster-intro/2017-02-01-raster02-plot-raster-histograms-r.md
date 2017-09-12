@@ -5,10 +5,10 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-12'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
-permalink: /courses/earth-analytics/week-3/plot-raster-histograms-r/
+permalink: /courses/earth-analytics/lidar-raster-data-r/plot-raster-histograms-r/
 nav-title: 'Plot raster histograms'
 week: 3
 course: "earth-analytics"

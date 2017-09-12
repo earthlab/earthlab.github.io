@@ -4,10 +4,10 @@ title: "Get to know lidar (Light Detection and Ranging) point cloud data - activ
 excerpt: "This lesson covers what a lidar point cloud is. We will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-12'
 category: [courses]
 class-lesson: ['class-lidar-r']
-permalink: /courses/earth-analytics/week-3/explore-lidar-point-clouds-plasio/
+permalink: /courses/earth-analytics/lidar-raster-data-r/explore-lidar-point-clouds-plasio/
 nav-title: 'Explore lidar point clouds'
 week: 3
 course: "earth-analytics"
@@ -97,7 +97,7 @@ NOTE: the particle size slider is located a little more than half way down the
 If the data imported into the plas.io viewer correctly, you should see something similar to the screenshot below:
 
 <figure>
-<img src="{{ site.url }}/images/courses/earth-analytics/week-3/plasio-data-import.png" alt="Lidar data in the plas.io online tool.">
+<img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/plasio-data-import.png" alt="Lidar data in the plas.io online tool.">
 <figcaption>You can drag a .las or .laz dataset into the plas.io viewer to view the data in your browser! </figcaption>
 </figure>
 
@@ -118,8 +118,8 @@ an object and returned to the sensor. In this case, darker colors represent LESS
 light energy returned. Lighter colors represent MORE light returned.
 
 <figure>
-<a href="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-intensity.png" alt="Lidar intensity values represent the amount of light energy that reflected off of an object and returned to the sensor.">
-<img src="{{ site.url }}/images/courses/earth-analytics/week-3/lidar-intensity.png" alt="Lidar data in the plas.io online tool.">
+<a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-intensity.png" alt="Lidar intensity values represent the amount of light energy that reflected off of an object and returned to the sensor.">
+<img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-intensity.png" alt="Lidar data in the plas.io online tool.">
 </a>
 <figcaption>Lidar intensity values represent the amount of light energy that reflected off of an object and returned to the sensor.</figcaption>
 </figure>
@@ -136,8 +136,8 @@ Drag the slider back and forth. Notice that you can brighten up the data using t
 slider.
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/week-3/intensity-slider.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-3/intensity-slider.png" alt="The intensity scaling slider is located below the color map tool so it's easy to miss. Drag the slider back and forth to adjust the range of intensity values and to brighten up the lidar point clouds.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/intensity-slider.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/intensity-slider.png" alt="The intensity scaling slider is located below the color map tool so it's easy to miss. Drag the slider back and forth to adjust the range of intensity values and to brighten up the lidar point clouds.">
   </a>
   <figcaption>The intensity scaling slider is located below the color map tool so it's easy to miss. Drag the slider back and forth to adjust the range of intensity values and to brighten up the lidar point clouds.
   </figcaption>
@@ -158,8 +158,8 @@ common classes include:
 - 6 Building
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/week-3/plasio-colors-kendra.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-3/plasio-colors-kendra.png" alt="Blue and Orange gradient color scheme submitted by Kendra Sand. Which color scheme is your favorite?">
+  <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/plasio-colors-kendra.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/plasio-colors-kendra.png" alt="Blue and Orange gradient color scheme submitted by Kendra Sand. Which color scheme is your favorite?">
   </a>
   <figcaption>Blue and Orange gradient color scheme submitted by Kendra Sand. Which color scheme is your favorite?
   </figcaption>
@@ -172,8 +172,8 @@ In this case, these data are classified as either ground, or non-ground. To view
 - For kicks - play with the various colormap options to change the colors of the points
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/week-3/classification-colorization2.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-3/classification-colorization2.png" alt="Set the colorization to 'classified' and then adjust the intensity blending to view the points, colored by ground and non-ground classification.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/classification-colorization2.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/classification-colorization2.png" alt="Set the colorization to 'classified' and then adjust the intensity blending to view the points, colored by ground and non-ground classification.">
   </a>
   <figcaption>Set the colorization to 'classified' and then adjust the intensity blending to view the points, colored by ground and non-ground classification.
   </figcaption>

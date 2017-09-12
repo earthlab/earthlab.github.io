@@ -4,10 +4,10 @@ title: "Crop a spatial raster dataset using a shapefile in R."
 excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-12'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
-permalink: /courses/earth-analytics/week-3/crop-raster-data-in-r/
+permalink: /courses/earth-analytics/lidar-raster-data-r/crop-raster-data-in-r/
 nav-title: 'Crop a raster'
 week: 3
 course: "earth-analytics"
@@ -119,8 +119,8 @@ plot(crop_extent,
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster06-crop-raster/plot-w-legend-1.png" title="shapefile crop extent plot" alt="shapefile crop extent plot" width="90%" />
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-3/spatial_extent.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-3/spatial_extent.png" alt="The spatial extent of a shapefile or R spatial object represents the geographic "edge" or location that is the furthest north, south east and west."></a>
+    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/spatial_extent.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/spatial_extent.png" alt="The spatial extent of a shapefile or R spatial object represents the geographic "edge" or location that is the furthest north, south east and west."></a>
     <figcaption>The spatial extent of a shapefile or R spatial object represents
     the geographic "edge" or location that is the furthest north, south east and
     west. Thus is represents the overall geographic coverage of the spatial

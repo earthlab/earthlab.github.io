@@ -115,7 +115,7 @@ Add the plots described below to your `R Markdown` file. **IMPORTANT** Please ad
 figure caption to each plot that describes the contents of the plot.
 
 Add the code to produce the following 4 plots in your `R Markdown` document, [using the homework lessons as a guide to walk you through]({{site.url}}/courses/earth-analytics/time-series-data/plot-data-with-ggplot2-r/). Use the pipes syntax that we learned in
-class to subset and summarize the data as required. 
+class to subset and summarize the data as required.
 
 Use the `data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv` file to create:
 
