@@ -31,7 +31,7 @@ heading names that may not be meaningful, and other issues with the data.
 This lesson shows you what the plots should look like but does not
 provide each and every step that you need to process the data.
 You have the skills that you need from the other lessons
-covered this week!
+covered this week! 
 
 <div class='notice--success' markdown="1">
 
@@ -269,7 +269,7 @@ total amount of precipitation each day.
 daily_sum_precip <- precip_boulder %>%
   mutate(day = as.Date(DATE, format="%Y-%m-%d")) %>%
   group_by(day) %>% # group by the day column
-  summarise(total_precip=sum(HPCP)) %>%  # calculate the SUM of all precipitation that occurred on each day
+  summarise(total_precip=sum(HPCP)) %>%  # calculate the SUM of all precipitation that occured on each day
   na.omit()
 
 # how large is the resulting data frame?

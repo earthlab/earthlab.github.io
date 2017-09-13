@@ -1,12 +1,12 @@
 ---
 layout: single
 category: course-materials
-title: "VC Intro"
+title: "Course template landing page"
 nav-title: "Workshop landing page"
-permalink: /courses/intro-version-control-git/
-course: "intro-version-control-git"
+permalink: /courses/example-course-name/
+course: "example-course-name" # this is the "Course" or module name. it needs to be the same for all lessons in the workshop
 module-type: 'overview'
-module-title: "Introduction to version control and git"
+module-title: "Course template landing page"
 week-landing: 0
 week: 0
 sidebar:
@@ -37,4 +37,4 @@ overview-order: 1
 </div>
 <!-- an overview module specifies the overview content for the course including syllabus and any assignments  module-type: 'session' specified a week or a particular set of content surrounding a topic - eg internship seminar, etc -->
 
-About the workshop here...
+text here...
