@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & work with time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-09-14'
+modified: '2017-09-15'
 week-landing: 2
 week: 2
 sidebar:
@@ -95,7 +95,7 @@ submission below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission: due Friday Sept 15 @ 8pm
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework (5 points): due Friday Sept 15 @ 8pm
 
 #### 1. Create an R Markdown document
 
