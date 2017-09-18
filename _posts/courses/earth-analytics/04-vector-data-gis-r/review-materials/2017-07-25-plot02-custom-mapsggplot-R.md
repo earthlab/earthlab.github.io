@@ -3,10 +3,10 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
-permalink: /courses/earth-analytics/custom-maps-r/r-make-maps-with-ggplot-in-R/
+permalink: /courses/earth-analytics/spatial-data-r/make-maps-with-ggplot-in-R/
 nav-title: 'Maps with ggplot'
 week: 4
 course: "earth-analytics"
@@ -73,15 +73,12 @@ library(ggplot2)
 library(broom)
 library(RColorBrewer)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(dplyr)
-library(ggsn)
-# use the cowplot library to create cleaner ggplot maps - we will load this at the very end so you can see how it works and what it does! Don't load it just yet.
-# library(cowplot)
 # note that you don't need to call maptools to run the code below but it needs to be installed.
 library(maptools)
 # to add a north arrow and a scale bar to the map
 library(ggsn)
+# set factors to false
 options(stringsAsFactors = FALSE)
 ```
 
@@ -108,7 +105,7 @@ plot(sjer_roads,
      main = "Quick plot of roads data")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/convert-to-factor-1.png" title="Quick plot of the roads data." alt="Quick plot of the roads data." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/convert-to-factor-1.png" title="Quick plot of the roads data." alt="Quick plot of the roads data." width="90%" />
 
 
 
@@ -174,7 +171,7 @@ ggplot() +
   labs(title = "ggplot map of roads")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/plot-roads-data-1.png" title="Basic ggplot of roads." alt="Basic ggplot of roads." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/plot-roads-data-1.png" title="Basic ggplot of roads." alt="Basic ggplot of roads." width="90%" />
 
 We can color each line by type too by adding the attribute that we wish to use
 for categories or types to the color  = argument.
@@ -194,7 +191,7 @@ labs(color = 'Road Types', # change the legend type
      title = "Roads colored by the RTTP attribute")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleaned-1.png" title="Basic plot with title and legend title" alt="Basic plot with title and legend title" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleaned-1.png" title="Basic plot with title and legend title" alt="Basic plot with title and legend title" width="90%" />
 
 We can customize the colors on our map too. Below we do a few things:
 
@@ -229,7 +226,7 @@ ggplot() +
        subtitle = "Colored by road type")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="90%" />
 
 Notice that above the colors are applied to each category (C, M, S and Unknown) in order.
 In this case the order is alphabetical.
@@ -262,7 +259,7 @@ ggplot() +
   theme(axis.text = element_blank(), axis.ticks = element_blank())
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleand-1.png" title="Roads ggplot map with axes customized." alt="Roads ggplot map with axes customized." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-axis-cleand-1.png" title="Roads ggplot map with axes customized." alt="Roads ggplot map with axes customized." width="90%" />
 
 Finally we can use `coord_quickmap()` to scale the x and y axis equally by long and
 lat values.
@@ -291,7 +288,7 @@ ggplot() +
   coord_quickmap()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-ratio-1.png" title="Roads ggplot map with aspect ratio fixed." alt="Roads ggplot map with aspect ratio fixed." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-ratio-1.png" title="Roads ggplot map with aspect ratio fixed." alt="Roads ggplot map with aspect ratio fixed." width="90%" />
 
 <!--
 # r for spatial analysis --
@@ -319,7 +316,7 @@ ggplot() +
   coord_fixed()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
 
 ### Adjust line width by attribute
 
@@ -364,7 +361,7 @@ ggplot() +
   coord_fixed()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width2-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width2-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
 
 ### Merge the legends
 
@@ -396,7 +393,7 @@ ggplot() +
   coord_fixed()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-custom-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-custom-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
 
 But this is ugly, right? Let's make the line widths a bit thinner to clean
 things up.
@@ -422,7 +419,7 @@ ggplot() +
   coord_fixed()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-custom2-1.png" title="Roads ggplot map with line width set. Thinner lines." alt="Roads ggplot map with line width set. Thinner lines." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-custom2-1.png" title="Roads ggplot map with line width set. Thinner lines." alt="Roads ggplot map with line width set. Thinner lines." width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -435,7 +432,7 @@ roads with an `RTTYP` attribute value of unknown (thinner lines, lighter color).
 </div>
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/road-map-2-1.png" title="emphasize some attributes" alt="emphasize some attributes" width="90%" />
 
 
 <!-- C = County
@@ -499,7 +496,7 @@ ggplot() +
   labs(title = "Plot locations")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/ggplot-points-1.png" title="ggplot with points" alt="ggplot with points" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/ggplot-points-1.png" title="ggplot with points" alt="ggplot with points" width="90%" />
 
 Great! We've now plotted our data using `ggplot`. Let's next combine the roads
 with the points in one clean map.
@@ -520,7 +517,7 @@ ggplot() +
   geom_point(data = sjer_plots_df, aes(x = coords.x1, y = coords.x2))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-1.png" title="Plot of both points and lines with ggplot" alt="Plot of both points and lines with ggplot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-1.png" title="Plot of both points and lines with ggplot" alt="Plot of both points and lines with ggplot" width="90%" />
 
 
 Next we have a few options - our roads layer is a much larger spatial extent
@@ -537,7 +534,7 @@ ggplot() +
   coord_fixed(xlim = c(-119.8, -119.7), ylim = c(37.05, 37.15))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-custom-ext-1.png" title="Plot of both points and lines with ggplot with custom extent" alt="Plot of both points and lines with ggplot with custom extent" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-custom-ext-1.png" title="Plot of both points and lines with ggplot with custom extent" alt="Plot of both points and lines with ggplot with custom extent" width="90%" />
 
 ## Data crop vs. map zoom
 
@@ -590,11 +587,14 @@ unique(sjer_roads_utm$RTTYP)
 
 # crop the roads data to our study area for quicker plotting
 sjer_roads_utmcrop <- crop(sjer_roads_utm, study_area)
-## Error: requireNamespace("rgeos") is not TRUE
 
 # quick plot to make sure the data look like we expect them too post crop
 plot(sjer_roads_utmcrop)
-## Error in plot(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/reproject-plot-1.png" title="quick plot of the data" alt="quick plot of the data" width="90%" />
+
+```r
 
 # view crs of all layers
 crs(study_area)
@@ -606,7 +606,9 @@ crs(sjer_plots)
 ##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
 ## +towgs84=0,0,0
 crs(sjer_roads_utmcrop)
-## Error in crs(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found
+## CRS arguments:
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 ```
 
 Next, we convert the study_area spatial object to a `data.frame` so we can plot it
@@ -618,20 +620,16 @@ so we won't need to add the attributes.
 # convert study area data into data.frame
 study_area$id <- rownames(study_area@data)
 study_area_df <- tidy(study_area, region = "id")
-## Error: isTRUE(gpclibPermitStatus()) is not TRUE
 
 # convert roads layer to ggplot ready data.frame
 sjer_roads_df <- tidy(sjer_roads_utmcrop, region = "id")
-## Error in tidy(sjer_roads_utmcrop, region = "id"): object 'sjer_roads_utmcrop' not found
 
 # make sure the shapefile attribute table has an id column so we can add spatial attributes
 sjer_roads_utmcrop$id <- rownames(sjer_roads_utmcrop@data)
-## Error in rownames(sjer_roads_utmcrop@data): object 'sjer_roads_utmcrop' not found
 # join the attribute table from the spatial object to the new data frame
 sjer_roads_df <- left_join(sjer_roads_df,
                            sjer_roads_utmcrop@data,
                            by = "id")
-## Error in tbl_vars(y): object 'sjer_roads_utmcrop' not found
 
 
 # convert spatial object to a ggplot ready data frame - note this is a points layer
@@ -655,8 +653,9 @@ ggplot() +
   geom_point(data = sjer_plots_df, aes(x = coords.x1,
                                        y = coords.x2), shape = 18) +
   labs(title = "GGPLOT map of roads, study area and plot locations")
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-all-layers-1.png" title="ggplot map with roads and plots" alt="ggplot map with roads and plots" width="90%" />
 
 <!-- #+
 #  guides(colour = guide_legend("Road Type"), size = guide_legend("Road Type"))
@@ -696,8 +695,9 @@ ggplot() +
                                              "trees" = 8)) +
   labs(title = "ggplot map of roads, plots and study area") +
   theme_bw()
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot1-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
 Finally, let's clean up our map further. We can use some of the built in functionality
 of `cowplot` to adjust the `theme()` settings in `ggplot`.
@@ -728,8 +728,9 @@ ggplot() +
                                              "trees" = 8)) +
   labs(title = "ggplot map of roads, plots and study area") +
   theme_bw()
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-cowplot-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
 ## Adjust ggplot theme settings
 
@@ -767,8 +768,9 @@ ggplot() +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
         axis.line = element_blank())
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-3-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
 ## Legends and scale bars
 
@@ -813,11 +815,8 @@ We can adjust the size and location of the north arrow as well.
 library(ggsn)
 # get x and y location for scalebar
 roads_ext <- extent(sjer_roads_utmcrop)
-## Error in extent(sjer_roads_utmcrop): object 'sjer_roads_utmcrop' not found
 x_scale_loc <- roads_ext@xmax
-## Error in eval(expr, envir, enclos): object 'roads_ext' not found
 y_scale_loc <- roads_ext@ymin
-## Error in eval(expr, envir, enclos): object 'roads_ext' not found
 
 # plot ggplot
 ggplot() +
@@ -846,8 +845,9 @@ ggplot() +
   theme(axis.text.x = element_blank(), axis.ticks.x = element_blank(),
         axis.text.y = element_blank(), axis.ticks.y = element_blank(),
         axis.line = element_blank()) + blank()
-## Error in fortify(data): object 'study_area_df' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-scalebar-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
 
 <div class="notice--info" markdown="1">
