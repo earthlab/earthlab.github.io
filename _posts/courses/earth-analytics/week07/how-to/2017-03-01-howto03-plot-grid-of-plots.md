@@ -3,7 +3,7 @@ layout: single
 title: "Plot grid of spatial plots in R. "
 excerpt: "In this lesson we cover using par() or parameter settings in R to plot several raster RGB plots in R in a grid. "
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['how-to-hints-week7']
 permalink: /courses/earth-analytics/week-7/grid-of-plots-report/
@@ -59,6 +59,7 @@ all_landsat_bands <- list.files("data/week06/Landsat/LC80340322016189-SC20170128
            full.names = T) # use the dollar sign at the end to get all files that END WITH
 
 all_landsat_bands_st <- stack(all_landsat_bands)
+## Error in x[[1]]: subscript out of bounds
 ```
 
 ### Creating a grid of plots
@@ -81,40 +82,47 @@ par(mfrow=c(2,2), col.axis="white", col.lab="white", tck=0)
 plotRGB(all_landsat_bands_st,
         r=4,g=3,b=2,
         stretch="hist",
-        main="Plot 1 - RGB",
+        main = "Plot 1 - RGB",
         axes=T)
-box(col="white") # turn all of the lines to white
+## Error in plotRGB(all_landsat_bands_st, r = 4, g = 3, b = 2, stretch = "hist", : object 'all_landsat_bands_st' not found
+box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 
 # plot 2
 plotRGB(all_landsat_bands_st,
         r=5,g=4,b=3,
         stretch="hist",
-        main="Plot 2 - Color Infrared (CIR)",
+        main = "Plot 2 - Color Infrared (CIR)",
         axes=T)
-box(col="white") # turn all of the lines to white
+## Error in plotRGB(all_landsat_bands_st, r = 5, g = 4, b = 3, stretch = "hist", : object 'all_landsat_bands_st' not found
+box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 
 # plot 3
 plotRGB(all_landsat_bands_st,
         r=7,g=5,b=4,
         stretch="hist",
-        main="Plot 3 - Shortwave infrared",
+        main = "Plot 3 - Shortwave infrared",
         axes=T)
-box(col="white") # turn all of the lines to white
+## Error in plotRGB(all_landsat_bands_st, r = 7, g = 5, b = 4, stretch = "hist", : object 'all_landsat_bands_st' not found
+box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 
 # plot 4
 plotRGB(all_landsat_bands_st,
         r=5,g=6,b=4,
         stretch="hist",
-        main="Plot 4 - Land / Water",
+        main = "Plot 4 - Land / Water",
         axes=T)
+## Error in plotRGB(all_landsat_bands_st, r = 5, g = 6, b = 4, stretch = "hist", : object 'all_landsat_bands_st' not found
 # set bounding box to white as well
-box(col="white") # turn all of the lines to white
+box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 
 # add overall title to your layout
 title("My Title", outer=TRUE)
+## Error in title("My Title", outer = TRUE): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="100%" />
 
 Above, we added an overall title to our grid of plots using the `title()` function.
 However the title is chopped of because there is not enough of a margin at the
@@ -132,40 +140,47 @@ par(mfrow=c(2,2), oma=c(0,0,2,0), col.axis="white", col.lab="white", tck=0)
 plotRGB(all_landsat_bands_st,
         r=4,g=3,b=2,
         stretch="hist",
-        main="Plot 1 - RGB",
+        main = "Plot 1 - RGB",
         axes=T)
-box(col="white") # turn all of the lines to white
+## Error in plotRGB(all_landsat_bands_st, r = 4, g = 3, b = 2, stretch = "hist", : object 'all_landsat_bands_st' not found
+box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 
 # plot 2
 plotRGB(all_landsat_bands_st,
         r=5,g=4,b=3,
         stretch="hist",
-        main="Plot 2 - Color Infrared (CIR)",
+        main = "Plot 2 - Color Infrared (CIR)",
         axes=T)
-box(col="white") # turn all of the lines to white
+## Error in plotRGB(all_landsat_bands_st, r = 5, g = 4, b = 3, stretch = "hist", : object 'all_landsat_bands_st' not found
+box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 
 # plot 3
 plotRGB(all_landsat_bands_st,
         r=7,g=5,b=4,
         stretch="hist",
-        main="Plot 3 - Shortwave infrared",
+        main = "Plot 3 - Shortwave infrared",
         axes=T)
-box(col="white") # turn all of the lines to white
+## Error in plotRGB(all_landsat_bands_st, r = 7, g = 5, b = 4, stretch = "hist", : object 'all_landsat_bands_st' not found
+box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 
 # plot 4
 plotRGB(all_landsat_bands_st,
         r=5,g=6,b=4,
         stretch="hist",
-        main="Plot 4 - Land / Water",
+        main = "Plot 4 - Land / Water",
         axes=T)
+## Error in plotRGB(all_landsat_bands_st, r = 5, g = 6, b = 4, stretch = "hist", : object 'all_landsat_bands_st' not found
 # set bounding box to white as well
-box(col="white") # turn all of the lines to white
+box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 
 # add overall title to your layout
 title("My Title", outer=TRUE)
+## Error in title("My Title", outer = TRUE): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="100%" />
 
 When you are done with plotting in a grid space, be sure to reset your plot space
 using `dev.off()`.
@@ -179,6 +194,20 @@ dev.off()
 Your homework this week should look something like this:
 
 
+```
+## Error in ogrListLayers(dsn = dsn): Cannot open data source
+```
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="100%" />
+
+```
+## Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
+## Error in x[[1]]: subscript out of bounds
+## Error in plotRGB(all_landsat_bands_st, 5, 4, 3, stretch = "hist", main = "landsat CIR image", : object 'all_landsat_bands_st' not found
+## Error in x[[1]]: subscript out of bounds
+## Error in crs(all_modis_bands_st): object 'all_modis_bands_st' not found
+## Error in plotRGB(all_modis_bands_st, r = 2, g = 4, b = 3, stretch = "lin", : object 'all_modis_bands_st' not found
+## Error in plot(fire_boundary_sin, add = T): object 'fire_boundary_sin' not found
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="90%" />

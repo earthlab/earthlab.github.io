@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Plot spatial data and create custom legends in R"
 excerpt: "In this lesson we break down the steps required to create a custom legend for spatial data in R. We discuss creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/week-4/r-create-custom-legend-with-base-plot/
@@ -155,7 +155,7 @@ head(roadColors)
 plot(sjer_roads,
      col=roadColors,
      lwd=2,
-     main="Madera County Roads")
+     main = "Madera County Roads")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/review-materials/2017-02-15-plot01-custom-legend-R/palette-and-plot-1.png" title="Adjust colors on map by creating a palette." alt="Adjust colors on map by creating a palette." width="90%" />
@@ -169,7 +169,7 @@ to be thicker or thinner using `lwd=`.
 # make all lines thicker
 plot(sjer_roads,
      col=roadColors,
-     main="Madera County Roads\n All Lines Thickness=6",
+     main = "Madera County Roads\n All Lines Thickness=6",
      lwd=6)
 ```
 
@@ -197,7 +197,7 @@ lineWidths <- (c(1, 2, 3, 4))[sjer_roads$RTTYP]
 # in this case, boardwalk (the first level) is the widest.
 plot(sjer_roads,
      col=roadColors,
-     main="Madera County Roads \n Line width varies by TYPE Attribute Value",
+     main = "Madera County Roads \n Line width varies by TYPE Attribute Value",
      lwd=lineWidths)
 ```
 
@@ -247,7 +247,7 @@ Let's add a legend to our plot.
 # add legend to plot
 plot(sjer_roads,
      col=roadColors,
-     main="Madera County Roads\n Default Legend")
+     main = "Madera County Roads\n Default Legend")
 
 # we can use the color object that we created above to color the legend objects
 roadPalette
@@ -274,7 +274,7 @@ Let's try it out.
 # adjust legend
 plot(sjer_roads,
      col=roadColors,
-     main="Madera County Roads \n Modified Legend - smaller font and no border")
+     main = "Madera County Roads \n Modified Legend - smaller font and no border")
 # add a legend to our map
 legend("bottomright",
        legend=levels(sjer_roads$RTTYP),
@@ -303,7 +303,7 @@ newColors
 # plot using new colors
 plot(sjer_roads,
      col=(newColors)[sjer_roads$RTTYP],
-     main="Madera County Roads \n Pretty Colors")
+     main = "Madera County Roads \n Pretty Colors")
 
 # add a legend to our map
 legend("bottomright",
@@ -359,7 +359,7 @@ challengeColors
 plot(sjer_roads,
      col=(challengeColors)[sjer_roads$RTTYP],
      lwd=c(4,1,1,1)[sjer_roads$RTTYP],
-     main="SJER Roads")
+     main = "SJER Roads")
 
 # add a legend to our map
 legend("bottomright",
@@ -380,7 +380,7 @@ actual symbology in the map - which contains lines, not polygons.
 plot(sjer_roads,
      col=(challengeColors)[sjer_roads$RTTYP],
      lwd=c(4,1,2,1)[sjer_roads$RTTYP], # color each line in the map by attribute
-     main="Madera County Roads\n County and State recognized roads")
+     main = "Madera County Roads\n County and State recognized roads")
 
 # add a legend to our map
 legend("bottomright",
@@ -434,7 +434,7 @@ plot_colors <- c("chartreuse4", "burlywood4", "darkgreen")
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
-     main="Madera County Roads\n County and State recognized roads")
+     main = "Madera County Roads\n County and State recognized roads")
 
 
 # add a legend to our map
@@ -454,9 +454,6 @@ fixed the projection for the roads layer and cropped it! You will have to do the
 this code will work.
 
 
-```
-## Error: requireNamespace("rgeos") is not TRUE
-```
 
 When we create a legend, we will have to add the labels for both the points
 layer and the lines layer.
@@ -478,7 +475,7 @@ c(levels(sjer_plots$plot_type), levels(sjer_roads$RTTYP))
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
-     main="Madera County Roads and plot locations")
+     main = "Madera County Roads and plot locations")
 
 # plot using new colors
 plot(sjer_roads_utm,
@@ -517,7 +514,7 @@ And we include a `NA` value for each element that should not be a symbol in the
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
-     main="Madera County Roads and plot locations")
+     main = "Madera County Roads and plot locations")
 
 # plot using new colors
 plot(sjer_roads_utm,
@@ -577,7 +574,7 @@ furthest_pt_north
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      pch=8,
-     main="Madera County Roads and plot locations")
+     main = "Madera County Roads and plot locations")
 
 # plot using new colors
 plot(sjer_roads_utm,
@@ -617,7 +614,7 @@ par(mar=c(2, 2, 4, 7))
 plot(sjer_aoi,
      border="grey",
      lwd=2,
-     main="Madera County Roads and plot locations")
+     main = "Madera County Roads and plot locations")
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      add=T,
@@ -664,7 +661,7 @@ par(mar=c(2, 2, 4, 7))
 plot(sjer_aoi,
      border="grey",
      lwd=2,
-     main="Madera County Roads and plot locations")
+     main = "Madera County Roads and plot locations")
 plot(sjer_plots,
      col=(plot_colors)[sjer_plots$plot_type],
      add=T,

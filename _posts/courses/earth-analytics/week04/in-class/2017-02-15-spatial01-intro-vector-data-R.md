@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-vector-data-r/
@@ -108,7 +108,10 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
+## rgeos version: 0.3-23, (SVN revision 546)
+##  GEOS runtime version: 3.6.1-CAPI-1.10.1 r0 
+##  Linking to sp version: 1.2-4 
+##  Polygon checking: TRUE
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -337,9 +340,9 @@ Next, let's visualize the data in our `R` `spatialpointsdataframe` object using
 # create a plot of the shapefile
 # 'pch' sets the symbol
 # 'col' sets point symbol color
-plot(sjer_plot_locations, col="blue",
+plot(sjer_plot_locations, col = "blue",
      pch=8,
-     main="SJER Plot Locations\nMadera County, CA")
+     main = "SJER Plot Locations\nMadera County, CA")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial01-intro-vector-data-R/plot-shapefile-1.png" title="SJER plot locations." alt="SJER plot locations." width="90%" />
@@ -369,13 +372,13 @@ arguments to add a title to your plot and to layer several spatial objects
 on top of each other in your plot.
 
 * `add = TRUE`: overlay a shapefile or raster on top the existing plot. This argument mimics layers in a typical GIS application like QGIS.
-* `main=""`: add a title to the plot. To add a line break to your title, use `\n` where the line break should occur.
+* `main = ""`: add a title to the plot. To add a line break to your title, use `\n` where the line break should occur.
 
 
 ```r
 # Plot multiple shapefiles
 plot(sjer_crop_extent, col = "lightgreen",
-     main="NEON Harvard Forest\nField Site")
+     main = "NEON Harvard Forest\nField Site")
 plot(sjer_roads, add = TRUE)
 
 # Use the pch element to adjust the symbology of the points
