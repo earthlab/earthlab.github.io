@@ -120,17 +120,17 @@ by looking at the `min` and `max` values in our `CHM`.
 
 ```r
 summary(lidar_chm)
-##          lidar_chm
-## Min.     0.0000000
-## 1st Qu.  0.0000000
-## Median   0.0000000
-## 3rd Qu.  0.7199707
-## Max.    24.8699951
-## NA's     0.0000000
+##         lidar_chm
+## Min.       0.0000
+## 1st Qu.    0.0000
+## Median     0.0000
+## 3rd Qu.    0.6899
+## Max.      25.1200
+## NA's       0.0000
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
-0 to 26.9300537.
+0 to 26.9301.
 
 Let's explore the data further by looking at a histogram. A histogram quantifies
 the distribution of values found in our data.
@@ -154,8 +154,8 @@ zooms in on the data in the plot. It does not modify the data!
 ```r
 # zoom in on x and y axis
 hist(lidar_chm,
-     xlim = c(2,25),
-     ylim = c(0,4000),
+     xlim = c(2, 25),
+     ylim = c(0, 4000),
      main = "Histogram of canopy height model differences \nZoomed in to -2 to 2 on the x axis",
      col = "springgreen")
 ```
@@ -184,12 +184,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76145  3373  3023  2826  2456  2124  2137  1742  1468  1196   999
-## [12]   763   558   410   310   204   111    72    37    21    15     8
-## [23]     1     1
+##  [1] 76103  3435  3080  2904  2412  2074  2009  1811  1518  1210   995
+## [12]   718   545   393   312   181   144    65    42    24     9    12
+## [23]     4
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23 24
+## [24] 23
 ```
 
 If we want to customize our histogram further, we can customize the number of
@@ -199,8 +199,8 @@ breaks that `R` uses to create it.
 ```r
 # zoom in on x and y axis
 hist(lidar_chm,
-     xlim = c(2,25),
-     ylim = c(0,1000),
+     xlim = c(2, 25),
+     ylim = c(0, 1000),
      breaks = 100,
      main = "Histogram of canopy height model differences \nZoomed in to -2 to 2 on the x axis",
      col = "springgreen",

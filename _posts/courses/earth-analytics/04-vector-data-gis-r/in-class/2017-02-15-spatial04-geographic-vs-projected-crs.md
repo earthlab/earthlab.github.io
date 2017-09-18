@@ -5,7 +5,7 @@ excerpt: "This tutorial describes key differences between projected and geograph
 projected Coordinate Reference which divides the globe into zones to optimize
 projection results in each zone and WGS84 which is a geographic (latitude and longitude) CRS. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -105,7 +105,7 @@ Equator (0° latitude) and Prime Meridian (0° longitude) on the globe.
 
 Let's remind ourselves what data projects in a geographic CRS look like.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title="wgs 84 plot" alt="wgs 84 plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title="wgs 84 plot" alt="wgs 84 plot" width="90%" />
 
 
 <i class="fa fa-star"></i> **Data Note:** The distance between the 2 degrees of
@@ -211,7 +211,7 @@ ggplot() +
                       size=5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-wgs842-1.png" title="Plot location - wgs84" alt="Plot location - wgs84" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-wgs842-1.png" title="Plot location - wgs84" alt="Plot location - wgs84" width="90%" />
 
 ```r
 # convert to spatial points
@@ -240,8 +240,8 @@ location.
 ```r
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
 coordinates(boulder_df_geog)
-##            lon      lat
-## [1,] -105.2705 40.01498
+##         lon   lat
+## [1,] -105.3 40.01
 ```
 
 Now we can plot our data on top of our world map which is also in a geographic CRS.
@@ -262,7 +262,7 @@ worldMap +
         aes(x=lon, y=lat, group=NULL), colour = "springgreen", size=5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week04/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-world-map-1.png" title="global map in wgs84 with points" alt="global map in wgs84 with points" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-world-map-1.png" title="global map in wgs84 with points" alt="global map in wgs84 with points" width="90%" />
 
 
 

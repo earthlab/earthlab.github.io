@@ -178,7 +178,7 @@ Let's create breaks in our `CHM` plot.
 plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
      main = "Lidar Canopy Height Model",
-     col=c("white","brown","springgreen","darkgreen"))
+     col=c("white", "brown", "springgreen", "darkgreen"))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster04-chm-dem-dsm/chm-breaks-1.png" title="canopy height model breaks" alt="canopy height model breaks" width="90%" />
