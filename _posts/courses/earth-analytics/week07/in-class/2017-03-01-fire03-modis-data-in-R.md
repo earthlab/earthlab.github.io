@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS remote sensing data in in R."
 excerpt: "In this lesson we will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. We will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/modis-data-in-R/
@@ -65,35 +65,23 @@ all_modis_bands_july7 <-list.files("data/week06/modis/reflectance/07_july_2016/c
            full.names = T)
 # create spatial raster stack
 all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
+## Error in x[[1]]: subscript out of bounds
 
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
-## class       : RasterLayer 
-## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
-## resolution  : 463.3, 463.3  (x, y)
-## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week06/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif 
-## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
-## values      : -32768, 32767  (min, max)
+## Error in eval(expr, envir, enclos): object 'all_modis_bands_st_july7' not found
 
 # view band names
 names(all_modis_bands_st_july7)
-## [1] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b01_1"
-## [2] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1"
-## [3] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b03_1"
-## [4] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1"
-## [5] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b05_1"
-## [6] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b06_1"
-## [7] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b07_1"
+## Error in eval(expr, envir, enclos): object 'all_modis_bands_st_july7' not found
 # clean up the band names for neater plotting
 names(all_modis_bands_st_july7) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
      names(all_modis_bands_st_july7))
+## Error in gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", : object 'all_modis_bands_st_july7' not found
 
 # view cleaned up band names
 names(all_modis_bands_st_july7)
-## [1] "Band01_1" "Band02_1" "Band03_1" "Band04_1" "Band05_1" "Band06_1"
-## [7] "Band07_1"
+## Error in eval(expr, envir, enclos): object 'all_modis_bands_st_july7' not found
 ```
 
 
@@ -151,13 +139,13 @@ options("scipen"=100, "digits"=4)
 # bottom, left, top and right
 #par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
-  col="springgreen",
-  xlab="Reflectance Value")
+  col = "springgreen",
+  xlab = "Reflectance Value")
+## Error in hist(all_modis_bands_st_july7, col = "springgreen", xlab = "Reflectance Value"): object 'all_modis_bands_st_july7' not found
 mtext("Distribution of MODIS reflectance values for each band\n Data not scaled",
       outer = TRUE, cex = 1.5)
+## Error in mtext("Distribution of MODIS reflectance values for each band\n Data not scaled", : plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="100%" />
 
 
 
@@ -174,15 +162,16 @@ shown below:
 ```r
 # deal with nodata value --  -28672
 all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
+## Error in eval(expr, envir, enclos): object 'all_modis_bands_st_july7' not found
 # view histogram of each layer in our stack
 # par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
-   xlab="Reflectance Value",
-   col="springgreen")
+   xlab = "Reflectance Value",
+   col = "springgreen")
+## Error in hist(all_modis_bands_st_july7, xlab = "Reflectance Value", col = "springgreen"): object 'all_modis_bands_st_july7' not found
 mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
+## Error in mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", : plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="100%" />
 
 Great - now the range of values in our data appear more reasonable. Next, let's
 get rid of data that are outside of the valid data range.
@@ -201,15 +190,16 @@ the extreme negative values that may impact out analysis.
 ```r
 # deal with nodata value --  -28672
 all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
+## Error in all_modis_bands_st_july7[all_modis_bands_st_july7 < -100] <- NA: object 'all_modis_bands_st_july7' not found
 #par(mfrow=c(4,2))
 # plot histogram
 hist(all_modis_bands_st_july7,
-  xlab="Reflectance Value",
-  col="springgreen")
+  xlab = "Reflectance Value",
+  col = "springgreen")
+## Error in hist(all_modis_bands_st_july7, xlab = "Reflectance Value", col = "springgreen"): object 'all_modis_bands_st_july7' not found
 mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
+## Error in mtext("Distribution of reflectance values for each band", outer = TRUE, : plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="100%" />
 
 
 
@@ -230,9 +220,18 @@ In the plot below, i've called attention to the AOI boundary with a yellow color
 Why is it so hard to figure out where the study area is in this MODIS image?
 
 
+```
+## Error in ogrListLayers(dsn = dsn): Cannot open data source
+## Error in crs(all_modis_bands_st_july7): object 'all_modis_bands_st_july7' not found
+```
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="100%" />
+
+```
+## Error in plotRGB(all_modis_bands_st_july7, r = 1, g = 4, b = 3, stretch = "lin", : object 'all_modis_bands_st_july7' not found
+## Error in box(col = "white"): plot.new has not been called yet
+## Error in plot(fire_boundary_sin, add = T, border = "yellow", lwd = 50): object 'fire_boundary_sin' not found
+```
 
 ## MODIS cloud mask
 
@@ -264,18 +263,38 @@ Set all values >0 in the cloud cover layer to `NA`.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="100%" />
+
+```
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
+## Error in cloud_mask_7July[cloud_mask_7July > 0] <- NA: object 'cloud_mask_7July' not found
+## Error in plot(cloud_mask_7July, main = "Landsat cloud mask layer", legend = F, : object 'cloud_mask_7July' not found
+## Error in strwidth(legend, units = "user", cex = cex, font = text.font): plot.new has not been called yet
+```
 
 
+```
+## Error in mask(all_modis_bands_st_july7, cloud_mask_7July): object 'all_modis_bands_st_july7' not found
+```
 
 Plot the masked data. Notice that now the clouds are gone as they have been assigned
 the value `NA`.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="100%" />
+
+```
+## Error in plotRGB(all_modis_bands_st_mask, r = 1, g = 4, b = 3, stretch = "lin", : object 'all_modis_bands_st_mask' not found
+## Error in box(col = "white"): plot.new has not been called yet
+## Error in plot(fire_boundary_sin, add = T, col = "yellow", lwd = 1): object 'fire_boundary_sin' not found
+```
 
 Finally crop the data to see just the pixels that overlay our study area.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="100%" />
+
+```
+## Error in crop(all_modis_bands_st_mask, fire_boundary_sin): object 'all_modis_bands_st_mask' not found
+## Error in plotRGB(all_modis_bands_st_mask, r = 1, g = 4, b = 3, stretch = "lin", : object 'all_modis_bands_st_mask' not found
+## Error in box(col = "white"): plot.new has not been called yet
+## Error in plot(fire_boundary_sin, border = "yellow", add = T): object 'fire_boundary_sin' not found
+```
 
 
 | SEVERITY LEVEL  | NBR RANGE |
@@ -288,7 +307,15 @@ Finally crop the data to see just the pixels that overlay our study area.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="100%" />
+
+```
+## Error in overlay(all_modis_bands_st_mask[[2]], all_modis_bands_st_mask[[7]], : object 'all_modis_bands_st_mask' not found
+## Error in eval(expr, envir, enclos): object 'modis_nbr' not found
+## Error in reclassify(modis_nbr, reclass_m): object 'modis_nbr' not found
+## Error in plot(modis_nbr_cl, main = "MODIS NBR for the Cold Springs site", : object 'modis_nbr_cl' not found
+## Error in plot(fire_boundary_sin, add = T): object 'fire_boundary_sin' not found
+## Error in strwidth(legend, units = "user", cex = cex, font = text.font): plot.new has not been called yet
+```
 
 After we've calculated NBR, we may want to calculate total burn AREA. We can do
 this using the `freq()` function in R. This function gives us the total number
@@ -308,15 +335,24 @@ classified as:
 ```r
 # get summary counts of each class in raster
 freq(modis_nbr_cl, useNA='no')
-##      value count
-## [1,]     4    24
+## Error in freq(modis_nbr_cl, useNA = "no"): object 'modis_nbr_cl' not found
 
 final_burn_area_high_sev <- freq(modis_nbr_cl, useNA='no', value=5)
+## Error in freq(modis_nbr_cl, useNA = "no", value = 5): object 'modis_nbr_cl' not found
 final_burn_area_moderate_sev <- freq(modis_nbr_cl, useNA='no', value=4)
+## Error in freq(modis_nbr_cl, useNA = "no", value = 4): object 'modis_nbr_cl' not found
 ```
 
 
 
+```
+## Error in x[[1]]: subscript out of bounds
+## Error in eval(expr, envir, enclos): object 'all_modis_bands_st_july17' not found
+## Error in all_modis_bands_st_july17[all_modis_bands_st_july17 < -100] <- NA: object 'all_modis_bands_st_july17' not found
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
+## Error in cloud_mask_17July[cloud_mask_17July > 0] <- NA: object 'cloud_mask_17July' not found
+## Error in mask(all_modis_bands_st_july17, cloud_mask_17July): object 'all_modis_bands_st_july17' not found
+```
 
 We can perform the steps that we performed above, on the MODIS post-fire data
 too. Below is a plot of the July 17 data.
@@ -328,17 +364,23 @@ par(col.axis="white", col.lab="white", tck=0)
 plotRGB(all_modis_bands_st_mask_july17,
         1,4,3,
         stretch="lin",
-        main="Final data plotted with mask\n Post Fire - 17 July 2016",
+        main = "Final data plotted with mask\n Post Fire - 17 July 2016",
         axes=T)
-box(col="white")
+## Error in plotRGB(all_modis_bands_st_mask_july17, 1, 4, 3, stretch = "lin", : object 'all_modis_bands_st_mask_july17' not found
+box(col = "white")
+## Error in box(col = "white"): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="100%" />
 
 Next we calculate NBR on our post fire data. Then we can crop and finally
 plot the final results!
 
 
+```
+## Error in overlay(all_modis_bands_st_mask_july17[[2]], all_modis_bands_st_mask_july17[[7]], : object 'all_modis_bands_st_mask_july17' not found
+## Error in eval(expr, envir, enclos): object 'modis_nbr_july17' not found
+## Error in reclassify(modis_nbr_july17, reclass_m): object 'modis_nbr_july17' not found
+## Error in crop(modis_nbr_july17_cl, fire_boundary_sin): object 'modis_nbr_july17_cl' not found
+```
 
 ## Post fire NBR results
 
@@ -347,18 +389,24 @@ plot the final results!
 ```r
 the_colors = c("palevioletred4","palevioletred1","ivory1")
 barplot(modis_nbr_july17_cl,
-        main="Distribution of burn values - Post Fire",
+        main = "Distribution of burn values - Post Fire",
         col=rev(the_colors),
         names.arg=c("Low Severity","Moderate Severity","High Severity"))
+## Error in barplot(modis_nbr_july17_cl, main = "Distribution of burn values - Post Fire", : object 'modis_nbr_july17_cl' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="100%" />
 
 
 Finally, plot the reclassified data. Note that we only have 3 classes: 2, 3 and 4.
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire03-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="100%" />
+
+```
+## Error in plot(modis_nbr_july17_cl, main = "MODIS NBR for the Cold Springs site \n Post fire", : object 'modis_nbr_july17_cl' not found
+## Error in plot(fire_boundary_sin, add = T): object 'fire_boundary_sin' not found
+## Error in legend(modis_nbr_july17_cl@extent@xmax - 50, modis_nbr_july17_cl@extent@ymax, : object 'modis_nbr_july17_cl' not found
+## Error in freq(modis_nbr_july17_cl, useNA = "no", value = 5): object 'modis_nbr_july17_cl' not found
+## Error in freq(modis_nbr_july17_cl, useNA = "no", value = 4): object 'modis_nbr_july17_cl' not found
+```
 
 
 

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & work with time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-09-15'
+modified: '2017-09-18'
 week-landing: 2
 week: 2
 sidebar:
@@ -189,6 +189,12 @@ format report using `knitr`.
 </div>
 
 ## Homework plots
+
+
+```
+## Stackoverflow is a great place to get help:
+## http://stackoverflow.com/tags/ggplot2.
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-solution-plot-1-1.png" title="homework plot one" alt="homework plot one" width="90%" />
 

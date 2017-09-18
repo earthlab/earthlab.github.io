@@ -4,7 +4,7 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-09-12'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/classify-raster/
@@ -120,13 +120,13 @@ by looking at the `min` and `max` values in our `CHM`.
 
 ```r
 summary(lidar_chm)
-##         lidar_chm
-## Min.      0.00000
-## 1st Qu.   0.00000
-## Median    0.00000
-## 3rd Qu.   0.75000
-## Max.     24.47009
-## NA's      0.00000
+##          lidar_chm
+## Min.     0.0000000
+## 1st Qu.  0.0000000
+## Median   0.0000000
+## 3rd Qu.  0.7199707
+## Max.    24.8699951
+## NA's     0.0000000
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
@@ -139,9 +139,9 @@ the distribution of values found in our data.
 ```r
 # plot histogram of data
 hist(lidar_chm,
-     main="Distribution of raster cell values in the DTM difference data",
-     xlab="Height (m)", ylab="Number of Pixels",
-     col="springgreen")
+     main = "Distribution of raster cell values in the DTM difference data",
+     xlab = "Height (m)", ylab = "Number of Pixels",
+     col = "springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-histogram-1.png" title="histogram of lidar chm data" alt="histogram of lidar chm data" width="90%" />
@@ -184,12 +184,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76107  3309  3083  2906  2512  2050  1988  1847  1517  1226   997
-## [12]   744   569   394   274   184   131    79    43    21     8     4
-## [23]     3     3     1
+##  [1] 76145  3373  3023  2826  2456  2124  2137  1742  1468  1196   999
+## [12]   763   558   410   310   204   111    72    37    21    15     8
+## [23]     1     1
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23 24 25
+## [24] 23 24
 ```
 
 If we want to customize our histogram further, we can customize the number of
@@ -252,17 +252,17 @@ Below I use the following breaks:
 ```r
 # We may want to explore breaks in our histogram before plotting our data
 hist(lidar_chm,
-     breaks=c(0, 2, 4, 7, 30),
-     main="Histogram with custom breaks",
-     xlab="Height (m)" , ylab="Number of Pixels",
-     col="springgreen")
+     breaks = c(0, 2, 4, 7, 30),
+     main = "Histogram with custom breaks",
+     xlab = "Height (m)" , ylab = "Number of Pixels",
+     col = "springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/histogram-breaks2-1.png" title="histogram with custom breaks" alt="histogram with custom breaks" width="90%" />
 
 You may want to play around with the classes further. Or you may have a scientific
 reason to select particular classes. Regardless, let's use the classes above to
-reclassify our CHM raster.
+reclassify our `CHM` raster.
 
 ## Map raster values to new values
 
@@ -411,7 +411,7 @@ plot(chm_classified,
      axes = FALSE,
      # remove the box around the plot
      box = FALSE,
-     main="Classified Canopy Height Model \n short, medium, tall trees")
+     main = "Classified Canopy Height Model \n short, medium, tall trees")
 
 legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),

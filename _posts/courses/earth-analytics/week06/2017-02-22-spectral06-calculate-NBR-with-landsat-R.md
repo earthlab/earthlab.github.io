@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and plot difference normalized burn ratio (dNBR) from Landsat remote sensing data in R"
 excerpt: "In this lesson we review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. We finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-08-19'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/calculate-dNBR-R-Landsat/
@@ -57,7 +57,6 @@ First, let's setup our spatial packages.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = F)
@@ -95,7 +94,7 @@ Next we calculate dNBR using the following steps:
 . Note the code to do this is hidden. You will need to figure
 out what bands are required to calculate NBR using Landsat.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
 
 
 You can export the NBR raster if you want using `writeRaster()`.
@@ -133,7 +132,7 @@ landsat_stack_post <- stack(all_landsat_bands_post)
 Then we calculate NBR on the post data - note the code here is purposefully hidden.
 You need to figure out what bands to use to perform the math!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/calculate-nbr-post-1.png" title="landsat derived NBR post fire" alt="landsat derived NBR post fire" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/calculate-nbr-post-1.png" title="landsat derived NBR post fire" alt="landsat derived NBR post fire" width="90%" />
 
 Finally, calculate the DIFFERENCE between the pre and post NBR!!
 
@@ -142,11 +141,11 @@ Finally, calculate the DIFFERENCE between the pre and post NBR!!
 # calculate difference
 landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post
 plot(landsat_nbr_diff,
-     main="Difference NBR map \n Pre minus post Cold Springs fire",
+     main = "Difference NBR map \n Pre minus post Cold Springs fire",
      axes=F, box=F)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/unnamed-chunk-1-1.png" title="Difference NBR map" alt="Difference NBR map" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/unnamed-chunk-1-1.png" title="Difference NBR map" alt="Difference NBR map" width="90%" />
 
 When you have calculated dNBR or the difference in NBR pre minus post fire,
 classify the output raster using the `classify()` function and the classes below.
@@ -173,7 +172,7 @@ Alternatively, you can use the `Inf` to specify the smallest `-Inf` and largest
 
 Your classified map should look something like:
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 ## Compare to fire boundary
 
@@ -185,7 +184,7 @@ the shapefile in the folder:
 
 Add fire boundary to map.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 
 
@@ -196,7 +195,7 @@ Make it look a bit nicer using a colorbrewer palette. I used the
 `brewer.pal(5, 'RdYlGn')`
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 Note that you will have to figure out what date these data are for! I purposefully
 didn't include it in the title of this map.
@@ -207,23 +206,23 @@ didn't include it in the title of this map.
 
 ```r
 barplot(nbr_classified,
-        main="Distribution of Classified NBR Values",
+        main = "Distribution of Classified NBR Values",
         col=the_colors)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/view-bar-1.png" title="plot barplot of fire severity values" alt="plot barplot of fire severity values" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/view-bar-1.png" title="plot barplot of fire severity values" alt="plot barplot of fire severity values" width="90%" />
 
 Add labels to your barplot!
 
 
 ```r
 barplot(nbr_classified,
-        main="Distribution of Classified NBR Values",
+        main = "Distribution of Classified NBR Values",
         col=the_colors,
         names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
 
 <div class="notice--warning" markdown="1">

@@ -3,7 +3,7 @@ layout: single
 title: "Working with remote sensing imagery that has multiple bands in R - NAIP raster data in R."
 excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared ot other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -98,13 +98,10 @@ LIGHTER colors represent a stronger reflection
 in that band. DARKER colors represent a weaker reflection.
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/demonstrate-RGB-Image-1.png" title="single band image" alt="single band image" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/demonstrate-RGB-Image-1.png" title="single band image" alt="single band image" width="90%" />
 
 #### Each band plotted separately
 
@@ -112,12 +109,12 @@ Note there are four bands below. You are looking at the blue, green, red and Nea
 infrared bands of a NAIP image. What do you notice about the relative darkness /
 lightness of each image? Is one image brighter than the other?
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-3-bands-1.png" title="All bands plotted separately" alt="All bands plotted separately" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-3-bands-1.png" title="All bands plotted separately" alt="All bands plotted separately" width="90%" />
 
 We can plot the red, green and blue bands together to create an RGB image. This is
 what we would see with our eyes if we were in the airplane looking down at the earth.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-example-1.png" title="3 band image plot rgb" alt="3 band image plot rgb" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-example-1.png" title="3 band image plot rgb" alt="3 band image plot rgb" width="90%" />
 
 ## CIR image
 
@@ -125,7 +122,7 @@ If the image has a 4th NIR band, you can create a CIR (sometimes called false co
 image. In a color infrared image, the NIR band is plotted on the "red" band. Thus vegetation, which
 reflects strongly in the NIR part of the spectrum, is colored "red".
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/cir-image-1.png" title="3 band cir image" alt="3 band cir image" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/cir-image-1.png" title="3 band cir image" alt="3 band cir image" width="90%" />
 
 
 ## Other Types of Multi-band Raster Data
@@ -153,7 +150,6 @@ packages.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 ```
 
 In this lesson we will use imagery from the National Agricultural Imagery
@@ -189,10 +185,10 @@ naip_csf <- raster("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_
 plot(naip_csf,
      col=gray(0:100 / 100),
      axes=FALSE,
-     main="NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
+     main = "NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/read-single-band-1.png" title="naip imagery single band plot." alt="naip imagery single band plot." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/read-single-band-1.png" title="naip imagery single band plot." alt="naip imagery single band plot." width="90%" />
 
 ```r
 
@@ -261,10 +257,10 @@ rgb_band2 <- raster("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505
 plot(rgb_band2,
      col=gray(0:100 / 100),
      axes=FALSE,
-     main="RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
+     main = "RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/read-specific-band-1.png" title="naip imagery band 2 plot." alt="naip imagery band 2 plot." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/read-specific-band-1.png" title="naip imagery band 2 plot." alt="naip imagery band 2 plot." width="90%" />
 
 ```r
 
@@ -393,10 +389,10 @@ the distribution of reflectance values for each band.
 # view histogram for each band
 hist(naip_stack_csf,
      maxpixels=ncell(naip_stack_csf),
-     col="purple")
+     col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/hist-all-layers-1.png" title="histogram of each band for a total of 4 bands" alt="histogram of each band for a total of 4 bands" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/hist-all-layers-1.png" title="histogram of each band for a total of 4 bands" alt="histogram of each band for a total of 4 bands" width="90%" />
 
 Plot each band individually.
 
@@ -407,7 +403,7 @@ plot(naip_stack_csf,
      col=gray(0:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-all-layers-1.png" title="plot each band for a total of 4 bands" alt="plot each band for a total of 4 bands" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-all-layers-1.png" title="plot each band for a total of 4 bands" alt="plot each band for a total of 4 bands" width="90%" />
 
 We can plot just one band too if we want.
 
@@ -415,11 +411,11 @@ We can plot just one band too if we want.
 ```r
 # plot band 2
 plot(naip_stack_csf[[2]],
-     main="NAIP Band 2\n Coldsprings Fire Site",
+     main = "NAIP Band 2\n Coldsprings Fire Site",
      col=gray(0:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-individual-bands-1.png" title="plot individual band - band 2" alt="plot individual band - band 2" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-individual-bands-1.png" title="plot individual band - band 2" alt="plot individual band - band 2" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -468,10 +464,10 @@ Let's plot our 3-band image.
 # Create an RGB image from the raster stack
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
-        main="RGB image \nColdsprings fire scar")
+        main = "RGB image \nColdsprings fire scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-image-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-image-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
 Here's how we add a title to our plot. To do this, we adjust the
 **par**ameters of the plot as follows:
 
@@ -479,7 +475,7 @@ Here's how we add a title to our plot. To do this, we adjust the
 * `col.lab="white"`: turn plot tick mark labels to white
 * `tck=0`: turn off plot "ticks"
 
-Finally after the plot code if you set `box(col="white")` it removes the line
+Finally after the plot code if you set `box(col = "white")` it removes the line
 that is drawn alongside of your plot.
 
 
@@ -490,11 +486,11 @@ par(col.axis="white", col.lab="white", tck=0)
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
         axes=T,
-        main="NAIP RGB image \nColdsprings fire scar")
-box(col="white") # turn all of the lines to white
+        main = "NAIP RGB image \nColdsprings fire scar")
+box(col = "white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-image-title-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-image-title-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
 
 The image above looks pretty good. We can explore whether applying a stretch to
 the image might improve clarity and contrast using `stretch="lin"` or
@@ -535,10 +531,10 @@ plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
         axes=T,
         stretch = "lin",
-        main="NAIP RGB plot with linear stretch\nColdsprings fire scar")
+        main = "NAIP RGB plot with linear stretch\nColdsprings fire scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/image-stretch-1.png" title="lin stretch rgb image" alt="lin stretch rgb image" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/image-stretch-1.png" title="lin stretch rgb image" alt="lin stretch rgb image" width="90%" />
 
 What does the image look like using a different stretch? Any better? worse?
 
@@ -550,11 +546,11 @@ plotRGB(naip_stack_csf,
         axes=T,
         scale=800,
         stretch = "hist",
-        main="NAIP RGB plot with hist stretch\nColdsprings fire scar")
-box(col="white") # turn all of the lines to white
+        main = "NAIP RGB plot with hist stretch\nColdsprings fire scar")
+box(col = "white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-hist-stretch-1.png" title="plot RGB with his stretch" alt="plot RGB with his stretch" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-hist-stretch-1.png" title="plot RGB with his stretch" alt="plot RGB with his stretch" width="90%" />
 
 In this case, the stretch doesn't enhance the contrast our image significantly
 given the distribution of reflectance (or brightness) values is distributed well
@@ -604,12 +600,12 @@ You use `plotRGB` to block a `RasterBrick` too.
 par(col.axis="white", col.lab="white", tck=0)
 # plot brick
 plotRGB(naip_brick_csf,
-  main="NAIP plot from a rasterbrick",
+  main = "NAIP plot from a rasterbrick",
   axes=T)
-box(col="white") # turn all of the lines to white
+box(col = "white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title="plot raster brick" alt="plot raster brick" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title="plot raster brick" alt="plot raster brick" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -629,9 +625,9 @@ Then anwer the following questions:
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/challenge-1.png" title="challenge rgb plot 2015 data" alt="challenge rgb plot 2015 data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/challenge-1.png" title="challenge rgb plot 2015 data" alt="challenge rgb plot 2015 data" width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/challenge2-1.png" title="challenge cir plot 2015 data" alt="challenge cir plot 2015 data" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/challenge2-1.png" title="challenge cir plot 2015 data" alt="challenge cir plot 2015 data" width="90%" />
 
 
 <div class="notice--warning" markdown="1">

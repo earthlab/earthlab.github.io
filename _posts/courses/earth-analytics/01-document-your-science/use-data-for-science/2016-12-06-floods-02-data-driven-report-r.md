@@ -3,7 +3,7 @@ layout: single
 title: "Work with precipitation data in R: 2013 Colorado floods"
 excerpt: "Learn why documentation is important when analyzing data by evaluating someone elses report on the Colorado floods."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/data-driven-reports/
@@ -87,7 +87,7 @@ lidar_dsm <- raster(x = "data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
 # plot raster data
 plot(lidar_dsm,
-     main="Lidar Digital Surface Model (DSM)\n Study area map")
+     main = "Lidar Digital Surface Model (DSM)\n Study area map")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/plot-raster-1.png" title="Study area map" alt="Study area map" width="90%" />

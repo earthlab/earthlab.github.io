@@ -3,7 +3,7 @@ layout: single
 title: "Lidar remote sensing data - Understand uncertainty / error associated with height metrics extracted from lidar raster data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/week-5/understand-uncertainty-lidar/
@@ -99,9 +99,9 @@ mean(tree_heights$heights)
 sd(tree_heights$heights)
 ## [1] 0.4129715
 boxplot(tree_heights$heights,
-        main="Distribution of tree height measurements (m)",
+        main = "Distribution of tree height measurements (m)",
         ylab="Height (m)",
-        col="springgreen")
+        col = "springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="90%" />
@@ -117,9 +117,9 @@ precision (or lack thereof) of the measurement process.
 
 ```r
 # view distribution of tree height values
-hist(tree_heights$heights, breaks=c(9,9.6,10.4,11),
-     main="Distribution of measured tree height values",
-     xlab="Height (m)", col="purple")
+hist(tree_heights$heights, breaks = c(9,9.6,10.4,11),
+     main = "Distribution of measured tree height values",
+     xlab = "Height (m)", col = "purple")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="90%" />
@@ -212,6 +212,15 @@ the actual heights of the trees on the ground?
 
 
 
+```
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
+## Error in SJER_chm[SJER_chm == 0] <- NA: object 'SJER_chm' not found
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## Error in extract(SJER_chm, SJER_plots, buffer = 20, fun = max, sp = TRUE, : object 'SJER_chm' not found
+## Error in file(file, "rt"): cannot open the connection
+## Error in eval(lhs, parent, parent): object 'SJER_insitu' not found
+## Error in merge(SJER_height, insitu_stem_height, by.x = "Plot_ID", by.y = "plotid"): object 'SJER_height' not found
+```
 
 ## Study site location
 
@@ -221,13 +230,18 @@ site location on the map below.
 
 
 ```
-## Error in library(ggmap): there is no package called 'ggmap'
-## Error in get_map(location = "California", source = "google", maptype = "terrain", : could not find function "get_map"
+## Error in eval(expr, envir, enclos): object 'SJER_chm' not found
+## Error in eval(expr, envir, enclos): object 'SJER_chm' not found
+## Error in ogrInfo(dsn = dsn, layer = layer, encoding = encoding, use_iconv = use_iconv, : Cannot open data source
+## Error in cbind(lon, lat): object 'lon' not found
+## Error in (function (classes, fdef, mtable) : unable to find an inherited method for function 'coordinates' for signature '"function"'
+## Error in spTransform(site_location, CRSobj = crs(state_boundary_us)): object 'site_location' not found
+## Error in coordinates(site_location_wgs84): object 'site_location_wgs84' not found
 ```
 
 
 ```
-## Error in ggmap(cali_map): could not find function "ggmap"
+## Error in fortify(data): object 'site_locat_points' not found
 ```
 
 ## Study area plots
@@ -240,7 +254,12 @@ values *in situ* measurements.
 
 A map of our study plots is below overlaid on top of the canopy height mode.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="90%" />
+
+```
+## Error in plot(SJER_chm, main = "Study area plot locations", col = gray.colors(100, : object 'SJER_chm' not found
+## Error in plot(SJER_plots, pch = 15, cex = 2, col = "magenta", add = TRUE): object 'SJER_plots' not found
+## Error in legend(SJER_chm@extent@xmax + 100, SJER_chm@extent@ymax, legend = "Plot \nlocations", : object 'SJER_chm' not found
+```
 
 ### Compare lidar derived height to in situ measurements
 
@@ -265,11 +284,22 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
     </figcaption>
 </figure>
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/plot-data-1.png" title="final plot" alt="final plot" width="90%" />
+
+```
+## Error in ggplot(SJER_height@data, aes(x = insitu_max, y = SJER_lidarCHM)): object 'SJER_height' not found
+## function (...) 
+## tags$p(...)
+## <environment: namespace:htmltools>
+```
 
 ### How different are the data?
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week05/in-class/2017-02-15-spatial01-understand-uncertainty/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="90%" />
+
+```
+## Error in eval(expr, envir, enclos): object 'SJER_height' not found
+## Error in gsub("SJER", "", SJER_height@data$Plot_ID): object 'SJER_height' not found
+## Error in ggplot(data = SJER_height@data, aes(x = Plot_ID, y = ht_diff, : object 'SJER_height' not found
+```
 
 ## View interactive scatterplot
 

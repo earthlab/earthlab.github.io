@@ -3,7 +3,7 @@ layout: single
 title: "Calculate a remote sensing derived vegetation index in R"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, we will review the basic principles associated with calculating a vegetation index from raster formated, landsat remote sensing data in R. We will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-08-19'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/vegetation-indices-NDVI-in-R/
@@ -88,7 +88,6 @@ case, we need to calculate NDVI ourselves using the reflectance data that we hav
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = F)
@@ -130,10 +129,10 @@ in the red and near infrared bands to calculate the index.
 landsat_ndvi <- (landsat_stack_csf[[5]] - landsat_stack_csf[[4]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[4]])
 
 plot(landsat_ndvi,
-     main="Landsat derived NDVI\n 23 July 2016")
+     main = "Landsat derived NDVI\n 23 July 2016")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral04-about-vegetation-indices-R/calculate-ndvi-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral04-about-vegetation-indices-R/calculate-ndvi-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
 
 ### View distribution of NDVI values
 
@@ -141,11 +140,11 @@ plot(landsat_ndvi,
 ```r
 # view distribution of NDVI values
 hist(landsat_ndvi,
-  main="NDVI: Distribution of pixels\n Landsat 2016 Cold Springs fire site",
-  col="springgreen")
+  main = "NDVI: Distribution of pixels\n Landsat 2016 Cold Springs fire site",
+  col = "springgreen")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral04-about-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral04-about-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="90%" />
 
 ## Export raster
 When you are done, you may want to export your rasters so you could use them in

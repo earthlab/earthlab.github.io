@@ -3,7 +3,7 @@ layout: single
 title: "Canopy height models, digital surface models & digital elevation models - work with lidar data in R"
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-09-12'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-chm-dem-dsm/
@@ -68,7 +68,7 @@ thus easier to work with. In this lesson, we will import and work with
 3. **Canopy Height Model (CHM):** the elevation of the Earth's surface (sometimes
 also called a `DEM` or digital elevation model)
 
-## 3 Important lidar data products: CHM, DEM, DSM
+## Three important lidar data products: CHM, DEM, DSM
 
 <figure>
    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidarTree-height.png">
@@ -87,7 +87,7 @@ also called a `DEM` or digital elevation model)
 ### Digital elevation model
 In the previous lesson, we opened a digital elevation model. The digital elevation
 model (`DEM`), also known as a digital terrain model (`DTM`) represents the elevation
-of the Earth's surface. The DEM represents the ground - and thus DOES NOT INCLUDE
+of the Earth's surface. The `DEM` represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
 
 
@@ -111,12 +111,12 @@ lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
 plot(lidar_dem,
-     main="Lidar Digital Elevation Model (DEM)")
+     main = "Lidar Digital Elevation Model (DEM)")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster04-chm-dem-dsm/dem-1.png" title="digital elevation model plot" alt="digital elevation model plot" width="90%" />
 
-Next, let's open the digital SURFACE model (`DSM`). The DSM represents the top of
+Next, let's open the digital SURFACE model (`DSM`). The `DSM` represents the top of
 the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that
 sit on the Earth.
 
@@ -127,7 +127,7 @@ lidar_dsm <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
 # plot raster data
 plot(lidar_dsm,
-     main="Lidar Digital Surface Model (DSM)")
+     main = "Lidar Digital Surface Model (DSM)")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster04-chm-dem-dsm/dsm-1.png" title="digital surface model plot" alt="digital surface model plot" width="90%" />
@@ -142,7 +142,7 @@ all trees!
 
 ### Calculate difference between two rasters
 
-There are different ways to calculate a CHM. One easy way is to subtract the
+There are different ways to calculate a `CHM`. One easy way is to subtract the
 `DEM` from the `DSM`.
 
 `DSM` - `DEM` = `CHM`
@@ -158,7 +158,7 @@ lidar_chm <- lidar_dsm - lidar_dem
 
 # plot raster data
 plot(lidar_chm,
-     main="Lidar Canopy Height Model (CHM)")
+     main = "Lidar Canopy Height Model (CHM)")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster04-chm-dem-dsm/chm-1.png" title="canopy height model plot" alt="canopy height model plot" width="90%" />
@@ -177,7 +177,7 @@ Let's create breaks in our `CHM` plot.
 # plot raster data
 plot(lidar_chm,
      breaks = c(0, 2, 10, 20, 30),
-     main="Lidar Canopy Height Model",
+     main = "Lidar Canopy Height Model",
      col=c("white","brown","springgreen","darkgreen"))
 ```
 
@@ -236,7 +236,7 @@ if (!dir.exists("data/week_03/outputs")) {
 
 ## Change detection: terrain
 
-Now that we've learned about the 3 common data products derived from lidar data,
+Now that we've learned about the three common data products derived from lidar data,
 let's use them to do a bit of exploration of our data - as it relates to the 2013
 Colorado floods.
 
