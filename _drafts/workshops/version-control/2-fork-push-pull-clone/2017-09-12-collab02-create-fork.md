@@ -33,6 +33,7 @@ At the end of this activity, you will:
 * Know how to navigate between your GitHub repository and a forked GitHub repository.
 * Be able to explain how your forked repository relates to the master repository that it was created from.
 
+
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 Some description of what is required to complete this lesson if anything.
@@ -88,7 +89,8 @@ we are demonstrating a central repo workflow.
 ## How to Fork a Repo
 
 You can fork any repo at
-any time by clicking the fork button in the upper right hand corner on github.com.
+any time by clicking the fork button in the upper right hand corner of a repo page
+on github.com.
 
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/githubguides-bootcamp-fork.png">
@@ -125,17 +127,19 @@ repo and it will still be connected to the central repo from which it was forked
 For now, leave it the same.
 {: .notice--success }
 
-## Check Out Your Data Institute Fork
+## Check Out Your 14ers-git Fork
 
 Now, check out your new fork. Its name should be:
 
  **YOUR-USER-NAME/14ers-git**.
 
-It can get confusing sometimes moving between a central repo:
+Sometimes, moving between repositories and keeping track of where you are on the
+github website can get confusing. IN this case note the URL. The Earth Lab central
+repo contains the earthlab/ account name:
 
 * `https://github.com/earthlab/14ers-git`
 
-and your forked repo:
+and your forked repo contains your account name:
 
 * `https://github.com/YOUR-USER-NAME/14ers-git`
 

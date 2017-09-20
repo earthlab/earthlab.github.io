@@ -200,6 +200,11 @@ GitHub can be thought of as a location on the internet that acts as a remote loc
  </figcaption>
 </figure>
 
+
+<div class="notice--info" markdown="1">
+
 ## Additional resources
 
-- [About version control](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
+* <a href="https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control" target="_blank">About version control</a>
+
+</div>

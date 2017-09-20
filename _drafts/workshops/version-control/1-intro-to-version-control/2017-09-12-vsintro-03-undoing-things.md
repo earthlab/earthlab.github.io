@@ -205,7 +205,11 @@ For instance, if I didn't want to keep track of my social security number file, 
 social-security.txt
 ```
 
+<div class="notice--info" markdown="1">
+
 ## Additional resources
 
 - [On undoing, fixing, or removing commits in git](https://sethrobertson.github.io/GitFixUm/fixup.html#committed_really)
 - [Git basics - undoing things](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things)
+
+</div>

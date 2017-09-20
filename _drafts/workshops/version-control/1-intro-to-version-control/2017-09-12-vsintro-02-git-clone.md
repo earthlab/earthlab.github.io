@@ -183,7 +183,9 @@ git commit
 Once you save and exit, the file that you created will be your commit message.
 
 
-### Your turn
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 Go through a few rounds of modifications to your files, using `git add` to stage, and `git commit` to take a snapshot of your repository. 
 For instance, you might try the following, adding and committing after each:
@@ -220,6 +222,7 @@ Date:   Tue Sep 19 10:27:05 2017 -0600
     Initial commit
 ```
 
+</div>
 
 ### Pushing your changes to GitHub
 
@@ -238,6 +241,8 @@ You will then be prompted for your GitHub user name and password.
 After you've pushed your commits, visit your repository on GitHub and notice that your changes are reflected there, and also that you have access to the full commit history for your repository!
 
 <div class="notice--info" markdown="1">
+
+## Additional resources
 
 - [Creating a new repository on GitHub](https://help.github.com/articles/creating-a-new-repository/)
 - [Git and GitHub learning resources](https://help.github.com/articles/git-and-github-learning-resources/)
