@@ -111,7 +111,7 @@ Simply open your file browser and navigate to the new local repo.
 
 #### Note
 
-The `.git` that shows up is actually a directory which will keep track of your changes. 
+The `.git` that shows up is actually a directory which will keep track of your changes.
 **Warning:** Do not edit the files in this directory manually!
 
 Using either method, we can see that the file structure of our cloned repo mirrors the file structure of our forked GitHub repo.
@@ -135,18 +135,18 @@ Changes not staged for commit:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-The output from `git status` indicates that we have modified the file `README.md`. 
-To keep track of this change to our file, we need to first **add** the changes, then **commit** the changes. 
+The output from `git status` indicates that we have modified the file `README.md`.
+To keep track of this change to our file, we need to first **add** the changes, then **commit** the changes.
 
 ### Adding and committing
 
-The command `git add` takes a modified file in your working directory and places the modified version in a staging area. 
-The command `git commit` takes everything from the staging area and makes a permanent snapshot of the current state of your repository that is associated with a unique identifier. 
+The command `git add` takes a modified file in your working directory and places the modified version in a staging area.
+The command `git commit` takes everything from the staging area and makes a permanent snapshot of the current state of your repository that is associated with a unique identifier.
 These two commands make up the bulk of many workflows that use git for version control, so it is important that you get some practice using them.
 
 ![](fig/git-add-commit.png)
 
-When you add files or changes, you have the option to specify the filenames exactly, e.g., 
+When you add files or changes, you have the option to specify the filenames exactly, e.g.,
 
 
 ```bash
@@ -160,10 +160,10 @@ Or, if you are positive that you want to add all files that are new or modified,
 git add --all
 ```
 
-But, do this with caution, as you do not want to accidentally add things like credential files, `.DS_Store` files, or history files. 
+But, do this with caution, as you do not want to accidentally add things like credential files, `.DS_Store` files, or history files.
 
-Once you are ready to make a snapshot of the current state of your repository, you can use `git commit`, and you'll need to write a **commit message** that describes the snapshot that you'll make. 
-Typically a commit message should outline what changed and why. 
+Once you are ready to make a snapshot of the current state of your repository, you can use `git commit`, and you'll need to write a **commit message** that describes the snapshot that you'll make.
+Typically a commit message should outline what changed and why.
 These messages act to help collaborators and your future self understand what you were trying to accomplish.
 If you are not pushing many changes, then you may want to include a short one line commit message, which you can do with the `-m` flag from the terminal, e.g.:
 
@@ -172,8 +172,8 @@ If you are not pushing many changes, then you may want to include a short one li
 git commit -m "Editing the README to try out git add/commit"
 ```
 
-Alternatively, if you are committing many changes, or a small number of changes that require explanation, you'll want to write a more [detailed multi-line commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) in a text editor. 
-If you have configured git to use your favorite text editor (via `git config --global core.editor your-fav-editor-here`), then you can open it to write your commit message via: 
+Alternatively, if you are committing many changes, or a small number of changes that require explanation, you'll want to write a more [detailed multi-line commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html) in a text editor.
+If you have configured git to use your favorite text editor (via `git config --global core.editor your-fav-editor-here`), then you can open it to write your commit message via:
 
 
 ```bash
@@ -187,14 +187,14 @@ Once you save and exit, the file that you created will be your commit message.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-Go through a few rounds of modifications to your files, using `git add` to stage, and `git commit` to take a snapshot of your repository. 
+Go through a few rounds of modifications to your files, using `git add` to stage, and `git commit` to take a snapshot of your repository.
 For instance, you might try the following, adding and committing after each:
 
 - create a new file
 - modify existing files
 - create a subdirectory with a file in it
 
-After you've made a few commits, check out the output of the `git log` command. 
+After you've made a few commits, check out the output of the `git log` command.
 You should see the history of your repository, including all of the commit messages!
 
 
@@ -226,8 +226,8 @@ Date:   Tue Sep 19 10:27:05 2017 -0600
 
 ### Pushing your changes to GitHub
 
-So far we have only modified our local copy of the repository. 
-To have our changes reflected in the version of our repository on GitHub, we need to **push** our changes to that remote location. 
+So far we have only modified our local copy of the repository.
+To have our changes reflected in the version of our repository on GitHub, we need to **push** our changes to that remote location.
 
 You can push your changes to GitHub with:
 
