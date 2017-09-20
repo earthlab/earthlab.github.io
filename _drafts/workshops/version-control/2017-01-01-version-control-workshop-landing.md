@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Version control intro and setup "
 modified: '2017-09-20'
-nav-title: "Workshop landing page"
+nav-title: "Workshop overview & setup"
 permalink: /courses/intro-version-control-git/
 module: "intro-version-control-git"
 module-type: 'overview'

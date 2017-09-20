@@ -21,19 +21,16 @@ topics:
 
 {% include toc title="In this lesson" icon="file-text" %}
 
-In this tutorial, we will fork, or create a copy in your github.com account,
-an existing GitHub repository. We will also explore the github.com interface.
+In this tutorial, we will fork an existing GitHub repo. Forking is creating a copy
+a repo that someone else owns (in another account),
+in your github.com account. We will also explore the github.com interface.
 
-At the end of this activity, you will be able to:
-
-
-<!--  This is the top block with the learning objectives (LO) -->
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Create a GitHub account.
+* Create a GitHub.com account.
 * Know how to navigate to and between GitHub repositories.
 * Create your own fork, or copy, a GitHub repository.
 * Explain the relationship between your forked repository and the master
@@ -80,13 +77,13 @@ You can find repos in two ways:
 Once you have found the https://github.com/EarthLab/14ers-git repo,
 explore it.
 
-1. Find the repo name: Repository names will always begin with the account or organization name followed by the repo name. Like this: `organization-or-account-name/repo-name`
+* Notice the structure of the repo name: Repository names will always begin with the account or organization name followed by the repo name. Like this: `organization-or-account-name/repo-name`
 
-The full name of our repository is:
+The full name of our repo is:
 
  `EarthLab/14ers-git`
 
-2. Next, below the repo full name, explore the header tabs
+* Next, below the repo full name, explore the header tabs
 
 Notice the following 3 that you will use in this workshop:
 
@@ -97,8 +94,8 @@ the content in the repo, here.
 acceptance.
 
  <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/Git-MasterScreenshot-tabs.png">
-	<img src="{{ site.url }}/images/workshops/version-control/Git-MasterScreenshot-tabs.png"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/github-repo-interface.png">
+	<img src="{{ site.url }}/images/workshops/version-control/github-repo-interface.png"></a>
 	<figcaption> UPDATE SCREENSHOT Screenshot of the NEON Data Institute central repository.
 	The github.com search bar is at the top of the page. Notice there are 6
 	"tabs" below the repo name including: Code, Issues, Pull Request, Pulse,
