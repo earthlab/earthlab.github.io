@@ -1,29 +1,26 @@
 ---
-layout: single # the template to use to build the page
-authors: ['Software Carpentry', 'NEON Data Skills'] # add one or more authors as a list
-category: [courses] # the category of choice - for now courses
-title: 'Descriptive title here' # title should be concise and descriptive
-attribution: 'Any attribute text that is required' # if we want to provide attribution for someone's work...
-excerpt: 'Learn how to .' # one to two sentence description of the lesson using a "call to action - if what someone will learn for SEO"
-dateCreated: 2017-09-12  # when the lesson was built
-modified: '2017-09-13' # will populate during knitting
-module-title: 'Template lessons - Set up Git 1' # this is the name for the set of lessons or module- only needed for first lesson in section
-module-description: 'Description here.' # another call to action description of the MODULE (set of lessons )- only needed for first lesson in section
-module-nav-title: 'Lesson 1' # this is the text that appears on the left hand side bar describing THE MODULE 1-3 words max - only needed for first lesson in section
-module-type: 'class' # leave this for now
-nav-title: 'What is version control?' # this is the text that appears on the left hand side bar describing THIS lesson 1-3 words max
-class-order: 1 # define the order that each group of lessons are rendered
-week: 1 # ignore this for now. A week is a unit
-sidebar: # leave this alone!!
+layout: single
+authors: ['Software Carpentry', 'NEON Data Skills', 'Max Joseph', 'Leah Wasser']
+category: courses
+title: 'An introduction version control'
+attribution: ''
+excerpt: 'Learn what version control is, and how git and GitHub factor in to a typical version control workflow.'
+dateCreated: 2017-09-12
+modified: '2017-09-19'
+module-title: 'Introduction to version control'
+module-description: 'This module includes instructions for setting up your git environment, introduces key version control concepts, and describes first steps to start using version control with git and GitHub.'
+module-nav-title: 'Version control'
+module-type: 'class'
+nav-title: 'What is version control?'
+sidebar:
   nav:
-course: "intro-version-control-git" # this is the "Course" or module name. it needs to be the same for all lessons in the workshop
-class-lesson: ['what-is-version-control'] # this is the lesson set name - it is the same for all lessons in this folder and handles the subgroups
-permalink: /courses/example-course-name/what-is-version-control/ # permalink needs to follow the structure coursename - lesson name using slugs
+module: "intro-version-control-git"
+permalink: /courses/intro-version-control-git/intro-to-version-control/
 author_profile: false
 comments: true
-order: 1
+order: 2
 topics:
-  reproducible-science-and-programming: ['RStudio'] # adjust based on what tags are appropriate
+  reproducible-science-and-programming: ['git', 'version-control']
 ---
 
 <!-- Max - below i copied some neon intro materials that were based upon software carpentry... edit as you see fit?? i don't fully know if those materials NOTE - resources always go at the BOTTOM OF THE PAGE in a resources block. -->
@@ -42,37 +39,27 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Learning objective 1
-* Learning objective 2
-* Learning objective 3
+* Install git on your workstation
+* Configure git with your user name and e-mail address
+* Log in to your account on GitHub
+* Describe the difference between git and GitHub
+
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-Some description of what is required to complete this lesson if anything.
-For lessons using git we'll link to the setup pages.
+Before getting started with this lesson, you'll want to make sure you have access to a terminal emulator that is running bash, install git, and create an account on GitHub.
 
-* [setup xxx]({{ site.url }}/courses/path-here/)
-* [setup xxx]({{ site.url }}/courses/path-here/)
+* [The Bash shell](https://swcarpentry.github.io/workshop-template)
+* [Installing git](https://swcarpentry.github.io/workshop-template/#git)
+* [Configuring git for the first time](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+* [Creating a free user account on GitHub](https://github.com/join)
 
 </div>
 
-
-Start lesson....
 
 In this page, you will be introduced to the importance of version control in
 scientific workflows.
-
-<div id="objectives" markdown="1">
-# Learning Objectives
-At the end of this activity, you will be able to:
-
-* Explain what version control is and how it can be used.
-* Explain why version control is important.
-* Discuss the basics of how the Git version control system works.
-* Discuss how GitHub can be used as a collaboration tool.
-
-</div>
 
 The text and graphics in the first three sections were borrowed, with some
 modifications, from
@@ -102,9 +89,9 @@ There are many forms of version control. Some not as good:
 
 Some better:
 
+* Git
 * Mercurial
 * Subversion
-* Git - which we’ll be learning much more about in this series.
 
 
 <i class="fa fa-star"></i> **Thought Question:** Do you currently implement
@@ -144,19 +131,15 @@ you weren’t using version control that it would have been useful.
 
 ### Simple Version Control Model
 
-A version control system keeps track of what has changed in one or more files
-over time. The way this tracking occurs, is slightly different between various
-version control tools including `git`, `mercurial` and `svn`. However the
-principle is the same.
+A version control system keeps track of what has changed in one or more files over time.
+Version control systems begin with a base version of a document.
+They then save the committed changes that you make.
+You can think of version control as a tape: if you rewind the tape and start at the base document, then you can play back each change and end up with your latest version.
 
-Version control systems begin with a base version of a document. They then
-save the committed changes that you make. You can think of version control
-as a tape: if you rewind the tape and start at the base document, then you can
-play back each change and end up with your latest version.
 <!-- Images that we use ideally are housed locally to enforce https ... but we can't always do that. in this instance we can because this is a SWC image -->
  <figure>
-	<a href="{{  site.url }}/images/pre-institute-content/pre-institute2-git/SWC_Git_play-changes.svg">
-	<img src="{{  site.url }}/images/pre-institute-content/pre-institute2-git/SWC_Git_play-changes.svg"></a>
+	<a href="{{  site.url }}/images/workshops/version-control/swc_git_play-changes.svg">
+	<img src="{{  site.url }}/images/workshops/version-control/swc_git_play-changes.svg"></a>
 	<figcaption> A version control system saves changes to a document, sequentially
   as you add and commit them to the system.
 	Source: <a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry </a>
@@ -167,12 +150,11 @@ Once you think of changes as separate from the document itself, you can then
 think about “playing back” different sets of changes onto the base document.
 You can then retrieve, or revert to, different versions of the document.
 
-The benefit of version control when you are in a collaborative environment is that
-two users can make independent changes to the same document.
+Collaboration with version control allows to users to make independent changes to the same document.
 
  <figure>
-	<a href="{{  site.url }}/images/pre-institute-content/pre-institute2-git/SWC_Git_versions.svg">
-	<img src="{{  site.url }}/images/pre-institute-content/pre-institute2-git/SWC_Git_versions.svg"></a>
+	<a href="{{  site.url }}/images/workshops/version-control/swc_git_versions.svg">
+	<img src="{{  site.url }}/images/workshops/version-control/swc_git_versions.svg"></a>
 	<figcaption> Different versions of the same document can be saved within a
   version control system.
 	Source: <a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry </a>
@@ -184,8 +166,8 @@ where both users modified the same part of the same document in different
 ways) you can review two sets of changes on the same base document.
 
  <figure>
-	<a href="{{  site.url }}/images/pre-institute-content/pre-institute2-git/SWC_Git_merge.svg">
-	<img src="{{  site.url }}/images/pre-institute-content/pre-institute2-git/SWC_Git_merge.svg"></a>
+	<a href="{{  site.url }}/images/workshops/version-control/swc_git_merge.svg">
+	<img src="{{  site.url }}/images/workshops/version-control/swc_git_merge.svg"></a>
 	<figcaption>Two sets of changes to the same base document can be reviewed
 	together, within a version control system <strong> if </strong> there are no conflicts (areas
 	where both users <strong> modified the same part of the same document in different ways</strong>).
@@ -201,8 +183,11 @@ can simply go back to a previous version.
 
 ### Git & GitHub - A Distributed Version Control Model
 
-GitHub uses a distributed version control model. This means that there can be
-many copies (or forks in GitHub world) of the repository.
+
+Git uses a distributed version control model.
+This means that there can be many copies (or forks in GitHub world) of the repository.
+When working locally, git is the program that you will use to keep track of changes to your repository.
+GitHub can be thought of as a location on the internet that acts as a remote location for your repository, providing a backup in case your local copy is lost (e.g., if your computer falls off a pier).
 
 <figure>
  <a href="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png">
@@ -215,28 +200,6 @@ many copies (or forks in GitHub world) of the repository.
  </figcaption>
 </figure>
 
-Have a look at the graphic below. Notice that in the example, there is a "central"
-version of our repository. Joe, Sue and Eve are all working together to update
-the central repository. Because they are using a distributed system, each user (Joe,
-Sue and Eve) has their own copy of the repository and can contribute to the central
-copy of the repository at any time.
+## Additional resources
 
-<figure>
- <a href="http://betterexplained.com/wp-content/uploads/version_control/distributed/distributed_example.png">
- <img src="http://betterexplained.com/wp-content/uploads/version_control/distributed/distributed_example.png"></a>
- <figcaption>Distributed version control models allow many users to
-contribute to the same central document.
- Source: <a href="http://betterexplained.com/wp-content/uploads/version_control/distributed/distributed_example.png" target="_blank"> Better Explained </a>
- </figcaption>
-</figure>
-
-
-<!-- Optional - include resources at the bottom of the page. -->
-<div class="notice--info" markdown="1">
-
-## Example resources list at the bottom of the page
-
-* <a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf" target="_blank"> R Markdown Cheatsheet</a>
-
-
-</div>
+- [About version control](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)

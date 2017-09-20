@@ -18,7 +18,7 @@ sidebar: # leave this alone!!
   nav:
 course: "example-course-name" # this is the "Course" or module name. it needs to be the same for all lessons in the workshop
 class-lesson: ['example-lesson-set-name'] # this is the lesson set name - it is the same for all lessons in this folder and handles the subgroups
-permalink: /courses/example-course-name/what-is-version-control/ # permalink needs to follow the structure coursename - lesson name using slugs
+permalink: /courses/example-course-name/sample-lesson/ # permalink needs to follow the structure coursename - lesson name using slugs
 author_profile: false
 comments: true
 order: 1

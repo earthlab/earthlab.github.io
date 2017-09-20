@@ -15,7 +15,7 @@ author_profile: false
 * <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
 {% endfor %}
 
-## Course Materials
+## Workshop modules
 Course materials and labs that focus on computational approaches.
 
 {% include course-module-list.html %}

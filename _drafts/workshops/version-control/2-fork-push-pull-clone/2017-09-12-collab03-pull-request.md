@@ -1,25 +1,22 @@
 ---
-layout: single # the template to use to build the page
-authors: ['author one', 'author one'] # add one or more authors as a list
-category: [courses] # the category of choice - for now courses
-title: 'Descriptive title here' # title should be concise and descriptive
-attribution: 'Any attribute text that is required' # if we want to provide attribution for someone's work...
-excerpt: 'Learn how to .' # one to two sentence description of the lesson using a "call to action - if what someone will learn for SEO"
-dateCreated: 2017-09-12  # when the lesson was built
-modified: '2017-09-13' # will populate during knitting
-nav-title: 'Forks 2' # this is the text that appears on the left hand side bar describing THIS lesson 1-3 words max
-class-order: 2 # define the order that each group of lessons are rendered -- this is the second in the series currently
-week: 1 # ignore this for now. A week is a unit and is what groups all of these things fo the workshop together
+layout: single
+authors: ['author one', 'author one']
+category: [courses]
+title: 'Descriptive title here'
+attribution: 'Any attribute text that is required'
+excerpt: 'Learn how to .'
+dateCreated: 2017-09-12
+modified: '2017-09-19'
+nav-title: 'Pull requests'
 sidebar: # leave this alone!!
   nav:
-course: "intro-version-control-git" # this is the "Course" or module name. it needs to be the same for all lessons in the workshop
-class-lesson: ['fork-pull-push'] # this is the lesson set name - it is the same for all lessons in this folder and handles the subgroups
-permalink: /courses/intro-version-control-git/forks2/ # permalink needs to follow the structure coursename - lesson name using slugs
+module: "intro-version-control-git"
+permalink: /courses/intro-version-control-git/pull-request/
 author_profile: false
 comments: true
-order: 4
+order: 7
 topics:
-  reproducible-science-and-programming: ['RStudio'] # adjust based on what tags are appropriate
+  reproducible-science-and-programming: ['git', 'version-control']
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
@@ -30,9 +27,13 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
 At the end of this activity, you will be able to:
 
-* Learning objective 1
-* Learning objective 2
-* Learning objective 3
+* Submit a pull request to a repo suggesting changes
+
+* Explain the concept of base fork and head fork.
+* Know how to transfer changes (sync) between repos in GitHub.
+* Explain why it is important to update a local repo before beginning edits.
+* Update your local repository from your fork on GitHub.
+* Create a Pull Request on the GitHub.com website.
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
@@ -45,47 +46,32 @@ For lessons using git we'll link to the setup pages.
 
 </div>
 
-This tutorial covers how to sync files between your local copy of a Git repo,
-your forked repo on github.com and a central repo.
+Yuu have now learned how to do the following:
 
-<div id="objectives" markdown="1">
-# Learning Objectives
-At the end of this activity, you will be able to:
-
-* Explain the concept of base fork and head fork.
-* Know how to transfer changes (sync) between repos in GitHub.
-* Explain why it is important to update a local repo before beginning edits.
-* Update your local repository from your fork on GitHub.
-* Create a Pull Request on the GitHub.com website.
+1. Fork a repo in someone else's account to your github account
+2. Clone this repo to your local computer
+3. Edit copies of that cloned repo locally on your computer
+4. Commit those edits to git and the repo
+5. Push the edits or commits back to your fork
 
 
-## Additional Resources:
+In this lesson, you'll learn how to submit a `pull request` to suggest that your
+edits are included in another (the central Earth Lab) repo.
 
-* <a href="http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf" target="_blank"> Diagram of Git Commands: </a>
-this diagram includes more commands than we will
-learn in this series.
-* <a href="https://help.github.com/articles/good-resources-for-learning-git-and-github/" target="_blank"> GitHub Help Learning Git resources </a>
 
-</div>
+<i class="fa fa-star"></i> **Thought Question:**
+Who owns the cloned version of the `14ers-git` repo on your computer??
+{: .notice--success }
 
-We now have done the following:
 
-1. We've **forked** (made an individual copy of) the `NEON-WorkWithData/DI16-NEON-participants` repo to
-our github.com account.
-2. We've **cloned** the forked repo - making a copy of it on our local computers.
-3. We've added files and content to our local copy of the repo and **committed**
- the changes.
-4. We've **pushed** those changes back up to our forked repo on github.com.
-
-Once you've forked and cloned a repo, you are all setup to work on your project.
-You won't need to repeat those steps.
-
+Once you've forked and cloned a repo, you are all setup to work on your project
+locally, on your computer. You won't need to fork and clone the repo again.
 
 <figure class="half">
-	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/git-fork-clone-flow.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/git-fork-clone-flow.png" width="70%"></a>
-	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/git-push-pull-flow.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/git-push-pull-flow.png" width="70%"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png">
+	<img src="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png" width="70%"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/git-push-pull-flow.png">
+	<img src="{{ site.url }}/images/workshops/version-control/git-push-pull-flow.png" width="70%"></a>
 	<figcaption>LEFT: You will fork and clone a repo <strong> ONCE </strong>. RIGHT: After you have forked
 	and cloned a repo, you will update your fork from the central repository using
 	a <strong> Pull Request.</strong> You will update your local copy of the repo
@@ -96,14 +82,14 @@ You won't need to repeat those steps.
  </figcaption>
 </figure>
 
-In this tutorial, we will learn how to transfer or **sync** changes from our forked
-repo in our github.com account to the central NEON Data Institute repo. **Syncing**
+In this tutorial, we will learn how to transfer or **sync** changes from your forked
+repo in you github.com account to the central Earth Lab repo. **Syncing**
 information between two repositories in GitHub is done using a
 **pull request**.
 
 <figure>
-	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/git-push-pr.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/git-push-pr.png"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/git-push-pr.png">
+	<img src="{{ site.url }}/images/workshops/version-control/git-push-pr.png"></a>
 	<figcaption>LEFT: To sync changes made and committed to the repo from your
 	local computer, you will first <strong> push </strong> the changes from your
 	local repo to your fork on github.com. RIGHT: Then, you will submit a
@@ -112,15 +98,15 @@ information between two repositories in GitHub is done using a
  </figcaption>
 </figure>
 
-The steps for syncing repos as as follows:
+The steps for syncing repos are as follows:
 
 1. Update your fork from the central repo (`Pull Request`) on github.com.
 2. Update your local copy of the repo (on your computer) from your fork (`git pull`).
 3. Push changes from local repo to your fork on github.com (`git push`)
-4. Update the central repo from your fork (`Pull Request`)
+4. Suggest an update the central repo from your fork (`Pull Request`)
 
 The order of steps above is important as it ensures that you incorporate any
-changes that have been made to the NEON central repository into your forked & local
+changes that have been made to the Earth Lab central repository into your forked & local
 repos prior to adding changes to the central repo. If you do not sync in this order,
 you are at greater risk of creating a **merge conflict**.
 
@@ -180,8 +166,8 @@ it was originally forked. This message does not show up on non-forked (what we
 
 
  <figure>
-	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-ForkScreenshot-status.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-ForkScreenshot-status.png"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/Git-ForkScreenshot-status.png">
+	<img src="{{ site.url }}/images/workshops/version-control/Git-ForkScreenshot-status.png"></a>
 	<figcaption> Screenshot of the header area on a fork of the NEON 2016
 	Data Institute participants repository. Source: National Ecological Observatory
 	Network (NEON)
@@ -225,8 +211,8 @@ The changes, additions, and subtractions are shown in green and red.
 To start a pull request, click the pull request button on the main repo page.
 
  <figure>
-	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-ForkScreenshot-PR.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-ForkScreenshot-PR.png"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/git-fork-pr-screenshot.png">
+	<img src="{{ site.url }}/images/workshops/version-control/git-fork-pr-screenshot.png"></a>
 	<figcaption> Location of the Pull Request button on a fork of the NEON 2016
 Data Institute participants repo. Source: National Ecological Observatory
 Network (NEON)
@@ -267,8 +253,8 @@ To switch the head and base:
 
 
  <figure>
-	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-PR-compareForks.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-PR-compareForks.png"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/Git-PR-compareForks.png">
+	<img src="{{ site.url }}/images/workshops/version-control/Git-PR-compareForks.png"></a>
 	<figcaption> To update your repo you need to set the base fork to
    `YOUR-USER-NAME/DI16-NEON-participants`. Then click the "compare across forks"
    link. This will allow you to set the head fork to `NEON-WorkWithData/DI16-NEON-participants` .
@@ -282,8 +268,8 @@ of the differences (diffs) between the files. Look over the changes and make sur
 nothing looks surprising.
 
  <figure>
-	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-PRscreenshot-diffs.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-PRscreenshot-diffs.png"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/Git-PRscreenshot-diffs.png">
+	<img src="{{ site.url }}/images/workshops/version-control/Git-PRscreenshot-diffs.png"></a>
 	<figcaption> In this split view, shows the differences between the older (LEFT)
 	and newer (RIGHT) document. Deletions are highlighted in red and additions
 	are highlighted in green.
@@ -302,8 +288,8 @@ Give your pull request a title and write a brief description of your changes.
 When you’re done with your message, click Create pull request!
 
  <figure>
-	<a href="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-PRscreenshot-titlePR-fork.png">
-	<img src="{{ site.baseurl }}/images/pre-institute-content/pre-institute2-git/Git-PRscreenshot-titlePR-fork.png"></a>
+	<a href="{{ site.url }}/images/workshops/version-control/Git-PRscreenshot-titlePR-fork.png">
+	<img src="{{ site.url }}/images/workshops/version-control/Git-PRscreenshot-titlePR-fork.png"></a>
 	<figcaption> All pull requests titles should be concise and descriptive of
 	the content in the pull request. More detailed notes can be left in the comments
 	box.
@@ -444,3 +430,21 @@ On github.com
   * Add Pull Request title & comments
   * Button: Create Pull Request
   * Button: Merge Pull Request - only if you have contributor permissions
+
+
+
+<i class="fa fa-star"></i> **Data Tip:**
+Are you a Windows user and are having a hard time copying the URL into shell?
+You can copy and paste in the shell environment **after** you
+have the feature turned on. Right click on your bash shell window (at the top)
+and select "properties". Make sure "quick edit" is checked. You should now be
+able to copy and paste within the bash environment.
+{: .notice}
+
+
+## Additional Resources:
+
+* <a href="http://rogerdudler.github.io/git-guide/files/git_cheat_sheet.pdf" target="_blank"> Diagram of Git Commands </a>
+-- this diagram includes more commands than we will cover in this series but
+includes all that we use for our standard workflow.
+* <a href="https://help.github.com/articles/good-resources-for-learning-git-and-github/" target="_blank"> GitHub Help Learning Git resources.</a>
