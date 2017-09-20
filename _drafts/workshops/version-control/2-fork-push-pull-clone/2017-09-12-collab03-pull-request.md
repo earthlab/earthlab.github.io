@@ -1,10 +1,10 @@
 ---
 layout: single
-authors: ['author one', 'author one']
+authors: ['Leah Wasser', 'Max Joseph']
 category: [courses]
 title: 'Submit a pull request'
-attribution: 'Any attribute text that is required'
-excerpt: 'Learn how to .'
+attribution: ''
+excerpt: 'Learn how to submit a pull request.'
 dateCreated: 2017-09-12
 modified: '2017-09-20'
 nav-title: 'Pull requests'
@@ -32,11 +32,12 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-Some description of what is required to complete this lesson if anything.
-For lessons using git we'll link to the setup pages.
+* A GitHub user account
+* A terminal running bash, and
+* git installed and configured on your computer.
 
-* [setup xxx]({{ site.url }}/courses/path-here/)
-* [setup xxx]({{ site.url }}/courses/path-here/)
+Follow the setup instructions here:
+* [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
 
 </div>
 
@@ -48,7 +49,7 @@ You have now learned how to:
 4. `add`, `commit` those edits to your git repo locally
 5. `Push` the committed edits back to your fork
 
-In this lesson, you'll learn how to submit a `pull request` to suggest that your
+In this lesson, you'll learn how to submit a **pull request** to suggest that your
 edits are included in another (the central Earth Lab) repo.
 
 
@@ -62,7 +63,7 @@ edits are included in another (the central Earth Lab) repo.
 	a <strong> Pull Request.</strong> You will update your local copy of the repo
 	(on your computer) using <code> git pull </code>. Notice that the workflow is
 	similar in both images above, however the commands are different the first time
-  you setup your repo in your github.com account and on your local computer!
+  you setup your repo in your GitHub account and on your local computer!
  	Source: National Ecological Observatory Network (NEON)
  </figcaption>
 </figure>
@@ -74,7 +75,7 @@ edits are included in another (the central Earth Lab) repo.
 	<img src="{{ site.url }}/images/workshops/version-control/git-push-pr.png"></a>
 	<figcaption>LEFT: To sync changes made and committed locally on your computer,
   to your github account, you  <strong> push </strong> the changes from your
-	computer to your fork on github.com. RIGHT: TO suggest changes to another repo,
+	computer to your fork on GitHub RIGHT: TO suggest changes to another repo,
   you submit a <strong> Pull Request </strong> to update the central repository.
 	Source: Colin Williams, NEON
  </figcaption>
@@ -96,10 +97,10 @@ their project repo.
 The ability to suggest changes to ANY repo, without needing administrative
 privileges is a powerful feature of GitHub. In our case, you do not have privileges
 to make changes to the `earthlab/14ers-git` repo. However, you can make as many changes
-as you want in your fork, and then suggest that EarthLab incorporate those changes
+as you want in your fork, and then suggest that Earth Lab incorporate those changes
 into their repo, using a pull request.
 
-## Pull Requests in GitHub
+## Pull requests in GitHub
 
 *This section was adapted from
 <a href="https://guides.github.com/activities/hello-world/#pr" target="_blank"> the GitHub Hello World guide</a>.
@@ -119,12 +120,12 @@ To begin a pull request (PR), click the pull request button on the main repo pag
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/github-submit-pull-request.png">
 	<img src="{{ site.url }}/images/workshops/version-control/github-submit-pull-request.png"></a>
-	<figcaption> Location of the Pull Request button on the EarthLab/14ers-git repo.
+	<figcaption> Location of the Pull Request button on the earthLab/14ers-git repo.
 	</figcaption>
 </figure>
 
 
-<i class="fa fa-star"></i> **Data Tip:** You can also click the Pull requests tab
+<i class="fa fa-star"></i> **Data Tip:** You can also click the "Pull requests" tab
 at the top of the page to submit a pull request. When the pull request page opens,
 click the "New pull request" button to initiate the PR.
 {: .notice}
@@ -133,8 +134,8 @@ click the "New pull request" button to initiate the PR.
 #### Step 2 - Which repo to update - select your base & head
 
 Next you need to select which repo you wish to update (the base repo) and which
-repo contains the content that you wish to use to update the base. In this example,
-you want to update the **EarthLab/14ers-git** repo with commits in your fork
+repo contains the content that you wish to use to update the base (the head repo).
+In this example, you want to update **earthLab/14ers-git** with commits in your fork
 **YOUR-USERNAME/14ers-git**.
 
 **Head vs Base**
@@ -147,22 +148,22 @@ we must add from the head to the base.
 
 When you begin a pull request, the head and base will auto-populate as follows:
 
-* base fork: **EarthLab/14ers-git**
+* base fork: **earthlab/14ers-git**
 * head fork: **YOUR-USERNAME/14ers-git**
 
-The above pull request configuration tells Git to sync (or update) the EarthLab repo
+The above pull request configuration tells Git to update the Earth Lab repo
 with contents **from your repo**.
 
-#### Step 3 - Verify Changes
+#### Step 3 - Verify changes
 
-When you compare two repos in a pull request page, git will provide an overview
+When you compare two repos in a pull request page, GitHub provides an overview
 of the differences (diffs) between the files. Look over the changes and make sure
 nothing looks surprising.
 
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/github-pull-request-diff.png">
 	<img src="{{ site.url }}/images/workshops/version-control/github-pull-request-diff.png"></a>
-	<figcaption> This screenshot shows the differences between the files on EarthLab's
+	<figcaption> This screenshot shows the differences between the files on Earth Lab's
   version of the 14ers repo in red and your copy of the repo in green.
   Deletions are highlighted in red and additions
 	are highlighted in green.
@@ -170,29 +171,30 @@ nothing looks surprising.
 	</figcaption>
 </figure>
 
-#### Step 4 - Create Pull Request
-If you are adding new commits to the EarthLab repo, then the pull request button will be available.
-Click the green Create Pull Request button to submit your pull request.
+#### Step 4 - Create a pull request
 
+If you are adding new commits to the Earth Lab repo, then the pull request button will be available.
+Click the green "Create Pull Request" button to submit your pull request.
 
 #### Step 5 - Describe your pull request using a short title
 
 Give your pull request a title and write a brief description of your changes.
-When you’re done with your message, click Create pull request.
+When you’re done with your message, click "Create Pull Request".
 
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/github-submit-pull-request-title.png">
 	<img src="{{ site.url }}/images/workshops/version-control/github-submit-pull-request-title.png"></a>
-	<figcaption> All pull requests titles should be concise and descriptive of
+	<figcaption> Pull request titles should be concise and descriptive of
 	the content in the pull request. More detailed notes can be left in the comments
 	box.
 	Source: National Ecological Observatory Network (NEON)
 	</figcaption>
 </figure>
 
-Check out the repo name up at the top (in your repo and in screenshot above)
+Notice the repo name up at the top (in your repo and in screenshot above)
 When creating the pull request you will be automatically transferred to the base
-repo. Since your fork was the base (we are updating it), github will transfer
+repo. Since your fork was the base (we are updating it), GitHub will transfer
+<!-- The text above says that the earthlab repo is the base fork - is this wrong? -->
 you to your github.com fork landing page.
 
 <div class="notice--warning" markdown="1">
@@ -205,22 +207,22 @@ Within the 14er repo, you will find a list of `.md` - one for some of the talles
 On your computer, do the following
 
 1. Select a 14er markdown file that you'd like to update.
-2. Look up the elevation and location (longitude, latitude) for the 14er
+2. Look up the elevation and location (longitude, latitude in decimal degrees) for the 14er
 3. Add that information and an interesting fact or so about the 14er to the appropriate 14er markdown file.
 
 Next
 
-1. Save your file, add and commit your changes and then push the changes to your github.com fork.
-2. Submit a Pull Request to the `EarthLab/14ers-git` repo.
+1. Save your file, add and commit your changes and then push the changes to your fork on GitHub.
+2. Submit a pull request to the `earthLab/14ers-git` repo.
 
 HINT:
 
-* base fork: **EarthLab/14ers-git**
+* base fork: **earthlab/14ers-git**
 * head fork: **YOUR-USER-NAME/14ers-git**
 
-* Finally, go to the NEON Central Repo page in github.com. Look for the Pull Requests
-link at the top of the page. How many Pull Requests are there?
-* Do you see your Pull Request?
+* Finally, go to the Earth Lab 14ers repo on GitHub. Look for the "Pull Requests"
+link at the top of the page. How many pull requests are there?
+* Do you see your pull request?
 
 
 </div>
@@ -228,38 +230,38 @@ link at the top of the page. How many Pull Requests are there?
 
 
 <i class="fa fa-star"></i> **Data Tip:** While you can submit a pull request to
-any (public) repo on github.com, you can only merge a PR if you own the repo or
-have appropriate permissions. You don’t contributor permissions to the EarthLab
+any (public) repo on GitHub, you can only merge a PR if you own the repo or
+have appropriate permissions. You don’t have contributor permissions to the Earth Lab
 repo. Thus the workshop instructors will merge the pull requests as they are submitted
 during the workshop.
 {: .notice--success }
 
 
-## Workflow Summary
+## Workflow summary
 
-### Syncing Repos with Pull Requests
-On github.com
+### Syncing repos with pull requests
 
-* Fork the EarthLab/14ers-git repo to your github account.
+On GitHub:
 
-On your computer
+* Fork the earthlab/14ers-git repo to your GitHub account.
+
+On your computer:
 
 * Clone the repo to your computer locally (you'll only do this once)
 * Edit any files that you wish to change
-  + `add`, `commit`, `push` changes to github.com
-  + `git push` - push your changes up to your fork
+  + `add` and `commit` your changes to your repository
+  + `git push` your changes up to your fork on GitHub
 
-On github.com
+On GitHub:
 
 + Button: Create New Pull Request
-+ Set base: EarthLab/14ers-git, set head: your fork
++ Set base: earthlab/14ers-git, set head: your fork
 + Make sure changes are what you want to sync
 + Button: Create Pull Request
 + Describe the Pull Request using a succinct title & descriptive comments
 + Button: Create Pull Request
 
-Remember that you can only Merge the Pull Request if you have superpowers - ie
-contributor permissions to the repo!
+Remember that you can only merge the pull request if you have contributor permissions to the repo!
 
 
 <i class="fa fa-star"></i> **Data Tip:**
@@ -275,15 +277,13 @@ able to copy and paste within the bash environment.
 
 A merge conflict
 occurs when two users edit the same part of a file at the same time. Git cannot
-decide which edit was first and which was last, and therefore which edit should
-be in the most current copy. Hence the conflict.
+automatically determine which edit should be in the most current copy. Hence the conflict.
 
 <figure>
 	<a href="https://developer.atlassian.com/blog/2015/01/a-better-pull-request/merge-conflict.png">
 	<img src="https://developer.atlassian.com/blog/2015/01/a-better-pull-request/merge-conflict.png"></a>
 	<figcaption> Merge conflicts occur when the same part of a script or
-	document has been changed simultaneously and Git can’t determine should be
-	applied. Source: Atlassian
+	document has been changed simultaneously. Source: Atlassian
 	</figcaption>
 </figure>
 
