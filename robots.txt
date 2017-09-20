@@ -1,4 +1,7 @@
 User-agent: *
 Disallow: /events/
 Disallow: /pdf/
+Disallow: /leaflet-maps/water_map2.html
+Disallow: /meetup/
+
 Sitemap: https://earthdatascience.org/sitemap.xml
