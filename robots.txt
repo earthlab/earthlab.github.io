@@ -1,4 +1,6 @@
 User-agent: *
 Disallow: /events/
 Disallow: /pdf/
+Disallow: /slide-shows/
+
 Sitemap: https://earthdatascience.org/sitemap.xml
