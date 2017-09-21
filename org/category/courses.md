@@ -15,7 +15,8 @@ author_profile: false
 * <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
 {% endfor %}
 
-## Workshop modules
-Course materials and labs that focus on computational approaches.
+## Workshops
+
+Check out our Earth Analytic workshop materials.
 
 {% include course-module-list.html %}

@@ -6,9 +6,9 @@ modified: '2017-09-21'
 nav-title: "Workshop overview & setup"
 permalink: /courses/intro-version-control-git/
 module: "intro-version-control-git"
-module-type: 'overview'
+module-type: 'workshop'
 module-title: "Introduction to version control and git"
-module-description: 'Learn about and how to use version control to back up your work.'
+module-description: 'Learn why version control is useful to science workflows and how to use git and GitHub for version control to back up your work.'
 sidebar:
   nav:
 comments: false
