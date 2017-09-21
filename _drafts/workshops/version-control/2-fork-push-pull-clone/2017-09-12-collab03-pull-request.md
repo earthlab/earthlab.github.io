@@ -2,13 +2,13 @@
 layout: single
 authors: ['Leah Wasser', 'Max Joseph']
 category: [courses]
-title: 'Submit a pull request'
+title: 'Submit a pull request on the GitHub website'
 attribution: ''
-excerpt: 'Learn how to submit a pull request.'
+excerpt: 'Learn how to create and submit a pull request to another repo.'
 dateCreated: 2017-09-12
-modified: '2017-09-20'
-nav-title: 'Pull requests'
-sidebar: # leave this alone!!
+modified: '2017-09-21'
+nav-title: 'Create pull requests'
+sidebar:
   nav:
 module: "intro-version-control-git"
 permalink: /courses/intro-version-control-git/pull-request/
@@ -34,7 +34,7 @@ At the end of this activity, you will be able to:
 
 * A GitHub user account
 * A terminal running bash, and
-* git installed and configured on your computer.
+* Git installed and configured on your computer.
 
 Follow the setup instructions here:
 * [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)

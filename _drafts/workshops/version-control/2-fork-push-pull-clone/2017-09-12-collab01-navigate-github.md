@@ -2,11 +2,11 @@
 layout: single # the template to use to build the page
 authors: ['Leah Wasser', 'Max Joseph', 'NEON Data Skills'] # add one or more authors as a list
 category: courses # the category of choice - for now courses
-title: 'Find your way around a repo hosted on the GitHub website' # title should be concise and descriptive
+title: 'How to find and navigate a repo on the GitHub website'
 attribution: ''
-excerpt: 'Learn how to .'
+excerpt: 'Learn how to find a repo on the GitHub website using the search. Also get to know the GitHub repo interface. '
 dateCreated: 2017-09-12
-modified: '2017-09-20'
+modified: '2017-09-21'
 nav-title: 'Navigate GitHub repos'
 sidebar:
   nav:

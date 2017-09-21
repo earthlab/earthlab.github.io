@@ -2,16 +2,15 @@
 layout: single
 authors: ['Leah Wasser', 'Max Joseph', 'Software Carpentry','NEON Data Skills']
 category: courses
-title: 'Forks in GitHub'
+title: 'How to fork a repo in GitHub'
 attribution: ''
-excerpt: 'Learn how to fork a repository on GitHub.'
+excerpt: 'Learn how to fork a repository using the GitHub website.'
 dateCreated: 2017-09-12
-modified: '2017-09-20'
-module-title: 'Template lessons part 2 - Git 2' # @lwasser - need to fix this?
-nav-title: 'Fork a repo'
+modified: '2017-09-21'
+nav-title: 'Fork a GitHub repo'
 sidebar:
   nav:
-module: "intro-version-control-git" # this is the "Course" or module name. it needs to be the same for all lessons in the workshop
+module: "intro-version-control-git"
 permalink: /courses/intro-version-control-git/about-forks/
 author_profile: false
 comments: true

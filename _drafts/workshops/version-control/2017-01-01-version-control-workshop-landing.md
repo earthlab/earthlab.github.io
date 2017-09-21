@@ -2,7 +2,7 @@
 layout: single
 category: courses
 title: "Version control intro and setup "
-modified: '2017-09-20'
+modified: '2017-09-21'
 nav-title: "Workshop overview & setup"
 permalink: /courses/intro-version-control-git/
 module: "intro-version-control-git"
@@ -67,13 +67,13 @@ free git account with unlimited private repos. Sign up for the
 
 ### Setup git for MAC / LINUX
 
-* Install git <a href="https://swcarpentry.github.io/workshop-template/#git" target="_blank">Install bash on your computer</a> If you are on windows and
+* Install git <a href="https://swcarpentry.github.io/workshop-template/#git" target="_blank">Install git on your computer</a> If you are on windows and
 followed the bash instructions above you can skip this step! If you are on a mac or linux, please be sure to install git!
 
 ## Step 2. Sign up for github
 
 ### Create An Github Account
-If you do not already have a GitHub account, go to <a href="http://github.com" target="_blank" >GitHub </a> and sign up for
+If you do not already have a GitHub account, go to <a href="http://github.com/join" target="_blank" >GitHub </a> and sign up for
 your free account. Pick a username that you like! This username is what your
 colleagues will see as you work with them in GitHub and Git.
 

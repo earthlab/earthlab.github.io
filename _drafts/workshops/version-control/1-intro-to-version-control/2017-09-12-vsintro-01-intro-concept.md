@@ -6,7 +6,7 @@ title: 'An introduction version control'
 attribution: ''
 excerpt: 'Learn what version control is, and how git and GitHub are used in a typical version control workflow.'
 dateCreated: 2017-09-12
-modified: '2017-09-20'
+modified: '2017-09-21'
 module-title: 'Introduction to version control'
 module-description: 'This module includes instructions for setting up your git environment, introduces key version control concepts, and describes first steps to start using version control with git and GitHub.'
 module-nav-title: 'Version control'
@@ -36,22 +36,14 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-
-
 * A GitHub user account
 * A terminal running bash, and
-* git installed and configured on your computer.
+* Git installed and configured on your computer.
 
 Follow the setup instructions here:
+
 * [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
 
-
-Before getting started with this lesson, you'll want to make sure you have access to a terminal emulator that is running bash, install git, and create an account on GitHub.
-
-* [The Bash shell](https://swcarpentry.github.io/workshop-template)
-* [Installing git](https://swcarpentry.github.io/workshop-template/#git)
-* [Configuring git for the first time](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
-* [Creating a free user account on GitHub](https://github.com/join)
 
 </div>
 
