@@ -1,4 +1,26 @@
 
+
+
+<!-- This part will only list workshops  -->
+
+{% assign workshops = site.posts | where:"module-type", 'workshop' %}
+{% assign workshop_landing_pages = workshops | where:"order", 1 %}
+
+{% for workshop in workshops %}
+<div class="list__item">
+  <article class="archive__item" >
+  <h2 class="archive__item-title">
+    <a href="{{ site.url }}{{ module.permalink }}">{{ workshop.title }} </a></h2>
+    <p class='archive__item-excerpt'>{{ workshop.module-description | truncatewords:35 }}
+      <br><i>Last updated: {{ workshop.modified | date_to_string }}</i> </p>
+  </article>
+</div>
+
+{% endfor %}
+
+{% comment %}
+<!-- This include will add all modules in the site to the page -->
+
 {% assign modules = site.posts | where:"order", 1 %}
 
 {% for module in modules %}
@@ -28,3 +50,4 @@
 </div>
 
 {% endfor %}
+{% endcomment %}

@@ -9,9 +9,9 @@
         {% for post in sorted_posts %}
           {% if post.module == page.module %}
             {% if post.url == page.url %}
-            <li><a href= {{ site.url }}{{ site.baseurl }}{{ post.url }} class='active'>{{ post.order }}. {{ post.nav-title }}</a></li>
+            <li><a href= {{ site.url }}{{ post.url }} class='active'>{{ post.order }}. {{ post.nav-title }}</a></li>
             {% else %}
-            <li><a href= {{ site.url }}{{ site.baseurl }}{{ post.url }}>{{ post.order }}. {{ post.nav-title }}</a></li>
+            <li><a href= {{ site.url }}{{ post.url }}>{{ post.order }}. {{ post.nav-title }}</a></li>
             {% endif %}
           {% endif %}
         {% endfor %}
@@ -37,6 +37,7 @@
 <!-- end slideshows  -->
 </nav>
 
+{% comment %}
 <h3>Other Week {{ page.week }} Lessons</h3>
 
 {% assign modules = site.posts | where:"order", 1 %}
@@ -52,3 +53,5 @@
 </nav>
 {% endif %}
 {% endfor %}
+
+{% endcomment %}
