@@ -21,6 +21,11 @@
       {% include nav_list nav=page.sidebar.nav %}
     {% endif %}
 
+
+    {% if page.workshop %}
+      This is a workshop
+    {% endif %}
+
     {% if page.course %}
      <!--  Might be able to delete this This is the code that populates the side bar navigation if there is a class-->
       {% include sidebar_class_navigation_week.html %}
