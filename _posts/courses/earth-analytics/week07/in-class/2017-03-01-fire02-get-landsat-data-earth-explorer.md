@@ -3,7 +3,7 @@ layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/get-data-earth-explorer/
@@ -159,14 +159,28 @@ In this case, I downloaded a scene very close to Julian day 189.
 First, let's import our new data and create a raster stack. The code is hidden
 because you already know how to do this!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="100%" />
+
+```
+## Error in x[[1]]: subscript out of bounds
+## Error in plotRGB(all_landsat_bands_173_st, r = 4, g = 3, b = 2, stretch = "lin", : object 'all_landsat_bands_173_st' not found
+## Error in box(col = "white"): plot.new has not been called yet
+```
 
 Next I plotted the fire boundary extent on top of my landsat image.
 
 
+```
+## Error in ogrListLayers(dsn = dsn): Cannot open data source
+## Error in crs(all_landsat_bands_st): object 'all_landsat_bands_st' not found
+```
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="100%" />
+
+```
+## Error in plotRGB(all_landsat_bands_173_st, r = 4, g = 3, b = 2, stretch = "lin", : object 'all_landsat_bands_173_st' not found
+## Error in box(col = "white"): plot.new has not been called yet
+## Error in polypath(x = mcrds[, 1], y = mcrds[, 2], border = border, col = col, : plot.new has not been called yet
+```
 
 It's hard to see but can you see the tiny YELLOW outline of our study area? This
 landsat scene is MUCH larger than our study area. We have 2 options
@@ -177,16 +191,23 @@ landsat scene is MUCH larger than our study area. We have 2 options
 Below i've plotted the cloud mask for the data that I downloaded. It looks like
 the data in our study area are cloud free. How do I know that?
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="100%" />
+
+```
+## Error in crop(all_landsat_bands_173_st, fire_boundary_utm): object 'all_landsat_bands_173_st' not found
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
+## Error in crop(cloud_mask_173, fire_boundary_utm): object 'cloud_mask_173' not found
+## Error in plot(cloud_mask_173_crop, main = "Cropped cloud mask layer for new Landsat scene", : object 'cloud_mask_173_crop' not found
+## Error in polypath(x = mcrds[, 1], y = mcrds[, 2], border = border, col = col, : plot.new has not been called yet
+## Error in legend(cloud_mask_173_crop@extent@xmax, cloud_mask_173_crop@extent@ymax, : object 'cloud_mask_173_crop' not found
+```
 
 
 
 ```r
 barplot(cloud_mask_173_crop,
-     main="cloud mask values \n all 0's")
+     main = "cloud mask values \n all 0's")
+## Error in barplot(cloud_mask_173_crop, main = "cloud mask values \n all 0's"): object 'cloud_mask_173_crop' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/cloud-mask-barplot-1.png" title="view cloud mask values" alt="view cloud mask values" width="100%" />
 
 
 Given our data are all 0's we can assume we downloaded the right scene! There
@@ -200,15 +221,16 @@ par(col.axis="white", col.lab="white", tck=0)
 plotRGB(all_landsat_bands_173_st,
         r=4, g=3, b=2,
         stretch="lin",
-        main="Final landsat scene with the fire extent overlayed",
+        main = "Final landsat scene with the fire extent overlayed",
         axes=T)
-box(col="white")
+## Error in plotRGB(all_landsat_bands_173_st, r = 4, g = 3, b = 2, stretch = "lin", : object 'all_landsat_bands_173_st' not found
+box(col = "white")
+## Error in box(col = "white"): plot.new has not been called yet
 plot(fire_boundary_utm,
      add=T,
      border="yellow")
+## Error in polypath(x = mcrds[, 1], y = mcrds[, 2], border = border, col = col, : plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="100%" />
 
 Now we can proceed to calculate NBR on the pre-fire landsat image. How does it
 look?

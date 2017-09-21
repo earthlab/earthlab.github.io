@@ -3,7 +3,7 @@ layout: single
 title: "Landsat remote sensing tif files in R"
 excerpt: "In this lesson we will cover the basics of using LAndsat 7 and 8 in R. We will learn how to import landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally we will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-08-19'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/landsat-bands-geotif-in-R/
@@ -152,7 +152,6 @@ Now that we understand how our file is named.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 # turn off factors
 options(stringsAsFactors = F)
 ```
@@ -264,11 +263,11 @@ all_landsat_bands[2]
 ## [1] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
 landsat_band2 <- raster(all_landsat_bands[2])
 plot(landsat_band2,
-     main="Landsat cropped band 2\nColdsprings fire scar",
+     main = "Landsat cropped band 2\nColdsprings fire scar",
      col=gray(0:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="90%" />
 
 However, that is not a very efficient approach.
 It's more efficiently to open all of the layers together as a stack. Then we can
@@ -299,7 +298,7 @@ plot(landsat_stack_csf,
      col=gray(20:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="90%" />
 
 
 
@@ -319,7 +318,7 @@ plot(landsat_stack_csf,
      col=gray(20:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="90%" />
 
 ## Plot RGB image
 
@@ -334,11 +333,11 @@ plotRGB(landsat_stack_csf,
      r=4, g=3, b=2,
      stretch="lin",
      axes=T,
-     main="RGB composite image\n Landsat Bands 4, 3, 2")
-box(col="white")
+     main = "RGB composite image\n Landsat Bands 4, 3, 2")
+box(col = "white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 
 Now we've created a red, green blue color composite image. Remember this is what
 our eye would see. What happens if we plot the near infrared band instead of red?
@@ -352,11 +351,11 @@ plotRGB(landsat_stack_csf,
      r=5, g=4, b=3,
      stretch="lin",
      axes=T,
-     main="Color infrared composite image\n Landsat Bands 5, 4, 3")
-box(col="white")
+     main = "Color infrared composite image\n Landsat Bands 5, 4, 3")
+box(col = "white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 
 
 <div class="notice--warning" markdown="1">

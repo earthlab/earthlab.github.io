@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Light Detection and Ranging (lidar) remote sensing data"
 excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-09-12'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-intro/
@@ -219,7 +219,7 @@ The commonly used file format to store lidar point cloud data is the `.las`
 format. The [.laz](http://www.laszip.org/) format is a highly compressed version
 of `.las` and is becoming more widely used.
 
-### Lidar data attributes: X,Y, Z, intensity and classification
+### Lidar data attributes: X, Y, Z, intensity and classification
 Lidar data attributes can vary, depending upon how the data were collected and
 processed. You can determine what attributes are available for each lidar point
 by looking at the metadata.
