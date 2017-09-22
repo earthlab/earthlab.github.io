@@ -2,16 +2,15 @@
 layout: single
 authors: ['Leah Wasser', 'Max Joseph', 'Software Carpentry','NEON Data Skills']
 category: courses
-title: 'Forks in GitHub'
-attribution: 'Any attribute text that is required'
-excerpt: 'Learn how to .'
+title: 'How to fork a repo in GitHub'
+attribution: ''
+excerpt: 'Learn how to fork a repository using the GitHub website.'
 dateCreated: 2017-09-12
-modified: '2017-09-19'
-module-title: 'Template lessons part 2 - Git 2'
-nav-title: 'Fork a repo'
+modified: '2017-09-21'
+nav-title: 'Fork a GitHub repo'
 sidebar:
   nav:
-module: "intro-version-control-git" # this is the "Course" or module name. it needs to be the same for all lessons in the workshop
+module: "intro-version-control-git"
 permalink: /courses/intro-version-control-git/about-forks/
 author_profile: false
 comments: true
@@ -31,15 +30,17 @@ At the end of this activity, you will:
 
 * Be able to create a fork, or copy, of a GitHub repository within your Github account.
 * Know how to navigate between your GitHub repository and a forked GitHub repository.
-* Be able to explain how your forked repository relates to the master repository that it was created from.
+* Be able to explain how your forked repository relates to the original repository that it was created from.
+
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-Some description of what is required to complete this lesson if anything.
-For lessons using git we'll link to the setup pages.
+* A GitHub user account
+* A terminal running bash, and
+* git installed and configured on your computer.
 
-* [setup xxx]({{ site.url }}/courses/path-here/)
-* [setup xxx]({{ site.url }}/courses/path-here/)
+Follow the setup instructions here:
+* [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
 
 </div>
 
@@ -47,20 +48,20 @@ For lessons using git we'll link to the setup pages.
 
 A <a href="https://help.github.com/articles/fork-a-repo/" target="_blank">GitHub fork</a>
 is a copy of a repository (repo) that sits in your account rather than the account from
-which you forked the data from. Once you have forked a repo, you own it. This  means
-that you can edit the
-contents of it without impacting the repo from which is was copied or forked from.
+which you forked the data from. Once you have forked a repo, you own your forked copy.
+This  means that you can edit the contents of your forked repository without impacting
+the parent repo.
 
 <figure>
  <a href="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png">
  <img src="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png" width="70%"></a>
  <figcaption>When you fork a repo, you make an exact copy of the repo in your own account. Once you create a copy in your account you own it! Thus, you you can
- freely work on and modify it as you wish. Image source: Colin Williams, NEON
+ freely modify it as you wish. Image source: Colin Williams, NEON
  </figcaption>
 </figure>
 
 
-### Create A Working Copy of a Git Repo - Fork
+### An example forking workflow
 
 In this workshop you will work from a central repo owned by Earth Lab. You will:
 
@@ -70,16 +71,16 @@ In this workshop you will work from a central repo owned by Earth Lab. You will:
 4. `add`, `commit` and `push` those edits back to your fork on GitHub
 5. Suggest the changes that you made, to be added to the Earth Lab central repo using a `pull request`
 
-This workflow has a **Central Repository** - which is the one that Earth Lab owns.
+This workflow has a **central repository** - which is the one that Earth Lab owns.
 Everyone in the workshop will then contribute to the central repository. There
-are other, different Git and GitHub workflows too. However in this workshop,
+are other Git and GitHub workflows too. However in this workshop,
 we are demonstrating a central repo workflow.
 
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png">
 	<img src="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png" width="70%"></a>
 	<figcaption>
-	In this workshop, we are using a github workflow that assumes a central repository.
+	In this workshop, we are using a GitHub workflow that assumes a central repository.
   Earth Lab owns the central repo that you will initially fork. Image source: Colin Williams, NEON
 	</figcaption>
 </figure>
@@ -87,8 +88,7 @@ we are demonstrating a central repo workflow.
 
 ## How to Fork a Repo
 
-You can fork any repo at
-any time by clicking the fork button in the upper right hand corner on github.com.
+You can fork any repo by clicking the fork button in the upper right hand corner of a repo page.
 
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/githubguides-bootcamp-fork.png">
@@ -101,9 +101,8 @@ any time by clicking the fork button in the upper right hand corner on github.co
 <figure>
  <a href="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png">
  <img src="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png" width="70%"></a>
- <figcaption>When we fork a repo on the github website, we are creating an
- exact copy of that forked repo in our own github account.
- Once the repo is in our own account, we can edit it as we now own that fork.
+ <figcaption>When you fork a repo on GitHub, the forked repo is copied to your GitHub account,
+ and you can edit it as the repo owner.
  Source: National Ecological Observatory Network (NEON)
  </figcaption>
 </figure>
@@ -111,60 +110,61 @@ any time by clicking the fork button in the upper right hand corner on github.co
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge: Fork the Earth Lab 14ers Repo
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge: fork the Earth Lab 14ers repo
 
-* Login to your github account.
-* Navigate to the `EarthLab/14ers-git/`` repo.
+* Login to your GitHub account.
+* Navigate to the `earthLab/14ers-git/`` repo.
 * Use the fork button to create your a fork of the `14ers-git` repo in your account.
 
 </div>
 
 
-<i class="fa fa-star"></i> **Data Tip:** You can change the name of a forked
+<i class="fa fa-star"></i> **Data tip:** You can change the name of a forked
 repo and it will still be connected to the central repo from which it was forked.
 For now, leave it the same.
 {: .notice--success }
 
-## Check Out Your Data Institute Fork
+## Explore your 14ers-git fork
 
-Now, check out your new fork. Its name should be:
+Now, navigate to your new fork. Its name should be:
 
  **YOUR-USER-NAME/14ers-git**.
 
-It can get confusing sometimes moving between a central repo:
+Sometimes, navigating between repositories and keeping track of where you are on the
+GitHub website can be confusing. In this case note the URL. The Earth Lab central
+repo contains the `earthlab` account name:
 
 * `https://github.com/earthlab/14ers-git`
 
-and your forked repo:
+and your forked repo contains your account name:
 
 * `https://github.com/YOUR-USER-NAME/14ers-git`
 
 A good way to figure out which repo you are viewing is to look at the
 
-1. The name of the repo: does it contain your username? Or your colleagues? Or EarthLab's?
+1. The name of the repo: does it contain your username? Or your colleagues? Or Earth Lab's?
 2. Look at the path or URL to the repo and ask the same questions.
 
-## Your Fork vs. the Central Repo
+## Your fork vs. the central repo
 
-When you initially create a fork, it is *an exact copy*, or completely in sync with,
-the Earth Lab central repo.
+When you create a fork, it is *an exact copy*, or completely in sync with, the parent repo.
 You could confirm this by comparing your fork to the Earth Lab central repository using
 the **pull request** option. We will learn about pull requests in the next lesson
 
-The fork will remain in sync with the Earth Lab central repo until:
+The fork will remain in sync with the central repo until:
 
-1. You begin to make changes to your forked copy of the repo.
-2. The central repository is changed or updated by a collaborator.
+1. You modify your forked copy of the repo.
+2. The central repository is modified.
 
-If you make changes to your forked repo, the changes will not be added to the
-Earth Lab central repo until you sync your fork with the Earth Lab central repo.
+If you modify your forked repo, the changes will not be reflected in the
+central repo until you merge your fork with the central repo.
 
-## Summary Workflow -- Fork a GitHub Repository
+## Summary workflow -- fork a GitHub repository
 
 On the github.com website:
 
 * Navigate to desired repo that you want to fork.
-* Click Fork button.
+* Click **Fork** button.
 
 <div class="notice--info" markdown="1">
 
@@ -172,11 +172,11 @@ On the github.com website:
 
 ### Important terms
 
-* **Central repo (Earth Lab's GitHub account )** - the main repo that everyone contributes to in the
+* **Central repo (on Earth Lab's GitHub account )** - the main repo that everyone contributes to in the
 workshop. This is the "final working version" of the project.
-* **Your fork (your GitHub account)** - your working copy of the central repo stored in your GitHub
+* **Your fork (on your GitHub account)** - your working copy of the central repo stored in your GitHub
 account.
-* **Your repo clone (Your account on your computer)** - the local version of the fork in your GitHub account that
+* **Your repo clone (on your computer)** - the local version of the fork in your GitHub account that
 lives on your computer. You will most often work locally on your computer and then
 push updates to GitHub.
 
