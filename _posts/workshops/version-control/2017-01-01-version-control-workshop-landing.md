@@ -6,9 +6,9 @@ modified: '2017-09-21'
 nav-title: "Workshop overview & setup"
 permalink: /courses/intro-version-control-git/
 module: "intro-version-control-git"
-module-type: 'overview'
+module-type: 'workshop'
 module-title: "Introduction to version control and Git"
-module-description: 'Learn about and how to use version control to back up your work.'
+module-description: 'Learn why version control is useful to science workflows and how to use git and GitHub for version control to back up your work.'
 sidebar:
   nav:
 comments: false
@@ -40,7 +40,6 @@ To participate in this workshop, you need to have Git and Bash installed on your
 computer. Please follow the instructions below to install this PRIOR to showing up for the workshop.
 
 </div>
-
 
 <i class="fa fa-star"></i> **Data Tip:** Anyone with an `.edu` email affiliation can get a
 free GitHub account with unlimited private repos. 
@@ -96,4 +95,5 @@ $ git config --global color.ui "auto"
 Please configure your text editor as well. Follow the software carpentry lessons 
 and if they don't make sense we can go through this together during the workshop.
 
-If you're not sure whether you've already configured Git, you can list your configuration by executing `git config --list`.
+If you're not sure whether you've already configured Git, you can list your configuration 
+by executing `git config --list`.

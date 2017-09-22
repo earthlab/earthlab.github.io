@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/open-plot-spreadsheet-data-in-R/
 nav-title: 'Open spreadsheet data'
 dateCreated: 2016-12-13
-modified: '2017-09-11'
+modified: '2017-09-15'
 week: 2
 sidebar:
   nav:
@@ -75,7 +75,7 @@ Notice that `download.file()` function has two **ARGUMENTS**:
 1. **url**: this is the path to the data file that you wish to download
 2. **destfile**: this is the location on your computer (in this case: `/data`) and name of the
 file when saved (in this case: boulder-precip.csv). So we downloaded a file from
-a url on figshare do our data directory. We named that file `boulder-precip.csv`.
+a url on figshare to our data directory. We named that file `boulder-precip.csv`.
 
 Next, we read in the data using the function: `read.csv()`.
 

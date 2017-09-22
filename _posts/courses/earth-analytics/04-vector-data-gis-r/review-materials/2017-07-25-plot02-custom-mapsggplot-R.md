@@ -3,7 +3,7 @@ layout: single
 title: "Create custom maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-09-20'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-maps-with-ggplot-in-R/
@@ -470,7 +470,8 @@ Next we can `tidy()` up the data as we did before... or can we?
 
 ```r
 sjer_plots_df <- tidy(sjer_plots, region = "id")
-## Warning in tidy.default(sjer_plots, region = "id"): No method for tidying an S3 object of class SpatialPointsDataFrame , using as.data.frame
+## Warning in tidy.default(sjer_plots, region = "id"): No method for tidying
+## an S3 object of class SpatialPointsDataFrame , using as.data.frame
 ```
 
 Note that this time we imported point data. We can't use the tidy function
@@ -558,10 +559,12 @@ Then explore the data to determine whether we need to clean the data up.
 # view crs of all layers
 crs(study_area)
 ## CRS arguments:
-##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 crs(sjer_plots)
 ## CRS arguments:
-##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 crs(sjer_roads)
 ## CRS arguments:
 ##  +proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0
@@ -596,13 +599,16 @@ plot(sjer_roads_utmcrop)
 # view crs of all layers
 crs(study_area)
 ## CRS arguments:
-##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 crs(sjer_plots)
 ## CRS arguments:
-##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 crs(sjer_roads_utmcrop)
 ## CRS arguments:
-##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0
+##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
+## +towgs84=0,0,0
 ```
 
 Next, we convert the study_area spatial object to a `data.frame` so we can plot it

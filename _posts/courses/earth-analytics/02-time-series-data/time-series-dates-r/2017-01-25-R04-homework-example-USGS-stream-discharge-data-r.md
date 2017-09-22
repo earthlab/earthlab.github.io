@@ -4,7 +4,7 @@ title: "Homework challenge: Plot USGS stream discharge data in R"
 excerpt: "This lesson illustrated what your final stream discharge homework
 plots should look like for the week. Use all of the skills that you've learned in the previous lessons to complete it."
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-15'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -90,6 +90,12 @@ value in 2013 was significantly larger than what was observed in other years.
 Source: <a href="http://nwis.waterdata.usgs.gov/usa/nwis/peak/?site_no=06730200" target="_blank"> USGS, National Water Information System. </a>
 </figcaption>
 </figure>
+
+As you can imagine, stream gages can be sensitive to high flows and in the case of
+an extreme event like a flood are sometimes damaged. However, during the 2013 floods,
+one stream gage in Boulder, Colorado remained in tact. USGS stream gauge 06730200
+located on Boulder Creek at North 75th St. collected data that we will use in
+the lesson below!
 
 
 

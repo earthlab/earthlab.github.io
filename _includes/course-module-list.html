@@ -10,7 +10,7 @@
 <div class="list__item">
   <article class="archive__item" >
   <h2 class="archive__item-title">
-    <a href="{{ site.url }}{{ module.permalink }}">{{ workshop.title }} </a></h2>
+    <a href="{{ site.url }}{{ workshop.permalink }}">{{ workshop.module-title }} </a></h2>
     <p class='archive__item-excerpt'>{{ workshop.module-description | truncatewords:35 }}
       <br><i>Last updated: {{ workshop.modified | date_to_string }}</i> </p>
   </article>
@@ -28,7 +28,7 @@
 <div class="list__item">
   <article class="archive__item" >
   <h2 class="archive__item-title">
-  <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}</a></h2>
+  <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}link:{{ module.permalink }}</a></h2>
   <p class='archive__item-excerpt'><i>{% if module.course %}This teaching module is a part of the {{ module.course }} course. Last taught: {{ module.date | date_to_string }}{% endif %}</i> </p>
   <p class='archive__item-excerpt'>{{ module.module-description | truncatewords:35 }} <a href="{{ site.url }}{{ module.permalink }}">read more.</a> <i>Last updated: {{ module.modified | date_to_string }}</i> </p>
 

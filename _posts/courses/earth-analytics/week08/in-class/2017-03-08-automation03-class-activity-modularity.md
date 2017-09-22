@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/week-8/class-activity-modularity-r/
@@ -103,7 +103,7 @@ ndvi_classified_pre <- reclassify(landsat_ndvi_pre,
 plot(ndvi_classified_pre,
      box=F, axes=F, legend=F,
      col=ndvi_colors,
-     main="NDVI - Pre fire")
+     main = "NDVI - Pre fire")
 legend(ndvi_classified_pre@extent@xmax, ndvi_classified_pre@extent@ymax,
         legend=c("No Vegetation", "Low Greenness", "Medium Greenness", "High Greeness"),
         fill = ndvi_colors, bty="n", xpd=T)
@@ -128,7 +128,7 @@ landsat_nbr_pre <- (landsat_stack_csf_pre[[4]] - landsat_stack_csf_pre[[7]]) / (
 # plot classified data
 plot(landsat_nbr_pre,
      box=F, axes=F,
-     main="Landsat NBR - Pre Fire \n Julian Day 189")
+     main = "Landsat NBR - Pre Fire \n Julian Day 189")
 ```
 
 ## Open & Process Post-fire data
@@ -168,7 +168,7 @@ ndvi_classified_post <- reclassify(landsat_ndvi_post,
 #### Plot with legend
 plot(ndvi_classified_post,
      box=F, axes=F, legend=F,
-     main="NDVI - Post Fire",
+     main = "NDVI - Post Fire",
      col=ndvi_colors)
 legend(ndvi_classified_post@extent@xmax, ndvi_classified_post@extent@ymax,
        legend=c("No Vegetation", "Low Greenness", "Medium Greenness", "High Greeness"),
@@ -212,7 +212,7 @@ landsat_nbr_diff_class <- reclassify(landsat_nbr_diff,
 plot(landsat_nbr_diff_class,
      box=F, axes=F, legend=F,
      col=nbr_colors,
-     main="Landsat difference NBR - Post Fire \n Julian Day 205")
+     main = "Landsat difference NBR - Post Fire \n Julian Day 205")
 legend(landsat_nbr_diff_class@extent@xmax-100, landsat_nbr_diff_class@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity"),
        fill=nbr_colors,
@@ -234,7 +234,7 @@ Compare pre and post fire.
 ```r
 par(mfrow=c(2,1))
 plot(landsat_nbr_pre, zlim=c(-1,1),
-     main="pre-fire NBR")
+     main = "pre-fire NBR")
 plot(landsat_nbr_post, zlim=c(-1,1),
-     main="post-fire NBR")
+     main = "post-fire NBR")
 ```

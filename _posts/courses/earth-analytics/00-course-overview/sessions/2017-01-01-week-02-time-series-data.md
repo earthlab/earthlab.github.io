@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & work with time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-09-13'
+modified: '2017-09-18'
 week-landing: 2
 week: 2
 sidebar:
@@ -13,7 +13,6 @@ author_profile: false
 course: "earth-analytics"
 module-type: 'session'
 ---
-
 
 {% include toc title="This Week" icon="file-text" %}
 
@@ -97,7 +96,7 @@ submission below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework submission: due Friday Sept 15 @ 8pm
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework (5 points): due Friday Sept 15 @ 8pm
 
 #### 1. Create an R Markdown document
 
@@ -124,7 +123,7 @@ Use the `data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv` file t
 
 Use the `data/week_02/discharge/06730200-discharge-daily-1986-2013.csv` file to create:
 
-* **PLOT 3:** a plot of stream discharge from 1986 to 2016 using `ggplot()` function.
+* **PLOT 3:** a plot of stream discharge from 1986 to 2013 using `ggplot()` function.
 * **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using the `ggplot()` function.
 
 #### For all your plots be sure to do the following
@@ -194,6 +193,12 @@ format report using `knitr`.
 
 ## Homework plots
 
+
+```
+## Stackoverflow is a great place to get help:
+## http://stackoverflow.com/tags/ggplot2.
+```
+
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-solution-plot-1-1.png" title="homework plot one" alt="homework plot one" width="90%" />
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot-2-1.png" title="homework plot 2" alt="homework plot 2" width="90%" />
@@ -229,6 +234,7 @@ format report using `knitr`.
 
 ### Report content - text writeup: 30%
 
+<<<<<<< HEAD
 | Element                                                                                                                                                           | 5 points                                                                                                                                                       | 3 Points                                             | 0 Points                                                      |  |
 |:------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------------|:--------------------------------------------------------------|:-|
 | PDF and RMD submitted                                                                                                                                             | Both files are submitted                                                                                                                                       | Only one of the 2 files are submitted                | NA                                                            |  |
@@ -239,6 +245,19 @@ format report using `knitr`.
 | 2-3 paragraphs exist at the top of the report that summarize the conditions and the events that took place in 2013 to cause a flood that had significant impacts. | Summary text is included at the top of the report.                                                                                                             |                                                      | There is no introductory, summary text included in the report |  |
 | Introductory text at the top of the document clearly describes the conditions and events that took place in 2013 that yielded the significant flood event.        | The summary text adequately describes the drivers including the weather system, rainfall and discharge as it relates to the erosion / deposition that occured. | NA                                                   | This information is not included in the report.               |  |
 | Introductory text at the top of the document is thoughtful and well written.                                                                                      | It is well written.                                                                                                                                            | NA                                                   | Introductory text is not well written.                        |  |
+=======
+| Full credit |   | No credit |
+|:-----|:--------|:----------|
+| PDF and RMD files submitted   |     |   |
+| Summary text is provided for each plot |   | |
+| Grammar & spelling are accurate throughout the report |  |  |
+| File is named with last name-first initial week 2  |   |  |
+| Report contains all 4 plots described in the assignment. |  |  |
+| 2-3 paragraphs exist at the top of the report that summarize the conditions and the events that took place in 2013 to cause a flood that had significant impacts. |  |     |
+| Introductory text at the top of the document clearly describes the drivers and impacts associated with the 2013 flood event.  |  |  |
+|===
+| Introductory text at the top of the document is organized, clear and thoughtful.  |  | |
+>>>>>>> dev-lessons
 
 
 ### Report content - code format: 20%
@@ -308,6 +327,39 @@ format report using `knitr`.
 | Code to create the plot is clearly documented with comments in the html / pdf knitr output.                                                         | NA                             | Code is not documented with comments.          |  |
 | Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event. | NA                             | Plot is not interpreted in the text.           |  |
 
+<<<<<<< HEAD
+=======
+#### Plot aesthetics
+
+* **PLOT 1:** a plot of precipitation from 2003 to 2013 using `ggplot()`.
+* **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`.
+* **PLOT 3:** a plot of stream discharge from 1986 to 2013 using `ggplot()`.
+* **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using `ggplot()`.
+***
+* **PLOT 5:** (GRAD STUDENTS ONLY, bonus points for undergrads): a plot of precipitation that spans from 1948 - 2013
+
+We will review each of the plots listed above for various aesthetics as follows:
+
+| Full credit |   | No credit |
+|:-----|:--------|:----------|
+| Plot is labeled with a title, x and y axis label.  | | |
+| Plot is coded using the `ggplot()` function. (please **don't** use qplot()) |  | |
+| Date on the x axis is formatted as a date class for all plots.  |  | Dates are not properly formatted. |
+| Missing data values have been cleaned / replaced with `NA` |   | Missing values have not been cleaned  |
+| Code to create the plot is clearly documented with comments in the html / pdf `knitr` output.  |  | Code isn't commented |
+|===
+| Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event. |  | Plot is not discussed and interpreted in the text.   |
+
+#### Dplyr plot subsetting
+
+Plots 2 and 4 should be temporally subsetted to the dates listed above.
+
+| Full credit |   | No credit |
+|:-----|:--------|:----------|
+| Plot 2 is temporally subsetted using `dplyr` pipes to Aug 15 - Oct 15 2013 |  |  |
+|===
+| Plot 4 is temporally subsetted using `dplyr` pipes to Aug 15 - Oct 15 2013 |  |  |
+>>>>>>> dev-lessons
 
 #### Grading bonus points (2 points potential)
 ***

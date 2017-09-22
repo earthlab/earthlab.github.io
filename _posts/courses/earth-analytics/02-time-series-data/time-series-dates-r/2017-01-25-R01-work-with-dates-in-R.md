@@ -3,7 +3,7 @@ layout: single
 title: "Work with date - time formats in R - time series data "
 excerpt: "Learn how to work with date and time fields in R."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-09-10'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/date-class-in-r/
@@ -224,7 +224,7 @@ aggregate ticks on the x-axis by year instead of trying to plot every day!
 
 
 ```r
-# quickly plot the data and include a title using main=""
+# quickly plot the data and include a title using main = ""
 # use '\n' to force the string to wrap onto a new line
 
 ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP)) +

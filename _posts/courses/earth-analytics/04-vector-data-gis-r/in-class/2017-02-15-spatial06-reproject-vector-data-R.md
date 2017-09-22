@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: How to reproject vector data in different coordinate reference systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-09-20'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/reproject-vector-data/
@@ -320,8 +320,8 @@ object compared to the `state_boundary_us` object.
 # extent & crs for AOI
 extent(sjer_aoi)
 ## class       : Extent 
-## xmin        : 254570.6 
-## xmax        : 258867.4 
+## xmin        : 254571 
+## xmax        : 258867 
 ## ymin        : 4107303 
 ## ymax        : 4112362
 crs(sjer_aoi)
@@ -332,10 +332,10 @@ crs(sjer_aoi)
 # extent & crs for object in geographic
 extent(state_boundary_us)
 ## class       : Extent 
-## xmin        : -124.7258 
-## xmax        : -66.94989 
-## ymin        : 24.49813 
-## ymax        : 49.38436
+## xmin        : -124.7 
+## xmax        : -66.95 
+## ymin        : 24.5 
+## ymax        : 49.38
 crs(state_boundary_us)
 ## CRS arguments:
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
@@ -393,10 +393,10 @@ crs(sjer_aoi_WGS84)
 # does the extent look like decimal degrees?
 extent(sjer_aoi_WGS84)
 ## class       : Extent 
-## xmin        : -119.7626 
-## xmax        : -119.7127 
-## ymin        : 37.0799 
-## ymax        : 37.12657
+## xmin        : -119.8 
+## xmax        : -119.7 
+## ymin        : 37.08 
+## ymax        : 37.13
 ```
 
 Once our data are reprojected, we can try to plot again.
@@ -481,6 +481,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```

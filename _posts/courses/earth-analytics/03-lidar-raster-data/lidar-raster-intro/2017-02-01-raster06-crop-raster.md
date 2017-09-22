@@ -4,7 +4,7 @@ title: "Crop a spatial raster dataset using a shapefile in R."
 excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-09-12'
+modified: '2017-09-18'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/crop-raster-data-in-r/
@@ -48,6 +48,7 @@ directory with it.
 
 * **raster:** `install.packages("raster")`
 * **rgdal:** `install.packages("rgdal")`
+* * **sf:** `install.packages("sf")`
 
 If you have not already downloaded the week 3 data, please do so now.
 [<i class="fa fa-download" aria-hidden="true"></i> Download week 3 data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
@@ -67,6 +68,7 @@ as `QGIS`.
 # load the raster and rgdal libraries
 library(raster)
 library(rgdal)
+# if you want to use sf. we will use sf for future lessons!
 ```
 
 ## Open raster and vector layers
@@ -91,19 +93,13 @@ plot(lidar_chm,
 Next, let's open up a vector layer that contains the crop extent that we want
 to use to crop our data. To open a shapefile we use the `readOGR()` function.
 
-`readOGR()` requires two components:
-
-1. The directory where our shapefile lives: data/week_03/BLDR_LeeHill/
-2. The name of the shapefile (without the extension): clip-extent
-
 
 
 ```r
 # import the vector boundary
-crop_extent <- readOGR("data/week_03/BLDR_LeeHill",
-                       "clip-extent")
+crop_extent <- readOGR("data/week_03/BLDR_LeeHill/clip-extent.shp")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week_03/BLDR_LeeHill", layer: "clip-extent"
+## Source: "data/week_03/BLDR_LeeHill/clip-extent.shp", layer: "clip-extent"
 ## with 1 features
 ## It has 1 fields
 ## Integer64 fields read as strings:  id
@@ -111,7 +107,7 @@ crop_extent <- readOGR("data/week_03/BLDR_LeeHill",
 # plot imported shapefile
 # notice that we use add=T to add a layer on top of an existing plot in R.
 plot(crop_extent,
-     main="Shapefile imported into R - crop extent",
+     main = "Shapefile imported into R - crop extent",
      axes=T,
      border="blue")
 ```
@@ -120,8 +116,8 @@ plot(crop_extent,
 
 <figure>
     <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/spatial_extent.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/spatial_extent.png" alt="The spatial extent of a shapefile or R spatial object represents the geographic "edge" or location that is the furthest north, south east and west."></a>
-    <figcaption>The spatial extent of a shapefile or R spatial object represents
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/spatial_extent.png" alt="The spatial extent of a shapefile or R spatial object represents the geographic 'edge' or location that is the furthest north, south east and west."></a>
+    <figcaption>The spatial extent of a shapefile or `R` spatial object represents
     the geographic "edge" or location that is the furthest north, south east and
     west. Thus is represents the overall geographic coverage of the spatial
     object. Image Source: Colin Williams, NEON.
@@ -135,10 +131,10 @@ crop the raster data using the vector shapefile.
 ```r
 # crop the lidar raster using the vector extent
 lidar_chm_crop <- crop(lidar_chm, crop_extent)
-plot(lidar_chm_crop, main="Cropped lidar chm")
+plot(lidar_chm_crop, main = "Cropped lidar chm")
 
 # add shapefile on top of the existing raster
-plot(crop_extent, add=T)
+plot(crop_extent, add=TRUE)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster06-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="90%" />

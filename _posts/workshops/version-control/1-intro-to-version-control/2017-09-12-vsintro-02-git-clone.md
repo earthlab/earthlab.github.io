@@ -210,6 +210,7 @@ control.
  </figcaption>
 </figure>
 
+
 #### Add files
 
 You can add an individual file or groups of files to git tracking. To add a
