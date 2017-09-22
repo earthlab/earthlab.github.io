@@ -200,7 +200,16 @@ to git.
 These two commands make up the bulk of many workflows that use git for version
 control.
 
-![](fig/git-add-commit.png)
+<figure>
+ <a href="{{ site.url }}/images/workshops/version-control/git-add-commit.png">
+ <img src="{{ site.url }}/images/workshops/version-control/git-add-commit.png"></a>
+ <figcaption>Modified files are staged using git add, and following a commit, 
+ all files in the staging area are snapshotted and become part of the repository's
+ history, receiving a unique SHA-1 hash identifier. 
+ Source: Maxwell Joseph, adapted from Pro Git by Chacon and Straub (2014).
+ </figcaption>
+</figure>
+
 
 #### Add files
 
@@ -331,7 +340,7 @@ commit history for your repository!
 
 ## Additional resources
 
-- [Creating a new repository on GitHub](https://help.github.com/articles/creating-a-new-repository/)
-- [Git and GitHub learning resources](https://help.github.com/articles/git-and-github-learning-resources/)
+* <a href="https://help.github.com/articles/creating-a-new-repository/" target="_blank"> Creating a new repository on GitHub </a>
+* <a href="https://help.github.com/articles/git-and-github-learning-resources/" target="_blank"> Git and GitHub learning resources </a>
 
 </div>

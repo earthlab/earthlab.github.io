@@ -1,13 +1,13 @@
 ---
 layout: single
 category: courses
-title: "Version control intro and setup "
+title: "Version control intro and setup"
 modified: '2017-09-21'
 nav-title: "Workshop overview & setup"
 permalink: /courses/intro-version-control-git/
 module: "intro-version-control-git"
 module-type: 'workshop'
-module-title: "Introduction to version control and git"
+module-title: "Introduction to version control and Git"
 module-description: 'Learn why version control is useful to science workflows and how to use git and GitHub for version control to back up your work.'
 sidebar:
   nav:
@@ -36,57 +36,55 @@ order: 1
 
 ## What you need
 
-To participate in this workshop, you need to have git and bash installed on your
+To participate in this workshop, you need to have Git and Bash installed on your
 computer. Please follow the instructions below to install this PRIOR to showing up for the workshop.
 
 </div>
 
-
-<i class="fa fa-star"></i> **Data Tip:** Anyone with an `.edu` affiliation can get a
-free git account with unlimited private repos. Sign up for the
+<i class="fa fa-star"></i> **Data Tip:** Anyone with an `.edu` email affiliation can get a
+free GitHub account with unlimited private repos. 
 <a href="https://help.github.com/articles/discounted-organization-accounts/" target="_blank" >Learn more here</a>.
 {: .notice--success }
 
-
-<!-- an overview module specifies the overview content for the course including syllabus and any assignments  module-type: 'session' specified a week or a particular set of content surrounding a topic - eg internship seminar, etc -->
 
 ## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Workshop schedule
 
 | time        | topic                                               | instructor |
 |:------------|:----------------------------------------------------|:-----------|
-| 1:00 - 2:30 | Intro to version control & git - commit, push, pull | Max        |
+| 1:00 - 2:30 | Intro to version control & Git - commit, push, pull | Max        |
 | 2:30 - 2:40 | Break                                               |            |
 | 2:40 - 4:00 | Pull requests and cloning + review                  | Leah       |
 
 
-## Step 1. Setup git
+## Step 1. Setup Git and Bash
 
-### Setup git for Windows
+### Windows instructions
 
-* <a href="https://swcarpentry.github.io/workshop-template/#shell" target="_blank">Install bash on your computer</a>. Please note that windows command prompt is not the same as bash or shell. Please follow the software carpentry instructions to install shell. We suggest gitbash for windows users. If you are on a mac, you can use your terminal!
+* <a href="https://swcarpentry.github.io/workshop-template/#shell" target="_blank">Install Bash on your computer</a>. Please note that Windows command prompt is not the same as Bash - we suggest that Windows users install Git for Windows, which also installs Bash as described in the Software Carpentry instructions.
 
-### Setup git for MAC / LINUX
+### Mac or Linux instructions
 
-* Install git <a href="https://swcarpentry.github.io/workshop-template/#git" target="_blank">Install git on your computer</a> If you are on windows and
-followed the bash instructions above you can skip this step! If you are on a mac or linux, please be sure to install git!
+* Bash is available by default for these *nix based systems
+* <a href="https://swcarpentry.github.io/workshop-template/#git" target="_blank">Install Git on your computer.</a>
 
-## Step 2. Sign up for github
+## Step 2. Sign up for GitHub
 
-### Create An Github Account
-If you do not already have a GitHub account, go to <a href="http://github.com/join" target="_blank" >GitHub </a> and sign up for
-your free account. Pick a username that you like! This username is what your
-colleagues will see as you work with them in GitHub and Git.
+### Create a GitHub account
+
+If you do not already have a GitHub account, go to <a href="http://github.com/join" target="_blank">GitHub </a> and sign up fora free account. Pick a username that you like! 
+This username is what your colleagues will see as you work with them in GitHub and Git.
 
 Take a minute to setup your account. If you want to make your account more
 recognizable, be sure to add a profile picture to your account!
 
-If you already have a GitHub account, simply be sure that you can sign in.
+If you already have a GitHub account, verify that you can sign in.
 
-## Step 3. Configure git on your computer
-Head over to software carpentry and <a href = "http://swcarpentry.github.io/git-novice/02-setup/follow" target = "_blank">follow the steps to setup git locally on your
-computer.  </a>
+## Step 3. Configure Git on your computer
 
-Specifically be sure set up your username and email using bash at the command line.
+Head over to Software Carpentry and <a href = "http://swcarpentry.github.io/git-novice/02-setup/" target = "_blank"> follow the steps to configure Git on your
+computer. </a>
+
+Be sure to set up your username and e-mail from the command line.
 
 ```bash
 $ git config --global user.name "Your Name"
@@ -94,6 +92,8 @@ $ git config --global user.email "your-email-used-for-github-acct@email.com"
 $ git config --global color.ui "auto"
 ```
 
-If you don't want to use vim as your default text editor. Please configure your
-text editor as well. Follow the software carpentry lessons and if they don't make
-sense we can go through this together during the workshop.
+Please configure your text editor as well. Follow the software carpentry lessons 
+and if they don't make sense we can go through this together during the workshop.
+
+If you're not sure whether you've already configured Git, you can list your configuration 
+by executing `git config --list`.

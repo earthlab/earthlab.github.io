@@ -116,7 +116,9 @@ committed version and you've discarded the most recent changes.
 <figure>
  <a href="{{ site.url }}/images/workshops/version-control/git-checkout.png">
  <img src="{{ site.url }}/images/workshops/version-control/git-checkout.png"></a>
- <figcaption>Caption here. Source:
+ <figcaption>Git checkout can undo unstaged changes by pulling the
+ previous commit's version of a file from repository's history. 
+ Source: Maxwell Joseph, adapted from Pro Git by Chacon and Straub (2014).
  </figcaption>
 </figure>
 
@@ -308,7 +310,7 @@ to ignore files and directories in your git repo on the <a href="http://swcarpen
 
 ## Additional resources
 
-- [On undoing, fixing, or removing commits in git](https://sethrobertson.github.io/GitFixUm/fixup.html#committed_really)
-- [Git basics - undoing things](https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things)
+* <a href="https://sethrobertson.github.io/GitFixUm/fixup.html" target="_blank"> On undoing, fixing, or removing commits in Git </a>
+* <a href="https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things" target="_blank"> Git basics - undoing things </a>
 
 </div>
