@@ -3,5 +3,6 @@ Disallow: /events/
 Disallow: /pdf/
 Disallow: /leaflet-maps/water_map2.html
 Disallow: /meetup/
+Disallow: /slide-shows/
 
 Sitemap: https://earthdatascience.org/sitemap.xml

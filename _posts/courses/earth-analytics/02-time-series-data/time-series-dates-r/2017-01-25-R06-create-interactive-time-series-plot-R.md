@@ -3,7 +3,7 @@ layout: single
 title: "Create interactive plots in R - time series & scatterplots using plotly and dygraphs"
 excerpt: "Learn how to create interactive reports using plotly and dygraphs in R for plotting. "
 authors: ['Leah Wasser']
-modified: '2017-09-10'
+modified: '2017-09-25'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/interactive-time-series-plots-in-r/
@@ -16,6 +16,7 @@ author_profile: false
 comments: true
 order: 6
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -54,11 +55,8 @@ First, we will load all of the needed libraries.
 # load libraries
 library(ggplot2)
 library(xts)
-## Error in library(xts): there is no package called 'xts'
 library(dygraphs)
-## Error in library(dygraphs): there is no package called 'dygraphs'
 library(plotly)
-## Error in library(plotly): there is no package called 'plotly'
 
 options(stringsAsFactors = FALSE)
 ```
@@ -71,14 +69,16 @@ Next, let's import some time series data
 ```r
 discharge_time <- read.csv("data/week_02/discharge/06730200-discharge-daily-1986-2013.csv")
 
-discharge_time$datetime <- as.Date(discharge_time$datetime, format="%m/%d/%y")
+# fix date using pipes
+discharge_time <- discharge_time %>%
+ mutate(datetime = as.Date(datetime, format = "%m/%d/%y"))
 ```
 
 We can plot the data using ggplot().
 
 
 ```r
-annual_precip <- ggplot(discharge_time, aes(x=datetime, y=disValue)) +
+annual_precip <- ggplot(discharge_time, aes(x = datetime, y = disValue)) +
   geom_point() +
   labs(x = "Time",
        y = "discharge value",
@@ -122,15 +122,13 @@ work with `html`!
 ```r
 # interactive time series
 library(dygraphs)
-## Error in library(dygraphs): there is no package called 'dygraphs'
 # create time series objects (class xs)
 library(xts)
-## Error in library(xts): there is no package called 'xts'
 
 # create time series object
 discharge_timeSeries <- xts(x = discharge_time$disValue,
                             order.by = discharge_time$datetime)
-## Error in xts(x = discharge_time$disValue, order.by = discharge_time$datetime): could not find function "xts"
+
 ```
 
 Then you can call the `dygraph()` function to create your interactive time-series plot.
