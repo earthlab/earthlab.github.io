@@ -11,6 +11,7 @@ overview-order: 6
 course: "earth-analytics"
 sidebar:
   nav:
+sitemap: false
 ---
 
 The search below, will ONLY return lessons associated with the Earth Analytics
