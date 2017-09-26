@@ -4,7 +4,7 @@ title: "GIS in R: intro to vector format spatial data - points, lines and polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-25'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-vector-data-r/
@@ -108,6 +108,7 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -201,8 +202,8 @@ crs(sjer_plot_locations)
 # view just the extent for the shapefile
 extent(sjer_plot_locations)
 ## class       : Extent 
-## xmin        : 254739 
-## xmax        : 258497 
+## xmin        : 254738.6 
+## xmax        : 258497.1 
 ## ymin        : 4107527 
 ## ymax        : 4112168
 
@@ -210,12 +211,12 @@ extent(sjer_plot_locations)
 sjer_plot_locations
 ## class       : SpatialPointsDataFrame 
 ## features    : 18 
-## extent      : 254739, 258497, 4107527, 4112168  (xmin, xmax, ymin, ymax)
+## extent      : 254738.6, 258497.1, 4107527, 4112168  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 5
-## names       :  Plot_ID,  Point, northing, easting, plot_type 
-## min values  : SJER1068, center,  4107527,  254739,     grass 
-## max values  :  SJER952, center,  4112168,  258497,     trees
+## names       :  Plot_ID,  Point, northing,  easting, plot_type 
+## min values  : SJER1068, center,  4107527, 254738.6,     grass 
+## max values  :  SJER952, center,  4112168, 258497.1,     trees
 ```
 
 Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
@@ -265,25 +266,25 @@ We view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
 ```r
 # alternate way to view attributes
 sjer_plot_locations@data
-##     Plot_ID  Point northing easting plot_type
-## 1  SJER1068 center  4111568  255852     trees
-## 2   SJER112 center  4111299  257407     trees
-## 3   SJER116 center  4110820  256839     grass
-## 4   SJER117 center  4108752  256177     trees
-## 5   SJER120 center  4110476  255968     grass
-## 6   SJER128 center  4111389  257079     trees
-## 7   SJER192 center  4111071  256683     grass
-## 8   SJER272 center  4112168  256717     trees
-## 9  SJER2796 center  4111534  256034      soil
-## 10 SJER3239 center  4109857  258497      soil
-## 11   SJER36 center  4110162  258278     trees
-## 12  SJER361 center  4107527  256962     grass
-## 13   SJER37 center  4107579  256148     trees
-## 14    SJER4 center  4109767  257228     trees
-## 15    SJER8 center  4110249  254739     trees
-## 16  SJER824 center  4110048  256186      soil
-## 17  SJER916 center  4109617  257460      soil
-## 18  SJER952 center  4110759  255871     grass
+##     Plot_ID  Point northing  easting plot_type
+## 1  SJER1068 center  4111568 255852.4     trees
+## 2   SJER112 center  4111299 257407.0     trees
+## 3   SJER116 center  4110820 256838.8     grass
+## 4   SJER117 center  4108752 256176.9     trees
+## 5   SJER120 center  4110476 255968.4     grass
+## 6   SJER128 center  4111389 257078.9     trees
+## 7   SJER192 center  4111071 256683.4     grass
+## 8   SJER272 center  4112168 256717.5     trees
+## 9  SJER2796 center  4111534 256034.4      soil
+## 10 SJER3239 center  4109857 258497.1      soil
+## 11   SJER36 center  4110162 258277.8     trees
+## 12  SJER361 center  4107527 256961.8     grass
+## 13   SJER37 center  4107579 256148.2     trees
+## 14    SJER4 center  4109767 257228.3     trees
+## 15    SJER8 center  4110249 254738.6     trees
+## 16  SJER824 center  4110048 256185.6      soil
+## 17  SJER916 center  4109617 257460.5      soil
+## 18  SJER952 center  4110759 255871.2     grass
 ```
 
 In this case, our polygon object only has one attribute: `id`.
@@ -301,9 +302,9 @@ includes the **class**, the number of **features**, the **extent**, and the
 summary(sjer_plot_locations)
 ## Object of class SpatialPointsDataFrame
 ## Coordinates:
-##               min     max
-## coords.x1  254739  258497
-## coords.x2 4107527 4112168
+##                 min       max
+## coords.x1  254738.6  258497.1
+## coords.x2 4107527.1 4112167.8
 ## Is projected: TRUE 
 ## proj4string :
 ## [+proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
@@ -337,7 +338,7 @@ Next, let's visualize the data in our `R` `spatialpointsdataframe` object using
 # 'pch' sets the symbol
 # 'col' sets point symbol color
 plot(sjer_plot_locations, col = "blue",
-     pch=8,
+     pch = 8,
      main = "SJER Plot Locations\nMadera County, CA")
 ```
 

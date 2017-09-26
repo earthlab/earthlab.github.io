@@ -16,6 +16,7 @@ sidebar:
   nav: earth-analytics-2017
 startTime: '9:30'
 endTime: '12:20'
+sitemap: false
 ---
 
 ## <i class="fa fa-home" aria-hidden="true"></i> Earth Analytics Fall 2017

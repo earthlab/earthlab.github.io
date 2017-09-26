@@ -1,8 +1,9 @@
 ---
  layout: archive
  title: Search
- permalink: 
+ permalink:
  sitemap: false
+ published: false
  ---
 
 <div class="sidebar notsticky">

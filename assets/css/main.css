@@ -661,8 +661,8 @@ body:hover .visually-hidden button {
 @media (min-width: 64em) {
   .sticky {
     clear: both;
-    position: -webkit-sticky;
-    position: sticky;
+    /*  position: -webkit-sticky;
+      position: sticky; removing stickiness for the time being*/
     top: 2em; }
     .sticky::after {
       clear: both;
