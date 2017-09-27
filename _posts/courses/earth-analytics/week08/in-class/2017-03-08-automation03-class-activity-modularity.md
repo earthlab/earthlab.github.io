@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/week-8/class-activity-modularity-r/
@@ -93,7 +93,7 @@ reclass <- c(-1, -.2, 1,
              .5, 1, 4)
 # reshape the object into a matrix with columns and rows
 reclass_m <- matrix(reclass,
-                    ncol=3,
+                    ncol = 3,
                     byrow=TRUE)
 
 ndvi_classified_pre <- reclassify(landsat_ndvi_pre,
@@ -102,11 +102,11 @@ ndvi_classified_pre <- reclassify(landsat_ndvi_pre,
 # plot classified data
 plot(ndvi_classified_pre,
      box=F, axes=F, legend=F,
-     col=ndvi_colors,
+     col = ndvi_colors,
      main = "NDVI - Pre fire")
 legend(ndvi_classified_pre@extent@xmax, ndvi_classified_pre@extent@ymax,
         legend=c("No Vegetation", "Low Greenness", "Medium Greenness", "High Greeness"),
-        fill = ndvi_colors, bty="n", xpd=T)
+        fill = ndvi_colors, bty = "n", xpd = TRUE)
 
 
 ### export NDVI raster with unique name
@@ -159,7 +159,7 @@ reclass <- c(-1, -.2, 1,
              .5, 1, 4)
 # reshape the object into a matrix with columns and rows
 reclass_m <- matrix(reclass,
-                    ncol=3,
+                    ncol = 3,
                     byrow=TRUE)
 
 ndvi_classified_post <- reclassify(landsat_ndvi_post,
@@ -169,10 +169,10 @@ ndvi_classified_post <- reclassify(landsat_ndvi_post,
 plot(ndvi_classified_post,
      box=F, axes=F, legend=F,
      main = "NDVI - Post Fire",
-     col=ndvi_colors)
+     col = ndvi_colors)
 legend(ndvi_classified_post@extent@xmax, ndvi_classified_post@extent@ymax,
        legend=c("No Vegetation", "Low Greenness", "Medium Greenness", "High Greeness"),
-       fill = ndvi_colors, bty="n", xpd=T)
+       fill = ndvi_colors, bty = "n", xpd = TRUE)
 
 ### Optional -- export NDVI raster with unique name
 writeRaster(x = ndvi_classified_post,
@@ -202,7 +202,7 @@ reclass <- c(-1.0, -.1, 1,
              .66, 1.3, 5)
 # reshape the object into a matrix with columns and rows
 reclass_m <- matrix(reclass,
-                ncol=3,
+                ncol = 3,
                 byrow=TRUE)
 
 landsat_nbr_diff_class <- reclassify(landsat_nbr_diff,
@@ -211,12 +211,12 @@ landsat_nbr_diff_class <- reclassify(landsat_nbr_diff,
 # plot classified data
 plot(landsat_nbr_diff_class,
      box=F, axes=F, legend=F,
-     col=nbr_colors,
+     col = nbr_colors,
      main = "Landsat difference NBR - Post Fire \n Julian Day 205")
 legend(landsat_nbr_diff_class@extent@xmax-100, landsat_nbr_diff_class@extent@ymax,
        c("Enhanced Regrowth", "Unburned", "Low Severity", "Moderate Severity", "High Severity"),
        fill=nbr_colors,
-       cex=.9, bty="n", xpd=T)
+       cex = .9, bty = "n", xpd = TRUE)
 
 
 writeRaster(x = landsat_nbr_diff_class,

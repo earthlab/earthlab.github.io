@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/missing-data-in-r-na/
 nav-title: 'Clean missing data'
 dateCreated: 2016-12-13
-modified: '2017-09-10'
+modified: '2017-09-27'
 week: 2
 sidebar:
   nav:
@@ -18,6 +18,8 @@ order: 5
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
+redirect_from:
+   - "/course-materials/earth-analytics/week-2/missing-data-in-r-na/"
 ---
 
 

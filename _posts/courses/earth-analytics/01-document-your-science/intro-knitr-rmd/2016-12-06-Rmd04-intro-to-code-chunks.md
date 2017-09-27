@@ -4,7 +4,7 @@ title: "Understand and use code chunks in R Markdown and comment your code"
 excerpt: 'Learn how code chunks are written and formatted within an R Markdown file in R Studio.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [courses]
-modified: '2017-08-30'
+modified: '2017-09-27'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/rmarkdown-code-chunks-comments-knitr/
 nav-title: 'Code chunks'
@@ -17,6 +17,8 @@ course: "earth-analytics"
 order: 4
 topics:
   reproducible-science-and-programming: ['rmarkdown']
+redirect_from:
+   - "/course-materials/earth-analytics/week-1/rmarkdown-code-chunks-comments-knitr/"
 ---
 {% include toc title="In this lesson" icon="file-text" %}
 

@@ -3,7 +3,7 @@ layout: single
 title: "How to remove borders and add legends to spatial plots in R. "
 excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['how-to-hints-week7']
 permalink: /courses/earth-analytics/week-7/refine-plots-report/
@@ -177,7 +177,7 @@ It's not pretty. For one, we don't need the x and y axes on this plot.
 # plot ndvi with legend
 plot(ndvi_classified,
      main = "ndvi plot",
-     col=the_colors)
+     col = the_colors)
 ## Error in plot(ndvi_classified, main = "ndvi plot", col = the_colors): object 'ndvi_classified' not found
 ```
 First let's get rid of the unnecessary axes and turn off the legend.
@@ -188,7 +188,7 @@ We can remote the axes & box that surrounds our image using: `axes=F` and `box=F
 # plot ndvi with legend
 plot(ndvi_classified,
      main = "ndvi plot",
-     col=the_colors,
+     col = the_colors,
      axes=F, box=F)
 ## Error in plot(ndvi_classified, main = "ndvi plot", col = the_colors, axes = F, : object 'ndvi_classified' not found
 ```
@@ -203,7 +203,7 @@ to the right of the plot.
 plot(ndvi_classified,
      legend=F,
      main = "ndvi plot",
-     col=the_colors,
+     col = the_colors,
      axes=F, box=F)
 ## Error in plot(ndvi_classified, legend = F, main = "ndvi plot", col = the_colors, : object 'ndvi_classified' not found
 legend("topright",
@@ -231,11 +231,11 @@ Here I set the y max value to me the **furthest north** of my object extent.
 plot(ndvi_classified,
      legend=F,
      main = "ndvi plot",
-     col=the_colors,
+     col = the_colors,
      axes=F, box=F)
 ## Error in plot(ndvi_classified, legend = F, main = "ndvi plot", col = the_colors, : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
-par(xpd=T)
+par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
@@ -251,11 +251,11 @@ Now, another problem with our legend. *The order of our colors is all wrong:* Gr
 plot(ndvi_classified,
      legend=F,
      main = "ndvi plot",
-     col=the_colors,
+     col = the_colors,
      axes=F, box=F)
 ## Error in plot(ndvi_classified, legend = F, main = "ndvi plot", col = the_colors, : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
-par(xpd=T)
+par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
@@ -279,17 +279,17 @@ This makes space for our legend but also makes a bit of space for our plot title
 
 ```r
 # set a margin for our figure
-par(xpd=F, mar=c(0,0,2,5))
+par(xpd=F, mar = c(0,0,2,5))
 # plot ndvi with legend
 plot(ndvi_classified,
      legend=F,
      main = "ndvi plot with axes & box turned off",
-     col=the_colors,
+     col = the_colors,
      axes=F,
      box=F)
 ## Error in plot(ndvi_classified, legend = F, main = "ndvi plot with axes & box turned off", : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
-par(xpd=T)
+par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        bty=F, # turn off legend border
@@ -300,40 +300,40 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```
 
 I can do better than that however. That box around the legend is annoying. Let's
-remove it using the legend argument: `bty="n"`. Let's also make the legend
-fonts a bit smaller using the argument `cex=.9`.
+remove it using the legend argument: `bty = "n"`. Let's also make the legend
+fonts a bit smaller using the argument `cex = .9`.
 
 
 ```r
 # set a margin for our figure
-par(xpd=F, mar=c(0,0,2,5))
+par(xpd=F, mar = c(0,0,2,5))
 # plot ndvi with legend
 plot(ndvi_classified,
      legend=F,
      main = "ndvi plot with axes & box turned off",
-     col=the_colors,
+     col = the_colors,
      axes=F,
      box=F)
 ## Error in plot(ndvi_classified, legend = F, main = "ndvi plot with axes & box turned off", : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
-par(xpd=T)
+par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= rev(the_colors),# use rev to reverse the order of colors for the legend
-       bty="n", # turn off legend border
-       cex=.9)  # adjust legend font size
+       bty = "n", # turn off legend border
+       cex = .9)  # adjust legend font size
 ## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```
 
 ```r
 dev.off()
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```
 
 If things are still not looking right, we can adjust the size of our output
@@ -353,21 +353,21 @@ HINT: use `dev.size()`` to figure out the size of your plot dev space in RStudio
 
 ```r
 # set a margin for our figure
-par(xpd=F, mar=c(0,0,2,6))
+par(xpd=F, mar = c(0,0,2,6))
 # plot ndvi with legend
 plot(ndvi_classified,
      legend=F,
      main = "NDVI plot with axes & box turned off & custom margins\n to make room for the legend",
-     col=the_colors,
+     col = the_colors,
      axes=F,
      box=F)
 ## Error in plot(ndvi_classified, legend = F, main = "NDVI plot with axes & box turned off & custom margins\n to make room for the legend", : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
-par(xpd=T)
+par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
-       bty="n", # turn off legend border
-       cex=.8, # make the legend font a bit smaller
+       bty = "n", # turn off legend border
+       cex = .8, # make the legend font a bit smaller
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 ## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```
@@ -381,26 +381,26 @@ shapefile that was used to clip these data
 crop_ext <- readOGR("data/week06/vector_layers/fire_crop_box_2000m.shp")
 ## Error in ogrListLayers(dsn = dsn): Cannot open data source
 # set a margin for our figure
-par(xpd=F, mar=c(0,0,2,6))
+par(xpd=F, mar = c(0,0,2,6))
 # plot ndvi with legend
 plot(ndvi_classified,
      legend=F,
      main = "NDVI plot with axes & box turned off & custom margins\n to make room for the legend",
-     col=the_colors,
+     col = the_colors,
      axes=F,
      box=F)
 ## Error in plot(ndvi_classified, legend = F, main = "NDVI plot with axes & box turned off & custom margins\n to make room for the legend", : object 'ndvi_classified' not found
 
 plot(crop_ext,
      lwd=2,
-     add=T)
-## Error in plot(crop_ext, lwd = 2, add = T): object 'crop_ext' not found
+     add = TRUE)
+## Error in plot(crop_ext, lwd = 2, add = TRUE): object 'crop_ext' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
-par(xpd=T)
+par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
-       bty="n", # turn off legend border
-       cex=.8, # make the legend font a bit smaller
+       bty = "n", # turn off legend border
+       cex = .8, # make the legend font a bit smaller
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
 ## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```

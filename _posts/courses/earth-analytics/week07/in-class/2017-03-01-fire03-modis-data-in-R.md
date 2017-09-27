@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS remote sensing data in in R."
 excerpt: "In this lesson we will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. We will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/modis-data-in-R/
@@ -230,7 +230,7 @@ Why is it so hard to figure out where the study area is in this MODIS image?
 ```
 ## Error in plotRGB(all_modis_bands_st_july7, r = 1, g = 4, b = 3, stretch = "lin", : object 'all_modis_bands_st_july7' not found
 ## Error in box(col = "white"): plot.new has not been called yet
-## Error in plot(fire_boundary_sin, add = T, border = "yellow", lwd = 50): object 'fire_boundary_sin' not found
+## Error in plot(fire_boundary_sin, add = TRUE, border = "yellow", lwd = 50): object 'fire_boundary_sin' not found
 ```
 
 ## MODIS cloud mask
@@ -283,7 +283,7 @@ the value `NA`.
 ```
 ## Error in plotRGB(all_modis_bands_st_mask, r = 1, g = 4, b = 3, stretch = "lin", : object 'all_modis_bands_st_mask' not found
 ## Error in box(col = "white"): plot.new has not been called yet
-## Error in plot(fire_boundary_sin, add = T, col = "yellow", lwd = 1): object 'fire_boundary_sin' not found
+## Error in plot(fire_boundary_sin, add = TRUE, col = "yellow", lwd = 1): object 'fire_boundary_sin' not found
 ```
 
 Finally crop the data to see just the pixels that overlay our study area.
@@ -293,7 +293,7 @@ Finally crop the data to see just the pixels that overlay our study area.
 ## Error in crop(all_modis_bands_st_mask, fire_boundary_sin): object 'all_modis_bands_st_mask' not found
 ## Error in plotRGB(all_modis_bands_st_mask, r = 1, g = 4, b = 3, stretch = "lin", : object 'all_modis_bands_st_mask' not found
 ## Error in box(col = "white"): plot.new has not been called yet
-## Error in plot(fire_boundary_sin, border = "yellow", add = T): object 'fire_boundary_sin' not found
+## Error in plot(fire_boundary_sin, border = "yellow", add = TRUE): object 'fire_boundary_sin' not found
 ```
 
 
@@ -313,7 +313,7 @@ Finally crop the data to see just the pixels that overlay our study area.
 ## Error in eval(expr, envir, enclos): object 'modis_nbr' not found
 ## Error in reclassify(modis_nbr, reclass_m): object 'modis_nbr' not found
 ## Error in plot(modis_nbr_cl, main = "MODIS NBR for the Cold Springs site", : object 'modis_nbr_cl' not found
-## Error in plot(fire_boundary_sin, add = T): object 'fire_boundary_sin' not found
+## Error in plot(fire_boundary_sin, add = TRUE): object 'fire_boundary_sin' not found
 ## Error in strwidth(legend, units = "user", cex = cex, font = text.font): plot.new has not been called yet
 ```
 
@@ -390,7 +390,7 @@ plot the final results!
 the_colors = c("palevioletred4","palevioletred1","ivory1")
 barplot(modis_nbr_july17_cl,
         main = "Distribution of burn values - Post Fire",
-        col=rev(the_colors),
+        col = rev(the_colors),
         names.arg=c("Low Severity","Moderate Severity","High Severity"))
 ## Error in barplot(modis_nbr_july17_cl, main = "Distribution of burn values - Post Fire", : object 'modis_nbr_july17_cl' not found
 ```
@@ -402,7 +402,7 @@ Finally, plot the reclassified data. Note that we only have 3 classes: 2, 3 and 
 
 ```
 ## Error in plot(modis_nbr_july17_cl, main = "MODIS NBR for the Cold Springs site \n Post fire", : object 'modis_nbr_july17_cl' not found
-## Error in plot(fire_boundary_sin, add = T): object 'fire_boundary_sin' not found
+## Error in plot(fire_boundary_sin, add = TRUE): object 'fire_boundary_sin' not found
 ## Error in legend(modis_nbr_july17_cl@extent@xmax - 50, modis_nbr_july17_cl@extent@ymax, : object 'modis_nbr_july17_cl' not found
 ## Error in freq(modis_nbr_july17_cl, useNA = "no", value = 5): object 'modis_nbr_july17_cl' not found
 ## Error in freq(modis_nbr_july17_cl, useNA = "no", value = 4): object 'modis_nbr_july17_cl' not found

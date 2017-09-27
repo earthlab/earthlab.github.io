@@ -3,7 +3,7 @@ layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/get-data-earth-explorer/
@@ -227,7 +227,7 @@ plotRGB(all_landsat_bands_173_st,
 box(col = "white")
 ## Error in box(col = "white"): plot.new has not been called yet
 plot(fire_boundary_utm,
-     add=T,
+     add = TRUE,
      border="yellow")
 ## Error in polypath(x = mcrds[, 1], y = mcrds[, 2], border = border, col = col, : plot.new has not been called yet
 ```

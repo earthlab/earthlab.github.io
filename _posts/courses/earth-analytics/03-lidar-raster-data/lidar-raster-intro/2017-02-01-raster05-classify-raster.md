@@ -4,7 +4,7 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/classify-raster/
@@ -121,16 +121,16 @@ by looking at the `min` and `max` values in our `CHM`.
 ```r
 summary(lidar_chm)
 ##         lidar_chm
-## Min.       0.0000
-## 1st Qu.    0.0000
-## Median     0.0000
-## 3rd Qu.    0.6899
-## Max.      25.1200
-## NA's       0.0000
+## Min.      0.00000
+## 1st Qu.   0.00000
+## Median    0.00000
+## 3rd Qu.   0.75000
+## Max.     25.76001
+## NA's      0.00000
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
-0 to 26.9301.
+0 to 26.9300537.
 
 Let's explore the data further by looking at a histogram. A histogram quantifies
 the distribution of values found in our data.
@@ -184,12 +184,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76103  3435  3080  2904  2412  2074  2009  1811  1518  1210   995
-## [12]   718   545   393   312   181   144    65    42    24     9    12
-## [23]     4
+##  [1] 76213  3458  3044  2880  2369  2137  1945  1794  1478  1244   969
+## [12]   738   570   405   267   191   123    85    39    30    13     4
+## [23]     3     1
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23
+## [24] 23 24
 ```
 
 If we want to customize our histogram further, we can customize the number of
@@ -392,7 +392,7 @@ legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = c("red", "blue", "green"),
        border = FALSE,
-       bty="n") # turn off legend border
+       bty = "n") # turn off legend border
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />
@@ -417,7 +417,7 @@ legend("topright",
        legend = c("short trees", "medium trees", "tall trees"),
        fill = chm_colors,
        border = FALSE,
-       bty="n")
+       bty = "n")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster05-classify-raster/plot-w-legend-colors-1.png" title="classified chm with legend." alt="classified chm with legend." width="90%" />

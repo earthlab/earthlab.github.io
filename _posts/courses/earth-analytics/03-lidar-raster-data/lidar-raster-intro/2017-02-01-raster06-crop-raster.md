@@ -4,7 +4,7 @@ title: "Crop a spatial raster dataset using a shapefile in R."
 excerpt: "This lesson covers how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/crop-raster-data-in-r/
@@ -21,6 +21,8 @@ topics:
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
+redirect_from:
+   - "/course-materials/earth-analytics/week-3/crop-raster-data-in-r/"
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
@@ -83,7 +85,7 @@ lidar_chm <- raster("data/week_03/BLDR_LeeHill/outputs/lidar_chm.tif")
 
 # plot CHM
 plot(lidar_chm,
-     col=rev(terrain.colors(50)))
+     col = rev(terrain.colors(50)))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster06-crop-raster/open-raster-1.png" title="lidar chm plot" alt="lidar chm plot" width="90%" />
@@ -105,7 +107,7 @@ crop_extent <- readOGR("data/week_03/BLDR_LeeHill/clip-extent.shp")
 ## Integer64 fields read as strings:  id
 
 # plot imported shapefile
-# notice that we use add=T to add a layer on top of an existing plot in R.
+# notice that we use add = T to add a layer on top of an existing plot in R.
 plot(crop_extent,
      main = "Shapefile imported into R - crop extent",
      axes=T,
@@ -134,7 +136,7 @@ lidar_chm_crop <- crop(lidar_chm, crop_extent)
 plot(lidar_chm_crop, main = "Cropped lidar chm")
 
 # add shapefile on top of the existing raster
-plot(crop_extent, add=TRUE)
+plot(crop_extent, add = TRUE)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster06-crop-raster/crop-and-plot-raster-1.png" title="lidar chm cropped with vector extent on top" alt="lidar chm cropped with vector extent on top" width="90%" />

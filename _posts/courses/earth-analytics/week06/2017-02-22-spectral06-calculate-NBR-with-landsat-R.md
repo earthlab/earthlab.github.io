@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and plot difference normalized burn ratio (dNBR) from Landsat remote sensing data in R"
 excerpt: "In this lesson we review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. We finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/calculate-dNBR-R-Landsat/
@@ -207,7 +207,7 @@ didn't include it in the title of this map.
 ```r
 barplot(nbr_classified,
         main = "Distribution of Classified NBR Values",
-        col=the_colors)
+        col = the_colors)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral06-calculate-NBR-with-landsat-R/view-bar-1.png" title="plot barplot of fire severity values" alt="plot barplot of fire severity values" width="90%" />
@@ -218,7 +218,7 @@ Add labels to your barplot!
 ```r
 barplot(nbr_classified,
         main = "Distribution of Classified NBR Values",
-        col=the_colors,
+        col = the_colors,
         names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
 ```
 

@@ -14,6 +14,8 @@ sidebar:
 comments: false
 author_profile: false
 overview-order: 1
+redirect_from:
+   - "/course-materials/earth-analytics/"
 ---
 
 {% include toc title="This course" icon="file-text" %}
