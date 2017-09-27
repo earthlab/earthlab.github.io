@@ -6,6 +6,8 @@ excerpt: "Data intensive courses, course lessons and tutorials that teach scient
 permalink: /courses/
 comments: false
 author_profile: false
+redirect_from:
+  - "/course-materials/"
 ---
 
 ## Courses

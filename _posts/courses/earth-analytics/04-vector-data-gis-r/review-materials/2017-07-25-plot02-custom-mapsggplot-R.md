@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Create custom maps with ggplot in R - GIS in R"
+title: "Create Custom Maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-maps-with-ggplot-in-R/
@@ -20,30 +20,32 @@ class-order: 2
 topics:
   spatial-data-and-gis: ['vector-data', 'coordinate-reference-systems', 'maps-in-r']
   reproducible-science-and-programming:
+redirect_from:
+   - "/course-materials/earth-analytics/week-4/make-maps-with-ggplot-in-R/"
 ---
 
 <!--# remove module-type: 'class' so it doesn't render live -->
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
 * Create a map in `R` using `ggplot()`
 * Plot a vector dataset by attributes in `R` using `ggplot()`
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download week 5 data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
-## Making maps with GGPLOT
+## Making Maps with GGPLOT
 
 In the previous lesson, we used base `plot()` to create a map of vector data -
 our roads data - in `R`. In this lesson we will create the same maps, however
@@ -122,21 +124,21 @@ unique(sjer_roads$RTTYP)
 ## [1] "M"       "Unknown" "S"       "C"
 ```
 
-## Convert spatial data to a data.frame
+## Convert Spatial Data to a data.frame
 
 When we're plotting with base `plot()`, we can plot spatial `sp` or `raster` objects directly
 without converting them. However `ggplot()` requires a `data.frame`. Thus we will
 need to convert our data. We can convert he data using the `tidy()` function from
 the broom package in `R`.
 
-<i class="fa fa-star"></i> **Data tip:** the tidy function used to be the fortify
+<i class="fa fa-star"></i> **Data tip:** The tidy function used to be the fortify
 function! The code for the `tidy()` function is exactly the same as the `fortify()` code.
 {: .notice--success}
 
 Below we convert the data by:
 
 1. Calling the `tidy()` function on our `sjer_roads` spatial object
-1. Adding an id field to the spatial object data frame which represents each unique
+1. Adding an `id` field to the spatial object data frame which represents each unique
 feature (each road line) in the data
 1. Joining the table from the spatial object to the data.frame output of the `tidy()` function
 
@@ -231,7 +233,7 @@ ggplot() +
 Notice that above the colors are applied to each category (C, M, S and Unknown) in order.
 In this case the order is alphabetical.
 
-### Remove ggplot axis ticks
+### Remove ggplot Axis Ticks
 
 Finally we can remove the axis ticks and labels using a `theme()` element.
 Themes are used in `ggplot()` to customize the look of a plot. You can customize
@@ -264,7 +266,6 @@ ggplot() +
 Finally we can use `coord_quickmap()` to scale the x and y axis equally by long and
 lat values.
 
-coord_quickmap()
 <i class="fa fa-star"></i> **Data tip:** There are many different ways to ensure
 `ggplot()` plots data using x and y axis distances that represent the data properly.
 `coord_fixed()` can be used to specify a uniform x and y axis scale. `coord_quickmap()`
@@ -295,7 +296,7 @@ ggplot() +
 # https://us.sagepub.com/en-us/nam/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031
 -->
 
-### Adjust line width
+### Adjust Line Width
 
 We can adjust the width of the lines on our plot using `size =`. If we use `size = 4`
 with a numeric value (e.g. 4) then we set all of line features in our data to the
@@ -318,7 +319,7 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
 
-### Adjust line width by attribute
+### Adjust Line Width by Attribute
 
 If we want a unique line width for each factor level or attribute category
 in our spatial object, we can use a similar syntax to the one we used for colors.
@@ -336,7 +337,7 @@ associated with each line width. Like this:
 
 Note that similar to colors, we have adjusted the lines using two steps
 
-1. We've set the size to `factor(RTTYP)` a
+1. We've set the size to `factor(RTTYP)`
 2. We've assigned the size using the `size_scale_manual()` function
 
 Let's see how it looks.
@@ -363,7 +364,7 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/roads-line-width2-1.png" title="Roads ggplot map with line width set." alt="Roads ggplot map with line width set." width="90%" />
 
-### Merge the legends
+### Merge the Legends
 
 The map above looks ok but we have multiple legends when we really just want one
 legend for both color and size. We can merge the legend using the `guides()` function.
@@ -423,7 +424,7 @@ ggplot() +
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Plot line width by attribute
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge: Plot Line Width by Attribute
 
 Create your own custom map of roads. Adjust the line width and the colors of the
 roads to make a map that emphasizes roads of value S (thicker lines) and that de-emphasizes
@@ -442,7 +443,7 @@ O = Other
 S = State recognized
 U = U.S.-->
 
-## Adding points and lines to a legend
+## Adding Points and Lines to a Legend
 
 Next, let's add points to our map and and of course the map legend too.
 We will import the shapefile `data/week_04/california/SJER/vector_data/sjer_plot_centroids.shp` layer. This
@@ -501,7 +502,7 @@ ggplot() +
 Great! We've now plotted our data using `ggplot`. Let's next combine the roads
 with the points in one clean map.
 
-## Layering data in ggplot
+## Layering Data in ggplot
 
 We can layer multiple `ggplot` objects by adding a new `geom_` function to our plot.
 For the roads data, we used `geom_path()` and for points we use `geom_point()`.
@@ -536,7 +537,7 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/combine-layers-custom-ext-1.png" title="Plot of both points and lines with ggplot with custom extent" alt="Plot of both points and lines with ggplot with custom extent" width="90%" />
 
-## Data crop vs. map zoom
+## Data Crop vs. Map Zoom
 
 A better approach is to crop our data to a study region. That way we aren't
 retaining information that we done need which will make plotting faster.
@@ -611,7 +612,7 @@ crs(sjer_roads_utmcrop)
 ## +towgs84=0,0,0
 ```
 
-Next, we convert the study_area spatial object to a `data.frame` so we can plot it
+Next, we convert the `study_area` spatial object to a `data.frame` so we can plot it
 using `ggplot`. In this case we only have one extent boundary for the study area -
 so we won't need to add the attributes.
 
@@ -732,7 +733,7 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-cowplot-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
-## Adjust ggplot theme settings
+## Adjust ggplot Theme Settings
 
 Finally, we can use a combination of `cowplot` and `ggplot` `theme()` settings to
 remove the x and y axis labels, ticks and lines. We use `background_grid()` to remove the
@@ -772,7 +773,7 @@ ggplot() +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-07-25-plot02-custom-mapsggplot-R/final-ggplot-3-1.png" title="ggplot map with roads and plots using symbols and colors" alt="ggplot map with roads and plots using symbols and colors" width="90%" />
 
-## Legends and scale bars
+## Legends and Scale Bars
 
 We can use the `ggsn` package to magically add a legend and a scale bar to our final
 map. We can also use this package to create a "blank" map background - removing all
@@ -852,7 +853,7 @@ ggplot() +
 
 <div class="notice--info" markdown="1">
 
-## Additional resources
+## Additional Resources
 
 * <a href="http://oswaldosantos.github.io/ggsn/" target="_blank">Add scale bars and legends to your ggplot map </a>
 

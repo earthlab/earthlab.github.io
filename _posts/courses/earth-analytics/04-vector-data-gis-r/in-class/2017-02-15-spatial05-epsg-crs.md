@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Understand EPSG, WKT and other CRS definition styles"
 excerpt: "This lesson discusses ways that coordinate reference system data are stored including  proj4, well known text (wkt) and EPSG codes. "
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
@@ -21,14 +21,14 @@ topics:
 ---
 
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 This lesson discusses ways that coordinate reference system data are stored
 including `proj4`, well known text (`wkt`) and `EPSG` codes.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
@@ -37,11 +37,11 @@ After completing this tutorial, you will be able to:
 * Create a `proj4` string in `R` using an `EPSG` code
 * Look up an `proj4` string using an `epsg` code with `dplyr` pipes the the `make_EPSG()` function.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download week 5 data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -50,7 +50,7 @@ components of a coordinate reference system and the general differences between
 projected and geographic coordinate reference systems. In this lesson we will
 cover the different ways that `CRS` information is stored.
 
-### Coordinate reference system formats
+### Coordinate Reference System Formats
 
 There are numerous formats that are used to document a `CRS`. Three common
 formats include:
@@ -68,7 +68,7 @@ associated with your `CRS` of interest you can then look at all of the various f
 associated with that `CRS`:
 <a href="http://spatialreference.org/ref/epsg/4326/" target="_blank">EPSG 4326 - WGS84 geographic</a>
 
-#### PROJ or PROJ.4 strings
+#### PROJ or PROJ.4 Strings
 
 `PROJ.4` strings are a compact way to identify a spatial or coordinate reference
 system. `PROJ.4` strings are the primary output from many of the spatial data `R`
@@ -106,7 +106,7 @@ crs(aoi)
 ## +towgs84=0,0,0
 ```
 
-Notice that the `crs` returned from our crop data layer is a string of
+Notice that the `CRS` returned from our crop data layer is a string of
 characters and numbers that are combined using `+` signs. The `CRS` for our data are
 in the `proj4` format. The string contains all of the individual `CRS` elements
 that `R` or another `GIS` might need. Each element is specified with a `+` sign,
@@ -120,23 +120,24 @@ This is a `proj4` string:
 
 We can break down the proj4 string into its individual components (again, separated by + signs) as follows:
 
-* **+proj=utm:** the projection is UTM, UTM has several zones.
-* **+zone=11:** the zone is 11 which is a zone on the west coast, USA.
+* **+proj=utm:** the projection is UTM, UTM has several zones
+* **+zone=11:** the zone is 11 which is a zone on the west coast, USA
 * **datum=WGS84:** the datum WGS84 (the datum refers to the 0,0 reference for
 the coordinate system used in the projection)
-* **+units=m:** the units for the coordinates are in METERS.
+* **+units=m:** the units for the coordinates are in METERS
 * **+ellps=WGS84:** the ellipsoid (how the earth's roundness is calculated) for
 the data is WGS84
 
 Note that the `zone` is unique to the UTM projection. Not all `CRS`s will have a
 zone.
 
-Also note that while California is above the equator - in the northern hemisphere - there is no N (specifying north) following the zone (i.e. 11N)
-South is explicitly specified in the UTM `proj4` specification however
-if there is no S, then you can assume it's a northern projection.
+Also note that while California is above the equator - in the northern hemisphere - 
+there is no N (specifying north) following the zone (i.e. 11N) South is explicitly 
+specified in the UTM `proj4` specification however if there is no S, then you can 
+assume it's a northern projection.
 
 
-### Geographic (lat / long) Proj4 string
+### Geographic (lat / long) Proj4 String
 
 Next, let's have a look at another `CRS` definition.
 
@@ -183,13 +184,13 @@ with this in `R`.
 {: .notice--success}
 
 
-#### EPSG codes
-The `EPSG` codes are 4-5 digit numbers that represent `CRS`s definitions. The
+#### EPSG Codes
+The `EPSG` codes are 4-5 digit numbers that represent `CRS` definitions. The
 acronym `EPGS`, comes from the, now defunct, European Petroleum Survey Group. Each
 code is a four-five digit number which represents a particular `CRS` definition.
 
-<a href="http://spatialreference.org/ref/epsg/" target="_blank" class="btn">list of ESPG codes on spatialreference.org
-.</a>
+<a href="http://spatialreference.org/ref/epsg/" target="_blank" class="btn">List of ESPG codes on spatialreference.org 
+</a>
 
 You can create a list of EPSG codes using the `make_epsg()` function in
 `rgdal` package in `R`. This can be useful if you need to look up a code and
@@ -280,7 +281,7 @@ head(utm)
 ## 6 +proj=utm +zone=18 +ellps=clrk66 +units=m +no_defs
 ```
 
-### Create CRS objects
+### Create CRS Objects
 
 `R` has a class of type `crs`. We can use this to create `CRS` objects using both the
 text string itself and / or the `EPSG` code. Let's give it a try. We will use our
@@ -315,11 +316,11 @@ a_crs_object_epsg
 ## +towgs84=0,0,0
 ```
 
-#### WKT or well-known text
+#### WKT or Well-known Text
 
 We won't spend a lot of time on the Well-known text (`WKT`) format. However, it's
 useful to recognize this format given many tools - including ESRI's `ArcMap` and
-`ENVI` use this format. Well-known text (`WKT`) is a for compact machine- and
+`ENVI` use this format. `WKT` is a compact machine- and
 human-readable representation of geometric objects. It defines elements of
 coordinate reference system (`CRS`) definitions using a combination of brackets `[]`
 and elements separated by commas (`,`).
@@ -353,9 +354,9 @@ GEOGCS["WGS 84",
 ```
 
 
-## How to look up a CRS
+## How to Look Up a CRS
 
-The most powerful website to look-up CRS information is the
+As previously mentioned, the best website to look-up CRS information is the
 <a href="http://spatialreference.org" target="_blank">spatial reference.org website</a>.
 This website has a useful search function that allows you to search
 for strings such as:
@@ -368,7 +369,7 @@ the `CRS` using various formats including `proj4`, `epsg`, `WKT` and others.
 
 <div class="notice--info" markdown="1">
 
-## Additional resources
+## Additional Resources
 
 * <a href="http://docs.opengeospatial.org/is/12-063r5/12-063r5.html#43" target="_blank">Explore the WKT standard: Open Geospatial Consortium WKT document. </a>
 
@@ -377,6 +378,6 @@ the `CRS` using various formats including `proj4`, `epsg`, `WKT` and others.
 
 * <a href="http://www.epsg-registry.org/" target="_blank">The EPSG registry. </a>
 * <a href="http://spatialreference.org/" target="_blank">Spatialreference.org</a>
-* <a href="http://spatialreference.org/ref/epsg/" target="_blank">list of ESPG codes.</a>
+* <a href="http://spatialreference.org/ref/epsg/" target="_blank">List of ESPG codes.</a>
 
 </div>

@@ -1,15 +1,15 @@
 ---
 layout: single
-title: "GIS in R: intro to vector format spatial data - points, lines and polygons"
+title: "GIS in R: Intro to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-09-25'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-vector-data-r/
-nav-title: 'Vector data in R'
-module-title: 'Spatial data in R and remote sensing uncertainty'
+nav-title: 'Vector Data in R'
+module-title: 'Spatial Data in R and Remote Sensing Uncertainty'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
 the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally it walks through opening lidar derived raster data in R / RStudio'
 module-nav-title: 'Spatial Data in R'
@@ -40,7 +40,7 @@ After completing this tutorial, you will be able to:
 * View the metadata of a vector spatial layer in R including CRS
 * Access the tabular (`data.frame`) attributes of a vector spatial layer in `R`.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
 
@@ -76,14 +76,14 @@ countries are often represented by polygons. Occasionally, a polygon can have a
 hole in the middle of it (like a doughnut), this is something to be aware of but
 not an issue we will deal with in this tutorial.
 
-<i class="fa fa-star"></i> **Data Tip:** Sometimes, boundary layers such as
+<i class="fa fa-star"></i> **Data Tip:** Sometimes boundary layers such as
 states and countries, are stored as lines rather than polygons. However, these
 boundaries, when represented as a line, will not create a closed object with a
 defined "area" that can be "filled".
 {: .notice--success}
 
 ## Shapefiles: Points, Lines, and Polygons
-Geospatial data in vector format are often stored in a `shapefile` format.
+Geospatial data in vector format are often stored in a shapefile format.
 Because the structure of points, lines, and polygons are different, each
 individual shapefile can only contain one vector type (all points, all lines
 or all polygons). You will not find a mixture of point, line and polygon
@@ -108,7 +108,6 @@ We will use the `rgdal` package to work with vector data in `R`. Notice that the
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -120,7 +119,7 @@ The shapefiles that we will import are:
 
 * A polygon shapefile representing our field site boundary,
 * A line shapefile representing roads, and
-* A point shapefile representing the location of field siteslocated at the
+* A point shapefile representing the location of field sites located at the
 <a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> San Joachin field site</a>.
 
 The first shapefile that we will open contains the point locations where trees
@@ -346,7 +345,7 @@ plot(sjer_plot_locations, col = "blue",
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your knowledge: Import Line & Polygon Shapefiles
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test Your Knowledge: Import Line & Polygon Shapefiles
 
 Using the steps above, import the `data/week_04/california/madera-county-roads/tl_2013_06039_roads`
 and `data/week_04/california/SJER/vector_data/SJER_crop.shp` shapefiles into
@@ -390,20 +389,20 @@ plot(sjer_plot_locations,
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Import & plot roads shapefile
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge: Import & Plot Roads Shapefile
 
-Import the madera-county-roads layer. Plot the roads.
+Import the `madera-county-roads` layer. Plot the roads.
 
 Next, try to plot the roads on top of the
-SJER crop extent. What happens?
+`SJER` crop extent. What happens?
 
-* Check the CRS of both layers. What do you notice?
+* Check the `CRS` of both layers. What do you notice?
 
 </div>
 
 <div class="notice--info" markdown="1">
 
-## Additional resources: Plot Parameter Options
+## Additional Resources: Plot Parameter Options
 For more on parameter options in the base `R` `plot()` function, check out these
 resources:
 
