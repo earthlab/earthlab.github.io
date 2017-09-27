@@ -6,7 +6,11 @@
 <div class="previous--next">
 
 {% assign counter = 0 %}
+<<<<<<< HEAD
 {% for post in site.categories.course-materials %}
+=======
+{% for post in site.categories.courses %}
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
     {% if post.class-lesson == page.class-lesson %}
       {% assign counter = counter | plus: 1 %}
     {% endif %}
@@ -14,7 +18,11 @@
 
 <!-- if it's page one - then no previous button -->
 <!-- how do i figure out the link? i have to loop through again? -->
+<<<<<<< HEAD
 {% for post in site.categories.course-materials %}
+=======
+{% for post in site.categories.courses %}
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
     {% if post.class-lesson == page.class-lesson %}
 
     {% assign prevPageNum = page.order | minus: 1 %}

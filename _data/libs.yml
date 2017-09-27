@@ -8,17 +8,26 @@
   - ftplib
   - gdal
   - geopy
+<<<<<<< HEAD
   - glob
+=======
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
   - h5py
   - ipyparallel
   - matplotlib
   - numpy
   - ogr
+<<<<<<< HEAD
   - os
   - osgeo
   - pandas
   - pydem
   - pymodis
+=======
+  - osgeo
+  - pandas
+  - pydem
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
   - pysal
   - rpy2
   - shapely

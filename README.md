@@ -6,10 +6,17 @@
 
 This site is made with Jekyll, the Minimal Mistakes theme, and hosted via GitHub pages.
 To work locally on the site:
+<<<<<<< HEAD
 
 ## Contributors
 Maxwell Joseph, Leah Wasser
 
+=======
+
+## Contributors
+Maxwell Joseph, Leah Wasser
+
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 ## 1. Clone the repo
 ```
 # clone the repository, , make the site, and serve it.
@@ -51,4 +58,13 @@ bundle exec jekyll serve
 Currently, we are using less. to install less
 
 1. install nodejs (npm) https://nodejs.org/en/
+<<<<<<< HEAD
 2. install less : `sudo npm install less -g` NOTE: you need administration access to install 
+=======
+2. install less : `sudo npm install less -g` NOTE: you need administration access to install
+
+## License
+
+Please see license information, here https://github.com/earthlab/earthlab.github.io/blob/master/LICENSE
+- all materials are Creative comments by attribution. If you use our materials - please cite us! 
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf

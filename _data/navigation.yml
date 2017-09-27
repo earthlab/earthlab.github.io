@@ -4,8 +4,13 @@ main:
   - title: "Tutorials"
     url: /tutorials/
 
+<<<<<<< HEAD
   - title: "Course Materials"
     url: /course-materials/
+=======
+  - title: "Courses"
+    url: /courses/
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 
   - title: "Tools"
     url: /tools/
@@ -16,6 +21,7 @@ main:
   - title: "About"
     url: /about/
 
+<<<<<<< HEAD
   - title: "Earth Lab CU"
     url: http://www.colorado.edu/earthlab
 
@@ -35,11 +41,30 @@ open-science:
       - title: "File Naming 101"
         url: /slide-shows/2-file-naming-jenny-bryan/
 
+=======
+
+open-science:
+
+  - title: Open Science
+    children:
+      - title: "Activity Overview"
+        url: /tutorials/intro-open-science/
+      - title: "Teaching Notes"
+        url: /open-science/2-instructor-notes/
+  - title: Slide Shows
+    children:
+      - title: "Intro to Reproducibility"
+        url: /slide-shows/1_intro-reprod-science/
+      - title: "File Naming 101"
+        url: /slide-shows/2-file-naming-jenny-bryan/
+
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 earth-analytics-2017:
 
   - title: Course Overview
     children:
       - title: "Course Home"
+<<<<<<< HEAD
         url: /course-materials/earth-analytics/
       - title: "Syllabus"
         url: /course-materials/earth-analytics/earth-analytics-syllabus/
@@ -85,3 +110,50 @@ earth-analytics-2017:
         url: /course-materials/earth-analytics/week-13/
       - title: "Week 14: Group projects"
         url: /course-materials/earth-analytics/week-14/
+=======
+        url: /courses/earth-analytics/
+      - title: "Syllabus"
+        url: /courses/earth-analytics/earth-analytics-syllabus/
+      - title: "Mid-term"
+        url: /courses/earth-analytics/mid-term/
+      - title: "Final project"
+        url: /courses/earth-analytics/final-project/
+      - title: "Data sources"
+        url: /courses/earth-analytics/data-sources/
+  - title: "Weeks 1-2 - Time Series"
+    children:
+      - title: "Week 1: Getting Started With Data"
+        url: /courses/earth-analytics/document-your-science/
+      - title: "Week 2: Time Series Data in R"
+        url: /courses/earth-analytics/week-2/
+  - title: "Weeks 3-5 - Lidar & Spatial data in R"
+    children:
+      - title: "Week 3: Lidar Data in R"
+        url: /courses/earth-analytics/week-3/
+      - title: "Week 4: Review: Raster classification in R"
+        url: /courses/earth-analytics/week-4/
+      - title: "Week 5: Spatial data in R"
+        url: /courses/earth-analytics/week-5/
+  - title: "Weeks 6-7 - Fire & Spectral RS"
+    children:
+      - title: "Week 6: Fire: spectral remote sensing in R"
+        url: /courses/earth-analytics/week-6/
+      - title: "Week 7: Fire 2: spectral remote sensing"
+        url: /courses/earth-analytics/week-7/
+  - title: "Weeks 8-9 - Efficient coding"
+    children:
+      - title: "Week 8: Functions"
+        url: /courses/earth-analytics/week-8/
+      - title: "Week 9: Present your science"
+        url: /courses/earth-analytics/week-9/
+      - title: "Week 10: APIs"
+        url: /courses/earth-analytics/week-10/
+      - title: "Week 11: APIs p2"
+        url: /courses/earth-analytics/week-11/
+      - title: "Week 12: Twitter data & Text mining"
+        url: /courses/earth-analytics/week-12/
+      - title: "Week 13: Twitter data & Text mining"
+        url: /courses/earth-analytics/week-13/
+      - title: "Week 14: Group projects"
+        url: /courses/earth-analytics/week-14/
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf

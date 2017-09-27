@@ -1,7 +1,12 @@
 {% assign the_course = page.course %}
 
 {% assign course_posts = site.posts | where:"course", page.course %}
+<<<<<<< HEAD
 {% assign sorted_posts = site.posts | sort:"order" %}
+=======
+
+{% assign sorted_posts = course_posts | sort:"order" %}
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 
 <!-- make sure we're only grabbing pages for the course -->
 
@@ -17,6 +22,7 @@
 {% assign classes = weeks | where:"module-type", 'class' %}
 {% assign homework = weeks | where:"module-type", 'homework' %}
 
+<<<<<<< HEAD
 <!-- BEGIN commenting this out - this is the old code when only individual module content was on the page vs the entire course-->
 
 {% comment %}
@@ -48,6 +54,9 @@
 
 <h5><a href="{{ site.url }}/course-materials/earth-analytics/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course | capitalize }} Home</a></h5>
 
+=======
+<h5><a href="{{ site.url }}/courses/{{ page.course | slugify }}/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course | capitalize }} Home</a></h5>
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 
 <!-- Just get the pages from this course -->
 
@@ -87,6 +96,10 @@
 <div class='active-menu'>
       <ul>
         {% assign module_names = classes | where:"order", 1 %}
+<<<<<<< HEAD
+=======
+        <!-- Note that class-order allows you to sort modules by class order if there are more than 1 in a class -->
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
         {% assign module_names = module_names | sort:"class-order" %}
 
         {% assign lesson_count = 0 %}
@@ -99,7 +112,10 @@
         <ul>
 
       {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
       <!-- count lessons -->
 
         {% for alesson in weeks %}
@@ -185,4 +201,8 @@
 </ul>
 </nav>
 
+<<<<<<< HEAD
 <h5><a href="{{ site.url }}/course-materials/{{ page.course | slugify }}/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course }} Home</a></h5>
+=======
+<h5><a href="{{ site.url }}/courses/{{ page.course | slugify }}/" ><i class="fa fa-home" aria-hidden="true"></i> {{ page.course }} Home</a></h5>
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf

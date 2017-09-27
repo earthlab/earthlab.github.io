@@ -3,6 +3,14 @@
    integrate with Minimal Minstakes in the future
    ========================================================================== */
 
+<<<<<<< HEAD
+=======
+/* reduce padding in the top bar  */
+.masthead__inner-wrap {
+       padding: 0 1em!important;
+   }
+
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 /* tags on the bottom of the page */
 .a-main-tag {
        font-weight: bold;
@@ -145,6 +153,18 @@ div.notice--success, div.notice--warning {
     font-size: 0.8em !important;
     padding: 0;
 }
+<<<<<<< HEAD
+=======
+/* grade rubrics in notice divs */
+
+.notice--info td {
+    font-size: 1.3em;
+}
+
+.notice--info th {
+    font-size: 1.3em;
+}
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 
 /* Site bar menu items */
 

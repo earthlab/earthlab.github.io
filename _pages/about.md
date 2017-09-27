@@ -10,9 +10,15 @@ permalink: /about/
 This site hosts resources developed by the Earth Lab team at University of Colorado,
 Boulder. This website contains data, code tutorials, data-intensive course
 materials and blog posts related to our work. Most of the
+<<<<<<< HEAD
 [data tutorials]({{ site.url }}{{ site.baseurl }}/tutorials/)
 building `R` and `Python` skills relevant to earth systems analytics, including geospatial,
 social, biological, and earth systems data. The [data-intensive course materials]({{ site.url }}{{ site.baseurl }}/course-materials/) focus on a suite of topics including:
+=======
+[data tutorials]({{ site.url }}/tutorials/)
+building `R` and `Python` skills relevant to earth systems analytics, including geospatial,
+social, biological, and earth systems data. The [data-intensive course materials]({{ site.url }}/courses/) focus on a suite of topics including:
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 
 * Geospatial analysis
 * Open, reproducible science

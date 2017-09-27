@@ -5,6 +5,7 @@ author_profile: false
 published: true
 site-map: true
 permalink: /meetup/
+sitemap: false
 ---
 
 Are you involved or interested in statistics, machine learning, programming, geo-hacking, computer science, and data collection/curation/wrangling?
@@ -27,4 +28,7 @@ ranging from extreme value theory, parallel computing to bayesian statistics.
 No expertise is necessary to join.
 Go to the [Earth Lab data meetup GitHub repository](https://github.com/earthlab/meetup) to see our upcoming topics and
  to get involved!
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf

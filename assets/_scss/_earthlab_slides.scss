@@ -68,7 +68,11 @@
 }
 
 .remark-slide-content ul li, .remark-slide-content ol li {
+<<<<<<< HEAD
     padding-top: 1em;
+=======
+    padding-top: .6em;
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 }
 .remark-slide-content ul li li {
     font-size: 0.8em;
@@ -88,8 +92,13 @@
 
 
 .remark-slide-content h1 { font-size: 3em; }
+<<<<<<< HEAD
 .remark-slide-content h2 { font-size: 2em; }
 .remark-slide-content h3 { font-size: 1.6em; }
+=======
+.remark-slide-content h2 { font-size: 1.5em; }
+.remark-slide-content h3 { font-size: 1.3em; }
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
 .remark-slide-content .remark-slide-content.footnote {
   position: absolute;
   bottom: 3em;
@@ -272,3 +281,18 @@
       text-align: left;
       top: 30px;
 }
+<<<<<<< HEAD
+=======
+
+/*  Also apply these to slides search */
+
+.remark-slide tbody tr:nth-child(2n+1) {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid $light-gray;
+  border-top: 1px solid $light-gray;
+}
+
+.remark-slide tbody {
+  font-size: .9em;
+}
+>>>>>>> 7564f8e1cb08ccd2d92fa67ef7068e0b6a911faf
