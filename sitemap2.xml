@@ -13,7 +13,7 @@ layout:
 {% endif %}
 {% endfor %}
 
-
+{% comment %}
 {% for page in site.pages %}
 <!-- begin pages-->
 {% if page.sitemap %}
@@ -25,5 +25,5 @@ layout:
 
 {% endif %}
 {% endfor %}
-
+{% endcomment %}
 </urlset>
