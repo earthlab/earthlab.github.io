@@ -3,7 +3,7 @@ layout: single
 title: "Clean remote sensing data in R - Clouds, shadows & cloud masks"
 excerpt: "In this lesson, we will learn how to deal with clouds when working with spectral remote sensing data. We will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. We will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/intro-spectral-data-r/
@@ -220,23 +220,23 @@ In this case, we want to set all values greater than 0 in the raster mask to `NA
 
 ```r
 
-par(xpd=F, mar=c(0,0,1,5))
+par(xpd=F, mar = c(0,0,1,5))
 # create cloud & cloud shadow mask
 cloud_mask_189[cloud_mask_189 > 0] <- NA
 ## Error in cloud_mask_189[cloud_mask_189 > 0] <- NA: object 'cloud_mask_189' not found
 plot(cloud_mask_189,
      main = "Our new raster mask",
-     col=c("green"),
+     col = c("green"),
      legend=F,
      axes=F,
      box=F)
 ## Error in plot(cloud_mask_189, main = "Our new raster mask", col = c("green"), : object 'cloud_mask_189' not found
 # add legend to map
-par(xpd=T) # force legend to plot outside of the plot extent
+par(xpd = TRUE) # force legend to plot outside of the plot extent
 legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax,
        c("Not masked", "Masked"),
        fill=c("green", "white"),
-       bty="n")
+       bty = "n")
 ## Error in legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax, : object 'cloud_mask_189' not found
 ```
 

@@ -3,7 +3,7 @@ layout: single
 title: "Plot grid of spatial plots in R. "
 excerpt: "In this lesson we cover using par() or parameter settings in R to plot several raster RGB plots in R in a grid. "
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['how-to-hints-week7']
 permalink: /courses/earth-analytics/week-7/grid-of-plots-report/
@@ -207,7 +207,7 @@ Your homework this week should look something like this:
 ## Error in x[[1]]: subscript out of bounds
 ## Error in crs(all_modis_bands_st): object 'all_modis_bands_st' not found
 ## Error in plotRGB(all_modis_bands_st, r = 2, g = 4, b = 3, stretch = "lin", : object 'all_modis_bands_st' not found
-## Error in plot(fire_boundary_sin, add = T): object 'fire_boundary_sin' not found
+## Error in plot(fire_boundary_sin, add = TRUE): object 'fire_boundary_sin' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week07/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="90%" />

@@ -3,7 +3,7 @@ layout: single
 title: "Get twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-08-17'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/week-12/use-twitter-api-r/
@@ -21,6 +21,8 @@ lang-lib:
 topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
+redirect_from:
+   - "/course-materials/earth-analytics/week-12/use-twitter-api-r/"
 ---
 
 
@@ -89,11 +91,13 @@ We will use the `rtweet` package to do this.
 ```r
 # load twitter library - the rtweet library is recommended now over twitteR
 library(rtweet)
+## Error in library(rtweet): there is no package called 'rtweet'
 # plotting and pipes - tidyverse!
 library(ggplot2)
 library(dplyr)
 # text mining library
 library(tidytext)
+## Error in library(tidytext): there is no package called 'tidytext'
 ```
 
 
@@ -138,7 +142,7 @@ twitter_token <- create_token(
   app = appname,
   consumer_key = key,
   consumer_secret = secret)
-## Error in structure(list(appname = appname, secret = secret, key = key), : object 'appname' not found
+## Error in create_token(app = appname, consumer_key = key, consumer_secret = secret): could not find function "create_token"
 ```
 
 
@@ -177,56 +181,10 @@ To see what other arguments you can use with this function, use the `R` help:
 ## search for 500 tweets using the #rstats hashtag
 rstats_tweets <- search_tweets(q="#rstats",
                                n = 500)
+## Error in search_tweets(q = "#rstats", n = 500): could not find function "search_tweets"
 # view the first 3 rows of the dataframe
 head(rstats_tweets, n=3)
-##   screen_name            user_id          created_at          status_id
-## 1   kdnuggets           20167623 2017-08-17 15:20:01 898202763905183744
-## 2    nibrivia 760968765811064832 2017-08-17 15:18:22 898202349143035904
-## 3 kellerboris          147011669 2017-08-17 15:18:15 898202318885318656
-##                                                                                                                                           text
-## 1       Top 10 Essential Books for the Data Enthusiast https://t.co/ZFv3W8LTVs #BigData #MachineLearning #DataScience… https://t.co/12e0CQBEDV
-## 2 @NoelleTakesPics @StackOverflow Definitely #rstats: that is how you know how quickly find, understand and use the a… https://t.co/PRwiJIjyMv
-## 3 RT @anilpsori: This is an amazing resource of R tutorials with corresponding code. If you do any work in R, check it out! #rstats https://t…
-##   retweet_count favorite_count is_quote_status    quote_status_id
-## 1             0              2           FALSE               <NA>
-## 2             0              0           FALSE               <NA>
-## 3             6              0            TRUE 897707028948373504
-##   is_retweet  retweet_status_id in_reply_to_status_status_id
-## 1      FALSE               <NA>                         <NA>
-## 2      FALSE               <NA>           898201393445695489
-## 3       TRUE 897997923849445381                         <NA>
-##   in_reply_to_status_user_id in_reply_to_status_screen_name lang
-## 1                       <NA>                           <NA>   en
-## 2                  633284461                NoelleTakesPics   en
-## 3                       <NA>                           <NA>   en
-##               source media_id media_url media_url_expanded urls
-## 1             Buffer     <NA>      <NA>               <NA> <NA>
-## 2 Twitter Web Client     <NA>      <NA>               <NA> <NA>
-## 3          TweetDeck     <NA>      <NA>               <NA> <NA>
-##                                  urls_display
-## 1 buff.ly/2w8A5i2 twitter.com/i/web/status/8…
-## 2                 twitter.com/i/web/status/8…
-## 3                                        <NA>
-##                                                                 urls_expanded
-## 1 https://buff.ly/2w8A5i2 https://twitter.com/i/web/status/898202763905183744
-## 2                         https://twitter.com/i/web/status/898202349143035904
-## 3                                                                        <NA>
-##            mentions_screen_name    mentions_user_id symbols
-## 1                          <NA>                <NA>      NA
-## 2 NoelleTakesPics StackOverflow 633284461 128700677      NA
-## 3                     anilpsori  783815947962322945      NA
-##                              hashtags coordinates place_id place_type
-## 1 BigData MachineLearning DataScience          NA     <NA>       <NA>
-## 2                              rstats          NA     <NA>       <NA>
-## 3                              rstats          NA     <NA>       <NA>
-##   place_name place_full_name country_code country bounding_box_coordinates
-## 1       <NA>            <NA>         <NA>    <NA>                     <NA>
-## 2       <NA>            <NA>         <NA>    <NA>                     <NA>
-## 3       <NA>            <NA>         <NA>    <NA>                     <NA>
-##   bounding_box_type
-## 1              <NA>
-## 2              <NA>
-## 3              <NA>
+## Error in head(rstats_tweets, n = 3): object 'rstats_tweets' not found
 ```
 
 ## Retweets
@@ -243,44 +201,10 @@ our dataframe, separately.
 # find recent tweets with #rstats but ignore retweets
 rstats_tweets <- search_tweets("#rstats", n = 500,
                              include_rts = FALSE)
+## Error in search_tweets("#rstats", n = 500, include_rts = FALSE): could not find function "search_tweets"
 # view top 2 rows of data
 head(rstats_tweets, n=2)
-##   screen_name            user_id          created_at          status_id
-## 1   kdnuggets           20167623 2017-08-17 15:20:01 898202763905183744
-## 2    nibrivia 760968765811064832 2017-08-17 15:18:22 898202349143035904
-##                                                                                                                                           text
-## 1       Top 10 Essential Books for the Data Enthusiast https://t.co/ZFv3W8LTVs #BigData #MachineLearning #DataScience… https://t.co/12e0CQBEDV
-## 2 @NoelleTakesPics @StackOverflow Definitely #rstats: that is how you know how quickly find, understand and use the a… https://t.co/PRwiJIjyMv
-##   retweet_count favorite_count is_quote_status quote_status_id is_retweet
-## 1             0              1           FALSE            <NA>      FALSE
-## 2             0              0           FALSE            <NA>      FALSE
-##   retweet_status_id in_reply_to_status_status_id
-## 1              <NA>                         <NA>
-## 2              <NA>           898201393445695489
-##   in_reply_to_status_user_id in_reply_to_status_screen_name lang
-## 1                       <NA>                           <NA>   en
-## 2                  633284461                NoelleTakesPics   en
-##               source media_id media_url media_url_expanded urls
-## 1             Buffer     <NA>      <NA>               <NA> <NA>
-## 2 Twitter Web Client     <NA>      <NA>               <NA> <NA>
-##                                  urls_display
-## 1 buff.ly/2w8A5i2 twitter.com/i/web/status/8…
-## 2                 twitter.com/i/web/status/8…
-##                                                                 urls_expanded
-## 1 https://buff.ly/2w8A5i2 https://twitter.com/i/web/status/898202763905183744
-## 2                         https://twitter.com/i/web/status/898202349143035904
-##            mentions_screen_name    mentions_user_id symbols
-## 1                          <NA>                <NA>      NA
-## 2 NoelleTakesPics StackOverflow 633284461 128700677      NA
-##                              hashtags coordinates place_id place_type
-## 1 BigData MachineLearning DataScience          NA     <NA>       <NA>
-## 2                              rstats          NA     <NA>       <NA>
-##   place_name place_full_name country_code country bounding_box_coordinates
-## 1       <NA>            <NA>         <NA>    <NA>                     <NA>
-## 2       <NA>            <NA>         <NA>    <NA>                     <NA>
-##   bounding_box_type
-## 1              <NA>
-## 2              <NA>
+## Error in head(rstats_tweets, n = 2): object 'rstats_tweets' not found
 ```
 
 Next, let's figure out who is tweeting about `R` / using the `#rstats` hashtag.
@@ -289,99 +213,10 @@ Next, let's figure out who is tweeting about `R` / using the `#rstats` hashtag.
 ```r
 # view column with screen names - top 6
 head(rstats_tweets$screen_name)
-## [1] "kdnuggets"       "nibrivia"        "jd_wilko"        "NoelleTakesPics"
-## [5] "thonoir"         "QuentinDRead"
+## Error in head(rstats_tweets$screen_name): object 'rstats_tweets' not found
 # get a list of unique usernames
 unique(rstats_tweets$screen_name)
-##   [1] "kdnuggets"       "nibrivia"        "jd_wilko"       
-##   [4] "NoelleTakesPics" "thonoir"         "QuentinDRead"   
-##   [7] "swfknecht"       "StefanieButland" "ActivevoiceSw"  
-##  [10] "RickWicklin"     "PacktPub"        "nierhoff"       
-##  [13] "sgivan"          "g_fiske"         "globalizefm"    
-##  [16] "kspatial"        "ingorohlfing"    "GeospatialUCD"  
-##  [19] "MicheleTobias"   "jhollist"        "dreamRs_fr"     
-##  [22] "DavidZenz"       "LuigiBiagini"    "BDataScientist" 
-##  [25] "pdxrlang"        "sckottie"        "KyleScotShank"  
-##  [28] "jamie_jezebel"   "rweekly_live"    "CRANberriesFeed"
-##  [31] "heyallisongray"  "v_vashishta"     "aimandel"       
-##  [34] "RLadiesChicago"  "suman12029"      "the18gen"       
-##  [37] "jlmico"          "DingemanseMark"  "data_gurus"     
-##  [40] "ido87"           "tjpalanca"       "wrathematics"   
-##  [43] "nielsberglund"   "jumping_uk"      "SharePointSwiss"
-##  [46] "CardiffRUG"      "LockeData"       "dataandme"      
-##  [49] "mdsumner"        "ClaireMKBowen"   "R_Forwards"     
-##  [52] "chrisderv"       "olgunaydinn"     "IronistM"       
-##  [55] "BillPetti"       "hadleywickham"   "rhodyrstats"    
-##  [58] "MrYeti1"         "statsforbios"    "mikeloukides"   
-##  [61] "FelipeSMBarros"  "adamhsparks"     "cpwbroadmead"   
-##  [64] "thinkR_fr"       "ellamkaye"       "TeebzR"         
-##  [67] "_AntoineB"       "maxheld"         "R_Graph_Gallery"
-##  [70] "JRBerrendero"    "jenstirrup"      "jrcajide"       
-##  [73] "LearnRinaDay"    "vivekbhr"        "ma_salmon"      
-##  [76] "aymanfabuelela"  "RossTrendlock"   "gombang"        
-##  [79] "KVittingSeerup"  "MilesMcBain"     "AngelosVanKr"   
-##  [82] "jody_tubi"       "MColebrook"      "uuinfolab"      
-##  [85] "jessenleon"      "Rexercises"      "DeborahTannon"  
-##  [88] "Rbloggers"       "datacarpentry"   "DailyRpackage"  
-##  [91] "groundwalkergmb" "starry_flounder" "bluecology"     
-##  [94] "TrevorABranch"   "KirkDBorne"      "TweetSKS"       
-##  [97] "joranelias"      "rzembo"          "f_dion"         
-## [100] "lenkiefer"       "NickFoxstats"    "cloudaus"       
-## [103] "anilpsori"       "obrl_soil"       "potterzot"      
-## [106] "2Engenheiros"    "alexpghayes"     "JaneLSumner"    
-## [109] "SavranWeb"       "vivalosburros"   "LeahAWasser"    
-## [112] "AnalyticsVidhya" "TedHayes007"     "jwgayler"       
-## [115] "PeterFlomStat"   "peterflom"       "symbolixAU"     
-## [118] "jyazman2012"     "n_ashutosh"      "benmarwick"     
-## [121] "benmatheson"     "guangchuangyu"   "RLadiesLA"      
-## [124] "olyerickson"     "staffanbetner"   "dvaughan32"     
-## [127] "RoelandtN42"     "FFDataStream"    "AriLamstein"    
-## [130] "DerFredo"        "angeld_az"       "Torontosj"      
-## [133] "czeildi"         "noamross"        "arosenberger"   
-## [136] "pherreraariza"   "sctyner"         "kierisi"        
-## [139] "ellis2013nz"     "rstatsdata"      "pinkyprincess"  
-## [142] "regionomics"     "PaulLantos"      "dmi3k"          
-## [145] "feralaes"        "Hao_and_Y"       "satoru0"        
-## [148] "RStudioJoe"      "nubededatos"     "lan24hd"        
-## [151] "itschekkers"     "pie_says_no"     "peterdalle"     
-## [154] "fabian_zehner"   "kevinkeenan_"    "MathIsEH"       
-## [157] "MDFBasha"        "oducepd"         "PaulCampbell91" 
-## [160] "hrbrmstr"        "rstudiotips"     "fubits"         
-## [163] "bunnefeld"       "PeterBChi"       "sociographie"   
-## [166] "maureviv"        "ctorrez2011"     "thatdnaguy"     
-## [169] "daroczig"        "revodavid"       "RLadiesNYC"     
-## [172] "ImDataScientist" "austinwpearce"   "BigDataInsights"
-## [175] "ryangas2"        "andyteucher"     "RLangTip"       
-## [178] "marskar"         "EamonCaddigan"   "larnsce"        
-## [181] "johnjanuszczak"  "emljames"        "BrockTibert"    
-## [184] "worldquantu"     "robinson_es"     "pakdamie"       
-## [187] "YaleSportsGroup" "tipsder"         "seanmhoban"     
-## [190] "expersso"        "Displayrr"       "McMcgregory"    
-## [193] "sedgeboy"        "sveurope"        "rogilmore"      
-## [196] "benheubl"        "thomasp85"       "AlexDunhill"    
-## [199] "fellgernon"      "Talent_metrics"  "jrosenberg6432" 
-## [202] "bass_analytics"  "fredpolicarpo"   "IvanLQF"        
-## [205] "berndweiss"      "dangerpeel"      "LuisDVerde"     
-## [208] "kdubovikov"      "matthrussell"    "malpaso"        
-## [211] "RICarpenter"     "aschinchon"      "MarcosFontela"  
-## [214] "bobehayes"       "n_samples"       "StephanRoess"   
-## [217] "seabbs"          "Data_World_Blog" "HelicityBoson"  
-## [220] "JT_EpiVet"       "CharlotteRobin"  "datentaeterin"  
-## [223] "journocode"      "oaggimenez"      "Jap0nism"       
-## [226] "QuixoticQuant"   "lbusetto74"      "pdalgd"         
-## [229] "TempoReale24"    "mKachala"        "_ColinFay"      
-## [232] "gavin_fay"       "_GregoryPrince_" "_Data_Science_" 
-## [235] "R_Programming"   "kenbenoit"       "robertstats"    
-## [238] "InfonomicsToday" "BobLovesData"    "riannone"       
-## [241] "pommedeterre33"  "m_mina"          "tetsuroito"     
-## [244] "yuichiotsuka"    "wmlandau"        "stephenelane"   
-## [247] "OilGains"        "KanAugust"       "coolbutuseless" 
-## [250] "anamanarye"      "AngeBassa"       "mjwalds"        
-## [253] "stevonio"        "NicholasStrayer" "jaminday"       
-## [256] "Emaasit"         "kellenbyrnes"    "KKulma"         
-## [259] "stfnmllr"        "brennanpcardiff" "DataCamp"       
-## [262] "robert_squared"  "fredericksolt"   "pbaumgartner"   
-## [265] "lariebyrd"       "Datatitian"
+## Error in unique(rstats_tweets$screen_name): object 'rstats_tweets' not found
 ```
 
 We can similarly use the `search_users()` function to just see what users are tweeting
@@ -393,59 +228,10 @@ and information about their accounts.
 # what users are tweeting with #rstats
 users <- search_users("#rstats",
                       n=500)
+## Error in search_users("#rstats", n = 500): could not find function "search_users"
 # just view the first 2 users - the data frame is large!
 head(users, n=2)
-##      user_id               name screen_name             location
-## 1    5685812          boB Rudis    hrbrmstr Underground Cell #34
-## 2 4911181019 Statistician Jason RStatsJason          Atlanta, GA
-##                                                                                                                                                             description
-## 1 Don't look at me…I do what he does—just slower. #rstats avuncular • \U0001f34aResistance Fighter • Cook • Christian • [Master] Chef des Données de Sécurité @ @rapid7
-## 2                              I tweet about Public Health and other things. Founder and current Chair of #Rstats User Group @CDCGov. Alumnus/Instructor @EmoryRollins.
-##   protected followers_count friends_count listed_count          created_at
-## 1     FALSE            8562           376          582 2007-05-01 14:04:24
-## 2     FALSE             319           956           27 2016-02-15 00:48:05
-##   favourites_count utc_offset                  time_zone geo_enabled
-## 1             9597     -14400 Eastern Time (US & Canada)       FALSE
-## 2             3340     -25200 Pacific Time (US & Canada)       FALSE
-##   verified statuses_count lang contributors_enabled is_translator
-## 1     TRUE          66721   en                FALSE         FALSE
-## 2    FALSE           6285   en                FALSE         FALSE
-##   is_translation_enabled profile_background_color
-## 1                  FALSE                   022330
-## 2                  FALSE                   F5F8FA
-##                                                     profile_background_image_url
-## 1 http://pbs.twimg.com/profile_background_images/445410888028155904/ltOYCDU9.png
-## 2                                                                           <NA>
-##                                                profile_background_image_url_https
-## 1 https://pbs.twimg.com/profile_background_images/445410888028155904/ltOYCDU9.png
-## 2                                                                            <NA>
-##   profile_background_tile
-## 1                   FALSE
-## 2                   FALSE
-##                                                            profile_image_url
-## 1 http://pbs.twimg.com/profile_images/824974380803334144/Vpmh_s3x_normal.jpg
-## 2 http://pbs.twimg.com/profile_images/841011873046704129/P-yMNslR_normal.jpg
-##                                                       profile_image_url_https
-## 1 https://pbs.twimg.com/profile_images/824974380803334144/Vpmh_s3x_normal.jpg
-## 2 https://pbs.twimg.com/profile_images/841011873046704129/P-yMNslR_normal.jpg
-##                                                          profile_image_url.1
-## 1 http://pbs.twimg.com/profile_images/824974380803334144/Vpmh_s3x_normal.jpg
-## 2 http://pbs.twimg.com/profile_images/841011873046704129/P-yMNslR_normal.jpg
-##                                                     profile_image_url_https.1
-## 1 https://pbs.twimg.com/profile_images/824974380803334144/Vpmh_s3x_normal.jpg
-## 2 https://pbs.twimg.com/profile_images/841011873046704129/P-yMNslR_normal.jpg
-##   profile_link_color profile_sidebar_border_color
-## 1             94BD5A                       FFFFFF
-## 2             1DA1F2                       C0DEED
-##   profile_sidebar_fill_color profile_text_color
-## 1                     C0DFEC             333333
-## 2                     DDEEF6             333333
-##   profile_use_background_image default_profile default_profile_image
-## 1                         TRUE           FALSE                 FALSE
-## 2                         TRUE            TRUE                 FALSE
-##                                         profile_banner_url
-## 1 https://pbs.twimg.com/profile_banners/5685812/1398248552
-## 2                                                     <NA>
+## Error in head(users, n = 2): object 'users' not found
 ```
 
 Let's learn a bit more about these people tweeting about `R`. First, where are
@@ -455,7 +241,7 @@ they from?
 ```r
 # how many locations are represented
 length(unique(users$location))
-## [1] 329
+## Error in unique(users$location): object 'users' not found
 
 users %>%
   ggplot(aes(location)) +
@@ -463,9 +249,8 @@ users %>%
       labs(x="Count",
       y="Location",
       title="Twitter users - unique locations ")
+## Error in eval(lhs, parent, parent): object 'users' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-02-r/explore-users-1.png" title="plot of users tweeting about R" alt="plot of users tweeting about R" width="100%" />
 
 Let's sort by count and just plot the top locations. To do this we use top_n().
 Note that in this case we are grouping our data by user. Thus top_n() will return
@@ -483,9 +268,8 @@ users %>%
       labs(x="Count",
       y="Location",
       title="Where Twitter users are from - unique locations ")
+## Error in eval(lhs, parent, parent): object 'users' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-02-r/users-tweeting-1.png" title="top 15 locations where people are tweeting" alt="top 15 locations where people are tweeting" width="100%" />
 
 It looks like we have some `NA` or no data values in our list. Let's remove those
 with `na.omit()`.
@@ -503,9 +287,8 @@ users %>%
       labs(x="Location",
       y="Count",
       title="Twitter users - unique locations ")
+## Error in eval(lhs, parent, parent): object 'users' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-02-r/users-tweeting2-1.png" title="top 15 locations where people are tweeting - na removed" alt="top 15 locations where people are tweeting - na removed" width="100%" />
 
 Looking at our data, what do you notice that might improve this plot?
 There are 314 unique locations in our list. However, everyone didn't specify their
@@ -529,7 +312,10 @@ Use the example above, plot users by time zone. List time zones that have atleas
 20 users associated with them. What do you notice about the data?
 </div>
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-02-r/plot-timezone-cleaned-1.png" title="plot of users by location" alt="plot of users by location" width="100%" />
+
+```
+## Error in eval(lhs, parent, parent): object 'users' not found
+```
 
 
 

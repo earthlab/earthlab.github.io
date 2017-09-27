@@ -511,12 +511,12 @@ And we include a `NA` value for each element that should not be a symbol in the
 # plot using new colors
 plot(sjer_plots,
      col = (plot_colors)[sjer_plots$plot_type],
-     pch = 8,
+     pch = c(8, 18, 8)[sjer_plots$plot_type],
      main = "Madera County Roads and plot locations")
 
 # plot using new colors
 plot(sjer_roads_utm,
-     col = (challenge_colors)[sjer_plots$plot_type],
+     col = (challenge_colors)[sjer_roads_utm$RTTYP],
      pch = 8,
      add = TRUE)
 
@@ -576,12 +576,12 @@ furthest_pt_north
 # plot using new colors
 plot(sjer_plots,
      col = (plot_colors)[sjer_plots$plot_type],
-     pch = 8,
+     pch = c(8, 18, 8)[sjer_plots$plot_type],
      main = "Madera County Roads and plot locations")
 
 # plot using new colors
 plot(sjer_roads_utm,
-     col = (challenge_colors)[sjer_plots$plot_type],
+     col = (challenge_colors)[sjer_roads_utm$RTTYP],
      pch = 8,
      add = TRUE)
 
@@ -618,13 +618,14 @@ plot(sjer_aoi,
      border = "grey",
      lwd = 2,
      main = "Madera County Roads and plot locations")
+# plot using new colors
 plot(sjer_plots,
      col = (plot_colors)[sjer_plots$plot_type],
-     add = TRUE,
-     pch = 8)
+     pch = c(8, 18, 8)[sjer_plots$plot_type],
+     add = TRUE)
 # plot using new colors
 plot(sjer_roads_utm,
-     col = (challenge_colors)[sjer_plots$plot_type],
+     col = (challenge_colors)[sjer_roads_utm$RTTYP],
      pch = 8,
      add = TRUE)
 
@@ -665,18 +666,19 @@ plot(sjer_aoi,
      border = "grey",
      lwd = 2,
      main = "Madera County Roads and plot locations")
+# plot using new colors
 plot(sjer_plots,
      col = (plot_colors)[sjer_plots$plot_type],
-     add = TRUE,
-     pch = 8)
+     pch = c(8, 18, 8)[sjer_plots$plot_type],
+     add = TRUE)
 # plot using new colors
 plot(sjer_roads_utm,
-     col = (challenge_colors)[sjer_plots$plot_type],
+     col = (challenge_colors)[sjer_roads_utm$RTTYP],
      pch = 8,
      add = TRUE)
 
 # add a legend to our map
-legend(x = (furthest_pt_east + 50), y = (furthest_pt_north-15),
+legend(x = (furthest_pt_east + 50), y = (furthest_pt_north - 15),
        legend = c("Plots", levels(sjer_plots$plot_type), "Road Types", levels(sjer_roads$RTTYP)),
        pch = c(NA, 8, 18, 8, NA, NA, NA, NA, NA),  # set the symbol for each point
        lty = c(NA, NA, NA, NA, NA, 1, 1, 1, 1),

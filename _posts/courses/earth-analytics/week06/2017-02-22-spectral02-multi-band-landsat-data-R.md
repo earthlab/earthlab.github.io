@@ -3,7 +3,7 @@ layout: single
 title: "Working with remote sensing imagery that has multiple bands in R - NAIP raster data in R."
 excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared ot other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -183,7 +183,7 @@ naip_csf <- raster("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_
 
 # Plot band 1
 plot(naip_csf,
-     col=gray(0:100 / 100),
+     col = gray(0:100 / 100),
      axes=FALSE,
      main = "NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
 ```
@@ -255,7 +255,7 @@ rgb_band2 <- raster("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505
 
 # plot band 2
 plot(rgb_band2,
-     col=gray(0:100 / 100),
+     col = gray(0:100 / 100),
      axes=FALSE,
      main = "RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
 ```
@@ -400,7 +400,7 @@ Plot each band individually.
 ```r
 # plot 4 bands separately
 plot(naip_stack_csf,
-     col=gray(0:100 / 100))
+     col = gray(0:100 / 100))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-all-layers-1.png" title="plot each band for a total of 4 bands" alt="plot each band for a total of 4 bands" width="90%" />
@@ -412,7 +412,7 @@ We can plot just one band too if we want.
 # plot band 2
 plot(naip_stack_csf[[2]],
      main = "NAIP Band 2\n Coldsprings Fire Site",
-     col=gray(0:100 / 100))
+     col = gray(0:100 / 100))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-individual-bands-1.png" title="plot individual band - band 2" alt="plot individual band - band 2" width="90%" />

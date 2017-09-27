@@ -3,7 +3,7 @@ layout: single
 title: "Landsat remote sensing tif files in R"
 excerpt: "In this lesson we will cover the basics of using LAndsat 7 and 8 in R. We will learn how to import landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally we will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/landsat-bands-geotif-in-R/
@@ -264,7 +264,7 @@ all_landsat_bands[2]
 landsat_band2 <- raster(all_landsat_bands[2])
 plot(landsat_band2,
      main = "Landsat cropped band 2\nColdsprings fire scar",
-     col=gray(0:100 / 100))
+     col = gray(0:100 / 100))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="90%" />
@@ -295,7 +295,7 @@ Let's plot each individual band in our stack.
 
 ```r
 plot(landsat_stack_csf,
-     col=gray(20:100 / 100))
+     col = gray(20:100 / 100))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="90%" />
@@ -315,7 +315,7 @@ names(landsat_stack_csf)
 # remove the filename from each band name for pretty plotting
 names(landsat_stack_csf) <- gsub(pattern = "LC80340322016205LGN00_sr_", replacement = "", names(landsat_stack_csf))
 plot(landsat_stack_csf,
-     col=gray(20:100 / 100))
+     col = gray(20:100 / 100))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="90%" />

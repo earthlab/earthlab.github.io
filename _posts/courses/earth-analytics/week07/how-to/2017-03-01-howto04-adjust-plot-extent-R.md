@@ -3,7 +3,7 @@ layout: single
 title: "Adjust plot extent in R."
 excerpt: "In this lesson we will review how to adjust the extent of a spatial plot in R using the ext() or extent argument and the extent of another layer. "
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-27'
 category: [courses]
 class-lesson: ['how-to-hints-week7']
 permalink: /courses/earth-analytics/week-7/adjust-plot-extent-R/
@@ -112,6 +112,6 @@ plotRGB(all_landsat_bands_st,
 # turn the box to white so there is no border on our plot
 box(col = "white")
 ## Error in box(col = "white"): plot.new has not been called yet
-plot(fire_boundary_utm, add=T)
+plot(fire_boundary_utm, add = TRUE)
 ## Error in polypath(x = mcrds[, 1], y = mcrds[, 2], border = border, col = col, : plot.new has not been called yet
 ```

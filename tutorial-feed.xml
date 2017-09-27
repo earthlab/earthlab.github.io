@@ -23,8 +23,8 @@ layout:
  {% unless post.title == 'Creating animated maps with matplotlib & basemap in Python' %}
       <item>
                <title>{{ post.title | cdata_escape }}</title>
-               <link>{{ site.url }}{{ site.baseurl }}{{ post.url }}</link>
-               <guid isPermaLink="true">{{ site.url }}{{ site.baseurl }}{{ post.url }}</guid>
+               <link>{{ site.url }}{{ post.url }}</link>
+               <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
                <description>{{ post.excerpt | xml_escape }}</description>
                <author>{{ site.author.email }} ({{ post.authors | join: ', ' }})</author>
                <category>{{ post.categories }}</category>
