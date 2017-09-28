@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Plot Spatial Data and Create Custom Legends in R"
 excerpt: "In this lesson we break down the steps required to create a custom legend for spatial data in R. We discuss creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/r-create-custom-legend-with-base-plot/
@@ -38,9 +38,9 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -700,6 +700,7 @@ Now, if you want to move the legend out a bit further, what would you do?
 Any idea how I added a space to the legend below to create "sections"?
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/review-materials/2017-02-15-plot01-custom-legend-R/custom-legend-points-lines-4-1.png" title="final legend with points and lines customized." alt="final legend with points and lines customized." width="90%" />
+
 
 
 ```r

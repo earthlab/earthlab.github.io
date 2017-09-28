@@ -3,10 +3,10 @@ layout: single
 title: "Lidar Remote Sensing Data - Understand Uncertainty / Error Associated with Height Metrics Extracted from Lidar Raster Data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
-permalink: /courses/earth-analytics//courses/earth-analytics/remote-sensing-uncertainty/about-uncertainty-lidar/
+permalink: /courses/earth-analytics/remote-sensing-uncertainty/about-uncertainty-lidar/
 nav-title: 'Remote Sensing Uncertainty'
 module-title: 'Uncertainty and Metadata'
 module-description: 'In this module, we will discuss the concept of uncertainty as it relates to both remote sensing and other data. We will also explore some metadata to learn how to understand more about our data. '
@@ -27,6 +27,7 @@ redirect_from:
    - "/course-materials/earth-analytics/week-5/understand-uncertainty-lidar/"
    - "/courses/earth-analytics/week-5/understand-uncertainty-lidar/"
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -76,8 +77,8 @@ each time. or... what other reasons can you think of that might impact tree heig
 measurements?
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-5/measuring-tree-height.jpg">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-5/measuring-tree-height.jpg" alt="national geographic scaling trees graphic"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/measuring-tree-height.jpg">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/measuring-tree-height.jpg" alt="national geographic scaling trees graphic"></a>
    <figcaption>When we measure tree height by hand, many different variables may impact the accuracy and precision of our results. Source:  http://www.haddenham.net/newsroom/guess-tree-height.html
    </figcaption>
 </figure>
@@ -99,10 +100,10 @@ tree_heights <- data.frame(heights = c(10, 10.1, 9.9, 9.5, 9.7, 9.8,
                                      9.6, 10.5, 10.7, 10.3, 10.6))
 # what is the average tree height
 mean(tree_heights$heights)
-## [1] 10.06364
+## [1] 10.06
 # what is the standard deviation of measurements?
 sd(tree_heights$heights)
-## [1] 0.4129715
+## [1] 0.413
 boxplot(tree_heights$heights,
         main = "Distribution of tree height measurements (m)",
         ylab = "Height (m)",
@@ -177,8 +178,8 @@ length.  Two people may likely pick two different starting and ending points.
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-5/accuracy_precision.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-5/accuracy_precision.png" alt="national geographic scaling trees graphic"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/accuracy_precision.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/accuracy_precision.png" alt="national geographic scaling trees graphic"></a>
    <figcaption>Accuracy vs precision. Accuracy quantifies how close a measured value is to the true value. Precision quantifies how close two or more measurements agree with each other (how quantitatively repeatable are the results) Source: http://www.ece.rochester.edu/courses/ECE111/error_uncertainty.pdf
    </figcaption>
 </figure>
@@ -254,7 +255,7 @@ Finally we compare the two using a scatter plot to see how closely the data rela
 Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 
 <figure>
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-5/buffer-circular.png" alt="buffer circular">
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/buffer-circular.png" alt="buffer circular">
     <figcaption>The extract function in R allows you to specify a circular buffer
     radius around an x,y point location. Values for all pixels in the specified
     raster that fall within the circular buffer are extracted. In this case, we
@@ -294,6 +295,7 @@ The materials on this page were compiled using many internet resources including
 ##  QGIS Imagery Layer
 
 * Code to add imagery to qgis via the python console:
- `qgis.utils.iface.addRasterLayer("http://server.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer?f=json&pretty=true","raster")
-<qgis._core.QgsRasterLayer object at 0x12739ee90>`
+ `qgis.utils.iface.addRasterLayer("http://server.arcgisonline.com/arcgis/rest/services/ESRI_Imagery_World_2D/MapServer?f=json&pretty=true", "raster")`
+
+`<qgis._core.QgsRasterLayer object at 0x12739ee90>`
 </div>

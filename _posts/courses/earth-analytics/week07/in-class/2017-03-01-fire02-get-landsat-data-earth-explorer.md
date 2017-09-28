@@ -3,7 +3,7 @@ layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson we will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/week-7/get-data-earth-explorer/
@@ -68,8 +68,8 @@ but if we have an Earth Explorer account,  we can upload a ZIPPED up shapefile t
 contains the boundary instead!
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-5/spatial_extent.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-5/spatial_extent.png" alt="Spatial extent.">
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/spatial-extent.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/spatial-extent.png" alt="Spatial extent.">
     </a>
     <figcaption>Remember that the spatial extent, is the geographic area that
     our data cover on the ground. In the case of vector data - this represents
