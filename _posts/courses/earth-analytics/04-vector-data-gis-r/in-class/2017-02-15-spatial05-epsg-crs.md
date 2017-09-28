@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Understand EPSG, WKT and other CRS definition styles"
 excerpt: "This lesson discusses ways that coordinate reference system data are stored including  proj4, well known text (wkt) and EPSG codes. "
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
@@ -39,9 +39,9 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 

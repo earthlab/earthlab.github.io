@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-09-18'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/open-lidar-raster-r/
@@ -132,8 +132,8 @@ be used to “flatten” or project the raster in geographic space.
 
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-5/different_projections.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different projections. Notice the
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/compare-mercator-utm-wgs-projections.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/compare-mercator-utm-wgs-projections.jpg" alt="Maps of the United States in different projections. Notice the
     differences in shape associated with each different projection. These
     differences are a direct result of the calculations used to 'flatten' the
     data onto a 2-dimensional map. Source: M. Corey, opennews.org">
@@ -178,8 +178,8 @@ The `CRS` string for our `lidar_dem` object tells us that our data are in the UT
 projection.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/UTM_zones.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/UTM_zones.png" alt="The UTM zones across the continental United States. Source:
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/UTM-zones.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/UTM-zones.png" alt="The UTM zones across the continental United States. Source:
    	Chrismurf, wikimedia.org."></a>
    	<figcaption> The UTM zones across the continental United States. Source:
    	Chrismurf, wikimedia.org.
@@ -235,8 +235,8 @@ object is the geographic area that the raster data covers.
 
 
 <figure>
-    <a href="{{ site.baseurl}}/images/courses/earth-analytics/week-5/spatial_extent.png">
-    <img src="{{ site.baseurl}}/images/courses/earth-analytics/week-5/spatial_extent.png" alt="The spatial extent of vector data which we will discuss next week.
+    <a href="{{ site.baseurl}}/images/courses/earth-analytics/spatial-data/spatial-extent.png">
+    <img src="{{ site.baseurl}}/images/courses/earth-analytics/spatial-data/spatial-extent.png" alt="The spatial extent of vector data which we will discuss next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
     Thus, if the data are not rectangular (i.e. points OR an image that is rotated in some way)
     the spatial extent covers portions of the dataset where there are no data.

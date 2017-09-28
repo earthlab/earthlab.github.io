@@ -3,7 +3,7 @@ layout: single
 title: "How lidar point clouds are converted to raster data formats - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: '2017-09-12'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-raster-data/
@@ -96,8 +96,8 @@ the spatial **resolution** of the raster.
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/raster-concept.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/raster-concept.png" alt="Raster data concept diagram."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-concept.png" target="_blank">
+   <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-concept.png" alt="Raster data concept diagram."></a>
    <figcaption>A raster is composed of a regular grid of cells. Each cell is the same
    size in the x and y direction. Source: Colin Williams, NEON.
    </figcaption>
@@ -121,8 +121,8 @@ represents a lidar intensity value or the amount of light energy returned to and
 recorded by the sensor.
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/raster-resolution.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/raster-resolution.png" alt="Raster data resolution concept diagram."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-resolution.png" target="_blank">
+   <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-resolution.png" alt="Raster data resolution concept diagram."></a>
    <figcaption>Rasters can be stored at different resolutions. The resolution simply
    represents the size of each pixel cell. Source: Colin Williams, NEON.
    </figcaption>

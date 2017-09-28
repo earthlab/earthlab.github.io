@@ -4,7 +4,7 @@ title: "Extract Raster Values Using Vector Boundaries in R"
 excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
 vector boundary. We can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where we measured tree heights on the ground. Finally we will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/extract-data-from-raster/
@@ -43,7 +43,6 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
 
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
-
 
 </div>
 
@@ -88,8 +87,6 @@ hist(SJER_chm,
      main = "Histogram of Canopy Height\n NEON SJER Field Site",
      col = "springgreen",
      xlab = "Height (m)")
-## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
-## 0% of the raster cells were used. 100000 values used.
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/import-chm-1.png" title="Histogram of CHM values" alt="Histogram of CHM values" width="90%" />
@@ -160,7 +157,7 @@ There are a few ways to go about this task. If our plots are circular, then we c
 use the `extract()` function.
 
 <figure>
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-5/buffer-circular.png" alt="buffer circular">
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/buffer-circular.png" alt="buffer circular">
     <figcaption>The extract function in R allows you to specify a circular buffer
     radius around an x,y point location. Values for all pixels in the specified
     raster that fall within the circular buffer are extracted. In this case, we
@@ -182,6 +179,43 @@ SJER_height <- raster::extract(SJER_chm,
                     fun = mean, # extract the MEAN value from each plot
                     sp = TRUE, # create spatial object
                     stringsAsFactors = FALSE)
+
+# view structure of the spatial data frame attribute table
+head(SJER_height@data)
+##    Plot_ID  Point northing easting plot_type SJER_lidarCHM
+## 1 SJER1068 center  4111568  255852     trees        11.544
+## 2  SJER112 center  4111299  257407     trees        10.356
+## 3  SJER116 center  4110820  256839     grass         7.512
+## 4  SJER117 center  4108752  256177     trees         7.675
+## 5  SJER120 center  4110476  255968     grass         4.591
+## 6  SJER128 center  4111389  257079     trees         8.979
+# note that this is a spatial points data frame
+class(SJER_height)
+## [1] "SpatialPointsDataFrame"
+## attr(,"package")
+## [1] "sp"
+```
+
+Looking at our new spatial points data frame, we can see a field named SJER_lidarCHM.
+This is the column name of the mean height for each plot location. Let's rename that
+to be something more meaningful.
+
+
+```r
+# raname 
+colnames(SJER_height@data)[6] 
+## [1] "SJER_lidarCHM"
+
+# rename the column
+colnames(SJER_height@data)[6] <- "lidar_mean_ht"
+head(SJER_height@data)
+##    Plot_ID  Point northing easting plot_type lidar_mean_ht
+## 1 SJER1068 center  4111568  255852     trees        11.544
+## 2  SJER112 center  4111299  257407     trees        10.356
+## 3  SJER116 center  4110820  256839     grass         7.512
+## 4  SJER117 center  4108752  256177     trees         7.675
+## 5  SJER120 center  4110476  255968     grass         4.591
+## 6  SJER128 center  4111389  257079     trees         8.979
 ```
 
 #### Explore the Data Distribution
@@ -210,120 +244,12 @@ For how to extract square plots using a plot centroid value, check out the
 <a href="http://neondataskills.org/working-with-field-data/Field-Data-Polygons-From-Centroids" target="_blank"> extracting square shapes activity </a>.
 
  <figure>
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-5/buffer-square.png" alt="Image showing the buffer area for a plot.">
+    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/buffer-square.png" alt="Image showing the buffer area for a plot.">
     <figcaption>If you had square shaped plots, the code in the link above would
     extract pixel values within a square shaped buffer. Source: Colin Williams, NEON
     </figcaption>
 </figure>
 
-
-
-## Extract Descriptive Stats From *In situ* Data
-In our final step, we will extract summary height values from our field data.
-We will use the `dplyr` library to do this efficiently.
-
-First let's see how many plots are in our tree height data. Note that our tree
-height data is stored in `csv` format.
-
-
-```r
-# import the centroid data and the vegetation structure data
-SJER_insitu <- read.csv("data/week_04/california/SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv")
-
-# get list of unique plots
-unique(SJER_plots$Plot_ID)
-##  [1] "SJER1068" "SJER112"  "SJER116"  "SJER117"  "SJER120"  "SJER128" 
-##  [7] "SJER192"  "SJER272"  "SJER2796" "SJER3239" "SJER36"   "SJER361" 
-## [13] "SJER37"   "SJER4"    "SJER8"    "SJER824"  "SJER916"  "SJER952"
-```
-
-## Extract Max Tree Height
-
-Next, we can use `dplyr` to extract a summary tree height value for each plot. In
-this case, we will calculate the mean MEASURED tree height value for each
-plot. This value represents the average tree in each plot. We will also calculate
-the max height representing the max height for each plot.
-
-FInally, we will compare the mean measured tree height per plot to the mean
-tree height extracted from the lidar `CHM`.
-
-
-```r
-# find the max and mean stem height for each plot
-insitu_stem_height <- SJER_insitu %>%
-  group_by(plotid) %>%
-  summarise(insitu_max = max(stemheight), insitu_avg = mean(stemheight))
-
-# view the data frame to make sure we're happy with the column names.
-head(insitu_stem_height)
-## # A tibble: 6 x 3
-##     plotid insitu_max insitu_avg
-##      <chr>      <dbl>      <dbl>
-## 1 SJER1068       19.3   3.866667
-## 2  SJER112       23.9   8.221429
-## 3  SJER116       16.0   8.218750
-## 4  SJER117       11.0   6.512500
-## 5  SJER120        8.8   7.600000
-## 6  SJER128       18.2   5.211765
-```
-
-
-### Merge In Situ Data With Spatial data.frame
-
-Once we have our summarized in situ data, we can `merge` it into the centroids
-`data.frame`. Merge requires two `data.frames` and the names of the columns
-containing the unique ID that we will merge the data on. In this case, we will
-merge the data on the plot_id column. Notice that it's spelled slightly differently
-in both `data.frames` so we'll need to tell `R` what it's called in each `data.frame`.
-
-
-```r
-# merge the insitu data into the centroids data.frame
-SJER_height <- merge(SJER_height,
-                     insitu_stem_height,
-                   by.x = 'Plot_ID',
-                   by.y = 'plotid')
-
-SJER_height@data
-##     Plot_ID  Point northing  easting plot_type SJER_lidarCHM insitu_max
-## 1  SJER1068 center  4111568 255852.4     trees     11.544348       19.3
-## 2   SJER112 center  4111299 257407.0     trees     10.355685       23.9
-## 3   SJER116 center  4110820 256838.8     grass      7.511956       16.0
-## 4   SJER117 center  4108752 256176.9     trees      7.675347       11.0
-## 5   SJER120 center  4110476 255968.4     grass      4.591176        8.8
-## 6   SJER128 center  4111389 257078.9     trees      8.979005       18.2
-## 7   SJER192 center  4111071 256683.4     grass      7.240118       13.7
-## 8   SJER272 center  4112168 256717.5     trees      7.103862       12.4
-## 9  SJER2796 center  4111534 256034.4      soil      6.405240        9.4
-## 10 SJER3239 center  4109857 258497.1      soil      6.009128       17.9
-## 11   SJER36 center  4110162 258277.8     trees      6.516288        9.2
-## 12  SJER361 center  4107527 256961.8     grass     13.899027       11.8
-## 13   SJER37 center  4107579 256148.2     trees      7.109851       11.5
-## 14    SJER4 center  4109767 257228.3     trees      5.032620       10.8
-## 15    SJER8 center  4110249 254738.6     trees      3.024286        5.2
-## 16  SJER824 center  4110048 256185.6      soil      7.738203       26.5
-## 17  SJER916 center  4109617 257460.5      soil     11.181955       18.4
-## 18  SJER952 center  4110759 255871.2     grass      4.149286        7.7
-##    insitu_avg
-## 1    3.866667
-## 2    8.221429
-## 3    8.218750
-## 4    6.512500
-## 5    7.600000
-## 6    5.211765
-## 7    6.769565
-## 8    6.819048
-## 9    5.085714
-## 10   3.920833
-## 11   9.200000
-## 12   2.451429
-## 13   7.350000
-## 14   5.910526
-## 15   1.057143
-## 16   5.357895
-## 17   5.791667
-## 18   1.558333
-```
 
 ## Plot by Height
 
@@ -337,7 +263,7 @@ plot(SJER_chm,
 # add plot location sized by tree height
 plot(SJER_height,
      pch = 19,
-     cex = (SJER_height$SJER_lidarCHM)/10, # size symbols according to tree height attribute normalized by 10
+     cex = (SJER_height$lidar_mean_ht)/10, # size symbols according to tree height attribute normalized by 10
      add = TRUE)
 
 # place legend outside of the plot
@@ -352,126 +278,3 @@ legend(SJER_chm@extent@xmax + 250,
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="90%" />
 
 
-### Plot Data (CHM vs Measured)
-
-Let's create a plot that illustrates the relationship between insitu measured
-max canopy height values and lidar derived max canopy height values.
-
-
-
-```r
-# create plot
-ggplot(SJER_height@data, aes(x = SJER_lidarCHM, y = insitu_avg)) +
-  geom_point() +
-  theme_bw() +
-  labs(title = "Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height (m)",
-       subtitle = "San Joaquin Field Site",
-       x = "Mean measured height",
-       y = "Mean LiDAR pixel")
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="90%" />
-
-Next, let's fix the plot adding a 1:1 line and making the x and y axis the same .
-
-
-```r
-# create plot
-ggplot(SJER_height@data, aes(x = SJER_lidarCHM, y = insitu_avg)) +
-  geom_point() +
-  theme_bw() +
-  xlim(0, 15) + ylim(0, 15) + # set x and y limits to 0-20
-  geom_abline(intercept = 0, slope = 1) + # add one to one line
-    labs(title = "Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height (m)",
-       subtitle = "San Joaquin Field Site",
-       x = "Mean measured height",
-       y = "Mean LiDAR pixel")
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/plot-w-ggplot2-1.png" title="ggplot - measured vs lidar chm w one to one line." alt="ggplot - measured vs lidar chm w one to one line." width="90%" />
-
-We can also add a regression fit to our plot. Explore the `GGPLOT` options and
-customize your plot.
-
-
-```r
-# plot with regression fit
-p <- ggplot(SJER_height@data, aes(x = SJER_lidarCHM, y = insitu_avg)) +
-  geom_point() +
-  labs( title = "LiDAR CHM Derived vs Measured Tree Height",
-        x = "Maximum Measured Height",
-        y = "Maximum LiDAR Height") +
-    xlim(0, 15) + ylim(0, 15) + # set x and y limits to 0-20
-  geom_abline(intercept = 0, slope = 1) +
-  geom_smooth(method = lm)
-
-p + theme(panel.background = element_rect(colour = "grey")) +
-  theme(plot.title = element_text(family = "sans", face = "bold", size = 20, vjust = 1.9)) +
-  theme(axis.title.y = element_text(family = "sans", face = "bold",
-                                    size = 14, angle = 90, hjust = 0.54,
-                                    vjust = 1)) +
-  theme(axis.title.x = element_text(family = "sans", face = "bold",
-                                    size = 14, angle = 00,
-                                    hjust = 0.54, vjust = -.2))
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="90%" />
-
-
-## View Difference: Lidar vs Measured
-
-
-```r
-# Calculate difference
-SJER_height@data$ht_diff <-  (SJER_height@data$SJER_lidarCHM - SJER_height@data$insitu_avg)
-
-
-# create bar plot using ggplot()
-ggplot(data = SJER_height@data,
-       aes(x = Plot_ID, y = ht_diff, fill = Plot_ID)) +
-       geom_bar(stat = "identity") +
-       labs( title = "Difference: \nLidar avg height - in situ avg height (m)",
-             x = "Plot Name",
-             y = "Height difference (m)")
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="90%" />
-
-Remove the legend from the ggplot and remove the site name from the plotid column.
-
-
-
-```r
-# remove the SJER from each plot id using gsub
-SJER_height$Plot_ID <- gsub("SJER", "", SJER_height$Plot_ID)
-# create bar plot using ggplot()
-ggplot(data = SJER_height@data,
-       aes(x = Plot_ID, y = ht_diff, fill = Plot_ID)) +
-       geom_bar(stat = "identity") +
-       labs( title = "Difference: \nLidar avg height - in situ avg height (m)",
-             x = "Plot ID",
-             y = "Height difference (m)") +
-  guides(fill = FALSE) # remove legend
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/barplot-nolegend-1.png" title=" " alt=" " width="90%" />
-
-You have now successfully created a canopy height model using lidar data AND compared lidar
-derived vegetation height, within plots, to actual measured tree height data.
-Does the relationship look good or not? Would you use lidar data to estimate tree
-height over larger areas? Would other metrics be a better comparison (see challenge
-below).
-
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test Your Skills: Lidar vs In Situ Comparison
-
-Create a plot of lidar max height vs *in situ* max height. Add labels to your plot.
-Customize the colors, fonts and the look of your plot. If you are happy with the
-outcome, share your plot in the comments below!
- </div>
-
-
-## Interactive Plot
-
-<iframe width="460" height="293" frameborder="0" seamless="seamless" scrolling="no" src="https://plot.ly/~leahawasser/24.embed?width=460&height=293"></iframe>

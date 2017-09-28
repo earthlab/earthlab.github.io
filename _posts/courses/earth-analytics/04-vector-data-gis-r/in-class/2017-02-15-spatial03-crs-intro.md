@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Introduction to Coordinate Reference Systems in R "
 excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/
@@ -40,20 +40,20 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 5 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
 ## Intro to Coordinate Reference Systems
 
-In summary - a coordinate reference system (`CRS`) refers to the way in which 
-spatial data that represent the earth's surface (which is round / 3 dimensional) 
-are flattened so that we can "Draw" them on a 2-dimensional surface. However each 
-using a different (sometimes) mathematical approach to performing the flattening 
-resulting in different coordinate system grids (discussed below). These approaches 
-to flattening the data are specifically designed to optimize the accuracy of the 
+In summary - a coordinate reference system (`CRS`) refers to the way in which
+spatial data that represent the earth's surface (which is round / 3 dimensional)
+are flattened so that we can "Draw" them on a 2-dimensional surface. However each
+using a different (sometimes) mathematical approach to performing the flattening
+resulting in different coordinate system grids (discussed below). These approaches
+to flattening the data are specifically designed to optimize the accuracy of the
 data in terms of length and area (more on that later too).
 
 In this lesson we will explore what a `CRS` is. And how it can impact your data
@@ -62,8 +62,8 @@ when you are working with it in a tool like `R` (or any other tool).
 ***
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-5/different_projections.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-5/different_projections.jpg" alt="Maps of the United States in different CRS including Mercator
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/compare-mercator-utm-wgs-projections.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/compare-mercator-utm-wgs-projections.jpg" alt="Maps of the United States in different CRS including Mercator
     (upper left), Albers equal area (lower left), UTM (Upper RIGHT) and
     WGS84 Geographic (Lower RIGHT).">
     </a>
@@ -79,8 +79,8 @@ when you are working with it in a tool like `R` (or any other tool).
 
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-9/human-head-projections.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-9/human-head-projections.jpg" alt="The human head projected using different coordinate reference systems. SOURCE: Scientific American.">
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/human-head-projections.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/human-head-projections.jpg" alt="The human head projected using different coordinate reference systems. SOURCE: Scientific American.">
     </a>
 
     <figcaption>The human head projected using different coordinate reference systems. SOURCE: Scientific American. Do any of these happen to bare a striking resemblance to Jay Leno? </figcaption>
@@ -97,9 +97,8 @@ To define the location of something we often use a coordinate system. This syste
 consists of an X and a Y value located within a 2 (or more) -dimensional space.
 
 <figure>
-	<a href="http://open.senecac.on.ca/clea/label/projectImages/15_276_xy-grid.jpg">
-	<img src="http://open.senecac.on.ca/clea/label/projectImages/15_276_xy-grid.jpg" alt="We use coordinate systems with X, Y (and sometimes Z axes) to
-	define the location of objects in space."></a>
+	<a href="{{ site.url}}/images/courses/earth-analytics/spatial-data/coordinate-system.png">
+	<img src="{{ site.url}}/images/courses/earth-analytics/spatial-data/coordinate-system.png" alt="We use coordinate systems with X, Y (and sometimes Z axes) to	define the location of objects in space."></a>
 	<figcaption> We use coordinate systems with X, Y (and sometimes Z axes) to
 	define the location of objects in space.
 	Source: http://open.senecac.on.ca
@@ -115,9 +114,8 @@ The components of the `CRS` define how the "flattening" of data that exists in a
 globe space. The `CRS` also defines the the coordinate system itself.
 
 <figure>
-	<a href="http://ayresriverblog.com/wp-content/uploads/2011/05/image.png">
-	<img src="http://ayresriverblog.com/wp-content/uploads/2011/05/image.png" alt="A CRS defines the translation between a location on the round earth
-	and that same location, on a flattened, 2 dimensional coordinate system."></a>
+	<a href="{{ site.url}}/images/courses/earth-analytics/spatial-data/geographic-origin.png">
+	<img src="{{ site.url}}/images/courses/earth-analytics/spatial-data/geographic-origin.png" alt="A CRS defines the translation between a location on the round earth	and that same location, on a flattened, 2 dimensional coordinate system."></a>
 	<figcaption>A CRS defines the translation between a location on the round earth
 	and that same location, on a flattened, 2 dimensional coordinate system.
 	Source: http://ayresriverblog.com
@@ -153,8 +151,8 @@ fly**. Even if you work in a tool that supports projection on the fly, you will
 want to all of your data in the same projection for performing analysis and processing
 tasks.
 
-<i class="fa fa-star"></i> **Data tip:** <a href="http://spatialreference.org/ref/epsg/" target="_blank"> Spatialreference.org </a>
-{: .notice--success} provides an excellent online library of CRS information.
+<i class="fa fa-star"></i> **Data tip:** <a href="http://spatialreference.org/ref/epsg/" target="_blank"> spatialreference.org </a>provides an excellent online library of CRS information.
+{: .notice--success}
 
 ### Coordinate System & Units
 
@@ -265,8 +263,8 @@ measuring distance. This is why other projected `CRS` have been developed.
 
 
 <figure>
-	<a href="{{ site.url }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif">
-	<img src="{{ site.url }}/images/courses/earth-analytics/week-5/LatLongfromGlobeCenter-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
+	<a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/latitude-longitude-globe-ESRI.gif">
+	<img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/latitude-longitude-globe-ESRI.gif" alt="Graphic showing lat long as it's placed over the globe by ESRI."></a>
 	<figcaption>A geographic coordinate system locates latitude and longitude
 	location using angles. Thus the spacing of each line of latitude moving north
 	and south is not uniform.
@@ -334,10 +332,10 @@ need to convert that `data.frame` to a spatial `data.frame` to use `spTransform(
 ```r
 # data.frame containing locations of Boulder, CO and Oslo, Norway
 loc_df
-##         lon     lat
-## 1 -105.2519 40.0274
-## 2   10.7500 59.9500
-## 3    2.9833 39.6167
+##        lon   lat
+## 1 -105.252 40.03
+## 2   10.750 59.95
+## 3    2.983 39.62
 
 # convert dataframe to spatial points data frame
 loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
@@ -346,7 +344,7 @@ loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
 loc_spdf
 ## class       : SpatialPointsDataFrame 
 ## features    : 3 
-## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
+## extent      : -105.3, 10.75, 39.62, 59.95  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 2
 ## names       :       lon,     lat 

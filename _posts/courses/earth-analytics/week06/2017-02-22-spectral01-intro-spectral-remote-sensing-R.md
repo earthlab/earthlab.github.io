@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to spectral remote sensing data"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-09-27'
+modified: '2017-09-28'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/intro-spectral-data-r/
@@ -173,8 +173,8 @@ pixels?)
     ground that each pixel covers. Source: Colin Williams, NEON.</figcaption>
 </figure>
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-3/raster-resolution.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-3/raster-resolution.png" alt="Raster resolution."></a>
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-resolution.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-resolution.png" alt="Raster resolution."></a>
     <figcaption>Remote sensing data is collected at varying spatial resolutions.
     Remember that the spatial resolution represents that area on the ground
     that each pixel covers. Source: Colin Williams, NEON.</figcaption>
