@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to spectral remote sensing data"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-09-28'
+modified: '2017-09-29'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/intro-spectral-data-r/
@@ -167,8 +167,8 @@ why wouldn't we always just collect high resolution data (smaller
 pixels?)
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/pixel-detail.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/pixel-detail.png" alt="Detail of a 1 meter pixel."></a>
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png.png" alt="Detail of a 1 meter pixel."></a>
     <figcaption>The spatial resolution of a raster represents the area on the
     ground that each pixel covers. Source: Colin Williams, NEON.</figcaption>
 </figure>
