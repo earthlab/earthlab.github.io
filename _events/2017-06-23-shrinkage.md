@@ -5,5 +5,6 @@ link: https://github.com/earthlab/meetup/issues/39
 date: 2017-06-23
 startTime: '14:00'
 endTime: '15:00'
+sitemap: false
 ---
 
