@@ -3,7 +3,7 @@ layout: single
 title: "Lidar Remote Sensing Data - Understand Uncertainty / Error Associated with Height Metrics Extracted from Lidar Raster Data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-09-28'
+modified: '2017-09-29'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/about-uncertainty-lidar/
@@ -92,22 +92,9 @@ and we measure the tree over and over again until we understand the range of
 heights that we are likely to get when we measure the tree.
 
 
-```r
-library(raster)
-library(rgdal)
-# create data frame containing made up tree heights
-tree_heights <- data.frame(heights = c(10, 10.1, 9.9, 9.5, 9.7, 9.8,
-                                     9.6, 10.5, 10.7, 10.3, 10.6))
-# what is the average tree height
-mean(tree_heights$heights)
-## [1] 10.06
-# what is the standard deviation of measurements?
-sd(tree_heights$heights)
-## [1] 0.413
-boxplot(tree_heights$heights,
-        main = "Distribution of tree height measurements (m)",
-        ylab = "Height (m)",
-        col = "springgreen")
+```
+## [1] 10.06364
+## [1] 0.4129715
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="90%" />
@@ -119,14 +106,6 @@ variation among our measured values may also provide some information about the
 precision (or lack thereof) of the measurement process.
 
 <a href="http://www.physics.csbsju.edu/stats/box2.html" target="_blank">Read more about  the basics of a box plot</a>
-
-
-```r
-# view distribution of tree height values
-hist(tree_heights$heights, breaks = c(9,9.6,10.4,11),
-     main = "Distribution of measured tree height values",
-     xlab = "Height (m)", col = "purple")
-```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="90%" />
 
@@ -255,7 +234,7 @@ Finally we compare the two using a scatter plot to see how closely the data rela
 Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 
 <figure>
-    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/buffer-circular.png" alt="buffer circular">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-circular.png" alt="buffer circular">
     <figcaption>The extract function in R allows you to specify a circular buffer
     radius around an x,y point location. Values for all pixels in the specified
     raster that fall within the circular buffer are extracted. In this case, we
