@@ -92,9 +92,25 @@ and we measure the tree over and over again until we understand the range of
 heights that we are likely to get when we measure the tree.
 
 
-```
+
+
+
+```r
+library(raster)
+library(rgdal)
+# create data frame containing made up tree heights
+tree_heights <- data.frame(heights = c(10, 10.1, 9.9, 9.5, 9.7, 9.8,
+                                     9.6, 10.5, 10.7, 10.3, 10.6))
+# what is the average tree height
+mean(tree_heights$heights)
 ## [1] 10.06364
+# what is the standard deviation of measurements?
+sd(tree_heights$heights)
 ## [1] 0.4129715
+boxplot(tree_heights$heights,
+        main = "Distribution of tree height measurements (m)",
+        ylab = "Height (m)",
+        col = "springgreen")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="90%" />
@@ -106,6 +122,14 @@ variation among our measured values may also provide some information about the
 precision (or lack thereof) of the measurement process.
 
 <a href="http://www.physics.csbsju.edu/stats/box2.html" target="_blank">Read more about  the basics of a box plot</a>
+
+
+```r
+# view distribution of tree height values
+hist(tree_heights$heights, breaks = c(9,9.6,10.4,11),
+     main = "Distribution of measured tree height values",
+     xlab = "Height (m)", col = "purple")
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/hist-tree-height-1.png" title="Tree height distribution" alt="Tree height distribution" width="90%" />
 
