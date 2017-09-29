@@ -3,7 +3,7 @@ layout: single
 title: "Landsat remote sensing tif files in R"
 excerpt: "In this lesson we will cover the basics of using LAndsat 7 and 8 in R. We will learn how to import landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally we will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-09-29'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/landsat-bands-geotif-in-R/
@@ -60,8 +60,8 @@ band rather than a stack of bands.
 
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/TimelineOnlyForWebRGB.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/TimelineOnlyForWebRGB.png" alt="Landsat 40 year timeline source: USGS.">
+    <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/TimelineOnlyForWebRGB.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/TimelineOnlyForWebRGB.png" alt="Landsat 40 year timeline source: USGS.">
     </a>
     <figcaption>The 40 year history of landsat missions. Source: USGS - <a href="https://landsat.usgs.gov/landsat-missions-timeline
     </figcaption>
@@ -95,8 +95,8 @@ The file names, tell us what sensor collected the data, the date the data were c
 <a href="<a href="https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers" target="_blank">Landsat file naming convention</a>
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/Collection_FileNameDiffs.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/Collection_FileNameDiffs.png" alt="landsat file naming convention">
+    <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/Collection_FileNameDiffs.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/Collection_FileNameDiffs.png" alt="landsat file naming convention">
     </a>
     <figcaption>Landsat file names Source: USGS Landsat - <a href="https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers
     </figcaption>
@@ -147,14 +147,6 @@ you <a href="<a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.htm
 Now that we understand how our file is named.
 
 
-```r
-# load spatial packages
-library(raster)
-library(rgdal)
-library(rgeos)
-# turn off factors
-options(stringsAsFactors = F)
-```
 
 If we look at the directory that contains our landsat data, we will see that
 each of the individual bands is stored individually as a geotiff rather than
@@ -177,9 +169,7 @@ To begin, let's explore our file directory in R, We can use `list.files()` to
 grab a list of all files within any directory on our computer.
 
 
-```r
-# get list of all tifs
-list.files("data/week_06/landsat/LC80340322016205-SC20170127160728/crop")
+```
 ##  [1] "LC80340322016205LGN00_bqa_crop.tif"        
 ##  [2] "LC80340322016205LGN00_cfmask_conf_crop.tif"
 ##  [3] "LC80340322016205LGN00_cfmask_crop.tif"     
@@ -204,12 +194,7 @@ pattern to tell R to only grab files that end with .tif.
 
 
 
-```r
-# but really we just want the tif files
-all_landsat_bands <- list.files("data/week_06/Landsat/LC80340322016205-SC20170127160728/crop",
-                      pattern=".tif$",
-                      full.names = T) # make sure we have the full path to the file
-all_landsat_bands
+```
 ##  [1] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_bqa_crop.tif"        
 ##  [2] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_cfmask_conf_crop.tif"
 ##  [3] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_cfmask_crop.tif"     
@@ -239,11 +224,7 @@ each file needs to end with .tif.
 
 
 
-```r
-all_landsat_bands <- list.files("data/week_06/Landsat/LC80340322016205-SC20170127160728/crop",
-           pattern=glob2rx("*band*.tif$"),
-           full.names = T) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands
+```
 ## [1] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
 ## [2] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
 ## [3] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
@@ -257,14 +238,8 @@ Now we have a list of all of the landsat bands in our folder. We could chose to
 open each file individually using the `raster()` function.
 
 
-```r
-# get first file
-all_landsat_bands[2]
+```
 ## [1] "data/week_06/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-landsat_band2 <- raster(all_landsat_bands[2])
-plot(landsat_band2,
-     main = "Landsat cropped band 2\nColdsprings fire scar",
-     col = gray(0:100 / 100))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="90%" />
@@ -275,11 +250,7 @@ access each of the bands and plot / use them as we want. We can do that using th
 `stack()` function.
 
 
-```r
-# stack the data
-landsat_stack_csf <- stack(all_landsat_bands)
-# view stack attributes
-landsat_stack_csf
+```
 ## class       : RasterStack 
 ## dimensions  : 177, 246, 43542, 7  (nrow, ncol, ncell, nlayers)
 ## resolution  : 30, 30  (x, y)
@@ -292,19 +263,11 @@ landsat_stack_csf
 
 Let's plot each individual band in our stack.
 
-
-```r
-plot(landsat_stack_csf,
-     col = gray(20:100 / 100))
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="90%" />
 
 
 
-```r
-# get list of each layer name
-names(landsat_stack_csf)
+```
 ## [1] "LC80340322016205LGN00_sr_band1_crop"
 ## [2] "LC80340322016205LGN00_sr_band2_crop"
 ## [3] "LC80340322016205LGN00_sr_band3_crop"
@@ -312,10 +275,6 @@ names(landsat_stack_csf)
 ## [5] "LC80340322016205LGN00_sr_band5_crop"
 ## [6] "LC80340322016205LGN00_sr_band6_crop"
 ## [7] "LC80340322016205LGN00_sr_band7_crop"
-# remove the filename from each band name for pretty plotting
-names(landsat_stack_csf) <- gsub(pattern = "LC80340322016205LGN00_sr_", replacement = "", names(landsat_stack_csf))
-plot(landsat_stack_csf,
-     col = gray(20:100 / 100))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="90%" />
@@ -326,34 +285,12 @@ Next, let's plot an RGB image using landsat. Refer to the landsat bands in the t
 at the top of this page to figure out the red, green and blue bands. Or read the
 <a href="<a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post.
 
-
-```r
-par(col.axis="white", col.lab="white", tck=0)
-plotRGB(landsat_stack_csf,
-     r=4, g=3, b=2,
-     stretch="lin",
-     axes=T,
-     main = "RGB composite image\n Landsat Bands 4, 3, 2")
-box(col = "white")
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 
 Now we've created a red, green blue color composite image. Remember this is what
 our eye would see. What happens if we plot the near infrared band instead of red?
 Try the following combination:
 
-
-
-```r
-par(col.axis="white", col.lab="white", tck=0)
-plotRGB(landsat_stack_csf,
-     r=5, g=4, b=3,
-     stretch="lin",
-     axes=T,
-     main = "Color infrared composite image\n Landsat Bands 5, 4, 3")
-box(col = "white")
-```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral03-landsat-tifs-in-R/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 

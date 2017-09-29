@@ -81,8 +81,8 @@ creates the colors that we see in an image. These colors are the ones our eyes
 can see within the visible portion of the electromagnetic spectrum.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/RGBSTack_1.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/RGBSTack_1.jpg" alt="A color image consists of 3 bands - red, green and blue. When
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack" alt="A color image consists of 3 bands - red, green and blue. When
     rendered together in a GIS, or even a tool like Photoshop or any other
     image software, the 3 bands create a color image."></a>
     <figcaption>A color image consists of 3 bands - red, green and blue. When
@@ -355,8 +355,8 @@ darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
 Previously we've explored the single bands in our rasterstack. Next, we'll plot an RGB image.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/RGBSTack_1.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/RGBSTack_1.jpg" alt="A true color image consists of 3 bands - red, green and blue.
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack" alt="A true color image consists of 3 bands - red, green and blue.
     When composited or rendered together in a GIS, or even a image-editor like
     Photoshop the bands create a color image."></a>
     <figcaption>A "true" color image consists of 3 bands - red, green and blue.
