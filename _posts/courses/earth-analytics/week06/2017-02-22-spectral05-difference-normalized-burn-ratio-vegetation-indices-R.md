@@ -3,7 +3,7 @@ layout: single
 title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
 excerpt: "In this lesson we review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically we will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-09-27'
+modified: '2017-09-29'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/normalized-burn-index-dNBR/
@@ -52,8 +52,8 @@ uses near-infrared (NIR) and shortwave-infrared (SWIR) portions of the
 electromagnetic spectrum (Lopez, 1991; Key and Benson, 1995).
 
 <figure class="half">
- <a href="{{ site.url}}/images/courses/earth-analytics/week-6/nbr_index.png">
- <img src="{{ site.url}}/images/courses/earth-analytics/week-6/nbr_index.png" alt="NBR - US Forest Service."></a>
+ <a href="{{ site.url}}/images/courses/earth-analytics/remote-sensing/nbr_index.png">
+ <img src="{{ site.url}}/images/courses/earth-analytics/remote-sensing/nbr_index.png" alt="NBR - US Forest Service."></a>
     <figcaption>The normalized burn ratio (NBR) index uses the shortwave-infrared (SWIR) and near-infrared (NIR) portions of the electromagnetic
     spectrum.
     </figcaption>
@@ -68,8 +68,8 @@ reflect more strongly in the SWIR part of the electromagnetic spectrum and beyon
 
 
 <figure>
- <a href="{{ site.url}}/images/courses/earth-analytics/week-6/barc_spectral_response_US_forest_service.png">
- <img src="{{ site.url}}/images/courses/earth-analytics/week-6/barc_spectral_response_US_forest_service.png" alt="NBR - US Forest Service."></a>
+ <a href="{{ site.url}}/images/courses/earth-analytics/remote-sensing/barc_spectral_response_US_forest_service.png">
+ <img src="{{ site.url}}/images/courses/earth-analytics/remote-sensing/barc_spectral_response_US_forest_service.png" alt="NBR - US Forest Service."></a>
     <figcaption>Plants reflect strongly in the NIR portion of the spectrum but
     spectrun. reflect much less strongly in the SWIR portion which makes this combination powerful for identifying areas with standing dead stems (fire scarred wood / bark) and soil / earth. Source: US Forest Service
     </figcaption>
@@ -104,8 +104,8 @@ To calculate the difference, we subtract the post-fire NBR raster from the pre-f
 NBR raster as follows:
 
 <figure>
- <a href="{{ site.url}}/images/courses/earth-analytics/week-6/dnbr-equation.jpg">
- <img src="{{ site.url}}/images/courses/earth-analytics/week-6/dnbr-equation.jpg" alt="NBR - US Forest Service."></a>
+ <a href="{{ site.url}}/images/courses/earth-analytics/remote-sensing/dnbr-equation.jpg">
+ <img src="{{ site.url}}/images/courses/earth-analytics/remote-sensing/dnbr-equation.jpg" alt="NBR - US Forest Service."></a>
     <figcaption>difference NBR (dNBR) equation. Source: http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html
     </figcaption>
 </figure>
@@ -215,14 +215,6 @@ Your classified map should look something like:
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 
-
-
-```r
-barplot(nbr_classified,
-        main = "Distribution of Classified NBR Values",
-        col = the_colors,
-        names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
-```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral05-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
