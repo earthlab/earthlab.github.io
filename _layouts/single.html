@@ -40,7 +40,11 @@ layout: default
           {% endif %}
           <!-- END: insert welcome block -->
           {% if page.title %}<h1 class="page__title" itemprop="headline">
-            {% if page.order %}Lesson {{ page.order }}. {% endif %}{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+            {% if page.order %}Lesson {{ page.order }}. {% endif %}
+            {% if page.header1 %}{{ page.header1 | markdownify | remove: "<p>" | remove: "</p>" }}{% else %} {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %} </h1>
+          {% endif %}
+
+
           {% if page.authors %}
             <div class="page__meta">
               {% for anAuthor in page.authors %}
