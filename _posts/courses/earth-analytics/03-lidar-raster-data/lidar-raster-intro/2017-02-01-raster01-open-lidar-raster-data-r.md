@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-09-28'
+modified: '2017-09-29'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/open-lidar-raster-r/
@@ -272,8 +272,8 @@ yres(lidar_dem)
 ```
 
 <figure>
-    <a href="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/pixel-resolution.png">
-    <img src="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/pixel-resolution.png" alt="The spatial resolution of a raster refers the size of each cell. This size in turn relates to the area on the ground that the pixel represents. Source: Colin Williams, National Ecological Observatory Network (NEON) ">
+    <a href="{{ site.baseurl}}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png">
+    <img src="{{ site.baseurl}}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png" alt="The spatial resolution of a raster refers the size of each cell. This size in turn relates to the area on the ground that the pixel represents. Source: Colin Williams, National Ecological Observatory Network (NEON) ">
     </a>
     <figcaption> The spatial resolution of a raster refers the size of each cell.
     This size in turn relates to the area on the ground that the pixel represents.
