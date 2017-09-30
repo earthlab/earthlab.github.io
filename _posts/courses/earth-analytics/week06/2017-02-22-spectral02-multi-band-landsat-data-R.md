@@ -3,7 +3,7 @@ layout: single
 title: "Working with remote sensing imagery that has multiple bands in R - NAIP raster data in R."
 excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared ot other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-09-29'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/
@@ -62,8 +62,8 @@ our data in several ways.
 `plotRGB()`, instead of `plot()`, to plot a 3 band raster image.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/single_multi_raster.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/single_multi_raster.png" alt="A raster can contain one or more bands. We can use the
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/single-vs-multi-band-raster-data.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/single-vs-multi-band-raster-data.png" alt="A raster can contain one or more bands. We can use the
     raster function to import one single band from a single OR multi-band
     raster.">
     </a>
@@ -81,8 +81,8 @@ creates the colors that we see in an image. These colors are the ones our eyes
 can see within the visible portion of the electromagnetic spectrum.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/RGBSTack_1.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/RGBSTack_1.jpg" alt="A color image consists of 3 bands - red, green and blue. When
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack" alt="A color image consists of 3 bands - red, green and blue. When
     rendered together in a GIS, or even a tool like Photoshop or any other
     image software, the 3 bands create a color image."></a>
     <figcaption>A color image consists of 3 bands - red, green and blue. When
@@ -145,12 +145,6 @@ To work with multi-band raster data we will use the `raster` and `rgdal`
 packages.
 
 
-```r
-# load spatial packages
-library(raster)
-library(rgdal)
-library(rgeos)
-```
 
 In this lesson we will use imagery from the National Agricultural Imagery
 Program (NAIP).
@@ -174,26 +168,9 @@ download NAIP imagery. </a>
 Next, let's open up our NAIP imagery for the Coldsprings fire study area in
 Colorado.
 
-
-```r
-# Read in multi-band raster with raster function.
-# the first band will be read in automatically
-# csf = cold springs fire!
-naip_csf <- raster("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-
-# Plot band 1
-plot(naip_csf,
-     col = gray(0:100 / 100),
-     axes=FALSE,
-     main = "NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/read-single-band-1.png" title="naip imagery single band plot." alt="naip imagery single band plot." width="90%" />
 
-```r
-
-# view data dimensions, CRS, resolution, attributes, and band info
-naip_csf
+```
 ## class       : RasterLayer 
 ## band        : 1  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
@@ -221,13 +198,8 @@ raster object can also be determined using the `nbands` slot. Syntax is
 Let's next examine the raster's min and max values. What is the value range?
 
 
-```r
-# view min value
-minValue(naip_csf)
+```
 ## [1] 0
-
-# view max value
-maxValue(naip_csf)
 ## [1] 255
 ```
 
@@ -247,25 +219,9 @@ We can use the `raster()` function to import specific bands in our raster object
 by specifying which band we want with `band=N` (N represents the band number we
 want to work with). To import the green band, we would use `band=2`.
 
-
-```r
-# Can specify which band we want to read in
-rgb_band2 <- raster("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif",
-             band = 2)
-
-# plot band 2
-plot(rgb_band2,
-     col = gray(0:100 / 100),
-     axes=FALSE,
-     main = "RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/read-specific-band-1.png" title="naip imagery band 2 plot." alt="naip imagery band 2 plot." width="90%" />
 
-```r
-
-# view attributes of band 2
-rgb_band2
+```
 ## class       : RasterLayer 
 ## band        : 2  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
@@ -289,13 +245,7 @@ IMPORTANT: All rasters in a raster stack must have the same *extent*,
 *CRS* and *resolution*.
 
 
-```r
-# Use stack function to read in all bands
-naip_stack_csf <-
-  stack("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-
-# view attributes of stack object
-naip_stack_csf
+```
 ## class       : RasterStack 
 ## dimensions  : 2312, 4377, 10119624, 4  (nrow, ncol, ncell, nlayers)
 ## resolution  : 1, 1  (x, y)
@@ -313,9 +263,7 @@ attributes for using an index value: `naip_stack_csf[[1]]`. We can also use the
 distribution of raster band values.
 
 
-```r
-# view raster attributes
-naip_stack_csf@layers
+```
 ## [[1]]
 ## class       : RasterLayer 
 ## band        : 1  (of  4  bands)
@@ -367,9 +315,7 @@ naip_stack_csf@layers
 View attributes of one band.
 
 
-```r
-# view attributes for one band
-naip_stack_csf[[1]]
+```
 ## class       : RasterLayer 
 ## band        : 1  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
@@ -384,36 +330,13 @@ naip_stack_csf[[1]]
 We can view a histogram of each band in our stack. This is useful to better understand
 the distribution of reflectance values for each band.
 
-
-```r
-# view histogram for each band
-hist(naip_stack_csf,
-     maxpixels=ncell(naip_stack_csf),
-     col = "purple")
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/hist-all-layers-1.png" title="histogram of each band for a total of 4 bands" alt="histogram of each band for a total of 4 bands" width="90%" />
 
 Plot each band individually.
 
-
-```r
-# plot 4 bands separately
-plot(naip_stack_csf,
-     col = gray(0:100 / 100))
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-all-layers-1.png" title="plot each band for a total of 4 bands" alt="plot each band for a total of 4 bands" width="90%" />
 
 We can plot just one band too if we want.
-
-
-```r
-# plot band 2
-plot(naip_stack_csf[[2]],
-     main = "NAIP Band 2\n Coldsprings Fire Site",
-     col = gray(0:100 / 100))
-```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-individual-bands-1.png" title="plot individual band - band 2" alt="plot individual band - band 2" width="90%" />
 
@@ -432,8 +355,8 @@ darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
 Previously we've explored the single bands in our rasterstack. Next, we'll plot an RGB image.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/RGBSTack_1.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/RGBSTack_1.jpg" alt="A true color image consists of 3 bands - red, green and blue.
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack" alt="A true color image consists of 3 bands - red, green and blue.
     When composited or rendered together in a GIS, or even a image-editor like
     Photoshop the bands create a color image."></a>
     <figcaption>A "true" color image consists of 3 bands - red, green and blue.
@@ -459,14 +382,6 @@ Let's plot our 3-band image.
 
 
 
-
-```r
-# Create an RGB image from the raster stack
-plotRGB(naip_stack_csf,
-        r = 1, g = 2, b = 3,
-        main = "RGB image \nColdsprings fire scar")
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-image-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
 Here's how we add a title to our plot. To do this, we adjust the
 **par**ameters of the plot as follows:
@@ -478,18 +393,6 @@ Here's how we add a title to our plot. To do this, we adjust the
 Finally after the plot code if you set `box(col = "white")` it removes the line
 that is drawn alongside of your plot.
 
-
-```r
-# adjust the plot parameters to render the axes using white
-# this is a way to "trick" R
-par(col.axis="white", col.lab="white", tck=0)
-plotRGB(naip_stack_csf,
-        r = 1, g = 2, b = 3,
-        axes=T,
-        main = "NAIP RGB image \nColdsprings fire scar")
-box(col = "white") # turn all of the lines to white
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-image-title-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
 
 The image above looks pretty good. We can explore whether applying a stretch to
@@ -497,8 +400,8 @@ the image might improve clarity and contrast using `stretch="lin"` or
 `stretch="hist"`.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/imageStretch_dark.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/imageStretch_dark.jpg" alt="When the range of pixel brightness values is closer to 0, a
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-image-stretch-dark.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-image-stretch-dark.jpg" alt="When the range of pixel brightness values is closer to 0, a
     darker image is rendered by default. We can stretch the values to extend to
     the full 0-255 range of potential values to increase the visual contrast of
     the image.">
@@ -511,8 +414,8 @@ the image might improve clarity and contrast using `stretch="lin"` or
 </figure>
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/imageStretch_light.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/imageStretch_light.jpg" alt="When the range of pixel brightness values is closer to 255, a
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-image-stretch-light.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-image-stretch-light.jpg" alt="When the range of pixel brightness values is closer to 255, a
     lighter image is rendered by default. We can stretch the values to extend to
     the full 0-255 range of potential values to increase the visual contrast of
     the image.">
@@ -524,31 +427,9 @@ the image might improve clarity and contrast using `stretch="lin"` or
     </figcaption>
 </figure>
 
-
-```r
-# what does stretch do?
-plotRGB(naip_stack_csf,
-        r = 1, g = 2, b = 3,
-        axes=T,
-        stretch = "lin",
-        main = "NAIP RGB plot with linear stretch\nColdsprings fire scar")
-```
-
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/image-stretch-1.png" title="lin stretch rgb image" alt="lin stretch rgb image" width="90%" />
 
 What does the image look like using a different stretch? Any better? worse?
-
-
-```r
-par(col.axis="white", col.lab="white", tck=0)
-plotRGB(naip_stack_csf,
-        r = 1, g = 2, b = 3,
-        axes=T,
-        scale=800,
-        stretch = "hist",
-        main = "NAIP RGB plot with hist stretch\nColdsprings fire scar")
-box(col = "white") # turn all of the lines to white
-```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-rgb-hist-stretch-1.png" title="plot RGB with his stretch" alt="plot RGB with his stretch" width="90%" />
 
@@ -576,16 +457,8 @@ We can turn a `RasterStack` into a `RasterBrick` in `R` by using
 and `brick` `R` objects.
 
 
-```r
-# view size of the RGB_stack object that contains our 3 band image
-object.size(naip_stack_csf)
+```
 ## 53904 bytes
-
-# convert stack to a brick
-naip_brick_csf <- brick(naip_stack_csf)
-
-# view size of the brick
-object.size(naip_brick_csf)
 ## 13208 bytes
 ```
 
@@ -594,16 +467,6 @@ object. Thus, the `RasterBrick` object size is much larger than the
 `RasterStack` object.
 
 You use `plotRGB` to block a `RasterBrick` too.
-
-
-```r
-par(col.axis="white", col.lab="white", tck=0)
-# plot brick
-plotRGB(naip_brick_csf,
-  main = "NAIP plot from a rasterbrick",
-  axes=T)
-box(col = "white") # turn all of the lines to white
-```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week06/2017-02-22-spectral02-multi-band-landsat-data-R/plot-brick-1.png" title="plot raster brick" alt="plot raster brick" width="90%" />
 

@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to spectral remote sensing data"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-09-28'
+modified: '2017-09-29'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/week-6/intro-spectral-data-r/
@@ -65,8 +65,8 @@ case the sun.
 
 
 <figure class="half">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-6/active-vs-passive.png" alt="passive remote sensing">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-6/active-rs.png" alt="active remote sensing">
+   <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-vs-passive.png" alt="passive remote sensing">
+   <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-rs.png" alt="active remote sensing">
    <figcaption>LEFT: Remote sensing systems which measure energy that is naturally
    available are called passive sensors. RIGHT: Active sensors emit their own
    energy from a source on the instrument itself. Source:
@@ -111,7 +111,7 @@ dataset ever 2-4 years.
 
 
 <figure>
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-6/space-airborne.png" alt="space vs airborne remote sensing">
+   <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/space-airborne.png" alt="space vs airborne remote sensing">
    <figcaption>Space-born vs airborne remote sensing. Notice that space-born data
    are often of lower resolution however because a satellite rotates continuously
    around the earth, the spatial coverage may be better than airborne data. Source:<a href="http://www.cartospace.com/?page_id=22
@@ -140,8 +140,8 @@ represented in that  band. Thus in a band spanning 800-850 nm, the center would
 be 825).
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/spectrumZoomed.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/spectrumZoomed.png" alt="Spectrum zoomed in."></a>
+    <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/spectrumZoomed.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/spectrumZoomed.png" alt="Spectrum zoomed in."></a>
     <figcaption>Imaging spectrometers collect reflected light information within defined bands or regions of the electromagnetic spectrum.</figcaption>
 </figure>
 
@@ -167,8 +167,8 @@ why wouldn't we always just collect high resolution data (smaller
 pixels?)
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/pixel-detail.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/pixel-detail.png" alt="Detail of a 1 meter pixel."></a>
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png.png" alt="Detail of a 1 meter pixel."></a>
     <figcaption>The spatial resolution of a raster represents the area on the
     ground that each pixel covers. Source: Colin Williams, NEON.</figcaption>
 </figure>
@@ -225,8 +225,8 @@ Landsat 8 bands 1-9 are listed below:
 Above: Source - <a href="http://landsat.usgs.gov" target="_blank"><a href="http://landsat.usgs.gov</a>
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/week-6/Landsat8_BandsUses.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/week-6/Landsat8_BandsUses.png" alt="landsat 8 bands image">
+    <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/Landsat8_BandsUses.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/Landsat8_BandsUses.png" alt="landsat 8 bands image">
     </a>
     <figcaption>The bands for Landsat 7 (bottom) vs Landsat 8 (top).
     there are several other landsat instruments that provide data - the most

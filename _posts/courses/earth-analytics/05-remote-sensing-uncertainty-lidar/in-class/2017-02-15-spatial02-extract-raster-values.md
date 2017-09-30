@@ -4,7 +4,7 @@ title: "Extract Raster Values Using Vector Boundaries in R"
 excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
 vector boundary. We can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where we measured tree heights on the ground. Finally we will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2017-09-28'
+modified: '2017-09-29'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/extract-data-from-raster/
@@ -48,6 +48,7 @@ You will need a computer with internet access to complete this lesson and the da
 
 
 
+
 ```r
 # load libraries
 library(raster)
@@ -87,6 +88,8 @@ hist(SJER_chm,
      main = "Histogram of Canopy Height\n NEON SJER Field Site",
      col = "springgreen",
      xlab = "Height (m)")
+## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
+## 0% of the raster cells were used. 100000 values used.
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/import-chm-1.png" title="Histogram of CHM values" alt="Histogram of CHM values" width="90%" />
@@ -157,7 +160,7 @@ There are a few ways to go about this task. If our plots are circular, then we c
 use the `extract()` function.
 
 <figure>
-    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/buffer-circular.png" alt="buffer circular">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-circular.png" alt="buffer circular">
     <figcaption>The extract function in R allows you to specify a circular buffer
     radius around an x,y point location. Values for all pixels in the specified
     raster that fall within the circular buffer are extracted. In this case, we
@@ -182,13 +185,13 @@ SJER_height <- raster::extract(SJER_chm,
 
 # view structure of the spatial data frame attribute table
 head(SJER_height@data)
-##    Plot_ID  Point northing easting plot_type SJER_lidarCHM
-## 1 SJER1068 center  4111568  255852     trees        11.544
-## 2  SJER112 center  4111299  257407     trees        10.356
-## 3  SJER116 center  4110820  256839     grass         7.512
-## 4  SJER117 center  4108752  256177     trees         7.675
-## 5  SJER120 center  4110476  255968     grass         4.591
-## 6  SJER128 center  4111389  257079     trees         8.979
+##    Plot_ID  Point northing  easting plot_type SJER_lidarCHM
+## 1 SJER1068 center  4111568 255852.4     trees     11.544348
+## 2  SJER112 center  4111299 257407.0     trees     10.355685
+## 3  SJER116 center  4110820 256838.8     grass      7.511956
+## 4  SJER117 center  4108752 256176.9     trees      7.675347
+## 5  SJER120 center  4110476 255968.4     grass      4.591176
+## 6  SJER128 center  4111389 257078.9     trees      8.979005
 # note that this is a spatial points data frame
 class(SJER_height)
 ## [1] "SpatialPointsDataFrame"
@@ -202,20 +205,20 @@ to be something more meaningful.
 
 
 ```r
-# raname 
-colnames(SJER_height@data)[6] 
+# raname
+colnames(SJER_height@data)[6]
 ## [1] "SJER_lidarCHM"
 
 # rename the column
 colnames(SJER_height@data)[6] <- "lidar_mean_ht"
 head(SJER_height@data)
-##    Plot_ID  Point northing easting plot_type lidar_mean_ht
-## 1 SJER1068 center  4111568  255852     trees        11.544
-## 2  SJER112 center  4111299  257407     trees        10.356
-## 3  SJER116 center  4110820  256839     grass         7.512
-## 4  SJER117 center  4108752  256177     trees         7.675
-## 5  SJER120 center  4110476  255968     grass         4.591
-## 6  SJER128 center  4111389  257079     trees         8.979
+##    Plot_ID  Point northing  easting plot_type lidar_mean_ht
+## 1 SJER1068 center  4111568 255852.4     trees     11.544348
+## 2  SJER112 center  4111299 257407.0     trees     10.355685
+## 3  SJER116 center  4110820 256838.8     grass      7.511956
+## 4  SJER117 center  4108752 256176.9     trees      7.675347
+## 5  SJER120 center  4110476 255968.4     grass      4.591176
+## 6  SJER128 center  4111389 257078.9     trees      8.979005
 ```
 
 #### Explore the Data Distribution
@@ -244,7 +247,7 @@ For how to extract square plots using a plot centroid value, check out the
 <a href="http://neondataskills.org/working-with-field-data/Field-Data-Polygons-From-Centroids" target="_blank"> extracting square shapes activity </a>.
 
  <figure>
-    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/buffer-square.png" alt="Image showing the buffer area for a plot.">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-square.png" alt="Image showing the buffer area for a plot.">
     <figcaption>If you had square shaped plots, the code in the link above would
     extract pixel values within a square shaped buffer. Source: Colin Williams, NEON
     </figcaption>
@@ -276,5 +279,3 @@ legend(SJER_chm@extent@xmax + 250,
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/create-spatial-plot-1.png" title="Plots sized by vegetation height" alt="Plots sized by vegetation height" width="90%" />
-
-
