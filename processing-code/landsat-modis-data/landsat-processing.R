@@ -1,10 +1,8 @@
 ---
 title: "Untitled"
 author: "Leah A. Wasser"
-date: "2/20/2017"
-output: html_document
 ---
-
+#"2/20/2017"
 
 ```{r process-data}
 # load libraries
@@ -110,30 +108,30 @@ overwrite_layer = T)
 # crop_extent <- fire_crop_box
 ## Function to crop all rasters
 crop_all_tifs <- function(the_file, crop_extent){
-  
+
   # create raster
   the_file_raster <- raster(the_file)
   # create the new filename
   the_path <- paste0(dirname(the_file), "/crop/")
   the_file_name <- gsub(".tif", "_crop.tif", basename(the_file))
-  
+
   # make sure the path exists
   if(!dir.exists(the_path)){
     # create the dir
     dir.create(the_path,
                recursive=T)
   }
-  
+
   # crop to extent
   file_crop <- crop(the_file_raster,
                     crop_extent)
-  
+
   # export raster to the crop folder
   writeRaster(x = file_crop,
               filename=paste0(the_path, the_file_name),
               format = "GTiff",
               overwrite = T)
-  
+
 }
 ```
 
