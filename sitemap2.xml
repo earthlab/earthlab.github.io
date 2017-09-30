@@ -6,7 +6,7 @@ layout:
 
 {% comment %}
 *
-*  This page tries to recreate a better site mape with
+*  This page tries to recreate a better site map with
 *  1. A date modified taken from the modified yaml element
 *  2. Posts sorted by date modified < need to check with kendra about what sort is ideal? >
 *  3. ignores page with sitemap: false
@@ -14,7 +14,7 @@ layout:
 *  5. i've read the the order of things in this page doesn't matter - currently
 *  the tutorial pages only have a date yaml element whereas the other pages have modified
 * this makes it difficult to sort by date as there isn't one unique field.
-*  
+*
 *
 {% endcomment %}
 
