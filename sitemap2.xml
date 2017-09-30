@@ -1,0 +1,47 @@
+---
+layout:
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+{% comment %}
+*
+*  This page tries to recreate a better site mape with
+*  1. A date modified taken from the modified yaml element
+*  2. Posts sorted by date modified < need to check with kendra about what sort is ideal? >
+*  3. ignores page with sitemap: false
+*  4. ignores other html pages like leaflet pages
+*  5. i've read the the order of things in this page doesn't matter - currently
+*  the tutorial pages only have a date yaml element whereas the other pages have modified
+* this makes it difficult to sort by date as there isn't one unique field.
+*  
+*
+{% endcomment %}
+
+{% assign sorted_posts = site.posts | sort: 'date' %}
+
+{% for post in site.posts %}
+
+{% if post.sitemap == false %}
+{% else %}
+<url>
+<loc>{{ post.url }}</loc>
+<lastmod>{% if post.modified %}{{ post.modified | date_to_xmlschema }} {% else %} {{ post.date | date_to_xmlschema }} {% endif %}</lastmod>
+</url>
+{% endif %}
+{% endfor %}
+
+
+{% for page in site.pages %}
+{% if page.sitemap == false %}
+{% elsif page.url contains '.xml' %}
+{% else %}
+<url>
+<loc>{{ page.url }}</loc>
+{% if page.date %}<lastmod>{% if page.modified %}{{ page.modified | date_to_xmlschema }} {% elsif page.date %} {{ page.date | date_to_xmlschema }} {% endif %}</lastmod>{% endif %}
+</url>
+
+{% endif %}
+{% endfor %}
+
+</urlset>
