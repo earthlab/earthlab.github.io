@@ -3,7 +3,7 @@ layout: single
 title: "Make Interactive Maps with Leaflet R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-10-02'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-interactive-maps-with-leaflet-R/
@@ -89,7 +89,7 @@ map
 
 
 
-<iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
+<iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
 
 
 Next, import and explore the data.
@@ -133,7 +133,7 @@ site_locations
 
 
 
-<iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/site_locations.html" frameborder="0" allowfullscreen></iframe>
+<iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/site_locations.html" frameborder="0" allowfullscreen></iframe>
 
 
 Add unique colors according to plot type.
@@ -156,6 +156,6 @@ site_locations_colors
 
 
 
-<iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/leaflet-maps/site_locations_colors.html" frameborder="0" allowfullscreen></iframe>
+<iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/site_locations_colors.html" frameborder="0" allowfullscreen></iframe>
 
 

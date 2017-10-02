@@ -33,8 +33,11 @@ layout:
 
 
 {% for page in site.pages %}
+
 {% if page.sitemap == false %}
-{% elsif page.url contains '.xml' or '.R' %}
+
+{% elsif page.url contains '.' %}
+
 {% else %}
 <url>
 <loc>{{ page.url }}</loc>
