@@ -3,7 +3,7 @@ layout: single
 title: "Import and summarize tree height data and compare it to lidar derived height in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-09-29'
+modified: '2017-10-02'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/import-summarize-tree-height-data/
@@ -31,13 +31,12 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Use pipes to summarize tree height data by plot stored in `.csv` format
-* Merge a regular `data.frame` to a spatial `data.frame` object
-* Create scatterplots using `ggplot()` that compare 2 variables using a 1:1 line
+* Extract mean and max summary metrics from tabular data using pipes & `mutate()`
+* Send data from a pipe directly to `ggplot()`
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
+You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
 
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
@@ -45,6 +44,20 @@ You will need a computer with internet access to complete this lesson and the da
 
 
 
+
+```r
+# load libraries
+library(raster)
+library(rgdal)
+library(rgeos)
+library(ggplot2)
+library(dplyr)
+
+options(stringsAsFactors = FALSE)
+
+# set working directory
+# setwd("path-here/earth-analytics")
+```
 
 In the last lesson we extracted canopy height data at each field site location
 from a NEON Canopy Height Model. In this lesson, we will summarize our field
@@ -62,7 +75,11 @@ height data is stored in `.csv` format. How many unique plots are in the data?
 
 
 
-```
+```r
+# import the centroid data and the vegetation structure data
+SJER_insitu <- read.csv("data/week_04/california/SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv")
+
+str(SJER_insitu)
 ## 'data.frame':	362 obs. of  30 variables:
 ##  $ siteid               : chr  "SJER" "SJER" "SJER" "SJER" ...
 ##  $ sitename             : chr  "San Joaquin" "San Joaquin" "San Joaquin" "San Joaquin" ...
@@ -94,14 +111,27 @@ height data is stored in `.csv` format. How many unique plots are in the data?
 ##  $ common_name          : logi  NA NA NA NA NA NA ...
 ##  $ aop_plot             : logi  NA NA NA NA NA NA ...
 ##  $ unique_id            : logi  NA NA NA NA NA NA ...
+unique(SJER_insitu$plotid)
 ##  [1] "SJER128"  "SJER2796" "SJER272"  "SJER112"  "SJER1068" "SJER916" 
 ##  [7] "SJER361"  "SJER3239" "SJER824"  "SJER8"    "SJER952"  "SJER116" 
 ## [13] "SJER117"  "SJER37"   "SJER4"    "SJER192"  "SJER36"   "SJER120"
+
+# get list of unique plots from the shapefile that we imported in the previous lesson
+unique(SJER_plots$Plot_ID)
 ##  [1] "SJER1068" "SJER112"  "SJER116"  "SJER117"  "SJER120"  "SJER128" 
 ##  [7] "SJER192"  "SJER272"  "SJER2796" "SJER3239" "SJER36"   "SJER361" 
 ## [13] "SJER37"   "SJER4"    "SJER8"    "SJER824"  "SJER916"  "SJER952"
+
+# do we have the same plot numbers in both data sets?
+shapefile_plot_id <- sort(unique(SJER_plots$Plot_ID))
+csv_plot_id <- sort(unique(SJER_insitu$plotid))
+# are they the same ?
+shapefile_plot_id == csv_plot_id
 ##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
 ## [15] TRUE TRUE TRUE TRUE
+
+# or ask r if each value is the same or not
+all(shapefile_plot_id == csv_plot_id)
 ## [1] TRUE
 ```
 
@@ -121,7 +151,14 @@ Finally, you will compare the mean measured tree height per plot to the mean
 tree height extracted from the lidar `CHM`.
 
 
-```
+```r
+# find the max and mean stem height for each plot
+insitu_stem_height <- SJER_insitu %>%
+  group_by(plotid) %>%
+  summarise(insitu_max = max(stemheight), insitu_mean = mean(stemheight))
+
+# view the data frame to make sure we're happy with the column names.
+head(insitu_stem_height)
 ## # A tibble: 6 x 3
 ##     plotid insitu_max insitu_mean
 ##      <chr>      <dbl>       <dbl>
@@ -132,7 +169,6 @@ tree height extracted from the lidar `CHM`.
 ## 5  SJER120        8.8    7.600000
 ## 6  SJER128       18.2    5.211765
 ```
-
 
 Above you did a few things
 
@@ -155,7 +191,14 @@ spelled slightly differently in both `data.frames` so we'll need to tell `R`
 what it's called in each `data.frame`.
 
 
-```
+```r
+# merge the insitu data into the centroids data.frame
+SJER_height <- merge(SJER_height,
+                     insitu_stem_height,
+                   by.x = 'Plot_ID',
+                   by.y = 'plotid')
+
+SJER_height@data
 ##     Plot_ID  Point northing  easting plot_type lidar_mean_ht insitu_max
 ## 1  SJER1068 center  4111568 255852.4     trees     11.544348       19.3
 ## 2   SJER112 center  4111299 257407.0     trees     10.355685       23.9
@@ -207,19 +250,82 @@ Finally, create a scatterplot that illustrates the relationship between insitu
 measured max canopy height values and lidar derived max canopy height values.
 
 
+
+```r
+# create plot
+ggplot(SJER_height@data, aes(x = lidar_mean_ht, y = insitu_mean)) +
+  geom_point() +
+  theme_bw() +
+  labs(title = "Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height (m)",
+       subtitle = "San Joaquin Field Site",
+       x = "Mean measured height",
+       y = "Mean LiDAR pixel")
+```
+
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial03-import-summarize-tree-height-data/plot-w-ggplot-1.png" title="ggplot - measured vs lidar chm." alt="ggplot - measured vs lidar chm." width="90%" />
 
 Next, let's fix the plot adding a 1:1 line and making the x and y axis the same .
+
+
+```r
+# create plot
+ggplot(SJER_height@data, aes(x = lidar_mean_ht, y = insitu_mean)) +
+  geom_point() +
+  theme_bw() +
+  xlim(0, 15) + ylim(0, 15) + # set x and y limits to 0-20
+  geom_abline(intercept = 0, slope = 1) + # add one to one line
+    labs(title = "Lidar Derived Mean Tree Height \nvs. InSitu Measured Mean Tree Height (m)",
+       subtitle = "San Joaquin Field Site",
+       x = "Mean measured height",
+       y = "Mean LiDAR pixel")
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial03-import-summarize-tree-height-data/plot-w-ggplot2-1.png" title="ggplot - measured vs lidar chm w one to one line." alt="ggplot - measured vs lidar chm w one to one line." width="90%" />
 
 We can also add a regression fit to our plot. Explore the `GGPLOT` options and
 customize your plot.
 
+
+```r
+# plot with regression fit
+p <- ggplot(SJER_height@data, aes(x = lidar_mean_ht, y = insitu_mean)) +
+  geom_point() +
+  labs( title = "LiDAR CHM Derived vs Measured Tree Height",
+        x = "Mean Measured Height",
+        y = "Mean LiDAR Height") +
+    xlim(0, 15) + ylim(0, 15) + # set x and y limits to 0-20
+  geom_abline(intercept = 0, slope = 1) +
+  geom_smooth(method = lm)
+
+p + theme(panel.background = element_rect(colour = "grey")) +
+  theme(plot.title = element_text(family = "sans", face = "bold", size = 20, vjust = 1.9)) +
+  theme(axis.title.y = element_text(family = "sans", face = "bold",
+                                    size = 14, angle = 90, hjust = 0.54,
+                                    vjust = 1)) +
+  theme(axis.title.x = element_text(family = "sans", face = "bold",
+                                    size = 14, angle = 00,
+                                    hjust = 0.54, vjust = -.2))
+```
+
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial03-import-summarize-tree-height-data/ggplot-data-1.png" title="Scatterplot measured height compared to lidar chm." alt="Scatterplot measured height compared to lidar chm." width="90%" />
 
 
 ## View Difference: Lidar vs Measured
+
+
+```r
+# Calculate difference
+SJER_height@data$ht_diff <-  (SJER_height@data$lidar_mean_ht - SJER_height@data$insitu_mean)
+
+
+# create bar plot using ggplot()
+ggplot(data = SJER_height@data,
+       aes(x = Plot_ID, y = ht_diff, fill = Plot_ID)) +
+       geom_bar(stat = "identity") +
+       labs( title = "Difference: \nLidar mean height - in situ mean height (m)",
+             x = "Plot Name",
+             y = "Height difference (m)")
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial03-import-summarize-tree-height-data/view-diff-1.png" title="box plot showing differences between chm and measured heights." alt="box plot showing differences between chm and measured heights." width="90%" />
 
@@ -233,6 +339,21 @@ in the plotid column. gsub() takes 3 arguments
 2. What you want to replace that text with. To remove it use `""`
 3. The thing that you want to do the find and replace on. In this case that thing is the plotid column in our `data.frame`.
 
+
+
+```r
+# remove the SJER from each plot id using gsub
+SJER_height$Plot_ID <- gsub("SJER", "", SJER_height$Plot_ID)
+
+# create bar plot using ggplot()
+ggplot(data = SJER_height@data,
+       aes(x = Plot_ID, y = ht_diff, fill = Plot_ID)) +
+       geom_bar(stat = "identity") +
+       labs( title = "Difference: \nLidar mean height - in situ mean height (m)",
+             x = "Plot ID",
+             y = "Height difference (m)") +
+  guides(fill = FALSE) # remove legend
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial03-import-summarize-tree-height-data/barplot-nolegend-1.png" title=" " alt=" " width="90%" />
 
