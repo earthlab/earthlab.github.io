@@ -37,6 +37,7 @@ layout:
 {% if page.sitemap == false %}
 
 {% elsif page.url contains '.' %}
+{% elsif page.url contains '/assets/' %}
 
 {% else %}
 <url>
