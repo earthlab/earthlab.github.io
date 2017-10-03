@@ -3,7 +3,7 @@ layout: single
 title: "Lidar Remote Sensing Data - Understand Uncertainty / Error Associated with Height Metrics Extracted from Lidar Raster Data in R"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
 authors: ['Leah Wasser']
-modified: '2017-09-29'
+modified: '2017-10-03'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/about-uncertainty-lidar/
@@ -79,8 +79,8 @@ each time. or... what other reasons can you think of that might impact tree heig
 measurements?
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/measuring-tree-height.jpg">
-   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/measuring-tree-height.jpg" alt="national geographic scaling trees graphic"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/measuring-tree-height.jpg">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/measuring-tree-height.jpg" alt="national geographic scaling trees graphic"></a>
    <figcaption>When we measure tree height by hand, many different variables may impact the accuracy and precision of our results. Source:  http://www.haddenham.net/newsroom/guess-tree-height.html
    </figcaption>
 </figure>
@@ -105,10 +105,10 @@ tree_heights <- data.frame(heights = c(10, 10.1, 9.9, 9.5, 9.7, 9.8,
                                      9.6, 10.5, 10.7, 10.3, 10.6))
 # what is the average tree height
 mean(tree_heights$heights)
-## [1] 10.06364
+## [1] 10.06
 # what is the standard deviation of measurements?
 sd(tree_heights$heights)
-## [1] 0.4129715
+## [1] 0.413
 boxplot(tree_heights$heights,
         main = "Distribution of tree height measurements (m)",
         ylab = "Height (m)",
@@ -197,24 +197,24 @@ data in many different ways to estimate height. Which method most closely repres
 the actual heights of the trees on the ground?
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/scaling-trees-nat-geo.jpg">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/scaling-trees-nat-geo.jpg" alt="national geographic scaling trees graphic"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/scaling-trees-nat-geo.jpg">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/scaling-trees-nat-geo.jpg" alt="national geographic scaling trees graphic"></a>
    <figcaption>It can be difficult to measure the true height of trees! Often times "seeing" the very top of the tree where it is tallest is not possible from the ground - especially in dense, tall forests. One can imagine the amount of uncertainty that is thus introduced when we try to estimate the true height of trees! Image Source:
    National Geographic
    </figcaption>
 </figure>
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/waveform.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/waveform.png" alt="Example of a lidar waveform"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" target="_blank">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" alt="Example of a lidar waveform"></a>
    <figcaption>An example LiDAR waveform. Source: NEON, Boulder, CO.
    </figcaption>
 </figure>
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/week-3/Treeline_ScannedPoints.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/week-3/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/treeline-scanned-lidar-points.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/treeline-scanned-lidar-points.png" alt="example of a tree profile after a lidar scan."></a>
    <figcaption>Cross section showing LiDAR point cloud data (above) and the
    corresponding landscape profile (below). Graphic: Leah A. Wasser
    </figcaption>

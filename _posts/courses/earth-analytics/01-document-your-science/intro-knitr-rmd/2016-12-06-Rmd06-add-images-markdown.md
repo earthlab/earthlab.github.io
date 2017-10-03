@@ -3,7 +3,7 @@ layout: single
 title: "Add images to an R Markdown report"
 excerpt: "This lesson covers how to use markdown to add images to a report. It also discusses good file management practices associated with saving images within your project directory to avoid losing them if you have to go back and work on the report in the future."
 authors: ['Leah Wasser']
-modified: '2017-08-30'
+modified: '2017-10-03'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/add-images-to-rmarkdown-report/
@@ -71,7 +71,7 @@ Let's try it with an actual image.
 ```
 And here's what that code does IF the image is in the right place:
 
-![an image caption Source: Ultimate Funny Dog Videos Compilation 2013.]({{ site.url }}/images/courses/earth-analytics/week-3/silly-dog.png)
+![an image caption Source: Ultimate Funny Dog Videos Compilation 2013.]({{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/silly-dog.png)
 
 If all of your images are in your images directory, then `knitr` will be able to
 easily find them. This also follows good file management practices because

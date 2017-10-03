@@ -3,7 +3,7 @@ layout: single
 title: "Import and summarize tree height data and compare it to lidar derived height in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-10-02'
+modified: '2017-10-03'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/import-summarize-tree-height-data/
@@ -31,12 +31,13 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Extract mean and max summary metrics from tabular data using pipes & `mutate()`
-* Send data from a pipe directly to `ggplot()`
+* Use pipes to summarize tree height data by plot stored in `.csv` format
+* Merge a regular `data.frame` to a spatial `data.frame` object
+* Create scatterplots using `ggplot()` that compare 2 variables using a 1:1 line
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the data for week 5 of the course.
+You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
