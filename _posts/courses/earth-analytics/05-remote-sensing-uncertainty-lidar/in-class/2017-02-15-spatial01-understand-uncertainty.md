@@ -183,8 +183,8 @@ length.  Two people may likely pick two different starting and ending points.
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/accuracy_precision.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-remote-sensing-uncertainty/accuracy_precision.png" alt="national geographic scaling trees graphic"></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/accuracy_precision.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/accuracy_precision.png" alt="national geographic scaling trees graphic"></a>
    <figcaption>Accuracy vs precision. Accuracy quantifies how close a measured value is to the true value. Precision quantifies how close two or more measurements agree with each other (how quantitatively repeatable are the results) Source: http://www.ece.rochester.edu/courses/ECE111/error_uncertainty.pdf
    </figcaption>
 </figure>
