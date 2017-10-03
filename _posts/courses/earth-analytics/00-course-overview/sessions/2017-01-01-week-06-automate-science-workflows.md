@@ -32,23 +32,18 @@ make our code:
 
 We will also discuss the DRY principle of programming - Don't Repeat Yourself.
 
-We will continue to use the data from weeks 6-7 in this week. Download it now
-if you don't already have it (which you should)!
+This week is still under development and the content won't be done until Friday!
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
-
-
-[<i class="fa fa-download" aria-hidden="true"></i> Download class demo file]({{ site.url}}/processing-code/landsat-modis-data/r-functions/landsat-helper-functions.R){:data-proofer-ignore='' .btn }
 </div>
 
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 - 3:10  | Questions |   |
-| 3:10 - 3:45  | Identifying replication in your code - Don't Repeat yourself **DRY** |  Dr. Max Joseph |
-| 3:45 - 4:30  | Efficient coding approaches / Intro to functions   |  Dr. Max Joseph  |
+| 9:30 -   | Questions |   |
+|   | Identifying replication in your code - Don't Repeat yourself **DRY** |  Dr. Max Joseph |
+|  | Efficient coding approaches / Intro to functions   |  Dr. Max Joseph  |
 |===
-| 4:40 - 5:50  | Interactive coding -  build custom functions |  Dr. Max Joseph  |
+|  | Interactive coding -  build custom functions |  Dr. Max Joseph  |
 
 
 ### 1a. Remote sensing readings
@@ -62,7 +57,7 @@ There are no new readings for this week.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
 
-### Produce a .pdf report
+### Produce a R Markdown report
 
 <!--
 This is the old assignment

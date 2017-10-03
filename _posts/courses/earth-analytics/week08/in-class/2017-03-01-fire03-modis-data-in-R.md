@@ -6,9 +6,9 @@ authors: ['Megan Cattau', 'Leah Wasser']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
-permalink: /courses/earth-analytics/week-7/modis-data-in-R/
+permalink: /courses/earth-analytics/spectral-remote-sensing-modis/modis-data-in-R/
 nav-title: 'MODIS data in R'
-week: 7
+week: 8
 course: "earth-analytics"
 sidebar:
   nav:
@@ -22,6 +22,8 @@ topics:
   earth-science: ['fire']
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
+redirect_from:
+  - "/courses/earth-analytics/week-7/modis-data-in-R/"
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

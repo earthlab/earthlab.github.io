@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['how-to-hints-week7']
-permalink: /courses/earth-analytics/week-7/add-variables-to-rmarkdown-report/
+permalink: /courses/earth-analytics/spectral-remote-sensing-modis/add-variables-to-rmarkdown-report/
 nav-title: 'Variables in rmarkdown report'
 module-title: 'Refine plots & add variables to Rmarkdown reports'
 module-description: 'This tutorial set covers some basic things you can do to refine your plots in Rmarkdown document. It covers plotting in grids, adding titles to plotRGB() plots
@@ -14,7 +14,7 @@ and refining the width and height of plots to optimize space.'
 module-nav-title: 'Refine Rmarkdown reports'
 module-type: 'homework'
 course: "earth-analytics"
-week: 7
+week: 8
 sidebar:
   nav:
 author_profile: false
@@ -24,6 +24,8 @@ topics:
   reproducible-science-and-programming: ['rmarkdown']
 lang-lib:
   r: []
+redirect_from:
+  - "/courses/earth-analytics/week-7/add-variables-to-rmarkdown-report/"
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

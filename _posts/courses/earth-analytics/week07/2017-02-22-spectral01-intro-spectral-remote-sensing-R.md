@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Megan Cattau']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-r//intro-spectral-data-r/
+permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/intro-spectral-data-r/
 nav-title: 'Intro spectral data'
 module-title: 'Understanding fire using spectral remote sensing data'
 module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'

@@ -2,17 +2,16 @@
 layout: single
 category: courses
 title: "MODIS data in R - fire remote sensing"
-permalink: /courses/earth-analytics/week-7/
-modified: '2017-08-17'
-week-landing: 7
-week: 7
+permalink: /courses/earth-analytics/spectral-remote-sensing-modis/
+modified: '2017-10-03'
+week-landing: 8
+week: 8
 sidebar:
   nav:
 comments: false
 author_profile: false
 course: "earth-analytics"
 module-type: 'session'
-sitemap: false
 ---
 
 {% include toc title="This Week" icon="file-text" %}

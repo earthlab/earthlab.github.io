@@ -6,9 +6,9 @@ authors: ['Leah Wasser']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['how-to-hints-week7']
-permalink: /courses/earth-analytics/week-7/refine-plots-report/
+permalink: /courses/earth-analytics/spectral-remote-sensing-modis/refine-plots-report/
 nav-title: 'Refine RGB plots'
-week: 7
+week: 8
 course: "earth-analytics"
 sidebar:
   nav:
@@ -19,6 +19,8 @@ topics:
   reproducible-science-and-programming:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis: ['raster-data']
+redirect_from:
+  - "/courses/earth-analytics/week-7/refine-plots-report/"
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

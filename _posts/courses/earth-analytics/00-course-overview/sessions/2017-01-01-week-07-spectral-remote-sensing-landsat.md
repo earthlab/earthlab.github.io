@@ -2,7 +2,7 @@
 layout: single
 category: courses
 title: "Landsat data in R - fire ecology & remote sensing"
-permalink: /courses/earth-analytics/week-7/
+permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/
 modified: '2017-10-03'
 week-landing: 7
 week: 7
@@ -12,6 +12,8 @@ comments: false
 author_profile: false
 course: "earth-analytics"
 module-type: 'session'
+redirect_from:
+  - "/courses/earth-analytics/week-7/"
 ---
 
 {% include toc title="This Week" icon="file-text" %}

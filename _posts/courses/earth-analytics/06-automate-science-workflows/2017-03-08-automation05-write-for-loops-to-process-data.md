@@ -2,12 +2,12 @@
 layout: single
 title: "For loops  "
 excerpt: " ."
-authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
+authors: ['Leah Wasser', 'Max Joseph']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/loops-r/
-nav-title: 'For loops arguments'
+nav-title: 'Create for loops'
 week: 6
 course: "earth-analytics"
 sidebar:
@@ -20,6 +20,21 @@ order: 5
 redirect_from:
 ---
 
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+*
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson.
+
+</div>
 
 ## Automate tasks with loops
 
@@ -219,15 +234,15 @@ We can use `paste0()` to paste together a file name that suits our purposes.
 
 ```r
 # create a file name using paste0
-paste0(the_year , "_precip.csv")
-## [1] "2003_precip.csv"
+paste0("data/precip-", the_year, ".csv")
+## [1] "data/precip-2003.csv"
 ```
 
 Then `write.csv()` to write out a csv for that year.
 
 
 ```r
-write.csv(a_year, file = paste0(the_year, "_precip.csv"))
+write.csv(a_year, file = paste0("data/precip-", the_year, ".csv"))
 ```
 
 <div class="notice--warning" markdown="1">

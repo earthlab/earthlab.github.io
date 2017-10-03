@@ -75,7 +75,7 @@ fahr_to_celsius <- function(fahr) {
 }
 
 fahr_to_celsius(15)
-## Error in fahr_to_kelvin(fahr): could not find function "fahr_to_kelvin"
+## [1] -9.444
 ```
 
 When we run the function above, it creates a new temporary environment where it runs

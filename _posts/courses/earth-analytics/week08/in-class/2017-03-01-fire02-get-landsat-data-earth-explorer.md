@@ -6,9 +6,9 @@ authors: ['Leah Wasser']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
-permalink: /courses/earth-analytics/week-7/get-data-earth-explorer/
+permalink: /courses/earth-analytics/spectral-remote-sensing-modis/get-data-earth-explorer/
 nav-title: 'Get data - earth explorer'
-week: 7
+week: 8
 course: "earth-analytics"
 sidebar:
   nav:
@@ -22,6 +22,8 @@ topics:
   spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []
+redirect_from:
+  - "/courses/earth-analytics/week-7/get-data-earth-explorer/"
 ---
 
 

@@ -6,14 +6,14 @@ authors: ['Leah Wasser','Megan Cattau']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
-permalink: /courses/earth-analytics/week-7/intro-spectral-data-r/
+permalink: /courses/earth-analytics/spectral-remote-sensing-modis/intro-spectral-data-r/
 nav-title: 'Clouds, shadows & masks'
 module-title: 'Clouds, shadows & cloud masks in R'
 module-description: 'In this module we will learn more about dealing with clouds, shadows and other elements that can interfere with scientific analysis of remote sensing data. '
 module-nav-title: 'Fire / spectral remote sensing data - in R'
 module-type: 'class'
 course: "earth-analytics"
-week: 7
+week: 8
 sidebar:
   nav:
 author_profile: false
@@ -26,6 +26,8 @@ topics:
   spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []
+redirect_from:
+  - "/courses/earth-analytics/week-7/intro-spectral-data-r/"  
 ---
 
 
