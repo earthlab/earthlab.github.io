@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Megan Cattau']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-r//vegetation-indices-NDVI-in-R/
+permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/vegetation-indices-NDVI-in-R/
 nav-title: 'NDVI vegetation index'
 week: 7
 course: "earth-analytics"

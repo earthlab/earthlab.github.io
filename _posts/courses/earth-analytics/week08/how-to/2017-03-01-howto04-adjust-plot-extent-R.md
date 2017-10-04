@@ -6,9 +6,9 @@ authors: ['Leah Wasser']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['how-to-hints-week7']
-permalink: /courses/earth-analytics/week-7/adjust-plot-extent-R/
+permalink: /courses/earth-analytics/spectral-remote-sensing-modis/adjust-plot-extent-R/
 nav-title: 'Adjust plot extent'
-week: 7
+week: 8
 course: "earth-analytics"
 sidebar:
   nav:
@@ -21,6 +21,8 @@ topics:
   spatial-data-and-gis: ['raster-data']
 lang-lib:
   r: []
+redirect_from:
+  - "/courses/earth-analytics/week-7/adjust-plot-extent-R/"
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

@@ -3,7 +3,7 @@ layout: single
 title: "How to write a function in R - Automate your science"
 excerpt: "Learn how to write a function in the R programming language."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-10-03'
+modified: '2017-10-04'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-function-r-programming/
@@ -44,7 +44,7 @@ You will need a computer with internet access to complete this lesson.
 
 There are several parts of a function:
 
-1. **function name**. this is what you use when you call a function. For example plot(my_data) is a function with the name `plot`. YOu pass that function my_data
+1. **Function name**. this is what you use when you call a function. For example plot(my_data) is a function with the name `plot`. You pass that function my_data
 and it plots accordingly.
 2. **The function() function**: Confusing, right? The `function()` is actually a
 function that allows you to create a function. Trust us on this one.
@@ -78,11 +78,11 @@ The conversion between the two is as follows :
 temp_fahr <- 5
 # calculate Kelvin
 ((temp_fahr - 32) * (5 / 9)) + 273.15
-## [1] 258.1
+## [1] 258.15
 ```
 
 Take that same math and create a function that takes the temperature as a
-numeric value as an input argument. This function returns temperature in Kelvin. 
+numeric value as an input argument. This function returns temperature in Kelvin.
 
 
 ```r
@@ -124,10 +124,10 @@ fahrenheit:
 ```r
 # freezing point of water
 fahr_to_kelvin(32)
-## [1] 273.1
+## [1] 273.15
 # boiling point of water
 fahr_to_kelvin(212)
-## [1] 373.1
+## [1] 373.15
 ```
 
 <div class="notice--warning" markdown="1">
@@ -147,8 +147,31 @@ Run your function to see if it works.
 ```r
 # absolute zero in Celsius
 kelvin_to_celsius(0)
-## [1] -273.1
+## [1] -273.15
 ```
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
+
+Write a function, called inches_to_mm that converts inches of rain to mm.
+
+```r
+inches_to_mm <- function(temp_fahr) {
+# describe what the function does here
+# inputs: Describe the input(s) that the function takes and the format of the input (ie numeric, character, data.frame, etc)
+# outputs: Describe the output(s) and associated output format
+
+# calculate mm
+
+return()
+
+}
+```
+
+</div>
+
 
 
 ## More about functions
@@ -177,10 +200,18 @@ fahr_to_celsius(32.0)
 
 This is our first taste of how larger programs are built: we define basic
 operations, then combine them in ever-larger chunks to get the effect we want.
-Real-life functions will usually be larger than the ones shown here--typically half a dozen to a few dozen lines--but they shouldn't ever be much longer than that, or the next person who reads it won't be able to understand what's going on.
-Even more important than avoiding long functions is ensuring that the logic of your function is expressed by the code that comprises your function.
-For instance, it is nearly always better to use meaningful variable names such as `fahr` instead of simply `temp`, which could be taken to mean temporary, or temperature (in what units?).
-You might be surprised at the human mental expense required to comprehend all of the objects and operations in long functions.
+Real-life functions will usually be larger than the ones shown here--typically
+half a dozen to a few dozen lines--but they shouldn't ever be much longer than
+that, or the next person who reads it won't be able to understand what's going on.
+
+Even more important than avoiding long functions is ensuring that the logic of
+your function is expressed by the code that comprises your function.
+For instance, it is nearly always better to use meaningful variable names such
+as `fahr` instead of simply `temp`, which could be taken to mean temporary, or
+temperature (in what units?).
+
+You might be surprised at the human mental expense required to comprehend all of
+the objects and operations in long functions.
 
 ## Chaining Functions
 

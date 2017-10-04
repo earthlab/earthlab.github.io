@@ -2,12 +2,12 @@
 layout: single
 title: "For loops  "
 excerpt: " ."
-authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-10-03'
+authors: ['Leah Wasser', 'Max Joseph']
+modified: '2017-10-04'
 category: [courses]
 class-lesson: ['automating-your-science-r']
-permalink: /courses/earth-analytics/automate-science-workflows/loops-r/
-nav-title: 'For loops arguments'
+permalink: /courses/earth-analytics/automate-science-workflows/create-for-loops-r/
+nav-title: 'Create for loops'
 week: 6
 course: "earth-analytics"
 sidebar:
@@ -20,16 +20,25 @@ order: 5
 redirect_from:
 ---
 
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+* Write a for loop in `R`
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson.
+
+</div>
 
 ## Automate tasks with loops
 
-In the previous lessons, you learned how to create functions in R. Functions:
-
-1. reduce the number of lines / clutter in your code
-1. to make code more expressive and better documented
-1. reduce memory consumed by intermediate operations
-
-In this lesson we will learn how to create loops to perform repeated tasks. Loops
+In this lesson you will learn how to create loops to perform repeated tasks. Loops
 can be combined with functions to create powerful algorithms.
 
 As the name suggests a loop is a sequence of operations that are performed over
@@ -48,17 +57,22 @@ We can name the loop `variable` anything we like with a few restrictions:
 
 A few notes about the loop syntax:
 
-1. The loop condition `(variable in collection)`  is enclosed in parentheses `()`
+1. The loop condition `(variable in collection)` is enclosed in parentheses `()`
 2. The body of the loop is enclosed in curly braces `{ }`.
 
-<i class="fa fa-star" aria-hidden="true"></i>**Tip**The curly braces aren't required for a single-line loop like the one that we created above. However, it is good
+<i class="fa fa-star" aria-hidden="true"></i>**Data Tip**The curly braces aren't
+required for a single-line loop like the one that we created above. However, it is good
 practice to always include them.
 {: .notice--success }
 
+Below you can see how a for loop works. In this case, we provide a vector of
+letters. Then we tell `R` to loop through each letter.
+
 
 ```r
-
+# Create a vector of letters called vowels
 vowels <- c("a", "e", "i", "o", "u")
+# loop through each element in the vector and print out the letter
 for (v in vowels) {
   print(v)
 }
@@ -68,7 +82,6 @@ for (v in vowels) {
 ## [1] "o"
 ## [1] "u"
 ```
-
 
 Here’s another loop that repeatedly updates a variable called `len`:
 
@@ -93,7 +106,7 @@ len
 It’s worth tracing the execution of this little program step by step. Since there
 are five elements in the vector vowels, the statement inside the loop will be
 executed five times. The first time around, len is zero (the value assigned to it
-on line 1) and v is "a". The statement adds 1 to the old value of len, producing
+before the loop begins) and v is "a". The statement adds 1 to the old value of len, producing
 1, and updates len to refer to that new value. The next time around, v is "e"
 and len is 1, so len is updated to be 2. After three more updates, len is 5;
 since there is nothing left in the vector vowels for R to process, the loop
@@ -129,8 +142,8 @@ library(dplyr)
 # setwd("~/earth-analytics")
 ```
 
-
-Next, read in the precip data and fix the date so it's a date format.
+Next, read in the `/precipitation/805325-precip-daily-2003-2013.csv` file that
+contains precipitation data. Fix the date so it's a date class.
 
 
 ```r
@@ -146,6 +159,15 @@ boulder_precip <- boulder_precip %>%
 We can loop through dates in our data in the same way we loop through letters
 or other numbers. First, we grab the `min()` and `max()` date values for our
 `boulder_precip` object.
+
+Use the `year()` function from the `lubridate` package to grab just the 4 digit year
+from a date class object.
+
+`year(boulder_precip$DATE)`
+
+Use min to grab the lowest or oldest year.
+
+`min(year(boulder_precip$DATE))`
 
 
 ```r
@@ -179,8 +201,8 @@ for (i in min_yr:max_yr) {
 
 Next, let's create a for loop that does the following:
 
-1. filters the data by year: select rows where the year = the current year in the loop
-1. creates a unique csv file for that year: with a unique name that contains the year
+1. Filters the data by year: select rows where the year = the current year in the loop
+1. Creates a unique `.csv` file for that year: with a unique name that contains the year
 
 To build your `for loop`, first write out the pseudo code, then fill in the functions
 needed to execute the code. Let's start with the pipe required to subset our data
@@ -197,12 +219,12 @@ a_year <- boulder_precip %>%
 
 head(a_year)
 ##       STATION    STATION_NAME ELEVATION LATITUDE LONGITUDE
-## 1 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 2 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 3 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 4 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 5 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 6 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
+## 1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 2 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 3 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 4 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 5 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 6 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
 ##                  DATE HPCP Measurement.Flag Quality.Flag
 ## 1 2003-01-01 01:00:00  0.0                g             
 ## 2 2003-02-01 01:00:00  0.0                g             
@@ -219,15 +241,30 @@ We can use `paste0()` to paste together a file name that suits our purposes.
 
 ```r
 # create a file name using paste0
-paste0(the_year , "_precip.csv")
-## [1] "2003_precip.csv"
+paste0("data/week-06/precip-", the_year, ".csv")
+## [1] "data/week-06/precip-2003.csv"
 ```
 
-Then `write.csv()` to write out a csv for that year.
+Then `write.csv()` to write out a `.csv` for that year.
 
 
 ```r
-write.csv(a_year, file = paste0(the_year, "_precip.csv"))
+# write .csv file to your data directory.
+write.csv(a_year, file = paste0("data/week-06/precip-", the_year, ".csv"))
+## Warning in file(file, ifelse(append, "a", "w")): cannot open file 'data/
+## week-06/precip-2003.csv': No such file or directory
+## Error in file(file, ifelse(append, "a", "w")): cannot open the connection
+```
+
+Oops. Looks like we don't have a week-06 directory yet. We can make one using the
+`dir.create()`.
+
+
+```r
+# create new directory - if you already have this directory then you will get a
+# warning message like the one below.
+dir.create("data/week_06")
+## Warning in dir.create("data/week_06"): 'data/week_06' already exists
 ```
 
 <div class="notice--warning" markdown="1">
@@ -236,11 +273,12 @@ write.csv(a_year, file = paste0(the_year, "_precip.csv"))
 
 ### Write a for loop that created individual files for each year
 
-Put everythign that you learned above together to create a for loop that:
+Put everything that you learned above together to create a for loop that:
 
-1. loops through each year
-2. `filter()` the data to include only the rows that are for that year.
-3. write a csv to your hard drive with a file name that contains: `year_precip.csv`. You will use `paste0()` to create your filename.
+1. Loops through each year
+2. `filter()`s the data to include only the rows that are for that year.
+3. Writes a .csv file to your hard drive with a file name that contains: `year_precip.csv`.
+  * Use `paste0()` to create your filename.
 
 Now let's put everything together into a loop
 
@@ -257,72 +295,3 @@ for (year in min_yr:max_yr) {
 </div>
 
 
-
-
-## This could be homework??
-
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
-
-Write a function that converts temperature in inches (the units of our data) to
-mm. The calculate is very simple, but it's still useful to write a function.
-
-Be sure to document your function with what it does, inputs and outputs.
-Don't forget to specify the class of each input argument and the output value.
-</div>
-
-
-
-Next lesson -- functions -- write a function that checks to see if a directory exists
-and if it doesn't exist, create it.
-
-
-# write a function to convert inches to mm <previous lesson??>
-1 inch is equal to 25.4mm
-
-
-
-
-# Steps
-# 1. Define the directory
-# 2. check to see if the directory already exists
-# 3. If the directory doesn't exist, then create the directory. Recursive means it will create the directory and all directories needed above it!
-
-new_dir <- "data/week_06/outputs/precip_in/"
-if (!dir.exists(new_dir)) {
-  dir.create(new_dir, recursive = TRUE)
-}
-
-
-# read things in
-all_precip_files <- list.files(".", pattern = "*.csv")
-
-# could create a for loop and loop through everything
-
-for (file in all_precip_files) {
-  print(file)
-}
-
-
-# what if we wanted to do the following
-
-1. open each file,
-2. summarize the data by total daily precip
-3. add a precip column in inches
-4. create a new fils
-
-
-
-
-```r
-# get a list of all csv files
-all_files <- list.files(".", pattern = "*.csv")
-
-# open a file
-
-# add a new column to the file that converts precip in inches to mm
-# summarize by day?
-
-# write the csv's out to a new directory
-```

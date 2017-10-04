@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-r//naip-imagery-raster-stacks-in-r/
+permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/naip-imagery-raster-stacks-in-r/
 nav-title: 'Multi-band imagery in R'
 week: 7
 sidebar:

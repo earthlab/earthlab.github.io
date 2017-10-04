@@ -3,11 +3,11 @@ layout: single
 title: "Get to know the function environment & function arguments in R"
 excerpt: "This lesson introduces the function environment and documenting functions in R. When you run a function intermediate variables are not stored in the global environment. This not only saves memory on your computer but also keeps our environment clean, reducing the risk of conflicting variables."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-10-03'
+modified: '2017-10-04'
 category: [courses]
 class-lesson: ['automating-your-science-r']
-permalink: /courses/earth-analytics/automate-science-workflows/function-documentation-environment-r/
-nav-title: 'Function documentation & environment'
+permalink: /courses/earth-analytics/automate-science-workflows/document-functions-in-r/
+nav-title: 'Document functions'
 week: 6
 course: "earth-analytics"
 sidebar:
@@ -39,15 +39,15 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-In the last lesson, we learned how to create a function in `R`. We talked about
-how functions are efficient ways to reduce variables in your global environment.
-In this lesson we will explore that further. We will also explore function arguments.
+In the last lesson, you learned how to create a function in `R`. You learned that
+functions are efficient ways to reduce variables in your global environment.
+In this lesson your will explore that further. You will also explore function arguments.
 
 ## The function environment is self-contained
 
 As discussed in the previous lessons, there are many benefits to using functions in your code including:
 
-1. functions make your code lesson complex by grouping sets of well-defined tasks into discrete lines of code
+1. Functions make your code lesson complex by grouping sets of well-defined tasks into discrete lines of code
 2. Expressiveness - well named functions will make your code more expressive or self descriptive. As you scan the code, what it does is more clear.
 
 However, functions also save memory by keeping intermediately created objects out
@@ -98,8 +98,7 @@ It is important to document your functions to:
 1. To help anyone else looking at your code understand what **we think** the function does.
 
 Note that our written documentation can at best describe what **we think** the function does, because ultimately the code itself is the only true documentation for the what the function **actually** does.
-Beware!
-
+{: .notice--success }
 
 A common way to add documentation in software is to add comments to your function
 that specify
@@ -125,8 +124,8 @@ fahr_to_celsius <- function(fahr) {
 <div class="notice--success" markdown="1">
 
 ## Writing Documentation
-Formal documentation for R functions that you see when you access the help in
-R is written in separate `.Rd` using a
+Formal documentation for `R` functions that you see when you access the help in
+`R` is written in separate `.Rd` using a
 markup language similar to LaTeX. You see the result of this documentation
 when you look at the help file for a given function, e.g. `?read.csv`.
 The `roxygen2` package allows `R` coders to write documentation alongside

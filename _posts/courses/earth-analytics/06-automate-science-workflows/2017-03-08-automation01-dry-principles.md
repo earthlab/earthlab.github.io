@@ -3,10 +3,10 @@ layout: single
 title: "Write efficient scientific code - the DRY (Don't Repeat Yourself) principle "
 excerpt: "This lesson will cover the basic principles of using functions and why they are important."
 authors: ['Max Joseph', 'Leah Wasser', 'Software Carpentry', 'Reproducible Science Curriculum Community']
-modified: '2017-10-03'
+modified: '2017-10-04'
 category: [courses]
 class-lesson: ['automating-your-science-r']
-permalink: /courses/earth-analytics/automate-science-workflows/write-effecient-code-dont-repeat-r/
+permalink: /courses/earth-analytics/automate-science-workflows/write-efficient-code-for-science-r/
 nav-title: "Modular Code"
 module-title: "Don't Repeat Yourself: Remove repetition in your code using functions in R."
 module-description: "This module will overview the basic principles of DRY - don't repeat yourself. It will then walk you through incorporating functions into your scientific programming to increase efficiency, clarity, and readability. "
@@ -47,10 +47,10 @@ You will need a computer with internet access to complete this lesson.
 
 ## Efficient coding 101
 
-If you remember from the first week of class, we discussed the concept of
-reproducibility. One component of reproducibility that we emphasized was making
-your code easier
-for your colleagues and your future self to work with. This is important,
+In the first week of class, we discussed reproducibility. One component of
+reproducibility is writing easier to read code. If your code is easier to read,
+it will be easier for your future self to understand. It will also be easier for
+your colleagues to work with. This is important,
 but there is an even more selfish reasons to consider writing efficient code.
 
 Efficient coding will make your life easier too.
@@ -89,32 +89,48 @@ Instead, we can create **functions** that perform those tasks, using sets of
 * **Easier to maintain / edit:** When you create a function for a repeated task, it is easy to edit that one function. Then every location in your code where that same task is performed is automatically updated.
 * **Testing:** We don't discuss this in our class this week, but writing functions allows you to more easily test your code to identify bugs.
 
-### Modularity
+> input --> function does something --> output
+
+### Write modular functions and code
 
 Good functions only do one thing, but they do it well and often in a variety of contexts.
 Often the operations contained in a good function are generally useful for many tasks.
-Take for instance the R function `mean()`, which computes sample means.
-This function only does one thing (computes a mean), but it can do it very well in many different circumstances.
-This function is highly **modular** in the sense that it can be easily combined with other functions to accomplish a variety of tasks.
+Take for instance the `R` function `mean()`, which computes sample mean values.
+This function only does one thing (computes a mean). However you may use the `mean()`
+function in different places in your code. You may use it to calculate a new column
+value in a data.frame. Or you could use it to calculate that mean of a matrix.
+
+The `mean()` function is **modular**. It can be easily combined with other
+functions to accomplish a variety of tasks.
+
+> numeric input --> function calculates mean --> mean is returns as an output
+
 
 When you write **modular** functions, you can even re-use them for other projects.
-Some people even write their own R packages for personal use that contain custom functions for their work!
+Some people even write their own `R` packages for personal use that contain custom
+functions for their work.
 
-## Fewer global variables
+## Functions Create Fewer Global Variables
 
-Global variables are objects in R that exist within the **global environment**, which you can think of as a storage container for all of the objects in your R session.
-When you code line by line, you end up creating numerous intermediate variables
+Global variables are objects in `R` that exist within the **global environment**.
+We discussed the global environment in the first few weeks of class. You can think
+of it as a bucket filled with all of the objects (and package functions) in your
+`R` session. When you code line by line, you create numerous intermediate variables
 that you don't need to use again.
-This is suboptimal for a few reasons:
 
-1. Global variables accumulate in your environment, but you may never need to access intermediate results.
-2. Global variables consume memory, which can lead to reduced performance. In the extreme, you may run out of RAM if you have too many objects in your global environment.
-3. Having many global variables increases the odds that you will define another global variable with the same name by chance, inadvertently overwriting existing objects and leading to a variety of problems, some of which can be difficult to diagnose.
+Creating intermediate variables that you don't need to use is problematic because:
 
-Functions are useful in part because they have their own environments which are created when the function is called, and destroyed (by default) once the function returns it result.
-Objects defined inside of functions are thus created inside of that function's environment.
-Once the function is done running, those objects do not persist.
-In addition to minimizing the number of objects in your global environment, defining objects within functions is good because those objects will not overwrite previously existing objects in the global environment.
+1. **Global variables accumulate in your environment**, but you may never need to access intermediate results.
+2. **Global variables consume memory**, which can lead to reduced performance. In the extreme, you may run out of RAM if you have too many objects in your global environment.
+3. Lots of global variables increases the odds that you will define another global variable with the same name. This will overwrite the existing object and will lead to problems with your code.
+
+### Functions Run in Their Own Environment
+
+Similar to pipes, functions run in their own environment. This function environment
+is created when the function is called, and deleted (by default) once the function
+returns a result. Objects defined inside of functions are thus created inside of
+that function's environment. Once the function is done running, those objects
+are gone! This means less memory is used.
 
 For instance, if we define an object in our global environment:
 
@@ -140,24 +156,34 @@ x
 ## [1] 10
 ```
 
-Notice that the `x` in our global environment is unchanged, even though it was changed in our function.
-The `x` in the function environment was removed once the function returned its result.
+Notice that the `x` in our global environment is unchanged, even though it was
+changed in the body of your function. The `x` in the function environment was
+removed once the function returned its result.
+
 Functions allow you to focus on the inputs and the outputs of your workflow rather
 than the intermediate steps.
 
-## Better documentation
+## Reasons Why Functions Improve Code Readability
 
-Ideally, your code should be written so that it's easy to understand.
+### 1. Better Documentation
+
+Ideally, your code is easy to understand.
 However, what might seem clear to you now might be clear as mud 6 months from now
 or even 3 weeks from now (remember we discussed your future self in week 1 of this class).
 
-Well written functions are documented with inputs and outputs clearly defined.
-Well written functions also use names that help you better understand what task the
-function performs.
-It is good to name functions using verbs to make your code more expressive and indicate what the function *does*.
-This makes your code easier to read for both you, your future self and your colleagues.
+Well written functions help you document your workflow because:
 
-## Easier to maintain / edit
+1. Well written functions are documented with inputs and outputs clearly defined
+2. Well written functions use names that help you better understand the task that the
+function performs.
+
+### 2. Expressive Function Names Make Code Self-Describing
+
+Name functions using verbs the indicate what the function *does*. This makes
+your code more expressive or self describing and in turn makes it easier to read
+for both you, your future self and your colleagues.
+
+### 3. Easier to maintain / edit
 
 If all your code is written line by line, with repeated code in
 multiple parts of your document, it can be challenging to maintain.
@@ -173,7 +199,7 @@ How do you keep the duplicated comments in sync?
 Re-organizing your code using functions (or organizing your code using functions
 from the beginning) allows you to explicitly document the tasks that your code performs.
 
-## Testing
+### 4. You Can Incorporate Testing To Ensure Code Runs Properly
 
 While we won't cover this in our class this week, functions are also useful for testing.
 As your code gets longer and more complex, it is more prone to mistakes. For example, if your
@@ -191,11 +217,8 @@ line by line with repeated steps.
 
 ## Summary
 
-In short, it is a good idea to learn how to
+It is a good idea to learn how to
 
-1. Think about how to **modularize** your code and identify generalizable tasks
+1. **Modularize** your code and identify generalizable tasks
 2. Write functions for parts of your code which include repeated steps
 3. Document your functions clearly, specifying the structure of the inputs and outputs.
-
-
-> input --> function does something --> output

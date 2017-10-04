@@ -6,7 +6,7 @@ authors: ['Leah Wasser','Megan Cattau']
 modified: '2017-10-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-r//calculate-dNBR-R-Landsat/
+permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/calculate-dNBR-R-Landsat/
 nav-title: 'dNBR with Landsat'
 week: 7
 course: "earth-analytics"

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions & automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
-modified: '2017-10-03'
+modified: '2017-10-04'
 week-landing: 6
 week: 6
 sidebar:
@@ -32,26 +32,21 @@ make our code:
 
 We will also discuss the DRY principle of programming - Don't Repeat Yourself.
 
-We will continue to use the data from weeks 6-7 in this week. Download it now
-if you don't already have it (which you should)!
+This week is still under development and the content won't be done until Friday!
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
-
-
-[<i class="fa fa-download" aria-hidden="true"></i> Download class demo file]({{ site.url}}/processing-code/landsat-modis-data/r-functions/landsat-helper-functions.R){:data-proofer-ignore='' .btn }
 </div>
 
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 - 3:10  | Questions |   |
-| 3:10 - 3:45  | Identifying replication in your code - Don't Repeat yourself **DRY** |  Dr. Max Joseph |
-| 3:45 - 4:30  | Efficient coding approaches / Intro to functions   |  Dr. Max Joseph  |
+| 9:30 - 9:45   | Questions / Review  |   |
+|  9:45 - 10:15 | Write efficient, expressive code - Don't Repeat yourself **DRY** |    |
+| 10:15 - 11:00 | Write functions in R |    |
 |===
-| 4:40 - 5:50  | Interactive coding -  build custom functions |  Dr. Max Joseph  |
+| 11:- 12:20 | Loops & functions to automate workflows |    |
 
 
-### 1a. Remote sensing readings
+### 1a. Readings
 
 There are no new readings for this week.
 
@@ -62,34 +57,19 @@ There are no new readings for this week.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
 
-### Produce a .pdf report
-
-<!--
-This is the old assignment
-Over the past 2 weeks you have created the following plots:
-
-1. NBR from Landsat and MODIS data pre & post cold springs fire
-2. NDVI from Landsat and MODIS pre & post cold springs fire
-
-This week you will create the same plots that you created in previous weeks,
-BUT you will do it using the functions that we have created in class including:
-
-* `load_bands()`
-* `reclassify_ndvi())`
-
--->
+### Produce a R Markdown report
 
 Create a new `R markdown `document. Name it: **lastName-firstInitial-week8.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
-with your report, use `knitr` to convert it to `PDF` format. Submit both the
-`.Rmd` file and the `.pdf` (or `html` file to D2L. Be sure to name your files
+with your report, use `knitr` to convert it to `html` format. Submit both the
+`.Rmd` file and the `.html` (or `.pdf` file to D2L. Be sure to name your files
 as instructed above!
 
 #### Use knitr code chunk arguments
 
-For this week's assignment, you can turn off warnings but **please do not hide your code**.
+For this week's assignment **please do not hide your code**.
 We will grade the
-assignment based upon your use of functions to complete your assignment.
+assignment based upon your use of functions and for loops to complete your assignment.
 
 #### Answer the following questions below in your report
 
@@ -97,10 +77,10 @@ assignment based upon your use of functions to complete your assignment.
 2. List 2 ways that the DRY principle can improve your code.
 3. Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function. Use the example below to help you answer the question OR use code to answer the question.
 4. When you document a function, what elements should you include?
-5. Define expressive programming. List 2 things that you can do to make your code more expressive.
+5. Provide an example of a function name that is expressive vs one that is not expressive.
 
 ```r
-# for example:
+# this code below should help you answer question 3.
 my_variable <- 1+2
 
 # and a variable created within a function
@@ -110,100 +90,80 @@ the_answer <- function(num1, num2){
   return(my_variable)
   }
 
-# given the code above, will the code below run or return an error?
+# given the code above, will the code below run or return an error? Why?
 `my_variable2`
 ```
 
-#### Include the plots below.
+#### Code assignment
 
-For all plots use functions as follows:
+For this week's assignment, write some code that does the following.
 
-<!--
-1. In class we build a function called `load_bands()`. Modify this function to support opening both landsat data and the MODIS data that we used in class. HINT: you will need to add an argument that accounts for the differences in file names and modifies the `glob2rx()` function / list.files argument.
-2. Create & use a second function that reclassifies your calculated NDVI raster for each plot below. Be sure to document your function as covered in class. HINT: you may be able to use the function that we created in class to do this! Or you can make an even BETTER, more generic function that is more flexible.
+1. Write a `for loop` that takes the file `"data/week_02/precipitation/805325-precip-daily-2003-2013.csv"` and creates an individual `.csv` file for each year's worth of data. Each `.csv` file should be saved in `data/week_06/` If you followed along in class, then you have already written this code! [This lesson will help you complete this task. ]({{ site.url }}/courses/earth-analytics/automate-science-workflows/create-for-loops-r/)
+2. Complete the challenge exercise at the bottom of [this lesson - lesson 06 ]({{ site.url }}/courses/earth-analytics/automate-science-workflows/loop-through-a-set-of-files-r#i-classfa-fa-pencil-square-o-aria-hiddentruei-challenge) The challenge asks you to create a for loop that summarises data by month and exports new `.csv` files for each year. It also asks you to create two new functions to include in your for loop.
 
 
-#### BONUS (2 points)
-* Write a third function that **calculates** NDVI. The function should work with **both LANDSAT AND MODIS **data. Thus you will not be able to use the function that we created in class.
+#### Bonus opportunity
 
-#### BONUS (1 points)
-* Write a fourth function that plots your data! Use that when creating the plots below.
+You can use `apply()` functions (instead of for loops) to run a function on a
+list of elements. 
 
-#### Plot 1 - Pre-fire NDVI using landsat data
-Create a MAP of the classified pre-burn **NDVI **using the landsat scene that you
-downloaded from Earth Explorer last week. Add a legend. This file should not have
-a cloud in the middle of the burn area!
-
-#### Plot 2 - Post-fire NDVI using landsat data
-Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
-
-#### Plot 3 - Post-fire NDVI using MODIS data
-Create a MAP of post fire classified **NDVI** using Landsat data. Add a legend.
-
--->
-
-****
-
-## Homework due: Thursday March 16 2017 @ 5PM.
-Submit your report in both `.Rmd` and `.PDF` format to the D2L dropbox.
+## Homework due: Monday October 16 2017 @ 8AM.
+Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 </div>
 
 ## Grade rubric
 
 
-#### .Pdf Report structure & code: 10%
+#### R Markdown Report structure & code: 10%
 
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
-| PDF and RMD submitted |  | Only one of the 2 files are submitted  | | No files submitted |
-| Code is written using "clean" code practices following the Hadley Wickham style guide| Spaces are placed after all # comment tags, variable names do not use periods, or function names. | Clean coding is used in some of the code but spaces or variable names are incorrect 2-4 times| | Clean coding is not implemented consistently throughout the report. |
-| Code chunk contains code and runs  | All code runs in the document  | There are 1-2 errors in the code in the document that make it not run | | The are more than 3 code errors in the document |
-| All required R packages are listed at the top of the document in a code chunk.  | | Some packages are listed at the top of the document and some are lower down. | | |
+| Full Credit | No Credit  |
+|:----|----|
+| html / pdf  and RMD submitted |   |
+| Code is written using "clean" code practices following the Hadley Wickham style guide|  |
+| Code chunk contains code and runs  |  |
+| All required `R` packages are listed at the top of the document in a code chunk.  | |
+| Code chunk arguments are used to hide warnings & messages |  |
+| Code is visible in the document to demonstrate use of functions |  |
 |===
-| Lines of code are broken up at commas to make the code more readable  | |  | | |
-
-
-####  Knitr pdf output: 10%
-
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
-| Code chunk arguments are used to hide warnings & messages |  |  | | |
-|===
-| Code is visible in the document to demonstrate use of functions |  | | |  |
+| Lines of code are broken up at commas to make the code more readable  | |
 
 
 ####  Report questions: 30%
 
+| Full Credit | No Credit  |
+|:----|----|
+| Define the acronym D.R.Y. - what does it stand for and what does DRY mean? |  |
+| List 2 ways that the DRY principle can improve your code. |  |
+| Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |
+| When you document a function, what elements should you include? |  |
+|===
+| Provide an example of a function name that is expressive vs. one that is not expressive |  |
+
+
+
+### Code is worth 60% of the assignment grade this week
+
+#### For loop 1
+
+>Write a loop that takes the file "data/week_02/precipitation/805325-precip-daily-2003-2013.csv" and creates an
+> individual `.csv` file for each year’s worth of data.
+
+| Full Credit | No Credit  |
+|:----|----|
+| Code produces an individual `.csv` file for each year's worth of data | |
+| Following the code, `.csv` files are saved in the `data/week_06/` directory | |
+| `.csv` files are named correctly - including the year of data that the file contains ||
+|===
+| `.csv` files created contain the correct data (for the year specified)| |
+
+#### For loop 2
+
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
-| Explain what the acronym DRY stands for and means.|  |  | | |
-| List 2 ways that the DRY principle can improve your code. |  |  | | |
-| Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |  | | |
-| When you document a function, what elements should you include? |  |  | | |
+| `in_to_mm()` function is used to convert precipitation from inches to mm | |
+| `check_create_dir()` function is used to check for and create a directory if one doesn't exist.| |
+| Code produces an individual `.csv` file for each year's worth of data, summarized by month.  | |
+| `NA` values are handled properly in the code - when the data are read in, and exported to .csv files and for the monthly summary calculation.  | |
 |===
-| Define expressive programming. List 2 things that you can do to make your code more expressive. |  |  | | |
-
-
-
-
-
-### Code is worth 50% of the assignment grade this week
-
-#### Plots render properly & use functions
-
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
-| Plot 1 - Pre-fire NDVI using landsat data plots, includes a legend and a title & is plotted using the required functions to load bands and classify the data. |  |  | | |
-| Plot 2 - Post-fire NDVI using landsat data plots, includes a legend and a title & is derived using the load bands and classification functions. |  |  | | |
-|===
-| Plot 3 - Post-fire NDVI using MODIS data plots, includes a legend and a title & is plotted using functions.|  |  | | |
-
-#### Functions are used to load & process data
-
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
-| Functions are used to load data into a raster stack for each plot. |  |  | | |
-| Functions are used to reclassify NDVI for pre and post fire plots. |  |  | | |
-|===
-| All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |  | | |
+| All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |
