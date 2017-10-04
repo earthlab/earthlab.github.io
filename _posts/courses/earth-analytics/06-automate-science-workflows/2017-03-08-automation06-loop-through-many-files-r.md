@@ -3,7 +3,7 @@ layout: single
 title: "For loops  "
 excerpt: " ."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-10-03'
+modified: '2017-10-04'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/loop-through-a-set-of-files-r/
@@ -28,13 +28,20 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-*
+* Integrate for loops and functions to process data efficiently
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson.
 
 </div>
+
+
+
+```r
+library(lubridate)
+library(dplyr)
+```
 
 ## Work with directories of files
 
@@ -68,59 +75,45 @@ we have build the correct functions that we need to process our data.
 
 ## Generate a list of files
 
-You can use `list.files() to generate  a list of files that you'd like to work
-with. List.files takes 2 critical arguments:
+You can use `list.files()` to generate a list of files that you'd like to work
+with. The `list.files()` function requires 2 arguments:
 
-1. the path where the files are located on your computer
-1. THe pattern that you'd like to look for in the files. Eg. all csv files - youd use `*.csv`. If you want to find all files with "_precip" in the name you could do that too
+1. The path where the files are located on your computer
+1. The pattern that you'd like to look for in the files. Eg. all csv files - youd use `*.csv`. If you want to find all files with "_precip" in the name you could do that too.
 
 
 ```r
 list.files(path = ".",
            pattern = "*.csv")
-##  [1] "2003_precip.csv" "2004_precip.csv" "2005_precip.csv"
-##  [4] "2006_precip.csv" "2007_precip.csv" "2008_precip.csv"
-##  [7] "2009_precip.csv" "2010_precip.csv" "2011_precip.csv"
-## [10] "2012_precip.csv" "2013_precip.csv" "flights.csv"    
-## [13] "precip-2003.csv" "precip-2004.csv" "precip-2005.csv"
-## [16] "precip-2006.csv" "precip-2007.csv" "precip-2008.csv"
-## [19] "precip-2009.csv" "precip-2010.csv" "precip-2011.csv"
-## [22] "precip-2012.csv" "precip-2013.csv"
+## character(0)
 ```
 
-Just find files that contain _precip.csv in the filename.
+Just find files that contain `_precip.csv` in the filename.
 
 
 ```r
 list.files(path = ".",
            pattern = "_precip.csv")
-##  [1] "2003_precip.csv" "2004_precip.csv" "2005_precip.csv"
-##  [4] "2006_precip.csv" "2007_precip.csv" "2008_precip.csv"
-##  [7] "2009_precip.csv" "2010_precip.csv" "2011_precip.csv"
-## [10] "2012_precip.csv" "2013_precip.csv"
+## character(0)
 ```
 
-Just find files that contain _precip in the filename.
+Just find files that contain `_precip` in the filename.
 
 
 ```r
 list.files(path = ".",
            pattern = "_precip")
-##  [1] "2003_precip.csv"     "2004_precip.csv"     "2005_precip.csv"    
-##  [4] "2006_precip.csv"     "2007_precip.csv"     "2008_precip.csv"    
-##  [7] "2009_precip.csv"     "2010_precip.csv"     "2011_precip.csv"    
-## [10] "2012_precip.csv"     "2013_precip.csv"     "plotly_precip_files"
-## [13] "plotly_precip.html"
+## character(0)
 ```
 
 You get the idea...
 
 
-**Tip** you can also use list.dirs....
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip** you can also use `list.dirs()` to generate a list of directories rather than files.
 {: .notice--success }
 
 
-One we have a list of files, we can loop through each file in a for loop as follows
+One you have a list of files, you can loop through each file in a for loop.
 
 
 ```r
@@ -143,13 +136,14 @@ for (file in all_precip_files) {
 ## [1] "data//precip-2011.csv"
 ## [1] "data//precip-2012.csv"
 ## [1] "data//precip-2013.csv"
+## [1] "data//precip-boulder-aug-oct-2013.csv"
 ```
 
-We can do even more now with our data. Let's loop through each .csv files and
-1. Open up the
-`.csv` file
-1. Add a new column to the data.frame
-2. Export the data.frame as a new `.csv` in a new data directory (`data/week-06/outputs/precip_mm/`) with a modified file name
+We can do even more now with our data. Let's loop through each `.csv` file and
+
+1. Open the `.csv` file
+1. Add a new column to the `data.frame` that contains the precipitation in **mm**
+1. Export the `data.frame` as a new `.csv` in a new data directory (`data/week-06/outputs/precip_mm/`) with a modified file name
 
 
 ```r
@@ -161,15 +155,15 @@ for (file in all_precip_files) {
   # write the csv to a new file
   write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", basename(file)))
 }
-## Warning in open.connection(path, "wb"): cannot open file 'data/week-06/
-## outputs/precip_mm/precip-2003.csv': No such file or directory
-## Error in open.connection(path, "wb"): cannot open the connection
+## Error in write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", : could not find function "write_csv"
 ```
+
+## Check For and Create Directories with R
 
 You are closer to the final file output in the format that you want, however
 you can't write out the files to a new directory unless that directory exists.
 
-You can create new directorys and test to see if a directory exists in R too.
+You can create new directories and test to see if a directory exists in R too.
 First let's figure out how to do that. Next, create a function that checks for and
 if it doesn't exist, creates a new directory on your computer.
 
@@ -202,8 +196,16 @@ if (!dir.exists(new_dir)) {
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
 1. Create a function called `check_create_dir()` that takes a path to a directory that you want to make and checks to see if it exists and then creates it if it doesn't exist.
-2. Create a function called `in_to_mm()` that converts values in inches to mm.
-2. add both functions to the for loop below
+2. Create a function called `in_to_mm()` that converts values in inches to mm (we did this in an earlier lesson so you may already have this function in your code).
+2. Add both functions to the for loop below
+3. Finally, summarize your data by daily total (sum) precipitation per day
+
+NOTES
+
+1. be sure that you are address of na values when you read your data in the loop!
+2. make sure you address na values when you run the `sum()` function
+3. When you write the csv make sure that you address na values!
+4. use the `lubridate::month()` function to create a new column in your data frame called the_month
 
 ```r
 
@@ -214,15 +216,18 @@ check_create_dir(new_dir)
 
 # print the name of each file
 for (file in all_precip_files) {
-  # read in the csv
+  # read in the csv - be sure to fill in the na strings argument - i didn't do that below
   the_data <- read.csv(file, header = TRUE) %>%
-    mutate(precip_mm = in_to_mm(HPCP)) # add a column with precip in mm
-  # write the csv to a new file
+    mutate(precip_mm = in_to_mm(HPCP)) # add a column with precip in mm and a column with just the month using the month() function
+    # group the data by month
+
+    # summarise using the sum function - be sure you address na values when you sum! we discussed this during week 1
+
+  # write output to a new .csv file
   write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", basename(file)))
 }
 ```
 
 </div>
-
 
 

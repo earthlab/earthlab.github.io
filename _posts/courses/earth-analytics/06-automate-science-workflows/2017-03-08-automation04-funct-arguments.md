@@ -3,7 +3,7 @@ layout: single
 title: "Working with function arguments"
 excerpt: " ."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-10-03'
+modified: '2017-10-04'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/function-arguments-r/
@@ -56,25 +56,28 @@ is a text string which is the title that we want `R` to add to our plot.
 
 
 ```r
+
 # import and plot landsat
-landsat_ndvi <- raster("data/week06/outputs/landsat_ndvi.tif")
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
-plot(landsat_ndvi,
-     main = "ndvi title - rendered using a function argument",
-     axes = FALSE,
-     box = FALSE)
-## Error in plot(landsat_ndvi, main = "ndvi title - rendered using a function argument", : object 'landsat_ndvi' not found
+boulder_precip <- raster("data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+plot(boulder_precip,
+     main = "Digital Surface Model for Boulder, Colorado")
 ```
 
-Function arguments allow us to customize how a function runs. For example, we can
-use the `plot()` function to plot many different types of data! And we can use the
-`main` argument to customize the title. We use axes and box to customize how the
-plot looks. This is a powerful function as it can be used to do many different
-things and is customizable in many ways that we may need / want!
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/06-automate-science-workflows/2017-03-08-automation04-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="90%" />
+
+Function arguments allow you to customize how a function runs. For example, you
+use the `plot()` function to plot many different types of data. You can use the:
+
+* `main = ` argument to customize the title of the plot
+* `axes = ` and `box = ` to customize whether R draws the axes and border around the plot
+
+Plot() is a powerful function as it can be used to do many different
+things and is customizable in many ways that we may need / want.
 
 ## Argument order matters
 
-Let's next talk about the order or arguments in a function. `R` has three ways
+We discussed this in the first few weeks of class but let's review it again. 
+The order or arguments supplied to a function matters. `R` has three ways
 that arguments supplied by you are matched to the *formal arguments* of the
 function definition:
 
@@ -84,7 +87,7 @@ function definition:
 
 Arguments are matched in the manner outlined above.
 
-* R first tries to find arguments according to the complete name,
+* `R` first tries to find arguments according to the complete name,
 * then by partial matching of names,
 * and finally by position.
 
