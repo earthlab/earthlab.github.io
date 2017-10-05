@@ -3,7 +3,7 @@ layout: single
 title: "For loops  "
 excerpt: " ."
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-10-04'
+modified: '2017-10-05'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/create-for-loops-r/
@@ -261,8 +261,8 @@ Oops. Looks like we don't have a week-06 directory yet. We can make one using th
 
 
 ```r
-# create new directory - if you already have this directory then you will get a
-# warning message like the one below.
+# create new directory - if you already have this directory then you will
+# get a warning message like the one below.
 dir.create("data/week_06")
 ## Warning in dir.create("data/week_06"): 'data/week_06' already exists
 ```
@@ -277,7 +277,8 @@ Put everything that you learned above together to create a for loop that:
 
 1. Loops through each year
 2. `filter()`s the data to include only the rows that are for that year.
-3. Writes a .csv file to your hard drive with a file name that contains: `year_precip.csv`.
+3. adds a month column using `lubridate::month()`
+3. Writes a `.csv` file to your hard drive with a file name that contains: `year_precip.csv`.
   * Use `paste0()` to create your filename.
 
 Now let's put everything together into a loop
@@ -288,7 +289,7 @@ Now let's put everything together into a loop
 for (year in min_yr:max_yr) {
   # filter data by year using pipes and filter
 
-  # export the data to a csv file
+  # export the data to a .csv file
 }
 ```
 

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions & automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
-modified: '2017-10-04'
+modified: '2017-10-05'
 week-landing: 6
 week: 6
 sidebar:
@@ -73,11 +73,10 @@ assignment based upon your use of functions and for loops to complete your assig
 
 #### Answer the following questions below in your report
 
-1. Explain what the acronym **DRY** stands for and means in practice.
-2. List 2 ways that the DRY principle can improve your code.
-3. Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function. Use the example below to help you answer the question OR use code to answer the question.
-4. When you document a function, what elements should you include?
-5. Provide an example of a function name that is expressive vs one that is not expressive.
+1. Define the acronym **DRY**. What does DRY mean?
+1. When you document a function, what elements should you include?
+1. Provide an example of a function name that is expressive vs one that is not expressive.
+1. Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function. Use the example below to help you answer the question OR use code to answer the question.
 
 ```r
 # this code below should help you answer question 3.
@@ -96,16 +95,81 @@ the_answer <- function(num1, num2){
 
 #### Code assignment
 
-For this week's assignment, write some code that does the following.
+**PART ONE:**For this week's assignment, write some code that does the following.
 
-1. Write a `for loop` that takes the file `"data/week_02/precipitation/805325-precip-daily-2003-2013.csv"` and creates an individual `.csv` file for each year's worth of data. Each `.csv` file should be saved in `data/week_06/` If you followed along in class, then you have already written this code! [This lesson will help you complete this task. ]({{ site.url }}/courses/earth-analytics/automate-science-workflows/create-for-loops-r/)
-2. Complete the challenge exercise at the bottom of [this lesson - lesson 06 ]({{ site.url }}/courses/earth-analytics/automate-science-workflows/loop-through-a-set-of-files-r#i-classfa-fa-pencil-square-o-aria-hiddentruei-challenge) The challenge asks you to create a for loop that summarises data by month and exports new `.csv` files for each year. It also asks you to create two new functions to include in your for loop.
+1. Write a `for loop` that breaks up the file: `"data/week_02/precipitation/805325-precip-daily-2003-2013.csv"` into yearly `.csv` files.
+2. Each `.csv` file should be saved in `data/week_06/`.
+3. Each `.csv` file should contain a `month` column with the month specified as a numeric value between 1-12.
+
+
+```r
+
+# read in the data - but be sure to address na values when you read it in here!
+boulder_precip <- read.csv("path-here-dont-forget-na-arguments")
+
+# fix the date using dplyr pipes
+
+
+# define min and max year
+
+# build your loop
+for (the_year in min_yr:max_yr) {
+    # use pipes to filter the data by year
+
+
+   # export a csv file with the year in the name to your data/week_06/ dir
+}
+```
+
+HINT: If you followed along in class, then you have already written this code! [This lesson will help you complete this task. ]({{ site.url }}/courses/earth-analytics/automate-science-workflows/create-for-loops-r/)
+
+
+**PART TWO:**
+
+For each of the `.csv` files that you created above:
+
+1. Create a new `.csv` file that contains the total **monthly** precipitation in mm.
+2. Name that file `data/week_06/outputs/precip_mm/precip-year.csv` - note that you will need to make new directories to save the file to the path listed.
+
+An example of what the final data should look like is below:
+
+
+```r
+# open data
+precip_2003 <- read.csv("data/week_06/outputs/precip_mm/precip-2003.csv")
+## Warning in file(file, "rt"): cannot open file 'data/week_06/outputs/
+## precip_mm/precip-2003.csv': No such file or directory
+## Error in file(file, "rt"): cannot open the connection
+head(precip_2003, n = 6)
+##   X month precip_mm
+## 1 1     1      0.00
+## 2 2     2     35.56
+## 3 3     3    132.08
+## 4 4     4     40.64
+## 5 5     5     83.82
+## 6 6     6     60.96
+```
+
+Use functions to complete this task as follows:
+
+1. Create a function called `check_create_dir()` that takes a path to a directory that you want to make and checks to see if it exists and then creates it if it doesn't exist.
+2. Create a function called `in_to_mm()` that converts values in inches to mm (we did this in an earlier lesson so you may already have this function in your code).
+
+NOTES:
+
+* Be sure to consider `NA` values in your data (e.g. 999.99) when you read your data!
+* Make sure you address `NA` values when you run the `sum()` function
+* When you write the `.csv` make sure that you address `NA` values!
+
+
+
+
 
 
 #### Bonus opportunity
 
 You can use `apply()` functions (instead of for loops) to run a function on a
-list of elements. 
+list of elements.
 
 ## Homework due: Monday October 16 2017 @ 8AM.
 Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
@@ -133,18 +197,18 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 | Full Credit | No Credit  |
 |:----|----|
-| Define the acronym D.R.Y. - what does it stand for and what does DRY mean? |  |
-| List 2 ways that the DRY principle can improve your code. |  |
-| Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |
-| When you document a function, what elements should you include? |  |
-|===
+| Define the acronym D.R.Y.. What does DRY mean? |  |
+| When you document a function, what documentation elements should you include? |  |
 | Provide an example of a function name that is expressive vs. one that is not expressive |  |
+|===
+| Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |
+
 
 
 
 ### Code is worth 60% of the assignment grade this week
 
-#### For loop 1
+#### For loop 1 & general for loop 2
 
 >Write a loop that takes the file "data/week_02/precipitation/805325-precip-daily-2003-2013.csv" and creates an
 > individual `.csv` file for each year’s worth of data.
@@ -154,16 +218,20 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Code produces an individual `.csv` file for each year's worth of data | |
 | Following the code, `.csv` files are saved in the `data/week_06/` directory | |
 | `.csv` files are named correctly - including the year of data that the file contains ||
+| `NA` values are handled properly in the code - when the data are read in, and exported to .csv files and for the monthly summary calculation.  | |
 |===
 | `.csv` files created contain the correct data (for the year specified)| |
 
-#### For loop 2
 
-|  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
-|---|---|---|---|---|
+#### Specific For loop 2
+
+> Loop through the files that you created in part one and summarize the data by monthly total precipitation in inches. Create new `.csv` files for each year.
+
+| Full Credit | No Credit  |
+|:----|----|
 | `in_to_mm()` function is used to convert precipitation from inches to mm | |
 | `check_create_dir()` function is used to check for and create a directory if one doesn't exist.| |
-| Code produces an individual `.csv` file for each year's worth of data, summarized by month.  | |
-| `NA` values are handled properly in the code - when the data are read in, and exported to .csv files and for the monthly summary calculation.  | |
+| Data in individual yearly `.csv` files are summarized by month.  | |
+| `.csv` files are saved in the `data/week_06/outputs/precip_mm/` directory | |
 |===
 | All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |
