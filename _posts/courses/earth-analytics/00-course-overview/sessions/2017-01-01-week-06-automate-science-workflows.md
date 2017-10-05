@@ -137,9 +137,6 @@ An example of what the final data should look like is below:
 ```r
 # open data
 precip_2003 <- read.csv("data/week_06/outputs/precip_mm/precip-2003.csv")
-## Warning in file(file, "rt"): cannot open file 'data/week_06/outputs/
-## precip_mm/precip-2003.csv': No such file or directory
-## Error in file(file, "rt"): cannot open the connection
 head(precip_2003, n = 6)
 ##   X month precip_mm
 ## 1 1     1      0.00
@@ -188,7 +185,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Code chunk contains code and runs  |  |
 | All required `R` packages are listed at the top of the document in a code chunk.  | |
 | Code chunk arguments are used to hide warnings & messages |  |
-| Code is visible in the document to demonstrate use of functions |  |
+| All code is visible in the knitted document |  |
 |===
 | Lines of code are broken up at commas to make the code more readable  | |
 
