@@ -36,7 +36,7 @@ layout:
 
 {% if page.sitemap == false %}
 
-{% elsif page.url contains '%2Ehtml' or 'example-leaflet-maps' %}
+{% elsif page.url contains '.' %}
 {% elsif page.url contains '/assets/' %}
 
 {% else %}
