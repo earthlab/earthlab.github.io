@@ -25,7 +25,7 @@ layout:
 {% if post.sitemap == false %}
 {% else %}
 <url>
-<loc>{{ post.url }}</loc>
+<loc>{{ site.url }}{{ post.url }}</loc>
 <lastmod>{% if post.modified %}{{ post.modified | date_to_xmlschema }} {% else %} {{ post.date | date_to_xmlschema }} {% endif %}</lastmod>
 </url>
 {% endif %}
@@ -41,7 +41,7 @@ layout:
 
 {% else %}
 <url>
-<loc>{{ page.url }}</loc>
+<loc>{{ site.url }}{{ page.url }}</loc>
 {% if page.date %}<lastmod>{% if page.modified %}{{ page.modified | date_to_xmlschema }} {% elsif page.date %} {{ page.date | date_to_xmlschema }} {% endif %}</lastmod>{% endif %}
 </url>
 
