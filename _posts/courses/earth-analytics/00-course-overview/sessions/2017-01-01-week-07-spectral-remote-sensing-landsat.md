@@ -1,9 +1,9 @@
 ---
 layout: single
 category: courses
-title: "Landsat data in R - fire ecology & remote sensing"
+title: "Landsat Data in R - Fire Ecology & Remote Sensing"
 permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/
-modified: '2017-10-03'
+modified: '2017-10-06'
 week-landing: 7
 week: 7
 sidebar:
@@ -37,38 +37,38 @@ vegetation indices in R.
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 - 3:30  | Review last week's assignment / questions |   |
-| 3:30 - 4:15  | Understanding fire with Remote sensing data  | Megan Cattau  |
-| 4:30 - 5:50  | Coding Session: Spectral RS data in R |  Leah  |
+| 9:30 - 10:00  | Review last week's assignment / questions |   |
+| 10:00 - 10:45  | Understanding fire with Remote sensing data  | Megan Cattau  |
+| 10:45 - 12:20  | Coding Session: Spectral RS data in R |  Leah  |
 
-### 1a. Remote sensing readings
+### 1a. Remote Sensing Readings
 
-* <a href="https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/" target="_blank">NASA overview of landsat 8</a>
-* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank">Penn state e-education post on multi-spectral data. Note they discuss AVHRR at the top which we aren't using but be sure to read about Landsat.</a>
+* <a href="https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/" target="_blank">NASA overview of Landsat 8</a>
+* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank">Penn State e-Education post on multi-spectral data. Note they discuss AVHRR at the top which we aren't using but be sure to read about Landsat.</a>
 
-### 1b. Fire readings
+### 1b. Fire Readings
 
-* <a href="http://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">Denver post article on the cold springs fire.</a>
+* <a href="http://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">Denver Post article on the Cold Springs fire.</a>
 * <a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank" data-proofer-ignore=''>Fire science for rainforests -  Cochrane 2003.</a>
 * <a href="https://www.webpages.uidaho.edu/for570/Readings/2006_Lentile_et_al.pdf
 " target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a>
 * <a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices -  Soverel et al 2010.</a>
 
 
-### 2. Complete the assignment below (10 points)
+### 2. Complete the Assignment Below (10 points)
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
 
-### Produce a .pdf report
+### Produce a .pdf Report
 
 Create a new `R markdown `document. Name it: **lastName-firstInitial-week6.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `PDF` format. Submit both the
 `.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
 
-#### Use knitr code chunk arguments
+#### Use knitr Code Chunk Arguments
 In your final report, use the following knitr code chunk arguments to hide messages
 and warnings and code as you see fit.
 
@@ -76,12 +76,12 @@ and warnings and code as you see fit.
 * `echo = FALSE` Hide code and just show code output
 * `results = 'hide'` Hide the verbose output from some functions like `readOGR()`.
 
-#### Answer the following questions below in your report
-1. What is the key difference between active and passive remote sensing system.
+#### Answer the Questions Below in Your Report
+1. What is the key difference between active and passive remote sensing system?
 2. Describe *atleast* 3 differences between lidar vs landsat remote sensing data.
 2. Explain what a vegetation index is.
 
-#### Include the plots below.
+#### Include the Plots Below.
 For all plots
 1. Be sure to describe what each plot shows in your final report using a figure
 caption argument in your code chunks: `fig.cap="caption here".
@@ -116,14 +116,14 @@ Create a map of **post fire NBR** with Landsat data.
 
 ****
 
-## Homework due: Thursday March 2 2017 @ 5PM.
+## Homework Due: Monday October 16 2017 @ 8AM.
 Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 
 </div>
 
 ## Grading
 
-#### .Pdf Report structure & code: 10%
+#### .Pdf Report Structure & Code: 10%
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -134,7 +134,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Lines of code are broken up at commas to make the code more readable  | |  | | |
 
 
-####  Knitr pdf output: 20%
+####  Knitr pdf Output: 20%
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -142,7 +142,7 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Code chunk arguments are used to hide code and just show output |  | | |  |
 | PDf report emphasizes the write up and the code outputs rather than showing each step of the code |  | | |  |
 
-####  Report questions: 20%
+####  Report Questions: 20%
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|
@@ -151,9 +151,9 @@ Submit your report in both `.Rmd` and `.PDF` format to the D2l dropbox.
 | Explain what a vegetation index is answered correctly. |||||
 
 
-### Plots are worth 50% of the assignment grade
+### Plots are Worth 50% of the Assignment Grade
 
-#### Create a MAP of the difference between NDVI pre vs post fire (Post fire - pre-fire NDVI).
+#### Create a MAP of the Difference Between NDVI Pre vs Post Fire (Post fire - Pre-fire NDVI).
 
 |  Full Credit | Partial Credit ~B | Partial Credit ~C | Partial Credit ~D | No Credit|
 |---|---|---|---|---|

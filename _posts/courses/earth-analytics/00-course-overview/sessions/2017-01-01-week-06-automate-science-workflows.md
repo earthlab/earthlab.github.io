@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Functions & automation"
+title: "Functions & Automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
 modified: '2017-10-06'
 week-landing: 6
@@ -22,15 +22,15 @@ redirect_from:
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to week {{ page.week }} of Earth Analytics! This week we learn about
-efficient coding practices. Specifically, we will learn how to use functions to
+Welcome to week {{ page.week }} of Earth Analytics! This week you will learn about
+efficient coding practices. Specifically, you will learn how to use functions to
 make our code:
 
 * Easier to read / simpler
 * More modular
 * More efficient
 
-We will also discuss the DRY principle of programming - Don't Repeat Yourself.
+You will also learn the DRY principle of programming - Don't Repeat Yourself.
 
 This week is still under development and the content won't be done until Friday!
 
@@ -57,7 +57,7 @@ There are no new readings for this week.
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
 
-### Produce a R Markdown report
+### Produce a R Markdown Report
 
 Create a new `R markdown `document. Name it: **lastName-firstInitial-week8.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
@@ -65,13 +65,13 @@ with your report, use `knitr` to convert it to `html` format. Submit both the
 `.Rmd` file and the `.html` (or `.pdf` file to D2L. Be sure to name your files
 as instructed above!
 
-#### Use knitr code chunk arguments
+#### Use knitr Code Chunk Arguments
 
 For this week's assignment **please do not hide your code**.
 We will grade the
 assignment based upon your use of functions and for loops to complete your assignment.
 
-#### Answer the following questions below in your report
+#### Answer the Following Questions Below in Your Report
 
 1. Define the acronym **DRY**. What does DRY mean?
 1. When you document a function, what elements should you include?
@@ -93,9 +93,11 @@ the_answer <- function(num1, num2){
 `my_variable2`
 ```
 
-#### Code assignment
+#### Code Assignment
 
-**PART ONE:**For this week's assignment, write some code that does the following.
+**PART ONE:**
+
+For this week's assignment, write some code that does the following.
 
 1. Write a `for loop` that breaks up the file: `"data/week_02/precipitation/805325-precip-daily-2003-2013.csv"` into yearly `.csv` files.
 2. Each `.csv` file should be saved in `data/week_06/`.
@@ -150,7 +152,7 @@ head(precip_2003, n = 6)
 Use functions to complete this task as follows:
 
 1. Create a function called `check_create_dir()` that takes a path to a directory that you want to make and checks to see if it exists and then creates it if it doesn't exist.
-2. Create a function called `in_to_mm()` that converts values in inches to mm (we did this in an earlier lesson so you may already have this function in your code).
+2. Create a function called `in_to_mm()` that converts values in inches to mm (you did this in an earlier lesson so you may already have this function in your code).
 
 NOTES:
 
@@ -199,7 +201,7 @@ for (file in all_precip_files) {
 
 
 
-#### Bonus opportunity
+#### Bonus Opportunity
 
 Use the `lapply()` function (instead of a for loop) to
 
@@ -210,15 +212,15 @@ Use the `lapply()` function (instead of a for loop) to
 You can chose to use the same code that you used for the homework assignment, however
 implemented in a for loop if you want.
 
-## Homework due: Monday October 16 2017 @ 8AM.
+## Homework Due: Monday October 16 2017 @ 8AM.
 Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 </div>
 
-## Grade rubric
+## Grade Rubric
 
 
-#### R Markdown Report structure & code: 10%
+#### R Markdown Report Structure & Code: 10%
 
 | Full Credit | No Credit  |
 |:----|----|
@@ -232,7 +234,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Lines of code are broken up at commas to make the code more readable  | |
 
 
-####  Report questions: 30%
+####  Report Questions: 30%
 
 | Full Credit | No Credit  |
 |:----|----|
@@ -243,12 +245,12 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |
 
 
-### Code is worth 60% of the assignment grade this week
+### Code is Worth 60% of the Assignment Grade This Week
 
-#### For loop 1 & general for loop 2
+#### For Loop 1 & General for Loop 2
 
 >Write a loop that takes the file "data/week_02/precipitation/805325-precip-daily-2003-2013.csv" and creates an
-> individual `.csv` file for each year’s worth of data.
+> individual `.csv` file for each years worth of data.
 
 | Full Credit | No Credit  |
 |:----|----|
@@ -260,7 +262,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | `.csv` files created contain the correct data (for the year specified)| |
 
 
-#### Specific For loop 2
+#### Specific for Loop 2
 
 > Loop through the files that you created in part one and summarize the data by monthly total precipitation in inches. Create new `.csv` files for each year.
 

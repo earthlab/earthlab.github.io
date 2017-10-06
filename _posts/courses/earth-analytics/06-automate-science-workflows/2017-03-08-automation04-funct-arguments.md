@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Working with function arguments"
-excerpt: " ."
+title: "Working with Function Arguments"
+excerpt: "Learn how to work with function arguments in the R programming language.."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-10-04'
+modified: '2017-10-06'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/function-arguments-r/
@@ -30,29 +30,29 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Define the purpose of a function argument.
-* Use default vs. required function arguments in a function.
+* Define the purpose of a function argument
+* Use default vs. required function arguments in a function
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
 </div>
 
-In the previous lessons, we have used many different functions and function
-arguments to customize our code.
+In the previous lessons, you have used many different functions and function
+arguments to customize your code.
 
 
 
-For example, we used numerous arguments to plot our data including:
+For example, you used numerous arguments to plot your data including:
 
 1. `main` to add a title
-2. `axes = FALSE` to remove the axes of our plot
+2. `axes = FALSE` to remove the axes of your plot
 3. `box = FALSE` to remove the box surrounding the plot.
 
-In the example below, we call each argument by name and then assign it a value
+In the example below, you call each argument by name and then assign it a value
 based on the type of argument it is. For example the value for the `main = ` argument
-is a text string which is the title that we want `R` to add to our plot.
+is a text string which is the title that you want `R` to add to your plot.
 
 
 ```r
@@ -72,18 +72,18 @@ use the `plot()` function to plot many different types of data. You can use the:
 * `axes = ` and `box = ` to customize whether R draws the axes and border around the plot
 
 Plot() is a powerful function as it can be used to do many different
-things and is customizable in many ways that we may need / want.
+things and is customizable in many ways that you may need / want.
 
-## Argument order matters
+## Argument Order Matters
 
-We discussed this in the first few weeks of class but let's review it again. 
+You learned this in the first few weeks of class but let's review it again.
 The order or arguments supplied to a function matters. `R` has three ways
 that arguments supplied by you are matched to the *formal arguments* of the
 function definition:
 
 1. **By complete name:** i.e. you type `main = ""` and `R` matches main to the argument called `main`.
 2. **By order or position when you call an argument:** i.e. you call `plot(raster, "title here")`, `R` will read these two variables in the order that you provide them. This can cause the function to fail if they are not in the right order!
-3. **By partial name:** (matching on initial *n* characters of the argument name) - we are not going to review this in class. Beware using this "feature".
+3. **By partial name:** (matching on initial *n* characters of the argument name) - you are not going to review this in this class. Beware using this "feature".
 
 Arguments are matched in the manner outlined above.
 
@@ -111,7 +111,7 @@ read.csv(file, header = TRUE, sep = ",", quote = "\"",
 This tells us that `read.csv()` has one argument, `file`, that doesn't have a
 default value, and six other arguments that do have a default value.
 
-Now we understand why the following code returns an error:
+Now you understand why the following code returns an error:
 
 
 ```r
@@ -122,14 +122,14 @@ precip_data <- read.csv(FALSE, "data/week_02/precipitation/precip-boulder-aug-oc
 The code above fails because `FALSE` is assigned to `file` and the filename is assigned to
 the argument `header`.
 
-## Default function arguments
+## Default Function Arguments
 
-We have passed arguments to functions in two ways:
+You have passed arguments to functions in two ways:
 
 1. Directly: `plot(landsat_ndvi)`,
 2. and by name: `read.csv(file = "data/week_02/precipitation/precip-boulder-aug-oct-2013.csv", header = FALSE)`.
 
-We can pass the arguments to `read.csv` without naming them if they are in the
+You can pass the arguments to `read.csv` without naming them if they are in the
 order that R expects.
 
 

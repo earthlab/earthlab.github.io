@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Get to know the function environment & function arguments in R"
+title: "Get to Know the Function Environment & Function Arguments in R"
 excerpt: "This lesson introduces the function environment and documenting functions in R. When you run a function intermediate variables are not stored in the global environment. This not only saves memory on your computer but also keeps our environment clean, reducing the risk of conflicting variables."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-10-04'
+modified: '2017-10-06'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/document-functions-in-r/
-nav-title: 'Document functions'
+nav-title: 'Document Functions'
 week: 6
 course: "earth-analytics"
 sidebar:
@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 * Document a function in R describing the function purpose, inputs, outputs and associated structures
 * Describe what happens to intermediate variables processed during a function call
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -43,11 +43,11 @@ In the last lesson, you learned how to create a function in `R`. You learned tha
 functions are efficient ways to reduce variables in your global environment.
 In this lesson your will explore that further. You will also explore function arguments.
 
-## The function environment is self-contained
+## The Function Environment is Self-contained
 
 As discussed in the previous lessons, there are many benefits to using functions in your code including:
 
-1. Functions make your code lesson complex by grouping sets of well-defined tasks into discrete lines of code
+1. Functions make your code lesson complex by grouping sets of well-defined tasks into discrete lines of code.
 2. Expressiveness - well named functions will make your code more expressive or self descriptive. As you scan the code, what it does is more clear.
 
 However, functions also save memory by keeping intermediately created objects out
@@ -56,8 +56,8 @@ of your global environment.
 The function environment is self-contained. This  means that when you
 run a function, it does not create intermediate variables in your global environment.
 
-For example, in the previous lessons, we created a function called
-`fahr_to_celsius`. Within that function, we created two variables:
+For example, in the previous lessons, you created a function called
+`fahr_to_celsius`. Within that function, you created two variables:
 
 1. `kelvin`
 2. `celsius`
@@ -75,10 +75,10 @@ fahr_to_celsius <- function(fahr) {
 }
 
 fahr_to_celsius(15)
-## Error in fahr_to_kelvin(fahr): could not find function "fahr_to_kelvin"
+## [1] -9.444444
 ```
 
-When we run the function above, it creates a new temporary environment where it runs
+When you run the function above, it creates a new temporary environment where it runs
 the steps required to complete the tasks specified in the function. However,
 the variables defined by each intermediate steps are not retained in your global
 environment. These variables only exist within the function environment. This
@@ -94,10 +94,10 @@ code further down.
 It is important to document your functions to:
 
 1. Remind your future self what the function does
-1. Show your future self and your colleagues how to use the function, and
-1. To help anyone else looking at your code understand what **we think** the function does.
+1. Show your future self and your colleagues how to use the function
+1. Help anyone else looking at your code understand what **you think** the function does
 
-Note that our written documentation can at best describe what **we think** the function does, because ultimately the code itself is the only true documentation for the what the function **actually** does.
+Note that your written documentation can at best describe what **you think** the function does, because ultimately the code itself is the only true documentation for the what the function **actually** does.
 {: .notice--success }
 
 A common way to add documentation in software is to add comments to your function

@@ -7,7 +7,7 @@ modified: '2017-10-06'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/use-apply-functions-for-efficient-code-r/
-nav-title: 'lapply vs for loops'
+nav-title: 'lapply vs For Loops'
 week: 6
 course: "earth-analytics"
 sidebar:
@@ -30,29 +30,29 @@ After completing this tutorial, you will be able to:
 
 * Use the `lapply()` function in `R` to automate your code.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
 </div>
 
-In the previous lessons, we learned how to use for loops to perform tasks that
+In the previous lessons, you learned how to use for loops to perform tasks that
 you want to implement over and over - for example on a set of files. For loops are
 a good start to automating your code. However if you want to scale this automation
 to process more and / or larger files, the `R` `apply` family of functions are useful
 to know about.
 
-Apply functions perform a task over and over - on a list, vector, etc. So, for example
-you can use the lapply function (list apply) on the list of file names that
+`apply` functions perform a task over and over - on a list, vector, etc. So, for example
+you can use the `lapply` function (list apply) on the list of file names that
 you generate when using `list.files()`.
 
-## Why use apply vs for loops
+## Why Use Apply vs For Loops
 
-There are several good reasons to use the apply family of functions.
+There are several good reasons to use the `apply` family of functions.
 
 **1. They make your code more expressive and in turn easier to read:**
 
-Here's what the master, Hadley Wikham has to say about expressive code and the apply
+Here's what the master, Hadley Wikham has to say about expressive code and the `apply` family:
 
 > The point of the apply (and plyr) family of functions is not speed, but expressiveness. They also tend to prevent bugs because they eliminate the book keeping code needed with loops.
 >
@@ -75,11 +75,11 @@ of the scope of this class - it's important to know about if you ever need to pr
 large amounts of data - particularly in a cloud or high performance computing environment.
 
 **3. They make your code just a bit faster** At the bottom of this lesson you'll see
-a quick benchmark test where we see whether the apply version of a for loop is faster
-or not. The apply functions do run a for loop in the background. However they
+a quick benchmark test where you see whether the `apply` version of a `for loop` is faster
+or not. The `apply` functions do run a `for loop` in the background. However they
 often do it in the C programming language (which is used to build R). This does
-make the apply functions a few milliseconds faster than regular for loops.
-However, this is not the main reason to use apply functions!
+make the `apply` functions a few milliseconds faster than regular for loops.
+However, this is not the main reason to use `apply` functions!
 
 
 
@@ -108,11 +108,11 @@ detectCores()
 
 ## Use lapply to Process Lists of Files
 
-Next, let's look at an example of using lapply to perform the same task that
-you performed in the previous lesson. To do this we will need to
+Next, let's look at an example of using `lapply` to perform the same task that
+you performed in the previous lesson. To do this you will need to:
 
-1. write a function that performs all of the tasks that we executed in our for loop
-2. call the apply function and tell it to use the function that we created in step 1.
+1. Write a function that performs all of the tasks that you executed in your `for loop`
+2. Call the `apply` function and tell it to use the function that you created in step 1
 
 To get started, call the lubridate and dplyr libraries like you did in the previous lessons.
 
@@ -128,13 +128,12 @@ library(dplyr)
 
 
 
-In the previous lessons, we created a list of files in a directory.
+In the previous lessons, you created a list of files in a directory.
 
 
 
 
 Create a function that performs all of the tasks performed in the `for loop` above.
-Note that you
 
 
 ```r
@@ -223,7 +222,7 @@ invisible(lapply(all_precip_files, (FUN = summarize_data),
 
 ## Are Apply Function Faster Than For Loops?
 
-As promised let's test our code to see whether the `lapply()` function is in fact
+As promised let's test your code to see whether the `lapply()` function is in fact
 faster than the `for loop`.
 
 
@@ -237,7 +236,7 @@ microbenchmark(invisible(lapply(all_precip_files, (FUN = summarize_data),
 ##                                                                               expr
 ##  invisible(lapply(all_precip_files, (FUN = summarize_data), the_dir = the_dir_ex))
 ##       min       lq     mean   median       uq      max neval
-##  103.1938 106.1875 110.2808 108.3014 110.6964 180.3931   100
+##  104.9159 107.9544 115.0713 112.9433 115.3508 300.3595   100
 ```
 
 
@@ -261,8 +260,10 @@ microbenchmark(for (file in all_precip_files) {
 ##                                                                                                                                                                                                                                                                                                                                           expr
 ##  for (file in all_precip_files) {     the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%          mutate(DATE = as.POSIXct(DATE, tz = "America/Denver",              format = "%Y-%m-%d %H:%M:%S"), precip_mm = in_to_mm(HPCP))     write.csv(the_data, file = paste0(the_dir, "/", basename(file)),          na = "999.99") }
 ##       min       lq     mean   median       uq      max neval
-##  104.0861 106.9016 109.4824 108.3587 109.9775 170.9662   100
+##  106.8698 110.5295 125.3513 115.9612 119.2143 352.7724   100
 ```
+
+<!--RETURN a single data.frame do.call(rbind, lapply(file_paths, function(path) { read.csv(path, stringsAsFactors = FALSZE }))-->
 
 Is it faster on average? Perhaps just by a few milliseconds?
 

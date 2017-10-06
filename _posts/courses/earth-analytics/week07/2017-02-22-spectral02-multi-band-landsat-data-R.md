@@ -3,7 +3,7 @@ layout: single
 title: "Working with remote sensing imagery that has multiple bands in R - NAIP raster data in R."
 excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared ot other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-10-03'
+modified: '2017-10-06'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/naip-imagery-raster-stacks-in-r/
@@ -186,7 +186,7 @@ naip_csf <- raster("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_
 # Plot band 1
 plot(naip_csf,
      col = gray(0:100 / 100),
-     axes=FALSE,
+     axes = FALSE,
      main = "NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
 ```
 
@@ -258,7 +258,7 @@ rgb_band2 <- raster("data/week_06/naip/m_3910505_nw_13_1_20130926/crop/m_3910505
 # plot band 2
 plot(rgb_band2,
      col = gray(0:100 / 100),
-     axes=FALSE,
+     axes = FALSE,
      main = "RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
 ```
 
@@ -390,7 +390,7 @@ the distribution of reflectance values for each band.
 ```r
 # view histogram for each band
 hist(naip_stack_csf,
-     maxpixels=ncell(naip_stack_csf),
+     maxpixels = ncell(naip_stack_csf),
      col = "purple")
 ```
 
@@ -484,10 +484,10 @@ that is drawn alongside of your plot.
 ```r
 # adjust the plot parameters to render the axes using white
 # this is a way to "trick" R
-par(col.axis="white", col.lab="white", tck=0)
+par(col.axis = "white", col.lab = "white", tck = 0)
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
-        axes=T,
+        axes = TRUE,
         main = "NAIP RGB image \nColdsprings fire scar")
 box(col = "white") # turn all of the lines to white
 ```
@@ -531,7 +531,7 @@ the image might improve clarity and contrast using `stretch="lin"` or
 # what does stretch do?
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
-        axes=T,
+        axes = TRUE,
         stretch = "lin",
         main = "NAIP RGB plot with linear stretch\nColdsprings fire scar")
 ```
@@ -542,11 +542,11 @@ What does the image look like using a different stretch? Any better? worse?
 
 
 ```r
-par(col.axis="white", col.lab="white", tck=0)
+par(col.axis = "white", col.lab = "white", tck = 0)
 plotRGB(naip_stack_csf,
         r = 1, g = 2, b = 3,
-        axes=T,
-        scale=800,
+        axes = TRUE,
+        scale = 800,
         stretch = "hist",
         main = "NAIP RGB plot with hist stretch\nColdsprings fire scar")
 box(col = "white") # turn all of the lines to white
@@ -603,7 +603,7 @@ par(col.axis="white", col.lab="white", tck=0)
 # plot brick
 plotRGB(naip_brick_csf,
   main = "NAIP plot from a rasterbrick",
-  axes=T)
+  axes = TRUE)
 box(col = "white") # turn all of the lines to white
 ```
 
