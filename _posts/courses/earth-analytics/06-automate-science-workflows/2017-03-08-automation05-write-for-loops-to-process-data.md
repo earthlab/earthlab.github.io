@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "For loops  "
-excerpt: " ."
+title: "Create For Loops"
+excerpt: "Learn how to write a for loop to process a set of .csv format text files in R. "
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-10-05'
+modified: '2017-10-06'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/create-for-loops-r/
-nav-title: 'Create for loops'
+nav-title: 'Create For Loops'
 week: 6
 course: "earth-analytics"
 sidebar:
@@ -28,15 +28,15 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Write a for loop in `R`
+* Write a `for loop` in `R`
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
 </div>
 
-## Automate tasks with loops
+## Automate Tasks With Loops
 
 In this lesson you will learn how to create loops to perform repeated tasks. Loops
 can be combined with functions to create powerful algorithms.
@@ -51,7 +51,7 @@ for (variable in collection) {
 }
 ```
 
-We can name the loop `variable` anything we like with a few restrictions:
+You can name the loop `variable` anything you like with a few restrictions:
 
 * the name of the variable cannot start with a number
 
@@ -61,12 +61,12 @@ A few notes about the loop syntax:
 2. The body of the loop is enclosed in curly braces `{ }`.
 
 <i class="fa fa-star" aria-hidden="true"></i>**Data Tip**The curly braces aren't
-required for a single-line loop like the one that we created above. However, it is good
+required for a single-line loop like the one that you created above. However, it is good
 practice to always include them.
 {: .notice--success }
 
-Below you can see how a for loop works. In this case, we provide a vector of
-letters. Then we tell `R` to loop through each letter.
+Below you can see how a `for loop` works. In this case, you provide a vector of
+letters. Then you tell `R` to loop through each letter.
 
 
 ```r
@@ -83,7 +83,7 @@ for (v in vowels) {
 ## [1] "u"
 ```
 
-Here’s another loop that repeatedly updates a variable called `len`:
+Here's another loop that repeatedly updates a variable called `len`:
 
 
 ```r
@@ -103,16 +103,16 @@ len
 ## [1] 5
 ```
 
-It’s worth tracing the execution of this little program step by step. Since there
+It's worth tracing the execution of this little program step by step. Since there
 are five elements in the vector vowels, the statement inside the loop will be
-executed five times. The first time around, len is zero (the value assigned to it
-before the loop begins) and v is "a". The statement adds 1 to the old value of len, producing
-1, and updates len to refer to that new value. The next time around, v is "e"
-and len is 1, so len is updated to be 2. After three more updates, len is 5;
+executed five times. The first time around, `len` is zero (the value assigned to it
+before the loop begins) and v is "a". The statement adds 1 to the old value of `len`, producing
+1, and updates `len` to refer to that new value. The next time around, v is "e"
+and `len` is 1, so `len` is updated to be 2. After three more updates, `len` is 5;
 since there is nothing left in the vector vowels for R to process, the loop
 finishes.
 
-Note that a loop variable is just a variable that’s being used to record progress
+Note that a loop variable is just a variable that's being used to record progress
 in a loop. It still exists after the loop is over, and we can re-use variables
 previously defined as loop variables as well:
 
@@ -127,11 +127,11 @@ for (letter in c("a", "b", "c")) {
 ## [1] "c"
 ```
 
-## Using loops to manipulate data
+## Using Loops to Manipulate Data
 
-Above we covered the basics of how a loop works. Next, let's use a loop to
-manipulate some data that we worked with in the first weeks of this course.
-To being, let's load libraries that we used for the time series data during week 2.
+Above you covered the basics of how a loop works. Next, let's use a loop to
+manipulate some data that you worked with in the first weeks of this course.
+To being, let's load libraries that you used for the time series data during week 2.
 
 
 ```r
@@ -154,10 +154,10 @@ boulder_precip <- boulder_precip %>%
   mutate(DATE = as.POSIXct(DATE, format = "%Y%m%d %H:%M"))
 ```
 
-## Loop through dates
+## Loop Through Dates
 
-We can loop through dates in our data in the same way we loop through letters
-or other numbers. First, we grab the `min()` and `max()` date values for our
+You can loop through dates in your data in the same way you loop through letters
+or other numbers. First, you grab the `min()` and `max()` date values for your
 `boulder_precip` object.
 
 Use the `year()` function from the `lubridate` package to grab just the 4 digit year
@@ -179,7 +179,7 @@ min_yr
 ## [1] 2003
 
 # a for loop sequences through a series of things.
-# below we sequence through the min and max years found in our data
+# below you sequence through the min and max years found in your data
 for (i in min_yr:max_yr) {
   print(i)
 }
@@ -197,16 +197,15 @@ for (i in min_yr:max_yr) {
 ```
 
 
-## Write loops that perform multiple tasks
+## Write Loops That Perform Multiple Tasks
 
-Next, let's create a for loop that does the following:
+Next, let's create a `for loop` that does the following:
 
 1. Filters the data by year: select rows where the year = the current year in the loop
 1. Creates a unique `.csv` file for that year: with a unique name that contains the year
 
 To build your `for loop`, first write out the pseudo code, then fill in the functions
-needed to execute the code. Let's start with the pipe required to subset our data
-our for a particular year
+needed to execute the code. Let's start with the pipe required to subset your data for a particular year
 
 
 ```r
@@ -236,7 +235,7 @@ head(a_year)
 
 Next, practice writing a `.csv` file to your hard drive.
 
-We can use `paste0()` to paste together a file name that suits our purposes.
+You can use `paste0()` to paste together a file name that suits your purposes.
 
 
 ```r
@@ -251,12 +250,10 @@ Then `write.csv()` to write out a `.csv` for that year.
 ```r
 # write .csv file to your data directory.
 write.csv(a_year, file = paste0("data/week-06/precip-", the_year, ".csv"))
-## Warning in file(file, ifelse(append, "a", "w")): cannot open file 'data/
-## week-06/precip-2003.csv': No such file or directory
 ## Error in file(file, ifelse(append, "a", "w")): cannot open the connection
 ```
 
-Oops. Looks like we don't have a week-06 directory yet. We can make one using the
+Oops. Looks like you don't have a week-06 directory yet. You can make one using the
 `dir.create()`.
 
 
@@ -264,20 +261,19 @@ Oops. Looks like we don't have a week-06 directory yet. We can make one using th
 # create new directory - if you already have this directory then you will
 # get a warning message like the one below.
 dir.create("data/week_06")
-## Warning in dir.create("data/week_06"): 'data/week_06' already exists
 ```
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
 
-### Write a for loop that created individual files for each year
+### Write a For Loop That Creates Individual Files for Each Year
 
-Put everything that you learned above together to create a for loop that:
+Put everything that you learned above together to create a `for loop` that:
 
 1. Loops through each year
 2. `filter()`s the data to include only the rows that are for that year.
-3. adds a month column using `lubridate::month()`
+3. Adds a month column using `lubridate::month()`
 3. Writes a `.csv` file to your hard drive with a file name that contains: `year_precip.csv`.
   * Use `paste0()` to create your filename.
 

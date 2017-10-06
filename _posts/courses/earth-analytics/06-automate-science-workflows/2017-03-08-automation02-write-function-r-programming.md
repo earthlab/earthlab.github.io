@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "How to write a function in R - Automate your science"
+title: "How to Write a Function in R - Automate Your Science"
 excerpt: "Learn how to write a function in the R programming language."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-10-04'
+modified: '2017-10-06'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-function-r-programming/
-nav-title: 'Write functions in R'
+nav-title: 'Write Functions in R'
 week: 6
 course: "earth-analytics"
 sidebar:
@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 * Write a function in `R`
 * Describe how a function argument is used in a function
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -44,11 +44,11 @@ You will need a computer with internet access to complete this lesson.
 
 There are several parts of a function:
 
-1. **Function name**. this is what you use when you call a function. For example plot(my_data) is a function with the name `plot`. You pass that function my_data
+1. **Function name**. This is what you use when you call a function. For example plot(my_data) is a function with the name `plot`. You pass that function my_data
 and it plots accordingly.
 2. **The function() function**: Confusing, right? The `function()` is actually a
 function that allows you to create a function. Trust us on this one.
-3. **Function Arguments:** An argument is what you pass the function. The function will take that object of value provided in the argument and use it to perform some task. In the example above, my_data is actually an argument value. IN the case of plot, my_data provides that data that you wish to plot. `main =` in the plot function is the argument that allows you to pass a title to the plot.
+3. **Function Arguments:** An argument is what you pass the function. The function will take that object of value provided in the argument and use it to perform some task. In the example above, my_data is actually an argument value. In the case of plot, my_data provides that data that you wish to plot. `main =` in the plot function is the argument that allows you to pass a title to the plot.
 4. **Documentation:** Documentation is not required for the function to work. However good documentation will save you time in the future when you need to use this code again.
 
 Below is an example function. Notice that the part of the function that actually
@@ -106,19 +106,19 @@ The statements in the body are indented by two spaces, which makes the code easi
 to read but does not affect how the code operates.
 
 When you call the function, the values you pass to it are assigned to those
-variables so that we can use them inside the function.
+variables so that you can use them inside the function.
 
 Inside the function, you use a return statement
 to send a result back to whoever asked for it.
 
-<i class="fa fa-star" aria-hidden="true"></i>**Automatic Returns** In `R`, it is not necessary to include the return statement.
+<i class="fa fa-star" aria-hidden="true"></i>**Automatic Returns:** In `R`, it is not necessary to include the return statement.
 `R` automatically returns whichever variable is on the last line of the body
 of the function. However, sometimes you may want to be explicit with what your
 function returns
 {: .notice--success}
 
 Run your `fahr_to_kelvin()` function by providing a temperature value in degrees
-fahrenheit:
+Fahrenheit:
 
 
 ```r
@@ -174,16 +174,16 @@ return()
 
 
 
-## More about functions
+## More About Functions
 
 The content below is from the Software Carpentry functions lessons.
-While we won't cover the content below in class, read through it to better understand
+While you won't learn the content below in this class, read through it to better understand
 how you can begin to use functions to create more complex programs.
 
 What about converting Fahrenheit to Celsius?
-We could write out the formula, but we don't need to.
-Instead, we can compose the
-two functions we have already created:
+You could write out the formula, but you don't need to.
+Instead, you can compose the
+two functions you have already created:
 
 
 ```r
@@ -198,8 +198,8 @@ fahr_to_celsius(32.0)
 ## [1] 0
 ```
 
-This is our first taste of how larger programs are built: we define basic
-operations, then combine them in ever-larger chunks to get the effect we want.
+This is our first taste of how larger programs are built: you define basic
+operations, then combine them in ever-larger chunks to get the effect you want.
 Real-life functions will usually be larger than the ones shown here--typically
 half a dozen to a few dozen lines--but they shouldn't ever be much longer than
 that, or the next person who reads it won't be able to understand what's going on.

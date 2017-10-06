@@ -1,16 +1,16 @@
 ---
 layout: single
-title: "Introduction to spectral remote sensing data"
+title: "Introduction to Spectral Remote Sensing Data"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-10-03'
+modified: '2017-10-06'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/intro-spectral-data-r/
 nav-title: 'Intro spectral data'
 module-title: 'Understanding fire using spectral remote sensing data'
 module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
-module-nav-title: 'Fire / spectral remote sensing data - in R'
+module-nav-title: 'Fire / Spectral Remote Sensing Data - in R'
 module-type: 'class'
 course: "earth-analytics"
 week: 7
@@ -40,7 +40,7 @@ After completing this tutorial, you will be able to:
 * Describe *atleast* 3 differences between NAIP imagery, Landsat 8 and MODIS in terms of how the data are collected, how frequently they are collected and the spatial & spectral resolution.
 * Describe the spatial and temporal tradeoffs between data collected from a satellite vs. an airplane.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
@@ -74,7 +74,7 @@ case the sun.
    </figcaption>
 </figure>
 
-## Electromagnetic spectrum
+## Electromagnetic Spectrum
 
 To
 better understand spectral remote sensing we need to review
@@ -87,15 +87,15 @@ region in the spectrum a band.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3iaFzafWJQE?rel=0" frameborder="0" allowfullscreen></iframe>
 
-Above: a video overview of spectral remote sensing.
+Above: A video overview of spectral remote sensing.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/jaARDWeyNDE" frameborder="0" allowfullscreen></iframe>
 
 Above: Watch the first 8 minutes for a nice overview of spectral remote sensing.
 
-# Key Attributes of spectral remote sensing data
+# Key Attributes of Spectral Remote Sensing Data
 
-## Space vs. airborne data
+## Space vs. Airborne Data
 First, it is important to understand how the data are collected. Data can be collected
 from the ground, the air (using airplanes or helicopters) or from space. You can
 imagine that data that are collected from space are often of a lower spatial
@@ -189,7 +189,7 @@ In this week's class, we will look at 3 types of spectral remote sensing data.
 3. MODIS
 
 
-### NAIP imagery
+### NAIP Imagery
 
 We will work with NAIP imagery in the next lesson. NAIP imagery typically has
 red, green and blue bands. However, sometimes, there is a 4th
@@ -197,10 +197,10 @@ near-infrared band available. NAIP imagery typically is 1m spatial resolution.
 This means that each pixel represents 1 meter on the earth's surface. NAIP is
 often collected using a camera mounted on an airplane.
 
-### Landsat 8 imagery
+### Landsat 8 Imagery
 
 Compared to NAIP, Landsat data are collected using an instrument mounted on a
-satellite which orbits the globe, continuously collecting images. The landsat
+satellite which orbits the globe, continuously collecting images. The Landsat
 instrument collects data at 30 meter spatial resolution but also has 11 bands
 distributed across the electromagnetic spectrum compared to the 3 or 4 that
 NAIP imagery has. Landsat also has one panchromatic band that collects information
@@ -235,7 +235,7 @@ Above: Source - <a href="http://landsat.usgs.gov" target="_blank"><a href="http:
 </figure>
 
 
-### MODIS imagery
+### MODIS Imagery
 The Moderate Resolution Imaging Spectrometer (MODIS) instrument is another
 satellite based instrument that continuously collects
 data over the Earth's surface. MODIS collects spectral information at several
@@ -253,8 +253,8 @@ Below, you can see the first 7 bands of the MODIS instrument
 | Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
 | Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
 | Band 4 - green | 545 - 565 | 500 | 3.0 |
-| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
-| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
+| Band 5 - near infrared  | 1230 | 1250 | 500 | 8.0  |
+| Band 6 - mid-infrared | 1628 | 1652 | 500 | 18 |
 | Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
 
 
@@ -263,7 +263,7 @@ to work with NAIP imagery in `R`.
 
 <div class="notice--info" markdown="1">
 
-## Additional resources:
+## Additional Resources:
 
 * <a href="http://biodiversityinformatics.amnh.org/interactives/bandcombination.php" target="_blank" data-proofer-ignore=''>Learn more about band combinations</a>
 * <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank" data-proofer-ignore=''>About multi spectral data - Penn State E-education</a>
