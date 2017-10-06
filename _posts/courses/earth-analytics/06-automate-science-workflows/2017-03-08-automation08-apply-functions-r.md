@@ -2,7 +2,7 @@
 layout: single
 title: "Use lapply in R Instead of For Loops to Process .csv files - Efficient Coding in R"
 excerpt: "Learn how to take code in a for loop and convert it to be used in an apply function. Make your R code more efficient and expressive programming."
-authors: ['Leah Wasser', 'Max Joseph']
+authors: ['Leah Wasser', 'Bryce Mecum', 'Max Joseph']
 modified: '2017-10-06'
 category: [courses]
 class-lesson: ['automating-your-science-r']
@@ -237,7 +237,7 @@ microbenchmark(invisible(lapply(all_precip_files, (FUN = summarize_data),
 ##                                                                               expr
 ##  invisible(lapply(all_precip_files, (FUN = summarize_data), the_dir = the_dir_ex))
 ##       min       lq     mean   median       uq      max neval
-##  101.1636 104.6514 106.0914 105.3394 106.4144 133.2322   100
+##  103.1938 106.1875 110.2808 108.3014 110.6964 180.3931   100
 ```
 
 
@@ -261,7 +261,7 @@ microbenchmark(for (file in all_precip_files) {
 ##                                                                                                                                                                                                                                                                                                                                           expr
 ##  for (file in all_precip_files) {     the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%          mutate(DATE = as.POSIXct(DATE, tz = "America/Denver",              format = "%Y-%m-%d %H:%M:%S"), precip_mm = in_to_mm(HPCP))     write.csv(the_data, file = paste0(the_dir, "/", basename(file)),          na = "999.99") }
 ##       min       lq     mean   median       uq      max neval
-##  105.3098 107.4585 110.4553 109.3533 112.2673 165.5798   100
+##  104.0861 106.9016 109.4824 108.3587 109.9775 170.9662   100
 ```
 
 Is it faster on average? Perhaps just by a few milliseconds?
