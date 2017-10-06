@@ -16,9 +16,6 @@
 - name: Megan Cattau
   slug: megan-cattau
   bio: ''
-- name: Mollie Buckland
-  slug: mollie-buckland
-  bio: ''
 - name: Naupaka Zimmerman
   slug: naupaka-zimmerman
   bio: ''
@@ -34,3 +31,6 @@
 - name: Zach Schira
   slug: zach-schira
   bio: 'Zach worked with the Analytics Hub as an undergraduate intern in 2016 and 2017 while pursuing his degree in aerospace engineering.'
+- name: Bryce Mecum
+  slug: bryce-mecum
+  bio: 'Bryce is a Scientific Software Engineer at the National Center for Ecological Analysis and Synthesis working remotely from Juneau, Alaska, USA. '
