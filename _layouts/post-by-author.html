@@ -27,10 +27,28 @@ layout: default
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
         <!-- List all posts in the page category  -->
-        <h2>Course modules </h2>
-        <p>Course material modules are sets of materials developed to teach
-          specific learning objectives in a course setting.</p>
+        <h2>Course Lessons </h2>
+        <p>Course lessons are developed as a part of a course curriculum. They teach
+          specific learning objectives associated with data and scientific programming. {{ page.author }} has contributed to the following lessons: </p>
 
+          {% assign course_lessons = site.posts | where:"category", 'courses' %}
+          {% assign lesson_counter = 0 %}
+          {% for lesson in site.categories.courses %}
+            {% if lesson.authors contains page.author %}
+            {% assign lesson_counter = lesson_counter | plus: 1 %}
+          <details id="{{ lesson.title }}">
+            <summary>
+              <a href={{ lesson.url }} name={{ lesson.url }}>{{ lesson.title }}</a>
+            </summary>
+            {% if lesson.excerpt %}<p class="archive__item-excerpt">{{ lesson.excerpt }} </p>{% endif %}
+          </details>
+          {% endif %}
+          {% endfor %}
+          {% if counter == 0 %}
+           <em>{{ page.author }} hasn't contributed to any course lessons... yet. </em>
+          {% endif %}
+
+         {% comment %}
         {% assign modules = site.posts | where:"order", 1 %}
           <!-- Just get modules the author has contributed to  -->
         {% for module in modules %}
@@ -57,8 +75,10 @@ layout: default
           {% endfor %}
           <p class="page__meta">collaborators:
             {% for anAuthor in module.authors %}
+            {% unless anAuthor == page.author %}
             {% assign currentItem = site.data.authors | where:"name", anAuthor %}
             <a href="{{ site.url }}{{ site.baseurl }}/authors/{{ currentItem[0].slug }}">{{ currentItem[0].name }}</a>{% if forloop.last == false %}, {% endif %}
+            {% endunless %}
             {% endfor %}
 
           </p>
@@ -90,7 +110,7 @@ layout: default
             {% endif %}
           {% endif %}
         {% endfor %}
-
+{% endcomment %}
 
 
         <h2> Data tutorials</h2>
