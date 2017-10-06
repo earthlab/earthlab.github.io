@@ -1,11 +1,11 @@
 ---
 layout: post-by-category
 category: tutorials
-title: 'h5py - Python Data Intensive Tutorials'
-permalink: /tutorials/python/h5py/
+title: 'os - Python Data Intensive Tutorials'
+permalink: /tutorials/python/os/
 comments: false
 author_profile: false
 language: python
-library: h5py
+library: os
 langSide: true
 ---

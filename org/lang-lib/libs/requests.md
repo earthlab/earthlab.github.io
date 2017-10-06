@@ -1,11 +1,11 @@
 ---
 layout: post-by-category
 category: tutorials
-title: 'ftplib - Python Data Intensive Tutorials'
-permalink: /tutorials/python/ftplib/
+title: 'requests - Python Data Intensive Tutorials'
+permalink: /tutorials/python/requests/
 comments: false
 author_profile: false
 language: python
-library: ftplib
+library: requests
 langSide: true
 ---
