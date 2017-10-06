@@ -5,7 +5,7 @@ excerpt: "This tutorial describes key differences between projected and geograph
 projected Coordinate Reference which divides the globe into zones to optimize
 projection results in each zone and WGS84 which is a geographic (latitude and longitude) CRS. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
-modified: '2017-09-28'
+modified: '2017-10-06'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -105,6 +105,13 @@ intersection of the Equator (0° latitude) and Prime Meridian (0° longitude) on
 the globe.
 
 Let's remind ourselves what data projects in a geographic `CRS` look like.
+
+```r
+library(ggplot2)
+library(rgdal)
+library(raster)
+```
+
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/geographic-WGS84-1.png" title="wgs 84 plot" alt="wgs 84 plot" width="90%" />
 
@@ -242,9 +249,9 @@ crs(boulder_df) <- CRS("+init=epsg:2957")
 
 
 
-Note the projection of our data in UTM +init=epsg:2957 +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+Note what the projection string for our data in UTM looks like: +init=epsg:2957 +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
 
-If we spatially project our data into a geographic coordinate refence system,
+If we spatially project our data into a geographic coordinate reference system,
 notice how our new coordinates are different - yet they still represent the same
 location.
 
@@ -252,8 +259,8 @@ location.
 ```r
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
 coordinates(boulder_df_geog)
-##         lon   lat
-## [1,] -105.3 40.01
+##            lon      lat
+## [1,] -105.2705 40.01498
 ```
 
 Now we can plot our data on top of our world map which is also in a geographic `CRS`.

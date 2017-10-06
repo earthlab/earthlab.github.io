@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions & automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
-modified: '2017-10-05'
+modified: '2017-10-06'
 week-landing: 6
 week: 6
 sidebar:
@@ -51,7 +51,7 @@ This week is still under development and the content won't be done until Friday!
 There are no new readings for this week.
 
 
-### 2. Complete the assignment below (10 points)
+### 2. Complete the assignment below (5 points)
 
 <div class="notice--warning" markdown="1">
 
@@ -117,7 +117,7 @@ for (the_year in min_yr:max_yr) {
     # use pipes to filter the data by year
 
 
-   # export a csv file with the year in the name to your data/week_06/ dir
+   # export a .csv file with the year in the name to your data/week_06/ dir
 }
 ```
 
@@ -159,14 +159,56 @@ NOTES:
 * When you write the `.csv` make sure that you address `NA` values!
 
 
+```r
+
+check_create_dir <- function(dir_path){
+  # document your function here
+
+  # include the code required to check for the directory and then create it here
+  # because this function is just creating a directory, you don't need to return anything!
+
+}
+
+in_to_mm <- function(precip_in){
+  # document your function here
+
+  # include the code required to convert inches to mm here
+
+  return(precip_mm)
+}
+
+# create an object with the directory name
+new_dir <- "data/week_06/outputs/precip_mm/"
+# check to see if the directory exists - make it if it doesn't
+check_create_dir(new_dir)
+
+# print the name of each file
+for (file in all_precip_files) {
+  # read in the csv - be sure to fill in the na strings argument - i didn't do that below
+  the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%
+    mutate(precip_mm = in_to_mm(HPCP)) # add a column with precip in mm and a column with just the month using the month() function
+    # group the data by month
+
+    # summarise using the sum function - be sure you address na values when you sum! we discussed this during week 1
+
+  # write output to a new .csv file
+  write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", basename(file)))
+}
+```
 
 
 
 
 #### Bonus opportunity
 
-You can use `apply()` functions (instead of for loops) to run a function on a
-list of elements.
+Use the `lapply()` function (instead of a for loop) to
+
+1. loop through all of the precipitation data files files that you created for each year, and
+2. add a new column to the file containing anything that you'd like
+3. write a new `.csv` file to a new directory with that output file.
+
+You can chose to use the same code that you used for the homework assignment, however
+implemented in a for loop if you want.
 
 ## Homework due: Monday October 16 2017 @ 8AM.
 Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
@@ -199,8 +241,6 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Provide an example of a function name that is expressive vs. one that is not expressive |  |
 |===
 | Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |
-
-
 
 
 ### Code is worth 60% of the assignment grade this week
