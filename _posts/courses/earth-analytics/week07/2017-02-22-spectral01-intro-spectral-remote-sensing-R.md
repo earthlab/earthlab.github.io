@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Spectral Remote Sensing Data"
 excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-10-06'
+modified: '2017-10-09'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/intro-spectral-data-r/
@@ -114,7 +114,7 @@ dataset ever 2-4 years.
    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/space-airborne.png" alt="space vs airborne remote sensing">
    <figcaption>Space-born vs airborne remote sensing. Notice that space-born data
    are often of lower resolution however because a satellite rotates continuously
-   around the earth, the spatial coverage may be better than airborne data. Source:<a href="http://www.cartospace.com/?page_id=22
+   around the earth, the spatial coverage may be better than airborne data. <a href="http://www.cartospace.com/?page_id=22" target="_blank">Source: cartospace</a>
    </figcaption>
 </figure>
 
@@ -167,8 +167,8 @@ why wouldn't we always just collect high resolution data (smaller
 pixels?)
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png.png" alt="Detail of a 1 meter pixel."></a>
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png" alt="Detail of a 1 meter pixel."></a>
     <figcaption>The spatial resolution of a raster represents the area on the
     ground that each pixel covers. Source: Colin Williams, NEON.</figcaption>
 </figure>
@@ -222,7 +222,7 @@ Landsat 8 bands 1-9 are listed below:
 | Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
 | Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
 
-Above: Source - <a href="http://landsat.usgs.gov" target="_blank"><a href="http://landsat.usgs.gov</a>
+Above: Source - <a href="http://landsat.usgs.gov" target="_blank">USGS Landsat</a>
 
 <figure>
     <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/Landsat8_BandsUses.png">

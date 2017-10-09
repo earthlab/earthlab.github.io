@@ -3,7 +3,7 @@ layout: single
 title: "Working with remote sensing imagery that has multiple bands in R - NAIP raster data in R."
 excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared ot other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-10-06'
+modified: '2017-10-09'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/naip-imagery-raster-stacks-in-r/
@@ -83,8 +83,8 @@ creates the colors that we see in an image. These colors are the ones our eyes
 can see within the visible portion of the electromagnetic spectrum.
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack">
-    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack" alt="A color image consists of 3 bands - red, green and blue. When
+    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack.jpg" alt="A color image consists of 3 bands - red, green and blue. When
     rendered together in a GIS, or even a tool like Photoshop or any other
     image software, the 3 bands create a color image."></a>
     <figcaption>A color image consists of 3 bands - red, green and blue. When
@@ -431,19 +431,7 @@ darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
 
 ## RGB Data
 
-Previously we've explored the single bands in our rasterstack. Next, we'll plot an RGB image.
-
-<figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack">
-    <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/RGB-bands-raster-stack" alt="A true color image consists of 3 bands - red, green and blue.
-    When composited or rendered together in a GIS, or even a image-editor like
-    Photoshop the bands create a color image."></a>
-    <figcaption>A "true" color image consists of 3 bands - red, green and blue.
-    When composited or rendered together in a GIS, or even a image-editor like
-    Photoshop the bands create a color image.
-	Source: Colin Williams, NEON.
-    </figcaption>
-</figure>
+Previously we've explored the single bands in our `rasterstack`. Next, we'll plot an RGB image.
 
 ### Use plotRGB() to create a composite 3 band image
 To render a 3 band, color image in `R`, we use `plotRGB()`.
