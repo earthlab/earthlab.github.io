@@ -29,7 +29,9 @@ The mid term will be broken down into 2 parts:
 </div>
 
 
-## Mid Term: 22 March 2017 During class
+## Mid Term: 13 November 2017 Presentations During class
+
+This is the Monday before Thanksgiving / Fall Break
 
 ## Part 1 - the Quiz
 
@@ -64,7 +66,7 @@ ask questions and work on your group project in class.
 
 
 
-## Submit your final mid-term presentation to D2L by 24 March 2017
+## Submit your final mid-term presentation to D2L by 13 March 2017 @ 9AM
 
 ## Presentation rubric
 
