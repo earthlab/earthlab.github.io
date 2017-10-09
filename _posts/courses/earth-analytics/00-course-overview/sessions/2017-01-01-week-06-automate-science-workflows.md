@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions & Automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
-modified: '2017-10-06'
+modified: '2017-10-09'
 week-landing: 6
 week: 6
 sidebar:
@@ -140,13 +140,20 @@ An example of what the final data should look like is below:
 # open data
 precip_2003 <- read.csv("data/week_06/outputs/precip_mm/precip-2003.csv")
 head(precip_2003, n = 6)
-##   X month precip_mm
-## 1 1     1      0.00
-## 2 2     2     35.56
-## 3 3     3    132.08
-## 4 4     4     40.64
-## 5 5     5     83.82
-## 6 6     6     60.96
+##   X.1 X     STATION    STATION_NAME ELEVATION LATITUDE LONGITUDE
+## 1   1 1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 2   2 2 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 3   3 3 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 4   4 4 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 5   5 5 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 6   6 6 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+##                  DATE HPCP Measurement.Flag Quality.Flag month precip_mm
+## 1 2003-01-01 01:00:00  0.0                g       999.99     1      0.00
+## 2 2003-02-01 01:00:00  0.0                g       999.99     2      0.00
+## 3 2003-02-02 19:00:00  0.2                        999.99     2      5.08
+## 4 2003-02-02 22:00:00  0.1                        999.99     2      2.54
+## 5 2003-02-03 02:00:00  0.1                        999.99     2      2.54
+## 6 2003-02-05 02:00:00  0.1                        999.99     2      2.54
 ```
 
 Use functions to complete this task as follows:
@@ -201,11 +208,11 @@ for (file in all_precip_files) {
 
 
 
-#### Bonus Opportunity
+#### Bonus Opportunity - 1 point
 
 Use the `lapply()` function (instead of a for loop) to
 
-1. loop through all of the precipitation data files files that you created for each year, and
+1. process all of the precipitation data files files that you created for each year, and
 2. add a new column to the file containing anything that you'd like
 3. write a new `.csv` file to a new directory with that output file.
 

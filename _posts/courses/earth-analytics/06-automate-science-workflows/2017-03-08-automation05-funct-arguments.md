@@ -3,7 +3,7 @@ layout: single
 title: "Working with Function Arguments"
 excerpt: "Learn how to work with function arguments in the R programming language.."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-10-06'
+modified: '2017-10-09'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/function-arguments-r/
@@ -16,7 +16,7 @@ author_profile: false
 comments: true
 topics:
   reproducible-science-and-programming: ['literate-expressive-programming', 'functions']
-order: 4
+order: 5
 redirect_from:
   - "/courses/earth-analytics/week-8/function-arguments-r/"
 ---
@@ -43,6 +43,21 @@ In the previous lessons, you have used many different functions and function
 arguments to customize your code.
 
 
+```
+## Loading required package: sp
+## 
+## Attaching package: 'raster'
+## The following object is masked from 'package:dplyr':
+## 
+##     select
+## rgdal: version: 1.2-7, (SVN revision 660)
+##  Geospatial Data Abstraction Library extensions to R successfully loaded
+##  Loaded GDAL runtime: GDAL 2.1.3, released 2017/20/01
+##  Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rgdal/gdal
+##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
+##  Path to PROJ.4 shared files: /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rgdal/proj
+##  Linking to sp version: 1.2-4
+```
 
 For example, you used numerous arguments to plot your data including:
 
@@ -63,7 +78,7 @@ plot(boulder_precip,
      main = "Digital Surface Model for Boulder, Colorado")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/06-automate-science-workflows/2017-03-08-automation04-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/06-automate-science-workflows/2017-03-08-automation05-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="90%" />
 
 Function arguments allow you to customize how a function runs. For example, you
 use the `plot()` function to plot many different types of data. You can use the:
