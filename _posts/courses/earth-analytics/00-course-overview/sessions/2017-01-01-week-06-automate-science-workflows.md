@@ -59,7 +59,7 @@ There are no new readings for this week.
 
 ### Produce a R Markdown Report
 
-Create a new `R markdown `document. Name it: **lastName-firstInitial-week8.Rmd**
+Create a new `R markdown `document. Name it: **lastName-firstInitial-week6.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `html` format. Submit both the
 `.Rmd` file and the `.html` (or `.pdf` file to D2L. Be sure to name your files
