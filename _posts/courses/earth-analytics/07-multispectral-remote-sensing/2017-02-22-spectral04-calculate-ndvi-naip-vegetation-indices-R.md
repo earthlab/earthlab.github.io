@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 modified: '2017-10-11'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/vegetation-indices-NDVI-in-R/
+permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
 nav-title: 'Calculate NDVI NAIP'
 week: 7
 course: "earth-analytics"
@@ -133,7 +133,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp2tJqRU/raster/r_tmp_2017-10-11_161704_1605_51961.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp2tJqRU/raster/r_tmp_2017-10-11_165328_1605_88876.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -256,7 +256,7 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
 ##    min    lq  mean median    uq   max neval
-##  1.072 1.107 1.247  1.319 1.361 1.376    10
+##  1.193 1.362 1.425  1.418 1.469 1.728    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -265,8 +265,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##    min  lq mean median    uq   max neval
-##  494.6 836  840  875.9 907.5 924.3    10
+##    min    lq  mean median  uq   max neval
+##  516.4 846.2 833.6  869.8 900 978.6    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact
