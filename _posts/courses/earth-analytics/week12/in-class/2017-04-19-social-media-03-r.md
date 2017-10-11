@@ -3,12 +3,12 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-09-27'
+modified: '2017-10-10'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/week-12/text-mining-twitter-data-intro-r/
 nav-title: 'Text mine twitter data'
-week: 12
+week: 13
 course: "earth-analytics"
 module-type: 'class'
 sidebar:

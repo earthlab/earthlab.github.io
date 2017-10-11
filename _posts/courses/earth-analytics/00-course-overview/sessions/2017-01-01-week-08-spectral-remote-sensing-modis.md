@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "MODIS data in R - fire remote sensing"
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/
-modified: '2017-10-03'
+modified: '2017-10-10'
 week-landing: 8
 week: 8
 sidebar:
@@ -47,8 +47,14 @@ we will learn how to
 
 ### 1a. Remote sensing readings
 
-There are no new readings for this week.
+### 1b. Fire Readings
 
+Please read the articles below to prepare for next week's class!
+* <a href="http://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">Denver Post article on the Cold Springs fire.</a>
+* <a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank" data-proofer-ignore=''>Fire science for rainforests -  Cochrane 2003.</a>
+* <a href="https://www.webpages.uidaho.edu/for570/Readings/2006_Lentile_et_al.pdf
+" target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a>
+* <a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices -  Soverel et al 2010.</a>
 
 ### 2. Complete the assignment below (10 points)
 
