@@ -29,7 +29,7 @@ At the end of this week you will be able to
 
 * Describe what a spectral band is related to remote sensing data.
 * Create maps of spectral remote sensing data using different band combinations including CIR, and RGB.
-* Calculate NDVI in `R` using efficient raster processing approaches including rasterbricks and the overlay function.
+* Calculate NDVI in `R` using efficient raster processing approaches including `rasterbricks` and the `overlay()` function.
 * Use the Landsat file naming convention to determine correct band combinations for plotting and to  calculate NDVI.
 * Define additive color model.
 
@@ -94,13 +94,20 @@ For all plots:
 1. Be sure to describe what each plot shows in your final report using a figure
 caption argument in your code chunks: `fig.cap="caption here"`.
 2. Add appropriate titles that tells someone reading your report what the map shows
+3. Be sure to use the correct bands are you plot and process the data.
+4. Apply image stretch as you see fit.
+5. Be sure to specify the DATE that the imagery was collected in your plot title. (note I did not do that in the examples below as you need to figure it out)
 
 #### Plots 1 & 2: RGB & CIR images
-Create a 1) RGB and 2) Color Infrared (CIR) image of the study site using NAIP data : `naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif`
+Create a 1) RGB and 2) Color Infrared (CIR) image of the study site using NAIP data: `naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif`
 
-[Use this lesson on stacking plots in base R]({{ site.url }} /courses/earth-analytics/spectral-remote-sensing-modis/grid-of-plots-report/)
-to stack the plots on top of each other.
+HINT: To create a CIR image:
 
+* infrared band will appear red
+* red band will appear green
+* green band will appear blue
+
+Make sure you get the bands right!
 
 #### Plot 3: Create a plot of NDVI + output geotiff
 
@@ -199,6 +206,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Plot renders on the report | |
 | Plot has a 2-3 sentence figure caption that clearly and accurately describes plot contents. | |
 | Plot contains a meaningful title. |  |
+| Date of Imagery collection is clearly and correctly specified in the plot |  |
 |===
 | Data source is clearly listed either on the plot or in the plot caption |  |
 
@@ -257,7 +265,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" /><img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-2.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
 
 
 

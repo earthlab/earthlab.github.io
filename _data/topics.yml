@@ -1,5 +1,5 @@
 remote-sensing:
-  subtopics: ['landsat', 'modis', 'lidar', 'naip', 'spectral-remote-sensing']
+  subtopics: ['landsat', 'modis', 'lidar', 'naip', 'multispectral-remote-sensing']
 earth-science:
   subtopics: ['fire', 'permafrost', 'vegetation','flood-erosion','uncertainty']
 open-science:

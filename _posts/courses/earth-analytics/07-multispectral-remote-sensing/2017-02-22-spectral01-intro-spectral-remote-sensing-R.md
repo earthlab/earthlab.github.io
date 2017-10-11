@@ -1,15 +1,15 @@
 ---
 layout: single
-title: "Introduction to Spectral Remote Sensing Data"
-excerpt: "This lesson overviews the key components of spectral remote sensing. We briefly overview: active vs passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
+title: "Introduction to Multispectral Imagery -  Remote Sensing Data in R "
+excerpt: "Learn the key components of working with multispectral imagery. Learn the difference between active and passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Leah Wasser']
 modified: '2017-10-11'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/intro-spectral-data-r/
+permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/introduction-multispectral-imagery-r/
 nav-title: 'Intro spectral data'
 module-title: 'Understanding fire using spectral remote sensing data'
-module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
+module-description: 'Learn how to use multispectral imagery, a type of remote sensing data, to better understand changes in the landscape. Learn how to calculate NDVI using various multispectral datasets In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
 module-nav-title: 'Fire / Spectral Remote Sensing Data - in R'
 module-type: 'class'
 course: "earth-analytics"
@@ -20,12 +20,12 @@ author_profile: false
 comments: true
 order: 1
 topics:
-  remote-sensing: ['landsat', 'modis', 'naip']
-  earth-science: ['fire']
+  remote-sensing: ['landsat', 'modis', 'naip', 'multispectral-remote-sensing']
 lang-lib:
   r: ['raster']
 redirect_from:
    - "/course-materials/earth-analytics/week-7/intro-spectral-data-r/"
+   - "/courses/earth-analytics/spectral-remote-sensing-landsat/intro-spectral-data-r/"
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -43,11 +43,9 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data for week 7 of the course.
+data for Weeks 7-9 of the course.
 
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
-
-
 
 </div>
 
@@ -58,11 +56,10 @@ data for week 7 of the course.
 In the previous weeks of this course, we talked about lidar remote sensing. If
 you recall, a lidar instrument is an active remote sensing instrument. This means
 that the instrument emits energy actively rather than collecting information about
-light energy from another source (the sun). This week we will work with spectral
-remote sensing. Spectral remote sensing is a passive remote sensing type. This
-means the the sensor is measuring light energy from an existing source - in this
-case the sun.
-
+light energy from another source (the sun). This week we will work with multispectral
+imagery or multispectral remote sensing data. Multispectral remote sensing is a
+passive remote sensing type. This means that the sensor is measuring light energy
+from an existing source - in this case the sun.
 
 <figure class="half">
    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-vs-passive.png" alt="passive remote sensing">
@@ -76,14 +73,13 @@ case the sun.
 
 ## Electromagnetic Spectrum
 
-To
-better understand spectral remote sensing we need to review
+To better understand multispectral remote sensing you need to know
 some basic principles of the electromagnetic spectrum.
 
 The electromagnetic spectrum is composed of a range of different wavelengths or
 "colors / types" of light energy. A spectral remote sensing instrument collects
-light energy within specific regions of the electromagnetic spectrum. We call each
-region in the spectrum a band.
+light energy within specific regions of the electromagnetic spectrum. Each
+region in the spectrum is referred to as a band.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/3iaFzafWJQE?rel=0" frameborder="0" allowfullscreen></iframe>
 
@@ -96,11 +92,12 @@ Above: Watch the first 8 minutes for a nice overview of spectral remote sensing.
 # Key Attributes of Spectral Remote Sensing Data
 
 ## Space vs. Airborne Data
-First, it is important to understand how the data are collected. Data can be collected
-from the ground, the air (using airplanes or helicopters) or from space. You can
+
+Remote sensing data can be collected from the ground, the air (using airplanes or
+helicopters) or from space. You can
 imagine that data that are collected from space are often of a lower spatial
 resolution compared to data collected from an airplane. The tradeoff however
-is that data collected from an satellite often offer better (even global) coverage.
+is that data collected from an satellite often offer better (up to global) coverage.
 
 For example the landsat 8 satellite has a 16 day repeat cycle for the entire globe.
 This means that you can find a new image for an area, every 16 days. It takes a
@@ -114,13 +111,13 @@ dataset ever 2-4 years.
    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/space-airborne.png" alt="space vs airborne remote sensing">
    <figcaption>Space-born vs airborne remote sensing. Notice that space-born data
    are often of lower resolution however because a satellite rotates continuously
-   around the earth, the spatial coverage may be better than airborne data. <a href="http://www.cartospace.com/?page_id=22" target="_blank">Source: cartospace</a>
+   around the earth, the spatial coverage may be better than airborne data. <a href="http://www.cartospace.com/?page_id=22" target="_blank">Source: Cartospace</a>
    </figcaption>
 </figure>
 
 ## Bands and Wavelengths
 
-When talking about spectral data, we need to understand both the electromagnetic
+When talking about spectral data, you need to understand both the electromagnetic
 spectrum and image bands. Spectral remote sensing data are collected by powerful
 camera like instruments known as imaging spectrometers. Imaging spectrometers
 collect reflected light energy in "bands".
@@ -166,6 +163,9 @@ If high resolution the data show us more about what is happening on the earth's 
 why wouldn't we always just collect high resolution data (smaller
 pixels?)
 
+If you recall, we discussed raster spatial resolution when we worked with lidar
+elevation data. The same resolution concepts apply to multispectral data.
+
 <figure>
     <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png">
     <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-pixel-resolution.png" alt="Detail of a 1 meter pixel."></a>
@@ -182,20 +182,20 @@ pixels?)
 
 ## NAIP, Landsat & MODIS
 
-In this week's class, we will look at 3 types of spectral remote sensing data.
+In this week's class, we will look at 2 types of spectral remote sensing data.
 
 1. NAIP
 2. Landsat
-3. MODIS
 
+In the following week, we will work with MODIS data.
 
-### NAIP Imagery
+### About NAIP Multispectral Imagery
 
-We will work with NAIP imagery in the next lesson. NAIP imagery typically has
-red, green and blue bands. However, sometimes, there is a 4th
+NAIP imagery is available in the United States and typically has (3) red, green and blue bands. However, sometimes, there is a 4th
 near-infrared band available. NAIP imagery typically is 1m spatial resolution.
 This means that each pixel represents 1 meter on the earth's surface. NAIP is
-often collected using a camera mounted on an airplane.
+often collected using a camera mounted on an airplane. Finally NAIP data are
+collected every few years.
 
 ### Landsat 8 Imagery
 
@@ -229,7 +229,7 @@ Above: Source - <a href="http://landsat.usgs.gov" target="_blank">USGS Landsat</
     <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/Landsat8_BandsUses.png" alt="landsat 8 bands image">
     </a>
     <figcaption>The bands for Landsat 7 (bottom) vs Landsat 8 (top).
-    there are several other landsat instruments that provide data - the most
+    there are several other Landsat instruments that provide data - the most
     commonly used being Landsat 5 and 7. The specifications for each instrument are
     different. Source: USGS Landsat.</figcaption>
 </figure>
@@ -258,8 +258,7 @@ Below, you can see the first 7 bands of the MODIS instrument
 | Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
 
 
-In the next lesson, we will dive further into multi-band imagery. We will begin
-to work with NAIP imagery in `R`.
+In the next lesson, you will learn how to work with NAIP imagery in `R`.
 
 <div class="notice--info" markdown="1">
 
