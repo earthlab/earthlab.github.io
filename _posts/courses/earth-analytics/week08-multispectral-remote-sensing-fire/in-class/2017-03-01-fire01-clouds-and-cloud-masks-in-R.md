@@ -3,7 +3,7 @@ layout: single
 title: "Clean remote sensing data in R - Clouds, shadows & cloud masks"
 excerpt: "In this lesson, we will learn how to deal with clouds when working with spectral remote sensing data. We will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. We will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-10-10'
+modified: '2017-10-11'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/intro-spectral-data-r/
@@ -104,6 +104,7 @@ all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC2017012
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 # create spatial raster stack from the list of file names
 all_landsat_bands_st <- stack(all_landsat_bands)
+## Error in x[[1]]: subscript out of bounds
 ```
 
 When we plotted the pre-fire image, we noticed a large cloud in our scene.
@@ -124,11 +125,11 @@ plotRGB(all_landsat_bands_st,
         stretch = "hist",
         main = "Pre-fire RGB image with cloud\n Cold Springs Fire",
         axes = TRUE)
+## Error in plotRGB(all_landsat_bands_st, r = 4, g = 3, b = 2, stretch = "hist", : object 'all_landsat_bands_st' not found
 # turn the box to white so there is no border on our plot
 box(col = "white")
+## Error in box(col = "white"): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/plotRGB-landsat-1.png" title="RGB image of our landsat data." alt="RGB image of our landsat data." width="90%" />
 
 ## Raster masks
 
@@ -146,11 +147,11 @@ Let's have a look at these layers next.
 ```r
 # open cloud mask layer
 cloud_mask_189_conf <- raster("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_conf_crop.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 plot(cloud_mask_189_conf,
   main = "Landsat Julian Day 189 - Cloud mask layer.")
+## Error in plot(cloud_mask_189_conf, main = "Landsat Julian Day 189 - Cloud mask layer."): object 'cloud_mask_189_conf' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/cloud-mask-1.png" title="cloud mask - no shadows." alt="cloud mask - no shadows." width="90%" />
 
 Next, we can plot the second mask layer. Do you notice any difference between the two?
 
@@ -158,11 +159,11 @@ Next, we can plot the second mask layer. Do you notice any difference between th
 ```r
 # apply shadow mask
 cloud_mask_189 <- raster("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_crop.tif")
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 plot(cloud_mask_189,
   main = "Landsat Julian Day 189 - Cloud mask layer with shadows.")
+## Error in plot(cloud_mask_189, main = "Landsat Julian Day 189 - Cloud mask layer with shadows."): object 'cloud_mask_189' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/view-cloud-mask-with-shadows-1.png" title="cloud mask with shadows" alt="cloud mask with shadows" width="90%" />
 
 ## What do the metadata tell us?
 
@@ -224,21 +225,22 @@ In this case, we want to set all values greater than 0 in the raster mask to `NA
 par(xpd=F, mar = c(0,0,1,5))
 # create cloud & cloud shadow mask
 cloud_mask_189[cloud_mask_189 > 0] <- NA
+## Error in cloud_mask_189[cloud_mask_189 > 0] <- NA: object 'cloud_mask_189' not found
 plot(cloud_mask_189,
      main = "Our new raster mask",
      col = c("green"),
      legend=F,
      axes=F,
      box=F)
+## Error in plot(cloud_mask_189, main = "Our new raster mask", col = c("green"), : object 'cloud_mask_189' not found
 # add legend to map
 par(xpd = TRUE) # force legend to plot outside of the plot extent
 legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax,
        c("Not masked", "Masked"),
        fill=c("green", "white"),
        bty = "n")
+## Error in legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax, : object 'cloud_mask_189' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/create-mask-1.png" title="raster mask. green values are not masked." alt="raster mask. green values are not masked." width="90%" />
 
 Notice in the image above, all pixels that are green represent pixels that are
 OK or not masked. This means they weren't flagged as potential clouds or shadows.
@@ -253,6 +255,7 @@ Let's use the `mask()` function to mask our data.
 ```r
 # mask the stack
 all_landsat_bands_mask <- mask(all_landsat_bands_st, mask = cloud_mask_189)
+## Error in mask(all_landsat_bands_st, mask = cloud_mask_189): object 'all_landsat_bands_st' not found
 # plot RGB image
 # first turn all axes to the color white and turn off ticks
 par(col.axis = "white", col.lab = "white", tck = 0)
@@ -261,10 +264,10 @@ plotRGB(all_landsat_bands_mask,
         r=4, g=3, b=2,
         main = "RGB image - are all of the clouds gone from our image?",
         axes = TRUE)
+## Error in plotRGB(all_landsat_bands_mask, r = 4, g = 3, b = 2, main = "RGB image - are all of the clouds gone from our image?", : object 'all_landsat_bands_mask' not found
 box(col = "white")
+## Error in box(col = "white"): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/apply-mask-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="90%" />
 
 Notice above that I didn't have to use the stretch function to force the data to
 plot in R. This is because the extremely bright pixels which represented clouds,
@@ -281,14 +284,18 @@ plotRGB(all_landsat_bands_mask,
         stretch = "lin",
         main = "RGB image - are all of the clouds gone from our image? \n linear stretch",
         axes = TRUE)
+## Error in plotRGB(all_landsat_bands_mask, r = 4, g = 3, b = 2, stretch = "lin", : object 'all_landsat_bands_mask' not found
 box(col = "white")
+## Error in box(col = "white"): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/mask-plot-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="90%" />
 
 Next, we can calculate a vegetation indices.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title="landsat NBR plot" alt="landsat NBR plot" width="90%" />
+
+```
+## Error in overlay(all_landsat_bands_mask[[4]], all_landsat_bands_mask[[5]], : object 'all_landsat_bands_mask' not found
+## Error in plot(landsat_nbr, main = "Landsat derived NBR \n pre-fire conditions - Julian Day 189", : object 'landsat_nbr' not found
+```
 
 
 <div class="notice--warning" markdown="1">

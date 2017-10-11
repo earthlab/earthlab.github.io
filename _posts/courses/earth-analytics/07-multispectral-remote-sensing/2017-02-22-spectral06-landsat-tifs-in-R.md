@@ -3,7 +3,7 @@ layout: single
 title: "Landsat remote sensing tif files in R"
 excerpt: "In this lesson we will cover the basics of using LAndsat 7 and 8 in R. We will learn how to import landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally we will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-10-10'
+modified: '2017-10-11'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/landsat-bands-geotif-in-R/
@@ -183,18 +183,7 @@ grab a list of all files within any directory on our computer.
 ```r
 # get list of all tifs
 list.files("data/week_07/landsat/LC80340322016205-SC20170127160728/crop")
-##  [1] "LC80340322016205LGN00_bqa_crop.tif"        
-##  [2] "LC80340322016205LGN00_cfmask_conf_crop.tif"
-##  [3] "LC80340322016205LGN00_cfmask_crop.tif"     
-##  [4] "LC80340322016205LGN00_sr_band1_crop.tif"   
-##  [5] "LC80340322016205LGN00_sr_band2_crop.tif"   
-##  [6] "LC80340322016205LGN00_sr_band3_crop.tif"   
-##  [7] "LC80340322016205LGN00_sr_band4_crop.tif"   
-##  [8] "LC80340322016205LGN00_sr_band5_crop.tif"   
-##  [9] "LC80340322016205LGN00_sr_band6_crop.tif"   
-## [10] "LC80340322016205LGN00_sr_band7_crop.tif"   
-## [11] "LC80340322016205LGN00_sr_cloud_crop.tif"   
-## [12] "LC80340322016205LGN00_sr_ipflag_crop.tif"
+## character(0)
 ```
 
 We can also use list.files with the pattern argument. This allows us to specify
@@ -213,18 +202,7 @@ all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016205-SC2017012
                       pattern=".tif$",
                       full.names = TRUE) # make sure we have the full path to the file
 all_landsat_bands
-##  [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_bqa_crop.tif"        
-##  [2] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_cfmask_conf_crop.tif"
-##  [3] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_cfmask_crop.tif"     
-##  [4] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"   
-##  [5] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"   
-##  [6] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"   
-##  [7] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"   
-##  [8] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"   
-##  [9] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"   
-## [10] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"   
-## [11] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_cloud_crop.tif"   
-## [12] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_ipflag_crop.tif"
+## character(0)
 ```
 
 Above, we use the $ after .tif to tell R to look for files that end with .tif.
@@ -247,13 +225,7 @@ all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016205-SC2017012
            pattern=glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands
-## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
-## [2] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-## [3] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
-## [4] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
-## [5] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
-## [6] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
-## [7] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
+## character(0)
 ```
 
 Now we have a list of all of the landsat bands in our folder. We could chose to
@@ -263,14 +235,14 @@ open each file individually using the `raster()` function.
 ```r
 # get first file
 all_landsat_bands[2]
-## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
+## [1] NA
 landsat_band2 <- raster(all_landsat_bands[2])
+## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 plot(landsat_band2,
      main = "Landsat cropped band 2\nColdsprings fire scar",
      col = gray(0:100 / 100))
+## Error in plot(landsat_band2, main = "Landsat cropped band 2\nColdsprings fire scar", : object 'landsat_band2' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="90%" />
 
 However, that is not a very efficient approach.
 It's more efficiently to open all of the layers together as a stack. Then we can
@@ -281,16 +253,10 @@ access each of the bands and plot / use them as we want. We can do that using th
 ```r
 # stack the data
 landsat_stack_csf <- stack(all_landsat_bands)
+## Error in x[[1]]: subscript out of bounds
 # view stack attributes
 landsat_stack_csf
-## class       : RasterStack 
-## dimensions  : 177, 246, 43542, 7  (nrow, ncol, ncell, nlayers)
-## resolution  : 30, 30  (x, y)
-## extent      : 455655, 463035, 4423155, 4428465  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
-## names       : LC8034032//band1_crop, LC8034032//band2_crop, LC8034032//band3_crop, LC8034032//band4_crop, LC8034032//band5_crop, LC8034032//band6_crop, LC8034032//band7_crop 
-## min values  :                     0,                     0,                     0,                     0,                     0,                     0,                     0 
-## max values  :                  3488,                  3843,                  4746,                  5152,                  5674,                  4346,                  3767
+## Error in eval(expr, envir, enclos): object 'landsat_stack_csf' not found
 ```
 
 Let's plot each individual band in our stack.
@@ -299,29 +265,22 @@ Let's plot each individual band in our stack.
 ```r
 plot(landsat_stack_csf,
      col = gray(20:100 / 100))
+## Error in plot(landsat_stack_csf, col = gray(20:100/100)): object 'landsat_stack_csf' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="90%" />
 
 
 
 ```r
 # get list of each layer name
 names(landsat_stack_csf)
-## [1] "LC80340322016205LGN00_sr_band1_crop"
-## [2] "LC80340322016205LGN00_sr_band2_crop"
-## [3] "LC80340322016205LGN00_sr_band3_crop"
-## [4] "LC80340322016205LGN00_sr_band4_crop"
-## [5] "LC80340322016205LGN00_sr_band5_crop"
-## [6] "LC80340322016205LGN00_sr_band6_crop"
-## [7] "LC80340322016205LGN00_sr_band7_crop"
+## Error in eval(expr, envir, enclos): object 'landsat_stack_csf' not found
 # remove the filename from each band name for pretty plotting
 names(landsat_stack_csf) <- gsub(pattern = "LC80340322016205LGN00_sr_", replacement = "", names(landsat_stack_csf))
+## Error in gsub(pattern = "LC80340322016205LGN00_sr_", replacement = "", : object 'landsat_stack_csf' not found
 plot(landsat_stack_csf,
      col = gray(20:100 / 100))
+## Error in plot(landsat_stack_csf, col = gray(20:100/100)): object 'landsat_stack_csf' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="90%" />
 
 ## Plot RGB image
 
@@ -337,10 +296,10 @@ plotRGB(landsat_stack_csf,
      stretch = "lin",
      axes = TRUE,
      main = "RGB composite image\n Landsat Bands 4, 3, 2")
+## Error in plotRGB(landsat_stack_csf, r = 4, g = 3, b = 2, stretch = "lin", : object 'landsat_stack_csf' not found
 box(col = "white")
+## Error in box(col = "white"): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 
 Now we've created a red, green blue color composite image. Remember this is what
 our eye would see. What happens if we plot the near infrared band instead of red?
@@ -355,10 +314,10 @@ plotRGB(landsat_stack_csf,
      stretch = "lin",
      axes = TRUE,
      main = "Color infrared composite image\n Landsat Bands 5, 4, 3")
+## Error in plotRGB(landsat_stack_csf, r = 5, g = 4, b = 3, stretch = "lin", : object 'landsat_stack_csf' not found
 box(col = "white")
+## Error in box(col = "white"): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 
 
 <div class="notice--warning" markdown="1">

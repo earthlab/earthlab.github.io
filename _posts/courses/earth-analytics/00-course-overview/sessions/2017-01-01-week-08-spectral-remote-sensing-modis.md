@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "MODIS data in R - fire remote sensing"
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/
-modified: '2017-10-10'
+modified: '2017-10-11'
 week-landing: 8
 week: 8
 sidebar:
@@ -37,7 +37,7 @@ we will learn how to
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
 | 3:00 - 3:15  | Questions |   |
-| 3:15 - 3:40  | Addititive light models - interactive experiment |   |
+| 3:15 - 3:40  | Additive light models - interactive experiment |   |
 | 3:45 - 4:15  | Dealing with clouds & cloud masks in R  |    |
 | 4:30 - 5:00  | Group activity: Get data from Earth Explorer |    |
 | 5:00 - 5:30  | MODIS data in R - NA values & scale factors - Coding  Session |    |

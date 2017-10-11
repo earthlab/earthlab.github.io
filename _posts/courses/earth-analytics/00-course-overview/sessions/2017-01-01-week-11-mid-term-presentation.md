@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Mid Term Presentations"
 permalink: /courses/earth-analytics/week-11/
-modified: '2017-10-10'
+modified: '2017-10-11'
 week-landing: 11
 week: 11
 sidebar:

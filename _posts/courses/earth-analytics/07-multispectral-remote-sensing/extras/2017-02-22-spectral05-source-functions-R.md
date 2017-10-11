@@ -3,7 +3,7 @@ layout: single
 title: "Source functions in R"
 excerpt: "Learn how to use a source file to import functions that you've build into a script or R Markdown file."
 authors: ['Leah Wasser']
-modified: '2017-10-10'
+modified: '2017-10-11'
 category: [courses]
 class-lesson: ['automate-spatial-data-analysis-r']
 permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/source-remote-sensing-functions-in-R/

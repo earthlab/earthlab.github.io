@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Landsat Data in R - Fire Ecology & Remote Sensing"
 permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/
-modified: '2017-10-10'
+modified: '2017-10-11'
 week-landing: 7
 week: 7
 sidebar:
@@ -218,18 +218,43 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
+
+```
+## Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
+## Error in plotRGB(naip_post_fire, r = 3, g = 2, b = 1, axes = TRUE, main = "NAIP CIR image \nColdsprings fire scar - \n "): object 'naip_post_fire' not found
+## Error in box(col = "white"): plot.new has not been called yet
+## Error in plotRGB(naip_post_fire, r = 4, g = 3, b = 2, axes = TRUE, main = "NAIP RGB image \nColdsprings fire scar - \n "): object 'naip_post_fire' not found
+## Error in box(col = "white"): plot.new has not been called yet
+```
 
 
 
 
 
+```
+## Error in x[[1]]: subscript out of bounds
+## Error in brick(landsat_prefire_st): object 'landsat_prefire_st' not found
+## Error in overlay(landsat_prefire_br[[5]], landsat_prefire_br[[4]], fun = normalized_diff): object 'landsat_prefire_br' not found
+## Error in x[[1]]: subscript out of bounds
+## Error in brick(landsat_postfire_st): object 'landsat_postfire_st' not found
+## Error in overlay(landsat_postfire_br[[5]], landsat_postfire_br[[4]], fun = normalized_diff): object 'landsat_postfire_br' not found
+```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/unnamed-chunk-3-1.png" title="Landsat NDVI pre and post fire" alt="Landsat NDVI pre and post fire" width="90%" />
+
+```
+## Error in plot(landsat_ndvi_pre, main = "Post ndvi post", box = FALSE, : object 'landsat_ndvi_pre' not found
+## Error in plot(landsat_ndvi_post, main = "Post fire ndvi - Landsat", box = FALSE, : object 'landsat_ndvi_post' not found
+```
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/unnamed-chunk-5-1.png" title=" " alt=" " width="90%" />
+
+```
+## Error in plotRGB(landsat_prefire_br, r = 4, g = 3, b = 2, stretch = "lin", : object 'landsat_prefire_br' not found
+## Error in box(col = "white"): plot.new has not been called yet
+## Error in plotRGB(landsat_prefire_br, r = 5, g = 4, b = 3, stretch = "lin", : object 'landsat_prefire_br' not found
+## Error in box(col = "white"): plot.new has not been called yet
+```
 
 
 

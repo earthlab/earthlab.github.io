@@ -3,7 +3,7 @@ layout: single
 title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
 excerpt: "In this lesson we review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically we will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-10-10'
+modified: '2017-10-11'
 category: [courses]
 class-lesson: ['multispectral-normalized-burn-ratio']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -185,9 +185,16 @@ should we use to calculate NBR using MODIS?
 
 
 
+```
+## Error in x[[1]]: subscript out of bounds
+```
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral08-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
+
+```
+## Error in eval(expr, envir, enclos): object 'landsat_stack_csf' not found
+## Error in plot(landsat_nbr, main = "Landsat derived NBR\n Julian Day 205", : object 'landsat_nbr' not found
+```
 
 When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
@@ -209,14 +216,26 @@ Alternatively, you can set those values to NA if you think they are outside of
 the valid range of NBR (in this case they are not).
 
 
+```
+## Error in reclassify(landsat_nbr, reclass_m): object 'landsat_nbr' not found
+```
 
 Your classified map should look something like:
 
 
 
+```
+## Error in ogrListLayers(dsn = dsn): Cannot open data source
+## Error in spTransform(fire_boundary, crs(nbr_classified)): object 'fire_boundary' not found
+```
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral08-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
+
+```
+## Error in plot(nbr_classified, col = the_colors, legend = F, axes = F, : object 'nbr_classified' not found
+## Error in plot(fire_boundary_utm, add = TRUE, lwd = 5): object 'fire_boundary_utm' not found
+## Error in legend(nbr_classified@extent@xmax - 100, nbr_classified@extent@ymax, : object 'nbr_classified' not found
+```
 
 
 
@@ -226,9 +245,8 @@ barplot(nbr_classified,
         main = "Distribution of Classified NBR Values",
         col = the_colors,
         names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
+## Error in barplot(nbr_classified, main = "Distribution of Classified NBR Values", : object 'nbr_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral08-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
 
 <div class="notice--info" markdown="1">

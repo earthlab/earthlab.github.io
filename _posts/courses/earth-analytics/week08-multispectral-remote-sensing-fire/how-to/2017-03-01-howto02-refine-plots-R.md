@@ -3,7 +3,7 @@ layout: single
 title: "How to remove borders and add legends to spatial plots in R. "
 excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
-modified: '2017-10-10'
+modified: '2017-10-11'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/refine-plots-report/
@@ -59,6 +59,7 @@ all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC2017012
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 # create spatial stack
 all_landsat_bands_st <- stack(all_landsat_bands)
+## Error in x[[1]]: subscript out of bounds
 ```
 
 ### Titles using plotRGB()
@@ -71,9 +72,8 @@ plotRGB(all_landsat_bands_st,
         r = 4, b = 3, g = 2,
         stretch = "hist",
         main = "title here")
+## Error in plotRGB(all_landsat_bands_st, r = 4, b = 3, g = 2, stretch = "hist", : object 'all_landsat_bands_st' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
 
 
 If we add the `axes=T` argument to our plot, our title plots but we also get
@@ -91,9 +91,8 @@ plotRGB(all_landsat_bands_st,
         stretch = "hist",
         main = "title here",
         axes = TRUE)
+## Error in plotRGB(all_landsat_bands_st, r = 4, b = 3, g = 2, stretch = "hist", : object 'all_landsat_bands_st' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb2-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
 
 The final step is to turn off box which leaves that annoying line on the left
 hand side and bottom of the plot.
@@ -108,11 +107,11 @@ plotRGB(all_landsat_bands_st,
         stretch = "hist",
         main = "title here",
         axes = TRUE)
+## Error in plotRGB(all_landsat_bands_st, r = 4, b = 3, g = 2, stretch = "hist", : object 'all_landsat_bands_st' not found
 # set bounding box to white as well
 box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb3-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
 
 This looks nice, but now the plot itself is too tall. There is extra white space
 above and below the plot that we don't need. This is because the `dev` space
@@ -135,11 +134,11 @@ plotRGB(all_landsat_bands_st,
         stretch = "hist",
         main = "title here",
         axes = TRUE)
+## Error in plotRGB(all_landsat_bands_st, r = 4, b = 3, g = 2, stretch = "hist", : object 'all_landsat_bands_st' not found
 # set bounding box to white as well
 box(col = "white") # turn all of the lines to white
+## Error in box(col = "white"): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb4-1.png" title="Adjust figure width and height." alt="Adjust figure width and height." width="90%" />
 
 Notice that now my plot has less white space above and below the image. This is because
 it's no longer plotting using a square aspect ratio - we've adjusted that! You can
@@ -170,6 +169,10 @@ It's not pretty. For one, we don't need the x and y axes on this plot.
 
 
 
+```
+## Error in eval(expr, envir, enclos): object 'all_landsat_bands_st' not found
+## Error in reclassify(ndvi, reclass_m): object 'ndvi' not found
+```
 
 
 ```r
@@ -177,9 +180,8 @@ It's not pretty. For one, we don't need the x and y axes on this plot.
 plot(ndvi_classified,
      main = "ndvi plot",
      col = the_colors)
+## Error in plot(ndvi_classified, main = "ndvi plot", col = the_colors): object 'ndvi_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/plot-data1-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
 First let's get rid of the unnecessary axes and turn off the legend.
 We can remote the axes & box that surrounds our image using: `axes=F` and `box=F`.
 
@@ -190,9 +192,8 @@ plot(ndvi_classified,
      main = "ndvi plot",
      col = the_colors,
      axes=F, box=F)
+## Error in plot(ndvi_classified, main = "ndvi plot", col = the_colors, axes = F, : object 'ndvi_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/plot-data2-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
 
 Next, we turn off the legend and add our own legend. However, the legend isn't
 exactly where we want it to be here. It's above the plot and we'd like it to be
@@ -206,12 +207,12 @@ plot(ndvi_classified,
      main = "ndvi plot",
      col = the_colors,
      axes=F, box=F)
+## Error in plot(ndvi_classified, legend = F, main = "ndvi plot", col = the_colors, : object 'ndvi_classified' not found
 legend("topright",
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= the_colors)
+## Error in strwidth(legend, units = "user", cex = cex, font = text.font): plot.new has not been called yet
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/plot-data3-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
 
 We can force the legend to plot outside of our axes using the parameter
 `xpd=T`. We can locate the legend in the upper right hand corner OUTSIDE
@@ -234,14 +235,14 @@ plot(ndvi_classified,
      main = "ndvi plot",
      col = the_colors,
      axes=F, box=F)
+## Error in plot(ndvi_classified, legend = F, main = "ndvi plot", col = the_colors, : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
+## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
 
 Now, another problem with our legend. *The order of our colors is all wrong:* Grey should represent "no vegetation" and green should represent health vegetation. We can use `rev()` on our list of colors to reverse the order of colors drawn on the legend.
 
@@ -254,14 +255,14 @@ plot(ndvi_classified,
      main = "ndvi plot",
      col = the_colors,
      axes=F, box=F)
+## Error in plot(ndvi_classified, legend = F, main = "ndvi plot", col = the_colors, : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
+## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend22-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
 
 On to the pesky white space on either side of the plot. There are several
 ways to handle this. One is by specifying margins for out plot.
@@ -288,21 +289,21 @@ plot(ndvi_classified,
      col = the_colors,
      axes=F,
      box=F)
+## Error in plot(ndvi_classified, legend = F, main = "ndvi plot with axes & box turned off", : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        bty=F, # turn off legend border
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
+## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend3-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
 
 
 ```r
 dev.off()
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```
 
 I can do better than that however. That box around the legend is annoying. Let's
@@ -320,6 +321,7 @@ plot(ndvi_classified,
      col = the_colors,
      axes=F,
      box=F)
+## Error in plot(ndvi_classified, legend = F, main = "ndvi plot with axes & box turned off", : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -327,14 +329,13 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        fill= rev(the_colors),# use rev to reverse the order of colors for the legend
        bty = "n", # turn off legend border
        cex = .9)  # adjust legend font size
+## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend33-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
 
 ```r
 dev.off()
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```
 
 If things are still not looking right, we can adjust the size of our output
@@ -362,6 +363,7 @@ plot(ndvi_classified,
      col = the_colors,
      axes=F,
      box=F)
+## Error in plot(ndvi_classified, legend = F, main = "NDVI plot with axes & box turned off & custom margins\n to make room for the legend", : object 'ndvi_classified' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -369,9 +371,8 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        bty = "n", # turn off legend border
        cex = .8, # make the legend font a bit smaller
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
+## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend4-1.png" title="plot with legend in the upper right." alt="plot with legend in the upper right." width="90%" />
 
 While we are at it, let's add a border using a crop extent
 shapefile that was used to clip these data
@@ -380,6 +381,7 @@ shapefile that was used to clip these data
 ```r
 # import crop extent
 crop_ext <- readOGR("data/week_07/vector_layers/fire_crop_box_2000m.shp")
+## Error in ogrListLayers(dsn = dsn): Cannot open data source
 # set a margin for our figure
 par(xpd=F, mar = c(0,0,2,6))
 # plot ndvi with legend
@@ -389,10 +391,12 @@ plot(ndvi_classified,
      col = the_colors,
      axes=F,
      box=F)
+## Error in plot(ndvi_classified, legend = F, main = "NDVI plot with axes & box turned off & custom margins\n to make room for the legend", : object 'ndvi_classified' not found
 
 plot(crop_ext,
      lwd=2,
      add = TRUE)
+## Error in plot(crop_ext, lwd = 2, add = TRUE): object 'crop_ext' not found
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -400,9 +404,8 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
        bty = "n", # turn off legend border
        cex = .8, # make the legend font a bit smaller
        fill= rev(the_colors)) # use rev to reverse the order of colors for the legend
+## Error in legend(x = ndvi_classified@extent@xmax, y = ndvi_classified@extent@ymax, : object 'ndvi_classified' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/import-shape-1.png" title="add crop box" alt="add crop box" width="90%" />
 
 Again - always reset dev when you've been adjusting `par()` values for
 plots!
