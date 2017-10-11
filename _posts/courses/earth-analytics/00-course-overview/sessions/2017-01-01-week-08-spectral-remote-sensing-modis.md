@@ -37,7 +37,7 @@ we will learn how to
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
 | 3:00 - 3:15  | Questions |   |
-| 3:15 - 3:40  | Additive light models - interactive experiment |   |
+| 3:15 - 3:40  | Addititive light models - interactive experiment |   |
 | 3:45 - 4:15  | Dealing with clouds & cloud masks in R  |    |
 | 4:30 - 5:00  | Group activity: Get data from Earth Explorer |    |
 | 5:00 - 5:30  | MODIS data in R - NA values & scale factors - Coding  Session |    |
@@ -50,6 +50,7 @@ we will learn how to
 ### 1b. Fire Readings
 
 Please read the articles below to prepare for next week's class!
+
 * <a href="http://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">Denver Post article on the Cold Springs fire.</a>
 * <a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank" data-proofer-ignore=''>Fire science for rainforests -  Cochrane 2003.</a>
 * <a href="https://www.webpages.uidaho.edu/for570/Readings/2006_Lentile_et_al.pdf
@@ -73,8 +74,8 @@ with your report, use `knitr` to convert it to `PDF` format. Submit both the
 In your final report, use the following knitr code chunk arguments to hide messages
 and warnings and code as you see fit.
 
-* `message=F`, `warning=F` Hide warnings and messages in a code chunk
-* `echo=F` Hide code and just show code output
+* `message = FALSE`, `warning = FALSE` Hide warnings and messages in a code chunk
+* `echo = FALSE` Hide code and just show code output
 * `results='hide'` Hide the verbose output from some functions like `readOGR()`.
 
 #### Answer the following questions below in your report
@@ -121,7 +122,7 @@ the classes that you used in your homework from week 6 to classify the data.
 #### Plot 3 - Pre-fire NBR using landsat data with cloud mask
 
 Create a MAP of the classified pre-burn NBR using the **Landsat** data file that
-was provided to you in your data download `data/week06/landsat/LC80340322016189-SC20170128091153/crop`.
+was provided to you in your data download `data/week_07/landsat/LC80340322016189-SC20170128091153/crop`.
 Be sure to mask the clouds from your analysis. Overlay the fire extent layer `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp` on
 top of the NBR map. Add a legend that clearly explains what each class
 represents (ie high severity, moderate etc.).

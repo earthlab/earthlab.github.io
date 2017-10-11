@@ -1,15 +1,15 @@
 ---
 layout: single
-title: "Source functions in R"
-excerpt: "Learn how to use a source file to import functions that you've build into a script or R Markdown file."
+title: "How To Source A Function in R"
+excerpt: "Learn how to source a function in R. Learn how to import functions that are stored in a separate file into a script or R Markdown file."
 authors: ['Leah Wasser']
 modified: '2017-10-11'
 category: [courses]
 class-lesson: ['automate-spatial-data-analysis-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/source-remote-sensing-functions-in-R/
+permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/source-function-in-R/
 nav-title: 'Source functions R'
-module-title: ''
-module-description: '.'
+module-title: 'R Source Functions - Efficient Programming'
+module-description: 'Learn how to source a function in R by saving the function in another R script.'
 module-nav-title: 'Source functions in R'
 week: 7
 module-type: 'class'
@@ -21,11 +21,14 @@ comments: true
 order: 1
 class-order: 2
 topics:
+  reproducible-science-and-programming:
+    ['literate-expressive-programming', 'functions']
 lang-lib:
   r: []
 redirect_from:
 ---
 
+<!-- primary source a function in R sv -0-10 -->
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -40,17 +43,57 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
-You will need a computer with internet access to complete this lesson and the
-data for week 7 of the course.
+You will need a computer with internet access and R / R Studio loaded to
+complete this lesson.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
+## Where To Store Your Functions
 
+When you create a function to use in your analysis, you often create it and
+store it at the top of your script or `.Rmd` file as a first step. However,
+lots of functions at the top of your code can make your code dense and harder
+to read.
+
+It is good practice to create separate `R` scripts that you can use to
+store sets of related functions. You can then call those functions using the
+`source()` function, at the top of your script int eh same way that you call an
+R package. R will then load those functions into memory and you can use them!
+
+Sourcing functions is good practice because
+
+1. **Reusable:** It allows you to reuse functions over and over using the same code (ie you don't have to copy and paste the function into each new analysis script)
+2. **Easy to Maintain:**It allows you to quick fix a function that doesn't work properly - only once.
+3. **Sharable:** In the same way that a library can be used by anyone, you can share your R script containing your functions with anyone too. This is the first step towards creating an R package!
+
+
+## How to Source Functions in R
+
+To source a set of functions in `R`:
+
+1. Create a new `R` Script (.R file) in the same working directory as your .Rmd file or R script. Give the file a descriptive name that captures the types of functions in the file.
+2. Open that `R Script` file and add 1 or more functions to the file.
+3. Save your file.
+
+Next,
+
+* Open your `.Rmd` file or `R` script.
+* At the top of your file, add the `source(path/tofile/here.R)` function.
+
+`source("remote-sensing-functions.R")`
+
+If the `.R` script is in your main working directory then it won't have a path
+element before it like `week_06/functionfile.R` vs `functionfile.R`.
+
+If it's in a different directory, adjust the path accordingly.
+Once you run the code containing the source() function, all of the functions in
+your `.R` file will load into your global environment. You can now use them in your
+script!
 
 <div class="notice--info" markdown="1">
 
 ## Additional Resources
 
+* <a href="https://nicercode.github.io/guides/functions/" target = "_blank">nicercode.com guide to functions</a>
 
 </div>

@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "How to Open and Work with NAIP, Multispectral imagery in R in R."
+title: "How to Open and Work with NAIP Multispectral imagery in R"
 excerpt: "In this lesson we cover how to open up a multi-band raster layer or image stored in .tiff format in R. We introduce the stack() function in R which can be used to import more than one band into a stack object in R. We also review using plotRGB to plot a multi-band image using RGB, color-infrared to other band combinations."
 authors: ['Leah Wasser']
 modified: '2017-10-11'
@@ -16,8 +16,7 @@ comments: true
 course: "earth-analytics"
 order: 2
 topics:
-  remote-sensing: ['naip']
-  earth-science: ['fire']
+  remote-sensing: ['naip', 'multispectral-remote-sensing']
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
 lang-lib:
@@ -28,16 +27,18 @@ redirect_from:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* Open an RGB image with 3-4 bands in R using `plotRGB()`
+* Open an RGB image with 3-4 bands in `R` using `plotRGB()`
 * Export an RGB image as a Geotiff using `writeRaster()`
 * Identify the number of bands stored in a multi-band raster in `R`.
-* Plot various band composite in R including True Color (RGB), and Color Infrared (CIR)
+* Plot various band composite in `R` including True Color (RGB), and Color Infrared (CIR)
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -47,12 +48,14 @@ data for week 7 of the course.
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
-## About Raster Bands in R
+## Multispectral Imagery in R
 
-In the previous weeks, we've worked with rasters derived from lidar remote sensing
+### Introduction to Multi Band Raster Data
+
+In the previous weeks, you've worked with raster data derived from lidar remote sensing
 instruments. These rasters consisted of one layer or band and contained information
-related to height derived from lidar data. In this lesson, we'll
-learn how to work with rasters containing spectral (image) data stored within
+height values derived from lidar data. In this lesson, you'll
+learn how to work with rasters containing multispectral imagery data stored within
 multiple bands (or layers) in `R`.
 
 Previously, we used the `raster()` function to open raster data in `R`. To work
@@ -74,8 +77,9 @@ our data in several ways.
     raster. Source: Colin Williams, NEON.</figcaption>
 </figure>
 
-## About Multi-Band Imagery
-One type of multi-band raster data that is familiar to many of us is a color
+## What is Multispectral Imagery?
+
+One type of multispectral imagery that is familiar to many of us is a color
 image. A color image consists of three bands: red, green, and blue. Each
 band represents light reflected from the red, green or blue portions of the
 electromagnetic spectrum. The pixel brightness for each band, when composited
@@ -100,23 +104,10 @@ LIGHTER colors represent a stronger reflection
 in that band. DARKER colors represent a weaker reflection.
 
 
-```
-## Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
-```
 
 
 
-
-```r
-# plot 1 band
-naip_1band  <- raster("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
-# does this look like a color image?
-plot(naip_1band ,
-     main = "Plot of one band in a multi-band raster",
-     col = gray(0:100 / 100))
-## Error in plot(naip_1band, main = "Plot of one band in a multi-band raster", : object 'naip_1band' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/demonstrate-RGB-Image-1.png" title="single band image" alt="single band image" width="90%" />
 
 #### Each band plotted separately
 
@@ -128,67 +119,45 @@ lightness of each image? Is one image brighter than the other?
 ```r
 # use stack function to read in all bands of a color image
 rgb_image_3bands <- stack("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-## Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
 names(rgb_image_3bands) <- c("red_band", "green_band", "blue_band", "near_infrared_band")
-## Error in names(rgb_image_3bands) <- c("red_band", "green_band", "blue_band", : object 'rgb_image_3bands' not found
 
 plot(rgb_image_3bands,
-     col = gray(0:100 / 100))
-## Error in plot(rgb_image_3bands, col = gray(0:100/100)): object 'rgb_image_3bands' not found
+     col = gray(0:100 / 100),
+   box = FALSE, axes = FALSE)
 ```
 
-We can plot the red, green and blue bands together to create an RGB image. This
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-3-bands-1.png" title="All bands plotted separately" alt="All bands plotted separately" width="90%" />
+
+You can plot the red, green and blue bands together to create an RGB image. This
 is what we would see with our eyes if we were in the airplane looking down at the earth.
 
-
-```
-## Error in plotRGB(rgb_image_3bands, stretch = "lin", axes = TRUE, main = "Red, green, blue composite image"): object 'rgb_image_3bands' not found
-## Error in box(col = "white"): plot.new has not been called yet
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-rgb-example-1.png" title="3 band image plot rgb" alt="3 band image plot rgb" width="90%" />
 
 ## CIR image
 
-If the image has a 4th Near Infrared (NIR) band, you can create a Color Infrared (CIR, sometimes called false color)
-image. In a CIR image, the NIR band is plotted on the "red" band. Thus vegetation, which
+If the image has a 4th Near Infrared (NIR) band, you can create a Color Infrared
+(CIR, sometimes called false color) image. In a CIR image, the NIR band is
+plotted on the "red" band, the red band is plotted using green and the green band is
+plotted using blue.
+Thus vegetation, which
 reflects strongly in the NIR part of the spectrum, is colored "red".
 
-
-```
-## Error in plotRGB(rgb_image_3bands, r = 4, g = 3, b = 2, main = "Color infrared image\n Near infrared, green, blue", : object 'rgb_image_3bands' not found
-## Error in box(col = "white"): plot.new has not been called yet
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/cir-image-1.png" title="3 band cir image" alt="3 band cir image" width="90%" />
 
 
 ## Other Types of Multi-band Raster Data
 
-Multi-band raster data might also contain:
+Above you learned about multi-band raster data in the context of multispectral imagery.
+However, multi-band raster data might also contain:
 
 1. **Time series:** the same variable, over the same area, over time.
 2. **Multi or hyperspectral imagery:** image rasters that have 4 or more
 (multi-spectral) or more than 10-15 (hyperspectral) bands.
 
-We will work with time series data later in the semester.
-
-### Open NAIP multispectral imagery / raster data in R
-
-Next,
-let's explore some multispectral imagery in `R`. This imagery covers the site of a fire called the Cold Springs fire that occurred  in Colorado near Nederland. We will learn more about this fire over the upcoming weeks. .
-
-To work with multi-band raster data we will use the `raster` and `rgdal`
-packages. We will also use `rgeos` to crop our data.
-
-
-```r
-# load spatial packages
-library(raster)
-library(rgdal)
-library(rgeos)
-```
+## About NAIP Multispectral Imagery
 
 The multispectral imagery that we are using is collected by the National Agricultural Imagery
 Program (NAIP).
-
-### About NAIP:
 
 >The National Agriculture Imagery Program (NAIP) acquires aerial imagery during the agricultural growing seasons in the continental U.S. A primary goal of the NAIP program is to make digital ortho photography available to governmental agencies and the public within a year of acquisition.
 
@@ -204,7 +173,29 @@ vegetation cover and health.
 NAIP data access: For this lesson we used the <a href="https://earthexplorer.usgs.gov/" target="_blank">USGS Earth explorer site to
 download NAIP imagery. </a>
 
-Next, let's open up our NAIP imagery for the Coldsprings fire study area in
+
+## Open NAIP multispectral imagery in R
+
+Next,
+let's explore some multispectral imagery in `R`. This imagery covers the site
+of a fire called the
+<a href="https://inciweb.nwcg.gov/incident/4848/" target = "_blank">Cold Springs</a> fire
+that occurred in Colorado near Nederland. We will learn more about this fire over
+the upcoming weeks.
+
+To work with multi-band raster data you use the `raster` and `rgdal`
+packages. You'll use the `rgeos` package to crop the data.
+
+
+```r
+# load spatial packages
+library(raster)
+library(rgdal)
+library(rgeos)
+```
+
+
+Next, open up the NAIP imagery for the Cold Springs fire study area in
 Colorado.
 
 
@@ -213,21 +204,32 @@ Colorado.
 # the first band will be read in automatically
 # csf = cold springs fire!
 naip_csf <- raster("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # Plot band 1
 plot(naip_csf,
      col = gray(0:100 / 100),
-     axes = FALSE,
+     axes = FALSE, box = FALSE,
      main = "NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
-## Error in plot(naip_csf, col = gray(0:100/100), axes = FALSE, main = "NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar"): object 'naip_csf' not found
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/read-single-band-1.png" title="NAIP imagery single band plot." alt="NAIP imagery single band plot." width="90%" />
+
+```r
 
 # view data dimensions, CRS, resolution, attributes, and band info
 naip_csf
-## Error in eval(expr, envir, enclos): object 'naip_csf' not found
+## class       : RasterLayer 
+## band        : 1  (of  4  bands)
+## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
+## resolution  : 1, 1  (x, y)
+## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop 
+## values      : 0, 255  (min, max)
 ```
 
-Notice that when we look at the attributes of RGB_Band1, we see:
+Notice that when we look at the attributes of RGB_Band1, you see:
 
 `band: 1  (of  4  bands)`
 
@@ -240,17 +242,17 @@ raster object can also be determined using the `nbands` slot. Syntax is
 {: .notice--success}
 
 ### Image Raster Data Values
-Let's next examine the raster's min and max values. What is the value range?
+Next, examine the raster min and max values. What is the value range?
 
 
 ```r
 # view min value
 minValue(naip_csf)
-## Error in minValue(naip_csf): object 'naip_csf' not found
+## [1] 0
 
 # view max value
 maxValue(naip_csf)
-## Error in maxValue(naip_csf): object 'naip_csf' not found
+## [1] 255
 ```
 
 This raster contains values between 0 and 255. These values
@@ -261,67 +263,112 @@ red in them (a strong red reflection). Smaller numbers (towards 0) represent
 pixels with less red in them (less red was reflected). To
 plot an RGB image, we mix red + green + blue values, using the ratio of each. The
 ratio of each color is determined by how much light was recorded (the reflectance value)
-in each band. This mixture creates one single color than inturn makes up the
+in each band. This mixture creates one single color than in turn makes up the
 full color image - similar to the color image your camera phone creates.
 
 ### Import A Specific Band
-We can use the `raster()` function to import specific bands in our raster object
+You use the `raster()` function to import specific bands in our raster object
 by specifying which band we want with `band=N` (N represents the band number we
-want to work with). To import the green band, we would use `band=2`.
+want to work with). To import the green band, we would use `band = 2`.
 
 
 ```r
 # Can specify which band we want to read in
 rgb_band2 <- raster("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif",
              band = 2)
-## Error in .rasterObjectFromFile(x, band = band, objecttype = "RasterLayer", : Cannot create a RasterLayer object from this file. (file does not exist)
 
 # plot band 2
 plot(rgb_band2,
      col = gray(0:100 / 100),
      axes = FALSE,
      main = "RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
-## Error in plot(rgb_band2, col = gray(0:100/100), axes = FALSE, main = "RGB Imagery - Band 2 - Green\nCold Springs Fire Scar"): object 'rgb_band2' not found
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/read-specific-band-1.png" title="naip imagery band 2 plot." alt="naip imagery band 2 plot." width="90%" />
+
+```r
 
 # view attributes of band 2
 rgb_band2
-## Error in eval(expr, envir, enclos): object 'rgb_band2' not found
+## class       : RasterLayer 
+## band        : 2  (of  4  bands)
+## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
+## resolution  : 1, 1  (x, y)
+## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /Users/lewa8222/Documents/earth-analytics/data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## names       : m_3910505_nw_13_1_20130926_crop 
+## values      : 0, 255  (min, max)
 ```
 
 Notice that band 2 is the second of 3 bands `band: 2  (of  4  bands)`.
 
 ## Raster Stacks in R
-Next, we will work with all four image bands (red, green, blue and near-infrared) as an `R`
-`RasterStack` object. We will then plot a 3-band composite, or full color
+
+Above you opened and explored just one single band.
+Next, you will import all four image bands (red, green, blue and near-infrared) as an `R`
+`RasterStack` object. You will then plot a 3-band composite, or full color
 image.
 
-To bring in all bands of a multi-band raster, we use the`stack()` function.
+To bring in all bands of a multi-band raster, use the`stack()` function.
 IMPORTANT: All rasters in a raster stack must have the same *extent*,
 *CRS* and *resolution*.
 
 
 ```r
 # Use stack function to read in all bands
-naip_stack_csf <-
+naip_csf_st <-
   stack("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-## Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
 
 # view attributes of stack object
-naip_stack_csf
-## Error in eval(expr, envir, enclos): object 'naip_stack_csf' not found
+naip_csv_st
+## class       : RasterStack 
+## dimensions  : 2312, 4377, 10119624, 4  (nrow, ncol, ncell, nlayers)
+## resolution  : 1, 1  (x, y)
+## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
+## min values  :                                 0,                                 0,                                 0,                                 0 
+## max values  :                               255,                               255,                               255,                               255
+
+inMemory(naip_csf_st)
+## [1] FALSE
 ```
 
-We can view the attributes of each band the stack using `naip_stack_csf@layers`.
-Or we if we have hundreds of bands, we can specify which band we'd like to view
-attributes for using an index value: `naip_stack_csf[[1]]`. We can also use the
+The stack is a good start to working with all the bands. However, if you want to 
+plot and process the data, a rasterbrick is faster. Next, convert the stack to a brick.
+
+A rasterbrick in `R`, saves all of the bands in the same place making it faster when 
+you process the data. 
+
+
+```r
+# convert data to raster brick
+naip_csf_br <- brick(naip_csf_st)
+inMemory(naip_csv_br)
+## [1] FALSE
+```
+
+
+You can view the attributes of each band the stack using `naip_csf_br@layers`.
+Or you if we have hundreds of bands, you can specify which band you'd like to view
+attributes for using an index value: `naip_csf_br[[1]]`. You can also use the
 `plot()` and `hist()` functions on the `RasterStack` to plot and view the
 distribution of raster band values.
 
 
 ```r
 # view raster attributes
-naip_stack_csf@layers
-## Error in eval(expr, envir, enclos): object 'naip_stack_csf' not found
+naip_csf_br
+## class       : RasterBrick 
+## dimensions  : 2312, 4377, 10119624, 4  (nrow, ncol, ncell, nlayers)
+## resolution  : 1, 1  (x, y)
+## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp2tJqRU/raster/r_tmp_2017-10-11_160115_1605_46394.grd 
+## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
+## min values  :                                 0,                                 0,                                 0,                                 0 
+## max values  :                               255,                               255,                               255,                               255
 ```
 
 View attributes of one band.
@@ -329,8 +376,16 @@ View attributes of one band.
 
 ```r
 # view attributes for one band
-naip_stack_csf[[1]]
-## Error in eval(expr, envir, enclos): object 'naip_stack_csf' not found
+naip_csf_br[[1]]
+## class       : RasterLayer 
+## band        : 1  (of  4  bands)
+## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
+## resolution  : 1, 1  (x, y)
+## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp2tJqRU/raster/r_tmp_2017-10-11_160115_1605_46394.grd 
+## names       : m_3910505_nw_13_1_20130926_crop.1 
+## values      : 0, 255  (min, max)
 ```
 
 We can view a histogram of each band in our stack. This is useful to better understand
@@ -339,32 +394,35 @@ the distribution of reflectance values for each band.
 
 ```r
 # view histogram for each band
-hist(naip_stack_csf,
-     maxpixels = ncell(naip_stack_csf),
+hist(naip_csf_br,
+     maxpixels = ncell(naip_csf_br),
      col = "purple")
-## Error in hist(naip_stack_csf, maxpixels = ncell(naip_stack_csf), col = "purple"): object 'naip_stack_csf' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/hist-all-layers-1.png" title="histogram of each band for a total of 4 bands" alt="histogram of each band for a total of 4 bands" width="90%" />
 
 Plot each band individually.
 
 
 ```r
 # plot 4 bands separately
-plot(naip_stack_csf,
+plot(naip_csf_br,
      col = gray(0:100 / 100))
-## Error in plot(naip_stack_csf, col = gray(0:100/100)): object 'naip_stack_csf' not found
 ```
 
-We can plot just one band too if we want.
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-all-layers-1.png" title="plot each band for a total of 4 bands" alt="plot each band for a total of 4 bands" width="90%" />
+
+You can plot just one band too.
 
 
 ```r
 # plot band 2
-plot(naip_stack_csf[[2]],
+plot(naip_csf_br[[2]],
      main = "NAIP Band 2\n Coldsprings Fire Site",
      col = gray(0:100 / 100))
-## Error in plot(naip_stack_csf[[2]], main = "NAIP Band 2\n Coldsprings Fire Site", : object 'naip_stack_csf' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-individual-bands-1.png" title="plot individual band - band 2" alt="plot individual band - band 2" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -378,15 +436,15 @@ darker or lighter in band 2 (the green band) compared to band 1 (the red band)?
 
 ## RGB Data
 
-Previously we've explored the single bands in our `rasterstack`. Next, we'll plot an RGB image.
+Previously you've explored the single bands in our `rasterstack`. Next, you'll plot an RGB image.
 
-### Use plotRGB() to create a composite 3 band image
+### Use `plotRGB()` to create a composite 3 band image
 To render a 3 band, color image in `R`, we use `plotRGB()`.
 
 This function allows us to:
 
 1. Identify what bands we want to render in the red, green and blue regions. The
-`plotRGB()` function defaults to a 1=red, 2=green, and 3=blue band order. However,
+`plotRGB()` function defaults to a 1 = red, 2 = green, and 3 = blue band order. However,
 you can define what bands you'd like to plot manually. Manual definition of
 bands is useful if you have, for example a near-infrared band and want to create
 a color infrared image.
@@ -399,13 +457,15 @@ Let's plot our 3-band image.
 
 ```r
 # Create an RGB image from the raster stack
-plotRGB(naip_stack_csf,
+plotRGB(naip_csf_br,
         r = 1, g = 2, b = 3,
         main = "RGB image \nColdsprings fire scar")
-## Error in plotRGB(naip_stack_csf, r = 1, g = 2, b = 3, main = "RGB image \nColdsprings fire scar"): object 'naip_stack_csf' not found
 ```
-Here's how we add a title to our plot. To do this, we adjust the
-**par**ameters of the plot as follows:
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-rgb-image-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
+
+To add a title to your plot, adjust the
+**par**ameters as follows:
 
 * `col.axis = "white"`: set the axes to render in white. if you turn off the axes then the plot title will also be turned off.
 * `col.lab = "white"`: turn plot tick mark labels to white
@@ -419,18 +479,21 @@ that is drawn alongside of your plot.
 # adjust the plot parameters to render the axes using white
 # this is a way to "trick" R
 par(col.axis = "white", col.lab = "white", tck = 0)
-plotRGB(naip_stack_csf,
+plotRGB(naip_csf_br,
         r = 1, g = 2, b = 3,
         axes = TRUE,
         main = "NAIP RGB image \nColdsprings fire scar")
-## Error in plotRGB(naip_stack_csf, r = 1, g = 2, b = 3, axes = TRUE, main = "NAIP RGB image \nColdsprings fire scar"): object 'naip_stack_csf' not found
 box(col = "white") # turn all of the lines to white
-## Error in box(col = "white"): plot.new has not been called yet
 ```
 
-The image above looks pretty good. We can explore whether applying a stretch to
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-rgb-image-title-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
+
+
+## Apply a Stretch to Normalize the Colors in the Image
+
+The image above looks pretty good. You can explore whether applying a stretch to
 the image might improve clarity and contrast using `stretch="lin"` or
-`stretch="hist"`.
+`stretch = "hist"`.
 
 <figure>
     <a href="{{ site.url }}/images/courses/earth-analytics/raster-data/raster-image-stretch-dark.jpg">
@@ -463,29 +526,31 @@ the image might improve clarity and contrast using `stretch="lin"` or
 
 ```r
 # what does stretch do?
-plotRGB(naip_stack_csf,
+par(col.axis = "white", col.lab = "white", tck = 0)
+plotRGB(naip_csf_br,
         r = 1, g = 2, b = 3,
         axes = TRUE,
         stretch = "lin",
         main = "NAIP RGB plot with linear stretch\nColdsprings fire scar")
-## Error in plotRGB(naip_stack_csf, r = 1, g = 2, b = 3, axes = TRUE, stretch = "lin", : object 'naip_stack_csf' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/image-stretch-1.png" title="lin stretch rgb image" alt="lin stretch rgb image" width="90%" />
 
 What does the image look like using a different stretch? Any better? worse?
 
 
 ```r
 par(col.axis = "white", col.lab = "white", tck = 0)
-plotRGB(naip_stack_csf,
+plotRGB(naip_csf_br,
         r = 1, g = 2, b = 3,
         axes = TRUE,
         scale = 800,
         stretch = "hist",
         main = "NAIP RGB plot with hist stretch\nColdsprings fire scar")
-## Error in plotRGB(naip_stack_csf, r = 1, g = 2, b = 3, axes = TRUE, scale = 800, : object 'naip_stack_csf' not found
 box(col = "white") # turn all of the lines to white
-## Error in box(col = "white"): plot.new has not been called yet
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-rgb-hist-stretch-1.png" title="plot RGB with his stretch" alt="plot RGB with his stretch" width="90%" />
 
 In this case, the stretch doesn't enhance the contrast our image significantly
 given the distribution of reflectance (or brightness) values is distributed well
@@ -493,7 +558,7 @@ between 0 and 255. We are lucky! Our NAIP imagery has been processed well and
 thus we don't need to worry about image stretch.
 
 
-## RasterStack vs RasterBrick in R
+## More on RasterStacks vs RasterBricks in R
 
 The `R` `RasterStack` and `RasterBrick` object types can both store multiple bands.
 However, how they store each band is different. The bands in a `RasterStack` are
@@ -513,16 +578,15 @@ and `brick` `R` objects.
 
 ```r
 # view size of the RGB_stack object that contains our 3 band image
-object.size(naip_stack_csf)
-## Error in structure(.Call(C_objectSize, x), class = "object_size"): object 'naip_stack_csf' not found
+object.size(naip_csv_st)
+## 53904 bytes
 
 # convert stack to a brick
-naip_brick_csf <- brick(naip_stack_csf)
-## Error in brick(naip_stack_csf): object 'naip_stack_csf' not found
+naip_brick_csf <- brick(naip_csv_st)
 
 # view size of the brick
 object.size(naip_brick_csf)
-## Error in structure(.Call(C_objectSize, x), class = "object_size"): object 'naip_brick_csf' not found
+## 13208 bytes
 ```
 
 Notice that in the `RasterBrick`, all of the bands are stored within the actual
@@ -538,10 +602,10 @@ par(col.axis = "white", col.lab = "white", tck = 0)
 plotRGB(naip_brick_csf,
   main = "NAIP plot from a rasterbrick",
   axes = TRUE)
-## Error in plotRGB(naip_brick_csf, main = "NAIP plot from a rasterbrick", : object 'naip_brick_csf' not found
 box(col = "white") # turn all of the lines to white
-## Error in box(col = "white"): plot.new has not been called yet
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-brick-1.png" title="plot raster brick" alt="plot raster brick" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -561,18 +625,9 @@ Then anwer the following questions:
 
 </div>
 
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/challenge-1.png" title="challenge rgb plot 2015 data" alt="challenge rgb plot 2015 data" width="90%" />
 
-```
-## Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
-## Error in plotRGB(csf_2015_naip_stack, main = "NAIP RGB plot \nColdsprings fire scar", : object 'csf_2015_naip_stack' not found
-## Error in box(col = "white"): plot.new has not been called yet
-```
-
-
-```
-## Error in plotRGB(csf_2015_naip_stack, r = 4, g = 3, b = 2, axes = TRUE, : object 'csf_2015_naip_stack' not found
-## Error in box(col = "white"): plot.new has not been called yet
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/challenge2-1.png" title="challenge cir plot 2015 data" alt="challenge cir plot 2015 data" width="90%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -581,14 +636,10 @@ Then anwer the following questions:
 We can view various methods available to call on an `R` object with
 `methods(class=class(objectNameHere))`. Use this to figure out:
 
-1. What methods can be used to call on the `naip_stack_csf` object?
-2. What methods are available for a single band within `naip_stack_csf`?
+1. What methods can be used to call on the `naip_csv_st` object?
+2. What methods are available for a single band within `naip_csv_st`?
 3. Why do you think there is a difference?
 
 </div>
 
 
-```
-## Error in methods(class = class(naip_stack_csf)): object 'naip_stack_csf' not found
-## Error in methods(class = class(naip_stack_csf[1])): object 'naip_stack_csf' not found
-```

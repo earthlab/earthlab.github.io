@@ -27,7 +27,6 @@ redirect_from:
    - "/courses/earth-analytics/week-6/vegetation-indices-NDVI-in-R/"
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -87,6 +86,8 @@ Sometimes you can download already calculated NDVI data products. In this
 case, you need to calculate NDVI using the NAIP imagery / reflectance data that we have.
 
 
+
+
 ```r
 # load spatial packages
 library(raster)
@@ -102,20 +103,14 @@ options(stringsAsFactors = FALSE)
 ```r
 # import the naip pre-fire data
 naip_multispectral_st <- stack("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
-## Error in .rasterObjectFromFile(x, objecttype = "RasterBrick", ...): Cannot create a RasterLayer object from this file. (file does not exist)
 
-# conver data into rasterbrick for faster processing
+# convert data into rasterbrick for faster processing
 naip_multispectral_br <- brick(naip_multispectral_st)
-## Error in brick(naip_multispectral_st): object 'naip_multispectral_st' not found
 ```
 
 
 
 
-```
-## character(0)
-## Error in x[[1]]: subscript out of bounds
-```
 
 
 ### How to Derive the NDVI Vegetation Index
@@ -132,22 +127,25 @@ in the red and near infrared bands to calculate the index.
 ```r
 # calculate ndvi with naip
 naip_multispectral_br[[4]]
-## Error in eval(expr, envir, enclos): object 'naip_multispectral_br' not found
+## class       : RasterLayer 
+## band        : 4  (of  4  bands)
+## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
+## resolution  : 1, 1  (x, y)
+## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
+## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp2tJqRU/raster/r_tmp_2017-10-11_161704_1605_51961.grd 
+## names       : m_3910505_nw_13_1_20130926_crop.4 
+## values      : 0, 255  (min, max)
 
 # calculate NDVI using the red (band 1) and nir (band 4) bands
 naip_ndvi <- (naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip_multispectral_br[[4]] + naip_multispectral_br[[1]])
-## Error in eval(expr, envir, enclos): object 'naip_multispectral_br' not found
 # plot the data
 plot(naip_ndvi,
      main = "NDVI of Cold Springs Fire Site - Nederland, CO \n Pre-Fire",
      axes = FALSE, box = FALSE)
-## Error in plot(naip_ndvi, main = "NDVI of Cold Springs Fire Site - Nederland, CO \n Pre-Fire", : object 'naip_ndvi' not found
 ```
 
-
-
-
-
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
 
 ### View distribution of NDVI values
 
@@ -158,21 +156,24 @@ plot(naip_ndvi,
 hist(naip_ndvi,
   main = "NDVI: Distribution of pixels\n NAIP 2013 Cold Springs fire site",
   col = "springgreen")
-## Error in hist(naip_ndvi, main = "NDVI: Distribution of pixels\n NAIP 2013 Cold Springs fire site", : object 'naip_ndvi' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="90%" />
 
 ## Export raster
 When you are done, you may want to export your rasters so you could use them in
-QGIS or ArcGIS or share them with your colleagues. To do this you use the writeRaster()
+QGIS or ArcGIS or share them with your colleagues. To do this you use the `writeRaster()`
 function.
 
 
+
+
+
 ```r
-# export raster
+# Check if the directory exists using the function you created last week
+check_create_dir("data/week_07/outputs/")
 
-# use your check directory function to ensure the outputs directory exists!
-
-# NOTE: this won't work if you don't have an outputs directory in your week6 dir!
+# Export your raster
 writeRaster(x = naip_ndvi,
               filename="data/week_07/outputs/naip_ndvi_2013_prefire.tif",
               format = "GTiff", # save as a tif
@@ -189,7 +190,7 @@ To use the overlay function we provide `R`.
 1. The bands or raster layers that we want it to use for some calculation.
 2. A **FUN**ction that we create or provide that we want to run on those bands.
 
-Let's look at an example below where we simply subtract two layers using overlay().
+Let's look at an example below where we simply subtract two layers using `overlay()`.
 You could use this same function to subtract rasters (like you did to create
 the canopy height models and the different rasters in week 3.)
 
@@ -207,64 +208,21 @@ diff_rasters <- function(b1, b2){
 }
 ```
 
-Now, use the overlay function to subtract two rasters. Remember, we could
-have used this approach when we subtracted our lidar data in previous weeks.
+Now, use the overlay function to subtract two rasters.
 
 
 ```r
 band_diff <- overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],
         fun = diff_rasters)
-## Error in overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]], : object 'naip_multispectral_br' not found
 
 plot(band_diff,
      main = "Example difference calculation on imagery - \n this is not a useful analysis, just an example!",
      axes = FALSE, box = FALSE, Legend = FALSE)
-## Error in plot(band_diff, main = "Example difference calculation on imagery - \n this is not a useful analysis, just an example!", : object 'band_diff' not found
-```
-
-Let's use the fame function on some more useful data. Calculate the difference
-between the lidar DSM and DEM using this function.
-
-
-```r
-# import lidar rasters
-lidar_dsm <- raster(x = "data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
-lidar_dtm <- raster(x = "data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
-
-# calculate difference  - make sure our provide the rasters in the right order!
-lidar_chm <- overlay(lidar_dtm, lidar_dsm,
-                     fun = diff_rasters)
-
-plot(lidar_chm,
-     main = "Canopy Height  Model derived using the overlay function \n and the band_diff function\n that you created")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title=" " alt=" " width="90%" />
 
-```r
 
-
-library(microbenchmark)
-# is it faster?
-microbenchmark((lidar_dsm - lidar_dsm), times = 10)
-## Unit: milliseconds
-##                     expr      min      lq     mean   median       uq
-##  (lidar_dsm - lidar_dsm) 549.2408 555.348 610.7645 603.3034 641.3256
-##       max neval
-##  724.1331    10
-
-microbenchmark(overlay(lidar_dtm, lidar_dsm,
-                     fun = diff_rasters), times = 10)
-## Unit: milliseconds
-##                                               expr      min       lq
-##  overlay(lidar_dtm, lidar_dsm, fun = diff_rasters) 881.3485 948.5186
-##      mean   median       uq      max neval
-##  961.0697 955.8106 987.0273 1022.229    10
-```
-
-The overlay function is actually not faster when you are performing basic
-raster calculations in `R`. However, it does become faster when using rasterbricks
-and more complex calculations.
 
 
 
@@ -275,29 +233,13 @@ and more complex calculations.
 naip_ndvi_ov <- overlay(naip_multispectral_br[[1]],
         naip_multispectral_br[[4]],
         fun = normalized_diff)
-## Error in overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]], : object 'naip_multispectral_br' not found
 
 plot(naip_ndvi_ov,
      main = "NAIP NDVI calculated using the overlay function")
-## Error in plot(naip_ndvi_ov, main = "NAIP NDVI calculated using the overlay function"): object 'naip_ndvi_ov' not found
 ```
-If we turn our rasterstack into a rasterbrick, our calculations will speed up
-even more.
 
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-4-1.png" title=" " alt=" " width="90%" />
 
-```r
-
-# calculate ndvi using the overlay function
-# you will have to create the function on your own!
-naip_ndvi_ov <- overlay(naip_multispectral_br[[1]],
-        naip_multispectral_br[[4]],
-        fun = normalized_diff)
-## Error in overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]], : object 'naip_multispectral_br' not found
-
-plot(naip_ndvi_ov,
-     main = "NAIP NDVI calculated using the overlay function")
-## Error in plot(naip_ndvi_ov, main = "NAIP NDVI calculated using the overlay function"): object 'naip_ndvi_ov' not found
-```
 
 Don't believe overlay is faster? Let's test it using a benchmark.
 
@@ -306,23 +248,25 @@ Don't believe overlay is faster? Let's test it using a benchmark.
 library(microbenchmark)
 # is the raster in memory?
 inMemory(naip_multispectral_st)
-## Error in inMemory(naip_multispectral_st): object 'naip_multispectral_st' not found
+## [1] FALSE
 
 # How long does it take to calculate ndvi without overlay.
-microbenchmark((naip_multispectral_st[[4]] - naip_multispectral_st[[1]]) / (naip_multispectral_st[[4]] + naip_multispectral_st[[1]]), times = 10)
-## Error in microbenchmark((naip_multispectral_st[[4]] - naip_multispectral_st[[1]])/(naip_multispectral_st[[4]] + : object 'naip_multispectral_st' not found
-
-# is the overlay function faster ?
-microbenchmark(overlay(naip_multispectral_st[[1]],
-        naip_multispectral_st[[4]],
-        fun = normalized_diff), times = 10)
-## Error in overlay(naip_multispectral_st[[1]], naip_multispectral_st[[4]], : object 'naip_multispectral_st' not found
+microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip_multispectral_br[[4]] + naip_multispectral_br[[1]]), times = 10)
+## Unit: seconds
+##                                                                                                                      expr
+##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
+##    min    lq  mean median    uq   max neval
+##  1.072 1.107 1.247  1.319 1.361 1.376    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
         naip_multispectral_br[[4]],
         fun = normalized_diff), times = 10)
-## Error in overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]], : object 'naip_multispectral_br' not found
+## Unit: milliseconds
+##                                                                                         expr
+##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
+##    min  lq mean median    uq   max neval
+##  494.6 836  840  875.9 907.5 924.3    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact
