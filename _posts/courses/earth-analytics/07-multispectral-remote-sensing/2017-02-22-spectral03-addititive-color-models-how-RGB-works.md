@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 modified: '2017-10-11'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/addititive-color-models-how-multispectral-imagery-is-drawn-on-computers/
+permalink: /courses/earth-analytics/multispectral-remote-sensing-data/addititive-color-models-how-multispectral-imagery-is-drawn-on-computers/
 nav-title: 'Additive Color Models'
 week: 7
 course: "earth-analytics"

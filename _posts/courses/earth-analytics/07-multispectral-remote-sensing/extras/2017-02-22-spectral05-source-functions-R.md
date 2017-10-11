@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 modified: '2017-10-11'
 category: [courses]
 class-lesson: ['automate-spatial-data-analysis-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/source-function-in-R/
+permalink: /courses/earth-analytics/multispectral-remote-sensing-data/source-function-in-R/
 nav-title: 'Source functions R'
 module-title: 'R Source Functions - Efficient Programming'
 module-description: 'Learn how to source a function in R by saving the function in another R script.'
