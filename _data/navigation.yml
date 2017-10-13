@@ -10,6 +10,9 @@ main:
   - title: "Tools"
     url: /tools/
 
+  - title: "Blog"
+    url: /blog/
+
   - title: "Events"
     url: /events/
 
