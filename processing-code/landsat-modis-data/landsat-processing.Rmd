@@ -1,7 +1,5 @@
 ---
 title: "Untitled"
-author: "Leah A. Wasser"
-date: "2/20/2017"
 output: html_document
 ---
 
@@ -113,7 +111,7 @@ writeOGR(fire_box_spatial_df,
 # crop_extent <- fire_crop_box
 ## Function to crop all rasters
 crop_all_tifs <- function(the_file, crop_extent, compress=F, aStack=F){
-  
+
   # create raster or stack
   if(aStack==F){
     the_file_raster <- raster(the_file)
@@ -123,7 +121,7 @@ crop_all_tifs <- function(the_file, crop_extent, compress=F, aStack=F){
   # create the new filename
   the_path <- paste0(dirname(the_file), "/crop/")
   the_file_name <- gsub(".tif", "_crop.tif", basename(the_file))
-  
+
   # make sure the path exists
   if(!dir.exists(the_path)){
     # create the dir
@@ -133,9 +131,9 @@ crop_all_tifs <- function(the_file, crop_extent, compress=F, aStack=F){
   # crop to extent
   file_crop <- crop(the_file_raster,
                     crop_extent)
-  
+
   # export raster to the crop folder
-  if(compress==T){ 
+  if(compress==T){
     writeRaster(x = file_crop,
               filename=paste0(the_path, the_file_name),
               format = "GTiff",
@@ -300,7 +298,7 @@ plot(burn_index3)
 
 ```
 
-## open naip imagery 
+## open naip imagery
 ```{r}
 # open naip
 naip <- raster("data/week6/ortho/naip/m_3910505_nw_13_1_20150919/m_3910505_nw_13_1_20150919.tif")
@@ -335,10 +333,8 @@ crop_all_tifs(naip_2015,
 
 
 
-# import data 
+# import data
 test <- stack("data/week6/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 test
 
 ```
-
-

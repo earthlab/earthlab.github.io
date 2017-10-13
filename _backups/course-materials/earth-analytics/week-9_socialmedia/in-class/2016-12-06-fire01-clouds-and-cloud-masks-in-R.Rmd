@@ -1,0 +1,1329 @@
+---
+layout: single
+title: "Clouds, shadows & cloud masks in R"
+excerpt: "In this lesson, we will learn how to deal with clouds when working with remote sensing data. We will learn how to mask clouds in R using the mask() function. We will also discuss issues associated with cloud cover - particular as they relate to a research topic."
+authors: ['Megan Cattau', 'Leah Wasser']
+modified: '`r format(Sys.time(), "%Y-%m-%d")`'
+category: [course-materials]
+class-lesson: ['spectral-data-fire-2-r']
+permalink: /course-materials/earth-analytics/week-7/intro-spectral-data-r/
+nav-title: 'Clouds, shadows & masks'
+module-title: 'Clouds, shadows & cloud masks in R'
+module-description: 'In this module we will learn more about dealing with clouds, shadows and other elements that can interfere with scientific analysis of remote sensing data. '
+module-nav-title: 'Fire / spectral remote sensing data - in R'
+module-type: 'class'
+week: 7
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 1
+---
+
+
+{% include toc title="In This Lesson" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+* Describe the impacts that thick cloud cover can have on analysis of remote sensing data.
+* Use a cloud mask to remove portions of an spectral dataset (image) that is covered by clouds / shadows.
+* Define cloud mask / describe how a cloud mask can be useful when working with remote sensing data.
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+
+You will need a computer with internet access to complete this lesson and the
+data that we already downloaded for week 6 of the course.
+
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+
+</div>
+
+Carson J. Q. Farmer  
+[carson.farmer@colorado.edu]()
+
+babs buttenfield  
+[babs@colorado.edu]()
+
+```{r setup, include=FALSE}
+suppressPackageStartupMessages(library("knitr"))
+suppressPackageStartupMessages(library("dplyr"))
+suppressPackageStartupMessages(library("ggplot2"))
+suppressPackageStartupMessages(library("leaflet"))
+suppressPackageStartupMessages(library("htmlwidgets"))
+suppressPackageStartupMessages(library("twitteR"))
+opts_chunk$set(cache=TRUE)
+pres_theme = theme_grey() +
+  theme(axis.text=element_text(size=18),
+        axis.title=element_text(size=24),
+        legend.text=element_text(size=18),
+        legend.title=element_text(size=18))
+```
+
+Outline
+========================================================
+
+Today we're going to focus on something different...
+
+- Obtaining data from the internet
+    - Via direct access to data sources
+    - Via Application Programing Interfaces (APIs)
+- Some (very) light analysis of social media data
+- Some basic web-mapping from within `RStudio`
+
+Introduction
+========================================================
+type: section
+
+The World Wide Web is undergoing a rapid change from an information  resource primarily targeted at *human  users* towards a distributed knowledge base that provides structured, *machine-readable* information....
+
+This **Web of Data** enables the integration of initially isolated data *silos* to help businesses, governments, researchers, and citizens answer questions of global concern...
+
+... even better, a large number of resources on the **Web of Data** have spatial or even spatial-temporal components.
+
+---[Keßler and Farmer (2015)](http://dx.doi.org/10.1016/j.websem.2015.09.005)
+
+Major Trends
+========================================================
+
+- Location explosion 2004--present
+    - Microsoft, Google, Apple, Yahoo, everyone!
+    - Google Maps, Google Earth, OSM, Online mapping
+- Proliferation of mobile computing
+- Social networking & the *gamification* of 'geo'
+    - Foursquare, Facebook, Swarm, and friends
+  
+Some Definitions
+========================================================
+
+- Volunteered Geographic Information (VGI)
+    - OSM, Flickr, Twitter, and tons more!
+    - Loosely coupled components
+- Social media
+    - Managed and used by community
+    - Interesting for research due to high volume of *artifacts*
+- Big Data
+    - High volume, velocity, variety, (and veracity) info *assets*
+  
+Enabling a Web of Data
+========================================================
+type: sub-section
+
+<center>
+![Web of Data](https://tctechcrunch2011.files.wordpress.com/2016/02/shutterstock_302065061.jpg)
+</center>
+
+Accessing Web-Data
+========================================================
+
+- In the past, we would likely focus on *web scraping*
+    - Human-readable material (HTML files) 'mined' using computer code
+
+- More and more institutions are either...
+    - Making web scraping more difficult, or...
+    - Embracing *APIs* to enable direct requests for machine-readable data
+  
+Working with Web Data
+========================================================
+
+- `R` provides generic tools for working with APIs (and any web-technology really)
+- Several packages available to access specific data providers (like Twitter) directly
+- Web scraping is also possible, and so is direct access to data files over the web
+
+We'll explore most of these today!
+
+A Note of Caution...
+========================================================
+type: alert
+
+- Beware the fact that the web changes constantly!
+- Data available via a *particular* API at a *particular* point in time may not be available indefinitely...
+
+Direct Access to Data
+========================================================
+type: section
+
+We'll start with a simple example: data that may be directly downloaded from the internet.
+
+Data Access from R
+========================================================
+
+- There are several ways that we do can this from `R`
+    - The simplest being to access a text (e.g., `.csv`, `.txt`) file containing data via a `URL`.
+    - `R`'s builtin `read.csv` and `read.table` functions can do this for us quite easily*...
+  
+<small>
+\*Secure transfer protocols (i.e., `https`) are problematic for unix-based base `R` functions, so `RCurl` (which we'll see shortly) provides a solution.
+</small>
+  
+Exploring Birth Rates
+========================================================
+
+Data on birth rates for several countries is available via a [Princeton University website](http://data.princeton.edu/wws509/datasets).
+
+- The dataset contains 3 variables:
+    - Birth rate
+    - Index of social setting
+    - Index of family planning effort
+- It is relatively straightforward to read this using regular `R` functions:
+
+```{r}
+base = "http://data.princeton.edu/wws509"  # Base url
+file = "/datasets/effort.dat"  # File name
+fpe = read.table(paste0(base, file))
+```
+
+Working with Web Data
+========================================================
+
+- This (`fpe`) is a normal `data.frame` like any other in `R`
+    - We can analyze and visualize the data as usual, for example...
+- Here's the top (or 'head') of the `data.frame`:
+```{r}
+head(fpe)
+```
+- And a scatterplot matrix showing relationships between variables:
+```{r eval=FALSE}
+pairs(fpe, panel=panel.smooth)
+```
+
+Pairs Plot in R
+========================================================
+title: false
+
+<center>
+```{r echo=FALSE, fig.width=10, fig.height=10}
+pairs(fpe, panel=panel.smooth)
+```
+</center>
+
+Using RCurl
+========================================================
+type: section
+
+Sometimes base `R` functionality fails when it comes to accessing data from the web... this is where `RCurl` steps in!
+
+The RCurl Package
+========================================================
+
+- Provides a set of tools to allow `R` to act like a *web client*
+- Number of helper functions available:
+    - `getURL` is likely the most useful, and works for pretty much *any* protocol (e.g., `http(s)`, `ftp(S)`)
+    - Helps with web scraping, direct access to web resources, and even APIs
+  
+Exploring Gapminder Data
+========================================================
+
+- [`@jennybryan`](https://twitter.com/JennyBryan) provides an `R` package to access [Gapminder](http://www.gapminder.org/data/) data for teaching. We *could* access this data via:
+
+```{r}
+library(gapminder)
+data(gapminder)
+```
+
+- but, we'll grab the data directly from [Github](https://github.com/jennybc/gapminder) instead:
+
+```{r message=FALSE}
+library(RCurl)  # Load RCurl (note cases)
+# Store base url (note the secure url)
+base = "https://raw.githubusercontent.com/jennybc/"
+file = "gapminder/master/inst/gapminder.tsv"
+temp = getURL(paste0(base, file))  # And grab it!
+```
+
+Getting Data from getURL
+========================================================
+
+- Now that we have a connection to the Github `url`, we can treat it like a text file, and `read.csv` via a `textConnection`:
+
+```{r}
+# Use textConnection to read content of temp as tsv
+gap_data = read.csv(textConnection(temp), sep="\t")
+
+# Aggregate life expectancy by continent
+aggregate(lifeExp ~ continent, data=gap_data, FUN=median)
+```
+
+Comparing Gapminder Datasets
+========================================================
+
+- Using `RCurl`
+
+```{r echo=FALSE}
+knitr::kable(head(gap_data, 4))
+```
+
+- From `gapminder` package
+
+```{r echo=FALSE}
+knitr::kable(head(gapminder, 4))
+```
+
+Working with Gapminder Data
+========================================================
+
+- As before, this is simply a normal `R` `data.frame`.
+- We can plot a boxplot of `lifeExp` by `continent` quite easily:
+```{r eval=FALSE}
+boxplot(lifeExp~continent, data=gap_data,
+        ylab="lifeExp", xlab="continent")
+```
+- Or we can do something a bit more advanced using [`ggplot`](http://docs.ggplot2.org):
+```{r eval=FALSE}
+library("ggplot2")  # Load ggplot library
+ggplot(gap_data, aes(x=continent, y=lifeExp)) +
+  geom_boxplot(outlier.colour="hotpink") +
+  geom_jitter(position=position_jitter(width=0.1,
+    height=0), alpha=0.25)
+```
+
+Plotting Gapminder Data
+========================================================
+title: false
+
+<center>
+```{r echo=FALSE, fig.width=10, fig.height=10}
+gap_data %>%
+  na.omit() %>%
+  ggplot(aes(x=continent, y=lifeExp)) +
+    geom_boxplot(outlier.colour="hotpink") +
+    geom_jitter(position=position_jitter(width=0.1,
+                                         height=0),
+                alpha = 1/4) +
+    pres_theme
+```
+</center>
+
+Make it a Function!
+========================================================
+type: alert
+
+- If you are going to be grabbing a lot of `csv` files from secure `urls`, you might want to turn the previous code into a function:
+```{r}
+read.csv.https = function(url) {
+  url = getURL(url)
+  return(read.csv(textConnection(url)))
+}
+```
+- On Windows you *might* be able to skip the `getURL` part...
+
+Application Programing Interfaces
+========================================================
+type: section
+
+We've mentioned this mystical API several times already, but what exactly is an API? In short: **an API is an interface**. An interface that sits on top of a complicated system and simplifies certain tasks...
+
+What is a Web-API?
+========================================================
+
+- There are lots of different flavors of web API
+    - One of the most common is a `REST`, or `REST`ful, API
+- A web API is an interface with `URL`s as the controls
+
+1. You try to access a `URL` in your browser (a *request*)
+2. A web server somewhere makes a bunch of complicated decisions based on what you've requested
+3. That web server then sends you back some content (a *response*)
+
+Biggest Difference?
+========================================================
+type: prompt
+
+Ordinary `URL` sends back something *human-readable*, whereas a web API `URL` sends back something *computer-readable*...
+
+Example: Twitter Website
+========================================================
+
+<center>
+[![Twitter Home Page](images/twitter-home.png)](https://twitter.com/carsonfarmer)
+</center>
+
+Example: Twitter API
+========================================================
+
+```json
+{...
+  "in_reply_to_user_id_str": null,
+  "text": "what we've been up to at @gnip -- delivering data to happy customers http://gnip.com/success_stories",
+  "contributors": null,
+  "id": 28039652140,
+  "retweet_count": null,
+  "in_reply_to_status_id_str": null,
+  "geo": null,
+  "retweeted": false,
+  "in_reply_to_user_id": null,
+    "location": "Boulder, CO",
+    "id_str": "16958875",
+    "follow_request_sent": false,
+    "profile_link_color": "0084B4",
+    "url": "http://blog.gnip.com",
+    "contributors_enabled": false,
+    "id": 16958875,
+    "listed_count": 23
+...}
+```
+
+All About the Data
+========================================================
+type: prompt
+
+> "Web APIs are a way to strip away all the extraneous visual interface that you don’t care about and get at the data"
+
+Why Web APIs?
+========================================================
+
+- Get information that would be time-consuming to get otherwise
+- Get information that you can’t get otherwise
+- Automate a analytical workflow that needs live data
+- More direct interface for reading and writing data to a service
+- Etc...
+
+Understanding APIs
+========================================================
+
+- First, we need to find one. http://www.programmableweb.com is a great resource for this!
+- Next we need the *API specification*
+    - This is the API's instruction manual/documentation
+    - [Twitter](https://dev.twitter.com/overview/documentation), [New York Times](http://developer.nytimes.com/docs), [Weather Underground](https://www.wunderground.com/weather/api), [EnviroCar](http://envirocar.github.io/enviroCar-server/api/), etc.
+    - These docs describe the different types of *requests* we can make of the data provider
+- For each request `URL` there are 2 important things to consider:
+    - **Parameters** and the **Response**
+
+Working with APIs
+========================================================
+
+- **Parameters**
+    - Information you supply *within* the URL to define your request
+- **Response**
+    - Something you get back in response to a request
+- The response can be one of **two things**:
+    - Some *data* or an explanation of why your request *failed*
+    
+Colorado Population Projections
+========================================================
+
+The [Colorado Information Marketplace](https://data.colorado.gov) is a comprehensive data warehouse with access to a wide range of Colorado-specific open datasets available via a RESTful API called the Socrata Open Data API (SODA)
+
+- There are lots of API *endpoints* available!
+    - Here is the one for Colorado Population Projections:
+  https://data.colorado.gov/resource/tv8u-hswn.json
+- If you put that into a web-browswer, you'll get all sorts of ugly `JSON` data
+    - Includes population estimates for *males* and *females* for every *county* in Colorado for every *year* from 1990 to 2040 for multiple *age* groups!
+    
+URL Parameters
+========================================================
+
+- Using `URL` parameters, we can define a more specific request to limit what data we get back in response
+- For example, say we only want data for Boulder
+    - This parameter is [documented here](https://dev.socrata.com/foundry/data.colorado.gov/tv8u-hswn), along with several others
+  
+[`https://data.colorado.gov/resource/tv8u-hswn.json?&county=Boulder`]()
+
+- `SOAP` also allows us to specify more complex 'queries'
+    - Here's the API `URL` for population projections for female Boulderites aged 20--40 for the years 2016--2025:
+
+[`https://data.colorado.gov/resource/tv8u-hswn.json?$where=age between 20 and 40 and year between 2016 and 2025&county=Boulder&$select=year,age,femalepopulation`]()
+  
+API Response
+========================================================
+
+- This is most often in the form of plain text 'file' such as a `JSON` or `CSV` file
+- For many APIs, the file [format you specify](https://dev.socrata.com/docs/formats/index.html) is what you'll get back
+    - In the previous example, we can do:
+
+[`https://data.colorado.gov/resource/tv8u-hswn.`**`{json, csv, geojson, xml}`**](https://data.colorado.gov/resource/tv8u-hswn.json)
+
+- For example, the first few rows of the query from the previous page with a `.csv` suffix look like this:
+
+```csv
+"age","femalepopulation","year"
+"32","2007","2024"
+"35","1950","2016"
+"37","2039","2019"
+"30","2087","2025"
+"26","1985","2019"
+...
+```
+
+Accessing API Data via getURL
+========================================================
+
+- `getURL` is similar to before, this time adding `URL` parameters:
+```{r}
+# Base URL path
+base = "https://data.colorado.gov/resource/tv8u-hswn.json?"
+full = paste0(base, "county=Boulder",
+              "&$where=age between 20 and 40",
+              "&$select=year,age,femalepopulation")
+res = getURL(URLencode(full))
+```
+
+- Since this is encoded as `JSON`, we'll need to parse it:
+
+```{r}
+library(rjson)
+json_text = fromJSON(res)  # Parse JSON
+pops = do.call("rbind", json_text)  # Combine rows
+# Convert to data.frame with numeric columns
+pops = as.data.frame(apply(pops, 2, as.numeric))
+```
+
+Plot Projected Populations
+========================================================
+title: false
+
+```{r eval=FALSE}
+ggplot(pops, aes(x=year, y=femalepopulation,
+  group=factor(age), color=age)) + geom_line()
+```
+
+<center>
+```{r echo=FALSE, fig.width=10, fig.height=6}
+ggplot(pops, aes(x=year, y=femalepopulation,
+                 group=factor(age),
+                 color=age)) +
+  geom_line() + pres_theme
+```
+</center>
+
+Accessing API Data via getForm
+========================================================
+
+- `getForm` allows us to treat an API more like an `R` function
+    - Here, we're using the [DWR Current Surface Water Conditions](https://data.colorado.gov/Water/DWR-Current-Surface-Water-Conditions-Map-Statewide/j5pc-4t32) via `SOAP`
+```{r}
+base = "https://data.colorado.gov/resource/a97x-8zfv.csv?"
+res = getForm(base, station_status="Active",
+              county="BOULDER")
+# Similar to before, except we're using CSV again!
+sites = read.csv(textConnection(res))
+```
+- Here's a quick 'hack' to extract the lat/long coordinates:
+```{r}
+library(stringr)
+sites[, c("long", "lat")] = do.call(
+  rbind, sapply(str_split(str_sub(
+      sites$location, 8, -2), " "), as.numeric))
+# Drop sites without coords
+sites = subset(sites, !is.na(long))
+```
+
+Plot Current Surface Water Conditions
+========================================================
+title: false
+
+```{r eval=FALSE}
+ggplot(sites, aes(long, lat, size=amount,
+  color=station_type)) + geom_point() + coord_equal()
+```
+
+<center>
+```{r echo=FALSE, fig.width=6, fig.height=9}
+ggplot(sites, aes(long, lat, color=station_type, size=amount)) +
+  geom_point() + coord_equal() + pres_theme
+```
+</center>
+
+
+Mapping with R
+========================================================
+type: section
+
+It is often useful to explore you geospatial data in context (that's why `GIS` is so useful!). But instead of exporting your data to a shapefile and working in `QGIS` or similar, we can create maps directly in `R`...
+
+Basic Mapping in R
+========================================================
+
+- That last 'map' was really just a scatterplot of long/lat, with some minor aesthetic tweaks
+- The `ggmap` package provides an interface to Google maps and others
+    - So we can download 'basemaps' on the fly and plot them:
+
+```{r eval=FALSE}
+library(ggmap)
+boulder = get_map(location="Boulder, CO, USA",
+                  source="osm", crop=FALSE, zoom=10)
+ggmap(boulder) + 
+  geom_point(sites, aes(long, lat, color=station_type,
+                        size=amount))
+```
+
+Mapping with Context!
+========================================================
+title: false
+
+<center>
+```{r echo=FALSE, fig.width=10, fig.height=10, message=FALSE, warning=FALSE}
+library(ggmap)
+# boulder = get_map(location="Boulder, CO, USA",
+#                   source="osm", crop=FALSE, zoom=10)
+# map = ggmap(boulder)
+# map + geom_point(data=subset(sites, station_type!="Reservoir"),
+#                  aes(long, lat, color=station_type, size=amount)) + pres_theme
+```
+</center>
+
+Web-Mapping with R and Leaflet
+========================================================
+type: sub-section
+
+Static maps are useful for adding context, but often times we want to interact with our data and explore things geographically--perhaps via an interactive web-map...
+
+...this is after all, web-data we're working with!
+
+Web-Mapping Made Easy
+========================================================
+
+- [Leaflet](http://leafletjs.com) is an open-source `JavaScript` library for mobile-friendly interactive maps
+    - It is designed with *simplicity*, *performance* and *usability* in mind
+    - It also has a beautiful, easy to use, and [well-documented API](http://leafletjs.com/reference.html)
+- Even better, the `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package!
+  - Now, a basic web-map is as easy as:
+
+```{r results="hide", cache=FALSE}
+library(leaflet)
+
+map = leaflet() %>%
+  addTiles() %>%  # Default OpenStreetMap tiles
+  addMarkers(lng=174.768, lat=-36.852,
+             popup="The birthplace of R")
+print(map)
+```
+
+```{r echo=FALSE}
+library(htmlwidgets)
+saveWidget(widget=map, file="basic_map.html", selfcontained=FALSE)
+```
+
+Basic Web Map
+========================================================
+title: false
+
+<iframe  title="Basic Map" width="1100" height="900"
+  src="./basic_map.html"
+  frameborder="0" allowfullscreen></iframe>
+
+Mapping Real Data
+========================================================
+
+- Getting back to our previous example, let's plot the current surface water conditions again, this time using `leaflet`:
+
+```{r eval=FALSE}
+leaflet(sites) %>%
+  addTiles() %>%
+  addCircleMarkers(lng=~long, lat=~lat)
+```
+
+- In case you’re not familiar with the [`magrittr`](https://cran.r-project.org/web/packages/magrittr/index.html) pipe operator `(%>%)`, here is the equivalent *without* pipes:
+
+```{r results="hide", cache=FALSE}
+map = leaflet(sites)
+map = addTiles(map)
+map = addCircleMarkers(map, lng=~long, lat=~lat)
+```
+
+```{r echo=FALSE}
+saveWidget(widget=map, file="water_map1.html", selfcontained=FALSE)
+```
+
+Water Web Map
+========================================================
+title: false
+
+<iframe  title="Water Map" width="1100" height="900"
+  src="./water_map1.html"
+  frameborder="0" allowfullscreen></iframe>
+
+Using the Power of Leaflet
+========================================================
+
+- Leaflet has all sorts of useful functions for web-mapping...
+- We can add 'popups' and use 'markers' instead of circles
+    - Plus we can specify different basemaps, like this one from [CartoDB](https://cartodb.com) called Positron:
+  
+```{r eval=FALSE}
+leaflet(sites) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addMarkers(lng=~long, lat=~lat, popup=~station_name)
+```
+
+```{r echo=FALSE, cache=FALSE}
+map = leaflet(sites) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addMarkers(lng=~long, lat=~lat, popup=~station_name)
+saveWidget(widget=map, file="water_map2.html", selfcontained=FALSE)
+```
+
+More Water Web Maps!
+========================================================
+title: false
+
+<iframe  title="Water Map Two" width="1100" height="900"
+  src="./water_map2.html"
+  frameborder="0" allowfullscreen></iframe>
+
+More Water Web Maps!
+========================================================
+
+- We can even specify a *custom* icon, just for fun:
+
+```{r eval=FALSE}
+# Nothing special, just found this one online...
+url = "http://tinyurl.com/jeybtwj"
+water = makeIcon(url, url, 24, 24)
+
+leaflet(sites) %>%
+  addProviderTiles("Stamen.Terrain") %>%
+  addMarkers(lng=~long, lat=~lat, icon=water,
+             popup=~paste0(station_name,
+                           "<br/>Discharg: ",
+                           amount))
+```
+
+```{r echo=FALSE, cache=FALSE}
+url = "http://tinyurl.com/jeybtwj"
+water = makeIcon(url, url, 24, 24)
+
+map = leaflet(sites) %>%
+  addProviderTiles("Stamen.Terrain") %>%
+  addMarkers(lng=~long, lat=~lat, icon=water,
+             popup=~paste0(station_name, "<br/>Discharg: ", amount))
+saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
+```
+
+Final Water Web Map!
+========================================================
+title: false
+
+<iframe  title="Water Map Three" width="1100" height="900"
+  src="./water_map3.html"
+  frameborder="0" allowfullscreen></iframe>
+
+Using Specific Packages
+========================================================
+type: section
+
+So far we have looked at accessing *public* APIs via `RCurl` using parameter-encoded `urls`. However, sometimes data providers or independent developers will *wrap* an API inside a specific software package...
+
+Working with US Census Data
+========================================================
+type: sub-section
+
+- US Census provides an incredible wealth of data
+   - **Not** always easy to work with it!
+- In the past, working with Census data generally meant:
+    - Downloading tabular data from [FactFinder](http://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml
+    - Getting shapefile(s) from [boundary files site](https://www.census.gov/geo/maps-data/)
+    - Joining the two, perhaps in a GIS system
+- This can be increadibly time consuming and error prone...
+
+Easier Access to Census Data
+========================================================
+
+- It turns out, the US Census provides an API for accessing Census data
+    - Still, the API is quite complex, and it [requires authentication](http://api.census.gov/data/key_signup.html), so basic `URLs` via `RCurl` becomes difficult
+- **But...** API wrapping to the rescue again:
+    - Can use `acs` package by [Ezra Glenn](http://dusp.mit.edu/faculty/ezra-glenn) to download tabular data
+    - And `tigris` package by [Kyle Walker](http://personal.tcu.edu/kylewalker/) and [Bob Rudis](https://www.linkedin.com/in/hrbrmstr) to get TIGER (geospatial) data
+    - Make the process quite a bit smoother and *self-contained*!
+  
+Authentication...
+========================================================
+type: prompt
+
+These days, most APIs are not *quite* public. Instead, most require some sort of *authentication*, often in the form of an API *key*---a long string of letters and numbers that functions like a *password*.
+
+US Census Auth
+========================================================
+
+- We'll need an API key from the US Census
+  - Go to [this site](http://api.census.gov/data/key_signup.html) to request one (takes a minute or two)
+
+<center>
+[![Census Request API Key](images/request-key.png)](http://api.census.gov/data/key_signup.html)
+</center>
+
+Check Your Email!
+========================================================
+
+<center>
+![Census Request API Key](images/census-email-mod.png)
+</center>
+
+Let's Get Started
+========================================================
+
+- We'll start by looking at Census data for median income in and around Boulder County
+- First, we'll grab the required `R` packages:
+
+```{r message=FALSE}
+library(tigris)  # To get TIGER (geospatial) data
+library(acs)     # To get census data
+library(stringr) # To pad fips codes
+```
+
+- Next, specify your API Key... you'll need your own to follow along:
+
+```{r eval=FALSE}
+key = "l0ong_@lph@_num3r1C_k3y"
+```
+
+```{r echo=FALSE}
+key = "e6b4a3f380aee9d16e7b47e1091a9ac7cb89f1ba"
+```
+
+- 'Install' the API key so you can start querying:
+
+```{r}
+api.key.install(key)
+```
+
+Building up a Query
+========================================================
+
+```{r message=FALSE, warning=FALSE}
+# Fips codes for counties _around_ Boulder
+counties = c(5, 13, 35, 14, 59, 19,
+             47, 49, 69, 123, 31, 1)
+# Grab the spatial data (tigris)
+tracts = tracts(state="CO", county=counties, cb=TRUE)
+```
+
+- Note that we *can* use county names in the `tigris` (`tracts()`) package, but *not* in the `acs.fetch()` function from the `acs` package, so we'll use 'fips' codes here.
+
+```{r message=FALSE}
+# Create a geographic set to grab tabular data (acs)
+geo = geo.make(state=c("CO"), county=counties, tract="*")
+```
+
+Submitting a Query
+========================================================
+
+- Now we'll grab the 5-year 'Income' ACS table (`B19001`) for 2010-2014
+
+```{r message=FALSE}
+income = acs.fetch(endyear=2014, span=5,
+                   geography=geo,
+                   table.number="B19001",
+                   col.names="pretty")
+```
+
+- The above use of `col.names="pretty"` gives the full column definitions,, if you want Census variable IDs (ugly!) use `col.names="auto"`.
+- The variables we care about are "Household Income: Total:" and "Household Income: $200,000 or more"
+
+Exploring acs Census Data
+========================================================
+
+- The resulting `income` object is not a `data.frame` it's a 'list':
+
+```{r}
+names(attributes(income))
+```
+
+- The items of interest to us for now are `acs.colnames`, `estimate`, and `geography`.
+
+Working with Census Data
+========================================================
+
+- This step is a bit complicated, but required to create a full `geoid` (alpha-numeric unique id for each county for joining to geo-data later):
+  
+```{r}
+# Create a geoid object
+geog = income@geography
+geoid = paste0(str_pad(geog$state,2,"left",pad="0"),
+               str_pad(geog$county,3,"left",pad="0"),
+               str_pad(geog$tract,6,"left",pad="0"))
+
+# We want the first and last columns
+est = income@estimate
+inc = data.frame(geoid, est[,c(1, 17)],
+                 stringsAsFactors=FALSE)
+```
+
+Working with Census Data
+========================================================
+
+- Now we'll rename things and make the data more usable
+
+```{r}
+rownames(inc) = 1:nrow(inc)
+# Rename columns so they're shorter and cleaner
+colnames(inc)= c("GEOID", "total", "over_200")
+# Create a percentage over $200k column
+inc$percent = 100*(inc$over_200/inc$total)
+```
+
+- We'll also *merge* the tabular data with the geo-data using the (very handy) `geo_join` function from the `tigris` package:
+
+```{r}
+merged = geo_join(tracts, inc, "GEOID", "GEOID")
+```
+
+Plotting Census Data
+========================================================
+title: false
+
+```{r eval=FALSE}
+# Quick look at distribution of `percent` variable
+ggplot(data=merged@data, aes(x=percent)) + 
+  geom_histogram()
+```
+
+<center>
+```{r echo=FALSE, fig.width=10, fig.height=6, message=FALSE, warning=FALSE}
+ggplot(data=merged@data, aes(x=percent)) + 
+  geom_histogram() + pres_theme
+```
+</center>
+
+
+Mapping Census Data
+========================================================
+
+- Using the tools (`leaflet`) we discovered earlier, it is relatively straight-forward to create an interactive web-map for this census data
+    - First we specify some *eye-candy*:
+
+```{r}
+# Create a nice popup for display...
+popup = paste0("GEOID: ", merged$GEOID, "<br>",
+               "Households > $200k: ",
+               round(merged$percent, 2), "%")
+
+# We'll also create/use a colorbrewer pallette
+pal = colorNumeric(palette="YlGnBu",
+                   domain=merged$percent)
+```
+
+Mapping Census Data
+========================================================
+
+- And then we create the map...
+
+```{r cache=FALSE, message=FALSE}
+map = leaflet() %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data=merged, fillColor=~pal(percent), 
+              color="#b2aeae", # 'hex' color
+              fillOpacity=0.7, weight=1,
+              smoothFactor=0.2, popup=popup) %>%
+  addLegend(pal=pal, values=merged$percent,
+            position="bottomright", 
+            title="% > $200k",
+            labFormat=labelFormat(suffix="%"))
+```
+
+```{r echo=FALSE}
+saveWidget(widget=map, file="income_map.html", selfcontained=FALSE)
+```
+
+Interactive Map of Census Data
+========================================================
+title: false
+
+<iframe  title="Income Map" width="1100" height="900"
+  src="./income_map.html"
+  frameborder="0" allowfullscreen></iframe>
+  
+Working with Social Media Data
+========================================================
+type: sub-section
+
+Social media data typically describes information created and curated by individual users and collected from public spaces, such as Social media networks (e.g., Twitter, Facebook, Flickr, etc.).
+
+It *can* provide a near real-time outlook on social processes--but it isn't a data panacea by any stretch...
+
+Getting Started
+========================================================
+
+- We'll start by querying Twitter's API for a few different query types
+- Building on this, we'll conduct some (very basic) analysis
+- We'll finish with basic web-mapping similar to previous examples
+<center>
+[![Twitter Heat Map -- $%^& You!](http://www.socialmatt.com/wp-content/uploads/2015/03/Boulder_Twitter_Map_Visualizations.jpg)](http://www.socialmatt.com/amazing-denver-twitter-visualization/)
+</center>
+
+Lots of Setup...
+========================================================
+
+1. Log into the [Twitter Developers section](https://dev.twitter.com/)
+    - If you have a Twitter account, you can login with those credentials
+2. Go to [Create an app](Create an app)
+    - Fill in details of the app you'll be using to connect
+    - Name should be unique: I used "CarsonResearch"
+3. Click on "Create your Twitter application"
+    - Details of app are shown along with *consumer key* and *consumer secret*
+4. You'll need access tokens
+    - Scroll down and click "Create my access token"
+    - Page should refresh on "Details" tab with new access tokens
+  
+Some More Setup...
+========================================================
+
+- Now that we have those details, we need to tell the `twitteR` package to use our credentials when making queries:
+
+```{r eval=FALSE}
+library(twitteR)
+
+# Setup authorization codes/secrets
+consumer_key = "l0ong_@lph@_num3r1C_k3y"
+consumer_secret = "l0ong_@lph@_num3r1C_s3cr37"
+access_token = "l0ong_@lph@_num3r1C_t0k3n"
+access_secret = "l0ong_@lph@_num3r1C_s3cr37"
+
+# Authorization 'hand-off'
+setup_twitter_oauth(consumer_key, consumer_secret,
+                    access_token, access_secret)
+```
+
+```{r echo=FALSE, results='hide'}
+options(httr_oauth_cache=TRUE)
+
+# Setup authorization codes/secrets
+consumer_key = "vNvyX2ewRRPSAAkjmOhSgg"
+consumer_secret = "NFgLmY2v7mx1GRNVwzoXE8wEyrUyGoXQ7yT9KVFEg"
+access_token = "600943290-zLYvgerYYOA5OBXPK6bFvPbPY9ZVHObyYDoDTGnH"
+access_secret = "hrWIgvxYxND5Re6o8g0w4xrjqk0pW6PZUBReu3nJG6EYD"
+
+# Authorization 'hand-off'
+setup_twitter_oauth(consumer_key, consumer_secret,
+                    access_token, access_secret)
+```
+
+Time to Start Querying
+========================================================
+
+- Let's query for the 100 most recent 'forest fire' tweets:
+
+```{r eval=FALSE}
+query = "forest+fire"
+fire_tweets = searchTwitter(query, n=100, lang="en",
+                            resultType="recent")
+```
+
+- How about all recent tweets around Boulder (within 10 miles)?
+
+```{r}
+# About the center of Boulder... give or take
+geocode = '40.0150,-105.2705,50mi'
+tweets = searchTwitter("", n=1000, lang="en",
+                       geocode=geocode,
+                       resultType="recent")
+```
+
+- Now what?
+
+Working with Twitter Responses
+========================================================
+
+- We need to extract some properties from the tweets
+  - Such as the Tweet content:
+    ```{r}
+    text = sapply(tweets, function(x) x$getText())
+    ```
+  - And the Tweet location information:
+    ```{r}
+    # Grab lat/long and make data.frame out of it
+    xy = sapply(tweets, function(x) {
+      as.numeric(c(x$getLongitude(),
+                   x$getLatitude()))
+      })
+    xy[!sapply(xy, length)] = NA  # Empty coords get NA
+    xy = as.data.frame(do.call("rbind", xy))
+    ```
+  - Next, we'll clean things up a bit...
+
+Cleaning Things Up
+========================================================
+
+- Unfortunately, `R` isn't so great with emojis etc, so we'll strip these :(
+
+```{r}
+text = iconv(text, "ASCII", "UTF-8", sub="")
+xy$text = text  # Add tweet text to data.frame
+colnames(xy) = c("x", "y", "text")
+```
+
+- Next, we'll drop any rows that have missing (`NA`) coordinates
+
+```{r}
+xy = subset(xy, !is.na(x) & !is.na(y))
+```
+
+- Finally, some simple density estimation/plotting...
+
+```{r fig.show='hide'}
+m = ggplot(data=xy, aes(x=x, y=y)) +
+  stat_density2d(geom="raster", aes(fill=..density..),
+                 contour=FALSE, alpha=1) + 
+  geom_point() + coord_equal()
+print(m)
+```
+
+Basic Mapping and Analysis
+========================================================
+title: false
+
+<center>
+```{r echo=FALSE, fig.height=10, fig.width=10}
+m + pres_theme
+```
+</center>
+
+Adding Some Context...
+========================================================
+
+- Plotting on Stamen Terrain basemap provides useful context...
+
+```{r eval=FALSE, fig.show='hide', message=FALSE, warning=FALSE}
+# Create Boulder basemap (geocoding by name)
+# NOTE: This doesn't work right now...
+Boulder = get_map(location="Boulder, CO, USA",
+                  source="stamen", maptype="terrain",
+                  crop=FALSE, zoom=10)
+Create base ggmap
+ggmap(Boulder) +
+  # Start adding elements...
+  geom_point(data=xy, aes(x, y), color="red",
+             size=5, alpha=0.5) +
+  stat_density2d(data=xy, aes(x, y, fill=..level..,
+                              alpha=..level..),
+                 size=0.01, bins=16, geom='polygon')
+```
+
+Twitter with Context
+========================================================
+title: false
+<center>
+```{r eval=FALSE, echo=FALSE, fig.height=10, fig.width=10, message=FALSE, warning=FALSE}
+ggmap(Boulder) +
+  geom_point(data=xy, aes(x, y), color="red", size=2, alpha=0.5) +
+  stat_density2d(data=xy, aes(x, y,  fill=..level.., alpha=..level..),
+                              size=0.01, bins=16, geom='polygon') +
+  pres_theme
+```
+</center>
+
+Computing 'Clusters'
+========================================================
+
+- Or we can compute clusters 'on the fly', again using the powerful `leaflet` package:
+
+```{r cache=FALSE}
+# URL for 'custom' icon
+url = "http://steppingstonellc.com/wp-content/uploads/twitter-icon-620x626.png"
+twitter = makeIcon(url, url, 32, 31)  # Create Icon!
+
+# How about auto-clustering?!
+map = leaflet(xy) %>%
+  addProviderTiles("Stamen.Terrain") %>%
+  addMarkers(lng=~x, lat=~y, popup=~text,
+    clusterOptions=markerClusterOptions(),
+    icon=twitter)
+```
+```{r echo=FALSE}
+saveWidget(widget=map, file="twitter_map.html", selfcontained=TRUE)
+```
+
+Interactive Map of Twitter Data
+========================================================
+title: false
+
+<iframe  title="Twitter Map" width="1100" height="900"
+  src="./twitter_map.html"
+  frameborder="0" allowfullscreen></iframe>
+  
+Going a Step Further
+========================================================
+type: section
+
+It isn't really enough just to grab some web-data and start mapping. Afterall, this session is really about data integration---something web-data and APIs are particularly good for!
+
+Heat Maps are NOT Enough...
+========================================================
+
+<center>
+[![xkcd Heat Maps](http://imgs.xkcd.com/comics/heatmap.png)](http://xkcd.com/1138/)
+</center>
+
+Combining Tweets and Census Info
+========================================================
+
+- Let's take another look at our Census data (this time grabbing population counts for Boulder region)
+```{r}
+pop = acs.fetch(endyear=2014, span=5, geography=geo,
+                table.number="B01003",
+                col.names="pretty")
+est = pop@estimate  # Grab the Total Population
+# Create a new data.frame
+pop = data.frame(geoid, est[, 1],
+                 stringsAsFactors=FALSE)
+rownames(pop) = 1:nrow(inc)  # Rename rows
+colnames(pop) = c("GEOID", "pop_total")  # Rename columns
+```
+- Create the merged data.frame!
+```{r}
+merged = geo_join(tracts, pop, "GEOID", "GEOID")
+```
+
+Big Ol' Chunk of Leaflet Code
+========================================================
+
+```{r cache=FALSE}
+popup = paste0("GEOID: ", merged$GEOID,
+               "<br/>Total Population: ",
+               round(merged$pop_total, 2))
+pal = colorNumeric(palette="YlGnBu",
+                   domain=merged$pop_total)
+map = leaflet() %>%  # Map time!
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(data=merged, popup=popup,
+              fillColor=~pal(pop_total), 
+              color="#b2aeae", # This is a 'hex' color
+              fillOpacity=0.7, weight=1, 
+              smoothFactor=0.2) %>%
+  addCircles(data=xy, lng=~x, lat=~y,
+             popup=~text, radius=5) %>%
+  addLegend(pal=pal, values=merged$pop_total, 
+            position="bottomright", 
+            title="Total Population")
+```
+
+```{r echo=FALSE}
+saveWidget(widget=map, file="dual_map.html", selfcontained=TRUE)
+```
+
+Interactive Map of Twitter Data
+========================================================
+title: false
+
+<iframe  title="Twitter Map" width="1100" height="900"
+  src="./dual_map.html"
+  frameborder="0" allowfullscreen></iframe>
+  
+Controlling for Population
+========================================================
+
+- That's all fine and good, but are areas with lots of tweets associated with areas of high population? Its hard to tell from the map...
+```{r}
+library(sp)
+# Make the points a SpatialPointsDataFrame
+coordinates(xy) = ~x+y
+proj4string(xy) = CRS("+proj=longlat +datum=NAD83 +no_defs +ellps=GRS80 +towgs84=0,0,0")
+# Put the x/y data back into the data slot for later...
+xy@data = as.data.frame(xy)
+```
+- And now we count 'points in polygon':
+```{r}
+overlay = over(xy, merged)
+res = as.data.frame(table(overlay$GEOID))
+colnames(res) = c("GEOID", "count")
+```
+
+Tweet Score?
+========================================================
+
+- We can then join counts back onto the counties:
+```{r}
+merged@data = join(merged@data, res, by="GEOID")
+# And compute a 'tweet score'... based on logged pop
+merged$percapita = merged$count/log(merged$pop_total)
+```
+- Based on this new variable, we setup a new pallette:
+```{r}
+pal = colorNumeric(palette="YlGnBu",
+                   domain=merged$percapita)
+# Also create a nice popup for display...
+popup = paste0("GEOID: ", merged$GEOID, "<br>",
+               "Score: ", round(merged$percapita, 2))
+```
+- And we plot it!
+
+Plotting the Tweets
+========================================================
+title: false
+
+```{r cache=FALSE, echo=FALSE}
+map = leaflet() %>%
+  addProviderTiles("CartoDB.Positron", group="Base") %>%
+  addPolygons(data=merged, popup=popup,
+              fillColor=~pal(percapita), 
+              color="#b2aeae", # This is a 'hex' color
+              fillOpacity=0.7, weight=1, 
+              smoothFactor=0.2, group="Score") %>%
+  addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
+                   stroke=FALSE, popup=~text, group="Tweets") %>%
+  addLayersControl(overlayGroups=c("Tweets", "Score"),
+                   options=layersControlOptions(collapsed=FALSE)) %>%
+  addLegend(pal=pal, values=merged$percapita, 
+            position="bottomright", 
+            title="Score")
+
+saveWidget(widget=map, file="final_map.html", selfcontained=TRUE)
+```
+
+<iframe  title="Twitter Map" width="1100" height="900"
+  src="./final_map.html"
+  frameborder="0" allowfullscreen></iframe>
+  
+  
+Wanna See the Code for That One?
+========================================================
+
+```{r eval=FALSE}
+leaflet() %>%
+  addProviderTiles("CartoDB.Positron", group="Base") %>%
+  addPolygons(data=merged, popup=popup,
+              fillColor=~pal(percapita), 
+              color="#b2aeae", # This is a 'hex' color
+              fillOpacity=0.7, weight=1, 
+              smoothFactor=0.2, group="Score") %>%
+  addCircleMarkers(data=xy, lng=~x, lat=~y, radius=4,
+                   stroke=FALSE, popup=~text,
+                   group="Tweets") %>%
+  addLayersControl(overlayGroups=c("Tweets", "Score"),
+                   options=layersControlOptions(
+                     collapsed=FALSE)) %>%
+  addLegend(pal=pal, values=merged$percapita, 
+            position="bottomright", 
+            title="Score")
+```
+
+That's All Folks!
+========================================================
+type: section
+
+## Data Harmonization + Working with Web and Social Media Data  
+Earth Analytics---Spring 2016
+
+Carson J. Q. Farmer  
+[carson.farmer@colorado.edu]()
+
+babs buttenfield  
+[babs@colorado.edu]()
+
+References
+========================================================
+type: sub-section
+
+- Most of the content in this tutorial was 'borrowed' from one of the following sources:
+    - [Leaflet for `R`](https://rstudio.github.io/leaflet/)
+    - [An Introduction to `R` for Spatial Analysis & Mapping](https://us.sagepub.com/en-us/nam/an-introduction-to-r-for-spatial-analysis-and-mapping/book241031)
+    - [Manipulating and mapping US Census data in `R`](http://zevross.com/blog/2015/10/14/manipulating-and-mapping-us-census-data-in-r-using-the-acs-tigris-and-leaflet-packages-3/#census-data-the-hard-way)
+- Data was courtesy of:
+    - [Colorado Information Marketplace](https://data.colorado.gov)
+    - [Twitter's API](https://dev.twitter.com/rest/public)
+    - [US Census ACS 5-Year Data API](https://www.census.gov/data/developers/data-sets/acs-survey-5-year-data.html)
+
+Want to Play Some More?
+========================================================
+
+- Check out the [EnviroCar API](http://envirocar.github.io/enviroCar-server/api/)
+    - Data on vehicle trajectories annotated with CO^2 emmisions!
+- [PHL API](http://phlapi.com)---Open Data for the City of Philly
+- [NYC Open Data Portal](https://nycopendata.socrata.com)---Open Data for NYC
+- [SF OpenData](https://data.sfgov.org)---Open Data for San Fran
+- ... you get the point!
+
+- In general, the [Programmable Web](http://www.programmableweb.com/) is a good resource
+    - Here are [146 location APIs](http://www.programmableweb.com/news/146-location-apis-foursquare-panoramio-and-geocoder/2012/06/20) for example...
