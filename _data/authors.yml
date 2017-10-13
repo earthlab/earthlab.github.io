@@ -1,3 +1,6 @@
+- name: Bryce Mecum
+  slug: bryce-mecum
+  bio: 'Bryce is a Scientific Software Engineer at the National Center for Ecological Analysis and Synthesis working remotely from Juneau'
 - name: Carson Farmer
   slug: carson-farmer
   bio: ''
@@ -15,9 +18,6 @@
   bio: 'Max is a data scientist with the Analytics Hub at Earth Lab and maintains this website.'
 - name: Megan Cattau
   slug: megan-cattau
-  bio: ''
-- name: Mollie Buckland
-  slug: mollie-buckland
   bio: ''
 - name: Naupaka Zimmerman
   slug: naupaka-zimmerman

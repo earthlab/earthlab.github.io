@@ -661,8 +661,8 @@ body:hover .visually-hidden button {
 @media (min-width: 64em) {
   .sticky {
     clear: both;
-    position: -webkit-sticky;
-    position: sticky;
+    /*  position: -webkit-sticky;
+      position: sticky; removing stickiness for the time being*/
     top: 2em; }
     .sticky::after {
       clear: both;
@@ -5404,6 +5404,10 @@ img.mfp-img {
    Earth Lab Specific css highlighting this will allow us to more easily
    integrate with Minimal Minstakes in the future
    ========================================================================== */
+/* reduce padding in the top bar  */
+.masthead__inner-wrap {
+  padding: 0 1em !important; }
+
 /* tags on the bottom of the page */
 .a-main-tag {
   font-weight: bold;
@@ -5515,6 +5519,13 @@ div.notice--success, div.notice--warning {
   font-size: 0.8em !important;
   padding: 0; }
 
+/* grade rubrics in notice divs */
+.notice--info td {
+  font-size: 1.3em; }
+
+.notice--info th {
+  font-size: 1.3em; }
+
 /* Site bar menu items */
 .nav__list .active {
   border-radius: 0 !important; }
@@ -5598,7 +5609,7 @@ div.active-section {
   padding-top: 1em; }
 
 .remark-slide-content ul li, .remark-slide-content ol li {
-  padding-top: 1em; }
+  padding-top: .6em; }
 
 .remark-slide-content ul li li {
   font-size: 0.8em;
@@ -5617,10 +5628,10 @@ div.active-section {
   font-size: 3em; }
 
 .remark-slide-content h2 {
-  font-size: 2em; }
+  font-size: 1.5em; }
 
 .remark-slide-content h3 {
-  font-size: 1.6em; }
+  font-size: 1.3em; }
 
 .remark-slide-content .remark-slide-content.footnote {
   position: absolute;
@@ -5800,5 +5811,14 @@ div.active-section {
   position: absolute;
   text-align: left;
   top: 30px; }
+
+/*  Also apply these to slides search */
+.remark-slide tbody tr:nth-child(2n+1) {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #bdc1c4;
+  border-top: 1px solid #bdc1c4; }
+
+.remark-slide tbody {
+  font-size: .9em; }
 
 /*# sourceMappingURL=main.css.map */

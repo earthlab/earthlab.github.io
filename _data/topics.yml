@@ -1,5 +1,5 @@
 remote-sensing:
-  subtopics: ['landsat', 'modis', 'lidar', 'naip', 'spectral-remote-sensing']
+  subtopics: ['landsat', 'modis', 'lidar', 'naip', 'multispectral-remote-sensing']
 earth-science:
   subtopics: ['fire', 'permafrost', 'vegetation','flood-erosion','uncertainty']
 open-science:
@@ -11,11 +11,11 @@ time-series:
 data-exploration-and-analysis:
   subtopics: ['data-visualization', 'text-mining', 'machine-learning']
 spatial-data-and-gis:
-  subtopics: ['raster-data', 'vector-data','coordinate-reference-systems', 'gridding-and-spatial-interpolation', 'maps']
+  subtopics: ['raster-data', 'vector-data','coordinate-reference-systems', 'gridding-and-spatial-interpolation', 'maps-in-r']
 reproducible-science-and-programming:
   subtopics: ['RStudio', 'literate-expressive-programming','functions',
               'r-studio', 'automate-science-workflows', 'git', 'markdown',
-              'rmarkdown', 'data-management']
+              'rmarkdown', 'data-management', 'version-control']
 find-and-manage-data:
   subtopics: ['data-management', 'find-data', 'metadata']
 file-formats:

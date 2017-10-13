@@ -5,6 +5,7 @@ title: "Data Intensive Tutorials"
 permalink: /slide-shows/
 comments: false
 author_profile: true
+sitemap: false
 ---
 
 ## Online Presentations!
