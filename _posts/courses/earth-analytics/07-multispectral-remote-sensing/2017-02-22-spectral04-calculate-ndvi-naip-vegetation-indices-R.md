@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Calculate a remote sensing derived vegetation index in R"
-excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, we will review the basic principles associated with calculating a vegetation index from raster formatted, landsat remote sensing data in R. We will then export the calculated index raster as a geotiff using the writeRaster() function."
+title: "Calculate a Remote Sensing Derived Vegetation Index in R"
+excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, you will review the basic principles associated with calculating a vegetation index from raster formatted, landsat remote sensing data in R. You will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser']
-modified: '2017-10-11'
+modified: '2017-10-13'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -35,10 +35,10 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Calculate NDVI using NAIP multispectral imagery in `R`
+* Calculate NDVI using NAIP multispectral imagery in `R`.
 * Describe what a vegetation index is and how it is used with spectral remote sensing data.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 7 of the course.
@@ -46,7 +46,7 @@ data for week 7 of the course.
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
-## About vegetation indices
+## About Vegetation Indices
 
 A vegetation index is a single value that quantifies vegetation health or structure.
 The math associated with calculating a vegetation index is derived from the physics
@@ -57,7 +57,7 @@ reflected in the near infrared and light reflected in the visible spectrum, it
 will represent areas that potentially have healthy vegetation.
 
 
-## Normalized difference vegetation index (NDVI)
+## Normalized Difference Vegetation Index (NDVI)
 
 The Normalized Difference Vegetation Index (NDVI) is a quantitative index of
 greenness ranging from 0-1 where 0 represents minimal or no greenness and 1
@@ -83,7 +83,7 @@ More on NDVI from NASA</a>
 ## Calculate NDVI in R
 
 Sometimes you can download already calculated NDVI data products. In this
-case, you need to calculate NDVI using the NAIP imagery / reflectance data that we have.
+case, you need to calculate NDVI using the NAIP imagery / reflectance data that you have.
 
 
 
@@ -116,9 +116,9 @@ naip_multispectral_br <- brick(naip_multispectral_st)
 ### How to Derive the NDVI Vegetation Index
 
 The normalized difference vegetation index (NDVI) uses a ratio between near infrared
-and red light within the electromagnetic spectrum. To calculate NDVI we use the
+and red light within the electromagnetic spectrum. To calculate NDVI you use the
 following formula where NIR is near infrared light and
-red represents red light. For our raster data, we will take the reflectance value
+red represents red light. For your raster data, you will take the reflectance value
 in the red and near infrared bands to calculate the index.
 .
 `(NIR - Red) / (NIR + Red)`
@@ -133,7 +133,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp2tJqRU/raster/r_tmp_2017-10-11_165328_1605_88876.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp3QiC56/raster/r_tmp_2017-10-13_093705_1478_52762.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -147,7 +147,7 @@ plot(naip_ndvi,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
 
-### View distribution of NDVI values
+### View Distribution of NDVI Values
 
 
 ```r
@@ -160,8 +160,8 @@ hist(naip_ndvi,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="90%" />
 
-## Export raster
-When you are done, you may want to export your rasters so you could use them in
+## Export Raster
+When you are done, you may want to export your rasters so you can use them in
 QGIS or ArcGIS or share them with your colleagues. To do this you use the `writeRaster()`
 function.
 
@@ -181,18 +181,18 @@ writeRaster(x = naip_ndvi,
               overwrite = TRUE)  # OPTIONAL - be careful. This will OVERWRITE previous files.
 ```
 
-## Faster Raster Calculations With the Overlay Function
+## Faster Raster Calculations with the Overlay Function
 
-We can perform raster calculations using raster math as we did above. However,
+You can perform raster calculations using raster math as you did above. However,
 it's much more efficient and faster to use the `overlay()` function in `R`.
-To use the overlay function we provide `R`.
+To use the overlay function you provide `R` with:
 
-1. The bands or raster layers that we want it to use for some calculation.
-2. A **FUN**ction that we create or provide that we want to run on those bands.
+1. The bands or raster layers that you want it to use for some calculation.
+2. A function that you create or provide that you want to run on those bands.
 
-Let's look at an example below where we simply subtract two layers using `overlay()`.
+Let's look at an example below where you simply subtract two layers using `overlay()`.
 You could use this same function to subtract rasters (like you did to create
-the canopy height models and the different rasters in week 3.)
+the canopy height models and the different rasters in week 3).
 
 
 
@@ -218,6 +218,9 @@ band_diff <- overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],
 plot(band_diff,
      main = "Example difference calculation on imagery - \n this is not a useful analysis, just an example!",
      axes = FALSE, box = FALSE, Legend = FALSE)
+## Warning in plot.window(...): "Legend" is not a graphical parameter
+## Warning in plot.xy(xy, type, ...): "Legend" is not a graphical parameter
+## Warning in title(...): "Legend" is not a graphical parameter
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title=" " alt=" " width="90%" />
@@ -255,8 +258,8 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ## Unit: seconds
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
-##    min    lq  mean median    uq   max neval
-##  1.193 1.362 1.425  1.418 1.469 1.728    10
+##       min       lq     mean   median       uq      max neval
+##  1.117328 1.147655 1.219802 1.180372 1.205872 1.485094    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -265,13 +268,13 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##    min    lq  mean median  uq   max neval
-##  516.4 846.2 833.6  869.8 900 978.6    10
+##       min       lq     mean   median      uq      max neval
+##  506.6086 609.7672 617.9879 622.8941 632.231 688.2722    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact
 just a bit faster than the regular raster math approach. This may seem minor now.
-However, we are only working with 55mb files. This will save processing time in the
+However, you are only working with 55mb files. This will save processing time in the
 long run as you work with larger raster files.
 
 In the next lesson, you will find a few sets of tests on raster processing speed.
@@ -281,7 +284,7 @@ In the next lesson, you will find a few sets of tests on raster processing speed
 
 ## Additional Resources
 
-* <a href="https://phenology.cr.usgs.gov/ndvi_foundation.php" target="_blank">USGS Remote sensing phenology</a>
-* <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">NASA Earth Observatory - Vegetation indices</a>
+* <a href="https://phenology.cr.usgs.gov/ndvi_foundation.php" target="_blank">USGS Remote Sensing Phenology</a>
+* <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">NASA Earth Observatory - Vegetation Indices</a>
 
 </div>

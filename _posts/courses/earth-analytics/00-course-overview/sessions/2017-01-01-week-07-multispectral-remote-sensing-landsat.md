@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Landsat Data in R - Fire Ecology & Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/
-modified: '2017-10-11'
+modified: '2017-10-13'
 week-landing: 7
 week: 7
 sidebar:
@@ -26,12 +26,12 @@ redirect_from:
 
 Welcome to week {{ page.week }} of Earth Analytics!
 
-At the end of this week you will be able to
+At the end of this week you will be able to:
 
-* Describe what a spectral band is related to remote sensing data.
-* Create maps of spectral remote sensing data using different band combinations including CIR, and RGB.
+* Describe what a spectral band is in remote sensing data.
+* Create maps of spectral remote sensing data using different band combinations including CIR and RGB.
 * Calculate NDVI in `R` using efficient raster processing approaches including `rasterbricks` and the `overlay()` function.
-* Use the Landsat file naming convention to determine correct band combinations for plotting and to  calculate NDVI.
+* Use the Landsat file naming convention to determine correct band combinations for plotting and calculating NDVI.
 * Define additive color model.
 
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
@@ -50,8 +50,8 @@ At the end of this week you will be able to
 
 ### 1a. Remote Sensing Readings
 
-* <a href="https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/" target="_blank">NASA overview of Landsat 8</a>
-* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank">Penn State e-Education post on multi-spectral data. Note they discuss AVHRR at the top which we aren't using but be sure to read about Landsat.</a>
+* <a href="https://landsat.gsfc.nasa.gov/landsat-data-continuity-mission/" target="_blank">NASA Overview of Landsat 8</a>
+* <a href="https://www.e-education.psu.edu/natureofgeoinfo/c8_p12.html" target="_blank">Penn State e-Education post on multi-spectral data. Note they discuss AVHRR at the top which you won't use in this lesson but be sure to read about Landsat.</a>
 
 
 ### 2. Complete the Assignment Below (5 points)
@@ -68,25 +68,25 @@ with your report, use `knitr` to convert it to `PDF` format. Submit both the
 `.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
 
 #### Use knitr Code Chunk Arguments
-In your final report, use the following knitr code chunk arguments to hide messages
+In your final report, use the following `knitr` code chunk arguments to hide messages
 and warnings and code as you see fit.
 
 * `message = FALSE`, `warning = FALSE` Hide warnings and messages in a code chunk
 * `echo = FALSE` Hide code and just show code output
-* `results = 'hide'` Hide the verbose output from some functions like `readOGR()`.
+* `results = 'hide'` Hide the verbose output from some functions like `readOGR()`
 
-#### Answer the Questions Below at the Top Of Your Report
+#### Answer the Questions Below at the Top of Your Report
 
 1. What is the key difference between active and passive remote sensing system?
-  * Provide one example of data derived from an active sensor that we have worked with in this class and one example of data derived from a passive sensor in your answer.
-2. Compare lidar vs. landsat remote sensing data and answer the following questions
-  * What does landsat vs lidar data inherently measure  / record?
-  * What is the spatial resolution of landsat compared to the lidar data that we used in class?
-  * How often is landsat data collected over a particular area? Are lidar data collected at the same frequency as landsat?
+  * Provide one example of data derived from an active sensor that you have worked with in this class and one example of data derived from a passive sensor in your answer.
+2. Compare Lidar vs. Landsat remote sensing data and answer the following questions:
+  * What does Landsat vs Lidar data inherently measure  / record?
+  * What is the spatial resolution of Landsat compared to the Lidar data that you used in class?
+  * How often is Landsat data collected over a particular area? Are Lidar data collected at the same frequency as Landsat?
 2. Explain what a vegetation index is and how it's used. HINT: NDVI is an example of a vegetation index however there are other indices too. Define vegetation index not just NDVI.
 3. After you've created the plots - do you notice anything about the Landsat data that may be problematic if you needed to compare NDVI before and after a fire?
 
-Then, create the plots and output data sets below:
+Then create the plots and output data sets below.
 
 #### Include the Plots and Outputs Below
 
@@ -94,23 +94,23 @@ For all plots:
 
 1. Be sure to describe what each plot shows in your final report using a figure
 caption argument in your code chunks: `fig.cap="caption here"`.
-2. Add appropriate titles that tells someone reading your report what the map shows
-3. Be sure to use the correct bands are you plot and process the data.
+2. Add appropriate titles that tell someone reading your report what the map shows.
+3. Be sure to use the correct bands as you plot and process the data.
 4. Apply image stretch as you see fit.
-5. Be sure to specify the DATE that the imagery was collected in your plot title. (note I did not do that in the examples below as you need to figure it out)
+5. Be sure to specify the DATE that the imagery was collected in your plot title (note I did not do that in the examples below as you need to figure it out).
 
-#### Plots 1 & 2: RGB & CIR images
+#### Plots 1 & 2: RGB & CIR Images
 Create a 1) RGB and 2) Color Infrared (CIR) image of the study site using NAIP data: `naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif`
 
-HINT: To create a CIR image:
+HINT: In a CIR image the:
 
-* infrared band will appear red
-* red band will appear green
-* green band will appear blue
+* Infrared band will appear red.
+* Red band will appear green.
+* Green band will appear blue.
 
 Make sure you get the bands right!
 
-#### Plot 3: Create a plot of NDVI + output geotiff
+#### Plot 3: Create a Plot of NDVI + Output Geotiff
 
 Using the same NAIP image above, calculate NDVI and plot it. **IMPORTANT:** Use a function to
 perform the NDVI math and the `overlay()` function to implement the
@@ -119,16 +119,16 @@ actual NDVI calculation. Your code should look something like this: `overlay(b1,
 * Use the `writeRaster()` function to output your NAIP_ndvi file as a geotiff.
 * Use the `check_create_dir()` function that you created last week to ensure that file goes into an "outputs/naip" directory.
 
-#### Plots 4 & 5: NDVI plots + output geotiff
+#### Plots 4 & 5: NDVI Plots + Output Geotiff
 
 Create map of NDVI pre and post Cold Springs fire. As you did with the NAIP imagery
 above, be sure to use the `overlay()` function with the `normalized_diff()` function
 that you created.
 
 * Use the `writeRaster()` function to output your landsat_ndvi files (one for pre fire and one for post) as a geotiff.
-* Use the `check_create_dir()` function that you created last week to ensure that file goes into an "outputs/landsat" directory.
+* Use the `check_create_dir()` function that you created last week to ensure that the file goes into an "outputs/landsat" directory.
 
-#### Plot 6 & 7: RGB & CIR images with Landsat
+#### Plot 6 & 7: RGB & CIR Images with Landsat
 
 Plot a RGB and CIR image using Landsat data collected pre-fire.
 
@@ -150,7 +150,7 @@ plot renders correctly.
 
 ```html
 {r, echo = FALSE, results = 'hide'}
-# the function below clears our your plot render space removing any margins or
+# the function below clears your plot render space removing any margins or
 # other changes to `par()` settings.
 dev.off()
 
@@ -158,44 +158,49 @@ dev.off()
 
 ## Bonus Opportunity! (.5 point each)
 
-* Rather than copying your function code at the top of your `.Rmd` file. Use the
-`source()` function to import all of the functions that you created and need for your homework. These functions include (`normalized_diff()` and `check_create_dir()`)
-* Look at your code and notice where there are repeated tasks (focus on importing and calculating NDVI using landsat data). Write a well-documented function that takes a directory path containing landsat geotiffs as the input and outputs either a `rasterbrick` that you can use to calculate NDVI OR the ndvi raster itself. Think carefully about making your function as general as possible. Name your function using an expressive name (a verb in the name preferred).
+* Rather than copying your function code at the top of your `.Rmd` file, use the
+`source()` function to import all of the functions that you created and need for your homework. These functions include `normalized_diff()` and `check_create_dir()`.
+* Look at your code and notice where there are repeated tasks (focus on importing and calculating NDVI using Landsat data). Write a well-documented function that takes a directory path containing Landsat geotiffs as the input and outputs either a `rasterbrick` that you can use to calculate NDVI OR the NDVI raster itself. Think carefully about making your function as general as possible. Name your function using an expressive name (a verb in the name is preferred).
 
 ****
 
-## Homework Due: Monday October 16 2017 @ 8AM.
+## Homework Due: Monday October 16 2017 @ 8AM
 Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 </div>
 
 ## Grading
 
+Please note if you skip / do not attempt to complete a segment of the assignment
+(2 or more plots, the report, answering questions, etc.), you will not be able to
+achieve a grade higher than a C on the assignment. 
+
 #### R Markdown Report Structure & Code: 15%
 
 | Full Credit | No Credit  |
 |:----|----|
 | `html` / `pdf` and `.Rmd` files submitted |  |
-| Code is written using "clean" code practices following the Hadley Wickham style guide |  |
+| Code is written using "clean" code practices following the Hadley Wickham Style Guide |  |
 | Code chunk contains code and runs  |  |
-| All required `R` packages are listed at the top of the document in a code chunk. | |
-| Lines of code are broken up at commas to make the code more readable  |  |
+| All required `R` packages are listed at the top of the document in a code chunk | |
+| Lines of code are broken up with commas to make the code more readable  |  |
 | Code chunk arguments are used to hide warnings |  |
 | Code chunk arguments are used to hide code and just show output |  |
+| Report only contains code pertaining to the assignment. |  |
 |===
-| Report emphasizes the write up and the code outputs rather than showing each step of the code | |
+| Report emphasizes the write-up and the code outputs rather than showing each step of the code | |
 
 ####  Report Questions: 30%
 
 | Full Credit | No Credit  |
 |:----|----|
-| What is the key difference between active and passive remote sensing system. Provide one example of data derived from an active sensor that we have worked with in this class and one example of data derived from a passive sensor in your answer.... is answered correctly. |  |
-| What does landsat vs lidar data inherently measure / record?|  |
-| What is the spatial resolution of landsat compared to the lidar data that we used in class? ||
-| How often is landsat data collected over a particular area? Are lidar data collected at the same frequency as landsat? ||
-| Explain what a vegetation index is and how it’s used. HINT: NDVI is an example of a vegetation index however there are other indices too. Define vegetation index not just NDVI. ||
+| What is the key difference between active and passive remote sensing system? Provide one example of data derived from an active sensor that you have worked with in this class and one example of data derived from a passive sensor in your answer. |  |
+| What do Landsat vs Lidar data inherently measure / record?|  |
+| What is the spatial resolution of Landsat compared to the Lidar data that you used in class? ||
+| How often is Landsat data collected over a particular area? Are Lidar data collected at the same frequency as Landsat? ||
+| Explain what a vegetation index is and how it's used. HINT: NDVI is an example of a vegetation index however there are other indices too. Define vegetation index not just NDVI. ||
 |===
-| What about the Landat data may make pre-vs post file comparison difficult? ||
+| What about the Landat data may make pre vs post file comparison difficult? ||
 
 
 ### Plots & Plot Outputs Are Worth 55% of the Assignment Grade
@@ -205,21 +210,21 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Full Credit | No Credit  |
 |:----|----|
 | Plot renders on the report | |
-| Plot has a 2-3 sentence figure caption that clearly and accurately describes plot contents. | |
+| Plot has a 2-3 sentence figure caption that clearly and accurately describes plot contents | |
 | Plot contains a meaningful title. |  |
 | Date of Imagery collection is clearly and correctly specified in the plot |  |
 |===
 | Data source is clearly listed either on the plot or in the plot caption |  |
 
-### Plot construction
+### Plot Construction
 
 | Full Credit | No Credit  |
 |:----|----|
-| Correct data source (landsat vs NAIP) is used for each plot | |
+| Correct data source (Landsat vs NAIP) is used for each plot | |
 | Correct bands are used to generate proper RGB plots  | |
 | Correct bands are used to generate proper CIR plots  | |
 |===
-| Correct bands are used to generate proper NDVI plots (note the band # are DIFFERENT for NAIP vs Landsat 8 )  | |
+| Correct bands are used to generate proper NDVI plots (note the band numbers are DIFFERENT for NAIP vs Landsat 8 )  | |
 
 #### Code & Functions
 
@@ -262,7 +267,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Plot has a clear legend that shows the classes chosen and associated colors rendered on the map. | |
 -->
 
-### Example report plots
+### Example Report Plots
 
 
 

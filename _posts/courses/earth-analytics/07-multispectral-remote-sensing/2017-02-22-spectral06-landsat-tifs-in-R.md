@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Landsat remote sensing tif files in R"
-excerpt: "In this lesson you will cover the basics of using LAndsat 7 and 8 in R. You will learn how to import landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
+title: "Landsat Remote Sensing tif Files in R"
+excerpt: "In this lesson you will cover the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-10-11'
+modified: '2017-10-13'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/landsat-data-in-r-geotiff/
@@ -40,7 +40,7 @@ After completing this tutorial, you will be able to:
 * Create a raster stack from a list of `.tif` files in `R`.
 * Plot various band combinations using a rasterstack in `R` with `plotRGB()`.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 7 of the course.
@@ -53,11 +53,11 @@ the `stack()` function. You then plotted the data as a composite, RGB (and CIR) 
 using `plotRGB()`. However, sometimes data are downloaded in individual bands rather
 than a composite raster stack.
 
-In this lesson you will learn how to work with Landsat data in `R`. In this case, our
+In this lesson you will learn how to work with Landsat data in `R`. In this case, your
 data are downloaded in `.tif` format with each `.tif` file representing a single
 band rather than a stack of bands.
 
-## About Landsat data
+## About Landsat Data
 
 > At over 40 years, the Landsat series of satellites provides the longest temporal record of moderate resolution multispectral data of the Earth’s surface on a global basis. The Landsat record has remained remarkably unbroken, proving a unique resource to assist a broad range of specialists in managing the world’s food, water, forests, and other natural resources for a growing world population.  It is a record unmatched in quality, detail, coverage, and value. Source: <a href="https://landsat.usgs.gov/about-landsat" target="_blank">USGS</a>
 
@@ -67,7 +67,7 @@ band rather than a stack of bands.
     <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/TimelineOnlyForWebRGB.png">
     <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/TimelineOnlyForWebRGB.png" alt="Landsat 40 year timeline source: USGS.">
     </a>
-    <figcaption>The 40 year history of landsat missions. Source: USGS - <a href="https://landsat.usgs.gov/landsat-missions-timeline
+    <figcaption>The 40 year history of Landsat missions. Source: USGS - <a href="https://landsat.usgs.gov/landsat-missions-timeline
     </figcaption>
 </figure>
 
@@ -89,9 +89,9 @@ are listed below.
 | Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
 | Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
 
-### Get To Know Landsat 8 Filenames
+### Get to Know Landsat 8 Filenames
 
-When working with landsat, it is important to understand both the metadata and
+When working with Landsat, it is important to understand both the metadata and
 the file naming convention. The metadata tell you how the data were processed,
 where the data are from and how they are structured.
 
@@ -138,17 +138,17 @@ File: `LC80340322016205LGN00_sr_band1_crop.tif`
 
 <a href="http://gisgeography.com/landsat-file-naming-convention/" target="_blank"> More here breaking down the file name.</a>
 
-## Julian day
+## Julian Day
 
 In class, we won't spend a lot of time on Julian days. For the purpose of working with Landsat
-and MODIS data, what you need to know that the calendar year Julian day represents
-the numeric day of the year. So jan 1 = day 1. Feb 1 = day 32. And so on.
+and MODIS data, what you need to know is that the calendar year Julian day represents
+the numeric day of the year. So Jan 1 = day 1. Feb 1 = day 32. And so on.
 
 There are several links at the bottom of this page that provide tables that help
-you <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">convert julian days to actual date</a>.
+you <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">convert Julian days to actual date</a>.
 
 
-## Landsat tif files in R
+## Landsat tif Files in R
 
 Next, you can open the Landsat data in `R`.
 
@@ -164,9 +164,9 @@ library(rgeos)
 options(stringsAsFactors = FALSE)
 ```
 
-If you look at the landsat directory for the week_07 data, you will see that
+If you look at the Landsat directory for the week_07 data, you will see that
 each of the individual bands is stored individually as a geotiff rather than
-being stored as a stacked or layered, multiband raster.
+being stored as a stacked or layered, multi-band raster.
 
 Why would they store the data this way?
 
@@ -179,10 +179,10 @@ across many different programs and platforms.
 You have already been working with the geotiff file format in this class! You
 will thus use many of the same functions you used previously, to work with Landsat.
 
-## Get list of files
+## Get List of Files
 
-To begin, let's explore our file directory in `R`, You can use `list.files()` to
-grab a list of all files within any directory on our computer.
+To begin, let's explore your file directory in `R`, You can use `list.files()` to
+grab a list of all files within any directory on your computer.
 
 
 ```r
@@ -203,9 +203,9 @@ list.files("data/week_07/landsat/LC80340322016205-SC20170127160728/crop")
 ```
 
 You can also use `list.files()` with the pattern argument. This allows you to specify
-a particular pattern that further subsets our data. In this case, you just want
+a particular pattern that further subsets your data. In this case, you just want
 to look at a list of files with the extension: `.tif`. Note that it is important
-that the file **ends with** .tif. So you use the dollar sign at the end of our
+that the file **ends with** .tif. So you use the dollar sign at the end of your
 pattern to tell `R` to only grab files that end with .tif.
 
 `pattern=".tif$"`
@@ -215,7 +215,7 @@ pattern to tell `R` to only grab files that end with .tif.
 ```r
 # but really you just want the tif files
 all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
-                      pattern=".tif$",
+                      pattern = ".tif$",
                       full.names = TRUE) # make sure you have the full path to the file
 all_landsat_bands
 ##  [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_bqa_crop.tif"        
@@ -234,7 +234,7 @@ all_landsat_bands
 
 Above, you use the `$` after `.tif` to tell `R` to look for files that end with .tif.
 This is a good start but there is one more condition that we'd like to meet. We
-only want the .tif files that are spectral bands. Notice that some of our files
+only want the .tif files that are spectral bands. Notice that some of your files
 have text that includes "mask", flags, etc. Those are all additional layers that
 you don't need right now. You just need the spectral data saved in bands 1_7.
 
@@ -255,7 +255,7 @@ each file needs to end with `.tif`.
 
 ```r
 all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
-           pattern=glob2rx("*band*.tif$"),
+           pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands
 ## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
@@ -269,7 +269,7 @@ all_landsat_bands
 
 ## Open the .tif Files in R
 
-Now you have a list of all of the Landsat bands in our folder. You could chose to
+Now you have a list of all of the Landsat bands in your folder. You could chose to
 open each file individually using the `raster()` function.
 
 
@@ -310,7 +310,7 @@ landsat_csf_br
 ```
 
 
-Let's plot each individual band in our brick.
+Let's plot each individual band in your brick.
 
 
 ```r
@@ -341,9 +341,9 @@ plot(landsat_csf_br,
 
 ## Plot RGB Composite Band Images with Landsat in R
 
-Next, let's plot an RGB image using landsat. Refer to the landsat bands in the table
+Next, let's plot an RGB image using Landsat. Refer to the Landsat bands in the table
 at the top of this page to figure out the red, green and blue bands. Or read the
-<a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post.
+<a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI Landsat 8 band combinations</a> post.
 
 
 ```r
@@ -359,7 +359,7 @@ box(col = "white")
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 
 Now we've created a red, green blue color composite image. Remember this is what
-our eye would see. What happens if you plot the near infrared band instead of red?
+your eye would see. What happens if you plot the near infrared band instead of red?
 Try the following combination:
 
 
@@ -379,9 +379,9 @@ box(col = "white")
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
-Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI landsat 8 band combinations</a> post as a guide. Plot the
-following landsat band combinations:
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge
+Using the <a href="https://blogs.esri.com/esri/arcgis/2013/07/24/band-combinations-for-landsat-8/" target="_blank">ESRI Landsat 8 band combinations</a> post as a guide. Plot the
+following Landsat band combinations:
 
 * False color
 * Color infrared
@@ -395,9 +395,9 @@ Be sure to add a title to each of your plots that specifies the band combination
 
 <div class="notice--info" markdown="1">
 
-## Additional resources
+## Additional Resources
 
-* <a href="https://disc.gsfc.nasa.gov/julian_calendar.html" target="_blank">Julian day lookup</a>
-* <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">Landweb NASA Julian day lookup</a>
+* <a href="https://disc.gsfc.nasa.gov/julian_calendar.html" target="_blank">Julian Day Lookup</a>
+* <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">Landweb NASA Julian Day Lookup</a>
 
 </div>
