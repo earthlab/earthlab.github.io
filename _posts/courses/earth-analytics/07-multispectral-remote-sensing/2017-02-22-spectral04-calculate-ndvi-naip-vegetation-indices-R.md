@@ -112,6 +112,26 @@ naip_multispectral_br <- brick(naip_multispectral_st)
 
 
 
+```r
+all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
+           pattern = glob2rx("*band*.tif$"),
+           full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
+all_landsat_bands
+
+# stack the data
+landsat_stack_csf <- stack(all_landsat_bands)
+# calculate NDVI
+landsat_ndvi <- (landsat_stack_csf[[5]] - landsat_stack_csf[[4]]) / (landsat_stack_csf[[5]] + landsat_stack_csf[[4]])
+
+plot(landsat_ndvi,
+     main = "Landsat derived NDVI\n 23 July 2016")
+
+
+# view distribution of NDVI values
+hist(landsat_ndvi,
+  main = "NDVI: Distribution of pixels\n Landsat 2016 Cold Springs fire site",
+  col = "springgreen")
+```
 
 
 ### How to Derive the NDVI Vegetation Index
@@ -134,7 +154,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_141754_89035_85477.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_171218_89035_75237.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -256,8 +276,8 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ## Unit: seconds
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
-##      min       lq     mean   median       uq      max neval
-##  1.23926 1.281226 1.451095 1.541668 1.578718 1.603333    10
+##       min       lq     mean   median       uq      max neval
+##  1.537945 1.743012 1.885424 1.829314 1.957115 2.433737    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -266,8 +286,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##       min       lq     mean   median      uq      max neval
-##  738.2352 756.2224 910.8126 943.5567 1006.31 1143.047    10
+##       min       lq     mean   median       uq      max neval
+##  950.2349 1017.906 1407.252 1133.525 1439.406 2728.128    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact

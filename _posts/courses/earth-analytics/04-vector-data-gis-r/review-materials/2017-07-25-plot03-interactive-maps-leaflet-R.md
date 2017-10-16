@@ -3,7 +3,7 @@ layout: single
 title: "Make Interactive Maps with Leaflet R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-10-02'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-interactive-maps-with-leaflet-R/
@@ -47,15 +47,6 @@ You will need a computer with internet access to complete this lesson and the da
 First, let's import all of the needed libraries.
 
 
-```r
-# load libraries
-library(dplyr)
-library(rgdal)
-library(ggplot2)
-library(leaflet)
-# set factors to false
-options(stringsAsFactors = FALSE)
-```
 
 
 ## Interactive Maps with Leaflet
@@ -87,6 +78,10 @@ map
 ```
 
 
+```r
+
+saveWidget(widget=map, file="birthplace_r.html", selfcontained=FALSE)
+```
 
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
@@ -96,18 +91,11 @@ Next, import and explore the data.
 
 
 
-```r
-# import roads
-plot_locations <- readOGR("data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp")
+```
 ## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
-# reproject to latitude / longitude so the data line up with leaflet basemaps
-plot_locations_latlon <- sjer_aoi_WGS84 <- spTransform(plot_locations,
-                                CRS("+proj=longlat +datum=WGS84"))
-plot_locations_df <- as.data.frame(plot_locations_latlon, region = "id")
-str(plot_locations_df)
 ## 'data.frame':	18 obs. of  8 variables:
 ##  $ Plot_ID  : chr  "SJER1068" "SJER112" "SJER116" "SJER117" ...
 ##  $ Point    : chr  "center" "center" "center" "center" ...
@@ -132,6 +120,10 @@ site_locations
 ```
 
 
+```r
+library(htmlwidgets)
+saveWidget(widget = site_locations, file = "site_locations.html", selfcontained = FALSE)
+```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/site_locations.html" frameborder="0" allowfullscreen></iframe>
 
@@ -155,6 +147,10 @@ site_locations_colors
 
 
 
+```r
+
+saveWidget(widget = site_locations_colors, file = "~/Documents/github/earthlab.github.io/example-leaflet-maps/site_locations_colors.html", selfcontained = FALSE)
+```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/site_locations_colors.html" frameborder="0" allowfullscreen></iframe>
 

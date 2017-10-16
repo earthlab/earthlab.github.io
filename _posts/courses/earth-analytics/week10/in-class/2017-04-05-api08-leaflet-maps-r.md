@@ -3,7 +3,7 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-10-02'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/leaflet-r/
@@ -80,6 +80,10 @@ map <- leaflet() %>%
 map
 ```
 
+```r
+
+saveWidget(widget=map, file="birthplace_r.html", selfcontained=FALSE)
+```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
 
@@ -102,18 +106,14 @@ base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
 full_url <- paste0(base_url, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
-## Error in getURL(URLencode(full_url)): could not find function "getURL"
 water_data_df <- fromJSON(water_data)
-## Error in fromJSON(water_data): object 'water_data' not found
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
-## Error in is.data.frame(x): object 'water_data_df' not found
 
 # turn columns to numeric and remove NA values
 water_data_df <- water_data_df %>%
   mutate_each_(funs(as.numeric), c( "amount", "location.latitude", "location.longitude")) %>%
   filter(!is.na(location.latitude))
-## Error in eval(lhs, parent, parent): object 'water_data_df' not found
 ```
 
 Once our data are cleaned up, we can create our leaflet map. Notice that we are
@@ -136,14 +136,14 @@ below provides an example of creating the same map without using pipes.
 
 ```r
 map <- leaflet(water_data_df)
-## Error in structure(list(options = options), leafletData = data): object 'water_data_df' not found
 map <- addTiles(map)
-## Error in getMapData(map): object 'map' not found
 map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
-## Error in getMapData(map): object 'map' not found
 ```
 
 
+```r
+saveWidget(widget=map, file="water_map1.html", selfcontained=FALSE)
+```
 </div>
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
@@ -174,6 +174,12 @@ leaflet(water_data_df) %>%
 ```
 
 
+```r
+map = leaflet(water_data_df) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
+saveWidget(widget=map, file="water_map2.html", selfcontained=FALSE)
+```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map2.html" frameborder="0" allowfullscreen></iframe>
 
@@ -195,7 +201,12 @@ a series of text strings and object values.
 # let's look at the output of our popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## Error in paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount): object 'water_data_df' not found
+## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"
+## [2] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 3.08"                   
+## [3] "SOUTH SAINT VRAIN NEAR WARD<br/>Discharge: 8.6"                       
+## [4] "MIDDLE SAINT VRAIN AT PEACEFUL VALLEY<br/>Discharge: 16.6"            
+## [5] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 13"                  
+## [6] "SAINT VRAIN CREEK AT LYONS, CO<br/>Discharge: 57.3"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our
@@ -219,6 +230,16 @@ leaflet(water_data_df) %>%
 ```
 
 
+```r
+url = "http://tinyurl.com/jeybtwj"
+water = makeIcon(url, url, 24, 24)
+
+map = leaflet(water_data_df) %>%
+  addProviderTiles("Stamen.Terrain") %>%
+  addMarkers(lng=~location.longitude, lat=~location.latitude, icon=water,
+             popup=~paste0(station_name, "<br/>Discharge: ", amount))
+saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
+```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
@@ -226,6 +247,28 @@ There is a lot more to learn about leaflet. Here, we've just scratched the surfa
 
 
 
+```r
+# water_data_df
+water_data_df$station_type <- factor(water_data_df$station_type)
+
+new <- c("red", "green","blue")[water_data_df$station_type]
+
+icons <- awesomeIcons(
+  icon = 'ios-close',
+  iconColor = 'black',
+  library = 'ion',
+  markerColor = new
+)
+
+unique_markers_map2 <- leaflet(water_data_df) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addAwesomeMarkers(lng=~location.longitude, lat=~location.latitude, icon=icons,
+                    popup=~station_name,
+                    label=~as.character(station_name))
+
+saveWidget(widget=unique_markers_map2, file="water_map_unique_markers1.html", selfcontained=FALSE)
+
+```
 
 Here we use `addAwesomeMarkers()` and adjust the color of each point on the map
 accordingly.

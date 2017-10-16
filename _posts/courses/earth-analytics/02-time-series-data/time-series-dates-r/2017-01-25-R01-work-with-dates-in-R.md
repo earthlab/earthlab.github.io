@@ -30,6 +30,8 @@ redirect_from:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 ## Get started with date formats in R
 
 In this tutorial, we will look at the date time format - which is important for
@@ -64,7 +66,22 @@ First let's revisit the `boulder_precip` data variable that we've been working w
 this module.
 
 
-```
+```r
+# load the ggplot2 library for plotting
+library(ggplot2)
+options(stringsAsFactors = FALSE)
+# download data from figshare
+# note that we already downloaded the data in the previous exercises so this line
+# is commented out. If you want to redownload the data, umcomment the line below.
+download.file("https://ndownloader.figshare.com/files/9282364",
+              "data/boulder-precip.csv",
+              method = "libcurl")
+
+# import data
+boulder_precip <- read.csv(file = "data/boulder-precip.csv")
+
+# view first few rows of the data
+head(boulder_precip)
 ##    ID    DATE PRECIP TEMP
 ## 1 756 8/21/13    0.1   55
 ## 2 757 8/26/13    0.1   25
@@ -75,6 +92,17 @@ this module.
 ```
 
 Next, plot the data using `ggplot()`.
+
+
+```r
+# plot the data using ggplot
+ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP)) +
+  geom_point() +
+  labs(x = "Date",
+    y = "Total Precipitation (Inches)",
+    title = "Precipitation Data",
+    subtitle = "Boulder, Colorado 2013")
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R01-work-with-dates-in-R/ggplot-plot-1.png" title="ggplot of precip data" alt="ggplot of precip data" width="90%" />
 
@@ -87,7 +115,8 @@ so many labels on the x axis.
 
 
 
-```
+```r
+str(boulder_precip)
 ## 'data.frame':	18 obs. of  4 variables:
 ##  $ ID    : int  756 757 758 759 760 761 762 763 764 765 ...
 ##  $ DATE  : chr  "8/21/13" "8/26/13" "8/27/13" "9/1/13" ...
@@ -130,8 +159,12 @@ means that `R`  is reading it as letters and numbers rather than dates that
 contain a value that is sequential.
 
 
-```
+```r
+# View data class for each column that we wish to plot
+class(boulder_precip$DATE)
 ## [1] "character"
+
+class(boulder_precip$PRECIP)
 ## [1] "numeric"
 ```
 
@@ -174,8 +207,17 @@ describe the format of a date string in `R`.
 
 
 
-```
+```r
+# convert date column to date class
+boulder_precip$DATE <- as.Date(boulder_precip$DATE,
+                        format = "%m/%d/%y")
+
+# view R class of data
+class(boulder_precip$DATE)
 ## [1] "Date"
+
+# view results
+head(boulder_precip$DATE)
 ## [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
 ## [6] "2013-09-10"
 ```
@@ -183,6 +225,18 @@ describe the format of a date string in `R`.
 Now that we have adjusted the date, let's plot again. Notice that it plots
 much quicker now that `R` recognizes `date` as a date class. `R` can
 aggregate ticks on the x-axis by year instead of trying to plot every day!
+
+
+```r
+# quickly plot the data and include a title using main = ""
+# use '\n' to force the string to wrap onto a new line
+
+ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP)) +
+      geom_bar(stat = "identity", fill = "purple") +
+      labs(title = "Total daily precipitation in Boulder, Colorado",
+           subtitle = "Fall 2013",
+           x = "Date", y = "Daily Precipitation (Inches)")
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R01-work-with-dates-in-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="90%" />
 

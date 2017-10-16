@@ -65,6 +65,7 @@ to import data into a `data.frame` which is the `R` equivalent of a spreadsheet.
 
 Let's start by looking at the code we used in the previous module. Here we:
 
+
 1. Downloaded some data from figshare using the `download.file()` function.
 2. Imported the data into `R` using the `read.csv()` function.
 3. Plotted the data using the `qplot()` function (which is a part of the `ggplot2` package).
@@ -72,6 +73,13 @@ Let's start by looking at the code we used in the previous module. Here we:
 
 
 ```
+## Warning in download.file(url = "https://ndownloader.figshare.com/files/
+## 7010681", : URL 'https://ndownloader.figshare.com/files/7010681': status
+## was 'Couldn't connect to server'
+## Error in download.file(url = "https://ndownloader.figshare.com/files/7010681", : cannot open URL 'https://ndownloader.figshare.com/files/7010681'
+## Warning in file(file, "rt"): cannot open file 'data/boulder-precip.csv': No
+## such file or directory
+## Error in file(file, "rt"): cannot open the connection
 ##     X       DATE PRECIP
 ## 1 756 2013-08-21    0.1
 ## 2 757 2013-08-26    0.1
@@ -108,6 +116,9 @@ what happens in `R`?
 
 
 ```
+## Warning in file(file, "rt"): cannot open file 'data/boulder-precip.csv': No
+## such file or directory
+## Error in file(file, "rt"): cannot open the connection
 ##      X       DATE PRECIP
 ## 1  756 2013-08-21    0.1
 ## 2  757 2013-08-26    0.1

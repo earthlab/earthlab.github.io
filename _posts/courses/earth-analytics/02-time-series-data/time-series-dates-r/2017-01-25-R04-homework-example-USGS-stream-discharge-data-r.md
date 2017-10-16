@@ -25,6 +25,8 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 In this data lesson, we explore and visualize stream discharge time series
 data collected by the United States Geological Survey (USGS). You will use everything
 that you learned in the previous lessons to create your plots. You will use these

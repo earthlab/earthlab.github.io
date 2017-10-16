@@ -45,6 +45,11 @@ As the name suggests a loop is a sequence of operations that are performed over
 and over in some order using a loop `variable`.
 
 
+```r
+for (variable in collection) {
+  do things with variable
+}
+```
 
 You can name the loop `variable` anything you like with a few restrictions:
 

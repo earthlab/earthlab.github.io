@@ -3,7 +3,7 @@ layout: single
 title: "How to Write a Function in R - Automate Your Science"
 excerpt: "Learn how to write a function in the R programming language."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-10-09'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-function-r-programming/
@@ -74,10 +74,7 @@ The conversion between the two is as follows :
 `temp_in_kelvin <- (temp_fahr - 32) * (5 / 9)) + 273.15`
 
 
-```r
-temp_fahr <- 5
-# calculate Kelvin
-((temp_fahr - 32) * (5 / 9)) + 273.15
+```
 ## [1] 258.15
 ```
 
@@ -85,16 +82,6 @@ Take that same math and create a function that takes the temperature as a
 numeric value as an input argument. This function returns temperature in Kelvin.
 
 
-```r
-
-fahr_to_kelvin <- function(fahr) {
-  # function that converts temperature in degrees Fahrenheit to kelvin
-  # input: fahr: numeric value representing temp in degrees farh
-  # output: kelvin: numeric converted temp in kelvin
-  kelvin <- ((fahr - 32) * (5 / 9)) + 273.15
-  return(kelvin)
-}
-```
 
 You define `fahr_to_kelvin` by assigning it to the output of `function`.
 The list of argument names are contained within parentheses - in this case `fahr`
@@ -121,12 +108,8 @@ Run your `fahr_to_kelvin()` function by providing a temperature value in degrees
 Fahrenheit:
 
 
-```r
-# freezing point of water
-fahr_to_kelvin(32)
+```
 ## [1] 273.15
-# boiling point of water
-fahr_to_kelvin(212)
 ## [1] 373.15
 ```
 
@@ -144,9 +127,7 @@ temperature value in kelvin. Write a function that performs this conversion call
 Run your function to see if it works.
 
 
-```r
-# absolute zero in Celsius
-kelvin_to_celsius(0)
+```
 ## [1] -273.15
 ```
 
@@ -186,15 +167,7 @@ Instead, you can compose the
 two functions you have already created:
 
 
-```r
-fahr_to_celsius <- function(fahr) {
-  kelvin <- fahr_to_kelvin(fahr)
-  celsius <- kelvin_to_celsius(kelvin)
-  celsius
-}
-
-# freezing point of water in Celsius
-fahr_to_celsius(32.0)
+```
 ## [1] 0
 ```
 
@@ -221,9 +194,7 @@ to perform this calculation in one line of code, by "chaining" functions
 together, like so:
 
 
-```r
-# freezing point of water in Celsius
-kelvin_to_celsius(fahr_to_kelvin(32.0))
+```
 ## [1] 0
 ```
 

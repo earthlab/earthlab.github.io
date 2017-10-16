@@ -24,6 +24,7 @@ topics:
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
+
 In this lesson, we will summarize time series data by various time units
 including month, day and year.
 

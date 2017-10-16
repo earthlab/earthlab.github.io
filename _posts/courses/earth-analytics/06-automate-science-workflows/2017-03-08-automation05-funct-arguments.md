@@ -3,7 +3,7 @@ layout: single
 title: "Working with Function Arguments"
 excerpt: "Learn how to work with function arguments in the R programming language.."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-10-09'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/function-arguments-r/
@@ -43,21 +43,6 @@ In the previous lessons, you have used many different functions and function
 arguments to customize your code.
 
 
-```
-## Loading required package: sp
-## 
-## Attaching package: 'raster'
-## The following object is masked from 'package:dplyr':
-## 
-##     select
-## rgdal: version: 1.2-7, (SVN revision 660)
-##  Geospatial Data Abstraction Library extensions to R successfully loaded
-##  Loaded GDAL runtime: GDAL 2.1.3, released 2017/20/01
-##  Path to GDAL shared files: /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rgdal/gdal
-##  Loaded PROJ.4 runtime: Rel. 4.9.3, 15 August 2016, [PJ_VERSION: 493]
-##  Path to PROJ.4 shared files: /Library/Frameworks/R.framework/Versions/3.4/Resources/library/rgdal/proj
-##  Linking to sp version: 1.2-4
-```
 
 For example, you used numerous arguments to plot your data including:
 
@@ -68,15 +53,6 @@ For example, you used numerous arguments to plot your data including:
 In the example below, you call each argument by name and then assign it a value
 based on the type of argument it is. For example the value for the `main = ` argument
 is a text string which is the title that you want `R` to add to your plot.
-
-
-```r
-
-# import and plot landsat
-boulder_precip <- raster("data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
-plot(boulder_precip,
-     main = "Digital Surface Model for Boulder, Colorado")
-```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/06-automate-science-workflows/2017-03-08-automation05-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="90%" />
 
@@ -129,8 +105,7 @@ default value, and six other arguments that do have a default value.
 Now you understand why the following code returns an error:
 
 
-```r
-precip_data <- read.csv(FALSE, "data/week_02/precipitation/precip-boulder-aug-oct-2013.csv")
+```
 ## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
 ```
 
@@ -148,27 +123,15 @@ You can pass the arguments to `read.csv` without naming them if they are in the
 order that R expects.
 
 
-```r
-precip_data <- read.csv("data/week_02/precipitation/precip-boulder-aug-oct-2013.csv",
-                FALSE)
-```
 
 However, the position of the arguments matter if they are not named.
 Does the code below return an error?
 
 
-```r
-# import csv
-precip_data <- read.csv(header = FALSE,
-                file = "data/week_02/precipitation/precip-boulder-aug-oct-2013.csv")
-
-```
 
 But this code below doesn't work. Make sense?
 
 
-```r
-dat <- read.csv(FALSE,
-                "data/week_02/precipitation/precip-boulder-aug-oct-2013.csv")
+```
 ## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
 ```
