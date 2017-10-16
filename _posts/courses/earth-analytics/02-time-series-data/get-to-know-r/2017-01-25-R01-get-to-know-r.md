@@ -238,6 +238,10 @@ help for this function using `?round`.
 ```
 
 
+```r
+# view help for the round function
+?round
+```
 
 We see that if we want a different number of digits, we can
 type `digits=2` or however many we want.
@@ -273,10 +277,16 @@ doing.
 If you need help with a specific function, let's say `barplot()`, you can type:
 
 
+```r
+?barplot
+```
 
 If you just need to remind yourself of the names of the arguments, you can use:
 
 
+```r
+args(lm)
+```
 
 <div class="notice--warning" markdown="1">
 

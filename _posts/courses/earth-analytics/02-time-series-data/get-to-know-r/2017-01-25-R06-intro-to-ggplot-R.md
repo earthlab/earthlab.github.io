@@ -55,16 +55,17 @@ Let's explore the code below to create a quick plot.
 
 
 ```
-##    ID    DATE PRECIP TEMP
-## 1 756 8/21/13    0.1   55
-## 2 757 8/26/13    0.1   25
-## 3 758 8/27/13    0.1   NA
-## 4 759  9/1/13    0.0 -999
-## 5 760  9/9/13    0.1   15
-## 6 761 9/10/13    1.0   25
-##  [1] "8/21/13"  "8/26/13"  "8/27/13"  "9/1/13"   "9/9/13"   "9/10/13" 
-##  [7] "9/11/13"  "9/12/13"  "9/13/13"  "9/15/13"  "9/16/13"  "9/22/13" 
-## [13] "9/23/13"  "9/27/13"  "9/28/13"  "10/1/13"  "10/4/13"  "10/11/13"
+##     X       DATE PRECIP
+## 1 756 2013-08-21    0.1
+## 2 757 2013-08-26    0.1
+## 3 758 2013-08-27    0.1
+## 4 759 2013-09-01    0.0
+## 5 760 2013-09-09    0.1
+## 6 761 2013-09-10    1.0
+##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
+##  [6] "2013-09-10" "2013-09-11" "2013-09-12" "2013-09-13" "2013-09-15"
+## [11] "2013-09-16" "2013-09-22" "2013-09-23" "2013-09-27" "2013-09-28"
+## [16] "2013-10-01" "2013-10-04" "2013-10-11"
 ##  [1] 0.1 0.1 0.1 0.0 0.1 1.0 2.3 9.8 1.9 1.4 0.4 0.1 0.3 0.3 0.1 0.0 0.9
 ## [18] 0.1
 ```
@@ -84,12 +85,19 @@ To build a `ggplot()` we need to:
 - Bind the plot to a specific data frame using the `data` argument
 
 
+```r
+ggplot(data = boulder_precip)
+
+```
 
 
 - Define aesthetics (`aes`), by selecting the variables to be plotted and the variables to define the presentation
      such as plotting size, shape color, etc.,
 
 
+```r
+ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP))
+```
 
 - Add `geoms` -- graphical representation of the data in the plot (points,
      lines, bars). To add a geom to the plot use `+` operator:
@@ -102,6 +110,14 @@ to modify existing `ggplot` objects. This means you can easily set up plot
 plot can also be generated with code like this:
 
 
+```r
+# Create the plot object (nothing will render on your screen)
+precip_plot <-  ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP))
+
+# Draw the plot
+precip_plot + geom_point()
+
+```
 
 
 

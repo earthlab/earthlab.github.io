@@ -231,6 +231,11 @@ Don't forget to add x and y axis labels to your plot!
 Use the `labs()` function to add a title, x and y label (and subtitle if you'd like) to your plot.
 
 
+```r
+labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
+     x = "Date",
+     y = "Precipitation (Inches)")
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-1.png" title="plot with titles and labels" alt="plot with titles and labels" width="90%" />
 
@@ -272,6 +277,10 @@ automatically with `dplyr`.
 
 
 
+```r
+boulder_daily_precip <- boulder_daily_precip %>%
+  na.omit()
+```
 
 
 Pipes are nice to use when coding because:
@@ -283,6 +292,11 @@ We can do all of the same things that we did above with one pipe. Let's see
 how:
 
 
+```r
+# format date field without pipes
+boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
+                                     format = "%m/%d/%y")
+```
 
 With pipes we can use the mutate function to either create a new column or
 modify the format or contents of an existing column.

@@ -46,6 +46,12 @@ directory with it.
 To begin, be sure that `bookdown` is already installed on your computer.
 
 
+```r
+
+# make sure bookdown is installed
+install.packages("bookdown")
+
+```
 
 ## Introducing bookdown
 

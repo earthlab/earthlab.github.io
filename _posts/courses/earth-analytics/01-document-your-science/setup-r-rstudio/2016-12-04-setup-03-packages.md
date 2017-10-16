@@ -53,6 +53,19 @@ console within `Rstudio`, use the code below to install packages individually.
 
 
 
+```r
+# install knitr
+install.packages("knitr")
+
+# install the rmarkdown package
+install.packages("rmarkdown")
+
+# install ggplot for plotting
+install.packages("ggplot2")
+
+# install dplyr for data manipulation
+install.packages("dplyr")
+```
 
 <i class="fa fa-star"></i> **Data tip** You can install as many packages as you want in one string of code as follows
 `install.packages(c("name-one", "name-two"))`
@@ -118,3 +131,8 @@ we do this:
 
 
 
+```r
+# install several packages at once
+install.packages(c("rmarkdown", "ggplot2", "dplyr"))
+
+```

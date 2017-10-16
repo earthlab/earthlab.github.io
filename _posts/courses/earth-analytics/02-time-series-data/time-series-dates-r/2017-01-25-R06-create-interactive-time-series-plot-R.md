@@ -105,6 +105,12 @@ ggplotly(annual_precip)
 
 
 
+```r
+library(htmlwidgets)
+plotly_annual_precip <- ggplotly(annual_precip)
+# save widget
+saveWidget(widget=plotly_annual_precip, file="plotly_precip.html", selfcontained=FALSE)
+```
 
 
 <iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/example-leaflet-maps/plotly/plotly_precip.html" frameborder="0" allowfullscreen></iframe>
@@ -142,6 +148,10 @@ interact_time
 
 
 
+```r
+# save widget
+saveWidget(widget=interact_time, file="basic_time_interactive.html", selfcontained=FALSE)
+```
 
 <iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/example-leaflet-maps/dygraph/basic_time_interactive.html" frameborder="0" allowfullscreen></iframe>
 
@@ -154,5 +164,9 @@ interact_time2
 ```
 
 
+```r
+# save widget
+saveWidget(widget=interact_time2, file="time_interactive2.html", selfcontained=FALSE)
+```
 
 <iframe title="Basic Map" width="100%" height="600" src="{{ site.url }}/example-leaflet-maps/dygraph/time_interactive2.html" frameborder="0" allowfullscreen></iframe>

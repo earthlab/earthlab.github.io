@@ -112,6 +112,12 @@ Finally, let's see what your main working directory looks like. Use the  `getwd(
 function to find out what your current working directory is in `R`.
 
 
+```r
+
+# view working directory
+getwd()
+
+```
 
 
 ```r
@@ -161,6 +167,16 @@ to do it - particularly if you get into more advanced scripting in `R`. We use t
 
 
 
+```r
+
+# set working directory - MAC File Structure - backslashes
+setwd("/Users/lewa8222/Documents/earth-analytics")
+
+# a windows machine uses front slashes. There is normally a
+# drive letter like C:\
+setwd("C:\Users\lewa8222\Documents\earth-analytics")
+
+```
 
 ## All done!
 Great work! You are now ready to start working with `RStudio`!
