@@ -3,7 +3,7 @@ layout: single
 title: "Use tidyverse pipes to subset time series data in R"
 excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-09-11'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/
@@ -259,7 +259,7 @@ ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
       labs(title = "Precipitation - Boulder, Colorado")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
 
 
 ### NA values and warnings
@@ -293,7 +293,7 @@ ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
       labs(title = "Precipitation - Boulder, Colorado")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly2-1.png" title="precip plot w fixed dates and no na values" alt="precip plot w fixed dates and no na values" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-precip-hourly2-1.png" title="precip plot w fixed dates and no na values" alt="precip plot w fixed dates and no na values" width="90%" />
 
 Don't forget to add x and y axis labels to your plot!
 Use the `labs()` function to add a title, x and y label (and subtitle if you'd like) to your plot.
@@ -314,7 +314,7 @@ ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
            y = "Precipitation (Inches)")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-1.png" title="plot with titles and labels" alt="plot with titles and labels" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-with-title-1.png" title="plot with titles and labels" alt="plot with titles and labels" width="90%" />
 
 You can add a ggplot theme to adjust the look of your plot quickly too. Below
 we use `theme_bw()`. Below we also adjust the base font size to make the labels
@@ -332,7 +332,7 @@ ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
            y = "Precipitation (Inches)") + theme_bw(base_size = 11)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-and-theme-1.png" title="plot with titles and labels black and white" alt="plot with titles and labels black and white" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-with-title-and-theme-1.png" title="plot with titles and labels black and white" alt="plot with titles and labels black and white" width="90%" />
 
 
 <i fa fa-star></i>**Data Tip:** For a more thorough review of date/time classes, see the NEON tutorial
@@ -351,7 +351,7 @@ Take a close look at the plot:
 
 </div>
 
-### Introduction to the pipe %<%
+### Introduction to the pipe %>%
 
 Above we used pipes to manipulate our data. Specifically we removed `NA` values
 in a pipe with `na.omit()`.
@@ -436,7 +436,7 @@ ggplot(aes(DATE, DAILY_PRECIP)) +
            y = "Precipitation (Inches)") + theme_bw()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-pipe-1.png" title="data plotted with a pipe" alt="data plotted with a pipe" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-with-pipe-1.png" title="data plotted with a pipe" alt="data plotted with a pipe" width="90%" />
 
 
 ## Subset the data
@@ -475,7 +475,7 @@ ggplot(data = precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
   theme_bw()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="90%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -493,4 +493,4 @@ HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments wor
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="90%" />

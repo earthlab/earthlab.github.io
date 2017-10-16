@@ -1,12 +1,12 @@
 ---
 layout: single
 title: "How multispectral imagery is drawn on computers - Additive Color Models"
-excerpt: "In this lesson we will cover the basics of using Landsat 7 and 8 in R. We will learn how to import landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally we will plot the data using various 3 band combinations including RGB and color-infrared."
+excerpt: "In this lesson you will learn the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-10-11'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
-permalink: /courses/earth-analytics/spectral-remote-sensing-landsat/addititive-color-models-how-multispectral-imagery-is-drawn-on-computers/
+permalink: /courses/earth-analytics/multispectral-remote-sensing-data/addititive-color-models-how-multispectral-imagery-is-drawn-on-computers/
 nav-title: 'Additive Color Models'
 week: 7
 course: "earth-analytics"
@@ -38,10 +38,10 @@ After completing this tutorial, you will be able to:
 * Describe the difference between additive and subtractive light models.
 * Explain how RGB images are rendered in a computer monitor.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You don't need anything for this lesson. Please watch the videos below. They
-review what we reviewed in class with the additive light demo.
+review what you learned in class with the additive light demo.
 
 </div>
 
@@ -55,16 +55,13 @@ light models and demonstrates subtractive models with paints.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Er7CM_RNFZ4" frameborder="0" allowfullscreen></iframe>
 
 
-THe ~3 minute video below has no sound, but look closely as they zoom in on the pixels of
-an old school computer monitor. You will notice each  pixel is composed of three
+The ~3 minute video below has no sound, but look closely as they zoom in on the pixels of
+an old school computer monitor. You will notice that each  pixel is composed of three
 types of light red, green and blue.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HzY4Q5fKxmU" frameborder="0" allowfullscreen></iframe>
 
 <div class="notice--info" markdown="1">
-
-## Additional resources
-
 
 
 </div>

@@ -9,7 +9,7 @@ permalink: /courses/earth-analytics/document-your-science/google-earth-time-seri
 nav-title: 'Google Earth time series'
 module-nav-title: 'Use data for science'
 dateCreated: 2016-12-06
-modified: '2017-08-30'
+modified: '2017-10-16'
 module-title: 'Understand Disturbance With Data - Flooding and Erosion'
 module-description: 'This module uses time series data to explore the impacts of a flood. Learn how to use Google Earth imagery, NOAA precipitation data and
 USGS stream flow data to explore the 2013 Colorado floods.'
@@ -23,7 +23,7 @@ author_profile: false
 comments: true
 order: 1
 topics:
-  remote-sensing: ['spectral-remote-sensing']
+  remote-sensing: ['multispectral-remote-sensing']
   earth-science: ['flood-erosion']
   time-series:
 ---
