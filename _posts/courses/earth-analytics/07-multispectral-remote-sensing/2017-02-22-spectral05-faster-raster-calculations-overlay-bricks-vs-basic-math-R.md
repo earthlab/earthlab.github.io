@@ -3,11 +3,7 @@ layout: single
 title: "The Fastest Way to Process Rasters in R"
 excerpt: "."
 authors: ['Leah Wasser']
-<<<<<<< HEAD
 modified: '2017-10-16'
-=======
-modified: '2017-10-13'
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/process-rasters-faster-in-R/
@@ -26,7 +22,6 @@ lang-lib:
   r: []
 redirect_from:
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -116,33 +111,18 @@ library(microbenchmark)
 # is it faster?
 microbenchmark((lidar_dsm - lidar_dsm), times = 10)
 ## Unit: milliseconds
-<<<<<<< HEAD
-##                     expr      min       lq     mean   median      uq
-##  (lidar_dsm - lidar_dsm) 969.3645 1004.799 1176.493 1100.125 1177.52
+##                     expr      min       lq     mean   median       uq
+##  (lidar_dsm - lidar_dsm) 883.7487 889.9814 905.6783 895.1847 914.5336
 ##       max neval
-##  2045.088    10
+##  974.9937    10
 
 microbenchmark(overlay(lidar_dtm, lidar_dsm,
                      fun = diff_rasters), times = 10)
 ## Unit: seconds
-##                                               expr      min       lq
-##  overlay(lidar_dtm, lidar_dsm, fun = diff_rasters) 1.752081 1.854199
-##      mean   median       uq      max neval
-##  2.315343 2.396342 2.703976 2.971181    10
-=======
-##                     expr      min       lq     mean   median       uq
-##  (lidar_dsm - lidar_dsm) 586.6788 626.6211 634.1002 630.3315 634.3593
-##       max neval
-##  708.5057    10
-
-microbenchmark(overlay(lidar_dtm, lidar_dsm,
-                     fun = diff_rasters), times = 10)
-## Unit: milliseconds
-##                                               expr      min       lq
-##  overlay(lidar_dtm, lidar_dsm, fun = diff_rasters) 875.1747 880.9694
-##      mean   median       uq      max neval
-##  912.3684 889.5246 922.4531 1024.926    10
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
+##                                               expr     min     lq     mean
+##  overlay(lidar_dtm, lidar_dsm, fun = diff_rasters) 1.48185 1.5117 1.513501
+##   median       uq      max neval
+##  1.51491 1.523185 1.526226    10
 ```
 
 The overlay function is actually not faster when you are performing basic
@@ -165,11 +145,7 @@ plot(naip_ndvi_ov,
      main = "NAIP NDVI calculated using the overlay function")
 ```
 
-<<<<<<< HEAD
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
-=======
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral05-faster-raster-calculations-overlay-bricks-vs-basic-math-R/unnamed-chunk-3-1.png" title=" " alt=" " width="90%" />
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 
 Don't believe overlay is faster? Let's test it using a benchmark.
@@ -186,13 +162,8 @@ microbenchmark((naip_multispectral_st[[4]] - naip_multispectral_st[[1]]) / (naip
 ## Unit: seconds
 ##                                                                                                                      expr
 ##  (naip_multispectral_st[[4]] - naip_multispectral_st[[1]])/(naip_multispectral_st[[4]] +      naip_multispectral_st[[1]])
-<<<<<<< HEAD
-##       min       lq     mean  median       uq      max neval
-##  2.319132 2.343443 2.792462 2.44435 3.335952 3.519432     5
-=======
-##       min       lq     mean   median      uq      max neval
-##  1.539887 1.610209 1.617421 1.632245 1.64767 1.657093     5
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
+##       min       lq     mean   median       uq      max neval
+##  2.305228 2.326175 2.341525 2.337984 2.346207 2.392033     5
 
 
 # is overlay faster?
@@ -202,13 +173,8 @@ microbenchmark(overlay(naip_multispectral_st[[1]],
 ## Unit: seconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_st[[1]], naip_multispectral_st[[4]],      fun = normalized_diff)
-<<<<<<< HEAD
 ##       min       lq     mean   median       uq      max neval
-##  1.589334 1.602794 1.674545 1.681973 1.708959 1.789667     5
-=======
-##       min      lq     mean   median       uq      max neval
-##  1.017689 1.05975 1.078894 1.095966 1.106077 1.114986     5
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
+##  1.643123 1.650793 1.662204 1.653741 1.668549 1.694814     5
 
 # what if you make your stack a brick - is it faster?
 naip_multispectral_br <- brick(naip_multispectral_st)
@@ -221,13 +187,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-<<<<<<< HEAD
-##       min       lq    mean   median       uq      max neval
-##  712.4077 898.3845 896.107 910.6299 922.6388 1036.474     5
-=======
 ##       min       lq     mean   median       uq      max neval
-##  618.7955 658.7078 744.6838 676.6389 807.7829 961.4938     5
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
+##  744.7897 770.9108 852.8548 887.5027 909.5742 951.4964     5
 ```
 
 Notice that the results above suggest that the `overlay()` function is in fact

@@ -3,20 +3,12 @@ layout: single
 title: "Introduction to Multispectral Imagery -  Remote Sensing Data in R "
 excerpt: "Learn the key components of working with multispectral imagery. Learn the difference between active and passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Leah Wasser']
-<<<<<<< HEAD
 modified: '2017-10-16'
-=======
-modified: '2017-10-13'
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/introduction-multispectral-imagery-r/
 nav-title: 'Intro Spectral Data'
-<<<<<<< HEAD
 module-title: 'Multispectral imagery in R - Fire & Remote Sensing Data'
-=======
-module-title: 'Understanding Fire Using Spectral Remote Sensing Data'
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 module-description: 'In this module, you will learn how to use multispectral imagery, a type of remote sensing data, to better understand changes in the landscape and how to calculate NDVI using various multispectral datasets You will also review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. Additionally, we will cover raster stacks in R, plotting multi-band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
 module-nav-title: 'Fire / Spectral Remote Sensing Data in R'
 module-type: 'class'
@@ -35,6 +27,7 @@ redirect_from:
    - "/course-materials/earth-analytics/week-7/intro-spectral-data-r/"
    - "/courses/earth-analytics/spectral-remote-sensing-landsat/intro-spectral-data-r/"
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -111,11 +104,7 @@ For example the Landsat 8 satellite has a 16 day repeat cycle for the entire glo
 This means that you can find a new image for an area, every 16 days. It takes a
 lot of time and financial resources to collect airborne data. Thus data are often
 only available for smaller geographic areas. Also, you may not find that the data are
-<<<<<<< HEAD
 available for the time periods that you need. For example, in the case of NAIP, you may
-=======
-available for the time periods that you need. For example, in the case of NAIP, you may 
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 only have a new dataset every 2-4 years.
 
 
@@ -203,17 +192,10 @@ Next week you will work with MODIS data.
 
 ### About NAIP Multispectral Imagery
 
-<<<<<<< HEAD
 NAIP imagery is available in the United States and typically has three bands -
 red, green and blue. However, sometimes, there is a 4th near-infrared band available.
 NAIP imagery typically is 1m spatial resolution, meaning that each pixel represents
 1 meter on the Earth's surface. NAIP data is often collected using a camera mounted on
-=======
-NAIP imagery is available in the United States and typically has three bands - 
-red, green and blue. However, sometimes, there is a 4th near-infrared band available. 
-NAIP imagery typically is 1m spatial resolution, meaning that each pixel represents 
-1 meter on the Earth's surface. NAIP data is often collected using a camera mounted on 
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 an airplane and is collected for a given geographic area every few years.
 
 ### Landsat 8 Imagery
