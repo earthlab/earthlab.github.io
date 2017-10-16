@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/missing-data-in-r-na/
 nav-title: 'Clean missing data'
 dateCreated: 2016-12-13
-modified: '2017-09-27'
+modified: '2017-10-16'
 week: 2
 sidebar:
   nav:
@@ -125,7 +125,7 @@ ggplot(data = boulder_precip, aes(x = DATE, y = TEMP)) +
 ## Warning: Removed 2 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/quick-plot-1.png" title="quick plot of temperature" alt="quick plot of temperature" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/quick-plot-1.png" title="quick plot of temperature" alt="quick plot of temperature" width="90%" />
 
 Looking at our data, it appears as if we have some extremely large negative values
 hovering around -1000. However why did our mean return NA?
@@ -228,7 +228,7 @@ ggplot(data = boulder_precip_na, aes(x = DATE, y = TEMP)) +
 ## Warning: Removed 6 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/plot-2nodata-1.png" title="Plot of temperature with missing data accounted for" alt="Plot of temperature with missing data accounted for" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/plot-2nodata-1.png" title="Plot of temperature with missing data accounted for" alt="Plot of temperature with missing data accounted for" width="90%" />
 
 <div class="notice--warning" markdown="1">
 

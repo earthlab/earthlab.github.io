@@ -134,7 +134,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_093318_89035_32052.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_135504_89035_05757.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -146,7 +146,7 @@ plot(naip_ndvi,
      axes = FALSE, box = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
 
 ### View Distribution of NDVI Values
 
@@ -221,7 +221,7 @@ plot(band_diff,
      axes = FALSE, box = FALSE, legend = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
 
 
 
@@ -239,7 +239,7 @@ plot(naip_ndvi_ov,
      main = "NAIP NDVI calculated using the overlay function")
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="90%" />
 
 
 Don't believe overlay is faster? Let's test it using a benchmark.
@@ -256,8 +256,8 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ## Unit: seconds
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
-##       min       lq     mean   median       uq      max neval
-##  1.210862 1.380895 1.400292 1.403071 1.462327 1.490379    10
+##      min       lq     mean   median       uq      max neval
+##  1.28256 1.591151 1.706984 1.652449 1.816424 2.448976    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -266,8 +266,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##       min      lq     mean   median      uq     max neval
-##  637.5597 693.676 784.0073 790.4431 885.555 893.132    10
+##       min       lq     mean   median       uq      max neval
+##  704.2054 735.9393 789.3426 742.8338 843.4563 964.7362    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact

@@ -8,7 +8,7 @@ class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/about-open-science-and-why-open-science-is-important/
 nav-title: 'Why open science'
 dateCreated: 2016-12-12
-modified: '2017-09-13'
+modified: '2017-10-16'
 module-title: 'Link data, processing and results using R Markdown and knitr'
 module-nav-title: 'R Markdown intro'
 module-description: 'This module reviews how to use R Markdown

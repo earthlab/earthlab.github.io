@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
 excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser']
-modified: '2017-09-15'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -31,7 +31,7 @@ heading names that may not be meaningful, and other issues with the data.
 This lesson shows you what the plots should look like but does not
 provide each and every step that you need to process the data.
 You have the skills that you need from the other lessons
-covered this week! 
+covered this week!
 
 <div class='notice--success' markdown="1">
 
@@ -150,7 +150,7 @@ data values you have in your dataset.
 hist(precip_boulder$HPCP, main ="Are there NA values?")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/no-data-values-hist-1.png" title="histogram of data" alt="histogram of data" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/no-data-values-hist-1.png" title="histogram of data" alt="histogram of data" width="90%" />
 
 ```r
 
@@ -169,7 +169,7 @@ hist(precip_boulder$HPCP,
      col = "darkorchid4")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/plot-hist-1.png" title="histogram without NA values" alt="histogram without NA values" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/plot-hist-1.png" title="histogram without NA values" alt="histogram without NA values" width="90%" />
 
 
 Next, let's see how many NA values are in our data.
@@ -217,14 +217,14 @@ and labels doesn't need to be exactly like the one below!
 
 Note the code is hidden as you should know how to create a ggplot plot now!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/plot-precip-hourly-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/plot-precip-hourly-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
 
 ## Differences in the data
 
 Any ideas what might be causing the notable difference in the plotted data through
 time? If you can answer this you can get a bonus point for the week!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/plot-precip-hourly-round-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/plot-precip-hourly-round-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
 
 It is difficult to interpret this plot which spans so many years at such a fine
 temporal scale. For our research project, we only need to explore 30 years of data.
@@ -256,7 +256,7 @@ head(daily_sum_precip$day)
 ## [6] "1948-08-04"
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/plot-daily-1.png" title="Daily precip plot" alt="Daily precip plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/plot-daily-1.png" title="Daily precip plot" alt="Daily precip plot" width="90%" />
 
 Next we `summarize()` the precipitation column (total_precip) - grouped by day.
 What this means is that we ADD UP all of the values for each day to get a grand
@@ -269,7 +269,7 @@ total amount of precipitation each day.
 daily_sum_precip <- precip_boulder %>%
   mutate(day = as.Date(DATE, format="%Y-%m-%d")) %>%
   group_by(day) %>% # group by the day column
-  summarise(total_precip=sum(HPCP)) %>%  # calculate the SUM of all precipitation that occured on each day
+  summarise(total_precip=sum(HPCP)) %>%  # calculate the SUM of all precipitation that occurred on each day
   na.omit()
 
 # how large is the resulting data frame?
@@ -296,7 +296,7 @@ names(daily_sum_precip)
 
 Now plot the daily data.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/daily-prec-plot-1.png" title="Daily precipitation for boulder" alt="Daily precipitation for boulder" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/daily-prec-plot-1.png" title="Daily precipitation for boulder" alt="Daily precipitation for boulder" width="90%" />
 
 
 Finally, plot a temporal subset of the data from Jan-October 2013. We learned how to
@@ -314,7 +314,7 @@ of just a date class, you need to use `scale_x_datetime()`.
 If we wanted to, we could subset this data set using the same code that we used
 previously to subset! An example of the subsetted plot is below.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/subset-data-1.png" title="final precip plot daily sum" alt="final precip plot daily sum" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R05-grad-summarize-and-filter-precip-data-R/subset-data-1.png" title="final precip plot daily sum" alt="final precip plot daily sum" width="90%" />
 
 <div class="notice--info" markdown="1">
 

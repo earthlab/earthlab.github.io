@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: courses/earth-analytics/document-your-science/file-organization-101/
 dateCreated: 2016-12-12
-modified: '2017-08-30'
+modified: '2017-10-16'
 course: 'earth-analytics'
 author_profile: false
 comments: true

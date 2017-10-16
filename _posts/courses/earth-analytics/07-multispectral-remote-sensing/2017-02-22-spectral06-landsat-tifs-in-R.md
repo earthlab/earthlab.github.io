@@ -284,7 +284,7 @@ plot(landsat_band2,
      col = gray(0:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-landsat-band2-1.png" title="Landsat band 2 plot" alt="Landsat band 2 plot" width="90%" />
 
 However, that is not a very efficient approach.
 It's more efficiently to open all of the layers together as a stack. Then you can
@@ -319,7 +319,7 @@ plot(landsat_csf_br,
      col = gray(20:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-stack-1.png" title="plot individual landsat bands" alt="plot individual landsat bands" width="90%" />
 
 
 ```r
@@ -338,7 +338,7 @@ plot(landsat_csf_br,
      col = gray(20:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/clean-upnames-1.png" title="plot individual landsat bands good names" alt="plot individual landsat bands good names" width="90%" />
 
 ## Plot RGB Composite Band Images with Landsat in R
 
@@ -357,7 +357,7 @@ plotRGB(landsat_csf_br,
 box(col = "white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-rgb-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 
 Now we've created a red, green blue color composite image. Remember this is what
 your eye would see. What happens if you plot the near infrared band instead of red?
@@ -375,7 +375,7 @@ plotRGB(landsat_csf_br,
 box(col = "white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral06-landsat-tifs-in-R/plot-cir-1.png" title="plot rgb composite" alt="plot rgb composite" width="90%" />
 
 
 <div class="notice--warning" markdown="1">

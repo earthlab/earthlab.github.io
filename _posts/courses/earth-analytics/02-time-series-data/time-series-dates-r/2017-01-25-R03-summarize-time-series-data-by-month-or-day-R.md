@@ -3,7 +3,7 @@ layout: single
 title: "Summarize time series data by month or year using tidyverse pipes in R"
 excerpt: "Learn how to summarize time series data by day, month or year with Tidyverse pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-09-11'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/
@@ -173,7 +173,7 @@ ggplot(aes(x = DATE, y = DAILY_PRECIP)) +
            x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-precip-hourly-pipes-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-precip-hourly-pipes-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
 
 The code below created the same plot as above.
 
@@ -189,7 +189,7 @@ ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
            x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
 
 ### Create facets
 
@@ -218,7 +218,7 @@ ggplot(aes(x = DATE, y = DAILY_PRECIP)) +
      scale_x_date(date_breaks = "5 years", date_labels = "%m-%Y")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/facet-plot-1.png" title="create facets using facet_wrap" alt="create facets using facet_wrap" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/facet-plot-1.png" title="create facets using facet_wrap" alt="create facets using facet_wrap" width="90%" />
 
 Our plot looks ok but there is a problem with the x axis. Each date is unique
 to that particular `YEAR`. We need to plot a variable on the x axis that is the same
@@ -241,7 +241,7 @@ ggplot(aes(x = JULIAN, y = DAILY_PRECIP)) +
            x = "Day of Year") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/facet-plot2-1.png" title="create facets using facet_wrap" alt="create facets using facet_wrap" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/facet-plot2-1.png" title="create facets using facet_wrap" alt="create facets using facet_wrap" width="90%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -268,7 +268,7 @@ boulder_daily_precip %>%
            x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/subset-data-1.png" title=" " alt=" " width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/subset-data-1.png" title="plot of chunk subset-data" alt="plot of chunk subset-data" width="90%" />
 
 ## Summarize data by month
 
@@ -350,7 +350,7 @@ boulder_daily_precip_month %>%
            x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-1.png" title="monthly summary of precipitation plot" alt="monthly summary of precipitation plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-1.png" title="monthly summary of precipitation plot" alt="monthly summary of precipitation plot" width="90%" />
 
 The plot above is not quite what we want. We want to be able to group by both
 month and year. To do this we send the `group_by()` function both columns.
@@ -384,7 +384,7 @@ boulder_daily_precip_month %>%
            x = "Month") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-year-1.png" title="monthly summary of precipitation plot grouped by month and year" alt="monthly summary of precipitation plot grouped by month and year" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-year-1.png" title="monthly summary of precipitation plot grouped by month and year" alt="monthly summary of precipitation plot grouped by month and year" width="90%" />
 
 ### Clean up x and y axes
 
@@ -452,4 +452,4 @@ boulder_daily_precip_month %>%
   scale_x_date(date_labels = "%b")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-year2-1.png" title="monthly summary of precipitation plot grouped by month and year" alt="monthly summary of precipitation plot grouped by month and year" width="90%" />
+<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/plot-monthly-values-year2-1.png" title="monthly summary of precipitation plot grouped by month and year" alt="monthly summary of precipitation plot grouped by month and year" width="90%" />
