@@ -3,7 +3,11 @@ layout: single
 title: "How multispectral imagery is drawn on computers - Additive Color Models"
 excerpt: "In this lesson you will learn the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
+<<<<<<< HEAD
 modified: '2017-10-16'
+=======
+modified: '2017-10-13'
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/addititive-color-models-how-multispectral-imagery-is-drawn-on-computers/

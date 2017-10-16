@@ -3,7 +3,11 @@ layout: single
 title: "Plot grid of spatial plots in R. "
 excerpt: "In this lesson we cover using par() or parameter settings in R to plot several raster RGB plots in R in a grid. "
 authors: ['Leah Wasser']
+<<<<<<< HEAD
 modified: '2017-10-16'
+=======
+modified: '2017-10-11'
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/grid-of-plots-report/
@@ -45,6 +49,7 @@ data for week 6/7 of the course.
 
 
 
+<<<<<<< HEAD
 ```r
 # load libraries
 library(raster)
@@ -62,6 +67,11 @@ all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC2017012
 
 all_landsat_bands_st <- stack(all_landsat_bands)
 ```
+=======
+
+
+
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 ### Creating a grid of plots
 
@@ -75,6 +85,7 @@ Below, we have created a 2 by 2 grid of plots using `mfrow=c(2,2)` within
 the `par()` function. In this example we have 2 rows and 2 columns.
 
 
+<<<<<<< HEAD
 
 ```r
 # adjust the parameters so the axes colors are white. Also turn off tick marks.
@@ -117,6 +128,9 @@ title("My Title", outer=TRUE)
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 Above, we added an overall title to our grid of plots using the `title()` function.
 However the title is chopped of because there is not enough of a margin at the
@@ -126,6 +140,7 @@ sets the outside (o) margin (ma).
 `oma=` argument in our `par()` function. Let's try it.
 
 
+<<<<<<< HEAD
 
 ```r
 # adjust the parameters so the axes colors are white. Also turn off tick marks.
@@ -168,19 +183,29 @@ title("My Title", outer=TRUE)
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 When you are done with plotting in a grid space, be sure to reset your plot space
 using `dev.off()`.
 
 
 
+<<<<<<< HEAD
 ```r
 dev.off()
 ```
+=======
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 Your homework this week should look something like this:
 
 
 
 
+<<<<<<< HEAD
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb

@@ -3,7 +3,11 @@ layout: single
 title: "Use tidyverse pipes to subset time series data in R"
 excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
+<<<<<<< HEAD
 modified: '2017-10-16'
+=======
+modified: '2017-10-13'
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/

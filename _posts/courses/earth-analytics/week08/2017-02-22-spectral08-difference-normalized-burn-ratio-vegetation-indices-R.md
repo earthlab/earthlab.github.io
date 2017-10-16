@@ -3,7 +3,11 @@ layout: single
 title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
 excerpt: "In this lesson we review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically we will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
+<<<<<<< HEAD
 modified: '2017-10-16'
+=======
+modified: '2017-10-11'
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['multispectral-normalized-burn-ratio']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -187,7 +191,11 @@ should we use to calculate NBR using MODIS?
 
 
 
+<<<<<<< HEAD
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/2017-02-22-spectral08-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
@@ -216,6 +224,7 @@ Your classified map should look something like:
 
 
 
+<<<<<<< HEAD
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 
@@ -229,6 +238,13 @@ barplot(nbr_classified,
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/2017-02-22-spectral08-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
+
+
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/2017-02-22-spectral08-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 
 <div class="notice--info" markdown="1">

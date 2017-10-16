@@ -3,7 +3,11 @@ layout: single
 title: "How to remove borders and add legends to spatial plots in R. "
 excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
+<<<<<<< HEAD
 modified: '2017-10-16'
+=======
+modified: '2017-10-11'
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/refine-plots-report/
@@ -52,6 +56,7 @@ in turn more professional. First, let's import some data.
 
 
 
+<<<<<<< HEAD
 ```r
 # import landsat data
 all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
@@ -60,11 +65,14 @@ all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC2017012
 # create spatial stack
 all_landsat_bands_st <- stack(all_landsat_bands)
 ```
+=======
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 ### Titles using plotRGB()
 
 
 You can try to add a title but it won't plot
+<<<<<<< HEAD
 
 ```r
 plotRGB(all_landsat_bands_st,
@@ -74,6 +82,9 @@ plotRGB(all_landsat_bands_st,
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 
 If we add the `axes=T` argument to our plot, our title plots but we also get
@@ -81,6 +92,7 @@ the x and y axis in black which doesn't look nice. We don't need those. As a wor
 around we can set the x and y axis labels to
 plot using "white" (`col.axis="white"`). Also we turn off the tick marks using `tck=0`.
 
+<<<<<<< HEAD
 
 ```r
 # adjust the parameters so the axes colors are white. Also turn off tick marks.
@@ -94,10 +106,14 @@ plotRGB(all_landsat_bands_st,
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb2-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb2-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 The final step is to turn off box which leaves that annoying line on the left
 hand side and bottom of the plot.
 
+<<<<<<< HEAD
 
 ```r
 # adjust the parameters so the axes colors are white. Also turn off tick marks.
@@ -113,6 +129,9 @@ box(col = "white") # turn all of the lines to white
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb3-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb3-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 This looks nice, but now the plot itself is too tall. There is extra white space
 above and below the plot that we don't need. This is because the `dev` space
@@ -125,6 +144,7 @@ The units are in inches.
 
 My code chunk looks like this: `{r plot-rgb4, fig.cap="Adjust figure width and height.", fig.width=7, fig.height=6}`
 
+<<<<<<< HEAD
 
 ```r
 # adjust the parameters so the axes colors are white. Also turn off tick marks.
@@ -140,6 +160,9 @@ box(col = "white") # turn all of the lines to white
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb4-1.png" title="Adjust figure width and height." alt="Adjust figure width and height." width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/plot-rgb4-1.png" title="Adjust figure width and height." alt="Adjust figure width and height." width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 Notice that now my plot has less white space above and below the image. This is because
 it's no longer plotting using a square aspect ratio - we've adjusted that! You can
@@ -157,10 +180,13 @@ become a global setting until you clear your plot space! To clear the plot dev
 space programmatically, use `dev.off()`.
 
 
+<<<<<<< HEAD
 ```r
 # reset dev (space where plots are rendered in RStudio)
 dev.off()
 ```
+=======
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 ## Adjusting legends
 
@@ -171,6 +197,7 @@ It's not pretty. For one, we don't need the x and y axes on this plot.
 
 
 
+<<<<<<< HEAD
 
 ```r
 # plot ndvi with legend
@@ -193,11 +220,19 @@ plot(ndvi_classified,
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-data2-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/plot-data1-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
+First let's get rid of the unnecessary axes and turn off the legend.
+We can remote the axes & box that surrounds our image using: `axes=F` and `box=F`.
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/plot-data2-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 Next, we turn off the legend and add our own legend. However, the legend isn't
 exactly where we want it to be here. It's above the plot and we'd like it to be
 to the right of the plot.
 
+<<<<<<< HEAD
 
 ```r
 # plot ndvi with legend
@@ -212,6 +247,9 @@ legend("topright",
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-data3-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/plot-data3-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 We can force the legend to plot outside of our axes using the parameter
 `xpd=T`. We can locate the legend in the upper right hand corner OUTSIDE
@@ -225,6 +263,7 @@ Here I set the y max value to me the **furthest north** of my object extent.
 `y = ndvi_classified@extent@ymax`
 
 
+<<<<<<< HEAD
 
 ```r
 
@@ -262,6 +301,13 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/fix-plot-legend22-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
+
+Now, another problem with our legend. *The order of our colors is all wrong:* Grey should represent "no vegetation" and green should represent health vegetation. We can use `rev()` on our list of colors to reverse the order of colors drawn on the legend.
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend22-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 On to the pesky white space on either side of the plot. There are several
 ways to handle this. One is by specifying margins for out plot.
@@ -277,6 +323,7 @@ This makes room for our legend.
 Below, we adjusted the top margin to `2` and the right margin to `5`.
 This makes space for our legend but also makes a bit of space for our plot title.
 
+<<<<<<< HEAD
 
 ```r
 # set a margin for our figure
@@ -303,12 +350,21 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 dev.off()
 ## null device 
 ##           1
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend3-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
+
+
+```
+## RStudioGD 
+##         2
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 ```
 
 I can do better than that however. That box around the legend is annoying. Let's
 remove it using the legend argument: `bty = "n"`. Let's also make the legend
 fonts a bit smaller using the argument `cex = .9`.
 
+<<<<<<< HEAD
 
 ```r
 # set a margin for our figure
@@ -335,6 +391,13 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 dev.off()
 ## null device 
 ##           1
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend33-1.png" title="plot with legend in the upper right. " alt="plot with legend in the upper right. " width="90%" />
+
+```
+## RStudioGD 
+##         2
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 ```
 
 If things are still not looking right, we can adjust the size of our output
@@ -351,6 +414,7 @@ figure size a bit to get it just right.
 
 HINT: use `dev.size()`` to figure out the size of your plot dev space in RStudio.
 
+<<<<<<< HEAD
 
 ```r
 # set a margin for our figure
@@ -372,10 +436,14 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/fix-plot-legend4-1.png" title="plot with legend in the upper right." alt="plot with legend in the upper right." width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/fix-plot-legend4-1.png" title="plot with legend in the upper right." alt="plot with legend in the upper right." width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 While we are at it, let's add a border using a crop extent
 shapefile that was used to clip these data
 
+<<<<<<< HEAD
 
 ```r
 # import crop extent
@@ -403,14 +471,20 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/import-shape-1.png" title="add crop box" alt="add crop box" width="90%" />
+=======
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto02-refine-plots-R/import-shape-1.png" title="add crop box" alt="add crop box" width="90%" />
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 Again - always reset dev when you've been adjusting `par()` values for
 plots!
 
 
+<<<<<<< HEAD
 ```r
 dev.off()
 ```
+=======
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 That looks better, doesn't it? Leave comments below if you find other
 tricks to make your plot look better!
