@@ -190,26 +190,26 @@ format report using `knitr`.
 
 ## Homework plots
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-solution-plot-1-1.png" title="homework plot one" alt="homework plot one" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-solution-plot-1-1.png" title="homework plot one" alt="homework plot one" width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot-2-1.png" title="homework plot 2" alt="homework plot 2" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot-2-1.png" title="homework plot 2" alt="homework plot 2" width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot3-1.png" title="homework plot 3" alt="homework plot 3" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot3-1.png" title="homework plot 3" alt="homework plot 3" width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot4-1.png" title="homework plot 4" alt="homework plot 4" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/homework-plot4-1.png" title="homework plot 4" alt="homework plot 4" width="90%" />
 
 
 ## Graduate plot
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/graduate-plot1-1.png" title="Grad only homework plot 1" alt="Grad only homework plot 1" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/graduate-plot1-1.png" title="Grad only homework plot 1" alt="Grad only homework plot 1" width="90%" />
 
 ## Bonus plots
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/bonus-plot1-1.png" title="homework plot 4" alt="homework plot 4" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/bonus-plot1-1.png" title="homework plot 4" alt="homework plot 4" width="90%" />
 
 
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/bonus-plot-2-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-02-time-series-data/bonus-plot-2-1.png" title="hourly precipitation" alt="hourly precipitation" width="90%" />
 
 
 ## Report grade rubric
