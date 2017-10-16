@@ -81,18 +81,6 @@ working directory. Finally, set `stringsAsFactors` to `FALSE` globally using
 `options(stringsAsFactors = FALSE)`.
 
 
-```r
-# set your working directory to the earth-analytics directory
-# setwd("working-dir-path-here")
-
-# load packages
-library(ggplot2)
-library(lubridate)
-library(dplyr)
-
-# set strings as factors to false
-options(stringsAsFactors = FALSE)
-```
 
 ## Import precipitation time series
 
@@ -105,18 +93,7 @@ station 050843 in Boulder, CO. The data cover the time span between 1 January
 To begin, use `read.csv()` to import the `.csv` file.
 
 
-```r
-# download the data
-# download.file(url = "https://ndownloader.figshare.com/files/7283285",
-#              destfile = "data/week_02/805325-precip-dailysum_2003-2013.csv")
-
-# import the data
-boulder_daily_precip <- read.csv("data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv",
-         header = TRUE)
-
-
-# view first 6 lines of the data
-head(boulder_daily_precip)
+```
 ##     DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
 ## 1 1/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
 ## 2 1/5/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
@@ -131,9 +108,6 @@ head(boulder_daily_precip)
 ## 4 -105.2811 2003     33
 ## 5 -105.2811 2003     34
 ## 6 -105.2811 2003     36
-
-# view structure of data
-str(boulder_daily_precip)
 ## 'data.frame':	792 obs. of  9 variables:
 ##  $ DATE        : chr  "1/1/03" "1/5/03" "2/1/03" "2/2/03" ...
 ##  $ DAILY_PRECIP: num  0 1000 0 1000 0.4 ...
@@ -144,12 +118,8 @@ str(boulder_daily_precip)
 ##  $ LONGITUDE   : num  -105 -105 -105 -105 -105 ...
 ##  $ YEAR        : int  2003 2003 2003 2003 2003 2003 2003 2003 2003 2003 ...
 ##  $ JULIAN      : int  1 5 32 33 34 36 37 38 41 49 ...
-
-# are there any unusual / No data values?
-summary(boulder_daily_precip$DAILY_PRECIP)
 ##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
 ##    0.000    0.100    0.100    5.297    0.300  999.990
-max(boulder_daily_precip$DAILY_PRECIP)
 ## [1] 999.99
 ```
 
@@ -208,12 +178,6 @@ To begin, import the data. Be sure to use the `na.strings` argument to remove `N
 Also our data have a header (the first row represents column names) so set `header = TRUE`
 
 
-```r
-# import data
-boulder_daily_precip <- read.csv("data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv",
-         header = TRUE,
-         na.strings = 999.99)
-```
 
 
 Next, take care of the date field. In this case we have month/day/year. We can
@@ -230,11 +194,6 @@ Also take note of the format of our date. In this case, each date element is
 separated by a `/`.
 
 
-```r
-# format date field
-boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
-                                     format = "%m/%d/%y")
-```
 
 Finally, we can plot the data using `ggplot()`. Notice that when we plot, we first
 populate the `data` and `aes` (aesthetics).
@@ -245,16 +204,7 @@ populate the `data` and `aes` (aesthetics).
 Finally `geom_point()` represents the geometry that you want to plot. In this case
 you are creating a scatter plot (using points).
 
-
-```r
-
-# plot the data using ggplot2
-ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
-      geom_point() +
-      labs(title = "Precipitation - Boulder, Colorado")
-```
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly-1.png" title="precip plot w fixed dates" alt="precip plot w fixed dates" width="90%" />
 
 
 ### NA values and warnings
@@ -272,44 +222,17 @@ Let's remove the missing data value rows using a `dplyr` pipe and the `na.omit()
 We will talk about pipes in just a minute!
 
 
-```r
-boulder_daily_precip <- boulder_daily_precip %>%
-  na.omit()
-```
 
 Now we can plot the data without a warning!
 
-
-```r
-
-# plot the data using ggplot2
-ggplot(data=boulder_daily_precip, aes(x = DATE, y = DAILY_PRECIP)) +
-      geom_point(color = "darkorchid4") +
-      labs(title = "Precipitation - Boulder, Colorado")
-```
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly2-1.png" title="precip plot w fixed dates and no na values" alt="precip plot w fixed dates and no na values" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-precip-hourly2-1.png" title="precip plot w fixed dates and no na values" alt="precip plot w fixed dates and no na values" width="90%" />
 
 Don't forget to add x and y axis labels to your plot!
 Use the `labs()` function to add a title, x and y label (and subtitle if you'd like) to your plot.
 
 
-```r
-labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
-     x = "Date",
-     y = "Precipitation (Inches)")
-```
 
-
-```r
-ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
-      geom_point(color = "darkorchid4") +
-      labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
-           x = "Date",
-           y = "Precipitation (Inches)")
-```
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-1.png" title="plot with titles and labels" alt="plot with titles and labels" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-1.png" title="plot with titles and labels" alt="plot with titles and labels" width="90%" />
 
 You can add a ggplot theme to adjust the look of your plot quickly too. Below
 we use `theme_bw()`. Below we also adjust the base font size to make the labels
@@ -318,16 +241,7 @@ a bit larger `base_size = 11`.
 <i class="fa fa-star" aria-hidden="true"></i>**Data Tip:** <a href="http://ggplot2.tidyverse.org/reference/ggtheme.html" target="_blank">Learn more about built in ggplot themes</a>
 {: .notice--success }
 
-
-```r
-ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
-      geom_point(color = "darkorchid4") +
-      labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
-           x = "Date",
-           y = "Precipitation (Inches)") + theme_bw(base_size = 11)
-```
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-and-theme-1.png" title="plot with titles and labels black and white" alt="plot with titles and labels black and white" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-and-theme-1.png" title="plot with titles and labels black and white" alt="plot with titles and labels black and white" width="90%" />
 
 
 <i fa fa-star></i>**Data Tip:** For a more thorough review of date/time classes, see the NEON tutorial
@@ -358,10 +272,6 @@ automatically with `dplyr`.
 
 
 
-```r
-boulder_daily_precip <- boulder_daily_precip %>%
-  na.omit()
-```
 
 
 Pipes are nice to use when coding because:
@@ -373,29 +283,15 @@ We can do all of the same things that we did above with one pipe. Let's see
 how:
 
 
-```r
-# format date field without pipes
-boulder_daily_precip$DATE <- as.Date(boulder_daily_precip$DATE,
-                                     format = "%m/%d/%y")
-```
 
 With pipes we can use the mutate function to either create a new column or
 modify the format or contents of an existing column.
 
 
-```r
-boulder_daily_precip <- boulder_daily_precip %>%
-  mutate(DATE = as.Date(DATE, format = "%m/%d/%y"))
-```
 
 We can then add the `na.omit()` function to the above code
 
 
-```r
-boulder_daily_precip <- boulder_daily_precip %>%
-  mutate(DATE = as.Date(DATE, format = "%m/%d/%y")) %>%
-  na.omit()
-```
 
 Notice that each time you assign the pipe to a variable, you are overwriting
 that variable.
@@ -417,21 +313,7 @@ to assign the pipe to a variable. Thus you leave out the
 
 assignment.
 
-
-```r
-
-boulder_daily_precip %>%
-  mutate(DATE = as.Date(boulder_daily_precip$DATE, format = "%m/%d/%y")) %>%
-  na.omit() %>%
-ggplot(aes(DATE, DAILY_PRECIP)) +
-      geom_point(color = "darkorchid4") +
-      labs(title = "Hourly Precipitation - Boulder Station\n 2003-2013",
-           subtitle = "plotted using pipes",
-           x = "Date",
-           y = "Precipitation (Inches)") + theme_bw()
-```
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-pipe-1.png" title="data plotted with a pipe" alt="data plotted with a pipe" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-pipe-1.png" title="data plotted with a pipe" alt="data plotted with a pipe" width="90%" />
 
 
 ## Subset the data
@@ -442,11 +324,6 @@ to do this and pipes!
 
 
 
-```r
-# subset 2 months around flood
-precip_boulder_AugOct <- boulder_daily_precip %>%
-                        filter(DATE >= as.Date('2013-08-15') & DATE <= as.Date('2013-10-15'))
-```
 
 In the code above, we use the pipe to send the `boulder_daily_precip` data through
 a filter step. In that filter step, we filter out only the rows within the
@@ -455,22 +332,12 @@ it as the first argument to the function on its right, we don’t need to explic
 
 
 
-```r
-# check the first & last dates
-min(precip_boulder_AugOct$DATE)
+```
 ## [1] "2013-08-21"
-max(precip_boulder_AugOct$DATE)
 ## [1] "2013-10-11"
-
-# create new plot
-ggplot(data = precip_boulder_AugOct, aes(DATE,DAILY_PRECIP)) +
-  geom_bar(stat = "identity", fill = "darkorchid4") +
-  xlab("Date") + ylab("Precipitation (inches)") +
-  ggtitle("Daily Total Precipitation Aug - Oct 2013 for Boulder Creek") +
-  theme_bw()
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/check-subset-1.png" title="precip plot subset" alt="precip plot subset" width="90%" />
 
 
 <div class="notice--warning" markdown="1">
@@ -488,4 +355,4 @@ HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments wor
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/challenge-1.png" title="precip plot subset 2" alt="precip plot subset 2" width="90%" />

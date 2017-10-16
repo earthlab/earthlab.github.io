@@ -87,7 +87,7 @@ annual_precip <- ggplot(discharge_time, aes(x = datetime, y = disValue)) +
 annual_precip
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R06-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R06-create-interactive-time-series-plot-R/annual-precip-1.png" title="annual precipation patterns" alt="annual precipation patterns" width="90%" />
 
 ## Time series - plotly
 

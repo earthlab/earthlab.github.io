@@ -71,24 +71,7 @@ Let's start by looking at the code we used in the previous module. Here we:
 
 
 
-```r
-
-# load the ggplot2 library for plotting
-library(ggplot2)
-
-# turn off factors
-options(stringsAsFactors = FALSE)
-
-# download data from figshare
-# note that we are downloaded the data into your
-download.file(url = "https://ndownloader.figshare.com/files/7010681",
-              destfile = "data/boulder-precip.csv")
-
-# import data
-boulder_precip <- read.csv(file="data/boulder-precip.csv")
-
-# view first few rows of the data
-head(boulder_precip)
+```
 ##     X       DATE PRECIP
 ## 1 756 2013-08-21    0.1
 ## 2 757 2013-08-26    0.1
@@ -96,20 +79,13 @@ head(boulder_precip)
 ## 4 759 2013-09-01    0.0
 ## 5 760 2013-09-09    0.1
 ## 6 761 2013-09-10    1.0
-
-# what is the format of the variable in R
-str(boulder_precip)
 ## 'data.frame':	18 obs. of  3 variables:
 ##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
 ##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
-
-# q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder_precip$DATE,
-      y=boulder_precip$PRECIP)
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R01-get-to-know-r/open-file-1.png" title="precip data plot" alt="precip data plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R01-get-to-know-r/open-file-1.png" title="precip data plot" alt="precip data plot" width="90%" />
 
 The code above uses syntax that is unique the `R` programming language.
 Syntax is the characters or commands that `R` understands and associated
@@ -131,12 +107,7 @@ to the variable name `boulder_precip`. After you run the line of code below,
 what happens in `R`?
 
 
-```r
-# import data
-boulder_precip <- read.csv(file="data/boulder-precip.csv")
-
-# view new object
-boulder_precip
+```
 ##      X       DATE PRECIP
 ## 1  756 2013-08-21    0.1
 ## 2  757 2013-08-26    0.1
@@ -199,9 +170,7 @@ that may otherwise require typing in several lines of code.
 For example:
 
 
-```r
-# take the square root of a value
-sqrt(16)
+```
 ## [1] 4
 ```
 
@@ -252,9 +221,7 @@ variable `b`. This function is very simple, because it takes just one argument.
 Let's run a function that can take multiple arguments: `round()`.
 
 
-```r
-# round a number
-round(3.14159)
+```
 ## [1] 3
 ```
 
@@ -265,25 +232,18 @@ information about the `round` function.  We can use `args(round)` or look at the
 help for this function using `?round`.
 
 
-```r
-# view arguments for the round function
-args(round)
+```
 ## function (x, digits = 0) 
 ## NULL
 ```
 
 
-```r
-# view help for the round function
-?round
-```
 
 We see that if we want a different number of digits, we can
 type `digits=2` or however many we want.
 
 
-```r
-round(3.14159, digits=2)
+```
 ## [1] 3.14
 ```
 
@@ -291,16 +251,14 @@ If you provide the arguments in the exact same order as they are defined you
 don't have to name them:
 
 
-```r
-round(3.14159, 2)
+```
 ## [1] 3.14
 ```
 
 And if you do name the arguments, you can switch their order:
 
 
-```r
-round(digits=2, x=3.14159)
+```
 ## [1] 3.14
 ```
 
@@ -315,16 +273,10 @@ doing.
 If you need help with a specific function, let's say `barplot()`, you can type:
 
 
-```r
-?barplot
-```
 
 If you just need to remind yourself of the names of the arguments, you can use:
 
 
-```r
-args(lm)
-```
 
 <div class="notice--warning" markdown="1">
 

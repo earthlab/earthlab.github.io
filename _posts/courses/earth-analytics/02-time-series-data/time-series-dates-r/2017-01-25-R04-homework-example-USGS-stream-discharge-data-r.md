@@ -158,7 +158,7 @@ out what format elements you'll need to include to get the date right.
 
 Your plot should look something like the one below:
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-flood-data-1.png" title="plot of discharge vs time" alt="plot of discharge vs time" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -175,7 +175,7 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="90%" />
 <div class="notice--info" markdown="1">
 
 ## Additional resources

@@ -81,44 +81,18 @@ impacted Colorado. See below.
 
 Some terrain data.
 
-
-```r
-lidar_dsm <- raster(x = "data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
-
-# plot raster data
-plot(lidar_dsm,
-     main = "Lidar Digital Surface Model (DSM)\n Study area map")
-```
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/plot-raster-1.png" title="Study area map" alt="Study area map" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/plot-raster-1.png" title="Study area map" alt="Study area map" width="90%" />
 
 
-```r
-# download.file(url = "https://ndownloader.figshare.com/files/7270970",
-#              "data/week_01/805325-precip_daily_2003-2013.csv")
 
-# import precip data into R data.frame
-precip_boulder <- read.csv("data/week_01/805325-precip_daily_2003-2013.csv",
-                           header = TRUE)
-
-
-# convert to date/time and retain as a new field
-precip_boulder$DateTime <- as.POSIXct(precip_boulder$DATE,
-                                  format = "%Y%m%d %H:%M")
-
-# assign NoData values to NA
-precip_boulder$HPCP[precip_boulder$HPCP == 999.99] <- NA
-
-```
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/daily-summaries-1.png" title="plot 1" alt="plot 1" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/daily-summaries-1.png" title="plot 1" alt="plot 1" width="90%" />
 
 ## Fall 2013 precipitation
 
 Let's check out the data for a few months.
 
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/subset-data-1.png" title="plot 2 precip" alt="plot 2 precip" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/subset-data-1.png" title="plot 2 precip" alt="plot 2 precip" width="90%" />
 
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/all-boulder-station-data-1.png" title="plot 3 discharge" alt="plot 3 discharge" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/all-boulder-station-data-1.png" title="plot 3 discharge" alt="plot 3 discharge" width="90%" />

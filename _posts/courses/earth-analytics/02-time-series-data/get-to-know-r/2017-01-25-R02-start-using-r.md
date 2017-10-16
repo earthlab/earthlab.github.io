@@ -51,12 +51,8 @@ You can get output from `R` by typing a mathematical equation into the console -
 for example, if you type in `3 + 5`, `R` will calculate the output value:
 
 
-```r
-# add 3 + 5
-3 + 5
+```
 ## [1] 8
-# divide 12 by 7
-12/7
 ## [1] 1.714286
 ```
 
@@ -65,12 +61,7 @@ _objects_. To create an object, we need to give it a name followed by the
 assignment operator `<-`, and the value we want to give it:
 
 
-```r
-# assign weight_kg to the value of 55
-weight_kg <- 55
-
-# view object value
-weight_kg
+```
 ## [1] 55
 ```
 
@@ -99,11 +90,8 @@ When assigning a value to an object, `R` does not print anything. You can force
 it to print the value by using parentheses or by typing the name:
 
 
-```r
-weight_kg <- 55    # doesn't print anything
-(weight_kg <- 55)  # but putting parenthesis around the call prints the value of `weight_kg`
+```
 ## [1] 55
-weight_kg          # and so does typing the name of the object
 ## [1] 55
 ```
 
@@ -112,17 +100,14 @@ instance, we may want to convert this weight in pounds (weight in pounds is 2.2
 times the weight in kg):
 
 
-```r
-2.2 * weight_kg
+```
 ## [1] 121
 ```
 
 We can also change a variable's value by assigning it a new one:
 
 
-```r
-weight_kg <- 57.5
-2.2 * weight_kg
+```
 ## [1] 126.5
 ```
 
@@ -131,16 +116,10 @@ other variables.  For example, let's store the animal's weight in pounds in a ne
 variable, `weight_lb`:
 
 
-```r
-weight_lb <- 2.2 * weight_kg
-```
 
 and then change `weight_kg` to 100.
 
 
-```r
-weight_kg <- 100
-```
 
 What do you think is the current content of the object `weight_lb`? 126.5 or 200?
 
@@ -151,11 +130,4 @@ What do you think is the current content of the object `weight_lb`? 126.5 or 200
 What are the values of each object defined in EACH LINE of code below?
 
 
-```r
-mass <- 47.5            # mass?
-age  <- 122             # age?
-mass <- mass * 2.0      # mass?
-age  <- age - 20        # age?
-mass_index <- mass/age  # mass_index?
-```
 </div>
