@@ -3,7 +3,11 @@ layout: single
 title: "How to Source a Function in R"
 excerpt: "Learn how to source a function in R. Learn how to import functions that are stored in a separate file into a script or R Markdown file."
 authors: ['Leah Wasser']
+<<<<<<< HEAD
+modified: '2017-10-16'
+=======
 modified: '2017-10-13'
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['automate-spatial-data-analysis-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/source-function-in-R/

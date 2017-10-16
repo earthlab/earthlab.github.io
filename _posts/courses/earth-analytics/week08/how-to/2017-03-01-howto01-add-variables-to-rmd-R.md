@@ -3,7 +3,11 @@ layout: single
 title: "Add variables to an RMD report R."
 excerpt: " "
 authors: ['Leah Wasser']
+<<<<<<< HEAD
+modified: '2017-10-16'
+=======
 modified: '2017-10-11'
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/add-variables-to-rmarkdown-report/
@@ -59,6 +63,13 @@ output. How do we do that?
 
 
 
+<<<<<<< HEAD
+```r
+
+total_area <- (800 * 7) / 2
+```
+=======
+>>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 We can add any variable that we want to a report using the syntax
 

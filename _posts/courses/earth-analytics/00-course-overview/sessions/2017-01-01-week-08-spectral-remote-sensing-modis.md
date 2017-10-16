@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "MODIS data in R - fire remote sensing"
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/
-modified: '2017-10-11'
+modified: '2017-10-16'
 week-landing: 8
 week: 8
 sidebar:
