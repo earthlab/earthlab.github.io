@@ -3,11 +3,7 @@ layout: single
 title: "Adjust plot extent in R."
 excerpt: "In this lesson we will review how to adjust the extent of a spatial plot in R using the ext() or extent argument and the extent of another layer. "
 authors: ['Leah Wasser']
-<<<<<<< HEAD
 modified: '2017-10-16'
-=======
-modified: '2017-10-11'
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/adjust-plot-extent-R/
@@ -64,7 +60,6 @@ data for week 6 of the course.
 
 
 
-<<<<<<< HEAD
 
 ```r
 all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
@@ -86,9 +81,6 @@ box(col = "white")
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-landsat-1.png" title="landsat plot" alt="landsat plot" width="90%" />
-=======
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-landsat-1.png" title="landsat plot" alt="landsat plot" width="90%" />
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 ## Adjust plot extent
 
@@ -100,18 +92,13 @@ If our object is called fire_boundary_utm, then we'd code: `ext=extent(fire_boun
 
 
 
-<<<<<<< HEAD
 ```r
 # import fire overlay boundary
 fire_boundary <- readOGR("data/week_07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
-=======
-```
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 ## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week_07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp", layer: "co_cold_springs_20160711_2200_dd83"
 ## with 1 features
 ## It has 21 fields
-<<<<<<< HEAD
 # reproject the data
 fire_boundary_utm <- spTransform(fire_boundary, CRS=crs(all_landsat_bands_st))
 
@@ -130,8 +117,3 @@ plot(fire_boundary_utm, add = TRUE)
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-with-boundary-1.png" title="Plot with the fire boundary" alt="Plot with the fire boundary" width="90%" />
-=======
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-with-boundary-1.png" title="Plot with the fire boundary" alt="Plot with the fire boundary" width="90%" />
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb

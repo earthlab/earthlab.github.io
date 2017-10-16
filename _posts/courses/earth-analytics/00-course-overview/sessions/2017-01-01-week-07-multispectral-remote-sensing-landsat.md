@@ -3,11 +3,7 @@ layout: single
 category: courses
 title: "Landsat Data in R - Fire Ecology & Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/
-<<<<<<< HEAD
 modified: '2017-10-16'
-=======
-modified: '2017-10-13'
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 week-landing: 7
 week: 7
 sidebar:
@@ -20,6 +16,7 @@ redirect_from:
   - "/courses/earth-analytics/week-7/"
   - "/courses/earth-analytics/spectral-remote-sensing-landsat/"
 ---
+
 
 {% include toc title="This Week" icon="file-text" %}
 
@@ -177,11 +174,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 Please note if you skip / do not attempt to complete a segment of the assignment
 (2 or more plots, the report, answering questions, etc.), you will not be able to
-<<<<<<< HEAD
 achieve a grade higher than a C on the assignment.
-=======
-achieve a grade higher than a C on the assignment. 
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 #### R Markdown Report Structure & Code: 15%
 
@@ -192,11 +185,7 @@ achieve a grade higher than a C on the assignment.
 | Code chunk contains code and runs  |  |
 | All required `R` packages are listed at the top of the document in a code chunk | |
 | Lines of code are broken up with commas to make the code more readable  |  |
-<<<<<<< HEAD
 | Code chunk arguments are used to hide warnings and other unnecessary output |  |
-=======
-| Code chunk arguments are used to hide warnings |  |
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 | Code chunk arguments are used to hide code and just show output |  |
 | Report only contains code pertaining to the assignment. |  |
 |===
@@ -284,11 +273,7 @@ achieve a grade higher than a C on the assignment.
 
 
 
-<<<<<<< HEAD
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" /><img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/load-packages-2.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
-=======
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" /><img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-2.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 
 

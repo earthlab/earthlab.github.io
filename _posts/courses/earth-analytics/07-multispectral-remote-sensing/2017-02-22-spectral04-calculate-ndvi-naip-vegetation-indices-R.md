@@ -3,11 +3,7 @@ layout: single
 title: "Calculate a Remote Sensing Derived Vegetation Index in R"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, you will review the basic principles associated with calculating a vegetation index from raster formatted, landsat remote sensing data in R. You will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser']
-<<<<<<< HEAD
 modified: '2017-10-16'
-=======
-modified: '2017-10-13'
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -30,6 +26,7 @@ redirect_from:
    - "/course-materials/earth-analytics/week-6/vegetation-indices-NDVI-in-R/"
    - "/courses/earth-analytics/week-6/vegetation-indices-NDVI-in-R/"
 ---
+
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -137,11 +134,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-<<<<<<< HEAD
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_085109_89035_23345.grd 
-=======
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp3QiC56/raster/r_tmp_2017-10-13_093705_1478_52762.grd 
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_093318_89035_32052.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -153,11 +146,7 @@ plot(naip_ndvi,
      axes = FALSE, box = FALSE)
 ```
 
-<<<<<<< HEAD
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
-=======
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 ### View Distribution of NDVI Values
 
@@ -167,19 +156,11 @@ plot(naip_ndvi,
 # view distribution of NDVI values
 hist(naip_ndvi,
   main = "NDVI: Distribution of pixels\n NAIP 2013 Cold Springs fire site",
-<<<<<<< HEAD
   col = "springgreen",
   x = "NDVI Index Value")
 ## Error in hist.default(naip_ndvi, main = "NDVI: Distribution of pixels\n NAIP 2013 Cold Springs fire site", : 'x' must be numeric
 ```
 
-=======
-  col = "springgreen")
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="90%" />
-
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 ## Export Raster
 When you are done, you may want to export your rasters so you can use them in
 QGIS or ArcGIS or share them with your colleagues. To do this you use the `writeRaster()`
@@ -237,20 +218,10 @@ band_diff <- overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],
 
 plot(band_diff,
      main = "Example difference calculation on imagery - \n this is not a useful analysis, just an example!",
-<<<<<<< HEAD
      axes = FALSE, box = FALSE, legend = FALSE)
 ```
 
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
-=======
-     axes = FALSE, box = FALSE, Legend = FALSE)
-## Warning in plot.window(...): "Legend" is not a graphical parameter
-## Warning in plot.xy(xy, type, ...): "Legend" is not a graphical parameter
-## Warning in title(...): "Legend" is not a graphical parameter
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title=" " alt=" " width="90%" />
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 
 
@@ -268,11 +239,7 @@ plot(naip_ndvi_ov,
      main = "NAIP NDVI calculated using the overlay function")
 ```
 
-<<<<<<< HEAD
 <img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="90%" />
-=======
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-4-1.png" title=" " alt=" " width="90%" />
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
 
 
 Don't believe overlay is faster? Let's test it using a benchmark.
@@ -290,11 +257,7 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
 ##       min       lq     mean   median       uq      max neval
-<<<<<<< HEAD
-##  1.149823 1.338658 1.395471 1.404759 1.518442 1.619323    10
-=======
-##  1.117328 1.147655 1.219802 1.180372 1.205872 1.485094    10
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
+##  1.210862 1.380895 1.400292 1.403071 1.462327 1.490379    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -303,13 +266,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-<<<<<<< HEAD
-##       min       lq     mean  median       uq      max neval
-##  621.5776 827.4602 817.6931 849.797 866.0358 891.9004    10
-=======
-##       min       lq     mean   median      uq      max neval
-##  506.6086 609.7672 617.9879 622.8941 632.231 688.2722    10
->>>>>>> 6372458388f8a575c7eda33957800a42f30d34cb
+##       min      lq     mean   median      uq     max neval
+##  637.5597 693.676 784.0073 790.4431 885.555 893.132    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact
