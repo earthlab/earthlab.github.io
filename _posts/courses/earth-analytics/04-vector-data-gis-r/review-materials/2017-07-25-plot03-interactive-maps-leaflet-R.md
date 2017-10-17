@@ -22,6 +22,7 @@ topics:
   reproducible-science-and-programming:
 ---
 
+
 <!--# remove module-type: 'class' so it doesn't render live -->
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -46,6 +47,15 @@ You will need a computer with internet access to complete this lesson and the da
 First, let's import all of the needed libraries.
 
 
+```r
+# load libraries
+library(dplyr)
+library(rgdal)
+library(ggplot2)
+library(leaflet)
+# set factors to false
+options(stringsAsFactors = FALSE)
+```
 
 
 ## Interactive Maps with Leaflet
@@ -68,6 +78,13 @@ Leaflet:
 The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package! Below, you can see some code that creates a basic web-map.
 
 
+```r
+map <- leaflet() %>%
+  addTiles() %>%  # use the default base map which is OpenStreetMap tiles
+  addMarkers(lng=174.768, lat=-36.852,
+             popup="The birthplace of R")
+map
+```
 
 
 
@@ -79,11 +96,18 @@ Next, import and explore the data.
 
 
 
-```
+```r
+# import roads
+plot_locations <- readOGR("data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp")
 ## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
+# reproject to latitude / longitude so the data line up with leaflet basemaps
+plot_locations_latlon <- sjer_aoi_WGS84 <- spTransform(plot_locations,
+                                CRS("+proj=longlat +datum=WGS84"))
+plot_locations_df <- as.data.frame(plot_locations_latlon, region = "id")
+str(plot_locations_df)
 ## 'data.frame':	18 obs. of  8 variables:
 ##  $ Plot_ID  : chr  "SJER1068" "SJER112" "SJER116" "SJER117" ...
 ##  $ Point    : chr  "center" "center" "center" "center" ...
@@ -98,6 +122,14 @@ Next, import and explore the data.
 Plot the data and use the plotID field as a popup.
 
 
+```r
+# plot points on top of a leaflet basemap
+site_locations <- leaflet(plot_locations_df) %>%
+  addTiles() %>%
+  addCircleMarkers(lng = ~coords.x1, lat = ~coords.x2, popup = ~Plot_ID)
+
+site_locations
+```
 
 
 
@@ -107,6 +139,19 @@ Plot the data and use the plotID field as a popup.
 Add unique colors according to plot type.
 
 
+```r
+# define colors - you can find colors that look better than these!
+pal <- colorFactor(c("navy", "darkgreen", "darkorchid4"), domain = unique(sjer_aoi_WGS84$plot_type))
+
+# plot points on top of a leaflet basemap
+site_locations_colors <- leaflet(plot_locations_df) %>%
+  addTiles() %>%
+  addCircleMarkers(
+     color = ~pal(plot_type),
+    lng = ~coords.x1, lat = ~coords.x2, popup = ~Plot_ID)
+
+site_locations_colors
+```
 
 
 
