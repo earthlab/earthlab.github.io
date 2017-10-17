@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 5
 topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
@@ -74,7 +74,7 @@ Next, you open up our landsat data and create a spatial raster stack.
 ```r
 # create stack
 all_landsat_bands_pre <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
-           pattern=glob2rx("*band*.tif$"),
+           pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands_pre
 ## [1] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band1_crop.tif"
@@ -99,7 +99,7 @@ Next you calculate dNBR using the following steps:
 . Note the code to do this is hidden. You will need to figure
 out what bands are required to calculate NBR using Landsat.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-calculate-NBR-with-landsat-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
 
 
 You can export the NBR raster if you want using `writeRaster()`.
@@ -119,7 +119,7 @@ Next, you can open the post-fire landsat data to calculate post-fire NBR.
 
 ```r
 all_landsat_bands_post <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
-           pattern=glob2rx("*band*.tif$"),
+           pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands_post
 ## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
@@ -137,7 +137,7 @@ landsat_stack_post <- stack(all_landsat_bands_post)
 Then you calculate NBR on the post data - note the code here is purposefully hidden.
 You need to figure out what bands to use to perform the math!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-calculate-NBR-with-landsat-R/calculate-nbr-post-1.png" title="landsat derived NBR post fire" alt="landsat derived NBR post fire" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/calculate-nbr-post-1.png" title="landsat derived NBR post fire" alt="landsat derived NBR post fire" width="90%" />
 
 Finally, calculate the DIFFERENCE between the pre and post NBR!!
 
@@ -150,7 +150,7 @@ plot(landsat_nbr_diff,
      axes=F, box=F)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-calculate-NBR-with-landsat-R/unnamed-chunk-1-1.png" title="Difference NBR map" alt="Difference NBR map" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/unnamed-chunk-1-1.png" title="Difference NBR map" alt="Difference NBR map" width="90%" />
 
 When you have calculated dNBR or the difference in NBR pre minus post fire,
 classify the output raster using the `classify()` function and the classes below.
@@ -177,7 +177,7 @@ Alternatively, you can use the `Inf` to specify the smallest `-Inf` and largest
 
 You r classified map should look something like:
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-calculate-NBR-with-landsat-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 ## Compare to fire boundary
 
@@ -189,7 +189,7 @@ the shapefile in the folder:
 
 Add fire boundary to map.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-calculate-NBR-with-landsat-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 
 
@@ -200,7 +200,7 @@ Make it look a bit nicer using a colorbrewer palette. I used the
 `brewer.pal(5, 'RdYlGn')`
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-calculate-NBR-with-landsat-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 Note that you will have to figure out what date these data are for! I purposefully
 didn't include it in the title of this map.
@@ -215,7 +215,7 @@ barplot(nbr_classified,
         col = the_colors)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-calculate-NBR-with-landsat-R/view-bar-1.png" title="plot barplot of fire severity values" alt="plot barplot of fire severity values" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/view-bar-1.png" title="plot barplot of fire severity values" alt="plot barplot of fire severity values" width="90%" />
 
 Add labels to your barplot!
 
@@ -227,7 +227,7 @@ barplot(nbr_classified,
         names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-calculate-NBR-with-landsat-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
 
 <div class="notice--warning" markdown="1">

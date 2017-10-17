@@ -63,7 +63,7 @@ data for week 6 of the course.
 
 ```r
 all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
-           pattern=glob2rx("*band*.tif$"),
+           pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 
 all_landsat_bands_st <- stack(all_landsat_bands)
@@ -80,7 +80,7 @@ plotRGB(all_landsat_bands_st,
 box(col = "white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/09-multispectral-remote-sensing-review/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-landsat-1.png" title="landsat plot" alt="landsat plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-landsat-1.png" title="landsat plot" alt="landsat plot" width="90%" />
 
 ## Adjust plot extent
 
@@ -116,4 +116,4 @@ box(col = "white")
 plot(fire_boundary_utm, add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/09-multispectral-remote-sensing-review/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-with-boundary-1.png" title="Plot with the fire boundary" alt="Plot with the fire boundary" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto04-adjust-plot-extent-R/plot-with-boundary-1.png" title="Plot with the fire boundary" alt="Plot with the fire boundary" width="90%" />

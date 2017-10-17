@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "MODIS data in R - fire remote sensing"
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/
-modified: '2017-10-16'
+modified: '2017-10-17'
 week-landing: 8
 week: 8
 sidebar:
@@ -36,13 +36,12 @@ we will learn how to
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 - 3:15  | Questions |   |
-| 3:15 - 3:40  | Addititive light models - interactive experiment |   |
-| 3:45 - 4:15  | Dealing with clouds & cloud masks in R  |    |
-| 4:30 - 5:00  | Group activity: Get data from Earth Explorer |    |
-| 5:00 - 5:30  | MODIS data in R - NA values & scale factors - Coding  Session |    |
+| 9:30 - 10:15  | Questions |   |
+| 9:40 - 10:20  | ASD Fieldspec Demo - Mini Class Fieldtrip! | Bogdan!  |
+| 10:30 - 11:00  | Handling clouds in Remote Sensing Data & Using Cloud Masks in `R`  |    |
+| 11:15 - 11:45  | Group activity: Get data from Earth Explorer |    |
 |===
-| 5:30 - 5:50  | Group project / Home work time |    |
+| 11:45 - 12:20  | MODIS data in R - NA values & scale factors - Coding  Session |    |
 
 
 ### 1a. Remote sensing readings
@@ -57,7 +56,10 @@ Please read the articles below to prepare for next week's class!
 " target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a>
 * <a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices -  Soverel et al 2010.</a>
 
-### 2. Complete the assignment below (10 points)
+### 2. Complete the assignment below (15 points)
+Please note that like the flood report, this assignment is worth more points than
+a usual weekly assignment. You have 2 weeks to complete this assignment! Be sure
+to start early!
 
 <div class="notice--warning" markdown="1">
 
@@ -65,10 +67,10 @@ Please read the articles below to prepare for next week's class!
 
 ### Produce a .pdf report
 
-Create a new `R markdown `document. Name it: **lastName-firstInitial-week7.Rmd**
+Create a new `R markdown `document. Name it: **lastName-firstInitial-weeknumber.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
-with your report, use `knitr` to convert it to `PDF` format. Submit both the
-`.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
+with your report, use `knitr` to convert it to `html` format. Submit both the
+`.Rmd` file and the `.html` file. Be sure to name your files as instructed above!
 
 #### Use knitr code chunk arguments
 In your final report, use the following knitr code chunk arguments to hide messages

@@ -12,6 +12,7 @@ module-title: 'Clouds, shadows & cloud masks in R'
 module-description: 'In this module you will learn more about dealing with clouds, shadows and other elements that can interfere with scientific analysis of remote sensing data. '
 module-nav-title: 'Fire / spectral remote sensing data - in R'
 module-type: 'class'
+class-order: 1
 course: "earth-analytics"
 week: 8
 sidebar:
@@ -61,26 +62,27 @@ surface. These images, are divided into smaller regions - known as scenes.
 > Landsat scene is about 115 miles long and 115 miles wide (or 100 nautical
 > miles long and 100 nautical miles wide, or 185 kilometers long and 185 kilometers wide). -*wikipedia*
 
+
+### Challenges Working with Landsat Remote Sensing Data
 In the previous lessons, you learned how to import a set of geotiffs that made
 up the bands of a landsat raster. Each geotiff file was a part of a Landsat scene,
 that had been downloaded for this class by your instructor. The scene was further
 cropped to reduce the file size for the class.
 
-You ran into some challenges when you began to work with the data. The biggest problem
-was a large cloud and associated shadow that covered our study
-area of interest - the Cold springs fire burn scar.
+You ran into some challenges when you began to work with the data. The biggest
+problem was a large cloud and associated shadow that covered our study
+area of interest - the Cold Springs fire burn scar.
 
 ### Dealing with clouds & shadows in remote sensing data
 
-Clouds and atmospheric conditions can present a significant challenge when working
-with spectral remote sensing data. Extreme cloud cover and shadows can render
+Clouds and atmospheric conditions present a significant challenge when working
+with multispectral remote sensing data. Extreme cloud cover and shadows can make
 the data in those areas, un-usable given reflectance values are either washed out
 (too bright - as the clouds scatter all light back to the sensor) or are too
 dark (shadows which represent blocked or absorbed light).
 
 In this lesson you will learn how to deal with clouds in our remote sensing data.
-There is no perfect solution of course. You will just discuss some options to
-dealing with the uncertainty surrounding clouds and shadows in spectral data.
+There is no perfect solution of course. You will just learn one approach.
 
 Let's begin by loading our spatial libraries.
 
@@ -94,23 +96,24 @@ library(rgeos)
 options(stringsAsFactors = FALSE)
 ```
 
-Next, you will load the landsat bands that you loaded previously in our homework.
+Next, you will load the landsat bands that you loaded previously in your homework.
 
 
 ```r
 # create a list of all landsat files that have the extension .tif and contain the word band.
 all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
-           pattern=glob2rx("*band*.tif$"),
+           pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 # create spatial raster stack from the list of file names
 all_landsat_bands_st <- stack(all_landsat_bands)
+all_landsat_bands_br <- brick(all_landsat_bands_st)
 ```
 
 When you plotted the pre-fire image, you noticed a large cloud in our scene.
 Notice as i'm plotting below, i'm adding a few *par*ameters to force `R` to add a
 title to my plot.
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip:** Check out the additional "How to" lessons for this week to learn more about
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip:** Check out the additional "How to" lessons for this week to learn more about
 creating nicer plots in `R`.
 {: .notice--success}
 
@@ -119,8 +122,8 @@ creating nicer plots in `R`.
 # turn the axis color to white and turn off ticks
 par(col.axis = "white", col.lab = "white", tck = 0)
 # plot the data - be sure to turn AXES to T (you just color them white)
-plotRGB(all_landsat_bands_st,
-        r=4, g=3, b=2,
+plotRGB(all_landsat_bands_br,
+        r = 4, g = 3, b = 2,
         stretch = "hist",
         main = "Pre-fire RGB image with cloud\n Cold Springs Fire",
         axes = TRUE)
@@ -210,6 +213,8 @@ data set. You are just doing it with spatial raster data instead.
     </figcaption>
 </figure>
 
+### Create Mask Layer in R
+
 To create the mask this you do the following:
 
 1. You make sure you use a raster layer that is the SAME EXTENT and the same pixel resolution as our landsat scene. In this case you have a mask layer that is already the same spatial resolution and extent as our landsat scene.
@@ -221,20 +226,21 @@ In this case, you want to set all values greater than 0 in the raster mask to `N
 
 ```r
 
-par(xpd=F, mar = c(0,0,1,5))
+par(xpd = FALSE, mar = c(0, 0, 1, 5))
 # create cloud & cloud shadow mask
 cloud_mask_189[cloud_mask_189 > 0] <- NA
+# plot the masked data
 plot(cloud_mask_189,
-     main = "Our new raster mask",
+     main = "The Raster Mask",
      col = c("green"),
-     legend=F,
-     axes=F,
-     box=F)
+     legend = FALSE,
+     axes = FALSE,
+     box = FALSE)
 # add legend to map
 par(xpd = TRUE) # force legend to plot outside of the plot extent
 legend(x = cloud_mask_189@extent@xmax, cloud_mask_189@extent@ymax,
        c("Not masked", "Masked"),
-       fill=c("green", "white"),
+       fill = c("green", "white"),
        bty = "n")
 ```
 
@@ -252,22 +258,38 @@ Let's use the `mask()` function to mask our data.
 
 ```r
 # mask the stack
-all_landsat_bands_mask <- mask(all_landsat_bands_st, mask = cloud_mask_189)
+all_landsat_bands_mask <- mask(all_landsat_bands_br, mask = cloud_mask_189)
+
+# check the memory situation
+inMemory(all_landsat_bands_mask)
+## [1] TRUE
+class(all_landsat_bands_mask)
+## [1] "RasterBrick"
+## attr(,"package")
+## [1] "raster"
+```
+
+
+Notice that once you perform a calculation on the raster, it is now in your
+computer's memory.
+
+
+```r
 # plot RGB image
 # first turn all axes to the color white and turn off ticks
 par(col.axis = "white", col.lab = "white", tck = 0)
 # then plot the data
 plotRGB(all_landsat_bands_mask,
-        r=4, g=3, b=2,
-        main = "RGB image - are all of the clouds gone from our image?",
+        r = 4, g = 3, b = 2,
+        main = "Landsat RGB Image \n Are the clouds gone?",
         axes = TRUE)
 box(col = "white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/apply-mask-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/masked-raster-brick-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="90%" />
 
 Notice above that I didn't have to use the stretch function to force the data to
-plot in R. This is because the extremely bright pixels which represented clouds,
+plot in `R`. This is because the extremely bright pixels which represented clouds,
 are now removed from our data.
 
 
@@ -277,16 +299,16 @@ are now removed from our data.
 par(col.axis = "white", col.lab = "white", tck = 0)
 # then plot the data
 plotRGB(all_landsat_bands_mask,
-        r=4, g=3, b=2,
+        r = 4, g = 3, b = 2,
         stretch = "lin",
-        main = "RGB image - are all of the clouds gone from our image? \n linear stretch",
+        main = "Landsat RGB Image \n Are the clouds gone?",
         axes = TRUE)
 box(col = "white")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/mask-plot-1.png" title="apply raster mask to stack and plot." alt="apply raster mask to stack and plot." width="90%" />
 
-Next, you can calculate a vegetation indices.
+Next, you can calculate a vegetation index.
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/calculate-veg-index-1.png" title="landsat NBR plot" alt="landsat NBR plot" width="90%" />
 

@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
@@ -110,7 +110,7 @@ NBR raster as follows:
 <figure>
  <a href="{{ site.url}}/images/courses/earth-analytics/remote-sensing/dnbr-equation.jpg">
  <img src="{{ site.url}}/images/courses/earth-analytics/remote-sensing/dnbr-equation.jpg" alt="NBR - US Forest Service."></a>
-    <figcaption>difference NBR (dNBR) equation. Source: http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html
+    <figcaption>difference NBR (dNBR) equation.  <a href="http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html" target = "_blank">Source Humboldt.edu</a>
     </figcaption>
 </figure>
 
@@ -187,7 +187,7 @@ should you use to calculate NBR using MODIS?
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
 
 When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
@@ -216,7 +216,7 @@ You r classified map should look something like:
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 
 
@@ -228,7 +228,7 @@ barplot(nbr_classified,
         names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
 
 <div class="notice--info" markdown="1">

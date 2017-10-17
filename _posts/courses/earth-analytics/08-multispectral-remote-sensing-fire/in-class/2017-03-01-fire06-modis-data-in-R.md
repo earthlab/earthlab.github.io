@@ -14,7 +14,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 6
 lang-lib:
   r: []
 topics:
@@ -50,7 +50,7 @@ data for week 6 of the course.
 
 
 First, let's import MODIS data. Below notice that you have used a slightly different
-version of the `list.files()` `pattern=` argument.
+version of the `list.files()` `pattern = ` argument.
 
 You have used `glob2rx("*sur_refl*.tif$")` to select all layers that both
 
@@ -63,7 +63,7 @@ Let's import our MODIS image stack.
 ```r
 # open modis bands (layers with sur_refl in the name)
 all_modis_bands_july7 <-list.files("data/week_07/modis/reflectance/07_july_2016/crop",
-           pattern=glob2rx("*sur_refl*.tif$"),
+           pattern = glob2rx("*sur_refl*.tif$"),
            full.names = TRUE)
 # create spatial raster stack
 all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
@@ -159,7 +159,7 @@ mtext("Distribution of MODIS reflectance values for each band\n Data not scaled"
       outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="90%" />
 
 
 
@@ -184,7 +184,7 @@ hist(all_modis_bands_st_july7,
 mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="90%" />
 
 Great - now the range of values in our data appear more reasonable. Next, let's
 get rid of data that are outside of the valid data range.
@@ -211,7 +211,7 @@ hist(all_modis_bands_st_july7,
 mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="90%" />
 
 
 
@@ -234,7 +234,7 @@ Why is it so hard to figure out where the study area is in this MODIS image?
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="90%" />
 
 ## MODIS cloud mask
 
@@ -266,18 +266,18 @@ Set all values >0 in the cloud cover layer to `NA`.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="90%" />
 
 
 
 Plot the masked data. Notice that now the clouds are gone as they have been assigned
 the value `NA`.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="90%" />
 
 Finally crop the data to see just the pixels that overlay our study area.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="90%" />
 
 
 | SEVERITY LEVEL  | NBR RANGE |
@@ -290,7 +290,7 @@ Finally crop the data to see just the pixels that overlay our study area.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="90%" />
 
 After we've calculated NBR, you may want to calculate total burn AREA. You can do
 this using the `freq()` function in R. This function gives us the total number
@@ -335,7 +335,7 @@ plotRGB(all_modis_bands_st_mask_july17,
 box(col = "white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="90%" />
 
 Next you calculate NBR on our post fire data. Then you can crop and finally
 plot the final results!
@@ -354,13 +354,13 @@ barplot(modis_nbr_july17_cl,
         names.arg=c("Low Severity","Moderate Severity","High Severity"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="90%" />
 
 
 Finally, plot the reclassified data. Note that you only have 3 classes: 2, 3 and 4.
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="90%" />
 
 
 
