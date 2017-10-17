@@ -23,6 +23,7 @@ topics:
 {% include toc title="In this lesson" icon="file-text" %}
 
 
+
 ## Set up your working directory
 
 As we learned in the previous tutorial, project organization is integral to

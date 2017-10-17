@@ -3,7 +3,7 @@ layout: single
 title: "How lidar point clouds are converted to raster data formats - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: '2017-09-28'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-raster-data/
@@ -22,6 +22,8 @@ topics:
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 

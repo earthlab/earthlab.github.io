@@ -20,7 +20,9 @@ order: 3
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---
+
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 
 ##  Install a package

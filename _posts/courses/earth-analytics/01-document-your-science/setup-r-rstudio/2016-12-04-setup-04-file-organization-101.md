@@ -22,6 +22,8 @@ topics:
 
 {% include toc title="In this lesson" icon="file-text" %}
 
+
+
 In the previous lessons, we setup `R` and `RStudio`. The last part of our setup is
 to setup our working directory. A **working directory** is an organized space or
 directory on our computer where we keep our data, scripts and outputs. It is important

@@ -22,6 +22,8 @@ redirect_from:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -210,7 +212,38 @@ them up for readability).
 lapply(all_precip_files,
        FUN = summarize_data,
        the_dir = the_dir_ex)
-## list()
+## [[1]]
+## NULL
+## 
+## [[2]]
+## NULL
+## 
+## [[3]]
+## NULL
+## 
+## [[4]]
+## NULL
+## 
+## [[5]]
+## NULL
+## 
+## [[6]]
+## NULL
+## 
+## [[7]]
+## NULL
+## 
+## [[8]]
+## NULL
+## 
+## [[9]]
+## NULL
+## 
+## [[10]]
+## NULL
+## 
+## [[11]]
+## NULL
 ```
 
 
@@ -236,11 +269,11 @@ faster than the `for loop`.
 library(microbenchmark)
 microbenchmark(invisible(lapply(all_precip_files, (FUN = summarize_data),
        the_dir = the_dir_ex)))
-## Unit: microseconds
+## Unit: milliseconds
 ##                                                                               expr
 ##  invisible(lapply(all_precip_files, (FUN = summarize_data), the_dir = the_dir_ex))
-##    min   lq    mean median    uq    max neval
-##  1.261 1.37 1.69603 1.4325 1.547 22.275   100
+##       min       lq     mean   median       uq      max neval
+##  154.3001 172.2487 207.6907 193.5216 231.2502 341.2549   100
 ```
 
 
@@ -263,8 +296,8 @@ microbenchmark(for (file in all_precip_files) {
 ## Unit: milliseconds
 ##                                                                                                                                                                                                                                                                                                                                           expr
 ##  for (file in all_precip_files) {     the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%          mutate(DATE = as.POSIXct(DATE, tz = "America/Denver",              format = "%Y-%m-%d %H:%M:%S"), precip_mm = in_to_mm(HPCP))     write.csv(the_data, file = paste0(the_dir, "/", basename(file)),          na = "999.99") }
-##      min       lq     mean   median       uq      max neval
-##  4.95401 5.468118 7.206805 6.337798 8.135599 24.16573   100
+##      min      lq   mean   median       uq      max neval
+##  170.388 194.088 270.39 238.2796 293.3758 882.7683   100
 ```
 
 <!--RETURN a single data.frame do.call(rbind, lapply(file_paths, function(path) { read.csv(path, stringsAsFactors = FALSZE }))-->

@@ -69,9 +69,6 @@ library(ggplot2)
 
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
-## Warning in file(file, "rt"): cannot open file 'data/boulder-precip.csv': No
-## such file or directory
-## Error in file(file, "rt"): cannot open the connection
 
 # view first few rows of the data
 head(boulder_precip)

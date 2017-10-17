@@ -23,6 +23,8 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 Bonus / Graduate activity. In this lesson, you will plot precipitation data in `R`.
 However, these data were collected over several decades and sometimes there are
 multiple data points per day. The data are also not cleaned. You will find

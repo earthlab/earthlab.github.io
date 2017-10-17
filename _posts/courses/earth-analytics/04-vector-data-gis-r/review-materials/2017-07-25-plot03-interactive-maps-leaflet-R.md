@@ -26,6 +26,8 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -39,9 +41,6 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
 </div>
-
-
-
 
 
 First, let's import all of the needed libraries.
@@ -69,19 +68,8 @@ Leaflet:
 The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package! Below, you can see some code that creates a basic web-map.
 
 
-```r
-map <- leaflet() %>%
-  addTiles() %>%  # use the default base map which is OpenStreetMap tiles
-  addMarkers(lng=174.768, lat=-36.852,
-             popup="The birthplace of R")
-map
-```
 
 
-```r
-
-saveWidget(widget=map, file="birthplace_r.html", selfcontained=FALSE)
-```
 
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
@@ -110,48 +98,17 @@ Next, import and explore the data.
 Plot the data and use the plotID field as a popup.
 
 
-```r
-# plot points on top of a leaflet basemap
-site_locations <- leaflet(plot_locations_df) %>%
-  addTiles() %>%
-  addCircleMarkers(lng = ~coords.x1, lat = ~coords.x2, popup = ~Plot_ID) 
- 
-site_locations
-```
 
 
-```r
-library(htmlwidgets)
-saveWidget(widget = site_locations, file = "site_locations.html", selfcontained = FALSE)
-```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/site_locations.html" frameborder="0" allowfullscreen></iframe>
 
 
 Add unique colors according to plot type.
- 
-
-```r
-# define colors - you can find colors that look better than these! 
-pal <- colorFactor(c("navy", "darkgreen", "darkorchid4"), domain = unique(sjer_aoi_WGS84$plot_type))
-
-# plot points on top of a leaflet basemap
-site_locations_colors <- leaflet(plot_locations_df) %>%
-  addTiles() %>%
-  addCircleMarkers(
-     color = ~pal(plot_type),
-    lng = ~coords.x1, lat = ~coords.x2, popup = ~Plot_ID) 
- 
-site_locations_colors
-```
 
 
 
-```r
 
-saveWidget(widget = site_locations_colors, file = "~/Documents/github/earthlab.github.io/example-leaflet-maps/site_locations_colors.html", selfcontained = FALSE)
-```
+
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/site_locations_colors.html" frameborder="0" allowfullscreen></iframe>
-
-

@@ -155,13 +155,13 @@ The code within the chunk will appear on the output document, however there
 will be no outputs from the code.
 
 <div class="highlighter-rouge">
-<pre class="highlight"><code>```{r intro-option, eval = FALSE, echo = TRUE}
+<pre class="highlight"><code>```{r intro-option, eval = FALSE}
 # this is a comment. text, next to a comment, is not processed by R
 # comments will appear on your rendered r markdown document
 1+2
  ```</code></pre></div>
 
-One example of using `eval = FALSE, echo = TRUE` is for a code chunk that exports a file such
+One example of using `eval = FALSE` is for a code chunk that exports a file such
 as a figure graphic or a text file. We may want to show / document the code that
 we used to export that graphic in our `html` or `pdf` document, but we don't need to
 actually export that file each time we create a revised `html` or `pdf` document.
@@ -169,7 +169,7 @@ actually export that file each time we create a revised `html` or `pdf` document
 ### 3 common chunk options: eval, echo & results
 Three common code chunk options are:
 
-* `eval = FALSE, echo = TRUE`: Do not **eval**uate (or run) this code chunk when
+* `eval = FALSE`: Do not **eval**uate (or run) this code chunk when
 knitting the RMD document. The code in this chunk will still render in our knitted
 `html` output, however it will not be evaluated or run by `R`.
 * `echo=FALSE`: Hide the code in the output. The code is
@@ -190,7 +190,7 @@ Add a new chunk with the following arguments. Then describe in your own words
 when you might want to use each of these arguments. HINT: Think about creating a report
 with plots where you have a lot of code generating those plots.
 
-<pre><code>```{r testing-arguments, eval = FALSE, echo = TRUE }
+<pre><code>```{r testing-arguments, eval = FALSE }
 
    # More math!
    a * b

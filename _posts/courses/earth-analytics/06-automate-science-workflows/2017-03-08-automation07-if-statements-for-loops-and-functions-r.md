@@ -22,6 +22,8 @@ redirect_from:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -38,6 +40,10 @@ You will need a computer with internet access to complete this lesson.
 
 
 
+```r
+library(lubridate)
+library(dplyr)
+```
 
 ## Work With Directories of Files
 
@@ -78,7 +84,9 @@ with. The `list.files()` function requires 2 arguments:
 1. The pattern that you'd like to look for in the files. For example, to find all csv files - you'd use `*.csv`. If you want to find all files with "_precip" in the name you could do that too.
 
 
-```
+```r
+list.files(path = "data/week_06/",
+           pattern = "*.csv")
 ##  [1] "precip-2003.csv" "precip-2004.csv" "precip-2005.csv"
 ##  [4] "precip-2006.csv" "precip-2007.csv" "precip-2008.csv"
 ##  [7] "precip-2009.csv" "precip-2010.csv" "precip-2011.csv"
@@ -88,7 +96,9 @@ with. The `list.files()` function requires 2 arguments:
 Just find files that contain `precip-` in the filename.
 
 
-```
+```r
+list.files(path = "data/week_06/",
+           pattern = "precip-")
 ##  [1] "precip-2003.csv" "precip-2004.csv" "precip-2005.csv"
 ##  [4] "precip-2006.csv" "precip-2007.csv" "precip-2008.csv"
 ##  [7] "precip-2009.csv" "precip-2010.csv" "precip-2011.csv"
@@ -98,7 +108,9 @@ Just find files that contain `precip-` in the filename.
 Just find files that contain `_precip` in the filename.
 
 
-```
+```r
+list.files(path = "data/week_06/",
+           pattern = "precip")
 ##  [1] "precip-2003.csv" "precip-2004.csv" "precip-2005.csv"
 ##  [4] "precip-2006.csv" "precip-2007.csv" "precip-2008.csv"
 ##  [7] "precip-2009.csv" "precip-2010.csv" "precip-2011.csv"
@@ -117,7 +129,15 @@ Note below the argument `full.names = TRUE` is used to ensure that `R` gets the
 full path rather than just the filename.
 
 
-```
+```r
+
+all_precip_files <- list.files(path = "data/week_06/",
+           pattern = "precip-",
+           full.names = TRUE)
+# print the name of each file
+for (file in all_precip_files) {
+  print(file)
+}
 ## [1] "data/week_06//precip-2003.csv"
 ## [1] "data/week_06//precip-2004.csv"
 ## [1] "data/week_06//precip-2005.csv"
@@ -142,14 +162,28 @@ The example below uses the `basename()` function to grab just the file name (wit
 from the file variable.
 
 
-```
+```r
+a_file <- "data/week_06/precip-2013.csv"
+# just get the filename without the full path
+basename(a_file)
 ## [1] "precip-2013.csv"
+
+# create a new path to the file
+paste0("data/week-06/outputs/precip_mm/", basename(a_file))
 ## [1] "data/week-06/outputs/precip_mm/precip-2013.csv"
 ```
 
 
 
-```
+```r
+# print the name of each file
+for (file in all_precip_files) {
+  # read in the csv
+  the_data <- read.csv(file, header = TRUE) %>%
+    mutate(precip_mm = (HPCP * 25.4)) # add a column with precip in mm
+  # write the csv to a new file
+  write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", basename(file)))
+}
 ## Error in write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", : could not find function "write_csv"
 ```
 
@@ -186,7 +220,11 @@ your working directory or on your computer.
 
 
 
-```
+```r
+# create an object with the directory name
+new_dir <- "data/week_06/outputs/precip_mm/"
+# does the dir exist?
+dir.exists(new_dir)
 ## [1] FALSE
 ```
 
@@ -194,7 +232,9 @@ However you want to check if the directory doesn't exist. To do this, use the `!
 at the beginning of your function.
 
 
-```
+```r
+# does the dir NOT exist?
+!dir.exists(new_dir)
 ## [1] TRUE
 ```
 
@@ -208,5 +248,11 @@ Now, build your if statement.
 Like this:
 
 
+```r
+# if the dir doesn't exist, create it
+if (!dir.exists(new_dir)) {
+  dir.create(new_dir, recursive = TRUE)
+}
+```
 
 You are now ready to complete the homework for week 6!

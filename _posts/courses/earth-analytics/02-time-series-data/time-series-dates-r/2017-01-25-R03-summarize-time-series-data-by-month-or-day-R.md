@@ -320,27 +320,6 @@ boulder_daily_precip <- boulder_daily_precip %>%
 
 
 
-```r
-boulder_daily_precip2 <- boulder_daily_precip %>%
-  mutate(year_mon = as.yearmon(DATE))
-
-# summarize on the year_mon column and then add a year and month column back to the data
-boulder_daily_precip_month2 <- boulder_daily_precip2 %>%
-  group_by(year_mon) %>%
-  summarise(sum_precip = sum(DAILY_PRECIP)) %>%
-  mutate(year = year(year_mon),
-         month = month(year_mon, label = TRUE, abbr=TRUE))
-
-# subset 2 months around flood
-boulder_daily_precip_month2 %>%
-  ggplot(aes(x = month, y = sum_precip)) +
-      facet_wrap(~ year) +
-      geom_point(color = "darkorchid4") +
-      labs(title = "Daily Precipitation - Boulder, Colorado",
-           subtitle = "Data plotted by year",
-           y = "Daily precipitation (inches)",
-           x = "Date") + theme_bw(base_size = 15)
-```
 
 Now that we have a new column we can create a summary precipitation value for
 each month. To do this, we need to do the following:

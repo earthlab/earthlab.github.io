@@ -3,7 +3,7 @@ layout: single
 title: "Get to Know the Function Environment & Function Arguments in R"
 excerpt: "This lesson introduces the function environment and documenting functions in R. When you run a function intermediate variables are not stored in the global environment. This not only saves memory on your computer but also keeps our environment clean, reducing the risk of conflicting variables."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-10-09'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/document-functions-in-r/
@@ -21,8 +21,9 @@ redirect_from:
   - "/courses/earth-analytics/week-8/function-documentation-environment-r/"
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 

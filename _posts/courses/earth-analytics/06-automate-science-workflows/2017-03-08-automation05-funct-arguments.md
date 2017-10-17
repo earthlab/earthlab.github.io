@@ -24,6 +24,8 @@ redirect_from:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -53,6 +55,15 @@ For example, you used numerous arguments to plot your data including:
 In the example below, you call each argument by name and then assign it a value
 based on the type of argument it is. For example the value for the `main = ` argument
 is a text string which is the title that you want `R` to add to your plot.
+
+
+```r
+
+# import and plot landsat
+boulder_precip <- raster("data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+plot(boulder_precip,
+     main = "Digital Surface Model for Boulder, Colorado")
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/06-automate-science-workflows/2017-03-08-automation05-funct-arguments/plot-ndvi-1.png" title="ndvi plot" alt="ndvi plot" width="90%" />
 
@@ -105,7 +116,8 @@ default value, and six other arguments that do have a default value.
 Now you understand why the following code returns an error:
 
 
-```
+```r
+precip_data <- read.csv(FALSE, "data/week_02/precipitation/precip-boulder-aug-oct-2013.csv")
 ## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
 ```
 
@@ -123,15 +135,27 @@ You can pass the arguments to `read.csv` without naming them if they are in the
 order that R expects.
 
 
+```r
+precip_data <- read.csv("data/week_02/precipitation/precip-boulder-aug-oct-2013.csv",
+                FALSE)
+```
 
 However, the position of the arguments matter if they are not named.
 Does the code below return an error?
 
 
+```r
+# import csv
+precip_data <- read.csv(header = FALSE,
+                file = "data/week_02/precipitation/precip-boulder-aug-oct-2013.csv")
+
+```
 
 But this code below doesn't work. Make sense?
 
 
-```
+```r
+dat <- read.csv(FALSE,
+                "data/week_02/precipitation/precip-boulder-aug-oct-2013.csv")
 ## Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
 ```
