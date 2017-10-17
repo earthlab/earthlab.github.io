@@ -20,7 +20,6 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-
 {% include toc title="In this lesson" icon="file-text" %}
 
 Getting help
@@ -64,6 +63,9 @@ Below we discuss a few ways that you can get help when you are stuck in `R`.
 If you need help with a specific function, let's say `barplot()`, you can type:
 
 
+```r
+?barplot
+```
 
 When you use the `?barplot` in the `R` console, you asking `R` to look for the documentation
 for the `barplot()` function.
@@ -72,6 +74,9 @@ If you just need to remind yourself of the names of the arguments that can be us
 with the function, you can use:
 
 
+```r
+args(lm)
+```
 
 ## I want to use a function that does X, there must be a function for it but I don't know which one...
 

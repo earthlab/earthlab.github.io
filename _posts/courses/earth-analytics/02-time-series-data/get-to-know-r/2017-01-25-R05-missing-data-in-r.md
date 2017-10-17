@@ -78,10 +78,6 @@ been some changes made!
 download.file("https://ndownloader.figshare.com/files/9282364",
               "data/boulder-precip.csv",
               method = "libcurl")
-## Warning in download.file("https://ndownloader.figshare.com/files/
-## 9282364", : URL 'https://ndownloader.figshare.com/files/9282364': status
-## was 'Couldn't connect to server'
-## Error in download.file("https://ndownloader.figshare.com/files/9282364", : cannot open URL 'https://ndownloader.figshare.com/files/9282364'
 ```
 
 Then we can open the data.
@@ -90,15 +86,13 @@ Then we can open the data.
 ```r
 # import data but don't specify no data values - what happens?
 boulder_precip <- read.csv(file = "data/boulder-precip.csv")
-## Warning in file(file, "rt"): cannot open file 'data/boulder-precip.csv': No
-## such file or directory
-## Error in file(file, "rt"): cannot open the connection
 
 str(boulder_precip)
-## 'data.frame':	18 obs. of  3 variables:
-##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
-##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
+## 'data.frame':	18 obs. of  4 variables:
+##  $ ID    : int  756 757 758 759 760 761 762 763 764 765 ...
+##  $ DATE  : chr  "8/21/13" "8/26/13" "8/27/13" "9/1/13" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
+##  $ TEMP  : int  55 25 NA -999 15 25 65 NA 95 -999 ...
 ```
 
 In the example below, note how a mean value is calculated differently depending
@@ -111,8 +105,6 @@ upon on how `NA` values are treated when the data are imported.
 mean(boulder_precip$PRECIP)
 ## [1] 1.055556
 mean(boulder_precip$TEMP)
-## Warning in mean.default(boulder_precip$TEMP): argument is not numeric or
-## logical: returning NA
 ## [1] NA
 ```
 
@@ -124,12 +116,13 @@ Notice that we are able to calculate a mean value for `PRECIP` but `TEMP` return
 ```r
 # are there data in the TEMP column of our data?
 boulder_precip$TEMP
-## NULL
+##  [1]   55   25   NA -999   15   25   65   NA   95 -999   85 -999   85   85
+## [15] -999   57   60   65
 # plot the data with ggplot
 ggplot(data = boulder_precip, aes(x = DATE, y = TEMP)) +
   geom_point() +
   labs(title = "Temperature data for Boulder, CO")
-## Error in FUN(X[[i]], ...): object 'TEMP' not found
+## Warning: Removed 2 rows containing missing values (geom_point).
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/quick-plot-1.png" title="quick plot of temperature" alt="quick plot of temperature" width="90%" />
@@ -166,9 +159,7 @@ temperature column above.
 mean(boulder_precip$PRECIP)
 ## [1] 1.055556
 mean(boulder_precip$TEMP, na.rm = TRUE)
-## Warning in mean.default(boulder_precip$TEMP, na.rm = TRUE): argument is not
-## numeric or logical: returning NA
-## [1] NA
+## [1] -204.9375
 ```
 
 
@@ -178,7 +169,7 @@ examples.
 {: .notice--success}
 
 So now you have successfully calculated the mean value of both precipitation and
-temperature in our spreadsheet. However does the mean temperature value (NA make
+temperature in our spreadsheet. However does the mean temperature value (-204.9375 make
 sense looking at the data? It seems a bit low - we know that there aren't temperature
 values of -200 here in Boulder, Colorado!
 
@@ -190,8 +181,8 @@ is -999.
 ```r
 # calculate mean usign the na.rm argument
 summary(boulder_precip$TEMP, na.rm = TRUE)
-## Length  Class   Mode 
-##      0   NULL   NULL
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##  -999.0  -238.5    56.0  -204.9    70.0    95.0       2
 ```
 
 
@@ -217,9 +208,6 @@ This should solve all of our missing data problems!
 # import data but specify no data values - what happens?
 boulder_precip_na <- read.csv(file = "data/boulder-precip.csv",
                      na.strings = c("NA", " ", "-999"))
-## Warning in file(file, "rt"): cannot open file 'data/boulder-precip.csv': No
-## such file or directory
-## Error in file(file, "rt"): cannot open the connection
 boulder_precip_na$TEMP
 ##  [1] 55 25 NA NA 15 25 65 NA 95 NA 85 NA 85 85 NA 57 60 65
 ```
@@ -230,7 +218,8 @@ Does our new plot look better?
 ```r
 # are there data in the TEMP column of our data?
 boulder_precip$TEMP
-## NULL
+##  [1]   55   25   NA -999   15   25   65   NA   95 -999   85 -999   85   85
+## [15] -999   57   60   65
 # plot the data with ggplot
 ggplot(data = boulder_precip_na, aes(x = DATE, y = TEMP)) +
   geom_point() +
