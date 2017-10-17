@@ -13,6 +13,7 @@ module-description: 'This tutorial set covers some basic things you can do to re
 and refining the width and height of plots to optimize space.'
 module-nav-title: 'Refine Rmarkdown reports'
 module-type: 'class'
+class-order: 2
 course: "earth-analytics"
 week: 8
 sidebar:
@@ -51,10 +52,10 @@ data for week 6 of the course.
 
 ## Automating report content
 
-Let's pretend that we've calculated a value in our code and youwant to include
-it in our R Markdown report but youdon't want to include the code. Maybe it's a
-number that youwant to appear in the TEXT of our report - not as a code chunk
-output. How do youdo that?
+Let's pretend that we've calculated a value in our code and we want to include
+it in our R Markdown report but we don't want to include the code. Maybe it's a
+number that we want to appear in the TEXT of our report - not as a code chunk
+output. How do we do that?
 
 
 
@@ -63,7 +64,7 @@ output. How do youdo that?
 total_area <- (800 * 7) / 2
 ```
 
-Youcan add any variable that youwant to a report using the syntax
+We can add any variable that we want to a report using the syntax
 
 `"r total_area"`
 
@@ -73,6 +74,6 @@ However replace the double quotes "" with ticks <kbd>`</kbd>
 There are **2800 km** of burned area according to modis.
 
 Where the markdown text is surrounded by ticks. Followed by the language "r"
-and then the variable that youwant to print in our report! This is very useful
-when youare trying to create a fully automated report. As youupdate the data,
+and then the variable that we want to print in our report! This is very useful
+when we are trying to create a fully automated report. As we update the data,
 the output numbers if our report also update!

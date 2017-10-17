@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery R - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/
-modified: '2017-10-16'
+modified: '2017-10-17'
 week-landing: 7
 week: 7
 sidebar:
@@ -61,10 +61,10 @@ At the end of this week you will be able to:
 
 ### Produce a Report
 
-Create a new `R markdown `document. Name it: **lastName-firstInitial-week6.Rmd**
+Create a new `R markdown `document. Name it: **lastName-firstInitial-weeknumber.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
-with your report, use `knitr` to convert it to `PDF` format. Submit both the
-`.Rmd` file and the `.pdf` file. Be sure to name your files as instructed above!
+with your report, use `knitr` to convert it to `html` or `pdf` format. Submit both the
+`.Rmd` file and the `.html or pdf` file. Be sure to name your files as instructed above!
 
 #### Use knitr Code Chunk Arguments
 In your final report, use the following `knitr` code chunk arguments to hide messages
@@ -98,7 +98,7 @@ caption argument in your code chunks: `fig.cap="caption here"`.
 4. Apply image stretch as you see fit.
 5. Be sure to specify the DATE that the imagery was collected in your plot title (note I did not do that in the examples below as you need to figure it out).
 
-#### Plots 1 & 2: RGB & CIR Images
+#### Plots 1 & 2: RGB & CIR Images Using NAIP Data
 Create a 1) RGB and 2) Color Infrared (CIR) image of the study site using NAIP data: `naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif`
 
 HINT: In a CIR image the:
@@ -109,7 +109,7 @@ HINT: In a CIR image the:
 
 Make sure you get the bands right!
 
-#### Plot 3: Create a Plot of NDVI + Output Geotiff
+#### Plot 3: Create a Plot of NDVI + Output Geotiff Using NAIP Data
 
 Using the same NAIP image above, calculate NDVI and plot it. **IMPORTANT:** Use a function to
 perform the NDVI math and the `overlay()` function to implement the
@@ -118,16 +118,20 @@ actual NDVI calculation. Your code should look something like this: `overlay(b1,
 * Use the `writeRaster()` function to output your NAIP_ndvi file as a geotiff.
 * Use the `check_create_dir()` function that you created last week to ensure that file goes into an "outputs/naip" directory.
 
-#### Plots 4 & 5: NDVI Plots + Output Geotiff
+#### Plots 4 & 5: NDVI Plots + Output Geotiff Using Landsat Data
 
-Create map of NDVI pre and post Cold Springs fire. As you did with the NAIP imagery
+Create map of NDVI pre and post Cold Springs fire using the Landsat data provided
+in the week_07 data set. As you did with the NAIP imagery
 above, be sure to use the `overlay()` function with the `normalized_diff()` function
 that you created.
 
 * Use the `writeRaster()` function to output your landsat_ndvi files (one for pre fire and one for post) as a geotiff.
 * Use the `check_create_dir()` function that you created last week to ensure that the file goes into an "outputs/landsat" directory.
 
-#### Plot 6 & 7: RGB & CIR Images with Landsat
+IMPORTANT: don't forget to label each map appropriately with the date that the
+data were collected and pre or post fire!
+
+#### Plot 6 & 7: RGB & CIR Images Using Landsat Data
 
 Plot a RGB and CIR image using Landsat data collected pre-fire.
 
@@ -155,6 +159,12 @@ dev.off()
 
 ```
 
+### IMPORTANT: For All Plots
+
+* Add a title to your plot that describes what the plot shows
+* Add a brief, 1-3 sentence caption below each plot that describes what it shows HINT: you can use the `knitr` argument `fig.cap = "Caption here"` to automatically add captions.
+* Be sure to mention the data source and the date that the data were collected.
+
 ## Bonus Opportunity! (.5 point each)
 
 * Rather than copying your function code at the top of your `.Rmd` file, use the
@@ -163,7 +173,7 @@ dev.off()
 
 ****
 
-## Homework Due: Monday October 16 2017 @ 8AM
+## Homework Due: Monday October 23 2017 @ 8AM
 Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 </div>
@@ -211,7 +221,7 @@ achieve a grade higher than a C on the assignment.
 | Plot renders on the report | |
 | Plot has a 2-3 sentence figure caption that clearly and accurately describes plot contents | |
 | Plot contains a meaningful title. |  |
-| Date of Imagery collection is clearly and correctly specified in the plot |  |
+| Date of imagery collection is clearly and correctly specified in the plot |  |
 |===
 | Data source is clearly listed either on the plot or in the plot caption |  |
 
@@ -270,7 +280,7 @@ achieve a grade higher than a C on the assignment.
 ### Example Report Plots
 
 Please note that some of the homework plots are not below. For example the
-NAIP NDVI plots are not below. 
+NAIP NDVI plots are not below.
 
 
 
