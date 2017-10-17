@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
-excerpt: "In this lesson youwill review how to find and download Landsat imagery from the USGS Earth Explorer website."
+excerpt: "In this lesson you will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
 modified: '2017-10-17'
 category: [courses]
@@ -51,7 +51,7 @@ data for week 6 / 7 of the course.
 
 
 
-In class this week, youwill review how to grab data from the Earth Explorer website.
+In class this week, you will review how to grab data from the Earth Explorer website.
 The Earth Explorer website is a data portal run by the USGS. Here you can find
 many different types of remote sensing and other data for both the US and in
 some cases, the globe.
@@ -63,10 +63,10 @@ in time to finish this assignment.
 
 ### Define study area (AOI)
 
-When searching for data, the first thing youneed to do is  to define our area of
+When searching for data, the first thing you need to do is  to define our area of
 interest (AOI). Our AOI is defined by the boundary of the
-fire extent. Youcould type in the x,y vertices of each corner of the boundary,
-but if youhave an Earth Explorer account,  youcan upload a ZIPPED up shapefile that
+fire extent. You could type in the x,y vertices of each corner of the boundary,
+but if you have an Earth Explorer account,  you can upload a ZIPPED up shapefile that
 contains the boundary instead!
 
 <figure>
@@ -104,12 +104,12 @@ Now, it's time to search for data.
     <figcaption> Notice the shapefile tab mid way down in this image. This is the tab
     you need to click on to upload a zipped up shapefile extent to Earth Explorer.
     At the bottom of the image, notice there is a date range tab. This is where
-    you set the data collection date range that you require. In our case youwant all images collected around the Cold springs fire which occurred July 10-14 2016.
+    you set the data collection date range that you require. In our case you want all images collected around the Cold springs fire which occurred July 10-14 2016.
     </figcaption>
 </figure>
 
 
-* Next click on the <kbd>Data sets</kbd> tab. Notice that there are a lot of different data available from Earth Explorer! Youare interested in Landsat - specifically Landsat 8.  You can find Landsat in the Landsat archive drop down. Expand that drop down to find:
+* Next click on the <kbd>Data sets</kbd> tab. Notice that there are a lot of different data available from Earth Explorer! You are interested in Landsat - specifically Landsat 8.  You can find Landsat in the Landsat archive drop down. Expand that drop down to find:
   * Pre-Collection -> Landsat Surface Reflectance - L8 OLI/TIRS
 
 <figure>
@@ -121,15 +121,15 @@ Now, it's time to search for data.
     </figcaption>
 </figure>
 
-* Next select the <kbd>Additional Criteria</kbd> tab. Here is where you can limit results by % cloud cover. Let's start with **Less than 20%** cloud cover and see what youget as data results.
+* Next select the <kbd>Additional Criteria</kbd> tab. Here is where you can limit results by % cloud cover. Let's start with **Less than 20%** cloud cover and see what you get as data results.
 
 
 <figure>
     <a href="{{ site.url }}/images/courses/earth-analytics/week-7/ee-cloud-cover.png">
     <img src="{{ site.url }}/images/courses/earth-analytics/week-7/ee-cloud-cover.png" alt="Earth explorer search criteria.">
     </a>
-    <figcaption>When you click on the additional criteria tab, you can further filter data results. In this case, low cloud cover is a priority for our analysis. Youcan select
-    Less than 20% cloud cover as a starting place to see if youcan find a scene with
+    <figcaption>When you click on the additional criteria tab, you can further filter data results. In this case, low cloud cover is a priority for our analysis. You can select
+    Less than 20% cloud cover as a starting place to see if you can find a scene with
     little to not cloud cover over our AOI (area of interest).
     </figcaption>
 </figure>
@@ -161,25 +161,25 @@ In this case, I downloaded a scene very close to Julian day 189.
 First, let's import our new data and create a raster stack. The code is hidden
 because you already know how to do this!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="90%" />
 
 Next I plotted the fire boundary extent on top of my landsat image.
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="90%" />
 
 It's hard to see but can you see the tiny YELLOW outline of our study area? This
-landsat scene is MUCH larger than our study area. Youhave 2 options
+landsat scene is MUCH larger than our study area. You have 2 options
 
 1. **Crop the data:** this will make it easier to work with as it will be smaller. A good move.
-2. **Plot only the study area extent:** this is ok if youjust want to plot our data and don't need to do any additional processing on it.
+2. **Plot only the study area extent:** this is ok if you just want to plot our data and don't need to do any additional processing on it.
 
 Below i've plotted the cloud mask for the data that I downloaded. It looks like
 the data in our study area are cloud free. How do I know that?
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="90%" />
 
 
 
@@ -188,11 +188,11 @@ barplot(cloud_mask_173_crop,
      main = "cloud mask values \n all 0's")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/cloud-mask-barplot-1.png" title="view cloud mask values" alt="view cloud mask values" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/cloud-mask-barplot-1.png" title="view cloud mask values" alt="view cloud mask values" width="90%" />
 
 
-Given our data are all 0's youcan assume youdownloaded the right scene! There
-are no clouds in our study area image. This means youdon't have to worry about masking.
+Given our data are all 0's you can assume you downloaded the right scene! There
+are no clouds in our study area image. This means you don't have to worry about masking.
 
 
 ```r
@@ -210,7 +210,7 @@ plot(fire_boundary_utm,
      border="yellow")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="90%" />
 
-Now youcan proceed to calculate NBR on the pre-fire landsat image. How does it
+Now you can proceed to calculate NBR on the pre-fire landsat image. How does it
 look?
