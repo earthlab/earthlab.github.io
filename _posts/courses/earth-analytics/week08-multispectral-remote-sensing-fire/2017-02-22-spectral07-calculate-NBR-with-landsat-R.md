@@ -92,13 +92,6 @@ out what bands are required to calculate NBR using Landsat.
 You can export the NBR raster if you want using `writeRaster()`.
 
 
-```r
-writeRaster(x = landsat_nbr_pre,
-              filename="data/week_07/outputs/landsat_nbr",
-              format = "GTiff", # save as a tif
-              datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T)
-```
 
 
 Next, we can open the post-fire landsat data to calculate post-fire NBR.

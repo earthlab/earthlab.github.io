@@ -31,6 +31,8 @@ redirect_from:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -152,7 +154,6 @@ you <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target
 ## Landsat tif Files in R
 
 Next, you can open the Landsat data in `R`.
-
 
 
 

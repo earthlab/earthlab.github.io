@@ -84,11 +84,6 @@ issues on windows machines so give it a try if you are having problems with the 
 {: .notice--success }
 
 
-```r
-# turn into data.frame
-water_data_df <- do.call(rbind.data.frame, water_data)
-
-```
 
 Remember that the JSON structure supports hierarchical data and can be NESTED.
 
@@ -167,13 +162,13 @@ head(water_data_df$location)
 ##    latitude needs_recoding   longitude
 ## 1 40.042028          FALSE -105.364917
 ## 2 40.018667          FALSE  -105.32625
-## 3  40.09082          FALSE -105.514442
+## 3 39.931099          FALSE -105.295822
 ## 4      <NA>             NA        <NA>
-## 5 40.131924          FALSE -105.517223
-## 6      <NA>             NA        <NA>
+## 5 40.125542          FALSE -105.303879
+## 6 40.131924          FALSE -105.517223
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
-## [1] "40.042028" "40.018667" "40.09082"  NA          "40.131924" NA
+## [1] "40.042028" "40.018667" "39.931099" NA          "40.125542" "40.131924"
 ```
 
 We can remove the nesting using the `flatten()` function in `R`. When we flatten
@@ -190,18 +185,18 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
-##  [1] "40.042028" "40.018667" "40.09082"  NA          "40.131924"
-##  [6] NA          "40.125542" "40.21804"  "40.160347" "40.051652"
-## [11] "40.006374" "39.961655" "39.938598" "39.931099" "40.256031"
-## [16] "40.255581" "40.15336"  "40.193757" "40.18188"  "40.187577"
-## [21] "40.19932"  "40.174844" "40.18858"  "40.134278" "40.20419" 
-## [26] "40.173949" "40.172925" "40.19642"  "40.2125"   "40.21266" 
-## [31] "40.187524" NA          "40.153341" "40.21139"  "40.1946"  
-## [36] "40.170997" "40.21905"  "40.21108"  "40.193018" "40.172677"
-## [41] "40.172677" "40.19328"  "40.18503"  "39.98617"  "40.09404" 
-## [46] "40.05366"  NA          "40.2172"   "40.053036" "40.849982"
-## [51] NA          "39.931096" "40.258038" "40.216093" "40.215772"
-## [56] "40.214984" "40.091372" NA          "40.733879"
+##  [1] "40.042028" "40.018667" "39.931099" NA          "40.125542"
+##  [6] "40.131924" "40.160347" "40.051652" "40.006374" "40.21804" 
+## [11] "39.961655" "39.938598" "40.256031" "40.255581" "40.15336" 
+## [16] "40.193757" "40.18188"  "40.187577" "40.19932"  "40.174844"
+## [21] "40.18858"  "40.134278" "40.20419"  "40.173949" "40.172925"
+## [26] "40.19642"  "40.2125"   "40.21266"  "40.187524" NA         
+## [31] "40.153341" "40.2172"   "40.21139"  "40.1946"   "40.170997"
+## [36] "40.21905"  "40.21108"  "40.193018" "40.172677" "40.172677"
+## [41] "40.19328"  "40.18503"  "39.98617"  "40.09404"  "40.05366" 
+## [46] NA          "40.258038" "40.216093" "40.214984" "40.091372"
+## [51] "40.09082"  "40.053036" "40.849982" NA          "39.931096"
+## [56] "40.215772" NA          NA          "40.733879"
 ```
 Now we can clean up the data. Notice that our longitude and latitude values
 are in quotes. What does this mean about the structure of the data?
@@ -210,7 +205,7 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
-##  chr [1:59] "40.042028" "40.018667" "40.09082" NA "40.131924" NA ...
+##  chr [1:59] "40.042028" "40.018667" "39.931099" NA "40.125542" ...
 ```
 
 In order to map or work with latitude and longitude data, we need numeric values.
@@ -227,12 +222,12 @@ so it is best to remove them.
 ```r
 # where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
-##  [1] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+##  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
 ## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
 ## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [45] FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE
-## [56] FALSE FALSE  TRUE FALSE
+## [45] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [56] FALSE  TRUE  TRUE FALSE
 ```
 
 Note, in the code above, we can identify each location where there is a NA value
@@ -242,12 +237,12 @@ in our data. If we add an `!` to our code, R returns the INVERSE of the above.
 ```r
 # where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
-##  [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
 ## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
 ## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [45]  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE
-## [56]  TRUE  TRUE FALSE  TRUE
+## [45]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+## [56]  TRUE FALSE FALSE  TRUE
 ```
 
 Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value

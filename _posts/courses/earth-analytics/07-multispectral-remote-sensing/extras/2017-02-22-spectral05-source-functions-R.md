@@ -32,6 +32,8 @@ redirect_from:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -78,12 +80,12 @@ To source a set of functions in `R`:
 Next,
 
 * Open your `.Rmd` file or `R` script.
-* At the top of your file, add the `source(path/tofile/here.R)` function.
+* At the top of your file, add the `source(path/to-file/here.R)` function.
 
 `source("remote-sensing-functions.R")`
 
 If the `.R` script is in your main working directory then it won't have a path
-element before it like `week_06/functionfile.R` vs `functionfile.R`.
+element before it like `week_06/function-file.R` vs `function-file.R`.
 
 If it's in a different directory, adjust the path accordingly.
 Once you run the code containing the `source()` function, all of the functions in

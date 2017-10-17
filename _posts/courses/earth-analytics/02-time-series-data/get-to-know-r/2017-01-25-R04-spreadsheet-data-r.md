@@ -63,10 +63,6 @@ options(stringsAsFactors = FALSE)
 download.file("https://ndownloader.figshare.com/files/9282364",
               "data/boulder-precip.csv",
               method = "libcurl")
-## Warning in download.file("https://ndownloader.figshare.com/files/
-## 9282364", : URL 'https://ndownloader.figshare.com/files/9282364': status
-## was 'Couldn't connect to server'
-## Error in download.file("https://ndownloader.figshare.com/files/9282364", : cannot open URL 'https://ndownloader.figshare.com/files/9282364'
 ```
 
 Let's break the code above down. First, we use the `download.file` function to
@@ -85,12 +81,12 @@ a url on figshare to our data directory. We named that file `boulder-precip.csv`
 Next, we read in the data using the function: `read.csv()`.
 
 
+
+
 ```r
+
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
-## Warning in file(file, "rt"): cannot open file 'data/boulder-precip.csv': No
-## such file or directory
-## Error in file(file, "rt"): cannot open the connection
 
 # view first few rows of the data
 head(boulder_precip)

@@ -80,10 +80,6 @@ map <- leaflet() %>%
 map
 ```
 
-```r
-
-saveWidget(widget=map, file="birthplace_r.html", selfcontained=FALSE)
-```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
 
@@ -141,9 +137,6 @@ map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
 ```
 
 
-```r
-saveWidget(widget=map, file="water_map1.html", selfcontained=FALSE)
-```
 </div>
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
@@ -174,12 +167,6 @@ leaflet(water_data_df) %>%
 ```
 
 
-```r
-map = leaflet(water_data_df) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addMarkers(lng=~location.longitude, lat=~location.latitude, popup=~station_name)
-saveWidget(widget=map, file="water_map2.html", selfcontained=FALSE)
-```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map2.html" frameborder="0" allowfullscreen></iframe>
 
@@ -201,12 +188,12 @@ a series of text strings and object values.
 # let's look at the output of our popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"
-## [2] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 3.08"                   
-## [3] "SOUTH SAINT VRAIN NEAR WARD<br/>Discharge: 8.6"                       
-## [4] "MIDDLE SAINT VRAIN AT PEACEFUL VALLEY<br/>Discharge: 16.6"            
-## [5] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 13"                  
-## [6] "SAINT VRAIN CREEK AT LYONS, CO<br/>Discharge: 57.3"
+## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"              
+## [2] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 3.08"                                 
+## [3] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 13.8"                      
+## [4] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 13"                                
+## [5] "MIDDLE SAINT VRAIN AT PEACEFUL VALLEY<br/>Discharge: 16.6"                          
+## [6] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 160"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our
@@ -230,16 +217,6 @@ leaflet(water_data_df) %>%
 ```
 
 
-```r
-url = "http://tinyurl.com/jeybtwj"
-water = makeIcon(url, url, 24, 24)
-
-map = leaflet(water_data_df) %>%
-  addProviderTiles("Stamen.Terrain") %>%
-  addMarkers(lng=~location.longitude, lat=~location.latitude, icon=water,
-             popup=~paste0(station_name, "<br/>Discharge: ", amount))
-saveWidget(widget=map, file="water_map3.html", selfcontained=FALSE)
-```
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
@@ -247,28 +224,6 @@ There is a lot more to learn about leaflet. Here, we've just scratched the surfa
 
 
 
-```r
-# water_data_df
-water_data_df$station_type <- factor(water_data_df$station_type)
-
-new <- c("red", "green","blue")[water_data_df$station_type]
-
-icons <- awesomeIcons(
-  icon = 'ios-close',
-  iconColor = 'black',
-  library = 'ion',
-  markerColor = new
-)
-
-unique_markers_map2 <- leaflet(water_data_df) %>%
-  addProviderTiles("CartoDB.Positron") %>%
-  addAwesomeMarkers(lng=~location.longitude, lat=~location.latitude, icon=icons,
-                    popup=~station_name,
-                    label=~as.character(station_name))
-
-saveWidget(widget=unique_markers_map2, file="water_map_unique_markers1.html", selfcontained=FALSE)
-
-```
 
 Here we use `addAwesomeMarkers()` and adjust the color of each point on the map
 accordingly.
