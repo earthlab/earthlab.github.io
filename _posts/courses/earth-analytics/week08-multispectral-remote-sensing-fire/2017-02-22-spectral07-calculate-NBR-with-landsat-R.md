@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and plot difference normalized burn ratio (dNBR) from Landsat remote sensing data in R"
 excerpt: "In this lesson we review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. We finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-10-11'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['multispectral-normalized-burn-ratio']
 permalink: /courses/earth-analytics/spectral-remote-sensing-modis/calculate-dNBR-R-Landsat/
@@ -61,31 +61,19 @@ Let's explore creating NBR using Landsat data.
 First, let's setup our spatial packages.
 
 
-```r
-# load spatial packages
-library(raster)
-library(rgdal)
-library(rgeos)
-library(RColorBrewer)
-# turn off factors
-options(stringsAsFactors = FALSE)
-```
 
 Next, we open up our landsat data and create a spatial raster stack.
 
 
 
-```r
-# create stack
-all_landsat_bands_pre <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
-           pattern=glob2rx("*band*.tif$"),
-           full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands_pre
-## character(0)
-
-# stack the data
-landsat_stack_pre <- stack(all_landsat_bands_pre)
-## Error in x[[1]]: subscript out of bounds
+```
+## [1] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band1_crop.tif"
+## [2] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band2_crop.tif"
+## [3] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band3_crop.tif"
+## [4] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band4_crop.tif"
+## [5] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band5_crop.tif"
+## [6] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band6_crop.tif"
+## [7] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band7_crop.tif"
 ```
 
 Next we calculate dNBR using the following steps:
@@ -98,61 +86,35 @@ Next we calculate dNBR using the following steps:
 . Note the code to do this is hidden. You will need to figure
 out what bands are required to calculate NBR using Landsat.
 
-
-```
-## Error in eval(expr, envir, enclos): object 'landsat_stack_pre' not found
-## Error in plot(landsat_nbr_pre, main = "Landsat derived Normalized Burn Index (NBR)\n Pre-fire - you will need to figure out the date using the Julian Day", : object 'landsat_nbr_pre' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral07-calculate-NBR-with-landsat-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
 
 
 You can export the NBR raster if you want using `writeRaster()`.
 
 
-```r
-writeRaster(x = landsat_nbr_pre,
-              filename="data/week_07/outputs/landsat_nbr",
-              format = "GTiff", # save as a tif
-              datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T)
-```
 
 
 Next, we can open the post-fire landsat data to calculate post-fire NBR.
 
 
-```r
-all_landsat_bands_post <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
-           pattern=glob2rx("*band*.tif$"),
-           full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
-all_landsat_bands_post
-## character(0)
-
-# stack the data
-landsat_stack_post <- stack(all_landsat_bands_post)
-## Error in x[[1]]: subscript out of bounds
+```
+## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
+## [2] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
+## [3] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
+## [4] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
+## [5] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
+## [6] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
+## [7] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
 ```
 
 Then we calculate NBR on the post data - note the code here is purposefully hidden.
 You need to figure out what bands to use to perform the math!
 
-
-```
-## Error in eval(expr, envir, enclos): object 'landsat_stack_post' not found
-## Error in plot(landsat_nbr_post, main = "Landsat derived Normalized Burn Index (NBR)\n Post Fire", : object 'landsat_nbr_post' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral07-calculate-NBR-with-landsat-R/calculate-nbr-post-1.png" title="landsat derived NBR post fire" alt="landsat derived NBR post fire" width="90%" />
 
 Finally, calculate the DIFFERENCE between the pre and post NBR!!
 
-
-```r
-# calculate difference
-landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post
-## Error in eval(expr, envir, enclos): object 'landsat_nbr_pre' not found
-plot(landsat_nbr_diff,
-     main = "Difference NBR map \n Pre minus post Cold Springs fire",
-     axes=F, box=F)
-## Error in plot(landsat_nbr_diff, main = "Difference NBR map \n Pre minus post Cold Springs fire", : object 'landsat_nbr_diff' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral07-calculate-NBR-with-landsat-R/unnamed-chunk-1-1.png" title="Difference NBR map" alt="Difference NBR map" width="90%" />
 
 When you have calculated dNBR or the difference in NBR pre minus post fire,
 classify the output raster using the `classify()` function and the classes below.
@@ -175,18 +137,11 @@ Alternatively, you can use the `Inf` to specify the smallest `-Inf` and largest
 
 
 
-```
-## Error in reclassify(landsat_nbr_diff, reclass_m): object 'landsat_nbr_diff' not found
-```
 
 
 Your classified map should look something like:
 
-
-```
-## Error in plot(nbr_classified, col = the_colors, legend = F, axes = F, : object 'nbr_classified' not found
-## Error in legend(nbr_classified@extent@xmax - 100, nbr_classified@extent@ymax, : object 'nbr_classified' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral07-calculate-NBR-with-landsat-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 ## Compare to fire boundary
 
@@ -198,14 +153,7 @@ the shapefile in the folder:
 
 Add fire boundary to map.
 
-
-```
-## Error in ogrListLayers(dsn = dsn): Cannot open data source
-## Error in spTransform(fire_boundary, crs(nbr_classified)): object 'fire_boundary' not found
-## Error in plot(nbr_classified, col = the_colors, legend = F, axes = F, : object 'nbr_classified' not found
-## Error in plot(fire_boundary_utm, add = TRUE, lwd = 5): object 'fire_boundary_utm' not found
-## Error in legend(nbr_classified@extent@xmax - 100, nbr_classified@extent@ymax, : object 'nbr_classified' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral07-calculate-NBR-with-landsat-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 
 
@@ -216,12 +164,7 @@ Make it look a bit nicer using a colorbrewer palette. I used the
 `brewer.pal(5, 'RdYlGn')`
 
 
-
-```
-## Error in plot(nbr_classified, col = the_colors, legend = F, axes = F, : object 'nbr_classified' not found
-## Error in plot(fire_boundary_utm, add = TRUE, lwd = 5): object 'fire_boundary_utm' not found
-## Error in legend(nbr_classified@extent@xmax - 50, nbr_classified@extent@ymax, : object 'nbr_classified' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral07-calculate-NBR-with-landsat-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 Note that you will have to figure out what date these data are for! I purposefully
 didn't include it in the title of this map.
@@ -229,24 +172,11 @@ didn't include it in the title of this map.
 
 
 
-
-```r
-barplot(nbr_classified,
-        main = "Distribution of Classified NBR Values",
-        col = the_colors)
-## Error in barplot(nbr_classified, main = "Distribution of Classified NBR Values", : object 'nbr_classified' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral07-calculate-NBR-with-landsat-R/view-bar-1.png" title="plot barplot of fire severity values" alt="plot barplot of fire severity values" width="90%" />
 
 Add labels to your barplot!
 
-
-```r
-barplot(nbr_classified,
-        main = "Distribution of Classified NBR Values",
-        col = the_colors,
-        names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
-## Error in barplot(nbr_classified, main = "Distribution of Classified NBR Values", : object 'nbr_classified' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week08-multispectral-remote-sensing-fire/2017-02-22-spectral07-calculate-NBR-with-landsat-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
 
 <div class="notice--warning" markdown="1">

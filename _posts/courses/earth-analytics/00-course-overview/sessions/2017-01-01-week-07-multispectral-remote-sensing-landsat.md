@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Landsat Data in R - Fire Ecology & Remote Sensing"
+title: "Multispectral Imagery R - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/
 modified: '2017-10-16'
 week-landing: 7
@@ -17,9 +17,7 @@ redirect_from:
   - "/courses/earth-analytics/spectral-remote-sensing-landsat/"
 ---
 
-
 {% include toc title="This Week" icon="file-text" %}
-
 
 <div class="notice--info" markdown="1">
 
@@ -271,26 +269,33 @@ achieve a grade higher than a C on the assignment.
 
 ### Example Report Plots
 
-
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" /><img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/load-packages-2.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
-
-
+Please note that some of the homework plots are not below. For example the
+NAIP NDVI plots are not below. 
 
 
 
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/landsat-pre-ndvi-1.png" title="Landsat NDVI pre fire" alt="Landsat NDVI pre fire" width="90%" />
-
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/landsat-post-ndvi-1.png" title="Landsat NDVI post fire" alt="Landsat NDVI post fire" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" /><img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-2.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
 
 
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/landsat-pre-fire-rgb-1.png" title="Landsat Pre Fire RGB Image" alt="Landsat Pre Fire RGB Image" width="90%" />
+
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
 
 
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/landsat-post-fire-rgb-1.png" title="Landsat Post Fire RGB Image" alt="Landsat Post Fire RGB Image" width="90%" />
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/landsat-pre-ndvi-1.png" title="Landsat NDVI pre fire" alt="Landsat NDVI pre fire" width="90%" />
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/landsat-post-ndvi-1.png" title="Landsat NDVI post fire" alt="Landsat NDVI post fire" width="90%" />
+
+
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/landsat-pre-fire-rgb-1.png" title="Landsat Pre Fire RGB Image" alt="Landsat Pre Fire RGB Image" width="90%" />
+
+
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/landsat-post-fire-rgb-1.png" title="Landsat Post Fire RGB Image" alt="Landsat Post Fire RGB Image" width="90%" />
 
 
 

@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-08-17'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/API-data-access-r/
@@ -64,11 +64,9 @@ a data.frame.
 #devtools::install_github("dkahle/ggmap")
 #devtools::install_github("hadley/ggplot2")
 library(ggmap)
-## Error in library(ggmap): there is no package called 'ggmap'
 library(ggplot2)
 library(dplyr)
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 library(jsonlite)
 library(RCurl)
 ```
@@ -193,7 +191,6 @@ that is in the rjson package.
 
 ```r
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 
 # Convert JSON to data frame
 pop_proj_data_df <- fromJSON(getURL(full_url))
@@ -315,7 +312,7 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
           subtitle = "Boulder, CO: 1990 - 2040")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api05-get-data-api-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api05-get-data-api-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="90%" />
 
 
 
@@ -336,7 +333,7 @@ plot a descriptive title.
 
 ## Example homework plot
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="90%" />
 
 
 

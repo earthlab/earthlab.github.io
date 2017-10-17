@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/open-plot-spreadsheet-data-in-R/
 nav-title: 'Open spreadsheet data'
 dateCreated: 2016-12-13
-modified: '2017-09-15'
+modified: '2017-10-16'
 week: 2
 sidebar:
   nav:
@@ -20,8 +20,9 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-
 {% include toc title="In this lesson" icon="file-text" %}
+
+
 
 This lesson introduces the data.frame which is very similar to working with
 a spreadsheet in `R`.
@@ -80,27 +81,29 @@ a url on figshare to our data directory. We named that file `boulder-precip.csv`
 Next, we read in the data using the function: `read.csv()`.
 
 
+
+
 ```r
+
 # import data
 boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder_precip)
-##    ID    DATE PRECIP TEMP
-## 1 756 8/21/13    0.1   55
-## 2 757 8/26/13    0.1   25
-## 3 758 8/27/13    0.1   NA
-## 4 759  9/1/13    0.0 -999
-## 5 760  9/9/13    0.1   15
-## 6 761 9/10/13    1.0   25
+##     X       DATE PRECIP
+## 1 756 2013-08-21    0.1
+## 2 757 2013-08-26    0.1
+## 3 758 2013-08-27    0.1
+## 4 759 2013-09-01    0.0
+## 5 760 2013-09-09    0.1
+## 6 761 2013-09-10    1.0
 
 # view the format of the boulder_precip object in R
 str(boulder_precip)
-## 'data.frame':	18 obs. of  4 variables:
-##  $ ID    : int  756 757 758 759 760 761 762 763 764 765 ...
-##  $ DATE  : chr  "8/21/13" "8/26/13" "8/27/13" "9/1/13" ...
+## 'data.frame':	18 obs. of  3 variables:
+##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
+##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
-##  $ TEMP  : int  55 25 NA -999 15 25 65 NA 95 -999 ...
 ```
 <div class="notice--warning" markdown="1">
 
@@ -142,9 +145,10 @@ followed by the name of the column (or the column header):
 # when we download the data we create a data.frame
 # view each column of the data frame using its name (or header)
 boulder_precip$DATE
-##  [1] "8/21/13"  "8/26/13"  "8/27/13"  "9/1/13"   "9/9/13"   "9/10/13" 
-##  [7] "9/11/13"  "9/12/13"  "9/13/13"  "9/15/13"  "9/16/13"  "9/22/13" 
-## [13] "9/23/13"  "9/27/13"  "9/28/13"  "10/1/13"  "10/4/13"  "10/11/13"
+##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
+##  [6] "2013-09-10" "2013-09-11" "2013-09-12" "2013-09-13" "2013-09-15"
+## [11] "2013-09-16" "2013-09-22" "2013-09-23" "2013-09-27" "2013-09-28"
+## [16] "2013-10-01" "2013-10-04" "2013-10-11"
 
 # view the precip column
 boulder_precip$PRECIP

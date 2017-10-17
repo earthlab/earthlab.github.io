@@ -3,7 +3,7 @@ layout: single
 title: "Summarize time series data by month or year using tidyverse pipes in R"
 excerpt: "Learn how to summarize time series data by day, month or year with Tidyverse pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-09-11'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/
@@ -22,6 +22,7 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 
 In this lesson, we will summarize time series data by various time units
@@ -268,7 +269,7 @@ boulder_daily_precip %>%
            x = "Date") + theme_bw(base_size = 15)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/subset-data-1.png" title=" " alt=" " width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R03-summarize-time-series-data-by-month-or-day-R/subset-data-1.png" title="plot of chunk subset-data" alt="plot of chunk subset-data" width="90%" />
 
 ## Summarize data by month
 

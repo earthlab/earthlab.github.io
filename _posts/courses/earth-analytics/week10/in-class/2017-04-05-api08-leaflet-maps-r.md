@@ -3,7 +3,7 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-10-02'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/leaflet-r/
@@ -102,18 +102,14 @@ base_url <- "https://data.colorado.gov/resource/j5pc-4t32.json?"
 full_url <- paste0(base_url, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
-## Error in getURL(URLencode(full_url)): could not find function "getURL"
 water_data_df <- fromJSON(water_data)
-## Error in fromJSON(water_data): object 'water_data' not found
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
-## Error in is.data.frame(x): object 'water_data_df' not found
 
 # turn columns to numeric and remove NA values
 water_data_df <- water_data_df %>%
   mutate_each_(funs(as.numeric), c( "amount", "location.latitude", "location.longitude")) %>%
   filter(!is.na(location.latitude))
-## Error in eval(lhs, parent, parent): object 'water_data_df' not found
 ```
 
 Once our data are cleaned up, we can create our leaflet map. Notice that we are
@@ -136,11 +132,8 @@ below provides an example of creating the same map without using pipes.
 
 ```r
 map <- leaflet(water_data_df)
-## Error in structure(list(options = options), leafletData = data): object 'water_data_df' not found
 map <- addTiles(map)
-## Error in getMapData(map): object 'map' not found
 map <- addCircleMarkers(map, lng=~location.longitude, lat=~location.latitude)
-## Error in getMapData(map): object 'map' not found
 ```
 
 
@@ -195,7 +188,12 @@ a series of text strings and object values.
 # let's look at the output of our popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## Error in paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount): object 'water_data_df' not found
+## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"              
+## [2] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 3.08"                                 
+## [3] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 13.8"                      
+## [4] "LEFT HAND CREEK NEAR BOULDER, CO.<br/>Discharge: 13"                                
+## [5] "MIDDLE SAINT VRAIN AT PEACEFUL VALLEY<br/>Discharge: 16.6"                          
+## [6] "ST. VRAIN CREEK BELOW BOULDER CREEK AT HWY 119 NEAR LONGMONT, CO<br/>Discharge: 160"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our

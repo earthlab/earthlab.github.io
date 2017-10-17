@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Understand EPSG, WKT and other CRS definition styles"
 excerpt: "This lesson discusses ways that coordinate reference system data are stored including  proj4, well known text (wkt) and EPSG codes. "
 authors: ['Leah Wasser']
-modified: '2017-09-28'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
@@ -22,6 +22,8 @@ topics:
 
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 This lesson discusses ways that coordinate reference system data are stored
 including `proj4`, well known text (`wkt`) and `EPSG` codes.
@@ -131,9 +133,9 @@ the data is WGS84
 Note that the `zone` is unique to the UTM projection. Not all `CRS`s will have a
 zone.
 
-Also note that while California is above the equator - in the northern hemisphere - 
-there is no N (specifying north) following the zone (i.e. 11N) South is explicitly 
-specified in the UTM `proj4` specification however if there is no S, then you can 
+Also note that while California is above the equator - in the northern hemisphere -
+there is no N (specifying north) following the zone (i.e. 11N) South is explicitly
+specified in the UTM `proj4` specification however if there is no S, then you can
 assume it's a northern projection.
 
 
@@ -189,7 +191,7 @@ The `EPSG` codes are 4-5 digit numbers that represent `CRS` definitions. The
 acronym `EPGS`, comes from the, now defunct, European Petroleum Survey Group. Each
 code is a four-five digit number which represents a particular `CRS` definition.
 
-<a href="http://spatialreference.org/ref/epsg/" target="_blank" class="btn">List of ESPG codes on spatialreference.org 
+<a href="http://spatialreference.org/ref/epsg/" target="_blank" class="btn">List of ESPG codes on spatialreference.org
 </a>
 
 You can create a list of EPSG codes using the `make_epsg()` function in

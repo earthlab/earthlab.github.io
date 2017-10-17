@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions & Automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
-modified: '2017-10-11'
+modified: '2017-10-16'
 week-landing: 6
 week: 6
 sidebar:
@@ -139,6 +139,9 @@ An example of what the final data should look like is below:
 ```r
 # open data
 precip_2003 <- read.csv("data/week_06/outputs/precip_mm/precip-2003.csv")
+## Warning in file(file, "rt"): cannot open file 'data/week_06/outputs/
+## precip_mm/precip-2003.csv': No such file or directory
+## Error in file(file, "rt"): cannot open the connection
 head(precip_2003, n = 6)
 ##   X month precip_mm
 ## 1 1     1      0.00
@@ -161,42 +164,6 @@ NOTES:
 * When you write the `.csv` make sure that you address `NA` values!
 
 
-```r
-
-check_create_dir <- function(dir_path){
-  # document your function here
-
-  # include the code required to check for the directory and then create it here
-  # because this function is just creating a directory, you don't need to return anything!
-
-}
-
-in_to_mm <- function(precip_in){
-  # document your function here
-
-  # include the code required to convert inches to mm here
-
-  return(precip_mm)
-}
-
-# create an object with the directory name
-new_dir <- "data/week_06/outputs/precip_mm/"
-# check to see if the directory exists - make it if it doesn't
-check_create_dir(new_dir)
-
-# print the name of each file
-for (file in all_precip_files) {
-  # read in the csv - be sure to fill in the na strings argument - i didn't do that below
-  the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%
-    mutate(precip_mm = in_to_mm(HPCP)) # add a column with precip in mm and a column with just the month using the month() function
-    # group the data by month
-
-    # summarise using the sum function - be sure you address na values when you sum! we discussed this during week 1
-
-  # write output to a new .csv file
-  write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", basename(file)))
-}
-```
 
 
 

@@ -3,7 +3,7 @@ layout: single
 title: "Use lapply in R Instead of For Loops to Process .csv files - Efficient Coding in R"
 excerpt: "Learn how to take code in a for loop and convert it to be used in an apply function. Make your R code more efficient and expressive programming."
 authors: ['Leah Wasser', 'Bryce Mecum', 'Max Joseph']
-modified: '2017-10-09'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/use-apply-functions-for-efficient-code-r/
@@ -21,6 +21,8 @@ redirect_from:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 
@@ -93,7 +95,7 @@ lapply
 ##         X <- as.list(X)
 ##     .Internal(lapply(X, FUN))
 ## }
-## <bytecode: 0x103069008>
+## <bytecode: 0x102062808>
 ## <environment: namespace:base>
 ```
 
@@ -103,7 +105,7 @@ lapply
 library(parallel)
 # how many cores are on this machine
 detectCores()
-## [1] 8
+## [1] 4
 ```
 
 ## Use lapply to Process Lists of Files
@@ -127,10 +129,44 @@ library(dplyr)
 > lapply takes a vector (or list) as its first argument (in this case a vector of the continent names), then a function as its second argument. This function is then executed on every element in the first argument. This is very similar to a for loop: first, cc stores the first continent name, “Asia”, then runs the code in the function body, then cc stores the second continent name, and runs the function body, and so on. The code in the function body can be thought of in exactly the same way as the body of the for loop. The result of the last line is then returned to lapply, which combines the results into a list. --Software Carpentry
 
 
+```r
+check_create_dir <- function(the_dir) {
+  if (!dir.exists(the_dir)) {
+  dir.create(the_dir, recursive = TRUE) }
+}
+
+in_to_mm <- function(data_in_inches) {
+  value_inches <- data_in_inches * 25.4
+  return(value_inches)
+}
+```
 
 In the previous lessons, you created a list of files in a directory.
 
 
+```r
+all_precip_files <- list.files("data/week_06", pattern = "*.csv",
+                             full.names = TRUE)
+
+# create an object with the directory name
+the_dir <- "data/week_06/outputs/precip_mm"
+# check to see if the directory exists - make it if it doesn't
+check_create_dir(the_dir)
+
+# print the name of each file
+for (file in all_precip_files) {
+  # read in the csv
+  the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%
+    mutate(DATE = as.POSIXct(DATE, tz = "America/Denver", format = "%Y-%m-%d %H:%M:%S"),
+            # add a column with precip in mm
+           precip_mm = in_to_mm(HPCP))
+
+  # write the csv to a new file
+  write.csv(the_data, file = paste0(the_dir, "/", basename(file)),
+            na = "999.99")
+
+}
+```
 
 
 Create a function that performs all of the tasks performed in the `for loop` above.
@@ -173,7 +209,8 @@ them up for readability).
 
 ```r
 
-lapply(all_precip_files, FUN = summarize_data,
+lapply(all_precip_files,
+       FUN = summarize_data,
        the_dir = the_dir_ex)
 ## [[1]]
 ## NULL
@@ -236,7 +273,7 @@ microbenchmark(invisible(lapply(all_precip_files, (FUN = summarize_data),
 ##                                                                               expr
 ##  invisible(lapply(all_precip_files, (FUN = summarize_data), the_dir = the_dir_ex))
 ##       min       lq     mean   median       uq      max neval
-##  102.8318 104.6389 108.0065 107.3977 108.7935 188.5937   100
+##  154.3001 172.2487 207.6907 193.5216 231.2502 341.2549   100
 ```
 
 
@@ -259,8 +296,8 @@ microbenchmark(for (file in all_precip_files) {
 ## Unit: milliseconds
 ##                                                                                                                                                                                                                                                                                                                                           expr
 ##  for (file in all_precip_files) {     the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%          mutate(DATE = as.POSIXct(DATE, tz = "America/Denver",              format = "%Y-%m-%d %H:%M:%S"), precip_mm = in_to_mm(HPCP))     write.csv(the_data, file = paste0(the_dir, "/", basename(file)),          na = "999.99") }
-##       min      lq     mean   median       uq     max neval
-##  104.5046 108.674 111.5885 110.9281 112.7003 151.747   100
+##      min      lq   mean   median       uq      max neval
+##  170.388 194.088 270.39 238.2796 293.3758 882.7683   100
 ```
 
 <!--RETURN a single data.frame do.call(rbind, lapply(file_paths, function(path) { read.csv(path, stringsAsFactors = FALSZE }))-->

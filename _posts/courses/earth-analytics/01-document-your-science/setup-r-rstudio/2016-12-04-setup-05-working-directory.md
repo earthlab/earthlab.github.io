@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: courses/earth-analytics/document-your-science/setup-working-directory/
 dateCreated: 2016-12-12
-modified: '2017-09-10'
+modified: '2017-10-16'
 author_profile: false
 comments: true
 order: 5
@@ -21,6 +21,7 @@ topics:
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
+
 
 
 ## Set up your working directory

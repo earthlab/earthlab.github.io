@@ -4,7 +4,7 @@ title: "Understand and use code chunks in R Markdown and comment your code"
 excerpt: 'Learn how code chunks are written and formatted within an R Markdown file in R Studio.'
 authors: [Leah Wasser, NEON Data Skills]
 category: [courses]
-modified: '2017-10-03'
+modified: '2017-10-16'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/rmarkdown-code-chunks-comments-knitr/
 nav-title: 'Code chunks'
@@ -155,13 +155,13 @@ The code within the chunk will appear on the output document, however there
 will be no outputs from the code.
 
 <div class="highlighter-rouge">
-<pre class="highlight"><code>```{r intro-option, eval=FALSE}
+<pre class="highlight"><code>```{r intro-option, eval = FALSE}
 # this is a comment. text, next to a comment, is not processed by R
 # comments will appear on your rendered r markdown document
 1+2
  ```</code></pre></div>
 
-One example of using `eval=FALSE` is for a code chunk that exports a file such
+One example of using `eval = FALSE` is for a code chunk that exports a file such
 as a figure graphic or a text file. We may want to show / document the code that
 we used to export that graphic in our `html` or `pdf` document, but we don't need to
 actually export that file each time we create a revised `html` or `pdf` document.
@@ -190,7 +190,7 @@ Add a new chunk with the following arguments. Then describe in your own words
 when you might want to use each of these arguments. HINT: Think about creating a report
 with plots where you have a lot of code generating those plots.
 
-<pre><code>```{r testing-arguments, eval=FALSE }
+<pre><code>```{r testing-arguments, eval = FALSE }
 
    # More math!
    a * b

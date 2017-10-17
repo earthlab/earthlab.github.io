@@ -25,7 +25,6 @@ redirect_from:
    - "/courses/earth-analytics/week-6/naip-imagery-raster-stacks-in-r/"
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
@@ -108,7 +107,7 @@ in that band. DARKER colors represent a weaker reflection.
 
 
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/demonstrate-RGB-Image-1.png" title="single band image" alt="single band image" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/demonstrate-RGB-Image-1.png" title="single band image" alt="single band image" width="90%" />
 
 #### Each Band Plotted Separately
 
@@ -127,12 +126,12 @@ plot(rgb_image_3bands,
    box = FALSE, axes = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-3-bands-1.png" title="All bands plotted separately" alt="All bands plotted separately" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-3-bands-1.png" title="All bands plotted separately" alt="All bands plotted separately" width="90%" />
 
 You can plot the red, green and blue bands together to create an RGB image. This
 is what you would see with your eyes if you were in the airplane looking down at the Earth.
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb-example-1.png" title="3 band image plot rgb" alt="3 band image plot rgb" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-rgb-example-1.png" title="3 band image plot rgb" alt="3 band image plot rgb" width="90%" />
 
 ## CIR Image
 
@@ -142,7 +141,7 @@ plotted on the "red" band, the red band is plotted using green and the green ban
 is plotted using blue. Thus vegetation, which reflects strongly in the NIR part
 of the spectrum, is colored "red."
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/cir-image-1.png" title="3 band cir image" alt="3 band cir image" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/cir-image-1.png" title="3 band cir image" alt="3 band cir image" width="90%" />
 
 
 ## Other Types of Multi-Band Raster Data
@@ -209,7 +208,7 @@ plot(naip_csf,
      main = "NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/read-single-band-1.png" title="NAIP imagery single band plot." alt="NAIP imagery single band plot." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/read-single-band-1.png" title="NAIP imagery single band plot." alt="NAIP imagery single band plot." width="90%" />
 
 ```r
 
@@ -281,7 +280,7 @@ plot(rgb_band2,
      main = "RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/read-specific-band-1.png" title="naip imagery band 2 plot." alt="naip imagery band 2 plot." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/read-specific-band-1.png" title="naip imagery band 2 plot." alt="naip imagery band 2 plot." width="90%" />
 
 ```r
 
@@ -361,7 +360,7 @@ naip_csf_br
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_093233_89035_70919.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_180548_89035_33049.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
 ## min values  :                                 0,                                 0,                                 0,                                 0 
 ## max values  :                               255,                               255,                               255,                               255
@@ -379,7 +378,7 @@ naip_csf_br[[1]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_093233_89035_70919.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_180548_89035_33049.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.1 
 ## values      : 0, 255  (min, max)
 ```
@@ -395,7 +394,7 @@ hist(naip_csf_br,
      col = "purple")
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/hist-all-layers-1.png" title="histogram of each band for a total of 4 bands" alt="histogram of each band for a total of 4 bands" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/hist-all-layers-1.png" title="histogram of each band for a total of 4 bands" alt="histogram of each band for a total of 4 bands" width="90%" />
 
 Plot each band individually.
 
@@ -406,7 +405,7 @@ plot(naip_csf_br,
      col = gray(0:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-all-layers-1.png" title="plot each band for a total of 4 bands" alt="plot each band for a total of 4 bands" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-all-layers-1.png" title="plot each band for a total of 4 bands" alt="plot each band for a total of 4 bands" width="90%" />
 
 You can plot just one band too.
 
@@ -418,7 +417,7 @@ plot(naip_csf_br[[2]],
      col = gray(0:100 / 100))
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-individual-bands-1.png" title="plot individual band - band 2" alt="plot individual band - band 2" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-individual-bands-1.png" title="plot individual band - band 2" alt="plot individual band - band 2" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -458,7 +457,7 @@ plotRGB(naip_csf_br,
         main = "RGB image \nColdsprings fire scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb-image-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-rgb-image-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
 
 To add a title to your plot, adjust the parameters as follows:
 
@@ -481,7 +480,7 @@ plotRGB(naip_csf_br,
 box(col = "white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb-image-title-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-rgb-image-title-1.png" title="RGB image of NAIP imagery." alt="RGB image of NAIP imagery." width="90%" />
 
 
 ## Apply a Stretch to Normalize the Colors in the Image
@@ -529,7 +528,7 @@ plotRGB(naip_csf_br,
         main = "NAIP RGB plot with linear stretch\nColdsprings fire scar")
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/image-stretch-1.png" title="lin stretch rgb image" alt="lin stretch rgb image" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/image-stretch-1.png" title="lin stretch rgb image" alt="lin stretch rgb image" width="90%" />
 
 What does the image look like using a different stretch? Any better? Worse?
 
@@ -545,7 +544,7 @@ plotRGB(naip_csf_br,
 box(col = "white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-rgb-hist-stretch-1.png" title="plot RGB with his stretch" alt="plot RGB with his stretch" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-rgb-hist-stretch-1.png" title="plot RGB with his stretch" alt="plot RGB with his stretch" width="90%" />
 
 In this case, the stretch doesn't enhance the contrast of your image significantly
 given the distribution of reflectance (or brightness) values is distributed well
@@ -600,7 +599,7 @@ plotRGB(naip_brick_csf,
 box(col = "white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/plot-brick-1.png" title="plot raster brick" alt="plot raster brick" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/plot-brick-1.png" title="plot raster brick" alt="plot raster brick" width="90%" />
 
 <div class="notice--warning" markdown="1">
 
@@ -620,9 +619,9 @@ Then answer the following questions:
 
 </div>
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/challenge-1.png" title="challenge rgb plot 2015 data" alt="challenge rgb plot 2015 data" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/challenge-1.png" title="challenge rgb plot 2015 data" alt="challenge rgb plot 2015 data" width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/earth-analytics/00-course-overview/2017-01-01-course-home/challenge2-1.png" title="challenge cir plot 2015 data" alt="challenge cir plot 2015 data" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral02-naip-multispectral-imagery-R/challenge2-1.png" title="challenge cir plot 2015 data" alt="challenge cir plot 2015 data" width="90%" />
 
 
 <div class="notice--warning" markdown="1">

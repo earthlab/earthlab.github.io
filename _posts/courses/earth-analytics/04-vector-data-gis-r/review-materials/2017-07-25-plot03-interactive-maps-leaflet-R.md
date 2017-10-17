@@ -3,7 +3,7 @@ layout: single
 title: "Make Interactive Maps with Leaflet R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-10-02'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-interactive-maps-with-leaflet-R/
@@ -22,9 +22,12 @@ topics:
   reproducible-science-and-programming:
 ---
 
+
 <!--# remove module-type: 'class' so it doesn't render live -->
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 
@@ -39,9 +42,6 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
 </div>
-
-
-
 
 
 First, let's import all of the needed libraries.
@@ -126,8 +126,8 @@ Plot the data and use the plotID field as a popup.
 # plot points on top of a leaflet basemap
 site_locations <- leaflet(plot_locations_df) %>%
   addTiles() %>%
-  addCircleMarkers(lng = ~coords.x1, lat = ~coords.x2, popup = ~Plot_ID) 
- 
+  addCircleMarkers(lng = ~coords.x1, lat = ~coords.x2, popup = ~Plot_ID)
+
 site_locations
 ```
 
@@ -137,10 +137,10 @@ site_locations
 
 
 Add unique colors according to plot type.
- 
+
 
 ```r
-# define colors - you can find colors that look better than these! 
+# define colors - you can find colors that look better than these!
 pal <- colorFactor(c("navy", "darkgreen", "darkorchid4"), domain = unique(sjer_aoi_WGS84$plot_type))
 
 # plot points on top of a leaflet basemap
@@ -148,8 +148,8 @@ site_locations_colors <- leaflet(plot_locations_df) %>%
   addTiles() %>%
   addCircleMarkers(
      color = ~pal(plot_type),
-    lng = ~coords.x1, lat = ~coords.x2, popup = ~Plot_ID) 
- 
+    lng = ~coords.x1, lat = ~coords.x2, popup = ~Plot_ID)
+
 site_locations_colors
 ```
 
@@ -157,5 +157,3 @@ site_locations_colors
 
 
 <iframe title="Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/site_locations_colors.html" frameborder="0" allowfullscreen></iframe>
-
-

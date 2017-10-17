@@ -3,7 +3,7 @@ layout: single
 title: "Canopy height models, digital surface models & digital elevation models - work with lidar data in R"
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-09-27'
+modified: '2017-10-16'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-chm-dem-dsm/
@@ -25,6 +25,9 @@ redirect_from:
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
+
+
+
 
 <div class='notice--success' markdown="1">
 
@@ -90,7 +93,6 @@ In the previous lesson, we opened a digital elevation model. The digital elevati
 model (`DEM`), also known as a digital terrain model (`DTM`) represents the elevation
 of the Earth's surface. The `DEM` represents the ground - and thus DOES NOT INCLUDE
 trees and buildings and other objects.
-
 
 
 

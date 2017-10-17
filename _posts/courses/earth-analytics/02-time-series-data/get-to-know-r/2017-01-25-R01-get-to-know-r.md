@@ -9,7 +9,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/basic-r-syntax-scientific-programming/
 nav-title: 'Get to know R'
 dateCreated: 2016-12-13
-modified: '2017-09-10'
+modified: '2017-10-16'
 module-title: 'Get to know R'
 module-nav-title: 'Get to know R'
 module-description: 'This module introduces the R scientific programming language.
@@ -30,6 +30,7 @@ topics:
 
 
 {% include toc title="In this lesson" icon="file-text" %}
+
 
 
 In this tutorial, we will explore the basic syntax (structure) or the `R` programming
@@ -65,9 +66,11 @@ to import data into a `data.frame` which is the `R` equivalent of a spreadsheet.
 
 Let's start by looking at the code we used in the previous module. Here we:
 
+
 1. Downloaded some data from figshare using the `download.file()` function.
 2. Imported the data into `R` using the `read.csv()` function.
 3. Plotted the data using the `qplot()` function (which is a part of the `ggplot2` package).
+
 
 
 
@@ -220,8 +223,8 @@ Below, we use the `qplot()` function which is a part of the `ggplot2` package.
 
 ```r
 # q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder_precip$DATE,
-      y=boulder_precip$PRECIP)
+qplot(x = boulder_precip$DATE,
+      y = boulder_precip$PRECIP)
 ```
 
 Functions return an output. Sometimes that output is a *figure* like the example

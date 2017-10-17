@@ -8,7 +8,7 @@ class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/time-series-data/ways-to-get-help-with-R/
 nav-title: 'About R / get help'
 dateCreated: 2016-12-13
-modified: '2017-09-10'
+modified: '2017-10-16'
 week: 2
 sidebar:
   nav:
@@ -19,7 +19,6 @@ course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---
-
 
 {% include toc title="In this lesson" icon="file-text" %}
 

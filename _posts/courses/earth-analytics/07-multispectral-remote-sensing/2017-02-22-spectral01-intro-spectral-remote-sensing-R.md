@@ -7,7 +7,7 @@ modified: '2017-10-16'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/introduction-multispectral-imagery-r/
-nav-title: 'Intro Spectral Data'
+nav-title: 'Intro Multispectral Data'
 module-title: 'Multispectral imagery in R - Fire & Remote Sensing Data'
 module-description: 'In this module, you will learn how to use multispectral imagery, a type of remote sensing data, to better understand changes in the landscape and how to calculate NDVI using various multispectral datasets You will also review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. Additionally, we will cover raster stacks in R, plotting multi-band composite images, calculating vegetation indices and creating functions to make the processing more efficient in R.'
 module-nav-title: 'Fire / Spectral Remote Sensing Data in R'
@@ -28,8 +28,9 @@ redirect_from:
    - "/courses/earth-analytics/spectral-remote-sensing-landsat/intro-spectral-data-r/"
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 
