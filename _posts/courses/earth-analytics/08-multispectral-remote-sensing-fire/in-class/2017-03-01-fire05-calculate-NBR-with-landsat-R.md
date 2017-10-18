@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and plot difference normalized burn ratio (dNBR) from Landsat remote sensing data in R"
 excerpt: "In this lesson you review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. You finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-10-17'
+modified: '2017-10-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/calculate-dNBR-R-Landsat/
@@ -65,9 +65,16 @@ library(rgeos)
 library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = FALSE)
+
+# source the normalized diff function that you write for week_7 
+source("ea-course-functions.R")
+## Error in file(filename, "r", encoding = encoding): cannot open the connection
 ```
 
-Next, you open up our landsat data and create a spatial raster stack.
+
+
+
+Next, open up the landsat data and create a brick from the bands.
 
 
 
@@ -86,17 +93,18 @@ all_landsat_bands_pre
 ## [7] "data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_sr_band7_crop.tif"
 
 # stack the data
-landsat_stack_pre <- stack(all_landsat_bands_pre)
+landsat_stack_pre_st <- stack(all_landsat_bands_pre)
+landsat_stack_pre_br <- brick(landsat_stack_pre_st)
 ```
 
 Next you calculate dNBR using the following steps:
 
 1. Open up pre-fire data and calculate *NBR*
 2. Open up the post-fire data and calculate *NBR*
-3. Calculate **dNBR** (difference NBR) by subtracting post-fire NBR from pre-fire NBR.
+3. Calculate **dNBR** (difference NBR) by subtracting post-fire NBR from pre-fire NBR (NBR pre - NBR post fire).
 4. Classify the dNBR raster using the classification table below.
 
-. Note the code to do this is hidden. You will need to figure
+Note the code to do this is hidden. You will need to figure
 out what bands are required to calculate NBR using Landsat.
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
@@ -106,11 +114,12 @@ You can export the NBR raster if you want using `writeRaster()`.
 
 
 ```r
+check_create_dir("data/week_07/outputs/landsat_nbr")
 writeRaster(x = landsat_nbr_pre,
               filename="data/week_07/outputs/landsat_nbr",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = T)
+              overwrite = TRUE)
 ```
 
 
@@ -131,13 +140,17 @@ all_landsat_bands_post
 ## [7] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
 
 # stack the data
-landsat_stack_post <- stack(all_landsat_bands_post)
+landsat_post_st <- stack(all_landsat_bands_post)
+landsat_post_br <- stack(landsat_post_st)
 ```
 
 Then you calculate NBR on the post data - note the code here is purposefully hidden.
 You need to figure out what bands to use to perform the math!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/calculate-nbr-post-1.png" title="landsat derived NBR post fire" alt="landsat derived NBR post fire" width="90%" />
+
+```
+## Error in plot(landsat_nbr_post, main = "Landsat derived Normalized Burn Index (NBR)\n Post Fire", : object 'landsat_nbr_post' not found
+```
 
 Finally, calculate the DIFFERENCE between the pre and post NBR!!
 
@@ -145,12 +158,12 @@ Finally, calculate the DIFFERENCE between the pre and post NBR!!
 ```r
 # calculate difference
 landsat_nbr_diff <- landsat_nbr_pre - landsat_nbr_post
+## Error in eval(expr, envir, enclos): object 'landsat_nbr_post' not found
 plot(landsat_nbr_diff,
      main = "Difference NBR map \n Pre minus post Cold Springs fire",
-     axes=F, box=F)
+     axes = FALSE, box=F)
+## Error in plot(landsat_nbr_diff, main = "Difference NBR map \n Pre minus post Cold Springs fire", : object 'landsat_nbr_diff' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/unnamed-chunk-1-1.png" title="Difference NBR map" alt="Difference NBR map" width="90%" />
 
 When you have calculated dNBR or the difference in NBR pre minus post fire,
 classify the output raster using the `classify()` function and the classes below.
@@ -173,6 +186,9 @@ Alternatively, you can use the `Inf` to specify the smallest `-Inf` and largest
 
 
 
+```
+## Error in reclassify(landsat_nbr_diff, reclass_m): object 'landsat_nbr_diff' not found
+```
 
 
 You r classified map should look something like:

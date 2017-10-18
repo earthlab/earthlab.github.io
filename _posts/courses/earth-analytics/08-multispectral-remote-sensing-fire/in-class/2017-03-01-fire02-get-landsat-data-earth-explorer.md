@@ -3,7 +3,7 @@ layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson you will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-10-17'
+modified: '2017-10-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/get-data-earth-explorer/
@@ -166,9 +166,16 @@ because you already know how to do this!
 Next I plotted the fire boundary extent on top of my landsat image.
 
 
+```
+## Error in crs(all_landsat_bands_st): object 'all_landsat_bands_st' not found
+```
 
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="90%" />
+
+```
+## Error in plot(fire_boundary_utm, border = "yellow", add = TRUE): object 'fire_boundary_utm' not found
+```
 
 It's hard to see but can you see the tiny YELLOW outline of our study area? This
 landsat scene is MUCH larger than our study area. You have 2 options
@@ -179,16 +186,22 @@ landsat scene is MUCH larger than our study area. You have 2 options
 Below i've plotted the cloud mask for the data that I downloaded. It looks like
 the data in our study area are cloud free. How do I know that?
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="90%" />
+
+```
+## Error in .local(x, y, ...): Cannot get an Extent object from argument y
+## Error in .local(x, y, ...): Cannot get an Extent object from argument y
+## Error in plot(cloud_mask_173_crop, main = "Cropped cloud mask layer for new Landsat scene", : object 'cloud_mask_173_crop' not found
+## Error in plot(fire_boundary_utm, add = TRUE): object 'fire_boundary_utm' not found
+## Error in legend(cloud_mask_173_crop@extent@xmax, cloud_mask_173_crop@extent@ymax, : object 'cloud_mask_173_crop' not found
+```
 
 
 
 ```r
 barplot(cloud_mask_173_crop,
      main = "cloud mask values \n all 0's")
+## Error in barplot(cloud_mask_173_crop, main = "cloud mask values \n all 0's"): object 'cloud_mask_173_crop' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/cloud-mask-barplot-1.png" title="view cloud mask values" alt="view cloud mask values" width="90%" />
 
 
 Given our data are all 0's you can assume you downloaded the right scene! There
@@ -205,12 +218,16 @@ plotRGB(all_landsat_bands_173_st,
         main = "Final landsat scene with the fire extent overlayed",
         axes = TRUE)
 box(col = "white")
-plot(fire_boundary_utm,
-     add = TRUE,
-     border="yellow")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="90%" />
+
+```r
+plot(fire_boundary_utm,
+     add = TRUE,
+     border="yellow")
+## Error in plot(fire_boundary_utm, add = TRUE, border = "yellow"): object 'fire_boundary_utm' not found
+```
 
 Now you can proceed to calculate NBR on the pre-fire landsat image. How does it
 look?

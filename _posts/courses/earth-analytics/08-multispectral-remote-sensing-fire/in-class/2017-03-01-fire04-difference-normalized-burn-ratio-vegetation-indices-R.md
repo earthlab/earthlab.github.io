@@ -3,7 +3,7 @@ layout: single
 title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
 excerpt: "In this lesson you review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically you will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-10-17'
+modified: '2017-10-18'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -70,7 +70,6 @@ shown that a fire scar which contains scarred woody vegetation and earth will
 reflect more strongly in the SWIR part of the electromagnetic spectrum and beyond
 (see figure below).
 
-
 <figure>
  <a href="{{ site.url}}/images/courses/earth-analytics/remote-sensing/barc_spectral_response_US_forest_service.png">
  <img src="{{ site.url}}/images/courses/earth-analytics/remote-sensing/barc_spectral_response_US_forest_service.png" alt="NBR - US Forest Service."></a>
@@ -84,7 +83,7 @@ reflect more strongly in the SWIR part of the electromagnetic spectrum and beyon
 
 The NBR index was originally developed for use with Landsat TM and ETM+ bands 4 and 7,
 but it will work with any multispectral sensor with a NIR
-band between 760 - 900 nm and a SWIR band between 2080 - 2350 nm. Thus this
+band between **760 - 900 nm** and a SWIR band between **2080 - 2350 nm**. Thus this
 index can be used with both Landsat 8, MODIS and other multi (and hyper) spectral
 sensors.
 
@@ -93,10 +92,11 @@ sensors.
 The Normalized Burn Ratio is most powerful as a tool to better understand fire
 extent and severity when used after calculating the difference between pre and post
 fire conditions. This
-difference is best measured immediate before the fire and then immediately after.
+difference is best measured using data collected immediately before the fire and
+then immediately after the fire.
 NBR is less effective if time has passed and vegetation regrowth / regeneration
-has begun. Once vegetation regeneration has begun, the fire scar will begin
-to reflect a stronger signal in the NIR portion of the spectrum (remember that
+has begun after the fire. Once vegetation regeneration has begun, the fire scar will begin
+to reflect a stronger signal in the NIR portion of the spectrum because
 healthy plants reflect strongly in the NIR portion due to the properties of
 chlorophyll).
 
@@ -104,7 +104,7 @@ For this reason, the NBR ratio works better in areas like the United States wher
 plant regeneration is expected to occur more slowly. In areas like the tropics
 which are wet and characterized by rapid regrowth, NBR may be less effective.
 
-To calculate the difference, you subtract the post-fire NBR raster from the pre-fire
+To calculate the difference NBR, you subtract the post-fire NBR raster from the pre-fire
 NBR raster as follows:
 
 <figure>
@@ -114,7 +114,7 @@ NBR raster as follows:
     </figcaption>
 </figure>
 
-The classification table below can be used to classify the raster according to
+The classification table below can be used to classify the difference raster according to
 the severity of the burn.
 
 | SEVERITY LEVEL  | | dNBR RANGE |
@@ -134,9 +134,11 @@ For instance, who is to say that .5 couldn't be representative of "high severity
 vs .66?
 
 As scientists, the best way to make sure our classification approaches represent
-what is actually happening ont he ground in terms of fire severity is to check
+what is actually happening on the ground in terms of fire severity is to check
 out the actual conditions on the ground. This process of confirming a value that
 you get from remote sensing data by checking it on the ground is called validation.
+
+We discussed ground validation as it applies to lidar data [in week 5 of this course](https://earthdatascience.org/courses/earth-analytics/remote-sensing-uncertainty/).
 
 ### NBR & water - false positives
 
@@ -210,7 +212,7 @@ the valid range of NBR (in this case they are not).
 
 
 
-You r classified map should look something like:
+You `R` classified map should look something like:
 
 
 
