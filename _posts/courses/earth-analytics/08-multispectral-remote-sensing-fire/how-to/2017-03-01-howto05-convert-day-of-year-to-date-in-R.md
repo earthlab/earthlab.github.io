@@ -3,7 +3,7 @@ layout: single
 title: "How to Convert Day of Year to Year, Month, Day in R"
 excerpt: "Learn how to convert a day of year value to a normal date format in R. "
 authors: ['Leah Wasser']
-modified: '2017-10-18'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/convert-day-of-year-to-date-in-R/
@@ -18,7 +18,7 @@ order: 5
 topics:
 lang-lib:
   r: []
-  
+
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -29,7 +29,7 @@ lang-lib:
 
 After completing this tutorial, you will be able to:
 
-* Adjust the spatial extent of a plot using the `ext=` argument in R.
+* 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -40,21 +40,25 @@ data for week 6 of the course.
 
 </div>
 
-Landsat data are often saved using a date that includes the year and the day of 
-year. You can quickly convert day of year to date as follows: 
+Landsat data are often saved using a date that includes the year and the day of
+year. You can quickly convert day of year to date as follows:
 
-Here is our file name: 
+Here is our file name:
 
 `LC80340322016189-SC20170128091153`
 
-Looking at the name, we can see that the data were collected 2016-189. This 
-references the 189th day of the year in 2016. 
+Looking at the name, we can see that the data were collected 2016-189. This
+references the 189th day of the year in 2016.
 
-We can quickly convert this in R:
+We can quickly convert this in `R`:
 
 
 
 ```r
+# note that R uses a 0 based index for dates only
+# this means it starts counting at 0 rather than 1 when working with dates
+as.Date(0, origin = "2016-01-01")
+## [1] "2016-01-01"
 # note that R uses a 0 based index
 as.Date(1, origin = "2016-01-01")
 ## [1] "2016-01-02"
@@ -63,4 +67,3 @@ as.Date(1, origin = "2016-01-01")
 as.Date(189, origin = "2016-01-01")
 ## [1] "2016-07-08"
 ```
-

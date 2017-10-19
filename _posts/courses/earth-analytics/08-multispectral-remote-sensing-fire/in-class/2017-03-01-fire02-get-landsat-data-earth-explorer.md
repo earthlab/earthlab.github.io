@@ -3,7 +3,7 @@ layout: single
 title: "Get landsat remote sensing data from the Earth Explorer website"
 excerpt: "In this lesson you will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-10-18'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/get-data-earth-explorer/
@@ -41,32 +41,28 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
 You will need a computer with internet access to complete this lesson and the
-data for week 6 / 7 of the course.
+data for week 7 - 9 of the course.
 
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 
 </div>
-
-
-
-
 
 In class this week, you will review how to grab data from the Earth Explorer website.
 The Earth Explorer website is a data portal run by the USGS. Here you can find
 many different types of remote sensing and other data for both the US and in
 some cases, the globe.
 
-**IMPORTANT:** Be sure to order your data several days ahead of time or else you won't have it
-in time to finish this assignment.
+**IMPORTANT:** Be sure to order your data several days ahead of time or else you
+won't have it in time to finish your homework.
 
 ## The Steps: Earth Explorer Data Download
 
 ### Define study area (AOI)
 
-When searching for data, the first thing you need to do is  to define our area of
+When searching for data, the first thing you need to do is to define our area of
 interest (AOI). Our AOI is defined by the boundary of the
 fire extent. You could type in the x,y vertices of each corner of the boundary,
-but if you have an Earth Explorer account,  you can upload a ZIPPED up shapefile that
+but if you have an Earth Explorer account, you can upload a ZIPPED up shapefile that
 contains the boundary instead!
 
 <figure>
@@ -80,7 +76,7 @@ contains the boundary instead!
     </figcaption>
 </figure>
 
-Important: Be sure to use a square extent. If you
+Important: Be sure to use a square / rectangular extent polygon. If you
 have too many vertices in your extent polygon, the website won't accept it as an
 extent file.
 
@@ -92,7 +88,8 @@ up and ready to go in our week6 data!
   `data/week_07/vector_layers/fire_boundary_box_shp.zip`
 * Next, go to <a href="http://earthexplorer.usgs.gov" target="_blank">the Earth Explorer website</a>. Login. If you don't have a login already, create an account.
 
-Now, it's time to search for data.
+Be sure to create an account. You will need it to be able to use your shapefile
+extent to search for data. Now, it's time to search for data.
 
 * In the search criteria, click on <kbd>shapefile</kbd> tab. Select the zip file above as the shapefile that represents the SPATIAL EXTENT of our study area - the cold springs fire site.
 * At the bottom of the search criteria window, select a range of dates. A month before and after the fire is a nice starting point.
@@ -110,7 +107,7 @@ Now, it's time to search for data.
 
 
 * Next click on the <kbd>Data sets</kbd> tab. Notice that there are a lot of different data available from Earth Explorer! You are interested in Landsat - specifically Landsat 8.  You can find Landsat in the Landsat archive drop down. Expand that drop down to find:
-  * Pre-Collection -> Landsat Surface Reflectance - L8 OLI/TIRS
+  * Landsat - Landsat Collection 1 Level-2 (On-Demand) 
 
 <figure>
     <a href="{{ site.url }}/images/courses/earth-analytics/week-7/ee-select-landsat8.png">
@@ -163,19 +160,12 @@ because you already know how to do this!
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="90%" />
 
-Next I plotted the fire boundary extent on top of my landsat image.
+Next, plot the fire boundary extent on top of the newly downloaded Landsat 8 image.
 
 
-```
-## Error in crs(all_landsat_bands_st): object 'all_landsat_bands_st' not found
-```
 
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="90%" />
-
-```
-## Error in plot(fire_boundary_utm, border = "yellow", add = TRUE): object 'fire_boundary_utm' not found
-```
 
 It's hard to see but can you see the tiny YELLOW outline of our study area? This
 landsat scene is MUCH larger than our study area. You have 2 options
@@ -186,22 +176,16 @@ landsat scene is MUCH larger than our study area. You have 2 options
 Below i've plotted the cloud mask for the data that I downloaded. It looks like
 the data in our study area are cloud free. How do I know that?
 
-
-```
-## Error in .local(x, y, ...): Cannot get an Extent object from argument y
-## Error in .local(x, y, ...): Cannot get an Extent object from argument y
-## Error in plot(cloud_mask_173_crop, main = "Cropped cloud mask layer for new Landsat scene", : object 'cloud_mask_173_crop' not found
-## Error in plot(fire_boundary_utm, add = TRUE): object 'fire_boundary_utm' not found
-## Error in legend(cloud_mask_173_crop@extent@xmax, cloud_mask_173_crop@extent@ymax, : object 'cloud_mask_173_crop' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="90%" />
 
 
 
 ```r
 barplot(cloud_mask_173_crop,
      main = "cloud mask values \n all 0's")
-## Error in barplot(cloud_mask_173_crop, main = "cloud mask values \n all 0's"): object 'cloud_mask_173_crop' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/cloud-mask-barplot-1.png" title="view cloud mask values" alt="view cloud mask values" width="90%" />
 
 
 Given our data are all 0's you can assume you downloaded the right scene! There
@@ -213,21 +197,19 @@ are no clouds in our study area image. This means you don't have to worry about 
 par(col.axis = "white", col.lab = "white", tck = 0)
 # plot RGB
 plotRGB(all_landsat_bands_173_st,
-        r=4, g=3, b=2,
+        r = 4, g = 3, b = 2,
         stretch = "lin",
         main = "Final landsat scene with the fire extent overlayed",
         axes = TRUE)
 box(col = "white")
+plot(fire_boundary_utm,
+     add = TRUE,
+     border = "yellow")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="90%" />
 
-```r
-plot(fire_boundary_utm,
-     add = TRUE,
-     border="yellow")
-## Error in plot(fire_boundary_utm, add = TRUE, border = "yellow"): object 'fire_boundary_utm' not found
-```
+Now you can proceed to calculate NBR on the pre-fire landsat image. Does the cloud 
+cover look better in this image compared to the original one that you worked with
+in your homework last week?
 
-Now you can proceed to calculate NBR on the pre-fire landsat image. How does it
-look?
