@@ -3,7 +3,7 @@ layout: single
 title: "Use lapply in R Instead of For Loops to Process .csv files - Efficient Coding in R"
 excerpt: "Learn how to take code in a for loop and convert it to be used in an apply function. Make your R code more efficient and expressive programming."
 authors: ['Leah Wasser', 'Bryce Mecum', 'Max Joseph']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/use-apply-functions-for-efficient-code-r/
@@ -95,7 +95,7 @@ lapply
 ##         X <- as.list(X)
 ##     .Internal(lapply(X, FUN))
 ## }
-## <bytecode: 0x102062808>
+## <bytecode: 0x10382cc08>
 ## <environment: namespace:base>
 ```
 
@@ -105,7 +105,7 @@ lapply
 library(parallel)
 # how many cores are on this machine
 detectCores()
-## [1] 4
+## [1] 8
 ```
 
 ## Use lapply to Process Lists of Files
@@ -273,7 +273,7 @@ microbenchmark(invisible(lapply(all_precip_files, (FUN = summarize_data),
 ##                                                                               expr
 ##  invisible(lapply(all_precip_files, (FUN = summarize_data), the_dir = the_dir_ex))
 ##       min       lq     mean   median       uq      max neval
-##  154.3001 172.2487 207.6907 193.5216 231.2502 341.2549   100
+##  104.6679 108.4211 115.1839 109.7282 118.5828 195.8553   100
 ```
 
 
@@ -296,8 +296,8 @@ microbenchmark(for (file in all_precip_files) {
 ## Unit: milliseconds
 ##                                                                                                                                                                                                                                                                                                                                           expr
 ##  for (file in all_precip_files) {     the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%          mutate(DATE = as.POSIXct(DATE, tz = "America/Denver",              format = "%Y-%m-%d %H:%M:%S"), precip_mm = in_to_mm(HPCP))     write.csv(the_data, file = paste0(the_dir, "/", basename(file)),          na = "999.99") }
-##      min      lq   mean   median       uq      max neval
-##  170.388 194.088 270.39 238.2796 293.3758 882.7683   100
+##       min       lq     mean   median      uq     max neval
+##  109.0089 112.1747 117.5498 113.4335 117.372 303.665   100
 ```
 
 <!--RETURN a single data.frame do.call(rbind, lapply(file_paths, function(path) { read.csv(path, stringsAsFactors = FALSZE }))-->

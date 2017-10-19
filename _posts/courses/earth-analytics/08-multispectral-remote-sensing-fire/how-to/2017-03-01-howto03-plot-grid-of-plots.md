@@ -3,7 +3,7 @@ layout: single
 title: "Plot grid of spatial plots in R. "
 excerpt: "In this lesson we cover using par() or parameter settings in R to plot several raster RGB plots in R in a grid. "
 authors: ['Leah Wasser']
-modified: '2017-10-17'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/grid-of-plots-report/

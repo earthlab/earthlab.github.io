@@ -3,7 +3,7 @@ layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in R"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-10-17'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-r/
@@ -72,13 +72,13 @@ all_landsat_bands_cloudy <- list.files("data/week_07/Landsat/LC80340322016189-SC
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 # create spatial raster stack from the list of file names
 all_landsat_bands_cloudy_st <- stack(all_landsat_bands_cloudy)
-all_landsat_bands_cloudy_br <- brick(all_landsat_bands_st)
-## Error in brick(all_landsat_bands_st): object 'all_landsat_bands_st' not found
+all_landsat_bands_cloudy_br <- brick(all_landsat_bands_cloudy_st)
 plotRGB(all_landsat_bands_cloudy_br,
         4,3,2,
         stretch = "lin")
-## Error in plotRGB(all_landsat_bands_cloudy_br, 4, 3, 2, stretch = "lin"): object 'all_landsat_bands_cloudy_br' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="90%" />
 
 Apply the cloud mask to the cloudy data.
 
@@ -91,12 +91,12 @@ cloud_mask_189[cloud_mask_189 > 0] <- NA
 
 all_landsat_bands_mask <- mask(all_landsat_bands_cloudy_br,
                                mask = cloud_mask_189)
-## Error in mask(all_landsat_bands_cloudy_br, mask = cloud_mask_189): object 'all_landsat_bands_cloudy_br' not found
 plotRGB(all_landsat_bands_mask,
         4, 3, 2,
         stretch = "lin")
-## Error in plotRGB(all_landsat_bands_mask, 4, 3, 2, stretch = "lin"): object 'all_landsat_bands_mask' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="90%" />
 
 
 Check to see if the rasters are in the same extent and CRS.
@@ -104,7 +104,7 @@ Check to see if the rasters are in the same extent and CRS.
 
 ```r
 compareRaster(all_landsat_bands_pre_nocloud_br, all_landsat_bands_mask)
-## Error in compareRaster(all_landsat_bands_pre_nocloud_br, all_landsat_bands_mask): object 'all_landsat_bands_mask' not found
+## Error in compareRaster(all_landsat_bands_pre_nocloud_br, all_landsat_bands_mask): different extent
 ```
 
 The extents are different, let's crop one to the other.
@@ -114,10 +114,9 @@ The extents are different, let's crop one to the other.
 ```r
 
 all_landsat_bands_pre_nocloud_br <- crop(all_landsat_bands_pre_nocloud_br, extent(all_landsat_bands_cloudy_br))
-## Error in .local(x, y, ...): Cannot get an Extent object from argument y
 # are they in the same extent now?
 compareRaster(all_landsat_bands_pre_nocloud_br, all_landsat_bands_mask)
-## Error in compareRaster(all_landsat_bands_pre_nocloud_br, all_landsat_bands_mask): object 'all_landsat_bands_mask' not found
+## [1] TRUE
 ```
 
 Use the cover() function to replace each pixel that has an assigned NA value with
@@ -127,10 +126,10 @@ the pixel reflectance value in the same band in the other raster.
 ```r
 # crop the data using the extend of the other raster
 cleaned_raster <- cover(all_landsat_bands_mask, all_landsat_bands_pre_nocloud_br)
-## Error in cover(all_landsat_bands_mask, all_landsat_bands_pre_nocloud_br): object 'all_landsat_bands_mask' not found
 plotRGB(cleaned_raster, 4,3,2, stretch = 'lin')
-## Error in plotRGB(cleaned_raster, 4, 3, 2, stretch = "lin"): object 'cleaned_raster' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="90%" />
 
 
 Things are looking a bit better but still this image has issues.

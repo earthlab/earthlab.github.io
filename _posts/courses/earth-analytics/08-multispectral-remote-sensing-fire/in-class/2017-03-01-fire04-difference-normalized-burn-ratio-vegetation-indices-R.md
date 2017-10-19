@@ -3,7 +3,7 @@ layout: single
 title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
 excerpt: "In this lesson you review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically you will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-10-18'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -185,11 +185,38 @@ should you use to calculate NBR using MODIS?
 | Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
 
 
+1. Import the prefire raster
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="landsat derived NDVI plot" alt="landsat derived NDVI plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="Post fire landsat derived NBR plot" alt="Post fire landsat derived NBR plot" width="90%" />
+
+
+
+
+```r
+# bands 7 and 5
+landsat_prefire_nbr <- overlay(all_landsat_bands_173_br[[7]], all_landsat_bands_173_br[[5]], 
+        fun = normalized_diff)
+
+plot(landsat_prefire_nbr,
+     main = "Landsat derived NBR\n Pre-Fire \n with fire boundary overlay",
+     axes = FALSE,
+     box = FALSE)
+plot(fire_boundary_utm, 
+     add = TRUE)
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/nbr-pre-fire-1.png" title="Pre fire landsat derived NBR plot" alt="Pre fire landsat derived NBR plot" width="90%" />
+
+Now you can calculate the difference NBR (pre fire minus post fire )
+
+
+```r
+
+diff_nbr <- landsat_prefire_nbr - landsat_postfire_nbr
+```
 
 When you have calculated NBR - classify the output raster using the `classify()`
 function and the classes below.
@@ -213,9 +240,6 @@ the valid range of NBR (in this case they are not).
 
 
 You `R` classified map should look something like:
-
-
-
 
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />

@@ -3,7 +3,7 @@ layout: single
 title: "How to remove borders and add legends to spatial plots in R. "
 excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
-modified: '2017-10-17'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/refine-plots-report/
@@ -189,7 +189,7 @@ We can remote the axes & box that surrounds our image using: `axes=F` and `box=F
 plot(ndvi_classified,
      main = "ndvi plot",
      col = the_colors,
-     axes=F, box=F)
+     axes = FALSE, box = FALSE)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto02-refine-plots-R/plot-data2-1.png" title="ndvi plot - no legend" alt="ndvi plot - no legend" width="90%" />
@@ -205,7 +205,7 @@ plot(ndvi_classified,
      legend=F,
      main = "ndvi plot",
      col = the_colors,
-     axes=F, box=F)
+     axes = FALSE, box = FALSE)
 legend("topright",
        legend=c("Healthy vegetation", "Less healthy vegetation", "No vegetation"),
        fill= the_colors)
@@ -233,7 +233,7 @@ plot(ndvi_classified,
      legend=F,
      main = "ndvi plot",
      col = the_colors,
-     axes=F, box=F)
+     axes = FALSE, box = FALSE)
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -253,7 +253,7 @@ plot(ndvi_classified,
      legend=F,
      main = "ndvi plot",
      col = the_colors,
-     axes=F, box=F)
+     axes = FALSE, box = FALSE)
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -286,8 +286,8 @@ plot(ndvi_classified,
      legend=F,
      main = "ndvi plot with axes & box turned off",
      col = the_colors,
-     axes=F,
-     box=F)
+     axes = FALSE,
+     box = FALSE)
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -318,8 +318,8 @@ plot(ndvi_classified,
      legend=F,
      main = "ndvi plot with axes & box turned off",
      col = the_colors,
-     axes=F,
-     box=F)
+     axes = FALSE,
+     box = FALSE)
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -360,8 +360,8 @@ plot(ndvi_classified,
      legend=F,
      main = "NDVI plot with axes & box turned off & custom margins\n to make room for the legend",
      col = the_colors,
-     axes=F,
-     box=F)
+     axes = FALSE,
+     box = FALSE)
 # set xpd to T to allow the legend to plot OUTSIDE of the plot area
 par(xpd = TRUE)
 legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
@@ -387,8 +387,8 @@ plot(ndvi_classified,
      legend=F,
      main = "NDVI plot with axes & box turned off & custom margins\n to make room for the legend",
      col = the_colors,
-     axes=F,
-     box=F)
+     axes = FALSE,
+     box = FALSE)
 
 plot(crop_ext,
      lwd=2,
