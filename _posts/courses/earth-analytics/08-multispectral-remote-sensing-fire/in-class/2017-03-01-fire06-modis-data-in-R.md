@@ -20,13 +20,16 @@ lang-lib:
 topics:
   remote-sensing: ['modis']
   earth-science: ['fire']
-  reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
 redirect_from:
   - "/courses/earth-analytics/week-7/modis-data-in-R/"
 ---
 
+
+
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 
@@ -62,32 +65,29 @@ Let's import our MODIS image stack.
 
 ```r
 # open modis bands (layers with sur_refl in the name)
-all_modis_bands_july7 <-list.files("data/week_07/modis/reflectance/07_july_2016/crop",
+all_modis_bands_july7 <- list.files("data/week_07/modis/reflectance/07_july_2016/crop",
            pattern = glob2rx("*sur_refl*.tif$"),
            full.names = TRUE)
 # create spatial raster stack
-all_modis_bands_st_july7 <- stack(all_modis_bands_july7)
+all_modis_bands_pre_st <- stack(all_modis_bands_july7)
+all_modis_bands_pre_br <- brick(all_modis_bands_pre_st)
 
 # view range of values in stack
 all_modis_bands_st_july7[[2]]
 ## class       : RasterLayer 
 ## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
-## resolution  : 463.3127, 463.3127  (x, y)
+## resolution  : 463.3, 463.3  (x, y)
 ## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week_07/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif 
-## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
-## values      : -32768, 32767  (min, max)
+## data source : in memory
+## names       : Band02_1 
+## values      : -100, 10039  (min, max)
 
 # view band names
 names(all_modis_bands_st_july7)
-## [1] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b01_1"
-## [2] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1"
-## [3] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b03_1"
-## [4] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1"
-## [5] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b05_1"
-## [6] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b06_1"
-## [7] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b07_1"
+## [1] "Band01_1" "Band02_1" "Band03_1" "Band04_1" "Band05_1" "Band06_1"
+## [7] "Band07_1"
+
 # clean up the band names for neater plotting
 names(all_modis_bands_st_july7) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
      names(all_modis_bands_st_july7))
@@ -146,10 +146,9 @@ much larger numbers.
 
 
 
-
 ```r
 # turn off scientific notation
-options("scipen"=100, "digits"=4)
+options("scipen" = 100, "digits" = 4)
 # bottom, left, top and right
 #par(mfrow=c(4, 2))
 hist(all_modis_bands_st_july7,
@@ -297,7 +296,7 @@ this using the `freq()` function in R. This function gives us the total number
 of pixels associated with each value in our classified raster.
 
 1. **Calculate frequency ignoring NA values:** `freq(modis_nbr_cl, useNA='no')`
-2. **Calculate frequency, ignore NA & only include values that equal 5:** `freq(modis_nbr_cl, useNA='no', value=5)`
+2. **Calculate frequency, ignore NA & only include values that equal 5:** `freq(modis_nbr_cl, useNA="no", value = 5)`
 
 Let's use the MODIS data from 7 July 2016 to calculate the total area of land
 classified as:
@@ -309,12 +308,12 @@ classified as:
 
 ```r
 # get summary counts of each class in raster
-freq(modis_nbr_cl, useNA='no')
+freq(modis_nbr_cl, useNA = 'no')
 ##      value count
 ## [1,]     4    24
 
-final_burn_area_high_sev <- freq(modis_nbr_cl, useNA='no', value=5)
-final_burn_area_moderate_sev <- freq(modis_nbr_cl, useNA='no', value=4)
+final_burn_area_high_sev <- freq(modis_nbr_cl, useNA = "no", value = 5)
+final_burn_area_moderate_sev <- freq(modis_nbr_cl, useNA = "no", value = 4)
 ```
 
 
@@ -347,11 +346,11 @@ plot the final results!
 
 
 ```r
-the_colors = c("palevioletred4","palevioletred1","ivory1")
+the_colors = c("palevioletred4", "palevioletred1", "ivory1")
 barplot(modis_nbr_july17_cl,
         main = "Distribution of burn values - Post Fire",
         col = rev(the_colors),
-        names.arg=c("Low Severity","Moderate Severity","High Severity"))
+        names.arg=c("Low Severity", "Moderate Severity", "High Severity"))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="90%" />
@@ -365,3 +364,25 @@ Finally, plot the reclassified data. Note that you only have 3 classes: 2, 3 and
 
 
 
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge - NBR using MODIS
+
+The table below shows the band ranges for the MODIS sensor. You know that the
+NBR index will work with any multispectral sensor with a NIR
+band between 760 - 900 nm and a SWIR band between 2080 - 2350 nm.
+What bands should you use to calculate NBR using MODIS?
+
+| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
+|-------------------------------------|------------------|--------------------|----------------|
+| Band 1 - red | 620 - 670 | 250 | 2.0 |
+| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
+| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
+| Band 4 - green | 545 - 565 | 500 | 3.0 |
+| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
+| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
+| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
+
+</div>

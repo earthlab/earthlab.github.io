@@ -49,8 +49,19 @@ data for week 7 - 9 of the course.
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
-As mentioned in the previous lesson, you can use NBR to map the extent and severity of a fire.
-Let's explore creating NBR using Landsat data.
+As discussed in the previous lesson, you can use dNBR to map the extent and
+severity of a fire. In this lesson, we demonstrate how to create NBR using
+Landsat data.
+
+You calculate dNBR using the following steps:
+
+1. Open up pre-fire data and calculate *NBR*
+2. Open up the post-fire data and calculate *NBR*
+3. Calculate **dNBR** (difference NBR) by subtracting post-fire NBR from pre-fire NBR (NBR pre - NBR post fire).
+4. Classify the dNBR raster using the classification table provided below and isn the previous lesson.
+
+Note the code to do this is hidden. You will need to figure
+out what bands are required to calculate NBR using Landsat.
 
 ## Calculate dNBR using Landsat data
 
@@ -73,38 +84,14 @@ source("ea-course-functions.R")
 
 
 
-Next, open up the landsat data and create a brick from the bands.
-
-
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/nbr-pre-fire-1.png" title="Pre fire landsat derived NBR plot" alt="Pre fire landsat derived NBR plot" width="90%" />
-Next you calculate dNBR using the following steps:
-
-1. Open up pre-fire data and calculate *NBR*
-2. Open up the post-fire data and calculate *NBR*
-3. Calculate **dNBR** (difference NBR) by subtracting post-fire NBR from pre-fire NBR (NBR pre - NBR post fire).
-4. Classify the dNBR raster using the classification table below.
-
-Note the code to do this is hidden. You will need to figure
-out what bands are required to calculate NBR using Landsat.
-
-You can export the NBR raster if you want using `writeRaster()`.
+Next, open up the pre- Cold Springs fire Landsat data. Create a rasterbrick from the bands. Then calculate NBR. A plot of NBR is below.
 
 
 ```r
-check_create_dir("data/week_07/outputs/landsat_nbr")
-writeRaster(x = landsat_nbr_pre,
-              filename="data/week_07/outputs/landsat_nbr",
-              format = "GTiff", # save as a tif
-              datatype='INT2S', # save as a INTEGER rather than a float
-              overwrite = TRUE)
-```
-
-
-Next, you can open the post-fire landsat data to calculate post-fire NBR.
-
-
-```
+all_landsat_bands_post <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
+           pattern = glob2rx("*band*.tif$"),
+           full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
+all_landsat_bands_post
 ## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
 ## [2] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
 ## [3] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
@@ -112,19 +99,88 @@ Next, you can open the post-fire landsat data to calculate post-fire NBR.
 ## [5] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
 ## [6] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
 ## [7] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
+
+# stack the data
+landsat_post_st <- stack(all_landsat_bands_post)
+landsat_post_br <- brick(landsat_post_st)
 ```
+
+
+
+
+
+```r
+
+# this code shows you how to create a normalized Z value for your raster plots!
+# it also uses color brewer to color the output raster
+# display.brewer.all()
+nbr_colors <- colorRampPalette(brewer.pal(11, "PiYG"))(100)
+
+plot(landsat_nbr_prefire,
+     main = "Landsat derived NBR\n Pre-Fire \n with fire boundary overlay",
+     axes = FALSE,
+     box = FALSE,
+     col = nbr_colors,
+     zlim = c(-1, 1))
+plot(fire_boundary_utm,
+     add = TRUE)
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/nbr-pre-fire-1.png" title="Pre fire landsat derived NBR plot" alt="Pre fire landsat derived NBR plot" width="90%" />
+
+You can export the NBR raster if you want using `writeRaster()`.
+
+
+```r
+check_create_dir("data/week_07/outputs/landsat_nbr")
+writeRaster(x = landsat_nbr_prefire,
+              filename="data/week_07/outputs/landsat_nbr",
+              format = "GTiff", # save as a tif
+              datatype='INT2S', # save as a INTEGER rather than a float
+              overwrite = TRUE)
+```
+
+
+Next, open the post-fire landsat data to calculate post-fire NBR.
+If you want to use the post-fire data to CROP the pre fire data you may do
+this in a different order.
+
+
 
 Then you calculate NBR on the post data - note the code here is purposefully hidden.
 You need to figure out what bands to use to perform the math!
 
+
+```r
+# notice that the data are plotting using the same z limits to fix the color ramp
+plot(landsat_nbr_postfire,
+     main = "Landsat derived Normalized Burn Index (NBR)\n Post Fire",
+     axes = FALSE,
+     box = FALSE,
+     col = nbr_colors,
+    zlim = c(-1, 1))
+plot(fire_boundary_utm,
+     add = TRUE)
+```
+
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/calculate-nbr-post-1.png" title="landsat derived NBR post fire" alt="landsat derived NBR post fire" width="90%" />
 
-Finally, calculate the DIFFERENCE between the pre and post NBR!!
+Finally, calculate the DIFFERENCE between the pre and post NBR.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/unnamed-chunk-1-1.png" title="Difference NBR map" alt="Difference NBR map" width="90%" />
+
+```r
+# calculate difference
+landsat_nbr_diff <- landsat_nbr_prefire - landsat_nbr_postfire
+plot(landsat_nbr_diff,
+     main = "Difference NBR map \n Pre minus post Cold Springs fire",
+     axes = FALSE, box = FALSE)
+```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/unnamed-chunk-2-1.png" title="Difference NBR map" alt="Difference NBR map" width="90%" />
 
 When you have calculated dNBR or the difference in NBR pre minus post fire,
 classify the output raster using the `classify()` function and the classes below.
+You learned how to classify rasters in the [{{ site.url }}/courses/earth-analytics/lidar-raster-data-r/classify-raster/](week 3 lidar lessons)
 
 | SEVERITY LEVEL  | | dNBR RANGE |
 |------------------------------|
@@ -146,7 +202,7 @@ Alternatively, you can use the `Inf` to specify the smallest `-Inf` and largest
 
 
 
-You r classified map should look something like:
+You classified map should look something like:
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
@@ -158,7 +214,8 @@ the shapefile in the folder:
 
 `data/week_07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
 
-Add fire boundary to map.
+Add fire boundary to map. Note the "Spectral" colorbrewer ramp is used in the map
+below.
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/classify-output-plot2-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
@@ -196,32 +253,38 @@ barplot(nbr_classified,
         main = "Distribution of Classified NBR Values",
         col = the_colors,
         names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
-## Error in barplot.default(x, col = col, ...): incorrect number of names
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
+## Calculate total area of burned area
 
-<div class="notice--warning" markdown="1">
+Once you have classified your data, you can calculate the total burn area.
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge - NBR using MODIS
+To calculate this you could either
 
-The table below shows the band ranges for the MODIS sensor. You know that the
-NBR index will work with any multispectral sensor with a NIR
-band between 760 - 900 nm and a SWIR band between 2080 - 2350 nm.
-What bands should you use to calculate NBR using MODIS?
+1. use the `extract()` function to extract pixels within the burn area boundary
+2. `crop()` the data to the burn area boundary extent. This is an ok option however you have pixels represented that are outside of the burn boundary.
 
-| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
-|-------------------------------------|------------------|--------------------|----------------|
-| Band 1 - red | 620 - 670 | 250 | 2.0 |
-| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
-| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
-| Band 4 - green | 545 - 565 | 500 | 3.0 |
-| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
-| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
-| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
 
-</div>
+
+```r
+landsat_pixels_in_fire_boundary <- extract(nbr_classified, fire_boundary_utm,
+                                           df = TRUE)
+
+landsat_pixels_in_fire_boundary %>%
+  group_by(layer) %>%
+  summarize(count = n(), area_meters = n() * 30)
+## # A tibble: 4 x 3
+##   layer count area_meters
+##   <dbl> <int>       <dbl>
+## 1     2   401       12030
+## 2     3   419       12570
+## 3     4   893       26790
+## 4     5   847       25410
+```
+
+
 
 
 <div class="notice--info" markdown="1">
