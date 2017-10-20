@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS remote sensing data in in R."
 excerpt: "In this lesson you will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. You will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-10-20'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/modis-data-in-R/
@@ -28,8 +28,6 @@ redirect_from:
 
 
 {% include toc title="In This Lesson" icon="file-text" %}
-
-
 
 <div class='notice--success' markdown="1">
 
@@ -73,27 +71,33 @@ all_modis_bands_pre_st <- stack(all_modis_bands_july7)
 all_modis_bands_pre_br <- brick(all_modis_bands_pre_st)
 
 # view range of values in stack
-all_modis_bands_st_july7[[2]]
+all_modis_bands_pre_br[[2]]
 ## class       : RasterLayer 
+## band        : 2  (of  7  bands)
 ## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
 ## resolution  : 463.3, 463.3  (x, y)
 ## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : in memory
-## names       : Band02_1 
-## values      : -100, 10039  (min, max)
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/RtmpermCw2/raster/r_tmp_2017-10-20_131126_3350_08781.grd 
+## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
+## values      : -1000000, 100390000  (min, max)
 
 # view band names
-names(all_modis_bands_st_july7)
-## [1] "Band01_1" "Band02_1" "Band03_1" "Band04_1" "Band05_1" "Band06_1"
-## [7] "Band07_1"
+names(all_modis_bands_pre_br)
+## [1] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b01_1"
+## [2] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1"
+## [3] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b03_1"
+## [4] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1"
+## [5] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b05_1"
+## [6] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b06_1"
+## [7] "MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b07_1"
 
 # clean up the band names for neater plotting
-names(all_modis_bands_st_july7) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
-     names(all_modis_bands_st_july7))
+names(all_modis_bands_pre_br) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
+     names(all_modis_bands_pre_br))
 
 # view cleaned up band names
-names(all_modis_bands_st_july7)
+names(all_modis_bands_pre_br)
 ## [1] "Band01_1" "Band02_1" "Band03_1" "Band04_1" "Band05_1" "Band06_1"
 ## [7] "Band07_1"
 ```
@@ -151,7 +155,7 @@ much larger numbers.
 options("scipen" = 100, "digits" = 4)
 # bottom, left, top and right
 #par(mfrow=c(4, 2))
-hist(all_modis_bands_st_july7,
+hist(all_modis_bands_pre_br,
   col = "springgreen",
   xlab = "Reflectance Value")
 mtext("Distribution of MODIS reflectance values for each band\n Data not scaled",
@@ -174,10 +178,10 @@ shown below:
 
 ```r
 # deal with nodata value --  -28672
-all_modis_bands_st_july7 <- all_modis_bands_st_july7 * .0001
+all_modis_bands_pre_br <- all_modis_bands_pre_br * .0001
 # view histogram of each layer in our stack
 # par(mfrow=c(4, 2))
-hist(all_modis_bands_st_july7,
+hist(all_modis_bands_pre_br,
    xlab = "Reflectance Value",
    col = "springgreen")
 mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
@@ -201,10 +205,10 @@ the extreme negative values that may impact out analysis.
 
 ```r
 # deal with nodata value --  -28672
-all_modis_bands_st_july7[all_modis_bands_st_july7 < -100 ] <- NA
+all_modis_bands_pre_br[all_modis_bands_pre_br < -100 ] <- NA
 #par(mfrow=c(4,2))
 # plot histogram
-hist(all_modis_bands_st_july7,
+hist(all_modis_bands_pre_br,
   xlab = "Reflectance Value",
   col = "springgreen")
 mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
@@ -274,101 +278,25 @@ the value `NA`.
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="90%" />
 
-Finally crop the data to see just the pixels that overlay our study area.
+Finally crop the data to view just the pixels that overlay the Cold Springs fire
+study area.
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="90%" />
 
 
-| SEVERITY LEVEL  | NBR RANGE |
-|------------------------------|
-| Enhanced Regrowth | -700 to  -100  |
-| Unburned       |  -100 to +100  |
-| Low Severity     | +100 to +270  |
-| Moderate Severity  | +270 to +660  |
-| High Severity     |  +660 to +1300 |
+## Calculate dNBR with MODIS
 
+Once we have the data cleaned up with cloudy pixels set to NA and the scale
+factor applied, we are ready to calculate dNBR or whatever other vegetation index
+that you'd like to calculate.
 
+1. Figure out what bands you need to use to calculate dNBR with MODIS.
+2. Calculate NBR with pre and post fire modis data
+3. Subtract post from pre fire NBRto get the dNBR value
+4. Classify the data using the dNBR classification matrix.
+5. Calculate summary stats of area burned using MODIS
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/create-apply-mask2-1.png" title="Classified pre fire NBR" alt="Classified pre fire NBR" width="90%" />
-
-After we've calculated NBR, you may want to calculate total burn AREA. You can do
-this using the `freq()` function in R. This function gives us the total number
-of pixels associated with each value in our classified raster.
-
-1. **Calculate frequency ignoring NA values:** `freq(modis_nbr_cl, useNA='no')`
-2. **Calculate frequency, ignore NA & only include values that equal 5:** `freq(modis_nbr_cl, useNA="no", value = 5)`
-
-Let's use the MODIS data from 7 July 2016 to calculate the total area of land
-classified as:
-
-1. Burn: moderate severity
-2. Burn: high severity
-
-
-
-```r
-# get summary counts of each class in raster
-freq(modis_nbr_cl, useNA = 'no')
-##      value count
-## [1,]     4    24
-
-final_burn_area_high_sev <- freq(modis_nbr_cl, useNA = "no", value = 5)
-final_burn_area_moderate_sev <- freq(modis_nbr_cl, useNA = "no", value = 4)
-```
-
-
-
-
-You can perform the steps that you performed above, on the MODIS post-fire data
-too. Below is a plot of the July 17 data.
-
-
-```r
-par(col.axis = "white", col.lab = "white", tck = 0)
-# clouds removed
-plotRGB(all_modis_bands_st_mask_july17,
-        1,4,3,
-        stretch = "lin",
-        main = "Final data plotted with mask\n Post Fire - 17 July 2016",
-        axes = TRUE)
-box(col = "white")
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/plot-rgb-post-fire-1.png" title="RGB post fire" alt="RGB post fire" width="90%" />
-
-Next you calculate NBR on our post fire data. Then you can crop and finally
-plot the final results!
-
-
-
-## Post fire NBR results
-
-
-
-```r
-the_colors = c("palevioletred4", "palevioletred1", "ivory1")
-barplot(modis_nbr_july17_cl,
-        main = "Distribution of burn values - Post Fire",
-        col = rev(the_colors),
-        names.arg=c("Low Severity", "Moderate Severity", "High Severity"))
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/view-barplot-1.png" title="barplot of final post fire classified data." alt="barplot of final post fire classified data." width="90%" />
-
-
-Finally, plot the reclassified data. Note that you only have 3 classes: 2, 3 and 4.
-
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/plot-data-reclass-1.png" title="MODIS NBR plot w colors" alt="MODIS NBR plot w colors" width="90%" />
-
-
-
-
-
-
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge - NBR using MODIS
+### MODIS Bands
 
 The table below shows the band ranges for the MODIS sensor. You know that the
 NBR index will work with any multispectral sensor with a NIR
@@ -385,4 +313,37 @@ What bands should you use to calculate NBR using MODIS?
 | Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
 | Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
 
-</div>
+## Extracting summary stats
+
+Similar to what you did with Landsat data, you can then use `extract()` to
+select just pixels that are in the burn area and summarize by pixel
+classified value
+
+
+
+
+
+
+
+
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/diff-nbr-modis-1.png" title="dnbr plotted using MODIS data for the Cold Springs fire." alt="dnbr plotted using MODIS data for the Cold Springs fire." width="90%" />
+
+
+Finally calculate summary stats of how many pixels fall into each severity class.
+
+
+```r
+MODIS_pixels_in_fire_boundary <- extract(dnbr_modis_classified, fire_boundary_sin,
+                                           df = TRUE)
+
+MODIS_pixels_in_fire_boundary %>%
+  group_by(layer) %>%
+  summarize(count = n(), area_meters = n() * 30)
+## # A tibble: 3 x 3
+##   layer count area_meters
+##   <dbl> <int>       <dbl>
+## 1     2     1          30
+## 2     3     2          60
+## 3     4    10         300
+```
