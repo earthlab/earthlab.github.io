@@ -3,7 +3,7 @@ layout: single
 title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
 excerpt: "In this lesson you review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically you will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-10-19'
+modified: '2017-10-20'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -123,6 +123,7 @@ the severity of the burn.
 | Unburned       |  | -.1 to +.1 |
 | Low Severity     | | +.1 to +.27 |
 | Moderate Severity  | | +.27 to +.66 |
+|===
 | High Severity     |  | > .66 |
 
 ### How severe is severe?
@@ -197,14 +198,14 @@ should you use to calculate NBR using MODIS?
 
 ```r
 # bands 7 and 5
-landsat_prefire_nbr <- overlay(all_landsat_bands_173_br[[7]], all_landsat_bands_173_br[[5]], 
+landsat_prefire_nbr <- overlay(all_landsat_bands_173_br[[7]], all_landsat_bands_173_br[[5]],
         fun = normalized_diff)
 
 plot(landsat_prefire_nbr,
      main = "Landsat derived NBR\n Pre-Fire \n with fire boundary overlay",
      axes = FALSE,
      box = FALSE)
-plot(fire_boundary_utm, 
+plot(fire_boundary_utm,
      add = TRUE)
 ```
 

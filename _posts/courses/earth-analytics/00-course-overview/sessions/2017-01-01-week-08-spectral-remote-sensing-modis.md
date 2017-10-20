@@ -150,13 +150,14 @@ dNBR burn classes
 Note that depending on how you scaled your data, you may need to scale the
 values below by a factor of 10.
 
-| SEVERITY LEVEL  | dNBR RANGE |
+| SEVERITY LEVEL  | | dNBR RANGE |
 |------------------------------|
-| Enhanced Regrowth | <= -100  |
-| Unburned       |  -100 to +100  |
-| Low Severity     | +100 to +270  |
-| Moderate Severity  | +270 to +660  |
-| High Severity     |  >= 660|
+| Enhanced Regrowth | | < -.1 |
+| Unburned       |  | -.1 to +.1 |
+| Low Severity     | | +.1 to +.27 |
+| Moderate Severity  | | +.27 to +.66 |
+|===
+| High Severity     |  | > .66 |
 
 ****
 
