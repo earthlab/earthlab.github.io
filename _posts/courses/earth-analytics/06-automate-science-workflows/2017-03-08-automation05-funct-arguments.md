@@ -3,7 +3,7 @@ layout: single
 title: "Working with Function Arguments"
 excerpt: "Learn how to work with function arguments in the R programming language.."
 authors: ['Max Joseph', 'Software Carpentry',  'Leah Wasser']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/function-arguments-r/

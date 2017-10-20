@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -118,12 +118,12 @@ climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "These #images should NOT be the new normal! We need to #ActNow to reduce #emissions and ensure the effects of… https://t.co/UcLBZ1FsKb" 
-## [2] "Great to join students at UT who are ready to act on climate change! We are gonna flip this district! #TX21… https://t.co/W8a29EUybu"   
-## [3] "#HurricaneOphelia: a warning on #climate inertia #climatechange  https://t.co/7YAF4aGuFx"                                               
-## [4] "\"The Arctic acts as a refrigerator for the rest of the world\". -NSIDC https://t.co/ghgHOKuPXT #climatechange… https://t.co/kmUI9spp3g"
-## [5] "San Francisco's Bold New Strategy for Fixing #ClimateChange https://t.co/FkMQnbIGEr via @MotherJones"                                   
-## [6] "Sustainable energy comes to the forefront after recent US disasters https://t.co/VXml4KB3pn #climatechange https://t.co/IQtWOeLBvc"
+## [1] "EARTH &amp; MAN: One Integral Whole\nhttps://t.co/Fh7uJpnjc4\n#economy #Spirituality #climatechange #environment… https://t.co/BRZ8iGyC4k"                  
+## [2] "As of 2018, the @UN will monitor global #climatechange impacts from Bonn: https://t.co/EVvLgHlN5E @unisdr #COP23 https://t.co/GuKCcfGswL"                   
+## [3] "@alexandramusic Doing #VLM2018 for @Earthwatch_Eur \U0001f496 Help #MotherEarth \U0001f496 #Donations #ClimateChange #SaveThePlanet https://t.co/R54ICkTNcF"
+## [4] "@davitter @EU_Commission @Bulc_EU @brianhayesMEP @transenv @emireland Many of us feel very much that our government… https://t.co/hzPlZ65Tjh"               
+## [5] "Chinese President Xi thumps Trump on #climatechange: \"No country can afford to retreat into self-isolation.\"… https://t.co/LU0IkNHpD6"                    
+## [6] "There is a solution to #climatechange and I need your help to get the world's attention https://t.co/hfVJHbsvl3 https://t.co/MS2lggLLue"
 ```
 
 ## Data clean-up
@@ -234,7 +234,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 119173
+## [1] 123804
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -242,7 +242,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 68767
+## [1] 73619
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -288,20 +288,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 62,508 x 2
+## # A tibble: 61,802 x 2
 ##         paired_words     n
 ##                <chr> <int>
-##  1    climate change   560
-##  2  climatechange is   401
-##  3  on climatechange   397
-##  4  of climatechange   322
-##  5            in the   307
-##  6            of the   279
-##  7 climatechange amp   250
-##  8              is a   211
-##  9 climatechange and   191
-## 10            to act   174
-## # ... with 62,498 more rows
+##  1    climate change  1012
+##  2  on climatechange   656
+##  3 climatechange amp   504
+##  4            to act   417
+##  5            act on   410
+##  6 indigenous rights   402
+##  7    amp indigenous   401
+##  8           to tell   401
+##  9          banks to   400
+## 10         big banks   400
+## # ... with 61,792 more rows
 ```
 
 
@@ -322,12 +322,12 @@ head(climate_words_counts)
 ## # A tibble: 6 x 3
 ##             word1           word2     n
 ##             <chr>           <chr> <int>
-## 1         climate          change   560
-## 2   climatechange             amp   250
-## 3      indigenous          rights   161
-## 4             amp      indigenous   160
-## 5 equatorbanksact  ep_actcampaign   160
-## 6         october equatorbanksact   160
+## 1         climate          change  1012
+## 2   climatechange             amp   504
+## 3      indigenous          rights   402
+## 4             amp      indigenous   401
+## 5         october equatorbanksact   390
+## 6 equatorbanksact  ep_actcampaign   389
 ```
 
 FInally, plot the data

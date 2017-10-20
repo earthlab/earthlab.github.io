@@ -3,7 +3,7 @@ layout: single
 title: "If Statements, Functions, and For Loops"
 excerpt: "Learn how to combine if statements, functions and for loops to process sets of text files."
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-if-statements-and-modify-files-r/

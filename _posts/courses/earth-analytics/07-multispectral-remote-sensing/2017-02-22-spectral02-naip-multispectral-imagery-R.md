@@ -3,7 +3,7 @@ layout: single
 title: "How to Open and Work with NAIP Multispectral imagery in R"
 excerpt: "In this lesson you learn how to open up a multi-band raster layer or image stored in .tiff format in R. You are introduced to the stack() function in R which can be used to import more than one band into a stack object in R. You also review using plotRGB to plot a multi-band image using RGB, color-infrared to other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/naip-imagery-raster-stacks-in-r/
@@ -360,7 +360,7 @@ naip_csf_br
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_180548_89035_33049.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpoz4Elt/raster/r_tmp_2017-10-19_123816_10776_46736.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
 ## min values  :                                 0,                                 0,                                 0,                                 0 
 ## max values  :                               255,                               255,                               255,                               255
@@ -378,7 +378,7 @@ naip_csf_br[[1]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_180548_89035_33049.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpoz4Elt/raster/r_tmp_2017-10-19_123816_10776_46736.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.1 
 ## values      : 0, 255  (min, max)
 ```

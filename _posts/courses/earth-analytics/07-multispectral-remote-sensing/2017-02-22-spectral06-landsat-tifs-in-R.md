@@ -3,7 +3,7 @@ layout: single
 title: "Landsat Remote Sensing tif Files in R"
 excerpt: "In this lesson you will cover the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/landsat-data-in-r-geotiff/
@@ -70,7 +70,7 @@ band rather than a stack of bands.
     <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/TimelineOnlyForWebRGB.png">
     <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/TimelineOnlyForWebRGB.png" alt="Landsat 40 year timeline source: USGS.">
     </a>
-    <figcaption>The 40 year history of Landsat missions. Source: USGS - <a href="https://landsat.usgs.gov/landsat-missions-timeline
+    <figcaption>The 40 year history of Landsat missions. Source: USGS - <a href="https://landsat.usgs.gov/landsat-missions-timeline" target = "_blank"> USGS Landsat</a>
     </figcaption>
 </figure>
 
@@ -210,7 +210,7 @@ to look at a list of files with the extension: `.tif`. Note that it is important
 that the file **ends with** .tif. So you use the dollar sign at the end of your
 pattern to tell `R` to only grab files that end with .tif.
 
-`pattern=".tif$"`
+`pattern = ".tif$"`
 
 
 

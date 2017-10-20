@@ -3,7 +3,7 @@ layout: single
 title: "Import and summarize tree height data and compare it to lidar derived height in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/import-summarize-tree-height-data/

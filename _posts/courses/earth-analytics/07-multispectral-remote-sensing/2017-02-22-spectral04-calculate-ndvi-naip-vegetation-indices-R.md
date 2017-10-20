@@ -3,7 +3,7 @@ layout: single
 title: "Calculate a Remote Sensing Derived Vegetation Index in R"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, you will review the basic principles associated with calculating a vegetation index from raster formatted, landsat remote sensing data in R. You will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -135,7 +135,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpy2GplN/raster/r_tmp_2017-10-16_180658_89035_43541.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpoz4Elt/raster/r_tmp_2017-10-19_123852_10776_77749.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -257,8 +257,8 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ## Unit: seconds
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
-##      min       lq     mean   median       uq      max neval
-##  1.42275 1.602277 1.770565 1.867411 1.914835 2.079637    10
+##       min       lq     mean   median       uq      max neval
+##  1.053478 1.069059 1.198925 1.243516 1.279638 1.327092    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -267,8 +267,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##      min     lq     mean median       uq      max neval
-##  811.667 851.15 1060.569 901.16 1081.481 1772.926    10
+##       min       lq     mean  median      uq      max neval
+##  528.6216 611.2585 698.9722 735.418 772.324 828.0566    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact

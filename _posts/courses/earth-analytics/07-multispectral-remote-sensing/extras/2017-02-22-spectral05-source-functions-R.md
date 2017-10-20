@@ -3,7 +3,7 @@ layout: single
 title: "How to Source a Function in R"
 excerpt: "Learn how to source a function in R. Learn how to import functions that are stored in a separate file into a script or R Markdown file."
 authors: ['Leah Wasser']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['automate-spatial-data-analysis-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/source-function-in-R/
@@ -80,12 +80,12 @@ To source a set of functions in `R`:
 Next,
 
 * Open your `.Rmd` file or `R` script.
-* At the top of your file, add the `source(path/to-file/here.R)` function.
+* At the top of your file, add the `source(path/tofile/here.R)` function.
 
 `source("remote-sensing-functions.R")`
 
 If the `.R` script is in your main working directory then it won't have a path
-element before it like `week_06/function-file.R` vs `function-file.R`.
+element before it like `week_06/functionfile.R` vs `functionfile.R`.
 
 If it's in a different directory, adjust the path accordingly.
 Once you run the code containing the `source()` function, all of the functions in

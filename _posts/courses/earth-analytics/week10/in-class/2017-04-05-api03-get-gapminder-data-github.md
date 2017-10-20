@@ -3,7 +3,7 @@ layout: single
 title: "Access secure data connections using the RCurl R package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-10-16'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/access-gapminder-data-rcurl-r/
