@@ -1,8 +1,8 @@
 ---
 layout: single
 category: courses
-title: "MODIS data in R - fire remote sensing"
-permalink: /courses/earth-analytics/spectral-remote-sensing-modis/
+title: "Quantify Fire Impacts - Remote Sensing"
+permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/
 modified: '2017-10-20'
 week-landing: 8
 week: 8
@@ -256,7 +256,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 | Fire boundary extent has been layered on top of the plot |  |
 
 
-## Plot 1 - NAIP, Landsat & MODIS - Pre Fire
+## Plot Examples
 
 
 
