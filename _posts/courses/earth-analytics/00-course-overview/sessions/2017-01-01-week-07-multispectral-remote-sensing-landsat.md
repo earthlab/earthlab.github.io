@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery R - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/
-modified: '2017-10-19'
+modified: '2017-10-22'
 week-landing: 7
 week: 7
 sidebar:
@@ -284,13 +284,19 @@ NAIP NDVI plots are not below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" /><img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-2.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
 
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="90%" />
+
+
+
+
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-07-multispectral-remote-sensing-landsat/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="90%" />
 
 
 
