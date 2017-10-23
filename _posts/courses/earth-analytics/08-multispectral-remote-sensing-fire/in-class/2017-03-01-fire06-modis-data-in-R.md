@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS remote sensing data in in R."
 excerpt: "In this lesson you will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. You will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-10-20'
+modified: '2017-10-23'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/modis-data-in-R/
@@ -78,7 +78,7 @@ all_modis_bands_pre_br[[2]]
 ## resolution  : 463.3, 463.3  (x, y)
 ## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/RtmpermCw2/raster/r_tmp_2017-10-20_131126_3350_08781.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpoz4Elt/raster/r_tmp_2017-10-23_134725_10776_61384.grd 
 ## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
 ## values      : -1000000, 100390000  (min, max)
 
