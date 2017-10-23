@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify Fire Impacts - Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/
-modified: '2017-10-22'
+modified: '2017-10-23'
 week-landing: 8
 week: 8
 sidebar:
@@ -48,9 +48,9 @@ we will learn how to
 
 ### 1a. MidTerm Groups
 
-Between now and next class, be sure to figure out who you'd like to work with 
+Between now and next class, be sure to figure out who you'd like to work with
 for your mid-term assignment. If you are looking for a group - please add your name
-and the project that you have in mind to the google document. If you know your 
+and the project that you have in mind to the google document. If you know your
 group members and project name please add this to the document!
 
 <a class="btn .btn--x-large btn-info" href="https://docs.google.com/document/d/14LNBg_3d33Tkc4XZTKVvHvmyfaV1yGDGc39VwxaCe6g/edit#" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -120,6 +120,7 @@ caption argument in your code chunks: `fig.cap = "caption here`.
 3. Use clear legends as appropriate - especially for the classified data plots!
 4. Only include code that is directly related to creating your plot. Do not include intermediate plot outputs in your report - only the final plot (unless it helps
 you directly answer a question asked above).
+5. Use the `overlay()` function and your `normalized_diff()` function to computer both NDVI and NBR.
 
 
 #### Plot 1 - Grid of plots: NAIP, Landsat and MODIS
@@ -256,6 +257,8 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 | Plot has a 2-3 sentence figure caption that clearly describes plot contents. | |
 | Landsat cloud free data (over the study area) are used to derive Landsat based plots | |
 | Cloud masks are applied as appropriate to clean up data. |  |
+| The `overlay()` function is used to calculate vegetation indices ||
+| A `normalized_diff()` function created in the previous classes is used to calculate vegetation indices ||
 |===
 | Data scale factors are applied as appropriate to data. |  |
 
