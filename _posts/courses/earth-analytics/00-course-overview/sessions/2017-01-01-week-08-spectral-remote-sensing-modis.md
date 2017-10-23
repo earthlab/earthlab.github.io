@@ -54,7 +54,7 @@ and the project that you have in mind to the google document. If you know your
 group members and project name please add this to the document!
 
 <a class="btn .btn--x-large btn-info" href="https://docs.google.com/document/d/14LNBg_3d33Tkc4XZTKVvHvmyfaV1yGDGc39VwxaCe6g/edit#" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
-Add your project & group to the class google doc by the end of this week. </a>
+Add your project & group to the class google doc by class next week. </a>
 
 ### 1b. Fire Readings
 
@@ -198,6 +198,16 @@ on top of the difference NDVI map. Add a legend that clearly describes each
 NDVI difference "class".
 
 Be sure to use cloud free NDVI data.
+
+## Bonus (2 points)
+
+Find & download a cloud-free Landsat scene from the summer 2017 using Earth Explorer:
+
+* Calculate dNBR using that scene compared to the pre-fire scene that you downloaded from Earth Explorer.
+* Plot the data using the dNBR classification table.
+* Calculate the total area of high vs. moderate severity burn for the fire scar.
+
+Address the question: Has the fire scar area regenerated at all?
 
 ## Homework due: Monday November 6, 2017 @ 8AM.
 Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
