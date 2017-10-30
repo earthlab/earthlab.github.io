@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Work with the difference Normalized Burn Index - Using spectral remote sensing to understand the impacts of fire on the landscape"
+title: "Work With the Difference Normalized Burn Index - Using Spectral Remote Sensing to Understand the Impacts of Fire on the Landscape"
 excerpt: "In this lesson you review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically you will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-10-23'
+modified: '2017-10-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
-nav-title: 'dNBR vegetation index'
+nav-title: 'dNBR Vegetation Index'
 week: 8
 course: "earth-analytics"
 sidebar:
@@ -37,10 +37,10 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Calculate `dNBR` in `R`
+* Calculate `dNBR` in `R`.
 * Be able to describe how the `dNBR` index is used to quantify fire severity.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
@@ -126,7 +126,7 @@ the severity of the burn.
 |===
 | High Severity     |  | > .66 |
 
-### How severe is severe?
+### How Severe is Severe?
 
 It is important to keep in mind that that the classification table above is one
 quantitative interpretation of what the results of dNBR actually mean. The term
@@ -139,9 +139,9 @@ what is actually happening on the ground in terms of fire severity is to check
 out the actual conditions on the ground. This process of confirming a value that
 you get from remote sensing data by checking it on the ground is called validation.
 
-We discussed ground validation as it applies to lidar data [in week 5 of this course](https://earthdatascience.org/courses/earth-analytics/remote-sensing-uncertainty/).
+You learned about ground validation as it applies to lidar data [in week 5 of this course](https://earthdatascience.org/courses/earth-analytics/remote-sensing-uncertainty/).
 
-### NBR & water - false positives
+### NBR & Water - False Positives
 
 The NBR index can be a powerful tool to identify pixels that have a high likelyhood
 or being "burned". However it is important to know that this index is also
