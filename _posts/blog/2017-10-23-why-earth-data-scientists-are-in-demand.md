@@ -74,7 +74,7 @@ struggling to keep up.
 ## There Are Not Enough Data Scientists to Meet Demand
 As the demand for data science skills increases, there is a deficit in the supply
 of these unique skills in the job market. According to the McKinsey Global
-Institute's </a> href="http://www.mckinsey.com/business-functions/mckinsey-analytics/our-insights/the-age-of-analytics-competing-in-a-data-driven-world" target="_blank"> The Age of Analytics: Competing in a Data-Driven World report</a>,
+Institute's <a href="http://www.mckinsey.com/business-functions/mckinsey-analytics/our-insights/the-age-of-analytics-competing-in-a-data-driven-world" target="_blank"> The Age of Analytics: Competing in a Data-Driven World report</a>,
 the U.S. will experience a shortage of 250,000 employees trained in data skills
 by 2024. Employers are responding by increasing salaries. The average wages for
 data scientists in the U.S. rose by about 16 percent per year from 2012 to 2014,
