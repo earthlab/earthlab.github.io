@@ -3,7 +3,7 @@ layout: single
 title: "Calculate a Remote Sensing Derived Vegetation Index in R"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, you will review the basic principles associated with calculating a vegetation index from raster formatted, landsat remote sensing data in R. You will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser']
-modified: '2017-10-13'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -27,7 +27,10 @@ redirect_from:
    - "/courses/earth-analytics/week-6/vegetation-indices-NDVI-in-R/"
 ---
 
+
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 
@@ -87,7 +90,6 @@ case, you need to calculate NDVI using the NAIP imagery / reflectance data that 
 
 
 
-
 ```r
 # load spatial packages
 library(raster)
@@ -120,7 +122,7 @@ and red light within the electromagnetic spectrum. To calculate NDVI you use the
 following formula where NIR is near infrared light and
 red represents red light. For your raster data, you will take the reflectance value
 in the red and near infrared bands to calculate the index.
-.
+
 `(NIR - Red) / (NIR + Red)`
 
 
@@ -133,7 +135,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp3QiC56/raster/r_tmp_2017-10-13_093705_1478_52762.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpoz4Elt/raster/r_tmp_2017-10-19_123852_10776_77749.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -155,10 +157,10 @@ plot(naip_ndvi,
 # view distribution of NDVI values
 hist(naip_ndvi,
   main = "NDVI: Distribution of pixels\n NAIP 2013 Cold Springs fire site",
-  col = "springgreen")
+  col = "springgreen",
+  x = "NDVI Index Value")
+## Error in hist.default(naip_ndvi, main = "NDVI: Distribution of pixels\n NAIP 2013 Cold Springs fire site", : 'x' must be numeric
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="90%" />
 
 ## Export Raster
 When you are done, you may want to export your rasters so you can use them in
@@ -217,13 +219,10 @@ band_diff <- overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],
 
 plot(band_diff,
      main = "Example difference calculation on imagery - \n this is not a useful analysis, just an example!",
-     axes = FALSE, box = FALSE, Legend = FALSE)
-## Warning in plot.window(...): "Legend" is not a graphical parameter
-## Warning in plot.xy(xy, type, ...): "Legend" is not a graphical parameter
-## Warning in title(...): "Legend" is not a graphical parameter
+     axes = FALSE, box = FALSE, legend = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title=" " alt=" " width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
 
 
 
@@ -241,7 +240,7 @@ plot(naip_ndvi_ov,
      main = "NAIP NDVI calculated using the overlay function")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-4-1.png" title=" " alt=" " width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="90%" />
 
 
 Don't believe overlay is faster? Let's test it using a benchmark.
@@ -259,7 +258,7 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
 ##       min       lq     mean   median       uq      max neval
-##  1.117328 1.147655 1.219802 1.180372 1.205872 1.485094    10
+##  1.053478 1.069059 1.198925 1.243516 1.279638 1.327092    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -268,8 +267,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##       min       lq     mean   median      uq      max neval
-##  506.6086 609.7672 617.9879 622.8941 632.231 688.2722    10
+##       min       lq     mean  median      uq      max neval
+##  528.6216 611.2585 698.9722 735.418 772.324 828.0566    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact

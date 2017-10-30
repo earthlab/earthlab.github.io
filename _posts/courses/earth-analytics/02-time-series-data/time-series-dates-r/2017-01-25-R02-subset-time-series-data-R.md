@@ -3,7 +3,7 @@ layout: single
 title: "Use tidyverse pipes to subset time series data in R"
 excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-09-11'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/
@@ -22,6 +22,7 @@ topics:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 
 
@@ -351,7 +352,7 @@ Take a close look at the plot:
 
 </div>
 
-### Introduction to the pipe %<%
+### Introduction to the pipe %>%
 
 Above we used pipes to manipulate our data. Specifically we removed `NA` values
 in a pipe with `na.omit()`.

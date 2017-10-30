@@ -3,7 +3,7 @@ layout: single
 title: "Import and summarize tree height data and compare it to lidar derived height in R"
 excerpt: ". "
 authors: ['Leah Wasser']
-modified: '2017-10-03'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/import-summarize-tree-height-data/
@@ -24,6 +24,8 @@ redirect_from:
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 
@@ -356,7 +358,7 @@ ggplot(data = SJER_height@data,
   guides(fill = FALSE) # remove legend
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial03-import-summarize-tree-height-data/barplot-nolegend-1.png" title=" " alt=" " width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial03-import-summarize-tree-height-data/barplot-nolegend-1.png" title="plot of chunk barplot-nolegend" alt="plot of chunk barplot-nolegend" width="90%" />
 
 You have now successfully created a canopy height model using lidar data AND compared lidar
 derived vegetation height, within plots, to actual measured tree height data.

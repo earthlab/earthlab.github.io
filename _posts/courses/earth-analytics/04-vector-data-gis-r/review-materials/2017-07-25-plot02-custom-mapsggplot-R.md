@@ -3,7 +3,7 @@ layout: single
 title: "Create Custom Maps with ggplot in R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-09-28'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-maps-with-ggplot-in-R/
@@ -27,6 +27,9 @@ redirect_from:
 <!--# remove module-type: 'class' so it doesn't render live -->
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
+
 
 <div class='notice--success' markdown="1">
 

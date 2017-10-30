@@ -3,7 +3,7 @@ layout: single
 title: "What Could be Improved In this R Code?"
 excerpt: ""
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-10-09'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/example-clean-code-activity-r/
@@ -20,8 +20,9 @@ topics:
 order: 2
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 <div class='notice--success' markdown="1">
 

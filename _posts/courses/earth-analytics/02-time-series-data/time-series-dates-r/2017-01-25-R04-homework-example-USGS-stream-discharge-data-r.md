@@ -4,7 +4,7 @@ title: "Homework challenge: Plot USGS stream discharge data in R"
 excerpt: "This lesson illustrated what your final stream discharge homework
 plots should look like for the week. Use all of the skills that you've learned in the previous lessons to complete it."
 authors: ['Leah Wasser']
-modified: '2017-09-15'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -24,6 +24,8 @@ topics:
 
 
 {% include toc title="In This Lesson" icon="file-text" %}
+
+
 
 In this data lesson, we explore and visualize stream discharge time series
 data collected by the United States Geological Survey (USGS). You will use everything

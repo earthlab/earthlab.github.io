@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-09-10'
+modified: '2017-10-19'
 week: 2
 sidebar:
   nav:
@@ -21,6 +21,7 @@ topics:
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
+
 
 
 <div class='notice--success' markdown="1">

@@ -6,7 +6,7 @@ title: 'Install & use packages in R'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn what a package is in R and how to install packages to work with your data.'
 dateCreated: 2016-12-12
-modified: '2017-09-10'
+modified: '2017-10-19'
 nav-title: 'Install packages'
 week: 1
 sidebar:
@@ -20,7 +20,9 @@ order: 3
 topics:
   reproducible-science-and-programming: ['RStudio']
 ---
+
 {% include toc title="In This Lesson" icon="file-text" %}
+
 
 
 ##  Install a package

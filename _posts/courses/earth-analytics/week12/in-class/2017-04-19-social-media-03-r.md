@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-10-11'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -118,12 +118,12 @@ climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "How 4 a.m. chats persuaded Miami’s Republican mayor to care about sea-level rise https://t.co/UWbxIKFe0n via… https://t.co/HWBMj87cWL"                
-## [2] "#Ecology: A global plan for nature #conservation \n#biodiversity #climatechange\nhttps://t.co/icdwnjQO2e"                                             
-## [3] "Our CleanAir bench is part of the world’s first smart street in #London - https://t.co/rb4Q8zKS91 | #smartcities… https://t.co/gi7Jq1wiLj"            
-## [4] "If there's any doubt about the impact of coal on #climatechange , The Rodney &amp; Otamatea Times made the association… https://t.co/Mi9bWFp4UB"      
-## [5] "Hi @lyft\nI’m trying to figure out why my trip ‘to’ cost $30 less than 3hours later home? How does your pricing work… https://t.co/3EEbTcKPXv"        
-## [6] "@mbash123 @FamineResistors 3-Subsidize &amp; train farmers &amp; nomads.\n4-convert #Somalia pastorlist to #Agropastrolism t… https://t.co/X8FpbtbhLP"
+## [1] "EARTH &amp; MAN: One Integral Whole\nhttps://t.co/Fh7uJpnjc4\n#economy #Spirituality #climatechange #environment… https://t.co/BRZ8iGyC4k"                  
+## [2] "As of 2018, the @UN will monitor global #climatechange impacts from Bonn: https://t.co/EVvLgHlN5E @unisdr #COP23 https://t.co/GuKCcfGswL"                   
+## [3] "@alexandramusic Doing #VLM2018 for @Earthwatch_Eur \U0001f496 Help #MotherEarth \U0001f496 #Donations #ClimateChange #SaveThePlanet https://t.co/R54ICkTNcF"
+## [4] "@davitter @EU_Commission @Bulc_EU @brianhayesMEP @transenv @emireland Many of us feel very much that our government… https://t.co/hzPlZ65Tjh"               
+## [5] "Chinese President Xi thumps Trump on #climatechange: \"No country can afford to retreat into self-isolation.\"… https://t.co/LU0IkNHpD6"                    
+## [6] "There is a solution to #climatechange and I need your help to get the world's attention https://t.co/hfVJHbsvl3 https://t.co/MS2lggLLue"
 ```
 
 ## Data clean-up
@@ -234,7 +234,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 128000
+## [1] 123804
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -242,7 +242,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 74364
+## [1] 73619
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -288,20 +288,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 70,654 x 2
+## # A tibble: 61,802 x 2
 ##         paired_words     n
 ##                <chr> <int>
-##  1    climate change   522
-##  2  on climatechange   448
-##  3  climatechange is   379
-##  4            in the   320
-##  5            of the   268
-##  6  of climatechange   258
-##  7  to climatechange   219
-##  8 climatechange amp   217
-##  9         the world   198
-## 10              is a   196
-## # ... with 70,644 more rows
+##  1    climate change  1012
+##  2  on climatechange   656
+##  3 climatechange amp   504
+##  4            to act   417
+##  5            act on   410
+##  6 indigenous rights   402
+##  7    amp indigenous   401
+##  8           to tell   401
+##  9          banks to   400
+## 10         big banks   400
+## # ... with 61,792 more rows
 ```
 
 
@@ -320,14 +320,14 @@ climate_words_counts <- climate_tweets_filtered %>%
 
 head(climate_words_counts)
 ## # A tibble: 6 x 3
-##           word1         word2     n
-##           <chr>         <chr> <int>
-## 1       climate        change   522
-## 2 climatechange           amp   217
-## 3          tony        abbott   141
-## 4         clean         power   116
-## 5 climatechange climatechange   110
-## 6        tackle climatechange   102
+##             word1           word2     n
+##             <chr>           <chr> <int>
+## 1         climate          change  1012
+## 2   climatechange             amp   504
+## 3      indigenous          rights   402
+## 4             amp      indigenous   401
+## 5         october equatorbanksact   390
+## 6 equatorbanksact  ep_actcampaign   389
 ```
 
 FInally, plot the data

@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
 excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser']
-modified: '2017-09-15'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -23,6 +23,8 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
+
+
 Bonus / Graduate activity. In this lesson, you will plot precipitation data in `R`.
 However, these data were collected over several decades and sometimes there are
 multiple data points per day. The data are also not cleaned. You will find
@@ -31,7 +33,7 @@ heading names that may not be meaningful, and other issues with the data.
 This lesson shows you what the plots should look like but does not
 provide each and every step that you need to process the data.
 You have the skills that you need from the other lessons
-covered this week! 
+covered this week!
 
 <div class='notice--success' markdown="1">
 
@@ -269,7 +271,7 @@ total amount of precipitation each day.
 daily_sum_precip <- precip_boulder %>%
   mutate(day = as.Date(DATE, format="%Y-%m-%d")) %>%
   group_by(day) %>% # group by the day column
-  summarise(total_precip=sum(HPCP)) %>%  # calculate the SUM of all precipitation that occured on each day
+  summarise(total_precip=sum(HPCP)) %>%  # calculate the SUM of all precipitation that occurred on each day
   na.omit()
 
 # how large is the resulting data frame?

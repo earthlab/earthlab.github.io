@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically accessing geospatial data using API's - Working with and mapping JSON data from the Colorado Information Warehouse in R"
 excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-08-17'
+modified: '2017-10-19'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/co-water-data-spatial-r/
@@ -63,7 +63,6 @@ in R.
 library(dplyr)
 library(ggplot2)
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 library(jsonlite)
 ```
 
@@ -162,14 +161,14 @@ In this case, we have a data.frame nested within a data.frame.
 head(water_data_df$location)
 ##    latitude needs_recoding   longitude
 ## 1 40.042028          FALSE -105.364917
-## 2   40.2125          FALSE  -105.25183
-## 3  40.21108          FALSE  -105.25093
-## 4  39.98617          FALSE  -105.21868
-## 5      <NA>             NA        <NA>
-## 6 40.125542          FALSE -105.303879
+## 2 40.018667          FALSE  -105.32625
+## 3  40.09082          FALSE -105.514442
+## 4      <NA>             NA        <NA>
+## 5 39.931099          FALSE -105.295822
+## 6 40.053036          FALSE -105.193048
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
-## [1] "40.042028" "40.2125"   "40.21108"  "39.98617"  NA          "40.125542"
+## [1] "40.042028" "40.018667" "40.09082"  NA          "39.931099" "40.053036"
 ```
 
 We can remove the nesting using the `flatten()` function in `R`. When we flatten
@@ -186,18 +185,18 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
-##  [1] "40.042028" "40.2125"   "40.21108"  "39.98617"  NA         
-##  [6] "40.125542" "40.006374" "40.134278" "40.21804"  "40.160347"
-## [11] "40.051652" "39.961655" "39.938598" "39.931099" "40.256031"
-## [16] "40.255581" "40.15336"  "40.193757" "40.18188"  "40.187577"
-## [21] "40.19932"  "40.174844" "40.18858"  "40.20419"  "40.173949"
-## [26] "40.172925" "40.19642"  "40.21266"  "40.187524" NA         
-## [31] "40.153341" "40.2172"   "40.21139"  "40.1946"   "40.170997"
-## [36] "40.21905"  "40.193018" "40.172677" "40.172677" "40.19328" 
-## [41] "40.18503"  "40.053036" "40.849982" "40.09404"  "40.05366" 
-## [46] NA          "40.258038" "40.216093" "40.214984" "40.091372"
-## [51] "40.09082"  NA          "39.931096" NA          NA         
-## [56] "40.733879" "40.131924" "40.018667"
+##  [1] "40.042028" "40.018667" "40.09082"  NA          "39.931099"
+##  [6] "40.053036" "40.849982" NA          "39.931096" "40.258038"
+## [11] "40.216093" "40.215772" "40.214984" "40.091372" NA         
+## [16] "40.733879" NA          "40.134278" "40.125542" "40.131924"
+## [21] "40.160347" "40.051652" "40.006374" "40.21804"  "39.961655"
+## [26] "39.938598" "40.256031" "40.255581" "40.15336"  "40.193757"
+## [31] "40.18188"  "40.187577" "40.19932"  "40.174844" "40.18858" 
+## [36] "40.20419"  "40.173949" "40.172925" "40.19642"  "40.2125"  
+## [41] "40.21266"  "40.187524" NA          "40.153341" "40.2172"  
+## [46] "40.21139"  "40.1946"   "40.170997" "40.21905"  "40.21108" 
+## [51] "40.193018" "40.172677" "40.172677" "40.19328"  "40.18503" 
+## [56] "39.98617"  "40.09404"  "40.05366"  NA
 ```
 Now we can clean up the data. Notice that our longitude and latitude values
 are in quotes. What does this mean about the structure of the data?
@@ -206,7 +205,7 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
-##  chr [1:58] "40.042028" "40.2125" "40.21108" "39.98617" NA "40.125542" ...
+##  chr [1:59] "40.042028" "40.018667" "40.09082" NA "39.931099" ...
 ```
 
 In order to map or work with latitude and longitude data, we need numeric values.
@@ -223,12 +222,12 @@ so it is best to remove them.
 ```r
 # where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
-##  [1] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
-## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
-## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [45] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE
-## [56] FALSE FALSE FALSE
+##  [1] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE
+## [12] FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE
+## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [56] FALSE FALSE FALSE  TRUE
 ```
 
 Note, in the code above, we can identify each location where there is a NA value
@@ -238,12 +237,12 @@ in our data. If we add an `!` to our code, R returns the INVERSE of the above.
 ```r
 # where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
-##  [1]  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
-## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [45]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE
-## [56]  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE
+## [12]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+## [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [56]  TRUE  TRUE  TRUE FALSE
 ```
 
 Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value
@@ -274,7 +273,7 @@ ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   labs(size="Amount", colour="Station Type")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api07-get-spatial-data-api-r/water_data_plot1-1.png" title="ggplot of water surface data." alt="ggplot of water surface data." width="100%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api07-get-spatial-data-api-r/water_data_plot1-1.png" title="ggplot of water surface data." alt="ggplot of water surface data." width="90%" />
 
 Plotting the data using `ggplot()` creates a scatterplot of longitude and latitude,
 with some minor aesthetic tweaks. We really want to create a web
@@ -290,11 +289,11 @@ on top of that basemap to create a nice static map.
 ```r
 boulder <- get_map(location="Boulder, CO, USA",
                   source="google", crop=FALSE, zoom=10)
-## Error in get_map(location = "Boulder, CO, USA", source = "google", crop = FALSE, : could not find function "get_map"
+## Error in data.frame(ll.lat = ll[1], ll.lon = ll[2], ur.lat = ur[1], ur.lon = ur[2]): arguments imply differing number of rows: 0, 1
 ggmap(boulder) +
   geom_point(data=water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=factor(station_type)))
-## Error in ggmap(boulder): could not find function "ggmap"
+## Error in ggmap(boulder): object 'boulder' not found
 ```
 
 In the next lesson, we will learn how to create interactive maps using the leaflet
