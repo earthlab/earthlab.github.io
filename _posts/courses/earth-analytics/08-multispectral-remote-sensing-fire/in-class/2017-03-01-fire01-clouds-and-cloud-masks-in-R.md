@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Clean remote sensing data in R - Clouds, shadows & cloud masks"
+title: "Clean Remote Sensing Data in R - Clouds, Shadows & Cloud Masks"
 excerpt: "In this lesson, you will learn how to deal with clouds when working with spectral remote sensing data. You will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. You will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-10-20'
+modified: '2017-10-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/intro-spectral-data-r/
-nav-title: 'Clouds, shadows & masks'
+nav-title: 'Clouds, Shadows & Masks'
 module-title: 'Clouds, shadows & cloud masks in R'
 module-description: 'In this module you will learn more about dealing with clouds, shadows and other elements that can interfere with scientific analysis of remote sensing data. '
 module-nav-title: 'Fire / spectral remote sensing data - in R'
@@ -44,7 +44,7 @@ After completing this tutorial, you will be able to:
 * Use a cloud mask to remove portions of an spectral dataset (image) that is covered by clouds / shadows.
 * Define cloud mask / describe how a cloud mask can be useful when working with remote sensing data.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data that you already downloaded for week 6 of the course.
@@ -53,7 +53,7 @@ data that you already downloaded for week 6 of the course.
 
 </div>
 
-## About Landsat scenes
+## About Landsat Scenes
 
 Landsat satellites orbit the earth continuously collecting images of the Earth's
 surface. These images, are divided into smaller regions - known as scenes.
@@ -70,10 +70,10 @@ that had been downloaded for this class by your instructor. The scene was furthe
 cropped to reduce the file size for the class.
 
 You ran into some challenges when you began to work with the data. The biggest
-problem was a large cloud and associated shadow that covered our study
+problem was a large cloud and associated shadow that covered your study
 area of interest - the Cold Springs fire burn scar.
 
-### Dealing with clouds & shadows in remote sensing data
+### Dealing with Clouds & Shadows in Remote Sensing Data
 
 Clouds and atmospheric conditions present a significant challenge when working
 with multispectral remote sensing data. Extreme cloud cover and shadows can make
@@ -81,10 +81,10 @@ the data in those areas, un-usable given reflectance values are either washed ou
 (too bright - as the clouds scatter all light back to the sensor) or are too
 dark (shadows which represent blocked or absorbed light).
 
-In this lesson you will learn how to deal with clouds in our remote sensing data.
+In this lesson you will learn how to deal with clouds in your remote sensing data.
 There is no perfect solution of course. You will just learn one approach.
 
-Let's begin by loading our spatial libraries.
+Begin by loading your spatial libraries.
 
 
 ```r
@@ -109,7 +109,7 @@ all_landsat_bands_st <- stack(all_landsat_bands)
 all_landsat_bands_br <- brick(all_landsat_bands_st)
 ```
 
-When you plotted the pre-fire image, you noticed a large cloud in our scene.
+When you plotted the pre-fire image, you noticed a large cloud in your scene.
 Notice as i'm plotting below, i'm adding a few *par*ameters to force `R` to add a
 title to my plot.
 
@@ -127,13 +127,13 @@ plotRGB(all_landsat_bands_br,
         stretch = "hist",
         main = "Pre-fire RGB image with cloud\n Cold Springs Fire",
         axes = TRUE)
-# turn the box to white so there is no border on our plot
+# turn the box to white so there is no border on your plot
 box(col = "white")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/plotRGB-landsat-1.png" title="RGB image of our landsat data." alt="RGB image of our landsat data." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/plotRGB-landsat-1.png" title="RGB image of your landsat data." alt="RGB image of your landsat data." width="90%" />
 
-## Raster masks
+## Raster Masks
 
 Often (but not always) remote sensing data come with mask layers. These layers
 identify pixels that are likely representative of a cloud or shadow that have been
@@ -167,12 +167,12 @@ plot(cloud_mask_189,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire01-clouds-and-cloud-masks-in-R/view-cloud-mask-with-shadows-1.png" title="cloud mask with shadows" alt="cloud mask with shadows" width="90%" />
 
-## What do the metadata tell us?
+## What Do the Metadata Tell Us?
 
 You just explored two layers that potentially have information about cloud cover.
 However what do the values stored in those rasters mean? You can refer to the
 metadata provided when you downloaded the Landsat data to learn more about how
-each layer in our landsat dataset are both stored and calculated.
+each layer in your landsat dataset are both stored and calculated.
 
 Let's open the metadata file: `data/week_07/landsat/LC80340322016189-SC20170128091153/LC80340322016189LGN00.xml`
 What does it tell us?
@@ -191,14 +191,14 @@ created the data will do some of the work for us to detect where clouds and
 shadows are - given they are common challenges that you need to work around when
 using remote sensing data.
 
-In this case, if you study the metadata you can see that our `cfmask.tif` file contains several classes. 1, 2, and 4 represent clouds and shadows. These might be values of pixels
-that you want to mask from our analysis. More on this later.
+In this case, if you study the metadata you can see that your `cfmask.tif` file contains several classes. 1, 2, and 4 represent clouds and shadows. These might be values of pixels
+that you want to mask from your analysis. More on this later.
 
-## Cloud masks in R
+## Cloud Masks in R
 
 You can use the cloud mask layer to identify pixels that are likely to be clouds
 or shadows. You can then set those pixel values to `NA` so they are not included in
-our quantitative analysis in R.
+your quantitative analysis in R.
 
 When you say "mask", you are talking about a layer that "turns off" or sets to NA,
 the values of pixels in a raster that you don't want to include in an analysis.
@@ -209,7 +209,7 @@ data set. You are just doing it with spatial raster data instead.
     <a href="{{ site.url }}/images/courses/earth-analytics/week-7/raster_masks.jpg">
     <img src="{{ site.url }}/images/courses/earth-analytics/week-7/raster_masks.jpg" alt="Raster masks">
     </a>
-    <figcaption>When you use a raster mask, you are defining what pixels you want to exclude from a quantitative analysis. Notice in this image, the raster max is simply a layer that contains values of 1 (use these pixels) and values of NA (exclude these pixels). If the raster is the same extent and spatial resolution as your remote sensing data (in this case our landsat raster stack) you can then mask ALL PIXELS that occur at the spatial location of clouds and shadows (represented by an NA in the image above). Source: Colin Williams (NEON)
+    <figcaption>When you use a raster mask, you are defining what pixels you want to exclude from a quantitative analysis. Notice in this image, the raster max is simply a layer that contains values of 1 (use these pixels) and values of NA (exclude these pixels). If the raster is the same extent and spatial resolution as your remote sensing data (in this case your landsat raster stack) you can then mask ALL PIXELS that occur at the spatial location of clouds and shadows (represented by an NA in the image above). Source: Colin Williams (NEON)
     </figcaption>
 </figure>
 
@@ -217,9 +217,9 @@ data set. You are just doing it with spatial raster data instead.
 
 To create the mask this you do the following:
 
-1. You make sure you use a raster layer that is the SAME EXTENT and the same pixel resolution as our landsat scene. In this case you have a mask layer that is already the same spatial resolution and extent as our landsat scene.
+1. You make sure you use a raster layer that is the SAME EXTENT and the same pixel resolution as your landsat scene. In this case you have a mask layer that is already the same spatial resolution and extent as your landsat scene.
 2. You then set all of the values in that layer that are clouds and / or shadows to `NA`
-3. Finally you use the `mask()` function to set all pixel locations that were flagged as clouds or shadows in our mask to `NA` in our `raster` or in this case `rasterstack`.
+3. Finally you use the `mask()` function to set all pixel locations that were flagged as clouds or shadows in your mask to `NA` in your `raster` or in this case `rasterstack`.
 
 In this case, you want to set all values greater than 0 in the raster mask to `NA`.
 
@@ -250,10 +250,10 @@ Notice in the image above, all pixels that are green represent pixels that are
 OK or not masked. This means they weren't flagged as potential clouds or shadows.
 All pixels that are WHITE are masked - these are areas of clouds and shadows.
 
-## Apply a mask
+## Apply a Mask
 
-You can apply a mask to all of the bands in our raster stack which is convenient!
-Let's use the `mask()` function to mask our data.
+You can apply a mask to all of the bands in your raster stack which is convenient!
+Let's use the `mask()` function to mask your data.
 
 
 ```r
@@ -290,7 +290,7 @@ box(col = "white")
 
 Notice above that I didn't have to use the stretch function to force the data to
 plot in `R`. This is because the extremely bright pixels which represented clouds,
-are now removed from our data.
+are now removed from your data.
 
 
 ```r
@@ -315,7 +315,7 @@ Next, you can calculate a vegetation index.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge
 
 * Overlay the fire boundary on top of the landsat pre-fire image.
 * If you were asked to QUANTIFY the pre vs post fire burn area extent, what are some problems that you can anticipate
@@ -323,9 +323,9 @@ running into with the cloud cover - even with using the mask?
 </div>
 
 
-## A cloud's covering our study area - what's next?
+## A Cloud's Covering Your Study Area - What's Next?
 
-Now that you have discovered a problem with our data that will impact quantitative
+Now that you have discovered a problem with your data that will impact quantitative
 analysis of the data, what do you do?
 
 Well, there are several options, most of which you won't discuss in this class.
