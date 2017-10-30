@@ -31,7 +31,7 @@ from international, national and even local groups.
 </div>
 
 
-*Last Updated: 1 March 2017*
+*Last Updated: 30 October 2017*
 
 |Site Name / URL | Description|
 |---|
@@ -46,6 +46,7 @@ from international, national and even local groups.
 |Site Name / URL | Description|
 |---|
 | <a href="http://www.naturalearthdata.com" target="_blank">Natural Earth Data</a>||
+| <a href="http://www.globalforestwatch.org/" target="_blank">Global Forest Watch</a>||
 | <a href="http://www2.jpl.nasa.gov/srtm/" target="_blank">SRTM – Shuttle Radar Topography Mission</a> ||
 | <a href="http://dds.cr.usgs.gov/srtm/" target="_blank">SRTM – Shuttle Radar Topography Mission</a> ||
 | <a href="http://converter.mygeodata.eu/" target="_blank">GeoData converter</a> ||
