@@ -3,7 +3,7 @@ layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in R"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-10-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-r/
@@ -32,10 +32,10 @@ lang-lib:
 
 After completing this tutorial, you will be able to:
 
-* Find and download data from the USGS Earth Explorer Website
+* Find and download data from the USGS Earth Explorer Website.
 * Filter data by cloud cover to find datasets with the least amount of clouds for a study area.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 7 - 9 of the course.
@@ -132,12 +132,12 @@ plotRGB(cleaned_raster, 4,3,2, stretch = 'lin')
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="90%" />
 
 
-Things are looking a bit better but still this image has issues.
+Things are looking a bit better but still this image has issues:
 
-1. there are edge effects associated with the mask that we can see
-2. shadows weren't handled well with that mask.
+1. There are edge effects associated with the mask that we can see.
+2. Shadows weren't handled well with that mask.
 
-We might have more processing to do to truly get this image cleaned up.
+You might have more processing to do to truly get this image cleaned up.
 
-In this case, it could be better to use the other image in our analysis rather
+In this case, it could be better to use the other image in your analysis rather
 than trying to clean up the cloud image.

@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Work with MODIS remote sensing data in in R."
+title: "Work with MODIS Remote Sensing Data in R."
 excerpt: "In this lesson you will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. You will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-10-23'
+modified: '2017-10-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/modis-data-in-R/
-nav-title: 'MODIS data in R'
+nav-title: 'MODIS Data in R'
 week: 8
 course: "earth-analytics"
 sidebar:
@@ -35,11 +35,11 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Open MODIS imagery in `R`
-* Create NBR index using MODIS imagery in `R`
-* Calculate total burned area in `R`
+* Open MODIS imagery in `R`.
+* Create NBR index using MODIS imagery in `R`.
+* Calculate total burned area in `R`.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
@@ -75,12 +75,12 @@ all_modis_bands_pre_br[[2]]
 ## class       : RasterLayer 
 ## band        : 2  (of  7  bands)
 ## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
-## resolution  : 463.3, 463.3  (x, y)
+## resolution  : 463.3127, 463.3127  (x, y)
 ## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpoz4Elt/raster/r_tmp_2017-10-23_134725_10776_61384.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpt1DJlT/raster/r_tmp_2017-10-30_130032_3755_74820.grd 
 ## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
-## values      : -1000000, 100390000  (min, max)
+## values      : -1e+06, 100390000  (min, max)
 
 # view band names
 names(all_modis_bands_pre_br)
@@ -103,9 +103,9 @@ names(all_modis_bands_pre_br)
 ```
 
 
-## Reflectance values range 0-1
+## Reflectance Values Range 0-1
 
-As we've discussed in class, the normal range of reflectance values is 0-1 where
+As you've learned in class, the normal range of reflectance values is 0-1 where
 1 is the BRIGHTEST values and 0 is the darkest value. Have a close look at the
 min and max values in the second raster layer of our stack, above. What do you notice?
 
@@ -142,7 +142,7 @@ Looking at the table, answer the following questions
 1. What is valid range of values for our data?
 2. What is the scale factor associated with our data?
 
-## Explore our data
+## Explore Our Data
 
 Looking at histograms of our data, you can see that the range of values is not
 what we'd expect. We'd expect values between -100 to 10000 yet instead you have
@@ -239,7 +239,7 @@ Why is it so hard to figure out where the study area is in this MODIS image?
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="90%" />
 
-## MODIS cloud mask
+## MODIS Cloud Mask
 
 Next, you can deal with clouds in the same way that you dealt with them using
 Landsat data. However, our cloud mask in this case is slightly different with
@@ -284,7 +284,7 @@ study area.
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="90%" />
 
 
-## Calculate dNBR with MODIS
+## Calculate dNBR With MODIS
 
 Once we have the data cleaned up with cloudy pixels set to NA and the scale
 factor applied, we are ready to calculate dNBR or whatever other vegetation index
@@ -313,7 +313,7 @@ What bands should you use to calculate NBR using MODIS?
 | Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
 | Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
 
-## Extracting summary stats
+## Extracting Summary Stats
 
 Similar to what you did with Landsat data, you can then use `extract()` to
 select just pixels that are in the burn area and summarize by pixel

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify Fire Impacts - Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/
-modified: '2017-10-23'
+modified: '2017-10-30'
 week-landing: 8
 week: 8
 sidebar:
@@ -23,13 +23,13 @@ module-type: 'session'
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
-Welcome to week {{ page.week }} of Earth Analytics! This week we will dive deeper
+Welcome to week {{ page.week }} of Earth Analytics! This week you will dive deeper
 into working with remote sensing data surrounding the Cold Springs fire. Specifically,
-we will learn how to
+you will learn how to
 
-* Download data from Earth Explorer
-* Deal with cloud shadows and cloud coverage
-* Deal with scale factors and no data values
+* Download data from Earth Explorer.
+* Deal with cloud shadows and cloud coverage.
+* Deal with scale factors and no data values.
 
 {% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 
@@ -50,7 +50,7 @@ we will learn how to
 
 Between now and next class, be sure to figure out who you'd like to work with
 for your mid-term assignment. If you are looking for a group - please add your name
-and the project that you have in mind to the google document. If you know your
+and the project that you have in mind to the Google document. If you know your
 group members and project name please add this to the document!
 
 <a class="btn .btn--x-large btn-info" href="https://docs.google.com/document/d/14LNBg_3d33Tkc4XZTKVvHvmyfaV1yGDGc39VwxaCe6g/edit#" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
@@ -66,7 +66,7 @@ Please read the articles below to prepare for next week's class.
 " target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a>
 * <a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices -  Soverel et al 2010.</a>
 
-### 2. Complete the assignment below (20 points)
+### 2. Complete the Assignment Below (20 points)
 Please note that like the flood report, this assignment is worth more points than
 a usual weekly assignment. You have 2 weeks to complete this assignment. Start
 early!
@@ -75,14 +75,14 @@ early!
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
 
-### Produce a report
+### Produce a Report
 
 Create a new `R markdown `document. Name it: **lastName-firstInitial-weeknumber.Rmd**
 Within your `.Rmd` document, include the plots listed below. When you are done
 with your report, use `knitr` to convert it to `html` format. Submit both the
 `.Rmd` file and the `.html` file. Be sure to name your files as instructed above.
 
-#### Use knitr code chunk arguments
+#### Use knitr Code Chunk Arguments
 In your final report, use the following knitr code chunk arguments to hide messages
 and warnings and code as you see fit.
 
@@ -90,55 +90,54 @@ and warnings and code as you see fit.
 * `echo = FALSE` Hide code and just show code output
 * `results = 'hide'` Hide the verbose output from some functions like `readOGR()`.
 
-#### Answer the following questions below in your report
+#### Answer the Questions Below in Your Report
 
 1. What is the spatial resolution of NAIP, Landsat & MODIS data in meters?
-   * How can differences in spatial resolution in the data that you are using impact analysis results?
+  * 1b. How can differences in spatial resolution in the data that you are using impact analysis results?
 2. Calculate the area of "high severity" and the area of "moderate severity" burn in meters using the dNBR for Landsat and MODIS respectively. State what the area in meters is for each data type (Landsat and MODIS) and each level of fire severity (high and moderate) in your answer.
-  * Is the total area as derived from MODIS different from the area derived from Landsat? Why / why not? Use plots 4 and 5 to discuss any differences that you notice.
+  * 2b. Is the total area as derived from MODIS different from the area derived from Landsat? Why / why not? Use plots 4 and 5 to discuss any differences that you notice.
 3. Write 1-3 paragraphs that describes the Cold Springs fire. Include:
-    * Where and when the fire occurred.
-    * What started the fire.
-    * A brief discussion of how fire impacts the natural vegetation structure of a forest and also humans (i.e. are fires always bad?).
+  * 3b. Where and when the fire occurred.
+  * 3c. What started the fire.
+  * 3d. A brief discussion of how fire impacts the natural vegetation structure of a forest and also humans (i.e. are fires always bad?).
 4. Describe how dNBR and NDVI can be used to study the impacts of a fire. In your answer, be sure to discuss which parts of the spectrum each index uses and why those wavelength values are used. (i.e. what about NIR light makes it useful for NDVI and what about SWIR light make it useful for a burn index).
 
 Refer to your plots in your answer.
 
-For all of your answers
+For all of your answers:
 
-1. Be sure to **carefully proofread** your report before handing it in
-2. Be sure to cite atleast 2 of the assigned articles in your answers.
-3. Be sure to use proper citation format.
+* Be sure to **carefully proofread** your report before handing it in.
+* Be sure to cite atleast 2 of the assigned articles in your answers.
+* Be sure to use proper citation format.
 
-#### Include the plots below.
+#### Include the Plots Below.
 
 For all plots:
 
-1. Be sure to describe what each plot shows in your final report using a figure
+* Be sure to describe what each plot shows in your final report using a figure
 caption argument in your code chunks: `fig.cap = "caption here`.
-2. Add appropriate titles that tells someone reading your report what the map shows
-3. Use clear legends as appropriate - especially for the classified data plots!
-4. Only include code that is directly related to creating your plot. Do not include intermediate plot outputs in your report - only the final plot (unless it helps
-you directly answer a question asked above).
-5. Use the `overlay()` function and your `normalized_diff()` function to computer both NDVI and NBR.
+* Add appropriate titles that tell someone reading your report what the map shows.
+* Use clear legends as appropriate - especially for the classified data plots!
+* Only include code that is directly related to creating your plot. Do not include intermediate plot outputs in your report - only the final plot (unless it helps you directly answer a question asked above).
+* Use the `overlay()` function and your `normalized_diff()` function to computer both NDVI and NBR.
 
 
-#### Plot 1 - Grid of plots: NAIP, Landsat and MODIS
+#### Plot 1 - Grid of Plots: NAIP, Landsat and MODIS
 
 Use the `plotRGB()` function to create color infrared (also called false color)
-image using:
+images using:
 
-1. NAIP data
-2. Landsat data and
-3. MODIS data
+* NAIP data
+* Landsat data and
+* MODIS data
 
  **in one figure** collected **pre-fire**.
 
 
  For each map be sure to:
 <!-- In a CIR image, the NIR band is plotted on the “red” band, the red band is plotted using green and the green band is plotted using blue. -->
-* Overlay the fire boundary layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`)
-* Use the band combination **r = infrared band**, **g = red band**, **b = green** band. You can use `mfrow=c(rows, columns)`
+* Overlay the fire boundary layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`).
+* Use the band combination **r = infrared band**, **g = red band**, **b = green** band. You can use `mfrow=c(rows, columns)`.
 
 * Render the map to the extent of the fire boundary layer using either the `ext = extent()` plot argument. Or crop the data to the fire boundary extent.
 * Be sure to label each plot with the data type (NAIP vs. Landsat vs. MODIS) and spatial resolution.
@@ -147,7 +146,7 @@ Use this figure to help answer question 1 above.
 An example of what this plot should look like (without all of the labels that
 you need to add), [is here at the bottom of the page.]({{ site.url }}/courses/earth-analytics/multispectral-remote-sensing-modis/grid-of-plots-report/)
 
-#### Plot 2 - Difference NBR (dNBR) using Landsat data
+#### Plot 2 - Difference NBR (dNBR) Using Landsat Data
 
 Create a map of the classified dNBR using Landsat data collected before and
 after the Cold Springs fire. Overlay the fire extent `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
@@ -156,7 +155,7 @@ that you applied using the table provided in the lessons.
 
 Be sure to use cloud free data.
 
-#### Plot 3 - Difference NBR (dNBR) using MODIS data
+#### Plot 3 - Difference NBR (dNBR) Using MODIS Data
 
 Create a map of the classified dNBR using MODIS data collected before and
 after the Cold Springs fire. Overlay the fire extent `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
@@ -181,7 +180,7 @@ values below by a factor of 10.
 
 ****
 
-#### Plot 4 - Difference NDVI Landsat data
+#### Plot 4 - Difference NDVI Landsat Data
 
 Create a map of the the difference in NDVI - pre vs post fire. Classify the change
 in NDVI as you see fit. Overlay the fire extent `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
@@ -190,7 +189,7 @@ NDVI difference "class".
 
 Be sure to use cloud free NDVI data.
 
-#### Plot 5 - Difference NDVI MODIS data
+#### Plot 5 - Difference NDVI MODIS Data
 
 Create a map of the the difference in NDVI - pre vs post fire. Classify the change
 in NDVI as you see fit. Overlay the fire extent `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
@@ -199,7 +198,7 @@ NDVI difference "class".
 
 Be sure to use cloud free NDVI data.
 
-## Bonus (2 points)
+## Bonus Opportunity (2 points)
 
 Find & download a cloud-free Landsat scene from the summer 2017 using Earth Explorer:
 
@@ -209,7 +208,7 @@ Find & download a cloud-free Landsat scene from the summer 2017 using Earth Expl
 
 Address the question: Has the fire scar area regenerated at all?
 
-## Homework due: Monday November 6, 2017 @ 8AM.
+## Homework Due: Monday November 6, 2017 @ 8AM.
 Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 
 </div>
@@ -232,43 +231,43 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 |===
 | Report emphasizes the write-up and the code outputs rather than showing each step of the code | |
 
-####  Report questions: 40%
+####  Report Questions: 40%
 
 | Full Credit | No Credit  |
 |:----|----|
-| 1. What is the spatial resolution for NAIP, Landsat & MODIS data in meters? |  |
-| 1. How can differences in spatial resolution in the data that you are using impact analysis results? | |
-| 2. Calculate the area of “high severity” and the area of “moderate severity” burn in meters using the post-fire data for both Landsat and MODIS. State what the area in meters is for each data type (Landsat and MODIS) in your answer. (is the area correctly calculated using `R`?) |  |
-| 2. Is the total area as derived from MODIS different from the area derived from Landsat? | |
-| 3. Write 1-3 paragraphs that describes the Cold Springs fire. ||
-| 3. Where and when the fire occurred is discussed in the writeup.||
-| 3. What started the fire is included in the write-up ||
-| 4. Describe how dNBR and NDVI can be used to study the impacts of a fire.| |
-| 4. Which parts of the spectrum are used to calculate dNBR and NDVI and why.| |
+| 1a. What is the spatial resolution for NAIP, Landsat & MODIS data in meters? |  |
+| 1b. How can differences in spatial resolution in the data that you are using impact analysis results? | |
+| 2a. Calculate the area of “high severity” and the area of “moderate severity” burn in meters using the post-fire data for both Landsat and MODIS. State what the area in meters is for each data type (Landsat and MODIS) in your answer. (is the area correctly calculated using `R`?) |  |
+| 2b. Is the total area as derived from MODIS different from the area derived from Landsat? | |
+| 3a. Write 1-3 paragraphs that describes the Cold Springs fire. ||
+| 3b. Where and when the fire occurred is discussed in the writeup.||
+| 3c. What started the fire is included in the write-up ||
+| 4a. Describe how dNBR and NDVI can be used to study the impacts of a fire.| |
+| 4b. Which parts of the spectrum are used to calculate dNBR and NDVI and why.| |
 
-**Writing Grammar & spelling**
+**Writing, Grammar & Spelling (5%)**
 
 | Full Credit | No Credit  |
 |:----|----|
-| All writing is thoughtfully composed |  |
-| All writing is proofread with correct grammar and spelling  | |
-| All writing is the student's own and not directly copied from the course website or another source without proper citation |  |
+| All writing is thoughtfully composed. |  |
+| All writing is proofread with correct grammar and spelling.  | |
+| All writing is the student's own and not directly copied from the course website or another source without proper citation. |  |
 |===
-| Proper citation format is used  | |
+| Proper citation format is used.  | |
 
 
-### Plots are worth 40% of the assignment grade
+### Plots are Worth 40% of the Assignment Grade
 
 #### All Plots
 
 | Plot renders on the report. |  |
 | Plot contain a descriptive title that represents the data. | |
-| Plot data source is clearly define on the plot and / or in the plot caption. | |
+| Plot data source is clearly defined on the plot and / or in the plot caption. | |
 | Plot has a 2-3 sentence figure caption that clearly describes plot contents. | |
 | Landsat cloud free data (over the study area) are used to derive Landsat based plots | |
 | Cloud masks are applied as appropriate to clean up data. |  |
-| The `overlay()` function is used to calculate vegetation indices ||
-| A `normalized_diff()` function created in the previous classes is used to calculate vegetation indices ||
+| The `overlay()` function is used to calculate vegetation indices. ||
+| A `normalized_diff()` function created in the previous classes is used to calculate vegetation indices. ||
 |===
 | Data scale factors are applied as appropriate to data. |  |
 
@@ -285,24 +284,24 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 
 | Full Credit | No Credit  |
 |:----|----|
-| Correct band numbers are used to calculate NBR |  |
-| Difference NBR is calculated properly|  |
+| Correct band numbers are used to calculate NBR. |  |
+| Difference NBR is calculated properly. |  |
 | Plot has been classified according to burn severity classes specified in the assignment. |  |
 | Plot includes a legend with each "level" of burn severity labeled clearly. |  |
 |===
-| Fire boundary extent has been layered on top of the plot |  |
+| Fire boundary extent has been layered on top of the plot. |  |
 
 
 #### Plots 4/5 - Difference NDVI Landsat & MODIS
 
 | Full Credit | No Credit  |
 |:----|----|
-| Correct band numbers are used to calculate NDVI |  |
-| Difference NDVI is calculated properly|  |
+| Correct band numbers are used to calculate NDVI. |  |
+| Difference NDVI is calculated properly. |  |
 | Plot has been classified according to suggested NDVI classes. |  |
 | Plot includes a legend with each "level" of NDVI change labeled. |  |
 |===
-| Fire boundary extent has been layered on top of the plot |  |
+| Fire boundary extent has been layered on top of the plot. |  |
 
 
 ## Plot Examples

@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Get landsat remote sensing data from the Earth Explorer website"
+title: "Get Landsat Remote Sensing Data From the Earth Explorer Website"
 excerpt: "In this lesson you will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-10-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/get-data-earth-explorer/
-nav-title: 'Get data - earth explorer'
+nav-title: 'Get Data - Earth Explorer'
 week: 8
 course: "earth-analytics"
 sidebar:
@@ -35,10 +35,10 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Find and download data from the USGS Earth Explorer Website
+* Find and download data from the USGS Earth Explorer Website.
 * Filter data by cloud cover to find datasets with the least amount of clouds for a study area.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 7 - 9 of the course.
@@ -87,7 +87,7 @@ To define your AOI in Earth Explorer:
 
 * Zip up extent file that you want to use. Be sure to use a square extent, if you
 have too many vertices it won't work. Lucky for us there is a zip file already zipped
-up and ready to go in our week6 data!
+up and ready to go in our week 6 data!
   `data/week_07/vector_layers/fire_boundary_box_shp.zip`
 * Next, go to <a href="http://earthexplorer.usgs.gov" target="_blank">the Earth Explorer website</a>. Login. If you don't have a login already, create an account.
 
@@ -144,11 +144,11 @@ extent to search for data. Now, it's time to search for data.
 
 * Finally click on the Results tab. Here you see all of the scenes available for "order" from the website that cover our study area.
 * Notice that you can click on the icons below the scene to see the scene itself rendered on the map and to see the footprint (or extent) of the scene relative to our study area.
-* Pick a scene that is
+* Pick a scene that is:
   * closest to the pre-fire date (July 10 2016) and also that has the least amount of cloud cover close to your study area.
 
 
-#### Step 5: Order your data
+### Step 5: Order Your Data
 
 * Click the <i class="fa fa-shopping-cart" aria-hidden="true"></i>
 shopping cart icon to add the data to your cart.
@@ -170,9 +170,9 @@ because your instructor cropped the class data to make is easier to work with!
 
 
 
-## Import new scene
+## Import New Scene
 
-First, let's import our new data and create a raster stack. The code is hidden
+First, let's import your new data and create a raster stack. The code is hidden
 because you already know how to do this!
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="90%" />
@@ -186,17 +186,17 @@ Next, plot the fire boundary extent on top of the newly downloaded Landsat 8 ima
 
 If you look closely at the image above, you'll see the tiny yellow boundary
 that represents the Cold Springs fire boundary. This
-landsat scene is MUCH larger than our Cold Springs Fire study area. You have 2 options:
+landsat scene is MUCH larger than your Cold Springs Fire study area. You have 2 options:
 
 1. **Crop the data:** this will make it easier to work with as it will be smaller. A good move.
-2. **Plot only the study area extent:** this is ok if you just want to plot our data and don't need to do any additional processing on it.
+2. **Plot only the study area extent:** this is ok if you just want to plot your data and don't need to do any additional processing on it.
 
 Below i've plotted the cloud mask for the data that I downloaded. It looks like
-the data in our study area are cloud free. How do I know that?
+the data in your study area are cloud free. How do I know that?
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="90%" />
 
-All of the pixels within our study area are cloud free. This means you have
+All of the pixels within your study area are cloud free. This means you have
 downloaded the right scene. This also means that you don't have to worry about
 applying a cloud mask to the data.
 
