@@ -319,8 +319,8 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-08-spectral-remote-sensing-modis/plot-landsat-nbr-1.png" title="Landsat derived dNBR for Cold Springs Fire 
- Nederland, CO" alt="Landsat derived dNBR for Cold Springs Fire 
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/00-course-overview/sessions/2017-01-01-week-08-spectral-remote-sensing-modis/plot-landsat-nbr-1.png" title="Landsat derived dNBR for Cold Springs Fire
+ Nederland, CO" alt="Landsat derived dNBR for Cold Springs Fire
  Nederland, CO" width="90%" />
 
 
