@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Calculate and plot difference normalized burn ratio (dNBR) from Landsat remote sensing data in R"
+title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) from Landsat Remote Sensing Data in R"
 excerpt: "In this lesson you review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. You finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-10-19'
+modified: '2017-10-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/calculate-dNBR-R-Landsat/
-nav-title: 'dNBR with Landsat'
+nav-title: 'dNBR With Landsat'
 class-order: 3
 week: 8
 course: "earth-analytics"
@@ -41,7 +41,7 @@ After completing this tutorial, you will be able to:
 * Calculate `dNBR` in `R`
 * Describe how the `dNBR` index is used to quantify fire severity.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 7 - 9 of the course.
@@ -50,7 +50,7 @@ data for week 7 - 9 of the course.
 </div>
 
 As discussed in the previous lesson, you can use dNBR to map the extent and
-severity of a fire. In this lesson, we demonstrate how to create NBR using
+severity of a fire. In this lesson, you learn how to create NBR using
 Landsat data.
 
 You calculate dNBR using the following steps:
@@ -63,9 +63,9 @@ You calculate dNBR using the following steps:
 Note the code to do this is hidden. You will need to figure
 out what bands are required to calculate NBR using Landsat.
 
-## Calculate dNBR using Landsat data
+## Calculate dNBR Using Landsat Data
 
-First, let's setup our spatial packages.
+First, let's setup your spatial packages.
 
 
 ```r
@@ -206,9 +206,9 @@ You classified map should look something like:
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
-## Compare to fire boundary
+## Compare to Fire Boundary
 
-As an example to see how our fire boundary relates to the boundary that we've
+As an example to see how your fire boundary relates to the boundary that you've
 identified using MODIS data, you can create a map with both layers. I'm using
 the shapefile in the folder:
 
@@ -235,16 +235,6 @@ didn't include it in the title of this map.
 
 
 
-
-
-```r
-barplot(nbr_classified,
-        main = "Distribution of Classified NBR Values",
-        col = the_colors)
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/view-bar-1.png" title="plot barplot of fire severity values" alt="plot barplot of fire severity values" width="90%" />
-
 Add labels to your barplot!
 
 
@@ -257,7 +247,7 @@ barplot(nbr_classified,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
-## Calculate total area of burned area
+## Calculate Total Area of Burned Area
 
 Once you have classified your data, you can calculate the total burn area.
 
