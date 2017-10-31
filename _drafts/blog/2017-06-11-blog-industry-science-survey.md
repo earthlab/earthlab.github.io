@@ -659,23 +659,23 @@ We want candidates who are equipped to transform cutting edge science from acade
 
 Anomaly Detection
 Artificial Intelligence
-Classification
+Classification 
 Cluster analysis
-Data Compression
-Data Engineering
-Data Fusion
-Data Mining
+Data Compression 
+Data Engineering 
+Data Fusion 
+Data Mining 
 Data Warehousing
 Database Management
 Machine Learning
 Mathematics
 Modeling
-Neural networks
+Neural networks 
 Pattern Recognition
 Rule learning
 Signal Processing
 Statistics
-Time series
+Time series 
 Visualization
 
 
