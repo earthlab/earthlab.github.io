@@ -3,12 +3,12 @@ layout: single
 title: "Understand namespaces in R - what package does your fromJSON() function come from?"
 excerpt: "This lesson covers namespaces in R and how we can tell R where to get a function from (what code to use) in R."
 authors: ['Leah Wasser']
-modified: '2017-08-17'
+modified: '2017-11-01'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/namespaces-in-r/
 nav-title: 'Namespaces in R'
-week: 10
+week: 13
 course: "earth-analytics"
 sidebar:
   nav:
@@ -45,7 +45,6 @@ calls in R.
 ```r
 # load packages
 library(ggmap)
-## Error in library(ggmap): there is no package called 'ggmap'
 library(ggplot2)
 library(dplyr)
 ```
@@ -74,7 +73,6 @@ rjson library to use `fromJSON()`. What happens?
 
 ```r
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 # Convert JSON to data frame
 pop_proj_data_df <- fromJSON(full_url)
 ## Error in open.connection(con, "rb"): HTTP error 400.
@@ -109,7 +107,6 @@ head(pop_proj_data_df)
 
 ```r
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 # Convert JSON to data frame
 # Base URL path
 base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
@@ -151,7 +148,7 @@ full_url
 pop_proj_data_df <- jsonlite::fromJSON(full_url)
 ## Error in open.connection(con, "rb"): HTTP error 400.
 pop_proj_data_df <- rjson::fromJSON(full_url)
-## Error in loadNamespace(name): there is no package called 'rjson'
+## Error in rjson::fromJSON(full_url): unexpected character 'h'
 pop_proj_data_df <- RJSONIO::fromJSON(full_url)
 ## Error in loadNamespace(name): there is no package called 'RJSONIO'
 ```
@@ -192,7 +189,7 @@ rjson package?
 
 ```r
 pop_proj_data_df1 <- rjson::fromJSON(full_url_encoded)
-## Error in loadNamespace(name): there is no package called 'rjson'
+## Error in rjson::fromJSON(full_url_encoded): unexpected character 'h'
 ```
 
 The above example still doesn't work, even when we encode our url string. What
@@ -202,9 +199,27 @@ happens if you use getURL to grab the URL?
 ```r
 pop_proj_geturl <- getURL(full_url_encoded)
 pop_proj_data_df1 <- rjson::fromJSON(pop_proj_geturl)
-## Error in loadNamespace(name): there is no package called 'rjson'
 head(pop_proj_data_df1, n=2)
-## Error in head(pop_proj_data_df1, n = 2): object 'pop_proj_data_df1' not found
+## [[1]]
+## [[1]]$age
+## [1] "20"
+## 
+## [[1]]$femalepopulation
+## [1] "2751"
+## 
+## [[1]]$year
+## [1] "1990"
+## 
+## 
+## [[2]]
+## [[2]]$age
+## [1] "21"
+## 
+## [[2]]$femalepopulation
+## [1] "2615"
+## 
+## [[2]]$year
+## [1] "1990"
 ```
 
 Well the above works WHEN we first use the getURL() function from the RCurl package!
@@ -216,9 +231,14 @@ We can do that using do.call on the rbind.data.frame() function as follows:
 
 ```r
 pop_proj_df_convert <- do.call(rbind.data.frame, pop_proj_data_df1)
-## Error in do.call(rbind.data.frame, pop_proj_data_df1): object 'pop_proj_data_df1' not found
 head(pop_proj_df_convert)
-## Error in head(pop_proj_df_convert): object 'pop_proj_df_convert' not found
+##      age femalepopulation year
+## 2     20             2751 1990
+## 2100  21             2615 1990
+## 3     22             2167 1990
+## 4     23             1798 1990
+## 5     24             1692 1990
+## 6     25             1813 1990
 ```
 
 That works - but it made us use additional code. Seems like the jsonlite example

@@ -4,7 +4,7 @@ category: course-materials
 title: "Midterm Project - Earth Analytics Course - GEOG 4563 / 5563"
 nav-title: "Midterm project"
 permalink: /courses/earth-analytics/mid-term/
-modified: '2017-10-23'
+modified: '2017-11-01'
 module-type: 'overview'
 comments: false
 author_profile: false
@@ -41,15 +41,14 @@ If you are taking the course online, here are your options
 If you can't attend the course:
 
 1. Try to schedule a slot where you can attend the class to give your presentation (participate for part of the class)
-2. Record your presentation and submit it to D2L prior to the class. We will watch it during the class. Questions will be asked virtually on Piazza and you will be required to address the questions on piazza!
+2. Record your presentation and submit it to D2L prior to the class. We will watch it during the class. Questions will be asked virtually on Piazza and you will be required to address the questions on piazza.
 
-Please email your instructor (Leah) to let her know how you intend to participate!
+**IMPORTANT:** Please email your instructor (Leah) to let her know how you intend to participate by **Monday 6 November 2013**.
 
 
 ## Part 1: 'Take-home' Quiz
 
-A short quiz that you will take during the mid term week - November 2017
-(10%). This quiz will cover key topics that we have been discussing in class
+A short quiz that you will take during the mid term week - November 2017. This quiz will cover key topics that we have been discussing in class
 over the past 2 months. A suggested study guide is posted on the website.
 
 * **Date:** The week of November 13. You will have all week to complete the quiz.
@@ -72,7 +71,8 @@ Your presentation should include:
   * An image that shows the 2 types of data that you'll be working with - this may be a rough plot or just some of the raw data.
   * An brief discussion of what you think you'll find working on your project.
 
-You will have some time the week before the presentation is due to
+Be sure to closely review the rubric below to see how your presentation will
+be graded! You will have some time the week before the presentation is due to
 ask questions and work on your group project in class.
 
 **Notes:**
@@ -83,7 +83,7 @@ ask questions and work on your group project in class.
 * Be sure to read more about the final project before proposing your mid term topic!
 
 
-## Submit your final mid-term presentation to D2L by 13 March 2017 @ 9AM
+## Submit your final mid-term presentation to D2L by 13 November 2017 @ 9AM
 
 ## Mid-Term Presentation Rubric
 
@@ -94,7 +94,6 @@ ask questions and work on your group project in class.
 |:----|----|
 | The science question / topic is thoughtfully presented |  |
 | The **importance of the project topic to those in the room** (the specific audience) is clearly articulated. Why should we care?  |  |
-| Rough data plots or example images of the data to be used (even if it's the raw data) are shown in the presentation | |
 |===
 | Example of potential / expected results are discussed in the presentation.| |
 
@@ -106,6 +105,7 @@ ask questions and work on your group project in class.
 | 2 specific data sources are identified in the presentation  | |
 | Each data source identified is described: how it's collected & where its acquired from  | |
 | How the data will be used to address the topic is clearly articulated | |
+| Rough data plots or example images of the data to be used (even if it's the raw data) are shown in the presentation | |
 |===
 | An `R` generated study area map is included in the presentation to clearly articulate the study area.  | |
 
@@ -127,9 +127,10 @@ ask questions and work on your group project in class.
 
 | Full Credit | No Credit  |
 |:----|----|
-| Presentation "slides" are simple and easy to read.  |  |
-| Presentation graphics are relevant to the topic being presented  | |
-| Data slides (containing maps or plots) area easy to read  | |
+| Presentation "slides" are not too text heavy, simple and easy to read .  |  |
+| Presentation graphics are relevant to the topic being presented and clear  | |
+| Data slides (containing maps or plots) area easy to read, well annotated (x and y axes, title, etc)  | |
+| Data slides cite the source of the data | |
 |===
 | Slides can be read from the back of the room. | |
 
