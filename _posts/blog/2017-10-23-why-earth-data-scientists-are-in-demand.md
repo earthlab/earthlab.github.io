@@ -9,7 +9,7 @@ output:
 excerpt: The Earth analytics field sits at the intersection of data science and earth
   sciences. Discover why hiring managers are seeking earth data science skills.
 layout: single
-modified: '2017-10-30'
+modified: '2017-10-31'
 comments: yes
 permalink: /blog/earth-data-scientist-demand/
 sidebar:
@@ -17,7 +17,6 @@ sidebar:
 tags: null
 author_profile: no
 ---
-
 
 
 
