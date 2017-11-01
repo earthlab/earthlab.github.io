@@ -4,7 +4,7 @@ category: course-materials
 title: "Midterm Project - Earth Analytics Course - GEOG 4563 / 5563"
 nav-title: "Midterm project"
 permalink: /courses/earth-analytics/mid-term/
-modified: '2017-10-23'
+modified: '2017-11-01'
 module-type: 'overview'
 comments: false
 author_profile: false
@@ -48,8 +48,7 @@ Please email your instructor (Leah) to let her know how you intend to participat
 
 ## Part 1: 'Take-home' Quiz
 
-A short quiz that you will take during the mid term week - November 2017
-(10%). This quiz will cover key topics that we have been discussing in class
+A short quiz that you will take during the mid term week - November 2017. This quiz will cover key topics that we have been discussing in class
 over the past 2 months. A suggested study guide is posted on the website.
 
 * **Date:** The week of November 13. You will have all week to complete the quiz.
@@ -83,7 +82,7 @@ ask questions and work on your group project in class.
 * Be sure to read more about the final project before proposing your mid term topic!
 
 
-## Submit your final mid-term presentation to D2L by 13 March 2017 @ 9AM
+## Submit your final mid-term presentation to D2L by 13 November 2017 @ 9AM
 
 ## Mid-Term Presentation Rubric
 
