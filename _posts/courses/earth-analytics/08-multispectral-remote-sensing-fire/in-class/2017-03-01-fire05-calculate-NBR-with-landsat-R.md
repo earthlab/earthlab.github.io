@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) from Landsat Remote Sensing Data in R"
 excerpt: "In this lesson you review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. You finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-10-30'
+modified: '2017-11-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/calculate-dNBR-R-Landsat/
@@ -74,6 +74,7 @@ library(raster)
 library(rgdal)
 library(rgeos)
 library(RColorBrewer)
+library(dplyr)
 # turn off factors
 options(stringsAsFactors = FALSE)
 
@@ -264,14 +265,7 @@ landsat_pixels_in_fire_boundary <- extract(nbr_classified, fire_boundary_utm,
 
 landsat_pixels_in_fire_boundary %>%
   group_by(layer) %>%
-  summarize(count = n(), area_meters = n() * 30)
-## # A tibble: 4 x 3
-##   layer count area_meters
-##   <dbl> <int>       <dbl>
-## 1     2   401       12030
-## 2     3   419       12570
-## 3     4   893       26790
-## 4     5   847       25410
+  summarize(count = n(), area_meters = n() * (30 * 30))
 ```
 
 

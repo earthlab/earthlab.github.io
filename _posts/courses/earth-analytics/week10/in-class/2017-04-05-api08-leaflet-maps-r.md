@@ -3,12 +3,12 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-11-03'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/leaflet-r/
 nav-title: 'Interactive maps with leaflet '
-week: 10
+week: 13
 course: "earth-analytics"
 sidebar:
   nav:
@@ -190,10 +190,10 @@ a series of text strings and object values.
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
 ## [1] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"       
 ## [2] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 3.08"                          
-## [3] "SOUTH SAINT VRAIN NEAR WARD<br/>Discharge: 8.6"                              
-## [4] "SOUTH BOULDER CREEK NEAR ELDORADO SPRINGS<br/>Discharge: 8.85"               
-## [5] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 25.9"
-## [6] "BOULDER RESERVOIR INLET<br/>Discharge: 3.92"
+## [3] "UNION RESERVOIR<br/>Discharge: 12445.8"                                      
+## [4] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 0.23"
+## [5] "SAINT VRAIN SUPPLY CANAL NEAR LYONS, CO<br/>Discharge: 0.44"                 
+## [6] "LITTLE THOMPSON RIVER AT CANYON MOUTH NEAR BERTHOUD<br/>Discharge: 3.48"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our

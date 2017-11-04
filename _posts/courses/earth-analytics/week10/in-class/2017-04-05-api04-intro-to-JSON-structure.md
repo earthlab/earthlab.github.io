@@ -3,12 +3,12 @@ layout: single
 title: "Introduction to the JSON data structure"
 excerpt: "This lesson covers the JSON data structure. JSON is a powerful text based format that supports hierarchical data structures. It is the core structure used to create geoJSON which is a spatial version of json that can be used to create maps. JSON is preferred for use over .csv files for data structures as it has been proven to be more efficient - particulary as data size becomes large."
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-08-17'
+modified: '2017-11-03'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/intro-to-JSON/
 nav-title: 'Into to JSON'
-week: 10
+week: 13
 course: "earth-analytics"
 sidebar:
   nav:
@@ -63,11 +63,9 @@ function will become more valuable to us as we parse data accessed from an API.
 #devtools::install_github("dkahle/ggmap")
 #devtools::install_github("hadley/ggplot2")
 library(ggmap)
-## Error in library(ggmap): there is no package called 'ggmap'
 library(ggplot2)
 library(dplyr)
 library(rjson)
-## Error in library(rjson): there is no package called 'rjson'
 ```
 
 

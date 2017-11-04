@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data in R."
 excerpt: "In this lesson you will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. You will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-10-30'
+modified: '2017-11-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/modis-data-in-R/
@@ -75,12 +75,12 @@ all_modis_bands_pre_br[[2]]
 ## class       : RasterLayer 
 ## band        : 2  (of  7  bands)
 ## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
-## resolution  : 463.3127, 463.3127  (x, y)
+## resolution  : 463.3, 463.3  (x, y)
 ## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmpt1DJlT/raster/r_tmp_2017-10-30_130032_3755_74820.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/RtmpshziFP/raster/r_tmp_2017-11-03_184753_3345_49777.grd 
 ## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
-## values      : -1e+06, 100390000  (min, max)
+## values      : -1000000, 100390000  (min, max)
 
 # view band names
 names(all_modis_bands_pre_br)
@@ -330,7 +330,11 @@ classified value
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/diff-nbr-modis-1.png" title="dnbr plotted using MODIS data for the Cold Springs fire." alt="dnbr plotted using MODIS data for the Cold Springs fire." width="90%" />
 
 
-Finally calculate summary stats of how many pixels fall into each severity class.
+Finally calculate summary stats of how many pixels fall into each severity class
+like you did for the landsat data.
+
+
+
 
 
 ```r
@@ -339,11 +343,5 @@ MODIS_pixels_in_fire_boundary <- extract(dnbr_modis_classified, fire_boundary_si
 
 MODIS_pixels_in_fire_boundary %>%
   group_by(layer) %>%
-  summarize(count = n(), area_meters = n() * 30)
-## # A tibble: 3 x 3
-##   layer count area_meters
-##   <dbl> <int>       <dbl>
-## 1     2     1          30
-## 2     3     2          60
-## 3     4    10         300
+  summarize(count = n(), area_meters = (n() * (modis_resolution_here * modis_resolution_here)))
 ```

@@ -3,12 +3,12 @@ layout: single
 title: "Access secure data connections using the RCurl R package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-10-19'
+modified: '2017-11-03'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/week-10/access-gapminder-data-rcurl-r/
 nav-title: "Get Data From Github"
-week: 10
+week: 13
 course: "earth-analytics"
 sidebar:
   nav:
@@ -99,13 +99,8 @@ gap_data_url <- getURL(file_url)
 # grab the data vis textConnection
 gap_data <- read.csv(textConnection(gap_data_url), sep="\t")
 head(gap_data)
-##       country continent year lifeExp      pop gdpPercap
-## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
-## 2 Afghanistan      Asia 1957  30.332  9240934  820.8530
-## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
-## 4 Afghanistan      Asia 1967  34.020 11537966  836.1971
-## 5 Afghanistan      Asia 1972  36.088 13079460  739.9811
-## 6 Afghanistan      Asia 1977  38.438 14880372  786.1134
+## [1] X404..Not.Found
+## <0 rows> (or 0-length row.names)
 ```
 
 
@@ -144,14 +139,10 @@ to practice using RCurl functions.
 file_url = "https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv"
 # import the data!
 gap_data = read.csv(file_url)
+## Error in file(file, "rt"): cannot open the connection to 'https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv'
 head(gap_data)
-##             country.continent.year.lifeExp.pop.gdpPercap
-## 1  Afghanistan\tAsia\t1952\t28.801\t8425333\t779.4453145
-## 2  Afghanistan\tAsia\t1957\t30.332\t9240934\t820.8530296
-## 3   Afghanistan\tAsia\t1962\t31.997\t10267083\t853.10071
-## 4  Afghanistan\tAsia\t1967\t34.02\t11537966\t836.1971382
-## 5 Afghanistan\tAsia\t1972\t36.088\t13079460\t739.9811058
-## 6   Afghanistan\tAsia\t1977\t38.438\t14880372\t786.11336
+## [1] X404..Not.Found
+## <0 rows> (or 0-length row.names)
 ```
 
 Looking at our results, we notice there is a `\t` between each data element.
@@ -174,14 +165,10 @@ for this separator with the `sep=` argument.
 # Use textConnection to read content of temp as tsv
 gap_data <- read.csv(file_url,
                      sep="\t")
+## Error in file(file, "rt"): cannot open the connection to 'https://raw.githubusercontent.com/jennybc/gapminder/master/inst/gapminder.tsv'
 head(gap_data)
-##       country continent year lifeExp      pop gdpPercap
-## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
-## 2 Afghanistan      Asia 1957  30.332  9240934  820.8530
-## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
-## 4 Afghanistan      Asia 1967  34.020 11537966  836.1971
-## 5 Afghanistan      Asia 1972  36.088 13079460  739.9811
-## 6 Afghanistan      Asia 1977  38.438 14880372  786.1134
+## [1] X404..Not.Found
+## <0 rows> (or 0-length row.names)
 ```
 
 That looks better.
@@ -217,6 +204,7 @@ Then we create box plots - one for each continent.
 summary_life_exp <-  gap_data %>%
    group_by(continent, year) %>%
    summarise(median_life = median(lifeExp))
+## Error in grouped_df_impl(data, unname(vars), drop): Column `continent` is unknown
 
 ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
   geom_point() +
@@ -224,9 +212,8 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
            y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page")
+## Error in ggplot(summary_life_exp, aes(x = year, y = median_life, colour = continent)): object 'summary_life_exp' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api03-get-gapminder-data-github/life-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent" alt="GGPLOT of gapminder data - life expectance by continent" width="90%" />
 
 ### Piping data to ggplot()
 
@@ -247,9 +234,8 @@ gap_data %>%
            y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Data piped directly into GGPLOT! Plot looks the same!")
+## Error in grouped_df_impl(data, unname(vars), drop): Column `continent` is unknown
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api03-get-gapminder-data-github/life-by-continent-pipes-1.png" title="GGPLOT of gapminder data - life expectance by continent piped" alt="GGPLOT of gapminder data - life expectance by continent piped" width="90%" />
 
 
 Below, we make a boxplot of `lifeExp` by `continent` too. Notice in this case
@@ -266,9 +252,8 @@ ggplot(summary_life_exp,
            y="Median Life Expectancy (years)",
           title="Gapminder Data - Life Expectancy",
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+## Error in ggplot(summary_life_exp, aes(continent, median_life)): object 'summary_life_exp' not found
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api03-get-gapminder-data-github/box-plot-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent boxplot" alt="GGPLOT of gapminder data - life expectance by continent boxplot" width="90%" />
 
 We can also create a more advanced plot - overlaying the data points on top of
 our box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced `ggplot()` plotting approaches.
@@ -281,6 +266,7 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
            y = "Life Expectancy (years)",
            title = "Gapminder Data - Life Expectancy",
            subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
+## Error in FUN(X[[i]], ...): object 'continent' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api03-get-gapminder-data-github/box-plot-point-outliers-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="90%" />
@@ -296,6 +282,7 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
            y = "Life Expectancy (years)",
            title = "Gapminder Data - Life Expectancy",
            subtitle = "Data points overlaid on top of the box plot.")
+## Error in FUN(X[[i]], ...): object 'continent' not found
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week10/in-class/2017-04-05-api03-get-gapminder-data-github/box-plot-point-jitter-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="90%" />
