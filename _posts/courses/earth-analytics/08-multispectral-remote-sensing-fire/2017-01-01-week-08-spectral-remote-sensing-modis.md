@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify Fire Impacts - Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/
-modified: '2017-11-03'
+modified: '2017-11-06'
 week-landing: 8
 week: 8
 sidebar:
