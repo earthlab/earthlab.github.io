@@ -69,4 +69,12 @@ FOR COURSE STUDENTS ONLY: Google doc evaluation form template - use this if you'
 
 #### BONUS (1 Point):
 Review atleast 2 additional presentations to receive an additional homework point.
+
+
+### Participation
+Because we won't have a lot of time for questions after each presentation, please 
+leave any questions that you have for a group in piazza under the groups name.
+The group can then see your question and answer them!
+
+
 </div>
