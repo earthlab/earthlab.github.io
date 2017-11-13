@@ -72,9 +72,14 @@ Review atleast 2 additional presentations to receive an additional homework poin
 
 
 ### Participation
-Because we won't have a lot of time for questions after each presentation, please 
+Because we won't have a lot of time for questions after each presentation, please
 leave any questions that you have for a group in piazza under the groups name.
 The group can then see your question and answer them!
+
+Please also be sure to ANSWER any questions that are asked of your group. Asking
+and answering questions will count towards your participation grade for this week.
+
+
 
 
 </div>
