@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify Fire Impacts - Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/
-modified: '2017-11-06'
+modified: '2017-11-10'
 week-landing: 8
 week: 8
 sidebar:
@@ -312,7 +312,11 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 
 
 
+
+
+
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="90%" />
+
 
 
 

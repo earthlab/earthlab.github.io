@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-10-19'
+modified: '2017-11-08'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/week-12/text-mining-twitter-data-intro-r/
@@ -118,12 +118,12 @@ climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "EARTH &amp; MAN: One Integral Whole\nhttps://t.co/Fh7uJpnjc4\n#economy #Spirituality #climatechange #environment… https://t.co/BRZ8iGyC4k"                  
-## [2] "As of 2018, the @UN will monitor global #climatechange impacts from Bonn: https://t.co/EVvLgHlN5E @unisdr #COP23 https://t.co/GuKCcfGswL"                   
-## [3] "@alexandramusic Doing #VLM2018 for @Earthwatch_Eur \U0001f496 Help #MotherEarth \U0001f496 #Donations #ClimateChange #SaveThePlanet https://t.co/R54ICkTNcF"
-## [4] "@davitter @EU_Commission @Bulc_EU @brianhayesMEP @transenv @emireland Many of us feel very much that our government… https://t.co/hzPlZ65Tjh"               
-## [5] "Chinese President Xi thumps Trump on #climatechange: \"No country can afford to retreat into self-isolation.\"… https://t.co/LU0IkNHpD6"                    
-## [6] "There is a solution to #climatechange and I need your help to get the world's attention https://t.co/hfVJHbsvl3 https://t.co/MS2lggLLue"
+## [1] "\"A tree does not fall with one blow\". ~Yiddish Proverb https://t.co/WHThpOv7rv #climatechange #climateaction https://t.co/lYZJm7kRHu"   
+## [2] "What Is A Green Climate Fund? Learn more here: https://t.co/gi3feNCYB3 #climatechange #climateaction https://t.co/URCaivPhkx"             
+## [3] "#auspol #abc730 @ACurrentAffair9 @7NewsAdelaide. Use LARGE-SCALE #RenewableEnergyto combat #climatechange:… https://t.co/jKJTzLPo2H"      
+## [4] "News via @guardian: Huge private sector investment puts Paris climate target in reach, says report:… https://t.co/QjlOFEWNha"             
+## [5] "@theleidy @WorldNature @rsheak @tailsofLA @realsmile @loveofirony @tkdmike @rmiskimens @jamisonfoser @tabbycat68… https://t.co/tAAhK1AtXG"
+## [6] "@nature_ny We need more listening to help people envision   long term solutions that are realistic given constraints of #climatechange"
 ```
 
 ## Data clean-up
@@ -202,7 +202,7 @@ climate_tweets_clean %>%
       title="Count of unique words found in tweets")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-r/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="90%" />
 
 Our plot of unique words contains some words that may not be useful to use. For instance
 "a" and "to". In the word of text mining we call those words - 'stop words'.
@@ -234,7 +234,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 123804
+## [1] 105062
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -242,7 +242,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 73619
+## [1] 59544
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -265,7 +265,7 @@ cleaned_tweet_words %>%
       subtitle="Stop words removed from the list")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-r/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="90%" />
 
 ## Explore networks of words
 
@@ -288,20 +288,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 61,802 x 2
-##         paired_words     n
-##                <chr> <int>
-##  1    climate change  1012
-##  2  on climatechange   656
-##  3 climatechange amp   504
-##  4            to act   417
-##  5            act on   410
-##  6 indigenous rights   402
-##  7    amp indigenous   401
-##  8           to tell   401
-##  9          banks to   400
-## 10         big banks   400
-## # ... with 61,792 more rows
+## # A tibble: 57,482 x 2
+##        paired_words     n
+##               <chr> <int>
+##  1   climate change   564
+##  2           in the   403
+##  3 on climatechange   315
+##  4 climatechange is   313
+##  5 of climatechange   298
+##  6           of the   286
+##  7        the world   254
+##  8    paris climate   194
+##  9         at cop23   178
+## 10         the only   168
+## # ... with 57,472 more rows
 ```
 
 
@@ -320,14 +320,14 @@ climate_words_counts <- climate_tweets_filtered %>%
 
 head(climate_words_counts)
 ## # A tibble: 6 x 3
-##             word1           word2     n
-##             <chr>           <chr> <int>
-## 1         climate          change  1012
-## 2   climatechange             amp   504
-## 3      indigenous          rights   402
-## 4             amp      indigenous   401
-## 5         october equatorbanksact   390
-## 6 equatorbanksact  ep_actcampaign   389
+##           word1         word2     n
+##           <chr>         <chr> <int>
+## 1       climate        change   564
+## 2         paris       climate   194
+## 3         cop23 climatechange   129
+## 4 climatechange         cop23   121
+## 5 climatechange           amp    89
+## 6       climate     agreement    86
 ```
 
 FInally, plot the data
@@ -350,7 +350,7 @@ climate_words_counts %>%
              x="", y="")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/week12/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="90%" />
 
 We expect the words climate & change to have a high
 
