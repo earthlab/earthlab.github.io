@@ -3,10 +3,10 @@ layout: single
 title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-11-08'
+modified: '2017-11-15'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/API-data-access-r/
+permalink: /courses/earth-analytics/get-data-using-apis/API-data-access-r/
 nav-title: 'Get JSON data via RESTful API'
 week: 13
 course: "earth-analytics"
@@ -15,6 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 5
+redirect_from:
+   - "/courses/earth-analytics/week-10/API-data-access-r/"
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -64,6 +66,8 @@ a data.frame.
 #devtools::install_github("dkahle/ggmap")
 #devtools::install_github("hadley/ggplot2")
 library(ggmap)
+## Error: package or namespace load failed for 'ggmap' in get(Info[i, 1], envir = env):
+##  lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 library(ggplot2)
 library(dplyr)
 library(rjson)
@@ -310,9 +314,8 @@ ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
           y="Female Population - Age 20-40",
           title="Projected Female Population",
           subtitle = "Boulder, CO: 1990 - 2040")
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api05-get-data-api-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="90%" />
 
 
 
@@ -333,7 +336,10 @@ plot a descriptive title.
 
 ## Example homework plot
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="90%" />
+
+```
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
+```
 
 
 

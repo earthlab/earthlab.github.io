@@ -3,10 +3,10 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-11-10'
+modified: '2017-11-15'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/get-data-with-rcurl-r/
+permalink: /courses/earth-analytics/get-data-using-apis/get-data-with-rcurl-r/
 nav-title: 'Intro to RCurl'
 week: 13
 course: "earth-analytics"
@@ -131,9 +131,8 @@ ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
            y="Precipitation (inches)",
           title="Precipitation Data Imported with read.csv()",
           subtitle = "August - October 2013")
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/import-plot-data-1.png" title="boulder precip from figshare plot. " alt="boulder precip from figshare plot. " width="90%" />
 
 ### read.csv() vs RCurl
 
@@ -231,9 +230,8 @@ ggplot(birth_rates, aes(x=effort, y=change)) +
            y="Percent Change",
            title="Decline in birth rate vs. planning effort",
            subtitle = "For 20 Latin America Countries")
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/birth-rates-1.png" title="Birth rates example" alt="Birth rates example" width="90%" />
 
 Remember that here we've imported a tabular dataset directly from the Princeton
 University website. The data file itself is NOT on our computer so we do not
@@ -289,15 +287,24 @@ to add a facet for each of the three ranks.
 </div>
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/all-data-1.png" title="Prof salary data by sex" alt="Prof salary data by sex" width="90%" />
+
+```
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
+```
 
 ## Example homework plot
 Data faceted by rank. You can add the argument `+ facet_wrap(~variableHere)` to
 create a faceted plot like the one below.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/facet-by-rank-1.png" title="GGPLOT of salary by experience" alt="GGPLOT of salary by experience" width="90%" />
+
+```
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
+```
 
 You can also ad a linear model regression to the data if you want using
 `geom_smooth()`.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/all-data-lm-1.png" title="GGPLOT of gapminder data - life expectance by continent by sex" alt="GGPLOT of gapminder data - life expectance by continent by sex" width="90%" />
+
+```
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
+```

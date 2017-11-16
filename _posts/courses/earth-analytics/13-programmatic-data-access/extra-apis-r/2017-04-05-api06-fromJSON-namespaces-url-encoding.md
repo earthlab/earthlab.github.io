@@ -3,10 +3,10 @@ layout: single
 title: "Understand namespaces in R - what package does your fromJSON() function come from?"
 excerpt: "This lesson covers namespaces in R and how we can tell R where to get a function from (what code to use) in R."
 authors: ['Leah Wasser']
-modified: '2017-11-08'
+modified: '2017-11-15'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/namespaces-in-r/
+permalink: /courses/earth-analytics/get-data-using-apis/namespaces-in-r/
 nav-title: 'Namespaces in R'
 week: 13
 course: "earth-analytics"
@@ -15,6 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 6
+redirect_from:
+   - "/courses/earth-analytics/week-10/namespaces-in-r/"
 ---
 
 
@@ -45,6 +47,8 @@ calls in R.
 ```r
 # load packages
 library(ggmap)
+## Error: package or namespace load failed for 'ggmap' in get(Info[i, 1], envir = env):
+##  lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 library(ggplot2)
 library(dplyr)
 ```

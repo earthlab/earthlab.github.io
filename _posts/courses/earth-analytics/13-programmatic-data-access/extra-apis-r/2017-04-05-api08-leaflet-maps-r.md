@@ -3,10 +3,10 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-11-08'
+modified: '2017-11-15'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/leaflet-r/
+permalink: /courses/earth-analytics/get-data-using-apis/leaflet-r/
 nav-title: 'Interactive maps with leaflet '
 week: 13
 course: "earth-analytics"
@@ -15,6 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 8
+redirect_from:
+   - "/courses/earth-analytics/week-10/leaflet-r/"
 ---
 
 
@@ -191,9 +193,9 @@ head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount
 ## [1] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 0.22"
 ## [2] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"       
 ## [3] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 3.08"                          
-## [4] "UNION RESERVOIR<br/>Discharge: 11415.5"                                      
-## [5] "BOULDER CREEK NEAR ORODELL<br/>Discharge: 16.7"                              
-## [6] "OLIGARCHY DITCH DIVERSION<br/>Discharge: 0"
+## [4] "BOULDER RESERVOIR INLET<br/>Discharge: 0"                                    
+## [5] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0"                                   
+## [6] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our

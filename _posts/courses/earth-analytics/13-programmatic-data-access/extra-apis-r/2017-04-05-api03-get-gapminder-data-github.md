@@ -3,10 +3,10 @@ layout: single
 title: "Access secure data connections using the RCurl R package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-11-10'
+modified: '2017-11-15'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/access-gapminder-data-rcurl-r/
+permalink: /courses/earth-analytics/get-data-using-apis/access-gapminder-data-rcurl-r/
 nav-title: "Get Data From Github"
 week: 13
 course: "earth-analytics"
@@ -268,10 +268,8 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
            y = "Life Expectancy (years)",
            title = "Gapminder Data - Life Expectancy",
            subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
-## Error in FUN(X[[i]], ...): object 'continent' not found
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api03-get-gapminder-data-github/box-plot-point-outliers-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="90%" />
 
 Or create a box plot with the data points overlaid on top.
 
@@ -284,10 +282,8 @@ ggplot(gap_data, aes(x=continent, y=lifeExp)) +
            y = "Life Expectancy (years)",
            title = "Gapminder Data - Life Expectancy",
            subtitle = "Data points overlaid on top of the box plot.")
-## Error in FUN(X[[i]], ...): object 'continent' not found
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api03-get-gapminder-data-github/box-plot-point-jitter-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="90%" />
 
 If you are going to grab many `.csv` files from secure `urls`, you
 might need to use functions from the RCurl package. Below you will find a function
