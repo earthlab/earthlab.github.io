@@ -3,7 +3,7 @@ layout: single
 title: "Get twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-11-21'
+modified: '2017-11-22'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/use-twitter-api-r/
@@ -24,6 +24,7 @@ topics:
 redirect_from:
    - "/course-materials/earth-analytics/week-12/use-twitter-api-r/"
 ---
+
 
 {% include toc title = "In This Lesson" icon="file-text" %}
 
@@ -182,57 +183,61 @@ rstats_tweets <- search_tweets(q = "#rstats",
 # view the first 3 rows of the dataframe
 head(rstats_tweets, n = 3)
 ##     screen_name    user_id          created_at          status_id
-## 1  edzerpebesma  148518970 2017-11-21 18:28:25 933039412832763904
-## 2 PernilleSarup 1974945102 2017-11-21 18:28:16 933039375490932743
-## 3     pievarino  325503256 2017-11-21 18:26:50 933039015481225217
-##                                                                                                                                             text
-## 1   RT @zevross: Advance notice for Twitter folks: We're hiring an #rstats coder with package development and Shiny app experience. Willingness…
-## 2                                                       RT @noamross: It begins...again\nhttps://t.co/AM5vLz29ii #rstats https://t.co/DcgxmGEwF0
-## 3 Analyse the migration of scientific researchers based on #ORCID data\nhttps://t.co/RgsOXhkm04\nMovement by continents… https://t.co/nnS5KsKcS8
+## 1    uow_bionet 3159552913 2017-11-22 20:19:05 933429651279458304
+## 2 talkdatatomee 4690840926 2017-11-22 20:11:45 933427803550289920
+## 3      FarRider    4022851 2017-11-22 20:11:42 933427791424606210
+##                                                                                                                                           text
+## 1 RT @ToCBDornottoCBD: Learning how to use #Rstats  - bye bye SPSS! Thanks @uow_bionet @UOW_CSES for supporting the workshop https://t.co/Jpt…
+## 2           RT @DataCamp: New Course: Working with Dates and Times in R by @CVWickham! https://t.co/J6XZCjgXrh #rstats https://t.co/yoyxbCbMlo
+## 3                                         #Docker tutorial for reproducible research with R.\n\n#rstats #DataScience \nhttps://t.co/lYkiRISmpw
 ##   retweet_count favorite_count is_quote_status quote_status_id is_retweet
-## 1            15              0           FALSE            <NA>       TRUE
-## 2           111              0           FALSE            <NA>       TRUE
-## 3             1              0           FALSE            <NA>      FALSE
+## 1             3              0           FALSE            <NA>       TRUE
+## 2             1              0           FALSE            <NA>       TRUE
+## 3             0              0           FALSE            <NA>      FALSE
 ##    retweet_status_id in_reply_to_status_status_id
-## 1 932959799268052992                         <NA>
-## 2 932788092439814145                         <NA>
+## 1 933161457973280768                         <NA>
+## 2 933427582229458946                         <NA>
 ## 3               <NA>                         <NA>
 ##   in_reply_to_status_user_id in_reply_to_status_screen_name lang
 ## 1                       <NA>                           <NA>   en
 ## 2                       <NA>                           <NA>   en
 ## 3                       <NA>                           <NA>   en
-##               source           media_id
-## 1 Twitter Web Client               <NA>
-## 2 Twitter Web Client 932787473897414656
-## 3 Twitter Web Client               <NA>
+##                source           media_id
+## 1  Twitter for iPhone               <NA>
+## 2           TweetDeck 933427404680384513
+## 3 Twitter for Android               <NA>
 ##                                        media_url
 ## 1                                           <NA>
-## 2 http://pbs.twimg.com/media/DPHtQ_CW4AAAlJF.jpg
+## 2 http://pbs.twimg.com/media/DPQzR2-W0AEeuBO.jpg
 ## 3                                           <NA>
 ##                                               media_url_expanded urls
 ## 1                                                           <NA> <NA>
-## 2 https://twitter.com/noamross/status/932788092439814145/photo/1 <NA>
+## 2 https://twitter.com/DataCamp/status/933427582229458946/photo/1 <NA>
 ## 3                                                           <NA> <NA>
-##                                                         urls_display
+##                             urls_display
+## 1                                   <NA>
+## 2           datacamp.com/courses/workin…
+## 3 ropenscilabs.github.io/r-docker-tutor…
+##                                                        urls_expanded
 ## 1                                                               <NA>
-## 2                                 noamross.github.io/data-driven-sc…
-## 3 towardsdatascience.com/analyse-the-mi… twitter.com/i/web/status/9…
-##                                                                                                                                     urls_expanded
-## 1                                                                                                                                            <NA>
-## 2                                                                                               https://noamross.github.io/data-driven-scroogery/
-## 3 https://towardsdatascience.com/analyse-the-migration-of-scientific-researchers-5184a9500615 https://twitter.com/i/web/status/933039015481225217
-##   mentions_screen_name mentions_user_id symbols hashtags coordinates
-## 1              zevross       1909185565      NA   rstats          NA
-## 2             noamross         97582853      NA   rstats          NA
-## 3                 <NA>             <NA>      NA    ORCID          NA
-##   place_id place_type place_name place_full_name country_code country
-## 1     <NA>       <NA>       <NA>            <NA>         <NA>    <NA>
-## 2     <NA>       <NA>       <NA>            <NA>         <NA>    <NA>
-## 3     <NA>       <NA>       <NA>            <NA>         <NA>    <NA>
-##   bounding_box_coordinates bounding_box_type
-## 1                     <NA>              <NA>
-## 2                     <NA>              <NA>
-## 3                     <NA>              <NA>
+## 2 https://www.datacamp.com/courses/working-with-dates-and-times-in-r
+## 3                   http://ropenscilabs.github.io/r-docker-tutorial/
+##                  mentions_screen_name                 mentions_user_id
+## 1 ToCBDornottoCBD uow_bionet UOW_CSES 4382886205 3159552913 4516224193
+## 2                  DataCamp CVWickham             1568606814 381642287
+## 3                                <NA>                             <NA>
+##   symbols                  hashtags coordinates place_id place_type
+## 1      NA                    Rstats          NA     <NA>       <NA>
+## 2      NA                    rstats          NA     <NA>       <NA>
+## 3      NA Docker rstats DataScience          NA     <NA>       <NA>
+##   place_name place_full_name country_code country bounding_box_coordinates
+## 1       <NA>            <NA>         <NA>    <NA>                     <NA>
+## 2       <NA>            <NA>         <NA>    <NA>                     <NA>
+## 3       <NA>            <NA>         <NA>    <NA>                     <NA>
+##   bounding_box_type
+## 1              <NA>
+## 2              <NA>
+## 3              <NA>
 ```
 
 ## Retweets
@@ -251,39 +256,45 @@ rstats_tweets <- search_tweets("#rstats", n = 500,
                              include_rts = FALSE)
 # view top 2 rows of data
 head(rstats_tweets, n = 2)
-##    screen_name    user_id          created_at          status_id
-## 1    pievarino  325503256 2017-11-21 18:26:50 933039015481225217
-## 2 pachamaltese 2300614526 2017-11-21 18:26:11 933038851437858818
-##                                                                                                                                             text
-## 1 Analyse the migration of scientific researchers based on #ORCID data\nhttps://t.co/RgsOXhkm04\nMovement by continents… https://t.co/nnS5KsKcS8
-## 2    it'a really annoying that software by @intel does not suggest/link dependencies and that makes MKL and other tools not working D: ! #rstats
+##   screen_name    user_id          created_at          status_id
+## 1    FarRider    4022851 2017-11-22 20:11:42 933427791424606210
+## 2    DataCamp 1568606814 2017-11-22 20:10:52 933427582229458946
+##                                                                                                                   text
+## 1                 #Docker tutorial for reproducible research with R.\n\n#rstats #DataScience \nhttps://t.co/lYkiRISmpw
+## 2 New Course: Working with Dates and Times in R by @CVWickham! https://t.co/J6XZCjgXrh #rstats https://t.co/yoyxbCbMlo
 ##   retweet_count favorite_count is_quote_status quote_status_id is_retweet
-## 1             1              0           FALSE            <NA>      FALSE
-## 2             0              0           FALSE            <NA>      FALSE
+## 1             0              0           FALSE            <NA>      FALSE
+## 2             1              1           FALSE            <NA>      FALSE
 ##   retweet_status_id in_reply_to_status_status_id
 ## 1              <NA>                         <NA>
 ## 2              <NA>                         <NA>
 ##   in_reply_to_status_user_id in_reply_to_status_screen_name lang
 ## 1                       <NA>                           <NA>   en
 ## 2                       <NA>                           <NA>   en
-##               source media_id media_url media_url_expanded urls
-## 1 Twitter Web Client     <NA>      <NA>               <NA> <NA>
-## 2 Twitter Web Client     <NA>      <NA>               <NA> <NA>
-##                                                         urls_display
-## 1 towardsdatascience.com/analyse-the-mi… twitter.com/i/web/status/9…
-## 2                                                               <NA>
-##                                                                                                                                     urls_expanded
-## 1 https://towardsdatascience.com/analyse-the-migration-of-scientific-researchers-5184a9500615 https://twitter.com/i/web/status/933039015481225217
-## 2                                                                                                                                            <NA>
-##   mentions_screen_name mentions_user_id symbols hashtags coordinates
-## 1                 <NA>             <NA>      NA    ORCID          NA
-## 2                intel          2803191      NA   rstats          NA
-##   place_id place_type place_name place_full_name country_code country
-## 1     <NA>       <NA>       <NA>            <NA>         <NA>    <NA>
-## 2     <NA>       <NA>       <NA>            <NA>         <NA>    <NA>
-##   bounding_box_coordinates bounding_box_type
-## 1                     <NA>              <NA>
-## 2                     <NA>              <NA>
+##                source           media_id
+## 1 Twitter for Android               <NA>
+## 2  Twitter Web Client 933427404680384513
+##                                        media_url
+## 1                                           <NA>
+## 2 http://pbs.twimg.com/media/DPQzR2-W0AEeuBO.jpg
+##                                               media_url_expanded urls
+## 1                                                           <NA> <NA>
+## 2 https://twitter.com/DataCamp/status/933427582229458946/photo/1 <NA>
+##                             urls_display
+## 1 ropenscilabs.github.io/r-docker-tutor…
+## 2           datacamp.com/courses/workin…
+##                                                        urls_expanded
+## 1                   http://ropenscilabs.github.io/r-docker-tutorial/
+## 2 https://www.datacamp.com/courses/working-with-dates-and-times-in-r
+##   mentions_screen_name mentions_user_id symbols                  hashtags
+## 1                 <NA>             <NA>      NA Docker rstats DataScience
+## 2            CVWickham        381642287      NA                    rstats
+##   coordinates place_id place_type place_name place_full_name country_code
+## 1          NA     <NA>       <NA>       <NA>            <NA>         <NA>
+## 2          NA     <NA>       <NA>       <NA>            <NA>         <NA>
+##   country bounding_box_coordinates bounding_box_type
+## 1    <NA>                     <NA>              <NA>
+## 2    <NA>                     <NA>              <NA>
 ```
 
 Next, let's figure out who is tweeting about `R` / using the `#rstats` hashtag.
@@ -292,101 +303,113 @@ Next, let's figure out who is tweeting about `R` / using the `#rstats` hashtag.
 ```r
 # view column with screen names - top 6
 head(rstats_tweets$screen_name)
-## [1] "pievarino"    "pachamaltese" "rOpenSci"     "sckottie"    
-## [5] "DaSciDance"   "FrancoisKeck"
+## [1] "FarRider"        "DataCamp"        "nlmixr"          "jhnmxwll"       
+## [5] "aschinchon"      "Jadirectivestwt"
 # get a list of unique usernames
 unique(rstats_tweets$screen_name)
-##   [1] "pievarino"       "pachamaltese"    "rOpenSci"       
-##   [4] "sckottie"        "DaSciDance"      "FrancoisKeck"   
-##   [7] "ByranSmucker"    "tmllr"           "SuzanB_"        
-##  [10] "ahmedjr_16"      "Rbloggers"       "dataandme"      
-##  [13] "LeahAWasser"     "janeshdev"       "_neilch"        
-##  [16] "sauer_sebastian" "daattali"        "AedinCulhane"   
-##  [19] "BigDataInsights" "revodavid"       "l_hansa"        
-##  [22] "CRANberriesFeed" "JohnBVincent"    "pdalgd"         
-##  [25] "LWpaulbivand"    "RLangTip"        "Talent_metrics" 
-##  [28] "jtrnyc"          "CMastication"    "rweekly_live"   
-##  [31] "maximaformacion" "daniellequinn88" "rencontres_R"   
-##  [34] "philsf79"        "fredpolicarpo"   "TomTraubert2009"
-##  [37] "NicholasStrayer" "DarrinLRogers"   "LWylie_"        
-##  [40] "thegoodphyte"    "AlissaJ_Brown"   "markvdloo"      
-##  [43] "d4tagirl"        "robertstats"     "neilcharles_uk" 
-##  [46] "Cruz_Julian_"    "LockeData"       "sellorm"        
-##  [49] "KirkegaardEmil"  "sqlsatvienna"    "sqlpass_AT"     
-##  [52] "DerFredo"        "benmarwick"      "kdnuggets"      
-##  [55] "fmic_"           "gabyfarries"     "pacocuak"       
-##  [58] "storybench"      "RLadiesLivUK"    "thinkR_fr"      
-##  [61] "segasi"          "sthda_en"        "AnalyticsVidhya"
-##  [64] "RCharlie425"     "polesasunder"    "PhilippeLucarel"
-##  [67] "brodriguesco"    "MangoTheCat"     "fatma_cinar_ftm"
-##  [70] "NumFOCUS"        "Disha_SH_"       "ingorohlfing"   
-##  [73] "SwampThingPaul"  "ctokelly"        "timelyportfolio"
-##  [76] "ImDataScientist" "bkkkk"           "jati33o"        
-##  [79] "marinereilly"    "thosjleeper"     "zevross"        
-##  [82] "v_vashishta"     "Megannzhang"     "TeebzR"         
-##  [85] "drob"            "LilithElina"     "karstetter"     
-##  [88] "armaninspace"    "murnane"         "Nujcharee"      
-##  [91] "CardiffRUG"      "scac1041"        "gorkemmeral"    
-##  [94] "tvganesh_85"     "romain_francois" "recleev"        
-##  [97] "thonoir"         "wb_research"     "sinibara"       
-## [100] "WarwickRUG"      "chainsawriot"    "danielequs"     
-## [103] "tapundemek"      "SynBioAlex"      "vickythegme"    
-## [106] "schnllr"         "DrNatalieKelly"  "expersso"       
-## [109] "neilfws"         "MGCodesandStats" "jessenleon"     
-## [112] "joejps84"        "petermacp"       "thomasp85"      
-## [115] "manugrapevine"   "zx8754"          "HollyKirk"      
-## [118] "statistik_zh"    "MorrisonLisbeth" "DiegoKuonen"    
-## [121] "AsmusOlsen"      "SteffenBank"     "_arnaudr"       
-## [124] "climbertobby"    "DynamicWebPaige" "fmarin_ES"      
-## [127] "Red_Global"      "mmznr"           "gombang"        
-## [130] "satyakamrai"     "Rexercises"      "jdatap"         
-## [133] "Nico_Younes"     "ace_ebert"       "michael_chirico"
-## [136] "samclifford"     "g_inberg"        "alexwhan"       
-## [139] "SeemaSheth"      "Ozan_Harman"     "jclopeztavera"  
-## [142] "lobrowR"         "Edwards_evoeco"  "dd_rookie"      
-## [145] "TimDoherty_"     "apreshill"       "ThomasSpeidel"  
-## [148] "zentree"         "DavidJohnGibson" "aggieerin"      
-## [151] "JLucibello"      "nicobaguio"      "Displayrr"      
-## [154] "kwinkunks"       "noamross"        "AndyDeines"     
-## [157] "DapperStats"     "LjStatEst"       "tjmahr"         
-## [160] "TermehKousha"    "PWaryszak"       "_ColinFay"      
-## [163] "peekabooworld"   "erictleung"      "healthandstats" 
-## [166] "colbycosh"       "jacquiemills_"   "mroutley"       
-## [169] "bobehayes"       "jmtroos"         "joranelias"     
-## [172] "sehosking"       "_mikoontz"       "tipsder"        
-## [175] "elpidiofilho"    "cantabile"       "jasdumas"       
-## [178] "gregrs_uk"       "rmflight"        "TylerSaville"   
-## [181] "aschinchon"      "AmirSariaslan"   "RLadiesMunich"  
-## [184] "stephhazlitt"    "lisafederer"     "rutgersdh"      
-## [187] "RanaeDietzel"    "SachaEpskamp"    "sebredhh"       
-## [190] "CougRstats"      "SimonKassel"     "LauraBlissEco"  
-## [193] "pssGuy"          "AlexaLFH"        "JidduAlexander" 
-## [196] "aliraiser"       "danilofreire"    "peterdalle"     
-## [199] "harcun21"        "MartJ42"         "wouldeye125"    
-## [202] "gregfreedman"    "gvegayon"        "AriLamstein"    
-## [205] "LearningPlaces"  "rstatsdata"      "SteffLocke"     
-## [208] "PredaGabi"       "Jemus42"         "chrglez"        
-## [211] "tonmcg"          "UChicagoCAPP"    "longhowlam"     
-## [214] "globalizefm"     "InfonomicsToday" "lksmth"         
-## [217] "MafaldaSViana"   "SamAllocate"     "infotroph"      
-## [220] "n_ashutosh"      "hrbrmstr"        "BrodieGaslam"   
-## [223] "FoxandtheFlu"    "bencapistrant"   "SEMDocs"        
-## [226] "RLadiesGlobal"   "jknowles"        "jude_c"         
-## [229] "joshuafmask"     "datascienceplus" "m_cadek"        
-## [232] "DataIns8tsCloud" "abtran"          "nerdhockeyAG"   
-## [235] "rweekly_org"     "jessicakabbott"  "statsforbios"   
-## [238] "jarvmiller"      "hadleywickham"   "bejcal"         
-## [241] "pabloc_ds"       "DataScienceInR"  "WinVectorLLC"   
-## [244] "jonmcalder"      "DRHill_PhD"      "IT_securitynews"
-## [247] "askdrstats"      "Jadirectivestwt" "m_parent"       
-## [250] "rmkubinec"       "rtse999"         "dragonflystats" 
-## [253] "WireMonkey"      "AgentZeroNine"   "klmr"           
-## [256] "hlynur"          "RosanaFerrero"   "davidengaut"    
-## [259] "tweetupkzoo"     "rushworth_a"     "mdlap"          
-## [262] "GarethNetto"     "jmgomez"         "Statistikaka"   
-## [265] "d0choa"          "geodatascience"  "unsorsodicorda" 
-## [268] "drewvid"         "LynxPro_UK"      "adamhsparks"    
-## [271] "duc_qn"          "napbot"          "joethedataguy"
+##   [1] "FarRider"        "DataCamp"        "nlmixr"         
+##   [4] "jhnmxwll"        "aschinchon"      "Jadirectivestwt"
+##   [7] "Cruz_Julian_"    "CRANberriesFeed" "_ColinFay"      
+##  [10] "prosopis"        "extratp"         "RLadiesRio"     
+##  [13] "s_newns92"       "dataandme"       "RallidaeRule"   
+##  [16] "Elliot_Meador"   "wmhammond"       "ahmedjr_16"     
+##  [19] "surlyurbanist"   "FanninQED"       "l_hansa"        
+##  [22] "MDubins"         "peterdalle"      "rstatsdata"     
+##  [25] "willems_karlijn" "brlockwood"      "UnderGardener1" 
+##  [28] "carlcarrie"      "azadag"          "JasonAizkalns"  
+##  [31] "RStudioJoe"      "jhollist"        "JennyBryan"     
+##  [34] "ma_salmon"       "lucazav"         "dirk_sch"       
+##  [37] "NumFOCUS"        "mjwalds"         "DerFredo"       
+##  [40] "gvegayon"        "lobrowR"         "Jhovde2121"     
+##  [43] "sjackman"        "Rbloggers"       "_ms03"          
+##  [46] "EnvReportBC"     "TheSeaNikRoute"  "TiffanyTimbers" 
+##  [49] "stadlmann_"      "j_garrettwalker" "InfluxDB"       
+##  [52] "axiomsofxyz"     "ucfagls"         "reinforcelabtwt"
+##  [55] "BigDataInsights" "ecojydrology"    "thinkR_fr"      
+##  [58] "Josh_Ebner"      "RLangTip"        "datavisitor"    
+##  [61] "MGCodesandStats" "data_cheeves"    "EikoFried"      
+##  [64] "guangchuangyu"   "tylerrinker"     "DataScienceInR" 
+##  [67] "WinVectorLLC"    "ChrisBeeley"     "henrikbengtsson"
+##  [70] "ManuVrn"         "RanaeDietzel"    "CharliePerretti"
+##  [73] "AmidstScience"   "daattali"        "tomhouslay"     
+##  [76] "ecophiliajones"  "AnalyticsVidhya" "romain_francois"
+##  [79] "jason_gilby"     "CivicAngela"     "MikeTreglia"    
+##  [82] "mjfrigaard"      "MartinGarlovsky" "drob"           
+##  [85] "tycbrad"         "UOLHEResearch"   "tdoyon"         
+##  [88] "sthda_en"        "F1000Research"   "Emma_SXB"       
+##  [91] "lonriesberg"     "fatma_cinar_ftm" "ingorohlfing"   
+##  [94] "sharon000"       "WhatBehaviour"   "williamsanger"  
+##  [97] "jtrnyc"          "Ipaneman"        "jelorias95"     
+## [100] "witteveenlane"   "CardiffRUG"      "DataLabTR"      
+## [103] "seabbs"          "v_vashishta"     "londonaesthetik"
+## [106] "ImDataScientist" "TeebzR"          "milos_agathon"  
+## [109] "IronistM"        "INWT_Statistics" "lumbininep"     
+## [112] "urvashidbabaria" "rachitkinger"    "synaptogenesis_"
+## [115] "JamesBellOcean"  "aksingh1985"     "recleev"        
+## [118] "JeromyAnglim"    "leleedavid"      "RLadiesMAD"     
+## [121] "walkingrandomly" "stephanenardin"  "robinlovelace"  
+## [124] "elpidiofilho"    "R_Graph_Gallery" "d4t4v1z"        
+## [127] "pa_chevalier"    "jonmcalder"      "jessenleon"     
+## [130] "G_Devailly"      "AymericBds"      "Jimby19"        
+## [133] "Hao_and_Y"       "gombang"         "gp_pulipaka"    
+## [136] "Torsay"          "matrunich"       "JanMulkens"     
+## [139] "RLadiesGlobal"   "rensa_co"        "michcampbell_"  
+## [142] "d_olivaw"        "mixtrak"         "sfrechette"     
+## [145] "enpiar"          "oMarceloVentura" "Quovantis"      
+## [148] "timelyportfolio" "SanaBau"         "cityZenflagNews"
+## [151] "KirkDBorne"      "lilscientista"   "hrbrmstr"       
+## [154] "speegled"        "meisshaily"      "dccc_phd"       
+## [157] "armaninspace"    "lisafederer"     "Edwards_evoeco" 
+## [160] "ToCBDornottoCBD" "DavidZumbach"    "scottyd22"      
+## [163] "anqi_fu"         "stefjacinto"     "pop_gen_JED"    
+## [166] "apawlows"        "bkmnpol"         "Afro_Herper"    
+## [169] "TheSladeLab"     "Georgia_0102"    "datascienceplus"
+## [172] "DeadTreeDude"    "spoonbill_hank"  "datacarpentry"  
+## [175] "old_man_chester" "dshkol"          "nathanjrt"      
+## [178] "tommartens68"    "babeheim"        "realbluewagon"  
+## [181] "DocGallJr"       "OilGains"        "TimothyMastny"  
+## [184] "dataelixir"      "aquakora"        "gauravjain49"   
+## [187] "jilly_mackay"    "NicholasStrayer" "paulapsobrino"  
+## [190] "ChristinZasada"  "mikedelgado"     "DeCiccoDonk"    
+## [193] "jknowles"        "cascadiarconf"   "NCrepalde"      
+## [196] "annraiho"        "mysticstatistic" "sckottie"       
+## [199] "oaggimenez"      "riverpeek"       "PyData"         
+## [202] "jrcajide"        "sauer_sebastian" "mary_adwies"    
+## [205] "annakrystalli"   "techXhum"        "zentree"        
+## [208] "CRP_nature"      "biolabanalytics" "pdxrlang"       
+## [211] "daroczig"        "Thoughtfulnz"    "danielequs"     
+## [214] "FoxandtheFlu"    "OrrinEdenfield"  "alice_data"     
+## [217] "fazepher"        "kwbroman"        "miishke"        
+## [220] "MangoTheCat"     "MangoMattGlover" "_AntoineB"      
+## [223] "JGreenbrookHeld" "richatmango"     "jdatap"         
+## [226] "kearneymw"       "HighlandDataSci" "Zecca_Lehn"     
+## [229] "storybench"      "InfonomicsToday" "pievarino"      
+## [232] "pachamaltese"    "rOpenSci"        "DaSciDance"     
+## [235] "FrancoisKeck"    "ByranSmucker"    "tmllr"          
+## [238] "SuzanB_"         "LeahAWasser"     "janeshdev"      
+## [241] "_neilch"         "AedinCulhane"    "revodavid"      
+## [244] "JohnBVincent"    "pdalgd"          "LWpaulbivand"   
+## [247] "Talent_metrics"  "CMastication"    "rweekly_live"   
+## [250] "maximaformacion" "daniellequinn88" "rencontres_R"   
+## [253] "philsf79"        "fredpolicarpo"   "TomTraubert2009"
+## [256] "DarrinLRogers"   "LWylie_"         "thegoodphyte"   
+## [259] "AlissaJ_Brown"   "markvdloo"       "d4tagirl"       
+## [262] "robertstats"     "neilcharles_uk"  "LockeData"      
+## [265] "sellorm"         "KirkegaardEmil"  "sqlsatvienna"   
+## [268] "sqlpass_AT"      "benmarwick"      "kdnuggets"      
+## [271] "fmic_"           "gabyfarries"     "pacocuak"       
+## [274] "RLadiesLivUK"    "segasi"          "RCharlie425"    
+## [277] "polesasunder"    "PhilippeLucarel" "brodriguesco"   
+## [280] "Disha_SH_"       "jumping_uk"      "SwampThingPaul" 
+## [283] "ctokelly"        "bkkkk"           "jati33o"        
+## [286] "marinereilly"    "thosjleeper"     "zevross"        
+## [289] "Megannzhang"     "LilithElina"     "murnane"        
+## [292] "Nujcharee"       "scac1041"        "gorkemmeral"    
+## [295] "tvganesh_85"     "thonoir"         "wb_research"    
+## [298] "sinibara"        "WarwickRUG"      "chainsawriot"   
+## [301] "tapundemek"      "SynBioAlex"      "vickythegme"    
+## [304] "schnllr"         "DrNatalieKelly"  "expersso"       
+## [307] "neilfws"
 ```
 
 You  can similarly use the `search_users()` function to just see what users are tweeting
@@ -400,57 +423,57 @@ users <- search_users("#rstats",
                       n = 500)
 # just view the first 2 users - the data frame is large!
 head(users, n = 2)
-##      user_id         name screen_name        location
-## 1 3230388598 Mara Averick   dataandme   Massachusetts
-## 2  111093392       Hao Ye   Hao_and_Y Gainesville, FL
+##      user_id         name screen_name      location
+## 1 3230388598 Mara Averick   dataandme Massachusetts
+## 2 2440258777 Jesse Maegan     kierisi    Dallas, TX
 ##                                                                                                                                                                                                description
 ## 1 tidyverse dev advocate @rstudio\n\n#rstats, #datanerd, #civictech \U0001f496er, \U0001f3c0 stats junkie, using #data4good (&or \U0001f947 fantasy sports), lesser ½ of @batpigandme \U0001f987\U0001f43d
-## 2                                                 Postdoc @UF/@Weecology (ecosystem temporal dynamics); builds models in #Rstats & #LEGO; @MozOpenLeaders alum; he/him; You can't spell chaos w/out 'hao'.
+## 2                                                                                                                                          https://t.co/ONQjXxQqV2 https://t.co/4C1erITZP4  #NetNeutrality
 ##   protected followers_count friends_count listed_count          created_at
-## 1     FALSE           17839          2952         1122 2015-05-03 11:44:15
-## 2     FALSE             776           966           43 2010-02-03 20:00:43
+## 1     FALSE           17851          2951         1122 2015-05-03 11:44:15
+## 2     FALSE            2620           499          196 2014-04-12 16:34:36
 ##   favourites_count utc_offset                  time_zone geo_enabled
-## 1            54417     -18000 Eastern Time (US & Canada)       FALSE
-## 2            11020     -28800 Pacific Time (US & Canada)       FALSE
+## 1            54568     -18000 Eastern Time (US & Canada)       FALSE
+## 2            14517     -21600 Central Time (US & Canada)       FALSE
 ##   verified statuses_count lang contributors_enabled is_translator
-## 1    FALSE          21633   en                FALSE         FALSE
-## 2    FALSE           7562   en                FALSE         FALSE
+## 1    FALSE          21677   en                FALSE         FALSE
+## 2    FALSE           2891   en                FALSE         FALSE
 ##   is_translation_enabled profile_background_color
 ## 1                  FALSE                   000000
 ## 2                  FALSE                   000000
-##                       profile_background_image_url
-## 1 http://abs.twimg.com/images/themes/theme1/bg.png
-## 2 http://abs.twimg.com/images/themes/theme1/bg.png
-##                  profile_background_image_url_https
-## 1 https://abs.twimg.com/images/themes/theme1/bg.png
-## 2 https://abs.twimg.com/images/themes/theme1/bg.png
+##                                                     profile_background_image_url
+## 1                               http://abs.twimg.com/images/themes/theme1/bg.png
+## 2 http://pbs.twimg.com/profile_background_images/640657768827871232/q5NEGbtV.png
+##                                                profile_background_image_url_https
+## 1                               https://abs.twimg.com/images/themes/theme1/bg.png
+## 2 https://pbs.twimg.com/profile_background_images/640657768827871232/q5NEGbtV.png
 ##   profile_background_tile
 ## 1                   FALSE
-## 2                   FALSE
+## 2                    TRUE
 ##                                                            profile_image_url
 ## 1 http://pbs.twimg.com/profile_images/812016485069680640/tKpsducS_normal.jpg
-## 2 http://pbs.twimg.com/profile_images/771375747214684161/Lg3U4IXS_normal.jpg
+## 2 http://pbs.twimg.com/profile_images/835630946988736513/uKSeGfUO_normal.jpg
 ##                                                       profile_image_url_https
 ## 1 https://pbs.twimg.com/profile_images/812016485069680640/tKpsducS_normal.jpg
-## 2 https://pbs.twimg.com/profile_images/771375747214684161/Lg3U4IXS_normal.jpg
+## 2 https://pbs.twimg.com/profile_images/835630946988736513/uKSeGfUO_normal.jpg
 ##                                                          profile_image_url.1
 ## 1 http://pbs.twimg.com/profile_images/812016485069680640/tKpsducS_normal.jpg
-## 2 http://pbs.twimg.com/profile_images/771375747214684161/Lg3U4IXS_normal.jpg
+## 2 http://pbs.twimg.com/profile_images/835630946988736513/uKSeGfUO_normal.jpg
 ##                                                     profile_image_url_https.1
 ## 1 https://pbs.twimg.com/profile_images/812016485069680640/tKpsducS_normal.jpg
-## 2 https://pbs.twimg.com/profile_images/771375747214684161/Lg3U4IXS_normal.jpg
+## 2 https://pbs.twimg.com/profile_images/835630946988736513/uKSeGfUO_normal.jpg
 ##   profile_link_color profile_sidebar_border_color
 ## 1             1B95E0                       000000
-## 2             ABB8C2                       000000
+## 2             19CF86                       000000
 ##   profile_sidebar_fill_color profile_text_color
 ## 1                     000000             000000
 ## 2                     000000             000000
 ##   profile_use_background_image default_profile default_profile_image
 ## 1                        FALSE           FALSE                 FALSE
-## 2                        FALSE           FALSE                 FALSE
+## 2                         TRUE           FALSE                 FALSE
 ##                                            profile_banner_url
 ## 1 https://pbs.twimg.com/profile_banners/3230388598/1482490217
-## 2  https://pbs.twimg.com/profile_banners/111093392/1477467490
+## 2 https://pbs.twimg.com/profile_banners/2440258777/1503766072
 ```
 
 Let's learn a bit more about these people tweeting about `R`. First, where are
@@ -460,7 +483,7 @@ they from?
 ```r
 # how many locations are represented
 length(unique(users$location))
-## [1] 320
+## [1] 328
 
 users %>%
   ggplot(aes(location)) +

@@ -1,18 +1,17 @@
 ---
 layout: single
-title: "Work With Twitter Social Media Data in `R` - An Introduction"
+title: "Introduction to working with social media data in R - Twitter"
 excerpt: "This lesson will discuss some of the challenges associated with working with social media data in science. These challenges include working with non standard text, large volumes of data, API limitations, and geolocation issues."
 authors: ['Leah Wasser']
-modified: '2017-11-22'
+modified: '2017-11-15'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/intro-to-social-media-text-mining-r/
-nav-title: "Twitter data for Science"
+nav-title: "Twitter data in R"
 module-title: "Introduction to using Twitter Social media data in R"
 module-description: "This module explores the use of social media data - specifically Twitter data to better understand the social impacts and perceptions of natural disturbances and other events. Working with social media requires the use of API's to access data, text mining to extract useful information from non-standard text and then finally analysis using text-mining workflows"
 module-nav-title: 'twitter APIs'
 module-type: 'class'
-class-order: 1
 week: 13
 course: "earth-analytics"
 sidebar:
@@ -29,7 +28,7 @@ redirect_from:
    - "/course-materials/earth-analytics/week-12/intro-to-social-media-text-mining-r/"
 ---
 
-{% include toc title = "In This Lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
@@ -38,7 +37,7 @@ redirect_from:
 After completing this tutorial, you will be able to:
 
 * List and discuss 4 challenges associated with working with social media data to address scientific questions.
-* List one key package in `R` that is used to deal with text mining.
+* List one key package in R that is used to deal with text mining.
 * Define hashtag and username in the context of twitter.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need

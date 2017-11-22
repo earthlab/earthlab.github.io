@@ -25,7 +25,6 @@ topics:
 
 
 
-
 {% include toc title = "In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -333,5 +332,5 @@ gganimate_save(grouped_tweet_map,
 </figure>
 
 Note that the dimensions of the map above are still not quite right. If anyone
-has discovered a way to ensure `gganimate_save()` dimensions actually work, please 
+has discovered a way to ensure `gganimate_save()` dimensions actually work, please
 leave a comment below!

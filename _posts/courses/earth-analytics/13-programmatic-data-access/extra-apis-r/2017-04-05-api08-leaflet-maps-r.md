@@ -19,6 +19,7 @@ redirect_from:
    - "/courses/earth-analytics/week-10/leaflet-r/"
 ---
 
+
 {% include toc title = "In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -110,8 +111,8 @@ full_url <- paste0(base_url, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
 
-# we can then pipe this 
-water_data_df <- fromJSON(water_data) %>% 
+# we can then pipe this
+water_data_df <- fromJSON(water_data) %>%
   flatten(recursive = TRUE) # remove the nested data frame
 
 # turn columns to numeric and remove NA values
@@ -174,7 +175,7 @@ below, we use the `CartoDB.Positron` basemap:
 ```r
 leaflet(water_data_df) %>%
   addProviderTiles("CartoDB.Positron") %>%
-  addMarkers(lng = ~location.longitude, lat = ~location.latitude, 
+  addMarkers(lng = ~location.longitude, lat = ~location.latitude,
              popup = ~station_name)
 ```
 
@@ -237,8 +238,8 @@ map = leaflet(water_data_df) %>%
   addProviderTiles("Stamen.Terrain") %>%
   addMarkers(lng = ~location.longitude, lat=~location.latitude, icon=water,
              popup = ~paste0(station_name, "<br/>Discharge: ", amount))
-saveWidget(widget=map, 
-           file="water_map3.html", 
+saveWidget(widget=map,
+           file="water_map3.html",
            selfcontained=TRUE)
 ```
 
@@ -282,14 +283,14 @@ accordingly.
 
 ```r
 
-pal <- colorFactor(c("navy", "red", "green"), 
+pal <- colorFactor(c("navy", "red", "green"),
                    domain = unique(water_data_df$station_type))
 
 unique_markers_map <- leaflet(water_data_df) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addCircleMarkers(
     color = ~pal(station_type),
-    stroke = FALSE, fillOpacity = 0.5, 
+    stroke = FALSE, fillOpacity = 0.5,
     lng = ~location.longitude, lat = ~location.latitude,
     label = ~as.character(station_type)
   )
