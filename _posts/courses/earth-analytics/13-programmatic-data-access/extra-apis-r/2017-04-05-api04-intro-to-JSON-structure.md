@@ -3,10 +3,10 @@ layout: single
 title: "Introduction to the JSON data structure"
 excerpt: "This lesson covers the JSON data structure. JSON is a powerful text based format that supports hierarchical data structures. It is the core structure used to create geoJSON which is a spatial version of json that can be used to create maps. JSON is preferred for use over .csv files for data structures as it has been proven to be more efficient - particulary as data size becomes large."
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-11-08'
+modified: '2017-11-22'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/intro-to-JSON/
+permalink: /courses/earth-analytics/get-data-using-apis/intro-to-JSON/
 nav-title: 'Into to JSON'
 week: 13
 course: "earth-analytics"
@@ -15,10 +15,11 @@ sidebar:
 author_profile: false
 comments: true
 order: 4
+redirect_from:
+   - "/courses/earth-analytics/week-10/intro-to-JSON/"
 ---
 
-
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title = "In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
@@ -26,8 +27,8 @@ order: 4
 
 After completing this tutorial, you will be able to:
 
-* Describe the key structure elements of a .json file: object names and values
-* List some of the core data types that json files can store including: boolean, numeric and string
+* Describe the key structure elements of a `.json` file: object names and values
+* List some of the core data types that `json` files can store including: boolean, numeric and string
 * Be able to identify the components of the hierarchical JSON structures including: objects, arrays and data elements.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need

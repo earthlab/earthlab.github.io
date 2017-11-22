@@ -3,10 +3,10 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-11-08'
+modified: '2017-11-15'
 category: [courses]
 class-lesson: ['social-media-r']
-permalink: /courses/earth-analytics/week-12/text-mining-twitter-data-intro-r/
+permalink: /courses/earth-analytics/get-data-using-apis/text-mining-twitter-data-intro-r/
 nav-title: 'Text mine twitter data'
 week: 13
 course: "earth-analytics"
@@ -21,7 +21,6 @@ lang-lib:
 topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
-output: html_document
 redirect_from:
    - "/course-materials/earth-analytics/week-12/text-mining-twitter-data-intro-r/"
 ---
@@ -118,12 +117,12 @@ climate_tweets <- search_tweets(q="#climatechange", n=10000, lang="en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "\"A tree does not fall with one blow\". ~Yiddish Proverb https://t.co/WHThpOv7rv #climatechange #climateaction https://t.co/lYZJm7kRHu"   
-## [2] "What Is A Green Climate Fund? Learn more here: https://t.co/gi3feNCYB3 #climatechange #climateaction https://t.co/URCaivPhkx"             
-## [3] "#auspol #abc730 @ACurrentAffair9 @7NewsAdelaide. Use LARGE-SCALE #RenewableEnergyto combat #climatechange:… https://t.co/jKJTzLPo2H"      
-## [4] "News via @guardian: Huge private sector investment puts Paris climate target in reach, says report:… https://t.co/QjlOFEWNha"             
-## [5] "@theleidy @WorldNature @rsheak @tailsofLA @realsmile @loveofirony @tkdmike @rmiskimens @jamisonfoser @tabbycat68… https://t.co/tAAhK1AtXG"
-## [6] "@nature_ny We need more listening to help people envision   long term solutions that are realistic given constraints of #climatechange"
+## [1] "The President of France promised to make up for gap of US Climate Science funding \U0001f62f\U0001f605 #ParisAgreement #climatechange https://t.co/dG07uPyD9v"
+## [2] "The More Education\nRepublicans Have,\nthe Less They\nTend to Believe\nin #ClimateChange\n\nhttps://t.co/Fg7dkdoRwo"                                          
+## [3] "Pharrell Williams sounds warning about #climatechange - ABC News https://t.co/wFjEFP7bbc"                                                                     
+## [4] "Germany, Britain inject $153 million in Amazon #ClimateChange fight. https://t.co/jpiqjwUedn"                                                                 
+## [5] "\"Nature is my home\". https://t.co/MPVLDEnDkE #climatechange #climateaction https://t.co/srjJWBDhNh"                                                         
+## [6] "The cruel irony of #climatechange \" https://t.co/AtS35F9bX3"
 ```
 
 ## Data clean-up
@@ -200,9 +199,8 @@ climate_tweets_clean %>%
       labs(x="Count",
       y="Unique words",
       title="Count of unique words found in tweets")
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-r/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="90%" />
 
 Our plot of unique words contains some words that may not be useful to use. For instance
 "a" and "to". In the word of text mining we call those words - 'stop words'.
@@ -234,7 +232,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 105062
+## [1] 130863
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -242,7 +240,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 59544
+## [1] 73368
 ```
 
 Now that we've performed this final step of cleaning, we can try to plot, once
@@ -263,9 +261,8 @@ cleaned_tweet_words %>%
       x="Unique words",
       title="Count of unique words found in tweets",
       subtitle="Stop words removed from the list")
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-r/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="90%" />
 
 ## Explore networks of words
 
@@ -288,20 +285,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 57,482 x 2
+## # A tibble: 68,799 x 2
 ##        paired_words     n
 ##               <chr> <int>
-##  1   climate change   564
-##  2           in the   403
-##  3 on climatechange   315
-##  4 climatechange is   313
-##  5 of climatechange   298
-##  6           of the   286
-##  7        the world   254
-##  8    paris climate   194
-##  9         at cop23   178
-## 10         the only   168
-## # ... with 57,472 more rows
+##  1   climate change   752
+##  2           of the   458
+##  3           in the   360
+##  4 climatechange is   336
+##  5 on climatechange   305
+##  6 of climatechange   281
+##  7         at cop23   272
+##  8           on the   235
+##  9        the world   235
+## 10             is a   226
+## # ... with 68,789 more rows
 ```
 
 
@@ -322,12 +319,12 @@ head(climate_words_counts)
 ## # A tibble: 6 x 3
 ##           word1         word2     n
 ##           <chr>         <chr> <int>
-## 1       climate        change   564
-## 2         paris       climate   194
-## 3         cop23 climatechange   129
-## 4 climatechange         cop23   121
-## 5 climatechange           amp    89
-## 6       climate     agreement    86
+## 1       climate        change   752
+## 2        15,000    scientists   157
+## 3 climatechange         cop23    98
+## 4        fossil         fuels    87
+## 5         cop23 climatechange    86
+## 6        global       warming    67
 ```
 
 FInally, plot the data
@@ -348,9 +345,8 @@ climate_words_counts %>%
         labs(title= "Word Network: Tweets using the hashtag - Climate Change",
              subtitle="Text mining twitter data ",
              x="", y="")
+## Error in get(Info[i, 1], envir = env): lazy-load database '/Library/Frameworks/R.framework/Versions/3.4/Resources/library/ggplot2/R/ggplot2.rdb' is corrupt
 ```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-r/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="90%" />
 
 We expect the words climate & change to have a high
 

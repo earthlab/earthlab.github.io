@@ -3,7 +3,7 @@ layout: single
 title: "Make Interactive Maps with Leaflet R - GIS in R"
 excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-11-16'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-interactive-maps-with-leaflet-R/
@@ -81,8 +81,8 @@ The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` pa
 ```r
 map <- leaflet() %>%
   addTiles() %>%  # use the default base map which is OpenStreetMap tiles
-  addMarkers(lng=174.768, lat=-36.852,
-             popup="The birthplace of R")
+  addMarkers(lng = 174.768, lat = -36.852,
+             popup = "The birthplace of R")
 map
 ```
 
