@@ -3,10 +3,10 @@ layout: single
 title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-11-09'
+modified: '2017-11-16'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/API-data-access-r/
+permalink: /courses/earth-analytics/get-data-using-apis/API-data-access-r/
 nav-title: 'Get JSON data via RESTful API'
 week: 13
 course: "earth-analytics"
@@ -15,9 +15,12 @@ sidebar:
 author_profile: false
 comments: true
 order: 5
+redirect_from:
+   - "/courses/earth-analytics/week-10/API-data-access-r/"
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+
+{% include toc title = "In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
@@ -218,7 +221,7 @@ syntax.
 
 ```r
 base_url_example <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
-getForm(base_url, county="Boulder",
+getForm(base_url, county = "Boulder",
              age="BOULDER")
 ```
 
@@ -304,11 +307,11 @@ Once we have converted our data to a numeric format, we can plot it using `ggplo
 
 ```r
 # plot the data
-ggplot(pop_proj_data_df, aes(x=year, y=femalepopulation,
- group=factor(age), color=age)) + geom_line() +
-     labs(x="Year",
-          y="Female Population - Age 20-40",
-          title="Projected Female Population",
+ggplot(pop_proj_data_df, aes(x = year, y = femalepopulation,
+ group = factor(age), color = age)) + geom_line() +
+     labs(x = "Year",
+          y = "Female Population - Age 20-40",
+          title = "Projected Female Population",
           subtitle = "Boulder, CO: 1990 - 2040")
 ```
 

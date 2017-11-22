@@ -3,10 +3,10 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-11-09'
+modified: '2017-11-16'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/get-data-with-rcurl-r/
+permalink: /courses/earth-analytics/get-data-using-apis/get-data-with-rcurl-r/
 nav-title: 'Intro to RCurl'
 week: 13
 course: "earth-analytics"
@@ -17,10 +17,10 @@ comments: true
 order: 2
 redirect_from:
    - "/courses/earth-analytics/week-10/get-data-with-rcurl-r/"
-
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+
+{% include toc title = "In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
@@ -84,9 +84,9 @@ boulder_precip$DATE <- as.Date(boulder_precip$DATE)
 # plot data with ggplot
 ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
   geom_point() +
-      labs(x="Date (2013)",
-           y="Precipitation (inches)",
-          title="Precipitation - Boulder, CO ",
+      labs(x = "Date (2013)",
+           y = "Precipitation (inches)",
+          title = "Precipitation - Boulder, CO ",
           subtitle = "August - October 2013")
 ## Error in ggplot(boulder_precip, aes(x = DATE, y = PRECIP)): object 'boulder_precip' not found
 ```
@@ -127,9 +127,9 @@ boulder_precip2$DATE <- as.Date(boulder_precip2$DATE)
 # plot data with ggplot
 ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
   geom_point() +
-      labs(x="Date (2013)",
-           y="Precipitation (inches)",
-          title="Precipitation Data Imported with read.csv()",
+      labs(x = "Date (2013)",
+           y = "Precipitation (inches)",
+          title = "Precipitation Data Imported with read.csv()",
           subtitle = "August - October 2013")
 ```
 
@@ -194,7 +194,7 @@ birth_rates <- read.table(the_url)
 
 
 
-## Working with Web Data
+## Work with Web Data
 
 The `birth_rates` data that we just accessed were imported into R as a
 `data.frame`, which we are used to working with. We can analyze and visualize
@@ -227,9 +227,9 @@ birth rates.
 ```r
 ggplot(birth_rates, aes(x=effort, y=change)) +
   geom_point() +
-      labs(x="Effort",
-           y="Percent Change",
-           title="Decline in birth rate vs. planning effort",
+      labs(x = "Effort",
+           y = "Percent Change",
+           title = "Decline in birth rate vs. planning effort",
            subtitle = "For 20 Latin America Countries")
 ```
 

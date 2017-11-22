@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Mid Term Presentations"
 permalink: /courses/earth-analytics/week-11/
-modified: '2017-11-09'
+modified: '2017-11-16'
 week-landing: 11
 week: 11
 sidebar:
@@ -27,22 +27,59 @@ your mid term assignment to the class.
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 3:00 - 3:15  | Review - Final Project |   |
-| 3:15 - 4:15  | Exploring the Colorado Information Warehouse SOCRATA API | Leah |
+| 9:30 - 11:00  | Mid Term Presentations |   |
+| 11:00 - 11:10  | BREAK |   |
 |===
-| 4:30 - 5:50  | Group project time   |    |
+| 11:10 - 12:20  | Mid Term Presentations |  |
 
 
-### 2. Complete the assignment below (10 points)
+### 2. Complete the assignment below (3 points)
+
+#### Evaluation Due: Tuesday 14 November 2017 by 8pm
+
+**Notes:**
+
+* You can always watch a presentation again online if you wish through D2L!
+* No evaluation forms submitted after 8pm on Tuesday will be graded / accepted - the evaluation form will be closed!
+* Once you start your evaluation in Qualtrics, you will want to complete it. It is difficult to go back and edit it!
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> No Homework This Week
-
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Assignment - Review Other Presentations
 
 ### Complete the assignment below:
 
-There is no homework assignment for this week! Please take the extra time to
-work on your final project. There is a lot to do and it's worth 40% of your grade!
+For this week you will review *atleast* 4 other presentations during
+class. Please submit your review to qualtrics using the link below. Please
+be sure to add your first and last name and email to the qualtrics form so we can
+count your review when we grade!
+
+
+<a class="btn .btn--x-large btn-info" href="https://cuboulder.qualtrics.com/jfe/form/SV_8eniB7oV1RlHMwd" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
+FOR COURSE STUDENTS ONLY: Qualtrics Survey  - Use this to Submit your review to me by Tuesday at 8pm. </a>
+
+Because you may want to revise your review before submitting it to us and your classmates,
+we created a google doc that you can use to take notes during class.  You don't have
+to use it. We just thought it might be helpful.
+
+<a class="btn .btn--x-large btn-info" href="https://docs.google.com/document/d/1JJQiEvdPO1FnzJkHwpgAT_e1VEFE_fIkWcegug085qI/edit#
+" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
+FOR COURSE STUDENTS ONLY: Google doc evaluation form template - use this if you'd like as an example of what the qualtrics form above looks like. You will submit your evaluation through qualtrics. </a>
+
+
+#### BONUS (1 Point):
+Review atleast 2 additional presentations to receive an additional homework point.
+
+
+### Participation
+Because we won't have a lot of time for questions after each presentation, please
+leave any questions that you have for a group in piazza under the groups name.
+The group can then see your question and answer them!
+
+Please also be sure to ANSWER any questions that are asked of your group. Asking
+and answering questions will count towards your participation grade for this week.
+
+
+
 
 </div>

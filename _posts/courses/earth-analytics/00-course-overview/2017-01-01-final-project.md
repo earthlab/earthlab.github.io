@@ -23,8 +23,8 @@ sidebar:
 
 The final project in this course includes:
 
-1. **A 12-15 minute group presentation (10%):** The structure of the presentation is discussed below.
-2. **An individual report (20%):** written in `R markdown` and submitted in either `.html` or `.pdf` format
+1. **A 10 minute group presentation (10%):** The structure of the presentation is discussed below.
+2. **An individual report (20%):** written in `R markdown` and submitted in either `.html` or `.pdf` format.
 </div>
 
 
@@ -56,9 +56,14 @@ select for your project.
 
 ### What to submit & when
 
-The final group presentations will occur on the final day of class: **Monday 11 December 2017 during class.** **IMPORTANT:** Submit your final presentation to D2L by 8am this day.
+The final group presentations will occur during the last two weeks of class.
+**IMPORTANT:** Submit your final presentation to D2L by 9am this day. I will
+download all presentations to my computer. DO NOT EMAIL ME CHANGES TO YOUR
+PRESENTATION after 9AM!
 
-The final individual report is due the following week during finals: **Submit your html / pdf file and your .Rmd file to D2L by Monday 18 May 2017 @ 9AM.**
+The final individual report is due the following week during finals:
+**Submit your html / pdf file and your .Rmd file to D2L by Monday 18 December
+2017 @ 9AM.**
 
 * **NOTE 1:** we expect groups to be the same as the groups for the mid-term. However it
 is OK if you changed your topic, data sources, questions, etc given feedback on
@@ -84,9 +89,9 @@ of your project.
 
 #### Important:
 
-* You have no more than **10-12 minutes** to present your project to the class.
+* You have exactly **10 minutes** to present your project to the class.
 * Each member in each group needs to present!
-* You can use any presentation tool that you wish for your presentation. Powerpoint, rpres, pdf, etc. As long as the entire class can see the final presentation and you can SUBMIT IT to D2l.
+* You can use any presentation tool that you wish for your presentation. Powerpoint, rpres, pdf, etc. As long as the entire class can see the final presentation and you can submit it to D2L for grading.
 * Groups should be 2-3 people. It is OK if you decide you really want to work on your own but we prefer (and you will have a better project) if you work with others.
 * You can reach out to the the experts who have presented in this course for guidance / with questions if you want!
   * Matthew Rossi (Floods)
@@ -96,6 +101,7 @@ of your project.
 ****
 
 ## Individual Final Report
+
 To complement your final presentation, create a report using
 `R markdown`. This report should be structured as a scientific paper /
 white paper. For your report, select a component of the project that you are most
@@ -105,9 +111,9 @@ topic and then **2 other sources** that can be peer reviewed or not peer reviewe
 including blogs, newspaper articles, etc. Also be sure to include data driven plots
 and maps as appropriate. Your report should include:
 
-1. An **introduction** that includes a map of the study area created in `R`.
+1. An **Introduction** that includes a map of the study area created in `R`.
 2. Literature review that references to **atleast** 2 scientific (peer reviewed) papers and 2 non peer reviewed sources on the topic.
-2. A **methods overview** that describes
+2. A **Methods overview** that describes
   * The data that you used
   * The source of the data
   * How the data were processed in `R`.
@@ -134,6 +140,8 @@ We will grade your final pdf / html document and the code.
 * **Spell check / grammar check your paper BEFORE YOU SUBMIT**. this is worth 20% of your grade. Take time to make sure it's well written!
 * Hide your code in the `.Rmd` document UNLESS you feel like your methods are important to call out. (for example you may decide to show some of your methods in the methods section of the report).
 * Turn off warnings and other messages so they do not appear in your final rendered report.
+* Do not include **any** code in your submission that is not crucial to creating the output plots and analysis.
+* `.Rmd` (or `.ipynb`) file runs (we can hit knit in `Rstudio` and everything will work)
 * Start early - make sure your reports renders to pdf or html WELL BEFORE the assignment is due!
 * Proof your output **.html** file BEFORE your submit it.
 
@@ -144,33 +152,31 @@ In addition to the requirement above, graduate students should develop
 should include 4 or more peer reviewed references and should be 1.5 to 2 pages in length (~700 words).
 2. An abstract that provides the big picture of the topic that you selected. This abstract should follow the format of an abstract that your would write for a journal submission in your field.
 
-
 ## Submission
 
 * **GROUP PRESENTATION:** The final group presentations will occur on the final
-day of class. Submit your final presentation to the group D2L Drop Box PRIOR by
-9AM on the last day of class.
+day of class. Submit your final presentation to the group D2L Drop Box **by
+9AM on the class day that you present**. )
 
 * **FINAL INDEPENDENT REPORT:** The final individual report is due on Monday
 of finals week. **Submit your html / pdf file and your `.Rmd` file to D2L by Monday 18 Dec 2017 @ 9AM.**
 
+* **DATA:** Please submit your data to D2L as a group to D2L by Monday 18 Dec 2017 @ 9AM.** If you are using a specific dataset that you are not able to share, OR a data set that is particularly large, please shoot us a note and we will figure out an alternative! If there data are large, submitting an intermediate output that is smaller and will allow us to run your analysis is an option.
 
 ***
 
 ## Presentation rubric
-
 
 #### Science (50%)
 
 | Full Credit | No Credit  |
 |:----|----|
 | The science question / topic is thoughtfully presented |  |
-| The **importance of the project topic to those in the room** (the specific audience) is clearly articulated. Why should we care?  |  |
-| Rough data plots or example images of the data to be used (even if it's the raw data) are shown in the presentation | |
-| Results of data analysis are clearly articulated.  | |
+| The **importance of the project topic to those in the room** (the specific audience) is clearly articulated. Why should we (the earth analytics class) care?  |  |
+| Results of data analysis are clearly articulated. (If the student presents the week prior their results may not be complete, thus expected results are articulated instead  | |
 | The methods that clarify how the data were processed are clearly articulated as they relate to the science question / topic. | |
 |===
-| Conclusions associated with data analysis are clearly articulated and thoughtful. They consider the data analysis as presented.| |
+| Conclusions associated with data analysis are clearly articulated and thoughtful. Conclusions consider the data analysis as presented. (If the student presents a week prior, conclusions may not be complete, but expected findings can be discussed.)| |
 
 
 #### Data (25%)
@@ -178,7 +184,7 @@ of finals week. **Submit your html / pdf file and your `.Rmd` file to D2L by Mon
 | Full Credit | No Credit  |
 |:----|----|
 | 2 specific data sources are identified in the presentation  | |
-| Each data source identified is described: how it's collected & where its acquired from  | |
+| Each data source identified is described: how it's collected & where you downloaded it from / accessed it | |
 | How the data were used to address the topic is clearly articulated | |
 | Sources of uncertainty associated with the data and or analysis are clearly articulated in the presentation ||
 | The x, y axes, legends, associated units and other elements of each plot are clearly explained & labeled.  | |
@@ -190,13 +196,13 @@ of finals week. **Submit your html / pdf file and your `.Rmd` file to D2L by Mon
 
 | Full Credit | No Credit  |
 |:----|----|
-| Presentation is clear, concise and thoughtfully pulled together. |  |
-| Presenters are well prepared. | |
-| All students introduce themselves / their background  |  |
-| The project topic is clearly and concisely introduced  | |
+| Presentation is clear, concise and thoughtfully pulled together |  |
+| Presenters are well prepared | |
+| All students introduce themselves / their background (not just their names, but their major OR area of study) |  |
+| The project topic is **clearly** and **concisely** introduced  | |
 | Everyone in the group presents. | |
 |===
-| The presentation spans no more than 5 minutes. | |
+| The presentation spans no more than **10 minutes** (group will be stopped at 10 minutes). | |
 
 
 #### Slide presentation (5%)
@@ -206,37 +212,38 @@ of finals week. **Submit your html / pdf file and your `.Rmd` file to D2L by Mon
 | Presentation "slides" are simple and easy to read.  |  |
 | Presentation graphics are relevant to the topic being presented  | |
 | Data slides (containing maps or plots) area easy to read  | |
+| Colors used in the slides are readable  | |
 |===
 | Slides can be read from the back of the room. | |
 
 
 ***
 
-## Final report rubric
+## Final Report Rubric
 
-### Report structure & text writeup: 10%
+### Report Structure & Text Writeup: 10%
 
 | Full Credit | No Credit  |
 |:----|----|
-| `.pdf` or `.html` file and `.rmd` file is submitted |  |
+| `.pdf` or `.html` file and `.rmd` file is submitted & named appropriately |  |
 | Summary text is provided for plots / plots are discussed in the text |  |
-| Grammar & spelling are accurate throughout the report|  |
-| File is named with lastName-firstInitial-final-project (or some easy to read name that includes the student's name)|  |
-| Report contains atleast 2 (4 for grad students) scientific peer reviewed citations |  |
+| Grammar & spelling are accurate throughout the report |  |
+| Report contains atleast 2 (4 for grad students) scientific peer reviewed citations inserted using proper citation format (you chose the style) and 4 total citations |  |
 |===
-| Report contains atleast 4 total citations|  |
+| References are included as both in text citations and as a list at the end of the report & include data sources. | |
 
 
-### Report code structure & format: 10%
+### Report Code Structure & Format: 10%
 
 | Full Credit | No Credit  |
 |:----|----|
 | Code is written using "clean" code practices following the <a href="http://style.tidyverse.org/" target = "_blank">Hadley Wickham style guide</a> | |
-| Comments are used to document code  | |
+| Comments are used to document code | |
+| There is no extraneous code in the report. All code included in the report is required to create the report output. | |
 | Code chunks are hidden / visible as makes sense to support the report   | |
 | All required `R` packages are listed at the top of the document in a code chunk. | |
 |===
-| All code chunks run | |
+| All code chunks run in the order they are presented in the `.Rmd` or `.ipynb` file| |
 
 ### Report plots & data content: 20%
 
@@ -244,11 +251,8 @@ of finals week. **Submit your html / pdf file and your `.Rmd` file to D2L by Mon
 |:----|----|
 | Report includes a study area map created in `R` | |
 | Report contains *atleast* 4 maps / plots that support discussion of the science question or phenomenon selected to study | |
-| Plot 1 - is labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | |
-| Plot 2 - is labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | |
-| Plot 3 - is labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | |
 |===
-| Plot 4 - is labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | |
+| All plots are labeled appropriately including units. Its contents are discussed in the paper as they related to the selected study topic | |
 
 ### Report science content: 60%
 
@@ -258,12 +262,11 @@ of finals week. **Submit your html / pdf file and your `.Rmd` file to D2L by Mon
 | Project background clearly discusses why the topic is important to study. | |
 | Project background introduces the topic in the context of the literature (both scientific and non scientific as relevant) | |
 | Methods: data sources and how the data were acquired are clearly identified / discussed  | |
-| Methods: processing / analysis methods are clearly articulated in the report  and also align with comments / processing steps seen in the code implementation | |
+| Methods: processing / analysis methods are clearly articulated in the report and also align with comments / processing steps seen in the code implementation | |
 | Results:  results include *atleast* 4 plots / maps that support the report findings | |
 | Results discuss findings making reference to the plots as makes sense | |
-| Conclusions associated with data analysis are clearly articulated and thoughtful. They consider the data analysis as presented.| |
 |===
-| References are included as both in text citations and as a list at the end of the report & include data sources. | |
+| Conclusions associated with data analysis are clearly articulated and thoughtful. They consider the data analysis as presented.| |
 
 ## Graduate student additional report components
 
@@ -276,4 +279,5 @@ additional literature review and the abstract.
 |:----|----|
 | The literature review presents the topic in the context of other science that has been performed surrounding the selected topic | |
 | The literature review is 1.5-2 pages ~ 700 words in length | |
-| The abstract is concise and clearly summarizes the question, methods  and high level results of the project | |
+|===
+| The report abstract is concise and clearly summarizes the question, methods and high level results of the project | |

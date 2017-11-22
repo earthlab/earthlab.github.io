@@ -3,10 +3,10 @@ layout: single
 title: "Programmatically accessing geospatial data using API's - Working with and mapping JSON data from the Colorado Information Warehouse in R"
 excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-11-09'
+modified: '2017-11-16'
 category: [courses]
 class-lesson: ['intro-APIs-r']
-permalink: /courses/earth-analytics/week-10/co-water-data-spatial-r/
+permalink: /courses/earth-analytics/get-data-using-apis/co-water-data-spatial-r/
 nav-title: 'Geospatial data from APIs'
 week: 13
 course: "earth-analytics"
@@ -15,9 +15,12 @@ sidebar:
 author_profile: false
 comments: true
 order: 7
+redirect_from:
+   - "/courses/earth-analytics/week-10/co-water-data-spatial-r/"
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+
+{% include toc title = "In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
@@ -163,12 +166,12 @@ head(water_data_df$location)
 ## 1 40.053036          FALSE -105.193048
 ## 2 40.042028          FALSE -105.364917
 ## 3 40.018667          FALSE  -105.32625
-## 4 40.172677          FALSE  -105.04463
-## 5 40.849982          FALSE -105.218036
-## 6 40.006374          FALSE -105.330826
+## 4 40.849982          FALSE -105.218036
+## 5 40.256031          FALSE -105.209549
+## 6 40.255581          FALSE -105.209595
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
-## [1] "40.053036" "40.042028" "40.018667" "40.172677" "40.849982" "40.006374"
+## [1] "40.053036" "40.042028" "40.018667" "40.849982" "40.256031" "40.255581"
 ```
 
 We can remove the nesting using the `flatten()` function in `R`. When we flatten
@@ -185,18 +188,17 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
-##  [1] "40.053036" "40.042028" "40.018667" "40.172677" "40.849982"
-##  [6] "40.006374" "40.2172"   "40.258038" "40.216093" "40.214984"
-## [11] NA          "39.931096" "40.215772" NA          NA         
-## [16] NA          "40.256031" "40.255581" "40.15336"  "40.193757"
-## [21] "40.18188"  "40.187577" "40.19932"  "40.174844" "40.18858" 
-## [26] "40.134278" "40.125542" "40.20419"  "40.173949" "40.172925"
-## [31] "40.19642"  "40.2125"   "40.21266"  "40.187524" NA         
-## [36] "40.21804"  "40.21139"  "40.1946"   "40.170997" "40.160347"
-## [41] "40.21905"  "40.21108"  "40.193018" "40.172677" "40.19328" 
-## [46] "40.18503"  "40.051652" "40.733879" "39.98617"  "40.09404" 
-## [51] "40.05366"  "39.961655" NA          "39.938598" "39.931099"
-## [56] "40.153341"
+##  [1] "40.053036" "40.042028" "40.018667" "40.849982" "40.256031"
+##  [6] "40.255581" "40.215772" NA          NA          "40.134278"
+## [11] "40.172925" "40.160347" "40.172677" "40.051652" "40.006374"
+## [16] "39.931099" "40.153341" NA          "39.931096" "40.258038"
+## [21] "40.214984" NA          "40.125542" "40.15336"  "40.193757"
+## [26] "40.18188"  "40.187577" "40.19932"  "40.174844" "40.18858" 
+## [31] "40.20419"  "40.173949" "40.19642"  "40.2125"   "40.21266" 
+## [36] "40.187524" NA          "40.21804"  "40.21139"  "40.1946"  
+## [41] "40.170997" "40.21905"  "40.21108"  "40.193018" "40.172677"
+## [46] "40.19328"  "40.18503"  "40.733879" "39.98617"  "40.09404" 
+## [51] "40.05366"  "39.961655" NA          "39.938598"
 ```
 Now we can clean up the data. Notice that our longitude and latitude values
 are in quotes. What does this mean about the structure of the data?
@@ -205,7 +207,7 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
-##  chr [1:56] "40.053036" "40.042028" "40.018667" "40.172677" ...
+##  chr [1:54] "40.053036" "40.042028" "40.018667" "40.849982" ...
 ```
 
 In order to map or work with latitude and longitude data, we need numeric values.
@@ -222,12 +224,11 @@ so it is best to remove them.
 ```r
 # where are the cells with NA values in our data?
 is.na(water_data_df$location.latitude)
-##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE
-## [12] FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
+## [12] FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE  TRUE
 ## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [34] FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
-## [56] FALSE
+## [34] FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
 ```
 
 Note, in the code above, we can identify each location where there is a NA value
@@ -237,12 +238,11 @@ in our data. If we add an `!` to our code, R returns the INVERSE of the above.
 ```r
 # where are calls with values in our data?
 !is.na(water_data_df$location.latitude)
-##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE
-## [12]  TRUE  TRUE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE
+## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE FALSE
 ## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [34]  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
-## [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
-## [56]  TRUE
+## [34]  TRUE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [45]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
 ```
 
 Thus in our dplyr pipe, the code below removes all ROWS cells with a NA value
@@ -266,9 +266,9 @@ Now we can plot the data
 ggplot(water_data_df, aes(location.longitude, location.latitude, size=amount,
   color=station_type)) +
   geom_point() + coord_equal() +
-      labs(x="Longitude",
-           y="Latitude",
-          title="Surface Water Site Locations by Type",
+      labs(x = "Longitude",
+           y = "Latitude",
+          title = "Surface Water Site Locations by Type",
           subtitle = "Boulder, Colorado") +
   labs(size="Amount", colour="Station Type")
 ```
