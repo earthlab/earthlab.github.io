@@ -1,10 +1,9 @@
 ---
 layout: single
-title: "Crop a spatial raster dataset using a shapefile in R."
-excerpt: "This lesson covers how to classify a raster dataset and export it as a
-new raster in R."
+title: "Clip Raster in R"
+excerpt: "You can clip a raster to polygon extent to save processing time and make images more manageable. Learn how to crop a raster dataset in R."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/crop-raster-data-in-r/

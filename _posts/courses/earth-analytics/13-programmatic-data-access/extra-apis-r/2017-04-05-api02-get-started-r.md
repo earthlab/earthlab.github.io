@@ -3,7 +3,7 @@ layout: single
 title: "An example of creating modular code in R - Efficient scientific programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-11-22'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/get-data-with-rcurl-r/
@@ -15,9 +15,12 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+topics:
+  find-and-manage-data: ['apis']
 redirect_from:
    - "/courses/earth-analytics/week-10/get-data-with-rcurl-r/"
 ---
+
 
 {% include toc title = "In This Lesson" icon="file-text" %}
 
@@ -79,7 +82,6 @@ boulder_precip <- read.csv("data/week010/boulder-precip-aug-oct-2013.csv")
 
 # fix date
 boulder_precip$DATE <- as.Date(boulder_precip$DATE)
-## Error in as.Date(boulder_precip$DATE): object 'boulder_precip' not found
 # plot data with ggplot
 ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
   geom_point() +
@@ -87,8 +89,9 @@ ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
            y = "Precipitation (inches)",
           title = "Precipitation - Boulder, CO ",
           subtitle = "August - October 2013")
-## Error in ggplot(boulder_precip, aes(x = DATE, y = PRECIP)): object 'boulder_precip' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/boulder-precip-1.png" title="Boulder precip data plot." alt="Boulder precip data plot." width="90%" />
 
 
 ## Download data via human readable url

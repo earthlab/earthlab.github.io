@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Create Custom Maps with ggplot in R - GIS in R"
-excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
+title: "Maps in R: R Maps Tutorial"
+excerpt: "Maps in R convert spatial objects into a cohesive spatial projection. Learn how to to make custom maps with ggplot or GIS in this R maps tutorial."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-maps-with-ggplot-in-R/

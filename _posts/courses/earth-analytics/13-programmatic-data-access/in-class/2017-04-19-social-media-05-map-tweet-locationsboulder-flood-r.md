@@ -3,7 +3,7 @@ layout: single
 title: "Create Maps of Social Media Twitter Tweet Locations Over Time in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-11-22'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/map-tweet-locations-over-time-r/
@@ -22,6 +22,7 @@ topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
 ---
+
 
 
 
@@ -332,5 +333,5 @@ gganimate_save(grouped_tweet_map,
 </figure>
 
 Note that the dimensions of the map above are still not quite right. If anyone
-has discovered a way to ensure `gganimate_save()` dimensions actually work, please
+has discovered a way to ensure `gganimate_save()` dimensions actually work, please 
 leave a comment below!

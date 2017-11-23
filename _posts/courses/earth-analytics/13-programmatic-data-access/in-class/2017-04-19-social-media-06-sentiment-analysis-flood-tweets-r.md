@@ -3,7 +3,7 @@ layout: single
 title: "Sentiment Analysis of Colorado Flood Tweets in R"
 excerpt: "Learn how to perform a basic sentiment analysis using the tidytext package in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-11-22'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/sentiment-analysis-of-twitter-data-r/
@@ -22,6 +22,7 @@ topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
 ---
+
 
 
 

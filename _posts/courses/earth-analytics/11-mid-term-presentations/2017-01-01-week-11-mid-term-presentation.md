@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Mid Term Presentations"
 permalink: /courses/earth-analytics/week-11/
-modified: '2017-11-22'
+modified: '2017-11-23'
 week-landing: 11
 week: 11
 sidebar:
@@ -13,7 +13,6 @@ author_profile: false
 course: "earth-analytics"
 module-type: 'session'
 ---
-
 
 {% include toc title="This Week" icon="file-text" %}
 

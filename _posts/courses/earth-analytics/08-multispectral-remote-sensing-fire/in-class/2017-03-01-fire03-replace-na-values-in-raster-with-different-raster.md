@@ -3,7 +3,7 @@ layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in R"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-10-30'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-r/
@@ -19,6 +19,7 @@ topics:
   remote-sensing: ['landsat']
   earth-science: ['fire']
   spatial-data-and-gis: ['raster-data']
+  find-and-manage-data: ['missing-data-nan']
 lang-lib:
   r: []
 ---
