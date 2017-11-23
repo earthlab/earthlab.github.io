@@ -1,0 +1,37 @@
+/*
+ *    Minimal Mistakes Jekyll Theme
+ *
+ *  - Created by: Michael Rose
+ *
+*/
+
+@import "earth-lab/vendor/breakpoint/breakpoint"; // media query mixins
+@import "earth-lab/variables";
+@import "earth-lab/mixins";
+@import "earth-lab/vendor/susy/susy";
+
+@import "earth-lab/reset";
+@import "earth-lab/base";
+
+@import "earth-lab/utilities";
+@import "earth-lab/animations";
+@import "earth-lab/tables_el"; // creating new table styles that are nicer
+@import "earth-lab/buttons";
+@import "earth-lab/notices";
+@import "earth-lab/masthead";
+@import "earth-lab/navigation";
+@import "earth-lab/footer";
+@import "earth-lab/syntax";
+@import "earth-lab/syntax-inline";
+
+@import "earth-lab/forms";
+
+@import "earth-lab/page";
+@import "earth-lab/archive";
+@import "earth-lab/sidebar";
+
+@import "earth-lab/vendor/font-awesome/font-awesome";
+@import "earth-lab/vendor/magnific-popup/magnific-popup";
+@import "earth-lab/print";
+@import "earth-lab/earth-lab";
+@import "earth-lab/earthlab_slides";
