@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Lidar Remote Sensing Data - Understand Uncertainty / Error Associated with Height Metrics Extracted from Lidar Raster Data in R"
-excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error. "
+title: "LIDAR Accuracy in LIDAR Tree Canopy Height Models"
+excerpt: "LIDAR accuracy needs to be addressed when creating LIDAR tree canopy height models. Explore the uncertainty associated with LIDAR raster data in R."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/about-uncertainty-lidar/

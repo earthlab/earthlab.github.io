@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Calculate a Remote Sensing Derived Vegetation Index in R"
-excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, you will review the basic principles associated with calculating a vegetation index from raster formatted, landsat remote sensing data in R. You will then export the calculated index raster as a geotiff using the writeRaster() function."
+title: "Remote Sensing NDVI: Calculate NDVI in R"
+excerpt: "Use NDVI to study vegetation health with satellite imagery. Learn to calculate remote sensing NDVI in R."
 authors: ['Leah Wasser']
-modified: '2017-11-03'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -135,7 +135,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/RtmpshziFP/raster/r_tmp_2017-11-03_182925_3345_62399.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp9QTVwB/raster/r_tmp_2017-11-23_084456_27392_43390.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -147,7 +147,7 @@ plot(naip_ndvi,
      axes = FALSE, box = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/class-lessons/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
 
 ### View Distribution of NDVI Values
 
@@ -222,7 +222,7 @@ plot(band_diff,
      axes = FALSE, box = FALSE, legend = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/class-lessons/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
 
 
 
@@ -240,7 +240,7 @@ plot(naip_ndvi_ov,
      main = "NAIP NDVI calculated using the overlay function")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/class-lessons/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="90%" />
 
 
 Don't believe overlay is faster? Let's test it using a benchmark.
@@ -258,7 +258,7 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
 ##       min       lq     mean   median       uq      max neval
-##  1.400947 1.450367 1.512612 1.513328 1.572995 1.638737    10
+##  1.731995 1.841132 2.425195 2.099184 3.173402 4.066615    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -267,8 +267,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##       min       lq     mean   median       uq      max neval
-##  685.2043 833.3672 874.2819 899.3999 943.9014 1004.238    10
+##       min      lq     mean   median       uq      max neval
+##  844.7946 936.828 1130.677 990.5256 1425.692 1516.552    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact

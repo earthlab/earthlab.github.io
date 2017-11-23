@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
-excerpt: "This lesson provides an example of modularizing code in R. "
+title: "Mining Twitter Data With TidyText"
+excerpt: "When mining Twitter data, you can use the tidytext package to analyze behavior and events, such as forest fires. Learn how to use tidytext to mine social media."
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-11-22'
+modified: '2017-11-23'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/text-mining-twitter-data-intro-r/
@@ -24,7 +24,6 @@ topics:
 redirect_from:
    - "/course-materials/earth-analytics/week-12/text-mining-twitter-data-intro-r/"
 ---
-
 
 {% include toc title = "In This Lesson" icon="file-text" %}
 
@@ -117,12 +116,12 @@ climate_tweets <- search_tweets(q = "#climatechange", n = 10000, lang = "en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "Methane Release Poses Climate Risks: https://t.co/LRCLKeUnjU #climatechange #climateaction https://t.co/bTZ4QzbUm1"                          
-## [2] "Build, #Flood, Repeat: Buyouts Needed with Increasing Gulf Coast #Climate #Risk https://t.co/OdYFqxL2EU… https://t.co/b5Yqj6Hywp"            
-## [3] "TIME TO RETHINK WORK: Its Meaning. Its Reason\nhttps://t.co/8trFtZRHNf\n#creativity #employment #workers #money… https://t.co/iTaQHsOi0j"    
-## [4] "#BeInTheKnow about #ClimateChange: https://t.co/KZHjpmNdmw"                                                                                  
-## [5] "From Maldives UN Ambassador: ”We all know what the problem is. Why depress ourselves by sitting around the table an… https://t.co/i37Pn2BIZw"
-## [6] "Just in case you are such a #climate change communication warrior. ⇒　Debunking #ClimateChange Myths: A… https://t.co/ovgEYpNLxR"
+## [1] "#bitcoin very bad when it comes to #climatechange ? https://t.co/YuSnKNzJaq"                                                                     
+## [2] "Discover why #coralreefs are changing https://t.co/A1ZZp6wJYR  #ClimateChange #Globalwarming #NOAA https://t.co/L9ECcXS0Mo"                      
+## [3] "#KidsTakeOver: Timoci &amp; Shalvi reminded us of the human cost of #ClimateChange, and of our ultimate responsibility—… https://t.co/ZbL2kcp53W"
+## [4] "One of the problems inherent in discussion about climate change is the vast scale of the conversation, so we came u… https://t.co/KIDFn0LpqX"    
+## [5] "Happy Thanksgiving! to you! did you know #Trump /GOP are the swamp #Resist #FakePresident #Dontard #GOP #NRA #War..… https://t.co/8zqYHNhW2d"    
+## [6] "Deep fat fryers may help form cooling clouds. #deepfatfryers #climatechange  https://t.co/ltkwhtMu6g"
 ```
 
 ## Data clean-up
@@ -233,7 +232,7 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 130188
+## [1] 129717
 
 # remove stop words from our list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -241,7 +240,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 71358
+## [1] 71116
 ```
 
 Now that we've performed this final step of cleaning, you can try to plot, once
@@ -286,20 +285,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 63,815 x 2
+## # A tibble: 62,311 x 2
 ##        paired_words     n
 ##               <chr> <int>
-##  1   climate change  1081
-##  2           in the   437
-##  3           of the   383
-##  4       learn more   249
-##  5        more here   246
-##  6       the arctic   243
-##  7 on climatechange   240
-##  8 climatechange is   239
-##  9 of climatechange   225
-## 10           to the   200
-## # ... with 63,805 more rows
+##  1   climate change  1125
+##  2           in the   433
+##  3           of the   371
+##  4       learn more   265
+##  5       the arctic   258
+##  6        more here   256
+##  7 on climatechange   220
+##  8 of climatechange   210
+##  9             is a   205
+## 10           to the   205
+## # ... with 62,301 more rows
 ```
 
 
@@ -319,14 +318,14 @@ climate_words_counts <- climate_tweets_filtered %>%
 
 head(climate_words_counts)
 ## # A tibble: 6 x 3
-##     word1         word2     n
-##     <chr>         <chr> <int>
-## 1 climate        change  1081
-## 2  global       warming   102
-## 3 extreme       weather    76
-## 4  combat climatechange    65
-## 5   paris     agreement    60
-## 6  arctic       climate    59
+##           word1         word2     n
+##           <chr>         <chr> <int>
+## 1       climate        change  1125
+## 2        global       warming    79
+## 3        arctic       climate    61
+## 4 climatechange globalwarming    60
+## 5       climate        action    56
+## 6         paris     agreement    56
 ```
 
 Finally, plot the data
