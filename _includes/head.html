@@ -18,7 +18,11 @@
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers-->
+{% if site.url %}
+  {% assign css_url = "/assets/css/main.css" | prepend: site.url %}
+{% endif %}
+<!-- For all browsers
+<link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">-->
 <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
 
 <meta http-equiv="cleartype" content="on">

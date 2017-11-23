@@ -17,6 +17,6 @@ reproducible-science-and-programming:
               'r-studio', 'automate-science-workflows', 'git', 'markdown',
               'rmarkdown', 'data-management', 'version-control']
 find-and-manage-data:
-  subtopics: ['data-management', 'find-data', 'metadata']
+  subtopics: ['data-management', 'find-data', 'metadata', 'missing-data-nan', 'apis']
 file-formats:
     subtopics: ['hdf5', 'json', 'csv', 'raster',  'shapefile', 'geotiff']
