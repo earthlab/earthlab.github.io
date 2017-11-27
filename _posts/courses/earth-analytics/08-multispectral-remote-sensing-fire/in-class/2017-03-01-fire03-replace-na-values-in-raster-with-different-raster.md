@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in R"
-excerpt: "."
+excerpt: "Often data have missing or bad data values that you need to replace. Learn how to replace missing or bad data values in a raster, with values from another raster in the same pixel location using the cover function in R."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-11-24'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-r/
