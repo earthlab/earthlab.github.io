@@ -1,6 +1,8 @@
 ---
 layout: single
 title: "About Earth Lab Resources"
+header1: "About Earth Data Science Education"
+excerpt: "Earth Data Science education builds R and Python skills to work with Earth systems data. Explore the definition of Earth data science and online courses."
 author_profile: false
 published: true
 site-map: true
@@ -21,6 +23,16 @@ social, biological, and earth systems data. The [data-intensive course materials
 * Remote sensing
 
 
+## What is the Definition of Earth Data Science?
+
+Earth data science is an emerging and growing field that combines Earth sciences 
+domain knowledge with data science skills to study enviornmental topics.Earth 
+systems data can be combined with demographic, social and behavioral data to 
+understand how humans interact with and impact their environment. Understanding 
+these changes and interactions is critical to both scientific efforts to address
+important environmental issues and industry efforts to build new and innovative 
+tools. Earth data science education is key to training the next generation of
+scientists.
 
 ## Our Team
 

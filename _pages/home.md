@@ -2,14 +2,15 @@
 layout: splash
 permalink: /
 splash_header: 'Free online courses, tutorials and tools'
-title: 'Earth Lab: Free, online courses, tutorials and tools'
+title: "Earth Data Science | Open Earth Analytics Courses"
+header1: "Earth Data Science: Open Earth Analytics Courses"
 header:
   overlay_image: about-header.jpg
   cta_label: "Join our meetup!"
   cta_url: "/meetup/"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
-excerpt: 'Learn to use earth science and other data in R & Python'
+excerpt: 'Earth Data Science is a field that combines knowledge of Earth sciences with data science skills. Explore open tutorials and courses in Earth Analytics.'
 intro:
   - excerpt: 'Follow us &nbsp; [<i class="fa fa-twitter"></i> @EarthLabCU](https://twitter.com/EarthLabCU){: .btn .btn--twitter}'
 feature_row:
@@ -57,18 +58,18 @@ sidebar:
 {% assign posts_minus_sessions = total_posts | minus: session_posts  %}
 {% assign posts_minus_overview = posts_minus_sessions | minus: overview_posts %}
 
-This site contains open, tutorials and course materials covering topics including data integration, GIS
-and data intensive science. Currently, we have {{ posts_minus_overview }} lessons
-available on our site with more under development!
+This site contains open, tutorials and course materials covering earth analytics
+topics including data integration, GIS and data intensive science. Currently, there are
+{{ posts_minus_overview }} earth data science lessons available with more under development!
 
-## Online courses
+## Online Courses
 
 {% assign courses = site.posts | where:"overview-order", 1 %}
 {% for course in courses %}
 * <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
 {% endfor %}
 
-## Newest lessons
+## Newest Lessons
 
 <div class="list__item">
 We are always adding to our course lesson materials. Below are the top 3
@@ -122,7 +123,7 @@ the entire lesson set.
 
 <a href="{{ site.url}}/courses/">View all modules </a>
 
-## Recent tutorials
+## Recent Tutorials
 
 {% for post in site.categories.['tutorials'] limit:3 %}
 <!-- List the most recent 3 tutorials  -->

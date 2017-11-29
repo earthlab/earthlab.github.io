@@ -1,10 +1,11 @@
 ---
 layout: single
-title: 'Using Leaflet and Folium to make interactive maps in Python'
+title: 'Folium and Leaflet Maps'
+header1: 'Follium and Leaflet: How to Make Interactive Maps'
 date: 2016-08-01
 authors: [Matt Oakley]
 category: [tutorials]
-excerpt: 'This tutorial shows how to make interactive maps in Python with folium.'
+excerpt: 'You can visualize data through interactive maps made with JavaScript or Python. Learn how to use the folium package to make leaflet maps for data visualization.'
 sidebar:
   nav:
 author_profile: false
