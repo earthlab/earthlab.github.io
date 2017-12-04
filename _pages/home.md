@@ -60,7 +60,7 @@ sidebar:
 
 <div class = "prof-cert-wrapper">
 <div id = "right">
-<a href="http://bit.ly/2zBwHu9" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
+<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
 <div id = "left">This site contains open, tutorials and course materials covering topics including data integration, GIS
 and data intensive science. Currently, we have 124 lessons
   available on our site with more under development! </div>

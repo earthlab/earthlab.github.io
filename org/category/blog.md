@@ -19,7 +19,7 @@ author_profile: false
 
 <div class = "prof-cert-wrapper">
 <div id = "right">
-<a href="http://bit.ly/2zBwHu9" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
+<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
 <div id = "left">Learn about skills needed to launch a career in Earth Data Analytics / earth data science.
 Also learn about the tools being used to work with different types of data in R and Python.
 </div>
