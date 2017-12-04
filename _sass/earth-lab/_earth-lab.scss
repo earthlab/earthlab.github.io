@@ -197,3 +197,33 @@ div.active-section{
 .tag-landing-intro {
   margin: 0 15em 0em 0 !important;
 }
+
+
+/* Prof certifcate and other sidebar banners*/
+.prof-cert-wrapper {
+  overflow:hidden;
+}
+
+.prof-cert-wrapper div {
+   min-height: 100px;
+   padding: 2px;
+}
+#left {
+  float:left;
+  width:69%;
+}
+#right {
+  /*overflow:hidden;*/
+  float:right;
+  min-height:80px;
+  width:31%
+}
+
+@media screen and (max-width: 400px) {
+   #right, #left {
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+  }
+}
