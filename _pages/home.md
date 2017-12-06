@@ -57,9 +57,16 @@ sidebar:
 {% assign posts_minus_sessions = total_posts | minus: session_posts  %}
 {% assign posts_minus_overview = posts_minus_sessions | minus: overview_posts %}
 
-This site contains open, tutorials and course materials covering topics including data integration, GIS
-and data intensive science. Currently, we have {{ posts_minus_overview }} lessons
-available on our site with more under development!
+
+<div class = "prof-cert-wrapper">
+<div id = "right">
+<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
+<div id = "left">This site contains open, tutorials and course materials covering topics including data integration, GIS
+and data intensive science. Currently, we have 124 lessons
+  available on our site with more under development! </div>
+
+</div>
+
 
 ## Online courses
 
