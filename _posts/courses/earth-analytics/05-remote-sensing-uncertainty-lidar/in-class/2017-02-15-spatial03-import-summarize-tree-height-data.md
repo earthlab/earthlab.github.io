@@ -3,7 +3,7 @@ layout: single
 title: "Import and summarize tree height data and compare it to lidar derived height in R"
 excerpt: "It is important to compare differences between tree height measurements made by humans on the ground to those estimated using lidar remote sensing data. Learn how to perform this analysis and calculate error or uncertainty in R."
 authors: ['Leah Wasser']
-modified: '2017-11-24'
+modified: '2017-12-05'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/import-summarize-tree-height-data/
