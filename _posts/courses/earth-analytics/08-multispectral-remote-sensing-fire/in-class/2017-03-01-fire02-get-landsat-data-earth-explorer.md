@@ -3,7 +3,7 @@ layout: single
 title: "Get Landsat Remote Sensing Data From the Earth Explorer Website"
 excerpt: "In this lesson you will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/get-data-earth-explorer/
@@ -20,7 +20,6 @@ topics:
   earth-science: ['fire']
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
-  find-and-manage-data: ['find-data']
 lang-lib:
   r: []
 redirect_from:
@@ -219,4 +218,4 @@ plot(fire_boundary_utm,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="90%" />
 
-Now that you have some cloud free data covering the study area, you can proceed to calculate NBR on the pre-fire data.
+Now that you have some cloud free data covering the study area, you can proceed to calculate NBR on the pre-fire data. 

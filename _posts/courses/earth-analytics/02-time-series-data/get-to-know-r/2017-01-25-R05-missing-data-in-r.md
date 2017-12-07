@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "How to Address Missing Values in R"
-excerpt: "Missing data in R results from errors in data collection and presents challenges in data analysis. Learn how to address missing values in R."
+title: "How to handle missing data or no data values in R - NA and NAN"
+excerpt: "Learn how to import spreadsheet files into R that contain missing data values. Also learn how to properly perform calculations on these data in R."
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [courses]
 class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/missing-data-in-r-na/
 nav-title: 'Clean missing data'
 dateCreated: 2016-12-13
-modified: '2017-11-23'
+modified: '2017-12-07'
 week: 2
 sidebar:
   nav:
@@ -18,7 +18,6 @@ order: 5
 course: "earth-analytics"
 topics:
   reproducible-science-and-programming: ['RStudio']
-  find-and-manage-data: ['missing-data-nan']
 redirect_from:
    - "/course-materials/earth-analytics/week-2/missing-data-in-r-na/"
 ---

@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Remote Sensing NDVI: Calculate NDVI in R"
-excerpt: "Use NDVI to study vegetation health with satellite imagery. Learn to calculate remote sensing NDVI in R."
+title: "Calculate a Remote Sensing Derived Vegetation Index in R"
+excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, you will review the basic principles associated with calculating a vegetation index from raster formatted, landsat remote sensing data in R. You will then export the calculated index raster as a geotiff using the writeRaster() function."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -135,7 +135,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp9QTVwB/raster/r_tmp_2017-11-23_084456_27392_43390.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp64LudC/raster/r_tmp_2017-12-07_163815_1202_92473.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -257,8 +257,8 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ## Unit: seconds
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
-##       min       lq     mean   median       uq      max neval
-##  1.731995 1.841132 2.425195 2.099184 3.173402 4.066615    10
+##       min      lq     mean   median       uq     max neval
+##  1.035257 1.12109 1.299235 1.267322 1.409221 1.83583    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -267,8 +267,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##       min      lq     mean   median       uq      max neval
-##  844.7946 936.828 1130.677 990.5256 1425.692 1516.552    10
+##       min       lq     mean   median       uq      max neval
+##  532.0583 548.0032 606.6035 599.0856 609.3156 842.0559    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact

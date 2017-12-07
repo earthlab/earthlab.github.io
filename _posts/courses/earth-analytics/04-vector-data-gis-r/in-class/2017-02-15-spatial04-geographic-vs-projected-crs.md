@@ -1,12 +1,14 @@
 ---
 layout: single
-title: "GIS With R: Using the Right UTM Projection"
-excerpt: "Coordinate reference systems are key to analyzing GIS data in R. Learn how to use GIS with R and use the right UTM projection to improve the accuracy of spatial projections."
+title: "GIS in R: Projected vs Geographic Coordinate Reference Systems"
+excerpt: "This tutorial describes key differences between projected and geographic coordinate reference systems (CRSs). We focus on the Universal Trans Mercator (UTM)
+projected Coordinate Reference which divides the globe into zones to optimize
+projection results in each zone and WGS84 which is a geographic (latitude and longitude) CRS. It also briefly introduces the concept of a datum."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
-permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM
+permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/
 nav-title: 'Geographic vs Projected CRS'
 week: 4
 course: "earth-analytics"

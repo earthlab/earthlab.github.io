@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Coordinate Reference System and Spatial Projection"
-excerpt: "Coordinate reference systems flatten spatial data to allow for two dimensional visualization. Explore coordinate reference systems and spatial projection techniques."
+title: "GIS in R: Introduction to Coordinate Reference Systems in R "
+excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/

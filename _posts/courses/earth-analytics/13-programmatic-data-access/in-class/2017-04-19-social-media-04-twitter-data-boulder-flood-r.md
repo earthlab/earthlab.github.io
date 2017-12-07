@@ -3,7 +3,7 @@ layout: single
 title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-11-24'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/text-mine-colorado-flood-tweets-science-r/
@@ -22,7 +22,6 @@ topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
 ---
-
 
 
 
@@ -62,6 +61,7 @@ library(tidytext)
 library(tm)
 # coupled words analysis
 library(widyr)
+## Error in library(widyr): there is no package called 'widyr'
 # plotting packages
 library(igraph)
 library(ggraph)
@@ -79,7 +79,9 @@ json_file <- "~/Documents/earth-analytics/data/week-13/boulder_flood_geolocated_
 # import json file line by line to avoid syntax errors
 # this takes a few seconds
 boulder_flood_tweets <- stream_in(file(json_file))
+## opening file input connection.
 ##  Found 500 records... Found 1000 records... Found 1500 records... Found 2000 records... Found 2500 records... Found 3000 records... Found 3500 records... Found 4000 records... Found 4500 records... Found 5000 records... Found 5500 records... Found 6000 records... Found 6500 records... Found 7000 records... Found 7500 records... Found 8000 records... Found 8500 records... Found 9000 records... Found 9500 records... Found 10000 records... Found 10500 records... Found 11000 records... Found 11500 records... Found 12000 records... Found 12500 records... Found 13000 records... Found 13500 records... Found 14000 records... Found 14500 records... Found 15000 records... Found 15500 records... Found 16000 records... Found 16500 records... Found 17000 records... Found 17500 records... Found 18000 records... Found 18500 records... Found 18821 records... Imported 18821 records. Simplifying...
+## closing file input connection.
 
 
 ## Found 18000 records...
@@ -88,17 +90,8 @@ boulder_flood_tweets <- stream_in(file(json_file))
 ## Imported 18821 records. Simplifying...
 ```
 
-The structure of these data is complex. In this lesson you will only work 
-with the tweet text data even though there is much more information that you 
-could analyze.
-
-First, create a new dataframe that contains:
-
-* The date, 
-* The twitter handle (username) and
-* The tweet text 
-
-for each tweet in the imported json file. 
+The structure of these data is complex. In this lesson you will just look at a
+few parts of the data.
 
 
 ```r
@@ -109,7 +102,8 @@ head(boulder_flood_tweets$user$screen_name)
 # create new df with the tweet text & usernames
 tweet_data <- data.frame(date_time = boulder_flood_tweets$created_at,
                          username = boulder_flood_tweets$user$screen_name,
-                         tweet_text = boulder_flood_tweets$text)
+                         tweet_text = boulder_flood_tweets$text,
+                         coords = boulder_flood_tweets$coordinates)
 head(tweet_data)
 ##                        date_time        username
 ## 1 Tue Dec 31 07:14:22 +0000 2013    lilcakes3209
@@ -125,19 +119,19 @@ head(tweet_data)
 ## 4 We're looking for the two who came to help a cyclist after a hit-and-run at 30th/Baseline ~11pm Dec 23rd #Boulder #CO http://t.co/zyk3FkB4og
 ## 5                                                          Happy New Year #Boulder !!!! What are some of your New Years resolutions this year?
 ## 6                                              @simon_Says_so Nearly 60 degrees in #Boulder today. Great place to live. http://t.co/cvAcbpDQTC
+##   coords.type coords.coordinates
+## 1       Point     -118.10, 34.15
+## 2        <NA>               NULL
+## 3       Point    0.1343, 52.2250
+## 4        <NA>               NULL
+## 5       Point       145.0, -37.8
+## 6        <NA>               NULL
 ```
 
-Next, clean up the data so that you can work with it. According to the incident 
-report, the Colorado flood officially started
-September 09 2013 and ended on the 24th. 
+Next, clean up the data so that you can work with it. Below you:
 
-Let's filter the data to just that
-time period. To do this, you need to 
-
-1. convert the date column to a R date / time field
-2. filter by the dates when the flood occured.
-
-
+1. format the date field as a date/time field and
+2. split the location information into 2 columns that are numeric (for mapping)
 
 
 ```r
@@ -147,16 +141,33 @@ start_date <- as.POSIXct('2013-09-13 00:00:00')
 end_date <- as.POSIXct('2013-09-24 00:00:00')
 
 # cleanup
-flood_tweets <- tweet_data %>%
-  mutate(date_time = as.POSIXct(date_time, format = "%a %b %d %H:%M:%S +0000 %Y")) %>% 
-  filter(date_time >= start_date & date_time <= end_date )
+tweet_data_cl <- tweet_data %>%
+  mutate(coords.coordinates = gsub("\\)|c\\(", "", coords.coordinates),
+         date_time = as.POSIXct(date_time, format = "%a %b %d %H:%M:%S +0000 %Y")) %>%
+  separate(coords.coordinates, c("long", "lat"), sep = ", ") %>%
+  mutate_at(c("lat", "long"), as.numeric)
+## Warning: Too few values at 14878 locations: 2, 4, 6, 7, 8, 9, 10, 11, 12,
+## 15, 19, 21, 22, 23, 26, 27, 28, 29, 30, 31, ...
+## Warning in evalq(as.numeric(long), <environment>): NAs introduced by
+## coercion
 
-min(flood_tweets$date_time)
-## [1] "2013-09-13 00:00:18 MDT"
-max(flood_tweets$date_time)
-## [1] "2013-09-23 23:52:53 MDT"
+min(tweet_data_cl$date_time)
+## [1] "2013-09-12 04:01:27 MDT"
+max(tweet_data_cl$date_time)
+## [1] "2014-01-01 06:59:33 MST"
 ```
 
+According to the incident report, the boulder flood officially started
+September 09 2013 and ended on the 24th. Filter the data to just that
+time period.
+
+
+```r
+# filter by time and remove URL's from the tweet. Note this uses regular expressions
+flood_tweets <- tweet_data_cl  %>%
+  filter(date_time >= start_date & date_time <= end_date ) %>%
+  mutate(tweet_text = gsub("\\s?(f|ht)(tp)(s?)(://)([^\\.]*)[\\.|/](\\S*)", "", tweet_text))
+```
 
 
 
@@ -205,6 +216,7 @@ flood_tweet_messages %>%
       labs(x = "Count",
       y = "Unique words",
       title = "Count of unique words found in tweets")
+## Selecting by n
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/plot-top-15-tweets-1.png" title="plot of chunk plot-top-15-tweets" alt="plot of chunk plot-top-15-tweets" width="90%" />
@@ -225,20 +237,21 @@ list of `stop_words` provided by the `tm` package.
 data("stop_words")
 # how many words do we have including the stop words?
 nrow(flood_tweet_messages)
-## [1] 151536
+## [1] 136645
 
 flood_tweet_clean <- flood_tweet_messages %>%
   anti_join(stop_words) %>%
   filter(!word == "rt")
+## Joining, by = "word"
 
 # how many words after removing the stop words?
 nrow(flood_tweet_clean)
-## [1] 95740
+## [1] 80892
 ```
 
-Notice that before removing the stop words, we have 151536
+Notice that before removing the stop words, we have 136645
 rows or words in our data. After removing the stop words we have,
-95740 words.
+80892 words.
 
 Once you've removed the stop words, you can plot the top 15 words again.
 
@@ -256,54 +269,14 @@ flood_tweet_clean %>%
       labs(x = "Count",
       y = "Unique words",
       title = "Count of unique words found in tweets")
+## Selecting by n
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/top-15-words-without-stops-1.png" title="plot of chunk top-15-words-without-stops" alt="plot of chunk top-15-words-without-stops" width="90%" />
 
-Finally, notice that http is the top word in the plot above. Let's remove all 
-links from our data using a regular expression. Then you can recreate all of the 
-cleanup that we performed above, using one pipe. 
-
-To remove all url's you can use the expression below. 
-
-`gsub("\\s?(f|ht)(tp)(s?)(://)([^\\.]*)[\\.|/](\\S*)", "", tweet_text`
-
-
-```r
-
-# cleanup
-flood_tweet_clean <- tweet_data %>%
-  mutate(date_time = as.POSIXct(date_time, format = "%a %b %d %H:%M:%S +0000 %Y"),
-         tweet_text = gsub("\\s?(f|ht)(tp)(s?)(://)([^\\.]*)[\\.|/](\\S*)", 
-                           "", tweet_text)) %>% 
-  filter(date_time >= start_date & date_time <= end_date ) %>% 
-  dplyr::select(tweet_text) %>%
-  unnest_tokens(word, tweet_text) %>% 
-  anti_join(stop_words) %>%
-  filter(!word == "rt") # remove all rows that contain "rt" or retweet
-```
-
-
-```r
-# plot the top 15 words -- notice any issues?
-flood_tweet_clean %>%
-  count(word, sort = TRUE) %>%
-  top_n(15) %>%
-  mutate(word = reorder(word, n)) %>%
-  ggplot(aes(x = word, y = n)) +
-  geom_col() +
-  xlab(NULL) +
-  coord_flip() +
-      labs(x = "Count",
-      y = "Unique words",
-      title = "Count of unique words found in tweets, ")
-```
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/top-15-words-without-stops2-1.png" title="plot of chunk top-15-words-without-stops2" alt="plot of chunk top-15-words-without-stops2" width="90%" />
-
 ## Paired word analysis
 
-As you did in the previous text mining introductory lesson, you can do a paired
+As we did in the previous text mining introductory lesson, we can do a paired
 words analysis to better understand which words are most often being used together.
 
 
@@ -330,20 +303,20 @@ flood_tweets_paired <- flood_tweets %>%
 
 flood_tweets_paired %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 57,506 x 2
+## # A tibble: 51,619 x 2
 ##            paired_words     n
 ##                   <chr> <int>
-##  1         cowx coflood   358
+##  1         cowx coflood   361
 ##  2        boulder creek   273
-##  3 boulderflood coflood   242
-##  4         coflood cowx   159
-##  5 coflood boulderflood   151
+##  3 boulderflood coflood   249
+##  4         coflood cowx   163
+##  5 coflood boulderflood   156
 ##  6       boulder county   130
-##  7         big thompson   113
-##  8 boulder boulderflood   113
+##  7 boulder boulderflood   123
+##  8         big thompson   113
 ##  9          flash flood   113
 ## 10    boulderflood cowx   110
-## # ... with 57,496 more rows
+## # ... with 51,609 more rows
 ```
 
 Separate the words into columns and count the unique combinations of words.
@@ -357,20 +330,20 @@ flood_tweets_separated <- flood_tweets_paired %>%
 flood_word_counts <- flood_tweets_separated %>%
   count(word1, word2, sort = TRUE)
 flood_word_counts
-## # A tibble: 57,506 x 3
+## # A tibble: 51,619 x 3
 ##           word1        word2     n
 ##           <chr>        <chr> <int>
-##  1         cowx      coflood   358
+##  1         cowx      coflood   361
 ##  2      boulder        creek   273
-##  3 boulderflood      coflood   242
-##  4      coflood         cowx   159
-##  5      coflood boulderflood   151
+##  3 boulderflood      coflood   249
+##  4      coflood         cowx   163
+##  5      coflood boulderflood   156
 ##  6      boulder       county   130
-##  7          big     thompson   113
-##  8      boulder boulderflood   113
+##  7      boulder boulderflood   123
+##  8          big     thompson   113
 ##  9        flash        flood   113
 ## 10 boulderflood         cowx   110
-## # ... with 57,496 more rows
+## # ... with 51,609 more rows
 ```
 
 Finally, plot the word network.
@@ -410,4 +383,3 @@ interactive map.
 * <a href="http://tidytextmining.com/" target = "_blank">Tidy text mining e-book is a great resource for text mining in `R`.  </a>
 
 </div>
-

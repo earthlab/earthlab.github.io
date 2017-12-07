@@ -1,11 +1,11 @@
 ---
 layout: single
-title: "Introduction to Lidar Raster Data Products"
+title: "Introduction to lidar raster data products"
 excerpt: "This lesson introduces the raster geotiff file format - which is often used
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-11-24'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/open-lidar-raster-r/

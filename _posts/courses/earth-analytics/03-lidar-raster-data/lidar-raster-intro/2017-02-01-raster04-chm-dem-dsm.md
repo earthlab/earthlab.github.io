@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Create a Digital Elevation Model With LIDAR Data"
-excerpt: "A digital elevation model shows elevation and helps calculate landscape change over time. Learn how to use LIDAR elevation data to calculate canopy height."
+title: "Canopy height models, digital surface models & digital elevation models - work with lidar data in R"
+excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM). We will also create a CHM using the DSM and DEM via raster subtraction in R."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-chm-dem-dsm/

@@ -1,9 +1,9 @@
 ---
 layout: single
-title: " Multispectral Imagery: Work with Spectral Data in R"
-excerpt: "Multispectral imagery is a type of remote sensing data. Learn how to use multispectral imagery and spectral data in R to understand landscape changes."
+title: "Introduction to Multispectral Imagery -  Remote Sensing Data in R "
+excerpt: "Learn the key components of working with multispectral imagery. Learn the difference between active and passive sensors, the electromagnetic spectrum and space-borne vs airborne sensors. "
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/introduction-multispectral-imagery-r/

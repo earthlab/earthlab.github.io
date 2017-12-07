@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Time Series Data: Work With Dates in R"
-excerpt: "Times series data can be manipulated efficiently in R. Learn how to work with, plot and subset data with dates in R. "
+title: "Work with date - time formats in R - time series data "
+excerpt: "Learn how to work with date and time fields in R."
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-11-23'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/date-class-in-r/

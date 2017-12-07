@@ -3,7 +3,7 @@ layout: single
 title: "How to remove borders and add legends to spatial plots in R. "
 excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/refine-plots-report/
@@ -301,8 +301,8 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```
 
 I can do better than that however. That box around the legend is annoying. Let's
@@ -333,8 +333,8 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```
 
 If things are still not looking right, we can adjust the size of our output

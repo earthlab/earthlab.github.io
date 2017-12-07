@@ -1,9 +1,10 @@
 ---
 layout: single
-title: "How to Open and Use Files in Geotiff Format"
-excerpt: "A GeoTIFF is a standard file format with spatial information embedded as tags. Use the raster package in R to open geotiff files and access .tif tags programmatically."
+title: "About the geotiff (.tif) raster file format - raster data in R "
+excerpt: "This lesson introduces the geotiff file format. Further it introduces the
+concept of metadata - or data about the data. Metadata describe key characteristics of a data set. For spatial data these characteristics including CRS, resolution and spatial extent. Here we discuss the use of tif tags or metadata embedded within a geotiff file as they can be used to explore data programatically."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2017-11-23'
+modified: '2017-12-07'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/introduction-to-spatial-metadata-r/
@@ -107,8 +108,10 @@ GDALinfo("data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 ## projection  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs 
 ## file        data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif 
 ## apparent band summary:
-##    GDType hasNoDataValue   NoDataValue blockSize1 blockSize2
-## 1 Float32           TRUE -3.402823e+38        128        128
+##    GDType hasNoDataValue                              NoDataValue
+## 1 Float32           TRUE -340282346638528859811704183484516925440
+##   blockSize1 blockSize2
+## 1        128        128
 ## apparent band statistics:
 ##          Bmin       Bmax Bmean Bsd
 ## 1 -4294967295 4294967295    NA  NA

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions & Automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
-modified: '2017-11-16'
+modified: '2017-12-07'
 week-landing: 6
 week: 6
 sidebar:

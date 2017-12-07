@@ -1,8 +1,7 @@
 ---
 layout: single
 category: course-materials
-title: "Earth Analytics Course: Learn Data Science"
-excerpt: "Earth Analytics is a multidisciplinary course that explores how to use data skills to address major Earth science questions. Learn more about the course."
+title: "Earth Analytics: Course home page - Earth Lab CU Boulder"
 nav-title: "Course home page"
 permalink: /courses/earth-analytics/
 course: "earth-analytics"
@@ -53,7 +52,7 @@ data including:
 * Satellite and airborne lidar and spectral remote sensing data,
 * Data collected using distributed in situ (on the ground) sensor networks,
 * Social media data, and
-* Demographic (census) data
+* Demographic (census) data.
 
 This course is highly technical. We will use the `R` scientific programming
 environment and the `RStudio` graphical interface to work with data.
