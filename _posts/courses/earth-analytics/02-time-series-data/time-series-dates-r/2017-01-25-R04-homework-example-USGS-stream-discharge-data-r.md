@@ -4,7 +4,7 @@ title: "Homework challenge: Plot USGS stream discharge data in R"
 excerpt: "This lesson illustrated what your final stream discharge homework
 plots should look like for the week. Use all of the skills that you've learned in the previous lessons to complete it."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -126,7 +126,7 @@ Let's first import our data using the `read.csv()` function.
 
 
 ```r
-discharge <- read.csv("data/week_02/discharge/06730200-discharge-daily-1986-2013.csv",
+discharge <- read.csv("data/week-02/discharge/06730200-discharge-daily-1986-2013.csv",
                       header=TRUE)
 
 # view first 6 lines of data

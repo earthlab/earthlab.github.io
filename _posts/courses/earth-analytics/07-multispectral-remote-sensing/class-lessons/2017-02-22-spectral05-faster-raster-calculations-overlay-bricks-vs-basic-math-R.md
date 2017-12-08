@@ -3,7 +3,7 @@ layout: single
 title: "The Fastest Way to Process Rasters in R"
 excerpt: "."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/process-rasters-faster-in-R/
@@ -68,7 +68,7 @@ options(stringsAsFactors = FALSE)
 
 ```r
 # import the naip pre-fire data
-naip_multispectral_st <- stack("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+naip_multispectral_st <- stack("data/week-07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 ```
 
 
@@ -91,8 +91,8 @@ between the lidar DSM and DEM using this function.
 
 ```r
 # import lidar rasters
-lidar_dsm <- raster(x = "data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
-lidar_dtm <- raster(x = "data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+lidar_dsm <- raster(x = "data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+lidar_dtm <- raster(x = "data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # calculate difference  - make sure you provide the rasters in the right order!
 lidar_chm <- overlay(lidar_dtm, lidar_dsm,
@@ -111,18 +111,16 @@ library(microbenchmark)
 # is it faster?
 microbenchmark((lidar_dsm - lidar_dsm), times = 10)
 ## Unit: milliseconds
-##                     expr      min       lq     mean  median       uq
-##  (lidar_dsm - lidar_dsm) 777.8007 799.7151 826.7335 808.775 857.2699
-##      max neval
-##  900.413    10
+##                     expr   min   lq mean median   uq  max neval
+##  (lidar_dsm - lidar_dsm) 987.8 1018 1040   1025 1033 1192    10
 
 microbenchmark(overlay(lidar_dtm, lidar_dsm,
                      fun = diff_rasters), times = 10)
 ## Unit: seconds
-##                                               expr      min       lq
-##  overlay(lidar_dtm, lidar_dsm, fun = diff_rasters) 1.298312 1.318404
-##      mean   median       uq      max neval
-##  1.409906 1.352257 1.520501 1.580023    10
+##                                               expr   min    lq  mean
+##  overlay(lidar_dtm, lidar_dsm, fun = diff_rasters) 1.739 1.779 1.797
+##  median    uq   max neval
+##   1.787 1.789 1.883    10
 ```
 
 The overlay function is actually not faster when you are performing basic
@@ -162,8 +160,8 @@ microbenchmark((naip_multispectral_st[[4]] - naip_multispectral_st[[1]]) / (naip
 ## Unit: seconds
 ##                                                                                                                      expr
 ##  (naip_multispectral_st[[4]] - naip_multispectral_st[[1]])/(naip_multispectral_st[[4]] +      naip_multispectral_st[[1]])
-##       min       lq     mean  median       uq      max neval
-##  1.968685 1.987421 2.015588 2.00368 2.029251 2.088903     5
+##    min    lq  mean median    uq   max neval
+##  2.256 2.269 2.335  2.317 2.362 2.469     5
 
 
 # is overlay faster?
@@ -173,8 +171,8 @@ microbenchmark(overlay(naip_multispectral_st[[1]],
 ## Unit: seconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_st[[1]], naip_multispectral_st[[4]],      fun = normalized_diff)
-##       min       lq     mean   median       uq      max neval
-##  1.399836 1.414245 1.445203 1.427384 1.489874 1.494679     5
+##    min    lq  mean median    uq   max neval
+##  1.763 1.775 1.781  1.783 1.791 1.792     5
 
 # what if you make your stack a brick - is it faster?
 naip_multispectral_br <- brick(naip_multispectral_st)
@@ -187,8 +185,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##       min      lq     mean  median       uq      max neval
-##  599.6978 620.187 654.4699 664.209 686.2543 702.0015     5
+##    min  lq  mean median    uq max neval
+##  637.6 653 677.3  694.8 697.8 703     5
 ```
 
 Notice that the results above suggest that the `overlay()` function is in fact

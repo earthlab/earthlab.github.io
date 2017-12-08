@@ -3,7 +3,7 @@ layout: single
 title: "Work with precipitation data in R: 2013 Colorado floods"
 excerpt: "Learn why documentation is important when analyzing data by evaluating someone elses report on the Colorado floods."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/data-driven-reports/
@@ -83,7 +83,7 @@ Some terrain data.
 
 
 ```r
-lidar_dsm <- raster(x = "data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+lidar_dsm <- raster(x = "data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
 # plot raster data
 plot(lidar_dsm,
@@ -95,14 +95,11 @@ plot(lidar_dsm,
 
 ```r
 # download.file(url = "https://ndownloader.figshare.com/files/7270970",
-#              "data/week_01/805325-precip_daily_2003-2013.csv")
+#              "data/week-01/805325-precip_daily_2003-2013.csv")
 
 # import precip data into R data.frame
-precip_boulder <- read.csv("data/week_01/805325-precip_daily_2003-2013.csv",
+precip_boulder <- read.csv("data/week-01/805325-precip_daily_2003-2013.csv",
                            header = TRUE)
-## Warning in file(file, "rt"): cannot open file 'data/week_01/805325-
-## precip_daily_2003-2013.csv': No such file or directory
-## Error in file(file, "rt"): cannot open the connection
 
 
 # convert to date/time and retain as a new field
@@ -124,17 +121,4 @@ Let's check out the data for a few months.
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/subset-data-1.png" title="plot 2 precip" alt="plot 2 precip" width="90%" />
 
 
-
-```
-## Error in file(file, "rt"): cannot open the connection
-## Error in prec.boulder.all$HPCP[prec.boulder.all$HPCP == 999.99] <- NA: object 'prec.boulder.all' not found
-## Error in as.POSIXct(prec.boulder.all$DATE, format = "%Y%m%d %H:%M"): object 'prec.boulder.all' not found
-## Error in as.POSIXlt(x, tz = tz): object 'prec.boulder.all' not found
-## Error in aggregate(prec.boulder.all$HPCP, by = list(prec.boulder.all$YearMon), : object 'prec.boulder.all' not found
-## Error in names(prec.boulder.all_monthly)[names(prec.boulder.all_monthly) == : object 'prec.boulder.all_monthly' not found
-## Error in names(prec.boulder.all_monthly)[names(prec.boulder.all_monthly) == : object 'prec.boulder.all_monthly' not found
-## Error in paste(prec.boulder.all_monthly$DATE, "/01", sep = ""): object 'prec.boulder.all_monthly' not found
-## Error in as.Date(prec.boulder.all_monthly$DATE): object 'prec.boulder.all_monthly' not found
-## Error in ggplot(data = prec.boulder.all_monthly, aes(DATE, PRECIP)): object 'prec.boulder.all_monthly' not found
-## Error in eval(expr, envir, enclos): object 'precPlot_all' not found
-```
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/use-data-for-science/2016-12-06-floods-02-data-driven-report-r/all-boulder-station-data-1.png" title="plot 3 discharge" alt="plot 3 discharge" width="90%" />

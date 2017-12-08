@@ -1,11 +1,9 @@
 ---
 layout: single
-title: "GIS in R: Projected vs Geographic Coordinate Reference Systems"
-excerpt: "This tutorial describes key differences between projected and geographic coordinate reference systems (CRSs). We focus on the Universal Trans Mercator (UTM)
-projected Coordinate Reference which divides the globe into zones to optimize
-projection results in each zone and WGS84 which is a geographic (latitude and longitude) CRS. It also briefly introduces the concept of a datum."
+title: "GIS With R: Projected vs Geographic Coordinate Reference Systems"
+excerpt: "Geographic coordinate reference systems are often used to make maps of the world. Projected coordinate reference systems are use to optimize spatial analysis for a region. Learn about WGS84 and UTM Coordinate Reference Systems as used in R."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -259,8 +257,8 @@ location.
 ```r
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
 coordinates(boulder_df_geog)
-##            lon      lat
-## [1,] -105.2705 40.01498
+##         lon   lat
+## [1,] -105.3 40.01
 ```
 
 Now we can plot our data on top of our world map which is also in a geographic `CRS`.

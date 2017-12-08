@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Calculate a Remote Sensing Derived Vegetation Index in R"
-excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. In this lesson, you will review the basic principles associated with calculating a vegetation index from raster formatted, landsat remote sensing data in R. You will then export the calculated index raster as a geotiff using the writeRaster() function."
+title: "Calculate NDVI in R: Remote Sensing Vegetation Index"
+excerpt: "NDVI is calculated using near infrared and red wavelengths or types of light and is used to measure vegetation greenness or health. Learn how to calculate remote sensing NDVI using multispectral imagery in R."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -104,7 +104,7 @@ options(stringsAsFactors = FALSE)
 
 ```r
 # import the naip pre-fire data
-naip_multispectral_st <- stack("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+naip_multispectral_st <- stack("data/week-07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 
 # convert data into rasterbrick for faster processing
 naip_multispectral_br <- brick(naip_multispectral_st)
@@ -135,7 +135,7 @@ naip_multispectral_br[[4]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp64LudC/raster/r_tmp_2017-12-07_163815_1202_92473.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp64LudC/raster/r_tmp_2017-12-08_093400_1202_65143.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -158,9 +158,10 @@ plot(naip_ndvi,
 hist(naip_ndvi,
   main = "NDVI: Distribution of pixels\n NAIP 2013 Cold Springs fire site",
   col = "springgreen",
-  x = "NDVI Index Value")
-## Error in hist.default(naip_ndvi, main = "NDVI: Distribution of pixels\n NAIP 2013 Cold Springs fire site", : 'x' must be numeric
+  xlab = "NDVI Index Value")
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/class-lessons/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="90%" />
 
 ## Export Raster
 When you are done, you may want to export your rasters so you can use them in
@@ -173,11 +174,11 @@ function.
 
 ```r
 # Check if the directory exists using the function you created last week
-check_create_dir("data/week_07/outputs/")
+check_create_dir("data/week-07/outputs/")
 
 # Export your raster
 writeRaster(x = naip_ndvi,
-              filename="data/week_07/outputs/naip_ndvi_2013_prefire.tif",
+              filename="data/week-07/outputs/naip_ndvi_2013_prefire.tif",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
               overwrite = TRUE)  # OPTIONAL - be careful. This will OVERWRITE previous files.
@@ -257,8 +258,8 @@ microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip
 ## Unit: seconds
 ##                                                                                                                      expr
 ##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
-##       min      lq     mean   median       uq     max neval
-##  1.035257 1.12109 1.299235 1.267322 1.409221 1.83583    10
+##    min    lq  mean median    uq   max neval
+##  1.177 1.613 1.803  1.652 2.103 2.663    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
@@ -267,8 +268,8 @@ microbenchmark(overlay(naip_multispectral_br[[1]],
 ## Unit: milliseconds
 ##                                                                                         expr
 ##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##       min       lq     mean   median       uq      max neval
-##  532.0583 548.0032 606.6035 599.0856 609.3156 842.0559    10
+##    min   lq mean median   uq  max neval
+##  536.5 1108 1035   1120 1182 1199    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact

@@ -3,7 +3,7 @@ layout: single
 title: "Use tidyverse pipes to subset time series data in R"
 excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/
@@ -109,29 +109,29 @@ To begin, use `read.csv()` to import the `.csv` file.
 ```r
 # download the data
 # download.file(url = "https://ndownloader.figshare.com/files/7283285",
-#              destfile = "data/week_02/805325-precip-dailysum_2003-2013.csv")
+#              destfile = "data/week-02/805325-precip-dailysum_2003-2013.csv")
 
 # import the data
-boulder_daily_precip <- read.csv("data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week-02/precipitation/805325-precip-dailysum-2003-2013.csv",
          header = TRUE)
 
 
 # view first 6 lines of the data
 head(boulder_daily_precip)
 ##     DATE DAILY_PRECIP     STATION    STATION_NAME ELEVATION LATITUDE
-## 1 1/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 2 1/5/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 3 2/1/03         0.00 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 4 2/2/03       999.99 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 5 2/3/03         0.40 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
-## 6 2/5/03         0.20 COOP:050843 BOULDER 2 CO US    1650.5 40.03389
+## 1 1/1/03          0.0 COOP:050843 BOULDER 2 CO US      1650    40.03
+## 2 1/5/03       1000.0 COOP:050843 BOULDER 2 CO US      1650    40.03
+## 3 2/1/03          0.0 COOP:050843 BOULDER 2 CO US      1650    40.03
+## 4 2/2/03       1000.0 COOP:050843 BOULDER 2 CO US      1650    40.03
+## 5 2/3/03          0.4 COOP:050843 BOULDER 2 CO US      1650    40.03
+## 6 2/5/03          0.2 COOP:050843 BOULDER 2 CO US      1650    40.03
 ##   LONGITUDE YEAR JULIAN
-## 1 -105.2811 2003      1
-## 2 -105.2811 2003      5
-## 3 -105.2811 2003     32
-## 4 -105.2811 2003     33
-## 5 -105.2811 2003     34
-## 6 -105.2811 2003     36
+## 1    -105.3 2003      1
+## 2    -105.3 2003      5
+## 3    -105.3 2003     32
+## 4    -105.3 2003     33
+## 5    -105.3 2003     34
+## 6    -105.3 2003     36
 
 # view structure of data
 str(boulder_daily_precip)
@@ -148,10 +148,10 @@ str(boulder_daily_precip)
 
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
-##     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-##    0.000    0.100    0.100    5.297    0.300  999.990
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     0.0     0.1     0.1     5.3     0.3  1000.0
 max(boulder_daily_precip$DAILY_PRECIP)
-## [1] 999.99
+## [1] 1000
 ```
 
 ### About the Data
@@ -187,7 +187,7 @@ You can download the original complete data subset with additional documentation
 
 Using everything you've learned in the previous lessons:
 
-* Import the dataset: `data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv`
+* Import the dataset: `data/week-02/precipitation/805325-precip-dailysum-2003-2013.csv`
 * Clean the data by assigning noData values to `NA`
 * Make sure the date column is a date class
 * When you are done, plot it using `ggplot()`
@@ -211,7 +211,7 @@ Also our data have a header (the first row represents column names) so set `head
 
 ```r
 # import data
-boulder_daily_precip <- read.csv("data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week-02/precipitation/805325-precip-dailysum-2003-2013.csv",
          header = TRUE,
          na.strings = 999.99)
 ```

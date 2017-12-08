@@ -80,7 +80,7 @@ The conversion between the two is as follows :
 temp_fahr <- 5
 # calculate Kelvin
 ((temp_fahr - 32) * (5 / 9)) + 273.15
-## [1] 258.15
+## [1] 258.1
 ```
 
 Take that same math and create a function that takes the temperature as a
@@ -126,10 +126,10 @@ Fahrenheit:
 ```r
 # freezing point of water
 fahr_to_kelvin(32)
-## [1] 273.15
+## [1] 273.1
 # boiling point of water
 fahr_to_kelvin(212)
-## [1] 373.15
+## [1] 373.1
 ```
 
 <div class="notice--warning" markdown="1">
@@ -149,7 +149,7 @@ Run your function to see if it works.
 ```r
 # absolute zero in Celsius
 kelvin_to_celsius(0)
-## [1] -273.15
+## [1] -273.1
 ```
 
 

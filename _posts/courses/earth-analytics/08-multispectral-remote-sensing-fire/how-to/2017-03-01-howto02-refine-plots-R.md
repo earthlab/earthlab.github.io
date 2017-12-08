@@ -3,7 +3,7 @@ layout: single
 title: "How to remove borders and add legends to spatial plots in R. "
 excerpt: "In this lesson we review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/refine-plots-report/
@@ -54,7 +54,7 @@ in turn more professional. First, let's import some data.
 
 ```r
 # import landsat data
-all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands <- list.files("data/week-07/Landsat/LC80340322016189-SC20170128091153/crop",
            pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 # create spatial stack
@@ -301,8 +301,8 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```
 
 I can do better than that however. That box around the legend is annoying. Let's
@@ -333,8 +333,8 @@ legend(x = ndvi_classified@extent@xmax, y=ndvi_classified@extent@ymax,
 
 ```r
 dev.off()
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```
 
 If things are still not looking right, we can adjust the size of our output
@@ -379,7 +379,7 @@ shapefile that was used to clip these data
 
 ```r
 # import crop extent
-crop_ext <- readOGR("data/week_07/vector_layers/fire_crop_box_2000m.shp")
+crop_ext <- readOGR("data/week-07/vector_layers/fire_crop_box_2000m.shp")
 # set a margin for our figure
 par(xpd=F, mar = c(0,0,2,6))
 # plot ndvi with legend

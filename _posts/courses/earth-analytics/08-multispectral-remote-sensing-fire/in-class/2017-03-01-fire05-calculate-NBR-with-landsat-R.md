@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) from Landsat Remote Sensing Data in R"
 excerpt: "In this lesson you review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. You finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/calculate-dNBR-R-Landsat/
@@ -80,7 +80,6 @@ options(stringsAsFactors = FALSE)
 
 # source the normalized diff function that you write for week_7
 source("ea-course-functions.R")
-## Error in file(filename, "r", encoding = encoding): cannot open the connection
 ```
 
 
@@ -90,17 +89,17 @@ Next, open up the pre- Cold Springs fire Landsat data. Create a rasterbrick from
 
 
 ```r
-all_landsat_bands_post <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
+all_landsat_bands_post <- list.files("data/week-07/Landsat/LC80340322016205-SC20170127160728/crop",
            pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands_post
-## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
-## [2] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-## [3] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
-## [4] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
-## [5] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
-## [6] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
-## [7] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
+## [1] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
+## [2] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
+## [3] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
+## [4] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
+## [5] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
+## [6] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
+## [7] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
 
 # stack the data
 landsat_post_st <- stack(all_landsat_bands_post)
@@ -134,9 +133,9 @@ You can export the NBR raster if you want using `writeRaster()`.
 
 
 ```r
-check_create_dir("data/week_07/outputs/landsat_nbr")
+check_create_dir("data/week-07/outputs/landsat_nbr")
 writeRaster(x = landsat_nbr_prefire,
-              filename="data/week_07/outputs/landsat_nbr",
+              filename="data/week-07/outputs/landsat_nbr",
               format = "GTiff", # save as a tif
               datatype='INT2S', # save as a INTEGER rather than a float
               overwrite = TRUE)
@@ -203,7 +202,6 @@ Alternatively, you can use the `Inf` to specify the smallest `-Inf` and largest
 
 
 
-
 You classified map should look something like:
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire05-calculate-NBR-with-landsat-R/classify-output-plot-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
@@ -214,7 +212,7 @@ As an example to see how your fire boundary relates to the boundary that you've
 identified using MODIS data, you can create a map with both layers. I'm using
 the shapefile in the folder:
 
-`data/week_07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
+`data/week-07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
 
 Add fire boundary to map. Note the "Spectral" colorbrewer ramp is used in the map
 below.
@@ -261,7 +259,7 @@ To calculate this you could either
 
 
 ```r
-landsat_pixels_in_fire_boundary <- extract(nbr_classified, fire_boundary_utm,
+landsat_pixels_in_fire_boundary <- raster::extract(nbr_classified, fire_boundary_utm,
                                            df = TRUE)
 
 landsat_pixels_in_fire_boundary %>%

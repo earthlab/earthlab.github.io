@@ -3,7 +3,7 @@ layout: single
 title: "How to Convert Day of Year to Year, Month, Day in R"
 excerpt: "Learn how to convert a day of year value to a normal date format in R. "
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/convert-day-of-year-to-date-in-R/

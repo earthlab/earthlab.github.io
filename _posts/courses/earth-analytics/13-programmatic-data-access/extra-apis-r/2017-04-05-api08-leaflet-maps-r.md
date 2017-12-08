@@ -3,7 +3,7 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/leaflet-r/
@@ -15,6 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 8
+topics:
+  find-and-manage-data: ['apis']
 redirect_from:
    - "/courses/earth-analytics/week-10/leaflet-r/"
 ---
@@ -300,9 +302,6 @@ unique_markers_map
 ```
 
 
-```
-## Error in resolveSizing(x, x$sizingPolicy, standalone = standalone, knitrOptions = knitrOptions): object 'unique_markers_map' not found
-```
 
 Here we use `addCircleMarkers()` and adjust the color accordingly.
 

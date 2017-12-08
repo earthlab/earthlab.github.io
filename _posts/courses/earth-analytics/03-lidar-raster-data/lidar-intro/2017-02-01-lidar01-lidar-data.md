@@ -1,15 +1,15 @@
 ---
 layout: single
-title: "Introduction to Light Detection and Ranging (lidar) remote sensing data"
+title: "What is LIDAR Data"
 excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-intro/
 nav-title: 'Intro to lidar data'
 module-title: 'Intro to lidar data'
-module-description: 'This tutorial covers the basic principles of lidar remote sensing and the three commonly used data products: the digital elevation model, digital surface model and the canopy height model. Finally, it walks through opening lidar derived raster data in R / RStudio'
+module-description: 'LIDAR is an active remote sensing technique that measures vegetation height. Learn more about discrete and full waveform LIDAR and how to use LIDAR data.'
 module-nav-title: 'Intro to lidar data'
 module-type: 'class'
 course: "earth-analytics"

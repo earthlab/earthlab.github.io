@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "GIS in R: Introduction to Coordinate Reference Systems in R "
-excerpt: "This lesson introduces what a coordinate reference system is. We will use the R programming language to explore and reproject data into geographic and projected CRSs."
+title: "Coordinate Reference System and Spatial Projection"
+excerpt: "Coordinate reference systems are used to convert locations on the earth which is round, to a two dimensional (flat) map. Learn about the differences between coordinate reference systems."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/
@@ -205,7 +205,7 @@ newTheme <- list(theme(line = element_blank(),
 
 ```r
 # read shapefile
-worldBound <- readOGR(dsn="data/week_04/global/ne_110m_land/ne_110m_land.shp")
+worldBound <- readOGR(dsn="data/week-04/global/ne_110m_land/ne_110m_land.shp")
 # convert to dataframe
 worldBound_df <- fortify(worldBound)
 ```
@@ -332,10 +332,10 @@ need to convert that `data.frame` to a spatial `data.frame` to use `spTransform(
 ```r
 # data.frame containing locations of Boulder, CO and Oslo, Norway
 loc_df
-##         lon     lat
-## 1 -105.2519 40.0274
-## 2   10.7500 59.9500
-## 3    2.9833 39.6167
+##        lon   lat
+## 1 -105.252 40.03
+## 2   10.750 59.95
+## 3    2.983 39.62
 
 # convert dataframe to spatial points data frame
 loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
@@ -344,7 +344,7 @@ loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
 loc_spdf
 ## class       : SpatialPointsDataFrame 
 ## features    : 3 
-## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
+## extent      : -105.3, 10.75, 39.62, 59.95  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 2
 ## names       :       lon,     lat 
@@ -396,7 +396,7 @@ lines.
 
 ```r
 ## import graticule shapefile data
-graticule <- readOGR("data/week_04/global/ne_110m_graticules_all",
+graticule <- readOGR("data/week-04/global/ne_110m_graticules_all",
                      layer="ne_110m_graticules_15")
 # convert spatial sp object into a ggplot ready, data.frame
 graticule_df <- fortify(graticule)
@@ -417,7 +417,7 @@ Also we will import a bounding box to make our plot look nicer!
 
 
 ```r
-bbox <- readOGR("data/week_04/global/ne_110m_graticules_all/ne_110m_wgs84_bounding_box.shp")
+bbox <- readOGR("data/week-04/global/ne_110m_graticules_all/ne_110m_wgs84_bounding_box.shp")
 bbox_df <- fortify(bbox)
 
 latLongMap <- ggplot(bbox_df, aes(long,lat, group=group)) +

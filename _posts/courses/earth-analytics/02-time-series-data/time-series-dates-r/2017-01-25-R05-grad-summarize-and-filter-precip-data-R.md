@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in R using mutate(), group_by() and summarise()"
 excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case we will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -92,7 +92,7 @@ Import the data into `R` and then view the data structure.
 
 # import precip data into R data.frame
 # be sure to handle NA values!
-precip_boulder <- read.csv("data/week_02/precipitation/805333-precip-daily-1948-2013.csv",
+precip_boulder <- read.csv("data/week-02/precipitation/805333-precip-daily-1948-2013.csv",
                            header = TRUE)
 
 # view first 6 lines of the data
@@ -156,7 +156,7 @@ hist(precip_boulder$HPCP, main ="Are there NA values?")
 
 ```r
 
-precip_boulder <- read.csv("data/week_02/precipitation/805333-precip-daily-1948-2013.csv",
+precip_boulder <- read.csv("data/week-02/precipitation/805333-precip-daily-1948-2013.csv",
                            header = TRUE, na.strings = 999.99)
 
 ```

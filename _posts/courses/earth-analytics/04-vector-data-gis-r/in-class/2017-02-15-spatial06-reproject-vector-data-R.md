@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: How to Reproject Vector Data in Different Coordinate Reference Systems (crs) in R"
 excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/reproject-vector-data/
@@ -112,15 +112,13 @@ from the Census website to support the learning goals of this tutorial.
 
 ```r
 # Import the shapefile data into R
-state_boundary_us <- readOGR("data/week_04/usa-boundary-layers",
+state_boundary_us <- readOGR("data/week-04/usa-boundary-layers",
           "US-State-Boundaries-Census-2014")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week_04/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
+## Source: "data/week-04/usa-boundary-layers", layer: "US-State-Boundaries-Census-2014"
 ## with 58 features
 ## It has 10 fields
 ## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week_04/usa-boundary-layers", "US-State-
-## Boundaries-Census-2014"): Z-dimension discarded
 
 # view data structure
 class(state_boundary_us)
@@ -149,22 +147,20 @@ plot(state_boundary_us,
 
 We can add a boundary layer of the United States to our map - to make it look
 nicer. We will import
-`data/week_04/usa-boundary-layers/US-Boundary-Dissolved-States`.
+`data/week-04/usa-boundary-layers/US-Boundary-Dissolved-States`.
 If we specify a thicker line width using `lwd = 4` for the border layer, it will
 make our map pop!
 
 
 ```r
 # Read the .csv file
-country_boundary_us <- readOGR("data/week_04/usa-boundary-layers",
+country_boundary_us <- readOGR("data/week-04/usa-boundary-layers",
           "US-Boundary-Dissolved-States")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week_04/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
+## Source: "data/week-04/usa-boundary-layers", layer: "US-Boundary-Dissolved-States"
 ## with 1 features
 ## It has 9 fields
 ## Integer64 fields read as strings:  ALAND AWATER
-## Warning in readOGR("data/week_04/usa-boundary-layers", "US-Boundary-
-## Dissolved-States"): Z-dimension discarded
 
 # look at the data structure
 class(country_boundary_us)
@@ -193,10 +189,10 @@ As we are adding these layers, take note of the class of each object. We will us
 
 ```r
 # Import a polygon shapefile
-sjer_aoi <- readOGR("data/week_04/california/SJER/vector_data",
+sjer_aoi <- readOGR("data/week-04/california/SJER/vector_data",
                       "SJER_crop")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week_04/california/SJER/vector_data", layer: "SJER_crop"
+## Source: "data/week-04/california/SJER/vector_data", layer: "SJER_crop"
 ## with 1 features
 ## It has 1 fields
 class(sjer_aoi)
@@ -322,8 +318,8 @@ object compared to the `state_boundary_us` object.
 # extent & crs for AOI
 extent(sjer_aoi)
 ## class       : Extent 
-## xmin        : 254570.6 
-## xmax        : 258867.4 
+## xmin        : 254571 
+## xmax        : 258867 
 ## ymin        : 4107303 
 ## ymax        : 4112362
 crs(sjer_aoi)
@@ -334,10 +330,10 @@ crs(sjer_aoi)
 # extent & crs for object in geographic
 extent(state_boundary_us)
 ## class       : Extent 
-## xmin        : -124.7258 
-## xmax        : -66.94989 
-## ymin        : 24.49813 
-## ymax        : 49.38436
+## xmin        : -124.7 
+## xmax        : -66.95 
+## ymin        : 24.5 
+## ymax        : 49.38
 crs(state_boundary_us)
 ## CRS arguments:
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
@@ -395,10 +391,10 @@ crs(sjer_aoi_WGS84)
 # does the extent look like decimal degrees?
 extent(sjer_aoi_WGS84)
 ## class       : Extent 
-## xmin        : -119.7626 
-## xmax        : -119.7127 
-## ymin        : 37.0799 
-## ymax        : 37.12657
+## xmin        : -119.8 
+## xmax        : -119.7 
+## ymin        : 37.08 
+## ymax        : 37.13
 ```
 
 Once our data are reprojected, we can try to plot again.
@@ -483,6 +479,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## null device 
-##           1
+## RStudioGD 
+##         2
 ```

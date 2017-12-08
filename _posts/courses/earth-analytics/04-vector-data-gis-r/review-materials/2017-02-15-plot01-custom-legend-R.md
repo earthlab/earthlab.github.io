@@ -3,7 +3,7 @@ layout: single
 title: "GIS in R: Plot Spatial Data and Create Custom Legends in R"
 excerpt: "In this lesson we break down the steps required to create a custom legend for spatial data in R. We discuss creating unique symbols per category, customizing colors and placing your legend outside of the plot using the xpd argument combined with x,y placement and margin settings."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/r-create-custom-legend-with-base-plot/
@@ -76,9 +76,9 @@ Next, import and explore the data.
 
 ```r
 # import roads
-sjer_roads <- readOGR("data/week_04/california/madera-county-roads/tl_2013_06039_roads.shp")
+sjer_roads <- readOGR("data/week-04/california/madera-county-roads/tl_2013_06039_roads.shp")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week_04/california/madera-county-roads/tl_2013_06039_roads.shp", layer: "tl_2013_06039_roads"
+## Source: "data/week-04/california/madera-county-roads/tl_2013_06039_roads.shp", layer: "tl_2013_06039_roads"
 ## with 9640 features
 ## It has 4 fields
 # view the original class of the TYPE column
@@ -420,7 +420,7 @@ need to define 3 symbols and 3 colors for our legend and our plot.
 
 ```r
 # import points layer
-sjer_plots <- readOGR("data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp")
+sjer_plots <- readOGR("data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp")
 ```
 
 
@@ -572,7 +572,7 @@ furthest_pt_east <- the_plot_extent@xmax
 furthest_pt_north <- the_plot_extent@ymax
 # view values
 furthest_pt_east
-## [1] 258867.4
+## [1] 258867
 furthest_pt_north
 ## [1] 4112362
 

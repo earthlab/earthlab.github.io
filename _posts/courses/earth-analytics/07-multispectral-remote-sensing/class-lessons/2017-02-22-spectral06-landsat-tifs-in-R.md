@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Landsat Remote Sensing tif Files in R"
+title: "Landsat Remote Sensing Tif Files in R"
 excerpt: "In this lesson you will cover the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/landsat-data-in-r-geotiff/
@@ -189,7 +189,7 @@ grab a list of all files within any directory on your computer.
 
 ```r
 # get list of all tifs
-list.files("data/week_07/landsat/LC80340322016205-SC20170127160728/crop")
+list.files("data/week-07/landsat/LC80340322016205-SC20170127160728/crop")
 ##  [1] "LC80340322016205LGN00_bqa_crop.tif"        
 ##  [2] "LC80340322016205LGN00_cfmask_conf_crop.tif"
 ##  [3] "LC80340322016205LGN00_cfmask_crop.tif"     
@@ -216,22 +216,22 @@ pattern to tell `R` to only grab files that end with .tif.
 
 ```r
 # but really you just want the tif files
-all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
+all_landsat_bands <- list.files("data/week-07/Landsat/LC80340322016205-SC20170127160728/crop",
                       pattern = ".tif$",
                       full.names = TRUE) # make sure you have the full path to the file
 all_landsat_bands
-##  [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_bqa_crop.tif"        
-##  [2] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_cfmask_conf_crop.tif"
-##  [3] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_cfmask_crop.tif"     
-##  [4] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"   
-##  [5] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"   
-##  [6] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"   
-##  [7] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"   
-##  [8] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"   
-##  [9] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"   
-## [10] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"   
-## [11] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_cloud_crop.tif"   
-## [12] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_ipflag_crop.tif"
+##  [1] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_bqa_crop.tif"        
+##  [2] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_cfmask_conf_crop.tif"
+##  [3] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_cfmask_crop.tif"     
+##  [4] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"   
+##  [5] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"   
+##  [6] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"   
+##  [7] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"   
+##  [8] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"   
+##  [9] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"   
+## [10] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"   
+## [11] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_cloud_crop.tif"   
+## [12] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_ipflag_crop.tif"
 ```
 
 Above, you use the `$` after `.tif` to tell `R` to look for files that end with .tif.
@@ -256,17 +256,17 @@ each file needs to end with `.tif`.
 
 
 ```r
-all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016205-SC20170127160728/crop",
+all_landsat_bands <- list.files("data/week-07/Landsat/LC80340322016205-SC20170127160728/crop",
            pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 all_landsat_bands
-## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
-## [2] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
-## [3] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
-## [4] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
-## [5] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
-## [6] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
-## [7] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
+## [1] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band1_crop.tif"
+## [2] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
+## [3] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band3_crop.tif"
+## [4] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band4_crop.tif"
+## [5] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band5_crop.tif"
+## [6] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band6_crop.tif"
+## [7] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band7_crop.tif"
 ```
 
 ## Open the .tif Files in R
@@ -278,7 +278,7 @@ open each file individually using the `raster()` function.
 ```r
 # get first file
 all_landsat_bands[2]
-## [1] "data/week_07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
+## [1] "data/week-07/Landsat/LC80340322016205-SC20170127160728/crop/LC80340322016205LGN00_sr_band2_crop.tif"
 landsat_band2 <- raster(all_landsat_bands[2])
 plot(landsat_band2,
      main = "Landsat cropped band 2\nColdsprings fire scar",

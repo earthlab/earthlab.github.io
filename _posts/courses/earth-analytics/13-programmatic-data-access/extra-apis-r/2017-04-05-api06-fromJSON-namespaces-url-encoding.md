@@ -3,7 +3,7 @@ layout: single
 title: "Understand namespaces in R - what package does your fromJSON() function come from?"
 excerpt: "This lesson covers namespaces in R and how we can tell R where to get a function from (what code to use) in R."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/namespaces-in-r/
@@ -15,6 +15,8 @@ sidebar:
 author_profile: false
 comments: true
 order: 6
+topics:
+  find-and-manage-data: ['apis']
 redirect_from:
    - "/courses/earth-analytics/week-10/namespaces-in-r/"
 ---
@@ -60,8 +62,8 @@ website. We used this call in the previous lesson. We know it works!
 
 ```r
 # Base URL path
-base_url = "https://data.colorado.gov/resource/tv8u-hswn.json?"
-full_url = paste0(base_url, "county=Boulder",
+base_url <- "https://data.colorado.gov/resource/tv8u-hswn.json?"
+full_url <- paste0(base_url, "county=Boulder",
              "&$where=age between 20 and 40",
              "&$select=year,age,femalepopulation")
 # view full url
@@ -152,10 +154,10 @@ pop_proj_data_df <- jsonlite::fromJSON(full_url)
 pop_proj_data_df <- rjson::fromJSON(full_url)
 ## Error in rjson::fromJSON(full_url): unexpected character 'h'
 pop_proj_data_df <- RJSONIO::fromJSON(full_url)
-## Error in loadNamespace(name): there is no package called 'RJSONIO'
+## Error in file(con, "r"): cannot open the connection to 'https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation'
 ```
 
-Above, notice that we get 3 unique errors from the same function call. HOwever, each
+Above, notice that we get 3 unique errors from the same function call. However, each
 time we called the function from a different package!
 
 Next, let's see which of these functions plays nicely if we encode the URL first,
@@ -251,9 +253,14 @@ format!
 
 ```r
 pop_proj_data_df2 <- RJSONIO::fromJSON(full_url_encoded)
-## Error in loadNamespace(name): there is no package called 'RJSONIO'
 head(pop_proj_data_df2, n=2)
-## Error in head(pop_proj_data_df2, n = 2): object 'pop_proj_data_df2' not found
+## [[1]]
+##              age femalepopulation             year 
+##             "20"           "2751"           "1990" 
+## 
+## [[2]]
+##              age femalepopulation             year 
+##             "21"           "2615"           "1990"
 ```
 
 Here we see different results jet from the RJSONIO package. We would need to once

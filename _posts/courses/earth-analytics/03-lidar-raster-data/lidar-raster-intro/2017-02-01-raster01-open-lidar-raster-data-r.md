@@ -1,11 +1,11 @@
 ---
 layout: single
-title: "Introduction to lidar raster data products"
+title: "Introduction to Lidar Raster Data Products"
 excerpt: "This lesson introduces the raster geotiff file format - which is often used
 to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/open-lidar-raster-r/
@@ -96,7 +96,7 @@ Note that we use the `plot()` function to plot the data. The function argument
 
 ```r
 # open raster data
-lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+lidar_dem <- raster(x="data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
 plot(lidar_dem,

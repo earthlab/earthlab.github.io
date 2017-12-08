@@ -3,7 +3,7 @@ layout: single
 title: "Create Maps of Social Media Twitter Tweet Locations Over Time in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/map-tweet-locations-over-time-r/
@@ -102,10 +102,6 @@ flood_tweets <- tweet_data %>%
   separate(coords.coordinates, c("long", "lat"), sep = ", ") %>%
   mutate_at(c("lat", "long"), as.numeric) %>%
   filter(date_time >= start_date & date_time <= end_date )
-## Warning: Too few values at 14878 locations: 2, 4, 6, 7, 8, 9, 10, 11, 12,
-## 15, 19, 21, 22, 23, 26, 27, 28, 29, 30, 31, ...
-## Warning in evalq(as.numeric(long), <environment>): NAs introduced by
-## coercion
 ```
 
 In the previous lesson, you used text mining approaches to understand what people
@@ -293,7 +289,6 @@ grouped_tweet_map <- world_basemap + geom_point(data = tweet_locations_grp,
                         aes(long_round, lat_round, frame = day, size = total_count),
                         color = "purple", alpha = .5) + coord_fixed() +
   labs(title = "Twitter Activity during the 2013 Colorado Floods")
-## Warning: Ignoring unknown aesthetics: frame
 
 grouped_tweet_map
 ```

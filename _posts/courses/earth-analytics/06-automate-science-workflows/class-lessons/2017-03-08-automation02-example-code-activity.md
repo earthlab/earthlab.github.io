@@ -3,7 +3,7 @@ layout: single
 title: "What Could be Improved In this R Code?"
 excerpt: ""
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/example-clean-code-activity-r/
@@ -41,25 +41,25 @@ You will need a computer with internet access to complete this lesson.
 
 ```r
 #start my analysis
-read.csv("data/week_06/outputs/precip_mm/precip-2003.csv")
+read.csv("data/week-06/outputs/precip_mm/precip-2003.csv")
 plot(data)
 
-mydata <- read.csv("data/week_06/outputs/precip_mm/precip-2003.csv")
+mydata <- read.csv("data/week-06/outputs/precip_mm/precip-2003.csv")
 myData$newcolumn <- mydata$precip * 12 / 2
-my.data <-read.csv("data/week_06/outputs/precip_mm/precip-2004.csv")
+my.data <-read.csv("data/week-06/outputs/precip_mm/precip-2004.csv")
 my.data$newcolumn <- mydata$precip * 12 / 2
-my.data<-read.csv("data/week_06/outputs/precip_mm/precip-2006.csv")
+my.data<-read.csv("data/week-06/outputs/precip_mm/precip-2006.csv")
 my.data$newcolumn <- mydata$precip * 12 / 2
-my.data <-read.csv("data/week_06/outputs/precip_mm/precip-2007.csv")
+my.data <-read.csv("data/week-06/outputs/precip_mm/precip-2007.csv")
 my.data$newcolumn <- mydata$precip * 12 / 2
-my.data <-read.csv("data/week_06/outputs/precip_mm/precip-20010.csv")
+my.data <-read.csv("data/week-06/outputs/precip_mm/precip-20010.csv")
 my.data$newcolumn <- mydata$precip * 12 / 2
 plot(mydata)
 #export stuff -  i should do this for all of my csv files
 write.csv(mydata)
 
 
-my.data <-read.csv("data/week_06/outputs/precip_mm/precip-2008.csv")
+my.data <-read.csv("data/week-06/outputs/precip_mm/precip-2008.csv")
 my.data$newcolumn <- mydata$month
 #testing some stuff with pipes
 outputs <- my.data %>%
@@ -71,7 +71,7 @@ plot(mydata)
 #export stuff
 write.csv(mydata)
 
-my.data <-read.csv("data/week_06/outputs/precip_mm/precip-2009.csv")
+my.data <-read.csv("data/week-06/outputs/precip_mm/precip-2009.csv")
 my.data$newcolumn <- mydata$month
 #testing some stuff with pipes
 outputs <- my.data %>%
@@ -83,7 +83,7 @@ plot(mydata)
 #export stuff
 write.csv(mydata)
 
-my.data <-read.csv("data/week_06/outputs/precip_mm/precip-2006.csv")
+my.data <-read.csv("data/week-06/outputs/precip_mm/precip-2006.csv")
 my.data$newcolumn <- mydata$month
 #testing some stuff with pipes
 outputs2 <- my.data %>%
@@ -95,9 +95,9 @@ plot(mydata)
 #export stuff
 write.csv(mydata)
 
-my.data <-read.csv("data/week_06/outputs/precip_mm/precip-2009.csv")
-my.data<-read.csv("data/week_06/outputs/precip_mm/precip-2012.csv")
-my.data <-read.csv("data/week_06/outputs/precip_mm/precip-2013.csv")
+my.data <-read.csv("data/week-06/outputs/precip_mm/precip-2009.csv")
+my.data<-read.csv("data/week-06/outputs/precip_mm/precip-2012.csv")
+my.data <-read.csv("data/week-06/outputs/precip_mm/precip-2013.csv")
 
 #not sure why everything isn't plotting
 plot(my.data)

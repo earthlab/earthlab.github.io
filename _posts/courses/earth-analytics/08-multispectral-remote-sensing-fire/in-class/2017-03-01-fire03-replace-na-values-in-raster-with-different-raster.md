@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in R"
-excerpt: "."
+excerpt: "Often data have missing or bad data values that you need to replace. Learn how to replace missing or bad data values in a raster, with values from another raster in the same pixel location using the cover function in R."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-r/
@@ -19,6 +19,7 @@ topics:
   remote-sensing: ['landsat']
   earth-science: ['fire']
   spatial-data-and-gis: ['raster-data']
+  find-and-manage-data: ['missing-data-nan']
 lang-lib:
   r: []
 ---
@@ -51,7 +52,7 @@ Convert it to a rasterbrick.
 
 ```r
 # import data with less cloud cover
-all_landsat_bands_pre_nocloud <- list.files("data/week_07/Landsat/LC80340322016173-SC20170227185411",
+all_landsat_bands_pre_nocloud <- list.files("data/week-07/Landsat/LC80340322016173-SC20170227185411",
                                 pattern = glob2rx("*band*.tif$"),
                                 full.names = TRUE)
 all_landsat_bands_pre_nocloud_st <- stack(all_landsat_bands_pre_nocloud)
@@ -67,7 +68,7 @@ plotRGB(all_landsat_bands_pre_nocloud_br, 4,3,2,
 ```r
 # import the data with the clouds
 # create a list of all landsat files that have the extension .tif and contain the word band.
-all_landsat_bands_cloudy <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands_cloudy <- list.files("data/week-07/Landsat/LC80340322016189-SC20170128091153/crop",
            pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 # create spatial raster stack from the list of file names
@@ -85,7 +86,7 @@ Apply the cloud mask to the cloudy data.
 
 ```r
 # open cloud mask layer
-cloud_mask_189 <- raster("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_crop.tif")
+cloud_mask_189 <- raster("data/week-07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_crop.tif")
 
 cloud_mask_189[cloud_mask_189 > 0] <- NA
 
