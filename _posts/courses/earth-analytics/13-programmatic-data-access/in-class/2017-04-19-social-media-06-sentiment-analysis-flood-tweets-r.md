@@ -3,7 +3,7 @@ layout: single
 title: "Sentiment Analysis of Colorado Flood Tweets in R"
 excerpt: "Learn how to perform a basic sentiment analysis using the tidytext package in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/sentiment-analysis-of-twitter-data-r/
@@ -22,7 +22,6 @@ topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
 ---
-
 
 
 
@@ -185,12 +184,11 @@ flood_tweets_2013 <- tweet_data %>%
          month = as.yearmon(date_time))
 
 # get a list of words
-flood_tweet_clean_2013 <- flood_tweets %>%
+flood_tweet_clean_2013 <- flood_tweets_2013 %>%
   dplyr::select(tweet_text, month) %>%
   unnest_tokens(word, tweet_text) %>%
   anti_join(stop_words) %>%
   filter(!word %in% c("rt", "t.co"))
-## Error: `month` must resolve to integer column positions, not a function
 
 
 # plot the top 15 words -- notice any issues?
@@ -205,8 +203,9 @@ flood_tweet_clean_2013 %>%
   labs(x = "Count",
        y = "Unique words",
        title = "Count of unique words found in a year's worth of tweets")
-## Error in eval(lhs, parent, parent): object 'flood_tweet_clean_2013' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-06-sentiment-analysis-flood-tweets-r/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="90%" />
 
 
 
@@ -223,12 +222,10 @@ bing_sentiment_2013 <- flood_tweet_clean_2013 %>%
   # create a date / sentiment column for sorting
   mutate(sent_date = paste0(month, " - ", sentiment)) %>%
   arrange(month, sentiment, n)
-## Error in eval(lhs, parent, parent): object 'flood_tweet_clean_2013' not found
 
 
 bing_sentiment_2013$sent_date <- factor(bing_sentiment_2013$sent_date,
        levels = unique(bing_sentiment_2013$sent_date))
-## Error in factor(bing_sentiment_2013$sent_date, levels = unique(bing_sentiment_2013$sent_date)): object 'bing_sentiment_2013' not found
 
 
 # group by month and sentiment and then plot top 5 words each month
@@ -240,8 +237,9 @@ bing_sentiment_2013 %>%
        y = "Number of Times Word Appeared in Tweets",
        x = NULL) +
   coord_flip()
-## Error in eval(lhs, parent, parent): object 'bing_sentiment_2013' not found
 ```
+
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-06-sentiment-analysis-flood-tweets-r/sentiment-by-month-1.png" title="plot of chunk sentiment-by-month" alt="plot of chunk sentiment-by-month" width="90%" />
 
 
 <div class="notice--info" markdown="1">

@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "LIDAR Accuracy in LIDAR Tree Canopy Height Models"
-excerpt: "LIDAR accuracy needs to be addressed when creating LIDAR tree canopy height models. Explore the uncertainty associated with LIDAR raster data in R."
+title: "Sources of Error in Lidar and Human Measured Estimates of Tree Height"
+excerpt: "There are difference sources of error when we measure tree height using Lidar. Learn about accuracy, precision and the sources of error associated with Lidar remote sensing data."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/about-uncertainty-lidar/
@@ -107,10 +107,10 @@ tree_heights <- data.frame(heights = c(10, 10.1, 9.9, 9.5, 9.7, 9.8,
                                      9.6, 10.5, 10.7, 10.3, 10.6))
 # what is the average tree height
 mean(tree_heights$heights)
-## [1] 10.06364
+## [1] 10.06
 # what is the standard deviation of measurements?
 sd(tree_heights$heights)
-## [1] 0.4129715
+## [1] 0.413
 boxplot(tree_heights$heights,
         main = "Distribution of tree height measurements (m)",
         ylab = "Height (m)",

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & work with time series data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2017-11-16'
+modified: '2017-12-08'
 week-landing: 2
 week: 2
 sidebar:
@@ -115,12 +115,12 @@ figure caption to each plot that describes the contents of the plot.
 Add the code to produce the following 4 plots in your `R Markdown` document, [using the homework lessons as a guide to walk you through]({{site.url}}/courses/earth-analytics/time-series-data/plot-data-with-ggplot2-r/). Use the pipes syntax that we learned in
 class to subset and summarize the data as required.
 
-Use the `data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv` file to create:
+Use the `data/week-02/precipitation/805325-precip-dailysum-2003-2013.csv` file to create:
 
 * **PLOT 1:** a plot of precipitation from 2003 to 2013 using the `ggplot()` function.
 * **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using the `ggplot()` function.
 
-Use the `data/week_02/discharge/06730200-discharge-daily-1986-2013.csv` file to create:
+Use the `data/week-02/discharge/06730200-discharge-daily-1986-2013.csv` file to create:
 
 * **PLOT 3:** a plot of stream discharge from 1986 to 2013 using `ggplot()` function.
 * **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using the `ggplot()` function.

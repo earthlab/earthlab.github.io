@@ -4,7 +4,7 @@ title: "Introduction to Lidar Point Cloud Data - Active Remote Sensing"
 excerpt: "This lesson covers what a lidar point cloud is. We will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
-modified: '2017-11-24'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/explore-lidar-point-clouds-plasio/

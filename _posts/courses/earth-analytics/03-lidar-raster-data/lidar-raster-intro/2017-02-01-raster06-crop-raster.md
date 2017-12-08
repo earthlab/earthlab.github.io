@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "Clip Raster in R"
-excerpt: "You can clip a raster to polygon extent to save processing time and make images more manageable. Learn how to crop a raster dataset in R."
+excerpt: "You can clip a raster to a polygon extent to save processing time and make image sizes smaller. Learn how to crop a raster dataset in R."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/crop-raster-data-in-r/
@@ -82,7 +82,7 @@ canopy height model that we created in the previous lesson
 
 ```r
 # open raster layer
-lidar_chm <- raster("data/week_03/BLDR_LeeHill/outputs/lidar_chm.tif")
+lidar_chm <- raster("data/week-03/BLDR_LeeHill/outputs/lidar_chm.tif")
 
 # plot CHM
 plot(lidar_chm,
@@ -100,9 +100,9 @@ to use to crop our data. To open a shapefile we use the `readOGR()` function.
 
 ```r
 # import the vector boundary
-crop_extent <- readOGR("data/week_03/BLDR_LeeHill/clip-extent.shp")
+crop_extent <- readOGR("data/week-03/BLDR_LeeHill/clip-extent.shp")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week_03/BLDR_LeeHill/clip-extent.shp", layer: "clip-extent"
+## Source: "data/week-03/BLDR_LeeHill/clip-extent.shp", layer: "clip-extent"
 ## with 1 features
 ## It has 1 fields
 ## Integer64 fields read as strings:  id
@@ -155,7 +155,7 @@ difference between two canopy height models.
 extracted from the pre and post flood Digital Terrain Models before and after the flood.
 
 Create the same two plots except this time CROP each of the rasters that you plotted
-using the shapefile: `data/week_03/BLDR_LeeHill/crop_extent.shp`
+using the shapefile: `data/week-03/BLDR_LeeHill/crop_extent.shp`
 
 For each plot, be sure to:
 

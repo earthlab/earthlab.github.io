@@ -3,7 +3,7 @@ layout: single
 title: "Use lapply in R Instead of For Loops to Process .csv files - Efficient Coding in R"
 excerpt: "Learn how to take code in a for loop and convert it to be used in an apply function. Make your R code more efficient and expressive programming."
 authors: ['Leah Wasser', 'Bryce Mecum', 'Max Joseph']
-modified: '2017-11-16'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/use-apply-functions-for-efficient-code-r/
@@ -95,7 +95,7 @@ lapply
 ##         X <- as.list(X)
 ##     .Internal(lapply(X, FUN))
 ## }
-## <bytecode: 0x1020f3208>
+## <bytecode: 0x103037008>
 ## <environment: namespace:base>
 ```
 
@@ -105,7 +105,7 @@ lapply
 library(parallel)
 # how many cores are on this machine
 detectCores()
-## [1] 4
+## [1] 8
 ```
 
 ## Use lapply to Process Lists of Files
@@ -149,7 +149,7 @@ all_precip_files <- list.files("data/week_06", pattern = "*.csv",
                              full.names = TRUE)
 
 # create an object with the directory name
-the_dir <- "data/week_06/outputs/precip_mm"
+the_dir <- "data/week-06/outputs/precip_mm"
 # check to see if the directory exists - make it if it doesn't
 check_create_dir(the_dir)
 
@@ -193,7 +193,7 @@ Then use `list.files()` to get a list of all of the files that you'd like to pro
 
 ```r
 
-the_dir_ex <- "data/week_06/outputs/example"
+the_dir_ex <- "data/week-06/outputs/example"
 check_create_dir(the_dir_ex)
 # get a list of all files that you want to process
 # you can use a list with the lapply function
@@ -212,38 +212,7 @@ them up for readability).
 lapply(all_precip_files,
        FUN = summarize_data,
        the_dir = the_dir_ex)
-## [[1]]
-## NULL
-## 
-## [[2]]
-## NULL
-## 
-## [[3]]
-## NULL
-## 
-## [[4]]
-## NULL
-## 
-## [[5]]
-## NULL
-## 
-## [[6]]
-## NULL
-## 
-## [[7]]
-## NULL
-## 
-## [[8]]
-## NULL
-## 
-## [[9]]
-## NULL
-## 
-## [[10]]
-## NULL
-## 
-## [[11]]
-## NULL
+## list()
 ```
 
 
@@ -269,11 +238,11 @@ faster than the `for loop`.
 library(microbenchmark)
 microbenchmark(invisible(lapply(all_precip_files, (FUN = summarize_data),
        the_dir = the_dir_ex)))
-## Unit: milliseconds
+## Unit: microseconds
 ##                                                                               expr
 ##  invisible(lapply(all_precip_files, (FUN = summarize_data), the_dir = the_dir_ex))
-##       min       lq     mean   median       uq     max neval
-##  145.4728 152.8844 174.1476 162.1045 190.3184 314.214   100
+##    min    lq  mean median    uq   max neval
+##  1.061 1.187 1.644  1.252 1.504 22.96   100
 ```
 
 
@@ -296,8 +265,8 @@ microbenchmark(for (file in all_precip_files) {
 ## Unit: milliseconds
 ##                                                                                                                                                                                                                                                                                                                                           expr
 ##  for (file in all_precip_files) {     the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%          mutate(DATE = as.POSIXct(DATE, tz = "America/Denver",              format = "%Y-%m-%d %H:%M:%S"), precip_mm = in_to_mm(HPCP))     write.csv(the_data, file = paste0(the_dir, "/", basename(file)),          na = "999.99") }
-##       min       lq    mean   median       uq      max neval
-##  152.2877 163.9033 190.829 180.7932 202.6348 549.6298   100
+##    min    lq  mean median   uq  max neval
+##  4.747 5.091 5.623  5.437 5.88 21.5   100
 ```
 
 <!--RETURN a single data.frame do.call(rbind, lapply(file_paths, function(path) { read.csv(path, stringsAsFactors = FALSZE }))-->

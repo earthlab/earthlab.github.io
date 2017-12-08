@@ -3,7 +3,7 @@ layout: single
 title: "Clean Remote Sensing Data in R - Clouds, Shadows & Cloud Masks"
 excerpt: "In this lesson, you will learn how to deal with clouds when working with spectral remote sensing data. You will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. You will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2017-10-30'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/intro-spectral-data-r/
@@ -101,7 +101,7 @@ Next, you will load the landsat bands that you loaded previously in your homewor
 
 ```r
 # create a list of all landsat files that have the extension .tif and contain the word band.
-all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands <- list.files("data/week-07/Landsat/LC80340322016189-SC20170128091153/crop",
            pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 # create spatial raster stack from the list of file names
@@ -148,7 +148,7 @@ Let's have a look at these layers next.
 
 ```r
 # open cloud mask layer
-cloud_mask_189_conf <- raster("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_conf_crop.tif")
+cloud_mask_189_conf <- raster("data/week-07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_conf_crop.tif")
 plot(cloud_mask_189_conf,
   main = "Landsat Julian Day 189 - Cloud mask layer.")
 ```
@@ -160,7 +160,7 @@ Next, you can plot the second mask layer. Do you notice any difference between t
 
 ```r
 # apply shadow mask
-cloud_mask_189 <- raster("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_crop.tif")
+cloud_mask_189 <- raster("data/week-07/Landsat/LC80340322016189-SC20170128091153/crop/LC80340322016189LGN00_cfmask_crop.tif")
 plot(cloud_mask_189,
   main = "Landsat Julian Day 189 - Cloud mask layer with shadows.")
 ```
@@ -174,7 +174,7 @@ However what do the values stored in those rasters mean? You can refer to the
 metadata provided when you downloaded the Landsat data to learn more about how
 each layer in your landsat dataset are both stored and calculated.
 
-Let's open the metadata file: `data/week_07/landsat/LC80340322016189-SC20170128091153/LC80340322016189LGN00.xml`
+Let's open the metadata file: `data/week-07/landsat/LC80340322016189-SC20170128091153/LC80340322016189LGN00.xml`
 What does it tell us?
 
 <figure>

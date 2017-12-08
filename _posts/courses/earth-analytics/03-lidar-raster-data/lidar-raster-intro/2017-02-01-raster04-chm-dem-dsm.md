@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Create a Digital Elevation Model With LIDAR Data"
-excerpt: "A digital elevation model shows elevation and helps calculate landscape change over time. Learn how to use LIDAR elevation data to calculate canopy height."
+title: "Create a Canopy Height Model With LIDAR Data"
+excerpt: "A canopy height model contains height values trees and can be used to understand landscape change over time. Learn how to use LIDAR elevation data to calculate canopy height and change in terrain over time."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-chm-dem-dsm/
@@ -110,7 +110,7 @@ First, let's open and plot the digital elevation model.
 
 ```r
 # open raster data
-lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+lidar_dem <- raster(x="data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # plot raster data
 plot(lidar_dem,
@@ -126,7 +126,7 @@ sit on the Earth.
 
 ```r
 # open raster data
-lidar_dsm <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
+lidar_dsm <- raster(x="data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DSM.tif")
 
 # plot raster data
 plot(lidar_dsm,
@@ -201,21 +201,21 @@ Explorer.
 
 ```r
 # check to see if an output directory exists
-dir.exists("data/week_03/outputs")
+dir.exists("data/week-03/outputs")
 ## [1] TRUE
 
 # if the output directory doesn't exist, create it
-if (dir.exists("data/week_03/outputs")) {
+if (dir.exists("data/week-03/outputs")) {
   print("the directory exists!")
   } else {
     # if the directory doesn't exist, create it
-    # recursive tells R to create the entire directory path (data/week_03/outputs)
-    dir.create("data/week_03/outputs", recursive=TRUE)
+    # recursive tells R to create the entire directory path (data/week-03/outputs)
+    dir.create("data/week-03/outputs", recursive=TRUE)
   }
 ## [1] "the directory exists!"
 
 # export CHM object to new GeotIFF
-writeRaster(lidar_chm, "data/week_03/outputs/lidar_chm.tiff",
+writeRaster(lidar_chm, "data/week-03/outputs/lidar_chm.tiff",
             format="GTiff",  # output format = GeoTIFF
             overwrite=TRUE) # CAUTION: if this is true, it will overwrite an existing file
 
@@ -228,10 +228,10 @@ R to return the INVERSE or opposite of the function you have requested `R` run.
 
 ```r
 # if the output directory doesn't exist, create it
-if (!dir.exists("data/week_03/outputs")) {
+if (!dir.exists("data/week-03/outputs")) {
     # if the directory doesn't exist, create it
-    # recursive tells R to create the entire directory path (data/week_03/outputs)
-    dir.create("data/week_03/outputs", recursive=TRUE)
+    # recursive tells R to create the entire directory path (data/week-03/outputs)
+    dir.create("data/week-03/outputs", recursive=TRUE)
 }
 ```
 </div>
