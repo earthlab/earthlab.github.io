@@ -3,7 +3,7 @@ layout: single
 title: "Access secure data connections using the RCurl R package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/access-gapminder-data-rcurl-r/
@@ -20,6 +20,7 @@ topics:
 redirect_from:
    - "/courses/earth-analytics/week-10/access-gapminder-data-rcurl-r/"
 ---
+
 
 {% include toc title = "In This Lesson" icon="file-text" %}
 
@@ -116,12 +117,12 @@ gap_data <- read.csv(file_url,
                      sep = "\t")
 head(gap_data)
 ##       country continent year lifeExp      pop gdpPercap
-## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
-## 2 Afghanistan      Asia 1957  30.332  9240934  820.8530
-## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
-## 4 Afghanistan      Asia 1967  34.020 11537966  836.1971
-## 5 Afghanistan      Asia 1972  36.088 13079460  739.9811
-## 6 Afghanistan      Asia 1977  38.438 14880372  786.1134
+## 1 Afghanistan      Asia 1952   28.80  8425333     779.4
+## 2 Afghanistan      Asia 1957   30.33  9240934     820.9
+## 3 Afghanistan      Asia 1962   32.00 10267083     853.1
+## 4 Afghanistan      Asia 1967   34.02 11537966     836.2
+## 5 Afghanistan      Asia 1972   36.09 13079460     740.0
+## 6 Afghanistan      Asia 1977   38.44 14880372     786.1
 ```
 
 That looks better.

@@ -4,7 +4,7 @@ title: "Extract Raster Values Using Vector Boundaries in R"
 excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
 vector boundary. We can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where we measured tree heights on the ground. Finally we will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/extract-data-from-raster/
@@ -74,14 +74,14 @@ subtracting the digital elevation model (`DEM`) from the digital surface model (
 
 ```r
 # import canopy height model (CHM).
-SJER_chm <- raster("data/week_04/california/SJER/2013/lidar/SJER_lidarCHM.tif")
+SJER_chm <- raster("data/week-04/california/SJER/2013/lidar/SJER_lidarCHM.tif")
 SJER_chm
 ## class       : RasterLayer 
 ## dimensions  : 5059, 4296, 21733464  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 254571, 258867, 4107303, 4112362  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week_04/california/SJER/2013/lidar/SJER_lidarCHM.tif 
+## data source : /Users/lewa8222/Dropbox/earth-analytics/data/week-04/california/SJER/2013/lidar/SJER_lidarCHM.tif 
 ## names       : SJER_lidarCHM 
 ## values      : 0, 45.88  (min, max)
 
@@ -90,8 +90,6 @@ hist(SJER_chm,
      main = "Histogram of Canopy Height\n NEON SJER Field Site",
      col = "springgreen",
      xlab = "Height (m)")
-## Warning in .hist1(x, maxpixels = maxpixels, main = main, plot = plot, ...):
-## 0% of the raster cells were used. 100000 values used.
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial02-extract-raster-values/import-chm-1.png" title="Histogram of CHM values" alt="Histogram of CHM values" width="90%" />
@@ -131,9 +129,9 @@ located in `SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv`.
 
 ```r
 # import plot centroids
-SJER_plots <- readOGR("data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp")
+SJER_plots <- readOGR("data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp", layer: "SJER_plot_centroids"
+## Source: "data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 
@@ -187,13 +185,13 @@ SJER_height <- raster::extract(SJER_chm,
 
 # view structure of the spatial data frame attribute table
 head(SJER_height@data)
-##    Plot_ID  Point northing  easting plot_type SJER_lidarCHM
-## 1 SJER1068 center  4111568 255852.4     trees     11.544348
-## 2  SJER112 center  4111299 257407.0     trees     10.355685
-## 3  SJER116 center  4110820 256838.8     grass      7.511956
-## 4  SJER117 center  4108752 256176.9     trees      7.675347
-## 5  SJER120 center  4110476 255968.4     grass      4.591176
-## 6  SJER128 center  4111389 257078.9     trees      8.979005
+##    Plot_ID  Point northing easting plot_type SJER_lidarCHM
+## 1 SJER1068 center  4111568  255852     trees        11.544
+## 2  SJER112 center  4111299  257407     trees        10.356
+## 3  SJER116 center  4110820  256839     grass         7.512
+## 4  SJER117 center  4108752  256177     trees         7.675
+## 5  SJER120 center  4110476  255968     grass         4.591
+## 6  SJER128 center  4111389  257079     trees         8.979
 # note that this is a spatial points data frame
 class(SJER_height)
 ## [1] "SpatialPointsDataFrame"
@@ -214,13 +212,13 @@ colnames(SJER_height@data)[6]
 # rename the column
 colnames(SJER_height@data)[6] <- "lidar_mean_ht"
 head(SJER_height@data)
-##    Plot_ID  Point northing  easting plot_type lidar_mean_ht
-## 1 SJER1068 center  4111568 255852.4     trees     11.544348
-## 2  SJER112 center  4111299 257407.0     trees     10.355685
-## 3  SJER116 center  4110820 256838.8     grass      7.511956
-## 4  SJER117 center  4108752 256176.9     trees      7.675347
-## 5  SJER120 center  4110476 255968.4     grass      4.591176
-## 6  SJER128 center  4111389 257078.9     trees      8.979005
+##    Plot_ID  Point northing easting plot_type lidar_mean_ht
+## 1 SJER1068 center  4111568  255852     trees        11.544
+## 2  SJER112 center  4111299  257407     trees        10.356
+## 3  SJER116 center  4110820  256839     grass         7.512
+## 4  SJER117 center  4108752  256177     trees         7.675
+## 5  SJER120 center  4110476  255968     grass         4.591
+## 6  SJER128 center  4111389  257079     trees         8.979
 ```
 
 #### Explore the Data Distribution

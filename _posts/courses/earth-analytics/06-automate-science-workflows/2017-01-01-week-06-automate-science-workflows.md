@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions & Automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
-modified: '2017-11-16'
+modified: '2017-12-08'
 week-landing: 6
 week: 6
 sidebar:
@@ -99,8 +99,8 @@ the_answer <- function(num1, num2){
 
 For this week's assignment, write some code that does the following.
 
-1. Write a `for loop` that breaks up the file: `"data/week_02/precipitation/805325-precip-daily-2003-2013.csv"` into yearly `.csv` files.
-2. Each `.csv` file should be saved in `data/week_06/`.
+1. Write a `for loop` that breaks up the file: `"data/week-02/precipitation/805325-precip-daily-2003-2013.csv"` into yearly `.csv` files.
+2. Each `.csv` file should be saved in `data/week-06/`.
 3. Each `.csv` file should contain a `month` column with the month specified as a numeric value between 1-12.
 
 
@@ -119,7 +119,7 @@ for (the_year in min_yr:max_yr) {
     # use pipes to filter the data by year
 
 
-   # export a .csv file with the year in the name to your data/week_06/ dir
+   # export a .csv file with the year in the name to your data/week-06/ dir
 }
 ```
 
@@ -131,29 +131,29 @@ HINT: If you followed along in class, then you have already written this code! [
 For each of the `.csv` files that you created above:
 
 1. Create a new `.csv` file that contains the total **monthly** precipitation in mm.
-2. Name that file `data/week_06/outputs/precip_mm/precip-year.csv` - note that you will need to make new directories to save the file to the path listed.
+2. Name that file `data/week-06/outputs/precip_mm/precip-year.csv` - note that you will need to make new directories to save the file to the path listed.
 
 An example of what the final data should look like is below:
 
 
 ```r
 # open data
-precip_2003 <- read.csv("data/week_06/outputs/precip_mm/precip-2003.csv")
+precip_2003 <- read.csv("data/week-06/outputs/precip_mm/precip-2003.csv")
 head(precip_2003, n = 6)
 ##   X.1 X     STATION    STATION_NAME ELEVATION LATITUDE LONGITUDE
-## 1   1 1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
-## 2   2 2 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
-## 3   3 3 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
-## 4   4 4 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
-## 5   5 5 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
-## 6   6 6 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 1   1 1 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
+## 2   2 2 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
+## 3   3 3 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
+## 4   4 4 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
+## 5   5 5 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
+## 6   6 6 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
 ##                  DATE HPCP Measurement.Flag Quality.Flag month precip_mm
-## 1 2003-01-01 01:00:00  0.0                g       999.99     1      0.00
-## 2 2003-02-01 01:00:00  0.0                g       999.99     2      0.00
-## 3 2003-02-02 19:00:00  0.2                        999.99     2      5.08
-## 4 2003-02-02 22:00:00  0.1                        999.99     2      2.54
-## 5 2003-02-03 02:00:00  0.1                        999.99     2      2.54
-## 6 2003-02-05 02:00:00  0.1                        999.99     2      2.54
+## 1 2003-01-01 01:00:00  0.0                g         1000     1      0.00
+## 2 2003-02-01 01:00:00  0.0                g         1000     2      0.00
+## 3 2003-02-02 19:00:00  0.2                          1000     2      5.08
+## 4 2003-02-02 22:00:00  0.1                          1000     2      2.54
+## 5 2003-02-03 02:00:00  0.1                          1000     2      2.54
+## 6 2003-02-05 02:00:00  0.1                          1000     2      2.54
 ```
 
 Use functions to complete this task as follows:
@@ -187,7 +187,7 @@ in_to_mm <- function(precip_in){
 }
 
 # create an object with the directory name
-new_dir <- "data/week_06/outputs/precip_mm/"
+new_dir <- "data/week-06/outputs/precip_mm/"
 # check to see if the directory exists - make it if it doesn't
 check_create_dir(new_dir)
 
@@ -256,13 +256,13 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 
 #### For Loop 1 & General for Loop 2
 
->Write a loop that takes the file "data/week_02/precipitation/805325-precip-daily-2003-2013.csv" and creates an
+>Write a loop that takes the file "data/week-02/precipitation/805325-precip-daily-2003-2013.csv" and creates an
 > individual `.csv` file for each years worth of data.
 
 | Full Credit | No Credit  |
 |:----|----|
 | Code produces an individual `.csv` file for each year's worth of data | |
-| Following the code, `.csv` files are saved in the `data/week_06/` directory | |
+| Following the code, `.csv` files are saved in the `data/week-06/` directory | |
 | `.csv` files are named correctly - including the year of data that the file contains ||
 | `NA` values are handled properly in the code - when the data are read in, and exported to .csv files and for the monthly summary calculation.  | |
 |===
@@ -278,6 +278,6 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | `in_to_mm()` function is used to convert precipitation from inches to mm | |
 | `check_create_dir()` function is used to check for and create a directory if one doesn't exist.| |
 | Data in individual yearly `.csv` files are summarized by month.  | |
-| `.csv` files are saved in the `data/week_06/outputs/precip_mm/` directory | |
+| `.csv` files are saved in the `data/week-06/outputs/precip_mm/` directory | |
 |===
 | All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |

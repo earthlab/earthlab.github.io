@@ -3,7 +3,7 @@ layout: single
 title: "Layer a raster dataset over a hillshade using R baseplot to create a beautiful basemap that represents topography"
 excerpt: "This lesson covers how to overlay raster data on a hillshade in R using baseplot and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['hw-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/overlay-raster-on-hillshade-r/
@@ -66,10 +66,10 @@ for the hillshade plot as the legend we want to see is the `DEM` elevation value
 
 ```r
 # open raster DTM data
-lidar_dem <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+lidar_dem <- raster(x="data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # open dem hillshade
-lidar_dem_hill <- raster(x="data/week_03/BLDR_LeeHill/pre-flood/lidar/pre_DTM_hill.tif")
+lidar_dem_hill <- raster(x="data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM_hill.tif")
 
 # plot raster data
 plot(lidar_dem_hill,

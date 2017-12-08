@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Maps in R: R Maps Tutorial"
-excerpt: "Maps in R convert spatial objects into a cohesive spatial projection. Learn how to to make custom maps with ggplot or GIS in this R maps tutorial."
+title: "Maps in R: R Maps Tutorial Using Ggplot"
+excerpt: "You can use R as a GIS. Learn how to create a map in R using ggplot in this R maps tutorial."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-maps-with-ggplot-in-R/
@@ -93,7 +93,7 @@ Next, import and explore the data.
 
 ```r
 # import roads
-sjer_roads <- readOGR("data/week_04/california/madera-county-roads/tl_2013_06039_roads.shp")
+sjer_roads <- readOGR("data/week-04/california/madera-county-roads/tl_2013_06039_roads.shp")
 ```
 
 View attributes of and plot the data.
@@ -449,7 +449,7 @@ U = U.S.-->
 ## Adding Points and Lines to a Legend
 
 Next, let's add points to our map and and of course the map legend too.
-We will import the shapefile `data/week_04/california/SJER/vector_data/sjer_plot_centroids.shp` layer. This
+We will import the shapefile `data/week-04/california/SJER/vector_data/sjer_plot_centroids.shp` layer. This
 data represents study plot locations from our field work in southern
 California.
 
@@ -459,7 +459,7 @@ Let's import that data and perform any cleanup that is required.
 
 ```r
 # import points layer
-sjer_plots <- readOGR("data/week_04/california/SJER/vector_data",
+sjer_plots <- readOGR("data/week-04/california/SJER/vector_data",
                       "SJER_plot_centroids")
 # given we want to plot 2 layers together, let's check the crs before going any further
 crs(sjer_plots)
@@ -551,9 +551,9 @@ our data as we go.
 
 ```r
 # import all layers
-study_area <- readOGR("data/week_04/california/SJER/vector_data/SJER_crop.shp")
-sjer_plots <- readOGR("data/week_04/california/SJER/vector_data/SJER_plot_centroids.shp")
-sjer_roads <- readOGR("data/week_04/california/madera-county-roads/tl_2013_06039_roads.shp")
+study_area <- readOGR("data/week-04/california/SJER/vector_data/SJER_crop.shp")
+sjer_plots <- readOGR("data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp")
+sjer_roads <- readOGR("data/week-04/california/madera-county-roads/tl_2013_06039_roads.shp")
 ```
 
 Then explore the data to determine whether we need to clean the data up.

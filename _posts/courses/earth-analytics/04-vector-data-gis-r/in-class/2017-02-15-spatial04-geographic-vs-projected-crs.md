@@ -1,12 +1,12 @@
 ---
 layout: single
-title: "GIS With R: Using the Right UTM Projection"
-excerpt: "Coordinate reference systems are key to analyzing GIS data in R. Learn how to use GIS with R and use the right UTM projection to improve the accuracy of spatial projections."
+title: "GIS With R: Projected vs Geographic Coordinate Reference Systems"
+excerpt: "Geographic coordinate reference systems are often used to make maps of the world. Projected coordinate reference systems are use to optimize spatial analysis for a region. Learn about WGS84 and UTM Coordinate Reference Systems as used in R."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
-permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM
+permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/
 nav-title: 'Geographic vs Projected CRS'
 week: 4
 course: "earth-analytics"
@@ -257,8 +257,8 @@ location.
 ```r
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
 coordinates(boulder_df_geog)
-##            lon      lat
-## [1,] -105.2705 40.01498
+##         lon   lat
+## [1,] -105.3 40.01
 ```
 
 Now we can plot our data on top of our world map which is also in a geographic `CRS`.

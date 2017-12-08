@@ -3,7 +3,7 @@ layout: single
 title: "Adjust plot extent in R."
 excerpt: "In this lesson we will review how to adjust the extent of a spatial plot in R using the ext() or extent argument and the extent of another layer. "
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/adjust-plot-extent-R/
@@ -62,7 +62,7 @@ data for week 6 of the course.
 
 
 ```r
-all_landsat_bands <- list.files("data/week_07/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands <- list.files("data/week-07/Landsat/LC80340322016189-SC20170128091153/crop",
            pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 
@@ -94,9 +94,9 @@ If our object is called fire_boundary_utm, then we'd code: `ext=extent(fire_boun
 
 ```r
 # import fire overlay boundary
-fire_boundary <- readOGR("data/week_07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
+fire_boundary <- readOGR("data/week-07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week_07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp", layer: "co_cold_springs_20160711_2200_dd83"
+## Source: "data/week-07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp", layer: "co_cold_springs_20160711_2200_dd83"
 ## with 1 features
 ## It has 21 fields
 # reproject the data
