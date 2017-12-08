@@ -4,7 +4,7 @@ category: course-materials
 title: "Midterm Project - Earth Analytics Course - GEOG 4563 / 5563"
 nav-title: "Midterm project"
 permalink: /courses/earth-analytics/mid-term/
-modified: '2017-11-03'
+modified: '2017-12-07'
 module-type: 'overview'
 comments: false
 author_profile: false

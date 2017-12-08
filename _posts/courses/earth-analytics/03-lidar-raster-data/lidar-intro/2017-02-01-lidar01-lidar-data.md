@@ -3,13 +3,13 @@ layout: single
 title: "What is LIDAR Data"
 excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-intro/
 nav-title: 'Intro to lidar data'
 module-title: 'Intro to lidar data'
-module-description: 'IDAR is an active remote sensing technique that measures vegetation height. Learn more about discrete and full waveform LIDAR and how to use LIDAR data.'
+module-description: 'LIDAR is an active remote sensing technique that measures vegetation height. Learn more about discrete and full waveform LIDAR and how to use LIDAR data.'
 module-nav-title: 'Intro to lidar data'
 module-type: 'class'
 course: "earth-analytics"

@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data in R."
 excerpt: "In this lesson you will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. You will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2017-11-03'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/modis-data-in-R/
@@ -63,7 +63,7 @@ Let's import our MODIS image stack.
 
 ```r
 # open modis bands (layers with sur_refl in the name)
-all_modis_bands_july7 <- list.files("data/week_07/modis/reflectance/07_july_2016/crop",
+all_modis_bands_july7 <- list.files("data/week-07/modis/reflectance/07_july_2016/crop",
            pattern = glob2rx("*sur_refl*.tif$"),
            full.names = TRUE)
 # create spatial raster stack
@@ -78,7 +78,7 @@ all_modis_bands_pre_br[[2]]
 ## resolution  : 463.3, 463.3  (x, y)
 ## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/RtmpshziFP/raster/r_tmp_2017-11-03_184753_3345_49777.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp64LudC/raster/r_tmp_2017-12-08_095309_1202_56646.grd 
 ## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
 ## values      : -1000000, 100390000  (min, max)
 
@@ -261,7 +261,7 @@ The MODIS data are also stored natively in a H4 format which you will not be dis
 in this class. For the purposes of this assignment, use the table above to assign
 cloud cover "values" and to create a mask.
 
-Use the cloud cover layer `data/week_07/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m`
+Use the cloud cover layer `data/week-07/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m`
 to create your mask.
 
 Set all values >0 in the cloud cover layer to `NA`.
@@ -315,7 +315,7 @@ What bands should you use to calculate NBR using MODIS?
 
 ## Extracting Summary Stats
 
-Similar to what you did with Landsat data, you can then use `extract()` to
+Similar to what you did with Landsat data, you can then use `raster::extract()` to
 select just pixels that are in the burn area and summarize by pixel
 classified value
 
@@ -338,7 +338,7 @@ like you did for the landsat data.
 
 
 ```r
-MODIS_pixels_in_fire_boundary <- extract(dnbr_modis_classified, fire_boundary_sin,
+MODIS_pixels_in_fire_boundary <- raster::extract(dnbr_modis_classified, fire_boundary_sin,
                                            df = TRUE)
 
 MODIS_pixels_in_fire_boundary %>%

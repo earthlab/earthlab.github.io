@@ -3,7 +3,7 @@ layout: single
 title: "Summarize time series data by month or year using tidyverse pipes in R"
 excerpt: "Learn how to summarize time series data by day, month or year with Tidyverse pipes in R."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/summarize-time-series-by-month-in-r/
@@ -93,11 +93,11 @@ To begin, use `read.csv()` to import the `.csv` file as we did in the last lesso
 ```r
 # download the data
 # download.file(url = "https://ndownloader.figshare.com/files/7283285",
-#              destfile = "data/week_02/805325-precip-dailysum_2003-2013.csv",
+#              destfile = "data/week-02/805325-precip-dailysum_2003-2013.csv",
 #              method = "libcurl")
 
 # import data
-boulder_daily_precip <- read.csv("data/week_02/precipitation/805325-precip-dailysum-2003-2013.csv",
+boulder_daily_precip <- read.csv("data/week-02/precipitation/805325-precip-dailysum-2003-2013.csv",
          header = TRUE,
          na.strings = 999.99)
 
@@ -117,7 +117,7 @@ str(boulder_daily_precip)
 # are there any unusual / No data values?
 summary(boulder_daily_precip$DAILY_PRECIP)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-##  0.0000  0.1000  0.1000  0.2478  0.3000  9.8000       4
+##   0.000   0.100   0.100   0.248   0.300   9.800       4
 ```
 
 As we did in the previous lesson, let's convert the `DATE` column to a date class.

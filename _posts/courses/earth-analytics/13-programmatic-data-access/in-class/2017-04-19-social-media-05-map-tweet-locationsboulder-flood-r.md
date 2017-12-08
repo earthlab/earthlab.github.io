@@ -3,7 +3,7 @@ layout: single
 title: "Create Maps of Social Media Twitter Tweet Locations Over Time in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/map-tweet-locations-over-time-r/
@@ -22,7 +22,6 @@ topics:
   social-science: ['social-media']
   data-exploration-and-analysis: ['text-mining']
 ---
-
 
 
 
@@ -168,13 +167,13 @@ head(flood_tweets)
 ## 4                From Boulder, Colorado: Notes on a Thousand-Year Flood - #BoulderFlood Jenny Shank - The Atlantic http://t.co/Ln8mmCOQuk
 ## 5                               I'd rather be working from here:) #boulder #colorado #latergram #mountains #monday http://t.co/t8cGzQDyVx
 ## 6              Teaching last minute #Hot #Yoga 6PM tonight yogapodcommunity #Boulder! Join me for this 26 posture… http://t.co/Q4E7e1Qe0U
-##   coords.type      long      lat
-## 1        <NA>        NA       NA
-## 2       Point -104.8314 39.58856
-## 3        <NA>        NA       NA
-## 4        <NA>        NA       NA
-## 5        <NA>        NA       NA
-## 6       Point -105.2562 40.01783
+##   coords.type   long   lat
+## 1        <NA>     NA    NA
+## 2       Point -104.8 39.59
+## 3        <NA>     NA    NA
+## 4        <NA>     NA    NA
+## 5        <NA>     NA    NA
+## 6       Point -105.3 40.02
 ```
 
 
@@ -198,13 +197,13 @@ head(tweet_locations)
 ## 28               We #love you #boulder! #colorado #japangoboulder #beautiful #staystrong #missyouall #remodel #soclose… http://t.co/pkIFpm3roY
 ## 34                               “@mitchellbyars: #Boulder police officer checking in with the #potgiveaway table. \nجاك الموت يا مدخن الحشيش!
 ## 36                       "Sailing" #artsy #artslant #artstudio #artinfodotcom #boulder #canvas #colorado #contemporary… http://t.co/7tUt5T9ILO
-##    coords.type       long      lat
-## 2        Point -104.83141 39.58856
-## 6        Point -105.25616 40.01783
-## 12       Point -105.01977 39.74210
-## 28       Point -105.28022 40.01760
-## 34       Point  -84.17659 39.73888
-## 36       Point -105.27350 40.04817
+##    coords.type    long   lat
+## 2        Point -104.83 39.59
+## 6        Point -105.26 40.02
+## 12       Point -105.02 39.74
+## 28       Point -105.28 40.02
+## 34       Point  -84.18 39.74
+## 36       Point -105.27 40.05
 ```
 
 Plot the data.
@@ -333,5 +332,5 @@ gganimate_save(grouped_tweet_map,
 </figure>
 
 Note that the dimensions of the map above are still not quite right. If anyone
-has discovered a way to ensure `gganimate_save()` dimensions actually work, please 
+has discovered a way to ensure `gganimate_save()` dimensions actually work, please
 leave a comment below!

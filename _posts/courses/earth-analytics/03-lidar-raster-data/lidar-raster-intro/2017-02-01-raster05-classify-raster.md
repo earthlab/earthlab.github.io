@@ -4,7 +4,7 @@ title: "Classify a raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2017-10-19'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/classify-raster/
@@ -104,7 +104,7 @@ canopy height model (`CHM`) that we calculated in the previous lesson.
 
 ```r
 # open canopy height model
-lidar_chm <- raster("data/week_03/BLDR_LeeHill/outputs/lidar_chm.tif")
+lidar_chm <- raster("data/week-03/BLDR_LeeHill/outputs/lidar_chm.tif")
 ```
 
 ### What classification values to use?
@@ -122,17 +122,17 @@ by looking at the `min` and `max` values in our `CHM`.
 
 ```r
 summary(lidar_chm)
-##          lidar_chm
-## Min.     0.0000000
-## 1st Qu.  0.0000000
-## Median   0.0000000
-## 3rd Qu.  0.7399902
-## Max.    25.0100098
-## NA's     0.0000000
+##         lidar_chm
+## Min.         0.00
+## 1st Qu.      0.00
+## Median       0.00
+## 3rd Qu.      0.71
+## Max.        24.99
+## NA's         0.00
 ```
 
 Looking at the summary above, it appears as if we have a range of values from
-0 to 26.9300537.
+0 to 26.9301.
 
 Let's explore the data further by looking at a histogram. A histogram quantifies
 the distribution of values found in our data.
@@ -186,12 +186,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76067  3478  3011  2848  2441  2070  2053  1816  1530  1214   942
-## [12]   726   587   417   317   198   117    76    36    20    16    16
-## [23]     4
+##  [1] 76186  3291  3026  2895  2392  2104  2045  1830  1488  1229   991
+## [12]   719   569   430   301   216   118    79    45    20    10    10
+## [23]     4     1     1
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23
+## [24] 23 24 25
 ```
 
 If we want to customize our histogram further, we can customize the number of

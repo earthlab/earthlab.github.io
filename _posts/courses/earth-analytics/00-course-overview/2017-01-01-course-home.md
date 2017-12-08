@@ -2,7 +2,7 @@
 layout: single
 category: course-materials
 title: "Earth Analytics Course: Learn Data Science"
-excerpt: "Earth Analytics is a multidisciplinary course that explores how to use data skills to address major Earth science questions. Learn more about the course."
+excerpt: "Earth Analytics is a multidisciplinary course that explores how to use different types of data to address major Earth science questions. Learn more about the course."
 nav-title: "Course home page"
 permalink: /courses/earth-analytics/
 course: "earth-analytics"

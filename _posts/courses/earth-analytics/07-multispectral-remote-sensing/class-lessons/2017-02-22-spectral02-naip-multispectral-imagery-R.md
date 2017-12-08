@@ -3,7 +3,7 @@ layout: single
 title: "How to Open and Work with NAIP Multispectral Imagery in R"
 excerpt: "In this lesson you learn how to open up a multi-band raster layer or image stored in .tiff format in R. You are introduced to the stack() function in R which can be used to import more than one band into a stack object in R. You also review using plotRGB to plot a multi-band image using RGB, color-infrared to other band combinations."
 authors: ['Leah Wasser']
-modified: '2017-11-24'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/naip-imagery-raster-stacks-in-r/
@@ -118,7 +118,7 @@ lightness of each image? Is one image brighter than the other?
 
 ```r
 # use stack function to read in all bands of a color image
-rgb_image_3bands <- stack("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+rgb_image_3bands <- stack("data/week-07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 names(rgb_image_3bands) <- c("red_band", "green_band", "blue_band", "near_infrared_band")
 
 plot(rgb_image_3bands,
@@ -199,7 +199,7 @@ Colorado.
 # Read in multi-band raster with raster function.
 # the first band will be read in automatically
 # csf = cold springs fire!
-naip_csf <- raster("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+naip_csf <- raster("data/week-07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 
 # Plot band 1
 plot(naip_csf,
@@ -220,7 +220,7 @@ naip_csf
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Dropbox/earth-analytics/data/week-07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop 
 ## values      : 0, 255  (min, max)
 ```
@@ -270,7 +270,7 @@ want to work with). To import the green band, you would use `band = 2`.
 
 ```r
 # Can specify which band you want to read in
-rgb_band2 <- raster("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif",
+rgb_band2 <- raster("data/week-07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif",
              band = 2)
 
 # plot band 2
@@ -292,7 +292,7 @@ rgb_band2
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /Users/lewa8222/Documents/earth-analytics/data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
+## data source : /Users/lewa8222/Dropbox/earth-analytics/data/week-07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif 
 ## names       : m_3910505_nw_13_1_20130926_crop 
 ## values      : 0, 255  (min, max)
 ```
@@ -313,7 +313,7 @@ IMPORTANT: All rasters in a raster stack must have the same *extent*,
 ```r
 # Use stack function to read in all bands
 naip_csf_st <-
-  stack("data/week_07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
+  stack("data/week-07/naip/m_3910505_nw_13_1_20130926/crop/m_3910505_nw_13_1_20130926_crop.tif")
 
 # view attributes of stack object
 naip_csf_st
@@ -360,7 +360,7 @@ naip_csf_br
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp9QTVwB/raster/r_tmp_2017-11-24_095731_27392_87788.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp64LudC/raster/r_tmp_2017-12-08_084818_1202_39335.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
 ## min values  :                                 0,                                 0,                                 0,                                 0 
 ## max values  :                               255,                               255,                               255,                               255
@@ -378,7 +378,7 @@ naip_csf_br[[1]]
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp9QTVwB/raster/r_tmp_2017-11-24_095731_27392_87788.grd 
+## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp64LudC/raster/r_tmp_2017-12-08_084818_1202_39335.grd 
 ## names       : m_3910505_nw_13_1_20130926_crop.1 
 ## values      : 0, 255  (min, max)
 ```

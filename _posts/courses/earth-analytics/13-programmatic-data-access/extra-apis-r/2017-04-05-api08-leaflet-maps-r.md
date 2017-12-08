@@ -3,7 +3,7 @@ layout: single
 title: "Creating interactive spatial maps in R using leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-11-23'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/leaflet-r/
@@ -20,6 +20,7 @@ topics:
 redirect_from:
    - "/courses/earth-analytics/week-10/leaflet-r/"
 ---
+
 
 {% include toc title = "In This Lesson" icon="file-text" %}
 
@@ -204,10 +205,10 @@ a series of text strings and object values.
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
 ## [1] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0"                                   
 ## [2] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                   
-## [3] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 0.22"
-## [4] "BOULDER RESERVOIR INLET<br/>Discharge: 0"                                    
-## [5] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"       
-## [6] "FOURMILE CREEK AT ORODELL, CO.<br/>Discharge: 3.08"
+## [3] "SMEAD DITCH<br/>Discharge: 0.17"                                             
+## [4] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 0.22"
+## [5] "BOULDER RESERVOIR INLET<br/>Discharge: 0"                                    
+## [6] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"
 ```
 
 The `<br/>` element in our popup above is HTML. This adds a line break to our
@@ -301,9 +302,6 @@ unique_markers_map
 ```
 
 
-```
-## Error in resolveSizing(x, x$sizingPolicy, standalone = standalone, knitrOptions = knitrOptions): object 'unique_markers_map' not found
-```
 
 Here we use `addCircleMarkers()` and adjust the color accordingly.
 

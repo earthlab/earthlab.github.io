@@ -3,7 +3,7 @@ layout: single
 title: "If Statements, Functions, and For Loops"
 excerpt: "Learn how to combine if statements, functions and for loops to process sets of text files."
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-11-16'
+modified: '2017-12-08'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-if-statements-and-modify-files-r/
@@ -85,7 +85,7 @@ with. The `list.files()` function requires 2 arguments:
 
 
 ```r
-list.files(path = "data/week_06/",
+list.files(path = "data/week-06/",
            pattern = "*.csv")
 ##  [1] "precip-2003.csv" "precip-2004.csv" "precip-2005.csv"
 ##  [4] "precip-2006.csv" "precip-2007.csv" "precip-2008.csv"
@@ -97,7 +97,7 @@ Just find files that contain `precip-` in the filename.
 
 
 ```r
-list.files(path = "data/week_06/",
+list.files(path = "data/week-06/",
            pattern = "precip-")
 ##  [1] "precip-2003.csv" "precip-2004.csv" "precip-2005.csv"
 ##  [4] "precip-2006.csv" "precip-2007.csv" "precip-2008.csv"
@@ -109,7 +109,7 @@ Just find files that contain `_precip` in the filename.
 
 
 ```r
-list.files(path = "data/week_06/",
+list.files(path = "data/week-06/",
            pattern = "precip")
 ##  [1] "precip-2003.csv" "precip-2004.csv" "precip-2005.csv"
 ##  [4] "precip-2006.csv" "precip-2007.csv" "precip-2008.csv"
@@ -131,24 +131,24 @@ full path rather than just the filename.
 
 ```r
 
-all_precip_files <- list.files(path = "data/week_06/",
+all_precip_files <- list.files(path = "data/week-06/",
            pattern = "precip-",
            full.names = TRUE)
 # print the name of each file
 for (file in all_precip_files) {
   print(file)
 }
-## [1] "data/week_06//precip-2003.csv"
-## [1] "data/week_06//precip-2004.csv"
-## [1] "data/week_06//precip-2005.csv"
-## [1] "data/week_06//precip-2006.csv"
-## [1] "data/week_06//precip-2007.csv"
-## [1] "data/week_06//precip-2008.csv"
-## [1] "data/week_06//precip-2009.csv"
-## [1] "data/week_06//precip-2010.csv"
-## [1] "data/week_06//precip-2011.csv"
-## [1] "data/week_06//precip-2012.csv"
-## [1] "data/week_06//precip-2013.csv"
+## [1] "data/week-06//precip-2003.csv"
+## [1] "data/week-06//precip-2004.csv"
+## [1] "data/week-06//precip-2005.csv"
+## [1] "data/week-06//precip-2006.csv"
+## [1] "data/week-06//precip-2007.csv"
+## [1] "data/week-06//precip-2008.csv"
+## [1] "data/week-06//precip-2009.csv"
+## [1] "data/week-06//precip-2010.csv"
+## [1] "data/week-06//precip-2011.csv"
+## [1] "data/week-06//precip-2012.csv"
+## [1] "data/week-06//precip-2013.csv"
 ```
 
 You can do even more now with your data. Let's loop through each `.csv` file and
@@ -163,7 +163,7 @@ from the file variable.
 
 
 ```r
-a_file <- "data/week_06/precip-2013.csv"
+a_file <- "data/week-06/precip-2013.csv"
 # just get the filename without the full path
 basename(a_file)
 ## [1] "precip-2013.csv"
@@ -182,9 +182,8 @@ for (file in all_precip_files) {
   the_data <- read.csv(file, header = TRUE) %>%
     mutate(precip_mm = (HPCP * 25.4)) # add a column with precip in mm
   # write the csv to a new file
-  write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", basename(file)))
+  write.csv(the_data, file = paste0("data/week-06/outputs/precip_mm/", basename(file)))
 }
-## Error in write_csv(the_data, path = paste0("data/week-06/outputs/precip_mm/", : could not find function "write_csv"
 ```
 
 
@@ -222,7 +221,7 @@ your working directory or on your computer.
 
 ```r
 # create an object with the directory name
-new_dir <- "data/week_06/outputs/precip_mm/"
+new_dir <- "data/week-06/outputs/precip_mm/"
 # does the dir exist?
 dir.exists(new_dir)
 ## [1] FALSE
@@ -240,7 +239,7 @@ at the beginning of your function.
 
 Now, build your if statement.
 
-1. First, create a directory path that you wish to check for. Use: `data/week_06/outputs/precip_mm/`
+1. First, create a directory path that you wish to check for. Use: `data/week-06/outputs/precip_mm/`
 2. Condition: Check to see if that directory path (defined in step 1) exists using `dir.exists()`
 3. Use an if statement to test whether the dir exists or not
 4. If the dir doesn't exist, then create the new directory using `dir.create()`. Use the `recursive = TRUE` function argument to ensure that R creates not only the prec_mm dir but also the outputs directory.
