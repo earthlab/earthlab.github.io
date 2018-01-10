@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "Adjust plot extent in R."
-excerpt: "In this lesson we will review how to adjust the extent of a spatial plot in R using the ext() or extent argument and the extent of another layer. "
+excerpt: "In this lesson you will review how to adjust the extent of a spatial plot in R using the ext() or extent argument and the extent of another layer. "
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/adjust-plot-extent-R/
@@ -70,13 +70,13 @@ all_landsat_bands_st <- stack(all_landsat_bands)
 
 # turn the axis color to white and turn off ticks
 par(col.axis = "white", col.lab = "white", tck = 0)
-# plot the data - be sure to turn AXES to T (we just color them white)
+# plot the data - be sure to turn AXES to T (you just color them white)
 plotRGB(all_landsat_bands_st,
-        r=4, g=3, b=2,
+        r = 4, g = 3, b = 2,
         stretch = "hist",
         main = "Pre-fire RGB image with cloud\n Cold Springs Fire",
         axes = TRUE)
-# turn the box to white so there is no border on our plot
+# turn the box to white so there is no border on your plot
 box(col = "white")
 ```
 
@@ -84,11 +84,11 @@ box(col = "white")
 
 ## Adjust plot extent
 
-We can adjust the extent of a plot using `ext` argument.
-We can give the argument the spatial extent of the fire boundary
-layer that we want to plot.
+You can adjust the extent of a plot using `ext` argument.
+You can give the argument the spatial extent of the fire boundary
+layer that you want to plot.
 
-If our object is called fire_boundary_utm, then we'd code: `ext=extent(fire_boundary_utm)`
+If your object is called fire_boundary_utm, then you'd code: `ext=extent(fire_boundary_utm)`
 
 
 
@@ -100,18 +100,18 @@ fire_boundary <- readOGR("data/week-07/vector_layers/fire-boundary-geomac/co_col
 ## with 1 features
 ## It has 21 fields
 # reproject the data
-fire_boundary_utm <- spTransform(fire_boundary, CRS=crs(all_landsat_bands_st))
+fire_boundary_utm <- spTransform(fire_boundary, CRS = crs(all_landsat_bands_st))
 
 # turn the axis color to white and turn off ticks
 par(col.axis = "white", col.lab = "white", tck = 0)
-# plot the data - be sure to turn AXES to T (we just color them white)
+# plot the data - be sure to turn AXES to T (you just color them white)
 plotRGB(all_landsat_bands_st,
-        r=4, g=3, b=2,
+        r = 4, g = 3, b = 2,
         stretch = "hist",
         main = "Pre-fire RGB image with cloud\n Cold Springs Fire\n Fire boundary extent",
         axes = TRUE,
-        ext=extent(fire_boundary_utm))
-# turn the box to white so there is no border on our plot
+        ext = extent(fire_boundary_utm))
+# turn the box to white so there is no border on your plot
 box(col = "white")
 plot(fire_boundary_utm, add = TRUE)
 ```

@@ -3,7 +3,7 @@ layout: single
 title: "Use lapply in R Instead of For Loops to Process .csv files - Efficient Coding in R"
 excerpt: "Learn how to take code in a for loop and convert it to be used in an apply function. Make your R code more efficient and expressive programming."
 authors: ['Leah Wasser', 'Bryce Mecum', 'Max Joseph']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/use-apply-functions-for-efficient-code-r/
@@ -95,7 +95,7 @@ lapply
 ##         X <- as.list(X)
 ##     .Internal(lapply(X, FUN))
 ## }
-## <bytecode: 0x103037008>
+## <bytecode: 0x102835c08>
 ## <environment: namespace:base>
 ```
 
@@ -113,8 +113,8 @@ detectCores()
 Next, let's look at an example of using `lapply` to perform the same task that
 you performed in the previous lesson. To do this you will need to:
 
-1. Write a function that performs all of the tasks that you executed in your `for loop`
-2. Call the `apply` function and tell it to use the function that you created in step 1
+1. Write a function that performs all of the tasks that you executed in your `for loop`.
+2. Call the `apply` function and tell it to use the function that you created in step 1.
 
 To get started, call the lubridate and dplyr libraries like you did in the previous lessons.
 
@@ -203,8 +203,7 @@ all_precip_files <- list.files("data/week_06", pattern = "*.csv",
 ```
 
 Now you can perform the same task that you performed above in a loop with one
-line of code (ok two if you break
-them up for readability).
+line of code (ok two if you break them up for readability).
 
 
 ```r
@@ -238,11 +237,11 @@ faster than the `for loop`.
 library(microbenchmark)
 microbenchmark(invisible(lapply(all_precip_files, (FUN = summarize_data),
        the_dir = the_dir_ex)))
-## Unit: microseconds
+## Unit: nanoseconds
 ##                                                                               expr
 ##  invisible(lapply(all_precip_files, (FUN = summarize_data), the_dir = the_dir_ex))
-##    min    lq  mean median    uq   max neval
-##  1.061 1.187 1.644  1.252 1.504 22.96   100
+##  min   lq   mean median   uq   max neval
+##  996 1076 1295.7   1110 1148 17106   100
 ```
 
 
@@ -265,8 +264,8 @@ microbenchmark(for (file in all_precip_files) {
 ## Unit: milliseconds
 ##                                                                                                                                                                                                                                                                                                                                           expr
 ##  for (file in all_precip_files) {     the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%          mutate(DATE = as.POSIXct(DATE, tz = "America/Denver",              format = "%Y-%m-%d %H:%M:%S"), precip_mm = in_to_mm(HPCP))     write.csv(the_data, file = paste0(the_dir, "/", basename(file)),          na = "999.99") }
-##    min    lq  mean median   uq  max neval
-##  4.747 5.091 5.623  5.437 5.88 21.5   100
+##       min       lq     mean   median       uq      max neval
+##  3.765952 4.018107 4.427995 4.089864 4.295926 17.50724   100
 ```
 
 <!--RETURN a single data.frame do.call(rbind, lapply(file_paths, function(path) { read.csv(path, stringsAsFactors = FALSZE }))-->

@@ -3,7 +3,7 @@ layout: single
 title: "Create For Loops"
 excerpt: "Learn how to write a for loop to process a set of .csv format text files in R. "
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/create-for-loops-r/
@@ -31,7 +31,7 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Write a `for loop` in `R`
+* Write a `for loop` in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -60,7 +60,7 @@ You can name the loop `variable` anything you like with a few restrictions:
 
 A few notes about the loop syntax:
 
-1. The loop condition `(variable in collection)` is enclosed in parentheses `()`
+1. The loop condition `(variable in collection)` is enclosed in parentheses `()`.
 2. The body of the loop is enclosed in curly braces `{ }`.
 
 <i class="fa fa-star" aria-hidden="true"></i>**Data Tip**The curly braces aren't
@@ -116,7 +116,7 @@ since there is nothing left in the vector vowels for R to process, the loop
 finishes.
 
 Note that a loop variable is just a variable that's being used to record progress
-in a loop. It still exists after the loop is over, and we can re-use variables
+in a loop. It still exists after the loop is over, and you can re-use variables
 previously defined as loop variables as well:
 
 
@@ -221,12 +221,12 @@ a_year <- boulder_precip %>%
 
 head(a_year)
 ##       STATION    STATION_NAME ELEVATION LATITUDE LONGITUDE
-## 1 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 2 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 3 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 4 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 5 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 6 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
+## 1 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 2 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 3 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 4 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 5 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
+## 6 COOP:050843 BOULDER 2 CO US    1650.5 40.03389 -105.2811
 ##                  DATE HPCP Measurement.Flag Quality.Flag
 ## 1 2003-01-01 01:00:00  0.0                g             
 ## 2 2003-02-01 01:00:00  0.0                g             
@@ -263,6 +263,7 @@ Oops. Looks like you don't have a week-06 directory yet. You can make one using 
 # create new directory - if you already have this directory then you will
 # get a warning message like the one below.
 dir.create("data/week_06")
+## Warning in dir.create("data/week_06"): 'data/week_06' already exists
 ```
 
 <div class="notice--warning" markdown="1">
@@ -273,9 +274,9 @@ dir.create("data/week_06")
 
 Put everything that you learned above together to create a `for loop` that:
 
-1. Loops through each year
+1. Loops through each year.
 2. `filter()`s the data to include only the rows that are for that year.
-3. Adds a month column using `lubridate::month()`
+3. Adds a month column using `lubridate::month()`.
 3. Writes a `.csv` file to your hard drive with a file name that contains: `year_precip.csv`.
   * Use `paste0()` to create your filename.
 

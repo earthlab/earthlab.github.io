@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Functions & Automation"
 permalink: /courses/earth-analytics/automate-science-workflows/
-modified: '2017-12-08'
+modified: '2018-01-10'
 week-landing: 6
 week: 6
 sidebar:
@@ -26,13 +26,12 @@ Welcome to week {{ page.week }} of Earth Analytics! This week you will learn abo
 efficient coding practices. Specifically, you will learn how to use functions to
 make our code:
 
-* Easier to read / simpler
-* More modular
-* More efficient
+* Simpler and easier to read.
+* More modular.
+* More efficient.
 
 You will also learn the DRY principle of programming - Don't Repeat Yourself.
 
-This week is still under development and the content won't be done until Friday!
 
 </div>
 
@@ -51,7 +50,7 @@ This week is still under development and the content won't be done until Friday!
 There are no new readings for this week.
 
 
-### 2. Complete the assignment below (5 points)
+### 2. Complete the Assignment Below (5 points)
 
 <div class="notice--warning" markdown="1">
 
@@ -67,8 +66,7 @@ as instructed above!
 
 #### Use knitr Code Chunk Arguments
 
-For this week's assignment **please do not hide your code**.
-We will grade the
+For this week's assignment **please do not hide your code**. We will grade the
 assignment based upon your use of functions and for loops to complete your assignment.
 
 #### Answer the Following Questions Below in Your Report
@@ -139,21 +137,11 @@ An example of what the final data should look like is below:
 ```r
 # open data
 precip_2003 <- read.csv("data/week-06/outputs/precip_mm/precip-2003.csv")
+## Warning in file(file, "rt"): cannot open file 'data/week-06/outputs/
+## precip_mm/precip-2003.csv': No such file or directory
+## Error in file(file, "rt"): cannot open the connection
 head(precip_2003, n = 6)
-##   X.1 X     STATION    STATION_NAME ELEVATION LATITUDE LONGITUDE
-## 1   1 1 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 2   2 2 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 3   3 3 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 4   4 4 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 5   5 5 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-## 6   6 6 COOP:050843 BOULDER 2 CO US      1650    40.03    -105.3
-##                  DATE HPCP Measurement.Flag Quality.Flag month precip_mm
-## 1 2003-01-01 01:00:00  0.0                g         1000     1      0.00
-## 2 2003-02-01 01:00:00  0.0                g         1000     2      0.00
-## 3 2003-02-02 19:00:00  0.2                          1000     2      5.08
-## 4 2003-02-02 22:00:00  0.1                          1000     2      2.54
-## 5 2003-02-03 02:00:00  0.1                          1000     2      2.54
-## 6 2003-02-05 02:00:00  0.1                          1000     2      2.54
+## Error in head(precip_2003, n = 6): object 'precip_2003' not found
 ```
 
 Use functions to complete this task as follows:
@@ -164,7 +152,7 @@ Use functions to complete this task as follows:
 NOTES:
 
 * Be sure to consider `NA` values in your data (e.g. 999.99) when you read your data!
-* Make sure you address `NA` values when you run the `sum()` function
+* Make sure you address `NA` values when you run the `sum()` function.
 * When you write the `.csv` make sure that you address `NA` values!
 
 
@@ -212,9 +200,9 @@ for (file in all_precip_files) {
 
 Use the `lapply()` function (instead of a for loop) to
 
-1. process all of the precipitation data files files that you created for each year, and
-2. add a new column to the file containing anything that you'd like
-3. write a new `.csv` file to a new directory with that output file.
+1. Process all of the precipitation data files files that you created for each year.
+2. Add a new column to the file containing anything that you'd like.
+3. Write a new `.csv` file to a new directory with that output file.
 
 You can chose to use the same code that you used for the homework assignment, however
 implemented in a for loop if you want.
@@ -234,7 +222,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | html / pdf  and RMD submitted |   |
 | Code is written using "clean" code practices following the Hadley Wickham style guide|  |
 | Code chunk contains code and runs  |  |
-| All required `R` packages are listed at the top of the document in a code chunk.  | |
+| All required `R` packages are listed at the top of the document in a code chunk  | |
 | Code chunk arguments are used to hide warnings & messages |  |
 | All code is visible in the knitted document |  |
 |===
@@ -249,7 +237,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | When you document a function, what documentation elements should you include? |  |
 | Provide an example of a function name that is expressive vs. one that is not expressive |  |
 |===
-| Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function.  |  |
+| Explain the key difference between a variable that you create when programming line by line compared to a variable that is created within a function  |  |
 
 
 ### Code is Worth 60% of the Assignment Grade This Week
@@ -264,7 +252,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Code produces an individual `.csv` file for each year's worth of data | |
 | Following the code, `.csv` files are saved in the `data/week-06/` directory | |
 | `.csv` files are named correctly - including the year of data that the file contains ||
-| `NA` values are handled properly in the code - when the data are read in, and exported to .csv files and for the monthly summary calculation.  | |
+| `NA` values are handled properly in the code - when the data are read in, and exported to .csv files and for the monthly summary calculation  | |
 |===
 | `.csv` files created contain the correct data (for the year specified)| |
 
@@ -276,8 +264,8 @@ Submit your report in both `.Rmd` and `.html` format to the D2L dropbox.
 | Full Credit | No Credit  |
 |:----|----|
 | `in_to_mm()` function is used to convert precipitation from inches to mm | |
-| `check_create_dir()` function is used to check for and create a directory if one doesn't exist.| |
-| Data in individual yearly `.csv` files are summarized by month.  | |
+| `check_create_dir()` function is used to check for and create a directory if one doesn't exist | |
+| Data in individual yearly `.csv` files are summarized by month  | |
 | `.csv` files are saved in the `data/week-06/outputs/precip_mm/` directory | |
 |===
-| All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs. |  |
+| All functions are documented with what the function does, inputs, outputs and structure of inputs and outputs |  |

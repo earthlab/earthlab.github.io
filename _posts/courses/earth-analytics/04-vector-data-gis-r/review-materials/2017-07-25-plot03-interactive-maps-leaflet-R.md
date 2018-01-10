@@ -1,9 +1,8 @@
----
 layout: single
 title: "Make Interactive Maps with Leaflet R - GIS in R"
-excerpt: "In this lesson we break down the steps to create a map in R using ggplot."
+excerpt: "In this lesson you learn the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-interactive-maps-with-leaflet-R/
@@ -35,7 +34,7 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Create an interactive map in `R` using `leaflet()`
+* Create an interactive map in `R` using `leaflet()`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -61,8 +60,8 @@ options(stringsAsFactors = FALSE)
 ## Interactive Maps with Leaflet
 
 Static maps are useful for creating figures for reports and presentation. Sometimes,
-however, we want to interact with our data. We can use the leaflet package for
-R to overlay our data on top of interactive maps. You can think about it like
+however, you want to interact with your data. You can use the leaflet package for
+R to overlay your data on top of interactive maps. You can think about it like
 Google  maps with your data overlaid on top!
 
 ### What is Leaflet?
@@ -71,8 +70,8 @@ Google  maps with your data overlaid on top!
 
 Leaflet:
 
-* Is designed with *simplicity*, *performance* and *usability* in mind,
-* Has a beautiful, easy to use, and <a href="http://leafletjs.com/reference.html" target="_blank">well-documented API</a>
+* Is designed with *simplicity*, *performance* and *usability* in mind.
+* Has a beautiful, easy to use, and <a href="http://leafletjs.com/reference.html" target="_blank">well-documented API</a>.
 
 
 The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package! Below, you can see some code that creates a basic web-map.

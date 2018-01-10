@@ -2,12 +2,12 @@
 layout: single
 authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
 category: [courses]
-title: 'Get to know RStudio'
+title: 'Get to Know RStudio'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn how to work with R using the RStudio application.'
 dateCreated: 2016-12-12
-modified: '2017-12-07'
-nav-title: 'RStudio intro'
+modified: '2018-01-10'
+nav-title: 'RStudio Intro'
 week: 1
 sidebar:
   nav:
@@ -27,14 +27,14 @@ topics:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
 * Be able to describe the main use for each of the four main panes in the `RStudio` interface
 
 </div>
 
-# Get to know RStudio
+# Get to Know RStudio
 
 Let's explore [RStudio](https://www.rstudio.com/), the Integrated Development
 Environment (IDE) that we will use to write code, navigate files on our computer,
@@ -83,7 +83,7 @@ follow. When we run a program, we tell the computer to follow those instructions
 We write, or *code*, instructions in `R` because it is a common language that
 both the computer and we can understand.
 
-### Definitions to remember
+### Definitions to Remember
 
 * **COMMANDS**: the "instructions" that we tell the computer to follow
 * **EXECUTE**: (also called *running*). When we execute a program, we
@@ -95,12 +95,12 @@ There are two main ways of interacting with `R`: using the console or by using
 script files (plain text files that contain your code - note these can be `.R` files
 OR `.Rmd` files).
 
-### Benefits of scripts
+### Benefits of Scripts
 The main benefit of using scripts is it allows us to save our workflow. We want
 our code and workflow to be reproducible so that anyone (including ourselves)
 can easily replicate the workflow at a later time.
 
-### Why use the console
+### Why Use the Console
 The console pane (in `RStudio`, the bottom left panel) is the place where `R` is
 waiting for you to tell it what to do, and where it will show the results of a
 command that has been executed. You can type commands directly into the console
@@ -112,7 +112,7 @@ save the script. This way, you have a complete record of what you did, you can
 easily show others how you did it and you can do it again later on if needed.
 When you run a script or a part of a script, it will run in the console.
 
-### RStudio shortcuts
+### RStudio Shortcuts
 
 * <kbd>`Ctrl`</kbd> + <kbd>`Enter`</kbd>: execute commands directly from the script editor. This shortcut will run either the line in the script that your cursor
 is on or all of the commands that you have currently selected (highlighted) in
@@ -120,7 +120,7 @@ your script.
 * <kbd>`Ctrl`</kbd> + <kbd>`1`</kbd> and <kbd>`Ctrl`</kbd> +
 <kbd>`2`</kbd>: jump between the script and the console windows in `RStudio`.
 
-## R console tricks
+## R Console Tricks
 
 If `R` is ready to accept commands, the `R` console shows a `>` prompt. If it
 receives a command (by typing, copy-pasting or sent from the script editor using

@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Spatial and Spectral Resolution: Multispectral Imagery"
 excerpt: "Multispectral imagery can be provided at different resolutions and may contain different bands or types of light. Learn about spectral vs spatial resolution as it relates to spectral data."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/introduction-multispectral-imagery-r/
@@ -96,17 +96,17 @@ Above: Watch the first 8 minutes for a nice overview of spectral remote sensing.
 ## Space vs Airborne Data
 
 Remote sensing data can be collected from the ground, the air (using airplanes or
-helicopters) or from space. You can
-imagine that data that are collected from space are often of a lower spatial
-resolution than data collected from an airplane. The tradeoff however
-is that data collected from a satellite often offers better (up to global) coverage.
+helicopters) or from space. You can imagine that data that are collected from space 
+are often of a lower spatial resolution than data collected from an airplane. The 
+tradeoff however is that data collected from a satellite often offers better (up 
+to global) coverage.
 
 For example the Landsat 8 satellite has a 16 day repeat cycle for the entire globe.
 This means that you can find a new image for an area, every 16 days. It takes a
 lot of time and financial resources to collect airborne data. Thus data are often
 only available for smaller geographic areas. Also, you may not find that the data are
-available for the time periods that you need. For example, in the case of NAIP, you may
-only have a new dataset every 2-4 years.
+available for the time periods that you need. For example, in the case of NAIP, you 
+may only have a new dataset every 2-4 years.
 
 
 <figure>

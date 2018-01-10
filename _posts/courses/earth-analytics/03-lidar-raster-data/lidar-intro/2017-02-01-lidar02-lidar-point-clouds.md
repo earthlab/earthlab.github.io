@@ -4,11 +4,11 @@ title: "Introduction to Lidar Point Cloud Data - Active Remote Sensing"
 excerpt: "This lesson covers what a lidar point cloud is. We will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/explore-lidar-point-clouds-plasio/
-nav-title: 'Explore lidar point clouds'
+nav-title: 'Explore Lidar Point Clouds'
 week: 3
 course: "earth-analytics"
 sidebar:
@@ -22,37 +22,37 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* List 4 common attributes of each point in a lidar point cloud
-* Briefly describe how a lidar system collects lidar points
+* List 4 common attributes of each point in a lidar point cloud.
+* Briefly describe how a lidar system collects lidar points.
 * Be able to describe the difference between how a discrete and full waveform
-lidar system collect data
+lidar system collect data.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
 If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download week 3 data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
-In the last lesson, we learned the basics of how a lidar system works. In this
-lesson, we will learn about lidar point clouds. The point cloud is one of the commonly
+In the last lesson, you learned the basics of how a lidar system works. In this
+lesson, you will learn about lidar point clouds. The point cloud is one of the commonly
 found lidar data products and is the "native" format for discrete return lidar data.
-In this lesson we will explore some point cloud data using the plas.io viewer.
+In this lesson you will explore some point cloud data using the plas.io viewer.
 
 
-## Explore lidar points in plas.io
+## Explore Lidar Points in plas.io
 
 
 <figure>
@@ -67,9 +67,9 @@ In this activity, you will open a `.las` file, in the <a href="http://plas.io" t
 `plas.io` free online lidar data viewer.</a> You will then explore some of the attributes
 associated with a lidar data point cloud.
 
-### Lidar attribute data
+### Lidar Attribute Data
 Remember that not all lidar data are created equally. Different lidar data may have
-different attributes. In this activity, we will look at data that contain both
+different attributes. In this activity, you will look at data that contain both
 intensity values and a ground vs non ground classification.
 
 ## About plas.io
@@ -84,10 +84,10 @@ and it contains nothing that is explicitly Chrome-specific beyond the optional
 NaCL LASzip module.
 > src: https://github.com/verma/plasio
 
-## 1. Open a .las file in plas.io ###
+## 1. Open a .las File in plas.io ###
 
 1. If you haven't already, download the week 3 dataset - linked at the top of this
-page. It contains several `.laz` format point cloud datasets that we will use in this
+page. It contains several `.laz` format point cloud datasets that you will use in this
 lesson.
 2. When the download is complete, drag one of the `.laz` files into the <a href="http://plas.io" target="_blank">
 plas.io website.</a> window.
@@ -103,7 +103,7 @@ If the data imported into the plas.io viewer correctly, you should see something
 <figcaption>You can drag a .las or .laz dataset into the plas.io viewer to view the data in your browser! </figcaption>
 </figure>
 
-### Navigate around your data in plas.io
+### Navigate Around Your Data in plas.io
 You might prefer to use a mouse to explore your data in `plas.io`. Let's test the
 navigation out:
 
@@ -112,7 +112,7 @@ the data up and down
 2. Right click on the screen and drag noticing that this moves the entire dataset around
 3. Use the scroll bar on your mouse to zoom in and out
 
-### How the points are colored - why is everything grey when the data are loaded?
+### How the Points are Colored - Why is Everything Grey When the Data are Loaded?
 Notice that the data, upon initial view, are colored in a black - white color scheme.
 These colors represent the data's intensity values. Remember that the intensity value
 for each lidar point represents the amount of light energy that reflected off of
@@ -127,7 +127,7 @@ light energy returned. Lighter colors represent MORE light returned.
 </figure>
 
 
-## 2. Adjust the intensity threshold
+## 2. Adjust the Intensity Threshold
 
 Next, scroll down through the tools in `plas.io`. Look for the Intensity Scaling slider.
 The intensity scaling slider allows you to define the thresholds of light to dark
@@ -145,7 +145,7 @@ slider.
   </figcaption>
 </figure>
 
-## 3. Change the lidar point cloud color options to classification
+## 3. Change the Lidar Point Cloud Color Options to Classification
 
 In addition to intensity values, these lidar data also have a classification value.
 Lidar data classification values are numeric, ranging from 0-20 or higher. Some
@@ -181,7 +181,7 @@ In this case, these data are classified as either ground, or non-ground. To view
   </figcaption>
 </figure>
 
-## 4. Spend some time exploring - do you see any trees?
+## 4. Spend Some Time Exploring - Do You See Any Trees?
 Finally, spend some time exploring the data. What features do you see in this dataset? What does the topography look like? Is the site flat? Hilly? Mountainous? What do the lidar data tell you, just upon initial inspection?
 
 ## Summary
@@ -194,7 +194,7 @@ Finally, spend some time exploring the data. What features do you see in this da
 
 <div class="notice--info" markdown="1">
 
-## Additional resources
+## Additional Resources
 
 *	<a href="https://www.asprs.org/committee-general/laser-las-file-format-exchange-activities.html" target="_blank"> About the .las file format.</a>
 *	<a href="http://laspy.readthedocs.org/en/latest/tut_background.html" target="_blank"> Las: python ingest</a>

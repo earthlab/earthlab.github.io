@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Layer a raster dataset over a hillshade using R baseplot to create a beautiful basemap that represents topography"
+title: "Layer a Raster Dataset Over a Hillshade Using R Baseplot to Create a Beautiful Basemap That Represents Topography"
 excerpt: "This lesson covers how to overlay raster data on a hillshade in R using baseplot and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['hw-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/overlay-raster-on-hillshade-r/
-nav-title: 'Overlay rasters'
+nav-title: 'Overlay Rasters'
 week: 3
 sidebar:
   nav:
@@ -22,29 +22,29 @@ topics:
 ---
 
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* Overlay 2 rasters in `R` to create a plot
+* Overlay 2 rasters in `R` to create a plot.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
+an `earth-analytics` directory set up on your computer with a `/data`
 directory with it.
 
 * Install **devtools**: `install.packages('devtools')`
 * Install **ggmap** from github: `devtools::install_github("dkahle/ggmap")`
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 </div>
 
@@ -55,31 +55,31 @@ library(raster)
 library(rgdal)
 ```
 
-## Overlay rasters in R
+## Overlay Rasters in R
 
-Here, we will cover overlaying rasters on top of a hillshade for nicer looking
-plots in `R`. To overlay a raster we will use the `add = T` argument in the `R` `plot()`
-function. We will use alpha to adjust the transparency of one of our rasters so
-the terrain hillshade gives the raster texture! Also we will turn off the legend
-for the hillshade plot as the legend we want to see is the `DEM` elevation values.
+Here, you will cover overlaying rasters on top of a hillshade for nicer looking
+plots in `R`. To overlay a raster you will use the `add = T` argument in the `R` `plot()`
+function. You will use alpha to adjust the transparency of one of your rasters so
+the terrain hillshade gives the raster texture! Also you will turn off the legend
+for the hillshade plot as the legend you want to see is the `DEM` elevation values.
 
 
 ```r
 # open raster DTM data
-lidar_dem <- raster(x="data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
+lidar_dem <- raster(x = "data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM.tif")
 
 # open dem hillshade
-lidar_dem_hill <- raster(x="data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM_hill.tif")
+lidar_dem_hill <- raster(x = "data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DTM_hill.tif")
 
 # plot raster data
 plot(lidar_dem_hill,
      main = "Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade",
      col = grey(1:100/100),
-     legend=F)
+     legend = FALSE)
 
 plot(lidar_dem,
      main = "Lidar Digital Elevation Model (DEM)",
-     add = TRUE, alpha=.5)
+     add = TRUE, alpha = .5)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/hw-ggmap-markdown/2017-02-01-hw03-overlay-rasters/create-base-map-1.png" title="overlay plot" alt="overlay plot" width="90%" />

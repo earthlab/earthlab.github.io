@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "An example of creating modular code in R - Efficient scientific programming"
+title: "An Example of Creating Modular Code in R - Efficient Scientific Programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/get-data-with-rcurl-r/
@@ -31,13 +31,13 @@ After completing this tutorial, you will be able to:
 
 * Access data from a remote URL (http or https) using `read.table()` function.
 * Explain the difference between accessing data using `download.file()` compared to `read.table()` or `read.csv()`.
-* Plot tabular data using `ggplot()`
+* Plot tabular data using `ggplot()`.
 * Create a plot with data subsetted by a particular variable using facets.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data that we already downloaded for week 6 of the course.
+data that you already downloaded for week 6 of the course.
 
 </div>
 
@@ -51,27 +51,27 @@ library(ggplot2)
 library(RCurl)
 ```
 
-## Direct data access
+## Direct Data Access
 
-In this lesson we will review how to access data via a direct download in `R`.
-We downloaded data in the first week of this class using `download.file()`
-When we used `download.file()`, we were literally downloading that file,
-which happened to be in `.csv` (comma separated value) text format to our computer.
+In this lesson you will learn how to access data via a direct download in `R`.
+You downloaded data in the first week of this class using `download.file()`
+When you used `download.file()`, you were literally downloading that file,
+which happened to be in `.csv` (comma separated value) text format to your computer.
 
-We specified the location where that file would download to, using the `destfile=`
+You specified the location where that file would download to, using the `destfile=`
 argument. Notice below, I specified week 10 as the download location given
-that is our current class week.
+that is your current class week.
 
 
 ```r
-# download text file to a specified location on our computer
+# download text file to a specified location on your computer
 download.file(url = "https://ndownloader.figshare.com/files/7010681",
               destfile = "data/week-13/boulder-precip-aug-oct-2013.csv")
 ```
 
 
 If `R` is able to communicate with the server (in this case Figshare) and download
-the file, we can then open up the file and plot the data within it.
+the file, you can then open up the file and plot the data within it.
 
 
 ```r
@@ -81,7 +81,7 @@ boulder_precip <- read.csv("data/week-13/boulder-precip-aug-oct-2013.csv")
 # fix date
 boulder_precip$DATE <- as.Date(boulder_precip$DATE)
 # plot data with ggplot
-ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
+ggplot(boulder_precip, aes(x = DATE, y = PRECIP)) +
   geom_point() +
       labs(x = "Date (2013)",
            y = "Precipitation (inches)",
@@ -92,28 +92,28 @@ ggplot(boulder_precip, aes(x = DATE, y=PRECIP)) +
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/boulder-precip-1.png" title="Boulder precip data plot." alt="Boulder precip data plot." width="90%" />
 
 
-## Download data via human readable url
+## Download Data via Human Readable url
 
-The file that we downloaded above is stored using a `.csv` or comma separated
-value format. This
-is a format that is human readable and structured using a simple, non hierarchical
-(no nesting involved) format compared to **JSON** which can be hierarchical and thus
-efficiently support more complex data. The `download.file()` function allows us
-to store a copy of the file on our computer. Given the data are small and they
-could be moved over time, this is a good idea as now we have a backup of the data.
+The file that you downloaded above is stored using a `.csv` or comma separated
+value format. This is a format that is human readable and structured using a simple, 
+non hierarchical (no nesting involved) format compared to **JSON** which can be 
+hierarchical and thus efficiently support more complex data. The `download.file()` 
+function allows us to store a copy of the file on your computer. Given the data are 
+small and they could be moved over time, this is a good idea as now you have a backup 
+of the data.
 
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** If we have a secure url (secure transfer protocols - i.e., `https`) we may not be
-able to use `read.csv()`. Instead, we need to use functions in the `RCurl` package.
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** If you have a secure url (secure transfer protocols - i.e., `https`) you may not be
+able to use `read.csv()`. Instead, you need to use functions in the `RCurl` package.
 With that said `read.csv()` may work for some if not all computers now given
 upgrades to the base R code.
 {: .notice--success}
 
-## Directly access & import data into R
+## Directly Access & Import Data Into R
 
-We can import data directly into `R` rather than downloading it using the
+You can import data directly into `R` rather than downloading it using the
 `read.csv()` and/or `read.table()` functions. This solution will may have some
 problems when the data are stored on a secure server. However, let's have a look
-at how we use `read.csv()` to directly import data stored on a website or server,
+at how you use `read.csv()` to directly import data stored on a website or server,
 into `R`. The `read.csv()` function is ideal for
 data that are separated by commas (.csv) files whereas `read.table()` is ideal
 for data in other formats - separated by spaces, tabs and other delimiters.
@@ -125,7 +125,7 @@ boulder_precip2 <- read.csv("https://ndownloader.figshare.com/files/7010681")
 # fix date
 boulder_precip2$DATE <- as.Date(boulder_precip2$DATE)
 # plot data with ggplot
-ggplot(boulder_precip2, aes(x = DATE, y=PRECIP)) +
+ggplot(boulder_precip2, aes(x = DATE, y = PRECIP)) +
   geom_point() +
       labs(x = "Date (2013)",
            y = "Precipitation (inches)",
@@ -143,13 +143,13 @@ While using `read.csv()` to get data directly works, it may fail sometimes if:
 2. You are trying to access data from an API that requires authentication (more on that later)
 
 
-## Access birthrate data
+## Access Birthrate Data
 
 Birth rate data for several countries are available via a
 <a href="http://data.princeton.edu/wws509/datasets" target="_blank">Princeton University data website</a>. The birth rate data show how much effort went into considering family planning
 efforts that were in place to attempt to reduce birth rates in various countries.
 The outcome variable is the associated percent decline in birth rate by country
-over 10 years. An excerpt from the website where we are getting the data is below.
+over 10 years. An excerpt from the website where you are getting the data is below.
 
 >Here are the famous program effort data from Mauldin and Berelson. These data
 consist of observations on an index of social setting, an index of family
@@ -162,9 +162,9 @@ The data have 3 variables:
 1. Index of social setting
 1. Index of family planning effort
 
-We can read these data in `R` using the `read.table()` function.
+You can read these data in `R` using the `read.table()` function.
 
-<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Note that we
+<i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Note that you
 are using `read.table()` rather than `read.csv()` because in this instance,
 the data are not stored in a `.csv` (comma separated value) format. Rather, they
 are stored in a `.dat` format.
@@ -196,9 +196,9 @@ birth_rates <- read.table(the_url)
 
 ## Work with Web Data
 
-The `birth_rates` data that we just accessed were imported into R as a
-`data.frame`, which we are used to working with. We can analyze and visualize
-the data using `ggplot()` just like we did with the precipitation data earlier.
+The `birth_rates` data that you just accessed were imported into R as a
+`data.frame`, which you are used to working with. You can analyze and visualize
+the data using `ggplot()` just like you did with the precipitation data earlier.
 For example:
 
 Here's the top 6 rows (or `head()`) of the `data.frame`:
@@ -220,12 +220,12 @@ head(birth_rates)
 ## Cuba           89     15     40
 ```
 
-We can plot these data to see the relationships between effort and percent change in
+You can plot these data to see the relationships between effort and percent change in
 birth rates.
 
 
 ```r
-ggplot(birth_rates, aes(x=effort, y=change)) +
+ggplot(birth_rates, aes(x = effort, y = change)) +
   geom_point() +
       labs(x = "Effort",
            y = "Percent Change",
@@ -235,10 +235,10 @@ ggplot(birth_rates, aes(x=effort, y=change)) +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/birth-rates-1.png" title="Birth rates example" alt="Birth rates example" width="90%" />
 
-Remember that here we've imported a tabular dataset directly from the Princeton
-University website. The data file itself is NOT on our computer so we do not
+Remember that here you've imported a tabular dataset directly from the Princeton
+University website. The data file itself is NOT on your computer so you do not
 have a backup in the event that the data are removed from the Princeton website -
-our code would not run.
+your code would not run.
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Consider when
 you directly access a dataset via an API that - that data may not always
@@ -253,9 +253,9 @@ data will always be there!
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge
 
-Using the tools that we learned above, import the Princeton salary data below.
+Using the tools that you learned above, import the Princeton salary data below.
 
 <a href="http://data.princeton.edu/wws509/datasets/#salary" target="_blank">Learn more about the Princeton salary data</a>
 
@@ -291,7 +291,7 @@ to add a facet for each of the three ranks.
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/all-data-1.png" title="Prof salary data by sex" alt="Prof salary data by sex" width="90%" />
 
-## Example homework plot
+## Example Homework Plot
 Data faceted by rank. You can add the argument `+ facet_wrap(~variableHere)` to
 create a faceted plot like the one below.
 

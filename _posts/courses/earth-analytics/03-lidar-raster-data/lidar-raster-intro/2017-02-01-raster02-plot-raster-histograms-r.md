@@ -1,11 +1,11 @@
 ---
 layout: single
-title: "Plot histograms of raster values in R"
+title: "Plot Histograms of Raster Values in R"
 excerpt: "This lesson introduces the raster geotiff file format - which is often used
-to store lidar raster data. We cover the 3 key spatial attributes of a raster dataset
+to store lidar raster data. You learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/plot-raster-histograms-r/
@@ -24,45 +24,45 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* Open raster data in `R`
-* Create a histogram of raster values in `R`
-* Draw information on raster attributes from a histogram
+* Open raster data in `R`.
+* Create a histogram of raster values in `R`.
+* Draw information on raster attributes from a histogram.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
 If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download week 3 data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
-In the last lesson, we discussed 3 key attributes of a raster dataset:
+In the last lesson, you learned 3 key attributes of a raster dataset:
 
 1. Spatial resolution
 2. Spatial extent
 3. Coordinate reference systems
 
-In this lesson, we will learn how to use histograms to better understand the
-distribution of our data.
+In this lesson, you will learn how to use histograms to better understand the
+distribution of your data.
 
 
 
 
-## Open raster data in R
+## Open Raster Data in R
 
-To work with raster data in `R`, we can use the `raster` and `rgdal` packages.
-Remember we can use the `raster()` function to import the raster object into R.
+To work with raster data in `R`, you can use the `raster` and `rgdal` packages.
+Remember you can use the `raster()` function to import the raster object into R.
 
 
 ```r
@@ -83,18 +83,18 @@ plot(lidar_dem,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/load-libraries-1.png" title="digital surface model raster plot" alt="digital surface model raster plot" width="90%" />
 
-## Raster histograms - distribution of elevation values
+## Raster Histograms - Distribution of Elevation Values
 
-The histogram below represents the distribution of pixel elevation values in our
+The histogram below represents the distribution of pixel elevation values in your
 data. This plot is useful to:
 
-1. Identify outlier data values
-2. Assess the min and max values in our data
+1. Identify outlier data values.
+2. Assess the min and max values in your data.
 3. Explore the general distribution of elevation values in the data (i.e. is the
-area generally flat, hilly, high elevation or low elevation)
+area generally flat, hilly, high elevation or low elevation).
 
-Notice that we are using the `xlab` and `ylab`
-arguments  in our plot to label our plot axes.
+Notice that you are using the `xlab` and `ylab`
+arguments in your plot to label your plot axes.
 
 
 
@@ -108,13 +108,13 @@ hist(lidar_dem,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/view-hist-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="90%" />
 
-## What does a histogram tell us?
+## What Does a Histogram Tell Us?
 
 A histogram shows us how the data are distributed. Each bin or bar in the plot
 represents the number or frequency of pixels that fall within the range specified
 by the bin.
 
-We can use the `breaks = ` argument to specify fewer or more breaks in our histogram.
+You can use the `breaks = ` argument to specify fewer or more breaks in your histogram.
 Note that this argument does not result in the exact number of breaks that you may
 want in your histogram.
 
@@ -130,7 +130,7 @@ hist(lidar_dem,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/03-lidar-raster-data/lidar-raster-intro/2017-02-01-raster02-plot-raster-histograms-r/view-hist2-1.png" title="histogram of DEM elevation values" alt="histogram of DEM elevation values" width="90%" />
 
-Alternatively, we can specify specific break points that we want `R` to use when it
+Alternatively, you can specify specific break points that you want `R` to use when it
 bins the data.
 
 `breaks = c(1600, 1800, 2000, 2100)`
@@ -157,7 +157,7 @@ hist(lidar_dem,
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> In-class challenge - import DSM
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> In-class Challenge - Import DSM
 
 * Import the file: `data/week-03/BLDR_LeeHill/pre-flood/lidar/pre_DSM_hill.tif`
 

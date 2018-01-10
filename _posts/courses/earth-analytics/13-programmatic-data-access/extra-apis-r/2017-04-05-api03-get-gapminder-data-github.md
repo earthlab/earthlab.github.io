@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Access secure data connections using the RCurl R package."
+title: "Access Secure Data Connections Using the RCurl R Package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/access-gapminder-data-rcurl-r/
@@ -30,11 +30,11 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Access data from a secure website using `read.csv()`
+* Access data from a secure website using `read.csv()`.
 * Be able to describe the key difference between a `.tsv` and a `.csv` file.
 * Use pipes ( `%>%` ) to send data directly to ggplot to plot!
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data that you already downloaded for week 6 of the course.
@@ -52,11 +52,11 @@ library(ggplot2)
 library(RCurl)
 ```
 
-## Download gapminder data with RCurl
+## Download gapminder Data with RCurl
 
 Next, you will download data from a secure URL. It is important to note that in
-older versions of `R`, particularly on windows machine, you would need to use
-functions in the `RCUrl` package that support secure url connections. Below
+older versions of `R`, particularly on Windows machine, you would need to use
+functions in the RCUrl package that support secure url connections. Below
 you can read more about using RCurl to access secure URL's. However for this lessons,
 you will continue to use `read.csv()` to directly access the data given it works
 for secure connections now.
@@ -98,12 +98,12 @@ head(gap_data)
 Looking at the results, you notice there is a `\t` between each data element.
 This is not what you would expect when you import file into R. What is going on?
 
-### .tsv file format
+### .tsv File Format
 
 Note that the data format that you are using here is `.tsv` - which stands for
 Tab Separate Values. The difference between .tsv and .csv is the separator:
 
-* `.csv` uses a COMMA (`,`) to separate individual values in each column and row of the data
+* `.csv` uses a COMMA (`,`) to separate individual values in each column and row of the data.
 * `.tsv` uses a TAB (`\t`) to separate individual values in each column / row of the data.
 
 You can use the `read.csv()` function to read in the `.tsv` format. However, you need
@@ -147,13 +147,13 @@ head(gap_data)
 
 ## Secure url's in R
 
-### Use RCurl to download data from secure URLs
+### Use RCurl to Download Data From Secure URLs
 
 When you run into errors downloading data using `read.csv()`, you may need to instead
 use functions in the RCurl package. RCurl is a powerful package that:
 
-* Provides a set of tools to allow `R` to act like a *web client*
-* Provides a number of helper functions to grab data files from the web
+* Provides a set of tools to allow `R` to act like a *web client*.
+* Provides a number of helper functions to grab data files from the web.
 
 The `getURL()` function works for most secure web download protocols (e.g.,
 `http(s)`, `ftp(s)`). It also helps with web scraping, direct access to web
@@ -161,18 +161,17 @@ resources, and even API data access.
 
 ### Using getURL and textConnection()
 
-Older versions
-of R, particularly running windows used to have issues with dealing with
+Older versions of `R`, particularly running Windows used to have issues with dealing with
 secure (https and ftps) connetion URLs. If you encounter issues importing the
 above data using `read.table()` directly, consider the following approach which
 uses `getURL()` to access the URL and the `textConnection()` function to read
 in text formatted data.
 
 The RCurl `R` package, allows you to consistently access secure servers and also
-has additional authentication support. To use `getURL()` to open text files we
+has additional authentication support. To use `getURL()` to open text files you
 do the following:
 
-1. You *grab* the URL using `getURL()`
+1. You *grab* the URL using `getURL()`.
 2. You read in the data using `read.csv()` (or `read.table()` ) via the `textConnection()` function.
 
 
@@ -196,7 +195,7 @@ importing the data directly using `read.csv()`, you can try this as an option.
 </div>
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The syntax
-`package::functionName()` is a common way to tell R to use a function from a particular
+`package::functionName()` is a common way to tell `R` to use a function from a particular
 package. In the example above: you specify that you are using `getURL()` from the
 RCurl package using the syntax: `RCurl::getURL()`. This syntax is not necessary to call
 getURL UNLESS there is another `getURL()` function available in your `R` session.
@@ -221,7 +220,7 @@ summary_life_exp <-  gap_data %>%
    group_by(continent, year) %>%
    summarise(median_life = median(lifeExp))
 
-ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
+ggplot(summary_life_exp, aes(x = year, y = median_life, colour = continent)) +
   geom_point() +
       labs(x = "Year",
            y = "Median Life Expectancy (years)",
@@ -231,7 +230,7 @@ ggplot(summary_life_exp, aes(x=year, y=median_life, colour = continent)) +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api03-get-gapminder-data-github/life-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent" alt="GGPLOT of gapminder data - life expectance by continent" width="90%" />
 
-### Piping data to ggplot()
+### Piping Data to ggplot()
 
 Above, you used `dplyr` pipes to summarize the data that you wanted to plot.
 Remember that you can instead send the data directly to the  `ggplot()` function
@@ -244,7 +243,7 @@ an intermediate `data.frame` in your environment.
 gap_data %>%
    group_by(continent, year) %>%
    summarise(median_life = median(lifeExp)) %>%
-   ggplot(aes(x=year, y=median_life, colour = continent)) +
+   ggplot(aes(x = year, y = median_life, colour = continent)) +
       geom_point() +
       labs(x = "Year",
            y = "Median Life Expectancy (years)",
@@ -257,14 +256,14 @@ gap_data %>%
 
 Below, you make a boxplot of `lifeExp` by `continent` too. Notice in this case
 you are using the `dplyr` output above, again. Thus it made sense above to
-save our `dplyr` output as a new `data.frame`.
+save your `dplyr` output as a new `data.frame`.
 
 
 ```r
 # create box plot
 ggplot(summary_life_exp,
        aes(continent, median_life)) +
-      geom_boxplot()+
+      geom_boxplot() +
       labs(x = "Continent",
            y = "Median Life Expectancy (years)",
           title = "Gapminder Data - Life Expectancy",
@@ -278,8 +277,8 @@ a box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot do
 
 
 ```r
-ggplot(gap_data, aes(x=continent, y=lifeExp)) +
-  geom_boxplot(outlier.colour="hotpink") +
+ggplot(gap_data, aes(x = continent, y = lifeExp)) +
+  geom_boxplot(outlier.colour = "hotpink") +
       labs(x = "Continent",
            y = "Life Expectancy (years)",
            title = "Gapminder Data - Life Expectancy",
@@ -292,9 +291,9 @@ Or create a box plot with the data points overlaid on top.
 
 
 ```r
-ggplot(gap_data, aes(x=continent, y=lifeExp)) +
+ggplot(gap_data, aes(x = continent, y = lifeExp)) +
   geom_boxplot() +
-  geom_jitter(position=position_jitter(width=0.1, height=0), alpha=0.25)+
+  geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 0.25) +
       labs(x = "Continent",
            y = "Life Expectancy (years)",
            title = "Gapminder Data - Life Expectancy",

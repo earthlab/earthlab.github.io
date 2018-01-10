@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to the JSON data structure"
 excerpt: "This lesson covers the JSON data structure. JSON is a powerful text based format that supports hierarchical data structures. It is the core structure used to create geoJSON which is a spatial version of json that can be used to create maps. JSON is preferred for use over .csv files for data structures as it has been proven to be more efficient - particulary as data size becomes large."
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/intro-to-JSON/
@@ -29,9 +29,9 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Describe the key structure elements of a `.json` file: object names and values
-* List some of the core data types that `json` files can store including: boolean, numeric and string
-* Be able to identify the components of the hierarchical JSON structures including: objects, arrays and data elements.
+* Describe the key structure elements of a `json` file: object names and values.
+* List some of the core data types that `json` files can store including: boolean, numeric and string.
+* Identify the components of the hierarchical `json` structures including: objects, arrays and data elements.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
 
@@ -41,24 +41,24 @@ You will need a computer with internet access to complete this lesson.
 
 
 
-In the previous lesson, we learned how to access human readable text files data
+In the previous lesson, you learned how to access human readable text files data
 programmatically using:
 
 1. `download.file()` to download a file to your computer and work with it (ideal if you want to save a copy of the data to your computer)
 1. `read.csv()` ideal for reading in a tabular file stored on the web but may sometimes fail when there are secure connections involved (e.g. https).
 
-We also discussed the use of `getURL()` for urls that are both secure (https) and
+You also learned how to use `getURL()` for urls that are both secure (https) and
 less secure (http).
 
-In this lesson, we will learn about API interfaces. An API allows us to access
+In this lesson, you will learn about API interfaces. An API allows us to access
 data stored on a computer or server using a specific query. API's are powerful
 ways to access data and more specifically the specific type and subset of data
-that we need for our analysis, programmatically.
+that you need for your analysis, programmatically.
 
-We will also explore the **machine readable** JSON data structure. Machine readable
+You will also explore the **machine readable** JSON data structure. Machine readable
 data structures are more efficient - particularly for larger data that contain
 hierarchical structures. In this lesson, the `getURL()`
-function will become more valuable to us as we parse data accessed from an API.
+function will become more valuable to us as you parse data accessed from an API.
 
 
 ```r
@@ -75,16 +75,16 @@ library(rjson)
 
 ## Review
 
-Remember that in the first lesson in this module, we discussed **REST**ful APIs.
-We explored the concept of a **request** and then a subsequent
+Remember that in the first lesson in this module, you learned about **REST**ful APIs.
+You explored the concept of a **request** and then a subsequent
 **response**. The **request** to an **REST**ful API is composed of a URL and the
-associated parameters required to access a particular subset of the data that we
+associated parameters required to access a particular subset of the data that you
 wish to access.
 
 When you send the request, the web API returns one of the following:
 
- 1. The data that we requested or
- 2. A *failed to return* message which tells us that something was wrong with our request.
+ 1. The data that you requested or
+ 2. A *failed to return* message which tells us that something was wrong with your request.
 
 
 ## About JSON
@@ -122,17 +122,17 @@ However, the JSON structure can also be nested. Like this:
 ```
 
 The ability to store nested or hierarchical data within a text file structure makes
-JSON a powerful format to use as we are working with larger datasets.
+JSON a powerful format to use as you are working with larger datasets.
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The GEOJSON
 data structure is a powerful data structure that supports spatial data. GEOJSON
 can be used to create maps just like shapefiles can. This format is often used
-for web mapping applications like leaflet (which we will learn about later in
+for web mapping applications like leaflet (which you will learn about later in
 this module).
 {: .notice--success}
 
 
-### JSON data structures
+### JSON Data Structures
 
 JSON can store any of the following data types:
 
@@ -158,8 +158,8 @@ that this value is a number or of type `numeric`.
 { "name":"Chaya", "age":55, "city":"Boulder", "type":"Canine" }
 ```
 
-In the next lesson, we will work with JSON structued data, accessed via an RESTful
-API. A snippet of the data that we will work with is below.
+In the next lesson, you will work with JSON structued data, accessed via an RESTful
+API. A snippet of the data that you will work with is below.
 
 ```json
 [{"age":"0","county":"Adams","datatype":"Estimate","femalepopulation":"2404","fipscode":"1","malepopulation":"2354","totalpopulation":"4758","year":"1990"}

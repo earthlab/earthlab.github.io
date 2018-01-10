@@ -3,7 +3,7 @@ layout: single
 title: "Create Maps of Social Media Twitter Tweet Locations Over Time in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/map-tweet-locations-over-time-r/
@@ -33,15 +33,33 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Query the twitter RESTful API to access and import into `R` tweets that contain various text strings.
-* Generate a list of users that are tweeting about a particular topic
-* Use the tidytext package in `R` to explore and analyze word counts associated with tweets.
+* Use `ggplot` in `R` to create a static map of social media activity.
+* Use leaflet to create an interactive map of social media activity.
+* Use `GGAnimate` to create an antimated gif file of social media activity.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
 </div>
+
+
+In the previous lesson, you used text mining approaches to understand what people
+were tweeting about during the flood. Here, you will create a map that shows the
+location from where people were tweeting during the flood.
+
+Keep in mind that these data have already been filtered to only include tweets that
+at the time of the flood event, had an x, y location associated with them.
+Thus this map doesn't represent all of the tweets that may be related to the flood
+event.
+
+You need three packages to create your map:
+
+1. ggplot: You will use `ggplot()` to create your map.
+2. You will use the `maps` package to automatically access a basemap containing
+boundaries of countries across the globe.
+3. Finally you use the `ggthemes` library which includes `theme_map()`. This theme 
+turns off all of the extra `ggplot` elements that you don't need such as the x and y axis.
 
 
 
@@ -102,23 +120,12 @@ flood_tweets <- tweet_data %>%
   separate(coords.coordinates, c("long", "lat"), sep = ", ") %>%
   mutate_at(c("lat", "long"), as.numeric) %>%
   filter(date_time >= start_date & date_time <= end_date )
+## Warning: Too few values at 14878 locations: 2, 4, 6, 7, 8, 9, 10, 11, 12,
+## 15, 19, 21, 22, 23, 26, 27, 28, 29, 30, 31, ...
+## Warning in evalq(as.numeric(long), <environment>): NAs introduced by
+## coercion
 ```
 
-In the previous lesson, you used text mining approaches to understand what people
-were tweeting about during the flood. Here, you will create a map that shows the
-location from where people were tweeting during the flood.
-
-Keep in mind that these data have already been filtered to only include tweets that
-at the time of the flood event, had an x, y location associated with them.
-Thus this map doesn't represent all of the tweets that may be related to the flood
-event.
-
-You need 3 packages to create our map:
-
-1. ggplot: You will use `ggplot()` to create our map.
-2. You will use the `maps` package to automatically access a basemap containing
-boundaries of countries across the globe.
-3. Finally you use the `ggthemes` library which includes `theme_map()`. This theme turns off all of the extra `ggplot` elements that you don't need such as the x and y axis.
 
 
 ```r
@@ -132,7 +139,7 @@ world_basemap
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-05-map-tweet-locationsboulder-flood-r/create-world-map-1.png" title="plot of chunk create-world-map" alt="plot of chunk create-world-map" width="90%" />
 
 Below you can see how the `theme_map()` function cleans up the look
-of our map.
+of your map.
 
 
 ```r
@@ -146,7 +153,7 @@ world_basemap
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-05-map-tweet-locationsboulder-flood-r/create-world-map-theme-1.png" title="plot of chunk create-world-map-theme" alt="plot of chunk create-world-map-theme" width="90%" />
 
-Next, look closely at our data. Notice that some of the location
+Next, look closely at your data. Notice that some of the location
 information contains NA values. Let's remove NA values and then plot the
 data as points using ggplot().
 
@@ -221,7 +228,7 @@ world_basemap +
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-05-map-tweet-locationsboulder-flood-r/tweet-locations-plot-1.png" title="plot of chunk tweet-locations-plot" alt="plot of chunk tweet-locations-plot" width="90%" />
 
 
-## Leaflet map
+## Leaflet Map
 
 Next let's create an interactive map of the data using leaflet. This will
 allow us to explore the tweets. It is particularly interesting that some
@@ -270,7 +277,7 @@ site_locations_base
 <iframe title = "Basic Map" width="100%" height="400" src="{{ site.url }}/example-leaflet-maps/co_flood_tweet_locations_2.html" frameborder="0" allowfullscreen></iframe>
 
 
-## Summarize Data by
+## Summarize Data by Day
 
 
 ```r
@@ -289,6 +296,7 @@ grouped_tweet_map <- world_basemap + geom_point(data = tweet_locations_grp,
                         aes(long_round, lat_round, frame = day, size = total_count),
                         color = "purple", alpha = .5) + coord_fixed() +
   labs(title = "Twitter Activity during the 2013 Colorado Floods")
+## Warning: Ignoring unknown aesthetics: frame
 
 grouped_tweet_map
 ```

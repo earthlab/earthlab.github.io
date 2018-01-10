@@ -1,8 +1,8 @@
 ---
 layout: single
 category: course-materials
-title: "Final project: example data sources"
-nav-title: "Data source list"
+title: "Final Project: Example Data Sources"
+nav-title: "Data Source List"
 permalink: /courses/earth-analytics/data-sources/
 module-type: 'overview'
 comments: true
@@ -20,7 +20,7 @@ sidebar:
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Source of data
+## <i class="fa fa-ship" aria-hidden="true"></i> Source of Data
 
 There are countless sources of data out there for us to download the use. The
 list below, is not comprehensive. It represents a suite of sources that can
@@ -41,7 +41,7 @@ from international, national and even local groups.
 | <a href="http://nadp.sws.uiuc.edu/" target="_blank">NADP (National Atmospheric Deposition Program)</a> | The National Trends Network has weekly precipitation chemistry data, along with some basic meteorology (daily precip, phase, and perhaps temp) at a number of sites across the country. |
 
 
-## International sources
+## International Sources
 
 |Site Name / URL | Description|
 |---|
@@ -54,14 +54,14 @@ from international, national and even local groups.
 | <a href="http://www.esri.com/data/data-maps/" target="_blank">ESRI</a>| |
 | <a href="http://www.conservationgis.org/links/datasources1.html" target="_blank">Society for Conservation in GIS</a> | National / International sources for data, metadata, documentation and standards protocols (which vary country to country) |
 
-## Viz sources
+## Viz Sources
 
 |Site Name / URL | Description|
 |---|
 | <a href="http://worldwind.arc.nasa.gov/" target="_blank">NASA Worldwind</a> | Various satellite data based covering the last 30 or so years - NASA World Wind imagery (zoom from satellite altitude into any place on Earth, leveraging high resolution imagery and SRTM elevation data to experience Earth in visually rich 3D; links to several websites for data and imagery download) |
 
 
-## National sources
+## National Sources
 
 |Site Name / URL | Description|
 |---|
@@ -102,7 +102,7 @@ from international, national and even local groups.
 * <a href="http://www.digitalglobe.com" target="_blank">Digital Globe</a>
 
 
-# Not-for-Profit Data Sources – many are international data portals
+# Not-for-Profit Data Sources (many are international data portals)
 
 * <a href="http://www.unitar.org/unosat/" target="_blank">UNITAR (United Nations Institute for Training & Research)</a>
 * <a href="http://geodata.grid.unep.ch/" target="_blank">UNEP Grid (United Nations Envir Program)</a>
@@ -132,7 +132,7 @@ from international, national and even local groups.
 
 ***
 
-### Change detection with lidar data - Open Topography
+### Change Detection with Lidar Data - Open Topography
 
 The data below were suggested by Chris Crosby of Open Topography as excellent
 time series data subsets available on Open Topography.

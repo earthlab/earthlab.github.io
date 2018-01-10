@@ -1,16 +1,16 @@
 ---
 layout: single
-title: "Write clean code - expressive or literate programming in R - data science for scientists 101"
-excerpt: "This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices. "
+title: "Write Clean Code - Expressive or Literate Programming in R - Data Science for Scientists 101"
+excerpt: "This lesson covers the basics of clean coding meaning that you ensure that the code that you write is easy for someone else to understand. The lesson will briefly cover style guides, consistent spacing, literate object naming best practices. "
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [courses]
 class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/time-series-data/write-clean-code-with-r/
-nav-title: 'Write clean code'
+nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
-modified: '2017-12-07'
-module-title: 'Clean code & getting help'
-module-nav-title: 'Clean code & getting help with R'
+modified: '2018-01-10'
+module-title: 'Clean Code & Getting Help'
+module-nav-title: 'Clean Code & Getting Help with R'
 module-description: 'This module covers how to write easier to read, clean code.
 Further is covers some basic approaches to getting help when working in R. Finally
 it reviews how to install QGIS - a free and open source GIS tool - on your computer.'
@@ -27,21 +27,21 @@ topics:
 ---
 
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 This lesson reviews best practices associated with clean coding.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* Write code using Hadley Wickham's style guide
+* Write code using Hadley Wickham's style guide.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
-have an `earth-analytics` directory setup on your computer with a `/data`
+have an `earth-analytics` directory set up on your computer with a `/data`
 directory within it.
 
 * [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
@@ -69,12 +69,12 @@ While these types of guidelines may seem unimportant when you first begin to cod
 after a while you'll realize that consistently formatted code is much easier
 for your eye to scan and quickly understand.
 
-## Consistent, clean code
+## Consistent, Clean Code
 
 Take some time to review <a href="http://adv-r.had.co.nz/Style.html" target="_blank">Hadley Wickham's style guide</a>.
-From here on in, we will follow this guide for all of the assignments in this class.
+From here on in, you will follow this guide for all of the assignments in this class.
 
-## Object naming best practices
+## Object Naming Best Practices
 
 1. **Keep object names short:** This makes them easier to read when scanning through code
 2. **Use meaningful names:** For example, `precip` is a more useful name that tells us something about the object compared to `x`

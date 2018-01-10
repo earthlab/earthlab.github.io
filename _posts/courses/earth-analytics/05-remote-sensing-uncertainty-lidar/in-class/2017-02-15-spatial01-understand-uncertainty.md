@@ -1,15 +1,15 @@
 ---
 layout: single
 title: "Sources of Error in Lidar and Human Measured Estimates of Tree Height"
-excerpt: "There are difference sources of error when we measure tree height using Lidar. Learn about accuracy, precision and the sources of error associated with Lidar remote sensing data."
+excerpt: "There are difference sources of error when you measure tree height using Lidar. Learn about accuracy, precision and the sources of error associated with lidar remote sensing data."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/about-uncertainty-lidar/
 nav-title: 'Remote Sensing Uncertainty'
 module-title: 'Uncertainty and Metadata'
-module-description: 'In this module, we will discuss the concept of uncertainty as it relates to both remote sensing and other data. We will also explore some metadata to learn how to understand more about our data. '
+module-description: 'In this module, you will learn the concept of uncertainty as it relates to both remote sensing and other data. You will also explore some metadata to learn how to understand more about your data. '
 module-nav-title: 'Uncertainty in Scientific Data & Metadata '
 module-type: 'class'
 course: "earth-analytics"
@@ -40,11 +40,11 @@ redirect_from:
 After completing this tutorial, you will be able to:
 
 * List atleast 3 sources of uncertainty / error associated with remote
-sensing data
+sensing data.
 * Interpret a scatter plot that compares remote sensing values with field
-measured values to determine how "well" the two metrics compare
+measured values to determine how "well" the two metrics compare.
 * Describe 1-3 ways to better understand sources of error associated
-with a comparison between remote sensing values with field measured values
+with a comparison between remote sensing values with field measured values.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -58,9 +58,9 @@ You will need a computer with internet access to complete this lesson and the da
 ## Understanding Uncertainty and Error.
 
 It is important to consider error and uncertainty when presenting scientific
-results. Most measurements that we make - be they from instruments or humans -
-have uncertainty associated with them. We will discuss what
-that means, below.
+results. Most measurements that you make - be they from instruments or humans -
+have uncertainty associated with them. You will learn what
+that means below.
 
 ## Uncertainty
 
@@ -72,28 +72,28 @@ quantity being measured?"
 
 ### Tree Height Measurement Example
 
-So for example let's pretend that we measured the height of a tree 10 times. Each
-time our tree height measurement may be slightly different? Why? Because maybe
-each time we visually determined the top of the tree to be in a slightly different
+So for example let's pretend that you measured the height of a tree 10 times. Each
+time your tree height measurement may be slightly different? Why? Because maybe
+each time you visually determined the top of the tree to be in a slightly different
 place. Or maybe there was wind that day during measurements that
-caused the tree to shift as we measured it yielding a slightly different height
+caused the tree to shift as you measured it yielding a slightly different height
 each time. or... what other reasons can you think of that might impact tree height
 measurements?
 
 <figure>
    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/measuring-tree-height.jpg">
    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/measuring-tree-height.jpg" alt="national geographic scaling trees graphic"></a>
-   <figcaption>When we measure tree height by hand, many different variables may impact the accuracy and precision of our results. Source:  http://www.haddenham.net/newsroom/guess-tree-height.html
+   <figcaption>When you measure tree height by hand, many different variables may impact the accuracy and precision of your results. Source:  http://www.haddenham.net/newsroom/guess-tree-height.html
    </figcaption>
 </figure>
 
 ## What is the True Value?
 
-So you may be wondering, what is the true height of our tree?
+So you may be wondering, what is the true height of your tree?
 In the case of a tree in a forest, it's very difficult to determine the
-true height. So we accept that there will be some variation in our measurements
-and we measure the tree over and over again until we understand the range of
-heights that we are likely to get when we measure the tree.
+true height. So you accept that there will be some variation in your measurements
+and you measure the tree over and over again until you understand the range of
+heights that you are likely to get when you measure the tree.
 
 
 
@@ -107,10 +107,10 @@ tree_heights <- data.frame(heights = c(10, 10.1, 9.9, 9.5, 9.7, 9.8,
                                      9.6, 10.5, 10.7, 10.3, 10.6))
 # what is the average tree height
 mean(tree_heights$heights)
-## [1] 10.06
+## [1] 10.06364
 # what is the standard deviation of measurements?
 sd(tree_heights$heights)
-## [1] 0.413
+## [1] 0.4129715
 boxplot(tree_heights$heights,
         main = "Distribution of tree height measurements (m)",
         ylab = "Height (m)",
@@ -119,10 +119,10 @@ boxplot(tree_heights$heights,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/standard-error-1.png" title="Distribution of tree heights." alt="Distribution of tree heights." width="90%" />
 
-In the example above, our mean tree height value is towards the center of
-our distribution of measured heights. We might expect that the sample mean of
-our observations provides a reasonable estimate of the true value. The
-variation among our measured values may also provide some information about the
+In the example above, your mean tree height value is towards the center of
+your distribution of measured heights. You might expect that the sample mean of
+your observations provides a reasonable estimate of the true value. The
+variation among your measured values may also provide some information about the
 precision (or lack thereof) of the measurement process.
 
 <a href="http://www.physics.csbsju.edu/stats/box2.html" target="_blank">Read more about  the basics of a box plot</a>
@@ -140,8 +140,8 @@ hist(tree_heights$heights, breaks = c(9,9.6,10.4,11),
 ## Measurement Accuracy
 
 Measurement **accuracy** is a concept that relates to whether there is bias in
-measurements, i.e. whether the expected value of our observations is close to
-the true value. For low accuracy measurements, we may collect many observations,
+measurements, i.e. whether the expected value of your observations is close to
+the true value. For low accuracy measurements, you may collect many observations,
 and the mean of those observations may not provide a good measure of the truth
 (e.g., the height of the tree). For high accuracy measurements, the mean of
 many observations would provide a good measure of the true value. This is
@@ -150,7 +150,7 @@ observations. Accuracy and precision are not always tightly coupled. It is
 possible to have measurements that are very precise but inaccurate, very
 imprecise but accurate, etc.
 
-## Systematic vs random error
+## Systematic vs Random Error
 
 **Systematic Error:** a systematic error is one that tends to shift all measurements
 in a systematic way. This means that the mean value of a set of measurements is
@@ -179,7 +179,7 @@ or random and cannot be completely accounted for.
 For example, it is difficult to determine the ends of a crack with measuring its
 length.  Two people may likely pick two different starting and ending points.
 
-*Example:* Random error may be introduced when we measure tree heights as discussed above.
+*Example:* Random error may be introduced when you measure tree heights as discussed above.
 
 - <a href="https://www.nde-ed.org/GeneralResources/ErrorAnalysis/UncertaintyTerms.htm">Source: nde-ed.org</a>
 
@@ -193,15 +193,15 @@ length.  Two people may likely pick two different starting and ending points.
 
 ## Using Lidar to Estimate Tree Height
 
-We use lidar data to estimate tree height because it is an efficient way to measure
-large areas of trees (forests) quantitatively. However, we can process the lidar
+You use lidar data to estimate tree height because it is an efficient way to measure
+large areas of trees (forests) quantitatively. However, you can process the lidar
 data in many different ways to estimate height. Which method most closely represents
 the actual heights of the trees on the ground?
 
 <figure>
    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/scaling-trees-nat-geo.jpg">
    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/scaling-trees-nat-geo.jpg" alt="national geographic scaling trees graphic"></a>
-   <figcaption>It can be difficult to measure the true height of trees! Often times "seeing" the very top of the tree where it is tallest is not possible from the ground - especially in dense, tall forests. One can imagine the amount of uncertainty that is thus introduced when we try to estimate the true height of trees! Image Source:
+   <figcaption>It can be difficult to measure the true height of trees! Often times "seeing" the very top of the tree where it is tallest is not possible from the ground - especially in dense, tall forests. One can imagine the amount of uncertainty that is thus introduced when you try to estimate the true height of trees! Image Source:
    National Geographic
    </figcaption>
 </figure>
@@ -238,34 +238,34 @@ site location on the map below.
 
 ## Study Area Plots
 
-At this study site, we have both lidar data - specifically a canopy height model
-that was processed by NEON (National Ecological Observatory Network). We also
-have some "ground truth" data. That is we have measured tree height values collected
-at a set of field site plots by technicians at NEON. We will call these measured
+At this study site, you have both lidar data - specifically a canopy height model
+that was processed by NEON (National Ecological Observatory Network). You also
+have some "ground truth" data. That is you have measured tree height values collected
+at a set of field site plots by technicians at NEON. You call these measured
 values *in situ* measurements.
 
-A map of our study plots is below overlaid on top of the canopy height mode.
+A map of your study plots is below overlaid on top of the canopy height mode.
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/05-remote-sensing-uncertainty-lidar/in-class/2017-02-15-spatial01-understand-uncertainty/plot-plots-1.png" title="plots" alt="plots" width="90%" />
 
 ### Compare Lidar Derived Height to In Situ Measurements
 
-We can compare maximum tree height values at each plot to the maximum pixel value
-in our `CHM` for each plot. To do this, we define the geographic boundary of our plot
-using a polygon - in the case below we use a circle as the boundary. We then extract
+You can compare maximum tree height values at each plot to the maximum pixel value
+in your `CHM` for each plot. To do this, you define the geographic boundary of your plot
+using a polygon - in the case below you use a circle as the boundary. You then extract
 the raster cell values for each circle and calculate the max value for all of the
 pixels that fall within the plot area.
 
-Then, we calculate the max height of our measured plot tree height data.
+Then, you calculate the max height of your measured plot tree height data.
 
-Finally we compare the two using a scatter plot to see how closely the data relate.
+Finally you compare the two using a scatter plot to see how closely the data relate.
 Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 
 <figure>
     <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-circular.png" alt="buffer circular">
     <figcaption>The extract function in R allows you to specify a circular buffer
     radius around an x,y point location. Values for all pixels in the specified
-    raster that fall within the circular buffer are extracted. In this case, we
+    raster that fall within the circular buffer are extracted. In this case, you
     will tell R to extract the maximum value of all pixels using the fun=max
     command. Source: Colin Williams, NEON
     </figcaption>

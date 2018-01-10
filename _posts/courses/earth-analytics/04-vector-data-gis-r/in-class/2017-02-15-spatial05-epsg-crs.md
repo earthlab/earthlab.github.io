@@ -3,11 +3,11 @@ layout: single
 title: "GIS in R: Understand EPSG, WKT and other CRS definition styles"
 excerpt: "This lesson discusses ways that coordinate reference system data are stored including  proj4, well known text (wkt) and EPSG codes. "
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/understand-epsg-wkt-and-other-crs-definition-file-types/
-nav-title: 'EPSG, Proj4, WKT crs formats'
+nav-title: 'EPSG, Proj4, WKT crs Formats'
 week: 4
 course: "earth-analytics"
 sidebar:
@@ -34,22 +34,23 @@ including `proj4`, well known text (`wkt`) and `EPSG` codes.
 
 After completing this tutorial, you will be able to:
 
-* Identify the `proj4` vs `EPSG` vs `WKT` crs format when presented with all three formats
-* Look up a `CRS` definition in `proj4`, `EPSG` or `WKT` formats using spatialreference.org
-* Create a `proj4` string in `R` using an `EPSG` code
+* Identify the `proj4` vs `EPSG` vs `WKT` crs format when presented with all three formats.
+* Look up a `CRS` definition in `proj4`, `EPSG` or `WKT` formats using spatialreference.org.
+* Create a `proj4` string in `R` using an `EPSG` code.
 * Look up an `proj4` string using an `epsg` code with `dplyr` pipes the the `make_EPSG()` function.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
+You will need a computer with internet access to complete this lesson and the data 
+for week 4 of the course.
 
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
 
 </div>
 
-In the previous lessons we learned what a coordinate reference system (`CRS`) is, the
+In the previous lessons you learned what a coordinate reference system (`CRS`) is, the
 components of a coordinate reference system and the general differences between
-projected and geographic coordinate reference systems. In this lesson we will
+projected and geographic coordinate reference systems. In this lesson you will
 cover the different ways that `CRS` information is stored.
 
 ### Coordinate Reference System Formats
@@ -62,7 +63,7 @@ formats include:
 * Well-known Text (**WKT**)
 formats.
 
-Often we have `CRS` information in one format and we need to translate and use it in a tool like `R`.
+Often you have `CRS` information in one format and you need to translate and use it in a tool like `R`.
 
 One of the most powerful websites to look up `CRS` strings is <a href="http://spatialreference.org/" target="_blank">Spatialreference.org</a>.
 You can use the search on the site to find an `EPSG` code. Once you find the page
@@ -74,10 +75,10 @@ associated with that `CRS`:
 
 `PROJ.4` strings are a compact way to identify a spatial or coordinate reference
 system. `PROJ.4` strings are the primary output from many of the spatial data `R`
-packages that we will use (e.g. `raster`, `rgdal`). Note that the `sf` package
+packages that you will use (e.g. `raster`, `rgdal`). Note that the `sf` package
 is moving towards the more concise `EPSG` format.
 
-Using the `PROJ.4` syntax, we specify the complete set of parameters including
+Using the `PROJ.4` syntax, you specify the complete set of parameters including
 the ellipse, datum, projection units and projection definition that define a particular `CRS`.
 
 The `sp` package in `R`, by default often uses the `proj4` format to define
@@ -108,19 +109,19 @@ crs(aoi)
 ## +towgs84=0,0,0
 ```
 
-Notice that the `CRS` returned from our crop data layer is a string of
-characters and numbers that are combined using `+` signs. The `CRS` for our data are
+Notice that the `CRS` returned from your crop data layer is a string of
+characters and numbers that are combined using `+` signs. The `CRS` for your data are
 in the `proj4` format. The string contains all of the individual `CRS` elements
 that `R` or another `GIS` might need. Each element is specified with a `+` sign,
 similar to how a `.csv` file is delimited or broken up by a `,`. After each `+`
-we see the `CRS` element being defined. For example `+proj=` and `+datum=`.
+you see the `CRS` element being defined. For example `+proj=` and `+datum=`.
 
 This is a `proj4` string:
 
 `+proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
 +towgs84=0,0,0`
 
-We can break down the proj4 string into its individual components (again, separated by + signs) as follows:
+You can break down the proj4 string into its individual components (again, separated by + signs) as follows:
 
 * **+proj=utm:** the projection is UTM, UTM has several zones
 * **+zone=11:** the zone is 11 which is a zone on the west coast, USA
@@ -139,7 +140,7 @@ specified in the UTM `proj4` specification however if there is no S, then you ca
 assume it's a northern projection.
 
 
-### Geographic (lat / long) Proj4 String
+### Geographic (Lat / Long) Proj4 String
 
 Next, let's have a look at another `CRS` definition.
 
@@ -156,7 +157,7 @@ crs(world)
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 ```
 
-Our projection string for the `world` data imported above looks different:
+Your projection string for the `world` data imported above looks different:
 
 `+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0`
 
@@ -219,22 +220,22 @@ head(epsg)
 ## 5                            +proj=longlat +ellps=bessel +towgs84=682,-203,480,0,0,0,0 +no_defs
 ## 6                                                            +proj=longlat +ellps=airy +no_defs
 ```
-Once we have a `data.frame` of `EPSG` definitions, we can search it.
-Let's search our `dat.frame` for 4326 to figure out what `CRS` it represents.
-We can use `dplyr` pipes and the `filter()` function to quickly extract just
-the column where the code = 4326. Notice that we use a double = sign (`==`) to
+Once you have a `data.frame` of `EPSG` definitions, you can search it.
+Let's search your `dat.frame` for 4326 to figure out what `CRS` it represents.
+You can use `dplyr` pipes and the `filter()` function to quickly extract just
+the column where the code = 4326. Notice that you use a double = sign (`==`) to
 specify `equals to`.
 
 
 ```r
 # view proj 4 string for the epsg code 4326
 epsg %>%
-  filter(code==4326)
+  filter(code == 4326)
 ##   code     note                                prj4
 ## 1 4326 # WGS 84 +proj=longlat +datum=WGS84 +no_defs
 ```
 
-Alternatively, we can use the `str_detect()` from the `stringr` package in our
+Alternatively, you can use the `str_detect()` from the `stringr` package in your
 pipe to find all `CRS` definitions that contain the string `longlat` to search for
 a geographic `CRS`.
 
@@ -285,8 +286,8 @@ head(utm)
 
 ### Create CRS Objects
 
-`R` has a class of type `crs`. We can use this to create `CRS` objects using both the
-text string itself and / or the `EPSG` code. Let's give it a try. We will use our
+`R` has a class of type `crs`. You can use this to create `CRS` objects using both the
+text string itself and / or the `EPSG` code. Let's give it a try. You will use your
 geographic definition as an example.
 
 
@@ -302,7 +303,7 @@ a_crs_object
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 ```
 
-Similarly we can use an `epsg` code to create a `proj4` string.
+Similarly you can use an `epsg` code to create a `proj4` string.
 
 
 ```r
@@ -318,7 +319,7 @@ a_crs_object_epsg
 ## +towgs84=0,0,0
 ```
 
-#### WKT or Well-known Text
+#### WKT or Well-Known Text
 
 We won't spend a lot of time on the Well-known text (`WKT`) format. However, it's
 useful to recognize this format given many tools - including ESRI's `ArcMap` and

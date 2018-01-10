@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Programmatically access data using an API in R - The Colorado Information Warehouse"
+title: "Programmatically Access Data Using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/API-data-access-r/
-nav-title: 'Get JSON data via RESTful API'
+nav-title: 'Get JSON Data via RESTful API'
 week: 13
 course: "earth-analytics"
 sidebar:
@@ -36,7 +36,7 @@ After completing this tutorial, you will be able to:
 * Be able to list the 2 potential responses that you may get when querying a RESTful API.
 * Use the `mutate_at()` function with dplyr pipes to adjust the format / data type of multiple columns.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -44,21 +44,21 @@ You will need a computer with internet access to complete this lesson.
 
 
 
-In the previous lessons, we learned how to access human readable text files data
+In the previous lessons, you learned how to access human readable text files data
 programmatically using:
 
 1. `download.file()` to download a file to your computer and work with it (ideal if you want to save a copy of the data to your computer)
 1. `read.csv()` ideal for reading in a tabular file stored on the web but may sometimes fail when there are secure connections involved (e.g. https).
 1. `fromJSON()` ideal for data accessed in JSON format.
 
-In this lesson, we will learn about API interfaces. An API allows us to access
+In this lesson, you will learn about API interfaces. An API allows us to access
 data stored on a computer or server using a specific query. API's are powerful
 ways to access data and more specifically the specific type and subset of data
-that we need for our analysis, programmatically.
+that you need for your analysis, programmatically.
 
-We will also explore the **machine readable** JSON data structure. Machine readable
+You will also explore the **machine readable** JSON data structure. Machine readable
 data structures are more efficient - particularly for larger data that contain
-hierarchical structures. In this lesson, we will use the `getJSON()` function
+hierarchical structures. In this lesson, you will use the `getJSON()` function
 from the `rjson` package to import data from an API, provided in `.json` format into
 a data.frame.
 
@@ -77,20 +77,20 @@ library(RCurl)
 
 
 
-## REST API review
+## REST API Review
 
-Remember that in the first lesson in this module, we discussed **REST**ful APIs.
-We explored the concept of a **request** and then a subsequent
+Remember that in the first lesson in this module, you learned about **REST**ful APIs.
+You explored the concept of a **request** and then a subsequent
 **response**. The **request** to an **REST**ful API is composed of a URL and the
-associated parameters required to access a particular subset of the data that we
+associated parameters required to access a particular subset of the data that you
 wish to access.
 
 When you send the request, the web API returns one of the following:
 
- 1. The data that we requested or
- 2. A *failed to return* message which tells us that something was wrong with our request.
+ 1. The data that you requested or
+ 2. A *failed to return* message which tells us that something was wrong with your request.
 
-In this lesson we will access data stored in JSON format from a RESTful API.
+In this lesson you will access data stored in JSON format from a RESTful API.
 
 ## Colorado Population Projection data
 
@@ -114,9 +114,9 @@ estimates for *males* and *females* for every *county* in Colorado for every *ye
 
 ### URL Parameters
 
-Using `URL` parameters, we can define a more specific **request** to limit what data
-we get back in **response** to our API **request**. For example, if we only want
-data for Boulder, Colorado, we can query just that subset of the data using the
+Using `URL` parameters, you can define a more specific **request** to limit what data
+you get back in **response** to your API **request**. For example, if you only want
+data for Boulder, Colorado, you can query just that subset of the data using the
 RESTful call. In the link below, note that the **?&county=Boulder** part of the
 url makes the request to the API to only return data that are for Boulder
 County, Colorado.
@@ -128,7 +128,7 @@ Parameters associated with accessing data using this API are <a href="https://de
 ## Using the Colorado SODA API
 
 The Colorado `SODA` API allows us to write 'queries' that filter out the exact
-subset of the data that we want. Here's the API `URL`
+subset of the data that you want. Here's the API `URL`
 for population projections for females who live in Boulder that are age 20--40
 for the years 2016--2025:
 
@@ -145,17 +145,17 @@ The format of the returned data or the **response** is most often in the form of
 plain text 'file' such as `JSON` or `.csv`.
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Many API's allow
-us to specify the format of the data that we want returned in the response. <a href="https://dev.socrata.com/docs/formats/index.html" target="_blank">The Colorado SODA API is no exception - check out the documentation. </a>
+us to specify the format of the data that you want returned in the response. <a href="https://dev.socrata.com/docs/formats/index.html" target="_blank">The Colorado SODA API is no exception - check out the documentation. </a>
 {: .notice--success}
 
 ## Accessing API Data
 
-The first thing that we need to do is create our API request string. Remember that
+The first thing that you need to do is create your API request string. Remember that
 this is a `URL` with parameters parameters that specify which subset of the data
-that we want to access.
+that you want to access.
 
-Note that we are using a new function - `paste0()` - to paste together a complex
-URL string. This is useful because we may want to iterate over different subsets
+Note that you are using a new function - `paste0()` - to paste together a complex
+URL string. This is useful because you may want to iterate over different subsets
 of the same data (ie reuse the base url or the endpoint but request different
 subsets using different URL parameters).
 
@@ -172,13 +172,13 @@ full_url
 ## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation"
 ```
 
-After we've created the URL, we can get the data. There are a few ways to access
+After you've created the URL, you can get the data. There are a few ways to access
 the data however the most direct way is to
 
-1. Use `encodeURL()` to replace spaces in our url with the asii value for space `%20`
+1. Use `encodeURL()` to replace spaces in your url with the asii value for space `%20`
 1. Use the `fromJSON()` function in the rjson package to import that data into a data.frame object.
 
-Let's give it a try. First, we encode the URL to replace all spaces with the ascii
+Let's give it a try. First, you encode the URL to replace all spaces with the ascii
 value for a space which is `%20`.
 
 
@@ -189,7 +189,7 @@ full_url
 ## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age%20between%2020%20and%2040&$select=year,age,femalepopulation"
 ```
 
-Then, we import the data directly into a data.frame using the `fromJSON()` function
+Then, you import the data directly into a data.frame using the `fromJSON()` function
 that is in the rjson package.
 
 
@@ -214,7 +214,7 @@ typeof(pop_proj_data_df)
 
 <div class="notice--success" markdown="1">
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** The `getForm()`
-is another way to access API driven data. We are not going to cover this in
+is another way to access API driven data. You are not going to learn this in
 this class however it is a good option that results in code that is a bit cleaner
 given the various parameters are passed to the function via argument like
 syntax.
@@ -226,7 +226,7 @@ getForm(base_url, county = "Boulder",
              age="BOULDER")
 ```
 
-Also note that if we wanted to use `getURL()`, we could do so as follows:
+Also note that if you wanted to use `getURL()`, you could do so as follows:
 
 
 ```r
@@ -236,7 +236,7 @@ pop_proj_data_example <- getURL(URLencode(full_url))
 
 </div>
 
-Now that our data are in a data.frame format, we can clean them up. Let's have a
+Now that your data are in a data.frame format, you can clean them up. Let's have a
 close look at the data structure. Are the values in the correct format to work
 with them quantitatively?
 
@@ -251,21 +251,21 @@ str(pop_proj_data_df)
 ```
 
 
-When we import the data from JSON, by default they import in string format. However,
-if we want to plot the data and manipulate the data quantitatively, we need
-our data to be in a numeric format. Let's fix that next.
+When you import the data from JSON, by default they import in string format. However,
+if you want to plot the data and manipulate the data quantitatively, you need
+your data to be in a numeric format. Let's fix that next.
 
 ### `mutate_at` from dplyr
 
-We can uset the `mutate_at()` function in a dplyr pipe to change the format of
-(or apply any function on) any columns within our data.frame. In this case we
+You can uset the `mutate_at()` function in a dplyr pipe to change the format of
+(or apply any function on) any columns within your data.frame. In this case you
 want to convert all of the columns to a numeric format.
 
-To use `mutate_at()` we specify the column names that we want to convert in a vector
-followed by the function that we wish to apply to each column. THe function in this
+To use `mutate_at()` you specify the column names that you want to convert in a vector
+followed by the function that you wish to apply to each column. THe function in this
 case is `as.numeric()`.
 
-Because we are using this function in a pipe, our code looks like this:
+Because you are using this function in a pipe, your code looks like this:
 
 
 
@@ -283,14 +283,14 @@ str(pop_proj_data_df)
 
 <div class="notice--success" markdown="1">
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **Data Tip:** Note that the
-code below, is much more VERBOSE version of what we did above, in a clean way
+code below, is much more VERBOSE version of what you did above, in a clean way
 using `mutate_at()`. dplyr is a much more efficient way to convert the format of several
 columns of information!
 
 
 ```r
 # convert EACH row to a numeric format
-# note this is the clunky way to do what we did above with dplyr!
+# note this is the clunky way to do what you did above with dplyr!
 pop_proj_data_df$age <- as.numeric(pop_proj_data_df$age)
 pop_proj_data_df$year <- as.numeric(pop_proj_data_df$year)
 pop_proj_data_df$femalepopulation <- as.numeric(pop_proj_data_df$femalepopulation)
@@ -302,7 +302,7 @@ pop_proj_data_df$femalepopulation <- as.numeric(pop_proj_data_df$femalepopulatio
 </div>
 
 
-Once we have converted our data to a numeric format, we can plot it using `ggplot()`.
+Once you have converted your data to a numeric format, you can plot it using `ggplot()`.
 
 
 
@@ -322,9 +322,9 @@ ggplot(pop_proj_data_df, aes(x = year, y = femalepopulation,
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge
 
-Using the population projection data that we just used, create a plot of projected
+Using the population projection data that you just used, create a plot of projected
 MALE population numbers as follows:
 
 * Time span: 1990-2040
@@ -335,7 +335,7 @@ Use `ggplot()` to create your plot and be sure to label x and y axes and give th
 plot a descriptive title.
 </div>
 
-## Example homework plot
+## Example Homework Plot
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="90%" />
 

@@ -1,16 +1,16 @@
 ---
 layout: single
-title: "Use Google Earth time series images to explore flood impacts"
+title: "Use Google Earth Time Series Images to Explore Flood Impacts"
 excerpt: "Learn how to use the time series feature in Google Earth to view before / after images of a location."
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/google-earth-time-series/
-nav-title: 'Google Earth time series'
+nav-title: 'Google Earth Time Series'
 module-nav-title: 'Use data for science'
 dateCreated: 2016-12-06
-modified: '2017-12-07'
-module-title: 'Understand Disturbance With Data - Flooding and Erosion'
+modified: '2018-01-10'
+module-title: 'Understand Disturbance with Data - Flooding and Erosion'
 module-description: 'This module uses time series data to explore the impacts of a flood. Learn how to use Google Earth imagery, NOAA precipitation data and
 USGS stream flow data to explore the 2013 Colorado floods.'
 module-type: 'class'
@@ -35,13 +35,13 @@ to explore changes in the landscape associated with the 2013 Colorado floods.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* Use the timeline function in Google Earth to view time series imagery data
-* Identify and describe a driver and an impact of a flood event
+* Use the timeline function in Google Earth to view time series imagery data.
+* Identify and describe a driver and an impact of a flood event.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need to download and install Google Earth on your computer and then
 download the `.kml` file below.
@@ -54,7 +54,7 @@ Get Google Earth</a>
 
 </div>
 
-## About the 2013 CO floods
+## About the 2013 CO Floods
 
 In early September 2013, a slow moving cold air front moved through Colorado
 intersecting with a warm, humid air front. The clash between the cold and warm
@@ -72,18 +72,18 @@ the Front Range in Colorado, USA.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bUcWERTM-OA?rel=0&loop=1" frameborder="0" allowfullscreen></iframe>
 
-## Use imagery to detect change
+## Use Imagery to Detect Change
 
 Spatially located (georeferenced) imagery, collected using satellites and airplanes
 provides a powerful visual record of landscape changes. Google Earth, has a time
 series feature that allows you to look at imagery of the earth, across time in
 certain areas of the Earth.
 
-We will use this feature to look at the landscape in Boulder, Colorado both before
+You will use this feature to look at the landscape in Boulder, Colorado both before
 and after the floods.
 
 
-### How to view time series imagery in Google Earth
+### How to View Time Series Imagery in Google Earth
 
 * Open Google Earth
 * Double click on the `.kmz` file that you downloaded above. It should open in Google Earth.
@@ -118,7 +118,7 @@ Scroll to 10/2012 and then to 10/2013. Do you see any differences?
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: What changes do you see?
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: What Changes Do You See?
 
 As a group, discuss the following questions. Record your answers in the Google Document
 provided.

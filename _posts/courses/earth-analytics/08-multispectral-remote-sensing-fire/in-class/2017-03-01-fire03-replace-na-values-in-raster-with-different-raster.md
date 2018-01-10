@@ -3,7 +3,7 @@ layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in R"
 excerpt: "Often data have missing or bad data values that you need to replace. Learn how to replace missing or bad data values in a raster, with values from another raster in the same pixel location using the cover function in R."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-r/
@@ -33,8 +33,7 @@ lang-lib:
 
 After completing this tutorial, you will be able to:
 
-* Find and download data from the USGS Earth Explorer Website.
-* Filter data by cloud cover to find datasets with the least amount of clouds for a study area.
+* Use the cover funcution in R to replace missing or bad data values in a raster with values from another raster
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -135,7 +134,7 @@ plotRGB(cleaned_raster, 4,3,2, stretch = 'lin')
 
 Things are looking a bit better but still this image has issues:
 
-1. There are edge effects associated with the mask that we can see.
+1. There are edge effects associated with the mask that you can see.
 2. Shadows weren't handled well with that mask.
 
 You might have more processing to do to truly get this image cleaned up.

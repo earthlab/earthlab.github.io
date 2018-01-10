@@ -1,9 +1,9 @@
 ---
 layout: single
 title: "GIS in R: How to Reproject Vector Data in Different Coordinate Reference Systems (crs) in R"
-excerpt: "In this lesson we cover how to reproject a vector dataset using the spTransform() function in R. "
+excerpt: "In this lesson you learn how to reproject a vector dataset using the spTransform() function in R. "
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/reproject-vector-data/
@@ -30,9 +30,9 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Describe atleast 2 reasons that a data provider may chose to store a dataset in a particular `CRS`
-* Reproject a vector dataset to another `CRS` in `R`
-* Identify the `CRS` of a spatial dataset in `R`
+* Describe atleast 2 reasons that a data provider may chose to store a dataset in a particular `CRS`.
+* Reproject a vector dataset to another `CRS` in `R`.
+* Identify the `CRS` of a spatial dataset in `R`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -42,9 +42,9 @@ You will need a computer with internet access to complete this lesson and the da
 
 </div>
 
-## Working with spatial data from different sources
+## Working with Spatial Data from Different Sources
 
-We often need to gather spatial datasets for from different sources and/or data
+You often need to gather spatial datasets for from different sources and/or data
 that cover different spatial `extents`. Spatial data from different sources and
 that cover different extents are often in different Coordinate Reference Systems (`CRS`).
 
@@ -71,13 +71,13 @@ for that state.
 </figure>
 
 
-In this tutorial we will learn how to identify and manage spatial data
-in different projections. We will learn how to `reproject` the data so that they
+In this tutorial you will learn how to identify and manage spatial data
+in different projections. You will learn how to `reproject` the data so that they
 are in the same projection to support plotting / mapping. Note that these skills
 are also required for any geoprocessing / spatial analysis. Data need to be in
 the same `CRS` to ensure accurate results.
 
-We will use the `rgdal` and `raster` libraries in this tutorial.
+You will use the `rgdal` and `raster` libraries in this tutorial.
 
 
 ```r
@@ -92,18 +92,18 @@ options(stringsAsFactors = FALSE)
 
 ## Import US Boundaries - Census Data
 
-There are many good sources of boundary base layers that we can use to create a
+There are many good sources of boundary base layers that you can use to create a
 basemap. Some `R` packages even have these base layers built in to support quick
-and efficient mapping. In this tutorial, we will use boundary layers for the
+and efficient mapping. In this tutorial, you will use boundary layers for the
 United States, provided by the
 <a href="https://www.census.gov/geo/maps-data/data/cbf/cbf_state.html" target="_blank" data-proofer-ignore=''> United States Census Bureau.</a>
 
-It is useful to have shapefiles to work with because we can add additional
+It is useful to have shapefiles to work with because you can add additional
 attributes to them if need be - for project specific mapping.
 
-## Read US boundary file
+## Read US Boundary File
 
-We will use the `readOGR()` function to import the
+You will use the `readOGR()` function to import the
 `/usa-boundary-layers/US-State-Boundaries-Census-2014` layer into `R`. This layer
 contains the boundaries of all continental states in the U.S. Please note that
 these data have been modified and reprojected from the original data downloaded
@@ -119,6 +119,8 @@ state_boundary_us <- readOGR("data/week-04/usa-boundary-layers",
 ## with 58 features
 ## It has 10 fields
 ## Integer64 fields read as strings:  ALAND AWATER
+## Warning in readOGR("data/week-04/usa-boundary-layers", "US-State-
+## Boundaries-Census-2014"): Z-dimension discarded
 
 # view data structure
 class(state_boundary_us)
@@ -145,11 +147,11 @@ plot(state_boundary_us,
 
 ## U.S. Boundary Layer
 
-We can add a boundary layer of the United States to our map - to make it look
-nicer. We will import
+You can add a boundary layer of the United States to your map - to make it look
+nicer. You will import
 `data/week-04/usa-boundary-layers/US-Boundary-Dissolved-States`.
-If we specify a thicker line width using `lwd = 4` for the border layer, it will
-make our map pop!
+If you specify a thicker line width using `lwd = 4` for the border layer, it will
+make your map pop!
 
 
 ```r
@@ -161,6 +163,8 @@ country_boundary_us <- readOGR("data/week-04/usa-boundary-layers",
 ## with 1 features
 ## It has 9 fields
 ## Integer64 fields read as strings:  ALAND AWATER
+## Warning in readOGR("data/week-04/usa-boundary-layers", "US-Boundary-
+## Dissolved-States"): Z-dimension discarded
 
 # look at the data structure
 class(country_boundary_us)
@@ -182,9 +186,9 @@ plot(country_boundary_us,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial06-reproject-vector-data-R/check-out-coordinates-1.png" title="Plot of the US overlayed with states and a boundary." alt="Plot of the US overlayed with states and a boundary." width="90%" />
 
-Next, let's add the location of our study area sites.
-As we are adding these layers, take note of the class of each object. We will use
-`AOI` to represent "Area of Interest" in our data.
+Next, let's add the location of your study area sites.
+As you are adding these layers, take note of the class of each object. You will use
+`AOI` to represent "Area of Interest" in your data.
 
 
 ```r
@@ -209,8 +213,8 @@ plot(sjer_aoi,
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial06-reproject-vector-data-R/explore-units-1.png" title="plot aoi" alt="plot aoi" width="90%" />
 
-Our SJER `AOI` layer plots nicely. Let's next add it as a layer on top of the U.S.
-states and boundary layers in our basemap plot.
+Your SJER `AOI` layer plots nicely. Let's next add it as a layer on top of the U.S.
+states and boundary layers in your basemap plot.
 
 
 ```r
@@ -237,13 +241,13 @@ plot(sjer_aoi,
 What do you notice about the resultant plot? Do you see the AOI boundary in the
 California area? Is something wrong?
 
-Let's check out the `CRS` (`crs()`) of both datasets to see if we can identify any
-issues that might cause the point location to not plot properly on top of our
+Let's check out the `CRS` (`crs()`) of both datasets to see if you can identify any
+issues that might cause the point location to not plot properly on top of your
 U.S. boundary layers.
 
 
 ```r
-# view CRS of our site data
+# view CRS of your site data
 crs(sjer_aoi)
 ## CRS arguments:
 ##  +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
@@ -258,19 +262,19 @@ crs(country_boundary_us)
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 ```
 
-It looks like our data are in different `CRS`. We can tell this by looking at
+It looks like your data are in different `CRS`. You can tell this by looking at
 the `CRS` strings in `proj4` format.
 
 ## Understanding CRS in proj4 Format
-The `CRS` for our data are given to us by `R` in `proj4` format. Let's break
+The `CRS` for your data are given to us by `R` in `proj4` format. Let's break
 down the pieces of `proj4` string. The string contains all of the individual
 `CRS` elements that `R` or another GIS might need. Each element is specified
 with a `+` sign, similar to how a `.csv` file is delimited or broken up by
-a `,`. After each `+` we see the `CRS` element being defined. For example
+a `,`. After each `+` you see the `CRS` element being defined. For example
 projection (`proj=`) and datum (`datum=`).
 
 ### UTM proj4 String
-Our project string for `sjer_aoi` specifies the UTM projection as follows:
+Your project string for `sjer_aoi` specifies the UTM projection as follows:
 
 `+proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0`
 
@@ -287,7 +291,7 @@ zone.
 
 ### Geographic (lat / long) proj4 String
 
-Our project string for `state_boundary_us` and `country_boundary_us` specifies
+Your project string for `state_boundary_us` and `country_boundary_us` specifies
 the lat/long projection as follows:
 
 `+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0`
@@ -305,7 +309,7 @@ often recorded in *Decimal Degrees*.
 
 <i class="fa fa-star"></i> **Data tip:** the last portion of each `proj4` string
 is `+towgs84=0,0,0 `. This is a conversion factor that is used if a datum
-conversion is required. We will not deal with datums in this tutorial series.
+conversion is required. You will not deal with datums in this tutorial series.
 {: .notice--success}
 
 ## CRS units - View Object Extent
@@ -318,8 +322,8 @@ object compared to the `state_boundary_us` object.
 # extent & crs for AOI
 extent(sjer_aoi)
 ## class       : Extent 
-## xmin        : 254571 
-## xmax        : 258867 
+## xmin        : 254570.6 
+## xmax        : 258867.4 
 ## ymin        : 4107303 
 ## ymax        : 4112362
 crs(sjer_aoi)
@@ -330,10 +334,10 @@ crs(sjer_aoi)
 # extent & crs for object in geographic
 extent(state_boundary_us)
 ## class       : Extent 
-## xmin        : -124.7 
-## xmax        : -66.95 
-## ymin        : 24.5 
-## ymax        : 49.38
+## xmin        : -124.7258 
+## xmax        : -66.94989 
+## ymin        : 24.49813 
+## ymax        : 49.38436
 crs(state_boundary_us)
 ## CRS arguments:
 ##  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
@@ -341,7 +345,7 @@ crs(state_boundary_us)
 
 Note the difference in the units for each object. The extent for
 `state_boundary_us` is in latitude and longitude which yields smaller numbers
-representing decimal degree units. Our `AOI` boundary point is in UTM,
+representing decimal degree units. Your `AOI` boundary point is in UTM,
 represented in meters.
 
 ***
@@ -357,25 +361,25 @@ into the `R` console.
 
 ## Reproject Vector Data
 
-Now we know our data are in different `CRS`. To address this, we have to modify
-or **reproject** the data so they are all in the **same** `CRS`. We can use
-`spTransform()` function to reproject our data. When we reproject the data, we
-specify the `CRS` that we wish to transform our data to. This `CRS` contains
-the datum, units and other information that `R` needs to **reproject** our data.
+Now you know your data are in different `CRS`. To address this, you have to modify
+or **reproject** the data so they are all in the **same** `CRS`. You can use
+`spTransform()` function to reproject your data. When you reproject the data, you
+specify the `CRS` that you wish to transform your data to. This `CRS` contains
+the datum, units and other information that `R` needs to **reproject** your data.
 
 The `spTransform()` function requires two inputs:
 
 1. the name of the object that you wish to transform
-2. the `CRS` that you wish to transform that object too. In this case we can
+2. the `CRS` that you wish to transform that object too. In this case you can
 use the `crs()` of the `state_boundary_us` object as follows:
 `crs(state_boundary_us)`
 
-<i class="fa fa-star"></i> **Data tip:** `spTransform()` will only work if your
+<i class="fa fa-star"></i> **Data Tip:** `spTransform()` will only work if your
 original spatial object has a CRS assigned to it AND if that CRS is the
 correct CRS!
 {: .notice--success}
 
-Next, let's reproject our point layer into the geographic - latitude and
+Next, let's reproject your point layer into the geographic - latitude and
 longitude `WGS84` coordinate reference system (`CRS`).
 
 
@@ -391,13 +395,13 @@ crs(sjer_aoi_WGS84)
 # does the extent look like decimal degrees?
 extent(sjer_aoi_WGS84)
 ## class       : Extent 
-## xmin        : -119.8 
-## xmax        : -119.7 
-## ymin        : 37.08 
-## ymax        : 37.13
+## xmin        : -119.7626 
+## xmax        : -119.7127 
+## ymin        : 37.0799 
+## ymax        : 37.12657
 ```
 
-Once our data are reprojected, we can try to plot again.
+Once your data are reprojected, you can try to plot again.
 
 
 ```r
@@ -441,20 +445,20 @@ plot(country_boundary_us,
      add = TRUE)
 
 # add point location of the centroid to the plot
-points(aoi_centroid, pch=8, col = "magenta", cex=1.5)
+points(aoi_centroid, pch = 8, col = "magenta", cex = 1.5)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial06-reproject-vector-data-R/plot-centroid-1.png" title="figure out AOI polygon centroid." alt="figure out AOI polygon centroid." width="90%" />
 
-Reprojecting our data ensured that things lined up on our map! It will also
+Reprojecting your data ensured that things lined up on your map! It will also
 allow us to perform any required geoprocessing (spatial calculations /
-transformations) on our data.
+transformations) on your data.
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test Your Skills: Crop, Peproject, Plot Data
 
-Create a map of our SJER study area as follows:
+Create a map of your SJER study area as follows:
 
 1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your week4 data download.
 2. Create a map that shows the roads layer, study site locations and the `sjer_aoi` boundary.
@@ -479,6 +483,6 @@ NOTE: this is also a plot you will submit as a part of your homework this week!
 
 
 ```
-## RStudioGD 
-##         2
+## null device 
+##           1
 ```

@@ -1,13 +1,13 @@
 ---
 layout: single
-title: "Creating interactive spatial maps in R using leaflet"
+title: "Creating Interactive Spatial Maps in R Using Leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/leaflet-r/
-nav-title: 'Interactive maps with leaflet '
+nav-title: 'Interactive Maps with Leaflet '
 week: 13
 course: "earth-analytics"
 sidebar:
@@ -30,10 +30,10 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Create an interactive leaflet map using R and rmarkdown.
+* Create an interactive leaflet map using `R` and rmarkdown.
 * Customize an interactive map with data-driven popups.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -57,21 +57,21 @@ library(RCurl)
 
 
 
-## Interactive maps with Leaflet
+## Interactive Maps with Leaflet
 
 Static maps are useful for creating figures for reports and presentation. Sometimes,
-however, we want to interact with our data. We can use the leaflet package for
-R to overlay our data on top of interactive maps. You can think about it like
+however, you want to interact with your data. You can use the leaflet package for
+R to overlay your data on top of interactive maps. You can think about it like
 Google  maps with your data overlaid on top!
 
-### What is leaflet?
+### What is Leaflet?
 
 <a href="http://leafletjs.com" target="_blank">Leaflet</a> is an open-source `JavaScript` library that can be used to create mobile-friendly interactive maps.
 
 Leaflet:
 
-* Is designed with *simplicity*, *performance* and *usability* in mind,
-* Has a beautiful, easy to use, and <a href="http://leafletjs.com/reference.html" target="_blank">well-documented API</a>
+* Is designed with *simplicity*, *performance* and *usability* in mind.
+* Has a beautiful, easy to use, and <a href="http://leafletjs.com/reference.html" target="_blank">well-documented API</a>.
 
 
 The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package! Below, you can see some code that creates a basic web-map.
@@ -89,21 +89,21 @@ r_birthplace_map
 
 <iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
 
-### Grey Background When you Knit
+### Grey Background When You Knit
 
 If your interactive map has a grey background when you knit to html, you can
-try to change the provider tile background as described <a href="{{ site.url }}/courses/earth-analytics/get-data-using-apis/leaflet-r/customize-leaflet-maps">here, on this page.</a>
+try to change the provider tile background as described <a href="{{ site.url }}/courses/earth-analytics/get-data-using-apis/leaflet-r/"> below on this page.</a>
 
-## Create your own interactive map
+## Create Your Own Interactive Map
 
-Let's create our own interactive map using the surface water data that we used
-in the previous lessons, using leaflet. To do this, we will follow the steps below:
+Let's create your own interactive map using the surface water data that you used
+in the previous lessons, using leaflet. To do this, you will follow the steps below:
 
 1. Request and get the data from the colorado.gov SODA API in `R` using `fromJSON()`.
-1. Address column data types to ensure our quantitative data (number values) data are in fact numeric.
+1. Address column data types to ensure your quantitative data (number values) data are in fact numeric.
 1. Remove `NA` (missing data) values.
 
-The code below is the same code that we used to process the surface water
+The code below is the same code that you used to process the surface water
 data in the previous lesson.
 
 
@@ -113,7 +113,7 @@ full_url <- paste0(base_url, "station_status=Active",
             "&county=BOULDER")
 water_data <- getURL(URLencode(full_url))
 
-# we can then pipe this
+# you can then pipe this
 water_data_df <- fromJSON(water_data) %>%
   flatten(recursive = TRUE) # remove the nested data frame
 
@@ -123,7 +123,7 @@ water_data_df <- water_data_df %>%
   filter(!is.na(location.latitude))
 ```
 
-Once our data are cleaned up, we can create our leaflet map. Notice that we are
+Once your data are cleaned up, you can create your leaflet map. Notice that you are
 using pipes `%>%` to set the parameters for the leaflet map.
 
 
@@ -155,21 +155,21 @@ water_locations_map
 
 <iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
 
-## Customize leaflet maps
+## Customize Leaflet Maps
 
-We can customize our leaflet map too. Let's do the following:
+You can customize your leaflet map too. Let's do the following:
 
-1. Add custom data-driven popups to our map
-2. Adjust the point symbology
+1. Add custom data-driven popups to your map.
+2. Adjust the point symbology.
 2. Adjust the basemap. Let's use a basemap from <a href="https://carto.com/blog/getting-to-know-positron-and-dark-matter" target="_blank">CartoDB</a> called Positron.
 
-Notice in the code below that we can specify the popup text using the `popup=`
+Notice in the code below that you can specify the popup text using the `popup=`
 argument.
 
 `addMarkers(lng=~location.longitude, lat = ~location.latitude, popup = ~station_name)`
 
-We specify the basemap using the `addProviderTiles()` argument. In the example
-below, we use the `CartoDB.Positron` basemap:
+You specify the basemap using the `addProviderTiles()` argument. In the example
+below, you use the `CartoDB.Positron` basemap:
 
 `addProviderTiles("CartoDB.Positron")`
 
@@ -185,37 +185,37 @@ leaflet(water_data_df) %>%
 
 <iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map2.html" frameborder="0" allowfullscreen></iframe>
 
-### Custom icons
+### Custom Icons
 
-We can specify a *custom* icon, too. Below, we are using an icon
+You can specify a *custom* icon, too. Below, you are using an icon
 from the <a href="http://tinyurl.com/jeybtwj" target="_blank">web</a>.
 
-Notice also that we are customizing the popup even more, adding BOTH the station
+Notice also that you are customizing the popup even more, adding BOTH the station
 name AND the discharge value.
 
 `paste0(station_name, "<br/>Discharge: ", amount)`
 
-We are using `paste0()` to do this. Remember that `paste0()` will paste together
+You are using `paste0()` to do this. Remember that `paste0()` will paste together
 a series of text strings and object values.
 
 
 ```r
-# let's look at the output of our popup text before calling it in leaflet
+# let's look at the output of your popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## [1] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0"                                   
-## [2] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"                                   
-## [3] "SMEAD DITCH<br/>Discharge: 0.17"                                             
-## [4] "BOULDER CREEK SUPPLY CANAL TO BOULDER CREEK NEAR BOULDER<br/>Discharge: 0.22"
-## [5] "BOULDER RESERVOIR INLET<br/>Discharge: 0"                                    
-## [6] "FOUR MILE CREEK AT LOGAN MILL ROAD NEAR CRISMAN, CO<br/>Discharge: 17"
+## [1] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0"              
+## [2] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"              
+## [3] "BONUS DITCH<br/>Discharge: 0"                           
+## [4] "BUTTONROCK (RALPH PRICE) RESERVOIR<br/>Discharge: 16146"
+## [5] "CLOUGH AND TRUE DITCH<br/>Discharge: 0"                 
+## [6] "DAVIS AND DOWNING DITCH<br/>Discharge: 1.8"
 ```
 
-The `<br/>` element in our popup above is HTML. This adds a line break to our
+The `<br/>` element in your popup above is HTML. This adds a line break to your
 popup so the Discharge text and value are on the second line - below the
 station name.
 
-Let's see what the custom icon and popup text looks like on our map.
+Let's see what the custom icon and popup text looks like on your map.
 
 
 ```r
@@ -247,7 +247,7 @@ saveWidget(widget=map,
 
 <iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
-There is a lot more to learn about leaflet. Here, we've just scratched the surface.
+There is a lot more to learn about leaflet. Here, you've just scratched the surface.
 
 
 
@@ -277,7 +277,7 @@ unique_markers_map2 <- leaflet(water_data_df) %>%
 ## Error in resolveSizing(x, x$sizingPolicy, standalone = standalone, knitrOptions = knitrOptions): object 'unique_markers_map2' not found
 ```
 
-Here we use `addAwesomeMarkers()` and adjust the color of each point on the map
+Here you use `addAwesomeMarkers()` and adjust the color of each point on the map
 accordingly.
 
 <iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map_unique_markers1.html" frameborder="0" allowfullscreen></iframe>
@@ -302,7 +302,10 @@ unique_markers_map
 ```
 
 
+```
+## Error in resolveSizing(x, x$sizingPolicy, standalone = standalone, knitrOptions = knitrOptions): object 'unique_markers_map' not found
+```
 
-Here we use `addCircleMarkers()` and adjust the color accordingly.
+Here you use `addCircleMarkers()` and adjust the color accordingly.
 
 <iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map_unique_markers2.html" frameborder="0" allowfullscreen></iframe>

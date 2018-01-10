@@ -3,7 +3,7 @@ layout: single
 title: "Coordinate Reference System and Spatial Projection"
 excerpt: "Coordinate reference systems are used to convert locations on the earth which is round, to a two dimensional (flat) map. Learn about the differences between coordinate reference systems."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/
@@ -50,13 +50,13 @@ You will need a computer with internet access to complete this lesson and the da
 
 In summary - a coordinate reference system (`CRS`) refers to the way in which
 spatial data that represent the earth's surface (which is round / 3 dimensional)
-are flattened so that we can "Draw" them on a 2-dimensional surface. However each
+are flattened so that you can "Draw" them on a 2-dimensional surface. However each
 using a different (sometimes) mathematical approach to performing the flattening
 resulting in different coordinate system grids (discussed below). These approaches
 to flattening the data are specifically designed to optimize the accuracy of the
 data in terms of length and area (more on that later too).
 
-In this lesson we will explore what a `CRS` is. And how it can impact your data
+In this lesson you will explore what a `CRS` is. And how it can impact your data
 when you are working with it in a tool like `R` (or any other tool).
 
 ***
@@ -93,13 +93,13 @@ look proportionally larger or smaller than they actually are.
 
 ## What is a Coordinate Reference System
 
-To define the location of something we often use a coordinate system. This system
+To define the location of something you often use a coordinate system. This system
 consists of an X and a Y value located within a 2 (or more) -dimensional space.
 
 <figure>
 	<a href="{{ site.url}}/images/courses/earth-analytics/spatial-data/coordinate-system.png">
-	<img src="{{ site.url}}/images/courses/earth-analytics/spatial-data/coordinate-system.png" alt="We use coordinate systems with X, Y (and sometimes Z axes) to	define the location of objects in space."></a>
-	<figcaption> We use coordinate systems with X, Y (and sometimes Z axes) to
+	<img src="{{ site.url}}/images/courses/earth-analytics/spatial-data/coordinate-system.png" alt="You use coordinate systems with X, Y (and sometimes Z axes) to	define the location of objects in space."></a>
+	<figcaption> You use coordinate systems with X, Y (and sometimes Z axes) to
 	define the location of objects in space.
 	Source: http://open.senecac.on.ca
 	</figcaption>
@@ -107,9 +107,9 @@ consists of an X and a Y value located within a 2 (or more) -dimensional space.
 
 While the above coordinate system is 2-dimensional, we live on a 3-dimensional
 earth that happens to be "round". To define the location of objects on the Earth,
-which is round, we need a coordinate system that adapts to the Earth's shape.
-When we make maps on paper or on a flat computer screen, we move from a 3-Dimensional
-space (the globe) to a 2-Dimensional space (our computer screens or a piece of paper).
+which is round, you need a coordinate system that adapts to the Earth's shape.
+When you make maps on paper or on a flat computer screen, you move from a 3-Dimensional
+space (the globe) to a 2-Dimensional space (your computer screens or a piece of paper).
 The components of the `CRS` define how the "flattening" of data that exists in a 3-D
 globe space. The `CRS` also defines the the coordinate system itself.
 
@@ -130,15 +130,15 @@ entities. -- Wikipedia
 
 The coordinate reference system is made up of several key components:
 
-* **Coordinate system:** The X, Y grid upon which our data is overlayed and how
-we define where a point is located in space.
+* **Coordinate system:** The X, Y grid upon which your data is overlayed and how
+you define where a point is located in space.
 * **Horizontal and vertical units:** The units used to define the grid along the
 x, y (and z) axis.
 * **Datum:** A modeled version of the shape of the Earth which defines the origin
-used to place the coordinate system in space. We will explain this further below.
+used to place the coordinate system in space. You will learn this further below.
 * **Projection Information:** The mathematical equation used to flatten objects
-that are on a round surface (e.g. the Earth) so we can view them on a flat surface
-(e.g. our computer screens or a paper map).
+that are on a round surface (e.g. the Earth) so you can view them on a flat surface
+(e.g. your computer screens or a paper map).
 
 ## Why CRS is Important
 
@@ -151,13 +151,13 @@ fly**. Even if you work in a tool that supports projection on the fly, you will
 want to all of your data in the same projection for performing analysis and processing
 tasks.
 
-<i class="fa fa-star"></i> **Data tip:** <a href="http://spatialreference.org/ref/epsg/" target="_blank"> spatialreference.org </a>provides an excellent online library of CRS information.
+<i class="fa fa-star"></i> **Data Tip:** <a href="http://spatialreference.org/ref/epsg/" target="_blank"> spatialreference.org </a>provides an excellent online library of CRS information.
 {: .notice--success}
 
 ### Coordinate System & Units
 
-We can define a spatial location, such as a plot location, using an x- and a
-y-value - similar to our cartesian coordinate system displayed in the figure,
+You can define a spatial location, such as a plot location, using an x- and a
+y-value - similar to your cartesian coordinate system displayed in the figure,
 above.
 
 For example, the map below, generated in `R` with `ggplot2` shows all of the
@@ -184,7 +184,7 @@ library(sf)
 # setwd("~/Documents/earth-analytics/")
 ```
 
-In the plot below, we will be using the following theme. You can copy and paste
+In the plot below, you will be using the following theme. You can copy and paste
 this code if you'd like to use the same theme!
 
 
@@ -196,7 +196,7 @@ newTheme <- list(theme(line = element_blank(),
       axis.ticks = element_blank(), # turn off ticks
       axis.title.x = element_blank(), # turn off titles
       axis.title.y = element_blank(),
-      legend.position="none")) # turn off legend
+      legend.position = "none")) # turn off legend
 ```
 
 
@@ -205,7 +205,7 @@ newTheme <- list(theme(line = element_blank(),
 
 ```r
 # read shapefile
-worldBound <- readOGR(dsn="data/week-04/global/ne_110m_land/ne_110m_land.shp")
+worldBound <- readOGR(dsn = "data/week-04/global/ne_110m_land/ne_110m_land.shp")
 # convert to dataframe
 worldBound_df <- fortify(worldBound)
 ```
@@ -213,12 +213,12 @@ worldBound_df <- fortify(worldBound)
 
 ```r
 # plot map using ggplot
-worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
+worldMap <- ggplot(worldBound_df, aes(long,lat, group = group)) +
   geom_polygon() +
   coord_equal() +
-  labs(x="Longitude (Degrees)",
-       y="Latitude (Degrees)",
-      title="Global Map - Geographic Coordinate System ",
+  labs(x = "Longitude (Degrees)",
+       y = "Latitude (Degrees)",
+      title = "Global Map - Geographic Coordinate System ",
       subtitle = "WGS84 Datum, Units: Degrees - Latitude / Longitude")
 
 worldMap
@@ -226,7 +226,7 @@ worldMap
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial03-crs-intro/load-plot-data-1.png" title="world map plot" alt="world map plot" width="90%" />
 
-We can add three coordinate locations to our map. Note that the UNITS are
+You can add three coordinate locations to your map. Note that the UNITS are
 in **decimal degrees** (latitude, longitude):
 
 * **Boulder, Colorado:** 40.0274, -105.2519
@@ -240,14 +240,14 @@ boundary layer.
 ```r
 # define locations of Boulder, CO, Mallorca, Spain and  Oslo, Norway
 # store coordinates in a data.frame
-loc_df <- data.frame(lon=c(-105.2519, 10.7500, 2.9833),
-                lat=c(40.0274, 59.9500, 39.6167))
+loc_df <- data.frame(lon = c(-105.2519, 10.7500, 2.9833),
+                lat = c(40.0274, 59.9500, 39.6167))
 
 # add a point to the map
 mapLocations <- worldMap +
-                geom_point(data=loc_df,
-                aes(x=lon, y=lat, group=NULL), colour = "springgreen",
-                      size=5)
+                geom_point(data = loc_df,
+                aes(x = lon, y = lat, group = NULL), colour = "springgreen",
+                      size = 5)
 
 mapLocations
 ```
@@ -256,7 +256,7 @@ mapLocations
 
 ## Geographic CRS - The Good & The Less Good
 
-Geographic coordinate systems in decimal degrees are helpful when we need to
+Geographic coordinate systems in decimal degrees are helpful when you need to
 locate places on the Earth. However, latitude and longitude locations are not
 located using uniform measurement units. Thus, geographic `CRS`'s are not ideal for
 measuring distance. This is why other projected `CRS` have been developed.
@@ -274,9 +274,9 @@ measuring distance. This is why other projected `CRS` have been developed.
 
 ## Projected CRS - Robinson
 
-We can view the same data above, in another `CRS` - `Robinson`. `Robinson` is a
+You can view the same data above, in another `CRS` - `Robinson`. `Robinson` is a
 **projected** `CRS`. Notice that the country boundaries on the map - have a
-different shape compared to the map that we created above in the `CRS`:
+different shape compared to the map that you created above in the `CRS`:
 **Geographic lat/long WGS84**.
 
 
@@ -290,11 +290,11 @@ worldBound_df_robin <- fortify(worldBound_robin)
 # force R to plot x and y values without rounding digits
 # options(scipen=100)
 
-robMap <- ggplot(worldBound_df_robin, aes(long,lat, group=group)) +
+robMap <- ggplot(worldBound_df_robin, aes(long,lat, group = group)) +
   geom_polygon() +
-  labs(title="World map (robinson)",
+  labs(title = "World map (robinson)",
        x = "X Coordinates (meters)",
-       y ="Y Coordinates (meters)") +
+       y = "Y Coordinates (meters)") +
   coord_equal()
 
 robMap
@@ -303,48 +303,48 @@ robMap
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial03-crs-intro/global-map-robinson-1.png" title="Map reprojected to robinson projection." alt="Map reprojected to robinson projection." width="90%" />
 
 Now what happens if you try to add the same Lat / Long coordinate locations that
-we used above, to our map, that is using the `Robinson` `CRS` as it's coordinate
+you used above, to your map, that is using the `Robinson` `CRS` as it's coordinate
 reference system?
 
 
 ```r
 # add a point to the map
-newMap <- robMap + geom_point(data=loc_df,
-                      aes(x=lon, y=lat, group=NULL),
+newMap <- robMap + geom_point(data = loc_df,
+                      aes(x = lon, y = lat, group = NULL),
                       colour = "springgreen",
-                      size=5)
+                      size = 5)
 
 newMap
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial03-crs-intro/add-locations-robinson-1.png" title="map with point locations added - robinson projection." alt="map with point locations added - robinson projection." width="90%" />
 
-Notice above that when we try to add lat/long coordinates in degrees to a map
-in a different `CRS` the points are not in the correct location. We need
+Notice above that when you try to add lat/long coordinates in degrees to a map
+in a different `CRS` the points are not in the correct location. You need
 to first convert the points to the new projection - a process called
-**reprojection**. We can reproject our data using the `spTransform()` function
+**reprojection**. You can reproject your data using the `spTransform()` function
 in `R`.
 
-Our points are stored in a data.frame which is not a spatial object. Thus, we will
+Your points are stored in a data.frame which is not a spatial object. Thus, you will
 need to convert that `data.frame` to a spatial `data.frame` to use `spTransform()`.
 
 
 ```r
 # data.frame containing locations of Boulder, CO and Oslo, Norway
 loc_df
-##        lon   lat
-## 1 -105.252 40.03
-## 2   10.750 59.95
-## 3    2.983 39.62
+##         lon     lat
+## 1 -105.2519 40.0274
+## 2   10.7500 59.9500
+## 3    2.9833 39.6167
 
 # convert dataframe to spatial points data frame
-loc_spdf<- SpatialPointsDataFrame(coords = loc_df, data=loc_df,
-                            proj4string=crs(worldBound))
+loc_spdf <- SpatialPointsDataFrame(coords = loc_df, data = loc_df,
+                            proj4string = crs(worldBound))
 
 loc_spdf
 ## class       : SpatialPointsDataFrame 
 ## features    : 3 
-## extent      : -105.3, 10.75, 39.62, 59.95  (xmin, xmax, ymin, ymax)
+## extent      : -105.2519, 10.75, 39.6167, 59.95  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 2
 ## names       :       lon,     lat 
@@ -352,8 +352,8 @@ loc_spdf
 ## max values  :     10.75,   59.95
 ```
 
-Once we have converted our data frame into a spatial data frame, we can then
-reproject our data.
+Once you have converted your data frame into a spatial data frame, you can then
+reproject your data.
 
 
 ```r
@@ -361,8 +361,8 @@ reproject our data.
 loc_spdf_rob <- spTransform(loc_spdf, CRSobj = CRS("+proj=robin"))
 ```
 
-To make our data plot nicely with `ggplot`, we need to once again convert to a
-dataframe. We can do that by extracting the `coordinates()` and turning that into
+To make your data plot nicely with `ggplot`, you need to once again convert to a
+dataframe. You can do that by extracting the `coordinates()` and turning that into
 a `data.frame` using `as.data.frame()`.
 
 
@@ -371,12 +371,12 @@ a `data.frame` using `as.data.frame()`.
 loc_rob_df <- as.data.frame(coordinates(loc_spdf_rob))
 
 # turn off scientific notation
-options(scipen=10000)
+options(scipen = 10000)
 # add a point to the map
-newMap <- robMap + geom_point(data=loc_rob_df,
-                      aes(x=lon, y=lat, group=NULL),
+newMap <- robMap + geom_point(data = loc_rob_df,
+                      aes(x = lon, y = lat, group = NULL),
                       colour = "springgreen",
-                      size=5)
+                      size = 5)
 
 newMap
 ```
@@ -390,54 +390,54 @@ coordinate system. Let's look at both, side by side, with the actual **graticule
 or latitude and longitude lines rendered on the map.
 
 To visually see the difference in these projections as they impact parts of the
-world, we will use a graticules layer which contains the meridian and parallel
+world, you will use a graticules layer which contains the meridian and parallel
 lines.
 
 
 ```r
 ## import graticule shapefile data
 graticule <- readOGR("data/week-04/global/ne_110m_graticules_all",
-                     layer="ne_110m_graticules_15")
+                     layer = "ne_110m_graticules_15")
 # convert spatial sp object into a ggplot ready, data.frame
 graticule_df <- fortify(graticule)
 ```
 
-Let's check out our graticules. Notice they are just parallels and meridians.
+Let's check out your graticules. Notice they are just parallels and meridians.
 
 
 ```r
 # plot graticules
 ggplot() +
-  geom_path(data=graticule_df, aes(long, lat, group=group), linetype="dashed", color="grey70")
+  geom_path(data = graticule_df, aes(long, lat, group = group), linetype = "dashed", color = "grey70")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial03-crs-intro/plot-grat-1.png" title="graticules plot" alt="graticules plot" width="90%" />
 
-Also we will import a bounding box to make our plot look nicer!
+Also you will import a bounding box to make your plot look nicer!
 
 
 ```r
 bbox <- readOGR("data/week-04/global/ne_110m_graticules_all/ne_110m_wgs84_bounding_box.shp")
 bbox_df <- fortify(bbox)
 
-latLongMap <- ggplot(bbox_df, aes(long,lat, group=group)) +
-              geom_polygon(fill="white") +
-              geom_polygon(data=worldBound_df, aes(long,lat, group=group, fill=hole)) +
-              geom_path(data=graticule_df, aes(long, lat, group=group), linetype="dashed", color="grey70") +
-  coord_equal() +  labs(title="World Map - Geographic (long/lat degrees)")  +
+latLongMap <- ggplot(bbox_df, aes(long,lat, group = group)) +
+              geom_polygon(fill = "white") +
+              geom_polygon(data = worldBound_df, aes(long,lat, group = group, fill = hole)) +
+              geom_path(data = graticule_df, aes(long, lat, group = group), linetype = "dashed", color = "grey70") +
+  coord_equal() +  labs(title = "World Map - Geographic (long/lat degrees)")  +
   newTheme +
 
-  scale_fill_manual(values=c("black", "white"), guide="none") # change colors & remove legend
+  scale_fill_manual(values = c("black", "white"), guide = "none") # change colors & remove legend
 
-# add our location points to the map
+# add your location points to the map
 latLongMap <- latLongMap +
-              geom_point(data=loc_df,
-                      aes(x=lon, y=lat, group=NULL),
-                      colour="springgreen",
-                      size=5)
+              geom_point(data = loc_df,
+                      aes(x = lon, y = lat, group = NULL),
+                      colour = "springgreen",
+                      size = 5)
 ```
 
-Below, we reproject our graticules and the bounding box to the Robinson projection.
+Below, you reproject your graticules and the bounding box to the Robinson projection.
 
 
 ```r
@@ -449,23 +449,23 @@ bbox_robin_df <- fortify(bbox_robin)
 
 # plot using robinson
 
-finalRobMap <- ggplot(bbox_robin_df, aes(long, lat, group=group)) +
-  geom_polygon(fill="white") +
-  geom_polygon(data=worldBound_df_robin, aes(long, lat, group=group, fill=hole)) +
-  geom_path(data=grat_df_robin, aes(long, lat, group=group), linetype="dashed", color="grey70") +
-  labs(title="World Map Projected - Robinson (Meters)") +
+finalRobMap <- ggplot(bbox_robin_df, aes(long, lat, group = group)) +
+  geom_polygon(fill = "white") +
+  geom_polygon(data = worldBound_df_robin, aes(long, lat, group = group, fill = hole)) +
+  geom_path(data = grat_df_robin, aes(long, lat, group = group), linetype = "dashed", color = "grey70") +
+  labs(title = "World Map Projected - Robinson (Meters)") +
   coord_equal() + newTheme +
-  scale_fill_manual(values=c("black", "white"), guide="none") # change colors & remove legend
+  scale_fill_manual(values = c("black", "white"), guide = "none") # change colors & remove legend
 
 # add a location layer in robinson as points to the map
-finalRobMap <- finalRobMap + geom_point(data=loc_rob_df,
-                      aes(x=lon, y=lat, group=NULL),
-                      colour="springgreen",
-                      size=5)
+finalRobMap <- finalRobMap + geom_point(data = loc_rob_df,
+                      aes(x = lon, y = lat, group = NULL),
+                      colour = "springgreen",
+                      size = 5)
 ```
 
-Below we plot the two maps on top of each other to make them easier to compare.
-To do this, we use the `grid.arrange()` function from the `gridExtra` package.
+Below you plot the two maps on top of each other to make them easier to compare.
+To do this, you use the `grid.arrange()` function from the `gridExtra` package.
 
 
 ```r
@@ -479,7 +479,7 @@ grid.arrange(latLongMap, finalRobMap)
 
 ## Why Multiple CRS?
 
-You may be wondering, why bother with different `CRS`s if it makes our
+You may be wondering, why bother with different `CRS`s if it makes your
 analysis more complicated? Well, each `CRS` is optimized to best represent the:
 
 * shape and/or
@@ -494,7 +494,7 @@ distance and area is beyond the scope of this tutorial, but it's important to
 understand that the `CRS` that you chose for your data will impact working with
 the data.
 
-We will discuss some of the differences between the projected `UTM` `CRS` and geographic
+You will learn some of the differences between the projected `UTM` `CRS` and geographic
 `WGS84` in the next lesson.
 
 <div class="notice--warning" markdown="1">
@@ -525,12 +525,12 @@ globe (e.g. latitude / longitude).
 2. **Projected coordinate systems:** coordinate systems that are localized to
 minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane)
 
-We will discuss these two coordinate reference systems types in more detail
+You will learn these two coordinate reference systems types in more detail
 in the next lesson.
 
 <div class="notice--info" markdown="1">
 
-## Additional resources
+## Additional Resources
 
 * Read more on coordinate systems in the
 <a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" data-proofer-ignore=''>

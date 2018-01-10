@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery R - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/
-modified: '2017-12-08'
+modified: '2018-01-10'
 week-landing: 7
 week: 7
 sidebar:
@@ -161,7 +161,7 @@ dev.off()
 
 ### IMPORTANT: For All Plots
 
-* Add a title to your plot that describes what the plot shows
+* Add a title to your plot that describes what the plot shows.
 * Add a brief, 1-3 sentence caption below each plot that describes what it shows HINT: you can use the `knitr` argument `fig.cap = "Caption here"` to automatically add captions.
 * Be sure to mention the data source and the date that the data were collected.
 
@@ -195,7 +195,7 @@ achieve a grade higher than a C on the assignment.
 | Lines of code are broken up with commas to make the code more readable  |  |
 | Code chunk arguments are used to hide warnings and other unnecessary output |  |
 | Code chunk arguments are used to hide code and just show output |  |
-| Report only contains code pertaining to the assignment. |  |
+| Report only contains code pertaining to the assignment |  |
 |===
 | Report emphasizes the write-up and the code outputs rather than showing each step of the code | |
 

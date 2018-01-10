@@ -1,15 +1,15 @@
 ---
 layout: single
-title: "Homework challenge: Plot USGS stream discharge data in R"
+title: "Homework Challenge: Plot USGS Stream Discharge Data in R"
 excerpt: "This lesson illustrated what your final stream discharge homework
 plots should look like for the week. Use all of the skills that you've learned in the previous lessons to complete it."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
 permalink: /courses/earth-analytics/time-series-data/plot-stream-discharge-timeseries-challenge-r/
-nav-title: 'Homework example: stream discharge'
+nav-title: 'Homework example: Stream Discharge'
 sidebar:
   nav:
 author_profile: false
@@ -27,7 +27,7 @@ topics:
 
 
 
-In this data lesson, we explore and visualize stream discharge time series
+In this data lesson, you explore and visualize stream discharge time series
 data collected by the United States Geological Survey (USGS). You will use everything
 that you learned in the previous lessons to create your plots. You will use these
 plots in the report that you submit for your homework.
@@ -37,23 +37,23 @@ to use your programming skills to create the plots!
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
 * Plot USGS Stream Discharge time series data in `R`
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
+an `earth-analytics` directory set up on your computer with a `/data`
 directory with it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 * [Intro to the R & RStudio Interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
 
-### R libraries to install:
+### R Libraries to Install:
 
 * **ggplot2:** `install.packages("ggplot2")`
 * **dplyr:** `install.packages("dplyr")`
@@ -64,7 +64,7 @@ If you haven't already downloaded this data (from the previous lesson), do so no
 
 </div>
 
-## About the data - USGS stream discharge data
+## About the Data - USGS Stream Discharge Data
 
 The USGS has a distributed network of aquatic sensors located in streams across
 the United States. This network monitors a suit of variables that are important
@@ -96,15 +96,15 @@ Source: <a href="http://nwis.waterdata.usgs.gov/usa/nwis/peak/?site_no=06730200"
 As you can imagine, stream gages can be sensitive to high flows and in the case of
 an extreme event like a flood are sometimes damaged. However, during the 2013 floods,
 one stream gage in Boulder, Colorado remained in tact. USGS stream gauge 06730200
-located on Boulder Creek at North 75th St. collected data that we will use in
+located on Boulder Creek at North 75th St. collected data that you will use in
 the lesson below!
 
 
 
 
-## Work with USGS stream gage data
+## Work with USGS Stream Gage Data
 
-Let's begin by loading our libraries and setting our working directory.
+Let's begin by loading your libraries and setting your working directory.
 
 
 ```r
@@ -119,15 +119,15 @@ library(dplyr) # data manipulation
 options(stringsAsFactors = FALSE)
 ```
 
-##  Import USGS stream discharge data into R
+##  Import USGS Stream Discharge Data into R
 
-Let's first import our data using the `read.csv()` function.
+Let's first import your data using the `read.csv()` function.
 
 
 
 ```r
 discharge <- read.csv("data/week-02/discharge/06730200-discharge-daily-1986-2013.csv",
-                      header=TRUE)
+                      header = TRUE)
 
 # view first 6 lines of data
 head(discharge)
@@ -180,7 +180,7 @@ Plot the data with `ggplot()`. Your plot should look like the one below.
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R04-homework-example-USGS-stream-discharge-data-r/plot-challenge-1.png" title="ggplot subsetted discharge data" alt="ggplot subsetted discharge data" width="90%" />
 <div class="notice--info" markdown="1">
 
-## Additional resources
+## Additional Resources
 
 Additional information on USGS streamflow measurements and data:
 
@@ -189,7 +189,7 @@ Additional information on USGS streamflow measurements and data:
 * <a href="http://water.usgs.gov/edu/streamflow2.html" target="_blank">USGS: How streamflow is measured, Part II</a>
 * <a href="http://pubs.usgs.gov/fs/2005/3131/FS2005-3131.pdf" target="_blank"> USGS National Streamflow Information Program Fact Sheet </a>
 
-## API data access
+## API Data Access
 
 USGS data can be downloaded via an API using a command line interface. This is
 particularly useful if you want to request data from multiple sites or build the

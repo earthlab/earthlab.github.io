@@ -3,11 +3,11 @@ layout: single
 title: "How Lidar Point Clouds Are Converted to Raster Data Formats - Remote Sensing"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-raster-data/
-nav-title: 'Intro lidar raster data'
+nav-title: 'Intro Lidar Raster Data'
 week: 3
 course: "earth-analytics"
 sidebar:
@@ -21,20 +21,20 @@ topics:
   spatial-data-and-gis: ['raster-data']
 ---
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* Describe the basic process of how a lidar point cloud is converted into a raster
-* Describe the structural differences between a raster dataset and a lidar point cloud
+* Describe the basic process of how a lidar point cloud is converted into a raster.
+* Describe the structural differences between a raster dataset and a lidar point cloud.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -43,11 +43,11 @@ If you have not already downloaded the week 3 data, please do so now.
 
 </div>
 
-In the last lesson, we learned about lidar points clouds. In this lesson, we
+In the last lesson, you learned about lidar points clouds. In this lesson, you
 will learn how a point cloud is converted into a gridded or raster data format.
 
 
-### How a lidar system records points
+### How a Lidar System Records Points
 
 Remember that lidar is an active remote sensing system that records reflected
 or returned light energy. A discrete return lidar system, records the strongest
@@ -63,7 +63,7 @@ the amount of reflected light energy that returned to the sensor.
 </figure>
 
 
-## Gridded or raster lidar data products
+## Gridded or Raster Lidar Data Products
 Point clouds provide a lot of information, scientifically. However, they can be
 difficult to work with given the size of the data and tools that are available
 to handle large volumns of points. Lidar data products are often
@@ -85,13 +85,13 @@ commonly used software packages.
 </figure>
 
 
-## What is a raster?
+## What is a Raster?
 
 Raster or “gridded” data are stored as a grid of values which are rendered on a
 map as pixels. Each pixel value represents an area on the Earth’s surface.
 A raster file is a composed of regular grid of cells, all of which are the same
 size. You've looked at and used rasters before if you've looked at photographs
-or imagery in a tool like Google Earth. However, the raster files that we will
+or imagery in a tool like Google Earth. However, the raster files that you will
 work with are different from photographs in that they are spatially referenced.
 Each pixel represents an area of land on the ground. That area is defined by
 the spatial **resolution** of the raster.
@@ -106,7 +106,7 @@ the spatial **resolution** of the raster.
 </figure>
 
 
-### Raster facts
+### Raster Facts
 
 A few notes about rasters:
 
@@ -130,9 +130,9 @@ recorded by the sensor.
    </figcaption>
 </figure>
 
-## Creating a raster from lidar point clouds
+## Creating a Raster from Lidar Point Clouds
 
-### Point to raster methods - gridding
+### Point to Raster Methods - Gridding
 
 There are different ways to create a raster from lidar point clouds. Let's look
 at one of the most basic ways to create a raster file points: gridding.
@@ -142,16 +142,16 @@ do this:
 
 1. A grid is placed on top of the lidar data in geographic space. Each cell in
 the grid has the same spatial dimensions. These dimensions represent that
-particular area on the ground. If we want to derive a 1m resolution raster
-from the lidar data, we overlay a 1m by 1m grid over the lidar data points.
-2. Within each 1m x 1m cell, we calculate a value to be applied to that cell,
+particular area on the ground. If you want to derive a 1m resolution raster
+from the lidar data, you overlay a 1m by 1m grid over the lidar data points.
+2. Within each 1m x 1m cell, you calculate a value to be applied to that cell,
 using the lidar points found within that cell. The simplest method of doing this
 is to take the max, min or mean height value of all lidar points found within
-the 1m cell. If we use this approach, we might have cells in the raster that
-don't contain any lidar points. These cells will have a "no data" value if we
-process our raster in this way.
+the 1m cell. If you use this approach, you might have cells in the raster that
+don't contain any lidar points. These cells will have a "no data" value if you
+process your raster in this way.
 
-### Point to raster methods - interpolation
+### Point to Raster Methods - Interpolation
 
 A different approach is to interpolate the value for each cell. Interpolation
 considers the values of points outside of the cell in addition to points within
@@ -161,7 +161,7 @@ with some ability to predict or calculate cell values in areas where there are
 no data (or no points). And to quantify the error associated with those predictions
 which is useful to know, if you are doing research.
 
-We will not be talking about interpolation in today's class.
+You will not be talking about interpolation in today's class.
 
 <figure>
   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/gridding.gif">
@@ -173,4 +173,4 @@ We will not be talking about interpolation in today's class.
 </figure>
 
 
-In the next lesson, we will learn how to open a lidar raster dataset in `R`.
+In the next lesson, you will learn how to open a lidar raster dataset in `R`.

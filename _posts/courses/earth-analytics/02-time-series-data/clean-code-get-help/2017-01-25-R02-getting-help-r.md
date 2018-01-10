@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "Get help with R - data science for scientists 101"
+title: "Get Help with R - Data Science for Scientists 101"
 excerpt: "This tutorial covers ways to get help when you are not sure how to perform a task in R. "
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [courses]
 class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/time-series-data/ways-to-get-help-with-R/
-nav-title: 'About R / get help'
+nav-title: 'About R / Get Help'
 dateCreated: 2016-12-13
-modified: '2017-12-07'
+modified: '2018-01-10'
 week: 2
 sidebar:
   nav:
@@ -26,13 +26,13 @@ Getting help
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* List 2 ways that you can get help when you are stuck using `R`
-* List several features of `R` that makes it a versatile tool for scientific programming
+* List 2 ways that you can get help when you are stuck using `R`.
+* List several features of `R` that makes it a versatile tool for scientific programming.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 A computer with internet access.
 
@@ -53,12 +53,12 @@ for statistics but also data science. Inspired by the programming language `S`.
   and a so-called [functional language](http://adv-r.had.co.nz/Functional-programming.html).
 * Large and growing community of peers.
 
-## Seeking help
+## Seeking Help
 
-Below we discuss a few ways that you can get help when you are stuck in `R`.
+Below outlines a few ways that you can get help when you are stuck in `R`.
 
 
-## I know the name of the function I want to use, but I'm not sure how to use it
+## I know the name of the function I want to use, but I'm not sure how to use it.
 
 If you need help with a specific function, let's say `barplot()`, you can type:
 
@@ -94,7 +94,7 @@ If you can't find what you are looking for, you can use the
 [rdocumention.org](http://www.rdocumentation.org) website that searches through
 the help files across all packages available.
 
-## I am stuck... I get an error message that I don't understand
+## I am stuck...I get an error message that I don't understand.
 
 Start by googling the error message. However, this doesn't always work very well
 because often, package developers rely on the error catching provided by `R`. You
@@ -117,7 +117,7 @@ but it is full of useful information.
 
 <div class='notice--info' markdown="1">
 
-# Where to get help
+# Where to Get Help
 
 * Ask your colleagues: if you know someone with more experience than you,
   they might be able to help you.
@@ -128,7 +128,7 @@ but it is full of useful information.
 * There are also some topic-specific mailing lists (GIS, phylogenetics, etc...),
   the complete list is [here](http://www.r-project.org/mail.html).
 
-## More resources
+## More Resources
 
 * The [Posting Guide](http://www.r-project.org/posting-guide.html) for the `R`
   mailing lists.

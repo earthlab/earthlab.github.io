@@ -2,7 +2,7 @@
 layout: single
 category: course-materials
 title: "Search Earth Analytics Course lessons"
-nav-title: "Search course lessons"
+nav-title: "Search Course Lessons"
 permalink: /courses/earth-analytics/search-course-lessons/
 module-type: 'overview'
 comments: false
@@ -15,7 +15,7 @@ sitemap: false
 ---
 
 The search below, will ONLY return lessons associated with the Earth Analytics
-course taught in the R programming language.
+course taught in the `R` programming language.
 
 <div id="main-search">
    <form role="search" method="get" action="/courses/earth-analytics/search-course-lessons/">

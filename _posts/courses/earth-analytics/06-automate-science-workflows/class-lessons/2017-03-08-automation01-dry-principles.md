@@ -3,7 +3,7 @@ layout: single
 title: "Write Efficient Scientific Code - the DRY (Don't Repeat Yourself) Principle "
 excerpt: "This lesson will cover the basic principles of using functions and why they are important."
 authors: ['Max Joseph', 'Leah Wasser', 'Software Carpentry', 'Reproducible Science Curriculum Community']
-modified: '2017-12-07'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-efficient-code-for-science-r/
@@ -36,9 +36,9 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Be able to define the DRY principle
-* Describe how functions can make your code easier to read
-* Identify repeated lines of code that could be replaced by functions
+* Be able to define the DRY principle.
+* Describe how functions can make your code easier to read.
+* Identify repeated lines of code that could be replaced by functions.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -83,7 +83,7 @@ instance of that task! Editing every instance of a task is a lot of work.
 Instead, you can create **functions** that perform those tasks, using sets of
 **arguments** or inputs to specify how the task is performed.
 
-## The benefits of functions
+## The Benefits of Functions
 
 * **Modularity:** If you write function for specific individual tasks, you can use them over and over. A function that you write for one script can even be reused in other scripts!
 * **Fewer global variables:** When you run a function, the intermediate variables that it creates are not stored in your global environment. This saves memory and keeps your global environment cleaner.
@@ -93,7 +93,7 @@ Instead, you can create **functions** that perform those tasks, using sets of
 
 > input --> function does something --> output
 
-### Write modular functions and code
+### Write Modular Functions and Code
 
 Good functions only do one thing, but they do it well and often in a variety of contexts.
 Often the operations contained in a good function are generally useful for many tasks.
@@ -175,7 +175,7 @@ or even 3 weeks from now (remember we discussed your future self in week 1 of th
 
 Well written functions help you document your workflow because:
 
-1. Well written functions are documented with inputs and outputs clearly defined
+1. Well written functions are documented with inputs and outputs clearly defined.
 2. Well written functions use names that help you better understand the task that the
 function performs.
 
@@ -185,7 +185,7 @@ Name functions using verbs the indicate what the function *does*. This makes
 your code more expressive or self describing and in turn makes it easier to read
 for both you, your future self and your colleagues.
 
-### 3. Easier to maintain / edit
+### 3. Easier to Maintain and Edit
 
 If all your code is written line by line, with repeated code in
 multiple parts of your document, it can be challenging to maintain.
@@ -219,8 +219,8 @@ line by line with repeated steps.
 
 ## Summary
 
-It is a good idea to learn how to
+It is a good idea to learn how to:
 
-1. **Modularize** your code and identify generalizable tasks
-2. Write functions for parts of your code which include repeated steps
+1. **Modularize** your code and identify generalizable tasks.
+2. Write functions for parts of your code which include repeated steps.
 3. Document your functions clearly, specifying the structure of the inputs and outputs.
