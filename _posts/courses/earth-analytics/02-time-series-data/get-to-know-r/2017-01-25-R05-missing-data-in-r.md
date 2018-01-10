@@ -89,10 +89,11 @@ Then you can open the data.
 boulder_precip <- read.csv(file = "data/boulder-precip.csv")
 
 str(boulder_precip)
-## 'data.frame':	18 obs. of  3 variables:
-##  $ X     : int  756 757 758 759 760 761 762 763 764 765 ...
-##  $ DATE  : chr  "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" ...
+## 'data.frame':	18 obs. of  4 variables:
+##  $ ID    : int  756 757 758 759 760 761 762 763 764 765 ...
+##  $ DATE  : chr  "8/21/13" "8/26/13" "8/27/13" "9/1/13" ...
 ##  $ PRECIP: num  0.1 0.1 0.1 0 0.1 1 2.3 9.8 1.9 1.4 ...
+##  $ TEMP  : int  55 25 NA -999 15 25 65 NA 95 -999 ...
 ```
 
 In the example below, note how a mean value is calculated differently depending
@@ -103,10 +104,8 @@ upon on how `NA` values are treated when the data are imported.
 ```r
 # view mean values
 mean(boulder_precip$PRECIP)
-## [1] 1.055556
+## [1] 1.056
 mean(boulder_precip$TEMP)
-## Warning in mean.default(boulder_precip$TEMP): argument is not numeric or
-## logical: returning NA
 ## [1] NA
 ```
 
@@ -114,17 +113,17 @@ Notice that you are able to calculate a mean value for `PRECIP` but `TEMP` retur
 `NA` value. Why? Let's plot your data to figure out what might be going on.
 
 
-
 ```r
 library(ggplot2)
 # are there values in the TEMP column of your data?
 boulder_precip$TEMP
-## NULL
+##  [1]   55   25   NA -999   15   25   65   NA   95 -999   85 -999   85   85
+## [15] -999   57   60   65
 # plot the data with ggplot
 ggplot(data = boulder_precip, aes(x = DATE, y = TEMP)) +
   geom_point() +
   labs(title = "Temperature data for Boulder, CO")
-## Error in FUN(X[[i]], ...): object 'TEMP' not found
+## Warning: Removed 2 rows containing missing values (geom_point).
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/quick-plot-1.png" title="quick plot of temperature" alt="quick plot of temperature" width="90%" />
@@ -159,11 +158,9 @@ temperature column above.
 ```r
 # calculate mean usign the na.rm argument
 mean(boulder_precip$PRECIP)
-## [1] 1.055556
+## [1] 1.056
 mean(boulder_precip$TEMP, na.rm = TRUE)
-## Warning in mean.default(boulder_precip$TEMP, na.rm = TRUE): argument is not
-## numeric or logical: returning NA
-## [1] NA
+## [1] -204.9
 ```
 
 
@@ -173,7 +170,7 @@ examples.
 {: .notice--success}
 
 So now you have successfully calculated the mean value of both precipitation and
-temperature in your spreadsheet. However does the mean temperature value (NA make
+temperature in your spreadsheet. However does the mean temperature value (-204.9375 make
 sense looking at the data? It seems a bit low - you know that there aren't temperature
 values of -200 here in Boulder, Colorado!
 
@@ -185,8 +182,8 @@ is -999.
 ```r
 # calculate mean usign the na.rm argument
 summary(boulder_precip$TEMP, na.rm = TRUE)
-## Length  Class   Mode 
-##      0   NULL   NULL
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##    -999    -238      56    -205      70      95       2
 ```
 
 
@@ -213,7 +210,7 @@ This should solve all of your missing data problems!
 boulder_precip_na <- read.csv(file = "data/boulder-precip.csv",
                      na.strings = c("NA", " ", "-999"))
 boulder_precip_na$TEMP
-## NULL
+##  [1] 55 25 NA NA 15 25 65 NA 95 NA 85 NA 85 85 NA 57 60 65
 ```
 
 Does your new plot look better?
@@ -222,13 +219,14 @@ Does your new plot look better?
 ```r
 # are there values in the TEMP column of your data?
 boulder_precip$TEMP
-## NULL
+##  [1]   55   25   NA -999   15   25   65   NA   95 -999   85 -999   85   85
+## [15] -999   57   60   65
 # plot the data with ggplot
 ggplot(data = boulder_precip_na, aes(x = DATE, y = TEMP)) +
   geom_point() +
   labs(title = "Temperature data for Boulder, CO",
        subtitle = "missing data accounted for")
-## Error in FUN(X[[i]], ...): object 'TEMP' not found
+## Warning: Removed 6 rows containing missing values (geom_point).
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R05-missing-data-in-r/plot-2nodata-1.png" title="Plot of temperature with missing data accounted for" alt="Plot of temperature with missing data accounted for" width="90%" />
