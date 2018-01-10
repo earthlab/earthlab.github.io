@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "How to download and install QGIS"
+title: "How to Download and Install QGIS"
 excerpt: "QGIS is a free, open-souce GIS tool that is comparable to ArcMap. This lesson walks through how to install QGIS on your computer."
 authors: ['Leah Wasser']
 modified: 2016-12-30
@@ -20,17 +20,17 @@ topics:
 ---
 
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 This lesson walks you through installing `QGIS` on your laptop.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning ojectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* Install `QGIS` on your laptop
+* Install `QGIS` on your laptop.
 
 To install `QGIS`, you'll need a laptop with admin privileges to install software.
 

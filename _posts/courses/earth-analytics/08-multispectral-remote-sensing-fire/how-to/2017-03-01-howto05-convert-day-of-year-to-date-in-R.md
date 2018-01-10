@@ -3,7 +3,7 @@ layout: single
 title: "How to Convert Day of Year to Year, Month, Day in R"
 excerpt: "Learn how to convert a day of year value to a normal date format in R. "
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/convert-day-of-year-to-date-in-R/
@@ -29,9 +29,9 @@ lang-lib:
 
 After completing this tutorial, you will be able to:
 
-* 
+* Covert day of year values to normal date format in R.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 data for week 6 of the course.
@@ -43,14 +43,14 @@ data for week 6 of the course.
 Landsat data are often saved using a date that includes the year and the day of
 year. You can quickly convert day of year to date as follows:
 
-Here is our file name:
+Here is your file name:
 
 `LC80340322016189-SC20170128091153`
 
-Looking at the name, we can see that the data were collected 2016-189. This
+Looking at the name, you can see that the data were collected 2016-189. This
 references the 189th day of the year in 2016.
 
-We can quickly convert this in `R`:
+You can quickly convert this in `R`:
 
 
 

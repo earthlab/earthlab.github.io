@@ -1,9 +1,9 @@
 ---
 layout: single
 category: courses
-title: "Mid Term Presentations"
+title: "Midterm Presentations"
 permalink: /courses/earth-analytics/week-11/
-modified: '2017-12-07'
+modified: '2018-01-10'
 week-landing: 11
 week: 11
 sidebar:
@@ -22,35 +22,35 @@ module-type: 'session'
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week {{ page.week }}!
 
 Welcome to Week {{ page.week }} of Earth Analytics! This week you will present
-your mid term assignment to the class.
+your midterm assignment to the class.
 
 </div>
 
 |  Time | Topic   | Speaker   |
 |---|---|---|---|---|
-| 9:30 - 11:00  | Mid Term Presentations |   |
+| 9:30 - 11:00  | Midterm Presentations |   |
 | 11:00 - 11:10  | BREAK |   |
 |===
-| 11:10 - 12:20  | Mid Term Presentations |  |
+| 11:10 - 12:20  | Midterm Presentations |  |
 
 
-### 2. Complete the assignment below (3 points)
+### 2. Complete the Assignment Below (3 points)
 
 #### Evaluation Due: Tuesday 14 November 2017 by 8pm
 
 **Notes:**
 
 * You can always watch a presentation again online if you wish through D2L!
-* No evaluation forms submitted after 8pm on Tuesday will be graded / accepted - the evaluation form will be closed!
+* No evaluation forms submitted after 8pm on Tuesday will be accepted - the evaluation form will be closed!
 * Once you start your evaluation in Qualtrics, you will want to complete it. It is difficult to go back and edit it!
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Assignment - Review Other Presentations
 
-### Complete the assignment below:
+### Complete the Assignment Below:
 
-For this week you will review *atleast* 4 other presentations during
+For this week you will review *at least* 4 other presentations during
 class. Please submit your review to qualtrics using the link below. Please
 be sure to add your first and last name and email to the qualtrics form so we can
 count your review when we grade!
@@ -73,7 +73,7 @@ Review atleast 2 additional presentations to receive an additional homework poin
 
 
 ### Participation
-Because we won't have a lot of time for questions after each presentation, please
+There won't be a lot of time for questions after each presentation, so please
 leave any questions that you have for a group in piazza under the groups name.
 The group can then see your question and answer them!
 

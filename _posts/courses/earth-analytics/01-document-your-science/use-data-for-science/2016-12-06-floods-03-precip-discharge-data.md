@@ -1,17 +1,17 @@
 ---
 layout: single
-title: "Explore precipitation and stream flow data using interactive plots: the 2013 Colorado Floods "
+title: "Explore Precipitation and Stream Flow Data Using Interactive Plots: The 2013 Colorado Floods "
 excerpt: "Practice interpreting data on plots that show rainfall (precipitation) and stream flow (discharge) as it changes over time. "
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/precip-discharge/
-nav-title: 'Interactive data plots'
+nav-title: 'Interactive Data Plots'
 dateCreated: 2016-12-29
-modified: '2017-12-07'
-module-title: 'Understanding disturbance with data - flooding & erosion'
+modified: '2018-01-10'
+module-title: 'Understanding Disturbance With Data - Flooding & Erosion'
 module-description: 'This module introduces the concept of using data to Understand
-a natural phenomenon. Here, we use a combination of NOAA precipitation data and
+a natural phenomenon. Here, you use a combination of NOAA precipitation data and
 USGS stream flow data to begin to understand the factors associated with a flood.
 No technical experience is needed to complete this activity.'
 week: 1
@@ -27,32 +27,32 @@ topics:
 ---
 
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
-In this classroom activity we will look at different types of data
+In this classroom activity you will look at different types of data
 that scientifically quantify / document the drivers (causes of) and impacts of
 a disturbance event like a flood.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* Describe two related drivers of a flood event
-* Interpret plots containing time series data related to flood drivers
+* Describe two related drivers of a flood event.
+* Interpret plots containing time series data related to flood drivers.
 
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need a computer with internet to complete this lesson.
 
 </div>
 
-## Exploring flood damage
+## Exploring Flood Damage
 
-In the previous lesson, we
+In the previous lesson, you:
 
-1. Looked at visible damage caused by the 2013 floods using Google Earth imagery and
+1. Looked at visible damage caused by the 2013 floods using Google Earth imagery.
 2. Explored an extremely well written report on the floods identifying things that may make the report better.
 
 In this lesson you will explore two of the  drivers of the flood and
@@ -87,7 +87,7 @@ falls from clouds including rain, hail and snow.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Precip data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Precip Data
 
 ### What do the data tell you about precipitation patterns?
 
@@ -104,7 +104,7 @@ you explore the data, keep in mind that the the flood event occured September 20
 </div>
 
 
-## Stream flow (Discharge)
+## Stream Flow (Discharge)
 
 <i class="fa fa-star"></i> **Stream Discharge**, quantifies the volume of water
 moving down a stream. Discharge is an ideal metric to quantify stream flow, which
@@ -130,12 +130,12 @@ increases significantly during a flood event.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Stream discharge data
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Stream Discharge Data
 
 ### What do the data tell you about stream discharge?
 
 As a group, discuss the following questions. Record your answers in the
-same Google doc that we used above.
+same Google doc that you used above.
 
 * What differences do you see in stream discharge between 2012 and 2013?
   * For each difference: What you think caused that difference?
@@ -149,7 +149,7 @@ same Google doc that we used above.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Driver / impact diagrams
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Driver / Impact Diagrams
 
 ### Finally -- Create a diagram that illustrates the drivers and impacts of a flood
 

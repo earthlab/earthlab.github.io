@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify Fire Impacts - Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/
-modified: '2017-12-08'
+modified: '2018-01-10'
 week-landing: 8
 week: 8
 sidebar:
@@ -45,10 +45,10 @@ you will learn how to
 | 11:45 - 12:20  | MODIS data in R - NA values & scale factors - Coding  Session |    |
 
 
-### 1a. MidTerm Groups
+### 1a. Midterm Groups
 
 Between now and next class, be sure to figure out who you'd like to work with
-for your mid-term assignment. If you are looking for a group - please add your name
+for your midterm assignment. If you are looking for a group - please add your name
 and the project that you have in mind to the Google document. If you know your
 group members and project name please add this to the document!
 
@@ -127,7 +127,7 @@ Use the `plotRGB()` function to create color infrared (also called false color)
 images using:
 
 * NAIP data
-* Landsat data and
+* Landsat data
 * MODIS data
 
  **in one figure** collected **pre-fire**.
@@ -226,7 +226,7 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 | Lines of code are broken up with commas to make the code more readable  |  |
 | Code chunk arguments are used to hide warnings and other unnecessary output |  |
 | Code chunk arguments are used to hide code and just show **required** or important output |  |
-| Report only contains code pertaining to the assignment. |  |
+| Report only contains code pertaining to the assignment |  |
 |===
 | Report emphasizes the write-up and the code outputs rather than showing each step of the code | |
 
@@ -238,19 +238,19 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 | 1b. How can differences in spatial resolution in the data that you are using impact analysis results? | |
 | 2a. Calculate the area of “high severity” and the area of “moderate severity” burn in meters using the post-fire data for both Landsat and MODIS. State what the area in meters is for each data type (Landsat and MODIS) in your answer. (is the area correctly calculated using `R`?) |  |
 | 2b. Is the total area as derived from MODIS different from the area derived from Landsat? | |
-| 3a. Write 1-3 paragraphs that describes the Cold Springs fire. ||
-| 3b. Where and when the fire occurred is discussed in the writeup.||
+| 3a. Write 1-3 paragraphs that describes the Cold Springs fire ||
+| 3b. Where and when the fire occurred is discussed in the writeup||
 | 3c. What started the fire is included in the write-up ||
-| 4a. Describe how dNBR and NDVI can be used to study the impacts of a fire.| |
-| 4b. Which parts of the spectrum are used to calculate dNBR and NDVI and why.| |
+| 4a. Describe how dNBR and NDVI can be used to study the impacts of a fire| |
+| 4b. Which parts of the spectrum are used to calculate dNBR and NDVI and why| |
 
 **Writing, Grammar & Spelling (5%)**
 
 | Full Credit | No Credit  |
 |:----|----|
-| All writing is thoughtfully composed. |  |
-| All writing is proofread with correct grammar and spelling.  | |
-| All writing is the student's own and not directly copied from the course website or another source without proper citation. |  |
+| All writing is thoughtfully composed |  |
+| All writing is proofread with correct grammar and spelling  | |
+| All writing is the student's own and not directly copied from the course website or another source without proper citation |  |
 |===
 | Proper citation format is used.  | |
 
@@ -260,15 +260,15 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 #### All Plots
 
 | Plot renders on the report. |  |
-| Plot contain a descriptive title that represents the data. | |
-| Plot data source is clearly defined on the plot and / or in the plot caption. | |
-| Plot has a 2-3 sentence figure caption that clearly describes plot contents. | |
+| Plot contain a descriptive title that represents the data | |
+| Plot data source is clearly defined on the plot and / or in the plot caption | |
+| Plot has a 2-3 sentence figure caption that clearly describes plot contents | |
 | Landsat cloud free data (over the study area) are used to derive Landsat based plots | |
-| Cloud masks are applied as appropriate to clean up data. |  |
-| The `overlay()` function is used to calculate vegetation indices. ||
-| A `normalized_diff()` function created in the previous classes is used to calculate vegetation indices. ||
+| Cloud masks are applied as appropriate to clean up data |  |
+| The `overlay()` function is used to calculate vegetation indices ||
+| A `normalized_diff()` function created in the previous classes is used to calculate vegetation indices ||
 |===
-| Data scale factors are applied as appropriate to data. |  |
+| Data scale factors are applied as appropriate to data |  |
 
 
 #### Plot 1 - Grid of NAIP, Landsat and MODIS
@@ -277,30 +277,30 @@ Submit your report in both `.Rmd` and `.html` format to the D2l dropbox.
 |:----|----|
 | All three plots use the correct bands (NIR band rendered on the red band.) | |
 |===
-| Plots are stacked vertically (or horizontally) for comparison and render properly on the report. |  |
+| Plots are stacked vertically (or horizontally) for comparison and render properly on the report |  |
 
 #### Plots 2/3 - dNBR Landsat & MODIS
 
 | Full Credit | No Credit  |
 |:----|----|
-| Correct band numbers are used to calculate NBR. |  |
-| Difference NBR is calculated properly. |  |
-| Plot has been classified according to burn severity classes specified in the assignment. |  |
-| Plot includes a legend with each "level" of burn severity labeled clearly. |  |
+| Correct band numbers are used to calculate NBR |  |
+| Difference NBR is calculated properly |  |
+| Plot has been classified according to burn severity classes specified in the assignment |  |
+| Plot includes a legend with each "level" of burn severity labeled clearly |  |
 |===
-| Fire boundary extent has been layered on top of the plot. |  |
+| Fire boundary extent has been layered on top of the plot |  |
 
 
 #### Plots 4/5 - Difference NDVI Landsat & MODIS
 
 | Full Credit | No Credit  |
 |:----|----|
-| Correct band numbers are used to calculate NDVI. |  |
-| Difference NDVI is calculated properly. |  |
-| Plot has been classified according to suggested NDVI classes. |  |
-| Plot includes a legend with each "level" of NDVI change labeled. |  |
+| Correct band numbers are used to calculate NDVI |  |
+| Difference NDVI is calculated properly |  |
+| Plot has been classified according to suggested NDVI classes |  |
+| Plot includes a legend with each "level" of NDVI change labeled |  |
 |===
-| Fire boundary extent has been layered on top of the plot. |  |
+| Fire boundary extent has been layered on top of the plot |  |
 
 
 ## Plot Examples

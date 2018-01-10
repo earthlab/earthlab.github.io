@@ -4,7 +4,7 @@ title: "GIS in R: Intro to Vector Format Spatial Data - Points, Lines and Polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-vector-data-r/
@@ -54,7 +54,7 @@ You will need a computer with internet access to complete this lesson and the da
 ## About Vector Data
 Vector data are composed of discrete geometric locations (x,y values) known as
 **vertices** that define the "shape" of the spatial object. The organization
-of the vertices, determines the type of vector that we are working
+of the vertices, determines the type of vector that you are working
 with: point, line or polygon.
 
 <figure>
@@ -77,7 +77,7 @@ represents a vertex that has defined `x, y` location.
 "closed". Thus the outlines of plot boundaries, lakes, oceans, and states or
 countries are often represented by polygons. Occasionally, a polygon can have a
 hole in the middle of it (like a doughnut), this is something to be aware of but
-not an issue we will deal with in this tutorial.
+not an issue you will deal with in this tutorial.
 
 <i class="fa fa-star"></i> **Data Tip:** Sometimes boundary layers such as
 states and countries, are stored as lines rather than polygons. However, these
@@ -102,15 +102,19 @@ information about each stream line object.
 
 ## Import Shapefiles
 
-We will use the `rgdal` package to work with vector data in `R`. Notice that the
-`sp` package automatically loads when `rgdal` is loaded. We will also load the
-`raster` package so we can explore raster and vector spatial metadata using similar commands.
+You will use the `rgdal` package to work with vector data in `R`. Notice that the
+`sp` package automatically loads when `rgdal` is loaded. You will also load the
+`raster` package so you can explore raster and vector spatial metadata using similar commands.
 
 
 ```r
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
+## rgeos version: 0.3-25, (SVN revision 555)
+##  GEOS runtime version: 3.6.1-CAPI-1.10.1 r0 
+##  Linking to sp version: 1.2-5 
+##  Polygon checking: TRUE
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -118,21 +122,21 @@ library(raster)
 # setwd("pathToDirHere")
 ```
 
-The shapefiles that we will import are:
+The shapefiles that you will import are:
 
-* A polygon shapefile representing our field site boundary,
-* A line shapefile representing roads, and
+* A polygon shapefile representing your field site boundary.
+* A line shapefile representing roads.
 * A point shapefile representing the location of field sites located at the
 <a href="http://www.neonscience.org/science-design/field-sites/harvard-forest" target="_blank"> San Joachin field site</a>.
 
-The first shapefile that we will open contains the point locations where trees
+The first shapefile that you will open contains the point locations where trees
 have been measured at the study site. The data are stored in shapefile format.
-To import shapefiles we use the `R` function `readOGR()`.
+To import shapefiles you use the `R` function `readOGR()`.
 
 `readOGR()` requires two components:
 
-1. The directory where our shapefile lives: `data/week-04/D17-California/SJER/vector_data/`
-2. The name of the shapefile (without the extension): `SJER_plot_centroids`
+1. The directory where your shapefile lives: `data/week-04/D17-California/SJER/vector_data/`.
+2. The name of the shapefile (without the extension): `SJER_plot_centroids`.
 
 You can call each element separately
 
@@ -145,7 +149,7 @@ Both ways to open a shapefile are demonstrated below:
 ```r
 # Import a polygon shapefile: readOGR("path","fileName")
 
-sjer_plot_locations <- readOGR(dsn="data/week-04/california/SJER/vector_data",
+sjer_plot_locations <- readOGR(dsn = "data/week-04/california/SJER/vector_data",
                                "SJER_plot_centroids")
 ## OGR data source with driver: ESRI Shapefile 
 ## Source: "data/week-04/california/SJER/vector_data", layer: "SJER_plot_centroids"
@@ -164,8 +168,8 @@ Learn more about OGR.</a>
 
 ## Shapefile Metadata & Attributes
 
-When we import the `SJER_plot_centroids` shapefile layer into `R` the `readOGR()` function automatically stores
-information about the data. We are particularly interested in the geospatial
+When you import the `SJER_plot_centroids` shapefile layer into `R` the `readOGR()` function automatically stores
+information about the data. You are particularly interested in the geospatial
 **metadata**, describing the format, `CRS`, `extent`, and other components of
 the vector data, and the **attributes** which describe properties associated
 with each individual vector object.
@@ -185,7 +189,7 @@ Key metadata for all shapefiles include:
 the shapefile. Note that the spatial extent for a shapefile represents the
 extent for ALL spatial objects in the shapefile.
 
-We can view shapefile metadata using the `class`, `crs` and `extent` methods:
+You can view shapefile metadata using the `class`, `crs` and `extent` methods:
 
 
 ```r
@@ -204,8 +208,8 @@ crs(sjer_plot_locations)
 # view just the extent for the shapefile
 extent(sjer_plot_locations)
 ## class       : Extent 
-## xmin        : 254739 
-## xmax        : 258497 
+## xmin        : 254738.6 
+## xmax        : 258497.1 
 ## ymin        : 4107527 
 ## ymax        : 4112168
 
@@ -213,15 +217,15 @@ extent(sjer_plot_locations)
 sjer_plot_locations
 ## class       : SpatialPointsDataFrame 
 ## features    : 18 
-## extent      : 254739, 258497, 4107527, 4112168  (xmin, xmax, ymin, ymax)
+## extent      : 254738.6, 258497.1, 4107527, 4112168  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0 
 ## variables   : 5
-## names       :  Plot_ID,  Point, northing, easting, plot_type 
-## min values  : SJER1068, center,  4107527,  254739,     grass 
-## max values  :  SJER952, center,  4112168,  258497,     trees
+## names       :  Plot_ID,  Point, northing,  easting, plot_type 
+## min values  : SJER1068, center,  4107527, 254738.6,     grass 
+## max values  :  SJER952, center,  4112168, 258497.1,     trees
 ```
 
-Our `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
+Your `sjer_plot_locations` object is a polygon of class `SpatialPointsDataFrame`,
 in the CRS **UTM zone 18N**. The CRS is critical to interpreting the object
 `extent` values as it specifies units.
 
@@ -242,7 +246,7 @@ in the spreadsheet has a set of columns associated with it that describe the row
 element. In the case of a shapefile, each row represents a spatial object - for
 example, a road, represented as a line in a line shapefile, will have one "row"
 of attributes associated with it. These attributes can include different types
-of information that describe objects stored within a shapefile. Thus, our road,
+of information that describe objects stored within a shapefile. Thus, your road,
 may have a name, length, number of lanes, speed limit, type of road and other
 attributes stored with it.
 
@@ -261,38 +265,38 @@ attributes stored with it.
 </figure>
 
 
-We view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
+You view the attributes of a `SpatialPointsDataFrame` using `objectName@data`
 (e.g., `sjer_plot_locations@data`).
 
 
 ```r
 # alternate way to view attributes
 sjer_plot_locations@data
-##     Plot_ID  Point northing easting plot_type
-## 1  SJER1068 center  4111568  255852     trees
-## 2   SJER112 center  4111299  257407     trees
-## 3   SJER116 center  4110820  256839     grass
-## 4   SJER117 center  4108752  256177     trees
-## 5   SJER120 center  4110476  255968     grass
-## 6   SJER128 center  4111389  257079     trees
-## 7   SJER192 center  4111071  256683     grass
-## 8   SJER272 center  4112168  256717     trees
-## 9  SJER2796 center  4111534  256034      soil
-## 10 SJER3239 center  4109857  258497      soil
-## 11   SJER36 center  4110162  258278     trees
-## 12  SJER361 center  4107527  256962     grass
-## 13   SJER37 center  4107579  256148     trees
-## 14    SJER4 center  4109767  257228     trees
-## 15    SJER8 center  4110249  254739     trees
-## 16  SJER824 center  4110048  256186      soil
-## 17  SJER916 center  4109617  257460      soil
-## 18  SJER952 center  4110759  255871     grass
+##     Plot_ID  Point northing  easting plot_type
+## 1  SJER1068 center  4111568 255852.4     trees
+## 2   SJER112 center  4111299 257407.0     trees
+## 3   SJER116 center  4110820 256838.8     grass
+## 4   SJER117 center  4108752 256176.9     trees
+## 5   SJER120 center  4110476 255968.4     grass
+## 6   SJER128 center  4111389 257078.9     trees
+## 7   SJER192 center  4111071 256683.4     grass
+## 8   SJER272 center  4112168 256717.5     trees
+## 9  SJER2796 center  4111534 256034.4      soil
+## 10 SJER3239 center  4109857 258497.1      soil
+## 11   SJER36 center  4110162 258277.8     trees
+## 12  SJER361 center  4107527 256961.8     grass
+## 13   SJER37 center  4107579 256148.2     trees
+## 14    SJER4 center  4109767 257228.3     trees
+## 15    SJER8 center  4110249 254738.6     trees
+## 16  SJER824 center  4110048 256185.6      soil
+## 17  SJER916 center  4109617 257460.5      soil
+## 18  SJER952 center  4110759 255871.2     grass
 ```
 
-In this case, our polygon object only has one attribute: `id`.
+In this case, your polygon object only has one attribute: `id`.
 
 ## Metadata & Attribute Summary
-We can view a metadata & attribute summary of each shapefile by entering
+You can view a metadata & attribute summary of each shapefile by entering
 the name of the `R` object in the console. Note that the metadata output
 includes the **class**, the number of **features**, the **extent**, and the
 **coordinate reference system** (`crs`) of the `R` object. The last two lines of
@@ -304,9 +308,9 @@ includes the **class**, the number of **features**, the **extent**, and the
 summary(sjer_plot_locations)
 ## Object of class SpatialPointsDataFrame
 ## Coordinates:
-##               min     max
-## coords.x1  254739  258497
-## coords.x2 4107527 4112168
+##                 min       max
+## coords.x1  254738.6  258497.1
+## coords.x2 4107527.1 4112167.8
 ## Is projected: TRUE 
 ## proj4string :
 ## [+proj=utm +zone=11 +datum=WGS84 +units=m +no_defs +ellps=WGS84
@@ -331,7 +335,7 @@ summary(sjer_plot_locations)
 
 
 # Plot a Shapefile
-Next, let's visualize the data in our `R` `spatialpointsdataframe` object using
+Next, let's visualize the data in your `R` `spatialpointsdataframe` object using
 `plot()`.
 
 

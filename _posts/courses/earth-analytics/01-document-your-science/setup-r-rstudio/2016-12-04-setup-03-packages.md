@@ -2,11 +2,11 @@
 layout: single
 authors: ['Leah Wasser', 'Data Carpentry', 'Software Carpentry']
 category: [courses]
-title: 'Install & use packages in R'
+title: 'Install & Use Packages in R'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn what a package is in R and how to install packages to work with your data.'
 dateCreated: 2016-12-12
-modified: '2017-12-07'
+modified: '2018-01-10'
 nav-title: 'Install packages'
 week: 1
 sidebar:
@@ -25,7 +25,7 @@ topics:
 
 
 
-##  Install a package
+##  Install a Package
 
 In this tutorial, we will walk you through installing the `rmarkdown`, `knitr`
 and `ggplot2` packages for `R`.
@@ -33,25 +33,25 @@ and `ggplot2` packages for `R`.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will:
 
-* Know how to install an `R` package using `Rstudio`
-* Be able to explain what a package is in `R`
+* Know how to install an `R` package using `R Studio`.
+* Be able to explain what a package is in `R`.
 
 </div>
 
-## What is a package?
+## What is a Package?
 
 A package, in `R` is a bundle of pre-built functionality. Think of it like a
 toolbox. Except for the tools may do things like calculate a mathematical function
 e.g. `sum` or create a plot.
 
-## Install a package
+## Install a Package
 
 In `R` we install packages using the `install.packages("packageNameHere")` function. Let's get
 `R Markdown` and `knitr` installed so we can use them in our exercises. In the `R`
-console within `Rstudio`, use the code below to install packages individually.
+console within `R Studio`, use the code below to install packages individually.
 
 
 
@@ -73,7 +73,7 @@ install.packages("dplyr")
 `install.packages(c("name-one", "name-two"))`
 {: .notice--success}
 
-## Call package in R
+## Call Package in R
 
 Once the package is installed, to use it, you call the package at the top of
 your script like this:
@@ -90,19 +90,19 @@ using the `library()` function. But you do need the quotes when you install a pa
 
 
 In our case, the `knitr` and `R Markdown` packages load buttons and options within
-the `Rstudio` environment that we can use. Thus we won't have to call these two
+the `R Studio` environment that we can use. Thus we won't have to call these two
 packages in our code in this lesson. However, when we use `ggplot2` to plot,
 we will have to call it. We will see how calling a package works in a later set
 of lessons.
 
-### What does loading a library do?
+### What Does Loading a Library Do?
 
 When you load a library in `R`, you are telling `R` to make all of the FUNCTIONS
 available in the package (think of functions like tools that perform tasks - for
 example `plot()`) available to you in your code.
 
 
-### Where do R packages live?
+### Where Do R Packages Live?
 
 `R` packages are most often found on the <a href="https://cran.r-project.org/" target="_blank">CRAN repository. </a> When you call `install.packages("package-name-here")` you are actually downloading
 the packages from CRAN. However there are other places where you may install packages
@@ -116,7 +116,7 @@ from including:
 <i class="fa fa-star" aria-hidden="true"></i>**Data tip** While some `R` packages are just fine to use. Keep in mind that not all `R` packages are secure. <a href="https://ropensci.org/blog/blog/2017/07/25/notary" target="_blank">Learn more. </a>
 {: .notice--success }
 
-### Advanced - install multiple packages at once
+### Advanced - Install Multiple Packages at Once
 You can also install multiple `R` packages at the same time. To do that, you
 send the `install.packages()` function a vector or list of package names.
 

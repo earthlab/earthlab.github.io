@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Add images to an R Markdown report"
+title: "Add Images to an R Markdown Report"
 excerpt: "This lesson covers how to use markdown to add images to a report. It also discusses good file management practices associated with saving images within your project directory to avoid losing them if you have to go back and work on the report in the future."
 authors: ['Leah Wasser']
-modified: '2017-12-07'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/add-images-to-rmarkdown-report/
@@ -24,27 +24,27 @@ topics:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* Add an image to an `R markdown` report
+* Add an image to an `R markdown` report.
 * Describe the ideal location to store an image associated with an `R markdown` report
-so that `knitr` can find it when it renders a file
+so that `knitr` can find it when it renders a file.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
 an `earth-analytics` directory set up on your computer with a `/data`
 directory with it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 
 </div>
 
 
-## Add an image to your report
+## Add an Image to Your Report
 
 You can add images to an `R Markdown` report using markdown syntax as follows:
 
@@ -80,7 +80,7 @@ project directory.
 
 <div class="notice--info" markdown="1">
 
-## Additional resources
+## Additional Resources
 
 * <a href="https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf" target="_blank">R studio R / markdown cheat sheet</a>
 

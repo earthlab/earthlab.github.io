@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Understand the vector data type in R and classes including strings, numbers and logicals - Data science for scientists 101"
+title: "Understand the Vector Data Type in R and Classes Including Strings, Numbers and Logicals - Data Science for Scientists 101"
 excerpt: "This tutorial introduces vectors in R. It also introduces the differences between strings, numbers and logical or boolean values (True / False) in R."
 authors: ['Data Carpentry', 'Leah Wasser']
 category: [courses]
@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/work-with-data-types-r/
 nav-title: 'Vectors in R'
 dateCreated: 2016-12-13
-modified: '2017-12-07'
+modified: '2018-01-10'
 week: 2
 sidebar:
   nav:
@@ -20,21 +20,21 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Understand the structure of and be able to create a vector object in `R`.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
-have an `earth-analytics` directory setup on your computer with a `/data`
+have an `earth-analytics` directory set up on your computer with a `/data`
 directory within it.
 
 * [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
@@ -44,12 +44,12 @@ directory within it.
 </div>
 
 
-## Vectors and data types
+## Vectors and Data Types
 
 A vector is the most common data structure in `R`. A vector is defined as a
 group of values, which most often are either numbers or characters. You can
 assign this list of values to an object or variable, just like you
-can for a single value. For example we can create a vector of animal weights:
+can for a single value. For example you can create a vector of animal weights:
 
 
 ```r
@@ -78,7 +78,7 @@ length(animals)
 ## [1] 3
 ```
 
-## Vector data types
+## Vector Data Types
 
 An important feature of a vector is that all of the elements are the same data
 type. The function `class()` shows us the class (the data type) of an object:
@@ -117,7 +117,7 @@ weight_g
 ## [1] 30 50 60 65 82 90
 ```
 
-In the examples above, we saw 2 of the 6 **atomic vector** types that `R` uses:
+In the examples above, you saw 2 of the 6 **atomic vector** types that `R` uses:
 
 1. `"character"` and
 2. `"numeric"`
@@ -131,17 +131,17 @@ from. The other 4 are:
   `1+4i`) and that's all we're going to say about them
 * `"raw"` that we won't discuss further
 
-## Data type vs. data structure
+## Data type vs. Data Structure
 Vectors are one of the many **data structures** that `R` uses. Other important
 ones include: lists (`list`), matrices (`matrix`), data frames (`data.frame`) and
-factors (`factor`). We will look at `data.frames` when we open our `boulder_precip`
+factors (`factor`). You will look at `data.frames` when you open your `boulder_precip`
 data in the next lesson!
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge activity
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge Activity
 
-* **Question**: What happens when we create a vector that contains both numbers
+* **Question**: What happens when you create a vector that contains both numbers
 and character values? Give it a try and write down the answer.
 <!-- * _Answer_: R implicitly converts them to all be the same type -->
 
@@ -169,9 +169,9 @@ tricky <- c(1, 2, 3, '4')
 
 
 
-## Subsetting vectors
+## Subsetting Vectors
 
-If we want to extract one or several values from a vector, we must provide one
+If you want to extract one or several values from a vector, you must provide one
 or several indices in square brackets. For instance:
 
 
@@ -189,16 +189,16 @@ typically do. Languages in the `C` family (including `C++`, `Java`, `Perl`, and
 `Python`) count from 0 because that's simpler for computers to do.
 {: .notice--success}
 
-## Subset vectors
+## Subset Vectors
 
-We can subset vectors too. For instance, if you wanted to select only the
+You can subset vectors too. For instance, if you wanted to select only the
 values above 50:
 
 
 ```r
 weight_g > 50    # will return logicals with TRUE for the indices that meet the condition
 ## [1] FALSE FALSE  TRUE  TRUE  TRUE  TRUE
-## so we can use this to select only the values above 50
+## so you can use this to select only the values above 50
 weight_g[weight_g > 50]
 ## [1] 60 65 82 90
 ```
@@ -231,7 +231,7 @@ animals[animals %in% c("rat", "cat", "dog", "duck")]
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge
 
 * Can you figure out why `"four" > "five"` returns `TRUE`?
 </div>

@@ -3,7 +3,7 @@ layout: single
 title: "If Statements, Functions, and For Loops"
 excerpt: "Learn how to combine if statements, functions and for loops to process sets of text files."
 authors: ['Leah Wasser', 'Max Joseph']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-if-statements-and-modify-files-r/
@@ -30,7 +30,7 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Integrate for loops and functions to process data efficiently
+* Integrate for loops and functions to process data efficiently.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -55,9 +55,9 @@ One option could be to open each file individually and then manipulate it.
 
 This is:
 
-1. Tedious & inefficient
-1. Generates lots of redundant lines of code
-1. Leaves room for lots of error
+1. Tedious and inefficient.
+1. Generates lots of redundant lines of code.
+1. Leaves room for lots of error.
 
 
 
@@ -153,9 +153,9 @@ for (file in all_precip_files) {
 
 You can do even more now with your data. Let's loop through each `.csv` file and
 
-1. Open the `.csv` file
-1. Add a new column to the `data.frame` that contains the precipitation in **mm**
-1. Export the `data.frame` as a new `.csv` in a new data directory (`data/week-06/outputs/precip_mm/`) with a modified file name
+1. Open the `.csv` file.
+1. Add a new column to the `data.frame` that contains the precipitation in **mm**.
+1. Export the `data.frame` as a new `.csv` in a new data directory (`data/week-06/outputs/precip_mm/`) with a modified file name.
 
 
 The example below uses the `basename()` function to grab just the file name (without the path)
@@ -197,9 +197,9 @@ using if statements.
 
 An `if` statement:
 
-1. Starts with the word, `if`
-1. Is followed by the condition that you are testing for in `()`
-1. Then the task that you want R to perform follows, in curly braces `{}`
+1. Starts with the word, `if`.
+1. Is followed by the condition that you are testing for in `()`.
+1. Then the task that you want R to perform follows, in curly braces `{}`.
 
 If the if statement condition is `TRUE` then `R` will perform the tasks in the
 curly braces.
@@ -239,9 +239,9 @@ at the beginning of your function.
 
 Now, build your if statement.
 
-1. First, create a directory path that you wish to check for. Use: `data/week-06/outputs/precip_mm/`
-2. Condition: Check to see if that directory path (defined in step 1) exists using `dir.exists()`
-3. Use an if statement to test whether the dir exists or not
+1. First, create a directory path that you wish to check for. Use: `data/week-06/outputs/precip_mm/`.
+2. Condition: Check to see if that directory path (defined in step 1) exists using `dir.exists()`.
+3. Use an if statement to test whether the dir exists or not.
 4. If the dir doesn't exist, then create the new directory using `dir.create()`. Use the `recursive = TRUE` function argument to ensure that R creates not only the prec_mm dir but also the outputs directory.
 
 Like this:

@@ -3,7 +3,7 @@ layout: single
 title: "How to Reuse Functions That You Create In Scripts - Source a Function in R"
 excerpt: "Learn how to source a function in R. Learn how to import functions that are stored in a separate file into a script or R Markdown file."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['automate-spatial-data-analysis-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/source-function-in-R/
@@ -40,7 +40,7 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Calculate NDVI using NAIP multispectral imagery in `R`
+* Calculate NDVI using NAIP multispectral imagery in `R`.
 * Describe what a vegetation index is and how it is used with spectral remote sensing data.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need

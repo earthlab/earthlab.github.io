@@ -3,7 +3,7 @@ layout: single
 title: "Text Mining Twitter Data With TidyText in R"
 excerpt: "Text mining is used to extract useful information from text - such as Tweets. Learn how to use the Tidytext package in R to analyze twitter data."
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/text-mining-twitter-data-intro-r/
@@ -34,11 +34,10 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Query the twitter RESTful API to access and import into `R` tweets that contain various text strings.
-* Generate a list of users that are tweeting about a particular topic
+* Clean or "munge" social media data to prepare it for analysis.
 * Use the `tidytext` package in `R` to explore and analyze word counts associated with tweets.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -47,9 +46,9 @@ You will need a computer with internet access to complete this lesson.
 In this lesson you will dive deeper into using twitter to understand a particular
 topic or event. You will learn more about text mining.
 
-## Data munging  101
+## Data Munging  101
 
-When you work with data from sources like NASA, USGS, etc there are particular
+When you work with data from sources like NASA, USGS, etc. there are particular
 cleaning steps that you often need to do. For instance:
 
 * you may need to remove nodata values
@@ -64,12 +63,10 @@ have to perform extra steps to clean the data to ensure you are analyzing the ri
 thing.
 
 
-## Searching for tweets related to climate
+## Searching for Tweets Related to Climate
 
-Above you learned some things about sorting through social media data and the
-associated types of issues that you may run into when beginning to analyze it. Next,
-let's look at a different workflow - exploring the actual text of the tweets which
-will involve some text mining.
+Next, let's look at a different workflow - exploring the actual text of the tweets 
+which will involve some text mining.
 
 In this example, let's find tweets that are using the words "forest fire" in them.
 
@@ -101,12 +98,12 @@ climate_tweets <- search_tweets(q = "#climatechange", n = 10000,
 ```
 
 
-Let's look at the results. Note any issues with our data?
+Let's look at the results. Note any issues with your data?
 It seems like when you search for forest fire, you get tweets that contain the words
-forest and fire in them - but these tweets are not necessarily all related to our
+forest and fire in them - but these tweets are not necessarily all related to your
 science topic of interest. Or are they?
 
-If you set our query to `q="forest+fire"` rather than `forest fire` then the
+If you set your query to `q="forest+fire"` rather than `forest fire` then the
 API fill find tweets that use the words together in a string rathen than across
 the entire string. Let's try it.
 
@@ -117,21 +114,21 @@ climate_tweets <- search_tweets(q = "#climatechange", n = 10000, lang = "en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "Heart-Wrenching Video Shows Starving Polar Bear on Iceless Land https://t.co/UKBRmjqV7V via @NatGeo… https://t.co/uxgDWWUHAT"                  
-## [2] "\"Indigenous communities throughout the Arctic depend on the land, lakes, rivers and the sea for food and income\". -… https://t.co/XNBUCIgnyw"
-## [3] "\"When permafrost thaws, frozen plants &amp; animals begin to decay, releasing CO2 &amp; methane\". -NSIDC… https://t.co/wPrHTQ0MQQ"           
-## [4] "@invisibleman_17 @HamillHimself Meanwhile outside my home in Canada #OnThisDay ...\nBut #climatechange is #FakeNews,… https://t.co/RfyEKBlej7" 
-## [5] "The latest The Big Picture Daily! https://t.co/Pa990SbiJ5 Thanks to @rebootingfuture #climatechange #cop23"                                    
-## [6] "Remember when the jarring pic from the Arctic was a polar bear on an ice floe standing alone? Well now it’s starvin… https://t.co/hKwHKFrkF0"
+## [1] "Thank you @StanleyPJohnson for bringing #wildlife + #biodiversity loss into @BBCNewsnight debate on #environment, &amp;… https://t.co/r0PKh7lYX1"
+## [2] "NGO´s Urge Shift To 100% Renewable Energy: https://t.co/8Z53igdfW5 #climatechange #climateaction https://t.co/oyye6Blepo"                        
+## [3] "#CostaRica #Ambassador Roman Macaya Speaks About Importance of #Science #Diplomacy in 2018- #climatechange... https://t.co/LHZNxeRdUv"           
+## [4] "\"If you truly love nature, you will find beauty everywhere\". ~Vincent van Gogh https://t.co/I7Y5LKgxnf… https://t.co/aHz23p0885"               
+## [5] "Currently watching the movie, #DayAfterTomorrow on @AMC_TV If this isn’t what is playing out in our world currently… https://t.co/6nFrWXyp23"    
+## [6] "The latest The climate Daily! https://t.co/lF4wusZXEB Thanks to @Gail7175 @nordstjarna @setyourmindfree #climate #climatechange"
 ```
 
-## Data clean-up
+## Data Clean-Up
 
 Looking at the data above, it becomes clear that there is a lot of clean-up
 associated with social media data.
 
-First, there are url's in our tweets. If you want to do a text analysis to figure out
-what words are most common in our tweets, the URL's won't be helpful. Let's remove
+First, there are url's in your tweets. If you want to do a text analysis to figure out
+what words are most common in your tweets, the URL's won't be helpful. Let's remove
 those.
 
 
@@ -145,8 +142,8 @@ climate_tweets$stripped_text <- gsub("http.*","",  climate_tweets$text)
 climate_tweets$stripped_text <- gsub("https.*","", climate_tweets$stripped_text)
 ```
 
-Finally, you can clean up our text. If you are trying to create a list of unique
-words in our tweets, words with capitalization will be different from words
+Finally, you can clean up your text. If you are trying to create a list of unique
+words in your tweets, words with capitalization will be different from words
 that are all lowercase. Also you don't need punctuation to be returned as a unique
 word.
 
@@ -159,11 +156,11 @@ unique(a_list_of_words)
 ```
 
 You can use the `tidytext::unnest_tokens()` function in the tidytext package to
-magically clean up our text! When you use this function the following things
+magically clean up your text! When you use this function the following things
 will be cleaned up in the text:
 
 1. **Convert text to lowercase:** each word found in the text will be converted to lowercase so ensure that you don't get duplicate words due to variation in capitalization.
-2. **Punctuation is removed:** all instances of periods, commas etc will be removed from our list of words , and
+2. **Punctuation is removed:** all instances of periods, commas etc will be removed from your list of words , and
 3. **Unique id associated with the tweet:** will be added for each occurrence of the word
 
 The `unnest_tokens()` function takes two arguments:
@@ -171,7 +168,7 @@ The `unnest_tokens()` function takes two arguments:
 1. The name of the column where the unique word will be stored and
 2. The column name from the `data.frame` that you are using that you want to pull unique words from.
 
-In our case, you want to use the `stripped_text` column which is where you have our
+In your case, you want to use the `stripped_text` column which is where you have your
 cleaned up tweet text stored.
 
 
@@ -183,7 +180,7 @@ climate_tweets_clean <- climate_tweets %>%
   unnest_tokens(word, stripped_text)
 ```
 
-Now you can plot our data. What do you notice?
+Now you can plot your data. What do you notice?
 
 
 ```r
@@ -203,16 +200,16 @@ climate_tweets_clean %>%
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-text-mine-twitter-data-r/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="90%" />
 
-Our plot of unique words contains some words that may not be useful to use. For instance
+You plot of unique words contains some words that may not be useful to use. For instance
 "a" and "to". In the word of text mining you call those words - 'stop words'.
-You want to remove these words from our analysis as they are fillers used to compose
+You want to remove these words from your analysis as they are fillers used to compose
 a sentence.
 
 Lucky for use, the `tidytext` package has a function that will help us clean up stop
-words! To use this we:
+words! To use this you:
 
 1. Load the `stop_words` data included with `tidytext`. This data is simply a list of words that you may want to remove in a natural language analysis.
-2. Then you use `anti_join` to remove all stop words from our analysis.
+2. Then you use `anti_join` to remove all stop words from your analysis.
 
 Let's give this a try next!
 
@@ -233,18 +230,18 @@ head(stop_words)
 ## 6 according   SMART
 
 nrow(climate_tweets_clean)
-## [1] 128597
+## [1] 133650
 
-# remove stop words from our list of words
+# remove stop words from your list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
   anti_join(stop_words)
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 70697
+## [1] 74490
 ```
 
-Now that we've performed this final step of cleaning, you can try to plot, once
+Now that you've performed this final step of cleaning, you can try to plot, once
 again.
 
 
@@ -266,7 +263,7 @@ cleaned_tweet_words %>%
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-text-mine-twitter-data-r/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="90%" />
 
-## Explore networks of words
+## Explore Networks of Words
 
 You might also want to explore words that occur together in tweets. LEt's do that
 next.
@@ -286,20 +283,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 61,818 x 2
+## # A tibble: 62,682 x 2
 ##        paired_words     n
 ##               <chr> <int>
-##  1   climate change  1224
-##  2           in the   527
-##  3           of the   369
-##  4       the arctic   334
-##  5 climatechange is   308
-##  6         the most   257
-##  7           is the   250
-##  8       learn more   249
-##  9        more here   238
-## 10             is a   236
-## # ... with 61,808 more rows
+##  1   climate change  1282
+##  2           in the   636
+##  3           of the   403
+##  4       the arctic   341
+##  5 climatechange is   299
+##  6       learn more   298
+##  7        more here   279
+##  8 of climatechange   250
+##  9             is a   212
+## 10           on the   209
+## # ... with 62,672 more rows
 ```
 
 
@@ -321,12 +318,12 @@ head(climate_words_counts)
 ## # A tibble: 6 x 3
 ##           word1         word2     n
 ##           <chr>         <chr> <int>
-## 1       climate        change  1224
-## 2 climatechange        denial   204
-## 3         leave   alec_states   185
-## 4          fund climatechange   113
-## 5   sustainable     companies   113
-## 6           ups   sustainable   113
+## 1       climate        change  1282
+## 2 climatechange globalwarming   146
+## 3        global       warming   132
+## 4           sea       turtles   113
+## 5        sahara        desert    85
+## 6        arctic       climate    81
 ```
 
 Finally, plot the data
@@ -343,8 +340,8 @@ climate_words_counts %>%
         ggraph(layout = "fr") +
         geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
         geom_node_point(color = "darkslategray4", size = 3) +
-        geom_node_text(aes(label = name), vjust = 1.8, size=3) +
-        labs(title= "Word Network: Tweets using the hashtag - Climate Change",
+        geom_node_text(aes(label = name), vjust = 1.8, size = 3) +
+        labs(title = "Word Network: Tweets using the hashtag - Climate Change",
              subtitle = "Text mining twitter data ",
              x = "", y = "")
 ```

@@ -3,7 +3,7 @@ layout: single
 title: "GIS With R: Projected vs Geographic Coordinate Reference Systems"
 excerpt: "Geographic coordinate reference systems are often used to make maps of the world. Projected coordinate reference systems are use to optimize spatial analysis for a region. Learn about WGS84 and UTM Coordinate Reference Systems as used in R."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -36,8 +36,8 @@ coordinate reference systems.
 
 After completing this tutorial, you will be able to:
 
-* List 2-3 fundamental differences between a geographic and a projected CRS
-* Describe the elements of each zone within a Universal Trans Mercator (UTM) CRS and a Geographic (WGS84) CRS
+* List 2-3 fundamental differences between a geographic and a projected CRS.
+* Describe the elements of each zone within a Universal Trans Mercator (UTM) CRS and a Geographic (WGS84) CRS.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -49,18 +49,18 @@ You will need a computer with internet access to complete this lesson and the da
 
 ## Geographic vs Projected CRS
 
-In the previous tutorial, we explored the basic concept of a coordinate reference
-system. During the lesson we looked at two different types of Coordinate Reference Systems:
+In the previous tutorial, you explored the basic concept of a coordinate reference
+system. During the lesson you looked at two different types of Coordinate Reference Systems:
 
 1. **Geographic coordinate systems:** coordinate systems that span the entire
 globe (e.g. latitude / longitude).
 2. **Projected coordinate systems:** coordinate systems that are localized to
 minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane)
 
-In this tutorial, we will discuss the differences between these `CRS`'s in more
+In this tutorial, you will learn the differences between these `CRS`'s in more
 detail.
 
-As we discussed in the previous lesson, each `CRS` is optimized to best represent the:
+As you learned in the previous lesson, each `CRS` is optimized to best represent the:
 
 * shape and/or
 * scale / distance and/or
@@ -75,8 +75,8 @@ or Europe.
 ## Intro to Geographic Coordinate Reference Systems
 
 Geographic coordinate systems (which are often but not always in decimal degree
-units) are often optimal when we need to locate places on the Earth. Or when
-we need to create global maps. However, latitude and longitude locations are not
+units) are often optimal when you need to locate places on the Earth. Or when
+you need to create global maps. However, latitude and longitude locations are not
 located using uniform measurement units. Thus, geographic `CRS`'s are not ideal
 for measuring distance. This is why other projected `CRS` have been developed.
 
@@ -124,17 +124,17 @@ calculations will be less accurate when using geographic `CRS`'s
 
 ## Projected Coordinate Reference Systems
 
-As we learned above, geographic coordinate systems are ideal for creating global
+As you learned above, geographic coordinate systems are ideal for creating global
 maps. However, they are prone to error when quantifying distance. In contrast,
 various spatial projections have evolved that can be used to more accurately
 capture distance, shape and/or area.
 
 ### What is a Spatial Projection
 Spatial projection refers to the mathematical calculations
-performed to flatten the 3D data onto a 2D plane (our computer screen
+performed to flatten the 3D data onto a 2D plane (your computer screen
 or a paper map). Projecting data from a round surface onto a flat surface results
 in visual modifications to the data when plotted on a map. Some areas are stretched
-and some some are compressed. We can see this distortion when we look at a map
+and some some are compressed. You can see this distortion when you look at a map
 of the entire globe.
 
 The mathematical calculations used in spatial projections are designed to
@@ -218,14 +218,14 @@ Let's plot this coordinate on a map.
 
 ```r
 # create a data.frame with the x,y location
-boulder_df <- data.frame(lon=c(476911.31),
-                lat=c(4429455.35))
+boulder_df <- data.frame(lon = c(476911.31),
+                lat = c(4429455.35))
 
 # plot boulder
 ggplot() +
-                geom_point(data=boulder_df,
-                aes(x=lon, y=lat, group=NULL), colour = "springgreen",
-                      size=5)
+                geom_point(data = boulder_df,
+                aes(x = lon, y = lat, group = NULL), colour = "springgreen",
+                      size = 5)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-wgs842-1.png" title="Plot location - wgs84" alt="Plot location - wgs84" width="90%" />
@@ -241,33 +241,33 @@ class(boulder_df)
 crs(boulder_df)
 ## CRS arguments: NA
 
-# assign crs - we know it is utm zone 13N
+# assign crs - you know it is utm zone 13N
 crs(boulder_df) <- CRS("+init=epsg:2957")
 ```
 
 
 
-Note what the projection string for our data in UTM looks like: +init=epsg:2957 +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
+Note what the projection string for your data in UTM looks like: +init=epsg:2957 +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs
 
-If we spatially project our data into a geographic coordinate reference system,
-notice how our new coordinates are different - yet they still represent the same
+If you spatially project your data into a geographic coordinate reference system,
+notice how your new coordinates are different - yet they still represent the same
 location.
 
 
 ```r
 boulder_df_geog <- spTransform(boulder_df, crs(worldBound))
 coordinates(boulder_df_geog)
-##         lon   lat
-## [1,] -105.3 40.01
+##            lon      lat
+## [1,] -105.2705 40.01498
 ```
 
-Now we can plot our data on top of our world map which is also in a geographic `CRS`.
+Now you can plot your data on top of your world map which is also in a geographic `CRS`.
 
 
 ```r
 boulder_df_geog <- as.data.frame(coordinates(boulder_df_geog))
 # plot map
-worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
+worldMap <- ggplot(worldBound_df, aes(long,lat, group = group)) +
   geom_polygon() +
   xlab("Longitude (Degrees)") + ylab("Latitude (Degrees)") +
   coord_equal() +
@@ -275,8 +275,8 @@ worldMap <- ggplot(worldBound_df, aes(long,lat, group=group)) +
 
 # map boulder
 worldMap +
-        geom_point(data=boulder_df_geog,
-        aes(x=lon, y=lat, group=NULL), colour = "springgreen", size=5)
+        geom_point(data = boulder_df_geog,
+        aes(x = lon, y = lat, group = NULL), colour = "springgreen", size = 5)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/04-vector-data-gis-r/in-class/2017-02-15-spatial04-geographic-vs-projected-crs/plot-world-map-1.png" title="global map in wgs84 with points" alt="global map in wgs84 with points" width="90%" />
@@ -334,14 +334,14 @@ the earth. Visit
 model of the Earth's gravitatinal field which approximates the mean sea level
 across the entire Earth.  It is from this that elevation is measured. Visit
 <a href="https://en.wikipedia.org/wiki/Geoid" target="_blank">Wikipedia's geoid
-article </a>for more information. We will not cover these concepts in this tutorial.
+article </a>for more information. You will not learn these concepts in this tutorial.
 
 
 
 ### Coordinate Reference System Formats
 
 There are numerous formats that are used to document a **CRS**. In the next tutorial
-we will discuss three of the commonly encountered formats including: **Proj4**,
+you will learn three of the commonly encountered formats including: **Proj4**,
 **WKT** (Well Known Text) and **EPSG**.
 
 
@@ -349,14 +349,14 @@ we will discuss three of the commonly encountered formats including: **Proj4**,
 
 ## Additional Resources
 
-### More about the UTM CRS
+### More About the UTM CRS
 * <a href="https://www.e-education.psu.edu/natureofgeoinfo/c2_p22.html" target="_blank">
 Penn State E-education overview of UTM</a>
 * <a href="https://www.e-education.psu.edu/natureofgeoinfo/c2_p23.html
 " target="_blank">
 More about UTM Zones - Penn State e-Education</a>
 
-### More about Datums
+### More About Datums
 *  <a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Datums/003r00000008000000/" target="_blank">ESRI's ArcGIS discussion of Datums.</a>
 *  <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">page 2 in M. Fraiser's CRS Overview.</a>
 

@@ -1,15 +1,14 @@
 ---
 layout: single
-title: "Creating variables in R and the string vs numeric data type or class - Data Science for scientists 101"
-excerpt: "This lesson covers creating variables or objects in R. It also introduces some of the basic data types or classes including strings and numbers. This lesson is
-designed for someone who has not used R before."
+title: "Creating Variables in R and the String vs Numeric Data Type or Class - Data Science for Scientists 101"
+excerpt: "This lesson covers creating variables or objects in R. It also introduces some of the basic data types or classes including strings and numbers. This lesson is designed for someone who has not used R before."
 authors: ['Leah Wasser', 'Data Carpentry']
 category: [courses]
 class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/objects-in-r/
 nav-title: 'Objects in R'
 dateCreated: 2016-12-13
-modified: '2017-12-07'
+modified: '2018-01-10'
 week: 2
 sidebar:
   nav:
@@ -21,22 +20,22 @@ topics:
   reproducible-science-and-programming: ['RStudio']
 ---
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* Create, modify and use objects or variables in `R`
-* Define the key differences between the str (string) and num (number) classes in `R` in terms of how `R` can or cannot perform calculations with each
+* Create, modify and use objects or variables in `R`.
+* Define the key differences between the str (string) and num (number) classes in `R` in terms of how `R` can or cannot perform calculations with each.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also we recommend that you
-have an `earth-analytics` directory setup on your computer with a `/data`
+have an `earth-analytics` directory set up on your computer with a `/data`
 directory within it.
 
 * [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
@@ -45,7 +44,7 @@ directory within it.
 </div>
 
 
-## Creating objects
+## Creating Objects
 
 You can get output from `R` by typing a mathematical equation into the console -
 for example, if you type in `3 + 5`, `R` will calculate the output value:
@@ -61,8 +60,8 @@ for example, if you type in `3 + 5`, `R` will calculate the output value:
 ```
 
 However, is it more useful to assign _values_ to
-_objects_. To create an object, we need to give it a name followed by the
-assignment operator `<-`, and the value we want to give it:
+_objects_. To create an object, you need to give it a name followed by the
+assignment operator `<-`, and the value you want to give it:
 
 
 ```r
@@ -74,12 +73,12 @@ weight_kg
 ## [1] 55
 ```
 
-## Use useful object names
+## Use Useful Object Names
 Objects can be given any name such as `x`, `current_temperature`, or
 `subject_id`. However, it is best to use clear and descriptive words when naming
 objects to ensure your code is easy to follow.
 
-We will discuss best practicing for coding in this module - in the [clean coding
+You will learn best practicing for coding in this module - in the [clean coding
 lesson](/courses/earth-analytics/time-series-data/write-clean-code-with-r/).
 
 1. **Keep object names short:** This makes them easier to read when scanning through code.
@@ -94,7 +93,7 @@ A few other notes about object names in `R`:
 * Use nouns for variable names, and verbs for function names.
 * Avoid using dots in object names - e.g. `my.dataset` - dots have a special meaning in R (for methods) and other programming languages. Instead use underscores `my_dataset`.
 
-## View object value
+## View Object Value
 When assigning a value to an object, `R` does not print anything. You can force
 it to print the value by using parentheses or by typing the name:
 
@@ -107,8 +106,8 @@ weight_kg          # and so does typing the name of the object
 ## [1] 55
 ```
 
-Now that `R` has `weight_kg` in memory, we can do arithmetic with it. For
-instance, we may want to convert this weight in pounds (weight in pounds is 2.2
+Now that `R` has `weight_kg` in memory, you can do arithmetic with it. For
+instance, you may want to convert this weight in pounds (weight in pounds is 2.2
 times the weight in kg):
 
 
@@ -117,7 +116,7 @@ times the weight in kg):
 ## [1] 121
 ```
 
-We can also change a variable's value by assigning it a new one:
+You can also change a variable's value by assigning it a new one:
 
 
 ```r
@@ -146,7 +145,7 @@ What do you think is the current content of the object `weight_lb`? 126.5 or 200
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge
 
 What are the values of each object defined in EACH LINE of code below?
 

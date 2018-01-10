@@ -1,16 +1,16 @@
 ---
 layout: single
-title: "What is LIDAR Data"
+title: "What is Lidar Data"
 excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-intro/
-nav-title: 'Intro to lidar data'
-module-title: 'Intro to lidar data'
-module-description: 'LIDAR is an active remote sensing technique that measures vegetation height. Learn more about discrete and full waveform LIDAR and how to use LIDAR data.'
-module-nav-title: 'Intro to lidar data'
+nav-title: 'Intro to Lidar Data'
+module-title: 'Intro to Lidar Data'
+module-description: 'Lidar is an active remote sensing technique that measures vegetation height. Learn more about discrete and full waveform LIDAR and how to use LIDAR data.'
+module-nav-title: 'Intro to Lidar Data'
 module-type: 'class'
 course: "earth-analytics"
 week: 3
@@ -28,26 +28,26 @@ redirect_from:
    - "/course-materials/earth-analytics/week-3/lidar-intro/"
 ---
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* List and briefly describe the 3 core components of a lidar remote sensing system
-* Describe what a lidar system measures
-* Define an active remote sensing system
+* List and briefly describe the 3 core components of a lidar remote sensing system.
+* Describe what a lidar system measures.
+* Define an active remote sensing system.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
 If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download week 3 data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 3 Data (~250 MB)](https://ndownloader.figshare.com/files/7446715){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -65,25 +65,25 @@ Keith Krauss, NEON.
 </figure>
 
 
-## Lidar background
+## Lidar Background
 Watch the videos below to better understand what lidar is and how a lidar system
 works.
 
-### The story of lidar data video
+### The Story of Lidar Data Video
 <iframe width="560" height="315" src="//www.youtube.com/embed/m7SXoFv6Sdc?rel=0" frameborder="0" allowfullscreen></iframe>
 
-### How lidar works
+### How Lidar Works
 <iframe width="560" height="315" src="//www.youtube.com/embed/EYbhNSUnIdU?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
-## Let's get started - key concepts to review
+## Let's Get Started - Key Concepts to Review
 
-### Why lidar
+### Why Lidar
 
 Scientists often need to characterize vegetation over large regions. We use
-tools that can estimate key characteristics over large areas because we don’t
+tools that can estimate key characteristics over large areas because we don't
 have the resources to measure each individual tree. These tools often use remote
-methods. Remote sensing means that we aren’t actually physically measuring
+methods. Remote sensing means that we aren't actually physically measuring
 things with our hands, we are using sensors which capture information about a
 landscape and record things that we can use to estimate conditions and
 characteristics.
@@ -117,7 +117,7 @@ scientists studying vegetation over large areas.
    </figcaption>
 </figure>
 
-### Lidar is an active remote sensing system
+### Lidar is an Active Remote Sensing System
 
 Lidar is an **active remote sensing** system. An
 <a href="http://www.nrcan.gc.ca/node/14639" target="_blank">active system means that the
@@ -136,7 +136,7 @@ provides the orientation of the plane in the sky.
 <iframe width="560" height="315" src="//www.youtube.com/embed/uSESVm59uDQ?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
-### How light energy is used to measure trees
+### How Light Energy is Used to Measure Trees
 
 Light energy is a collection of photons. As the photons that make up light move
 towards the ground, they hit objects such as branches on a tree. Some of the
@@ -161,7 +161,7 @@ building.
 </figure>
 
 
-## How scientists use lidar data
+## How Scientists Use Lidar Data
 There are many different uses for lidar data:
 
 - Lidar data classically have been used to derive high resolution elevation data
@@ -194,7 +194,7 @@ including:
 </figure>
 
 
-## Discrete vs. full waveform lidar
+## Discrete vs. Full Waveform Lidar
 A waveform or distribution of light energy is what returns to the lidar sensor.
 This return may be recorded in two different ways:
 
@@ -214,7 +214,7 @@ can often capture more information compared to discrete return lidar systems.
 </figure>
 
 
-## Lidar file formats
+## Lidar File Formats
 Whether they are collected as discrete points or full waveform, most often lidar
 data are available as discrete points. A collection of discrete return lidar
 points is known as a lidar point cloud.
@@ -223,26 +223,26 @@ The commonly used file format to store lidar point cloud data is the `.las`
 format. The [.laz](http://www.laszip.org/) format is a highly compressed version
 of `.las` and is becoming more widely used.
 
-### Lidar data attributes: X, Y, Z, intensity and classification
+### Lidar Data Attributes: X, Y, Z, Intensity and Classification
 Lidar data attributes can vary, depending upon how the data were collected and
 processed. You can determine what attributes are available for each lidar point
 by looking at the metadata.
 
 All lidar data points will have:
 
-* **X,Y location information:** determines the x,y coordinate location of the object that the lidar pulse (the light) reflected off of
+* **X,Y Location Information:** determines the x,y coordinate location of the object that the lidar pulse (the light) reflected off of
 * **Z (elevation values):** represents the elevation of the object that the lidar pulse reflected off of
 
 Most lidar data points will have:
 
 * **Intensity:** represents the amount of light energy recorded by the sensor.
 
-## Classified lidar point clouds
+## Classified Lidar Point Clouds
 
 Some lidar point cloud data will also be "classified". Classification refers
 to tagging each point with the object that it reflected off of. So if a pulse reflects
-off of a tree branch, we would assign it to the class "vegetation." If the pulse
-reflects off of the ground, we would assign it to the class "ground."
+off of a tree branch, you would assign it to the class "vegetation." If the pulse
+reflects off of the ground, you would assign it to the class "ground."
 Classification of lidar point clouds is an additional
 processing step. Classification simply represents the type of object that the
 laser return reflected off of. So if the light energy reflected off of a tree,
@@ -263,7 +263,7 @@ vegetation type.
    </figcaption>
 </figure>
 
-## What is a data product?
+## What is a Data Product?
 
 A data product is the data that are DERIVED from an instrument, or information
 collected on the ground. For instance, you may go out in the field and measure

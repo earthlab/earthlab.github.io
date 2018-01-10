@@ -3,7 +3,7 @@ layout: single
 title: "Get Landsat Remote Sensing Data From the Earth Explorer Website"
 excerpt: "In this lesson you will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/get-data-earth-explorer/
@@ -88,14 +88,14 @@ To define your AOI in Earth Explorer:
 
 * Zip up extent file that you want to use. Be sure to use a square extent, if you
 have too many vertices it won't work. Lucky for us there is a zip file already zipped
-up and ready to go in our week 6 data!
+up and ready to go in your week 6 data!
   `data/week-07/vector_layers/fire_boundary_box_shp.zip`
 * Next, go to <a href="http://earthexplorer.usgs.gov" target="_blank">the Earth Explorer website</a>. Login. If you don't have a login already, create an account.
 
 Be sure to create an account. You will need it to be able to use your shapefile
 extent to search for data. Now, it's time to search for data.
 
-* In the search criteria, click on <kbd>shapefile</kbd> tab. Select the zip file above as the shapefile that represents the SPATIAL EXTENT of our study area - the cold springs fire site.
+* In the search criteria, click on <kbd>shapefile</kbd> tab. Select the zip file above as the shapefile that represents the SPATIAL EXTENT of your study area - the Cold Springs fire site.
 * At the bottom of the search criteria window, select a range of dates. A month before and after the fire is a nice starting point.
 
 <figure>
@@ -105,7 +105,7 @@ extent to search for data. Now, it's time to search for data.
     <figcaption> Notice the shapefile tab mid way down in this image. This is the tab
     you need to click on to upload a zipped up shapefile extent to Earth Explorer.
     At the bottom of the image, notice there is a date range tab. This is where
-    you set the data collection date range that you require. In our case you want all images collected around the Cold springs fire which occurred July 10-14 2016.
+    you set the data collection date range that you require. In your case you want all images collected around the Cold Springs fire which occurred July 10-14 2016.
     </figcaption>
 </figure>
 
@@ -134,17 +134,17 @@ extent to search for data. Now, it's time to search for data.
     <a href="{{ site.url }}/images/courses/earth-analytics/week-7/ee-cloud-cover.png">
     <img src="{{ site.url }}/images/courses/earth-analytics/week-7/ee-cloud-cover.png" alt="Earth explorer search criteria.">
     </a>
-    <figcaption>When you click on the additional criteria tab, you can further filter data results. In this case, low cloud cover is a priority for our analysis. You can select
+    <figcaption>When you click on the additional criteria tab, you can further filter data results. In this case, low cloud cover is a priority for your analysis. You can select
     Less than 20% cloud cover as a starting place to see if you can find a scene with
-    little to not cloud cover over our AOI (area of interest).
+    little to not cloud cover over your AOI (area of interest).
     </figcaption>
 </figure>
 
 
 ### Step 4: View Results & Select Data to Order / Download
 
-* Finally click on the Results tab. Here you see all of the scenes available for "order" from the website that cover our study area.
-* Notice that you can click on the icons below the scene to see the scene itself rendered on the map and to see the footprint (or extent) of the scene relative to our study area.
+* Finally click on the Results tab. Here you see all of the scenes available for "order" from the website that cover your study area.
+* Notice that you can click on the icons below the scene to see the scene itself rendered on the map and to see the footprint (or extent) of the scene relative to your study area.
 * Pick a scene that is:
   * closest to the pre-fire date (July 10 2016) and also that has the least amount of cloud cover close to your study area.
 

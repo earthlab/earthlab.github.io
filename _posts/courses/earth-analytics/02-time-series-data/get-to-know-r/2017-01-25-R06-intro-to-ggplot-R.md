@@ -1,12 +1,12 @@
 ---
 layout: single
-title: "Plot data and customize plots with ggplot plots in R - earth analytics - data science for scientists"
+title: "Plot Data and Customize Plots with ggplot Plots in R - Earth Analytics - Data Science for Scientists"
 excerpt: 'Learn how to plot data and customize your plots using ggplot in R.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2017-12-07'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['get-to-know-r']
-nav-title: 'Plot data with ggplot'
+nav-title: 'Plot Data with ggplot'
 permalink: /courses/earth-analytics/time-series-data/plot-data-with-ggplot2-r/
 course: "earth-analytics"
 week: 2
@@ -20,36 +20,36 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 ---
 
-{% include toc title="In this lesson" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 
 
-In this tutorial, we will explore more advanced plotting techniques using `ggplot2`.
+In this tutorial, you will explore more advanced plotting techniques using `ggplot2`.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
 * Use the `ggplot()` plot function to create custom plots.
 * Add labels to x and y axes and a title to your `ggplot()` plot.
 * Customize the colors and look of a `ggplot()` plot.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need `R` and `RStudio` to complete this tutorial. Also you should have
-an `earth-analytics` directory setup on your computer with a `/data`
+an `earth-analytics` directory set up on your computer with a `/data`
 directory within it.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
-* [Setup your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [Set up your working directory](/courses/earth-analytics/document-your-science/setup-working-directory/)
 * [Intro to the R & RStudio interface](/courses/earth-analytics/document-your-science/intro-to-r-and-rstudio)
 
 </div>
 
 
-In our week 1 homework, we used the quick plot function of `ggplot2` to plot our data.
-In this tutorial, we'll explore `ggplot` - which offers many more advanced plotting
+In your week 1 homework, you used the quick plot function of `ggplot2` to plot your data.
+In this tutorial, you'll explore `ggplot` - which offers many more advanced plotting
 features.
 
 Let's explore the code below to create a quick plot.
@@ -61,14 +61,14 @@ Let's explore the code below to create a quick plot.
 library(ggplot2)
 
 # download data from figshare
-# note that we already downloaded the data to our laptops previously
+# note that you already downloaded the data to your laptops previously
 # but in case you don't have it - re-download it by uncommenting the code below.
 # download.file("https://ndownloader.figshare.com/files/9282364",
 #              "data/boulder-precip.csv",
 #              method = "libcurl")
 
 # import data
-boulder_precip <- read.csv(file="data/boulder-precip.csv")
+boulder_precip <- read.csv(file = "data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder_precip)
@@ -80,7 +80,7 @@ head(boulder_precip)
 ## 5 760 2013-09-09    0.1
 ## 6 761 2013-09-10    1.0
 
-# when we download the data we create a dataframe
+# when you download the data you create a dataframe
 # view each column of the data frame using its name (or header)
 boulder_precip$DATE
 ##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
@@ -93,9 +93,9 @@ boulder_precip$PRECIP
 ##  [1] 0.1 0.1 0.1 0.0 0.1 1.0 2.3 9.8 1.9 1.4 0.4 0.1 0.3 0.3 0.1 0.0 0.9
 ## [18] 0.1
 
-# q plot stands for quick plot. Let's use it to plot our data
-qplot(x=boulder_precip$DATE,
-      y=boulder_precip$PRECIP)
+# q plot stands for quick plot. Let's use it to plot your data
+qplot(x = boulder_precip$DATE,
+      y = boulder_precip$PRECIP)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/plot-data-1.png" title="quick plot of precip data" alt="quick plot of precip data" width="90%" />
@@ -108,7 +108,7 @@ publication quality plots with a minimal amount of settings and tweaking.
 
 `ggplot` graphics are built step by step by adding new elements.
 
-To build a `ggplot()` we need to:
+To build a `ggplot()` you need to:
 
 - Bind the plot to a specific data frame using the `data` argument
 
@@ -156,7 +156,7 @@ precip_plot + geom_point()
 
 
 
-We can also apply a color to our points
+You can also apply a color to your points
 
 
 ```r
@@ -171,7 +171,7 @@ And adjust the transparency
 
 ```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
-    geom_point(alpha=.5, color = "blue")
+    geom_point(alpha = .5, color = "blue")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/add-alpha-1.png" title="ggplot with blue points and alpha" alt="ggplot with blue points and alpha" width="90%" />
@@ -182,18 +182,18 @@ Or to color each value in the plot differently
 
 ```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
-    geom_point(alpha = 0.9, aes(color=PRECIP))
+    geom_point(alpha = 0.9, aes(color = PRECIP))
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/color-by-species-1.png" title="ggplot with colored points" alt="ggplot with colored points" width="90%" />
 
 
-We can turn our plot into a bar plot
+You can turn your plot into a bar plot
 
 
 ```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
-    geom_bar(stat="identity")
+    geom_bar(stat = "identity")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/barplot-1.png" title="ggplot with bars" alt="ggplot with bars" width="90%" />
@@ -203,7 +203,7 @@ Turn the bar outlines blue
 
 ```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
-    geom_bar(stat="identity", color="blue")
+    geom_bar(stat = "identity", color = "blue")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/bar-color-1.png" title="ggplot with blue bars" alt="ggplot with blue bars" width="90%" />
@@ -213,13 +213,13 @@ Or change the fill to bright green
 
 ```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
-    geom_bar(stat="identity", color="blue", fill="green")
+    geom_bar(stat = "identity", color = "blue", fill = "green")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/barcolor2-1.png" title="ggplot with green bars" alt="ggplot with green bars" width="90%" />
 
 
-## Add plot labels
+## Add Plot Labels
 
 You can add labels to your plots as well. Let's add a title, and x and y labels
 using the glab() argument.
@@ -227,16 +227,16 @@ using the glab() argument.
 
 ```r
 ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
-    geom_point(alpha = 0.9, aes(color=PRECIP)) +
-    labs(x="Date",
-      y="Precipitation (Inches)",
-      title="Daily Precipitation (inches)",
-      subtitle="Boulder, Colorado 2013")
+    geom_point(alpha = 0.9, aes(color = PRECIP)) +
+    labs(x = "Date",
+      y = "Precipitation (Inches)",
+      title = "Daily Precipitation (inches)",
+      subtitle = "Boulder, Colorado 2013")
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/add-title-1.png" title="ggplot with labels" alt="ggplot with labels" width="90%" />
 
-## Finally, explore using themes
+## Finally, Explore Using Themes
 
 
 ```r
@@ -263,7 +263,7 @@ ggplot(data = boulder_precip,  aes(x = DATE, y = PRECIP)) +
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/get-to-know-r/2017-01-25-R06-intro-to-ggplot-R/add-title-theme-font-1.png" title="ggplot with labels and themes" alt="ggplot with labels and themes" width="90%" />
 
-## More on customizing your plots
+## More on Customizing Your Plots
 
 There are many different tutorials out there on customizing ggplot plots. A
 few are listed below.
@@ -273,9 +273,9 @@ few are listed below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge
 
-Customize the plot that we created in last weeks homework as follows:
+Customize the plot that you created in last weeks homework as follows:
 
 * Change the colors of the plot
 * Plot the data using points `geom_point()` AND bars `geom_bar()`

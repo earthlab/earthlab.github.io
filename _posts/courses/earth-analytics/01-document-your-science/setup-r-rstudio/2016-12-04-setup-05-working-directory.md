@@ -2,7 +2,7 @@
 layout: single
 authors: ['Leah Wasser', 'Software Carpentry']
 category: [courses]
-title: 'Create a project & working directory setup'
+title: 'Create a Project & Working Directory Setup'
 excerpt: 'Learn how to create a well-organized working directory to store your course data.'
 nav-title: 'Set up working directory'
 week: 1
@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: courses/earth-analytics/document-your-science/setup-working-directory/
 dateCreated: 2016-12-12
-modified: '2017-12-07'
+modified: '2018-01-10'
 author_profile: false
 comments: true
 order: 5
@@ -24,41 +24,41 @@ topics:
 
 
 
-## Set up your working directory
+## Set Up Your Working Directory
 
-As we learned in the previous tutorial, project organization is integral to
-efficient research. In this tutorial, we will create the project directory that
-we will use for all of our work. This project directory will be carefully
-organized with a `\data` directory that we will use to save all of the data we
-use in our lessons.
+As you learned in the previous tutorial, project organization is integral to
+efficient research. In this tutorial, you will create the project directory that
+you will use for all of your work. This project directory will be carefully
+organized with a `\data` directory that you will use to save all of the data you
+use in your lessons.
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* Create an easy to use and well structured project structure
-* Set a working directory in `R` using code
-* Set a working directory using the `RStudio` interface
+* Create an easy to use and well structured project structure.
+* Set a working directory in `R` using code.
+* Set a working directory using the `RStudio` interface.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need the most current version of `R` and, preferably, `RStudio` loaded on
 your computer to complete this tutorial.
 
-* [How to setup R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
+* [How to set up R / RStudio](/courses/earth-analytics/document-your-science/setup-r-rstudio/)
 
 </div>
 
 
-## Create earth-analytics project directory
+## Create earth-analytics Project Directory
 
-Now that we have the basics of good project structure out of the way, let's get
-our project set up. We are going to create an `earth-analytics` project directory
-(or folder) where we will store data and files used in the class. We will then
-set that **project directory** as our **working directory** in `R`.
+Now that you have the basics of good project structure out of the way, let's get
+your project set up. You are going to create an `earth-analytics` project directory
+(or folder) where you will store data and files used in the class. You will then
+set that **project directory** as your **working directory** in `R`.
 
-<i class="fa fa-star"></i> **Data tip:** Directory vs Folder: You can think
+<i class="fa fa-star"></i> **Data Tip:** Directory vs Folder: You can think
 of a directory as a folder. However the term directory considers the relationship
 between that folder and the folders within it and around it (it's full path).
 {: .notice--success}
@@ -69,7 +69,7 @@ computer and then a data directory located within that project directory.
 * Navigate to the `Documents` directory on your computer.
 * In the directory, create a NEW DIRECTORY called `earth-analytics`.
 
-<i class="fa fa-star"></i> **Data tip:** Notice that we are creating a easy to
+<i class="fa fa-star"></i> **Data Tip:** Notice that you are creating an easy to
 read directory name. The name has no spaces and uses all lower case to support
 machine reading down the road. Sometimes this format of naming using dashes is
 referred to as a `slug`.
@@ -78,7 +78,7 @@ referred to as a `slug`.
 * Next, open the earth-analytics directory and create a directory within it
 called `data`
 
-> We will use the data directory to store the data that we download to use in
+> You will use the data directory to store the data that you download to use in
 > this course and in the tutorials hosted on this website.
 
 <figure>
@@ -91,7 +91,7 @@ called `data`
 
 * The final step is optional but recommended - especially if you are new to `R`
 and `RStudio`. Open up `RStudio` and set your default working directory
-to the `earth-analytics` directory that we just created. In `RStudio` go to:
+to the `earth-analytics` directory that you just created. In `RStudio` go to:
 Tools --> Global Options --> Click on the General setting at the top of the global
 options panel` (see screen shot below).
 * Browse to the `earth-analytics` directory and set it as your default working directory.
@@ -107,7 +107,7 @@ options panel` (see screen shot below).
 
 When you set a default working directory, every time you open `RStudio` it will
 default to that working directory being set. This can be nice if you are going
-to always work in the same directory (like we will in all of our tutorials).
+to always work in the same directory (like you will in all tutorials).
 
 Finally, let's see what your main working directory looks like. Use the  `getwd()`
 function to find out what your current working directory is in `R`.
@@ -126,11 +126,11 @@ getwd()
 ```
 
 If your working directory path does not match the location where you created your
-`earth-analytics` directory on your computer, then we need to fix it. We can
-set the working directory with `R` code OR we can use the `RStudio` interface to
+`earth-analytics` directory on your computer, then you need to fix it. You can
+set the working directory with `R` code OR you can use the `RStudio` interface to
 set the working directory.
 
-### Set working directory in RStudio interface
+### Set Working Directory in RStudio Interface
 
 Let's set the working directory using the `RStudio` interface.
 
@@ -159,11 +159,11 @@ Your window should look like the screen shot below:
 </figure>
 
 
-## Set working directory using code
+## Set Working Directory Using Code
 
-We can set the working directory  using code in R too. You don't have to do this
+You can set the working directory  using code in R too. You don't have to do this
 if you already set the working directory above. However, it's good to know how
-to do it - particularly if you get into more advanced scripting in `R`. We use the
+to do it - particularly if you get into more advanced scripting in `R`. You use the
  `setwd()` function to set a new working directory as follows:
 
 
@@ -179,5 +179,5 @@ setwd("C:\Users\lewa8222\Documents\earth-analytics")
 
 ```
 
-## All done!
+## All Done!
 Great work! You are now ready to start working with `RStudio`!

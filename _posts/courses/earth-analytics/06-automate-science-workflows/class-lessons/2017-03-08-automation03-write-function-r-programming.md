@@ -3,7 +3,7 @@ layout: single
 title: "How to Write a Function in R - Automate Your Science"
 excerpt: "Learn how to write a function in the R programming language."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2017-12-07'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-function-r-programming/
@@ -32,8 +32,8 @@ redirect_from:
 
 After completing this tutorial, you will be able to:
 
-* Write a function in `R`
-* Describe how a function argument is used in a function
+* Write a function in `R`.
+* Describe how a function argument is used in a function.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -46,10 +46,8 @@ You will need a computer with internet access to complete this lesson.
 
 There are several parts of a function:
 
-1. **Function name**. This is what you use when you call a function. For example plot(my_data) is a function with the name `plot`. You pass that function my_data
-and it plots accordingly.
-2. **The function() function**: Confusing, right? The `function()` is actually a
-function that allows you to create a function. Trust us on this one.
+1. **Function name**. This is what you use when you call a function. For example plot(my_data) is a function with the name `plot`. You pass that function my_data and it plots accordingly.
+2. **The function() function**: Confusing, right? The `function()` is actually a function that allows you to create a function. Trust us on this one.
 3. **Function Arguments:** An argument is what you pass the function. The function will take that object of value provided in the argument and use it to perform some task. In the example above, my_data is actually an argument value. In the case of plot, my_data provides that data that you wish to plot. `main =` in the plot function is the argument that allows you to pass a title to the plot.
 4. **Documentation:** Documentation is not required for the function to work. However good documentation will save you time in the future when you need to use this code again.
 
@@ -68,8 +66,8 @@ function_name <- function(argument1, argument2) {
 }
 ```
 
-Now, create a function called `fahr_to_kelvin` that converts
-temperature values from degrees Fahrenheit to Kelvin.
+Now, create a function called `fahr_to_kelvin` that converts temperature values 
+from degrees Fahrenheit to Kelvin.
 
 The conversion between the two is as follows :
 
@@ -80,7 +78,7 @@ The conversion between the two is as follows :
 temp_fahr <- 5
 # calculate Kelvin
 ((temp_fahr - 32) * (5 / 9)) + 273.15
-## [1] 258.1
+## [1] 258.15
 ```
 
 Take that same math and create a function that takes the temperature as a
@@ -126,10 +124,10 @@ Fahrenheit:
 ```r
 # freezing point of water
 fahr_to_kelvin(32)
-## [1] 273.1
+## [1] 273.15
 # boiling point of water
 fahr_to_kelvin(212)
-## [1] 373.1
+## [1] 373.15
 ```
 
 <div class="notice--warning" markdown="1">
@@ -149,7 +147,7 @@ Run your function to see if it works.
 ```r
 # absolute zero in Celsius
 kelvin_to_celsius(0)
-## [1] -273.1
+## [1] -273.15
 ```
 
 
@@ -178,14 +176,12 @@ return()
 
 ## More About Functions
 
-The content below is from the Software Carpentry functions lessons.
-While you won't learn the content below in this class, read through it to better understand
+The content below is from the Software Carpentry functions lessons. While you won't 
+learn the content below in this class, read through it to better understand
 how you can begin to use functions to create more complex programs.
 
-What about converting Fahrenheit to Celsius?
-You could write out the formula, but you don't need to.
-Instead, you can compose the
-two functions you have already created:
+What about converting Fahrenheit to Celsius? You could write out the formula, but 
+you don't need to. Instead, you can compose the two functions you have already created:
 
 
 ```r

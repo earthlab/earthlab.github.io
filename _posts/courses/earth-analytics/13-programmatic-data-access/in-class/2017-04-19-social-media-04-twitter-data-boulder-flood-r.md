@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Use tidytext to text mine social media - twitter data using the twitter API from rtweet in R"
+title: "Use Tidytext to Text Mine Social Media - Twitter Data Using the Twitter API from Rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/text-mine-colorado-flood-tweets-science-r/
@@ -33,11 +33,10 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Query the twitter RESTful API to access and import into `R` tweets that contain various text strings.
-* Generate a list of users that are tweeting about a particular topic
-* Use the `tidytext` package in `R` to explore and analyze word counts associated with tweets.
+* Use the `tidytext` package in `R` to filter social media data by date.
+* Use the `tidytext` package in `R` to text mine social media data.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What you need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
@@ -45,6 +44,13 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
+In the previous lesson you learned the basics of preparing social media data for
+analysis and using `tidytext` to analyze tweets. In this lesson you will learn to 
+use `tidytext` to text mine tweets and filter them by date. 
+
+The structure of twitter data is complex. In this lesson you will only work with 
+the text data of tweets even though there is much more information that you could 
+analyze.
 
 
 ```r
@@ -78,7 +84,9 @@ json_file <- "~/Documents/earth-analytics/data/week-13/boulder_flood_geolocated_
 # import json file line by line to avoid syntax errors
 # this takes a few seconds
 boulder_flood_tweets <- stream_in(file(json_file))
+## opening fileconnectionoldClass input connection.
 ##  Found 500 records... Found 1000 records... Found 1500 records... Found 2000 records... Found 2500 records... Found 3000 records... Found 3500 records... Found 4000 records... Found 4500 records... Found 5000 records... Found 5500 records... Found 6000 records... Found 6500 records... Found 7000 records... Found 7500 records... Found 8000 records... Found 8500 records... Found 9000 records... Found 9500 records... Found 10000 records... Found 10500 records... Found 11000 records... Found 11500 records... Found 12000 records... Found 12500 records... Found 13000 records... Found 13500 records... Found 14000 records... Found 14500 records... Found 15000 records... Found 15500 records... Found 16000 records... Found 16500 records... Found 17000 records... Found 17500 records... Found 18000 records... Found 18500 records... Found 18821 records... Imported 18821 records. Simplifying...
+## closing fileconnectionoldClass input connection.
 
 
 ## Found 18000 records...
@@ -87,14 +95,10 @@ boulder_flood_tweets <- stream_in(file(json_file))
 ## Imported 18821 records. Simplifying...
 ```
 
-The structure of these data is complex. In this lesson you will only work 
-with the tweet text data even though there is much more information that you 
-could analyze.
-
 First, create a new dataframe that contains:
 
-* The date, 
-* The twitter handle (username) and
+* The date
+* The twitter handle (username)
 * The tweet text 
 
 for each tweet in the imported json file. 
@@ -127,13 +131,11 @@ head(tweet_data)
 ```
 
 Next, clean up the data so that you can work with it. According to the incident 
-report, the Colorado flood officially started
-September 09 2013 and ended on the 24th. 
+report, the Colorado flood officially started September 09 2013 and ended on the 24th. 
 
-Let's filter the data to just that
-time period. To do this, you need to 
+Let's filter the data to just that time period. To do this, you need to: 
 
-1. convert the date column to a R date / time field
+1. convert the date column to a R date / time field.
 2. filter by the dates when the flood occured.
 
 
@@ -167,8 +169,8 @@ Text mining refers to looking for patters in blocks of text.
 Generate a list of the most popular words found in the tweets during the
 flood event. To do this, you use pipes to:
 
-1. select the `tweet_text` column and
-2. stack the words so you can group and count them
+1. select the `tweet_text` column.
+2. stack the words so you can group and count them.
 
 
 ```r
@@ -204,17 +206,17 @@ flood_tweet_messages %>%
       labs(x = "Count",
       y = "Unique words",
       title = "Count of unique words found in tweets")
+## Selecting by n
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/plot-top-15-tweets-1.png" title="plot of chunk plot-top-15-tweets" alt="plot of chunk plot-top-15-tweets" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/plot-top-15-tweets-1.png" title="unique words found in tweets" alt="unique words found in tweets" width="90%" />
 
 ## Remove Stop Words
 
 The plot above contains "stop words". If you recall from the previous
 lesson, these are words like **and**, **in** and **of** that aren't useful to us
-in an analysis of commonly
-used words. Rather, we'd like to focus on analysis on words that describe the flood
-event itself.
+in an analysis of commonly used words. Rather, you'd like to focus on analysis on 
+words that describe the flood event itself.
 
 As you did in the previous lesson, you can remove those words using the
 list of `stop_words` provided by the `tm` package.
@@ -222,21 +224,22 @@ list of `stop_words` provided by the `tm` package.
 
 ```r
 data("stop_words")
-# how many words do we have including the stop words?
+# how many words do you have including the stop words?
 nrow(flood_tweet_messages)
 ## [1] 151536
 
 flood_tweet_clean <- flood_tweet_messages %>%
   anti_join(stop_words) %>%
   filter(!word == "rt")
+## Joining, by = "word"
 
 # how many words after removing the stop words?
 nrow(flood_tweet_clean)
 ## [1] 95740
 ```
 
-Notice that before removing the stop words, we have 151536
-rows or words in our data. After removing the stop words we have,
+Notice that before removing the stop words, you have 151536
+rows or words in your data. After removing the stop words you have,
 95740 words.
 
 Once you've removed the stop words, you can plot the top 15 words again.
@@ -255,13 +258,14 @@ flood_tweet_clean %>%
       labs(x = "Count",
       y = "Unique words",
       title = "Count of unique words found in tweets")
+## Selecting by n
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/top-15-words-without-stops-1.png" title="plot of chunk top-15-words-without-stops" alt="plot of chunk top-15-words-without-stops" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/top-15-words-without-stops-1.png" title="unique words found in tweets without stop words" alt="unique words found in tweets without stop words" width="90%" />
 
 Finally, notice that http is the top word in the plot above. Let's remove all 
-links from our data using a regular expression. Then you can recreate all of the 
-cleanup that we performed above, using one pipe. 
+links from your data using a regular expression. Then you can recreate all of the 
+cleanup that you performed above, using one pipe. 
 
 To remove all url's you can use the expression below. 
 
@@ -280,6 +284,7 @@ flood_tweet_clean <- tweet_data %>%
   unnest_tokens(word, tweet_text) %>% 
   anti_join(stop_words) %>%
   filter(!word == "rt") # remove all rows that contain "rt" or retweet
+## Joining, by = "word"
 ```
 
 
@@ -296,11 +301,12 @@ flood_tweet_clean %>%
       labs(x = "Count",
       y = "Unique words",
       title = "Count of unique words found in tweets, ")
+## Selecting by n
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/top-15-words-without-stops2-1.png" title="plot of chunk top-15-words-without-stops2" alt="plot of chunk top-15-words-without-stops2" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/top-15-words-without-stops2-1.png" title="count of unique words found in tweets without links" alt="count of unique words found in tweets without links" width="90%" />
 
-## Paired word analysis
+## Paired Word Analysis
 
 As you did in the previous text mining introductory lesson, you can do a paired
 words analysis to better understand which words are most often being used together.
@@ -308,7 +314,7 @@ words analysis to better understand which words are most often being used togeth
 
 
 Do perform this analysis you need to reclean and organization your data.
-In this case we will create a data frame with 2 columns which contain
+In this case you will create a data frame with 2 columns which contain
 word pairs found in the data and a 3rd column that has the count of how many
 time that word pair is found in the data. Examples of word pairs includes:
 
@@ -392,7 +398,7 @@ flood_word_counts %>%
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/plot-word-pairs-1.png" title="plot of chunk plot-word-pairs" alt="plot of chunk plot-word-pairs" width="90%" />
 
-Note that "http" is still a value that appears in our word analysis. You likely
+Note that "http" is still a value that appears in your word analysis. You likely
 need to do a bit more cleaning to complete this analysis! The next step might be
 a <a href="http://tidytextmining.com/sentiment.html" target = "_blank">sentiment analysis. </a>
 This analysis would attempt to capture the general mood of the social media posts

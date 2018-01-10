@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "Work With the Difference Normalized Burn Index - Using Spectral Remote Sensing to Understand the Impacts of Fire on the Landscape"
+title: "Work with the Difference Normalized Burn Index - Using Spectral Remote Sensing to Understand the Impacts of Fire on the Landscape"
 excerpt: "In this lesson you review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically you will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2017-12-08'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -38,7 +38,7 @@ redirect_from:
 After completing this tutorial, you will be able to:
 
 * Calculate `dNBR` in `R`.
-* Be able to describe how the `dNBR` index is used to quantify fire severity.
+* Describe how the `dNBR` index is used to quantify fire severity.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -134,7 +134,7 @@ quantitative interpretation of what the results of dNBR actually mean. The term
 For instance, who is to say that .5 couldn't be representative of "high severity"
 vs .66?
 
-As scientists, the best way to make sure our classification approaches represent
+As scientists, the best way to make sure your classification approaches represent
 what is actually happening on the ground in terms of fire severity is to check
 out the actual conditions on the ground. This process of confirming a value that
 you get from remote sensing data by checking it on the ground is called validation.
