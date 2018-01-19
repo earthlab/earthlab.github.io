@@ -34,7 +34,6 @@ off of objects, like trees, on the Earth’s surface.
 
 > Learn why Earth Data Science skills are important for <a href="https://earthdatascience.org/blog/earth-data-scientist-demand/" target="_blank">finding your next job. </a>
 
-
 Below you will find lessons that cover how to find, download, work with, visualize
 and analyze remote sensing data including Landsat, MODIS, NAIP and LiDAR in `R` or `Python`.
 </div>
