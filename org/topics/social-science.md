@@ -1,10 +1,19 @@
 ---
 layout: post-by-category
-title: 'Social Science'
+title: 'Use Social Media Data in R and Python to Study Earth Systems - Social Science'
 permalink: /tags/social-science/
 comments: false
 author_profile: false
 is-main-topic: true
 topics:
-  social-science: 
+  social-science:
 ---
+
+<div class='tag-landing-intro notice--success' markdown="1">
+Humans are an important component of Earth Systems. Social media data, like
+twitter, can be integrated with earth science data to help you better understand
+the impacts that humans have on our environment, how humans are impacted by
+environmental change and how humans feel about these impacts. Learn how to use
+the `R` programming language to analyze Twitter data and address earth science
+questions. Check back for `Python` lessons!
+</div>

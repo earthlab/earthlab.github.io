@@ -20,6 +20,9 @@ sitemap: false
 
 ## Upcoming events
 
+Connect with the Earth Lab and earth data science community by attending an
+event at the University of Colorado Boulder Earth Lab.
+
 {% for event in site.events reversed %}
   {% capture eventyear %}{{event.date | date: '%Y'}}{% endcapture %}
   {% capture eventday %}{{event.date | date: '%j'}}{% endcapture %}

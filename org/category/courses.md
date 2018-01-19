@@ -1,7 +1,7 @@
 ---
 layout: archive
 category: courses
-title: "Data Intensive Course Lab Materials & Courses"
+title: "Earth Data Science Courses & Workshops"
 excerpt: "Data intensive courses, course lessons and tutorials that teach scientific programming, reproducible open science workflows and general scientific data skills. "
 permalink: /courses/
 comments: false
@@ -14,19 +14,36 @@ redirect_from:
 <div class = "prof-cert-wrapper">
 <div id = "right">
 <a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a></div>
-<div id = "left">Learn how to combine earth science with data science to better understand the earth. Take our self-paced our open courses. In the first course, earth analytics, learn how to use the R programming language and R markdown to work with time series, gis, remote sensing, social media data and more. No previous programming experience is required to complete the Earth Analytics course. We are currently building a second, Earth Analytics course in Python. </div>
+<div id = "left" markdown="1">Learn how you can integrate earth science understanding and
+data science skills to better understand Earth by working through free,
+self-paced courses online. In the Earth Analytics course, explore how the
+`R` programming language and `R Markdown` is used to work with time series, GIS,
+remote sensing and social media data. No previous programming experience is
+required! Stay tuned for a second course build in Python using all open source
+tools!
+
+All Earth Data Science courses, are developed and taught as a part of the
+<a href="https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate" target="_blank">professional Certificate and Masters program in Earth Data Analytics</a>
+offered by <a href="https://www.colorado.edu/earthlab" target = "_blank">Earth Lab</a> at the University of Colorado - Boulder.
+</div>
 
 </div>
 
-## Courses
+## Current Courses
 
 {% assign courses = site.posts | where:"overview-order", 1 %}
 {% for course in courses %}
 * <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
 {% endfor %}
 
-## Workshops
+## Earth Data Science Workshops
 
-Check out our Earth Analytic workshop materials.
+Want to improve your earth data science skills? Complete a set of short,
+self-paced technical lessons. Following the materials available online for each
+workshop, you will learn how to perform a specific workflow using a specific tool
+that is commonly used in the earth data science field.
+
+Online workshops are developed for workshops held by Earth Lab at the University
+of Colorado - Boulder.
 
 {% include course-module-list.html %}
