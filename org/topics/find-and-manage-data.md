@@ -1,6 +1,6 @@
 ---
 layout: post-by-category
-title: 'Find and Access Earth Science Data Online with R and Python - Find and Manage Data'
+title: 'Find and Access Earth Science Data Online with R and Python Lessons'
 permalink: /tags/find-and-manage-data/
 comments: false
 author_profile: false
@@ -10,6 +10,9 @@ topics:
 ---
 
 <div class='tag-landing-intro notice--success' markdown="1">
+
+## Data Management Issues in Science
+
 There is an explosion of free data available online. However, finding and
 managing these data can be tricky. The lessons below will help you find and
 download Remote sensing, social media and other data that can be used to better

@@ -1,6 +1,6 @@
 ---
 layout: post-by-category
-title: 'Use Remote sensing data in R or Python'
+title: 'Lessons: Use Remote sensing data in R or Python'
 permalink: /tags/remote-sensing/
 comments: false
 author_profile: false
