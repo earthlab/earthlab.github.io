@@ -13,8 +13,6 @@ topics:
 
 ## About Time Series Data
 
-## About Time Series Data
-
 Time series data are used to understand changes over time in our environment.
 For instance, you can collect temperature data over time to track how
 temperature fluctuates, hourly, daily monthly and even annually. However often
