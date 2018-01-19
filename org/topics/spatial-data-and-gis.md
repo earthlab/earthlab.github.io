@@ -1,6 +1,6 @@
 ---
 layout: post-by-category
-title: 'Spatial Data and GIS'
+title: 'Spatial Data and GIS Lessons'
 permalink: /tags/spatial-data-and-gis/
 comments: false
 author_profile: false
@@ -13,11 +13,14 @@ topics:
 
 ## Use R, Python and Other Open Tools For GIS
 
-You can use many different tools to work with spatial or GIS data and to create
-maps including scientific programming languages like `R` and `Python` and `QGIS`.
+Most scientific data are geographically located and thus have a spatial component.
+GIS skills are thus important for working with scientific data. `R` and `Python` are
+free and open scientific programming languages that you can use to work with GIS
+data and do tasks that you may already do with tools like ArcGIS or QGIS.
 
-The lessons on this page will help you use `R` and `Python`, which are free and
-open scientific programming languages, to perform that same tasks
-that you may already know how to perform in ArcGIS.  
+In the lessons below, learn how to open, manipulate and plot spatial data in the
+R programming language. Also learn to use tools like `Leaflet` and `ggplot` to create
+custom and interactive maps. Finally learn how to use remote sensing data like
+Landsat, NAIP and MODIS in `R`. Come back later this spring for lessons in Python!
 
 </div>
