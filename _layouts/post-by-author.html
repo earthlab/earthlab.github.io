@@ -2,9 +2,10 @@
 layout: default
 ---
 
+
 {% include base_path %}
 
-{% if (page.header.overlay_color or page.header.overlay_image) or page.header.image %}
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% endif %}
 
@@ -61,7 +62,7 @@ layout: default
           <p class='archive__item-excerpt'>{{ module.module-description }}</p>
 
           {% assign counter = 0 %}
-          {% for post in site.categories.['course-materials'] %}
+          {% for post in site.categories['course-materials'] %}
               {% if post.class-lesson == module.class-lesson %}
                 {% assign counter = counter | plus: 1 %}
               {% endif %}
