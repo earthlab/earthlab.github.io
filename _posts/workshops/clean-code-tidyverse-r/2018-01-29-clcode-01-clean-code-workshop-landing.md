@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Learn to Use tidyverse and Clean Code to Work With Data in R"
 excerpt: 'When working with data, you often spend the most amount of time cleaning your data. Learn how to write more efficient code using the tidyverse in R.'
-modified: '2018-02-01'
+modified: '2018-02-02'
 nav-title: "Tidyverse Workshop Setup"
 permalink: /courses/clean-coding-tidyverse-intro/
 module: "clean-coding-tidyverse-intro"

@@ -6,7 +6,7 @@ title: 'Handle Missing Data in R'
 attribution: ''
 excerpt: 'Learn...'
 dateCreated: 2018-01-29
-modified: '2018-02-01'
+modified: '2018-02-02'
 nav-title: 'Missing Data'
 sidebar:
   nav:

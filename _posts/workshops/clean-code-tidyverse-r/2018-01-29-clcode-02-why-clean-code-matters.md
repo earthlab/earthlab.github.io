@@ -6,7 +6,7 @@ title: 'Get Started with Clean Coding in R'
 attribution: ''
 excerpt: 'Learn...'
 dateCreated: 2018-01-29
-modified: '2018-02-01'
+modified: '2018-02-02'
 module-title: 'Introduction to clean code'
 module-description: 'This module includes a high level overview of clean code concepts in R, with an activity to identify problems in a sample of messy code.'
 module-nav-title: 'Clean Code'

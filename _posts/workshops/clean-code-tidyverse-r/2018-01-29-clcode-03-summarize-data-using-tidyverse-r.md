@@ -6,7 +6,7 @@ title: 'Use tidyverse group_by and summarise to Manipulate Data in R'
 attribution: ''
 excerpt: 'Learn how to write pseudocode to plan our your approach to working with data. Then use tidyverse functions including group_by and summarise to implement your plan.'
 dateCreated: 2018-01-29
-modified: '2018-02-01'
+modified: '2018-02-02'
 nav-title: 'Summarize Data'
 sidebar:
   nav:
@@ -84,6 +84,7 @@ other formats into the correct `R` class.
 # load libraries
 library(readr)
 library(ggplot2)
+library(dplyr)
 ```
 
 Next, open the file that contains URLs to the data.
