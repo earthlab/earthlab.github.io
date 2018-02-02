@@ -73,15 +73,6 @@ free to produce other plots that also help explore variability per site!
 
 
 
-
-```
-## 
-## Attaching package: 'scales'
-## The following object is masked from 'package:readr':
-## 
-##     col_factor
-```
-
 <img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-06-additional-challenges-clean-code-workshop/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="90%" />
 
 ## Challenge 2
@@ -108,15 +99,6 @@ with only the year and month in it.
 
 Once the zoo package is loaded, you can then use + scale_x_yearmon() to scale the
 x axis of your ggplot() plot.
-
-
-```
-## 
-## Attaching package: 'zoo'
-## The following objects are masked from 'package:base':
-## 
-##     as.Date, as.Date.numeric
-```
 
 <img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-06-additional-challenges-clean-code-workshop/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="90%" />
 
