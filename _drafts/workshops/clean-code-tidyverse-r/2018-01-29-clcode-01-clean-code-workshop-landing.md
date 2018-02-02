@@ -2,13 +2,14 @@
 layout: single
 category: courses
 title: "Learn to Use Tidyverse and Clean Code to Work With Data in R"
-modified: '2018-01-30'
-nav-title: "Workshop overview & setup"
+excerpt: 'When working with data, you often spend the most amount of time cleaning your data. Learn how to write more efficient code using the Tidyverse in R.'
+modified: '2018-01-31'
+nav-title: "Tidyverse Workshop Setup"
 permalink: /courses/clean-coding-tidyverse-intro/
 module: "clean-coding-tidyverse-intro"
-module-type: 'overview'
+module-type: 'workshop'
 module-title: "Introduction to Clean Coding and the Tidyverse in R"
-module-description: 'Learn how to ...'
+module-description: 'When working with data, you often spend the most amount of time cleaning your data. Learn how to write more efficient code using the Tidyverse in R.'
 sidebar:
   nav:
 comments: false
@@ -29,7 +30,7 @@ order: 1
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Introduction to Git / Github workshop
 
-## Key course materials
+## Important Workshop Materials
 
 {% for post in modules_course %}
  * <a href="{{ site.url }}{{ post.permalink }}">{{ post.title }}</a>
@@ -52,13 +53,14 @@ You may access the data in one of two ways:
 
 1. If you already use git or want to learn, set it up on your computer.
 2. Then use `git clone https://github.com/earthlab/version-control-hot-mess` to clone or copy the workshop repo to your computer.
-3. If you are not comfortable using git or would rather download the repository,
-visit this url: https://github.com/earthlab/version-control-hot-mess and look for
-the green "clone or download" button. Select download zip. Then download the unzip
-the repository to your computer.
+3. If you are not comfortable using git or would rather download the repository:
+ * Visit this url: <a href="https://github.com/earthlab/version-control-hot-mess" target = "_blank">https://github.com/earthlab/version-control-hot-mess</a> and look for
+the green "clone or download" button.
+ * Select download zip to download the repo as a zip file.
+ * Download the repo and unzip it somewhere on your computer where you will work.
 
 However you download the repository, be sure that you save things in a location
-one you computer that you can find and use during the workshop!
+on your computer that you can find and use during the workshop!
 
 </div>
 
