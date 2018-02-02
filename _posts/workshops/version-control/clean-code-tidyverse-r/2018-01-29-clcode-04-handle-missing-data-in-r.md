@@ -6,7 +6,7 @@ title: 'Handle Missing Data in R'
 attribution: ''
 excerpt: 'Learn...'
 dateCreated: 2018-01-29
-modified: '2018-01-31'
+modified: '2018-02-01'
 nav-title: 'Missing Data'
 sidebar:
   nav:
@@ -18,7 +18,6 @@ order: 4
 topics:
   reproducible-science-and-programming: ['literate expressive programming']
 ---
-
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -44,10 +43,10 @@ Follow the setup instructions here:
 
 In the previous lesson you attempted to plot the first file's worth of data
 by time. However, the plot did you turn out as planned. There were
-atleast two values that likely represent missing data values:
+at least two values that likely represent missing data values:
 
-* missing and
-* 999.99
+* `missing` and
+* `999.99`
 
 In this lesson, you will learn how to handle missing data values in `R` using
 `readr` and some basic data exploration approaches.
@@ -57,10 +56,10 @@ In this lesson, you will learn how to handle missing data values in `R` using
 Sometimes, your data are missing values. Imagine a spreadsheet in Microsoft
 Excel with cells that are blank. If the cells are blank, you don’t know for
 sure whether those data weren’t collected, or someone forgot to fill them in.
-To account for data that are missing (not by mistake) you can put a value in
+To indicate that data are missing (not by mistake) you can put a value in
 those cells that represents no data.
 
-The `R` programming language uses the value `NA` to represent missing data values.
+The `R` programming language uses `NA` to represent missing data values.
 
 Lucky for us, `readr` makes it easy to deal with missing data values too.
 To account for these, we use the argument:
@@ -105,7 +104,7 @@ unique(year_one$HPCP)
 ```
 
 Next, we can create a vector of missing data values. We can see that we have
-999.99 and missing to account for.
+999.99 and missing as possible `NA` values.
 
 
 ```r
@@ -131,19 +130,20 @@ unique(year_one$HPCP)
 ## [1] 0.0 0.2 0.1  NA 0.3 0.9 0.5
 ```
 
-Once you have accounted for missing data values, try to plot again.
+Once you have specified possible missing data values, try to plot again.
 
 
 ```r
 year_one %>%
   ggplot(aes(x = DATE, y = HPCP)) +
-  geom_point() + theme_bw() +
-  labs(x = "Date", y = "Precipitation",
+  geom_point() +
+  theme_bw() +
+  labs(x = "Date",
+       y = "Precipitation",
        title = "Precipitation Over Time")
-## Warning: Removed 3 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/final-precip-plot-1.png" title="plot of chunk final-precip-plot" alt="plot of chunk final-precip-plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/workshops/version-control/clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/final-precip-plot-1.png" title="plot of chunk final-precip-plot" alt="plot of chunk final-precip-plot" width="90%" />
 
 Note that when `ggplot` encounters missing data values, it tells you with
 a warning message:
@@ -157,7 +157,7 @@ Removed 3 rows containing missing values (geom_point).
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> ## On Your Own 2 (OYO)
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> On Your Own (OYO)
 
 The `mutate()` function allows you to add a new column to a `data.frame`.
 And the `month()` function in the `lubridate` package, will convert a `datetime`
@@ -171,12 +171,7 @@ have learned so far to do this.
 
 Your final plot should look like the one below:
 
-
-```
-## Warning: Removed 2 rows containing missing values (position_stack).
-```
-
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/plot-by-month-1.png" title="plot of chunk plot-by-month" alt="plot of chunk plot-by-month" width="90%" />
+<img src="{{ site.url }}/images/rfigs/workshops/version-control/clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/plot-by-month-1.png" title="plot of chunk plot-by-month" alt="plot of chunk plot-by-month" width="90%" />
 
 HINTS:
 

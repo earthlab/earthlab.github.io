@@ -6,9 +6,9 @@ title: 'Get Started with Clean Coding in R'
 attribution: ''
 excerpt: 'Learn...'
 dateCreated: 2018-01-29
-modified: '2018-01-31'
+modified: '2018-02-01'
 module-title: 'Introduction to clean code'
-module-description: 'This module includes .....'
+module-description: 'This module includes a high level overview of clean code concepts in R, with an activity to identify problems in a sample of messy code.'
 module-nav-title: 'Clean Code'
 nav-title: 'Get Started with Clean Code'
 sidebar:
@@ -21,7 +21,6 @@ order: 2
 topics:
   reproducible-science-and-programming: ['literate expressive programming']
 ---
-
 
 {% include toc title="In this lesson" icon="file-text" %}
 
@@ -45,58 +44,75 @@ At the end of this activity, you will be able to:
 
 ## What is Clean Code?
 
-The theme of this workshop is clean code. When we say clean code, we are referring to
-code that is written in a way that is easy to understand (for you, your future
-self and your colleagues), efficient in it's implementation and well documented.
+The theme of this workshop is clean code. When we say clean code, we are 
+referring to code that is written in a way that is easy to understand (for you, 
+your future self and your colleagues), efficient in it's implementation and 
+well documented.
 
 In this workshop, we will explore several tricks and tips that you can use to
 write more efficient code. These include:
 
-1. Writing pseudocode before you even begin to code to organize your approach. Pseudocode refers to writing out the steps and process that you will need to implement in your code - in plain old english - BEFORE you code. We will discuss pseudocode more in the next lesson.
-2. Writing more expressive code by using meaningful variable names and `tidyverse` functions and syntax in `R`.
-3. Automating your code rather than using a "copy pasta" approach. Writing pseudocode can help with identifying tasks that you will repeat over and over.
+1. Writing pseudocode before executable code to organize your approach. 
+Pseudocode refers to writing out the steps and process that you will need to 
+implement in your code - in plain old english - BEFORE you code. We will 
+discuss pseudocode more in the next lesson.
+2. Writing more expressive code by using meaningful variable names and 
+`tidyverse` functions and syntax in `R`.
+3. Automating your code rather than using a "copy pasta" approach. Writing 
+pseudocode can help with identifying repetitive tasks.
 
-### The Core Principles of Clean Code
+### Core Principles of Clean Code
 
 In this workshop, you will learn how to write better, more efficient and easier
-to read, well documented code. You can capture the elements of clean code into
-4 main categories:
+to read, well-documented code. You can segment the concept of clean code into
+4 main components:
 
-1. **Syntax:** Syntax is the format or style that you use to write your code. When a group of scientists use the same syntax, the code becomes more familiar and thus easier to quicly scan, read and understnd. Different style guides have been developed
-1. **Modularity:** Is your code more "script like" written from beginning to end with repeated tasks. Or does it consist of sections and functions that capture tasks that are repeated.
-2. **Documentation:** Is your code well documented. Documentation can range from comments found within your code to thorough `readme` files that describe your entire workflow. What part of the spectrum are you in?
-3. **Expressiveness:** Expressiveness refers to using naming conventions for code functions, variables and even files that in some way describe that that function, variable or file contains.
+1. **Syntax:** Syntax is the format or style that you use to write your code. 
+When a group of scientists use the same syntax, the code becomes more familiar 
+and thus easier to quicly scan, read and understnd. Different style guides have 
+been developed
+2. **Modularity:** Is your code more "script like" written from beginning to 
+end with repeated tasks? Or does it consist of sections and functions that 
+capture tasks that are repeated?
+3. **Documentation:** Is your code well documented? Documentation can range 
+from comments found within your code to thorough `readme` files that describe 
+your entire workflow. 
+4. **Expressiveness:** Expressiveness refers to writing code that makes your 
+intention transparent. This includes using meaningful names for objects and 
+files, that indicate something about their contents and intended use. 
 
 ### Don't Repeat Yourself  (DRY)
 
-The DRY approach to programming refers to writing functions and automating sections
-of code that are repeated over and over. If you perform the same task more than
-two times in your code, consider a function or a loop to make your workflow more
+The DRY approach to programming refers to writing functions and automating 
+sections of code that are repeated. If you perform the same task multiple times 
+in your code, consider a function or a loop to make your workflow more 
 efficient.
 
 ## About The Data
 
 The goal of this workshop is as follows:
 
-You have been given access to some precipitation data for Colorado across several
-sites. This data is stored in the cloud and your colleague has started to explore
-the data in `R`.
+You have been given access to some precipitation data for Colorado across 
+several locations This data is stored in the cloud and your colleague has started 
+to explore the data in `R`.
 
-Your colleague has given you 2 things:
+Your colleague has given you two things:
 
-1. A `.csv` file containing a list of URL's for each `.csv` file containing the data
-2. Some thoughtfully composed code (see below) that they wrote to explore the data and help you get started.
+1. A `.csv` file containing a list of URL's for each `.csv` data file
+2. Some thoughtfully composed code (see below) that they wrote to explore the 
+data and help you get started.
 
-Unfortunately, your colleague has take a siesta to go climb tallest peaks
+Unfortunately, your colleague is trekking among the tallest peaks
 in the Himalaya. Thus, you are left to your own crafty devices to figure out
 how to work with these data.
 
-Your goal in this workshop is to create a plot of the data in `R`. Something like this:
+Your goal in this workshop is to create a plot of the data in `R`. 
+Something like this:
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-02-why-clean-code-matters/example-plot-1.png" title="plot of chunk example-plot" alt="plot of chunk example-plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/workshops/version-control/clean-code-tidyverse-r/2018-01-29-clcode-02-why-clean-code-matters/example-plot-1.png" title="plot of chunk example-plot" alt="plot of chunk example-plot" width="90%" />
 
 Time to get started. Let's begin by having a close look at the thoughtful
 code that your colleague left for you to work with.
@@ -120,7 +136,8 @@ and issue that you did. Add a **+1** to any items that you agree with so
 issues are duplicated. Also feel free to edit / add to any issues you see
 in the document that you'd like to build upon.
 
-Be sure to identify the issues as they relate to one (or more) of the four categories that we defined above
+Be sure to identify the issues as they relate to one (or more) of the four 
+categories that we defined above
   * Syntax,
   * Modularity
   * Documentation
