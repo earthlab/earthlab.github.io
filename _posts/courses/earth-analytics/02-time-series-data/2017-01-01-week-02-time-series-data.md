@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & Work with Time Series Data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2018-01-10'
+modified: '2018-03-01'
 week-landing: 2
 week: 2
 sidebar:
@@ -161,6 +161,7 @@ be sure to:
 
 1. Subset the data temporally: Jan 1 2013 - Oct 15 2013.
 2. Summarize the data: plot DAILY total (sum) precipitation.
+3. Important: be sure to set the time zone as you are dealing with dates and times which are impacted by daylight saving time. Add: `tz = "America/Denver"` to any statements involving time - but specifically to the line of code where you convert date / time to just a date!
 
 
 Use the [bonus lesson]({{ site.url }}/courses/earth-analytics/time-series-data/aggregate-time-series-data-r/) to guide
