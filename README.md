@@ -1,6 +1,8 @@
 
 
-# Development -- Analytics Hub Tutorial website
+[![DOI](https://zenodo.org/badge/62253359.svg)](https://zenodo.org/badge/latestdoi/62253359)
+
+# Development -- Earth Data Science Website
 
 [![Build Status](https://travis-ci.org/earthlab/earthlab.github.io.svg?branch=master)](https://travis-ci.org/earthlab/earthlab.github.io)
 
