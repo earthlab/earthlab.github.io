@@ -58,4 +58,4 @@ Currently, we are using less. to install less
 ## License
 
 Please see license information, here https://github.com/earthlab/earthlab.github.io/blob/master/LICENSE
-- all materials are Creative comments by attribution. If you use our materials - please cite us! 
+If you use our materials following license guidelines - please cite us! 
