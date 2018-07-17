@@ -36,14 +36,11 @@ offered by <a href="https://www.colorado.edu/earthlab" target = "_blank">Earth L
 * <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
 {% endfor %}
 
-## Earth Data Science Workshops
+## Earth Data Science Course Modules
 
 Want to improve your earth data science skills? Complete a set of short,
-self-paced technical lessons. Following the materials available online for each
-workshop, you will learn how to perform a specific workflow using a specific tool
+self-paced technical lessons that together create full courses. Following the materials available online for each
+module, you will learn how to perform a specific workflow using a specific tool
 that is commonly used in the earth data science field.
-
-Online workshops are developed for workshops held by Earth Lab at the University
-of Colorado - Boulder.
 
 {% include course-module-list.html %}
