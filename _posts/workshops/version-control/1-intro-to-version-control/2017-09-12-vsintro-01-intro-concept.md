@@ -2,15 +2,15 @@
 layout: single
 authors: ['Software Carpentry', 'NEON Data Skills', 'Max Joseph', 'Leah Wasser']
 category: courses
-title: 'An introduction version control'
+title: 'An Introduction Version Control'
 attribution: ''
 excerpt: 'Learn what version control is, and how Git and GitHub are used in a typical version control workflow.'
 dateCreated: 2017-09-12
 modified: '2017-09-21'
-module-title: 'Introduction to version control'
+module-title: 'Introduction to Version Control'
 module-description: 'This module includes instructions for setting up your Git environment, introduces key version control concepts, and describes first steps to start using version control with Git and GitHub.'
 module-nav-title: 'Version control'
-nav-title: 'What is version control?'
+nav-title: 'What is Version Control?'
 sidebar:
   nav:
 module: "intro-version-control-git"
