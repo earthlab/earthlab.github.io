@@ -17,28 +17,6 @@ order: 2
 topics:
   reproducible-science-and-programming: ['python']
 ---
----
-layout: single
-title: 'Setup Git, Bash, and Anaconda on Your Computer'
-excerpt: ""
-authors: ['Leah Wasser', 'Martha Morrissey',  'Software Carpentry']
-category: [courses]
-class-lesson: ['setup-python-jupyter']
-permalink: /workshops/setup-earth-analytics-python/setup-git-bash-anaconda/
-nav-title: "Install Git, Bash & Anaconda"
-dateCreated: 2018-02-08
-modified: '2018-02-09'
-class-order: 1
-course: "earth-analytics-python"
-week: 0
-sidebar:
-  nav:
-author_profile: false
-comments: true
-order: 1
-topics:
-  reproducible-science-and-programming: ['python']
----
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -53,21 +31,21 @@ At the end of this activity, you will be able to:
 
 * Install Bash
 
-* Open a terminal
+* Open a terminal 
 
-* Install anaconda using the terminal
+* Install anaconda using the terminal 
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Before you start this tutorial, be sure that you have a computer with internet access.
+Before you start this tutorial, be sure that you have a computer with internet access. 
 
-Information below is adapted from materials developed by [Data Carpentry](https://github.com/swcarpentry/workshop-template) and the [Conda documentation](https://conda.io/docs/user-guide/install/index.html).
+Information below is adapted from materials developed by [Data Carpentry](https://github.com/swcarpentry/workshop-template) and the [Conda documentation](https://conda.io/docs/user-guide/install/index.html). 
 
 </div>
 
 
-## Bash Setup
+## Bash Setup 
 
 ### Install Bash for Windows
 
@@ -79,7 +57,7 @@ Download the [Git for Windows installer](https://git-scm.com/download/win). Run 
 5. Click on "Next".
 6. Click on "Next".
 7. Leave the selection on  "Use Git from the Windows Command Prompt" and click on "Next". NOTE: If you forgot to do this, the programs that you need for the workshop will not work properly. If this happens, rerun the installer and select the appropriate option.
-8. Click on "Next".
+8. Click on "Next". 
 9. Leave the selection on  "Checkout Windows-style, commit Unix-style line endings" and click on “Next”.
 10. Select the second option for "Use Windows' default console window" and click on "Next".
 11. Click on "Install".
@@ -117,27 +95,27 @@ If you are running Mac OSX El Capitan, you might encounter errors when trying to
 If Git is not already available on your machine you can try to install it via your distro’s package manager. For Debian/Ubuntu run `sudo apt-get install git` and for Fedora run `sudo yum install git`.
 
 
-## Setup Anaconda
+## Setup Anaconda 
 We will use the Anaconda Python 3.x distribution for this course. Anaconda is a distribution of python that comes with many of the libraries that we need to work with scientific data. Anaconda also comes with Jupyter Notebooks and several other tools that are useful for working in Python.
 
 If you already have Anaconda for Python 2 setup you do not need to install Anaconda again. We will be working with Python version 3.6 in this class, but a python 3.6 environment can be installed into an Anaconda 2.7 distribution. We will discuss setting up conda envrionments in [lesson 3 of this module](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/).
 
-
+ 
 ### Windows
-**IMPORTANT:** if you already have a Python installation on your Windows computer, the settings below will replace it with Anaconda as the default Python. If you have questions or concerns about this, please contact your course instructor.
+**IMPORTANT:** if you already have a Python installation on your Windows computer, the settings below will replace it with Anaconda as the default Python. If you have questions or concerns about this, please contact your course instructor. 
 
 Download the [Anaconda installer for Windows](https://www.anaconda.com/download/#windows). Be sure to download the python 3.6 version! Run the installer by double-clicking on the downloaded file and follow the steps bellow:
-1. Click “Run”.
+1. Click “Run”. 
 2. Click on "Next".
 3. Click on “I agree”.
 4. Leave the selection on “Just me” and click on “Next”.
 5. Click on "Next".
-6. Select the first option for “Add Anaconda to my PATH environment variable” and also leave the selection on “Register Anaconda as my default Python 3.6”. Click on “Install”.
+6. Select the first option for “Add Anaconda to my PATH environment variable” and also leave the selection on “Register Anaconda as my default Python 3.6”. Click on “Install”. 
 7. When the install is complete, Click on “Next”.
-8. Click on “Skip”.
-9. Click on “Finish”.
+8. Click on “Skip”. 
+9. Click on “Finish”. 
 
-This installation will provide you with a Python 3.6 distribution created by the Anaconda project.
+This installation will provide you with a Python 3.6 distribution created by the Anaconda project. 
 
 
 ### Mac
@@ -166,11 +144,11 @@ This installation will provide you with a Python 3.6 distribution created by the
 
 ## Test your set-up of Bash, Git and Anaconda
 ### Windows
-1. Search for and open the Git Bash program. In this `Terminal` window, type `bash` and hit enter.
-If you do not get a message back, then Bash is available for use.
+1. Search for and open the Git Bash program. In this `Terminal` window, type `bash` and hit enter. 
+If you do not get a message back, then Bash is available for use. 
 
-2. Next, type `git` and hit enter.
-If you see a list of commands that you can execute, then Git has been installed correctly.
+2. Next, type `git` and hit enter. 
+If you see a list of commands that you can execute, then Git has been installed correctly. 
 
 3. Next, type `conda` and hit enter.
 Again, if you see a list of commands that you can execute, then Anaconda Python has been installed correctly.
@@ -178,11 +156,11 @@ Again, if you see a list of commands that you can execute, then Anaconda Python 
 4. Close the `Terminal` by typing `exit`.
 
 ### Mac
-1. Search for and open the Terminal program (found in /Applications/Utilities). In this `Terminal` window, type `bash` and hit enter.
-If you do not get a message back, then Bash is available for use.
+1. Search for and open the Terminal program (found in /Applications/Utilities). In this `Terminal` window, type `bash` and hit enter. 
+If you do not get a message back, then Bash is available for use. 
 
-2. Next, type `git` and hit enter.
-If you see a list of commands that you can execute, then Git has been installed correctly.
+2. Next, type `git` and hit enter. 
+If you see a list of commands that you can execute, then Git has been installed correctly. 
 
 3. Next, type `conda` and hit enter.
 Again, if you see a list of commands that you can execute, then Anaconda Python has been installed correctly.
@@ -190,13 +168,14 @@ Again, if you see a list of commands that you can execute, then Anaconda Python 
 4. Close the `Terminal` by typing `exit`.
 
 ### Linux
-1. Search for and open the Terminal program. In this `Terminal` window, type `bash` and hit enter.
-If you do not get a message back, then Bash is available for use.
+1. Search for and open the Terminal program. In this `Terminal` window, type `bash` and hit enter. 
+If you do not get a message back, then Bash is available for use. 
 
-2. Next, type `git` and hit enter.
-If you see a list of commands that you can execute, then Git has been installed correctly.
+2. Next, type `git` and hit enter. 
+If you see a list of commands that you can execute, then Git has been installed correctly. 
 
 3. Next, type `conda` and hit enter.
 Again, if you see a list of commands that you can execute, then Anaconda Python has been installed correctly.
 
 4. Close the `Terminal` by typing `exit`.
+
