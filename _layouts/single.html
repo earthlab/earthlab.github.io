@@ -60,6 +60,7 @@ layout: default
           {% if page.title %}<h1 class="page__title" itemprop="headline">
             {% if page.order %}Lesson {{ page.order }}. {% endif %}
             {% if page.header1 %}{{ page.header1 | markdownify | remove: "<p>" | remove: "</p>" }}{% else %} {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %} </h1>
+            {% if page.module %} {{ page.module | replace: '-', ' ' | capitalize }} {{ page.module-type | capitalize }} {% endif %}
           {% endif %}
 
           {% if page.authors %}

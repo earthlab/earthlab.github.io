@@ -5,7 +5,7 @@ title: "Learn to Use tidyverse and Clean Code to Work With Data in R"
 excerpt: 'When working with data, you often spend the most amount of time cleaning your data. Learn how to write more efficient code using the tidyverse in R.'
 modified: '2018-02-02'
 nav-title: "Tidyverse Workshop Setup"
-permalink: /courses/clean-coding-tidyverse-intro/
+permalink: /workshops/clean-coding-tidyverse-intro/
 module: "clean-coding-tidyverse-intro"
 module-type: 'workshop'
 module-title: "Introduction to Clean Coding and the tidyverse in R"
@@ -79,7 +79,7 @@ and use during the workshop!
 
 | time        | topic                                               | instructor |
 |:------------|:----------------------------------------------------|:-----------|
-| 1:00 - 1:30 |   Welcome / Clean Code Group Activity |    Leah / Max    | 
+| 1:00 - 1:30 |   Welcome / Clean Code Group Activity |    Leah / Max    |
 | 1:30 - 2:20 | Intro to Pseudocode, Tidyverse & NA values | Max            |
 | 2:30 - 2:40 | Break                                               |            |
 | 2:40 - 3:20 | Automate Code with Loops            |   Leah      |
