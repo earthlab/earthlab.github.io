@@ -3,7 +3,7 @@ layout: single
 category: [courses]
 title: "Crop a Spatial Raster Dataset Using a Shapefile in Python"
 excerpt: "This lesson covers how to crop a raster dataset and export it as a new raster in Python"
-authors: ['Leah Wasser', 'Joe McGlinchy']
+authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
 modified: 2018-07-18
 permalink: /workshops/gis-open-source-python/crop-raster-data-in-python/
 nav-title: 'Crop a Raster'

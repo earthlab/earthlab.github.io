@@ -3,7 +3,7 @@ layout: single
 category: [courses]
 title: "How to Reproject Vector Data in Python Using Geopandas - GIS in Python"
 excerpt: "Sometimes two shapefiles do not line up properly even if they cover the same area because they are in different coordinate reference systems. Learn how to reproject vector data in Python using geopandas to ensure your data line up."
-authors: ['Leah Wasser']
+authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 modified: 2018-07-18
 module-type: 'workshop'
 module: "spatial-data-open-source-python"

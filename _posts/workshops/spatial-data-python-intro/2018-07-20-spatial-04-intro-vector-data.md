@@ -3,7 +3,7 @@ layout: single
 category: [courses]
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
-authors: ['Leah Wasser', 'Joe McGlinchy']
+authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
 modified: 2018-07-18
 permalink: /workshops/gis-open-source-python/intro-vector-data-python/
 nav-title: 'Vector Data in Python'
