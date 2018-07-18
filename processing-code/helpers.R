@@ -39,6 +39,9 @@ yaml2df <- function(file, field) {
   #   - data frame with file, field, and value (one row per element)
   first_n_lines <- read_lines(file, n_max = 100) # should contain frontmatter
   delims <- which(grepl(pattern = "---", x = first_n_lines))
+  if (length(delims) > 1) {
+    delims <- delims[2]
+  }
   
   null_result <- data.frame(value = NULL, slug = NULL)
   
@@ -46,7 +49,7 @@ yaml2df <- function(file, field) {
     # file does not contain yaml
     return(null_result)
   }
-  yaml_list <- first_n_lines[(delims[1] + 1):(delims[2] - 1)] %>%
+  yaml_list <- first_n_lines[1:(delims - 1)] %>%
     paste(collapse = "\n") %>%
     yaml.load()
   
@@ -83,6 +86,7 @@ yaml2df <- function(file, field) {
   df %>%
     mutate(file = file, field = field)
 }
+
 
 
 firstup <- function(x) {
