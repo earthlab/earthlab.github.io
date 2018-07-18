@@ -1,15 +1,3 @@
-- name: Jenny Palomino
-  slug: jenny-palomino
-  bio: ''
-- name: Joe McGlinchy
-  slug: joe-mcglinchy
-  bio: ''
-- name: Chris Holdgraf
-  slug: chris-holdgraf
-  bio:
-- name: Martha Morrissey
-  slug: martha-morrissey
-  bio: 'Martha is a graduate student in the Geography Department.'
 - name: Bryce Mecum
   slug: bryce-mecum
   bio: 'Bryce is a Scientific Software Engineer at the National Center for Ecological Analysis and Synthesis working remotely from Juneau'
@@ -19,9 +7,18 @@
 - name: Data Carpentry
   slug: data-carpentry
   bio: ''
+- name: Joe McGlinchy
+  slug: joe-mcglinchy
+  bio: 'Joe is a Remote Sensing Specialist with the Analytics Hub at Earth Lab.'
 - name: Leah Wasser
   slug: leah-wasser
   bio: 'Leah is the director of the Earth Analytics Education Initiative at Earth Lab and maintains this website.'
+- name: Leah Wasser'
+  slug: leah-wasser'
+  bio: ''
+- name: Martha Morrissey
+  slug: martha-morrissey
+  bio: ''
 - name: Matt Oakley
   slug: matt-oakley
   bio: 'Matt worked with the Analytics Hub as an undergraduate intern in 2016 while pursuing his degree in computer science.'
