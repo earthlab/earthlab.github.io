@@ -4,6 +4,9 @@
 - name: Carson Farmer
   slug: carson-farmer
   bio: ''
+- name: Chris Holdgraf
+  slug: chris-holdgraf
+  bio: 'Chris is a core member of the Jupyter team at University of California'
 - name: Data Carpentry
   slug: data-carpentry
   bio: ''
