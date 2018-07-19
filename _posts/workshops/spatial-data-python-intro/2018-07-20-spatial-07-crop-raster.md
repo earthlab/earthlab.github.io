@@ -3,7 +3,7 @@ layout: single
 category: [courses]
 title: "Crop a Spatial Raster Dataset Using a Shapefile in Python"
 excerpt: "This lesson covers how to crop a raster dataset and export it as a new raster in Python"
-authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
+authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey', 'Jenny Palomino']
 modified: 2018-07-19
 permalink: /workshops/gis-open-source-python/crop-raster-data-in-python/
 nav-title: 'Crop a Raster'
@@ -32,7 +32,7 @@ After completing this lesson, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12459464){:data-proofer-ignore='' .btn }
 
 You will need a computer with internet access to complete this lesson. If you are following along online and not using our cloud environment:
 
@@ -211,29 +211,67 @@ with rio.open(soap_chm_path) as src:
 
 {:.input}
 ```python
-# mask the nodata and plot the newly cropped raster layer
-lidar_chm_crop_ma = np.ma.masked_equal(lidar_chm_crop[0], -9999.0) 
-fig, ax = plt.subplots(figsize = (8,8))
-ax.imshow(lidar_chm_crop_ma)
-ax.set_axis_off()
+# Update the metadata to have the new shape (x and y and affine information)
+soap_lidar_meta.update({"driver": "GTiff",
+                 "height": lidar_chm_crop.shape[0],
+                 "width": lidar_chm_crop.shape[1],
+                 "transform": crop_affine})
 
+# generate an extent for the newly cropped object for plotting
+cr_ext = rio.transform.array_bounds(soap_lidar_meta['height'], 
+                                            soap_lidar_meta['width'], 
+                                            soap_lidar_meta['transform'])
+
+bound_order = [0,2,1,3]
+cr_extent = [cr_ext[b] for b in bound_order]
+cr_extent, crop_extent_soap.total_bounds
 ```
 
 {:.output}
-{:.display_data}
+{:.execute_result}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_16_0.png)
+
+
+    ([297349.0, 298062.0, 4101114.0, 4101115.0],
+     array([ 297349.82145413, 4100402.84616318,  297923.2856659 ,
+            4101114.9500745 ]))
+
 
 
 
 
 {:.input}
 ```python
-# Update the metadata to have the new shape (x and y and affine information)
-soap_lidar_meta.update({"driver": "GTiff",
-                 "height": lidar_chm_crop_ma.shape[0],
-                 "width": lidar_chm_crop_ma.shape[1],
-                 "transform": crop_affine})
+# mask the nodata and plot the newly cropped raster layer
+lidar_chm_crop_ma = np.ma.masked_equal(lidar_chm_crop[0], -9999.0) 
+fig, ax = plt.subplots(figsize = (8,8))
+ax.imshow(lidar_chm_crop_ma, extent = cr_extent)
+#crop_extent_soap.plot(ax=ax, alpha=.6, color='g');
+#ax.set_axis_off()
+
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    <matplotlib.image.AxesImage at 0x12c18fb38>
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_17_1.png)
+
+
+
+
+{:.input}
+```python
 
 # Save to disk so you can use the file later.
 path_out = "data/spatial-vector-lidar/outputs/soap_lidar_chm_crop.tif"
