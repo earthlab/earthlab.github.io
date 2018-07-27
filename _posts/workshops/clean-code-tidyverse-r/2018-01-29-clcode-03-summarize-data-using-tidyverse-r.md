@@ -16,7 +16,7 @@ author_profile: false
 comments: true
 order: 3
 topics:
-  reproducible-science-and-programming: ['literate expressive programming']
+  reproducible-science-and-programming: ['literate-expressive-programming']
 ---
 
 
