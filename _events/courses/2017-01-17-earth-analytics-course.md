@@ -13,7 +13,7 @@ header:
   caption:
 excerpt: 'Earth Analytics Spring 2017 - Fuse Data Science Skills with Earth System Science Knowledge.'
 sidebar:
-  nav: earth-analytics-2017
+  nav:
 startTime: '3:00'
 endTime: '17:50'
 sitemap: false
