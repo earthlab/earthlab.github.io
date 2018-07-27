@@ -8,7 +8,7 @@ modified: '2016-01-01'
 nav-title: 'Instructor Notes'
 module: ['intro-open-science']
 module-type: 'workshop'
-permalink: /courses/open-science-instructor-notes/
+permalink: /workshops/open-science-instructor-notes/
 sidebar:
   nav:
 author_profile: false
@@ -134,7 +134,7 @@ There are more issues with the repo that participants will find.
 
 
 ## About This Lesson
-This lesson was originally taught as part of the [NEON Data Institute 2016](http://neon-workwithdata.github.io/neon-data-institute-2016/) by
+This lesson was originally taught as part of the NEON Data Institute 2016 by
 [Naupaka Zimmerman](https://github.com/naupaka). The data and files are
 for the most part derived from various NEON remote sensing data
 products from the D17 California field sites.
