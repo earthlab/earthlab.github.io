@@ -14,7 +14,7 @@ nav-title: 'Get Started with Clean Code'
 sidebar:
   nav:
 module: "clean-coding-tidyverse-intro"
-permalink: /courses/clean-coding-tidyverse-intro/importance-of-clean-code/
+permalink: /workshops/clean-coding-tidyverse-intro/importance-of-clean-code/
 author_profile: false
 comments: true
 order: 2
