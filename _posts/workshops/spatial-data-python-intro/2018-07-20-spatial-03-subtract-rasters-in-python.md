@@ -3,8 +3,8 @@ layout: single
 category: [courses]
 title: "Subtract Raster Data in Python Using Numpy and Rasterio"
 excerpt: "Sometimes you need to manipulate multiple rasters to create a new raster output data set in Python. Learn how to create a CHM by subtracting an elevation raster dataset from a surface model dataset in Python."
-authors: ['Leah Wasser', 'Joe McGlinchy']
-modified: 2018-07-18
+authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
+modified: 2018-07-19
 permalink: /workshops/gis-open-source-python/subtract-rasters-in-open-source-python/
 nav-title: 'Subtract Rasters / Raster Math'
 module-type: 'workshop'
@@ -33,7 +33,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and a working version of python version 3.x.
 Your instructors recommend the Python Anaconda distribution. 
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12459464){:data-proofer-ignore='' .btn }
 
 IYou will need a computer with internet access to complete this lesson. If you are following along online and not using our cloud environment:
 

@@ -4,8 +4,8 @@ title: "Open, Plot and Explore Lidar Data in Raster Format with Python"
 excerpt: "This lesson introduces the raster geotiff file format - which is often used
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
-authors: ['Leah Wasser', 'Joe McGlinchy']
-modified: 2018-07-18
+authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
+modified: 2018-07-19
 category: [courses]
 permalink: /workshops/gis-open-source-python/open-lidar-raster-python/
 nav-title: 'Open Raster Data Python'
@@ -35,13 +35,13 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12459464){:data-proofer-ignore='' .btn }
 
 You will need a computer with internet access to complete this lesson. If you are following along online and not using our cloud environment:
 
-[<i class="fa fa-download" aria-hidden="true"></i> Get data and software setup instructionshere]({{site.url}}/workshops/gis-open-source-python/){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Get data and software setup instructions here]({{site.url}}/workshops/gis-open-source-python/){:data-proofer-ignore='' .btn }
 
-You will need anaconda 3.x, git and bash to set things up.
+You will need the Python 3.x Anaconda distribution, git and bash to set things up.
 
 
 </div>
