@@ -1,0 +1,53 @@
+// Release Management in Susy
+// ==========================
+
+
+// Susy Version [variable]
+// -----------------------
+/// The current version of Susy being used.
+/// - We will release a major version for any BREAKING changes.
+/// - We will release a minor version for any significant NEW features.
+/// - We will release a patch for any BUGFIX changes.
+///
+/// @group _version
+/// @access private
+/// @since 3.0.1
+///
+/// @prop {integer} 'major' - the major release number
+/// @prop {integer} 'minor' - the minor release number
+/// @prop {integer} 'patch' - the patch number
+$_susy-version: (
+  'major': 3,
+  'minor': 0,
+  'patch': 5,
+);
+
+
+// Susy Version [function]
+// -----------------------
+/// Returns the current version of Susy
+/// as a string in the common `major.minor.patch` format –
+/// or returns one part (major | minor | patch) as a number
+/// for version comparisons.
+/// Since version numbers aren't actual decimals,
+/// there is no simple way to return the full version
+/// as a comparable number in Sass.
+///
+/// @group _version
+///
+/// @param {'major' | 'minor' | 'patch'} $part [null] -
+///   The part (major | minor | patch) to return as a number.
+///   Any other value will return the full version as a string.
+/// @example scss - Current Susy Version
+///   /* Full Version: #{susy-version()} */
+///   /* Major Release: #{susy-version('major')} */
+@function susy-version(
+  $part: null
+) {
+  $major: map-get($_susy-version, 'major');
+  $minor: map-get($_susy-version, 'minor');
+  $patch: map-get($_susy-version, 'patch');
+  $full: '#{$major}.#{$minor}.#{$patch}';
+
+  @return map-get($_susy-version, $part) or $full;
+}
