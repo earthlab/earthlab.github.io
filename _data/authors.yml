@@ -10,6 +10,9 @@
 - name: Data Carpentry
   slug: data-carpentry
   bio: ''
+- name: Jenny Palomino
+  slug: jenny-palomino
+  bio: 'Jenny is an earth data science course developer and instructor with the Earth Analytics Education Initiative at Earth Lab.'
 - name: Joe McGlinchy
   slug: joe-mcglinchy
   bio: 'Joe is a Remote Sensing Specialist with the Analytics Hub at Earth Lab.'
