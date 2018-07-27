@@ -51,8 +51,8 @@ Atmospheric conditions are what produces weather. The term refers to the physica
 Atmospheric conditions can be measured with ground-based or satellite observations. Ground measurements can include air temperature and heat indices, barometric pressure, humidity, precipitation, wind speed and direction, and solar radiation. There are several satellites that track atmospheric conditions, the most popular being the NOAA operated Geostationary Operational Environmental Satellite System.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/goes-satellite-data-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/goes-satellite-data-colorado-floods.jpg" alt = "GOES satellite imagery of the rain that caused the 2013 Colorado floods."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/goes-satellite-data-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/goes-satellite-data-colorado-floods.jpg" alt = "GOES satellite imagery of the rain that caused the 2013 Colorado floods."></a>
  <figcaption>This animated loop shows water vapor systems over the western area of North America during the Colorado floods, on September 12th, 2013, as recorded by the GOES-15 and GOES-13 satellites. Source: <a href="http://cimss.ssec.wisc.edu/goes/blog/archives/13876" target="_blank">Cooperative Institute for Meteorological Satellite Studies (CIMSS).</a>
  </figcaption>
 </figure>
@@ -95,8 +95,8 @@ The 2013 flood occurred right at the end of a severe drought in Colorado.
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/drought-dust-storm-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/drought-dust-storm-colorado-floods.jpg" alt = "MODIS satellite image of a dust storm caused by drought in Colorado"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/drought-dust-storm-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/drought-dust-storm-colorado-floods.jpg" alt = "MODIS satellite image of a dust storm caused by drought in Colorado"></a>
  <figcaption>This MODIS satellite image of the Colorado-Kansas border shows a massive dust storm during the 2013 drought in Colorado. The image was taken in January, several months prior to the Colorado floods, and shows how drought led to soil transport that exacerbated the impacts of the flooding. Source: <a href="https://earthobservatory.nasa.gov/IOTD/view.php?id=80164" target="_blank">NASA Earth Observatory.</a>
  </figcaption>
 </figure>
@@ -105,8 +105,8 @@ The 2013 flood occurred right at the end of a severe drought in Colorado.
 In a drought period, the top soil layers and the moisture-absorbing organic matter (generally plant and animal residues at various stages of decomposition) within them dry out. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/drought-soil-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/drought-soil-colorado-floods.jpg" alt = "Dry, compacted soil during a drought "></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/drought-soil-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/drought-soil-colorado-floods.jpg" alt = "Dry, compacted soil during a drought "></a>
  <figcaption>Dry, compacted soil during a drought. Source: <a href="https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_607_Effects_of_Drought_on_the_Soil.jpg" target="_blank">Wikipedia.</a>
  </figcaption>
 </figure>
@@ -115,8 +115,8 @@ In a drought period, the top soil layers and the moisture-absorbing organic matt
 Dry organic matter is less able to absorb moisture. It also can be easily relocated by wind, leaving only the harder less permeable earth beneath it. Some soil types, like clay, can dry out so much that they become almost as impermeable as pavement and unable to absorb water. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/soil-layers-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/soil-layers-colorado-floods.jpg" alt = "Soil layers diagram"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/soil-layers-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/soil-layers-colorado-floods.jpg" alt = "Soil layers diagram"></a>
  <figcaption>In this diagram of soils layers you can see the the organic and top soil layers that are often dried out during drought periods. Source:<a href="https://commons.wikimedia.org/wiki/File:Soil_Layers.jpg" target="_blank">Wikipedia.</a>
  </figcaption>
 </figure>

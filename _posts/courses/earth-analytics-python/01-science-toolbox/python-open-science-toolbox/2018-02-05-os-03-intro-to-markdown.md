@@ -53,8 +53,8 @@ Jupyter notebooks allow you to combine code and Markdown in one document. A Jupy
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/md-cell.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/md-cell.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png"></a>
  <figcaption> Jupyter Notebook with a markdown cell.
  </figcaption>
 </figure>

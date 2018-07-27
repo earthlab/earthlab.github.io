@@ -14,65 +14,70 @@ module-type: 'session'
 ---
 {% include toc title="This Week" icon="file-text" %}
 
-
 <div class="notice--info" markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week One!
 
-Welcome to week one of Earth Analytics! In week 1 we will explore data together
+Welcome to week one of Earth Analytics Python! In week 1 we will explore data together
 in class related to the 2013 Colorado Floods. In your homework, you will set up
-`Python` and `Jupyter Notebook` on your laptop and learn how to create an Jupyter Notebook
-document and convert it to an .html. 
+`Python` and `Jupyter Notebook` on your laptop and learn how to create a `Jupyter Notebook`
+document and convert it to an `.html`. 
 
 <a class="btn btn-info btn--x-large" href="{{ site.url }}/slide-shows/4-earth-analytics-spring-2017-intro/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i> View course overview slideshow
 </a>
 
+<!--
 <a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1EY9vxr3bAi81xfuIcNvjMRQqbSkXc9qoau0Pn3cahLQ/edit" target= "_blank"> View climate change google doc
 </a>
 <a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1XuPS0oHh6lRo47sQ4XB-WSWvRQBoS2HWksNc6v_JSic/edit#
 " target= "_blank"> View FLOODING change google doc
 </a>
-
+-->
 
 </div>
 
 ## <i class="fa fa-pencil"></i> Homework Week 1
 
-### 1. Readings
+As a part of the homework for week one, do the following.
+
+### 1. Read the Following Articles On Reproducible Science
 
 * <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7" target="_blank">Five selfish reasons to work reproducibly - Florian Markowetz</a>
 * <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002303" target="_blank"> Computing Workflows for Biologists: A Roadmap</a>
-* <a href="http://science.sciencemag.org/content/330/6006/916" target="_blank">Earth System Science for Global Sustainability: Grand Challenges (read the full article)</a>
 
 
-### 2. Watch flood video
-First, watch this video to learn more about the 2013 Colorado floods and some
-of the data that can be used to better understand the drivers and impacts of those
-floods.
+### 2. Watch A Short Video On the 2013 Floods
+
+This 4 minute video will help you understand what happened during the 2013
+floods in Colorado. It will also help you understand the data that we will use in 
+this class as it relates to the floods.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IHIckvWhwoo" frameborder="0" allowfullscreen></iframe>
 
-#### Before / after google earth fly through
+#### Before / After Google Earth Fly Through
+
+This 40 second video shows imagery collected before and after the 2013 floods in the Lee Hill Road, Boulder area.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/bUcWERTM-OA?rel=0&loop=1" frameborder="0" allowfullscreen></iframe>
 
-### 3. Review open science slide show
-Note: these were also linked in the lessons below.
+### 3. Review Open Science Slides
+
+These slides provide and overview of open science. Some of this will be a review from what was covered in the Earth Analytics Bootcamp course that you took in the summer.
 
 <a class="btn btn-info" href="{{ site.url }}/slide-shows/share-publish-archive/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i>
 View Slideshow: Share, Publish & Archive Code & Data</a>
 
 ### 4. Review lessons
-The second part of your homework assignment is to review the homework lessons (see links
+
+The last part of your homework assignment is to review the homework lessons (see links
 on the left hand side of this page).
 Following the lessons, setup `Python`, `Jupyter Notebook` and a
 `working directory` that will contain the data we will use for week one and the
 rest of the semester on your laptop.
 
 Once everything is setup, complete the second set of lessons which walk you
-through creating R markdown documents and knitting them to `.html` format. If you
-already are familiar with `Jupyter Notebooks`, be sure to review the lessons anyway - particularly
-the ones about file organization and why we use this workflow in science.
+through creating and working with `Jupyter Notebooks` and exporting them to `.html` format. Some of these lessons 
+will be review from the Earth Analytics Bootcamp course. 
 
 <i class="fa fa-star" aria-hidden="true"></i> **Important:** Review
 ALL of the lessons and have your computer setup BEFORE class begins next week.
@@ -81,8 +86,8 @@ You will be behind if these things are not setup / complete before week 2.
 
 ### 5. Complete assignment below
 
-After you have reviewed the lessons above, complete the assignment below.
-Submit your `.html` document and `.ipynb` document to the D2L course drop box
+After you have complete the tasks above, complete the assignment below.
+Submit your `.html` document and `.ipynb` document to Canvas
 by **Wed 25 January 2017 at NOON Mountain Time.**
 
 <!-- start homework activity -->
@@ -154,8 +159,8 @@ plt.show()
 /images/python-screenshots/hw/hw-01-ex-nb.png
 
 <figure>
-<a href="/images/courses/earth-analytics-python/python-interface/hw01-simple-plot.png">
-<img src="/images/courses/earth-analytics-python/python-interface/hw01-simple-plot.png" alt="example plot.">
+<a href="/images/courses/earth-analytics/python-interface/hw01-simple-plot.png">
+<img src="/images/courses/earth-analytics/python-interface/hw01-simple-plot.png" alt="example plot.">
 </a>
 <figcaption>
 If your code ran properly, the resulting plot should look like this one.
@@ -163,8 +168,8 @@ If your code ran properly, the resulting plot should look like this one.
 </figure>
 
 <figure>
-<a href="/images/courses/earth-analytics-python/python-interface/hw-01-ex-nb.png">
-<img src="/images/courses/earth-analytics-python/python-interface/hw-01-ex-nb.png" alt="Jupyter Notebook example image.">
+<a href="/images/courses/earth-analytics/python-interface/hw-01-ex-nb.png">
+<img src="/images/courses/earth-analytics/python-interface/hw-01-ex-nb.png" alt="Jupyter Notebook example image.">
 </a>
 <figcaption>
 Your Jupyter Notebook should look something like the one above (with your own text
@@ -202,8 +207,8 @@ is called something different. Is there a `data` directory within the earth-anal
 directory?
 
 <figure>
-<a href="/images/courses/earth-analytics-python/python-interface/working-dir-os.png">
-<img src="/images/courses/earth-analytics-python/python-interface/working-dir-os.png" alt="data directory example image.">
+<a href="/images/courses/earth-analytics/python-interface/working-dir-os.png">
+<img src="/images/courses/earth-analytics/python-interface/working-dir-os.png" alt="data directory example image.">
 </a>
 <figcaption>
 Your working directory should contain a `/data` directory.

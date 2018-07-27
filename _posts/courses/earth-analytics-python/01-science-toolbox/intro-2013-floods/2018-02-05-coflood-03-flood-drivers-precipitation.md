@@ -45,8 +45,8 @@ This is a reading to provide background on the 2013 flood events. You do not nee
 Precipitation refers to moisture from the condensation of atmospheric water vapor that falls to the ground. The term precipitation can refer to rain, snow and even hail. While rainfall is the most common driver of flood events, ice and snow melt can also cause or exacerbate them.
  
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/big-thompson-creek-road-destruction-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/big-thompson-creek-road-destruction-colorado-floods.jpg" alt = "Big Thompson River during the Colorado floods"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/big-thompson-creek-road-destruction-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/big-thompson-creek-road-destruction-colorado-floods.jpg" alt = "Big Thompson River during the Colorado floods"></a>
  <figcaption> The Big Thompson River rages in Larimer County, Colorado during the 2013 Colorado floods. Source:<a href="https://www.denverpost.com/2015/09/12/two-years-later-2013-colorado-floods-remain-a-nightmare-for-some/" target="_blank">The Denver Post.</a>
  </figcaption>
 </figure>
@@ -58,8 +58,8 @@ Precipitation refers to moisture from the condensation of atmospheric water vapo
 Rainfall is reported as the total amount of rain (millimeters, centimeters, or inches) over a given area per period of time. Various types of gauges can be used to measure precipitation. They are often as simple as a small plastic cylinder with vertical ticks that collects water. These precipitation gauges can be manually checked. In some cases there are automated systems in place that will record precipitation over time. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/standard-rain-gauge-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/standard-rain-gauge-colorado-floods.jpg" alt = "Rain gage"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/standard-rain-gauge-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/standard-rain-gauge-colorado-floods.jpg" alt = "Rain gage"></a>
  <figcaption>Image of a standard rain gage. Source:<a href="https://en.wikipedia.org/wiki/File:Rain_gauge_2525388751_4c05081862_b.jpg" target="_blank">Wikipedia.</a>
  </figcaption>
 </figure>
@@ -70,8 +70,8 @@ Rainfall is reported as the total amount of rain (millimeters, centimeters, or i
 Several US governmental organizations collect precipitation data. In this lesson, you will use data from the National Weather Service (NWS) Cooperative Observer Platform (COOP). This platform, which is operated by thousands of volunteer weather observers, consists of over 11,000 stations, about 5,000 of them measuring climate. These climate stations report 24 hour minimum and maximum temperature, liquid equivalent precipitation, snowfall, snow depth, and other weather metrics.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/map-of-coop-sites-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/map-of-coop-sites-colorado-floods.jpg" alt = "Map of US COOP sites"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/map-of-coop-sites-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/map-of-coop-sites-colorado-floods.jpg" alt = "Map of US COOP sites"></a>
  <figcaption>Map of US COOP sites. Source:<a href="https://www.weather.gov/coop/" target="_blank">National Weather Service.</a>
  </figcaption>
 </figure>
@@ -120,8 +120,8 @@ Stream discharge, or flow, is the volume of water that moves through a designate
 Stream discharge is calculated by multiplying the area of a cross section of the stream by the velocity.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/measure-stream-discharge-colorado-floods.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/measure-stream-discharge-colorado-floods.png" alt = "How to measure stream discharge"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/measure-stream-discharge-colorado-floods.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/measure-stream-discharge-colorado-floods.png" alt = "How to measure stream discharge"></a>
  <figcaption>Schematic of how to measure stream discharge. It is measured by multiplying the area of a cross-section of the stream by the velocity. Source:<a href="https://water.usgs.gov/edu/streamflow2.html" target="_blank">USGS.</a>
  </figcaption>
 </figure>

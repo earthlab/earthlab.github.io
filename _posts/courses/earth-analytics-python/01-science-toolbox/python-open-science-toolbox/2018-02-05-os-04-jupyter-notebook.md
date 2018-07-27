@@ -89,8 +89,8 @@ $ jupyter notebook
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/sample-jupyter-nb.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/sample-jupyter-nb.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/sample-jupyter-nb.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/sample-jupyter-nb.png"></a>
  <figcaption> Sample Jupyter Notebook from Jupyter documentation indicating the location of the toolbar, menu bar, cell in command mode, and kernel indicator. 
  </figcaption>
 </figure>
@@ -100,8 +100,8 @@ $ jupyter notebook
 When you first start the Jupyter Notebook server, your browser will open to the notebook dashboard. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/nb-dashboard.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/nb-dashboard.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/nb-dashboard.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/nb-dashboard.png"></a>
  <figcaption> Jupyter notebook dashboard with one notebook called week1 and a data folder
  </figcaption>
 </figure>
@@ -124,8 +124,8 @@ A jupyter notebook consists of a set of cells that can store text or code. You w
 * Code Cells: Allow you to write code. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/select-code-cell.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/select-code-cell.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/select-code-cell.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/select-code-cell.png"></a>
  <figcaption> You can change the type of any cell using the drop down. Cell type options including:  code, markdown, Raw NBConvert, and heading. There are also shortcut to enter the command mode to use shortcuts hit the esc key. After to change a cell to markdown hit the “m” key or to change a cell to code hit the “y” key. 
  </figcaption>
 </figure>
@@ -135,8 +135,8 @@ For a full list of keyboard shortcuts click the help button then the keyboard sh
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/help-jupyter.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/help-jupyter.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/help-jupyter.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/help-jupyter.png"></a>
  <figcaption> Jupyter Notebook help menu. 
  </figcaption>
 </figure>
@@ -146,15 +146,15 @@ For a full list of keyboard shortcuts click the help button then the keyboard sh
 A Jupyter notebook contain text written using the markdown syntax, in a cell that is specified for markdown. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/md-cell.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/md-cell.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png"></a>
  <figcaption> Jupyter Notebook with a non-rendered markdown cell. 
  </figcaption>
 </figure>
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/rendered-md-cell.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/rendered-md-cell.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/rendered-md-cell.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/rendered-md-cell.png"></a>
  <figcaption> Jupyter Notebook with a rendered markdown cell. 
  </figcaption>
 </figure>
@@ -167,8 +167,8 @@ A Jupyter notebook contain text written using the markdown syntax, in a cell tha
 You can add code to the code cells in Jupyter Notebooks. Code is written in code chunks. When you run the code in a cell, the code output displayed below. A cell can be run by hitting the run button or using a keyboard shortcut, as discussed in the next section.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/basic-code-cell.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/basic-code-cell.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/basic-code-cell.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/basic-code-cell.png"></a>
  <figcaption> Jupyter Notebook with a code cell that contains 4 + 5. When you run the code, the output is 9 and is displayed below the code cell. 
  </figcaption>
 </figure>

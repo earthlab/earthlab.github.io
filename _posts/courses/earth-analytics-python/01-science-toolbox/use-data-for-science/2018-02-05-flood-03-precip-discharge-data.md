@@ -51,8 +51,8 @@ In this lesson you will explore two of the  drivers of the flood and
 associated flood impacts. A **driver** is a cause of a disturbance events.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/document-your-science/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/document-your-science/intro-co-floods/N_St_Vrain_before_after_CreditBoulderCo.png" alt="North St Vrain before and after 2013 flood."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg" alt="North St Vrain before and after 2013 flood."></a>
  <figcaption> The St. Vrain River in Boulder County, CO after (left) and before
  (right) the 2013 flooding event.  Source: Boulder County via <a href="http://krcc.org/post/post-flood-planning-boulder-county" target="_blank"> KRCC</a>.
  </figcaption>

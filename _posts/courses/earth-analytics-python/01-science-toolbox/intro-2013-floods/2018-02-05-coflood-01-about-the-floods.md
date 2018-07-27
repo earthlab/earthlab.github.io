@@ -49,8 +49,8 @@ This is a reading to provide background on the 2013 flood events. You do not nee
 In early September 2013, a slow moving cold front moved through Colorado intersecting with a warm, humid front. The clash between the cold and warm fronts yielded heavy rain and devastating flooding across the Front Range of Colorado. Boulder County, Colorado, located where the Rocky Mountains meet the high plains, was impacted by this flood event. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/map-of-the-front-range-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/map-of-the-front-range-colorado-floods.jpg" alt = "Map of Boulder, Colorado and the Front Range."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/map-of-the-front-range-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/map-of-the-front-range-colorado-floods.jpg" alt = "Map of Boulder, Colorado and the Front Range."></a>
  <figcaption> You can see Boulder just northwest of Denver in this map of Colorado. The Front Range runs from Wyoming to Pueblo, Colorado. Source: <a href="https://commons.wikimedia.org/wiki/File:Colorado_ref_2001.jpg" target="_blank">Wikipedia.</a>
  </figcaption>
 </figure>
@@ -60,8 +60,8 @@ In early September 2013, a slow moving cold front moved through Colorado interse
 A flood is when water inundates normally dry land. Scientists (ecologists) often refer to floods as disturbance events. A disturbance event is a temporary change in environmental conditions that causes a large change to an ecosystem. Fires, earthquakes, tsunamis, air pollution, and human development are all examples of disturbance events. While floods and other disturbance events can happen in the span of a few minutes or days, their ecological impacts can last for decades or even longer. Other scientists may refer to floods as extreme events or even hazards.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/broomfield-destruction-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/broomfield-destruction-colorado-floods.jpg" alt = "Vehicles destroyed by Colorado floods"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/broomfield-destruction-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/broomfield-destruction-colorado-floods.jpg" alt = "Vehicles destroyed by Colorado floods"></a>
  <figcaption>Vehicles lay submerged in a creek in Broomfield, Colorado. Source: <a href="https://www.denverpost.com/2015/09/12/two-years-later-2013-colorado-floods-remain-a-nightmare-for-some/" target="_blank">The Denver Post.</a>
  </figcaption>
 </figure>
@@ -70,8 +70,8 @@ A flood is when water inundates normally dry land. Scientists (ecologists) often
 ## A History of Floods in Colorado
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg" alt = "The St. Vrain River before and after the Colorado floods"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg" alt = "The St. Vrain River before and after the Colorado floods"></a>
  <figcaption>Aerial image of the St. Vrain River in Boulder County, Colorado before (right) and after (left) the 2013 Colorado floods. Notice how the flood caused the flow path of the river to entirely shift in less than five days. This change in river flow impacted plants, animals, and humans. Source: <a href="http://krcc.org/post/post-flood-planning-boulder-county" target="_blank">KRCC.</a>
  </figcaption>
 </figure>
@@ -80,8 +80,8 @@ A flood is when water inundates normally dry land. Scientists (ecologists) often
 Boulder County, and Colorado in general, are susceptible to both flash floods and river floods. Flash floods, like the 2013 Colorado floods, are sudden and intense increases in streamflow, usually due to extreme weather. River floods occur more slowly and are more predictable. The 2013 floods are classified as a “100 year flood.” This means that a flood of their magnitude has a 1% chance of occurring each year. The first major flood reported in Boulder occurred in 1894 and was also a 100 year flood. Boulder’s first non-native settlers came in 1858, so many unreported floods likely occurred prior to that one.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/boulder-100-year-floodplain-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/boulder-100-year-floodplain-colorado-floods.jpg" alt = "The 100-year floodplain in Boulder"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/boulder-100-year-floodplain-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/boulder-100-year-floodplain-colorado-floods.jpg" alt = "The 100-year floodplain in Boulder"></a>
  <figcaption>The 100-year floodplain in Boulder. Source: <a href="http://floodsafety.com/media/maps/colorado/Boulder/index.htm" target="_blank">Floodsafety.com.</a>
  </figcaption>
 </figure>

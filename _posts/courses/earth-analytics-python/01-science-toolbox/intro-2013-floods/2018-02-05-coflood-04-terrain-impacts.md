@@ -51,8 +51,8 @@ Aerial imagery video of Lee Hill, near Boulder, CO, before and after the 2013 fl
 Last week you used Google Earth before and after imagery to view differences in the landscape in Boulder prior to and following the flood. In that exercise you were able to see areas where roads and buildings were lost, where mudslides occurred, and more. In the following weeks, you will use Light Detection and Ranging (lidar) data to understand changes in terrain that occur during a flood. LiDAR data can be used to measure changes in elevation over time.
  
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/jamestown-home-destroyed-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/jamestown-home-destroyed-colorado-floods.jpg" alt = "Home destroyed by Colorado floods."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/jamestown-home-destroyed-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/jamestown-home-destroyed-colorado-floods.jpg" alt = "Home destroyed by Colorado floods."></a>
  <figcaption>An emotional couple looks on at a home destroyed by the floods near Jamestown, Colorado. Source:<a href="https://www.denverpost.com/2015/09/12/two-years-later-2013-colorado-floods-remain-a-nightmare-for-some/" target="_blank">The Denver Post.</a>
  </figcaption>
 </figure>
@@ -143,8 +143,8 @@ CAPTION: A DoD for Four Mile Canyon Creek in Boulder County, Colorado created wi
 Below is a cross-section showing the data represented by a DoD. The orange areas are where the earth's surface is lower than before and the teal areas are where the earth's surface is higher than before.
  
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg" alt = "Cross section of DoD."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg" alt = "Cross section of DoD."></a>
  <figcaption>A cross section of what is represented in a DoD. Source:<a href="http://neondataskills.org/teaching-modules/disturb-events-co13/detailed-lesson" target="_blank">NEON.</a>
  </figcaption>
 </figure>

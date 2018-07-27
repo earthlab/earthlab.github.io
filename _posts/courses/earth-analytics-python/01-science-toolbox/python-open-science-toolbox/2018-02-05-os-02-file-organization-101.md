@@ -63,8 +63,8 @@ Your goal when structuring a project directory is to use a naming convention tha
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/file-naming.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/file-naming.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/file-naming.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/file-naming.png"></a>
  <figcaption> Compare the list of file names on the LEFT to those on the right which ones are easier to quickly understand? Source: Jenny Bryan, Reproducible Science Curriculum.
  </figcaption>
 </figure>

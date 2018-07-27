@@ -183,8 +183,8 @@ numpy.sin(0)
 ```
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/import-package.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/import-package.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/import-package.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/import-package.png"></a>
  <figcaption> Jupyter Notebook with a rendered markdown cell. 
  </figcaption>
 </figure>
@@ -195,8 +195,8 @@ It is good practice to import all of the packages that you will need to run code
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/import_packages-first-cell.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/import_packages-first-cell.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/import_packages-first-cell.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/import_packages-first-cell.png"></a>
  <figcaption> Jupyter Notebook with the first cell importing the package numpy to be used with the abbreviations.
  </figcaption>
 </figure>
@@ -206,8 +206,8 @@ Once you have imported all of the packages that you need in your code, you have 
 np.() And hit the tab key and then a list of callable functions will appear. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/tab-complete.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/tab-complete.png"></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/tab-complete.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/tab-complete.png"></a>
  <figcaption> Jupyter Notebook with the first cell importing the package numpy to be used with the abbreviations.
  </figcaption>
 </figure>
