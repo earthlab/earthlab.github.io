@@ -11,7 +11,7 @@ nav-title: 'Challenge Yourself'
 sidebar:
   nav:
 module: "clean-coding-tidyverse-intro"
-permalink: /courses/clean-coding-tidyverse-intro/tidyverse-clean-code-challenges-r/
+permalink: /workshops/clean-coding-tidyverse-intro/tidyverse-clean-code-challenges-r/
 author_profile: false
 comments: true
 order: 6
