@@ -7,7 +7,7 @@ nav-title: "Course Home Page"
 permalink: /courses/earth-analytics/
 course: "earth-analytics"
 module-type: 'overview'
-module-title: "Earth Analytics Course"
+module-title: "Earth Analytics R Course"
 week-landing: 0
 week: 0
 sidebar:
