@@ -3,7 +3,7 @@ layout: single
 title: "Use Tidyverse Pipes to Subset Time Series Data in R"
 excerpt: "Learn how to extract and plot data by a range of dates using pipes in R."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/subset-time-series-data-in-r/
@@ -334,11 +334,6 @@ ggplot(data = boulder_daily_precip, aes(DATE, DAILY_PRECIP)) +
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R02-subset-time-series-data-R/plot-with-title-and-theme-1.png" title="plot with titles and labels black and white" alt="plot with titles and labels black and white" width="90%" />
-
-
-<i fa fa-star></i>**Data Tip:** For a more thorough review of date/time classes, see the NEON tutorial
-<a href="http://www.neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing With Dates & Times in R - as.Date, POSIXct, POSIXlt*</a>.
-{: .notice--success}
 
 
 <div class="notice--warning" markdown="1">

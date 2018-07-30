@@ -3,7 +3,7 @@ layout: single
 title: "Coordinate Reference System and Spatial Projection"
 excerpt: "Coordinate reference systems are used to convert locations on the earth which is round, to a two dimensional (flat) map. Learn about the differences between coordinate reference systems."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-to-coordinate-reference-systems/
@@ -535,7 +535,6 @@ in the next lesson.
 * Read more on coordinate systems in the
 <a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" data-proofer-ignore=''>
 QGIS documentation</a>
-* <a href="http://neondataskills.org/GIS-spatial-data/Working-With-Rasters/" target="_blank">The Relationship Between Raster Resolution, Spatial extent & Number of Pixels - in R - NEON</a>
 * For more on types of projections, visit
 <a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Datums/003r00000008000000/" target="_blank"> ESRI's ArcGIS reference on projection types</a>.
 * Read more about <a href="https://source.opennews.org/en-US/learning/choosing-right-map-projection/" target="_blank"> choosing a projection/datum</a>
