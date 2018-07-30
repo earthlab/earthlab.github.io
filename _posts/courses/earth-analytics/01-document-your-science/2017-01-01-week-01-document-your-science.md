@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Document Your Science Using R Markdown and R"
 permalink: /courses/earth-analytics/document-your-science/
-modified: '2018-01-10'
+modified: '2018-07-30'
 week-landing: 1
 week: 1
 sidebar:
@@ -142,6 +142,7 @@ yet, use `ggplot2`!
 </div>
 
 
+
 ```r
 
 # load the ggplot2 library for plotting
@@ -162,29 +163,38 @@ boulder_precip <- read.csv(file="data/boulder-precip.csv")
 
 # view first few rows of the data
 head(boulder_precip)
+##     X       DATE PRECIP
+## 1 756 2013-08-21    0.1
+## 2 757 2013-08-26    0.1
+## 3 758 2013-08-27    0.1
+## 4 759 2013-09-01    0.0
+## 5 760 2013-09-09    0.1
+## 6 761 2013-09-10    1.0
 
 # when you download the data you create a `data.frame`
 # view each column of the data frame using it's name (or header)
 boulder_precip$DATE
+##  [1] "2013-08-21" "2013-08-26" "2013-08-27" "2013-09-01" "2013-09-09"
+##  [6] "2013-09-10" "2013-09-11" "2013-09-12" "2013-09-13" "2013-09-15"
+## [11] "2013-09-16" "2013-09-22" "2013-09-23" "2013-09-27" "2013-09-28"
+## [16] "2013-10-01" "2013-10-04" "2013-10-11"
 
 # view the precip column
 boulder_precip$PRECIP
+##  [1] 0.1 0.1 0.1 0.0 0.1 1.0 2.3 9.8 1.9 1.4 0.4 0.1 0.3 0.3 0.1 0.0 0.9
+## [18] 0.1
 
 # qplot stands for quick plot. It is a function in the ggplot2 library.
 # Let's use it to plot our data
 qplot(x=boulder_precip$DATE,
       y=boulder_precip$PRECIP)
-
 ```
 
-<figure class="half">
-<a href="/images/rfigs/courses/earth-analytics/01-document-your-science/intro-knitr-rmd/2016-12-06-Rmd05-knitr/render-plot-1.png">
-<img src="/images/rfigs/courses/earth-analytics/01-document-your-science/intro-knitr-rmd/2016-12-06-Rmd05-knitr/render-plot-1.png" alt="example of the plot">
-</a>
-<figcaption>
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/2017-01-01-week-01-document-your-science/student-example-code-1.png" title="Plot of precip over time that a student should see as output after running code." alt="Plot of precip over time that a student should see as output after running code." width="90%" />
+
+
 If your code ran properly, the plot output should look like the image above.
-</figcaption>
-</figure>
+
 
 
 <figure>
