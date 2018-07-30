@@ -113,7 +113,7 @@ from including:
 * and more
 
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data tip** While some `R` packages are just fine to use. Keep in mind that not all `R` packages are secure. <a href="https://ropensci.org/blog/blog/2017/07/25/notary" target="_blank">Learn more. </a>
+<i class="fa fa-star" aria-hidden="true"></i>**Data tip** While some `R` packages are just fine to use. Keep in mind that not all `R` packages are secure. <a href="https://ropensci.org/blog/2017/07/25/notary" target="_blank">Learn more. </a>
 {: .notice--success }
 
 ### Advanced - Install Multiple Packages at Once
