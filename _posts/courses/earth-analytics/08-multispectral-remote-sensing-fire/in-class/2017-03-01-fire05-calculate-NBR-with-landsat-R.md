@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) from Landsat Remote Sensing Data in R"
 excerpt: "In this lesson you review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. You finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/calculate-dNBR-R-Landsat/
@@ -45,7 +45,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 7 - 9 of the course.
 
-{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 As discussed in the previous lesson, you can use dNBR to map the extent and
@@ -72,6 +72,7 @@ First, let's setup your spatial packages.
 library(raster)
 library(rgdal)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 library(RColorBrewer)
 library(dplyr)
 # turn off factors
@@ -180,7 +181,7 @@ plot(landsat_nbr_diff,
 
 When you have calculated dNBR or the difference in NBR pre minus post fire,
 classify the output raster using the `classify()` function and the classes below.
-You learned how to classify rasters in the [{{ site.url }}/courses/earth-analytics/lidar-raster-data-r/classify-raster/](week 3 lidar lessons)
+You learned how to classify rasters in the [Earth Analytics lidar lessons]({{ site.url }}/courses/earth-analytics/lidar-raster-data-r/classify-raster/)
 
 | SEVERITY LEVEL  | | dNBR RANGE |
 |------------------------------|
