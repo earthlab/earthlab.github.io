@@ -186,8 +186,8 @@ boulder_precip$PRECIP
 
 # qplot stands for quick plot. It is a function in the ggplot2 library.
 # Let's use it to plot our data
-qplot(x=boulder_precip$DATE,
-      y=boulder_precip$PRECIP)
+qplot(x = boulder_precip$DATE,
+      y = boulder_precip$PRECIP)
 ```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/2017-01-01-week-01-document-your-science/student-example-code-1.png" title="Plot of precip over time that a student should see as output after running code." alt="Plot of precip over time that a student should see as output after running code." width="90%" />
