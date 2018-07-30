@@ -108,8 +108,8 @@ across a region. Lidar directly measures the height and density of vegetation
 scientists studying vegetation over large areas.
 
 <figure class="half">
-<img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-vs-passive.gif" alt="passive remote sensing">
-<img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-rs.gif" alt="active remote sensing">
+<img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-vs-passive.png" alt="passive remote sensing">
+<img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-rs.png" alt="active remote sensing">
    <figcaption>LEFT: Remote sensing systems that measure energy that is naturally
    available are called passive sensors. RIGHT: Active sensors emit their own
    energy from a source on the instrument itself. Source:
