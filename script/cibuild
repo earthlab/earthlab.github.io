@@ -7,8 +7,7 @@ sed -i -e 's/"http:\/\/earthdatascience.org"/#"http:\/\/earthdatascience.org"/g'
 
 # build the site with that url
 bundle exec jekyll build --config _config-dev.yml
-bundle exec htmlproofer ./_site --file-ignore /example-leaflet-maps/
+bundle exec htmlproofer ./_site --file-ignore /example-leaflet-maps/ --http-status-ignore "301"
 
 # remove dev config file
 rm _config-dev.yml
-
