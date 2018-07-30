@@ -1,0 +1,11 @@
+{
+  "name": "susy",
+  "description": "Sass power-tools for web layout.",
+  "tags": [
+    "layout",
+    "grid",
+    "responsive",
+    "rwd",
+    "semantic"
+ ]
+}

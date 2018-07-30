@@ -33,7 +33,7 @@ At the end of this week you will be able to:
 * Use the Landsat file naming convention to determine correct band combinations for plotting and calculating NDVI.
 * Define additive color model.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
 
 
 </div>

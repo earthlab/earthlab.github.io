@@ -6,7 +6,7 @@ title: 'Install & Use Packages in R'
 attribution: 'These materials were adapted from Software Carpentry materials by Earth Lab.'
 excerpt: 'Learn what a package is in R and how to install packages to work with your data.'
 dateCreated: 2016-12-12
-modified: '2018-01-10'
+modified: '2018-07-30'
 nav-title: 'Install packages'
 week: 1
 sidebar:
@@ -113,7 +113,7 @@ from including:
 * and more
 
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data tip** While some `R` packages are just fine to use. Keep in mind that not all `R` packages are secure. <a href="https://ropensci.org/blog/blog/2017/07/25/notary" target="_blank">Learn more. </a>
+<i class="fa fa-star" aria-hidden="true"></i>**Data tip** While some `R` packages are just fine to use. Keep in mind that not all `R` packages are secure. <a href="https://ropensci.org/blog/2017/07/25/notary" target="_blank">Learn more. </a>
 {: .notice--success }
 
 ### Advanced - Install Multiple Packages at Once

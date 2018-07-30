@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/open-lidar-raster-r/
@@ -220,8 +220,8 @@ Next, let's discuss spatial extent. The spatial extent of a raster or spatial
 object is the geographic area that the raster data covers.
 
 <figure>
-    <a href="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/raster-spatial-extent-coordinates.png">
-    <img src="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which you will learn next week.
+    <a href="{{ site.baseurl}}/images/courses/earth-analytics/raster-data/raster-spatial-extent-coordinates.png">
+    <img src="{{ site.baseurl}}/images/courses/earth-analytics/raster-data/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which you will learn next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
     Thus, if the data are not rectangular (i.e. points OR an image that is rotated
     in some way) the spatial extent covers portions of the dataset where there are no data.
@@ -311,7 +311,7 @@ data. You will learn them in more detail during the semester!
 ### About Coordinate Reference Systems
 
 * <a href="http://spatialreference.org/ref/epsg/" target="_blank"> A comprehensive online library of CRS information.</a>
-* <a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank">QGIS Documentation - CRS Overview.</a>
+* <a href="https://docs.qgis.org/2.8/en/docs/gentle_gis_introduction/coordinate_reference_systems.html?highlight=coordinate%20reference%20system" target="_blank">QGIS Documentation - CRS Overview.</a>
 * <a href="https://source.opennews.org/en-US/learning/choosing-right-map-projection/" target="_blank">Choosing the Right Map Projection.</a>
 * <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank"> NCEAS Overview of CRS in R.</a>
 
