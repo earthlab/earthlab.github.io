@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Pre-Course Checklist
-modified: 2018-07-27
+modified: 2018-07-30
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-checklist/
 author_profile: no
