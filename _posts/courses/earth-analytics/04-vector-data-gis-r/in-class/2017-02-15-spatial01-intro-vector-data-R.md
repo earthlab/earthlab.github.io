@@ -4,7 +4,7 @@ title: "GIS in R: Intro to Vector Format Spatial Data - Points, Lines and Polygo
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in R. "
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/intro-vector-data-r/
@@ -111,10 +111,6 @@ You will use the `rgdal` package to work with vector data in `R`. Notice that th
 # work with spatial data; sp package will load with rgdal.
 library(rgdal)
 library(rgeos)
-## rgeos version: 0.3-25, (SVN revision 555)
-##  GEOS runtime version: 3.6.1-CAPI-1.10.1 r0 
-##  Linking to sp version: 1.2-5 
-##  Polygon checking: TRUE
 # for metadata/attributes- vectors or rasters
 library(raster)
 
@@ -152,7 +148,7 @@ Both ways to open a shapefile are demonstrated below:
 sjer_plot_locations <- readOGR(dsn = "data/week-04/california/SJER/vector_data",
                                "SJER_plot_centroids")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week-04/california/SJER/vector_data", layer: "SJER_plot_centroids"
+## Source: "/Users/lewa8222/Dropbox/earth-analytics/data/week-04/california/SJER/vector_data", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 
@@ -173,12 +169,6 @@ information about the data. You are particularly interested in the geospatial
 **metadata**, describing the format, `CRS`, `extent`, and other components of
 the vector data, and the **attributes** which describe properties associated
 with each individual vector object.
-
- <i class="fa fa-star"></i> **Data Tip:** The
- [Shapefile Metadata & Attributes in R](http://www.neondataskills.org/R/shapefile-attributes-in-R/)
-tutorial provides more information on both metadata and attributes
-and using attributes to subset and plot data.
-{: .notice--success}
 
 ## Spatial Metadata
 Key metadata for all shapefiles include:
