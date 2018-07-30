@@ -28,7 +28,6 @@ redirect_from:
 
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -189,16 +188,17 @@ should you use to calculate NBR using MODIS?
 1. Import the prefire raster
 
 
-```
-## Error in library(rgeos): there is no package called 'rgeos'
-```
 
+
+
+```
+## OGR data source with driver: ESRI Shapefile 
+## Source: "/Users/lewa8222/Dropbox/earth-analytics/data/week-07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp", layer: "co_cold_springs_20160711_2200_dd83"
+## with 1 features
+## It has 21 fields
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="Post fire landsat derived NBR plot" alt="Post fire landsat derived NBR plot" width="90%" />
-
-```
-## Error in plot(fire_boundary_utm, add = TRUE): object 'fire_boundary_utm' not found
-```
 
 
 

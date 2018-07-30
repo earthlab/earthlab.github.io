@@ -29,7 +29,6 @@ redirect_from:
 
 ---
 
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -72,7 +71,6 @@ First, let's setup your spatial packages.
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(RColorBrewer)
 library(dplyr)
 # turn off factors
