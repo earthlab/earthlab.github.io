@@ -49,7 +49,7 @@ You will need a web browser to play the video and review the slides in this less
 
 First, watch a short video to learn more about the importance of reproducibility and the current reproducibility "crisis" in science.  
 
-<a href="https://www.youtube.com/watch?v=NGFO0kdbZmk&feature=youtu.be" target="_blank"><img src="http://img.youtube.com/vi/NGFO0kdbZmk/0.jpg" alt = "" width="560" height="315" border = "10" /></a>
+<a href="https://www.youtube.com/watch?v=NGFO0kdbZmk&feature=youtu.be" target="_blank"><img src="http://img.youtube.com/vi/NGFO0kdbZmk/0.jpg" alt="Reproducibility in Science" width="560" height="315" border = "10" /></a>
 
 
 ## Review Slides About Open Science Workflows
@@ -66,10 +66,11 @@ Open reproducible science results from open science workflows that allow you to 
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/open-science/workflow.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/open-science/workflow.png"></a>
- <figcaption> Max Joseph, Earth Lab at University of Colorado, Boulder. 
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/open-science/workflow.png" alt="Open Science Workflow"></a>
+ <figcaption> Open Science Workflow. Max Joseph, Earth Lab at University of Colorado, Boulder. 
  </figcaption>
 </figure>
+
 
 To implement open science workflows, you need tools that help you document and share various aspects of your workflow, such as the details of the data collection or your code for data analysis. 
 

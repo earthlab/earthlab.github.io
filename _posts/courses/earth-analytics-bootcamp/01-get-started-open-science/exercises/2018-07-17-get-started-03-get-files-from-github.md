@@ -122,7 +122,7 @@ On the main `Github.com` page of your forked repository, click on the green butt
 
 <figure>
     <a href="https://services.github.com/on-demand/images/gifs/github-cli/git-clone.gif">
-   <img src="https://services.github.com/on-demand/images/gifs/github-cli/git-clone.gif" alt="Git clone workflow"></a>
+   <img src="https://services.github.com/on-demand/images/gifs/github-cli/git-clone.gif" alt="Git Clone"></a>
    <figcaption>Copy the url of a Github repository on Github.com.
    </figcaption>
 </figure>

@@ -52,12 +52,13 @@ Today's lessons provide the information and files that you need to begin homewor
 
 ## <i class="fa fa-pencil"></i>  Begin Homework 1
 
+<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" target= "_blank"> <i class="fa fa-info-circle"></i>
+View Homework 1</a>
+
 <div class="notice--success" markdown="1">
 <i class="fa fa-star"></i> **Important:** Complete today's lessons and hands-on activities (listed above) BEFORE beginning Homework 1, as the necessary files for Homework 1 are downloaded in the hands-on lessons.
 </div>
 
 The first homework (Homework 1) is due **Friday, August 10th at 8:00 AM (U.S. Mountain Daylight Time)** and will be completed incrementally each day, starting today through Thursday. See <a href="https://www.timeanddate.com/worldclock/fixedtime.html?iso=20180810T08&p1=1243" target="_blank">this link</a>  to convert the due date/time to your local time.
 
-<a class="btn btn-info" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" target= "_blank"> <i class="fa fa-download" aria-hidden="true"></i>
-View Homework 1</a>
 
