@@ -15,8 +15,8 @@ spatial-data-and-gis:
 reproducible-science-and-programming:
   subtopics: ['RStudio', 'literate-expressive-programming','functions',
               'r-studio', 'automate-science-workflows', 'git', 'markdown',
-              'rmarkdown', 'data-management', 'version-control', 
-              'literate expressive programming', 'python']
+              'rmarkdown', 'data-management', 'version-control',
+              'literate expressive programming', 'python', 'shell']
 find-and-manage-data:
   subtopics: ['data-management', 'find-data', 'metadata', 'missing-data-nan', 'apis']
 file-formats:
