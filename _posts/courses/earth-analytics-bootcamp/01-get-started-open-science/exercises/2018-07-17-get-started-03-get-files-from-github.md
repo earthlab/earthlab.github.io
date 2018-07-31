@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/
 nav-title: "Get Files From GitHub"
 dateCreated: 2018-06-27
-modified: 2018-07-30
+modified: 2018-07-31
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -152,12 +152,16 @@ $ ls
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 
 
-Test your `Bash` and `Git`/`GitHub` skills to:
+Test your `Bash` and `Git`/`GitHub` skills to `fork`/`clone` the repository for Homework 1:
 
-1. Fork the `GitHub` repository for Homework 1 from <a href="https://github.com/earthlab-education/ea-bootcamp-hw-1" target="_blank">https://github.com/earthlab-education/ea-bootcamp-hw-1</a>.
+1. On Day 1 of the course, you will receive an email invitation to Homework 1 via `Github.com`.
 
-2. Clone your forked copy of the `ea-bootcamp-hw-1` repository to the `earth-analytics-bootcamp` directory on your computer (hint: `cd`, `git clone`).
+2. Accept the invitation, which will create a new private repository that includes your `Github.com` username in the name of the repository: `https://github.com/earthlab-education/ea-bootcamp-hw-1-yourusername`.
 
-3. Check that `ea-bootcamp-hw-1` has been successfully cloned to your computer (hint: `ls`).
+3. `Fork` this repository to your `GitHub account`. Your forked repository will be available on `https://github.com/yourusername/ea-bootcamp-hw-1-yourusername`.
+
+4. Clone your forked repository `ea-bootcamp-hw-1-yourusername` to the `earth-analytics-bootcamp` directory on your computer (hint: `cd`, `git clone`).
+
+5. Check that `ea-bootcamp-hw-1-yourusername` has been successfully cloned to your computer (hint: `ls`).
 
 </div>
