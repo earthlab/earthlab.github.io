@@ -3,7 +3,7 @@ layout: single
 title: "GIS With R: Projected vs Geographic Coordinate Reference Systems"
 excerpt: "Geographic coordinate reference systems are often used to make maps of the world. Projected coordinate reference systems are use to optimize spatial analysis for a region. Learn about WGS84 and UTM Coordinate Reference Systems as used in R."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['class-intro-spatial-r']
 permalink: /courses/earth-analytics/spatial-data-r/geographic-vs-projected-coordinate-reference-systems-UTM/
@@ -187,8 +187,8 @@ the UTM zone, to avoid negative Easting numbers.
 
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-UTM-zones.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-UTM-zones.jpg" alt="Nasa image showing the UTM x and y zones">
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-utm-zones.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-utm-zones.jpg" alt="Nasa image showing the UTM x and y zones">
     </a>
     <figcaption>The gridded UTM coordinate system across the globe.
     Source: NASA Earth Observatory</figcaption>

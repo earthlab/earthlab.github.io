@@ -254,14 +254,6 @@ and other infrastructure. Some lidar data will be classified according to the
 vegetation type.
 
 
-<figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
-   <figcaption>Cross section showing lidar point cloud data (above) and the
-   corresponding landscape profile (below). Graphic: Leah A. Wasser.
-   </figcaption>
-</figure>
-
 ## What is a Data Product?
 
 A data product is the data that are DERIVED from an instrument, or information
