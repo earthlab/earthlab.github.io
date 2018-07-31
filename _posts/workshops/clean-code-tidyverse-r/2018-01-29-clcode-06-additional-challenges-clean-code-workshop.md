@@ -35,7 +35,7 @@ lessons.
 
 Follow the setup instructions here:
 
-* [Setup instructions]({{ site.url }}/courses/clean-code-tidyverse-r/)
+* [Setup instructions]({{ site.url }}/workshops/clean-coding-tidyverse-intro/)
 
 </div>
 

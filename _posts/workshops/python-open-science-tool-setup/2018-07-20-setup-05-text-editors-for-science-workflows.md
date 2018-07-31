@@ -4,7 +4,7 @@ category: courses
 title: 'Text Editors for the Command Line and Scientific Programming'
 excerpt: 'Text editors can be used to edit code and for commit messages in git. Learn about features to look for in a text editor and how to change your default text editor at the command line.'
 authors: ['Martha Morrissey', 'Leah Wasser',  'Data Carpentry']
-modified: 2018-07-17
+modified: 2018-07-30
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/text-editors-for-science-workflows/
 nav-title: 'Text Editors For Coding'
@@ -36,9 +36,9 @@ At the end of this activity, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 
-Make sure you have followed the installation instructions already from [Setup Git/Bash lesson.](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/setup-git-bash-anaconda/ ) 
+Make sure you have followed the installation instructions already from [Setup Git/Bash lesson.](/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/ ) 
 
-Information below is adapted from materials by [Software Carpentry](http://installation.software-carpentry.org/) and [UC Berkeley CS61a](https://cs61a.org/articles/vim.html#introduction).
+Information below is adapted from materials by <a href="http://software-carpentry.org/" target = "_blank">Software Carpentry</a> and <a href = "https://cs61a.org/articles/vim.html#introduction" target = "_blank">UC Berkeley CS61a</a>.
 
 
 </div>
