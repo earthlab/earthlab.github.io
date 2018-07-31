@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify Fire Impacts - Remote Sensing"
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/
-modified: 2018-07-27
+modified: 2018-07-31
 week-landing: 8
 week: 8
 sidebar:
@@ -50,7 +50,7 @@ for your midterm assignment. If you are looking for a group - please add your na
 and the project that you have in mind to the Google document. If you know your
 group members and project name please add this to the document!
 
-<a class="btn .btn--x-large btn-info" href="https://docs.google.com/document/d/14LNBg_3d33Tkc4XZTKVvHvmyfaV1yGDGc39VwxaCe6g/edit#" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
+<a class="btn .btn--x-large btn--success" href="https://docs.google.com/document/d/14LNBg_3d33Tkc4XZTKVvHvmyfaV1yGDGc39VwxaCe6g/edit#" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
 Add your project & group to the class google doc by class next week. </a>
 
 ### 1b. Fire Readings
@@ -314,7 +314,11 @@ Submit your report in both `.ipynb` and `.html` format to the Canvas dropbox.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_6_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_6_0.png">
+
+</figure>
 
 
 
@@ -326,7 +330,11 @@ Submit your report in both `.ipynb` and `.html` format to the Canvas dropbox.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_8_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_8_0.png">
+
+</figure>
 
 
 
@@ -338,7 +346,11 @@ OR potentially the R lessons may be calculating over a diff extent. i'm not sure
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_10_0.png">
+
+</figure>
 
 
 
@@ -350,7 +362,11 @@ OR potentially the R lessons may be calculating over a diff extent. i'm not sure
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_12_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_12_0.png">
+
+</figure>
 
 
 
@@ -379,7 +395,11 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_13_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_13_0.png">
+
+</figure>
 
 
 
@@ -391,7 +411,11 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_15_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_15_0.png">
+
+</figure>
 
 
 
@@ -403,7 +427,11 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_17_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_17_0.png">
+
+</figure>
 
 
 
@@ -412,7 +440,11 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_18_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_18_0.png">
+
+</figure>
 
 
 

@@ -2,7 +2,7 @@
 layout: single
 title: "Geographic vs projected coordinate reference systems - GIS in Python"
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-07-27
+modified: 2018-07-31
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data/geographic-vs-projected-coordinate-reference-systems-python/
@@ -116,7 +116,11 @@ plt.ion()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_3_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_3_0.png">
+
+</figure>
 
 
 
@@ -224,7 +228,11 @@ plt.plot(boulder_df[0], boulder_df[1], 'ro');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_5_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_5_0.png">
+
+</figure>
 
 
 
@@ -388,7 +396,11 @@ boulder_df_geog.plot(ax=ax, markersize=52, color='springgreen');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_14_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_14_0.png">
+
+</figure>
 
 
 
@@ -399,7 +411,7 @@ While sometimes UTM zones in the north vs south are specified using N and S
 respectively (e.g. UTM Zone 18N) other times you may see a letter as follows:
 Zone 18T, 730782m Easting, 4712631m Northing vs UTM Zone 18N, 730782m, 4712631m.
 
-<i class="fa fa-star"></i>**Data Tip:**  The UTM system doesn't apply to polar
+<i class="fa fa-star"></i> **Data Tip:**  The UTM system doesn't apply to polar
 regions (>80°N or S). Universal Polar Stereographic (UPS) coordinate system is
 used in these area. This is where zones A, B and Y, Z are used if you were
 wondering why they weren't in the UTM lettering system.

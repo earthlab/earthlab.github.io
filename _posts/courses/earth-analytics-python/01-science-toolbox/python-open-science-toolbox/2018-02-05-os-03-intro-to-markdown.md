@@ -3,7 +3,7 @@ layout: single
 title: 'Introduction to Markdown'
 excerpt: 'This tutorial walks you through how to format text using markdown.'
 authors: ['Leah Wasser', 'Martha Morrissey', 'Data Carpentry']
-modified: 2018-07-27
+modified: 2018-07-31
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-markdown-in-jupyter-notebooks/
@@ -42,7 +42,7 @@ Markdown is a human readable syntax for formatting text documents. Markdown can 
 
 
 
-<i class="fa fa-star"></i>**Data Tip:**
+<i class="fa fa-star"></i> **Data Tip:**
 Learn more about [markdown](http://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html)
 {: .notice--success }
 
@@ -70,7 +70,7 @@ The text that you add to a Jupyter notebook using Markdown can serve many differ
 When you render your document to HTML or pdf) this markdown will appear as text on the output document. 
 
 
-<i class="fa fa-star"></i>**Data Tip:**
+<i class="fa fa-star"></i> **Data Tip:**
 This web page that you are reading right now is generated from a markdown document. In this tutorial, we cover the basic syntax of markdown.
 {: .notice--success }
 

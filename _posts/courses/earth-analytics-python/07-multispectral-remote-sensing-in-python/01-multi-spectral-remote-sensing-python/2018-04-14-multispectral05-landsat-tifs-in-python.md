@@ -3,7 +3,7 @@ layout: single
 title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat data in Python. Also learn how to create RGB and color infrafed Landsat image composites."
 authors: ['Leah Wasser']
-modified: 2018-07-27
+modified: 2018-07-31
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/landsat-bands-geotif-in-Python/
@@ -339,7 +339,11 @@ es.plot_bands(landsat_band4[0], figsize=(4,4),
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_13_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_13_0.png">
+
+</figure>
 
 
 
@@ -418,7 +422,11 @@ plt.tight_layout()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_19_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_19_0.png">
+
+</figure>
 
 
 
@@ -435,7 +443,11 @@ es.plot_bands(landsat_pre_fire,
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_20_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_20_0.png">
+
+</figure>
 
 
 
@@ -471,7 +483,11 @@ es.plot_rgb(landsat_pre_fire,
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_24_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_24_0.png">
+
+</figure>
 
 
 
@@ -491,7 +507,11 @@ es.plot_rgb(landsat_pre_fire,
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_26_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_26_0.png">
+
+</figure>
 
 
 
@@ -509,7 +529,11 @@ es.plot_rgb(landsat_pre_fire,
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_27_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_27_0.png">
+
+</figure>
 
 
 
@@ -534,7 +558,11 @@ es.plot_rgb(landsat_pre_fire,
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_29_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_29_0.png">
+
+</figure>
 
 
 
@@ -557,7 +585,11 @@ for band, color, ax in zip(rgb_bands, colors, axs.ravel()):
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_31_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_31_0.png">
+
+</figure>
 
 
 
@@ -592,7 +624,7 @@ es.plot_rgb(landsat_pre_fire, rgb = [4,3,2],
 
 
 <div class="notice--success" markdown="1">
-<i class="fa fa-star"></i>**Data Tip:** Landsat 8 Pre Collections Data
+<i class="fa fa-star"></i> **Data Tip:** Landsat 8 Pre Collections Data
 
 If you are working with Landsat data downloaded pre USGS collections, your data may be formatted and named slightly differently than the example shown on this page. Below is an explanation of the legacy Landsat 8 naming convention. 
 

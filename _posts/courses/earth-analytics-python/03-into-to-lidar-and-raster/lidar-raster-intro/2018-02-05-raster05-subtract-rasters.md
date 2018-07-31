@@ -3,7 +3,7 @@ layout: single
 title: "Subtract Raster Data in Python"
 excerpt: "You will create a CHM using the DSM and DEM via raster subtraction in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-27
+modified: 2018-07-31
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/subtract-raster/
@@ -145,7 +145,7 @@ This math gives you the residual value or difference between the top of the
 earth surface and the ground which should be the heights of the trees (and buildings
 if the data haven't been "cleaned").
 
-<i fa fa-star></i>**Data Tip:** Note that this method of subtracting 2 rasters to create a CHM may not give you the most accurate results! There are better ways to create CHM's using the point clouds themselves. However, in this lesson you learn this method as a means to get more familiar with the CHM dataset and to understand how to perform raster calculations in `Python`. 
+<i fa fa-star></i> **Data Tip:** Note that this method of subtracting 2 rasters to create a CHM may not give you the most accurate results! There are better ways to create CHM's using the point clouds themselves. However, in this lesson you learn this method as a means to get more familiar with the CHM dataset and to understand how to perform raster calculations in `Python`. 
 {: .notice--success}
 
 
@@ -172,7 +172,11 @@ ax.set_title("Lidar Canopy Height Model (CHM)",
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_11_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_11_0.png">
+
+</figure>
 
 
 
@@ -197,7 +201,11 @@ ax.hist(lidar_chm.ravel(), color = 'purple');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_13_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_13_0.png">
+
+</figure>
 
 
 
@@ -267,7 +275,11 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_19_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_19_0.png">
+
+</figure>
 
 
 
@@ -314,7 +326,11 @@ Your plot should look like the one below (athough the colors may be different.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_24_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_24_0.png">
+
+</figure>
 
 
 
@@ -342,11 +358,15 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_26_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_26_0.png">
+
+</figure>
 
 
 
 <div class="notice--success" markdown="1">
 
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip:** You can simplify the directory code above by using the exclamation `not` which tells Python to return the INVERSE or opposite of the function you have requested Python to run.
+<i class="fa fa-star" aria-hidden="true"></i> **Data Tip:** You can simplify the directory code above by using the exclamation `not` which tells Python to return the INVERSE or opposite of the function you have requested Python to run.
 </div>

@@ -3,7 +3,7 @@ layout: single
 title: 'Install and Import Python Packages'
 excerpt: 'This tutorial walks you through how to install and import python packages.'
 authors: ['Martha Morrissey','Leah Wasser', 'Software Carpentry']
-modified: 2018-07-27
+modified: 2018-07-31
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/install-and-import-python-packages/ 
@@ -61,7 +61,7 @@ There are three main python package repositories to download python libraries fr
 * Pip - Python Package Index (pip) is another way to install python packages. 
 
 
-<i class="fa fa-star"></i>**Data Tip:**
+<i class="fa fa-star"></i> **Data Tip:**
 Sometimes python libraries are on github. You can install python libraries from github using `pip install git+git://github.com/path-to-github-user/repo-name.git`
 {: .notice--success}
 

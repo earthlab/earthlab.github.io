@@ -2,16 +2,16 @@
 layout: single
 title: 'Use Google Earth Time Series Images to Explore Flood Impacts'
 excerpt: "Learn how to use the time series feature in Google Earth to view before and after images of a location."
-authors: ['Leah Wasser', 'Martha Morrissey', NEON Data Skills]
-modified: 2018-07-27
+authors: ['Leah Wasser', 'Martha Morrissey']
+modified: 2018-07-31
 category: [courses]
-class-lesson: ['co-floods-1-intro']
-permalink: /courses/earth-analytics-python/python-open-science-toolbox/google-earth-time-series/
+class-lesson: ['data-for-science-floods']
+permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/
 nav-title: 'Google Earth Time Series'
 dateCreated: 2018-02-08
 modified: 2018-02-09
 module-title: 'Understand Disturbance with Data - Flooding and Erosion'
-module-nav-title: 'Use data for science'
+module-nav-title: 'Use Data For Science'
 module-description: 'This module uses time series data to explore the impacts of a flood. Learn how to use Google Earth imagery, NOAA precipitation data and USGS stream flow data to explore the 2013 Colorado floods.'
 module-type: 'class'
 class-order: 3
@@ -87,7 +87,7 @@ and after the floods.
 * Open Google Earth
 * Double click on the `.kmz` file that you downloaded above. It should open in Google Earth.
 
-<i class="fa fa-star"></i>**Data Tip:**
+<i class="fa fa-star"></i> **Data Tip:**
 If the `.kmz` file doesn't automatically open when you double click on it, try to Open Google Earth, go to File --> Open in Google Earth. Finally, navigate to the location of your downloaded file (`~Documents/data/co-flood/locations`) and open it.
 {: .notice--success}
 

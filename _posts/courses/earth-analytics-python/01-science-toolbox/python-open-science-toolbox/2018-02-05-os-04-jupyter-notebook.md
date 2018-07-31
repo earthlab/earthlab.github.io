@@ -3,7 +3,7 @@ layout: single
 title: 'Introduction to Jupyter Notebook'
 excerpt: 'This tutorial walks you through the Jupyter notebook interface.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Data Carpentry']
-modified: 2018-07-27
+modified: 2018-07-31
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/intro-to-jupyter-notebooks/
@@ -34,7 +34,7 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-* You will need to have Git, Bash, and Anaconda setup on your computer to complete this lesson. Instructions for setting up are here: [Setup Git/Bash and Anaconda lesson lesson](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/setup-git-bash-anaconda/). 
+* You will need to have Git, Bash, and Anaconda setup on your computer to complete this lesson. Instructions for setting up are here: [Setup Git/Bash and Anaconda lesson lesson](/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/). 
 * You will also need to have the earth-analytics-python environment set up. Instructions for setting here: [Set up earth analytics python environment](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/setup-conda-earth-analytics-env)
 * You will need to have completed the [Introduction to Bash Shell lesson](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/introduction-to-bash-shell/). 
 
@@ -205,7 +205,7 @@ When placed before a function Information about a function from its documentatio
 
 
 
-<i class="fa fa-star"></i>**Data Tip:**
+<i class="fa fa-star"></i> **Data Tip:**
 Inline magic are commands built into the python kernel and always start with a %. Magic commands are useful shortcuts. Magic commands always start with a % because this symbol isn’t valid in Python. Magic commands also only work on the ipython kernel. Magic commands provide shortcuts to common tasks that would normally take several lines of code to accomplish in Python.  
 {: .notice--success }
 
