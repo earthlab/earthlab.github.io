@@ -4,7 +4,7 @@ category: courses
 title: 'How to Access and Use Shell to Set Up a Working Directory'
 excerpt: 'This tutorial walks you through how access the shell through terminal, use basic commands in the terminal for file organization, and set up a working directory for the course.'
 authors: ['Martha Morrissey','Leah Wasser', 'Data Carpentry']
-modified: 2018-07-17
+modified: 2018-07-30
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/introduction-to-bash-shell/ 
 nav-title: 'Bash'
@@ -37,18 +37,13 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need to have Git and Bash setup on your computer to complete this lesson. Instructions for setting up Git and Bash are here: [Setup Git/Bash lesson](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/setup-git-bash-anaconda/) 
-
-
-
+You will need to have Git and Bash setup on your computer to complete this lesson. Instructions for setting up Git and Bash are here: [Setup Git/Bash & Anaconda Python lesson]({{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/) 
 
 </div>
 
 ## How to Access Bash
 
-Information below is adapted from materials developed by: [U.C. Berkeley’s cs61a](https://cs61a.org/lab/lab00/), [Software Carpentry](http://swcarpentry.github.io/shell-novice/) and [The Hacker Within, Berkeley](https://github.com/thehackerwithin/berkeley/blob/master/code_examples/bash/tutorial.md.). 
-
-
+Information below is adapted from materials developed by: <a href="https://cs61a.org/lab/lab00/" target="_blank">U.C. Berkeley’s cs61a</a>, <a href="http://swcarpentry.github.io/shell-novice/" target = "_blank">Software Carpentry</a> and <a href="https://github.com/thehackerwithin/berkeley/blob/master/code_examples/bash/tutorial.md" target="_blank">The Hacker Within, Berkeley</a>. 
 
 ### Get Started with the Terminal 
 
@@ -57,16 +52,13 @@ In the earliest days of computing, the computer itself which processed data or p
 * Terminal: which was used to send commands to the computer and
 * The computer: the hardware that processed the commands
 
-
 Today, we have computers that can both provide commands AND perform the computation. And those computers have graphic interfaces (known as GUIs) that make it easy to perform tasks. However, we still need to access the command line or terminal for certain tasks. In this lesson you will learn how to set up a command line interface on your computer. 
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/early-terminal.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/early-terminal.png"></a>
- <figcaption> Early Computer and Terminal.
- </figcaption>
+ <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/early-terminal.png" alt = "An image showing a terminal and a computer in it's earliest days. "></a>
+ <figcaption> Image of the earliest computers and a terminal.</figcaption>
 </figure>
-
 
 ### About Bash
 Bash is command line program that allows you to efficiently perform many tasks. You can think of it as the computer in the example above. The command line or terminal is where you provide bash commands that it then executes. This allows you to control your computer by typing in commands entered with a keyboard instead of using buttons or drop down menus in a graphical user interface (GUI) with a mouse/keyboard combination. 
@@ -77,7 +69,6 @@ You can use bash to access and process files at the command line. Working with f
 Bash stands for “bourne again shell”, and is an updated version of shell. Sometimes you will hear bash and shell used interchangeably, but in this course we will use the term bash throughout.
 {: .notice--success}
 
-
 You access Bash using a terminal program which we will discuss next. 
 
 
@@ -87,13 +78,10 @@ A terminal is the command line interface  that gives you access to bash. There a
 For the rest of this course, we will refer to the command line environment that you use to access bash as the terminal. For windows users, this terminal may be opened using a tool like Git Bash.
 
 
-
-
 ## Why use Terminal?
 #### Interact with your computer/organize files 
 
 Using Bash in the terminal is a powerful way of interacting with your computer. GUIs and command line Bash are complementary - by knowing both you will greatly expand the range of tasks you can accomplish with your computer. You will also be able to perform many tasks more efficiently. Common tasks you can run at the command liner include checking the directory you’re in, changing directories, making a new directory, extracting files, and finding files on your computer. 
-
 
 
 ## Access Bash
@@ -105,7 +93,6 @@ You access bash differently depending on your operating system.
 * Windows: Git Bash came with your download of Git for Windows. Search Git Bash. For the rest of this course, even if you are on windows, we will refer to the terminal. You are using Git Bash as your terminal.
 
 * Linux: Default is usually bash, if not, type bash in the terminal.
-
 
 
 ## Bash Commands
