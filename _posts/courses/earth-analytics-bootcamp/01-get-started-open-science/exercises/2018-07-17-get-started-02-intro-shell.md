@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/
 nav-title: "Intro to Shell"
 dateCreated: 2018-06-27
-modified: 2018-07-30
+modified: 2018-07-31
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -108,7 +108,7 @@ You can use the program called `Terminal` (or `Terminal Emulator`), which typica
 
 There are many options for running bash on windows. For this course, you will use `Git Bash` which comes with your installation of `Git`. Instructions for setting this up are here: 
 
-* <a href="{{ site.url }}/courses/earth-analytics-python/setup-earth-analytics-environment/setup-git-bash-anaconda/" target = "_blank">Setting up Git, Bash, and Anaconda on your computer</a> 
+* <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/" target = "_blank">Setting up Git, Bash, and Anaconda on your computer</a>
 
 Once you have installed `Git` on a Windows machine, you can open this Terminal by searching for `Git Bash` in the start menu. Use `Git Bash` for all hands-on activities and assignments in this course that ask you to use the `Terminal`. 
 
