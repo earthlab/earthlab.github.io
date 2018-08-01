@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-10
-modified: 2018-07-31
+modified: 2018-08-01
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -37,7 +37,7 @@ After completing this lesson, you will be able to:
  
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have completed the previous lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/python-variables-lists/variables/" target = "_blank">Variables</a>.
+Be sure that you have completed the previous lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/python-variables-lists/variables/">Variables</a>.
 
 The code below is available in the **ea-bootcamp-day-2** repository that you cloned to `earth-analytics-bootcamp` under your home directory. 
 

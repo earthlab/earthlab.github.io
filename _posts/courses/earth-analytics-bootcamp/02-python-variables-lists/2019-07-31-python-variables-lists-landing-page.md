@@ -52,12 +52,12 @@ Today's lessons provide the information and files that you need to continue home
 
 Fork and `git clone` today's files from `https://github.com/earthlab-education/ea-bootcamp-day-2` to the `earth-analytics-bootcamp` directory under your home directory.
 
-If needed, refer to the lesson on <a href="{{ site.url }}//courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/" target = "_blank">Get Files from Github.com.</a>
+If needed, refer to the lesson on <a href="{{ site.url }}//courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/">Get Files from Github.com.</a>
 
 
 ## <i class="fa fa-pencil"></i>  Continue Homework 1
 
-<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" target= "_blank"> <i class="fa fa-info-circle"></i>
+<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/"> <i class="fa fa-info-circle"></i>
 View Homework 1</a>
 
 <div class="notice--success" markdown="1">

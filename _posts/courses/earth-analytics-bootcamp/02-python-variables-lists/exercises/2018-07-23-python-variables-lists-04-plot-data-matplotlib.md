@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/plot-data-matplotlib/
 nav-title: "Plot Data in Python with Matplotlib"
 dateCreated: 2018-06-27
-modified: 2018-07-31
+modified: 2018-08-01
 module-type: 'class'
 course: "earth-analytics-bootcamp"
 week: 2
@@ -35,7 +35,7 @@ After completing this lesson, you will be able to:
  
 # <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have completed the previous lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/python-variables-lists/lists/" target = "_blank">Lists</a> and <a href="{{ site.url }}/courses/earth-analytics-bootcamp/python-variables-lists/import-python-packages/" target = "_blank">Import Python Packages</a>.
+Be sure that you have completed the previous lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/python-variables-lists/lists/">Lists</a> and <a href="{{ site.url }}/courses/earth-analytics-bootcamp/python-variables-lists/import-python-packages/">Import Python Packages</a>.
 
 The code below is available in the **ea-bootcamp-day-2** repository that you cloned to `earth-analytics-bootcamp` under your home directory. 
 
@@ -247,10 +247,10 @@ Test your `Python` skills to further customize your plot:
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Additional Resources
 
-<a href="https://matplotlib.org/examples/pylab_examples/subplots_demo.html" target="_blank">More Matplotlib Examples</a>
+* <a href="https://matplotlib.org/examples/pylab_examples/subplots_demo.html" target="_blank">More Matplotlib Examples</a>
 
-<a href="https://realpython.com/blog/python/python-matplotlib-guide/?utm_campaign=Data%2BElixir&utm_medium=email&utm_source=Data_Elixir_172" target="_blank">In-depth Guide to Matplotlib</a>
+* <a href="https://realpython.com/blog/python/python-matplotlib-guide/?utm_campaign=Data%2BElixir&utm_medium=email&utm_source=Data_Elixir_172" target="_blank">In-depth Guide to Matplotlib</a>
 
-<a href="http://joseph-long.com/writing/colorbars/" target="_blank">More Information on Color Bars</a>
+* <a href="http://joseph-long.com/writing/colorbars/" target="_blank">More Information on Color Bars</a>
 
 </div>
