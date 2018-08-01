@@ -1,13 +1,13 @@
 ---
 layout: single
-title: 'Introduction to Jupyter Notebook'
-excerpt: 'This tutorial walks you through the Jupyter notebook interface.'
-authors: ['Martha Morrissey', 'Leah Wasser', 'Data Carpentry']
+title: 'Get to Know the Jupyter Notebook Interface'
+excerpt: 'The Jupyter Notebook is an interactive coding environment that allows you to combine code, documentation and outputs. Learn how to use the Jupyter notebook interface.'
+authors: ['Martha Morrissey', 'Leah Wasser']
 modified: 2018-07-31
 category: [courses]
 class-lesson: ['open-science-python']
-permalink: /courses/earth-analytics-python/python-open-science-toolbox/intro-to-jupyter-notebooks/
-nav-title: 'Intro to Jupyter'
+permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-jupyter-notebooks/
+nav-title: 'Jupyter Notebook Interface'
 week: 1
 sidebar:
     nav:
@@ -34,20 +34,18 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-* You will need to have Git, Bash, and Anaconda setup on your computer to complete this lesson. Instructions for setting up are here: [Setup Git/Bash and Anaconda lesson lesson](/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/). 
-* You will also need to have the earth-analytics-python environment set up. Instructions for setting here: [Set up earth analytics python environment](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/setup-conda-earth-analytics-env)
-* You will need to have completed the [Introduction to Bash Shell lesson](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/introduction-to-bash-shell/). 
+* You will need to have Git, Bash, and Anaconda setup on your computer to complete this lesson. Instructions for setting up are here: [Setup Git/Bash and Anaconda lesson lesson]({{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/). 
+* You will also need to have the `earth-analytics-python` environment set up. Instructions for setting here: [Set up earth analytics python environment]({{ site.url }}/workshops/setup-earth-analytics-python/setup-python-anaconda-earth-analytics-environment/)
+* You will need to have completed the [Introduction to Bash Shell lesson]({{ site.url }}/workshops/setup-earth-analytics-python/introduction-to-bash-shell/). 
 
  
 </div>
  
-Information below is adapted from materials developed by: [Jupyter](http://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb), [Datacamp](https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook#WhatIs), and [Dataquest](https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/).  
-
-
+Information below is adapted from materials developed by <a href="http://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb" target = "_blank">Project Jupyter</a>, <a href="https://www.datacamp.com/community/tutorials/tutorial-jupyter-notebook#WhatIs" target = "_blank">Datacamp</a>, and <a href="https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/" target = "_blank">Dataquest</a>. 
 
 ## About Jupyter Notebook
 
-Jupyter Notebooks supports a more reproducible workflow. They allow you to:
+Jupyter Notebooks support a reproducible workflow. They allow you to:
 
 * Write and run inline code interactively
 * Share your work with colleagues so they can see both your code and the code outputs. 
@@ -79,6 +77,14 @@ $ cd earth-analytics
 $ jupyter notebook 
 ```
 
+If you are on windows just use `activate earth-analytics-python` like this:
+
+``` bash 
+$ activate earth-analytics-python 
+$ cd earth-analytics 
+$ jupyter notebook 
+```
+
 ### Jupyter Notebooks combine three components: 
 
 1. **The Jupyter Notebook** The Jupyter Notebook is a web application that launches in a web browser like firefox or safari. The notebook is where you write and run your code.
@@ -106,7 +112,7 @@ When you first start the Jupyter Notebook server, your browser will open to the 
  </figcaption>
 </figure>
 
-The dashboard serves as a homepage for the notebook. Its main purpose is to display the notebooks and files in the current directory. For this class, you will always work in the [earth-analytics directory](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/introduction-to-bash-shell/). 
+The dashboard serves as a homepage for the notebook. Its main purpose is to display the notebooks and files in the current directory. For this class, you will always work in the earth-analytics directory. 
 
 
 #### Explore the Jupyter Notebook Interface
@@ -120,8 +126,8 @@ When  you open or create a new Notebook you will see three main parts:
 
 A jupyter notebook consists of a set of cells that can store text or code. You will focus on code and markdown cells for this lesson. 
 
-* Text Cells: Text cells allow you to write markdown.This is where you will describe your workflow. 
-* Code Cells: Allow you to write code. 
+* **Text Cells:** Text cells allow you to write markdown.This is where you will describe your workflow. 
+* **Code Cells:** Allow you to write code. 
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/select-code-cell.png">
@@ -130,9 +136,7 @@ A jupyter notebook consists of a set of cells that can store text or code. You w
  </figcaption>
 </figure>
 
-
 For a full list of keyboard shortcuts click the help button then the keyboard shortcuts button.  
-
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/help-jupyter.png">
@@ -210,17 +214,13 @@ Inline magic are commands built into the python kernel and always start with a %
 {: .notice--success }
 
 
-
 Magic  | What it does 
 --- | --- 
-%writefile | Saves the contents of a cell to an external file
-%timeit | Shows how long it takes a cell of code to run
-%who | List all variables of a global scope
-%store | Pass variables between notebooks
-%load | Insert code from an external script
-
-
-
+`%writefile` | Saves the contents of a cell to an external file
+`%timeit` | Shows how long it takes a cell of code to run
+`%who` | List all variables of a global scope
+`%store` | Pass variables between notebooks
+`%load` | Insert code from an external script
 
 
 <div class="notice--info" markdown="1">
@@ -230,7 +230,5 @@ Magic  | What it does
 * <a href="https://unidata.github.io/online-python-training/introduction.html" target="_blank">More Jupyter Notebook Overview Material</a>
 
 </div>
-
-
 
 

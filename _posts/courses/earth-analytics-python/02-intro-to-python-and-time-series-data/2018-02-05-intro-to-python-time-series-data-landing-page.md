@@ -42,8 +42,7 @@ Read the assignment below carefully. Use the class and homework lessons to help 
 
 ### 1. Download Data
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 02 data](https://ndownloader.figshare.com/files/7426738){:data-proofer-ignore='' .btn }
-
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 ## Important - Data Organization
 Before you begin this lesson, be sure that you've downloaded the dataset above.
@@ -247,7 +246,11 @@ Plots 2 and 4 should be temporally subsetted to the dates listed above.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_5_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_5_0.png">
+
+</figure>
 
 
 
@@ -256,7 +259,11 @@ Plots 2 and 4 should be temporally subsetted to the dates listed above.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_6_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_6_0.png">
+
+</figure>
 
 
 
@@ -265,7 +272,11 @@ Plots 2 and 4 should be temporally subsetted to the dates listed above.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_7_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_7_0.png">
+
+</figure>
 
 
 
@@ -274,7 +285,11 @@ Plots 2 and 4 should be temporally subsetted to the dates listed above.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png">
+
+</figure>
 
 
 
@@ -283,7 +298,11 @@ Plots 2 and 4 should be temporally subsetted to the dates listed above.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_9_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_9_0.png">
+
+</figure>
 
 
 
@@ -292,7 +311,11 @@ Plots 2 and 4 should be temporally subsetted to the dates listed above.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png">
+
+</figure>
 
 
 

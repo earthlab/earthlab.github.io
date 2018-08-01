@@ -2,11 +2,11 @@
 layout: single
 title: 'Explore Precipitation and Stream Flow Data Using Interactive Plots: The 2013 Colorado Floods'
 excerpt: "Practice interpreting data on plots that show rainfall (precipitation) and stream flow (discharge) as it changes over time."
-authors: ['Leah Wasser', 'NEON Data Skills', 'Martha Morrissey']
-modified: 2018-07-27
+authors: ['Leah Wasser', 'Martha Morrissey']
+modified: 2018-07-31
 category: [courses]
-class-lesson: ['co-floods-1-intro']
-permalink: /courses/earth-analytics-python/python-open-science-toolbox/co-floods-data-example-python/precip-discharge/
+class-lesson: ['data-for-science-floods']
+permalink: /courses/earth-analytics-python/python-open-science-toolbox/precipitation-discharge-data-for-flood-analysis/
 nav-title: 'Interactive Data Plots'
 week: 1
 sidebar:
@@ -33,14 +33,13 @@ At the end of this activity, you will be able to:
 * Describe two related drivers of a flood event.
 * Interpret plots containing time series data related to flood drivers.
 
-
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You need a computer with internet to complete this lesson.
 
 </div>
 
-## Exploring Flood Damage
+## Exploring Flood Drivers Using Data
 
 In the previous lesson, you:
 

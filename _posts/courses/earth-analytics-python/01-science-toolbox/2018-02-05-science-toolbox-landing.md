@@ -122,7 +122,7 @@ Export your notebook to `.HTML` format. Submit the `.HTML` file and the `.ipynb`
 Complete the week 1 quiz on canvas
 
 #### Part Three
-Complete the diagram activity <LINK >
+Complete the diagram activity [Flood Drived / Impact Diagram]({{ site.url }}/courses/earth-analytics-python/python-open-science-toolbox/precipitation-discharge-data-for-flood-analysis/)
 
 </div>
 

@@ -3,7 +3,7 @@ layout: single
 title: "Customize matplotlib plots in Python - earth analytics - data science for scientists"
 excerpt: 'Matplotlib is one of the most commonly used plotting library in Python. This lesson covers how to create a plot using matplotlib and how to customize matplotlib plot colors and label axes in Python.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-07-27
+modified: 2018-07-31
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -47,8 +47,7 @@ You need `Python 3.x` and `Jupyter notebooks` to complete this tutorial. Also yo
 * [Setup your working directory](/images/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
-
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -184,7 +183,11 @@ boulder_precip.plot('DATE', 'PRECIP');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_7_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_7_0.png">
+
+</figure>
 
 
 
@@ -221,7 +224,11 @@ fig, ax = plt.subplots()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_10_0.png">
+
+</figure>
 
 
 
@@ -244,7 +251,11 @@ ax.plot(boulder_precip['DATE'],
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_12_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_12_0.png">
+
+</figure>
 
 
 
@@ -265,7 +276,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_14_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_14_0.png">
+
+</figure>
 
 
 
@@ -297,7 +312,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_16_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_16_0.png">
+
+</figure>
 
 
 
@@ -396,7 +415,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_22_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_22_0.png">
+
+</figure>
 
 
 
@@ -432,7 +455,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_24_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_24_0.png">
+
+</figure>
 
 
 
@@ -451,7 +478,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_26_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_26_0.png">
+
+</figure>
 
 
 
@@ -480,7 +511,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_28_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_28_0.png">
+
+</figure>
 
 
 
@@ -500,7 +535,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_30_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_30_0.png">
+
+</figure>
 
 
 
@@ -523,7 +562,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_32_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_32_0.png">
+
+</figure>
 
 
 
@@ -546,7 +589,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_34_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_34_0.png">
+
+</figure>
 
 
 
@@ -583,7 +630,11 @@ plt.show()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_37_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_37_0.png">
+
+</figure>
 
 
 
@@ -607,7 +658,11 @@ ax.set(title="Daily Precipitation (inches)\nBoulder, Colorado 2013");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_39_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_39_0.png">
+
+</figure>
 
 
 
@@ -647,7 +702,11 @@ ax.xaxis.set_major_formatter(myFmt); # to just have month and day on the x-axis
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_41_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_41_0.png">
+
+</figure>
 
 
 
@@ -681,7 +740,11 @@ ax.xaxis.set_minor_locator(mdates.DayLocator())
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_43_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-intro-to-matplotlib-plotting-python_43_0.png">
+
+</figure>
 
 
 

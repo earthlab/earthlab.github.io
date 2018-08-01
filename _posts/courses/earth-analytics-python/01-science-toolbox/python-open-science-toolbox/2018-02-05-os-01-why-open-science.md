@@ -40,12 +40,13 @@ At the end of this activity, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
  be sure that you have Python and  the earth analytics python environment installed on your computer.  You should also have an `earth-analytics` directory setup on your computer with a `/data` directory with it
  
- </div>
+</div>
  
 
 ## Why Open Science 
 Open science is about making scientific methods, data and outcomes
-available to everyone. It can be broken down into several parts ([Gezelter 2009)](http://www.openscience.org/blog/?p=269):
+available to everyone. It can be broken down into several parts <a href= "http://www.openscience.org/blog/?p=269" target = "_blank">Gezelter 2009</a>):
+
 * Transparency in experimental methodology, observation, and collection of data.
 * Public availability and reusability of scientific data.
 * Public accessibility and transparency of scientific communication.

@@ -34,17 +34,16 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-* You will also need to have the earth-analytics-python environment set up. Instructions for setting here: [Set up earth analytics python environment](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/setup-conda-earth-analytics-env)
-
+* You will also need to have the earth-analytics-python environment set up. Instructions for setting here: [Set up earth analytics python environment]({{ site.url }}/workshops/setup-earth-analytics-python/setup-python-anaconda-earth-analytics-environment/)
  
 </div>
- 
 
 Information below is adapted from materials developed by [Conda Documentation](https://conda.io/docs/user-guide/tasks/manage-pkgs.html) on managing packages. 
 
 ## What is a Package?
 
 A package, in Python is a bundle of pre-built functionality. You can think of a package like a toolbox filled with tools. The tools in the toolbox can be compared to functions in Python. Except when working with Python, the tools, do things like calculate a mathematical function like a sum or create a plot. There are many different packages available for python. Some of these are optimized for scientific applications including:
+
 * Statistics
 * Machine learning
 * Using geospatial data 
@@ -56,18 +55,18 @@ A package, in Python is a bundle of pre-built functionality. You can think of a 
 There are many different repositories where Python libraries are maintained and can be installed from. When installing libraries on your computer or in an online environment, it is important to consider where the library is maintained. 
 
 There are three main python package repositories to download python libraries from:
-* Conda: this is the default repository that is used and maintained for the Anaconda distribution of Python. To install libraries from conda, you use the syntax `conda install` at the command line..
-* Conda-forge: Conda-forge is community maintained. We have found that  installing many of the spatial libraries using conda-forge will minimize library conflicts.
-* Pip - Python Package Index (pip) is another way to install python packages. 
+* **Conda:** this is the default repository that is used and maintained for the Anaconda distribution of Python. To install libraries from conda, you use the syntax `conda install` at the command line..
+* **Conda-forge:(( Conda-forge is community maintained. We have found that  installing many of the spatial libraries using conda-forge will minimize library conflicts.
+* **Pip:** Python Package Index (pip) is another way to install python packages. 
 
 
 <i class="fa fa-star"></i> **Data Tip:**
 Sometimes python libraries are on github. You can install python libraries from github using `pip install git+git://github.com/path-to-github-user/repo-name.git`
 {: .notice--success}
 
-It’s often good practice to download as many packages as possible from the same repository. For example is you use pip to install geopandas and then try to install shapely from conda-forge, the odds of conflicts often increase. When you encounter these conflicts, often you will not be able to load the libraries and start coding. Conflicts between package dependencies can thus be frustrating when all you want to do is start coding and instead you need to figure out how to properly install a library.  
+It’s good practice to download as many packages as possible from the same repository. For example is you use pip to install geopandas and then try to install shapely from conda-forge, the odds of conflicts increase. When you encounter these conflicts, often you will not be able to load the libraries and start coding. Conflicts between package dependencies can thus be frustrating when all you want to do is start coding and instead you need to figure out how to properly install a library.  
 
-For consistency, in this course you will download most  libraries from the **conda-forge** repository.
+For consistency, in this course you will download most libraries from the **conda-forge** repository.
 
 ### Install a Package In a Python Environment
 
@@ -84,8 +83,16 @@ Note that you are using conda to install statsmodels in this example.
 
 ``` bash
 
-Source activate earth-analytics-python
-Conda install conda-forge statsmodels
+source activate earth-analytics-python
+conda install conda-forge statsmodels
+
+```
+On Windows: 
+
+``` bash
+
+activate earth-analytics-python
+conda install conda-forge statsmodels
 
 ```
 
@@ -101,7 +108,7 @@ To install the scipy library to the earth-analytics-python environment, you’d 
 
 ```bash
 
-Conda install conda-forge  --earth-analytics-python scipy
+conda install conda-forge  --earth-analytics-python scipy
 
 ```
 
@@ -113,7 +120,7 @@ conda install conda-forge bokeh
 
 ```
 
-In the example below, you use conda rather than conda-forge to install a package:
+In the example below, you use `conda` rather than `conda-forge` to install a package:
 
 ```bash
 
@@ -160,10 +167,11 @@ boost                     1.65.1                   py36_0    conda-forge
 
 
 ## Import a Package in Python 
-Once you have installed the packages that you require,you can call them in python at the command line, in a script or in a Jupyter notebook. You have to explicitly call and load each library that you need in your notebook or script in order for the functions (or tools) in the library to be available in your code. 
+Once you have installed the packages that you require, you can call them in `python` at the command line, in a script or in a Jupyter notebook. You have to explicitly call and load each library that you need in your notebook or script in order for the functions (or tools) in the library to be available in your code. 
 Reproducibility Tip: IMPORTANT: Load all of the packages that you will need in the first code cell of a Jupyter notebook. By doing this, you or anyone using your Notebook will know what libraries they need to install in order to run your Notebook.
  
 Once the package is loaded you can use it in your code. Like this:
+
 ```
 import numpy
 numpy.sin(0)
@@ -172,10 +180,14 @@ numpy.sin(0)
 Import _____ (name of package) 
 
 
-### Package Shortcuts
-In the example above, sin function was called using the full python library name numpy.sin. Doing this over and over will make your code more verbose. Thus you will often see abbreviations used to call functions within a specific package. The syntax to create an library abbreviation is:
+### Package Shortcuts or Aliases
+
+In the example above, sin function was called using the full python library name numpy.sin. Doing this over and over will make your code more verbose. Thus you will often see abbreviations or aliases used to call functions within a specific package. The syntax to create an library abbreviation is:
+
 ``` import _____ (name of package) as ____```
-Using the example above, let’s now create an abbreviation for the numpy package. It’s common to use `np` for numpy:
+
+Using the example above, create an abbreviation for the numpy package. It’s common to use `np` for numpy:
+
 ```
 import numpy as np
 numpy.sin(0)
@@ -193,14 +205,12 @@ numpy.sin(0)
 
 It is good practice to import all of the packages that you will need to run code in your notebook in the first code cell in a Jupyter notebook. This allows anyone looking at your code - to immediately know what packages they need to run the code. To import a package you use the `import` function. Your notebook will then look like this:
 
-
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/import_packages-first-cell.png">
  <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/import_packages-first-cell.png"></a>
  <figcaption> Jupyter Notebook with the first cell importing the package numpy to be used with the abbreviations.
  </figcaption>
 </figure>
-
 
 Once you have imported all of the packages that you need in your code, you have access to all of the functions contained within each library. An example of the functions available in numpy package is below
 np.() And hit the tab key and then a list of callable functions will appear. 
@@ -211,6 +221,5 @@ np.() And hit the tab key and then a list of callable functions will appear.
  <figcaption> Jupyter Notebook with the first cell importing the package numpy to be used with the abbreviations.
  </figcaption>
 </figure>
-
 
 

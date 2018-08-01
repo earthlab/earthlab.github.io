@@ -3,7 +3,7 @@ layout: single
 title: "Work With Date - Time formats in Python - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in Python. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-07-27
+modified: 2018-07-31
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -49,6 +49,7 @@ directory with it.
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
 
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 </div>
 
 In this tutorial, you will learn how to convert data that contain dates and times into a date / time format in `Python`. To begin, let's revisit the boulder precip data that you've been working with in this module.
@@ -135,7 +136,11 @@ ax.set(xlabel="Date",
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_9_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_9_0.png">
+
+</figure>
 
 
 
@@ -211,7 +216,11 @@ ax.set(xlabel="Date",
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_15_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_15_0.png">
+
+</figure>
 
 
 
@@ -252,7 +261,11 @@ ax.set(xlabel="Date",
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_19_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_19_0.png">
+
+</figure>
 
 
 
