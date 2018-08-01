@@ -4,7 +4,7 @@ title: "Extract Raster Values Using Vector Boundaries in R"
 excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
 vector boundary. You can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where tree heights were measured on the ground. Finally you will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/extract-data-from-raster/
@@ -133,7 +133,7 @@ located in `SJER/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv`.
 # import plot centroids
 SJER_plots <- readOGR("data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp", layer: "SJER_plot_centroids"
+## Source: "/Users/lewa8222/Dropbox/earth-analytics/data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 
@@ -241,19 +241,6 @@ through several plots and create histograms using a `for loop`.
 #  }
 
 ```
-
-
-
-### Derive Square Plot Boundaries and CHM Values Around a Point
-For how to extract square plots using a plot centroid value, check out the
-<a href="http://neondataskills.org/working-with-field-data/Field-Data-Polygons-From-Centroids" target="_blank"> extracting square shapes activity </a>.
-
- <figure>
-    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-square.png" alt="Image showing the buffer area for a plot.">
-    <figcaption>If you had square shaped plots, the code in the link above would
-    extract pixel values within a square shaped buffer. Source: Colin Williams, NEON
-    </figcaption>
-</figure>
 
 
 ## Plot by Height

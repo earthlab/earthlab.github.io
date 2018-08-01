@@ -5,8 +5,8 @@ title: 'Setup Git, Bash, and Anaconda on Your Computer'
 excerpt: "Learn how to install Git, GitBash (a version of command line Bash) and Python Anaconda distribution on your computer."
 authors: ['Leah Wasser', 'Martha Morrissey']
 attribution: 'These materials were adapted from Software Carpentry materials'
-modified: 2018-07-17
-nav-title: 'Get Started with Clean Code'
+modified: 2018-07-30
+nav-title: 'Setup Git Bash & Conda'
 sidebar:
   nav:
 module: "setup-earth-analytics-environment"

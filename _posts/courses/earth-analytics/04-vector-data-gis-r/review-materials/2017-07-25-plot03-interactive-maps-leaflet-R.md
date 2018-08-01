@@ -1,11 +1,12 @@
+---
 layout: single
 title: "Make Interactive Maps with Leaflet R - GIS in R"
 excerpt: "In this lesson you learn the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
-permalink: /courses/earth-analytics/spatial-data-r/make-interactive-maps-with-leaflet-R/
+permalink: /courses/earth-analytics/spatial-data-r/make-interactive-maps-with-leaflet-r/
 nav-title: 'Interactive Leaflet Maps'
 week: 4
 course: "earth-analytics"
@@ -52,6 +53,7 @@ library(dplyr)
 library(rgdal)
 library(ggplot2)
 library(leaflet)
+## Error in library(leaflet): there is no package called 'leaflet'
 # set factors to false
 options(stringsAsFactors = FALSE)
 ```
@@ -99,7 +101,7 @@ Next, import and explore the data.
 # import roads
 plot_locations <- readOGR("data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp")
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp", layer: "SJER_plot_centroids"
+## Source: "/Users/lewa8222/Dropbox/earth-analytics/data/week-04/california/SJER/vector_data/SJER_plot_centroids.shp", layer: "SJER_plot_centroids"
 ## with 18 features
 ## It has 5 fields
 # reproject to latitude / longitude so the data line up with leaflet basemaps

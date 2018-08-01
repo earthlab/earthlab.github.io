@@ -3,7 +3,7 @@ layout: single
 title: "What is Lidar Data"
 excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-intro/
@@ -108,8 +108,8 @@ across a region. Lidar directly measures the height and density of vegetation
 scientists studying vegetation over large areas.
 
 <figure class="half">
-   <img src="http://www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/passiv.gif" alt="active remote sensing">
-   <img src="http://www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/sensors.gif" alt="passive remote sensing">
+<img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-vs-passive.png" alt="passive remote sensing">
+<img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/active-rs.png" alt="active remote sensing">
    <figcaption>LEFT: Remote sensing systems that measure energy that is naturally
    available are called passive sensors. RIGHT: Active sensors emit their own
    energy from a source on the instrument itself. Source:
@@ -171,8 +171,7 @@ There are many different uses for lidar data:
    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/high-res-topo.png" alt="high resolution vs low resolution topography."></a>
    <figcaption>Lidar data have historically been used to generate high
    resolution elevation datasets. Source: National Ecological Observatory
-   Network - image
-   available on <a href="https://flic.kr/s/aHsk4W4cdP" target="_blank"> Flickr</a>.
+   Network.
    </figcaption>
 </figure>
 
@@ -186,8 +185,8 @@ including:
 
 
 <figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
+   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/treeline-scanned-lidar-points.png">
+   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/treeline-scanned-lidar-points.png" alt="example of a tree profile after a lidar scan."></a>
    <figcaption>Cross section showing lidar point cloud data (above) and the
    corresponding landscape profile (below). Graphic: Leah A. Wasser.
    </figcaption>
@@ -220,7 +219,7 @@ data are available as discrete points. A collection of discrete return lidar
 points is known as a lidar point cloud.
 
 The commonly used file format to store lidar point cloud data is the `.las`
-format. The [.laz](http://www.laszip.org/) format is a highly compressed version
+format. The [.laz](http://laszip.org/) format is a highly compressed version
 of `.las` and is becoming more widely used.
 
 ### Lidar Data Attributes: X, Y, Z, Intensity and Classification
@@ -254,14 +253,6 @@ will be further processed to determine which points reflected off of buildings
 and other infrastructure. Some lidar data will be classified according to the
 vegetation type.
 
-
-<figure>
-   <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png">
-   <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/Treeline_ScannedPoints.png" alt="example of a tree profile after a lidar scan."></a>
-   <figcaption>Cross section showing lidar point cloud data (above) and the
-   corresponding landscape profile (below). Graphic: Leah A. Wasser.
-   </figcaption>
-</figure>
 
 ## What is a Data Product?
 

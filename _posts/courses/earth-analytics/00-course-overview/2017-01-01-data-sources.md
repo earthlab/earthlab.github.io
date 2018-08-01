@@ -86,7 +86,6 @@ from international, national and even local groups.
 
 * <a href="http://www.oregongeology.org/lidar/" target="_blank">Oregon</a>
 * <a href="http://www.asf.alaska.edu" target="_blank">Alaska</a>
-* <a href="http://www.cnhp.colostate.edu/download/gis.asp" target="_blank">Colorado</a> Colorado Natural Heritage Program Conservation Areas, Potential Areas and Terrestrial Ecosystem Patches
 
 ## Counties (examples)
 

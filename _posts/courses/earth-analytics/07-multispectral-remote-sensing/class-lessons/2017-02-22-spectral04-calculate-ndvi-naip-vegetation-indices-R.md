@@ -3,7 +3,7 @@ layout: single
 title: "Calculate NDVI in R: Remote Sensing Vegetation Index"
 excerpt: "NDVI is calculated using near infrared and red wavelengths or types of light and is used to measure vegetation greenness or health. Learn how to calculate remote sensing NDVI using multispectral imagery in R."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -46,7 +46,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 7 of the course.
 
-{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 ## About Vegetation Indices
@@ -70,13 +70,13 @@ NDVI is often used for a quantitate proxy measure of vegetation health, cover
 and phenology (life cycle stage) over large areas.
 
 <figure>
- <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg">
- <img src="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg" alt="NDVI image from NASA that shows reflectance."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/nasa-earth-observatory-ndvi-diagram.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/nasa-earth-observatory-ndvi-diagram.jpg" alt="NDVI image from NASA that shows reflectance."></a>
     <figcaption>NDVI is calculated from the visible and near-infrared light
     reflected by vegetation. Healthy vegetation (left) absorbs most of the
     visible light that hits it, and reflects a large portion of
     near-infrared light. Unhealthy or sparse vegetation (right) reflects more
-    visible light and less near-infrared light. Source: NASA
+    visible light and less near-infrared light. Source: NASA Earth Observatory
     </figcaption>
 </figure>
 
@@ -95,6 +95,7 @@ case, you need to calculate NDVI using the NAIP imagery / reflectance data that 
 library(raster)
 library(rgdal)
 library(rgeos)
+## Error in library(rgeos): there is no package called 'rgeos'
 library(RColorBrewer)
 # turn off factors
 options(stringsAsFactors = FALSE)
@@ -130,12 +131,11 @@ in the red and near infrared bands to calculate the index.
 # calculate ndvi with naip
 naip_multispectral_br[[4]]
 ## class       : RasterLayer 
-## band        : 4  (of  4  bands)
 ## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution  : 1, 1  (x, y)
 ## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/Rtmp64LudC/raster/r_tmp_2017-12-08_093400_1202_65143.grd 
+## data source : in memory
 ## names       : m_3910505_nw_13_1_20130926_crop.4 
 ## values      : 0, 255  (min, max)
 
@@ -249,27 +249,20 @@ Don't believe overlay is faster? Let's test it using a benchmark.
 
 ```r
 library(microbenchmark)
+## Error in library(microbenchmark): there is no package called 'microbenchmark'
 # is the raster in memory?
 inMemory(naip_multispectral_st)
 ## [1] FALSE
 
 # How long does it take to calculate ndvi without overlay.
 microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip_multispectral_br[[4]] + naip_multispectral_br[[1]]), times = 10)
-## Unit: seconds
-##                                                                                                                      expr
-##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
-##    min    lq  mean median    uq   max neval
-##  1.177 1.613 1.803  1.652 2.103 2.663    10
+## Error in microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] + : could not find function "microbenchmark"
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
         naip_multispectral_br[[4]],
         fun = normalized_diff), times = 10)
-## Unit: milliseconds
-##                                                                                         expr
-##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
-##    min   lq mean median   uq  max neval
-##  536.5 1108 1035   1120 1182 1199    10
+## Error in microbenchmark(overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]], : could not find function "microbenchmark"
 ```
 
 Notice that the results above suggest that the overlay function is in fact

@@ -3,7 +3,7 @@ layout: single
 title: "Landsat Remote Sensing tif Files in R"
 excerpt: "In this lesson you will cover the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/landsat-data-in-r-geotiff/
@@ -399,7 +399,7 @@ Be sure to add a title to each of your plots that specifies the band combination
 
 ## Additional Resources
 
-* <a href="https://disc.gsfc.nasa.gov/julian_calendar.html" target="_blank">Julian Day Lookup</a>
+* <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">NASA Julian Day Lookup</a>
 * <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">Landweb NASA Julian Day Lookup</a>
 
 </div>

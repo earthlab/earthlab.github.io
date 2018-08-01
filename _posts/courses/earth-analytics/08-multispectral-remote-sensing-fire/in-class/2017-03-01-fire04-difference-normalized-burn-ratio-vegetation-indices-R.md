@@ -3,7 +3,7 @@ layout: single
 title: "Work with the Difference Normalized Burn Index - Using Spectral Remote Sensing to Understand the Impacts of Fire on the Landscape"
 excerpt: "In this lesson you review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically you will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -27,7 +27,6 @@ redirect_from:
    - "/courses/earth-analytics/spectral-remote-sensing-landsat/normalized-burn-index-dNBR/"
 
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -139,7 +138,7 @@ what is actually happening on the ground in terms of fire severity is to check
 out the actual conditions on the ground. This process of confirming a value that
 you get from remote sensing data by checking it on the ground is called validation.
 
-You learned about ground validation as it applies to lidar data [in week 5 of this course](https://earthdatascience.org/courses/earth-analytics/remote-sensing-uncertainty/).
+You learned about ground validation as it applies to lidar data [in the lidar remote sensing uncertainty lessons]({{ site.url }}/courses/earth-analytics/remote-sensing-uncertainty/).
 
 ### NBR & Water - False Positives
 
@@ -190,6 +189,14 @@ should you use to calculate NBR using MODIS?
 
 
 
+
+
+```
+## OGR data source with driver: ESRI Shapefile 
+## Source: "/Users/lewa8222/Dropbox/earth-analytics/data/week-07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp", layer: "co_cold_springs_20160711_2200_dd83"
+## with 1 features
+## It has 21 fields
+```
 
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="Post fire landsat derived NBR plot" alt="Post fire landsat derived NBR plot" width="90%" />
 

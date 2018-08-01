@@ -11,12 +11,12 @@ nav-title: 'Write Loops'
 sidebar:
   nav:
 module: "clean-coding-tidyverse-intro"
-permalink: /courses/clean-coding-tidyverse-intro/automate-data-processing-with-loops-in-r/
+permalink: /workshops/clean-coding-tidyverse-intro/automate-data-processing-with-loops-in-r/
 author_profile: false
 comments: true
 order: 5
 topics:
-  reproducible-science-and-programming: ['literate expressive programming']
+  reproducible-science-and-programming: ['literate-expressive-programming']
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
@@ -34,7 +34,7 @@ At the end of this activity, you will be able to:
 
 Follow the setup instructions here:
 
-* [Setup instructions]({{ site.url }}/courses/clean-code-tidyverse-r/)
+* [Setup instructions]({{ site.url }}/workshops/clean-coding-tidyverse-intro/)
 
 </div>
 
@@ -234,10 +234,10 @@ length(my_list)
 my_list
 ## [[1]]
 ## [1] "first element"
-## 
+##
 ## [[2]]
 ## [1] "second element"
-## 
+##
 ## [[3]]
 ## [1] "third element"
 ```
