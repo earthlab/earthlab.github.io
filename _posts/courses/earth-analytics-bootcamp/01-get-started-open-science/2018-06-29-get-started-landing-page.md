@@ -52,7 +52,7 @@ Today's lessons provide the information and files that you need to begin homewor
 
 ## <i class="fa fa-pencil"></i>  Begin Homework 1
 
-<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/" target= "_blank"> <i class="fa fa-info-circle"></i>
+<a class="btn btn--info btn--x-large" href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-1/"> <i class="fa fa-info-circle"></i>
 View Homework 1</a>
 
 <div class="notice--success" markdown="1">

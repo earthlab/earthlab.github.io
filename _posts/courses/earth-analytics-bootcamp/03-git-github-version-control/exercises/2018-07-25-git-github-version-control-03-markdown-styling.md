@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/markdown-jupyter-notebook/
 nav-title: "Markdown in Jupyter Notebook"
 dateCreated: 2018-07-25
-modified: 2018-08-01
+modified: 2018-08-02
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
