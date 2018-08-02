@@ -3,7 +3,7 @@ layout: single
 title: "Spatial Raster Meta Data: CRS, Resolution, and Extent in Python"
 excerpt: "This lesson introduces the raster meta data. You will learn about CRS, resolution, and spatial extent."
 authors: ['Leah A. Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-27
+modified: 2018-08-01
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/raster-meta-data/
@@ -147,7 +147,7 @@ information is represented by a single number. However on the spatialreference.o
  `+proj=utm +zone=18 +datum=WGS84 +units=m +no_defs +ellps=WGS84 +towgs84=0,0,0`
  
 ## Converting EPSG to Proj4 in Python
-A python package for this class called 'earthlabpy' contains a dictionary that will help you convert EPSG codes into a Proj4 string. This can be used with `rasterio` in order to determine the metadata for a given EPSG code. For example, if you wish to know the units of the EPSG code above, you can do the following:
+A python package for this class called 'earthpy' contains a dictionary that will help you convert EPSG codes into a Proj4 string. This can be used with `rasterio` in order to determine the metadata for a given EPSG code. For example, if you wish to know the units of the EPSG code above, you can do the following:
 
 {:.input}
 ```python

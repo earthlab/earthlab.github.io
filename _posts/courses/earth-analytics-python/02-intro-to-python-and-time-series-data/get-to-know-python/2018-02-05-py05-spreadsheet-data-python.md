@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/spreadsheet-data-in-python/
 nav-title: 'Spreadsheet Data in Python'
 dateCreated: 2016-12-13
-modified: 2018-07-27
+modified: 2018-08-01
 week: 2
 sidebar:
   nav:
@@ -44,6 +44,7 @@ directory with it.
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -522,7 +523,11 @@ boulder_precip.plot('DATE', 'PRECIP', color = 'purple');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/get-to-know-python/2018-02-05-py05-spreadsheet-data-python_21_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/get-to-know-python/2018-02-05-py05-spreadsheet-data-python_21_0.png">
+
+</figure>
 
 
 
@@ -535,7 +540,11 @@ boulder_precip.plot.bar('DATE', 'PRECIP', color = 'purple');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/get-to-know-python/2018-02-05-py05-spreadsheet-data-python_22_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/get-to-know-python/2018-02-05-py05-spreadsheet-data-python_22_0.png">
+
+</figure>
 
 
 
@@ -583,7 +592,11 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/get-to-know-python/2018-02-05-py05-spreadsheet-data-python_25_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/get-to-know-python/2018-02-05-py05-spreadsheet-data-python_25_0.png">
+
+</figure>
 
 
 

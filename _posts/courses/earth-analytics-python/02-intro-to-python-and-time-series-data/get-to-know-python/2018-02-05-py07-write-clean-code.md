@@ -3,23 +3,19 @@ layout: single
 title: "Write Clean Python Code - Expressive programming 101"
 excerpt: 'This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: 2018-07-27
+modified: 2018-08-01
 category: [courses]
-class-lesson: ['write-clean-python-code']
+class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
 nav-title: 'Write Clean Code'
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/write-clean-code-with-python/
-module-title: 'Clean Code & Getting Help'
-module-nav-title: 'Clean code & getting help with Python'
-module-description: 'This module covers how to write easier to read, clean code. It also overs some basic approaches to getting help when working in Python.'
 module-type: 'class'
-class-order: 3
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 7
 topics:
   reproducible-science-and-programming: ['python']
 ---
@@ -163,7 +159,7 @@ import pandas as pd
 
 {:.input}
 ```python
-import earthlabpy as et
+import earthpy as et
 paths = et.data.get_data('week_02')
 my_data = pd.read_csv(paths[0])
 my_data.head()
@@ -244,7 +240,11 @@ my_data.plot('DATE', 'PRECIP', figsize = (20, 20), color = 'purple');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/clean-code-get-help-python/2018-02-05-pycc01-write-clean-code_5_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/get-to-know-python/2018-02-05-py07-write-clean-code_5_0.png">
+
+</figure>
 
 
 

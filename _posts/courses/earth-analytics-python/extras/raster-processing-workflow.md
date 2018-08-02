@@ -3,7 +3,7 @@ layout: single
 title: "Customize your maps in python: GIS in Python"
 excerpt: "In this lesson we review how to customize matplotlib maps created using vector data in Python. We will review how to add legends, titles and how to customize map colors."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-07-27
+modified: 2018-08-01
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
 permalink: /courses/earth-analytics-python/week-4/python-customize-map-legends-geopandas/
@@ -43,7 +43,7 @@ from shapely.geometry import mapping
 
 from glob import glob
 import os
-import earthlabpy as et
+import earthpy as et
 
 plt.ion()
 sns.set_style('white')

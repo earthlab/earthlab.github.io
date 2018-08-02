@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/missing-data-in-python-na/
 nav-title: 'Missing data'
 dateCreated: 2017-05-23
-modified: 2018-07-27
+modified: 2018-08-01
 week: 2
 sidebar:
   nav:
@@ -19,7 +19,6 @@ course: "earth-analytics-python"
 topics:
   reproducible-science-and-programming: ['python']
 ---
-
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
@@ -43,10 +42,11 @@ directory with it.
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
-## Missing data - No Data Values
+## Missing Data - No Data Values
 
 Sometimes, your data are missing values. Imagine a spreadsheet in Microsoft Excel with cells that are blank. If the cells are blank, you don't know for sure whether those data weren't collected, or something someone forgot to fill in. To account for data that are missing (not by mistake) you can put a value in those cells that represents `no data`.
 

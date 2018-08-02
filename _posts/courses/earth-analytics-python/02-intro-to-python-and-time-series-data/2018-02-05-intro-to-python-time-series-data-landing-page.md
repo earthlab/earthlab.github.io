@@ -14,15 +14,22 @@ module-type: 'session'
 ---
 {% include toc title="This Week" icon="file-text" %}
 
-
 <div class="notice--info" markdown="1">
 
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Earth Analytics Python - Week 2!
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Week 2!
+Welcome to week {{ page.week }} of Earth Analytics! This week you will learn how to work with and plot time series data using `Python` and `Jupyter Notebooks`. You will learn how to 
 
-Welcome to week {{ page.week }} of Earth Analytics! In week 02 you will learn how to work with data using `Python` and `Jupyter Notebooks`. You will also learn how to work with time series data. To work with time series data you need to know how to deal with date and time fields and missing data. It is also helpful to know how to subset the data by date.
+1. handle different date and time fields and formats 
+2. how to handle missing data and finally
+3. how to subset time series data by date
 
-The data that you use this week is collected by US Agency managed sensor networks. You will use the USGS stream gage network data and NOAA / National Weather Service precipitation data. All of the data you work with were collected in Boulder, Colorado around the time of the 2013 floods.
+The data that you use this week was collected by US Agency managed sensor networks and includes:
+
+* USGS stream gage network data and
+* NOAA / National Weather Service precipitation data. 
+
+All of the data you work with were collected in Boulder, Colorado around the time of the 2013 floods.
 
 Read the assignment below carefully. Use the class and homework lessons to help you complete the assignment.
 </div>
@@ -30,12 +37,12 @@ Read the assignment below carefully. Use the class and homework lessons to help 
 ## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule
 
 | time           | topic                 | speaker |  |  |
-|:---------------|:----------------------------------------------------------|:--------|:-|:-|
-|  | Review Jupyter Notebooks / Markdown / questions                   | Leah    |  |  |
-|    | Python coding session - Intro to Scientific programming with Python | Leah    |  |  |
-|   | Break                                                     |         |  |  |
+|:---------------|:----------------------------------------------------------|:--------|
+|  | Review Jupyter Notebooks / Markdown / questions                   | Leah    |  
+|    | Python coding session - Intro to Scientific programming with Python | Leah   |
+|   | Break                                                     |         | 
 |===
-|   | Python coding session continued                                | Leah    |  |  |
+|   | Python coding session continued                                | Leah  |
 
 
 ## <i class="fa fa-pencil"></i> Homework Week 2
@@ -45,20 +52,28 @@ Read the assignment below carefully. Use the class and homework lessons to help 
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 ## Important - Data Organization
-Before you begin this lesson, be sure that you've downloaded the dataset above.
-You will need to **unzip** the zip file. When you do this, be sure that your directory
-looks like the image below: note that all of the data are within the `week_02`
+
+Before you begin this lesson, be sure that you've downloaded the data for this week.
+
+If you are working on your computer, locally, you will need to **unzip** the zip file. 
+When you do this, be sure that your directory
+looks like the image below: note that all of the data are within the `colorado-flood`
 directory. The data are not nested within another directory. You may have to copy
 and paste your files into the correct directory to make this look right.
 
 <figure>
 <a href="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png">
-<img src="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png" alt="week 2 file organization">
+<img src="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png" alt="Your `week_02` file directory should look like the one above. Note that
+the data directly under the colorado-flood folder.">
 </a>
-<figcaption>Your `week_02` file directory should look like the one above. Note that
-the data directly under the week_02 folder.</figcaption>
+<figcaption>Your `colorado-flood` file directory should look like the one above. Note that
+the data directly under the colorado-flood folder.</figcaption>
 </figure>
 
+If you are working in the Jupyter Hub for this course you can use the `earthpy` download function to access the data. Like this:
+
+`import earthpy as et`
+`et.data.get_data("colorado-flood")`
 
 
 ### Why Data Organization Matters
@@ -76,31 +91,28 @@ Watch the following videos:
 #### The Story of Lidar Data Video
 <iframe width="560" height="315" src="//www.youtube.com/embed/m7SXoFv6Sdc?rel=0" frameborder="0" allowfullscreen></iframe>
 
-#### How lidar works
+#### How Lidar Works
 <iframe width="560" height="315" src="//www.youtube.com/embed/EYbhNSUnIdU?rel=0" frameborder="0" allowfullscreen></iframe>
 
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework (5 points): Due  @ 8pm
 
-
 1. Create a Jupyter Notebook Document
-Create a new Jupyter Notebook Document. Name it: youLastName-yourFirstName-week02.ipynb
+Create a new Jupyter Notebook Document. Name it: youLastName-yourFirstName-time-series.ipynb
 
-2. Add the Text That You Wrote Last Week About the Flood Events
-Add the text that you wrote for the first homework assignment to the top of your report. Then think about where in that text the plots below might fit best to better describe the events that occurred during the 2013 floods.
-
-3. Add 4 Plots to Your Jupyter Notebook Document
-Add the plots described below to your Jupyter Notebook Document. IMPORTANT Please add a figure caption to each plot that describes the contents of the plot.
+2. Add 4 Plots to Your Jupyter Notebook Document
+Add the plots described below to your Jupyter Notebook Document. IMPORTANT Add 2-3 sentences of text below each plot in a new markdown cell that describes the contents of each plot.
 
 Add the code to produce the following 4 plots in your Jupyter Notebook Document, using the homework lessons as a guide to walk you through. Use the pipes syntax that you learned in class to subset and summarize the data as required.
 
-** Use the data/colorado-flood/precipitation/805325-precip-dailysum-2003-2013.csv file to create:**
+### Create Homework Plots
+
+Use the `data/colorado-flood/precipitation/805325-precip-dailysum-2003-2013.csv` file to create the following plots:
 
 #### PLOT 1:  
 
 Precipitation from 2003 to 2013 using `matplotlib` function.
-
 
 #### PLOT 2: 
 
@@ -109,25 +121,21 @@ A plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `matpl
 * `Aug 20`
 * `Aug 27`
 
-**Use the `data/colorado-flood/discharge/06730200-discharge-daily-1986-2013.csv` file to create:**
-
 #### PLOT 3: 
 
-A plot of stream discharge from 1986 to 2013 using  `matplotlib`
+Use the `data/colorado-flood/discharge/06730200-discharge-daily-1986-2013.csv` file to create a plot of stream discharge from 1986 to 2013 using  `matplotlib`
 
 
 #### PLOT 4: 
 
-A plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using the `matplotlib`. Make sure that x axis for this plot has large ticks for each new week day and small ticks for each day similar to plot 2 above.
+Use the `data/colorado-flood/discharge/06730200-discharge-daily-1986-2013.csv` file to create a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using the `matplotlib`. Make sure that x axis for this plot has large ticks for each new week day and small ticks for each day similar to plot 2 above.
 
 * `Aug 20`
 * `Aug 27`
 
-#### PLOT 5: 
+#### PLOT 5:
 
-**Use the `data/colorado-flood/precipitation/805333-precip-daily-1948-2013.csv` file.** 
-
-Create a plot of precipitation, summarized by daily total (sum) precipitation subsetting to Jan 1 - Oct 15 2013.
+Use the `data/colorado-flood/precipitation/805333-precip-daily-1948-2013.csv` file to create a plot of precipitation, summarized by daily total (sum) precipitation subsetting to Jan 1 - Oct 15 2013.
 Be sure to do the following:
 
 1. Subset the data temporally: Jan 1 2013 - Oct 15 2013.
@@ -136,9 +144,10 @@ Be sure to do the following:
 
 Use the [bonus lesson]({{ site.url }}/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/aggregate-time-series-data-python/) to guide you through creating this plot.
 
-#### Grad Students Only: PLOTS 6-7
+#### PLOTS 6-7
 
-In addition to the plots above, add a plot of precipitation that spans from 1948 - 2013 using the 805333-precip-daily-1948-2013.csv file. For your plot be sure to:
+Use the `805333-precip-daily-1948-2013.csv` file to create a plot of precipitation that spans from 1948 - 2013 file.
+For your plot be sure to:
 
 * Subset the data temporally: Jan 1 2013 - Oct 15 2013.
 * Make sure that x axis for this plot has large ticks for each new week day and small ticks for each day.
@@ -147,8 +156,11 @@ In addition to the plots above, add a plot of precipitation that spans from 1948
 * Identify an anomaly or change in the data that you can clearly see when you plot it. Then fix that anomly to make the plot more uniform. See example below for guidance!
 
 
-###  For all your plots be sure to do the following
-* Label Plots Appropriately
+###  Do The Following For All Plots
+
+Make sure you have the following for each of the plots listed above:
+
+* Label Plot axes and add titles as appropriate
 * Be sure that each plot has:
 
     * A figure caption that describes the contents of the plot.
@@ -162,7 +174,7 @@ In addition to the plots above, add a plot of precipitation that spans from 1948
 
 * Convert date fields as appropriate.
 * Clean no data values as appropriate.
-* Show all of your code in the output .html file.
+* Show all of your code in the output `.html` file.
 </div>
 
 ## Report Grade Rubric
@@ -201,8 +213,10 @@ In addition to the plots above, add a plot of precipitation that spans from 1948
 * **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `matplotlib`.
 * **PLOT 3:** a plot of stream discharge from 1986 to 2013 using `matplotlib`.
 * **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using `matplotlib`.
+* **PLOT 5:** daily precipitation subsetted
+
 ***
-* **PLOT 5 & 6:** (GRAD STUDENTS ONLY): a plot of precipitation that spans from 1948 - 2013
+* **PLOT 6 & 7:**: a plot of precipitation that spans from 1948 - 2013
 
 The plots listed above will be reviewed for various aesthetics as follows:
 
@@ -227,15 +241,14 @@ Plots 2 and 4 should be temporally subsetted to the dates listed above.
 |===
 | Plot 4 is temporally subsetted using  to Aug 15 - Oct 15 2013 |  |  |
 
-#### Grad Plot Only
-
-Plots 2 and 4 should be temporally subsetted to the dates listed above.
+#### Plots 6-7
 
 | Full credit |   | No credit |
 |:-----|:--------|:----------|
 | Plot 6 shows a plot with the data anomoly identified and fixed |  |  |
 |===
 |  |  |  |
+
 ***
 
 

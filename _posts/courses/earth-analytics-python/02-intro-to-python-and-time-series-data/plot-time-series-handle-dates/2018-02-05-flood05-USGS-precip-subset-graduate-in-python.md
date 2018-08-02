@@ -3,7 +3,7 @@ layout: single
 title: "Subset & aggregate time series precipitation data in Python using the resample function."
 excerpt: "This lesson introduces subsetting and resampling functions - which will allow you to aggregate or summarize time series data by a particular field - in this case you will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser', Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-27
+modified: 2018-08-01
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -38,7 +38,7 @@ You need `Python` and `Jupyter notebooks` to complete this tutorial. Also you sh
 #### Data Download
 Please download the data (used throughout this series of lessons) if you don't already have it on your computer.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -247,7 +247,11 @@ data values you have in your dataset.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_8_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_8_0.png">
+
+</figure>
 
 
 
@@ -256,7 +260,11 @@ data values you have in your dataset.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_9_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_9_0.png">
+
+</figure>
 
 
 
@@ -326,7 +334,11 @@ ax.set(xlabel='Date', ylabel='Precipitation (Inches)',
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_14_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_14_0.png">
+
+</figure>
 
 
 
@@ -472,7 +484,11 @@ ax.set(xlabel='Date', ylabel='Precipitation (Inches)',
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_18_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_18_0.png">
+
+</figure>
 
 
 
@@ -592,7 +608,11 @@ ax.set(xlabel='Date', ylabel='Precipitation (Inches)',
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_24_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_24_0.png">
+
+</figure>
 
 
 
@@ -697,7 +717,11 @@ ax.set(xlabel='Date', ylabel='Precipitation (Inches)',
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_29_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood05-USGS-precip-subset-graduate-in-python_29_0.png">
+
+</figure>
 
 
 

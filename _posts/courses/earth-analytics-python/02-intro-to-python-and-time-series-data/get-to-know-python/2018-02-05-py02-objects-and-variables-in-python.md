@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/objects-and-variables-in-python/
 nav-title: 'Objects in Python'
 dateCreated: 2017-05-23
-modified: 2018-07-27
+modified: 2018-08-01
 course: "earth-analytics-python"
 week: 2
 sidebar:
@@ -42,6 +42,8 @@ directory with it.
 * [Setup Conda](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
+
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 

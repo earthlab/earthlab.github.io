@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/work-with-data-types-python/
 nav-title: 'Data Types'
 dateCreated: 2017-05-23
-modified: 2018-07-27
+modified: 2018-08-01
 week: 2
 sidebar:
   nav:
@@ -39,6 +39,7 @@ directory with it.
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 

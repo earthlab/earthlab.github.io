@@ -4,18 +4,18 @@ title: "Get Help with Python"
 excerpt: "This tutorial covers ways to get help when you are stuck in Python. "
 authors: ['Chris Holdgraf', 'Data Carpentry', 'Leah Wasser', 'Martha Morrissey']
 category: [courses]
-class-lesson: ['write-clean-python-code']
+class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
 permalink: /courses/earth-analytics-python/02-intro-to-python-and-time-series-data/about-and-get-help-with-python/
 nav-title: 'About Python & Get Help'
 dateCreated: 2017-05-05
-modified: 2018-07-27
+modified: 2018-08-01
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+order: 8
 topics:
   reproducible-science-and-programming: ['python']
 ---

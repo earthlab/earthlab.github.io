@@ -3,18 +3,23 @@ layout: single
 title: "Work With Date - Time formats in Python - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in Python. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-07-31
+modified: 2018-08-01
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/date-class-in-python/
+module-description: 'This lesson series covers working with time series data in Python. You will learn how to handle with date fields in Python to efficiently plot time series data using matplotlib. You will use the as.DATE() function to convert dates stored in a data.frame to a date class. Finally you will cover customizing matplotlib plots using colors and unique axis labels. '
+module-nav-title: 'Time Series Data in Python'
+module-title: 'Work with Time Series Data From Sensor Networks in Python'
+module-type: 'class'
 nav-title: 'Dates in Python'
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+class-order: 1
+order: 1
 topics:
   reproducible-science-and-programming: ['JupyterNotebook']
   time-series:
@@ -23,10 +28,9 @@ topics:
 {% include toc title="In This Lesson" icon="file-text" %}
 
 
-## Get started with date formats in Python
+## Work With Date Formats in Python
 
-In this tutorial, you will look at the date time format - which is important for plotting and working with time series data in Python.
-
+In this tutorial, you will use the date time format - which is important for plotting and working with time series data in `Python`.
 
 <div class='notice--success' markdown="1">
 
@@ -48,64 +52,50 @@ directory with it.
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
-
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
 </div>
 
-In this tutorial, you will learn how to convert data that contain dates and times into a date / time format in `Python`. To begin, let's revisit the boulder precip data that you've been working with in this module.
+Dates can be tricky in any programming language. While you may see a date and recognize it as something that can be quantified and related to time, a computer reads in numbers and characters and often by default brings in a date as a string (a set of characters) rather than something that has an order in time. 
 
-### Be sure to set your working directory
-
-`os.chdir("path-to-you-dir-here/earth-analytics/data")`
+In this lesson you will learn how to begin to handle dates in Python using Pandas. 
+To begin, open up the `boulder-precip.csv` file that you used in the homework for week one.  
 
 {:.input}
 ```python
+# import libraries
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import os
 plt.ion()
+# set working directory if you are working locally on your laptop.
+# os.chdir("path-to-you-dir-here/earth-analytics/data")
 ```
 
-## Plot using matplotlib
-
-You can use matplotlib plotting to further customize your plots, so let's use that instead of using the `pandas` function `plot()`. 
+Next, open  the `boulder-precip` data using pandas. 
 
 {:.input}
 ```python
-plt.rcParams['figure.figsize'] = (8, 8)
-plt.rcParams['axes.titlesize'] = 20
-plt.rcParams['axes.facecolor']='white'
-plt.rcParams['grid.color'] = 'grey'
-plt.rcParams['grid.linestyle'] = '-'
-plt.rcParams['grid.linewidth'] = '.5'
-plt.rcParams['lines.color'] = 'purple'
-plt.rcParams['axes.grid'] = True
-```
-
-{:.input}
-```python
-boulder_precip = pd.read_csv('data/colorado-flood/boulder-precip.csv')
-```
-
-{:.input}
-```python
+boulder_precip = pd.read_csv('data/colorado-flood/downloads/boulder-precip.csv')
+# view data frame structure
 boulder_precip.dtypes
 ```
 
-{:.output}
-{:.execute_result}
+## View Data Structure
+Look closely at the structure of the boulder-precip data as imported into Python. Notice that you have 3 columns of type:
 
+* int64
+* object and
+* float64
 
+Objects in Python can be a set of different types of things including:
 
-    Unnamed: 0      int64
-    DATE           object
-    PRECIP        float64
-    dtype: object
+1. lists
+2. strings
+3. dictionaries and more
 
-
-
-
+Look closely at the date column to see the type or class of information that it contains.
 
 {:.input}
 ```python
@@ -123,10 +113,16 @@ type(boulder_precip['DATE'][0])
 
 
 
+Notice that this is a date field - yet it's classified as of type `str` or string by Python. 
+A string represents a sequence of values (letters and numbers). You can not perform any math on a string object!
+Next, plot the data. 
+
 {:.input}
 ```python
 fig, ax= plt.subplots()
-ax.plot(boulder_precip['DATE'], boulder_precip['PRECIP'], color = 'purple')
+ax.plot(boulder_precip['DATE'], 
+        boulder_precip['PRECIP'], 
+        color = 'purple')
 plt.setp(ax.get_xticklabels(), rotation=45)
 ax.set(xlabel="Date",
        ylabel="Total Precipitation (Inches)",
@@ -138,20 +134,19 @@ ax.set(xlabel="Date",
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_9_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-date-format-python_8_0.png">
 
 </figure>
 
 
 
 
-You can plot the data however you didn't explictly tell pandas to ensure that the data in the DATE column is a datetime object. Look closely at the dates on the x-axis. they may look ok but upon closer examination, they are not spaced properly as they are being read in as strings. 
+You can plot the data however you didn't explictly tell pandas to ensure that the data in the DATE column is a datetime object. Look closely at the dates on the x-axis. The dates may look ok at first glance, but upon closer examination, they are not spaced properly as they are being read in as strings.
 
-You will learn how to ensure the `DATE` is a datetime object in python, next.
+Example - look at the spacing between the data for september 1 and september 9. Notice the points are spaced equally on the x axis compared to the points for september 10 and 11!  
 
-Looking at the structure of your data, you see that the DATE field is of type `object`. However ideally you want `Python` to read this column as a date so you can work with it as a chronological element rather than a string or some other format.
 
-## Python Data types 
+## Python Data Types 
 
 The structure results above tell us that the data columns in your `DataFrame` are stored as several different data types or `classes` as follows:
 
@@ -181,7 +176,7 @@ Let's give it a try
 
 {:.input}
 ```python
-boulder_precip = pd.read_csv('data/boulder-precip.csv',
+boulder_precip = pd.read_csv('data/colorado-flood/downloads/boulder-precip.csv',
                              parse_dates=['DATE'])
 boulder_precip.dtypes
 ```
@@ -201,11 +196,11 @@ boulder_precip.dtypes
 
 
 This looks much better. now the DATE column is of type: `datetime64`.
-Let's try to plot again.
+Try to plot again.
 
 {:.input}
 ```python
-fig, ax= plt.subplots()
+fig, ax= plt.subplots(figsize = (8,8))
 ax.plot(boulder_precip['DATE'], boulder_precip['PRECIP'], color = 'purple')
 plt.setp(ax.get_xticklabels(), rotation=45)
 ax.set(xlabel="Date",
@@ -218,7 +213,7 @@ ax.set(xlabel="Date",
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_15_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-date-format-python_14_0.png">
 
 </figure>
 
@@ -263,7 +258,7 @@ ax.set(xlabel="Date",
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood02-date-format-python_19_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood01-date-format-python_18_0.png">
 
 </figure>
 

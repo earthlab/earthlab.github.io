@@ -3,7 +3,7 @@ layout: single
 title: "Subset and plot time series data in Python - Flooding & erosion data"
 excerpt: "This lesson walks through extracting temporal subsets of time series data using the pandas subset function. In the previous lesson you learned how to convert data containing a data field into a data class. In this lesson you subset the data and create refined time series plots using matplotlib. You'll learn how to set the x and y limits on a matplotlib plot to only plot a subset of the data and how to format an axis containing dates."
 authors: ['Chris Holdgraf', 'Martha Morrissey', 'Leah Wasser', 'NEON']
-modified: 2018-07-27
+modified: 2018-08-01
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -47,8 +47,7 @@ directory with it.
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
-
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -458,7 +457,11 @@ Your final plot should look something like the plot below.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood03-subset-plot-time-series-data-python_11_1.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood03-subset-plot-time-series-data-python_11_1.png">
+
+</figure>
 
 
 
@@ -538,7 +541,11 @@ ax.autoscale_view()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood03-subset-plot-time-series-data-python_15_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood03-subset-plot-time-series-data-python_15_0.png">
+
+</figure>
 
 
 
@@ -562,7 +569,11 @@ HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments wor
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood03-subset-plot-time-series-data-python_17_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood03-subset-plot-time-series-data-python_17_0.png">
+
+</figure>
 
 
 
@@ -571,7 +582,11 @@ HINT: type `?lims` in the console to see how the `xlim` and `ylim` arguments wor
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood03-subset-plot-time-series-data-python_18_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood03-subset-plot-time-series-data-python_18_0.png">
+
+</figure>
 
 
 

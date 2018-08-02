@@ -3,7 +3,7 @@ layout: single
 title: "Plot Stream Discharge Data in Python"
 excerpt: "This lesson is a challenge exercise that asks you to use all of the skills used during the week 2 set of lessons in the earth analytics course. Here you will import data and subset it to create a final plot of stream discharge over time."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: 2018-07-27
+modified: 2018-08-01
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -49,7 +49,7 @@ directory with it.
 
 Please download the data (used throughout this series of lessons) if you don't already have it on your computer.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -218,7 +218,11 @@ Your plot should look something like the one below:
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood04-USGS-stream-discharge-in-python_8_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood04-USGS-stream-discharge-in-python_8_0.png">
+
+</figure>
 
 
 
@@ -239,7 +243,11 @@ Finally plot the data using `matplotlib`. Your plot should look like the one bel
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood04-USGS-stream-discharge-in-python_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-flood04-USGS-stream-discharge-in-python_10_0.png">
+
+</figure>
 
 
 
