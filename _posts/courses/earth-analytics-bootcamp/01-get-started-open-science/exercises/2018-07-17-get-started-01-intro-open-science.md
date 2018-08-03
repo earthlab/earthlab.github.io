@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/intro-open-science/
 nav-title: "What Is Open Reproducible Science"
 dateCreated: 2018-06-27
-modified: 2018-07-30
+modified: 2018-08-02
 module-title: 'Get Started with Open Reproducible Science'
 module-nav-title: 'Get Started with Open Reproducible Science'
 module-description: 'This tutorial helps you get started with open reproducible science and introduces you to tools used in open reproducible science workflows including Bash/Shell, Git and Github.com, and Python in Jupyter Notebook.'
@@ -30,7 +30,7 @@ In this lesson, you will learn the importance and benefits of open reproducible 
 
 <div class='notice--success' markdown="1">
 
-# <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this lesson, you will be able to:
 
@@ -39,7 +39,8 @@ After completing this lesson, you will be able to:
 * List tools that help you implement open science workflows
 
 
-# <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+
 You will need a web browser to play the video and review the slides in this lesson. 
 
  </div>
@@ -66,8 +67,8 @@ Open reproducible science results from open science workflows that allow you to 
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/open-science/workflow.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/open-science/workflow.png" alt="Open Science Workflow"></a>
- <figcaption> Open Science Workflow. Max Joseph, Earth Lab at University of Colorado, Boulder. 
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/open-science/workflow.png" alt="This figure presents a useful illustration of the open science workflow, highlighting the roles of data, code, and workflows. Source: Max Joseph, Earth Lab at University of Colorado, Boulder."></a>
+ <figcaption> This figure presents a useful illustration of the open science workflow, highlighting the roles of data, code, and workflows. Source: Max Joseph, Earth Lab at University of Colorado, Boulder.
  </figcaption>
 </figure>
 

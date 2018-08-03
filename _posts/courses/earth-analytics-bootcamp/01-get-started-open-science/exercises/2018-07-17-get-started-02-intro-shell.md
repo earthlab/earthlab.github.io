@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/
 nav-title: "Intro to Shell"
 dateCreated: 2018-06-27
-modified: 2018-07-31
+modified: 2018-08-02
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -41,7 +41,7 @@ After completing this lesson, you will be able to:
  
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have completed the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/" target = "_blank">Setting up Git, Bash, and Anaconda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux). 
+Be sure that you have completed the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/">Setting up Git, Bash, and Anaconda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux). 
  
 </div>
 
@@ -86,8 +86,8 @@ You can use the program called `Terminal`, which can be searched for in Spotligh
 
 <figure>
    <a href="https://help.apple.com/assets/58C4E5B4680CE2040551BA60/58C4E5B6680CE2040551BA69/en_US/84239026ca019f46567b86e900f5edd7.png">
-   <img src="https://help.apple.com/assets/58C4E5B4680CE2040551BA60/58C4E5B6680CE2040551BA69/en_US/84239026ca019f46567b86e900f5edd7.png" alt="Terminal on Mac"></a>
-   <figcaption>Terminal on Mac. Source: Apple.com.
+   <img src="https://help.apple.com/assets/58C4E5B4680CE2040551BA60/58C4E5B6680CE2040551BA69/en_US/84239026ca019f46567b86e900f5edd7.png" alt="This is what the Terminal on Mac looks like. Source: Apple.com."></a>
+   <figcaption>This is what the Terminal on Mac looks like. Source: Apple.com.
    </figcaption>
 </figure>
 
@@ -99,8 +99,8 @@ You can use the program called `Terminal` (or `Terminal Emulator`), which typica
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/terminal/linux-terminal.png" width = "125%">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/terminal/linux-terminal.png" alt="Terminal on Linux" width = "125%"></a>
- <figcaption> Terminal on Linux.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/terminal/linux-terminal.png" alt="This is what the Terminal on Linux looks like." width = "125%"></a>
+ <figcaption> This is what the Terminal on Linux looks like.
  </figcaption>
 </figure>
 
@@ -114,8 +114,8 @@ Once you have installed `Git` on a Windows machine, you can open this Terminal b
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/terminal/git-bash-terminal.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/terminal/git-bash-terminal.png" alt="Terminal on Windows"></a>
- <figcaption> Terminal on Windows.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/terminal/git-bash-terminal.png" alt="This is what the Git Bash Terminal on Windows looks like."></a>
+ <figcaption> This is what the Git Bash Terminal on Windows looks like.
  </figcaption>
 </figure>
 
@@ -218,8 +218,8 @@ In the image below, compare the list of file names on the LEFT to those on the r
 
 <figure>
    <a href="https://www.earthdatascience.org/images/slide-shows/intro-rr/human-readable-jenny.png">
-   <img src="https://www.earthdatascience.org/images/slide-shows/intro-rr/human-readable-jenny.png" alt="Naming Directories and Files. "></a>
-   <figcaption>Naming Directories and Files. Source: Jenny Bryan, Reproducible Science Curriculum.   
+   <img src="https://www.earthdatascience.org/images/slide-shows/intro-rr/human-readable-jenny.png" alt="This image displays examples of good and not-so-good names for directories and files. Source: Jenny Bryan, Reproducible Science Curriculum."></a>
+   <figcaption>This image displays examples of good and not-so-good names for directories and files. Source: Jenny Bryan, Reproducible Science Curriculum.   
    </figcaption>
 </figure>
 
