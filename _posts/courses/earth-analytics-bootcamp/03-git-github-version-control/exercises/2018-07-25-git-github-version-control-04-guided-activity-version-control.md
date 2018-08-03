@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/
 nav-title: "Guided Activity on Version Control with Git/GitHub"
 dateCreated: 2018-07-25
-modified: 2018-08-02
+modified: 2018-08-03
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -69,7 +69,9 @@ Open the `Jupyter Notebook` file for Homework 1 (`ea-bootcamp-hw-1.ipynb`) and m
     
 * If you have not modified Homework 1, you can make a simple change in `Jupyter Notebook` to add a new `Markdown` cell below the existing cells and include:
     * A title for the notebook (e.g. `Earth Analytics Bootcamp - Homework 1`)
-    * A bold word for `Author:` and then add text for your name (e.g. `Jenny Palomino`). 
+    * A **bullet list** with:
+        * A bold word for `Author:` and then add text for your name. 
+        * A bold word for `Date:` and then add text for today's date.
      
 
 ## Check the Status of Changes

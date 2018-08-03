@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/markdown-jupyter-notebook/
 nav-title: "Markdown in Jupyter Notebook"
 dateCreated: 2018-07-25
-modified: 2018-08-02
+modified: 2018-08-03
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -175,7 +175,9 @@ It will render as follows:
 
 2. Add a new `Markdown` cell below the existing cells and include:
     * A title for the notebook (e.g. `Earth Analytics Bootcamp - Homework 1`)
-    * A bold word for `Author:` and then add text for your name (e.g. `Jenny Palomino`). 
+    * A **bullet list** with:
+        * A bold word for `Author:` and then add text for your name. 
+        * A bold word for `Date:` and then add text for today's date.
 
 </div>
 
@@ -185,12 +187,13 @@ It will render as follows:
 
 1. From your `markdown` directory created in the previous lesson, open the `Jupyter Notebook` file you created (e.g. `jpalomino-markdown.ipynb`).
 
-2. Add a `Markdown` cell as the first cell of this empty notebook. 
+2. Add a `Markdown` cell as the first cell of this empty notebook and include:
+    * A title for the notebook (e.g. `Earth Analytics Bootcamp - Markdown Reference`)
+    * A bold word for `Author:` and then add text for your name (e.g. `Jenny Palomino`)
 
-3. In this cell, add a title for the notebook (e.g. `Earth Analytics Bootcamp - Markdown Reference`) and a subtitle with your name (e.g. `Jenny Palomino`). 
-
-4. Add another `Markdown` cell below your title cell and include:
+3. Add another `Markdown` cell below your title cell and include:
     * A list of your three favorite foods (e.g. blueberries, chocolate bars, avocados)
-    * Add a hyperlinks (i.e. webpages or images) to your listed favorite foods
+    * A hyperlink (i.e. webpages) for each item in your list of favorite foods
+    * An image for each item in your listed favorite foods
 
 </div>

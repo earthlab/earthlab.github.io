@@ -37,7 +37,7 @@ After completing the lessons for Day 3, you will be able to:
 
 | Topics |
 |:----------------------------------------------------------|
-| Review Day 1 / Questions | 
+| Review Day 2 / Questions | 
 | Lesson 1: What Is Version Control               | 
 | Lesson 2: Manage `Jupyter Notebook` Files         |   
 | Lesson 3: Using `Markdown` for Documentation |
