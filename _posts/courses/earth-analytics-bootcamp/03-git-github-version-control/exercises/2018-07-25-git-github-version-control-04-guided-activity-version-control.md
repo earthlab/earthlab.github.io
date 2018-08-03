@@ -44,7 +44,7 @@ Be sure that you have also completed the lesson on <a href="{{ site.url }}/cours
 You will also need a web browser and your `Github.com` login (username and password). 
 
 </div>
- 
+
 
 ## Git and GitHub Workflow For Version Control
 
