@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2018-08-02
+modified: 2018-08-03
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -23,7 +23,7 @@ topics:
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
-In this lesson, you will learn how to submit a pull request to suggest that your edits be included in another repository (e.g. the original repository from which you forked and cloned a repository). Specifcally, you will practice submitting a pull request of your updated `Jupyter Notebook` for Homework 1. 
+In this lesson, you will learn how to submit a pull request to suggest that your edits be included in another repository (e.g. the original repository from which you forked and cloned a repository). Specifcally, you will practice submitting a pull request for your updated `Jupyter Notebook` for Homework 1. 
 
 <div class='notice--success' markdown="1">
 
