@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/
 nav-title: "Get Files From GitHub"
 dateCreated: 2018-06-27
-modified: 2018-07-31
+modified: 2018-08-02
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -38,9 +38,9 @@ After completing this lesson, you will be able to:
  
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have completed the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/" target = "_blank">Setting up Git, Bash, and Anaconda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux). 
+Be sure that you have completed the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/">Setting up Git, Bash, and Anaconda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux). 
 
-Be sure that you have completed the previous lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/" target = "_blank">Intro to Shell.</a>
+Be sure that you have completed the previous lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/">Intro to Shell.</a>
 
 You will also need a web browser and your `Github.com` login (username and password). 
  
@@ -88,8 +88,8 @@ Click on the `Fork` button and select your `Github.com` account as the home of t
 
 <figure>
    <a href="https://help.github.com/assets/images/help/repository/fork_button.jpg">
-   <img src="https://help.github.com/assets/images/help/repository/fork_button.jpg" alt="Git Fork"></a>
-   <figcaption>Fork an existing Github.com repository to make a copy of other users' files.
+   <img src="https://help.github.com/assets/images/help/repository/fork_button.jpg" alt="Fork an existing Github.com repository to make a copy of other users' files. Source: Github.com."></a>
+   <figcaption>Fork an existing Github.com repository to make a copy of other users' files. Source: Github.com.
    </figcaption>
 </figure>
 
@@ -122,8 +122,8 @@ On the main `Github.com` page of your forked repository, click on the green butt
 
 <figure>
     <a href="https://services.github.com/on-demand/images/gifs/github-cli/git-clone.gif">
-   <img src="https://services.github.com/on-demand/images/gifs/github-cli/git-clone.gif" alt="Git Clone"></a>
-   <figcaption>Copy the url of a Github repository on Github.com.
+   <img src="https://services.github.com/on-demand/images/gifs/github-cli/git-clone.gif" alt="Copy the url of a Github repository on Github.com. Source: Github.com"></a>
+   <figcaption>Copy the url of a Github repository on Github.com. Source: Github.com
    </figcaption>
 </figure>
 
@@ -163,5 +163,7 @@ Test your `Bash` and `Git`/`GitHub` skills to `fork`/`clone` the repository for 
 4. Clone your forked repository `ea-bootcamp-hw-1-yourusername` to the `earth-analytics-bootcamp` directory on your computer (hint: `cd`, `git clone`).
 
 5. Check that `ea-bootcamp-hw-1-yourusername` has been successfully cloned to your computer (hint: `ls`).
+
+What other directories are present in the `earth-analytics-bootcamp` directory?
 
 </div>
