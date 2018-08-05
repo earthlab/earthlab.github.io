@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/
 nav-title: "Guided Activity on Version Control with Git/GitHub"
 dateCreated: 2018-07-25
-modified: 2018-08-03
+modified: 2018-08-05
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -163,7 +163,7 @@ After you have pushed your commits, visit your repository on `https://github.com
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1
 
 Rename your Homework 1 file and update it on `GitHub`!
 
@@ -172,5 +172,19 @@ Rename your Homework 1 file and update it on `GitHub`!
 2. Use your new `Git` skills to `add` and `commit` the changes and then `push` the changes to your `ea-bootcamp-hw-1-yourusername` repository on `GitHub`. 
 
 3. Visit your repository on `Github.com` and see your change! What happened to the original file `ea-bootcamp-hw-1.ipynb`?
+
+</div>
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 2
+
+Configure settings for `Git` on your computer:
+
+1. In the terminal, set your `Github.com` username by typing: `git config --global user.name "Your UserName"`.
+
+2. In the terminal, set the email for your `Github.com` account by typing: `git config --global user.email "youremail@email.com"`.
+
+Now, you will not have to type in your `Github.com` username each time you run a `Git` command, or have to provide an email for `Git` commands that require them to send messages.
 
 </div>
