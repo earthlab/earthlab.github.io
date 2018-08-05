@@ -41,7 +41,7 @@ After completing this hands-on exercise, you will be able to:
  
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have completed the previous lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/numpy-arrays/import-text-files-numpy-arrays">Import Text Data Into Numpy Arrays</a>.
+Be sure that you have completed the previous lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/numpy-arrays/import-text-files-numpy-arrays/">Import Text Data Into Numpy Arrays</a>.
 
 The code below is available in the **ea-bootcamp-day-4** repository that you cloned to `earth-analytics-bootcamp` under your home directory. 
 
