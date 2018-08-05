@@ -5,7 +5,7 @@ excerpt: "This lesson walks you through manipulating, summarizing and plotting n
 authors: ['Jenny Palomino', 'Software Carpentry']
 category: [courses]
 class-lesson: ['numpy-arrays']
-permalink: /courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays
+permalink: /courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays/
 nav-title: "Manipulate, Summarize and Plot Numpy Arrays"
 dateCreated: 2019-07-23
 modified: 2018-08-05
