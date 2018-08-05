@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays
 nav-title: "Manipulate, Summarize and Plot Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-04
+modified: 2018-08-05
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -364,6 +364,50 @@ precip_2002_2013[0:2, 0:3]
 
 
 
+You can also store selected data as a new `numpy array`. 
+
+For example, you can create a new `numpy array` for the precipitation data in 2002 by selecting the first row of values from `precip_2002_2013`.
+
+{:.input}
+```python
+# select the first row and all twelve columns of monthly values
+precip_2002 = precip_2002_2013[0:1, 0:12]
+
+# print data in `precip_2002`
+precip_2002
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    array([[1.07, 0.44, 1.5 , 0.2 , 3.2 , 1.18, 0.09, 1.44, 1.52, 2.44, 0.78,
+            0.02]])
+
+
+
+
+
+You can check the `.shape` of the new array to see that it has remained a two-dimensional array, but it only has one row of data, not two like `precip_2002_2013`.
+
+{:.input}
+```python
+# print dimensions of `precip_2002`
+precip_2002.shape
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (1, 12)
+
+
+
+
+
 ## Run Calculations on Numpy Arrays
 
 `Numpy arrays` calculations highlight the major differences between `Python` lists and `numpy arrays`.
@@ -412,29 +456,40 @@ Recall the previous lessons on variables and lists. Instead of creating separate
 
 Another great feature of `numpy arrays` is the ability to run summary statistics (e.g. calculating averages, finding min or max values) across the entire array of values. `Lists` do not support this functionality either.
 
-For example, you can use the `mean()` function in `numpy` to calculate the average value across an array (e.g. `np.mean(arrayname)`). Similarly, we can use `min()` and `max()` to find the minimum and maximum values in an array.  
+For example, you can use the `mean()` function in `numpy` to calculate the average value across an array (e.g. `np.mean(arrayname)`). You can also store results as a new variable.
 
 {:.input}
 ```python
-# find the min value within precip and store the result as a new variable
-min_precip = np.min(avg_monthly_precip)
+# calculate the mean and store the result as a new variable
+mean_avg_precip = np.mean(avg_monthly_precip)
 
-# calculate the mean of precip and store the result as a new variable
-mean_precip = np.mean(avg_monthly_precip)
-
-# find the max value within precip and store the result as a new variable
-max_precip = np.max(avg_monthly_precip)
-
-# you can expand the print statement to include text strings before the data output from the variables
-print("minimum precipitation:", min_precip)
-print("mean precipitation:", mean_precip)
-print("maximum precipitation:", max_precip)
+# you can expand the print statement to include a text string to label the data output
+print("mean of average monthly precipitation:", mean_avg_precip)
 ```
 
 {:.output}
-    minimum precipitation: 17.779999999999998
-    mean precipitation: 42.820166666666665
-    maximum precipitation: 77.46999999999998
+    mean of average monthly precipitation: 42.820166666666665
+
+
+
+Similarly, we can use `min()` and `max()` to find the minimum and maximum values in an array.  
+
+{:.input}
+```python
+# find the min value and store the result as a new variable
+min_avg_precip = np.min(avg_monthly_precip)
+
+# find the max value and store the result as a new variable
+max_avg_precip = np.max(avg_monthly_precip)
+
+# print these values along with a message that labels each result
+print("minimum of average monthly precipitation:", min_avg_precip)
+print("maximum of average monthly precipitation:", max_avg_precip)
+```
+
+{:.output}
+    minimum of average monthly precipitation: 17.779999999999998
+    maximum of average monthly precipitation: 77.46999999999998
 
 
 
@@ -476,14 +531,14 @@ ax.set(xlabel="Month", ylabel="Precipitation (mm)");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/04-numpy-arrays/exercises/2018-08-01-numpy-arrays-04-manipulate-summarize-plot-numpy-arrays_31_0.png)
+![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/04-numpy-arrays/exercises/2018-08-01-numpy-arrays-04-manipulate-summarize-plot-numpy-arrays_37_0.png)
 
 
 
 
-Congratulations! You have learned how to use indexing to select data from one-dimensional and two-dimensional `numpy arrays`, and how to run calculations on these `numpy arrays`. 
+Note that `precip_2002` is still two dimensional array, so you cannot use it to plot data against `months`. In future lessons, you will learn how to convert two-dimensional `numpy arrays` to one-dimensional `numpy arrays`. 
 
-You also learned how to run summary statistics on and plot data from one-dimensional `numpy arrays`. In future lessons, you will learn how to run summary statistics on and plot data from two-dimensional `numpy arrays`. 
+Congratulations! You have learned how to use indexing to select data from one-dimensional and two-dimensional `numpy arrays`, and how to run calculations and summary statistics on these `numpy arrays`. You also learned how to plot data from one-dimensional `numpy arrays`. 
 
 <div class="notice--warning" markdown="1">
 
@@ -493,13 +548,31 @@ Test your `Python` skills to:
 
 1. Convert the data values in `precip_2002_2013` from inches to millimeters (one inch = 25.4 millimeters). 
 
-2. Select and print all data values in the last row in `precip_2002_2013` (i.e. data for the year 2013).
+2. Create a new `numpy array` for 2013 by selecting all data values in the last row in `precip_2002_2013` (i.e. data for the year 2013).
+
+3. Calculate the minimum, mean, and maximum values for 2013. 
+
+4. Print these values along with a message that labels each result (e.g. `mean precipitation in 2013:`). 
 
 </div>
 
 
 {:.output}
-    [[27.178 11.176 38.1    5.08  81.28  29.972  2.286 36.576 38.608 61.976
-      19.812  0.508]]
+{:.execute_result}
+
+
+
+    array([[  6.858,  28.702,  43.688, 105.156,  67.564,  15.494,  26.162,
+             35.56 , 461.264,  56.896,   7.366,  12.7  ]])
+
+
+
+
+
+
+{:.output}
+    minimum precipitation in 2013: 6.858
+    mean precipitation in 2013: 72.28416666666665
+    maximum precipitation in 2013: 461.26399999999995
 
 
