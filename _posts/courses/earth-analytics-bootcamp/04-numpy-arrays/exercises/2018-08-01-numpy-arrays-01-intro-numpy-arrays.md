@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/intro-numpy-arrays/
 nav-title: "Intro to Numpy Arrays"
 dateCreated: 2018-07-23
-modified: 2018-08-04
+modified: 2018-08-05
 module-title: 'Numpy Arrays'
 module-nav-title: 'Numpy Arrays'
 module-description: 'This tutorial teaches you to work with a commonly used data structure in Python for scientific data: numpy arrays.'

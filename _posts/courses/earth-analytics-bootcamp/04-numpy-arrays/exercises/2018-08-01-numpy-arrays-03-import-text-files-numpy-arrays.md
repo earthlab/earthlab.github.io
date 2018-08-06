@@ -5,10 +5,10 @@ excerpt: "This lesson walks you through importing text data from .txt and .csv f
 authors: ['Jenny Palomino', 'Software Carpentry']
 category: [courses]
 class-lesson: ['numpy-arrays']
-permalink: /courses/earth-analytics-bootcamp/numpy-arrays/import-text-files-numpy-arrays
+permalink: /courses/earth-analytics-bootcamp/numpy-arrays/import-text-files-numpy-arrays/
 nav-title: "Import Text Data Into Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-04
+modified: 2018-08-05
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
