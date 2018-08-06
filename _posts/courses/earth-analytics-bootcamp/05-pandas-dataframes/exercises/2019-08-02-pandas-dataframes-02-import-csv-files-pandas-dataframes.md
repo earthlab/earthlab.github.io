@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/import-csv-files-pandas-dataframes/
 nav-title: "Import CSV Files Into Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-04
+modified: 2018-08-05
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
