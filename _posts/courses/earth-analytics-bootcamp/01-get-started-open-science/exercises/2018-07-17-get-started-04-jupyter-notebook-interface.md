@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/jupyter-notebook-interface/
 nav-title: "The Jupyter Notebook Interface"
 dateCreated: 2018-06-27
-modified: 2018-07-31
+modified: 2018-08-02
 module-type: 'class'
 course: "earth-analytics-bootcamp"
 week: 1
@@ -38,9 +38,9 @@ After completing this hands-on activity, you will be able to:
 
 # <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have followed the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/" target = "_blank">Setting up Git, Bash, and Anaconda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux). 
+Be sure that you have followed the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/">Setting up Git, Bash, and Anaconda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux). 
 
-Be sure that you have completed the previous lessons on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/" target = "_blank">Intro to Shell</a> and <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/" target = "_blank">Get Files from Github.com.</a> 
+Be sure that you have completed the previous lessons on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/">Intro to Shell</a> and <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/">Get Files from Github.com.</a> 
 
 This notebook is available in the **ea-bootcamp-day-1** repository that you cloned to `earth-analytics-bootcamp` under your home directory. 
  
@@ -119,8 +119,8 @@ $ jupyter notebook
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-launch.png" width = "125%">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-launch.png" width = "125%" alt="Launch Jupyter Notebook"></a>
- <figcaption> Launch Jupyter Notebook.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-launch.png" width = "125%" alt="You can use Shell (Terminal) to open Jupyter Notebook with the command, Jupyter Notebook."></a>
+ <figcaption> You can use Shell (Terminal) to open Jupyter Notebook with the command, Jupyter Notebook.
  </figcaption>
 </figure>
 
@@ -129,8 +129,8 @@ When you type this command into the terminal, it will launch a local web server 
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/dashboard.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/dashboard.png" alt="This is what Jupyter Notebook will look like when you launch it"></a>
- <figcaption> This is what `Jupyter Notebook` will look like when you launch it. 
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/dashboard.png" alt="This is what Jupyter Notebook dashboard will look like when you launch it"></a>
+ <figcaption> This is what the Jupyter Notebook dashboard will look like when you launch it. 
  </figcaption>
 </figure>
 
@@ -138,8 +138,8 @@ You will also notice that the `Terminal` is running commands to start your `Jupy
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-jupyter.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-jupyter.png" alt="Terminal With Jupyter Notebook Session Running"></a>
- <figcaption> Terminal With Jupyter Notebook Session Running.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-jupyter.png" alt="This is what the Terminal looks like with a Jupyter Notebook session running."></a>
+ <figcaption> This is what the Terminal looks like with a Jupyter Notebook session running.
  </figcaption>
 </figure>
 
@@ -154,8 +154,8 @@ To navigate in the dashboard, you can simply click on the name of a directory (e
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/ea-bootcamp-day-1-contents.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/ea-bootcamp-day-1-contents.png" alt="Navigate the Jupyter Notebook Dashboard"></a>
- <figcaption> Navigate the Jupyter Notebook Dashboard.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/ea-bootcamp-day-1-contents.png" alt="You can click on the name of directory in the Jupyter Notebook Dashboard to navigate into that directory and see the contents."></a>
+ <figcaption> You can click on the name of directory in the Jupyter Notebook Dashboard to navigate into that directory and see the contents.
  </figcaption>
 </figure>
 
@@ -163,8 +163,8 @@ You can return to the parent directory of your `Jupyter Notebook` session (i.e. 
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/dashboard-parent.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/dashboard-parent.png" alt="Navigate to a Parent Directory"></a>
- <figcaption> Navigate to a Parent Directory.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/dashboard-parent.png" alt="You can use the Jupyter Notebook dashboard to return to the parent directory of any subdirectory."></a>
+ <figcaption> You can use the Jupyter Notebook dashboard to return to the parent directory of any subdirectory.
  </figcaption>
 </figure>
 
@@ -187,8 +187,8 @@ A `Jupyter Notebook` has three main parts, which are highlighted in the image be
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/notebook-components.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/notebook-components.png" alt="Components of Jupyter Notebook"></a>
- <figcaption> Components of Jupyter Notebook.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/notebook-components.png" alt="The components of a Jupyter Notebook file include the Menu, the Toolbar, and Cells just like the ones shown here."></a>
+ <figcaption> The components of a Jupyter Notebook file include the Menu, the Toolbar, and Cells just like the ones shown here.
  </figcaption>
 </figure>
 
@@ -200,8 +200,8 @@ You can check the cell type of any cell by clicking in the cell and looking at t
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/cell-type.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/cell-type.png" alt="Check Cell Type in Jupyter Notebook"></a>
- <figcaption> Check Cell Type in Jupyter Notebook.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/cell-type.png" alt="You can check the cell type of any cell in Jupyter Notebook using the Toolbar. The default cell type is Code."></a>
+ <figcaption> You can check the cell type of any cell in Jupyter Notebook using the Toolbar. The default cell type is Code.
  </figcaption>
 </figure>
 
@@ -265,8 +265,8 @@ The default cell type is Code. You can change the cell type of any existing cell
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/change-cell-type.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/change-cell-type.png" alt="Change Cell Type in Jupyter Notebook"></a>
- <figcaption> Change Cell Type in Jupyter Notebook.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/change-cell-type.png" alt=" You can change the cell type of any cell in Jupyter Notebook using the Toolbar. The default cell type is Code."></a>
+ <figcaption> You can change the cell type of any cell in Jupyter Notebook using the Toolbar. The default cell type is Code.
  </figcaption>
 </figure>
 
@@ -276,8 +276,8 @@ You can change the order of cells within `Jupyter Notebook` using the `up arrow`
 
 <figure>
   <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/move-cells.png">
-  <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/move-cells.png" alt="Move Cells in Jupyter Notebook"></a>
-  <figcaption> Move Cells in Jupyter Notebook.
+  <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/move-cells.png" alt="You can use the menu bar in Jupyter Notebook to move cells within the Jupyter Notebook file."></a>
+  <figcaption> You can use the menu bar in Jupyter Notebook to move cells within the Jupyter Notebook file.
   </figcaption>
  </figure>
  
@@ -322,8 +322,8 @@ To `Shutdown` a Jupyter Notebook file (.ipynb), click in the checkbox to left of
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/shutdown-notebook.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/shutdown-notebook.png" alt="Shutdown Jupyter Notebook Files"></a>
- <figcaption> Shutdown Jupyter Notebook Files.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/shutdown-notebook.png" alt="You can shutdown Jupyter Notebook files uinsg the Jupyter Notebook Dashboard."></a>
+ <figcaption> You can shutdown Jupyter Notebook files uinsg the Jupyter Notebook Dashboard.
  </figcaption>
 </figure>
 
@@ -341,8 +341,8 @@ Then, you can close the `Terminal` by typing the command `exit`.
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-close-jupyter.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-close-jupyter.png" alt="Shutdown Jupyter Notebook Session"></a>
- <figcaption> Shutdown Jupyter Notebook Session.
+ <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/terminal-close-jupyter.png" alt="You can close the Jupyter Notebook Session from the Terminal."></a>
+ <figcaption> You can close the Jupyter Notebook Session from the Terminal.
  </figcaption>
 </figure>
 
