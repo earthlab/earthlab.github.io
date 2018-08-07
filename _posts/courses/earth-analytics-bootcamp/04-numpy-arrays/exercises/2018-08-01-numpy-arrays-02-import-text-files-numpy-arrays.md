@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/import-text-files-numpy-arrays/
 nav-title: "Import Text Data Into Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-05
+modified: 2018-08-07
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -17,7 +17,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 2
 topics:
   reproducible-science-and-programming: ['python']
 ---
@@ -100,15 +100,13 @@ From previous lessons, you know that you always begin your `Python` code by impo
 In this lesson, you will use the `os` package along with some new packages:
 
 1. `numpy` with the alias `np`: to create and work with data as `numpy arrays`
-2. `earthpy` with the alis `et`: to help set the current working directory for data downloads
-3. `urllib`: to download the datasets for this lesson
+2. `urllib`: to download the datasets for this lesson
 
 {:.input}
 ```python
 # import necessary Python packages
 import os
 import numpy as np
-import earthpy as et
 import urllib
 
 # print message after packages imported successfully
@@ -124,16 +122,11 @@ print("import of packages successful")
 
 Remember that you can check the current working directory using `os.getcwd()`. You can also set the current working directory using another useful function `os.chdir()`.
 
-In addition to providing an explicit path to this function (e.g. `os.chdir("/home/jpalomino/earth-analytics-bootcamp")`, you can also build relative paths to a directory, based on the path of other directories and files. 
-
-This means that you do not actually have to type out the full path, but instead, the path is created with code. 
-
-For example, you set the working directory to `earth-analytics-bootcamp`, by making it relative to the `earthpy` home (which also happens to be your home directory).
-
 {:.input}
 ```python
 # set the working directory to the `earth-analytics-bootcamp` directory
-os.chdir(os.path.join(et.io.HOME, "earth-analytics-bootcamp"))
+# replace `jpalomino` with your username here and all paths in this lesson
+os.chdir("/home/jpalomino/earth-analytics-bootcamp/")
 
 # print the current working directory
 os.getcwd()
@@ -169,7 +162,6 @@ urllib.request.urlretrieve(url = "https://ndownloader.figshare.com/files/1256561
 # download .txt containing month names
 urllib.request.urlretrieve(url = "https://ndownloader.figshare.com/files/12565619", 
                            filename = "data/months.txt")
-
 
 # print message that data downloads were successful
 print("datasets downloaded successfully")

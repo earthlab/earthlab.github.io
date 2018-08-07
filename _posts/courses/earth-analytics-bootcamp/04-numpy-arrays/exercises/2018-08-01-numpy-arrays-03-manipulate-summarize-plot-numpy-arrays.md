@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays/
 nav-title: "Manipulate, Summarize and Plot Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-05
+modified: 2018-08-07
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -17,7 +17,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 3
 topics:
   reproducible-science-and-programming: ['python']
 ---
@@ -99,7 +99,7 @@ You will use the same datasets from the previous lesson on importing text data:
 
 ###  Import Packages
 
-From the previous lesson, you have already learned how to import the necessary packages to set the working directory and download the needed datasets using the `os`, `earthpy` and `urllib` packages.
+From the previous lesson, you have already learned how to import the necessary packages to set the working directory and download the needed datasets using the `os` and `urllib` packages.
 
 To work with `numpy arrays`, you will also need to import the `numpy` package with the alias `np`, and you will need to import the `matplotlib.pyplot` module with the alias `plt` to plot data. Begin by reviewing these tasks.
 
@@ -108,7 +108,6 @@ To work with `numpy arrays`, you will also need to import the `numpy` package wi
 # import necessary Python packages
 import os
 import numpy as np
-import earthpy as et
 import urllib
 import matplotlib.pyplot as plt
 
@@ -123,12 +122,13 @@ print("import of packages successful")
 
 ### Set Working Directory
 
-Remember that you can set the current working directory using `os.chdir()`, using a relative path to `earth-analytics-bootcamp`, by making it relative to the `earthpy` home (your home directory).
+Remember that you can check the current working directory using `os.getcwd()` and set the current working directory using `os.chdir()`.
 
 {:.input}
 ```python
 # set the working directory to the `earth-analytics-bootcamp` directory
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics-bootcamp'))
+# replace `jpalomino` with your username here and all paths in this lesson
+os.chdir("/home/jpalomino/earth-analytics-bootcamp/")
 
 # print the current working directory
 os.getcwd()
@@ -531,7 +531,7 @@ ax.set(xlabel="Month", ylabel="Precipitation (mm)");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/04-numpy-arrays/exercises/2018-08-01-numpy-arrays-04-manipulate-summarize-plot-numpy-arrays_37_0.png)
+![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/04-numpy-arrays/exercises/2018-08-01-numpy-arrays-03-manipulate-summarize-plot-numpy-arrays_37_0.png)
 
 
 
