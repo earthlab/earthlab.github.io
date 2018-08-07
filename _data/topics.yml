@@ -2,8 +2,6 @@ remote-sensing:
   subtopics: ['landsat', 'modis', 'lidar', 'naip', 'multispectral-remote-sensing']
 earth-science:
   subtopics: ['fire', 'permafrost', 'vegetation','flood-erosion','uncertainty']
-open-science:
-  subtopics: ['rmarkdown', 'jupyter-notebooks', 'github']
 social-science:
   subtopics: ['social-media']
 time-series:
@@ -16,7 +14,7 @@ reproducible-science-and-programming:
   subtopics: ['RStudio', 'literate-expressive-programming','functions',
               'r-studio', 'automate-science-workflows', 'git', 'markdown',
               'rmarkdown', 'data-management', 'version-control',
-              'literate expressive programming', 'python', 'shell']
+              'literate expressive programming', 'python', 'shell', 'rmarkdown', 'jupyter-notebooks', 'github']
 find-and-manage-data:
   subtopics: ['data-management', 'find-data', 'metadata', 'missing-data-nan', 'apis']
 file-formats:
