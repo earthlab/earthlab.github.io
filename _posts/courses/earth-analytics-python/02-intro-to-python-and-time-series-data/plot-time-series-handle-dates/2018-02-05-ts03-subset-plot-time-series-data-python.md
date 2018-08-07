@@ -1,0 +1,550 @@
+---
+layout: single
+title: "Subset Time Series By Dates Python Using Pandas"
+excerpt: "Sometimes you have data over a longer time span than you need to run analysis. Learn how to subset your data  using a begina and end date in Python."
+authors: ['Chris Holdgraf', 'Martha Morrissey', 'Leah Wasser']
+modified: 2018-08-07
+category: [courses]
+class-lesson: ['time-series-python']
+course: 'earth-analytics-python'
+permalink: /courses/earth-analytics-python/use-time-series-data-in-python/subset-time-series-data-python/
+nav-title: 'Subset time series data in Python'
+week: 2
+sidebar:
+  nav:
+author_profile: false
+comments: true
+order: 3
+topics:
+  reproducible-science-and-programming: ['Jupyter notebook']
+  time-series:
+  data-exploration-and-analysis: ['data-visualization']
+---
+{% include toc title="In This Lesson" icon="file-text" %}
+
+In this lesson, you learn how to subset time series data into Python. You will also test the skills that you learned in the previous lessons to handle dates and missing data in `Python`. 
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this tutorial, you will be able to:
+
+* Import a text file in `.csv` format into `Python`
+* Plot quantitative time series data using `matplotlib` 
+* Assign missing data values `NaN` in `Python` when the data are imported into Python to ensure that the data plot and can be analyzed correctly.
+* Subset data temporally using the `pandas` `.query()` function 
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+
+You need `Python 3.x` and `Jupyter notebooks` to complete this tutorial. Also you should have
+an `earth-analytics` directory setup on your computer with a `/data`
+directory with it.
+
+* [Setup Conda](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
+* [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
+* [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
+
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
+</div>
+
+
+## About The NOAA Precipitation Data Used In This Lesson
+
+To complete this lesson, you will use a slightly modified version of precipitation data downloaded through the <a href="https://www.ncdc.noaa.gov/cdo-web/search" target ="_blank">National Centers for Environmental Information (formerly National Climate Data Center) Cooperative Observer Network (COOP) </a> station 050843 in Boulder, CO. The data were collected : 1 January 2003 through 31 December 2013.
+
+Your instructor has modified these data as follows for this lesson:
+
+* aggregated the data to represent daily sum values
+* added some `noData` values to allow you to practice handing missing data
+* added several columns to this data that would not usually be there if you downloaded it directly. 
+
+The added columns include:
+
+* Year
+* Julian day
+
+### How Is Precipitation Measured? 
+
+Precipitation can be measured using different types of gages. Some gages are manually read and emptied. Others gages automatically record the amount of precipitation collected. If the precipitation is in a frozen form (snow, hail, freezing rain) then the contents of the gage are melted to get the water equivalency for measurement. Rainfall is generally reported as the total amount of rain (millimeters, centimeters, or inches) over a given per period of time.
+
+<i class="fa fa-star"></i> **Data Tip:** Precipitation is the moisture that falls from clouds including rain, hail and snow.
+{: .notice }
+
+Boulder, Colorado lays on the eastern edge of the Rocky Mountains where they meet the high plains. The average annual precipitation is near 20”. However, the precipitation comes in many forms including winter snow, intense summer thunderstorms, and intermittent storms throughout the year.
+
+### Use Precipitation Time Series Data in Python
+
+You can use precipitation data to understand events like the 2013 floods that occurred in Colorado. However to work with these data in Python, you need to know how to do a few things:
+
+1. Open a `.csv` file in Python
+1. Ensure dates are read as a date/time format in python
+1. Handle missing data values appropriately
+
+It's also useful to know how to subset the data by time periods when analyzing and plotting. 
+
+You've already learned how to open a `.csv` and how to handle dates. In this lesson you will use these skills and learn how to subset the data by time. 
+
+
+## Get Started With Time Series Data
+Get started by loading the required python libraries into your Jupyter notebook. 
+
+{:.input}
+```python
+# load python libraries
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import os
+import urllib
+plt.ion()
+
+import earthpy as et 
+# set working directory
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
+# set standard plot parameters for uniform plotting
+plt.rcParams['figure.figsize'] = (8, 8)
+plt.rcParams['axes.titlesize'] = 18
+plt.rcParams['axes.labelsize'] = 14
+```
+
+{:.input}
+```python
+# read the data into python
+boulder_daily_precip = pd.read_csv('data/colorado-flood/precipitation/805325-precip-dailysum-2003-2013.csv', 
+                                   parse_dates=['DATE'])
+# view first 5 rows
+boulder_daily_precip.head()
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DATE</th>
+      <th>DAILY_PRECIP</th>
+      <th>STATION</th>
+      <th>STATION_NAME</th>
+      <th>ELEVATION</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
+      <th>YEAR</th>
+      <th>JULIAN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2003-01-01</td>
+      <td>0.00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2003</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2003-01-05</td>
+      <td>999.99</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2003</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2003-02-01</td>
+      <td>0.00</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2003</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2003-02-02</td>
+      <td>999.99</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2003</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2003-02-03</td>
+      <td>0.40</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2003</td>
+      <td>34</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+It's always a good idea to explore the data before working with it. 
+
+{:.input}
+```python
+# view structure of data
+boulder_daily_precip.dtypes
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    DATE            datetime64[ns]
+    DAILY_PRECIP           float64
+    STATION                 object
+    STATION_NAME            object
+    ELEVATION              float64
+    LATITUDE               float64
+    LONGITUDE              float64
+    YEAR                     int64
+    JULIAN                   int64
+    dtype: object
+
+
+
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    count    792.000000
+    mean       5.297045
+    std       70.915223
+    min        0.000000
+    25%        0.100000
+    50%        0.100000
+    75%        0.300000
+    max      999.990000
+    Name: DAILY_PRECIP, dtype: float64
+
+
+
+
+
+{:.input}
+```python
+# view data summary statistics for all columns
+boulder_daily_precip.describe()
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>DAILY_PRECIP</th>
+      <th>ELEVATION</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
+      <th>YEAR</th>
+      <th>JULIAN</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>792.000000</td>
+      <td>792.0</td>
+      <td>792.000000</td>
+      <td>792.000000</td>
+      <td>792.000000</td>
+      <td>792.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>5.297045</td>
+      <td>1650.5</td>
+      <td>40.033850</td>
+      <td>-105.281106</td>
+      <td>2007.967172</td>
+      <td>175.541667</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>70.915223</td>
+      <td>0.0</td>
+      <td>0.000045</td>
+      <td>0.000005</td>
+      <td>3.149287</td>
+      <td>98.536373</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>0.000000</td>
+      <td>1650.5</td>
+      <td>40.033800</td>
+      <td>-105.281110</td>
+      <td>2003.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>0.100000</td>
+      <td>1650.5</td>
+      <td>40.033800</td>
+      <td>-105.281110</td>
+      <td>2005.000000</td>
+      <td>96.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>0.100000</td>
+      <td>1650.5</td>
+      <td>40.033890</td>
+      <td>-105.281110</td>
+      <td>2008.000000</td>
+      <td>167.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>0.300000</td>
+      <td>1650.5</td>
+      <td>40.033890</td>
+      <td>-105.281100</td>
+      <td>2011.000000</td>
+      <td>255.250000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>999.990000</td>
+      <td>1650.5</td>
+      <td>40.033890</td>
+      <td>-105.281100</td>
+      <td>2013.000000</td>
+      <td>365.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+### About the Data
+
+Viewing the structure of these data, you can see that different types of data are included in
+this file.
+
+* **STATION** and **STATION_NAME**: Identification of the COOP station.
+* **ELEVATION, LATITUDE** and **LONGITUDE**: The spatial location of the station.
+* **DATE**: The date when the data were collected in the format: YYYYMMDD. Notice that `DATE` is a `datetime64` because you used the `parse_date` function on the date column when the csv was first read in. 
+* **DAILY_PRECIP**: The total precipitation in inches. Important: the meta data notes that the value 999.99 indicates missing data. Also important,hours with no precipitation are not recorded.
+* **YEAR**: the year the data were collected
+* **JULIAN**: the JULIAN DAY the data were collected.
+
+Additional information about the data, known as metadata, is available in the
+<a href="https://ndownloader.figshare.com/files/7283453">PRECIP_HLY_documentation.pdf</a>.
+The metadata tell us that the noData value for these data is 999.99. IMPORTANT:
+your instructor has modified these data a bit for ease of teaching and learning. Specifically,
+she aggregated the data to represent daily sum values and added some noData
+values to ensure you learn how to clean them.
+
+<i class="fa fa-star"></i>**Data Tip** You can download the original complete data subset with additional documentation
+<a href="https://figshare.com/articles/NEON_Remote_Sensing_Boulder_Flood_2013_Teaching_Data_Subset_Lee_Hill_Road/3146284">here. </a>
+{: .notice--success }
+
+
+<div class="notice--warning" markdown="1">
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+
+Take a close look at the plot.
+
+* What does each point represent?
+* Use the `.min()` and `.max()` functions to determine the minimum and maximum precipitation values for the 10 year span.
+
+</div>
+
+## Subset the Data
+
+You can subset the data temporally, to focus in on a shorter time period. Let's 
+create a subset of data for the time period around the flood between **15
+August to 15 October 2013**. You will use the pandas `.query()` function
+to do this.
+
+To subset by a range of dates, you specify the range as follows
+
+`DATE > "2003-01-01" and DATE <= "2003-10-31"`
+
+In the code above you are asking python to only select rows where the `DATE` value is greater than 2003-01-01 and less than 2003-10-31. 
+
+Another way to subset is 
+`discharge[(discharge['datetime'] >="2003-01-01") & (discharge['datetime'] <= "2003-10-31")]` both of these methods will yield the same result. 
+In this class, all examples will be shown using `.query` method of subsetting. The rest of the examples will use the `.query` function looks which cleaner, involves less typing, and is easier to work with for more complicated queries.
+
+{:.input}
+```python
+# subset the data 
+precip_boulder_AugOct = boulder_daily_precip.query('DATE >= "2003-01-01" and DATE <= "2003-10-31"')
+# did it work? 
+print(precip_boulder_AugOct['DATE'].min())
+print(precip_boulder_AugOct['DATE'].max())
+```
+
+{:.output}
+    2003-01-01 00:00:00
+    2003-10-31 00:00:00
+
+
+
+## Plot Subsetted Data
+
+Once you've subsetted the data, you can plot the data to focus in on the new time period.
+
+
+{:.input}
+```python
+# plot the data
+fig, ax = plt.subplots()
+ax.scatter(precip_boulder_AugOct['DATE'].values, 
+       precip_boulder_AugOct['DAILY_PRECIP'].values, 
+       color = 'purple')
+
+# add titles and format 
+ax.set_title('Daily Total Precipitation \nAug - Oct 2013 for Boulder Creek')
+ax.set_xlabel('Date')
+ax.set_ylabel('Precipitation (Inches)');
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-subset-plot-time-series-data-python_14_0.png">
+
+</figure>
+
+
+
+
+The plot above appears to be subsetted correctly in time. However the plot itself looks off. 
+Any ideas what is going on? Complete the challenge below to test your knowledge.
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+
+Using everything you've learned in the previous lessons:
+
+* Import the dataset: `data/week2/precipitation/805325-precip-dailysum-2003-2013.csv`
+* Clean the data by assigning `noData` values to `nan`
+* Make sure the date column is a `date` class
+* Plot your data
+
+Some notes to help you along:
+
+* Date: be sure to take of the date format when you import the data.
+* `NoData Values`: You know that the `no data value = 999.99`. You can account for this when you read in the data. Remember how?
+
+Your final plot should look something like the plot below.
+</div>
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-subset-plot-time-series-data-python_16_0.png">
+
+</figure>
+
+
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 
+
+Create plots for the following time subsets in the data before and after the flood:
+
+Time period A: 2012-08-01 to 2012-11-01
+Time period B: 2013-08-01 to 2013-11-01
+
+When you create your plot, be sure to set the y limits to be the same for both plots so they are 
+visually comparable..
+
+How different was the rainfall in 2012 compared to 2013?
+
+</div>
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-subset-plot-time-series-data-python_18_0.png">
+
+</figure>
+
+
+

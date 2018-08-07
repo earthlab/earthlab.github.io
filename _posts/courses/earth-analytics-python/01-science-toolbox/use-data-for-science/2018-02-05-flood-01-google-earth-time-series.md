@@ -3,7 +3,7 @@ layout: single
 title: 'Use Google Earth Time Series Images to Explore Flood Impacts'
 excerpt: "Learn how to use the time series feature in Google Earth to view before and after images of a location."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-07-31
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/
@@ -117,12 +117,32 @@ Scroll to 10/2012 and then to 10/2013. Do you see any differences?
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: What Changes Do You See?
 
-As a group, discuss the following questions. Record your answers in the Google Document
-provided.
+This activity is a required part of your homework. If you are in class however, you can complete this during the class period. 
+As a group, discuss the following questions.
 
-* What differences do you see between 2012 and 2013?
+* What differences do you see in the landscape between 2012 and 2013?
   * For each difference: What do you think caused that difference?
   * For each difference: How can you quantitatively record the difference?
 * For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
 * Was the cause - caused by something else (i.e. did something else DRIVE the cause)?
+
+Now, go to piazza. In the `wk1-google-earth-activity` create a <kbd>new post</kbd> that includes:
+
+1. atleast 3 differences or changes that your group noticed in the imagery
+2. what data you could use to quantify each different that you noticed
+3. what might have caused that change in the landscape?
+4. How would you measure that driver that caused the change in the landscape
+
+Consider organizing your response in a table like the one below. Do not use the example below in your piazza post UNLESS you can come up with another way to quantify how many (or the degree to which) trees were lost! Also note the example provided below is using manually measured data. You may know of other ways to measure tree loss! 
+
+An example table that shows what you might post in piazza:
+
+|  Difference | Data you can use to quantify the change | What drove the change  | How could you quantify that driver |
+|---|---|---|
+| Trees are missing after the flood  | human field survey of trees  | Large boulders swept downstream by flood waters  | changes in terrain pre-post flood |
+|==
+|   |   |   | |
+
+When you have completed your post, as an individual, find atleast 2 other posts that you like and comment on them. 
+
 </div>

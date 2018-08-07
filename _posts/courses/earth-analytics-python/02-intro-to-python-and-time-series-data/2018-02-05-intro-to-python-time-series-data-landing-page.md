@@ -24,6 +24,13 @@ Welcome to week {{ page.week }} of Earth Analytics! This week you will learn how
 2. how to handle missing data and finally
 3. how to subset time series data by date
 
+
+## What You Need
+
+You will need the Colorado Flood Teaching data subset and a computer with Anaconda Python 3.x and the `earth-analytics-python` environment installed to complete this lesson
+
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
 The data that you use this week was collected by US Agency managed sensor networks and includes:
 
 * USGS stream gage network data and
@@ -47,13 +54,10 @@ Read the assignment below carefully. Use the class and homework lessons to help 
 
 ## <i class="fa fa-pencil"></i> Homework Week 2
 
-### 1. Download Data
-
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 ## Important - Data Organization
 
-Before you begin this lesson, be sure that you've downloaded the data for this week.
+After you have downloaded the data for this week, be sure that your directory is setup as specified below.
 
 If you are working on your computer, locally, you will need to **unzip** the zip file. 
 When you do this, be sure that your directory
@@ -62,19 +66,20 @@ directory. The data are not nested within another directory. You may have to cop
 and paste your files into the correct directory to make this look right.
 
 <figure>
-<a href="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png">
-<img src="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png" alt="Your `week_02` file directory should look like the one above. Note that
+<a href="{{ site.url }}/images/courses/earth-analytics/co-flood-lessons/week-02-data.jpg">
+<img src="{{ site.url }}/images/courses/earth-analytics/co-flood-lessons/week-02-data.jpg" alt="Your `week_02` file directory should look like the one above. Note that
 the data directly under the colorado-flood folder.">
 </a>
 <figcaption>Your `colorado-flood` file directory should look like the one above. Note that
 the data directly under the colorado-flood folder.</figcaption>
 </figure>
 
-If you are working in the Jupyter Hub for this course you can use the `earthpy` download function to access the data. Like this:
+If you are working in the Jupyter Hub or have the earth-analytics-python environment installed on yoru computer, you can use the `earthpy` download function to access the data. Like this:
 
-`import earthpy as et`
-`et.data.get_data("colorado-flood")`
-
+```python
+import earthpy as et
+et.data.get_data("colorado-flood")
+```
 
 ### Why Data Organization Matters
 
@@ -86,7 +91,7 @@ It is important that your data are organized as specified in the lessons because
 
 ### 2. Videos
 
-Watch the following videos:
+Please watch the following short videos before the start of class next week. They will help you prepare for class! 
 
 #### The Story of Lidar Data Video
 <iframe width="560" height="315" src="//www.youtube.com/embed/m7SXoFv6Sdc?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -96,27 +101,27 @@ Watch the following videos:
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework (5 points): Due  @ 8pm
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework 2 (5 points): Due  TBD
 
-1. Create a Jupyter Notebook Document
-Create a new Jupyter Notebook Document. Name it: youLastName-yourFirstName-time-series.ipynb
+1. Create a new Jupyter Notebook document named **youLastName-yourFirstName-time-series.ipynb**
 
-2. Add 4 Plots to Your Jupyter Notebook Document
-Add the plots described below to your Jupyter Notebook Document. IMPORTANT Add 2-3 sentences of text below each plot in a new markdown cell that describes the contents of each plot.
+2. Add Plots to Your Jupyter Notebook Document
 
-Add the code to produce the following 4 plots in your Jupyter Notebook Document, using the homework lessons as a guide to walk you through. Use the pipes syntax that you learned in class to subset and summarize the data as required.
+Write code to create the plots described below to your Jupyter Notebook Document. Add 2-3 sentences of text below each plot in a new markdown cell that describes the contents of each plot. Use the course lessons posted on this website and the in class lectures to help. 
 
-### Create Homework Plots
+Please note that you will complete some of the plots assigned in the homework during class. 
 
-Use the `data/colorado-flood/precipitation/805325-precip-dailysum-2003-2013.csv` file to create the following plots:
+
+### Homework Plots
+
 
 #### PLOT 1:  
 
-Precipitation from 2003 to 2013 using `matplotlib` function.
+Use the `data/colorado-flood/precipitation/805325-precip-dailysum-2003-2013.csv` file to plot precipitation from 2003 to 2013 in colorado using `matplotlib`.
 
 #### PLOT 2: 
 
-A plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `matplotlib`. Make sure that `x axis` for this plot has large ticks for each new week day and small ticks for each day. Label the plot using the format `Month Date`. Each label should look like:
+Use the `data/colorado-flood/precipitation/805325-precip-dailysum-2003-2013.csv` file  to create a precipitation plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `matplotlib`. Make sure that `x axis` for this plot has large ticks for each new week day and small ticks for each day. Label the plot using the format `Month Date`. Each label should look like:
 
 * `Aug 20`
 * `Aug 27`
@@ -175,6 +180,16 @@ Make sure you have the following for each of the plots listed above:
 * Convert date fields as appropriate.
 * Clean no data values as appropriate.
 * Show all of your code in the output `.html` file.
+
+#### HINT - Set Uniform Plot Styles 
+
+You can specify the fonts and title sizes of all plots in a notebook using the following syntax:
+```python
+plt.rcParams['figure.figsize'] = (8, 8)
+plt.rcParams['axes.titlesize'] = 18
+plt.rcParams['axes.labelsize'] = 14
+```
+Above you set the figure size, title size, x and y axes labels for all plots. Give it a try!
 </div>
 
 ## Report Grade Rubric
@@ -209,27 +224,18 @@ Make sure you have the following for each of the plots listed above:
 
 #### Plot Aesthetics
 
-* **PLOT 1:** a plot of precipitation from 2003 to 2013 using `matplotlib`.
-* **PLOT 2:** a plot that shows precipitation SUBSETTED from Aug 15 - Oct 15 2013 using `matplotlib`.
-* **PLOT 3:** a plot of stream discharge from 1986 to 2013 using `matplotlib`.
-* **PLOT 4:** a plot that shows stream discharge SUBSETTED from Aug 15 - Oct 15 2013 using `matplotlib`.
-* **PLOT 5:** daily precipitation subsetted
-
-***
-* **PLOT 6 & 7:**: a plot of precipitation that spans from 1948 - 2013
-
-The plots listed above will be reviewed for various aesthetics as follows:
+All plots listed above will be reviewed for aesthetics as follows:
 
 | Full credit |   | No credit |
 |:-----|:--------|:----------|
 | Plot is labeled with a title, x and y axis label  | | |
 | Plot is coded using the matplotlib library.) |  | |
-| Date on the x axis is formatted as a date class for all plots  |  | Dates are not properly formatted |
-| Missing data values have been cleaned / replaced with `NA` |   | Missing values have not been cleaned  |
-| Code to create the plot is clearly documented with comments in the html  |  | Code isn't commented |
+| Date on the x axis is formatted as a date class for all plots  |  | |
+| Missing data values have been cleaned / replaced with `NA` |   |  |
+| Code to create the plot is clearly documented with comments in the html  |  | |
 |===
-| Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event |  | Plot is not discussed and interpreted in the text   |
-| For plots 2, 4, and 5 correctly format x axis with ticks | x axis not correctly formatted
+| Plot is described and interpreted in the text of the report with reference made to how the data demonstrate an impact or driver of the flood event |  |   |
+| For plots 2, 4, and 5 correctly format x axis with ticks | |
 
 #### Plot Subsetting
 

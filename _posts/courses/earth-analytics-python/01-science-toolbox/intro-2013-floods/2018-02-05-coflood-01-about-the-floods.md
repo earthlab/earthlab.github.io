@@ -1,9 +1,9 @@
 ---
 layout: single
 title: 'An Overview of the 2013 Colorado Floods'
-excerpt: "In this lesson you will learn about the causes and effects of floods as seen during the 2013 Colorado floods."
+excerpt: "Learn about what caused the 2013 floods in Colorado and also some of the impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-07-27
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/an-overview-of-the-floods/
@@ -35,7 +35,7 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* 
+* Describe the events that lead up to the 2013 Colorado Floods
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 

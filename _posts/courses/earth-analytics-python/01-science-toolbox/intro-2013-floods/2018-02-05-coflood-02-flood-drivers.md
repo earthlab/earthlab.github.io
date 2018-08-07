@@ -3,7 +3,7 @@ layout: single
 title: 'How the Atmosphere Drives Floods: The 2013 Colorado Floods'
 excerpt: "Changes in the atmosphere, including how quickly a storm moves can impact the severity of a flood. Learn more about how atmospheric conditions impact flood events."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-07-27
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/how-atmospheric-conditions-and-drought-impact-floods/
@@ -32,7 +32,8 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* 
+* Describe how atmospheric conditions contribute to flood events.
+* Describe one method that is used to study and track atmospheric conditions.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -80,7 +81,11 @@ There are many ways to measure or quantify drought. The Palmer Drought Severity 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-02-flood-drivers_2_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-02-flood-drivers_2_0.png">
+
+</figure>
 
 
 

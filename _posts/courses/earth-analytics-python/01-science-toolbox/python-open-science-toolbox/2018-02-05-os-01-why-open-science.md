@@ -24,6 +24,8 @@ order: 1
 topics:
   reproducible-science-and-programming: ['python', 'jupyter-notebooks']
 ---
+
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 In this lesson you will learn how the importance of open science and how to use Jupyter Notebooks for reproducible work.

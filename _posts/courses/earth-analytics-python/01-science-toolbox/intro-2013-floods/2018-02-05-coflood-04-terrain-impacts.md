@@ -3,7 +3,7 @@ layout: single
 title: 'Measure Changes in the Terrain Caused by a Flood Using Lidar Data'
 excerpt: "A flood event often changes the terrain as water moves sediment and debris across the landscape. Learn how terrain changes are measured using lidar remote sensing data."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-07-27
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/measure-changes-in-terrain-caused-by-floods/
@@ -115,7 +115,11 @@ plt.ion()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-04-terrain-impacts_3_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-04-terrain-impacts_3_0.png">
+
+</figure>
 
 
 
@@ -131,7 +135,11 @@ The DoD created with the Four Mile Canyon Creek DTMs is below. Areas in red have
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-04-terrain-impacts_5_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-04-terrain-impacts_5_0.png">
+
+</figure>
 
 
 

@@ -3,7 +3,7 @@ layout: single
 title: 'Introduction to Markdown'
 excerpt: 'This tutorial walks you through how to format text using markdown.'
 authors: ['Leah Wasser', 'Martha Morrissey', 'Data Carpentry']
-modified: 2018-07-31
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-markdown-in-jupyter-notebooks/
@@ -51,15 +51,12 @@ Learn more about [markdown](http://jupyter-notebook.readthedocs.io/en/stable/exa
 
 Jupyter notebooks allow you to combine code and Markdown in one document. A Jupyter notebook can contain text written using the markdown syntax, in a cell that is specified for markdown. 
 
-
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png">
  <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png"></a>
  <figcaption> Jupyter Notebook with a markdown cell.
  </figcaption>
 </figure>
-
-
 
 The text that you add to a Jupyter notebook using Markdown can serve many different purposes. It could be used to:
 
@@ -161,50 +158,36 @@ print( "Hello Earth Analytics")
 ```
 
 You should now be able to: 
-*define markdown 
+
+* define markdown 
 * make a heading 
 *  **italicize** some text 
 
-
-Check out the markdown cell above. Does any of the markdown syntax look familiar?
-* Are any words in bold?
-* Are any words in italics?
-* Are any words highlighted as code?
-* Is any of the text in a bulleted list ? 
-
-If you are unsure, the answers are at the bottom of this page.
-
-
-
-### Add an images in Markdown
+### Add An Image in Markdown
 You can add images to a cell of markdown using markdown syntax as follows:
-![alt text here](path-to-image-here)
-However, for this to work `python` will only be able to find your image if you
-have placed it in the right place - RELATIVE to your .ipynb file. This is where
+
+`![alt text here](path-to-image-here)`
+
+However, for this to work `python` you need to place the image in the right location
+on your computer - RELATIVE to your .ipynb file. This is where
 good file management becomes extremely important.
 
-To make this simple, let's setup an directory named images in your earth-analytics project / working directory. If your .ipynb file is located in root of this directory, and all images that you want to include in your report are located in the
+To make this simple, setup a directory named `images` in your earth-analytics project / working directory. If your `.ipynb` file is located in root of this directory, and all images that you want to include in your report are located in the
 images directory within the earth-analytics directory, then the path that you
-would use for each image would look like:
-images/week3/image-name-here.png
-Let's try it with an actual image.
+would use for each image is:
 
-<figure>
+`images/week3/image-name-here.png`
+
+Try this with an actual image.
+
+<figure class="half">
  <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/silly-dog.png">
  <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/silly-dog.png"></a>
- <figcaption> Silly dog.
- </figcaption>
+ <figcaption> Silly dog.</figcaption>
 </figure>
 
 
-
-And here's what that code does IF the image is in the right place:
-￼
 If all of your images are in your images directory, then you will be able to easily find them. This also follows good file management practices because all of the images that you use in your report are contained within your project directory.
-
-
-
-
 
 <div class="notice--info" markdown="1">
 
@@ -212,12 +195,6 @@ If all of your images are in your images directory, then you will be able to eas
 
 * <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">GitHub Guide on Markdown</a>
 * <a href="http://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html" target="_blank"> Jupyter Notebook Markdown Resources</a>
-
-
 </div>
 
 
-Answers to the Default Text Markdown Syntax Questions
-* Are any words in bold? - Yes, Italicize 
-* Are any words in italics? - No 
-* Are any words highlighted as code? - Yes (print “Earth Analytics Python”)

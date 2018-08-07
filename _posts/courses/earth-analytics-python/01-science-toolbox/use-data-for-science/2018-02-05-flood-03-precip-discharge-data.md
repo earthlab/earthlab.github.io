@@ -3,7 +3,7 @@ layout: single
 title: 'Explore Precipitation and Stream Flow Data Using Interactive Plots: The 2013 Colorado Floods'
 excerpt: "Practice interpreting data on plots that show rainfall (precipitation) and stream flow (discharge) as it changes over time."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-07-31
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/precipitation-discharge-data-for-flood-analysis/
@@ -137,18 +137,3 @@ same Google doc that you used above.
 
 </div>
 
-
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Activity: Driver / Impact Diagrams
-
-### Finally -- Create a diagram that illustrates the drivers and impacts of a flood
-
-Work with your group to create a diagram of the 2013 floods. In this diagram include
-everything that you think contributed to the flood itself (based on the discussions
-that we had in class and what you know). When you are happy with your diagram,
-create a digital version of it (take a picture using a phone, etc). Then, post your diagram to the piazza discussion board under **week1**. NOTE: look for the post titled "Week 1: driver / impact diagrams"
-
-When everyone has posted - scroll through ALL of the diagrams and "select" the one that you think is best using the <kbd>good note</kbd> marker at the bottom of that post.
-
-</div>

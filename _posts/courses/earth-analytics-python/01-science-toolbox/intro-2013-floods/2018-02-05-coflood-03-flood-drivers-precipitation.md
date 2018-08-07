@@ -3,7 +3,7 @@ layout: single
 title: 'Rain: a Driver of the 2013 Colorado Floods'
 excerpt: "The amount and/or duration of rainfall can impact how severe a flood is. Learn how rainfall is measured and used to understand flood impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-07-27
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/how-rain-impacts-floods/
@@ -32,7 +32,8 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 At the end of this activity, you will be able to:
 
-* 
+* Describe how rainfall or precipitation contributes to a flood event.
+* Describe how rainfall is measured.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -90,7 +91,11 @@ The figure below shows the total precipitation each month from 1948 to 2013 for 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_2_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_2_0.png">
+
+</figure>
 
 
 
@@ -104,7 +109,11 @@ Within this 65 years of data, you can see that there is a jump in the amount of 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_4_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_4_0.png">
+
+</figure>
 
 
 
@@ -142,7 +151,11 @@ The daily average data for the stream gauge along Boulder Creek, five miles down
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_6_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_6_0.png">
+
+</figure>
 
 
 

@@ -94,35 +94,79 @@ Submit your `.html` document and `.ipynb` document to Canvas.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission: Create A Report Using Jupyter Notebooks
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission: Create A Report Using Jupyter Notebooks + Class Activities
 
-You will complete 3 activities this week:
+You will complete 4 activities this week. Note that several of these activities will be completed during the class period if you attend class in person or online! You will only be working on the jupyter notebook outside of regular class period. 
 
-#### Part One
+#### Part One - Jupyter Notebook & HTML
 
-First - Submit a Jupyter notebook and html file.
+First - Submit a Jupyter notebook and html file following the instructions below:
 
-* Create a new notebook `.ipynb` file in `Jupyter Notebook`. Name the file:
-`yourLastName-firstInitial-week1.ipynb` example: `wasser-l-week1.ipynb`
+Create a new notebook `.ipynb` file in `Jupyter Notebook`. Name the file:
+`yourLastName-firstInitial-week1.ipynb` example: `wasser-l-week1.ipynb`. 
+In your notebook do the following:
 
-* In your notebook do the following:
-
-1. Import the boulder-precip csv file using pandas: `data/colorado-flood/downloads/boulder-precip.csv`.
-2. Create a plot of the data.
-
-* Below the code chunk in your document, add TEXT using **markdown** that describes what the plot that you created
+1. Import the `boulder-precip.csv` csv file using pandas: `data/colorado-flood/downloads/boulder-precip.csv`.
+2. Plot the data.
+3. Below the code chunk in your document, add TEXT using **markdown** that describes what the plot that you created
 shows - summarize what you think the plot shows / tells you about
 the flood
-* Using the skills that you learned in the earth analytics bootcamp course, clean up the plot by adding x and y axis labels and a title.
+4. Using the skills that you learned in the earth analytics bootcamp course, clean up the plot by adding x and y axis labels and a title.
+
 * NOTE: It is ok if your x axis dates are not formatted properly! You will learn how to deal with that next week in this course. 
 
 Export your notebook to `.HTML` format. Submit the `.HTML` file and the `.ipynb` file to CANVAS. 
 
-#### Part Two
+#### Part Two - Canvas Quiz
 Complete the week 1 quiz on canvas
 
-#### Part Three
-Complete the diagram activity [Flood Drived / Impact Diagram]({{ site.url }}/courses/earth-analytics-python/python-open-science-toolbox/precipitation-discharge-data-for-flood-analysis/)
+****
+
+*The following two activities will be completed during our class period. However if you are taking the class remotely - please be sure to complete this as well. It will count towards your participation in this class. Ideally you should work with 1 or 2 other people on this diagram. However if you are in another location and are not able to team up with someone, you can complete this on your own!*
+
+#### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Part Three - Driver / Impact Diagrams & Driver / Impact Data  - (Participation Points)
+
+Work with 1-2 other people in this class to create a diagram of the 2013 floods that shows the things that contributed to the flood event as they are related to each other (the drivers and impacts). Use the readings for this week, what we discussed in class and what you know about floods to complete this diagram. When you are happy with your diagram,
+create a digital version of it (take a picture using a phone, scan it, make your diagram in a digital format). When you are finished, go to Piazza. Create a <kbd>new post</kbd> in the  <kbd>wk1-flood-diagram</kbd> folder and place your diagram there. 
+
+IMPORTANT: be sure to list **EVERYONE IN YOUR GROUP in your post title** so I can give you all points for completing this assignment!
+
+When everyone has posted - scroll through ALL of the diagrams and select 3 diagrams that you like and be sure to click on the <kbd>good note</kbd> marker at the bottom of those posts.
+
+**** 
+
+#### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Part 4 - Activity: Drivers and Impacts Quantified - (Participation Points)
+
+This activity is also completed during the class period. If you are taking the course remotely be sure to also complete this for your homework. 
+
+Complete the <a href = "{{ site.url }}/courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/">google earth activity</a>. Then as a group (or individually), discuss the following questions.
+
+* What differences do you see in the landscape between 2012 and 2013?
+  * For each difference: What do you think caused that difference?
+  * For each difference: How can you quantitatively record the difference?
+* For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
+* Was the cause - caused by something else (i.e. did something else DRIVE the cause)?
+
+Now, go to piazza. In the `wk1-google-earth-activity` create a <kbd>new post</kbd> that includes:
+
+1. atleast 3 differences or changes that your group noticed in the imagery
+2. what data you could use to quantify each different that you noticed
+3. what might have caused that change in the landscape?
+4. How would you measure that driver that caused the change in the landscape
+
+Consider organizing your response in a table like the one below. Do not use the example below in your piazza post UNLESS you can come up with another way to quantify how many (or the degree to which) trees were lost! Also note the example provided below is using manually measured data. You may know of other ways to measure tree loss! 
+
+An example table that shows what you might post in piazza:
+
+|  Difference | Data you can use to quantify the change | What drove the change  | How could you quantify that driver |
+|---|---|---|
+| Trees are missing after the flood  | human field survey of trees  | Large boulders swept downstream by flood waters  | changes in terrain pre-post flood |
+|==
+|   |   |   | |
+
+When you have completed your post, as an individual, find atleast 2 other posts that you like, click on <kbd>good note</kbd> and comment on them. 
+
+IMPORTANT: be sure to list **EVERYONE IN YOUR GROUP in your post title** so I can give you all points for completing this assignment!
 
 </div>
 

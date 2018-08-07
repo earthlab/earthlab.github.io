@@ -3,7 +3,7 @@ layout: single
 title: 'Install and Import Python Packages'
 excerpt: 'This tutorial walks you through how to install and import python packages.'
 authors: ['Martha Morrissey','Leah Wasser', 'Software Carpentry']
-modified: 2018-07-31
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/install-and-import-python-packages/ 
@@ -56,9 +56,8 @@ There are many different repositories where Python libraries are maintained and 
 
 There are three main python package repositories to download python libraries from:
 * **Conda:** this is the default repository that is used and maintained for the Anaconda distribution of Python. To install libraries from conda, you use the syntax `conda install` at the command line..
-* **Conda-forge:(( Conda-forge is community maintained. We have found that  installing many of the spatial libraries using conda-forge will minimize library conflicts.
+* **Conda-forge:** Conda-forge is community maintained. We have found that installing many of the spatial libraries using conda-forge will minimize library conflicts.
 * **Pip:** Python Package Index (pip) is another way to install python packages. 
-
 
 <i class="fa fa-star"></i> **Data Tip:**
 Sometimes python libraries are on github. You can install python libraries from github using `pip install git+git://github.com/path-to-github-user/repo-name.git`
