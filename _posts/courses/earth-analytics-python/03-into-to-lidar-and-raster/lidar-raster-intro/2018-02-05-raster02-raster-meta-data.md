@@ -2,8 +2,8 @@
 layout: single
 title: "Spatial Raster Meta Data: CRS, Resolution, and Extent in Python"
 excerpt: "This lesson introduces the raster meta data. You will learn about CRS, resolution, and spatial extent."
-authors: ['Leah A. Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-08-01
+authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/raster-meta-data/

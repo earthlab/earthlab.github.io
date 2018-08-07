@@ -25,7 +25,7 @@ author_profile: false
 comments: true
 order: 1
 topics:
-  reproducible-science-and-programming: ['Jupyter-notebooks']
+  reproducible-science-and-programming: ['jupyter-notebooks']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 

@@ -9,7 +9,6 @@ class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/an-overview-of-the-floods/
 nav-title: 'CO Flood Overview'
 dateCreated: 2018-05-24
-modified: 2018-05-24
 module-title: 'An Overview of the 2013 Floods in Colorado, USA'
 module-nav-title: 'Flood overview '
 module-description: 'In this module you will learn about the causes and effects of floods as seen during the 2013 Colorado floods. You will learn how streamflow, precipitation, drought, and remote sensing data are used to better understand flooding.'

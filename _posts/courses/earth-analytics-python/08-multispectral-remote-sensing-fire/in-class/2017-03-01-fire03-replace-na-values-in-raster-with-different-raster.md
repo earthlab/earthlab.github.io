@@ -2,8 +2,8 @@
 layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in Python"
 excerpt: "Most remote sensing data sets contain no data values represented as nan or none in Python. This normally represents pixels that contain not valid data. Learn how to handle no data values in Python for better raster processing."
-authors: ['Leah A. Wasser']
-modified: 2018-07-27
+authors: ['Leah Wasser']
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -111,7 +111,11 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster_6_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster_6_0.png">
+
+</figure>
 
 
 
@@ -196,7 +200,11 @@ ax.set_title('Do the Spatial Extents Ovelap?');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster_11_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster_11_0.png">
+
+</figure>
 
 
 
@@ -307,7 +315,11 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster_20_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-replace-na-values-in-raster-with-different-raster_20_0.png">
+
+</figure>
 
 
 

@@ -9,7 +9,6 @@ class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/how-atmospheric-conditions-and-drought-impact-floods/
 nav-title: 'Atmosphere & Drought'
 dateCreated: 2018-05-24
-modified: 2018-05-24
 module-type: 'class'
 week: 1
 sidebar:

@@ -16,7 +16,7 @@ author_profile: false
 comments: true
 order: 3
 topics:
-  reproducible-science-and-programming: ['Jupyter notebook']
+  reproducible-science-and-programming: ['jupyter-notebooks']
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 ---

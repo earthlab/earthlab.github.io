@@ -17,7 +17,7 @@ author_profile: false
 comments: true
 order: 5
 topics:
-  reproducible-science-and-programming: ['Jupyter notebook']
+  reproducible-science-and-programming: ['jupyter-notebooks']
   data-exploration-and-analysis: ['data-visualization']
 ---
 

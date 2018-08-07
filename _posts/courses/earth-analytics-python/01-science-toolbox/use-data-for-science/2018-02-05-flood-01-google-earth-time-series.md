@@ -9,7 +9,6 @@ class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/
 nav-title: 'Google Earth Time Series'
 dateCreated: 2018-02-08
-modified: 2018-02-09
 module-title: 'Understand Disturbance with Data - Flooding and Erosion'
 module-nav-title: 'Use Data For Science'
 module-description: 'This module uses time series data to explore the impacts of a flood. Learn how to use Google Earth imagery, NOAA precipitation data and USGS stream flow data to explore the 2013 Colorado floods.'

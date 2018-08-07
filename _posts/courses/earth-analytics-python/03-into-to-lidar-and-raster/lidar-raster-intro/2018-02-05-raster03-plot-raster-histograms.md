@@ -4,8 +4,8 @@ title: "Plot Histograms of Raster Values in Python"
 excerpt: "This lesson introduces the raster geotiff file format - which is often used
 to store lidar raster data. You cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
-authors: ['Leah A. Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-27
+authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/plot-raster-histograms/
@@ -146,7 +146,11 @@ ax.set_title("Distribution of surface elevation values", fontsize = 17);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_10_0.png">
+
+</figure>
 
 
 
@@ -177,7 +181,11 @@ ax.set_ylabel('Frequency', fontsize=16);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_12_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_12_0.png">
+
+</figure>
 
 
 
@@ -208,7 +216,11 @@ ax.set_ylabel('Frequency');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_14_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_14_0.png">
+
+</figure>
 
 
 

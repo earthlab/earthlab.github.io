@@ -9,7 +9,6 @@ class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/how-rain-impacts-floods/
 nav-title: 'Precipitation'
 dateCreated: 2018-05-24
-modified: 2018-05-24
 module-type: 'class'
 week: 1
 sidebar:

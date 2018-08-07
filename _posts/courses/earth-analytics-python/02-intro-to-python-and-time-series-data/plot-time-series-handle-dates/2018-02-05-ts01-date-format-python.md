@@ -21,7 +21,7 @@ comments: true
 class-order: 1
 order: 1
 topics:
-  reproducible-science-and-programming: ['JupyterNotebook']
+  reproducible-science-and-programming: ['jupyter-notebooks']
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 ---

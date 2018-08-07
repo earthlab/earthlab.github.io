@@ -3,7 +3,7 @@ layout: single
 title: "Interactive Maps in Python"
 excerpt: "This lesson covers creating static basemaps in Python"
 authors: ['Leah Wasser', 'Martha Morrissey', 'Carson Farmer',  'Max Joseph']
-modified: 2018-07-27
+modified: 2018-08-07
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/interactive-maps/
@@ -18,7 +18,7 @@ order: 2
 topics:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis:
-  reproducible-science-and-programming: ['Jupyter Notebooks']
+  reproducible-science-and-programming: ['jupyter-notebooks']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -222,7 +222,11 @@ ax.imshow(img[0]);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/hw-ggmap-markdown/2018-02-05-maps02-interactive_12_1.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/hw-ggmap-markdown/2018-02-05-maps02-interactive_12_1.png">
+
+</figure>
 
 
 
