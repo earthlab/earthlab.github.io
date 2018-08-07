@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/import-csv-files-pandas-dataframes/
 nav-title: "Import CSV Files Into Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-05
+modified: 2018-08-07
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -94,7 +94,7 @@ In this lesson, you will import tabular data from:
 
 ## Begin Writing Your Code
 
-From previous lessons, you know that you always begin your code by importing the necessary `Python` packages and setting your working directory using the `os`, `earthpy` and `urllib`  packages. 
+From previous lessons, you know how to import the necessary `Python` packages to set your working directory and download the needed datasets using the `os` and `urllib` packages. 
 
 To work with `pandas dataframes`, you will also need to import the `pandas` package with the alias `pd`. Begin by reviewing these tasks.
 
@@ -104,7 +104,6 @@ To work with `pandas dataframes`, you will also need to import the `pandas` pack
 ```python
 # import necessary Python packages
 import os
-import earthpy as et
 import urllib
 import pandas as pd
 
@@ -119,12 +118,13 @@ print("import of packages successful")
 
 ### Set Working Directory
 
-Remember that you can set the current working directory using `os.chdir()`, using a relative path to `earth-analytics-bootcamp`, by making it relative to the `earthpy` home (your home directory).
+Remember that you can check the current working directory using `os.getcwd()` and set the current working directory using `os.chdir()`.
 
 {:.input}
 ```python
 # set the working directory to the `earth-analytics-bootcamp` directory
-os.chdir(os.path.join(et.io.HOME, "earth-analytics-bootcamp"))
+# replace `jpalomino` with your username here and all paths in this lesson
+os.chdir("/home/jpalomino/earth-analytics-bootcamp/")
 
 # print the current working directory
 os.getcwd()
@@ -175,120 +175,6 @@ Remember that you gave `pandas` alias of `pd`, so you will use `pd` to call `pan
 # import the monthly average precipitation values as a pandas dataframe
 avg_precip = pd.read_csv("/home/jpalomino/earth-analytics-bootcamp/data/avg-precip-months-seasons.csv")
 ```
-
-{:.output}
-    <class 'pandas.core.frame.DataFrame'>
-
-
-
-{:.output}
-{:.execute_result}
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>months</th>
-      <th>precip</th>
-      <th>seasons</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Jan</td>
-      <td>0.70</td>
-      <td>Winter</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Feb</td>
-      <td>0.75</td>
-      <td>Winter</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Mar</td>
-      <td>1.85</td>
-      <td>Spring</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Apr</td>
-      <td>2.93</td>
-      <td>Spring</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>May</td>
-      <td>3.05</td>
-      <td>Spring</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>June</td>
-      <td>2.02</td>
-      <td>Summer</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>July</td>
-      <td>1.93</td>
-      <td>Summer</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Aug</td>
-      <td>1.62</td>
-      <td>Summer</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Sept</td>
-      <td>1.84</td>
-      <td>Fall</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Oct</td>
-      <td>1.31</td>
-      <td>Fall</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Nov</td>
-      <td>1.39</td>
-      <td>Fall</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Dec</td>
-      <td>0.84</td>
-      <td>Winter</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
 
 Recall from previous lessons that you can check the type of any data structure using `type(variablename)`.
 

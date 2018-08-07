@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/
 nav-title: "Get Files From GitHub"
 dateCreated: 2018-06-27
-modified: 2018-08-02
+modified: 2018-08-07
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -82,7 +82,7 @@ The URL link to a `GitHub` repository always follows the same format: `https://g
 
 You can `fork` an existing `Github` repository from the main `Github.com` page of the repository that you want to copy (example: `https://github.com/earthlab-education/ea-bootcamp-day-1`).
 
-On the main `Github.com` page of the repository, you will see a button on the top left that says `Fork`. The number next to `Fork` tells the number of times that the repository has been copied or forked.
+On the main `Github.com` page of the repository, you will see a button on the top right that says `Fork`. The number next to `Fork` tells the number of times that the repository has been copied or forked.
 
 Click on the `Fork` button and select your `Github.com` account as the home of the forked repository. 
 
