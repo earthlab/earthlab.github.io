@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/selections-pandas-dataframes/
 nav-title: "Selections From Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-04
+modified: 2018-08-07
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -83,7 +83,7 @@ In this lesson, you will use both location and label indexing to select data fro
 
 ## Begin Writing Your Code
 
-By now, you are familiar with importing the necessary `Python` packages to set your working directory and download the needed datasets using the `os`, `earthpy` and `urllib` packages. You also need to import the `pandas` package with the alias `pd`.
+By now, you are familiar with importing the necessary `Python` packages to set your working directory and download the needed datasets using the `os` and `urllib` packages. You also need to import the `pandas` package with the alias `pd`.
 
 Begin by reviewing these tasks.
 
@@ -93,7 +93,6 @@ Begin by reviewing these tasks.
 ```python
 # import necessary Python packages
 import os
-import earthpy as et
 import urllib
 import pandas as pd
 
@@ -108,12 +107,13 @@ print("import of packages successful")
 
 ### Set Working Directory
 
-Remember that you can set the current working directory using `os.chdir()`, using a relative path to `earth-analytics-bootcamp`, by making it relative to the `earthpy` home (your home directory).
+Remember that you can check the current working directory using `os.getcwd()` and set the current working directory using `os.chdir()`.
 
 {:.input}
 ```python
 # set the working directory to the `earth-analytics-bootcamp` directory
-os.chdir(os.path.join(et.io.HOME, "earth-analytics-bootcamp"))
+# replace `jpalomino` with your username here and all paths in this lesson
+os.chdir("/home/jpalomino/earth-analytics-bootcamp/")
 
 # print the current working directory
 os.getcwd()

@@ -18,7 +18,7 @@ module-type: 'session'
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Four!
 
-Welcome to Day Four of the Earth Analytics Bootcamp! Today, you will learn about a commonly used data structure in Python for scientific data: numpy arrays. You will write `Python` code to import text data (.txt and .csv) as `numpy arrays` and to manipulate, summarize, and plot data in `numpy arrays`. You will also install a `Python` package called `earthpy`, which will provide more functionality to work with earth systems data and help you to organize your working directories and data downloads.
+Welcome to Day Four of the Earth Analytics Bootcamp! Today, you will learn about a commonly used data structure in Python for scientific data: numpy arrays. You will write `Python` code to import text data (.txt and .csv) as `numpy arrays` and to manipulate, summarize, and plot data in `numpy arrays`. 
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -27,7 +27,6 @@ After completing the lessons for Day 4, you will be able to:
 
 * Define a data structure in `Python` (e.g. lists, `numpy arrays`)
 * Explain the differences between `Python` lists and `numpy arrays` (e.g. dimensionality, indexing)
-* Install `Python` packages using `pip` in `Shell`
 * Write `Python` code to import text data (.txt and .csv) into `numpy arrays`
 * Write `Python` code to manipulate, summarize, and plot data in `numpy arrays`
 
@@ -40,14 +39,13 @@ After completing the lessons for Day 4, you will be able to:
 |:----------------------------------------------|
 | Review Day 3 / Questions | 
 | Lesson 1: Intro to `Numpy Arrays`               | 
-| Lesson 2: Install `Python` Packages (`pip`)        | 
-| Lesson 3: Import Text Data into `Numpy Arrays`
-| Lesson 4: Manipulate, Summarize, and Plot `Numpy Arrays`  |   
+| Lesson 2: Import Text Data into `Numpy Arrays`
+| Lesson 3: Manipulate, Summarize, and Plot `Numpy Arrays`  |   
 
 
 ## <i class="fa fa-pencil"></i> Lessons Day 4
 
-Today's lessons provide information that you need to begin homework 2. In the lessons, you will use `Shell` to install `Python` packages and use `Python` in `Jupyter Notebook` to work with `numpy arrays`. 
+Today's lessons provide information that you need to begin homework 2. In the lessons, you will use `Python` in `Jupyter Notebook` to work with `numpy arrays`. 
 
 
 ### Get Day 4 Files From Github.com

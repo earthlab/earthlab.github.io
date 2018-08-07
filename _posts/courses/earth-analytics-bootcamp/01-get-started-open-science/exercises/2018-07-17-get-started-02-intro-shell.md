@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/
 nav-title: "Intro to Shell"
 dateCreated: 2018-06-27
-modified: 2018-08-02
+modified: 2018-08-07
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -154,7 +154,7 @@ $ pwd
 
 As this is the first command that you have executed in `Bash` today, the result of the `pwd` is the full path to your home directory. The home directory is the first directory that you will be in each time you start a new `Bash` session. 
 
-**Windows users:** note that the `Terminal` uses forward slashes (/) to indicate directories within a path. This differs from the Windows File Explorer which uses backslashes (\) to indicate directories within a path.   
+**Windows users:** note that the `Terminal` uses forward slashes (`/`) to indicate directories within a path. This differs from the Windows File Explorer which uses backslashes (`\`) to indicate directories within a path.   
 
 
 ### Change Working Directory (`cd`)
