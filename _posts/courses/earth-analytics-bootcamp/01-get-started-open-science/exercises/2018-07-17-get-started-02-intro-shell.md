@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/
 nav-title: "Intro to Shell"
 dateCreated: 2018-06-27
-modified: 2018-08-07
+modified: 2018-08-08
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"

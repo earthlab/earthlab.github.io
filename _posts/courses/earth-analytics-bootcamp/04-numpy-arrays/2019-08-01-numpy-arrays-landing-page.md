@@ -50,7 +50,7 @@ Today's lessons provide information that you need to begin homework 2. In the le
 
 ### Get Day 4 Files From Github.com
 
-Fork and `git clone` today's files from `https://github.com/earthlab/ea-bootcamp-day-4` to the `earth-analytics-bootcamp` directory under your home directory.
+Fork and `git clone` today's files from `https://github.com/earthlab-education/ea-bootcamp-day-4` to the `earth-analytics-bootcamp` directory under your home directory.
 
 If needed, refer to the lesson on <a href="{{ site.url }}/courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/" >Get Files from Github.com.</a>
    

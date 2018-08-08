@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/intro-version-control/
 nav-title: "What Is Version Control"
 dateCreated: 2018-07-25
-modified: 2018-08-03
+modified: 2018-08-08
 module-title: 'Git/GitHub Workflow For Version Control'
 module-nav-title: 'Git/GitHub Workflow For Version Control'
 module-description: 'This tutorial helps you get started with version control to track changes to your files and share your files with others using Git and GitHub.'

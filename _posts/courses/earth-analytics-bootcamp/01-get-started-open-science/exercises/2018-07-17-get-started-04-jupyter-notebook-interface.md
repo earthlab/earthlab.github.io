@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/jupyter-notebook-interface/
 nav-title: "The Jupyter Notebook Interface"
 dateCreated: 2018-06-27
-modified: 2018-08-07
+modified: 2018-08-08
 module-type: 'class'
 course: "earth-analytics-bootcamp"
 week: 1

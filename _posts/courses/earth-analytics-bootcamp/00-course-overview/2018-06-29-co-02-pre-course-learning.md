@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Pre-Course Learning Resources
-modified: 2018-07-27
+modified: 2018-08-08
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-pre-course-learning/
 author_profile: no
