@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/variables/
 nav-title: "Variables in Python"
 dateCreated: 2018-06-27
-modified: 2018-08-01
+modified: 2018-08-07
 module-title: 'Python Variables and Lists'
 module-nav-title: 'Python Variables and Lists'
 module-description: 'This tutorial teaches you how to create and manipulate variables and lists in Python. You will also learn how to plot data using the matplotlib package.'
@@ -59,7 +59,7 @@ A variable can contain a single value - such as a whole number (i.e. integer), d
 
 You can create a variable to store a single numeric value by defining a name and assigning a value to that name using the equal (`=`) operator (e.g. `variablename = 1.5`). 
 
-If the value is a text string, you need to add parenthesis (`""`) around the value, so that `Python` knows it is a text string (e.g. `variablename = "text"`). 
+If the value is a text string, you need to add quotations (`""`) around the value, so that `Python` knows it is a text string (e.g. `variablename = "text"`). 
 
 Just like you want to use good naming conventions for directories on your computer, you also want to assign clear and short names to variables, avoiding spaces or complicated wording, but still specific enough that you know what it is. 
 
