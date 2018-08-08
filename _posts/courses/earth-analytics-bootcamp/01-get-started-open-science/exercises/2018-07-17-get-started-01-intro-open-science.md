@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/intro-open-science/
 nav-title: "What Is Open Reproducible Science"
 dateCreated: 2018-06-27
-modified: 2018-08-02
+modified: 2018-08-08
 module-title: 'Get Started with Open Reproducible Science'
 module-nav-title: 'Get Started with Open Reproducible Science'
 module-description: 'This tutorial helps you get started with open reproducible science and introduces you to tools used in open reproducible science workflows including Bash/Shell, Git and Github.com, and Python in Jupyter Notebook.'

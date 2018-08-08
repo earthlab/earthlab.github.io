@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/import-csv-files-pandas-dataframes/
 nav-title: "Import CSV Files Into Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-07
+modified: 2018-08-08
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -151,7 +151,7 @@ For this lesson, you will download a .csv file containing the average monthly pr
 ```python
 # use `urllib` download files from Earth Lab figshare repository
 
-# download .txt containing monthly average precipitation for Boulder, CO
+# download .csv containing monthly average precipitation for Boulder, CO
 urllib.request.urlretrieve(url = "https://ndownloader.figshare.com/files/12710618", 
                            filename = "data/avg-precip-months-seasons.csv")
 

@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/selections-pandas-dataframes/
 nav-title: "Selections From Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-07
+modified: 2018-08-08
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
