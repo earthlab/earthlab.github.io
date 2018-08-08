@@ -2,13 +2,13 @@
 layout: single
 title: 'Intro to Pandas Dataframes'
 excerpt: "This lesson describes key characteristics of pandas dataframes, a data structure commonly used for scientific data."
-authors: ['Jenny Palomino', 'Software Carpentry', 'Pandas']
+authors: ['Jenny Palomino', 'Software Carpentry']
 category: [courses]
 class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/intro-pandas-dataframes/
 nav-title: "Intro to Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-04
+modified: 2018-08-07
 module-title: 'Pandas Dataframes'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'This tutorial walks you through importing tabular data (.csv) to pandas dataframes as well as summarizing, plotting, and running calculations on pandas dataframes.'

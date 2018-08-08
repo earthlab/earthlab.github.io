@@ -2,7 +2,7 @@
 layout: single
 title: 'Selections From Pandas Dataframes'
 excerpt: "This lesson walks you through using indexing to select data from pandas dataframes."
-authors: ['Jenny Palomino', 'Software Carpentry', 'Pandas']
+authors: ['Jenny Palomino', 'Software Carpentry']
 category: [courses]
 class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/selections-pandas-dataframes/
