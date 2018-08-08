@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-10
-modified: 2018-08-01
+modified: 2018-08-07
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -158,7 +158,7 @@ oct = 1.31 * 25.4
 
 ## Create Lists
 
-Recall that you can create a list of multiple values by using brackets (`[]`) to contain the values and then assigning that bracketed list of values to a variablename (e.g. `variablename = [1, 2, 3]` or `[variablename = ["text1", "text2"]`). 
+Recall that you can create a list of multiple values by using brackets (`[]`) to contain the values and then assigning that bracketed list of values to a variablename (e.g. `variablename = [1.2, 2.5, 3.7]` or `variablename = ["text1", "text2", "text3"]`).
 
 For example, you can create a list that contains the variables you created for January through October.
 
@@ -296,9 +296,9 @@ print(months)
 
 To add new items to the end of an existing list, you can use the combined operator `+=` , which adds (`+`) the listed values after the `=` to the end of an existing list. 
 
-For example, you can add new text strings using `listname += ["New text 1", "New text 2"]` and new numberic values using `listname += [9999.9999, 0.0]`.
+For example, you can add new text strings using `listname += ["New text 1", "New text 2"]` and new numeric values using `listname += [9999.9999, 0.0]`.
 
-You can also items to the beginning of an existing list using the following syntax: 
+You can also add items to the beginning of an existing list using the following syntax: 
 `listname = ["New Value 1", "New Value 2"] + listname`.
 
 Expand your code to add a new item for `Nov` to the end of `months`. 

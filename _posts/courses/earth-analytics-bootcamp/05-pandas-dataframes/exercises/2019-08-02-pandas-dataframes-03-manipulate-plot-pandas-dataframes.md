@@ -2,7 +2,7 @@
 layout: single
 title: 'Manipulate and Plot Pandas Dataframes'
 excerpt: "This lesson walks you through describing, manipulating, and plotting pandas dataframes."
-authors: ['Jenny Palomino', 'Software Carpentry', 'Pandas']
+authors: ['Jenny Palomino', 'Software Carpentry']
 category: [courses]
 class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/manipulate-plot-pandas-dataframes/

@@ -2,7 +2,7 @@
 layout: single
 title: 'Import CSV Files Into Pandas Dataframes'
 excerpt: "This lesson walks you through importing tabular data from .csv files to pandas dataframes."
-authors: ['Jenny Palomino', 'Software Carpentry', 'Pandas']
+authors: ['Jenny Palomino', 'Software Carpentry']
 category: [courses]
 class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/import-csv-files-pandas-dataframes/
