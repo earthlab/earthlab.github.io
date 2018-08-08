@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/import-python-packages/
 nav-title: "Import Python Packages"
 dateCreated: 2018-06-27
-modified: 2018-08-01
+modified: 2018-08-08
 module-type: 'class'
 course: "earth-analytics-bootcamp"
 week: 2

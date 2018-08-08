@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2018-08-03
+modified: 2018-08-08
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"

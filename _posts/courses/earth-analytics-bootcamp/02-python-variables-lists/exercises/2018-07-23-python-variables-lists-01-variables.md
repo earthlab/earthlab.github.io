@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/variables/
 nav-title: "Variables in Python"
 dateCreated: 2018-06-27
-modified: 2018-08-07
+modified: 2018-08-08
 module-title: 'Python Variables and Lists'
 module-nav-title: 'Python Variables and Lists'
 module-description: 'This tutorial teaches you how to create and manipulate variables and lists in Python. You will also learn how to plot data using the matplotlib package.'
