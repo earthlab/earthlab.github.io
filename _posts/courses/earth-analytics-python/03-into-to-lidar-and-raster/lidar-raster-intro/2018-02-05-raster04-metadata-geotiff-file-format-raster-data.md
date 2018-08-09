@@ -4,7 +4,7 @@ title: "About the Geotiff (.tif) Raster File Format: Raster Data in Python"
 excerpt: "This lesson introduces the geotiff file format. Further it introduces the
 concept of metadata - or data about the data. Metadata describe key characteristics of a data set. For spatial data these characteristics including CRS, resolution and spatial extent. Here you learn about the use of tif tags or metadata embedded within a geotiff file as they can be used to explore data programatically."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-31
+modified: 2018-08-09
 category: ['courses']
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/introduction-to-spatial-metadata/
@@ -17,7 +17,7 @@ author_profile: false
 comments: false
 order: 4
 topics:
-  reproducible-science-and-programming:
+  reproducible-science-and-programming: ['python']
   spatial-data-and-gis: ['raster-data']
   find-and-manage-data: ['metadata']
 ---
@@ -37,8 +37,8 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson.
 
-If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
 
 </div>
 
@@ -85,13 +85,17 @@ NOTE: not all geotiffs contain tif tags!
 ```python
 import rasterio as rio
 import os
+
+import earthpy as et
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 Next let's open up a raster file in geotiff format (.tif). 
 
 {:.input}
 ```python
-lidar_dem = rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif')
+with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as lidar_dem:
+    lidar_dem.bounds
 ```
 
 You can view spatial attibutes associated with the raster file too. Below you explore viewing a general list of attributes and then specific attributes including number of bands and horizontal (x, y) resolution.
@@ -99,30 +103,7 @@ You can view spatial attibutes associated with the raster file too. Below you ex
 {:.input}
 ```python
 # View generate metadata associated with the raster file
-print(lidar_dem.meta)
-```
-
-{:.output}
-    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4000, 'height': 2000, 'count': 1, 'crs': CRS({'init': 'epsg:32613'}), 'transform': (472000.0, 1.0, 0.0, 4436000.0, 0.0, -1.0), 'affine': Affine(1.0, 0.0, 472000.0,
-           0.0, -1.0, 4436000.0)}
-
-
-
-{:.input}
-```python
-# what is the spatial resolution?
-print("resolution", lidar_dem.res)
-```
-
-{:.output}
-    resolution (1.0, 1.0)
-
-
-
-{:.input}
-```python
-# view image structure
-lidar_dem.tags(ns='IMAGE_STRUCTURE')
+lidar_dem.meta
 ```
 
 {:.output}
@@ -130,15 +111,55 @@ lidar_dem.tags(ns='IMAGE_STRUCTURE')
 
 
 
+    {'driver': 'GTiff',
+     'dtype': 'float32',
+     'nodata': -3.4028234663852886e+38,
+     'width': 4000,
+     'height': 2000,
+     'count': 1,
+     'crs': CRS({'init': 'epsg:32613'}),
+     'transform': Affine(1.0, 0.0, 472000.0,
+            0.0, -1.0, 4436000.0)}
+
+
+
+
+
+{:.input}
+```python
+# what is the spatial resolution?
+lidar_dem.res
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (1.0, 1.0)
+
+
+
+
+
+You can access the tif tags as well. 
+
+{:.input}
+```python
+# view image structure
+
+with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as lidar_dem:
+    print(lidar_dem.tags(ns='IMAGE_STRUCTURE'))
+```
+
+{:.output}
     {'COMPRESSION': 'LZW', 'INTERLEAVE': 'BAND'}
-
-
 
 
 
 ### Raster Masks
 
-You can view the mask associated with the data too. Here values that =0 are no data values whereas values == 255 are usable data values. 
+You can view the mask associated with the data too. Here values that `=0` are no data values whereas `= 255` are usable data values. 
 
 {:.input}
 ```python
@@ -164,7 +185,7 @@ lidar_dem.dataset_mask()
 
 
 
-<i fa fa-star></i> **Data Tip:** Read more about attributes associated with rasterio objects and how they map to gdal objects.
+<i fa fa-star aria-hidden="true"></i> **Data Tip:** Read more about attributes associated with rasterio objects and how they map to gdal objects.
 {: .notice--success }
 
 The information returned from the various attributes called above includes:
@@ -300,10 +321,3 @@ print("number of bands", lidar_dem.indexes)
     number of bands (1,)
 
 
-
-{:.input}
-```python
-# remember to close raster datasets
-lidar_dem.close()
-lidar_dsm.close()
-```

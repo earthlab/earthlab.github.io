@@ -4,7 +4,7 @@ title: "Crop a spatial raster dataset using a shapefile in Python"
 excerpt: "This lesson covers how to crop a raster dataset and export it as a
 new raster in Python"
 authors: ['Leah Wasser']
-modified: 2018-07-27
+modified: 2018-08-09
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/crop-raster-data-in-python/
@@ -17,7 +17,7 @@ author_profile: false
 comments: true
 order: 7
 topics:
-  reproducible-science-and-programming:
+  reproducible-science-and-programming: ['python']
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
@@ -38,8 +38,7 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson.
 
-If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -102,7 +101,11 @@ ax.set_title("Lidar Canopy Height Model (CHM)", fontsize = 16);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_5_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_5_0.png">
+
+</figure>
 
 
 
@@ -160,7 +163,11 @@ ax.set(xlim=crop_extent.bounds[['minx', 'maxx']].values[0],
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_10_1.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_10_1.png">
+
+</figure>
 
 
 
@@ -176,7 +183,11 @@ ax.set_title("Shapefile imported into Python - crop extent", fontsize = 16);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_11_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_11_0.png">
+
+</figure>
 
 
 
@@ -210,7 +221,11 @@ crop_extent.plot(ax=ax, alpha=.8);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_14_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_14_0.png">
+
+</figure>
 
 
 
@@ -235,7 +250,11 @@ crop_extent.plot(ax=ax, linewidth=3, alpha=.5);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_16_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_16_0.png">
+
+</figure>
 
 
 
@@ -266,7 +285,11 @@ ax.set_axis_off()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_20_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_20_0.png">
+
+</figure>
 
 
 

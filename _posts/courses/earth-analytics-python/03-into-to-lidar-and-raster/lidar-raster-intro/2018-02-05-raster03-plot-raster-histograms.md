@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-08-07
+modified: 2018-08-09
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/plot-raster-histograms/
@@ -18,9 +18,7 @@ author_profile: false
 comments: false
 order: 3
 topics:
-  reproducible-science-and-programming:
-  remote-sensing: ['lidar']
-  earth-science: ['vegetation']
+  reproducible-science-and-programming: ['python']
   spatial-data-and-gis: ['raster-data']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
@@ -38,8 +36,7 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson.
 
-If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -66,15 +63,18 @@ import numpy as np
 import os
 # you will use this library to adjust your color bar height below
 from mpl_toolkits.axes_grid1 import make_axes_locatable
-
-
+# inline plotting
 plt.ion()
-```
 
-{:.input}
-```python
 import earthpy as et
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
+# prettier plotting with seaborn
+import seaborn as sns; sns.set(font_scale=1.5)
+
+#format histograms
+plt.rcParams['figure.figsize'] = (8, 8)
+
 ```
 
 As you did in the previous lessons, you can open your raster data using `rio.open()`.
@@ -114,6 +114,13 @@ print(lidar_dem_im.ravel().shape)
 
 
 
+If your array has nan values in it, it's best to remove the nan values before trying to plot a histogram.
+Below you
+
+1. flatten the data so it can be coerced into a histogram using `.ravel()`
+2. remove nan values `lidar_dem_hist[~np.isnan(lidar_dem_hist)]`
+
+
 {:.input}
 ```python
 # Remove the `nan` values
@@ -121,26 +128,15 @@ lidar_dem_hist = lidar_dem_im.ravel()
 lidar_dem_hist = lidar_dem_hist[~np.isnan(lidar_dem_hist)]
 ```
 
-{:.input}
-```python
-#format histograms
-plt.rcParams['figure.figsize'] = (8, 8)
-plt.rcParams['axes.titlesize'] = 20
-plt.rcParams['axes.facecolor']='white'
-plt.rcParams['grid.color'] = 'grey'
-plt.rcParams['grid.linestyle'] = '-'
-plt.rcParams['grid.linewidth'] = '.5'
-plt.rcParams['lines.color'] = 'purple'
-plt.rcParams['axes.labelsize'] = 16
-```
+Once you have cleaned up the data you can plot a histogram.
 
 {:.input}
 ```python
-fig = plt.figure(figsize = (14,14))
-ax = fig.add_subplot(111)
+fig, ax = plt.subplots()
 ax.hist(lidar_dem_hist, color='purple')
-ax.set(xlabel = 'Elevation (meters)', ylabel = 'Frequency')
-ax.set_title("Distribution of surface elevation values", fontsize = 17);
+ax.set(xlabel = 'Elevation (meters)', 
+       ylabel = 'Frequency',
+       title = "Distribution of Lidar DEM Elevation Values");
 ```
 
 {:.output}
@@ -162,20 +158,18 @@ A histogram shows us how the data are distributed. Each bin or bar in the plot
 represents the number or frequency of pixels that fall within the range specified
 by the bin.
 
-You can use the `breaks=` argument to specify fewer or more breaks in your histogram.
+You can use the `bins=` argument to specify fewer or more breaks in your histogram.
 Note that this argument does not result in the exact number of breaks that you may
 want in your histogram.
 
 
 {:.input}
 ```python
-fig = plt.figure(figsize = (14,14))
-ax = fig.add_subplot(111)
+fig, ax = plt.subplots()
 ax.hist(lidar_dem_hist, color='purple', bins=3)
-ax.set_title("Distribution of surface elevation values",
-            fontsize=16)
-ax.set_xlabel('Elevation (meters)', fontsize=16)
-ax.set_ylabel('Frequency', fontsize=16);
+ax.set(title = "Distribution of Elevation Values",
+       xlabel = 'Elevation (meters)', 
+       ylabel = 'Frequency');
 ```
 
 {:.output}
@@ -207,7 +201,7 @@ as follows:
 ```python
 fig, ax = plt.subplots()
 ax.hist(lidar_dem_hist, bins=[1600, 1800, 2000, 2100], color='purple')
-ax.set_title("Distribution of surface elevation values \n 3 histogram bins",
+ax.set_title("Distribution of Elevation Values \n 3 Histogram Bins",
             fontsize=16)
 ax.set_xlabel('Elevation (meters)')
 ax.set_ylabel('Frequency');

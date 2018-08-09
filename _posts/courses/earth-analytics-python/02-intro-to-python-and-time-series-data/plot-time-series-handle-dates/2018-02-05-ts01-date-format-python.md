@@ -3,7 +3,7 @@ layout: single
 title: "Work With Date - Time formats in Python - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in Python. It reviews how to apply the as.Date() function to a column containing date or data-time data. This function converts a field containing dates in a standard format, to a date class that R can understand and plot efficiently."
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-08-07
+modified: 2018-08-09
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -21,7 +21,7 @@ comments: true
 class-order: 1
 order: 1
 topics:
-  reproducible-science-and-programming: ['jupyter-notebooks']
+  reproducible-science-and-programming: ['jupyter-notebooks', 'python']
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 ---

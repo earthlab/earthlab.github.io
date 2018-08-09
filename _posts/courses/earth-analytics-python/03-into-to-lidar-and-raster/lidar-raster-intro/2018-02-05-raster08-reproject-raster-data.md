@@ -3,7 +3,7 @@ layout: single
 title: "Reproject Raster Data Python"
 excerpt: "This lesson teaches you how to reproject raster data using rasterio."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-07-27
+modified: 2018-08-09
 category: ['courses']
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/reproject-raster/
@@ -16,7 +16,7 @@ author_profile: false
 comments: false
 order: 8
 topics:
-  reproducible-science-and-programming:
+  reproducible-science-and-programming: ['python']
   spatial-data-and-gis: ['raster-data']
   find-and-manage-data: ['metadata']
 ---
@@ -34,11 +34,9 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson.
 
-If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
-
 
 
 ## Reprojecting 

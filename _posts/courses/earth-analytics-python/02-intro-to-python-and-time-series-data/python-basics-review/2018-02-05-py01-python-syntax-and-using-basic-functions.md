@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/python-syntax-and-using-functions/
 nav-title: 'Review: Get to Know Python'
 dateCreated: 2018-02-05
-modified: 2018-08-07
+modified: 2018-08-09
 module-title: 'Get to Know the Python programming language'
 module-nav-title: 'Review: Get to Know Python'
 module-description: 'This module introduces the Python scientific programming language.
@@ -25,7 +25,7 @@ author_profile: false
 comments: true
 order: 1
 topics:
-  reproducible-science-and-programming: ['jupyter-notebooks']
+  reproducible-science-and-programming: ['python']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 

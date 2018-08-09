@@ -27,7 +27,8 @@ carefully and make sure you've completed all of the steps and followed all of th
 guidelines. Use all of the class and homework lessons that you've learned in the
 first few weeks to help you complete the assignment.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
 </div>
 
 ## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Class Schedule
@@ -161,103 +162,20 @@ The plots below are examples of what your plots might look like. Your plots do n
 
 
 {:.output}
-{:.execute_result}
-
-
-
-<div style="width:100%;"><div style="position:relative;width:100%;height:0;padding-bottom:60%;"><iframe src="data:text/html;charset=utf-8;base64,PCFET0NUWVBFIGh0bWw+CjxoZWFkPiAgICAKICAgIDxtZXRhIGh0dHAtZXF1aXY9ImNvbnRlbnQtdHlwZSIgY29udGVudD0idGV4dC9odG1sOyBjaGFyc2V0PVVURi04IiAvPgogICAgPHNjcmlwdD5MX1BSRUZFUl9DQU5WQVMgPSBmYWxzZTsgTF9OT19UT1VDSCA9IGZhbHNlOyBMX0RJU0FCTEVfM0QgPSBmYWxzZTs8L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2xlYWZsZXRAMS4yLjAvZGlzdC9sZWFmbGV0LmpzIj48L3NjcmlwdD4KICAgIDxzY3JpcHQgc3JjPSJodHRwczovL2FqYXguZ29vZ2xlYXBpcy5jb20vYWpheC9saWJzL2pxdWVyeS8xLjExLjEvanF1ZXJ5Lm1pbi5qcyI+PC9zY3JpcHQ+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvMy4yLjAvanMvYm9vdHN0cmFwLm1pbi5qcyI+PC9zY3JpcHQ+CiAgICA8c2NyaXB0IHNyYz0iaHR0cHM6Ly9jZG5qcy5jbG91ZGZsYXJlLmNvbS9hamF4L2xpYnMvTGVhZmxldC5hd2Vzb21lLW1hcmtlcnMvMi4wLjIvbGVhZmxldC5hd2Vzb21lLW1hcmtlcnMuanMiPjwvc2NyaXB0PgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2Nkbi5qc2RlbGl2ci5uZXQvbnBtL2xlYWZsZXRAMS4yLjAvZGlzdC9sZWFmbGV0LmNzcyIvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL21heGNkbi5ib290c3RyYXBjZG4uY29tL2Jvb3RzdHJhcC8zLjIuMC9jc3MvYm9vdHN0cmFwLm1pbi5jc3MiLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9tYXhjZG4uYm9vdHN0cmFwY2RuLmNvbS9ib290c3RyYXAvMy4yLjAvY3NzL2Jvb3RzdHJhcC10aGVtZS5taW4uY3NzIi8+CiAgICA8bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vbWF4Y2RuLmJvb3RzdHJhcGNkbi5jb20vZm9udC1hd2Vzb21lLzQuNi4zL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzcyIvPgogICAgPGxpbmsgcmVsPSJzdHlsZXNoZWV0IiBocmVmPSJodHRwczovL2NkbmpzLmNsb3VkZmxhcmUuY29tL2FqYXgvbGlicy9MZWFmbGV0LmF3ZXNvbWUtbWFya2Vycy8yLjAuMi9sZWFmbGV0LmF3ZXNvbWUtbWFya2Vycy5jc3MiLz4KICAgIDxsaW5rIHJlbD0ic3R5bGVzaGVldCIgaHJlZj0iaHR0cHM6Ly9yYXdnaXQuY29tL3B5dGhvbi12aXN1YWxpemF0aW9uL2ZvbGl1bS9tYXN0ZXIvZm9saXVtL3RlbXBsYXRlcy9sZWFmbGV0LmF3ZXNvbWUucm90YXRlLmNzcyIvPgogICAgPHN0eWxlPmh0bWwsIGJvZHkge3dpZHRoOiAxMDAlO2hlaWdodDogMTAwJTttYXJnaW46IDA7cGFkZGluZzogMDt9PC9zdHlsZT4KICAgIDxzdHlsZT4jbWFwIHtwb3NpdGlvbjphYnNvbHV0ZTt0b3A6MDtib3R0b206MDtyaWdodDowO2xlZnQ6MDt9PC9zdHlsZT4KICAgIAogICAgICAgICAgICA8c3R5bGU+ICNtYXBfMTgyZjRlZTI4MDZmNDRmMWIyZjM5YmY3NThhODRhZjQgewogICAgICAgICAgICAgICAgcG9zaXRpb24gOiByZWxhdGl2ZTsKICAgICAgICAgICAgICAgIHdpZHRoIDogMTAwLjAlOwogICAgICAgICAgICAgICAgaGVpZ2h0OiAxMDAuMCU7CiAgICAgICAgICAgICAgICBsZWZ0OiAwLjAlOwogICAgICAgICAgICAgICAgdG9wOiAwLjAlOwogICAgICAgICAgICAgICAgfQogICAgICAgICAgICA8L3N0eWxlPgogICAgICAgIAo8L2hlYWQ+Cjxib2R5PiAgICAKICAgIAogICAgICAgICAgICA8ZGl2IGNsYXNzPSJmb2xpdW0tbWFwIiBpZD0ibWFwXzE4MmY0ZWUyODA2ZjQ0ZjFiMmYzOWJmNzU4YTg0YWY0IiA+PC9kaXY+CiAgICAgICAgCjwvYm9keT4KPHNjcmlwdD4gICAgCiAgICAKCiAgICAgICAgICAgIAogICAgICAgICAgICAgICAgdmFyIGJvdW5kcyA9IG51bGw7CiAgICAgICAgICAgIAoKICAgICAgICAgICAgdmFyIG1hcF8xODJmNGVlMjgwNmY0NGYxYjJmMzliZjc1OGE4NGFmNCA9IEwubWFwKAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJ21hcF8xODJmNGVlMjgwNmY0NGYxYjJmMzliZjc1OGE4NGFmNCcsCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB7Y2VudGVyOiBbNDAuMDE1LC0xMDUuMjcwNV0sCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB6b29tOiAxMCwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1heEJvdW5kczogYm91bmRzLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbGF5ZXJzOiBbXSwKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHdvcmxkQ29weUp1bXA6IGZhbHNlLAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY3JzOiBMLkNSUy5FUFNHMzg1NwogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9KTsKICAgICAgICAgICAgCiAgICAgICAgCiAgICAKICAgICAgICAgICAgdmFyIHRpbGVfbGF5ZXJfZGI5YjY1ZmNiM2RkNDVhMjlkNGUxYjAxMDI2MWI2ZTEgPSBMLnRpbGVMYXllcigKICAgICAgICAgICAgICAgICdodHRwczovL3N0YW1lbi10aWxlcy17c30uYS5zc2wuZmFzdGx5Lm5ldC90ZXJyYWluL3t6fS97eH0ve3l9LmpwZycsCiAgICAgICAgICAgICAgICB7CiAgImF0dHJpYnV0aW9uIjogbnVsbCwKICAiZGV0ZWN0UmV0aW5hIjogZmFsc2UsCiAgIm1heFpvb20iOiAxOCwKICAibWluWm9vbSI6IDEsCiAgIm5vV3JhcCI6IGZhbHNlLAogICJzdWJkb21haW5zIjogImFiYyIKfQogICAgICAgICAgICAgICAgKS5hZGRUbyhtYXBfMTgyZjRlZTI4MDZmNDRmMWIyZjM5YmY3NThhODRhZjQpOwogICAgICAgIAogICAgCgogICAgICAgICAgICB2YXIgbWFya2VyX2FhODEwMzg3NzRjZDQzNzhhZmI1MmVlZjk5NzVjMDFjID0gTC5tYXJrZXIoCiAgICAgICAgICAgICAgICBbNDAuMDUxNjY3LC0xMDUuMTc4MzMzXSwKICAgICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICAgICBpY29uOiBuZXcgTC5JY29uLkRlZmF1bHQoKQogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICkKICAgICAgICAgICAgICAgIC5hZGRUbyhtYXBfMTgyZjRlZTI4MDZmNDRmMWIyZjM5YmY3NThhODRhZjQpOwogICAgICAgICAgICAKICAgIAoKICAgICAgICAgICAgICAgIHZhciBpY29uXzI0NTdlMjdjZjFkMTQ2NjI5ZGVlY2Y4NmYzNjA2MDdmID0gTC5Bd2Vzb21lTWFya2Vycy5pY29uKHsKICAgICAgICAgICAgICAgICAgICBpY29uOiAnaW5mby1zaWduJywKICAgICAgICAgICAgICAgICAgICBpY29uQ29sb3I6ICd3aGl0ZScsCiAgICAgICAgICAgICAgICAgICAgbWFya2VyQ29sb3I6ICdibHVlJywKICAgICAgICAgICAgICAgICAgICBwcmVmaXg6ICdnbHlwaGljb24nLAogICAgICAgICAgICAgICAgICAgIGV4dHJhQ2xhc3NlczogJ2ZhLXJvdGF0ZS0wJwogICAgICAgICAgICAgICAgICAgIH0pOwogICAgICAgICAgICAgICAgbWFya2VyX2FhODEwMzg3NzRjZDQzNzhhZmI1MmVlZjk5NzVjMDFjLnNldEljb24oaWNvbl8yNDU3ZTI3Y2YxZDE0NjYyOWRlZWNmODZmMzYwNjA3Zik7CiAgICAgICAgICAgIAogICAgCiAgICAgICAgICAgIHZhciBwb3B1cF84ZWNlOGYzODM4YmI0MDA2OWI2ZDhmOTdhMDI4OTk1OCA9IEwucG9wdXAoe21heFdpZHRoOiAnMzAwJ30pOwoKICAgICAgICAgICAgCiAgICAgICAgICAgICAgICB2YXIgaHRtbF85YTRhODI4ZWRlOGM0OGI3OWJhMDAxZjcwMGJkNDAyOCA9ICQoJzxkaXYgaWQ9Imh0bWxfOWE0YTgyOGVkZThjNDhiNzliYTAwMWY3MDBiZDQwMjgiIHN0eWxlPSJ3aWR0aDogMTAwLjAlOyBoZWlnaHQ6IDEwMC4wJTsiPlN0cmVhbSBHYXVnZTwvZGl2PicpWzBdOwogICAgICAgICAgICAgICAgcG9wdXBfOGVjZThmMzgzOGJiNDAwNjliNmQ4Zjk3YTAyODk5NTguc2V0Q29udGVudChodG1sXzlhNGE4MjhlZGU4YzQ4Yjc5YmEwMDFmNzAwYmQ0MDI4KTsKICAgICAgICAgICAgCgogICAgICAgICAgICBtYXJrZXJfYWE4MTAzODc3NGNkNDM3OGFmYjUyZWVmOTk3NWMwMWMuYmluZFBvcHVwKHBvcHVwXzhlY2U4ZjM4MzhiYjQwMDY5YjZkOGY5N2EwMjg5OTU4KTsKCiAgICAgICAgICAgIAogICAgICAgIAo8L3NjcmlwdD4=" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe></div></div>
-
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_4_0.png)
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_5_0.png)
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_6_0.png)
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_7_0.png)
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_8_0.png)
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_9_0.png)
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_10_0.png)
-
-
-
-
-
-{:.output}
 
     ---------------------------------------------------------------------------
 
-    NameError                                 Traceback (most recent call last)
+    ModuleNotFoundError                       Traceback (most recent call last)
 
-    <ipython-input-13-d94160786605> in <module>()
-         17 legend_title = [Patch(color=c, label=l)
-         18                   for c, l in zip(colors, xlabels)]
-    ---> 19 ax.legend(handles=legend_titles, facecolor='white')
-         20 
-         21 
-
-
-    NameError: name 'legend_titles' is not defined
+    <ipython-input-2-1941069c482c> in <module>()
+         14 from matplotlib.colors import ListedColormap, BoundaryNorm
+         15 from matplotlib.patches import Patch
+    ---> 16 import folium
+         17 
+         18 #if using method 2 for plot 1
 
 
-
-{:.output}
-{:.display_data}
-
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_11_1.png)
-
+    ModuleNotFoundError: No module named 'folium'
 
 
 

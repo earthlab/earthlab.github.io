@@ -3,7 +3,7 @@ layout: single
 title: "Customize Dates on in Matplotlib plots in Python"
 excerpt: 'When you plot time series data in matplotlib, you often want to customize the date format that is presented on the plot. Learn how to customize the date format in a Python matplotlib plot.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-08-07
+modified: 2018-08-09
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -17,7 +17,7 @@ author_profile: false
 comments: true
 order: 5
 topics:
-  reproducible-science-and-programming: ['jupyter-notebooks']
+  reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
 ---
 
@@ -51,16 +51,25 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter
 import os
-import urllib
 plt.ion()
 import earthpy as et
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 # set parameters so all plots are consistent
 plt.rcParams['figure.figsize'] = (8, 8)
-plt.rcParams['axes.titlesize'] = 20
-plt.rcParams['lines.color'] = 'purple'
+import seaborn as sns; 
+sns.set(font_scale=1.5)
 ```
+
+{:.output}
+    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+      return f(*args, **kwds)
+    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+      return f(*args, **kwds)
+    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+      return f(*args, **kwds)
+
+
 
 In the previous lessons you downloaded and imported data from [figshare](https://figshare.com/authors/_/3386570) into Python using the following code.
 
@@ -280,7 +289,7 @@ myFmt = DateFormatter("%m-%d")
 fig, ax = plt.subplots()
 ax.scatter(precip_boulder_AugOct['DATE'].values, 
        precip_boulder_AugOct['DAILY_PRECIP'].values,
-       edgecolor='blue')
+       color='purple')
 ax.set(xlabel="Date", ylabel="Precipitation (Inches)",)
 ax.set_title("Daily Precipitation (inches)\nBoulder, Colorado 2013")
      

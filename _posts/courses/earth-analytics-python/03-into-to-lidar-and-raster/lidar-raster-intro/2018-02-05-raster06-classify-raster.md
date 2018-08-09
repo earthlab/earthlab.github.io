@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-27
+modified: 2018-08-09
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/raster-lidar-intro/classify-plot-raster-data-in-python/
@@ -17,7 +17,7 @@ author_profile: false
 comments: true
 order: 6
 topics:
-  reproducible-science-and-programming:
+  reproducible-science-and-programming: ['python']
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
@@ -39,8 +39,8 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson.
 
-If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
 
 </div>
 
@@ -183,7 +183,11 @@ ax.set(xlabel="Height (m)", ylabel="Number of Pixels");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_11_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_11_0.png">
+
+</figure>
 
 
 
@@ -222,7 +226,11 @@ ax.set(xlabel="Height (m)", ylabel="Number of Pixels");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_15_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_15_0.png">
+
+</figure>
 
 
 
@@ -272,7 +280,11 @@ ax.set_title("Distribution of raster cell values in the DTM difference data\nZoo
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_19_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_19_0.png">
+
+</figure>
 
 
 
@@ -330,7 +342,11 @@ ax.set(title="Distribution of raster cell values in the CHM",
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_24_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_24_0.png">
+
+</figure>
 
 
 
@@ -357,7 +373,11 @@ ax.set(title="Histogram with custom breaks",
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_26_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_26_0.png">
+
+</figure>
 
 
 
@@ -385,7 +405,11 @@ ax.set(title="Histogram with custom breaks",
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_28_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_28_0.png">
+
+</figure>
 
 
 
@@ -472,7 +496,11 @@ ax.set(title="Number of pixels in each class");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_34_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_34_0.png">
+
+</figure>
 
 
 
@@ -492,7 +520,11 @@ ax.set_xticklabels(xlabels);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_35_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_35_0.png">
+
+</figure>
 
 
 
@@ -513,7 +545,11 @@ ax.set_xticklabels(xlabels);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_36_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_36_0.png">
+
+</figure>
 
 
 
@@ -538,7 +574,11 @@ ax.set_xticklabels(xlabels);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_37_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_37_0.png">
+
+</figure>
 
 
 
@@ -554,7 +594,11 @@ ax.imshow(lidar_chm_im_cleaned_classified[0]);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_39_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_39_0.png">
+
+</figure>
 
 
 
@@ -572,7 +616,11 @@ ax.imshow(lidar_chm_im_cleaned_classified[0], cmap=cmap);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_40_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_40_0.png">
+
+</figure>
 
 
 
@@ -598,7 +646,11 @@ ax.legend(handles=legend_patches);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_42_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-into-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_42_0.png">
+
+</figure>
 
 
 

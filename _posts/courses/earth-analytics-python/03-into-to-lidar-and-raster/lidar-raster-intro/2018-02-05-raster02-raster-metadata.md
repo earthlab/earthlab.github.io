@@ -1,12 +1,12 @@
 ---
 layout: single
-title: "Spatial Raster Meta Data: CRS, Resolution, and Extent in Python"
+title: "Spatial Raster Metadata: CRS, Resolution, and Extent in Python"
 excerpt: "This lesson introduces the raster meta data. You will learn about CRS, resolution, and spatial extent."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-08-07
+modified: 2018-08-09
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
-permalink: /courses/earth-analytics-python/raster-lidar-intro/raster-meta-data/
+permalink: /courses/earth-analytics-python/raster-lidar-intro/raster-metadata/
 nav-title: 'Raster Meta Data'
 week: 3
 course: "earth-analytics-python"
@@ -16,7 +16,7 @@ author_profile: false
 comments: false
 order: 2
 topics:
-  reproducible-science-and-programming:
+  reproducible-science-and-programming: ['python']
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
@@ -30,19 +30,16 @@ topics:
 After completing this tutorial, you will be able to:
 
 * Be able to define 3 spatial attributes of a raster dataset: extent, crs and resolution.
-* Find a ratser's spatial metadata in `Python`.
+* Find a raster's spatial metadata in `Python`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson.
 
-If you have not already downloaded the week 3 data, please do so now.
-[<i class="fa fa-download" aria-hidden="true"></i> Download the 2013 Colorado Flood Teaching Data (~250 MB)](https://ndownloader.figshare.com/files/12395030){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
 
 </div>
-
-### Be sure to set your working directory
-`os.chdir("path-to-you-dir-here/earth-analytics/data")`
 
 {:.input}
 ```python
@@ -52,15 +49,19 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 plt.ion()
-
+# package created for the earth analytics program
+import earthpy as et
 from shapely.geometry import Polygon, mapping
 from rasterio.mask import mask
-
-import earthpy as et # a package created for this class that will be discussed later in this lesson
 ```
 
-Some of the important spatial attributes associated with raster data are the Coordiante refernce system, resolution, and extent. 
+{:.output}
+    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+      return f(*args, **kwds)
 
+
+
+You will learn about three important spatial attributes associated with raster data that in this lesson:  Coordiante refernce systems, resolution, and spatial extent. 
 
 ## 1. Coordinate Reference System
 
@@ -68,10 +69,9 @@ The Coordinate Reference System or `CRS` of a spatial object tells `Python` wher
 the raster is located in geographic space. It also tells `Python` what mathematical method should
 be used to “flatten” or project the raster in geographic space.
 
-
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/compare-mercator-utm-wgs-projections.jpg.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/compare-mercator-utm-wgs-projections.jpg.jpg" alt="Maps of the United States in different projections. Notice the
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/compare-mercator-utm-wgs-projections.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/compare-mercator-utm-wgs-projections.jpg" alt="Maps of the United States in different projections. Notice the
     differences in shape associated with each different projection. These
     differences are a direct result of the calculations used to 'flatten' the
     data onto a 2-dimensional map. Source: M. Corey, opennews.org">
@@ -93,25 +93,26 @@ it throughout data processing and analysis.
 
 ### View Raster Coordinate Reference System (CRS) in Python
 You can view the `CRS` string associated with your `Python` object using the`crs()`
-method. You can assign this string to a `Python` object, too.
+method. 
 
-
-You can assign the CRS information to an object too. This is useful
-when you begin to automate your code.
 
 {:.input}
 ```python
+# view crs of raster imported with rasterio
 with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as src:
     print(src.crs)
 ```
 
 {:.output}
-    CRS({'init': 'epsg:32613'})
+    +init=epsg:32613
 
 
+
+You can assign this string to a `Python` object, too.
 
 {:.input}
 ```python
+# assign crs to myCRS object
 myCRS = src.crs
 myCRS
 ```
@@ -215,8 +216,8 @@ units!
 Next, you'll learn about spatial extent of your raster data. The spatial extent of a raster or spatial
 object is the geographic area that the raster data covers.
 <figure>
-    <a href="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/raster-spatial-extent-coordinates.png">
-    <img src="{{ site.baseurl}}/images/courses/earth-analytics/lidar-raster-data-r/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which you will learn next week.
+    <a href="{{ site.baseurl}}/images/courses/earth-analytics/raster-data/raster-spatial-extent-coordinates.png">
+    <img src="{{ site.baseurl}}/images/courses/earth-analytics/raster-data/raster-spatial-extent-coordinates.png" alt="The spatial extent of vector data which you will learn next week.
     Notice that the spatial extent represents the rectangular area that the data cover.
     Thus, if the data are not rectangular (i.e. points OR an image that is rotated
     in some way) the spatial extent covers portions of the dataset where there are no data.
@@ -251,6 +252,24 @@ The spatial extent of an `Python` spatial object represents the geographic "edge
 location that is the furthest north, south, east and west. In other words, `extent`
 represents the overall geographic coverage of the spatial object.
 
+You can access the spatial extent using the `.bounds` attribute in `rasterio`.
+
+{:.input}
+```python
+src.bounds
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    BoundingBox(left=472000.0, bottom=4434000.0, right=476000.0, top=4436000.0)
+
+
+
+
+
 ## Raster Resolution
 
 A raster has horizontal (x and y) resolution. This resolution represents the
@@ -261,10 +280,16 @@ a 1 x 1 meter area on the ground. You can view the resolution of your data using
 {:.input}
 ```python
 # what is the x and y resolution for your raster data?
-print(src.res)
+src.res
 ```
 
 {:.output}
+{:.execute_result}
+
+
+
     (1.0, 1.0)
+
+
 
 

@@ -3,7 +3,7 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with pandas."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-08-07
+modified: 2018-08-09
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -67,11 +67,9 @@ plt.ion()
 
 # set default figure parameters 
 plt.rcParams['figure.figsize'] = (8, 8)
-plt.rcParams['axes.titlesize'] = 20
-plt.rcParams['axes.facecolor']='white'
-plt.rcParams['grid.color'] = 'grey'
-plt.rcParams['lines.color'] = 'purple'
-plt.rcParams['axes.labelsize']= 16
+# prettier plotting with seaborn
+import seaborn as sns; 
+sns.set(font_scale=1.5)
 
 # set working dir and import earthpy
 import earthpy as et
@@ -85,6 +83,11 @@ In this lesson you will learn how to aggregate or resample time series data to a
 However, you want to summarize the data on a daily time scale.
 
 To begin, import the data into Python and then view the first few rows, and what data type each column contains.
+When you import, be sure to specify the 
+
+* no data values
+* date column
+* set the data column to be the dataframe index
 
 
 {:.input}
@@ -93,7 +96,8 @@ To begin, import the data into Python and then view the first few rows, and what
 precip_file = "data/colorado-flood/precipitation/805325-precip-daily-2003-2013.csv"
 precip_boulder = pd.read_csv(precip_file,
                              na_values=[999.99],
-                             parse_dates=['DATE'])
+                             parse_dates=['DATE'], 
+                            index_col = 'DATE')
 precip_boulder.head()
 ```
 
@@ -125,69 +129,74 @@ precip_boulder.head()
       <th>ELEVATION</th>
       <th>LATITUDE</th>
       <th>LONGITUDE</th>
-      <th>DATE</th>
       <th>HPCP</th>
       <th>Measurement Flag</th>
       <th>Quality Flag</th>
     </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>2003-01-01 01:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
-      <td>2003-01-01 01:00:00</td>
       <td>0.0</td>
       <td>g</td>
       <td></td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2003-02-01 01:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
-      <td>2003-02-01 01:00:00</td>
       <td>0.0</td>
       <td>g</td>
       <td></td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>2003-02-02 19:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
-      <td>2003-02-02 19:00:00</td>
       <td>0.2</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2003-02-02 22:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
-      <td>2003-02-02 22:00:00</td>
       <td>0.1</td>
       <td></td>
       <td></td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>2003-02-03 02:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
-      <td>2003-02-03 02:00:00</td>
       <td>0.1</td>
       <td></td>
       <td></td>
@@ -212,26 +221,20 @@ precip_boulder.dtypes
 
 
 
-    STATION                     object
-    STATION_NAME                object
-    ELEVATION                  float64
-    LATITUDE                   float64
-    LONGITUDE                  float64
-    DATE                datetime64[ns]
-    HPCP                       float64
-    Measurement Flag            object
-    Quality Flag                object
+    STATION              object
+    STATION_NAME         object
+    ELEVATION           float64
+    LATITUDE            float64
+    LONGITUDE           float64
+    HPCP                float64
+    Measurement Flag     object
+    Quality Flag         object
     dtype: object
 
 
 
 
 
-{:.input}
-```python
-print("How many NA values are there?")
-print(precip_boulder.isnull().sum())
-```
 
 {:.output}
     How many NA values are there?
@@ -286,9 +289,13 @@ In this case you want total daily rainfall - so you will use the `resample()` an
 
 The `.sum()` method will add up all values to provide a summary output value.
 
-Your code will look like this:
+If you do not set the DATE column as the index, your code will look like this:
 
 `pandas_data_fram_name.resample('D', on = 'DATE').sum()`
+
+If you do however, you do not need the `on=` argument.
+
+`pandas_data_fram_name.resample('D').sum()`
 
 The `on` argument of the `resample` function is used to specify the column that will be used to summarized. This column need to be in the format `datetime`. Notice that either method will return a new `DataFrame` with the dates as the index.
 
@@ -309,7 +316,7 @@ daily_sum_precip2 = precip_boulder2.resample('D').sum()
 {:.input}
 ```python
 # resample the data 
-precip_boulder_daily = precip_boulder.resample('D', on = 'DATE').sum()
+precip_boulder_daily = precip_boulder.resample('D').sum()
 ```
 
 Once you have resampled the data, look at it. each HPCP value now represents a daily total or sum of all precipitation measured that day. Notice in the output below that your DATE field no longer contains time stamps. Also notice that you have only one summary value or row per day. 
@@ -422,3 +429,17 @@ ax.set(xlabel='Date',
 
 
 
+
+## Plot Resampled Data
+
+{:.input}
+```python
+# plot the data
+fig, ax = plt.subplots()
+ax.scatter(precip_boulder_daily.index, 
+       precip_boulder_daily['HPCP'].rolling, 
+       color = 'purple')
+ax.set(xlabel='Date', 
+       ylabel='Precipitation (Inches)',
+       title="Daily Precipitation - Boulder Station\n 1983-2013");
+```
