@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/import-text-files-numpy-arrays/
 nav-title: "Import Text Data Into Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-08
+modified: 2018-08-09
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -107,7 +107,7 @@ In this lesson, you will use the `os` package along with some new packages:
 # import necessary Python packages
 import os
 import numpy as np
-import urllib
+import urllib.request
 
 # print message after packages imported successfully
 print("import of packages successful")

@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/import-csv-files-pandas-dataframes/
 nav-title: "Import CSV Files Into Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-08
+modified: 2018-08-09
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -104,7 +104,7 @@ To work with `pandas dataframes`, you will also need to import the `pandas` pack
 ```python
 # import necessary Python packages
 import os
-import urllib
+import urllib.request
 import pandas as pd
 
 # print message after packages imported successfully
