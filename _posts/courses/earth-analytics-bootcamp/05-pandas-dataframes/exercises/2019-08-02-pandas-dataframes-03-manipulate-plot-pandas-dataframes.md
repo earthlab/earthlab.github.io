@@ -88,7 +88,7 @@ To work with `pandas dataframes`, you will also need to import the `pandas` pack
 ```python
 # import necessary Python packages
 import os
-import urllib
+import urllib.request
 import pandas as pd
 import matplotlib.pyplot as plt
 

@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/selections-pandas-dataframes/
 nav-title: "Selections From Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-08
+modified: 2018-08-09
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -59,7 +59,9 @@ In this lesson, you will review how indexing works for `pandas dataframes` and y
 
 There are two kinds of indexing in `pandas dataframes`: location-based and label-based. 
 
-After working with indexing for `Python` lists and `numpy arrays`, you are familiar with location-based indexing. You already know that `Python` location-based indexing begins with `[0]`, and you have learned how to use location-based indexing to query data within `Python` lists or `numpy arrays`.
+After working with indexing for `Python` lists and `numpy arrays`, you are familiar with location-based indexing. 
+
+You already know that `Python` location-based indexing begins with `[0]`, and you have learned how to use location-based indexing to query data within `Python` lists or `numpy arrays`.
 
 You can also use location-based indexing to query `pandas dataframes` using `.iloc` and providing the row and column selection as ranges (i.e. start and stop locations along the rows and columns). 
 
@@ -93,7 +95,7 @@ Begin by reviewing these tasks.
 ```python
 # import necessary Python packages
 import os
-import urllib
+import urllib.request
 import pandas as pd
 
 # print message after packages imported successfully
