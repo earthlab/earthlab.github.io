@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/intro-pandas-dataframes/
 nav-title: "Intro to Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-08
+modified: 2018-08-09
 module-title: 'Pandas Dataframes'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'This tutorial walks you through importing tabular data (.csv) to pandas dataframes as well as summarizing, plotting, and running calculations on pandas dataframes.'
@@ -55,7 +55,7 @@ However, because of this requirement, `numpy arrays` can provide more functional
 
 In today's lessons, you will learn about another commonly used data structure for scientific data - `pandas dataframes` - which provide even more functionality for working with tabular data (i.e. data organized using rows and columns). 
 
-`Pandas dataframes` are two-dimensional data structures that are composed of rows and columns that can have header names, and columns in `pandas dataframes` can be actually be of different types (e.g. the first column containing integers and the second column containing text strings). 
+`Pandas dataframes` are data structures that are composed of rows and columns that can have header names, and columns in `pandas dataframes` can be actually be of different types (e.g. the first column containing integers and the second column containing text strings). 
 
 
 | months          |  precip |
@@ -79,7 +79,7 @@ In addition, `pandas dataframes` differ from `numpy arrays` in other key ways:
 
 1. Unlike `numpy arrays`, each column in a `pandas dataframe` can have a labeled name (i.e. header name such as `months`) and can contain a different type of data from its neighboring columns. 
 
-2. By default, `pandas dataframes` are always two-dimensional. This means cells within the `pandas dataframe` can be identified by its combined row and column index (e.g. `[row index, column index]`). All cells have both a row index and a column index, even if there is only one row and/or one column in the `pandas dataframe`.
+2. Cells within the `pandas dataframe` can be identified by its combined row and column index (e.g. `[row index, column index]`). All cells have both a row index and a column index, even if there is only one row and/or one column in the `pandas dataframe`.
 
 3. In addition to indexing by location, you can also query for data within `pandas dataframes` based on specific values or attributes. 
 
