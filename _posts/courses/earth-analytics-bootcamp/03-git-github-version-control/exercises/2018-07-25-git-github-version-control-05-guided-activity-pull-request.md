@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2018-08-08
+modified: 2018-08-09
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -141,13 +141,20 @@ Add a title and write a brief description of your changes. When you’re done wi
 
 Notice that when creating a new pull request, you will be automatically transferred to the `Github.com` site for the base repository. 
 
+At this point, you are done with the pull request! In this case, you have submitted a pull request for Homework 1!
+
+Though you may see active button for Merge Pull Request, this button is intended for the owner of the repository. They can review your pull request and then decide if/when to merge it into their original repository.
+
+Note that until the owner merges your pull request, all future commits that you make to your fork will continue to be added to the open pull request. 
+
+
 ### Close Pull Requests
 
 You can also close a pull request on `Github.com` if you decide you are not ready to submit your files from your forked repository to the original repository. 
 
 For example, the pull request you just created in this lesson can be closed if you have not yet completed Homework 1. When you are ready to submit Homework 1, you can simply create a new pull request on `Github.com` following these same steps.
 
-To close a pull request, simply click on `Close pull request` button toward the bottom of the pull request page. 
+To close a pull request, simply click on `Close pull request` button toward the bottom of the pull request page.
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/close-pull-request.png">

@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/manipulate-plot-pandas-dataframes/
 nav-title: "Manipulate and Plot Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-08
+modified: 2018-08-09
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
