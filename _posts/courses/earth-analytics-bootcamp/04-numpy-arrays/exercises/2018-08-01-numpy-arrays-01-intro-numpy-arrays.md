@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/intro-numpy-arrays/
 nav-title: "Intro to Numpy Arrays"
 dateCreated: 2018-07-23
-modified: 2018-08-09
+modified: 2018-08-10
 module-title: 'Numpy Arrays'
 module-nav-title: 'Numpy Arrays'
 module-description: 'This tutorial teaches you to work with a commonly used data structure in Python for scientific data: numpy arrays.'
@@ -96,6 +96,6 @@ While `Python` lists and `numpy arrays` have similarities in that they are both 
 
 3. Unlike a `Python` list, a `numpy array` is not edited by adding/removing/replacing elements in the array. Instead, the `numpy array` is deleted and recreated each time that it is manipulated.
 
-4. `Numpy arrays` have dimensionality resulting from the ability to store data using both rows and columns that are relative to each other, while `Python` lists are considered non-dimensional data structures. 
+4. `Numpy arrays` have dimensionality resulting from the ability to store data using both rows and columns that are relative to each other.
 
 In the lessons that follow, you will review these features of `numpy arrays` and learn why `numpy arrays` are a useful data structure for scientific data. 
