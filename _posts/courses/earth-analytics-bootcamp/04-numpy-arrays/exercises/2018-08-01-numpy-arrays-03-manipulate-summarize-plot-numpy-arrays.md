@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays/
 nav-title: "Manipulate, Summarize and Plot Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-09
+modified: 2018-08-10
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"

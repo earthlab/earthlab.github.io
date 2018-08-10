@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/intro-pandas-dataframes/
 nav-title: "Intro to Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-09
+modified: 2018-08-10
 module-title: 'Pandas Dataframes'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'This tutorial walks you through importing tabular data (.csv) to pandas dataframes as well as summarizing, plotting, and running calculations on pandas dataframes.'
