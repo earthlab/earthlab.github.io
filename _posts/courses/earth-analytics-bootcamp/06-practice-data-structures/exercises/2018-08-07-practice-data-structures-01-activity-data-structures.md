@@ -150,11 +150,13 @@ Using the completed `Python` list from the previous question, create and print a
 
 ### Quesion 6: Download Text File and Import Into Numpy Arrays
 
-Recreate (and print) the `numpy array` by downloading and importing the following file of average monthly temperature (Celsius) for Boulder, Colorado, from Figshare.com.
+Use `.urllib.request` to download the following file of average monthly temperature (Celsius) for Boulder, Colorado, to your `data` directory:
 
 `avg-monthly-temp.txt` from `https://ndownloader.figshare.com/files/12732467`
 
 Recall that you need to set your working directory (e.g. `/home/jpalomino/earth-analytics-bootcamp/`) before running the commands to download data. 
+
+Use the appropriate function to import `avg-monthly-temp.txt` into a `numpy array`. 
 
 
 {:.output}
@@ -298,9 +300,13 @@ Note that you do not need to include the line spaces displayed above. They are s
 
 ### Question 9: Download CSV File and Import Into Pandas Dataframes
 
-Create (and print) a new `pandas dataframe` by downloading and importing the following file of average monthly temperature (Celsius) for Boulder, Colorado, from Figshare.com.
+Use `.urllib.request` to download the following file of average monthly temperature (Celsius) for Boulder, Colorado, to your `data` directory:
 
 `avg-temp-months-seasons.csv` from `https://ndownloader.figshare.com/files/12739457`
+
+Recall that you need to set your working directory (e.g. `/home/jpalomino/earth-analytics-bootcamp/`) before running the commands to download data. 
+
+Use the appropriate function to import `avg-temp-months-seasons.csv` into a `pandas dataframe`. 
 
 
 {:.output}
