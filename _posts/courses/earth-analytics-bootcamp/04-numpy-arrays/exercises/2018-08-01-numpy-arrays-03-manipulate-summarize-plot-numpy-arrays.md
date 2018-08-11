@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays/
 nav-title: "Manipulate, Summarize and Plot Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-10
+modified: 2018-08-11
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -275,9 +275,31 @@ avg_monthly_precip[11,]
 
 
 
+You can also select a series of values from one-dimensional `numpy arrays` such as the third, fourth and fifth values. 
+
+Note that the index structure is inclusive of the first index value, but not the second index value. You are providing a start index value for the selection and an end index value that is not included in the selection.
+
+{:.input}
+```python
+avg_monthly_precip[2:5]
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    array([1.85, 2.93, 3.05])
+
+
+
+
+
+### Two-dimensional Numpy Arrays
+
 Using `.shape`, you also saw that `precip_2002_2013` has row count of 2 with a column count of 12. 
 
-Because `precip_2002_2013` is a multi-dimensional `numpy array`, you need to specify both a row index and a column index to select elements in the `numpy array` 
+Because `precip_2002_2013` is a two-dimensional `numpy array`, you need to specify both a row index and a column index to select elements in the `numpy array` 
 
 For example, because indexing in `Python` begins with `[0]`, you can use the index `[0,0]` to query the first element in `precip_2002_2013` (i.e. first row, first column).
 
@@ -317,11 +339,9 @@ precip_2002_2013[1,11]
 
 
 
-### Two-dimensional Numpy Arrays
+For two-dimensional `numpy arrays`, you can also use a series for the row index and/or column index to select multiple elements using the index structure `[rowindex : rowindex, columnindex : columnindex]`.
 
-For multi-dimensional `numpy arrays`, you can also use a series for the row index and/or column index to select multiple elements using the index structure `[rowindex : rowindex, columnindex : columnindex]`.
-
-The index structure is inclusive of the first index, but not the second index. 
+Like with the one-dimensional arrays, the index structure is inclusive of the first index, but not the second index. Again, you are providing a start index value for the selection and an end index value that is not included in the selection.
 
 For example, you can use the index `[0:1, 0:3]` to select the first row and the first three columns (again because `Python` indexing begins with `[0]`). 
 
@@ -347,7 +367,7 @@ If you wanted to include the second row and fourth column, you would need to use
 {:.input}
 ```python
 # select the first two rows and the first four columns
-precip_2002_2013[0:2, 0:3]
+precip_2002_2013[0:2, 0:4]
 ```
 
 {:.output}
@@ -355,8 +375,8 @@ precip_2002_2013[0:2, 0:3]
 
 
 
-    array([[1.07, 0.44, 1.5 ],
-           [0.27, 1.13, 1.72]])
+    array([[1.07, 0.44, 1.5 , 0.2 ],
+           [0.27, 1.13, 1.72, 4.14]])
 
 
 
@@ -529,7 +549,7 @@ ax.set(xlabel="Month", ylabel="Precipitation (mm)");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/04-numpy-arrays/exercises/2018-08-01-numpy-arrays-03-manipulate-summarize-plot-numpy-arrays_37_0.png)
+![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/04-numpy-arrays/exercises/2018-08-01-numpy-arrays-03-manipulate-summarize-plot-numpy-arrays_39_0.png)
 
 
 
