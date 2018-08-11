@@ -67,10 +67,10 @@ This course is highly technical, and you will code every day. We will use the `P
 | Day  | | Topic                                       | Assignment           |
 |:---------|:------------|:----------------------------------------------------------|:-----------------|
 | 6    | Mon, Aug 13th | Practice Working With Data Structures            | - |
-| 7   | Tues, Aug 14th | Repeat Code With Loops           | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">Homework 2 Due</a>** |
-| 8    | Wed, Aug 15th | Control Code With Conditional Statements             | - |
+| 7   | Tues, Aug 14th | Loops           | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-2/">Homework 2 Due</a>** |
+| 8    | Wed, Aug 15th | Conditional Statements             | - |
 | 9    | Thurs, Aug 16th | Git/Github.com Workflow For Collaboration      | - |
-| 10    | Fri, Aug 17th | Writing Functions in Python            | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">Homework 3 Due</a>** |
+| 10    | Fri, Aug 17th | Functions           | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-3/">Homework 3 Due</a>** |
 
 
 #### Week 3 
