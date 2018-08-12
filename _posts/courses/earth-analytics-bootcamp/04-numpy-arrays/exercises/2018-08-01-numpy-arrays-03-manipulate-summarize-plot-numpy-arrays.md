@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays/
 nav-title: "Manipulate, Summarize and Plot Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-11
+modified: 2018-08-12
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -74,7 +74,7 @@ Recall that you are using use the index `[2]` for the third place because `Pytho
 
 With two-dimensional arrays, you need to specify to both a row index and a column index. 
 
-The example below is an two-dimensional array with 2 rows and 3 columns. 
+The example below is a two-dimensional array with 2 rows and 3 columns. 
 
 ```python
 precip_2002_2013 = numpy.array([[1.07, 0.44, 1.5],

@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-10
-modified: 2018-08-08
+modified: 2018-08-12
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
