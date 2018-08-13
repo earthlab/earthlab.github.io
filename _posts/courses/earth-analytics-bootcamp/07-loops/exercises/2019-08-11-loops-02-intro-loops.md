@@ -8,7 +8,7 @@ class-lesson: ['loops']
 permalink: /courses/earth-analytics-bootcamp/loops/intro-loops/
 nav-title: "Intro to Loops"
 dateCreated: 2019-08-11
-modified: 2018-08-12
+modified: 2018-08-13
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
