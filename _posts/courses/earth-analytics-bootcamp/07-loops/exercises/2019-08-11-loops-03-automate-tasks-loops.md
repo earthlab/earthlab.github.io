@@ -8,7 +8,7 @@ class-lesson: ['loops']
 permalink: /courses/earth-analytics-bootcamp/loops/automate-tasks-loops/
 nav-title: "Automate Tasks With Loops"
 dateCreated: 2019-08-11
-modified: 2018-08-12
+modified: 2018-08-13
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -149,9 +149,15 @@ print(avg_monthly_precip_mm)
 
 
 
-Can `avg_monthly_precip_mm` be accessed outside of the loop as a variable? 
+Look carefully at how the variables `avg_monthly_precip_mm` and `month` are created. 
 
-**What about `month`?** Try it and see what output you receive. 
+The list variable `avg_monthly_precip_mm` was explicitly created, meaning that you initalized and assigned the value to the variable manually. In this case, you manually created the variable `avg_monthly_precip_mm` as an empty list.
+
+The variable `month` is an implicit variable, meaning that it was not explicitly created by you, by rather it is created as part of the loop and serves as a placeholder to receive data in each iteration of the loop. At the end of the loop, an implicit variable is equal to the last value that it was assigned.  
+
+Be mindful of the differences between implicit and explicit variables, as sometimes you may have to employ a slightly different syntax when trying to use implicit variables to access data within data structures. 
+
+In this course, syntax differences will be noted in the lessons and in the assignments.  
 
 
 ## Example: Run a Summary Statistic on Multiple Numpy Arrays
