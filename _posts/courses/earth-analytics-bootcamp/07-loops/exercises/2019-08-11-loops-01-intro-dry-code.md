@@ -8,7 +8,7 @@ class-lesson: ['loops']
 permalink: /courses/earth-analytics-bootcamp/loops/intro-dry-code/
 nav-title: "Intro to DRY code"
 dateCreated: 2019-08-11
-modified: 2018-08-12
+modified: 2018-08-13
 module-title: 'Loops'
 module-nav-title: 'Loops'
 module-description: 'This tutorial walks you through implementing a key strategy for writing DRY (i.e. Do Not Repeat Yourself) code in Python: loops.'
