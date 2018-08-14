@@ -8,7 +8,7 @@ class-lesson: ['conditional-statements']
 permalink: /courses/earth-analytics-bootcamp/conditional-statements/control-flow/
 nav-title: "Control Flow Using Conditional Statements"
 dateCreated: 2019-08-11
-modified: 2018-08-12
+modified: 2018-08-13
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -136,7 +136,7 @@ print(directorylist)
 ```
 
 {:.output}
-    ['ea-bootcamp-day-1', 'ea-bootcamp-day-5', 'data', 'ea-bootcamp-day-2', 'ea-bootcamp-hw-1', 'ea-bootcamp-hw-2', 'ea-bootcamp-day-4']
+    ['ea-bootcamp-hw-2-jlpalomino', 'other_data', 'ea-bootcamp-day-1', 'ea-bootcamp-day-5', 'data', 'ea-bootcamp-day-8', 'ea-bootcamp-day-2', 'ea-bootcamp-hw-1', 'ea-bootcamp-hw-2', 'ea-bootcamp-day-4', 'ea-bootcamp-day-7']
 
 
 
@@ -274,7 +274,7 @@ else:
 
 Test your `Python` skills to:
 
-1. Write a conditional statement with `glob.glob` that makes a list of all CSV files in the `data` directory. 
+1. Use `glob.glob` to make a list of all **.csv** files in the `data` directory. 
     * Note that rather than specifying a wildcard for the name, you will specify a specific file type using `glob.glob('directoryname/*.csv').
 
 </div>
@@ -291,12 +291,28 @@ Test your `Python` skills to:
 
 Test your `Python` skills to:
 
-1. Modify your code from the previous challenge to find only .txt files in the `data` directory. 
+1. Modify your code from the previous challenge to find only **.csv** files that include **snow** in the filename in the `data` directory. 
 
 </div>
 
 
 {:.output}
-    ['data/avg-monthly-precip.txt', 'data/avg-monthly-temp.txt', 'data/months.txt']
+    ['data/snow-2007-to-2017.csv', 'data/snow-2007-to-2017-months-seasons.csv']
+
+
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 3
+
+Test your `Python` skills to:
+
+1. Write a conditional statement to check that the list created in the previous challenge (.csv files with snow in the filename) only includes two files.
+
+</div>
+
+
+{:.output}
+    The data directory contains the correct number of .csv files with snow in the name. Code can continue to execute.
 
 
