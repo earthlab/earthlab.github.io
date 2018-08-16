@@ -8,7 +8,7 @@ class-lesson: ['conditional-statements']
 permalink: /courses/earth-analytics-bootcamp/conditional-statements/intro-conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-08-11
-modified: 2018-08-12
+modified: 2018-08-16
 module-title: 'Conditional Statements'
 module-nav-title: 'Conditional Statements'
 module-description: 'This tutorial walks you through implementing another key strategy for writing DRY (i.e. Do Not Repeat Yourself) code in Python: conditional statements.'
@@ -77,7 +77,7 @@ if x < 10:
     print("x has a value of", x, "which is less than 10.")
     
 else:
-    print("x has a value of", x, "which is not less than 10.")    
+    print("x has a value of", x, "which is NOT less than 10.")    
 ```
 
 {:.output}
@@ -95,11 +95,11 @@ if x < 10:
     print("x has a value of", x, "which is less than 10.")
     
 else:
-    print("x has a value of", x, "which is not less than 10.") 
+    print("x has a value of", x, "which is NOT less than 10.") 
 ```
 
 {:.output}
-    x has a value of 100 which is not less than 10.
+    x has a value of 100 which is NOT less than 10.
 
 
 
@@ -109,14 +109,14 @@ You can also write conditional statements to identify keywords within a text str
 ```python
 # check if the text string "precip" in contained within the text string "avg_monthly_precip"
 if "precip" in "avg_monthly_precip":
-    print("This file contains the keyword: precip.")
+    print("This textstring contains the keyword: precip.")
     
 else:
-    print("This file does not contain the keyword: precip")
+    print("This textstring does NOT contain the keyword: precip")
 ```
 
 {:.output}
-    This file contains the keyword: precip.
+    This textstring contains the keyword: precip.
 
 
 
@@ -124,14 +124,14 @@ else:
 ```python
 # check if the text string "precip" in contained within the text string "avg_monthly_temp"
 if "precip" in "avg_monthly_temp":
-    print("This file contains the keyword: precip.")
+    print("This textstring contains the keyword: precip.")
     
 else:
-    print("This file does not contain the keyword: precip.")
+    print("This textstring does NOT contain the keyword: precip.")
 ```
 
 {:.output}
-    This file does not contain the keyword: precip.
+    This textstring does NOT contain the keyword: precip.
 
 
 
@@ -152,7 +152,7 @@ Test your `Python` skills to:
 
 
 {:.output}
-    x has a value of 25 which is not equal to 35.
+    x has a value of 25 which is NOT equal to 35.
 
 
 
@@ -163,7 +163,7 @@ Test your `Python` skills to:
 Test your `Python` skills to:
 
 1. Write a conditional statement that will add a value of `15` to a variable `x` if the following condition is met: the value of `x` is NOT equal to `35`. 
-    * Set `x` equal to `25` and use the assignment operator to add `15` when `x` is not equal to `35`. 
+    * Set `x` equal to `25` and use the assignment operator (`+=`) to add `15` when `x` is not equal to `35`. 
     * Note that the comparison operator for `not equal to` is `!=`.
     * For both the `if` and `else`, print the final value of `x`.
 
