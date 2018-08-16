@@ -8,7 +8,7 @@ class-lesson: ['conditional-statements']
 permalink: /courses/earth-analytics-bootcamp/conditional-statements/control-flow/
 nav-title: "Control Flow Using Conditional Statements"
 dateCreated: 2019-08-11
-modified: 2018-08-13
+modified: 2018-08-16
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
