@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/selections-pandas-dataframes/
 nav-title: "Selections From Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-10
+modified: 2018-08-18
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -908,7 +908,7 @@ avg_precip[avg_precip.precip == 1.62]
 
 In addition to selecting data based on specific values, you can also create new index based on a list of values that you want to use for organizing and querying your data. 
 
-For example, you can create an index from a specific column of values using `dataframe.setindex("column")`.
+For example, you can create an index from a specific column of values using `dataframe.set_index("column")`.
 
 <i class="fa fa-star" aria-hidden="true"></i> **Data Tip:** Creating a new index will restructure the data by replacing the default location indexing (i.e. `[0]`) with the new index.  This also means the column used to create the index is no longer a functional column, but rather an index of the dataframe.   
 {: .notice--success}

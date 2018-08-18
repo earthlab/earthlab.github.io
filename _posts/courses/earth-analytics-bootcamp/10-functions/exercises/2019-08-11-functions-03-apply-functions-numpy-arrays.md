@@ -8,7 +8,7 @@ class-lesson: ['functions']
 permalink: /courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/
 nav-title: "Apply Functions to Numpy Arrays"
 dateCreated: 2019-08-11
-modified: 2018-08-17
+modified: 2018-08-18
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -407,10 +407,10 @@ Just like in the example earlier, you can assign the results of the function to 
 {:.input}
 ```python
 # call the function with input parameter and create new array from output
-yearmax_avg_precip_2002_2013 = np.array(max_stats_rows(avg_monthly_precip_2002_2013_mm))
+year_max_precip_2002_2013 = np.array(max_stats_rows(avg_monthly_precip_2002_2013_mm))
 
 # print data in yearmax_avg_monthly_precip_2002_2013
-yearmax_avg_precip_2002_2013
+year_max_precip_2002_2013
 ```
 
 {:.output}

@@ -8,7 +8,7 @@ class-lesson: ['functions']
 permalink: /courses/earth-analytics-bootcamp/functions/intro-functions/
 nav-title: "Intro to Functions"
 dateCreated: 2019-08-11
-modified: 2018-08-17
+modified: 2018-08-18
 module-title: 'Functions'
 module-nav-title: 'Functions'
 module-description: 'This tutorial walks you through defining custom functions and applying them to data structures in Python.'
@@ -93,7 +93,7 @@ Functions allow you to focus on the inputs and the outputs of your workflow rath
 
 ## Reasons Why Functions Improve Code Readability
 
-1. **Better Documentation**
+### Better Documentation
 
 Ideally, your code is easy to understand and is well-documented with `Python` comments (and `Markdown` in `Jupyter Notebook`). However, what might seem clear to you now might not be clear 6 months from now, or even 3 weeks from now.
 
@@ -102,12 +102,12 @@ Well-written functions help you document your workflow because:
     1. Well-written functions are documented by clearly outlining the inputs and outputs.
     2. Well-written functions use names that help you better understand the task that the function performs.
 
-2. **Expressive Function Names Make Code Self-Describing**
+### Expressive Function Names Make Code Self-Describing
 
 When writing your own functions, you should name functions using verbs and/or clear labels to indicate what the function does (i.e. `in_to_mm`). This makes your code more expressive or self-describing, and in turn makes it easier to read for both you, your future self and your colleagues.
 
 
-3. **Easier to Maintain and Edit**
+### Easier to Maintain and Edit
 
 If all your code is written line by line, with repeated code in multiple parts of your document, it can be challenging to maintain.
 
@@ -119,7 +119,7 @@ How do you keep the duplicated comments in sync? A comment that is misleading be
 
 Re-organizing your code using functions (or organizing your code using functions from the beginning) allows you to explicitly document the tasks that your code performs.
 
-4. **You Can Incorporate Testing To Ensure Code Runs Properly**
+**You Can Incorporate Testing To Ensure Code Runs Properly**
 
 While you won’t learn this in class this week, functions are also useful for testing. As your code gets longer and more complex, it is more prone to mistakes. 
 
@@ -129,7 +129,7 @@ Changes in data structure and format could cause your code to not run. Or, in th
 
 If all your code is made up of functions (with built-in tests to ensure that they run as expected), then you can control the input to the function and test for the output. It is something that would be difficult to do if all of your code is written, line by line with repeated steps.
 
-### Summary of Writing Modular Code with Functions
+## Summary of Writing Modular Code with Functions
 
 It is a good idea to learn how to:
 
