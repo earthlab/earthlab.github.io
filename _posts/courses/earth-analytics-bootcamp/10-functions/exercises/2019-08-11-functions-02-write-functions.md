@@ -8,7 +8,7 @@ class-lesson: ['functions']
 permalink: /courses/earth-analytics-bootcamp/functions/write-functions/
 nav-title: "Write Custom Functions"
 dateCreated: 2019-08-11
-modified: 2018-08-17
+modified: 2018-08-18
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -55,25 +55,35 @@ def add_five(x):
 
 There are several parts of a function in `Python`:
 
-1. Functions begins with the keyword **`def`**: this keyword initiates the function definition. It is followed by the function name and input parameter in parenthesis `()`. 
+### Def Keyword
+
+Functions begins with the keyword **`def`**: this keyword initiates the function definition. It is followed by the function name and input parameter in parenthesis `()`. 
 
 Just like with loops and conditional statements, the colon `:` is used to indicate that the definition (i.e. code) of the function is below. Also, note that the code lines below are indented once, just like with loops and conditional statements. 
 
-2. **Function name** (e.g. `add_five`). This is the name that you will use when you call the function. 
+### Function Name
+
+This is the name that you will use when you call the function (e.g. `add_five`). 
 
 For example, `add_five(x)` is a function with the name `add_five`. You pass this function the parameter value for `x` within parenthesis `()`, and it adds the value `5` to `x` (i.e. the value that has been passed to the function). 
 
-3. **Input parameters**: An input parameter is what you pass the function as the required information for the function to run. The function will take the value or variable provided as the input parameter and use it to perform some task. 
+### Input Parameters
+
+An input parameter is what you pass the function as the required information for the function to run. The function will take the value or variable provided as the input parameter and use it to perform some task. 
 
 In the example above, `x` is actually a placeholder for the variable that will be acted upon in the function (i.e. the variable that will have the value of 5 added to it). 
     
 Notice that `x` has not been explicitly defined outside of the function. It does not need to be because it will actually be defined by the user of the function when the function is called (e.g. `add_five(5)`). 
 
-4. **Return statement**: This statement returns the value of the code executed in the function, using the syntax `return (output)`. 
+### Return Statement
+
+This statement returns the value of the code executed in the function, using the syntax `return (output)`. 
 
 If the function is as simple as the example above, the return statement also contains the code that is being executed in the function to determine the output value. However, you can write more lines of code before the return statement, and then return the final output.
 
-5. **Documentation**: Documentation is not required for the function to work. However, good documentation will save you time in the future when you need to use this code again, and it also helps other understand how they can use the function.
+### Documentation With Python Comments
+
+Documentation is not required for the function to work. However, good documentation will save you time in the future when you need to use this code again, and it also helps other understand how they can use the function.
 
 In the example above, the documentation has noted that the input parameter can be a single value variable or a `numpy array`, but it cannot be a list or `pandas dataframe`.
 

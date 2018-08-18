@@ -16,7 +16,7 @@ module-type: 'session'
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Eight!
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to Day Ten!
 
 Welcome to Day Ten of the Earth Analytics Bootcamp! Today, you will write `Python` code in `Jupyter Notebook` to implement another strategy for DRY (i.e. Do Not Repeat Yourself) code: functions. 
 
