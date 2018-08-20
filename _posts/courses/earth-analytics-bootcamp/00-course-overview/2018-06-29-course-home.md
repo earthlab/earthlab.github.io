@@ -75,5 +75,11 @@ This course is highly technical, and you will code every day. We will use the `P
 
 #### Week 3 
 
-Please expect additional information to be added to the course as we build out all of the content.
+| Day  | | Topic                                       | Assignment           |
+|:---------|:------------|:----------------------------------------------------------|:-----------------|
+| 11    | Mon, Aug 20th | Practice Writing DRY Code            | - |
+| 12   | Tues, Aug 21st | Data Wrangling           | **<a href="{{ site.url }}/courses/earth-analytics-bootcamp/earth-analytics-bootcamp-homework-4/">Homework 4 Due</a>** |
+| 13    | Wed, Aug 22nd | Prepare for Final Project             | - |
+| 14    | Thurs, Aug 23rd | Final Project      | - |
+
 
