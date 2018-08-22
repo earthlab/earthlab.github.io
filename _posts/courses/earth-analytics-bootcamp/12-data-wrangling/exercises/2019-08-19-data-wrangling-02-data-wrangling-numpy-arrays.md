@@ -8,7 +8,7 @@ class-lesson: ['data-wrangling']
 permalink: /courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-numpy-arrays/
 nav-title: "Data Wrangling With Numpy Arrays"
 dateCreated: 2019-08-11
-modified: 2018-08-21
+modified: 2018-08-22
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -91,7 +91,7 @@ Then, run the first function to convert the values from inches to millimeters an
 {:.input}
 ```python
 # call in_to_mm function with input parameter and create new array from output
-monthly_precip_2002_2003_mm = in_to_mm(monthly_precip_2002_2003_in)
+monthly_precip_2002_2003_mm = np.array(in_to_mm(monthly_precip_2002_2003_in))
 
 #print data
 monthly_precip_2002_2003_mm
@@ -116,10 +116,10 @@ Last, run the second function on the output from the first function to calculate
 {:.input}
 ```python
 # call the function mean_stats_columns with input parameter
-mean_monthly_precip_2002_mm = np.array(mean_stats_columns(monthly_precip_2002_2003_mm))
+mean_monthly_precip_2002_2003_mm = np.array(mean_stats_columns(monthly_precip_2002_2003_mm))
 
 # print data in new array
-mean_monthly_precip_2002_mm
+mean_monthly_precip_2002_2003_mm
 ```
 
 {:.output}

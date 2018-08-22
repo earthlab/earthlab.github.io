@@ -8,7 +8,7 @@ class-lesson: ['data-wrangling']
 permalink: /courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/
 nav-title: "Data Wrangling With Pandas"
 dateCreated: 2019-08-11
-modified: 2018-08-21
+modified: 2018-08-22
 module-type: 'class'
 module-title: 'Data Wrangling'
 module-nav-title: 'Data Wrangling'
@@ -1663,7 +1663,7 @@ Test your `Python` skills to:
 
 Test your `Python` skills to:
 
-1. Group the values in `monthly_temp_2010_to_2017` by `Year_Avg_Label` and calculate the **count** of the tempertature values (`Temp`) (i.e. how many rows have each value of `Year_Avg_Label`). Save to a new dataframe.
+1. Group the values in `monthly_temp_2010_to_2017` by `Year_Avg_Label` and calculate the **count** of the temperature values (`Temp`) (i.e. how many rows have each value of `Year_Avg_Label`). Save to a new dataframe.
 
 2. Reset the index of the new dataframe, so that `Year_Avg_Label` returns to being a column. Save to a new dataframe and print the new dataframe.
 
