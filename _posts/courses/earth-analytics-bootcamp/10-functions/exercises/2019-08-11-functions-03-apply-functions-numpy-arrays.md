@@ -8,7 +8,7 @@ class-lesson: ['functions']
 permalink: /courses/earth-analytics-bootcamp/functions/apply-functions-numpy-arrays/
 nav-title: "Apply Functions to Numpy Arrays"
 dateCreated: 2019-08-11
-modified: 2018-08-18
+modified: 2018-08-22
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -264,7 +264,7 @@ avg_monthly_precip_2002_2013_in = np.array([[1.07, 0.44, 1.50, 0.20, 3.20, 1.18,
                                          [0.27, 1.13, 1.72, 4.14, 2.66, 0.61, 1.03, 1.40, 18.16, 2.24, 0.29, 0.50] ])
 
 # call in_to_mm function with input parameter and create new array from output
-avg_monthly_precip_2002_2013_mm = in_to_mm(avg_monthly_precip_2002_2013_in)
+avg_monthly_precip_2002_2013_mm = np.array(in_to_mm(avg_monthly_precip_2002_2013_in))
 
 #print data
 avg_monthly_precip_2002_2013_mm
