@@ -8,7 +8,7 @@ class-lesson: ['practice-dry-code']
 permalink: /courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code
 nav-title: "Activity on Dry Code"
 dateCreated: 2018-08-18
-modified: 2018-08-20
+modified: 2018-08-22
 module-title: 'Practice Writing DRY Code'
 module-nav-title: 'Practice Writing DRY Code'
 module-description: 'This tutorial provides an opportunity to practice writing DRY code using loops, conditional statements, and functions.'
@@ -401,6 +401,8 @@ Each dataset contains a row for each year specified in the dataset name and a co
 
 Select the second row of data (including all columns) from the `numpy array` containing the data for 1988 to 1992, and save to a new `numpy array`.
 
+Note that using an index series (e.g. `[row_index:row_index, column_index:column_index]`) to select the rows and columns will result in a two-dimensional array. 
+
 Name your new array appropriately to indicate the year of data that it represents. 
 
 
@@ -676,7 +678,7 @@ Hints:
 
 ### Question 9: Execute Function and Save Output to New Numpy Array
 
-Run the function created in the previous question (i.e. to calculate median of columns in a `numpy array`) on the `numpy array` containing data for 1993 to 1997. Save the output to a new `numpy array`.
+Run the function created in the previous question (i.e. to calculate mean of columns in a `numpy array`) on the `numpy array` containing data for 1993 to 1997. Save the output to a new `numpy array`.
 
 
 {:.output}
