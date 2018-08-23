@@ -5,7 +5,7 @@ authors: ['Jenny Palomino']
 category: courses
 excerpt:
 nav-title: Final Project
-modified: 2018-08-22
+modified: 2018-08-23
 comments: no
 permalink: /courses/earth-analytics-bootcamp/earth-analytics-bootcamp-final-project/
 author_profile: no
@@ -685,7 +685,7 @@ Hint:
 
 ### Question 8: Calculate Mean Fire Size For Each Year (4 pts)
 
-Use the appropriate function to calculate the mean fire size per year and save as a new dataframe. 
+Use the appropriate function to calculate the mean fire size (in hectares) per year and save as a new dataframe. 
 
 Note: the displayed data below only shows the first few rows in the dataset. 
 
@@ -1108,7 +1108,7 @@ In your `Markdown` documentation, answer the following question:
 
 ### Question 22: Calculate Mean Size of Fire By County (4 pts)
 
-Use the appropriate function to calculate the mean size of fires per county and save as a new dataframe. 
+Use the appropriate function to calculate the mean size of fires (in hectares) per county and save as a new dataframe. 
 
 Note: the displayed data below only shows the first few rows in the dataset. 
 
@@ -1723,9 +1723,9 @@ Execute the function created in the previous question to determine the mean acro
 
 
 
-    array([ 168.6332733 ,  484.25770421,  150.47955323,  243.75366747,
-            454.25173509,  560.12204663, 1233.40263586, 1449.39887227,
-           1439.36417043, 1798.4395972 ,  420.02977816,  308.66045473])
+    array([ 1.68633273,  4.84257704,  1.50479553,  2.43753667,  4.54251735,
+            5.60122047, 12.33402636, 14.49398872, 14.3936417 , 17.98439597,
+            4.20029778,  3.08660455])
 
 
 
