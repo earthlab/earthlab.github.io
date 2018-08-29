@@ -84,7 +84,21 @@ ALL of the lessons and have your computer setup BEFORE class begins next week.
 You will be behind if these things are not setup / complete before next week.
 {: .notice--success}
 
-### 5. Complete Assignment Below By Wed 5 September 2018 at NOON Mountain Time
+### 5. Setup Python Anaconda on Your Laptop or Access the Jupyter Hub
+
+You have two options to complete activities assigned in this course. 
+
+1. You can chose to either work on the assignments locally on your computer. 
+
+<a href= "https://www.earthdatascience.org/workshops/setup-earth-analytics-python/">Setup Earth Analytics Python Environment on Your Laptop</a>
+
+or
+
+2. You can use our Jupyter Hub which contains all of the tools needed to complete the assignments.
+The course Jupyter Hub will give you access to more computing resources. We can also easily troubleshoot issues if your environment is not working. If you wish to use our course Jupyter Hub please add your github username to the github discussion in Canvas. Your instructor will then provide you with access to the hub.
+
+
+### 6. Complete Assignment Below By Wed 5 September 2018 at NOON Mountain Time
 
 After you have complete the tasks above, complete the assignment below.
 Submit your `.html` document and `.ipynb` document to Canvas.
