@@ -100,7 +100,11 @@ You will complete 4 activities this week. Note that several of these activities 
 
 #### Part 1 - Jupyter Notebook & HTML
 
-First - Submit a Jupyter notebook and `html` file following the instructions below to Canvas:
+To begin, download the data that you will use for next week's class. In this download you will find the file: `downloads/boulder-precip.csv`. 
+
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
+Submit a Jupyter notebook and `html` file following the instructions below to Canvas:
 
 Create a new notebook `.ipynb` file in `Jupyter Notebook`. Name the file:
 `yourLastName-firstInitial-week1.ipynb` example: `wasser-l-week1.ipynb`. 
