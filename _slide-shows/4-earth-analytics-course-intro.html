@@ -27,14 +27,27 @@ Welcome to Earth Analytics - GEOG 4563 / 5563
 * Hit "f" to view the presentation full screen
 
 ---
+class: middle
+
+## Earth Data Analytics Professional Certificate
+
+* This course is the **second** in a series
+  * Earth Analytics Bootcamp (GEOG 5463)
+  * Earth Analytics (GEOG 5563)
+  * Earth Analytics Applications (GEOG 5663)
+* Graduate level course
+* Assumes knowledge of `Python`, `bash` and `Git` taught in GEOG 5463
+
+---
+
 name: inverse
 class: left, inverse
 
 ### We have students learning both online and in person
 
-* 11 undergraduates  (5 online)
-* 17 graduates (1 online)
-* 2? auditing (TBD)
+* 4 Undergraduate students
+* 9 Graduate students
+* 10 Professional students
 
 ???
 Please note that we have people participating in the course both online
@@ -44,31 +57,12 @@ of students from various backgrounds!
 ---
 class: middle, center
 
-Our class is diverse
-
-![ ]({{ site.url }}/images/slide-shows/earth-analytics-course/fall-2017/students-by-major.png)
-
+## Our class is diverse
 
 ???
 We have students in this classroom from many different majors, degrees and
 backgrounds.
 
----
-
-## You will learn how to make plots like this!
-
-```r
-class_list2 %>%
-  group_by(first_major, degree) %>%
-  summarize(count = n()) %>%
-ggplot(aes(x = degree, y = count)) +
-  geom_bar(stat = 'identity', fill = "darkorchid4") +
-  facet_wrap(~ first_major) +
-  theme_bw() +
-  labs(title = "Students by Major",
-       subtitle = "Earth analytics fall 2017",
-       x = "Main major", y = "Count")
-```
 ---
 name: inverse
 class: center, middle, inverse, full
@@ -90,7 +84,7 @@ the course throughout the semester.
 
 ---
 name: inverse
-class:
+class: middle
 
 ## Help me improve your experience
 
@@ -103,12 +97,12 @@ every week,  I will be email u a survey through QUALTRICS. This survey
 is completely optional however I appreciate your taking it. It will allow
 me to adjust the course throughout the semester to ensure everyone is
 getting the best experience possible! it also will help be gauge how long
-the homeworks are taking, how the pace of the class is for everyone... and more.
+the homework assignments are taking, how the pace of the class is for everyone... and more.
 I appreciate your help me improve this class!
 
 ---
 name:
-class:
+class: middle
 
 ## Help me improve your experience
 
@@ -489,7 +483,7 @@ class: center,middle,inverse
 ---
 
 class: center,middle,inverse
-## understand biodiversity
+## Understand biodiversity
 ![ ]({{ site.url }}/images/slide-shows/earth-analytics-course/wk1-intro-earth-analytics/image30.jpg)
 
 ---
@@ -502,13 +496,13 @@ class: center,middle,inverse
 ---
 
 class: center,middle,inverse
-## Map shipping networks
+## Map Shipping Networks
 
 ![ ]({{ site.url }}/images/slide-shows/earth-analytics-course/wk1-intro-earth-analytics/image32.png)
 ---
 
 class: center,middle,inverse
-## billions of tweets
+## Billions of Tweets
 
 ![ ]({{ site.url }}/images/slide-shows/earth-analytics-course/wk1-intro-earth-analytics/image33.png)
 ---
@@ -526,12 +520,12 @@ At the end of the semester you will be able to:
 
 * Work with and visualize a variety of data types from a variety
 of data sources
-* Use `R` and `RStudio` to integrate, visualize, and analyze a
+* Use `Python` and `Jupyter Notebooks` to integrate, visualize, and analyze a
 variety of Earth System datasets to generate insights about the phenomenon of interest
 * Find and work with data that you need to address a science question
 
 ---
-class: inverse
+class: inverse, middle
 
 ## GEOG 5563/4563 learning objectives
 
@@ -540,7 +534,7 @@ class: inverse
 * Communicate your science topic / goals to different audiences
 
 ---
-class: inverse
+class: inverse, middle
 ## In this class
 
 * You will be challenged.
@@ -549,8 +543,6 @@ class: inverse
 class: center, middle, inverse, full
 
 ## Atleast once ...
-
-things will go wrong.
 
 ![stuff going wrong]({{ site.url }}/images/slide-shows/earth-analytics-course/wk1-intro-earth-analytics/funny-captions-frustration.jpg)
 
@@ -583,4 +575,4 @@ class: center, middle, inverse
 
 # Review course syllabus
 
-[View syllabus]({{ site.url }}/courses/earth-analytics/earth-analytics-syllabus/)
+[Click to view syllabus]({{ site.url }}/courses/earth-analytics-python/earth-analytics-syllabus/)

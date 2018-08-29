@@ -56,7 +56,7 @@ Today, we have computers that can both provide commands AND perform the computat
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/early-terminal.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/early-terminal.png" alt = "An image showing a terminal and a computer in it's earliest days. "></a>
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/early-terminal.png" alt = "An image showing a terminal and a computer in its earliest days. "></a>
  <figcaption> Image of the earliest computers and a terminal.</figcaption>
 </figure>
 
