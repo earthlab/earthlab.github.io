@@ -311,7 +311,7 @@ weekly assignment page for the readings **each week**.
 
 Assignments that you complete will provide you with the skills and resources needed
 to complete the final project. The final project will consist of a group presentation
-and an individual report that you submit in `R Markdown` and `.html` or `.pdf` format.
+and an individual report that you submit in `Jupyter Notebook` and `.html` or `.pdf` format.
 
 <i fa fa-star></i>**Important:** Please note that the course schedule and content as discussed above
 is subject to change. This course content schedule is not designed as a
