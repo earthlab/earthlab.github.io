@@ -21,16 +21,15 @@ sidebar:
 
 ## Course Location & Time
 
-* **Location:** SEEC N124 (distance learning classroom)
-* **Time:** Mondays, 9:30 - 12:20
+* **Location:** SEEC N125 (distance learning classroom)
+* **Time:** Wednesdays, 1:00PM - 3:50
 
 ## Instructor & TA
 
-* **Instructor:** Dr. Leah A. Wasser (leah.wasser@colorado.edu)
+* **Instructor:** Dr. Leah A. Wasser
     * Office. S346 SEEC
-    * Ph. 303.735.4637
+    * Email leah.wasser@colorado.edu
 
-* **Teaching Assistant:** Christa Torrens (christa.torrens@colorado.edu)
 
 ## Office Hours
 
@@ -40,16 +39,16 @@ However unless otherwise notified, office hours are as follows:
 
 | Day | Time | Location | Who |
 |---|---|---|---|
-| Thursdays | 1:30 pm - 3:00 pm | S346 SEEC | Leah |
+| Mondays | 1:30 pm - 3:00 pm | S346 SEEC | Leah |
 |===
-| Thursdays | 3:30 pm - 5:00 pm | S340 SEEC | Christa |
+
 
 ## Learning Outcomes
 
 At the end of this course you will be able to:
 
-* Use the `R` programming language to open and visualize various types of data.
-* Navigate and use the `RStudio` environment for `R`.
+* Use the `Python` programming language to open and visualize various types of data.
+* Navigate and use the `Jupyter Notebooks` environment for `Python`.
 * Find and download different types of data available from various agency and other sources.
 * Create data-driven reports that link data processing methods, data and results.
 
@@ -69,7 +68,7 @@ remotely using ZOOM. Please visit D2L to access the zoom link.
 There are several ways that you can get help when you get stuck in this class.
 
 1. Attend the scheduled office hours.
-2. Post your question on  <a href="https://piazza.com/colorado/fall2017/earthanalytics/home" target="_blank">Piazza  - Earth Analytics </a>.
+2. Post your question on  <a href="piazza.com/colorado/fall2018/earthanalyticspythonfall2018/home" target="_blank">Piazza  - Earth Analytics </a>.
 
 Read more about how to use Piazza lower down on this page.
 
@@ -79,8 +78,6 @@ taught in the course from a suite of papers, blog posts, text and other resource
 throughout the course. As you find other resources that help you through the class, 
 please feel free to share them with the instructor and your classmates.
 
-<a href="{{ site.url }}/pdf/courses/earth-analytics/2017-09-01-geog-4563-5563-syllabus.pdf" class="btn btn-success btn--x-large" target="_blank">
-<i class="fa fa-download" aria-hidden="true"></i> Download course Fall 2017 syllabus (.pdf)</a>
 </div>
 
 
@@ -99,8 +96,8 @@ data including:
 * Data collected using distributed *in situ* (on the ground) sensor networks.
 * Social media data.
 
-This course is technical. You will use the `R` scientific programming
-environment and the `RStudio` interface to work with data. You will code every week!
+This course is technical. You will use the `Python` scientific programming
+environment and the `Jupyter Notebook` interface to work with data. You will code every week!
 
 ## Grading
 All grading for this course will follow the CU grading policies.
@@ -161,7 +158,7 @@ This semester you will use Piazza for class discussion. Piazza will help you
 get help faster and more efficiently from classmates, the class TA, and
 myself. Rather than emailing questions to us, post your questions on Piazza.
 
-Find our class page at: <a href="https://piazza.com/colorado/fall2017/earthanalytics/home" target="_blank">PIAZZA </a>
+Find our class page at: <a href="piazza.com/colorado/fall2018/earthanalyticspythonfall2018/home" target="_blank">PIAZZA </a>
 
 1. To get started, be sure to create an account with piazza. You will use this tool
 on the first day of class so please do this ahead of time.
