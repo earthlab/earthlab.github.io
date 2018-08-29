@@ -23,7 +23,7 @@ in class related to the 2013 Colorado Floods. In your homework, you will set up
 `Python` and `Jupyter Notebook` on your laptop and learn how to create a `Jupyter Notebook`
 document and convert it to an `.html` file. 
 
-<a class="btn btn--success btn--x-large" href="{{ site.url }}/slide-shows/4-earth-analytics-spring-2017-intro/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i> View course overview slideshow
+<a class="btn btn--success btn--x-large" href="{{ site.url }}/slide-shows/4-earth-analytics-course-intro/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i> View course overview slideshow
 </a>
 
 <!--
