@@ -98,9 +98,9 @@ Submit your `.html` document and `.ipynb` document to Canvas.
 
 You will complete 4 activities this week. Note that several of these activities will be completed during the class period if you attend class in person or online! You will only be working on the jupyter notebook outside of regular class period. 
 
-#### Part One - Jupyter Notebook & HTML
+#### Part 1 - Jupyter Notebook & HTML
 
-First - Submit a Jupyter notebook and html file following the instructions below:
+First - Submit a Jupyter notebook and `html` file following the instructions below to Canvas:
 
 Create a new notebook `.ipynb` file in `Jupyter Notebook`. Name the file:
 `yourLastName-firstInitial-week1.ipynb` example: `wasser-l-week1.ipynb`. 
@@ -117,27 +117,29 @@ the flood
 
 Export your notebook to `.HTML` format. Submit the `.HTML` file and the `.ipynb` file to CANVAS. 
 
-#### Part Two - Canvas Quiz
-Complete the week 1 quiz on canvas
-
 ****
 
 *The following two activities will be completed during our class period. However if you are taking the class remotely - please be sure to complete this as well. It will count towards your participation in this class. Ideally you should work with 1 or 2 other people on this diagram. However if you are in another location and are not able to team up with someone, you can complete this on your own!*
 
-#### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Part Three - Driver / Impact Diagrams & Driver / Impact Data  - (Participation Points)
+#### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Part 2 - Driver / Impact Diagrams & Driver / Impact Data  - (Participation Points)
 
 Work with 1-2 other people in this class to create a diagram of the 2013 floods that shows the things that contributed to the flood event as they are related to each other (the drivers and impacts). Use the readings for this week, what we discussed in class and what you know about floods to complete this diagram. When you are happy with your diagram,
-create a digital version of it (take a picture using a phone, scan it, make your diagram in a digital format). When you are finished, go to Piazza. Create a <kbd>new post</kbd> in the  <kbd>wk1-flood-diagram</kbd> folder and place your diagram there. 
+create a digital version of it (take a picture using a phone, scan it, make your diagram in a digital format). When you are finished, go to Piazza. Create a post in the <kbd>Flood Diagram Discussion</kbd> on Canvas. In that post embed your flood diagram image. 
 
-IMPORTANT: be sure to list **EVERYONE IN YOUR GROUP in your post title** so I can give you all points for completing this assignment!
+Note - to embed an image in canvas, you have to:
 
-When everyone has posted - scroll through ALL of the diagrams and select 3 diagrams that you like and be sure to click on the <kbd>good note</kbd> marker at the bottom of those posts.
+1. Add it to your files in canvas. To do this click on the <kbd>Files</kbd> link on the left hand side of canvas. Then upload the diagram.
+2. Once the diagram is uploaded to your files, you can embed it in your discussion post.
+
+IMPORTANT: be sure to list **EVERYONE IN YOUR GROUP in your post title** so I can give you all points for completing this assignment! This is the first time I am using group discussison in Canvas. We will figure out how this works together! 
+
+When everyone has posted - scroll through ALL of the diagrams and select 3 diagrams that you <kbd>like</kbd> and be sure to <kbd>like</kbd> the post. Then comment on a diagram that you like noting what you think is interesting about it. 
 
 **** 
 
-#### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Part 4 - Activity: Drivers and Impacts Quantified - (Participation Points)
+#### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Part 3 - Activity: Drivers and Impacts Quantified - (Participation Points)
 
-This activity is also completed during the class period. If you are taking the course remotely be sure to also complete this for your homework. 
+This activity is also completed during the class period. If you are taking the course remotely be sure to also complete this for your homework. Please work in the same group that you worked in for the flood diagram above.
 
 Complete the <a href = "{{ site.url }}/courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/">google earth activity</a>. Then as a group (or individually), discuss the following questions.
 
@@ -147,7 +149,7 @@ Complete the <a href = "{{ site.url }}/courses/earth-analytics-python/python-ope
 * For each CAUSE listed above, could you somehow quantitatively record the "size" or impact of the cause?
 * Was the cause - caused by something else (i.e. did something else DRIVE the cause)?
 
-Now, go to piazza. In the `wk1-google-earth-activity` create a <kbd>new post</kbd> that includes:
+Now, go to Canvas. In the `wk1-google-earth-activity` discussion create a <kbd>reply</kbd> that includes:
 
 1. atleast 3 differences or changes that your group noticed in the imagery
 2. what data you could use to quantify each different that you noticed
@@ -156,7 +158,7 @@ Now, go to piazza. In the `wk1-google-earth-activity` create a <kbd>new post</kb
 
 Consider organizing your response in a table like the one below. Do not use the example below in your piazza post UNLESS you can come up with another way to quantify how many (or the degree to which) trees were lost! Also note the example provided below is using manually measured data. You may know of other ways to measure tree loss! 
 
-An example table that shows what you might post in piazza:
+An example table that shows what you might post:
 
 |  Difference | Data you can use to quantify the change | What drove the change  | How could you quantify that driver |
 |---|---|---|
@@ -164,7 +166,7 @@ An example table that shows what you might post in piazza:
 |==
 |   |   |   | |
 
-When you have completed your post, as an individual, find atleast 2 other posts that you like, click on <kbd>good note</kbd> and comment on them. 
+When you have completed your post, as an individual, find atleast 2 other posts that you like, click on <kbd>like </kbd> and comment on them. 
 
 IMPORTANT: be sure to list **EVERYONE IN YOUR GROUP in your post title** so I can give you all points for completing this assignment!
 
