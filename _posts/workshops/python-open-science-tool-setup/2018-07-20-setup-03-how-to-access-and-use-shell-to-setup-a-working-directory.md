@@ -4,10 +4,10 @@ category: courses
 title: 'How to Access and Use Shell to Set Up a Working Directory'
 excerpt: 'This tutorial walks you through how access the shell through terminal, use basic commands in the terminal for file organization, and set up a working directory for the course.'
 authors: ['Martha Morrissey','Leah Wasser', 'Data Carpentry']
-modified: 2018-07-17
+modified: 2018-08-29
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/introduction-to-bash-shell/ 
-nav-title: 'Bash'
+nav-title: 'Intro to Bash'
 sidebar:
     nav:
 author_profile: false
@@ -18,8 +18,7 @@ topics:
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
-
-In this tutorial you will access the shell through terminal, use basic commands in the terminal for file organization,  and set up a working directory for the course.
+In this tutorial, you will access `Bash`/Shell through the Terminal, use basic commands in the terminal for file organization,  and set up a working directory for the course.
 
 
 <div class='notice--success' markdown="1">
@@ -29,88 +28,88 @@ In this tutorial you will access the shell through terminal, use basic commands 
 
 At the end of this activity, you will be able to:
 
-* Open a terminal
-* Navigate and change directories in the terminal
-* Access python from the terminal.  
-* Create an easy to use and well structured project structure.
+* Open the Terminal
+* Navigate and change directories in the Terminal
+* Access `Python` from the Terminal
+* Create an easy-to-use and well-structured project structure
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need to have Git and Bash setup on your computer to complete this lesson. Instructions for setting up Git and Bash are here: [Setup Git/Bash lesson](/courses/earth-analytics-python/setup-your-python-earth-analytics-environment/setup-git-bash-anaconda/) 
-
-
-
+You will need to have Git and Bash setup on your computer to complete this lesson. Instructions for setting up Git and Bash are here: <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/">Setup Git, Bash & Anaconda lesson</a>.
 
 </div>
 
 ## How to Access Bash
 
-Information below is adapted from materials developed by: [U.C. Berkeley’s cs61a](https://cs61a.org/lab/lab00/), [Software Carpentry](http://swcarpentry.github.io/shell-novice/) and [The Hacker Within, Berkeley](https://github.com/thehackerwithin/berkeley/blob/master/code_examples/bash/tutorial.md.). 
-
-
+Information below is adapted from materials developed by: <a href="https://cs61a.org/lab/lab00/" target="_blank">U.C. Berkeley’s cs61a</a>, <a href="http://swcarpentry.github.io/shell-novice/" target = "_blank">Software Carpentry</a> and <a href="https://github.com/thehackerwithin/berkeley/blob/master/code_examples/bash/tutorial.md" target="_blank">The Hacker Within, Berkeley</a>. 
 
 ### Get Started with the Terminal 
 
-In the earliest days of computing, the computer itself which processed data or performed operations was separate from the tool that gave it instructions to do the processing. There was: 
+In the early days of computing, the computer that processed data or performed operations was separate from the tool that gave it the instructions to do the processing. There was: 
 
 * Terminal: which was used to send commands to the computer and
 * The computer: the hardware that processed the commands
 
+Today, we have computers that can both provide commands AND perform the computation, and these computers have graphic interfaces (known as GUIs) that make it easy to perform tasks. 
 
-Today, we have computers that can both provide commands AND perform the computation. And those computers have graphic interfaces (known as GUIs) that make it easy to perform tasks. However, we still need to access the command line or terminal for certain tasks. In this lesson you will learn how to set up a command line interface on your computer. 
+However, we still need to access the command line or terminal for certain tasks. In this lesson, you will learn how to use a command line interface (CLI) or terminal on your computer. 
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/early-terminal.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/early-terminal.png"></a>
- <figcaption> Early Computer and Terminal.
- </figcaption>
+ <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/early-terminal.png" alt = "An image showing a terminal and a computer in the early days of computing."></a>
+ <figcaption> Image of an older computer and terminal.</figcaption>
 </figure>
 
-
 ### About Bash
-Bash is command line program that allows you to efficiently perform many tasks. You can think of it as the computer in the example above. The command line or terminal is where you provide bash commands that it then executes. This allows you to control your computer by typing in commands entered with a keyboard instead of using buttons or drop down menus in a graphical user interface (GUI) with a mouse/keyboard combination. 
 
-You can use bash to access and process files at the command line. Working with files at the command line is faster and more efficient than working with files in a graphic environment like Windows Explorer or Mac Finder. In bash, you can perform multiple operations on multiple files quickly. You can also write and execute scripts in Bash just like you can in `R` or `Python`. Finally, you can use Bash to launch tools like `Python`, `R` and Jupyter Notebooks. We will be using Python and Jupyter notebooks throughout this class.  (we will use Jupyter in this class). 
+`Bash` is command line program that allows you to efficiently perform many tasks. The command line or terminal is where you provide `Bash` commands that the computer then executes. This allows you to control your computer by typing in commands entered with a keyboard, instead of using buttons or drop down menus in a graphical user interface (GUI) with a mouse/keyboard. 
+
+For example, you can use `Bash` to access and process files at the command line. Working with files at the command line is faster and more efficient than working with files in a graphic environment like Windows Explorer or Mac Finder. 
+
+In `Bash`, you can perform multiple operations on multiple files quickly. You can also write and execute scripts in `Bash` just like you can in `R` or `Python`. 
+
+Finally, you can use `Bash` to launch tools like `Python`, `R` and `Jupyter Notebook`. Throughout this class, you will use `Python` and `Jupyter Notebook`. 
 
 <i class="fa fa-star"></i> **Data Tip:**  
-Bash stands for “bourne again shell”, and is an updated version of shell. Sometimes you will hear bash and shell used interchangeably, but in this course we will use the term bash throughout.
+`Bash` stands for “bourne again shell” and is an updated version of Shell. Sometimes you will hear `Bash` and Shell used interchangeably; in this course, we will use the term `Bash`.
 {: .notice--success}
 
-
-You access Bash using a terminal program which we will discuss next. 
+You access `Bash` using a terminal program which we will discuss next. 
 
 
 ## What is a Terminal?
-A terminal is the command line interface  that gives you access to bash. There are many different terminal programs and thus the terminal program that you use on your computer will vary according to your operating system. For instance a MAC comes with a terminal program that provides access to Bash already installed. However, on a Windows machine, you will have to install a new program to access bash - like GitBash which we will use in this course. 
 
-For the rest of this course, we will refer to the command line environment that you use to access bash as the terminal. For windows users, this terminal may be opened using a tool like Git Bash.
+A terminal is the command line interface (CLI) that gives you access to `Bash`. There are many different terminal programs, and thus, the terminal program that you use on your computer will vary according to your operating system. 
+
+For instance, Mac computers have a terminal program already installed that provides access to `Bash`. However, on a Windows machine, you will have to install a new program to access `Bash` - like `Git Bash`, which we will use in this course. 
+
+For the rest of this course, we will refer to the command line environment that you use to access `Bash` as the terminal. For Windows users, this terminal can be accessed using a tool like `Git Bash`.
 
 
+## Why Use the Terminal?
 
+#### Interact With Your Computer and Organize Files 
 
-## Why use Terminal?
-#### Interact with your computer/organize files 
+Using `Bash` in the Terminal is a powerful way of interacting with your computer. GUIs and command line `Bash` are complementary - by knowing both, you will greatly expand the range of tasks you can accomplish with your computer. 
 
-Using Bash in the terminal is a powerful way of interacting with your computer. GUIs and command line Bash are complementary - by knowing both you will greatly expand the range of tasks you can accomplish with your computer. You will also be able to perform many tasks more efficiently. Common tasks you can run at the command liner include checking the directory you’re in, changing directories, making a new directory, extracting files, and finding files on your computer. 
-
+You will also be able to perform many tasks more efficiently. Common tasks that you can run at the command line include checking your current working directory, changing directories, making a new directory, extracting files, and finding files on your computer. 
 
 
 ## Access Bash
 
-You access bash differently depending on your operating system. 
+How you access `Bash` will depend on your operating system. 
 
-* OS X: The bash program is called Terminal. You can search for it in Spotlight.
+* OS X: The `Bash` program is called Terminal. You can search for it in Spotlight.
 
-* Windows: Git Bash came with your download of Git for Windows. Search Git Bash. For the rest of this course, even if you are on windows, we will refer to the terminal. You are using Git Bash as your terminal.
+* Windows: `Git Bash` came with your download of Git for Windows. Search `Git Bash`. For the rest of this course, even if you are on Windows, we will refer to the Terminal. You are using `Git Bash` as your terminal.
 
-* Linux: Default is usually bash, if not, type bash in the terminal.
-
+* Linux: Default is usually `Bash`, if not, type `Bash` in the terminal.
 
 
 ## Bash Commands
 
-The dollar sign is a prompt, that shows you that bash is waiting for input; your shell may use a different character as a prompt and may add information before the prompt.
+The dollar sign is a prompt, that shows you that `Bash` is waiting for input; your shell may use a different character as a prompt and may add information before the prompt.
 
 When typing commands, either from these tutorials or from other sources, do not type the dollar sign only the commands that follow it. In these tutorials, subsequent lines that follow a prompt and do not start with $ are the output of the command.
 
@@ -118,10 +117,7 @@ When typing commands, either from these tutorials or from other sources, do not 
 
 ### Basic Bash Commands
 
-* ls: lists all files in the current directory in alphabetical order, arranged neatly into columns.
-
-
- 
+* `ls`: This command `lists all files in the current directory in alphabetical order, arranged neatly into columns.
 
 
 ```bash 
@@ -134,8 +130,7 @@ Desktop        Downloads   Movies    Picture
 Your results may be slightly different depending on your operating system and how you have customized your filesystem.
 
 
-
-*  pwd: print working directory- prints the name of the directory you are working from 
+*  `pwd`: This command prints the name of the directory in which you are currently working.
 
 ```bash 
 $ pwd 
@@ -145,11 +140,11 @@ $ pwd
 ``` 
 
 
-* cd (path to directory): change into the specified directory
+* `cd path-to-directory`: The command followed by a path allows you to change into a specified directory (such as a directory named `documents`).
    
-* cd .. (two dots). The .. means "the parent directory" so you can use cd .. to go up one directory.
+* `cd ..` (two dots). The `..` means "the parent directory" of your current directory, so you can use `cd ..` to go back (or up) one directory.
 
-* cd ~ (the tilde). Remember that ~ means home directory, so this command will always change to your home directory.
+* `cd ~` (the tilde). The `~` means the home directory, so this command will always change back to your home directory (the default directory in which the Terminal opens).  
 
 
 ```bash
@@ -157,8 +152,8 @@ $ cd ~
 ```
 
 
-* mkdir (directory name): make a new directory with the given name
-  This example will make a new directory called notes inside of the documents directory. 
+* `mkdir directory-name`: This command makes a new directory with the given name.
+  The example below will make a new directory called notes inside of the documents directory. 
 
 
 ```bash
@@ -174,7 +169,7 @@ $ ls documents
 	data/  elements/  notes/  animals.txt  planets.txt  sunspot.txt
 ```
 
-Notice that mkdir command has no ouput, and that since notes is a relative path (i.e., doesn’t have a leading slash), the new directory is created in the current working directory. 
+Notice that `mkdir` command has no ouput. Also, because `notes` is a relative path (i.e., doesn’t have a leading slash), the new directory is created in the current working directory (e.g. `documents`). 
 
 <i class="fa fa-star"></i> **Data Tip:** 
 Directory vs Folder: You can think of a directory as a folder. However the term directory considers the relationship between that folder and the folders within it and around it. 
@@ -185,28 +180,20 @@ Directory vs Folder: You can think of a directory as a folder. However the term 
 Notice that you are creating an easy to read directory name. The name has no spaces and uses all lower case to support machine reading down the road. Sometimes this format of naming using dashes is referred to as a slug.
 {: .notice--success}
 
-
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Exercise
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Challenge
     
-Project organization is integral to efficient research. Use Bash to create an `earth-analytics` project directory. You will use this directory throughout this course. 
+Project organization is integral to efficient research. In this challenge, you will use `Bash` to create an `earth-analytics` directory that you will use throughout this course. 
 
-You will then create a  `\data` directory within the `earth-analytics` directory to save all of the data that you will need to complete the homework assignments and follow along with the course.
-
-### Create earth-analytics Project Directory
+You will then create a  `data` directory within the `earth-analytics` directory to save all of the data that you will need to complete the homework assignments and follow along with the course.
 
 
-Create an `earth-analytics` project directory (or folder). 
+### Create a Directory for earth-analytics
 
-* Navigate to the Documents directory on your computer.
+Begin by creating an `earth-analytics` directory (or folder) in your home directory. This is the default directory in which the Terminal opens. 
 
-```bash 
-$ cd documents
-```
-
-
-* In the directory, create a NEW DIRECTORY called `earth-analytics`.
+* Create a **new directory** called `earth-analytics`.
 
 
 ``` bash 
@@ -214,28 +201,24 @@ $ mkdir earth-analytics
 ```
 
 
-*  Next change directories to be inside of the earth-analytics directory and create a directory within it called `data`
+*  Next, change your working directory to the `earth-analytics` directory, and create a new directory within it called `data`.
 
 ```bash 
 $ cd earth-analytics 
 $ mkdir data 
 ```
 
-
-
-* Let’s go back to the home directory and confirm we can then access the directories we just made.
+* Last, go back to the home directory and confirm that you can then access the directories you just made.
 
 ```bash 
 
 $ cd ~ 
 
-$ cd documents
-
 $ cd earth-analytics 
 
 $ ls 
 
-data/
+data
 ```
 
 </div>
