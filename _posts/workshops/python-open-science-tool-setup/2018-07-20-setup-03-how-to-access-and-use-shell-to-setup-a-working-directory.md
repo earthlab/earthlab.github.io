@@ -4,7 +4,7 @@ category: courses
 title: 'How to Access and Use Shell to Set Up a Working Directory'
 excerpt: 'This tutorial walks you through how access the shell through terminal, use basic commands in the terminal for file organization, and set up a working directory for the course.'
 authors: ['Martha Morrissey','Leah Wasser', 'Data Carpentry']
-modified: 2018-08-30
+modified: 2018-08-31
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/introduction-to-bash-shell/ 
 nav-title: 'Intro to Bash'
@@ -56,8 +56,8 @@ Today, we have computers that can both provide commands AND perform the computat
 However, we still need to access the command line or terminal for certain tasks. In this lesson, you will learn how to use a command line interface (CLI) or terminal on your computer. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/early-terminal.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/early-terminal.png" alt = "An image showing a terminal and a computer in the early days of computing."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/early-terminal.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/early-terminal.png" alt = "An image showing a terminal and a computer in the early days of computing."></a>
  <figcaption> Image of an older computer and terminal.</figcaption>
 </figure>
 
