@@ -4,7 +4,7 @@ category: [courses]
 title: "How to Reproject Vector Data in Python Using Geopandas - GIS in Python"
 excerpt: "Sometimes two shapefiles do not line up properly even if they cover the same area because they are in different coordinate reference systems. Learn how to reproject vector data in Python using geopandas to ensure your data line up."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2018-07-19
+modified: 2018-08-24
 module-type: 'workshop'
 module: "spatial-data-open-source-python"
 permalink: /workshops/gis-open-source-python/reproject-vector-data-in-python/
@@ -248,7 +248,7 @@ What do you notice about the resultant plot?  Can you see where the SJER boundar
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 1
 You know what to do! Create a map that includes the following layers:
 
 * United States Boundary: `data/spatial-vector-lidar/usa/usa-boundary-dissolved.shp`
@@ -272,50 +272,6 @@ Remember: check the CRS of each dataset!
 
 
 
-{:.input}
-```python
-# Map at the extent of the area surrounding SJER
-
-# import United States country boundary
-country_boundary_us = gpd.read_file('data/spatial-vector-lidar/usa/usa-boundary-dissolved.shp')
-
-# import United States state boundaries
-state_boundary_us = gpd.read_file('data/spatial-vector-lidar/usa/usa-states-census-2014.shp')
-
-#import the reprojected SJER boundary
-sjer_aoi_WGS84 = sjer_aoi.to_crs(state_boundary_us.crs)
-
-# create the plot
-fig, ax = plt.subplots(figsize = (12,8))
-
-# add the state boundaries to the plot
-state_boundary_us.plot(ax = ax,
-                      linewidth=1,
-                      edgecolor="black")
-
-# add the United States country boundary to the plot
-country_boundary_us.plot(ax=ax,
-                         alpha=.5, 
-                         edgecolor="black",
-                         color = "white",
-                         linewidth=3)
-
-# add the reprojected SJER boundary to the plot
-sjer_aoi_WGS84.plot(ax=ax, 
-                    color='springgreen',
-                   edgecolor = "r")
-
-# add a titlet to the plot
-ax.set(title="Map of Continental US State Boundaries \n with SJER AOI")
-
-# zoom in on just the area surrounding SJER
-ax.set(xlim=[-125, -116], ylim=[35, 40])
-
-# turn off axis  
-ax.set(xticks = [], yticks = []);
-
-
-```
 
 {:.output}
 {:.display_data}
@@ -357,29 +313,21 @@ Create a plot of the United States with the SJER study site location marked as a
 
 
 
-{:.input}
-```python
-# reproject the SJER boundary to match the roads layer using the Proj.4 definition
-sjer_aoi_wgs84_2 = sjer_aoi.to_crs("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")
+<div class="notice--warning" markdown="1">
 
-# create the plot
-fig, ax = plt.subplots(figsize=(12, 8))
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge 3
 
-# add roads to the plot
-madera_roads.plot(cmap='Greys', ax=ax, alpha=.5)
+Reproject the original SJER boundary using the full Proj.4 string for EPSG 4269, which you can find on its <a href="http://spatialreference.org/ref/epsg/nad83/">Spatial Reference webpage</a> and then create the original plot of the Madera County roads and the SJER boundary. 
 
-# add the reprojected SJER boundary to the plot
-sjer_aoi_wgs84_2.plot(ax=ax, markersize=10, color='r')
+`+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs`
 
-# add a title for the plot
-ax.set_title("Madera County Roads with SJER AOI");
+</div>
 
-```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_23_0.png)
+![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_24_0.png)
 
 
 
