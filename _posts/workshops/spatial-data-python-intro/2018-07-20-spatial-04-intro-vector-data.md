@@ -4,7 +4,7 @@ category: [courses]
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-19
+modified: 2018-08-24
 permalink: /workshops/gis-open-source-python/intro-vector-data-python/
 nav-title: 'Vector Data in Python'
 module-type: 'workshop'
@@ -105,13 +105,15 @@ You will use the `geopandas` library to work with vector data in `Python`. You w
 
 {:.input}
 ```python
+# import necessary packages
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import os
 import earthpy as et
-import os 
+
 # plot data inline
 plt.ion() 
+
 # set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
@@ -558,8 +560,8 @@ You can create a larger map by adjusting the `figsize` argument. Below you set i
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Test your knowledge: Import Line & Polygon Shapefiles
 
-Using the steps above, import the `data/week5/california/madera-county-roads/tl_2013_06039_roads`
-and `data/week5/california/SJER/vector_data/SJER_crop.shp` shapefiles into `Python`. Call the roads object `sjer_roads` and the crop layer `sjer_crop_extent`.
+Using the steps above, import the `data/spatial-vector-lidar/california/madera-county-roads/tl_2013_06039_roads.shp`
+and `data/spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_crop.shp` shapefiles into `Python`. Call the roads object `sjer_roads` and the crop layer `sjer_crop_extent`.
 
 Answer the following questions:
 
@@ -621,7 +623,7 @@ plt.axis('equal');
 
 
 
-## Custom Legends with Geopandas -- optional
+## Custom Legends with Geopandas -- Optional
 
 While you will likely not get to this in our workshop, below is an example of further customizing your geopandas plot.
 
