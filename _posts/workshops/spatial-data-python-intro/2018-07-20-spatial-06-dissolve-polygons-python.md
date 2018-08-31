@@ -4,7 +4,7 @@ category: [courses]
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2018-07-19
+modified: 2018-08-24
 module-type: 'workshop'
 module: "spatial-data-open-source-python"
 permalink: /workshops/gis-open-source-python/dissolve-polygons-in-python-geopandas-shapely/
@@ -55,9 +55,12 @@ import earthpy as et
 
 # make figures plot inline
 plt.ion()
+```
 
-# load the box module from shapely
-from shapely.geometry import box
+{:.input}
+```python
+# import United States state boundaries
+state_boundary_us = gpd.read_file("data/spatial-vector-lidar/usa/usa-states-census-2014.shp")
 ```
 
 ## Dissolve Polygons Based On an Attribute with Geopandas
@@ -198,7 +201,7 @@ plt.axis('equal');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_8_0.png)
+![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_9_0.png)
 
 
 
@@ -326,7 +329,7 @@ plt.axis('equal');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_11_0.png)
+![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_12_0.png)
 
 
 
@@ -343,7 +346,7 @@ Create a quantile map using the AWATER attribute column.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_13_0.png)
+![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_14_0.png)
 
 
 
@@ -363,7 +366,7 @@ Aggregate the data using the 'mean' method on the ALAND and AWATER attributes (t
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_15_0.png)
+![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_0.png)
 
 
 
@@ -371,7 +374,7 @@ Aggregate the data using the 'mean' method on the ALAND and AWATER attributes (t
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_15_1.png)
+![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_1.png)
 
 
 
