@@ -57,7 +57,7 @@ For more information about conda environments check out the <a href="https://con
 
 To install the earth lab environment, you will need to follow these steps: 
 
-1. [<i class="fa fa-download" aria-hidden="true"></i> Download the yaml file for the earth-analytics-python environment](https://ndownloader.figshare.com/files/10794674){:data-proofer-ignore='' .btn }
+1. [<i class="fa fa-download" aria-hidden="true"></i> Download the yaml file for the earth-analytics-python environment](https://ndownloader.figshare.com/files/12925346){:data-proofer-ignore='' .btn }
 2. Move this file into your `earth-analytics` directory. 
 3. Open the Terminal on your computer (e.g. Git Bash for Windows or Terminal on a Mac/Linux).
 4. In the Terminal, navigate to the `earth-analytics` directory (i.e. use the `cd` command to change directories).
