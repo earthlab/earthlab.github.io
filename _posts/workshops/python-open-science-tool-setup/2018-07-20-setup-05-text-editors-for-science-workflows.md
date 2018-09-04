@@ -4,7 +4,7 @@ category: courses
 title: 'Text Editors for the Command Line and Scientific Programming'
 excerpt: 'Text editors can be used to edit code and for commit messages in git. Learn about features to look for in a text editor and how to change your default text editor at the command line.'
 authors: ['Martha Morrissey', 'Leah Wasser',  'Data Carpentry']
-modified: 2018-08-30
+modified: 2018-08-31
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/text-editors-for-science-workflows/
 nav-title: 'Text Editors For Coding'
@@ -51,7 +51,7 @@ The right text editor and/or coding GUI (graphical user interface) environments 
 
 Often, the default text editor setup for your command line environment is not a graphical text editor. You may want to change the default text editor depending on your workflow. 
 
-In this lesson, you will learn about the different features to look for in a text editor and how to set your default text editor.
+In this lesson, you will learn about the different features to look for in a text editor and learn how to set your default text editor.
 
 ## Features to Look For in a Text Editor
 
@@ -62,16 +62,16 @@ Certain features to look for in a text editor include:
 For instance, all comments might be displayed using the color grey. Common functions may be blue and so on. This allows you to quickly scan and easily review and scan your code. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/non-color-code.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/non-color-code.png" alt = "Code that is rendered in a text editor with no color coding."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/non-color-code.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/non-color-code.png" alt = "Code that is rendered in a text editor with no color coding."></a>
  <figcaption> Code that is rendered in a text editor with no color coding.
  </figcaption>
 </figure>
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/color-code.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/color-code.png" alt = "Notice that various types of commands are colored differently, making it easier to quickly scan and review the code."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/color-code.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/color-code.png" alt = "Notice that various types of commands are colored differently, making it easier to quickly scan and review the code."></a>
  <figcaption> Notice that various types of commands are colored differently, making it easier to quickly scan and review the code.
  </figcaption>
 </figure>
@@ -86,7 +86,7 @@ Some scientists will only code in a text editor. Others will use a text editor f
 
 ## What is your Default Text Editor?
 
-Most operating systems come with a default text editor as described below. While choosing a text editor is a very personal preference, for this course,  if you don’t already have a favorite, we  recommend the [Atom](https://atom.io/) text editor which will run on Mac, Linux, and Wndows. 
+Most operating systems come with a default text editor as described below. While choosing a text editor is a very personal preference, for this course,  if you don’t already have a favorite, we recommend the [Atom](https://atom.io/) text editor which will run on Mac, Linux, and Wndows. 
 
 You can use whatever text editor you are most comfortable, but mainly for this course we will be working in `Jpyter Notebook`. However, it is important to be familiar with text editors because they are powerful tools that many scientists use to write code. If you use `Git`, you will need a text editor to create some commit and merge messages. 
 
@@ -104,8 +104,8 @@ vim
 
 When you open vim, you’ll get a screen like the one below:
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics-python/python-interface/vim.png">
- <img src="{{ site.url }}/images/courses/earth-analytics-python/python-interface/vim.png" alt = "An image showing the welcome screen of vim."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/vim.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/vim.png" alt = "An image showing the welcome screen of vim."></a>
  <figcaption> The welcome screen of vim.
  </figcaption>
 </figure>
@@ -166,7 +166,6 @@ You can define any text editor that is installed on your computer, as the defaul
 * <a href="https://www.nano-editor.org/" target = "_blank">Nano</a>
 
 
-<div class = 'notice--success' markdown = 1 >
 
 ### Why We Recommend Using Atom
 
@@ -175,8 +174,6 @@ If you don’t already have a favorite text editor, we suggest you use Atom in t
 * It supports <a href="https://earthdatascience.org/courses/intro-version-control-git/" target = "_blank">Git/Github integration</a>, which makes it easier to collaborate with others to write code, address merge conflicts and to complete other common `Git` operations. 
 * It has code highlighting support
 * Atom has an active development community which means lots of extra packages are available to gain extra features. For example: <a href="https://github.com/atom/markdown-preview" target = "_blank">Markdown Preview</a> lets you write code in `Markdown` in a .md file and preview the rendered output in a different window. <a href="https://atom.io/packages/hydrogen" target = "_blank">Hydrogen package</a>, allows you to run code inline in Atom, similar to `Jupyter Notebook`. 
-
- </div>
 
 
 ### Check and Change Your Default Text Editor
