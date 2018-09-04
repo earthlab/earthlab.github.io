@@ -3,6 +3,7 @@ layout: single
 category: courses
 title: "Get Started with Data in Python / Jupyter Notebooks"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
+modified: 2018-09-04
 week-landing: 1
 week: 1
 sidebar:
