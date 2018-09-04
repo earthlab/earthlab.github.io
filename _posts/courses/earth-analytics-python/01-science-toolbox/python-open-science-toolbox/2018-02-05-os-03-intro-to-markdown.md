@@ -1,9 +1,9 @@
 ---
 layout: single
 title: 'Introduction to Markdown'
-excerpt: 'This tutorial walks you through how to format text using markdown.'
+excerpt: 'This tutorial walks you through how to format text using Markdown.'
 authors: ['Leah Wasser', 'Martha Morrissey', 'Data Carpentry']
-modified: 2018-08-07
+modified: 2018-09-04
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-markdown-in-jupyter-notebooks/
@@ -20,7 +20,7 @@ topics:
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
-This tutorial walks you through how to format text using markdown
+This tutorial walks you through how to format text using `Markdown` to document your workflows in `Jupyter Notebook` files.
 
 <div class='notice--success' markdown="1">
 
@@ -28,44 +28,44 @@ This tutorial walks you through how to format text using markdown
 
 At the end of this activity, you will be able to:
 
-* Define what the markdown syntax is
-* Create  a heading 1, 2 or 3 using Markdown syntax
-* Italicize and bold text using Markdown
-
+* Explain the role `Markdown` syntax for documentation
+* Create headings using `Markdown` in `Jupyter Notebook`
+* Italicize and bold text using `Markdown` in `Jupyter Notebook`
+* Render images using `Markdown` in `Jupyter Notebook`
  
 </div>
- 
+
  
 ## Markdown 
 
-Markdown is a human readable syntax for formatting text documents. Markdown can be used to produce nicely formatted documents including pdf's and web pages. When you format text using markdown in a document, it is similar to using the format tools (bold, heading 1, heading 2, etc) in a word processing tool like Microsoft Word of Google Docs. However instead of using buttons to apply formatting, you use syntax such as `**this bolds text in markdown**` or `# Here is a heading`.Markdown allows you to format text - such as making headings, italics, bold, bulleted list, add links, format mathematical symbols and , make tables ect. 
+`Markdown` is a human readable syntax for formatting text documents. `Markdown` can be used to produce nicely formatted documents including PDFs and web pages. When you format text using `Markdown` in a document, it is similar to using the format tools (e.g. bold, heading 1, heading 2) in a word processing tool like Microsoft Word or Google Docs. 
 
+However, instead of using buttons to apply formatting, you use syntax such as `**this syntax bolds text in markdown**` or `# Here is a heading`. `Markdown` allows you to format text - such as making headings, bolding and italicizing words, creating bulleted lists, adding links, formatting mathematical symbols and making tables. 
 
 
 <i class="fa fa-star"></i> **Data Tip:**
-Learn more about [markdown](http://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html)
+Learn more about <a href="http://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html" target="_blank">Markdown</a>
 {: .notice--success }
 
 
 ### Markdown Syntax in Jupyter Notebook files
 
-Jupyter notebooks allow you to combine code and Markdown in one document. A Jupyter notebook can contain text written using the markdown syntax, in a cell that is specified for markdown. 
+`Jupyter Notebook` allows you to combine code (e.g. `Python`) and `Markdown` in one document using cells. A `Jupyter Notebook` file can contain cells that render text written using the `Markdown` syntax as well as cells that contain and run `Python` code. 
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png"></a>
- <figcaption> Jupyter Notebook with a markdown cell.
+ <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/md-cell.png" alt="An example Markdown cell in Jupyter Notebook."></a>
+ <figcaption> An example Markdown cell in Jupyter Notebook.
  </figcaption>
 </figure>
 
-The text that you add to a Jupyter notebook using Markdown can serve many different purposes. It could be used to:
+You can use `Markdown` in a `Jupyter Notebook` file for many different purposes. It could be used to:
 
-* Document your workflow: You may add text to the document that describes the steps that you incorporated into your processing workflow
-* Describe your data:It could describe the data that you are using, how it's being processed and what the outputs are. 
+* Document your workflow: You can add text to the document that describes the steps that you incorporated into your processing workflow (e.g. how data is being processed and what results are produced).
+* Describe your data: You can describe the data that you are using (e.g. source, pre-processing, metadata). 
 * Interpret code outputs: You may even add some text that interprets or discusses the outputs. 
 
-When you render your document to HTML or pdf) this markdown will appear as text on the output document. 
-
+If you render your `Jupyter Notebook` file to HTML or PDF, this `Markdown` will appear as text on the output document. 
 
 <i class="fa fa-star"></i> **Data Tip:**
 This web page that you are reading right now is generated from a markdown document. In this tutorial, we cover the basic syntax of markdown.
@@ -81,33 +81,30 @@ Markdown is simple plain text, that is styled using special characters, includin
 
 *: italic text
 
-` : code blocks
+` `: code blocks
 
-Let's review some basic markdown syntax
+Explore using some basic `Markdown` syntax. 
 
+### Emphasize Code and Words in Markdown
 
-### Paragraph Text
+When you type text in a `Markdown` document with no additional syntax, the text will appear as paragraph text. You can add additional syntax to that text to format it in different ways.
 
-When you type text in a markdown document with no additional syntax, the text
-will appear as paragraph text. You can add additional syntax to that text
-to format it in different ways.
+For example, if you want to highlight a function or some code within a plain text paragraph, you can use one backtick on each side of the text ( <code>`code-goes-here`</code> ), like this: <code>`Here is some code`</code>. 
 
-For example, if you want to highlight a function or some code within a plain text
-paragraph, we can use one backtick on each side of the text ( <code>`code-goes-here`</code> ),
-like this: <code>`Here is some code`</code>. This is the backtick, or grave; not
-an apostrophe (on most US keyboards it is on the same key as the tilde (~)).
+This is the backtick, or grave; not an apostrophe (on most US keyboards, it is on the same key as the tilde (~)).
 
-To add emphasis to other text you can use **bold** or *italics*.
+To add emphasis to other text, you can use also use the following syntax to **bold** or *italicize* words.
 
-Have a look at the markdown below:
+For example:
 
 ```
-The use of the highlight ( `text` ) will be reserved for denoting code.
-To add emphasis to other text use **bold** or *italics*.
+The use of the backtick (e.g. `text` ) will be reserved for denoting code.
+To add emphasis to other text, use **bold** or *italics*.
 ```
 
-Notice that this sentence uses both a code highlight "``", bold and italics.
-As a rendered markdown chunk, it looks like this:
+Notice that this sentence uses both a code highlight (`text`), bolding (**text**) and italics (*text*).
+
+As rendered `Markdown`, it looks like this:
 
 ***
 
@@ -116,78 +113,92 @@ used in text. To add emphasis to other text use **bold** or *italics*.
 
 ***
 
-### Horizontal Lines (rules)
+### Horizontal Lines (Rules)
 
-Create a rule:
-
-	  ***
-
+You can also create a horizonal line or rule to highlight a block of `Markdown` syntax (similar to the highlighting a block of code using ` `):
 
 	  ***
 
-### Here is rendered markdown: 
 
-Section Headings
-We create a heading using the pound (#) sign. For the headers to render
-properly there must be a space between the # and the header text.
-Heading one is 1 # sign, heading two is 2 ## signs, etc as follows:
+	  ***
 
-## Heading two
+### Section Headings 
 
-### Heading three
+You can create a heading using the pound (`#`) sign. For the headers to render properly, there must be a space between the `#` and the header text.
 
-#### Heading four
+Heading one is denoted using one `#` sign, heading two is denoted using two `##` signs, etc, as follows:
+
+`## Heading Two
+
+### Heading Three
+
+#### Heading Four
+`
+
+Here is the rendered `Markdown`:
+
+## Heading Two
+
+### Heading Three
+
+#### Heading Four
 
 
-### Explore Markdown Cells in a Jupyter Notebook 
+### Images
 
-```python
-print( "Hello Earth Analytics")
+<!--
+You can use `Markdown` to link to images on the web using the following syntax:
+
+```
+<figure>
+   <a href="https://www.fullstackpython.com/img/logos/markdown.png">
+   <img src="https://www.fullstackpython.com/img/logos/markdown.png" alt="You can use Markdown to add images to Jupyter Notebook files, such as this image of the Markdown logo. Source: Full Stack Python."></a>
+   <figcaption> You can use Markdown to add images to Jupyter Notebook files, such as this image of the Markdown logo. Source: Full Stack Python.
+   </figcaption>
+</figure>
 ```
 
-You should now be able to: 
-*define markdown 
-* make a heading 
-*  **italicize** some text 
+It will render as follows:
 
-
-### Explore Markdown Cells in a Jupyter Notebook 
-
-```python
-print( "Hello Earth Analytics")
-```
-
-You should now be able to: 
-
-* define markdown 
-* make a heading 
-*  **italicize** some text 
-
-### Add An Image in Markdown
-You can add images to a cell of markdown using markdown syntax as follows:
-
-`![alt text here](path-to-image-here)`
-
-However, for this to work `python` you need to place the image in the right location
-on your computer - RELATIVE to your .ipynb file. This is where
-good file management becomes extremely important.
-
-To make this simple, setup a directory named `images` in your earth-analytics project / working directory. If your `.ipynb` file is located in root of this directory, and all images that you want to include in your report are located in the
-images directory within the earth-analytics directory, then the path that you
-would use for each image is:
-
-`images/week3/image-name-here.png`
-
-Try this with an actual image.
-
-<figure class="half">
- <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/silly-dog.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/silly-dog.png"></a>
- <figcaption> Silly dog.</figcaption>
+<figure>
+   <a href="https://www.fullstackpython.com/img/logos/markdown.png">
+   <img src="https://www.fullstackpython.com/img/logos/markdown.png" alt="You can use Markdown to add images to Jupyter Notebook files, such as this image of the Markdown logo. Source: Full Stack Python."></a>
+   <figcaption> You can use Markdown to add images to Jupyter Notebook files, such as this image of the Markdown logo. Source: Full Stack Python.
+   </figcaption>
 </figure>
 
 
-If all of your images are in your images directory, then you will be able to easily find them. This also follows good file management practices because all of the images that you use in your report are contained within your project directory.
+You can also add images to a `Markdown` cell using relative paths to files on in your directory structure using:
+-->
+
+`![alt text here](path-to-image-here)`
+
+If you want to embed an image from a website, you can use the following syntax:
+
+`![Markdown Logo is here.](https://www.fullstackpython.com/img/logos/markdown.png)`
+
+It will look like this:
+
+![Markdown Logo is here.](https://www.fullstackpython.com/img/logos/markdown.png)
+
+For relative paths (images stored on your computer) to work in `Python`, you need to place the image in the right location on your computer - RELATIVE to your `.ipynb` file. This is where good file management becomes extremely important.
+
+For a simple example of using relative paths, create a directory named `images` in your `earth-analytics` directory. 
+
+If your `Jupyter Notebook` file (`.ipynb`) is located in root of this directory, and all images that you want to include in your report are located in the `images` directory within `earth-analytics`, then the path that you
+would use for each image is: 
+
+`images/image-name.png`
+
+
+<figure class="half">
+ <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/silly-dog.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/silly-dog.png" alt="This image of a silly dog is rendered using a relative path to this webpage created using Jupyter Notebook."></a>
+ <figcaption> This image of a silly dog is rendered using a relative path to this webpage created using Jupyter Notebook.</figcaption>
+</figure>
+
+
+If all of your images are in the `images` directory, then you will be able to easily find them. This also follows good file management practices because all of the images that you use in your report are contained within your project directory.
 
 <div class="notice--info" markdown="1">
 
@@ -196,5 +207,3 @@ If all of your images are in your images directory, then you will be able to eas
 * <a href="https://guides.github.com/features/mastering-markdown/" target="_blank">GitHub Guide on Markdown</a>
 * <a href="http://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Working%20With%20Markdown%20Cells.html" target="_blank"> Jupyter Notebook Markdown Resources</a>
 </div>
-
-
