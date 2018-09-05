@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-04
+modified: 2018-09-05
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/classify-plot-raster-data-in-python/
@@ -97,13 +97,18 @@ To begin, open the `lidar_chm.tif` file that you created in the previous lesson.
 
 {:.input}
 ```python
-# open raster data
-with rio.open('data/colorado-flood/spatial/outputs/lidar_chm.tiff') as lidar_chm:
-    lidar_chm_im = lidar_chm.read(1, masked=True)
+dtm_path = 'data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif'
+dsm_path = 'data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DSM.tif'
+with rio.open(dtm_path) as src:
+    lidar_dtm_im = src.read(1, masked=True)
+    spatial_extent = plotting_extent(src)
+    
+with rio.open(dsm_path) as src:
+    lidar_dsm_im = src.read(1, masked=True)
+    spatial_extent = plotting_extent(src)
 
-# get spatial extent for plotting
-bounds = plotting_extent(lidar_chm)
-bounds
+lidar_chm_im = lidar_dsm_im - lidar_dtm_im
+lidar_chm_im
 ```
 
 {:.output}
@@ -111,7 +116,23 @@ bounds
 
 
 
-    (472000.0, 476000.0, 4434000.0, 4436000.0)
+    masked_array(data =
+     [[-- -- -- ..., 0.0 0.1700439453125 0.9600830078125]
+     [-- -- -- ..., 0.0 0.090087890625 1.6400146484375]
+     [-- -- -- ..., 0.0 0.0 0.0799560546875]
+     ..., 
+     [-- -- -- ..., 0.0 0.0 0.0]
+     [-- -- -- ..., 0.0 0.0 0.0]
+     [-- -- -- ..., 0.0 0.0 0.0]],
+                 mask =
+     [[ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     ..., 
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]],
+           fill_value = -3.40282e+38)
 
 
 
@@ -152,11 +173,14 @@ the distribution of values found in your data.
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(8,8))
-lidar_chm_hist = lidar_chm_im.ravel()
-ax.hist(lidar_chm_hist, color='purple', edgecolor='white')
+
+ax.hist(lidar_chm_im.ravel(), 
+        color='purple', 
+        edgecolor='white')
 ax.set_title("Distribution of Raster Cell Values in the CHM Data",
              fontsize = 16)
-ax.set(xlabel="Height (m)", ylabel="Number of Pixels");
+ax.set(xlabel="Height (m)", 
+       ylabel="Number of Pixels");
 ```
 
 {:.output}
@@ -171,7 +195,7 @@ ax.set(xlabel="Height (m)", ylabel="Number of Pixels");
 
 
 
-### Exploring Raster Histograms
+### Explore Raster Histograms
 
 Further explore your histogram, by constraining the x axis limits using the
 `xlim` and `ylim` arguments. The lims arguments visually zooms in on the data in the plot. It does not modify the data.
@@ -346,10 +370,10 @@ locations!
 Notice in the matrix below that you use `Inf` to represent the largest or max value
 found in the raster. So our assignment is as follows:
 
-* 0 - 2 meters -> NA
-* 2 - 7 meters -> 1 (short trees)
-* 7 - 12 meters -> 2 (medium trees)
-* `>` 12 or 12 - Inf -> 3 (tall trees)
+* 0 - 2 meters -> 1
+* 2 - 7 meters -> 2 (short trees)
+* 7 - 12 meters -> 3 (medium trees)
+* `>` 12 or 12 - Inf -> 4 (tall trees)
 
 Let's create the matrix!
 
@@ -365,16 +389,13 @@ Instead, `digitize` will replace each datapoint with an integer corresponding to
 {:.input}
 ```python
 # Define bins that you want, and then classify the data
-class_bins = [0, 2, 7, 12, np.inf]
+class_bins = [lidar_chm_im.min(), 2, 7, 12, np.inf]
 
 # You'll classify the original image array, then unravel it again for plotting
-# Set all `nans` to 0, so that they will be classified correctly
-#lidar_chm_im[np.isnan(lidar_chm_im)] = 0
 lidar_chm_im_class = np.digitize(lidar_chm_im, class_bins)
-classes = lidar_chm_im_class.ravel()
 
-# Note that there will be 1 fewer classes than there are items in your bin edges
-print(np.unique(classes))
+# Note that you have an extra class in the data
+print(np.unique(lidar_chm_im_class))
 ```
 
 {:.output}
@@ -384,8 +405,66 @@ print(np.unique(classes))
 
 {:.input}
 ```python
+type(lidar_chm_im_class)
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    numpy.ndarray
+
+
+
+
+
+After running the classification you have one extra class. This class - the first class - is your missing data value. Your classified array output is also a regular (not a masked) array. 
+You can reassign the first class in your data to a mask using `np.ma.masked_where()`.
+
+{:.input}
+```python
+# you can turn your data into a masked array if you want
+lidar_chm_class_ma = np.ma.masked_where(lidar_chm_im_class == 0 , 
+                              lidar_chm_im_class, 
+                              copy=True)
+lidar_chm_class_ma
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    masked_array(data =
+     [[-- -- -- ..., 1 1 1]
+     [-- -- -- ..., 1 1 1]
+     [-- -- -- ..., 1 1 1]
+     ..., 
+     [-- -- -- ..., 1 1 1]
+     [-- -- -- ..., 1 1 1]
+     [-- -- -- ..., 1 1 1]],
+                 mask =
+     [[ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     ..., 
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]],
+           fill_value = 999999)
+
+
+
+
+
+Below you plot the data. 
+
+{:.input}
+```python
+# plot newly classified and masked raster
 fig, ax = plt.subplots()
-ax.imshow(lidar_chm_im_class);
+ax.imshow(lidar_chm_class_ma);
 ```
 
 {:.output}
@@ -393,25 +472,43 @@ ax.imshow(lidar_chm_im_class);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_21_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_25_0.png">
 
 </figure>
 
 
 
 
-Then, finally you can plot your raster. Notice the colors that I selected are not ideal! You can pick better colors for your plot.
+Below the raster is plotted with slightly improved colors
 
 {:.input}
 ```python
-# plot data
-colors = ['linen', 'lightgreen', 'darkgreen']
+np.unique(lidar_chm_class_ma)
+```
 
-cmap = ListedColormap(['w'] + colors)
+{:.output}
+{:.execute_result}
+
+
+
+    masked_array(data = [1 2 3 4 --],
+                 mask = [False False False False  True],
+           fill_value = 999999)
+
+
+
+
+
+{:.input}
+```python
+# plot data using nicer colors
+colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']
+
+cmap = ListedColormap(colors)
 norm = BoundaryNorm(class_bins, len(colors))
 
 fig, ax = plt.subplots(figsize=(10, 10))
-ax.imshow(lidar_chm_im_class, 
+ax.imshow(lidar_chm_class_ma, 
           cmap=cmap)
 ax.set_title("Classified Canopy Height Model");
 ```
@@ -421,7 +518,7 @@ ax.set_title("Classified Canopy Height Model");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_23_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_28_0.png">
 
 </figure>
 
@@ -437,7 +534,7 @@ Finally, clean up our plot legend. Given you have discrete values you will creat
 ```python
 # create objects to use in the legend
 # this includes the colored boxes and the appropriate labels
-height_class_labels = ["short trees", "medium trees", "tall trees"]
+height_class_labels = ["short trees", "less short trees", "medium trees","tall trees"]
 legend_patches = [Patch(color=icolor, label=label)
                   for icolor, label in zip(colors, height_class_labels)]
 
@@ -450,7 +547,7 @@ ax.imshow(lidar_chm_im_class,
 ax.legend(handles=legend_patches,
          facecolor ="white",
          edgecolor = "white",
-         bbox_to_anchor = (1.3,1)) # place legend to the RIGHT of the map
+         bbox_to_anchor = (1.35,1)) # place legend to the RIGHT of the map
 ax.set_axis_off();
 ```
 
@@ -459,7 +556,7 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_25_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_30_0.png">
 
 </figure>
 
