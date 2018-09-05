@@ -3,7 +3,7 @@ layout: single
 title: 'Measure Changes in the Terrain Caused by a Flood Using Lidar Data'
 excerpt: "A flood event often changes the terrain as water moves sediment and debris across the landscape. Learn how terrain changes are measured using lidar remote sensing data."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-08-07
+modified: 2018-09-04
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/measure-changes-in-terrain-caused-by-floods/
@@ -127,7 +127,7 @@ plt.ion()
 
 While the above DEMs look almost identical visually, they can be used to create another model that is more useful for the purpose of studying flood impacts, a Digital Elevation Model of Difference (DoD). A DoD is created by subtracting one DTM from the other and shows the change that occurred in a given location during over a certain period of time.
 
-The DoD created with the Four Mile Canyon Creek DTMs is below. Areas in red have a lower elevation after the flood, in other words they have experienced erosion. Areas in blue have a higher elevation after the flood and have experience sedimentation.
+The DoD created with the Four Mile Canyon Creek DTMs is below. Areas in purple have a lower elevation after the flood, in other words they have experienced erosion. Areas in green have a higher elevation after the flood and have experience sedimentation.
 
 
 

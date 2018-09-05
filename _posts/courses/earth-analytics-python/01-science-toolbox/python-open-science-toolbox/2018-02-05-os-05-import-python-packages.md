@@ -3,7 +3,7 @@ layout: single
 title: 'Install and Import Python Packages'
 excerpt: 'This tutorial walks you through how to install and import python packages.'
 authors: ['Martha Morrissey','Leah Wasser', 'Software Carpentry']
-modified: 2018-08-07
+modified: 2018-09-04
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/install-and-import-python-packages/ 
@@ -63,13 +63,13 @@ There are three main python package repositories to download python libraries fr
 Sometimes python libraries are on github. You can install python libraries from github using `pip install git+git://github.com/path-to-github-user/repo-name.git`
 {: .notice--success}
 
-It’s good practice to download as many packages as possible from the same repository. For example is you use pip to install geopandas and then try to install shapely from conda-forge, the odds of conflicts increase. When you encounter these conflicts, often you will not be able to load the libraries and start coding. Conflicts between package dependencies can thus be frustrating when all you want to do is start coding and instead you need to figure out how to properly install a library.  
+It’s good practice to download as many packages as possible from the same repository. For example, if you use pip to install geopandas and then try to install shapely from conda-forge, the odds of conflicts increase. When you encounter these conflicts, often you will not be able to load the libraries and start coding. Conflicts between package dependencies can thus be frustrating when all you want to do is start coding and instead you need to figure out how to properly install a library.  
 
 For consistency, in this course you will download most libraries from the **conda-forge** repository.
 
 ### Install a Package In a Python Environment
 
-You can add as many packages as you want to a Python environment. However, it is important to keep track of what environment you are adding the package to. If you add a the geopandas python package to your root python environment and then try to use geopandas in another environment, it won’t work! 
+You can add as many packages as you want to a Python environment. However, it is important to keep track of what environment you are adding the package to. If you add the geopandas python package to your root python environment and then try to use geopandas in another environment, it won’t work! 
 
 To add a package you need to complete the following steps:
 1. Open a terminal so you have access to the command line.

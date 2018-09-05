@@ -3,8 +3,8 @@ layout: single
 category: courses
 title: "Get Started with Data in Python / Jupyter Notebooks"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
-modified: 2018-09-04
 week-landing: 1
+modified: 2018-09-05
 week: 1
 sidebar:
   nav:
@@ -89,7 +89,7 @@ You will be behind if these things are not setup / complete before next week.
 
 You have two options to complete activities assigned in this course. 
 
-1. You can chose to either work on the assignments locally on your computer. 
+1. You can choose to either work on the assignments locally on your computer. 
 
 <a href= "https://www.earthdatascience.org/workshops/setup-earth-analytics-python/">Setup Earth Analytics Python Environment on Your Laptop</a>
 
