@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-04
+modified: 2018-09-06
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/
@@ -96,10 +96,9 @@ sns.set(font_scale=1.5)
 sns.set_style("white")
 ```
 
-Note that you import the `rasterio` library using the shortname `rio`.
-You use the `rio.open("path-to-raster-here")` function to open a raster dataset using `rio` in `Python`.
-Note that you use the `plot()` function to plot the data. The function argument `title = "Plot title here"` adds a title to the plot.
+Note that you imported the `rasterio` library using the shortname `rio`.
 
+Now, you can use the `rio.open("path-to-raster-here")` function to open a raster dataset.
 
 {:.input}
 ```python
@@ -107,10 +106,13 @@ Note that you use the `plot()` function to plot the data. The function argument 
 lidar_dem = rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif')
 ```
 
-You can quickly plot the raster using the `rasterio` function,  `show()`.
+To check your data, you can query the spatial extent of the data using the attribute `.bounds`. 
+
+You can also quickly plot the raster using the `rasterio` function called `show()`. The function argument `title = "Plot title here"` adds a title to the plot.
 
 {:.input}
 ```python
+# query the spatial extent of the data
 lidar_dem.bounds
 ```
 
