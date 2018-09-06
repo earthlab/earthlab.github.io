@@ -89,6 +89,7 @@ plt.rcParams['figure.figsize'] = (8, 8)
 # prettier plotting with seaborn
 import seaborn as sns; 
 sns.set(font_scale=1.5)
+sns.set_style("whitegrid")
 
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
@@ -209,7 +210,7 @@ You could also set `bins = 100` or some other arbitrary number if you wish.
 {:.input}
 ```python
 # histogram
-fig, ax = plt.subplots(figsize = (14,14))
+fig, ax = plt.subplots(figsize = (10,10))
 xlim = [0, 25]
 ax.hist(lidar_chm_im.ravel(), 
         color='purple', edgecolor='white', range=xlim,
@@ -291,7 +292,7 @@ Next, customize your histogram with breaks that you think might make sense as br
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(14,14))
-ax.hist(lidar_chm_hist, color='purple', 
+ax.hist(lidar_chm_im.ravel(), color='purple', 
         edgecolor='white', 
         bins=[0, 5, 10, 15, 20, 30])
 ax.set(title="Histogram with Custom Breaks",
@@ -299,29 +300,11 @@ ax.set(title="Histogram with Custom Breaks",
 ```
 
 {:.output}
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-13-7e44a8bef0dd> in <module>()
-          1 fig, ax = plt.subplots(figsize=(14,14))
-    ----> 2 ax.hist(lidar_chm_hist, color='purple', 
-          3         edgecolor='white',
-          4         bins=[0, 5, 10, 15, 20, 30])
-          5 ax.set(title="Histogram with Custom Breaks",
-
-
-    NameError: name 'lidar_chm_hist' is not defined
-
-
-
-{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_15_1.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_15_0.png">
 
 </figure>
 
@@ -343,7 +326,7 @@ Below following breaks are used:
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(14,14))
-ax.hist(lidar_chm_hist, 
+ax.hist(lidar_chm_im.ravel(), 
         color='purple', 
         edgecolor='white', 
         bins=[0, 2, 7, 12, 30])
@@ -351,6 +334,18 @@ ax.set(title="Histogram with Custom Breaks",
        xlabel="Height (m)", 
        ylabel="Number of Pixels");
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_17_0.png">
+
+</figure>
+
+
+
 
 You may want to play around with the setting specific bins associated with your science question and the study area. Regardless, let's use the classes above to
 reclassify our CHM raster.
@@ -444,6 +439,17 @@ print(np.unique(lidar_chm_im_class))
 type(lidar_chm_im_class)
 ```
 
+{:.output}
+{:.execute_result}
+
+
+
+    numpy.ndarray
+
+
+
+
+
 After running the classification you have one extra class. This class - the first class - is your missing data value. Your classified array output is also a regular (not a masked) array. 
 You can reassign the first class in your data to a mask using `np.ma.masked_where()`.
 
@@ -456,14 +462,55 @@ lidar_chm_class_ma = np.ma.masked_where(lidar_chm_im_class == 0 ,
 lidar_chm_class_ma
 ```
 
+{:.output}
+{:.execute_result}
+
+
+
+    masked_array(data =
+     [[-- -- -- ..., 1 1 1]
+     [-- -- -- ..., 1 1 1]
+     [-- -- -- ..., 1 1 1]
+     ..., 
+     [-- -- -- ..., 1 1 1]
+     [-- -- -- ..., 1 1 1]
+     [-- -- -- ..., 1 1 1]],
+                 mask =
+     [[ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     ..., 
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]
+     [ True  True  True ..., False False False]],
+           fill_value = 999999)
+
+
+
+
+
 Below you plot the data. 
 
 {:.input}
 ```python
+# a cleaner style for raster plots
+sns.set_style("white")
 # plot newly classified and masked raster
 fig, ax = plt.subplots()
 ax.imshow(lidar_chm_class_ma);
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_27_0.png">
+
+</figure>
+
+
+
 
 Below the raster is plotted with slightly improved colors
 
@@ -471,6 +518,19 @@ Below the raster is plotted with slightly improved colors
 ```python
 np.unique(lidar_chm_class_ma)
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    masked_array(data = [1 2 3 4 --],
+                 mask = [False False False False  True],
+           fill_value = 999999)
+
+
+
+
 
 {:.input}
 ```python
@@ -485,6 +545,18 @@ ax.imshow(lidar_chm_class_ma,
           cmap=cmap)
 ax.set_title("Classified Canopy Height Model");
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_30_0.png">
+
+</figure>
+
+
+
 
 ## Add Custom Legend
 The plot looks OK but the legend doesn't represent the data well. The legend is continuous - with a range between 0 and 3. However you want to plot the data using discrete bins.
@@ -511,6 +583,18 @@ ax.legend(handles=legend_patches,
          bbox_to_anchor = (1.35,1)) # place legend to the RIGHT of the map
 ax.set_axis_off();
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_32_0.png">
+
+</figure>
+
+
+
 
 <div class="notice--warning" markdown="1">
 
