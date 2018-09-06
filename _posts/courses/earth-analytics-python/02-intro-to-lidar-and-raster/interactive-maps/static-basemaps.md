@@ -3,7 +3,7 @@ layout: single
 title: "Static Basemaps in Python"
 excerpt: "This lesson covers creating static basemaps in Python"
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-04
+modified: 2018-09-06
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/static-basemaps/

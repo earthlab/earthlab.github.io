@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-05
+modified: 2018-09-06
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/classify-plot-raster-data-in-python/
@@ -89,6 +89,7 @@ plt.rcParams['figure.figsize'] = (8, 8)
 # prettier plotting with seaborn
 import seaborn as sns; 
 sns.set(font_scale=1.5)
+sns.set_style("whitegrid")
 
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
@@ -209,7 +210,7 @@ You could also set `bins = 100` or some other arbitrary number if you wish.
 {:.input}
 ```python
 # histogram
-fig, ax = plt.subplots(figsize = (14,14))
+fig, ax = plt.subplots(figsize = (10,10))
 xlim = [0, 25]
 ax.hist(lidar_chm_im.ravel(), 
         color='purple', edgecolor='white', range=xlim,
@@ -291,7 +292,7 @@ Next, customize your histogram with breaks that you think might make sense as br
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(14,14))
-ax.hist(lidar_chm_hist, color='purple', 
+ax.hist(lidar_chm_im.ravel(), color='purple', 
         edgecolor='white', 
         bins=[0, 5, 10, 15, 20, 30])
 ax.set(title="Histogram with Custom Breaks",
@@ -325,7 +326,7 @@ Below following breaks are used:
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(14,14))
-ax.hist(lidar_chm_hist, 
+ax.hist(lidar_chm_im.ravel(), 
         color='purple', 
         edgecolor='white', 
         bins=[0, 2, 7, 12, 30])
@@ -384,7 +385,37 @@ Let's create the matrix!
 ### `np.digitize`
 Numpy has a function called `digitize` that is useful for classifying the values in an array. It is similar to how `histogram` works, because it categorizes datapoints into bins. However, unlike `histogram`, it doesn't aggregate/count the number of values within each bin.
 
-Instead, `digitize` will replace each datapoint with an integer corresponding to which bin it belongs to. You can use this to determine which datapoints fall within certain ranges.
+Instead, `digitize` will replace each datapoint with an integer corresponding to which bin it belongs to. You can use this to determine which datapoints fall within certain ranges. When you use `np.digitize`, the bins that you create work as following
+
+* The starting value by default is included in each bin. The ending value of the bin is not and will be the beginning of the next bin. You can add the argument `right = True` if the want the second value in the bin to be included by not the first. 
+* Any values BELOW the bins as defined will be assigned a `0`. Any values ABOVE the highest value in your bins will be assigned the next value available. Thus if you have
+
+`class_bins = [0, 2, 7, 12, 30]`
+
+Any values that are equal to 30 or larger will be assigned a value of `5`. Any values that are `< 0` will be assigned a value of `0`.
+
+You can use `np.inf` in your array to tell python to include all values greater than the last value.
+You can use `-np.inf` in your array to tell python to include all values less than the first value.
+
+
+
+{:.input}
+```python
+lidar_chm_im.fill_value
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    -3.4028231e+38
+
+
+
+
+
+Below you define 4 bins. However you end up with a `fifth class == 0` which represents values smaller than `0` which is the minimum value in your chm. These values <0 come from the `numpy` mask fill value which you can see identified above this text.
 
 {:.input}
 ```python
@@ -394,7 +425,7 @@ class_bins = [lidar_chm_im.min(), 2, 7, 12, np.inf]
 # You'll classify the original image array, then unravel it again for plotting
 lidar_chm_im_class = np.digitize(lidar_chm_im, class_bins)
 
-# Note that you have an extra class in the data
+# Note that you have an extra class in the data (0)
 print(np.unique(lidar_chm_im_class))
 ```
 
@@ -462,6 +493,8 @@ Below you plot the data.
 
 {:.input}
 ```python
+# a cleaner style for raster plots
+sns.set_style("white")
 # plot newly classified and masked raster
 fig, ax = plt.subplots()
 ax.imshow(lidar_chm_class_ma);
@@ -472,7 +505,7 @@ ax.imshow(lidar_chm_class_ma);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_25_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_27_0.png">
 
 </figure>
 
@@ -518,7 +551,7 @@ ax.set_title("Classified Canopy Height Model");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_28_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_30_0.png">
 
 </figure>
 
@@ -556,7 +589,7 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_30_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_32_0.png">
 
 </figure>
 

@@ -3,7 +3,7 @@ layout: single
 title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']
-modified: 2018-09-04
+modified: 2018-09-06
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/crop-raster-data-with-shapefile-in-python/
@@ -95,6 +95,7 @@ Next, you will use `rio.open()` to open a raster layer. Open and plot the canopy
 with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/outputs/lidar_chm.tif") as lidar_chm:
     lidar_chm_im = lidar_chm.read(1, masked = True)
     lidar_chm_meta = lidar_chm.profile
+    spatial_extent = plotting_extent(lidar_chm)
     
 # plot the data
 fig, ax = plt.subplots(figsize=(10,8))
@@ -184,7 +185,7 @@ Now that you have imported the shapefile. You can use the `crop_extent` function
 ```python
 fig, ax = plt.subplots(figsize = (10,8))
 ax.imshow(lidar_chm_im, cmap='terrain', 
-          extent=plotting_extent(lidar_chm))
+          extent = plotting_extent(lidar_chm))
 crop_extent.plot(ax=ax, alpha=.8)
 ax.set_title("Raster Layer with Shapefile Overlayed")
 ax.set_axis_off();
@@ -207,45 +208,7 @@ ax.set_axis_off();
 crop_bounds = crop_extent.total_bounds
 ```
 
-{:.input}
-```python
-fig, ax = plt.subplots()
-im = ax.imshow(lidar_chm_im, cmap='terrain', extent=bounds)
-ax.set(xlim=[crop_bounds[0], crop_bounds[2]], ylim=[crop_bounds[1], crop_bounds[3]])
-crop_extent.plot(ax=ax, 
-                 linewidth=3, 
-                 alpha=.5);
-```
-
-{:.output}
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-12-566e7048f34b> in <module>()
-          1 fig, ax = plt.subplots()
-    ----> 2 im = ax.imshow(lidar_chm_im, cmap='terrain', extent=bounds)
-          3 ax.set(xlim=[crop_bounds[0], crop_bounds[2]], ylim=[crop_bounds[1], crop_bounds[3]])
-          4 crop_extent.plot(ax=ax, 
-          5                  linewidth=3,
-
-
-    NameError: name 'bounds' is not defined
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_14_1.png">
-
-</figure>
-
-
-
+## Crop Data Using the Mask Function
 
 If you want to crop the data itself, rather than simply to draw a smaller area in the vizualization, you can use the `mask` function in `rasterio`. When you crop the data, you can then export it and share it with colleagues. Or use it in another analysis.
 
@@ -285,19 +248,54 @@ Once you have created this object, you are ready to crop your data.
 {:.input}
 ```python
 with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/outputs/lidar_chm.tif") as lidar_chm:
-    lidar_chm_crop, lidar_chm_crop_affine = mask(lidar_chm, [extent_geojson], crop=True)
+    lidar_chm_crop, lidar_chm_crop_affine = mask(lidar_chm, 
+                                                 [extent_geojson], 
+                                                 crop=True)
 ```
 
 Finally, plot the cropped data. Does it look correct?
 
 {:.input}
 ```python
+# create spatial extent from the clipping layer
+cropped_spatial_extent = [crop_bounds[0], crop_bounds[2],crop_bounds[1], crop_bounds[3]]
+
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (array([  472510.46511628,  4434000.        ,   476010.46511628,  4436000.        ]),
+     [472510.46511627914, 476010.46511627914, 4434000.0, 4436000.0])
+
+
+
+
+
+{:.input}
+```python
 # plot your data 
 fig, ax = plt.subplots(figsize = (10,8))
-ax.imshow(lidar_chm_crop[0], extent=bounds)
+ax.imshow(lidar_chm_crop[0], 
+          extent=cropped_spatial_extent,
+         cmap = 'Greys')
 ax.set_title("Cropped Raster Dataset")
 ax.set_axis_off()
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_20_0.png">
+
+</figure>
+
+
+
 
 ## Export Newly Cropped Raster
 
@@ -319,18 +317,6 @@ lidar_chm_meta.update({'transform': lidar_chm_crop_affine,
                       'nodata': -999.99})
 lidar_chm_meta
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    {'driver': 'GTiff', 'dtype': 'float64', 'nodata': -999.99, 'width': 3490, 'height': 2000, 'count': 1, 'crs': CRS({'init': 'epsg:32613'}), 'transform': Affine(1.0, 0.0, 472510.0,
-           0.0, -1.0, 4436000.0), 'tiled': False, 'compress': 'lzw', 'interleave': 'band'}
-
-
-
-
 
 Once you have updated the metadata you can write our your new raster. 
 
