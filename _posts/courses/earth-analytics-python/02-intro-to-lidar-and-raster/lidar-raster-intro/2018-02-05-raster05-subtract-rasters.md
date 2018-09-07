@@ -3,7 +3,7 @@ layout: single
 title: "Subtract One Raster from Another and Export a New Geotiff in Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output. You then want to save that output as a new file. Learn how to subtract rasters and create a new geotiff file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/subtract-rasters-in-python/
@@ -191,7 +191,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_13_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_13_0.png" alt = "A plot of a Lidar derived canopy height model for Lee Hill Road in Boulder, CO.">
+<figcaption>A plot of a Lidar derived canopy height model for Lee Hill Road in Boulder, CO.</figcaption>
 
 </figure>
 
@@ -211,7 +212,8 @@ ax.set_title("Histogram of CHM Values");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_14_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_14_0.png" alt = "A histogram of a Lidar derived canopy height model values for Lee Hill Road in Boulder, CO.">
+<figcaption>A histogram of a Lidar derived canopy height model values for Lee Hill Road in Boulder, CO.</figcaption>
 
 </figure>
 
@@ -254,6 +256,11 @@ else:
     os.makedirs('data/colorado-flood/spatial/outputs')
 ```
 
+{:.output}
+    The directory exists!
+
+
+
 ### Exporting Numpy Arrays to Geotiffs
 
 Next, you need to consider the metdata associated with your chm. Remember that the chm was generated using 2 numpy arrays. Neither of these arrays has spatial data directly associated with it. BUT you do have the rasterio object that has metadata that you can use if you want to assign all of the spatial attributes that are needed to save a usable geotiff file.
@@ -270,6 +277,25 @@ To begin, have a look at the lidar_dem metadata dictionary. Looking at the examp
 ```python
 lidar_dem.meta
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    {'driver': 'GTiff',
+     'dtype': 'float32',
+     'nodata': -3.4028234663852886e+38,
+     'width': 4000,
+     'height': 2000,
+     'count': 1,
+     'crs': CRS({'init': 'epsg:32613'}),
+     'transform': Affine(1.0, 0.0, 472000.0,
+            0.0, -1.0, 4436000.0)}
+
+
+
+
 
 Next, update the `nodata` value. The number being used currently is difficult to remember. A more standard value like `-999.99` could be a better option. To implement this we will do two things
 
@@ -365,8 +391,19 @@ If you want, you can check things like the shape of the numpy array to ensure th
 {:.input}
 ```python
 # note the width and height of the dem above. Is the numpy array shape the same?
-lidar_chm_im.shape
+lidar_chm_im_fi.shape
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (2000, 4000)
+
+
+
+
 
 Finally, you can export your raster layer. Below you do the following
 
@@ -379,7 +416,7 @@ Finally, you can export your raster layer. Below you do the following
 ```python
 out_path = "data/colorado-flood/spatial/outputs/lidar_chm.tiff"
 with rio.open(out_path, 'w', **chm_meta) as outf:
-    outf.write(lidar_chm_im, 1)
+    outf.write(lidar_chm_im_fi, 1)
 ```
 
 <div class="notice--warning" markdown="1">
@@ -395,6 +432,20 @@ Do the following:
 
 Your plot should look like the one below (athough the colors may be different.
 </div>
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster05-subtract-rasters_31_0.png" alt = "Lidar canopy height model derived from the DTM and DSM.">
+<figcaption>Lidar canopy height model derived from the DTM and DSM.</figcaption>
+
+</figure>
+
+
+
 <div class="notice--success" markdown="1">
 
 <i class="fa fa-star" aria-hidden="true"></i> **Data Tip:** You can simplify the directory code above by using the exclamation `not` which tells Python to return the INVERSE or opposite of the function you have requested Python to run.
