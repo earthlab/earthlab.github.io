@@ -3,7 +3,7 @@ layout: single
 title: "Customize Matplotlib Raster Maps in Python"
 excerpt: "Sometimes you want to customize the colorbar and range of values plotted in a raster map. Learn how to create breaks to plot rasters in Python."
 authors: ['Leah Wasser']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/customize-matplotlib-raster-maps/
@@ -129,7 +129,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps03-customize-matplotlib-colorbars-raster_9_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps03-customize-matplotlib-colorbars-raster_9_0.png" alt = "Map of a lidar canopy height model with a custom legend.">
+<figcaption>Map of a lidar canopy height model with a custom legend.</figcaption>
 
 </figure>
 
@@ -164,7 +165,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps03-customize-matplotlib-colorbars-raster_11_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps03-customize-matplotlib-colorbars-raster_11_0.png" alt = "Map of a lidar canopy height model with a custom colorbar legend.">
+<figcaption>Map of a lidar canopy height model with a custom colorbar legend.</figcaption>
 
 </figure>
 
