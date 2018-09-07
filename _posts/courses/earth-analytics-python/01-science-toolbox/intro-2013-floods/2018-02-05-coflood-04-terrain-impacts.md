@@ -3,7 +3,7 @@ layout: single
 title: 'Measure Changes in the Terrain Caused by a Flood Using Lidar Data'
 excerpt: "A flood event often changes the terrain as water moves sediment and debris across the landscape. Learn how terrain changes are measured using lidar remote sensing data."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/measure-changes-in-terrain-caused-by-floods/
@@ -51,7 +51,7 @@ Last week you used Google Earth before and after imagery to view differences in 
  
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/jamestown-home-destroyed-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/jamestown-home-destroyed-colorado-floods.jpg" alt = "Home destroyed by Colorado floods."></a>
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/jamestown-home-destroyed-colorado-floods.jpg" alt = "An emotional couple looks on at a home destroyed by the floods near Jamestown, Colorado.."></a>
  <figcaption>An emotional couple looks on at a home destroyed by the floods near Jamestown, Colorado. Source:<a href="https://www.denverpost.com/2015/09/12/two-years-later-2013-colorado-floods-remain-a-nightmare-for-some/" target="_blank">The Denver Post.</a>
  </figcaption>
 </figure>
@@ -93,30 +93,14 @@ CAPTION: DTMs for Four Mile Canyon Creek in Boulder County, Colorado before and 
 
 
 
-{:.input}
-```python
-import rasterio as rio
-import numpy as np
-import matplotlib.pyplot as plt
-import os
-import earthpy as et
-import geopandas as gpd
-import earthpy.spatial as es
-from matplotlib.colors import ListedColormap
-# set home directory and download data
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-# Force notebooks to plot figures inline (in the notebook)
-plt.ion()
-
-```
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-04-terrain-impacts_3_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-04-terrain-impacts_2_0.png" alt = "Plots of DTMs for Four Mile Canyon Creek in Boulder County, Colorado before and after the 2013 floods.">
+<figcaption>Plots of DTMs for Four Mile Canyon Creek in Boulder County, Colorado before and after the 2013 floods.</figcaption>
 
 </figure>
 
@@ -136,7 +120,8 @@ The DoD created with the Four Mile Canyon Creek DTMs is below. Areas in purple h
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-04-terrain-impacts_5_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-04-terrain-impacts_4_0.png" alt = "Plot of Digital Elevation Model of Difference (DoD) for Four Mile Canyon Creek DTMs.">
+<figcaption>Plot of Digital Elevation Model of Difference (DoD) for Four Mile Canyon Creek DTMs.</figcaption>
 
 </figure>
 
@@ -151,8 +136,8 @@ Below is a cross-section showing the data represented by a DoD. The orange areas
  
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg" alt = "Cross section of DoD."></a>
- <figcaption>A cross section of what is represented in a DoD. Source:<a href="http://neondataskills.org/teaching-modules/disturb-events-co13/detailed-lesson" target="_blank">NEON.</a>
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg" alt = "A cross section of what is represented in a Digital Elevation Model of Difference (DoD)."></a>
+ <figcaption>A cross section of what is represented in a Digital Elevation Model of Difference (DoD). Source:<a href="http://neondataskills.org/teaching-modules/disturb-events-co13/detailed-lesson" target="_blank">NEON.</a>
  </figcaption>
 </figure>
 

@@ -3,7 +3,7 @@ layout: single
 title: 'Introduction to Markdown'
 excerpt: 'This tutorial walks you through how to format text using Markdown.'
 authors: ['Leah Wasser', 'Martha Morrissey', 'Data Carpentry']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-markdown-in-jupyter-notebooks/
