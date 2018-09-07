@@ -3,7 +3,7 @@ layout: single
 title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models - Work With LiDAR Data in Python"
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM)."
 authors: ['Leah Wasser']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['class-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/lidar-chm-dem-dsm/
@@ -93,7 +93,8 @@ ax.set_title("Lidar Digital Elevation Model (DEM)",
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-intro/2018-02-05-lidar03-chm-dtm-dsm_2_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-intro/2018-02-05-lidar03-chm-dtm-dsm_2_0.png" alt = "Raster plot of a lidar DEM.">
+<figcaption>Raster plot of a lidar DEM.</figcaption>
 
 </figure>
 
@@ -109,7 +110,8 @@ Next, let's open the digital surface model (DSM). The DSM represents the top of 
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-intro/2018-02-05-lidar03-chm-dtm-dsm_4_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-intro/2018-02-05-lidar03-chm-dtm-dsm_4_0.png" alt = "Raster plot of a Lidar DSM.">
+<figcaption>Raster plot of a Lidar DSM.</figcaption>
 
 </figure>
 
@@ -132,7 +134,8 @@ You will learn how to subtract rasters in the [subtract raster lesson](/courses/
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-intro/2018-02-05-lidar03-chm-dtm-dsm_6_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-intro/2018-02-05-lidar03-chm-dtm-dsm_6_0.png" alt = "Raster plot of a Lidar canopy height model.">
+<figcaption>Raster plot of a Lidar canopy height model.</figcaption>
 
 </figure>
 
