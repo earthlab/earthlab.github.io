@@ -6,7 +6,7 @@ authors: ['Leah Wasser']
 modified: 2018-09-07
 category: [courses]
 class-lesson: ['hw-lidar']
-permalink: /courses/earth-analytics-python/lidar-raster-data/overlay-raster-maps
+permalink: /courses/earth-analytics-python/lidar-raster-data/overlay-raster-maps/
 nav-title: 'Overlay Rasters'
 module-title: 'hw-lidar'
 module-description: 'This module covers how overlay rasters to create visualizations and how to make interactive plots.'
