@@ -5,10 +5,10 @@ excerpt: "This activity provides an opportunity to practice working with commonl
 authors: ['Jenny Palomino']
 category: [courses]
 class-lesson: ['practice-data-structures']
-permalink: /courses/earth-analytics-bootcamp/practice-data-structures/activity-data-structures
+permalink: /courses/earth-analytics-bootcamp/practice-data-structures/activity-data-structures/
 nav-title: "Activity on Data Structures"
 dateCreated: 2018-07-23
-modified: 2018-08-13
+modified: 2018-09-07
 module-title: 'Practice Working With Data Structures'
 module-nav-title: 'Practice Working With Data Structures'
 module-description: 'This tutorial provides an opportunity to practice working with commonly used Python data structures for scientific data: lists, numpy arrays, and pandas dataframes.'
