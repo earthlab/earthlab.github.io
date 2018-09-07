@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Lidar Raster Data in Python"
 permalink: /courses/earth-analytics-python/lidar-raster-data/
-modified: 2018-09-06
+modified: 2018-09-07
 week-landing: 3
 week: 2
 sidebar:
@@ -85,7 +85,8 @@ Note that your plot may have some variation if you select different classificati
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_4_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_4_0.png" alt = "Difference Plot: Canopy Height Model post flood minus pre flood.">
+<figcaption>Difference Plot: Canopy Height Model post flood minus pre flood.</figcaption>
 
 </figure>
 
@@ -98,7 +99,8 @@ Note that your plot may have some variation if you select different classificati
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_5_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_5_0.png" alt = "Canopy Height Model Different - Raster plot.">
+<figcaption>Canopy Height Model Different - Raster plot.</figcaption>
 
 </figure>
 
@@ -111,7 +113,8 @@ Note that your plot may have some variation if you select different classificati
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_6_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_6_0.png" alt = "Histogram of the DTM different raster.">
+<figcaption>Histogram of the DTM different raster.</figcaption>
 
 </figure>
 
@@ -124,7 +127,8 @@ Note that your plot may have some variation if you select different classificati
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_7_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_7_0.png" alt = "Plot of classified pre/post DTM difference raster.">
+<figcaption>Plot of classified pre/post DTM difference raster.</figcaption>
 
 </figure>
 
