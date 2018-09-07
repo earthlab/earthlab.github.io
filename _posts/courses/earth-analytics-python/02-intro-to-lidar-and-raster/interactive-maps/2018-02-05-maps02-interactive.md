@@ -18,7 +18,7 @@ order: 2
 topics:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis:
-  reproducible-science-and-programming: ['jupyter-notebooks']
+  reproducible-science-and-programming: ['jupyter-notebook']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}

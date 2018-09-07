@@ -16,7 +16,7 @@ comments: true
 order: 4
 course: "earth-analytics-python"
 topics:
-   open-science: ['jupyter-notebooks']
+   open-science: ['jupyter-notebook']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
