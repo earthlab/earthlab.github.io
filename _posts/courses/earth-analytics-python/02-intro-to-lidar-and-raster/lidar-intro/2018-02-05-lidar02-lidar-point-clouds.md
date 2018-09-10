@@ -4,7 +4,7 @@ title: "Get to know Lidar (Light Detection and Ranging) Point Cloud Data - Activ
 excerpt: "This lesson covers what a lidar point cloud is. You will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['class-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/explore-lidar-point-clouds-plasio/

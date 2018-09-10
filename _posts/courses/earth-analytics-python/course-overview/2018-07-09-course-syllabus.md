@@ -63,14 +63,12 @@ remotely using ZOOM. Please visit D2L to access the zoom link.
 
 <a href="http://www.colorado.edu/oit/services/conferencing-services/web-conferencing-zoom" target="_blank">Click here to get help getting Zoom up and running</a>
 
-## Get Help - Piazza Online Forums
+## Get Help - Canvas Discussion Forums
 
 There are several ways that you can get help when you get stuck in this class.
 
 1. Attend the scheduled office hours.
-2. Post your question on  <a href="piazza.com/colorado/fall2018/earthanalyticspythonfall2018/home" target="_blank">Piazza  - Earth Analytics </a>.
-
-Read more about how to use Piazza lower down on this page.
+2. Post your question on Canvas in the respective week x - homework questions discussion
 
 #### Textbook
 There is no required textbook for this course. You will learn about each topic 
@@ -152,22 +150,10 @@ issues with the course website, or issues with R, please
 1. See if the question has already been asked on Piazza
 2. If the question hasn't already been asked, please **post your question to PIAZZA**.
 
-### About Piazza
 
-This semester you will use Piazza for class discussion. Piazza will help you
-get help faster and more efficiently from classmates, the class TA, and
-myself. Rather than emailing questions to us, post your questions on Piazza.
+## Canvas Discussion Post Rules
 
-Find our class page at: <a href="piazza.com/colorado/fall2018/earthanalyticspythonfall2018/home" target="_blank">PIAZZA </a>
-
-1. To get started, be sure to create an account with piazza. You will use this tool
-on the first day of class so please do this ahead of time.
-2. You should have received an invitation to join our piazza earth-analytics space. If you didn't, please email the instructor or the course TA to get access.
-
-
-### Piazza Rules
-
-It is important that you follow the course guidelines when posting to Piazza.
+It is important that you follow the course guidelines when posting to Canvas.
 
 Do:
 
@@ -181,14 +167,14 @@ Do not:
 
 * Post any content that is in any way offensive or that violates University codes of conduct (see links below)
 * Post explicit solutions to homework assignments (help each other out but don't post the answer)
-* Post an entire `.Rmd` document on Piazza - rather post a small snippet of code that is causing problems and the associated code error
+* Post an entire `.ipynb` document on Piazza - rather post a small snippet of code that is causing problems and the associated code error
 
 When posting questions about coding issues to Piazza, please do your best to
 provide an example of the specific code error that you are encountering.
 
 Example. The code
 
-`read.cs("filename")`
+`read.csv("filename")`
 
 returns this error:
 
@@ -214,9 +200,9 @@ to participate in many activities remotely using the Piazza forum.
 Course participation will be evaluated as a part of this course. Your course
 participation grade is calculated using a combination of
 
-1. Answering questions posted by students on the <a href="https://piazza.com/colorado/fall2017/earthanalytics/home" target="_blank"> Piazza</a> forum
+1. Answering questions posted by students in the Canvas Discussions
 2. Participation in discussions and group work in class
-3. Identifying issues with the course website and posting them on <a href="https://piazza.com/colorado/fall2017/earthanalytics/home" target="_blank"> Piazza</a>
+3. Identifying issues with the course website and posting them on Canvas 
 
 ### Classroom Behavior
 

@@ -3,7 +3,7 @@ layout: single
 title: 'Use Google Earth Time Series Images to Explore Flood Impacts'
 excerpt: "Learn how to use the time series feature in Google Earth to view before and after images of a location."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/
@@ -62,7 +62,7 @@ the Front Range in Colorado, USA.
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg">
- <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg" alt="North St Vrain before and after 2013 flood."></a>
+ <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/st-vrain-creek-before-and-after-colorado-floods.jpg" alt="North St Vrain River before and after 2013 flood."></a>
  <figcaption> The St. Vrain River in Boulder County, CO after (left) and before
  (right) the 2013 flooding event.  Source: Boulder County via <a href="http://krcc.org/post/post-flood-planning-boulder-county" target="_blank"> KRCC</a>.
  </figcaption>
@@ -97,10 +97,8 @@ Boulder, Colorado. If it doesn't double click on the text `Locations of Signific
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/document-your-science/intro-co-floods/google-earth-time.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/document-your-science/intro-co-floods/google-earth-time.png" alt="google earth time series feature."></a>
- <figcaption> The `show historical imagery` button allows you to turn on and slide
- through imagery from various points in time within Google Earth. It is the button
- outlined in pink in the above imaged.
+ <img src="{{ site.url }}/images/courses/earth-analytics/document-your-science/intro-co-floods/google-earth-time.png" alt="The show historical imagery button allows you to turn on and slide through imagery from various points in time within Google Earth. It is the button outlined in pink in the image above."></a>
+ <figcaption> The `show historical imagery` button allows you to turn on and slide through imagery from various points in time within Google Earth. It is the button outlined in pink in the image above.
  </figcaption>
 </figure>
 

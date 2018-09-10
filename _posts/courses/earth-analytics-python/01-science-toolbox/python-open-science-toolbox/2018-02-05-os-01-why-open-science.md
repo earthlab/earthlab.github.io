@@ -22,7 +22,7 @@ author_profile: false
 comments: true
 order: 1
 topics:
-  reproducible-science-and-programming: ['python', 'jupyter-notebooks']
+  reproducible-science-and-programming: ['python', 'jupyter-notebook']
 ---
 
 

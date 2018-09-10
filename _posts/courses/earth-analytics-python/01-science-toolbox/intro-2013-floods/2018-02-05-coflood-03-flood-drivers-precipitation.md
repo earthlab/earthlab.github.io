@@ -3,7 +3,7 @@ layout: single
 title: 'Rain: a Driver of the 2013 Colorado Floods'
 excerpt: "The amount and/or duration of rainfall can impact how severe a flood is. Learn how rainfall is measured and used to understand flood impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/how-rain-impacts-floods/
@@ -92,7 +92,8 @@ The figure below shows the total precipitation each month from 1948 to 2013 for 
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_2_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_2_0.png" alt = "Plot of total precipitation each month from 1948 to 2013 for a National Weather Service COOP site located in Boulder, CO.">
+<figcaption>Plot of total precipitation each month from 1948 to 2013 for a National Weather Service COOP site located in Boulder, CO.</figcaption>
 
 </figure>
 
@@ -110,7 +111,8 @@ Within this 65 years of data, you can see that there is a jump in the amount of 
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_4_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_4_0.png" alt = "Plot of total daily precipitation from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.">
+<figcaption>Plot of total daily precipitation from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.</figcaption>
 
 </figure>
 
@@ -152,7 +154,8 @@ The daily average data for the stream gauge along Boulder Creek, five miles down
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_6_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation_6_0.png" alt = "Plot of Daily Average Stream Discharge (CFS) for Boulder Creek from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.">
+<figcaption>Plot of Daily Average Stream Discharge (CFS) for Boulder Creek from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.</figcaption>
 
 </figure>
 

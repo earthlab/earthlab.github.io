@@ -3,7 +3,7 @@ layout: single
 title: "Interactive Maps in Python"
 excerpt: "This lesson covers creating interactive maps with Python in Jupyter Notebook."
 authors: ['Leah Wasser', 'Martha Morrissey', 'Carson Farmer',  'Max Joseph']
-modified: 2018-09-06
+modified: 2018-09-07
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/interactive-maps/
@@ -18,7 +18,7 @@ order: 2
 topics:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis:
-  reproducible-science-and-programming: ['jupyter-notebooks']
+  reproducible-science-and-programming: ['jupyter-notebook']
 ---
 
 {% include toc title="In This Lesson" icon="file-text" %}
