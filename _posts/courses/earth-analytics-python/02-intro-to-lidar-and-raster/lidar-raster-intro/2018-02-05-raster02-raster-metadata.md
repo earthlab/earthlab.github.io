@@ -41,13 +41,6 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-
-{:.output}
-    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
-      return f(*args, **kwds)
-
-
-
 You will learn about three important spatial attributes associated with raster data that in this lesson:  Coordinate Reference Systems, resolution, and spatial extent. 
 
 ## 1. Coordinate Reference System
