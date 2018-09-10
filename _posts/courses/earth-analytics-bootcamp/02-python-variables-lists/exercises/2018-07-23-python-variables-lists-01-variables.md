@@ -1,15 +1,15 @@
 ---
 layout: single
 title: 'Variables in Python'
-excerpt: "Variables store data (i.e. information) that you want to re-use in your code (e.g. a single value, list of values, path to a directory, filename). Learn how to write Python Code to work with variables."
+excerpt: "Variables store data (i.e. information) that you want to re-use in your code (e.g. a single value, list of values, path to a directory, filename). Learn how to write Python code to work with variables."
 authors: ['Jenny Palomino', 'Software Carpentry']
 category: [courses]
 class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/variables/
 nav-title: "Variables in Python"
 dateCreated: 2018-06-27
-modified: 2018-08-08
-module-title: 'Python Variables and Lists'
+modified: 2018-09-10
+module-title: 'Intro to Working With Variables and Lists in Python'
 module-nav-title: 'Python Variables and Lists'
 module-description: 'This tutorial teaches you how to create and manipulate variables and lists in Python. You will also learn how to plot data using the matplotlib package.'
 module-type: 'class'

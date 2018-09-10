@@ -8,7 +8,7 @@ class-lesson: ['functions']
 permalink: /courses/earth-analytics-bootcamp/functions/write-functions/
 nav-title: "Write Custom Functions"
 dateCreated: 2019-08-11
-modified: 2018-08-18
+modified: 2018-09-10
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -83,7 +83,7 @@ If the function is as simple as the example above, the return statement also con
 
 ### Documentation With Python Comments
 
-Documentation is not required for the function to work. However, good documentation will save you time in the future when you need to use this code again, and it also helps other understand how they can use the function.
+Documentation is not required for the function to work. However, good documentation will save you time in the future when you need to use this code again, and it also helps others understand how they can use your function.
 
 In the example above, the documentation has noted that the input parameter can be a single value variable or a `numpy array`, but it cannot be a list or `pandas dataframe`.
 
