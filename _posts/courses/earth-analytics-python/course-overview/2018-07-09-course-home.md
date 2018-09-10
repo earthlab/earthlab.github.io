@@ -57,5 +57,3 @@ data including:
 This course is technical. We will use the `Python` scientific programming
 environment and the `Jupyter` graphical interface to work with data.
 
-
-*
