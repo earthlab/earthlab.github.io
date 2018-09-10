@@ -14,7 +14,7 @@ reproducible-science-and-programming:
   subtopics: ['RStudio', 'literate-expressive-programming','functions',
               'r-studio', 'automate-science-workflows', 'git', 'markdown',
               'rmarkdown', 'data-management', 'version-control',
-              'literate expressive programming', 'python', 'shell', 'rmarkdown', 'jupyter-notebooks', 'github']
+              'literate expressive programming', 'python', 'shell', 'rmarkdown', 'jupyter-notebook', 'github']
 find-and-manage-data:
   subtopics: ['data-management', 'find-data', 'metadata', 'missing-data-nan', 'apis']
 file-formats:
