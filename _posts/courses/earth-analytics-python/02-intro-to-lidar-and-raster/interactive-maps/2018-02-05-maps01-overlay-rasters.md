@@ -3,7 +3,7 @@ layout: single
 title: "Layer a raster dataset over a hillshade in Python to create a beautiful basemap that represents topography."
 excerpt: "This lesson covers how to overlay raster data on top of a hillshade in Python and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/overlay-raster-maps/
@@ -38,16 +38,11 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You need `Python` and `Jupyer Notebooks` to complete this tutorial. Also you should have an `earth-analytics` directory setup on your computer with a `/data` directory with it.
-
-* [Earth Analytics Conda Environment](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
+You need `Python` and `Jupyer Notebook` to complete this tutorial. You should also have an `earth-analytics` directory setup on your computer with a `data` subdirectory within it. You should have completed the lesson on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/">Setting Up the Conda Environment.</a>.
 
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
-
-### Be sure to set your working directory
-`os.chdir("path-to-you-dir-here/earth-analytics/data")`
 
 {:.input}
 ```python
@@ -66,11 +61,12 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 In this lesson, you will learn about overlaying rasters on top of a hillshade for nicer looking plots in `python`. To overlay a raster will will plot two different raster datasets in the same plot in `matplotlib`. You will use alpha to adjust the transparency of one of your rasters so the terrain hillshade gives the raster texture! Also you will turn of the legend for the hillshade plot as the legend we want to see is the DEM elevation values.
 
 ### What is a hillshade?
+
 A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. You often render a hillshade using a greyscale colorramp.
 
 Hillshades make nice underlays for other data as they emphasize the topography visually. This adds depth to your map!
 
-To begin, open up both the Digital Terrain Model and the Digital terrain model hillshade files. 
+To begin, open up both the Digital Terrain Model and the Digital terrain model hillshade files.
 
 
 {:.input}

@@ -4,7 +4,7 @@ title: "Get to know Lidar (Light Detection and Ranging) Point Cloud Data - Activ
 excerpt: "This lesson covers what a lidar point cloud is. You will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['class-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/explore-lidar-point-clouds-plasio/
@@ -43,7 +43,7 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-In the last lesson, you learned the basics of how a lidar system works. In this lesson, you will learn about lidar point clouds. The point cloud is one of the commonly found lidar data products and it the "native" format for discrete return lidar data. In this lesson you will explore some point cloud data using the plas.io viewer.
+In the last lesson, you learned the basics of how a lidar system works. In this lesson, you will learn about lidar point clouds. The point cloud is one of the commonly found lidar data products and it is the "native" format for discrete return lidar data. In this lesson you will explore some point cloud data using the plas.io viewer.
 
 
 ## Explore Lidar Points in Plas.io
@@ -60,10 +60,12 @@ In the last lesson, you learned the basics of how a lidar system works. In this 
 In this activity, you will open a .las file, in the <a href="http://plas.io" target="_blank"> plas.io free online lidar data viewer.</a> You will then explore some of the attributes associated with a lidar data point cloud.
 
 ### LiDAR Attribute Data
+
 Remember that not all lidar data are created equally. Different lidar data may have different attributes. In this activity, you will look at data that contain both intensity values and a ground vs non ground classification.
 
 ## About Plas.io
-> Plasio is a project by Uday Verma and Howard Butler that implements point cloud rendering capability in a browser. Specifically, it provides a functional implementation of the ASPRS LAS format, and it can consume LASzip-compressed data using LASzip NaCl module. Plasio is Chrome-only at this time, but it is hoped that other contributors can step forward to bring it to other browsers.
+
+> Plasio is a project by Uday Verma and Howard Butler that implements point cloud rendering capability in a browser. Specifically, it provides a functional implementation of the ASPRS LAS format, and it can consume LASzip-compressed data using the LASzip NaCl module. Plasio is Chrome-only at this time, but it is hoped that other contributors can step forward to bring it to other browsers.
 >
 > It is expected that most WebGL-capable browers should be able to support plasio, and it contains nothing that is explicitly Chrome-specific beyond the optional NaCL LASzip module.
 > src: https://github.com/verma/plasio

@@ -3,7 +3,7 @@ layout: single
 title: "Spatial Raster Metadata: CRS, Resolution, and Extent in Python"
 excerpt: "This lesson introduces the raster meta data. You will learn about CRS, resolution, and spatial extent."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/raster-metadata-in-python/
@@ -41,19 +41,6 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-{:.input}
-```python
-import rasterio as rio
-from rasterio.plot import show
-import matplotlib.pyplot as plt
-import numpy as np
-import os
-plt.ion()
-# package created for the earth analytics program
-import earthpy as et
-from shapely.geometry import Polygon, mapping
-from rasterio.mask import mask
-```
 
 {:.output}
     /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/importlib/_bootstrap.py:219: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
@@ -61,7 +48,7 @@ from rasterio.mask import mask
 
 
 
-You will learn about three important spatial attributes associated with raster data that in this lesson:  Coordiante refernce systems, resolution, and spatial extent. 
+You will learn about three important spatial attributes associated with raster data that in this lesson:  Coordinate Reference Systems, resolution, and spatial extent. 
 
 ## 1. Coordinate Reference System
 
@@ -92,9 +79,9 @@ program**. Thus, it's important when working with spatial data in a program like
 it throughout data processing and analysis.
 
 ### View Raster Coordinate Reference System (CRS) in Python
+
 You can view the `CRS` string associated with your `Python` object using the`crs()`
 method. 
-
 
 {:.input}
 ```python
