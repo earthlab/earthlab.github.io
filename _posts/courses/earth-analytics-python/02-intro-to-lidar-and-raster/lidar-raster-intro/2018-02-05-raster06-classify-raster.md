@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/classify-plot-raster-data-in-python/
@@ -47,10 +47,7 @@ You will need a computer with internet access to complete this lesson.
 ### Manually Reclassifying Raster Data 
 
 In this lesson, you will learn how to reclassify a raster dataset in `Python`. When you reclassify
-a raster, you
-create a **new** raster
-object / file that can be exported and shared with colleagues and / or open in other tools such
-as QGIS. In that raster each pixel is mapped to a new value based on some approach. This approach can vary depending upon your science question.
+a raster, you create a **new** raster object / file that can be exported and shared with colleagues and / or open in other tools such as QGIS. In that raster each pixel is mapped to a new value based on some approach. This approach can vary depending upon your science question.
 
 <figure>
 <img src="http://resources.esri.com/help/9.3/arcgisdesktop/com/gp_toolref/geoprocessing_with_3d_analyst/Reclass_Reclass2.gif" alt="reclassification process by ESRI">
@@ -314,7 +311,7 @@ ax.set(title="Histogram with Custom Breaks",
 
 
 
-You may want to play with the distribution of breaks. Below it appears as if there are many values close to 0. In the case of this lidar instrument you know that values between 0 and 2 meters are not reliable (you know this if you read the documentation about the NEON sensor and how these data were processed). Let's create a bin between 0-2.
+You may want to play with the distribution of breaks. Below it appears as if there are many values close to 0. In the case of this lidar instrument, you know that values between 0 and 2 meters are not reliable (you know this if you read the documentation about the NEON sensor and how these data were processed). Let's create a bin between 0-2.
 
 You know you want to create bins for short, medium and tall trees so let's experiment
 with those bins also.
@@ -351,8 +348,7 @@ ax.set(title="Histogram with Custom Breaks",
 
 
 
-You may want to play around with the setting specific bins associated with your science question and the study area. Regardless, let's use the classes above to
-reclassify our CHM raster.
+You may want to play around with the setting specific bins associated with your science question and the study area. Regardless, let's use the classes above to reclassify our CHM raster.
 
 
 ## Map Raster Values to New Values
@@ -369,7 +365,7 @@ The newly defined values will be as follows:
 * Tall trees:  (> 12m tall) = 3
 
 Notice in the list above that you set cells with a value between 0 and 2 meters to
-NA or `nodata` value. This means you are assuming that thereare no trees in those
+NA or `nodata` value. This means you are assuming that there are no trees in those
 locations!
 
 Notice in the matrix below that you use `Inf` to represent the largest or max value
@@ -391,7 +387,7 @@ Numpy has a function called `digitize` that is useful for classifying the values
 
 Instead, `digitize` will replace each datapoint with an integer corresponding to which bin it belongs to. You can use this to determine which datapoints fall within certain ranges. When you use `np.digitize`, the bins that you create work as following
 
-* The starting value by default is included in each bin. The ending value of the bin is not and will be the beginning of the next bin. You can add the argument `right = True` if the want the second value in the bin to be included by not the first. 
+* The starting value by default is included in each bin. The ending value of the bin is not and will be the beginning of the next bin. You can add the argument `right = True` if you want the second value in the bin to be included but not the first. 
 * Any values BELOW the bins as defined will be assigned a `0`. Any values ABOVE the highest value in your bins will be assigned the next value available. Thus if you have
 
 `class_bins = [0, 2, 7, 12, 30]`

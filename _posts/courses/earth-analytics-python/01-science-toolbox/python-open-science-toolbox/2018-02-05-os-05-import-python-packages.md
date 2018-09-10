@@ -3,7 +3,7 @@ layout: single
 title: 'Install and Import Python Packages'
 excerpt: 'This tutorial walks you through how to install and import python packages.'
 authors: ['Martha Morrissey','Leah Wasser', 'Software Carpentry']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/install-and-import-python-packages/ 
@@ -73,7 +73,7 @@ For consistency, in this course, you will download most packages from the **cond
 
 ### Install a Package In a Python Environment
 
-You can add as many packages as you want to a `Python` environment. However, it is important to keep track of which environment you are adding the package to. If you add the `geopandas` ackage to your root `Python` environment and then try to use `geopandas` in another environment, it won’t work! 
+You can add as many packages as you want to a `Python` environment. However, it is important to keep track of which environment you are adding the package to. If you add the `geopandas` package to your root `Python` environment and then try to use `geopandas` in another environment, it won’t work! 
 
 To add a package, you need to complete the following steps:
 1. Open a terminal so you have access to the command line.
