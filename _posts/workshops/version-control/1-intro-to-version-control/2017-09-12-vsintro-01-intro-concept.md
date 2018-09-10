@@ -53,7 +53,7 @@ scientific workflows.
 
 The text and graphics in the first three sections were borrowed, with some
 modifications, from
-<a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry's Version Control with Git lessons</a>.
+<a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry's Version Control with Git lessons</a>.
 
 ## What is Version Control?
 
