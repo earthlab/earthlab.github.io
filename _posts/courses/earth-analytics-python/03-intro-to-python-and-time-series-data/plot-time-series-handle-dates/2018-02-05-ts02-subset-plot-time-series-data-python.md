@@ -953,7 +953,8 @@ Your final plot should look something like the plot below.
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts02-subset-plot-time-series-data-python_26_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts02-subset-plot-time-series-data-python_26_0.png" alt = "Scatterplot of hourly precipitation for Boulder subsetted to 2003-2013.">
+<figcaption>Scatterplot of hourly precipitation for Boulder subsetted to 2003-2013.</figcaption>
 
 </figure>
 
@@ -982,7 +983,8 @@ How different was the rainfall in 2012 compared to 2013?
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts02-subset-plot-time-series-data-python_28_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts02-subset-plot-time-series-data-python_28_0.png" alt = "Comparison of precipitation data in Boulder, CO from 2012 and 2013.">
+<figcaption>Comparison of precipitation data in Boulder, CO from 2012 and 2013.</figcaption>
 
 </figure>
 

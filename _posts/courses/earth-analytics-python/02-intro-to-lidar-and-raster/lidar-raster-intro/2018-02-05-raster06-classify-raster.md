@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-10
+modified: 2018-09-11
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/classify-plot-raster-data-in-python/
@@ -63,11 +63,11 @@ You can break your raster processing workflow into several steps as follows:
 
 * **Data import / cleanup:** load and "clean" the data. This includes cropping, removing with `nodata` values
 * **Data Exploration:** understand the range and distribution of values in your data. This may involve plotting histograms and scatter plots to determine what classes are appropriate for our data
-* **Reclassify the Data:** Once you understand the distribution of your data, you are ready to reclassify. There are statistical and non statistical approaches to reclassification. Here you will learn how to manuall reclassify a raster using bins that you define in your data explocation step. 
+* **Reclassify the Data:** Once you understand the distribution of your data, you are ready to reclassify. There are statistical and non-statistical approaches to reclassification. Here you will learn how to manuall reclassify a raster using bins that you define in your data exploration step. 
 
-Please note - working with data is not a linear process. Above you see a potential workflow. You will develop your own workflow and approach.  To get started, first load the required libraries and then open up your raster. In this case you are using the lidar
-canopy height model (CHM) that you calculated in the previous lesson.
+Please note - working with data is not a linear process. Above you see a potential workflow. You will develop your own workflow and approach.  
 
+To get started, first load the required libraries and then open up your raster. In this case, you are using the lidar canopy height model (CHM) that you calculated in the previous lesson.
 
 {:.input}
 ```python
@@ -279,8 +279,7 @@ or number of pixels that have a value within that bin. For instance, there
 is a break between 0 and 1 in the histogram results above. And there are 76,057 pixels
 in the counts element that fall into that bin.
 
-Notice that you've adjusted the x and y lims to zoom into the region of the histogram
-that you am interested in exploring.
+Notice that you have adjusted the x and y lims to zoom into the region of the histogram that you are interested in exploring.
 
 ### Histogram with Custom Breaks
 
