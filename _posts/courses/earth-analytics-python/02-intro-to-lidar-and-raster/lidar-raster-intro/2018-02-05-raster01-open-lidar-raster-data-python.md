@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/
@@ -51,8 +51,7 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-In the last lesson, you reviewed the basic principles behind what a lidar raster
-dataset is in `Python` and how point clouds are used to derive the raster. In this lesson, you will learn how to open a plot a lidar raster dataset in `Python`. You will also learn about key attributes of a raster dataset:
+In the last lesson, you reviewed the basic principles behind what a lidar raster dataset is in `Python` and how point clouds are used to derive the raster. In this lesson, you will learn how to open a plot a lidar raster dataset in `Python`. You will also learn about key attributes of a raster dataset:
 
 1. Spatial resolution
 2. Spatial extent and
@@ -71,7 +70,6 @@ dataset is in `Python` and how point clouds are used to derive the raster. In th
 ## Open Raster Data in Python
 
 You can use the `rasterio` library combined with `numpy` and `matplotlib` to open, manipulate and plot raster data in `Python`.
-
 
 {:.input}
 ```python
@@ -320,9 +318,8 @@ print("rasterio bounds:", bounds)
 
 Next let's explore how you read in a raster using rasterio. When you use `.read()`, rasterio imports the data from your raster into a `numpy array`. 
 
-Remember that a numpy array is simply a matrix of values with no particular spatial attributes associated 
-with them. Numpy arrays are however a very efficient structure for working with large and potentially multi-dimensional (layered) matrices.
-
+Remember that a `numpy array` is simply a matrix of values with no particular spatial attributes associated 
+with them. `Numpy arrays` are, however, a very efficient structure for working with large and potentially multi-dimensional (layered) matrices.
 
 {:.input}
 ```python

@@ -3,7 +3,7 @@ layout: single
 title: "Interactive Maps in Python"
 excerpt: "This lesson covers creating interactive maps with Python in Jupyter Notebook."
 authors: ['Leah Wasser', 'Martha Morrissey', 'Carson Farmer',  'Max Joseph']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/interactive-maps/
@@ -23,7 +23,7 @@ topics:
 
 {% include toc title="In This Lesson" icon="file-text" %}
 
-This tutorial walks you through how to create interactive maps with `Python` in `Jupyter Notebook` using the `folium` package and how to overlay a raster on an interactive map. 
+This tutorial walks you through how to create interactive maps with `Python` in `Jupyter Notebook` using the `folium` package and how to overlay a raster on an interactive map created with `folium`. 
 
 <div class='notice--success' markdown="1">
 
@@ -52,7 +52,7 @@ There are two great `Python` packages for creating interactive maps: `folium` an
 
 This lesson will focus on `folium`, which has been around longer than `mapboxgl` and thus, is well-documented by the `Python` community. 
 
-One major difference between the two packages is that `mapboxgl` requires a MapBox Access Token. If you are interested in exploring `mapboxgl` on your own, note that the MapBox Access token is free to use, but does require making an account with MapBox. You can find more information on the <a href="https://github.com/mapbox/mapboxgl-jupyter/blob/master/docs-markdown/viz.md" target="_blank">Github page for this package</a>.
+One major difference between the two packages is that `mapboxgl` requires a MapBox Access Token. If you are interested in exploring `mapboxgl` on your own, note that the MapBox Access token is free to use, but does require making an account with MapBox. You can find more information on the <a href="https://github.com/mapbox/mapboxgl-jupyter" target="_blank">Github page for this package</a>.
 
 
 ## What is an API?

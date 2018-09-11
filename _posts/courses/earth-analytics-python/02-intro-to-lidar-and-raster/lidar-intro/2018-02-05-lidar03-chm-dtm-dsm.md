@@ -3,7 +3,7 @@ layout: single
 title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models - Work With LiDAR Data in Python"
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM)."
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['class-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/lidar-chm-dem-dsm/
@@ -33,13 +33,10 @@ After completing this tutorial, you will be able to:
 
 </div>
 
-As you learned in the previous lesson, LiDAR or **Li**ght **D**etection **a**nd
-**R**anging is an active remote sensing system that can be used to measure
-vegetation height across wide areas. If the data are discrete return, Lidar point
-clouds are most commonly derived data product from a lidar system. However, often
-people work with lidar data in raster format given it's smaller in size and
-thus easier to work with. In this lesson, you will import and work with
-3 of the most common lidar derived data products in `Python`:
+As you learned in the previous lesson, LiDAR or **Li**ght **D**etection **a**nd **R**anging is an active remote sensing system that can be used to measure vegetation height across wide areas. 
+
+If the data are discrete return, Lidar point clouds are most commonly derived data product from a lidar system. However, often people work with lidar data in raster format given it's smaller in size and
+thus easier to work with. In this lesson, you will import and work with 3 of the most common lidar derived data products in `Python`:
 
 1. **Digital Terrain Model (or DTM):** ground elevation.
 2. **Digital Surface Model (or DSM):** top of the surface (imagine draping a sheet over the canopy of a forest
@@ -62,9 +59,10 @@ thus easier to work with. In this lesson, you will import and work with
 
 
 ### Digital Elevation Model
+
 In the previous lesson, you opened and explored a digital elevation model (DEM). The DEM, also known as a digital terrain model (DTM) represents the elevation of the earth's surface. The DEM represents the ground - and thus DOES NOT INCLUDE trees and buildings and other objects.
 
-In this lesson you will explore Digital Surface Models (DSM) and will use the DEM and the DSM to create a canopy height model (CHM). 
+In this lesson, you will explore Digital Surface Models (DSM) and will use the DEM and the DSM to create a canopy height model (CHM). 
 
 {:.input}
 ```python
@@ -119,9 +117,13 @@ Next, let's open the digital surface model (DSM). The DSM represents the top of 
 
 
 ### Canopy Height Model
-The canopy height model (CHM) represents the HEIGHT of the trees. This is not an elevation value, rather it's the height or distance between the ground and the top of the trees (or buildings or whatever object that the lidar system detected and recorded). Some canopy height models also include buildings so you need to look closely are your data to make sure it was properly cleaned before assuming it represents all trees!
 
-Calculate difference between two rasters
+The canopy height model (CHM) represents the HEIGHT of the trees. This is not an elevation value, rather it's the height or distance between the ground and the top of the trees (or buildings or whatever object that the lidar system detected and recorded). 
+
+Some canopy height models also include buildings, so you need to look closely at your data to make sure it was properly cleaned before assuming it represents all trees!
+
+#### Calculate difference between two rasters
+
 There are different ways to calculate a CHM. One easy way is to subtract the DEM from the DSM.
 
 DSM - DEM = CHM
