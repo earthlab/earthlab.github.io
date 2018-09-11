@@ -295,7 +295,8 @@ ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_6_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_6_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
+<figcaption>Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.</figcaption>
 
 </figure>
 
@@ -484,7 +485,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_13_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_13_0.png" alt = "Cumulative sum plot for stream discharge.">
+<figcaption>Cumulative sum plot for stream discharge.</figcaption>
 
 </figure>
 

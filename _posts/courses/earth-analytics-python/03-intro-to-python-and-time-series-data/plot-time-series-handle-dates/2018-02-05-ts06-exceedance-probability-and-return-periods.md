@@ -1114,7 +1114,8 @@ ax.set_title("Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Fl
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_29_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_29_0.png" alt = "Annual maxima data compared - USGS product vs daily value calculated.">
+<figcaption>Annual maxima data compared - USGS product vs daily value calculated.</figcaption>
 
 </figure>
 
@@ -1152,7 +1153,8 @@ ax.set_title("Difference Plot of Annual Maxima \nInstantaneous Minus Mean Daily"
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_33_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_33_0.png" alt = "Bar plot showing the difference between the USGS max product and the calculated annual max.">
+<figcaption>Bar plot showing the difference between the USGS max product and the calculated annual max.</figcaption>
 
 </figure>
 
@@ -1500,7 +1502,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_42_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_42_0.png" alt = "Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<figcaption>Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
 </figure>
 
@@ -1540,7 +1543,8 @@ ax.set_ylabel("Discharge Value (CFS)");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_44_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_44_0.png" alt = "Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<figcaption>Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
 </figure>
 

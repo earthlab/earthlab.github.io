@@ -3,7 +3,7 @@ layout: single
 title: "About the Data Used in this Module"
 excerpt: "This lesson reviews the data uses in this time series module."
 authors: ['Leah Wasser']
-modified: 2018-09-06
+modified: 2018-09-11
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'

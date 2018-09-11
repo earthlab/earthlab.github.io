@@ -3,7 +3,7 @@ layout: single
 title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need to run analysis. Learn how to subset your data  using a begina and end date in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-06
+modified: 2018-09-11
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -917,7 +917,8 @@ ax.set_ylabel('Precipitation (Inches)');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts02-subset-plot-time-series-data-python_24_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts02-subset-plot-time-series-data-python_24_0.png" alt = "Scatterplot showing daily total precipitation for Boulder Creek.">
+<figcaption>Scatterplot showing daily total precipitation for Boulder Creek.</figcaption>
 
 </figure>
 

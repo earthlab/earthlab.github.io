@@ -3,7 +3,7 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with pandas."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-06
+modified: 2018-09-11
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -266,7 +266,8 @@ ax.set(xlabel='Date', ylabel='Precipitation (Inches)',
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-resample-time-series-precip-python_8_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-resample-time-series-precip-python_8_0.png" alt = "Scatterplot showing daily precipitation for Boulder, CO - 1948-2013.">
+<figcaption>Scatterplot showing daily precipitation for Boulder, CO - 1948-2013.</figcaption>
 
 </figure>
 
@@ -417,7 +418,8 @@ ax.set(xlabel='Date',
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-resample-time-series-precip-python_13_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-resample-time-series-precip-python_13_0.png" alt = "Scatterplot of daily precipitation subsetted 1983-2013.">
+<figcaption>Scatterplot of daily precipitation subsetted 1983-2013.</figcaption>
 
 </figure>
 

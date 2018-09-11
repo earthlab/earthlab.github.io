@@ -118,7 +118,8 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_3_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_3_0.png" alt = "Homework plot of Monthly max discharge data.">
+<figcaption>Homework plot of Monthly max discharge data.</figcaption>
 
 </figure>
 
@@ -131,7 +132,8 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_4_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_4_0.png" alt = "Homework plot of Daily max discharge data.">
+<figcaption>Homework plot of Daily max discharge data.</figcaption>
 
 </figure>
 
@@ -144,7 +146,8 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_5_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_5_0.png" alt = "Homework plot of Monthly total precipitation data.">
+<figcaption>Homework plot of Monthly total precipitation data.</figcaption>
 
 </figure>
 
@@ -157,7 +160,8 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_6_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_6_0.png" alt = "Homework plot of Daily total discharge data.">
+<figcaption>Homework plot of Daily total discharge data.</figcaption>
 
 </figure>
 
@@ -170,7 +174,8 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_7_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_7_0.png" alt = "Probabilty of Stream discharge events plot.">
+<figcaption>Probabilty of Stream discharge events plot.</figcaption>
 
 </figure>
 
@@ -183,7 +188,8 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png" alt = "Return period for stream discharge events plot.">
+<figcaption>Return period for stream discharge events plot.</figcaption>
 
 </figure>
 
@@ -196,7 +202,8 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_9_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_9_0.png" alt = "Probabiltiy for precipitation events plot.">
+<figcaption>Probabiltiy for precipitation events plot.</figcaption>
 
 </figure>
 
@@ -209,7 +216,8 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png" alt = "Return period for precipitation events plot.">
+<figcaption>Return period for precipitation events plot.</figcaption>
 
 </figure>
 
