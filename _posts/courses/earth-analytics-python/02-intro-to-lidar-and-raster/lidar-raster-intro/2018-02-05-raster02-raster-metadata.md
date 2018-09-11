@@ -78,7 +78,7 @@ method.
 
 {:.input}
 ```python
-# view crs of raster imported with rasterio
+# View crs of raster imported with rasterio
 with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as src:
     print(src.crs)
 ```
@@ -92,7 +92,7 @@ You can assign this string to a `Python` object, too.
 
 {:.input}
 ```python
-# assign crs to myCRS object
+# Assign crs to myCRS object
 myCRS = src.crs
 myCRS
 ```
@@ -143,7 +143,7 @@ print(list(et.epsg.keys())[:10])
 
 {:.input}
 ```python
-# you can convert to proj4 like so:
+# You can convert to proj4 like so:
 proj4 = et.epsg['32613']
 print(proj4)
 ```
@@ -259,7 +259,7 @@ a 1 x 1 meter area on the ground. You can view the resolution of your data using
 
 {:.input}
 ```python
-# what is the x and y resolution for your raster data?
+# What is the x and y resolution for your raster data?
 src.res
 ```
 

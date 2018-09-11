@@ -83,9 +83,9 @@ NOTE: not all geotiffs contain tif tags!
 
 {:.input}
 ```python
+# Import all packages in their own cell at the top of your notebook
 import rasterio as rio
 import os
-
 import earthpy as et
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
@@ -127,7 +127,7 @@ lidar_dem.meta
 
 {:.input}
 ```python
-# what is the spatial resolution?
+# What is the spatial resolution?
 lidar_dem.res
 ```
 
@@ -146,8 +146,7 @@ You can access the tif tags as well.
 
 {:.input}
 ```python
-# view image structure
-
+# View image structure
 with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as lidar_dem:
     print(lidar_dem.tags(ns='IMAGE_STRUCTURE'))
     lidar_dem_mask = lidar_dem.dataset_mask()
@@ -164,7 +163,7 @@ You can view the mask associated with the data too. Here values that `=0` are `n
 
 {:.input}
 ```python
-# view data mask
+# View data mask
 lidar_dem_mask
 ```
 
@@ -220,7 +219,7 @@ Find out the answer to this question this using `Python`.
 
 {:.input}
 ```python
-# open lidar dsm
+# Open lidar dsm
 with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DSM.tif") as lidar_dsm:
     extent_lidar_dsm = lidar_dsm.bounds 
 ```
@@ -240,7 +239,7 @@ How about resolution? Do both datasets have the same horizontal (x and y) resolu
 
 {:.input}
 ```python
-# do both layers have the same spatial resolution?
+# Do both layers have the same spatial resolution?
 lidar_dsm.res == lidar_dem.res
 ```
 
@@ -260,7 +259,7 @@ EPSG is short-hand way of specifying many CRS parameters at once. Each EPSG code
 
 {:.input}
 ```python
-# get crs of a rasterio object
+# Get crs of a rasterio object
 lidar_dem.crs.data
 ```
 
@@ -316,7 +315,7 @@ Another way to see the number of bands is to use the .indexes attribute.
 
 {:.input}
 ```python
-# how many bands / layers does the object have?
+# How many bands / layers does the object have?
 print("number of bands", lidar_dem.indexes)
 ```
 

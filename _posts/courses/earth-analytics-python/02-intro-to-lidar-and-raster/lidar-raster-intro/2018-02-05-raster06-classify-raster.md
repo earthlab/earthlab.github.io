@@ -81,9 +81,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import earthpy as et
 plt.ion()
-# set plot parameters
+# Set plot parameters
 plt.rcParams['figure.figsize'] = (8, 8)
-# prettier plotting with seaborn
+# Prettier plotting with seaborn
 import seaborn as sns; 
 sns.set(font_scale=1.5)
 sns.set_style("whitegrid")
@@ -152,7 +152,7 @@ Start by looking at the min and max values in your CHM.
 
 {:.input}
 ```python
-# view min and max values in the data
+# View min and max values in the data
 print('CHM min value:' ,lidar_chm_im.min())
 print('CHM max value:' ,lidar_chm_im.max())
 ```
@@ -207,7 +207,7 @@ You could also set `bins = 100` or some other arbitrary number if you wish.
 
 {:.input}
 ```python
-# histogram
+# Histogram
 fig, ax = plt.subplots(figsize = (10,10))
 xlim = [0, 25]
 ax.hist(lidar_chm_im.ravel(), 
@@ -243,11 +243,11 @@ Note: if you don't want to worry about a particular variable that is returned by
 
 {:.input}
 ```python
-# patches = the matplotlib objects drawn
+# Patches = the matplotlib objects drawn
 counts, bins, patches = ax.hist(lidar_chm_im.ravel(), 
                                 color='springgreen', 
                                 bins=50, range=xlim)
-# print histogram outputs
+# Print histogram outputs
 print("counts:", counts)
 print("bins:", bins)
 ```
@@ -325,7 +325,7 @@ Below following breaks are used:
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(14,14))
+fig, ax = plt.subplots(figsize=(10,10))
 ax.hist(lidar_chm_im.ravel(), 
         color='purple', 
         edgecolor='white', 
@@ -401,6 +401,7 @@ You can use `-np.inf` in your array to tell python to include all values less th
 
 {:.input}
 ```python
+# View the fill value for your array
 lidar_chm_im.fill_value
 ```
 
@@ -455,7 +456,8 @@ You can reassign the first class in your data to a mask using `np.ma.masked_wher
 
 {:.input}
 ```python
-# you can turn your data into a masked array if you want
+# Reassign all values that are classified as 0 to masked (no data value)
+# This will prevent pixels that == 0 from being rendered on a map in matplotlib
 lidar_chm_class_ma = np.ma.masked_where(lidar_chm_im_class == 0 , 
                               lidar_chm_im_class, 
                               copy=True)
@@ -493,11 +495,12 @@ Below you plot the data.
 
 {:.input}
 ```python
-# a cleaner style for raster plots
+# A cleaner seaborn style for raster plots
 sns.set_style("white")
-# plot newly classified and masked raster
+# Plot newly classified and masked raster
 fig, ax = plt.subplots(figsize = (10,6))
-ax.imshow(lidar_chm_class_ma);
+ax.imshow(lidar_chm_class_ma)
+plt.show()
 ```
 
 {:.output}
@@ -535,7 +538,7 @@ np.unique(lidar_chm_class_ma)
 
 {:.input}
 ```python
-# plot data using nicer colors
+# Plot data using nicer colors
 colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']
 
 cmap = ListedColormap(colors)
@@ -565,24 +568,54 @@ The plot looks OK but the legend doesn't represent the data well. The legend is 
 
 Finally, clean up our plot legend. Given you have discrete values you will create a CUSTOM legend with the 3 categories that you created in our classification matrix.
 
+There are a few tricky pieces to creating a custom legend.
+
+1. Notice below that you first create a list of legend items
+
+`height_class_labels = ["Short trees", "Less short trees", "Medium trees","Tall trees"]`
+This represents the text that will appear in your legend. 
+
+2. Next you create the patches. Each path has a colored box and an associated label in your legend. 
+
+This code: `Patch(color=icolor, label=label)` defines a patch
+And this code `for icolor, label in zip(colors, height_class_labels)` loops through each color and label for your legend and combines them into a new patch object or "row" in your legend. 
+
 {:.input}
 ```python
-# create objects to use in the legend
-# this includes the colored boxes and the appropriate labels
-height_class_labels = ["short trees", "less short trees", "medium trees","tall trees"]
+np.unique(lidar_chm_class_ma)
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    masked_array(data = [1 2 3 4 --],
+                 mask = [False False False False  True],
+           fill_value = 999999)
+
+
+
+
+
+{:.input}
+```python
+# Create a list of labels to use for your legend
+height_class_labels = ["Short trees", "Less short trees", "Medium trees","Tall trees"]
+# A path is an object drawn by matplotlib. In this case a patch is a box draw on your legend
+# Below you create a unique path or box with a unique color - one for each of the labels above 
 legend_patches = [Patch(color=icolor, label=label)
                   for icolor, label in zip(colors, height_class_labels)]
 
-cmap = ListedColormap(['w'] + colors)
-#norm = BoundaryNorm(class_bins, len(colors))
+cmap = ListedColormap(colors)
 
 fig, ax = plt.subplots(figsize=(10, 10))
-ax.imshow(lidar_chm_im_class, 
+ax.imshow(lidar_chm_class_ma, 
           cmap=cmap)
 ax.legend(handles=legend_patches,
          facecolor ="white",
          edgecolor = "white",
-         bbox_to_anchor = (1.35,1)) # place legend to the RIGHT of the map
+         bbox_to_anchor = (1.35,1)) # Place legend to the RIGHT of the map
 ax.set_axis_off();
 ```
 
@@ -591,7 +624,7 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_32_0.png" alt = "Canopy height model with a better colormap and a legend.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_33_0.png" alt = "Canopy height model with a better colormap and a legend.">
 <figcaption>Canopy height model with a better colormap and a legend.</figcaption>
 
 </figure>
