@@ -11,7 +11,7 @@ nav-title: 'Fork a GitHub repo'
 sidebar:
   nav:
 module: "intro-version-control-git"
-permalink: /courses/intro-version-control-git/about-forks/
+permalink: /workshops/intro-version-control-git/about-forks/
 author_profile: false
 comments: true
 order: 6
@@ -40,7 +40,7 @@ At the end of this activity, you will:
 * git installed and configured on your computer.
 
 Follow the setup instructions here:
-* [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
+* [Setup instructions]({{ site.url }}/workshops/intro-version-control-git/)
 
 </div>
 

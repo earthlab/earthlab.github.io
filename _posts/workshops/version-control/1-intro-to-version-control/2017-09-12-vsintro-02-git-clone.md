@@ -11,7 +11,7 @@ nav-title: 'Basic git commands'
 sidebar:
   nav:
 module: "intro-version-control-git"
-permalink: /courses/intro-version-control-git/basic-git-commands/
+permalink: /workshops/intro-version-control-git/basic-git-commands/
 author_profile: false
 order: 3
 topics:
@@ -39,7 +39,7 @@ At the end of this activity, you will be able to:
 * git installed and configured on your computer.
 
 Follow the setup instructions here:
-* [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
+* [Setup instructions]({{ site.url }}/workshops/intro-version-control-git/)
 
 </div>
 
