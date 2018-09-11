@@ -3,7 +3,7 @@ layout: single
 title: 'Get to Know the Jupyter Notebook Interface'
 excerpt: 'The Jupyter Notebook is an interactive coding environment that allows you to combine code, documentation and outputs. Learn how to use the Jupyter notebook interface.'
 authors: ['Martha Morrissey', 'Leah Wasser']
-modified: 2018-09-10
+modified: 2018-09-11
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-jupyter-notebooks/
@@ -16,7 +16,7 @@ comments: true
 order: 4
 course: "earth-analytics-python"
 topics:
-   open-science: ['jupyter-notebook']
+   reproducible-science-and-programming: ['jupyter-notebook']
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
