@@ -6,7 +6,7 @@ title: 'How to fork a repo in GitHub'
 attribution: ''
 excerpt: 'Learn how to fork a repository using the GitHub website.'
 dateCreated: 2017-09-12
-modified: '2017-09-21'
+modified: '2018-09-10'
 nav-title: 'Fork a GitHub repo'
 sidebar:
   nav:
@@ -54,7 +54,7 @@ the parent repo.
 
 <figure>
  <a href="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png">
- <img src="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png" width="70%"></a>
+ <img src="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png" alt="When you fork a repo, you make an exact copy of the repo in your own account. Once you create a copy in your account you own it! Thus, you you can freely modify it as you wish." width="70%"></a>
  <figcaption>When you fork a repo, you make an exact copy of the repo in your own account. Once you create a copy in your account you own it! Thus, you you can
  freely modify it as you wish. Image source: Colin Williams, NEON
  </figcaption>
@@ -78,7 +78,7 @@ we are demonstrating a central repo workflow.
 
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png">
-	<img src="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png" width="70%"></a>
+	<img src="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png" alt = "In this workshop, we are using a GitHub workflow that assumes a central repository. Earth Lab owns the central repo that you will initially fork." width="70%"></a>
 	<figcaption>
 	In this workshop, we are using a GitHub workflow that assumes a central repository.
   Earth Lab owns the central repo that you will initially fork. Image source: Colin Williams, NEON
@@ -92,15 +92,15 @@ You can fork any repo by clicking the fork button in the upper right hand corner
 
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/githubguides-bootcamp-fork.png">
-	<img src="{{ site.url }}/images/workshops/version-control/githubguides-bootcamp-fork.png" width="70%"></a>
-	<figcaption> Click on the "Fork" button to fork any repo. Source:
+	<img src="{{ site.url }}/images/workshops/version-control/githubguides-bootcamp-fork.png" alt="Click on the "Fork" button to fork any repo on github.com ." width="70%"></a>
+	<figcaption> Click on the "Fork" button to fork any repo on github.com. Source:
 <a href="https://guides.github.com/activities/forking/" target="_blank">GitHub Guides</a>.
 	</figcaption>
 </figure>
 
 <figure>
  <a href="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png">
- <img src="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png" width="70%"></a>
+ <img src="{{ site.url }}/images/workshops/version-control/git-fork-emphasis.png" alt="When you fork a repo on GitHub, the forked repo is copied to your GitHub account, and you can edit it as the repo owner." width="70%"></a>
  <figcaption>When you fork a repo on GitHub, the forked repo is copied to your GitHub account,
  and you can edit it as the repo owner.
  Source: National Ecological Observatory Network (NEON)

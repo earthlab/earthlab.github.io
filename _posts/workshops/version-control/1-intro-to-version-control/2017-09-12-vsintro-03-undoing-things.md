@@ -6,7 +6,7 @@ title: 'Introduction to undoing things in git'
 attribution: ''
 excerpt: 'Learn how to undo changes in git after they have been added or committed.'
 dateCreated: 2017-09-12
-modified: '2017-09-21' # will populate during knitting
+modified: '2018-09-10' # will populate during knitting
 nav-title: 'Undoing things'
 sidebar:
   nav:
@@ -115,9 +115,9 @@ committed version and you've discarded the most recent changes.
 
 <figure>
  <a href="{{ site.url }}/images/workshops/version-control/git-checkout.png">
- <img src="{{ site.url }}/images/workshops/version-control/git-checkout.png"></a>
+ <img src="{{ site.url }}/images/workshops/version-control/git-checkout.png" alt = "Git checkout can undo unstaged changes by pulling the previous commit's version of a file from repository's history."></a>
  <figcaption>Git checkout can undo unstaged changes by pulling the
- previous commit's version of a file from repository's history. 
+ previous commit's version of a file from repository's history.
  Source: Maxwell Joseph, adapted from Pro Git by Chacon and Straub (2014).
  </figcaption>
 </figure>
