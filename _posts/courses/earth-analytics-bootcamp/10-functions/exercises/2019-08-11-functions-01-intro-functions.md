@@ -8,8 +8,8 @@ class-lesson: ['functions']
 permalink: /courses/earth-analytics-bootcamp/functions/intro-functions/
 nav-title: "Intro to Functions"
 dateCreated: 2019-08-11
-modified: 2018-08-18
-module-title: 'Functions'
+modified: 2018-09-10
+module-title: 'Intro to Writing Custom Functions in Python'
 module-nav-title: 'Functions'
 module-description: 'This tutorial walks you through defining custom functions and applying them to data structures in Python.'
 module-type: 'class'

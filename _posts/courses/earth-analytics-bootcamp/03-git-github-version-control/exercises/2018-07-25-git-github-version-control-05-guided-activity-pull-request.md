@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2018-08-09
+modified: 2018-09-10
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -143,7 +143,7 @@ Notice that when creating a new pull request, you will be automatically transfer
 
 At this point, you are done with the pull request! In this case, you have submitted a pull request for Homework 1!
 
-Though you may see active button for Merge Pull Request, this button is intended for the owner of the repository. They can review your pull request and then decide if/when to merge it into their original repository.
+Though you may see an active button for Merge Pull Request, this button is intended for the owner of the repository. They can review your pull request and then decide if/when to merge it into their original repository.
 
 Note that until the owner merges your pull request, all future commits that you make to your fork will continue to be added to the open pull request. 
 

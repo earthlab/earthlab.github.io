@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays/
 nav-title: "Manipulate, Summarize and Plot Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-13
+modified: 2018-09-10
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -72,7 +72,7 @@ Recall that you are using use the index `[2]` for the third place because `Pytho
 
 ### Two-dimensional Numpy Arrays
 
-With two-dimensional arrays, you need to specify to both a row index and a column index. 
+With two-dimensional arrays, you need to specify both a row index and a column index. 
 
 The example below is a two-dimensional array with 2 rows and 3 columns. 
 
@@ -226,7 +226,7 @@ print(precip_2002_2013.shape)
 
 The output for `avg_monthly_precip` indicates that it is composed of 12 elements along one-dimension. In fact, this `numpy arrays` is one-dimensional, meaning that all values exist within a single vector or list. 
 
-The output for `precip_2002_2013` indicates that it is composed of 2 rows and 12 columns. This is two-dimensional `numpy array` that has two observations - one for the year 2002 and another for the year 2013 - and 12 measurements for observation - one for each month of the year. 
+The output for `precip_2002_2013` indicates that it is composed of 2 rows and 12 columns. This is two-dimensional `numpy array` that has two observations - one for the year 2002 and another for the year 2013 - and 12 measurements for each observation - one for each month of the year. 
 
 
 ## Use Indexing to Query Numpy Arrays
@@ -549,7 +549,12 @@ ax.set(xlabel="Month", ylabel="Precipitation (mm)");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/04-numpy-arrays/exercises/2018-08-01-numpy-arrays-03-manipulate-summarize-plot-numpy-arrays_39_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/04-numpy-arrays/exercises/2018-08-01-numpy-arrays-03-manipulate-summarize-plot-numpy-arrays_39_0.png" alt = "This plot displays a bar plot created from numpy arrays for average monthly precipitation for Boulder, CO.">
+<figcaption>This plot displays a bar plot created from numpy arrays for average monthly precipitation for Boulder, CO.</figcaption>
+
+</figure>
 
 
 
