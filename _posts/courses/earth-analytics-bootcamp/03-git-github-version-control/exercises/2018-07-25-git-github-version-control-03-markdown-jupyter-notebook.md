@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/markdown-jupyter-notebook/
 nav-title: "Markdown in Jupyter Notebook"
 dateCreated: 2018-07-25
-modified: 2018-08-09
+modified: 2018-09-10
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -65,7 +65,7 @@ Paste Cell | v | Paste Key
 
 ### Titles 
 
-You also learned that can use `Markdown` to create titles and subtitles using the following syntax:
+You also learned that you can use `Markdown` to create titles and subtitles using the following syntax:
 
 ```markdown
 # This is the biggest title

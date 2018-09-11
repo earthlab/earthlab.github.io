@@ -8,7 +8,7 @@ class-lesson: ['python-variables-lists']
 permalink: /courses/earth-analytics-bootcamp/python-variables-lists/plot-data-matplotlib/
 nav-title: "Plot Data in Python with Matplotlib"
 dateCreated: 2018-06-27
-modified: 2018-08-08
+modified: 2018-09-10
 module-type: 'class'
 course: "earth-analytics-bootcamp"
 week: 2
@@ -71,7 +71,7 @@ Dec | 0.84
 
 Now that you know how to import `Python` packages, you can begin your code by importing the `matplotlib` package, and specifically, the `pyplot` module. 
 
-Recall that in the `Python` (that you are now a part of!), the `matplotlib.pyplot` is often assigned an alias of `plt`.
+Recall that in the `Python` community (that you are now a part of!), the `matplotlib.pyplot` is often assigned an alias of `plt`.
 
 {:.input}
 ```python
@@ -145,7 +145,12 @@ ax.plot(months, precip);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_6_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_6_0.png" alt = "This plot displays the default settings of the matplotlib package for Python, which renders a blue line plot of the input data.">
+<figcaption>This plot displays the default settings of the matplotlib package for Python, which renders a blue line plot of the input data.</figcaption>
+
+</figure>
 
 
 
@@ -180,7 +185,12 @@ ax.set(xlabel="Month", ylabel="Precipitation (mm)");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_8_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_8_0.png" alt = "This plot expands on the default settings of the matplotlib package for Python to add a title and labels for the plot axes.">
+<figcaption>This plot expands on the default settings of the matplotlib package for Python to add a title and labels for the plot axes.</figcaption>
+
+</figure>
 
 
 
@@ -212,7 +222,12 @@ ax.set(xlabel="Month", ylabel="Precipitation (mm)");
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_10_0.png" alt = "This plot modifies the default settings of the matplotlib package for Python to create a green bar plot, instead of the default blue line plot.">
+<figcaption>This plot modifies the default settings of the matplotlib package for Python to create a green bar plot, instead of the default blue line plot.</figcaption>
+
+</figure>
 
 
 
@@ -238,7 +253,12 @@ Test your `Python` skills to further customize your plot:
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_12_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-bootcamp/02-python-variables-lists/exercises/2018-07-23-python-variables-lists-04-plot-data-matplotlib_12_0.png" alt = "This plot modifies the default settings of the matplotlib package for Python to create a blue scatter plot, instead of the default blue line plot.">
+<figcaption>This plot modifies the default settings of the matplotlib package for Python to create a blue scatter plot, instead of the default blue line plot.</figcaption>
+
+</figure>
 
 
 
