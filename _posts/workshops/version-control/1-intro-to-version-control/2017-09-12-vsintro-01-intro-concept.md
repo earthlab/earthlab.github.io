@@ -14,7 +14,7 @@ nav-title: 'What is version control?'
 sidebar:
   nav:
 module: "intro-version-control-git"
-permalink: /courses/intro-version-control-git/about-version-control/
+permalink: /workshops/intro-version-control-git/about-version-control/
 author_profile: false
 comments: true
 order: 2
@@ -42,7 +42,7 @@ At the end of this activity, you will be able to:
 
 Follow the setup instructions here:
 
-* [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
+* [Setup instructions]({{ site.url }}/workshops/intro-version-control-git/)
 
 
 </div>

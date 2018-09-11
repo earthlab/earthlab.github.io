@@ -11,7 +11,7 @@ nav-title: 'Undoing things'
 sidebar:
   nav:
 module: "intro-version-control-git"
-permalink: /courses/intro-version-control-git/undoing-things/
+permalink: /workshops/intro-version-control-git/undoing-things/
 author_profile: false
 order: 4
 topics:
@@ -41,7 +41,7 @@ At the end of this activity, you will be able to:
 
 Follow the setup instructions here:
 
-* [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
+* [Setup instructions]({{ site.url }}/workshops/intro-version-control-git/)
 
 
 </div>
