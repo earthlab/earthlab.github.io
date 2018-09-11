@@ -52,7 +52,7 @@ import matplotlib.pyplot as plt
 import os
 import earthpy as et
 plt.ion()
-# set working directory
+# Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -60,7 +60,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 In this lesson, you will learn about overlaying rasters on top of a hillshade for nicer looking plots in `python`. To overlay a raster will will plot two different raster datasets in the same plot in `matplotlib`. You will use alpha to adjust the transparency of one of your rasters so the terrain hillshade gives the raster texture! Also you will turn of the legend for the hillshade plot as the legend we want to see is the DEM elevation values.
 
-### What is a hillshade?
+### What is a Hillshade?
 
 A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. You often render a hillshade using a greyscale colorramp.
 
@@ -71,11 +71,11 @@ To begin, open up both the Digital Terrain Model and the Digital terrain model h
 
 {:.input}
 ```python
-# open raster DTM data
+# Open raster DTM data
 with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif") as lidar_dem:
     lidar_dem_im = lidar_dem.read(1, masked = True)
 
-# open dem hillshade
+# Open dem hillshade
 with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM_hill.tif") as lidar_dem_hill:
     lidar_dem_hill = lidar_dem_hill.read(1, masked = True)
 ```

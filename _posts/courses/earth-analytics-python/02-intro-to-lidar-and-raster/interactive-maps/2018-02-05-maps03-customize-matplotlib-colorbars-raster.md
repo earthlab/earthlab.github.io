@@ -54,17 +54,16 @@ import earthpy as et
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.colors import ListedColormap
-# you need colors loaded for BoundaryNorm to work below
 import matplotlib.colors as colors
 import earthpy.spatial as es
 import os
 plt.ion()
-# set plot parameters
+# Set plot parameters
 plt.rcParams['figure.figsize'] = (8, 8)
-# prettier plotting with seaborn
+# Prettier plotting with seaborn
 import seaborn as sns; 
 sns.set(font_scale=1.5)
-
+# Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -72,7 +71,7 @@ You will work with the canopy height model raster that you created in this week'
 
 {:.input}
 ```python
-# open raster data
+# Open raster data
 with rio.open('data/colorado-flood/spatial/outputs/lidar_chm.tiff') as lidar_chm_src:
     lidar_chm = lidar_chm_src.read(1)
 ```
@@ -119,9 +118,10 @@ legend_labels = {"tan": "short", "springgreen": "medium", "darkgreen": "tall"}
 
 patches = [Patch(color=color, label=label) for color, label in legend_labels.items()]
 ax.legend(handles=patches, 
-          bbox_to_anchor = (1.35,1), 
+          bbox_to_anchor=(1.35,1), 
           facecolor="white")
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -146,10 +146,8 @@ fig, ax = plt.subplots()
 chm_plot = ax.imshow(lidar_chm, 
                      cmap=cmap, 
                      norm=norm)
-ax.set_title("Lidar Canopy Height Model (CHM)");
-# scale color bar to the height of the plot
-#divider = make_axes_locatable(ax)
-#cax = divider.append_axes("right", size="3%", pad=0.15)
+ax.set_title("Lidar Canopy Height Model (CHM)")
+# Scale color bar to the height of the plot
 cbar = es.colorbar(chm_plot);
 
 boundary_means = [np.mean([norm.boundaries[ii], norm.boundaries[ii - 1]])
@@ -157,7 +155,8 @@ boundary_means = [np.mean([norm.boundaries[ii], norm.boundaries[ii - 1]])
 category_names = ['No vegetation', 'Short', 'Medium', 'Tall']
 cbar.set_ticks(boundary_means)
 cbar.set_ticklabels(category_names)
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
