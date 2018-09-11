@@ -6,7 +6,7 @@ title: 'First steps with git: clone, add, commit, push'
 attribution: ''
 excerpt: 'Learn basic git commands, including clone, add, commit, and push.'
 dateCreated: 2017-09-12
-modified: '2017-09-21' # will populate during knitting
+modified: '2018-09-10' # will populate during knitting
 nav-title: 'Basic git commands'
 sidebar:
   nav:
@@ -202,14 +202,13 @@ control.
 
 <figure>
  <a href="{{ site.url }}/images/workshops/version-control/git-add-commit.png">
- <img src="{{ site.url }}/images/workshops/version-control/git-add-commit.png"></a>
- <figcaption>Modified files are staged using git add, and following a commit, 
+ <img src="{{ site.url }}/images/workshops/version-control/git-add-commit.png" alt = "Modified files are staged using git add, and following a commit, all files in the staging area are snapshotted and become part of the repository's history, receiving a unique SHA-1 hash identifier."></a>
+ <figcaption>Modified files are staged using git add, and following a commit,
  all files in the staging area are snapshotted and become part of the repository's
- history, receiving a unique SHA-1 hash identifier. 
+ history, receiving a unique SHA-1 hash identifier.
  Source: Maxwell Joseph, adapted from Pro Git by Chacon and Straub (2014).
  </figcaption>
 </figure>
-
 
 #### Add files
 
