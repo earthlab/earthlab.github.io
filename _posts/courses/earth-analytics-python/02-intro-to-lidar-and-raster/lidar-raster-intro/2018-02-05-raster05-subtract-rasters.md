@@ -3,7 +3,7 @@ layout: single
 title: "Subtract One Raster from Another and Export a New Geotiff in Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output. You then want to save that output as a new file. Learn how to subtract rasters and create a new geotiff file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-10
+modified: 2018-09-11
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/subtract-rasters-in-python/
@@ -132,11 +132,9 @@ lidar_dsm_im
 
 ## Canopy Height Model
 
-The canopy height model (CHM) represents the HEIGHT of the trees. This is not
-an elevation value, rather it's the height or distance between the ground and the top of the
-trees (or buildings or whatever object that the lidar system detected and recorded). Some canopy height models also include buildings so you need to look closely
-are your data to make sure it was properly cleaned before assuming it represents
-all trees!
+The canopy height model (CHM) represents the HEIGHT of the trees. This is not an elevation value, rather it's the height or distance between the ground and the top of the trees (or buildings or whatever object that the lidar system detected and recorded). 
+
+Some canopy height models also include buildings, so you need to look closely at your data to make sure it was properly cleaned before assuming it represents all trees!
 
 ### Calculate difference between two rasters
 
