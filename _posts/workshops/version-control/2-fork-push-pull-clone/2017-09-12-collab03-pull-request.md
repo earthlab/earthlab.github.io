@@ -55,9 +55,10 @@ edits are included in another (the central Earth Lab) repo.
 
 <figure class="half">
 	<a href="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png">
-	<img src="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png" width="70%"></a>
+	<img src="{{ site.url }}/images/workshops/version-control/git-fork-clone-flow.png" alt="LEFT: You will fork and clone a repo ONCE." width="70%"></a>
 	<a href="{{ site.url }}/images/workshops/version-control/git-push-pull-flow.png">
-	<img src="{{ site.url }}/images/workshops/version-control/git-push-pull-flow.png" width="70%"></a>
+	<img src="{{ site.url }}/images/workshops/version-control/git-push-pull-flow.png" alt="RIGHT: After you have forked
+	and cloned a repo, you will update your fork from the central repository using a Pull Request. You will update your local copy of the repo (on your computer) using git pull. Notice that the workflow is similar in both images above, however the commands are different the first time you setup your repo in your GitHub account and on your local computer!" width="70%"></a>
 	<figcaption>LEFT: You will fork and clone a repo <strong> ONCE </strong>. RIGHT: After you have forked
 	and cloned a repo, you will update your fork from the central repository using
 	a <strong> Pull Request.</strong> You will update your local copy of the repo
