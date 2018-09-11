@@ -3,7 +3,7 @@ layout: single
 title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/crop-raster-data-with-shapefile-in-python/
@@ -97,7 +97,7 @@ with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/outputs/lidar_chm.
     lidar_chm_meta = lidar_chm.profile
     spatial_extent = plotting_extent(lidar_chm)
     
-# plot the data
+# Plot the data
 fig, ax = plt.subplots(figsize=(10,8))
 show(lidar_chm_im, 
      cmap='terrain', ax=ax)
@@ -127,7 +127,7 @@ from geopandas. You will learn more about vector data in Python in a few weeks.
 
 {:.input}
 ```python
-# open crop extent
+# Open crop extent
 crop_extent = gpd.read_file('data/colorado-flood/spatial/boulder-leehill-rd/clip-extent.shp')
 
 ```
@@ -150,7 +150,9 @@ print('lidar crs: ', lidar_chm.crs)
 
 {:.input}
 ```python
-# Or use matplotlib
+# Plot the crop boundary layer
+# Note this is just an example so you can see what it looks like
+# You don't need to plot this layer in your homework!
 fig, ax = plt.subplots(figsize = (6, 6))
 crop_extent.plot(ax=ax)
 ax.set_title("Shapefile Crop Extent", 
@@ -260,7 +262,7 @@ Finally, plot the cropped data. Does it look correct?
 
 {:.input}
 ```python
-# create spatial extent from the clipping layer
+# Create spatial extent from the clipping layer
 cropped_spatial_extent = [crop_bounds[0], crop_bounds[2],crop_bounds[1], crop_bounds[3]]
 
 ```
@@ -279,7 +281,7 @@ cropped_spatial_extent = [crop_bounds[0], crop_bounds[2],crop_bounds[1], crop_bo
 
 {:.input}
 ```python
-# plot your data 
+# Plot your data 
 fig, ax = plt.subplots(figsize = (10,8))
 ax.imshow(lidar_chm_crop[0], 
           extent=cropped_spatial_extent,
@@ -314,7 +316,7 @@ In this case you don't have any `nodata` values in your raster. However you may 
 
 {:.input}
 ```python
-# update with the new cropped affine info and the new width and height
+# Update with the new cropped affine info and the new width and height
 lidar_chm_meta.update({'transform': lidar_chm_crop_affine,
                       'height': lidar_chm_crop.shape[1], 
                       'width': lidar_chm_crop.shape[2],
@@ -326,7 +328,7 @@ Once you have updated the metadata you can write our your new raster.
 
 {:.input}
 ```python
-# write data
+# Write data
 path_out = "data/colorado-flood/spatial/outputs/lidar_chm_cropped.tif"
 with rio.open(path_out, 'w', **lidar_chm_meta) as ff:
     ff.write(lidar_chm_crop[0], 1)

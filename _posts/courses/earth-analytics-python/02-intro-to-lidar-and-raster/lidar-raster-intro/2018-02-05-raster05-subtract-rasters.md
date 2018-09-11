@@ -3,7 +3,7 @@ layout: single
 title: "Subtract One Raster from Another and Export a New Geotiff in Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output. You then want to save that output as a new file. Learn how to subtract rasters and create a new geotiff file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-07
+modified: 2018-09-10
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/subtract-rasters-in-python/
@@ -54,16 +54,20 @@ import earthpy as et
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.colors import ListedColormap
-# note that you have to have colors loaded for BoundaryNorm to work below
 import matplotlib.colors as colors
 import earthpy.spatial as es
 import os
+import seaborn as sns
 plt.ion()
-# set plot parameters
+# Set plot parameters (optional)
 plt.rcParams['figure.figsize'] = (8, 8)
 # prettier plotting with seaborn
-import seaborn as sns; 
+
 sns.set(font_scale=1.5)
+sns.set_style("whitegrid")
+
+# set working directory
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 Open and plot the lidar digital elevation model (DEM). Note that when you read the data, you can use the argument `masked = True` to ensure that the no data values do not plot and are assign `nan` or `nodata`. 
