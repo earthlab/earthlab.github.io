@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/import-csv-files-pandas-dataframes/
 nav-title: "Import CSV Files Into Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-10
+modified: 2018-09-10
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -48,7 +48,7 @@ The code below is available in the **ea-bootcamp-day-5** repository that you clo
 
 ## Pandas Dataframes
 
-In the lesson introducing `pandas dataframes`, you learned that these data structures that are inherently tabular, meaning that all values (or cells) have a row index and a column index, even if the data only has one row and/or one column. 
+In the lesson introducing `pandas dataframes`, you learned that these data structures are inherently tabular, meaning that all values (or cells) have a row index and a column index, even if the data only has one row and/or one column. 
 
 You also learned that unlike `numpy arrays`, `pandas dataframes` are two-dimensional by default and are composed of rows and columns. Each column in a `pandas dataframe` can have a labeled name (i.e. header name) and can contain a different type of data from its neighboring columns. 
 
@@ -168,7 +168,7 @@ print("datasets downloaded successfully")
 
 Using the `read_csv()` function from the `pandas` package, you can import tabular data from CSV files into `pandas dataframe` by specifying a parameter value for the file name (e.g. `pd.read_csv("filename.csv")`). 
 
-Remember that you gave `pandas` alias of `pd`, so you will use `pd` to call `pandas` functions. Be sure to update the path to the CSV file to your home directory. 
+Remember that you gave `pandas` an alias (`pd`), so you will use `pd` to call `pandas` functions. Be sure to update the path to the CSV file to your home directory. 
 
 {:.input}
 ```python

@@ -8,9 +8,9 @@ class-lesson: ['data-wrangling']
 permalink: /courses/earth-analytics-bootcamp/data-wrangling/data-wrangling-pandas/
 nav-title: "Data Wrangling With Pandas"
 dateCreated: 2019-08-11
-modified: 2018-08-22
+modified: 2018-09-10
 module-type: 'class'
-module-title: 'Data Wrangling'
+module-title: 'Data Wrangling With Pandas Dataframes and Numpy Arrays in Python'
 module-nav-title: 'Data Wrangling'
 module-description: 'This tutorial walks you through wrangling data (e.g. subselect, combine and update) using pandas dataframes and numpy arrays.'
 class-order: 2

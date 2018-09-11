@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/
 nav-title: "Guided Activity on Version Control with Git/GitHub"
 dateCreated: 2018-07-25
-modified: 2018-08-09
+modified: 2018-09-10
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -106,7 +106,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 The output from `git status` indicates that you have modified the file `ea-bootcamp-hw-1.ipynb`.
 
-To keep track changes to this file, you need to:
+To keep track of changes to this file, you need to:
 
 1. `add` the changes, and then
 2. `commit` the changes.

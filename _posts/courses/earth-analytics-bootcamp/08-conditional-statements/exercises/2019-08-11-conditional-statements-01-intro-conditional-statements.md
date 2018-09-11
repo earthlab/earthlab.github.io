@@ -8,8 +8,8 @@ class-lesson: ['conditional-statements']
 permalink: /courses/earth-analytics-bootcamp/conditional-statements/intro-conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-08-11
-modified: 2018-08-16
-module-title: 'Conditional Statements'
+modified: 2018-09-10
+module-title: 'Intro to Writing Conditional Statements in Python'
 module-nav-title: 'Conditional Statements'
 module-description: 'This tutorial walks you through implementing another key strategy for writing DRY (i.e. Do Not Repeat Yourself) code in Python: conditional statements.'
 module-type: 'class'

@@ -8,7 +8,7 @@ class-lesson: ['numpy-arrays']
 permalink: /courses/earth-analytics-bootcamp/numpy-arrays/import-text-files-numpy-arrays/
 nav-title: "Import Text Data Into Numpy Arrays"
 dateCreated: 2019-07-23
-modified: 2018-08-10
+modified: 2018-09-10
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -34,7 +34,7 @@ After completing this hands-on exercise, you will be able to:
 
 * Explain the differences between plain text and comma delimited files
 * Write `Python` code to download data using URLs
-* Write `Python` code to mport data from text files (.txt) into `numpy arrays`
+* Write `Python` code to import data from text files (.txt) into `numpy arrays`
  
  
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
