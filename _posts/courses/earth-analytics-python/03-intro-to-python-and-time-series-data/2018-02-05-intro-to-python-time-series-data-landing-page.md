@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Time Series Data in Python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/
-modified: 2018-09-11
+modified: 2018-09-12
 week-landing: 1
 week: 3
 sidebar:
@@ -168,13 +168,15 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 
 
+Note: to plot the y axis on a log scale use the argument: `logy= True` in your pandas `.plot()` call. If you use matplotlib to plot the data then you will want to calculate the log value in a new column and plot that.
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_7_0.png" alt = "Probabilty of Stream discharge events plot.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png" alt = "Probabilty of Stream discharge events plot.">
 <figcaption>Probabilty of Stream discharge events plot.</figcaption>
 
 </figure>
@@ -188,7 +190,7 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png" alt = "Return period for stream discharge events plot.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_9_0.png" alt = "Return period for stream discharge events plot.">
 <figcaption>Return period for stream discharge events plot.</figcaption>
 
 </figure>
@@ -202,7 +204,7 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_9_0.png" alt = "Probabiltiy for precipitation events plot.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png" alt = "Probabiltiy for precipitation events plot.">
 <figcaption>Probabiltiy for precipitation events plot.</figcaption>
 
 </figure>
@@ -216,7 +218,7 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png" alt = "Return period for precipitation events plot.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_11_0.png" alt = "Return period for precipitation events plot.">
 <figcaption>Return period for precipitation events plot.</figcaption>
 
 </figure>
