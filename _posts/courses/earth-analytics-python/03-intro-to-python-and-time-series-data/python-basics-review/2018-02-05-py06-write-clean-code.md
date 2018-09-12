@@ -3,7 +3,7 @@ layout: single
 title: "Write Clean Python Code - Expressive programming 101"
 excerpt: 'This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: 2018-09-06
+modified: 2018-09-12
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
@@ -48,11 +48,6 @@ At the end of this activity, you will be able to:
 
 
 You need `Python 3.x` and `Jupyter notebooks` to complete this tutorial. Also you should have an `earth-analytics` directory setup on your computer with a `/data` directory with it.
-
-* [Setup Conda](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
-* [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
-* [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
-
 
 
 ***
@@ -144,7 +139,7 @@ variable = 3 * 6
 meanvariable = variable
 
 
-#calculate something important
+# calculate something important
 mean_variable = meanvariable * 5
 
 thefinalthingthatineedtocalculate = mean_variable + 5
@@ -152,7 +147,7 @@ thefinalthingthatineedtocalculate = mean_variable + 5
 
 {:.input}
 ```python
-#get things that are important
+# get things that are important
 import pandas as pd
 %matplotlib inline
 ```
