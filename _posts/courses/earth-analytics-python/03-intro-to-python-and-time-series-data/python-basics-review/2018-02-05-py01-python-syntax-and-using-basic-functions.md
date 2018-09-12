@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/python-syntax-and-using-functions/
 nav-title: 'Review: Get to Know Python'
 dateCreated: 2018-02-05
-modified: 2018-09-06
+modified: 2018-09-12
 module-title: 'Get to Know the Python programming language'
 module-nav-title: 'Review: Get to Know Python'
 module-description: 'This module introduces the Python scientific programming language.
@@ -47,10 +47,6 @@ You need `Python 3.x` and `Jupyter notebooks` to complete this tutorial. Also yo
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
-* [Setup Conda](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
-* [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
-* [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
-
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
@@ -58,7 +54,6 @@ directory with it.
 This lesson set is a review of some of the  basic python concepts that you need to know to get through this week's material. These concepts and more were taught in the pre-requisite to this course - [Earth-Analytics-bootcamp course.]({{ site.url }}/courses/earth-analytics-bootcamp/) In this module, you will review the basic syntax of the `Python` programming language. 
 
 Look closely at the code below:
-
 
 
 {:.input}
@@ -86,18 +81,6 @@ ax.set_xlabel("Date")
 ax.set_ylabel("Precipitation (inches)")
 ax.set_title("Daily Precipitation - Boulder Station\n 2003-2013");
 ```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions_2_0.png">
-
-</figure>
-
-
-
 
 This codes above does the following:
 
@@ -338,7 +321,8 @@ data.plot(x='DATE',
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions_16_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions_16_0.png" alt = "Basic plot of precipitation data in Boulder, Colorado 2003-2013">
+<figcaption>Basic plot of precipitation data in Boulder, Colorado 2003-2013</figcaption>
 
 </figure>
 
@@ -665,7 +649,7 @@ np.round(3.23457457,
 
 
 
-    3.235
+    3.2349999999999999
 
 
 
@@ -682,7 +666,7 @@ np.round(3.14159,
 
 
 
-    3.1
+    3.1000000000000001
 
 
 
@@ -703,7 +687,7 @@ np.round(3.14159, 2)
 
 
 
-    3.14
+    3.1400000000000001
 
 
 
@@ -722,10 +706,10 @@ np.round(2, 3.14159)
 
     AttributeError                            Traceback (most recent call last)
 
-    ~/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapfunc(obj, method, *args, **kwds)
-         51     try:
-    ---> 52         return getattr(obj, method)(*args, **kwds)
-         53 
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapfunc(obj, method, *args, **kwds)
+         56     try:
+    ---> 57         return getattr(obj, method)(*args, **kwds)
+         58 
 
 
     AttributeError: 'int' object has no attribute 'round'
@@ -736,41 +720,41 @@ np.round(2, 3.14159)
 
     TypeError                                 Traceback (most recent call last)
 
-    <ipython-input-22-47fcf09b3043> in <module>()
+    <ipython-input-23-aed5683d0561> in <module>()
           1 # but what happens here?
     ----> 2 np.round(2, 3.14159)
     
 
-    ~/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py in round_(a, decimals, out)
-       2849 
-       2850     """
-    -> 2851     return around(a, decimals=decimals, out=out)
-       2852 
-       2853 
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in round_(a, decimals, out)
+       2801 
+       2802     """
+    -> 2803     return around(a, decimals=decimals, out=out)
+       2804 
+       2805 
 
 
-    ~/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py in around(a, decimals, out)
-       2835 
-       2836     """
-    -> 2837     return _wrapfunc(a, 'round', decimals=decimals, out=out)
-       2838 
-       2839 
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in around(a, decimals, out)
+       2787 
+       2788     """
+    -> 2789     return _wrapfunc(a, 'round', decimals=decimals, out=out)
+       2790 
+       2791 
 
 
-    ~/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapfunc(obj, method, *args, **kwds)
-         60     # a downstream library like 'pandas'.
-         61     except (AttributeError, TypeError):
-    ---> 62         return _wrapit(obj, method, *args, **kwds)
-         63 
-         64 
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapfunc(obj, method, *args, **kwds)
+         65     # a downstream library like 'pandas'.
+         66     except (AttributeError, TypeError):
+    ---> 67         return _wrapit(obj, method, *args, **kwds)
+         68 
+         69 
 
 
-    ~/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapit(obj, method, *args, **kwds)
-         40     except AttributeError:
-         41         wrap = None
-    ---> 42     result = getattr(asarray(obj), method)(*args, **kwds)
-         43     if wrap:
-         44         if not isinstance(result, mu.ndarray):
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapit(obj, method, *args, **kwds)
+         45     except AttributeError:
+         46         wrap = None
+    ---> 47     result = getattr(asarray(obj), method)(*args, **kwds)
+         48     if wrap:
+         49         if not isinstance(result, mu.ndarray):
 
 
     TypeError: integer argument expected, got float
@@ -843,280 +827,3 @@ If you need help with a specific function, let's say `plt.plot`, you can type:
 ```python
 help(plt.plot)
 ```
-
-{:.output}
-    Help on function plot in module matplotlib.pyplot:
-    
-    plot(*args, **kwargs)
-        Plot y versus x as lines and/or markers.
-        
-        Call signatures::
-        
-            plot([x], y, [fmt], data=None, **kwargs)
-            plot([x], y, [fmt], [x2], y2, [fmt2], ..., **kwargs)
-        
-        The coordinates of the points or line nodes are given by *x*, *y*.
-        
-        The optional parameter *fmt* is a convenient way for defining basic
-        formatting like color, marker and linestyle. It's a shortcut string
-        notation described in the *Notes* section below.
-        
-        >>> plot(x, y)        # plot x and y using default line style and color
-        >>> plot(x, y, 'bo')  # plot x and y using blue circle markers
-        >>> plot(y)           # plot y using x as index array 0..N-1
-        >>> plot(y, 'r+')     # ditto, but with red plusses
-        
-        You can use `.Line2D` properties as keyword arguments for more
-        control on the  appearance. Line properties and *fmt* can be mixed.
-        The following two calls yield identical results:
-        
-        >>> plot(x, y, 'go--', linewidth=2, markersize=12)
-        >>> plot(x, y, color='green', marker='o', linestyle='dashed',
-                linewidth=2, markersize=12)
-        
-        When conflicting with *fmt*, keyword arguments take precedence.
-        
-        **Plotting labelled data**
-        
-        There's a convenient way for plotting objects with labelled data (i.e.
-        data that can be accessed by index ``obj['y']``). Instead of giving
-        the data in *x* and *y*, you can provide the object in the *data*
-        parameter and just give the labels for *x* and *y*::
-        
-        >>> plot('xlabel', 'ylabel', data=obj)
-        
-        All indexable objects are supported. This could e.g. be a `dict`, a
-        `pandas.DataFame` or a structured numpy array.
-        
-        
-        **Plotting multiple sets of data**
-        
-        There are various ways to plot multiple sets of data.
-        
-        - The most straight forward way is just to call `plot` multiple times.
-          Example:
-        
-          >>> plot(x1, y1, 'bo')
-          >>> plot(x2, y2, 'go')
-        
-        - Alternatively, if your data is already a 2d array, you can pass it
-          directly to *x*, *y*. A separate data set will be drawn for every
-          column.
-        
-          Example: an array ``a`` where the first column represents the *x*
-          values and the other columns are the *y* columns::
-        
-          >>> plot(a[0], a[1:])
-        
-        - The third way is to specify multiple sets of *[x]*, *y*, *[fmt]*
-          groups::
-        
-          >>> plot(x1, y1, 'g^', x2, y2, 'g-')
-        
-          In this case, any additional keyword argument applies to all
-          datasets. Also this syntax cannot be combined with the *data*
-          parameter.
-        
-        By default, each line is assigned a different style specified by a
-        'style cycle'. The *fmt* and line property parameters are only
-        necessary if you want explicit deviations from these defaults.
-        Alternatively, you can also change the style cycle using the
-        'axes.prop_cycle' rcParam.
-        
-        Parameters
-        ----------
-        x, y : array-like or scalar
-            The horizontal / vertical coordinates of the data points.
-            *x* values are optional. If not given, they default to
-            ``[0, ..., N-1]``.
-        
-            Commonly, these parameters are arrays of length N. However,
-            scalars are supported as well (equivalent to an array with
-            constant value).
-        
-            The parameters can also be 2-dimensional. Then, the columns
-            represent separate data sets.
-        
-        fmt : str, optional
-            A format string, e.g. 'ro' for red circles. See the *Notes*
-            section for a full description of the format strings.
-        
-            Format strings are just an abbreviation for quickly setting
-            basic line properties. All of these and more can also be
-            controlled by keyword arguments.
-        
-        data : indexable object, optional
-            An object with labelled data. If given, provide the label names to
-            plot in *x* and *y*.
-        
-            .. note::
-                Technically there's a slight ambiguity in calls where the
-                second label is a valid *fmt*. `plot('n', 'o', data=obj)`
-                could be `plt(x, y)` or `plt(y, fmt)`. In such cases,
-                the former interpretation is chosen, but a warning is issued.
-                You may suppress the warning by adding an empty format string
-                `plot('n', 'o', '', data=obj)`.
-        
-        
-        Other Parameters
-        ----------------
-        scalex, scaley : bool, optional, default: True
-            These parameters determined if the view limits are adapted to
-            the data limits. The values are passed on to `autoscale_view`.
-        
-        **kwargs : `.Line2D` properties, optional
-            *kwargs* are used to specify properties like a line label (for
-            auto legends), linewidth, antialiasing, marker face color.
-            Example::
-        
-            >>> plot([1,2,3], [1,2,3], 'go-', label='line 1', linewidth=2)
-            >>> plot([1,2,3], [1,4,9], 'rs',  label='line 2')
-        
-            If you make multiple lines with one plot command, the kwargs
-            apply to all those lines.
-        
-            Here is a list of available `.Line2D` properties:
-        
-              agg_filter: a filter function, which takes a (m, n, 3) float array and a dpi value, and returns a (m, n, 3) array 
-          alpha: float (0.0 transparent through 1.0 opaque) 
-          animated: bool 
-          antialiased or aa: bool 
-          clip_box: a `.Bbox` instance 
-          clip_on: bool 
-          clip_path: [(`~matplotlib.path.Path`, `.Transform`) | `.Patch` | None] 
-          color or c: any matplotlib color 
-          contains: a callable function 
-          dash_capstyle: ['butt' | 'round' | 'projecting'] 
-          dash_joinstyle: ['miter' | 'round' | 'bevel'] 
-          dashes: sequence of on/off ink in points 
-          drawstyle: ['default' | 'steps' | 'steps-pre' | 'steps-mid' | 'steps-post'] 
-          figure: a `.Figure` instance 
-          fillstyle: ['full' | 'left' | 'right' | 'bottom' | 'top' | 'none'] 
-          gid: an id string 
-          label: object 
-          linestyle or ls: ['solid' | 'dashed', 'dashdot', 'dotted' | (offset, on-off-dash-seq) | ``'-'`` | ``'--'`` | ``'-.'`` | ``':'`` | ``'None'`` | ``' '`` | ``''``]
-          linewidth or lw: float value in points 
-          marker: :mod:`A valid marker style <matplotlib.markers>`
-          markeredgecolor or mec: any matplotlib color 
-          markeredgewidth or mew: float value in points 
-          markerfacecolor or mfc: any matplotlib color 
-          markerfacecoloralt or mfcalt: any matplotlib color 
-          markersize or ms: float 
-          markevery: [None | int | length-2 tuple of int | slice | list/array of int | float | length-2 tuple of float]
-          path_effects: `.AbstractPathEffect` 
-          picker: float distance in points or callable pick function ``fn(artist, event)`` 
-          pickradius: float distance in points
-          rasterized: bool or None 
-          sketch_params: (scale: float, length: float, randomness: float) 
-          snap: bool or None 
-          solid_capstyle: ['butt' | 'round' |  'projecting'] 
-          solid_joinstyle: ['miter' | 'round' | 'bevel'] 
-          transform: a :class:`matplotlib.transforms.Transform` instance 
-          url: a url string 
-          visible: bool 
-          xdata: 1D array 
-          ydata: 1D array 
-          zorder: float 
-        
-        Returns
-        -------
-        lines
-            A list of `.Line2D` objects representing the plotted data.
-        
-        
-        See Also
-        --------
-        scatter : XY scatter plot with markers of variing size and/or color (
-            sometimes also called bubble chart).
-        
-        
-        Notes
-        -----
-        **Format Strings**
-        
-        A format string consists of a part for color, marker and line::
-        
-            fmt = '[color][marker][line]'
-        
-        Each of them is optional. If not provided, the value from the style
-        cycle is used. Exception: If ``line`` is given, but no ``marker``,
-        the data will be a line without markers.
-        
-        **Colors**
-        
-        The following color abbreviations are supported:
-        
-        =============    ===============================
-        character        color
-        =============    ===============================
-        ``'b'``          blue
-        ``'g'``          green
-        ``'r'``          red
-        ``'c'``          cyan
-        ``'m'``          magenta
-        ``'y'``          yellow
-        ``'k'``          black
-        ``'w'``          white
-        =============    ===============================
-        
-        If the color is the only part of the format string, you can
-        additionally use any  `matplotlib.colors` spec, e.g. full names
-        (``'green'``) or hex strings (``'#008000'``).
-        
-        **Markers**
-        
-        =============    ===============================
-        character        description
-        =============    ===============================
-        ``'.'``          point marker
-        ``','``          pixel marker
-        ``'o'``          circle marker
-        ``'v'``          triangle_down marker
-        ``'^'``          triangle_up marker
-        ``'<'``          triangle_left marker
-        ``'>'``          triangle_right marker
-        ``'1'``          tri_down marker
-        ``'2'``          tri_up marker
-        ``'3'``          tri_left marker
-        ``'4'``          tri_right marker
-        ``'s'``          square marker
-        ``'p'``          pentagon marker
-        ``'*'``          star marker
-        ``'h'``          hexagon1 marker
-        ``'H'``          hexagon2 marker
-        ``'+'``          plus marker
-        ``'x'``          x marker
-        ``'D'``          diamond marker
-        ``'d'``          thin_diamond marker
-        ``'|'``          vline marker
-        ``'_'``          hline marker
-        =============    ===============================
-        
-        **Line Styles**
-        
-        =============    ===============================
-        character        description
-        =============    ===============================
-        ``'-'``          solid line style
-        ``'--'``         dashed line style
-        ``'-.'``         dash-dot line style
-        ``':'``          dotted line style
-        =============    ===============================
-        
-        Example format strings::
-        
-            'b'    # blue markers with default shape
-            'ro'   # red circles
-            'g-'   # green solid line
-            '--'   # dashed line with default color
-            'k^:'  # black triangle_up markers connected by a dotted line
-        
-        .. note::
-            In addition to the above described arguments, this function can take a
-            **data** keyword argument. If such a **data** argument is given, the
-            following arguments are replaced by **data[<arg>]**:
-        
-            * All arguments with the following names: 'x', 'y'.
-    
-
-
