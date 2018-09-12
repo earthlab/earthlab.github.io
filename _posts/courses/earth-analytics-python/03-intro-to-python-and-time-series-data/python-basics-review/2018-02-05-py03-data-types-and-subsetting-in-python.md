@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/work-with-data-types-python/
 nav-title: 'Data Types'
 dateCreated: 2017-05-23
-modified: 2018-09-06
+modified: 2018-09-12
 week: 3
 sidebar:
   nav:
@@ -34,10 +34,6 @@ At the end of this activity, you will be able to:
 You need `Python 3.x` and `Jupyter notebooks` to complete this tutorial. Also you should have
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
-
-* [Setup Conda](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
-* [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
-* [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
