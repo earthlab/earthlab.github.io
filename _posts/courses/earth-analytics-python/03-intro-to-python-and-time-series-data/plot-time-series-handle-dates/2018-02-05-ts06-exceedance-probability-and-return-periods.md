@@ -1195,10 +1195,7 @@ n = longmont_discharge_sorted.shape[0]
 # add a numbered column 1 -> n to use in return calculation for rank
 longmont_discharge_sorted.insert(0, 'rank', range(1, 1 + n))
 # calculate probability - note you may need to adjust this value based upon the time period of your data
-# for daily data you need to divide by 365
-
 longmont_discharge_sorted["probability"] = ((n - longmont_discharge_sorted["rank"] + 1) / (n + 1))
-# calculate return - data are daily to then divide by 365?
 longmont_discharge_sorted["return-years"] = (1 / longmont_discharge_sorted["probability"]) 
 ```
 
