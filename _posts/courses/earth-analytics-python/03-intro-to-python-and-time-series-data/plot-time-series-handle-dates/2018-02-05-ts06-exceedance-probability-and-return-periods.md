@@ -3,7 +3,7 @@ layout: single
 title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Probability and Return Periods in Python"
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2018-09-11
+modified: 2018-09-12
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -210,11 +210,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2018-09-11T17:52:58.246Z', 'title': 'requestDT'},
-        {'value': '84a99b50-b5eb-11e8-87eb-6cae8b663fb6', 'title': 'requestId'},
+        {'value': '2018-09-13T01:35:02.595Z', 'title': 'requestDT'},
+        {'value': '3c134a20-b6f5-11e8-8a21-6cae8b6642f6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'vaas01', 'title': 'server'}]},
+        {'value': 'caas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -250,9 +250,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '32.4',
+        'values': [{'value': [{'value': '28.3',
             'qualifiers': ['P'],
-            'dateTime': '2018-09-10T00:00:00.000'}],
+            'dateTime': '2018-09-11T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -658,7 +658,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x1066f5e80>)
+     <http.client.HTTPMessage at 0x11b172940>)
 
 
 
@@ -1238,6 +1238,7 @@ Once you have a function, you can calculate return period and probability on bot
 longmont_prob = calculate_return(longmont_discharge, "discharge")
 # Because these data are daily, divide return period in days by 365 to get a return period in years
 longmont_prob["return-years"] = longmont_prob["return-years"] / 365
+longmont_prob["probability"] = longmont_prob["probability"] * 365
 longmont_prob.tail()
 ```
 
@@ -1288,7 +1289,7 @@ longmont_prob.tail()
       <td>3270.0</td>
       <td>A e</td>
       <td>2013</td>
-      <td>0.000293</td>
+      <td>0.106831</td>
       <td>9.360548</td>
     </tr>
     <tr>
@@ -1297,7 +1298,7 @@ longmont_prob.tail()
       <td>3680.0</td>
       <td>A</td>
       <td>2013</td>
-      <td>0.000234</td>
+      <td>0.085465</td>
       <td>11.700685</td>
     </tr>
     <tr>
@@ -1306,7 +1307,7 @@ longmont_prob.tail()
       <td>3970.0</td>
       <td>A e</td>
       <td>2013</td>
-      <td>0.000176</td>
+      <td>0.064099</td>
       <td>15.600913</td>
     </tr>
     <tr>
@@ -1315,7 +1316,7 @@ longmont_prob.tail()
       <td>4970.0</td>
       <td>A e</td>
       <td>2013</td>
-      <td>0.000117</td>
+      <td>0.042733</td>
       <td>23.401370</td>
     </tr>
     <tr>
@@ -1324,7 +1325,7 @@ longmont_prob.tail()
       <td>8910.0</td>
       <td>A e</td>
       <td>2013</td>
-      <td>0.000059</td>
+      <td>0.021366</td>
       <td>46.802740</td>
     </tr>
   </tbody>
