@@ -13,7 +13,7 @@ lang: [python]
 lib: [ogr, shapely, urllib, zipfile]
 ---
 
-The Landsat 8 satellite uses the [WRS-2](http://landsat.gsfc.nasa.gov/the-worldwide-reference-system/) reference system to catalog data. This referece system uses paths and rows, which are derived from the satellites orbit. You may find it useful to be able to convert between the WRS-2 paths and rows to latitude and longitude coordinates. This tutorial will demonstrate how to programmatically perform the conversion in python.
+The Landsat 8 satellite uses the [WRS-2](https://landsat.gsfc.nasa.gov/the-worldwide-reference-system/) reference system to catalog data. This referece system uses paths and rows, which are derived from the satellites orbit. You may find it useful to be able to convert between the WRS-2 paths and rows to latitude and longitude coordinates. This tutorial will demonstrate how to programmatically perform the conversion in python.
 
 ## Objectives
 
