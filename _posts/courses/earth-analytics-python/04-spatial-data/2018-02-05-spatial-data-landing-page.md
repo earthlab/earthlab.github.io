@@ -196,7 +196,8 @@ Use this layer to calculate mean values for `ALAND` and `AWATER` found in the at
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_11_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_11_0.png" alt = "Total land and total water aggregated by region in the United States.">
+<figcaption>Total land and total water aggregated by region in the United States.</figcaption>
 
 </figure>
 

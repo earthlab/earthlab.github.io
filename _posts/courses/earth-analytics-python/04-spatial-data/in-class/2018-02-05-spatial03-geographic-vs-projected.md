@@ -207,8 +207,8 @@ the UTM zone, to avoid negative Easting numbers.
 
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-Utm-zones.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-Utm-zones.jpg" alt="Nasa image showing the UTM x and y zones">
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-utm-zones.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-utm-zones.jpg" alt="Nasa image showing the UTM x and y zones">
     </a>
     <figcaption>The gridded UTM coordinate system across the globe.
     Source: NASA Earth Observatory</figcaption>
