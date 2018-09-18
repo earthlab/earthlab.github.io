@@ -3,7 +3,7 @@ layout: single
 title: "Write Clean Python Code - Expressive programming 101"
 excerpt: 'This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: 2018-09-12
+modified: 2018-09-17
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
@@ -237,7 +237,8 @@ my_data.plot('DATE', 'PRECIP', figsize = (20, 20), color = 'purple');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py06-write-clean-code_5_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py06-write-clean-code_5_0.png" alt = "You can create a simple plot of a pandas dataframe using the plot function and providing the columns containing the x and y axes. This example plots display daily precipitation data in the fall of 2013 in Boulder, CO.">
+<figcaption>You can create a simple plot of a pandas dataframe using the plot function and providing the columns containing the x and y axes. This example plots display daily precipitation data in the fall of 2013 in Boulder, CO.</figcaption>
 
 </figure>
 
