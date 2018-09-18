@@ -162,7 +162,7 @@ worldBound = gpd.read_file("data/spatial-vector-lidar/global/ne_110m_land/ne_110
 
 {:.input}
 ```python
-# plot worldBound data using geopandas
+# Plot worldBound data using geopandas
 fig, ax = plt.subplots(figsize=(10, 5))
 worldBound.plot(color='darkgrey', 
                 ax=ax)
@@ -209,7 +209,7 @@ To plot these points spatially you will
 
 {:.input}
 ```python
-# create numpy array of x,y point locations
+# Create numpy array of x,y point locations
 add_points = np.array([[-105.2519,   40.0274], 
                        [  10.75  ,   59.95  ], 
                        [   2.9833,   39.6167]])
@@ -328,18 +328,18 @@ Next, import proper graticules that can be projected into a particular coordinat
 
 {:.input}
 ```python
-# import graticule & world bounding box shapefile data
+# Import graticule & world bounding box shapefile data
 graticule = gpd.read_file("data/spatial-vector-lidar/global/ne_110m_graticules_all/ne_110m_graticules_15.shp")
 bbox = gpd.read_file("data/spatial-vector-lidar/global/ne_110m_graticules_all/ne_110m_wgs84_bounding_box.shp")
 
 # Create map axis object
 fig, ax = plt.subplots(1, 1, figsize=(15, 8))
-# add bounding box and graticule layers
+# Add bounding box and graticule layers
 bbox.plot(ax=ax, alpha=.1, color='grey')
 graticule.plot(ax=ax, color='lightgrey')
 worldBound.plot(ax=ax, color='black')
 
-# add points to plot 
+# Add points to plot 
 city_locations.plot(ax=ax, 
                     markersize=60, 
                     color='springgreen',
@@ -482,7 +482,6 @@ In python, you use the `.to_crs` method to reproject your data.
 city_locations_robin = city_locations.to_crs(worldBound_robin.crs)
 
 fig, ax = plt.subplots(1, 1, figsize=(12, 8))
-
 worldBound_robin.plot(ax=ax, 
                       cmap='Greys')
 ax.set(title="World map (robinson)", 
