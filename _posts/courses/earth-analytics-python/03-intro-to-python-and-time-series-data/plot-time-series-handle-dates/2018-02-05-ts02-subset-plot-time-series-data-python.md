@@ -3,7 +3,7 @@ layout: single
 title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need to run analysis. Learn how to subset your data  using a begina and end date in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-11
+modified: 2018-09-17
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -60,7 +60,7 @@ The added columns include:
 
 ### How Is Precipitation Measured? 
 
-Precipitation can be measured using different types of gages. Some gages are manually read and emptied. Others gages automatically record the amount of precipitation collected. If the precipitation is in a frozen form (snow, hail, freezing rain) then the contents of the gage are melted to get the water equivalency for measurement. Rainfall is generally reported as the total amount of rain (millimeters, centimeters, or inches) over a given per period of time.
+Precipitation can be measured using different types of gages. Some gages are manually read and emptied. Others gages automatically record the amount of precipitation collected. If the precipitation is in a frozen form (snow, hail, freezing rain) then the contents of the gage are melted to get the water equivalency for measurement. Rainfall is generally reported as the total amount of rain (millimeters, centimeters, or inches) over a given period of time.
 
 <i class="fa fa-star"></i> **Data Tip:** Precipitation is the moisture that falls from clouds including rain, hail and snow.
 {: .notice--success }
