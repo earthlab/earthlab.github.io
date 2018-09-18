@@ -3,7 +3,7 @@ layout: single
 title: "Understand EPSG, WKT and Other CRS Definition Styles"
 excerpt: "In this lesson you will break down 3 key formats that Coordinate Reference System (CRS) information is often stored in including proj.4, EPSG and WKT. "
 authors: ['Leah Wasser']
-modified: 2018-09-14
+modified: 2018-09-18
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/epsg-proj4-coordinate-reference-system-formats-python/
@@ -36,7 +36,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 

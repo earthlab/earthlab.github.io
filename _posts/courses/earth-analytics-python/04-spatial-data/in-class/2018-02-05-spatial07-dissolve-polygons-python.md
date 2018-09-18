@@ -3,7 +3,7 @@ layout: single
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser']
-modified: 2018-09-17
+modified: 2018-09-18
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/dissolve-polygons-in-python-geopandas-shapely/
@@ -24,19 +24,17 @@ order: 7
 
 After completing this tutorial, you will be able to:
 
-* 
+* Dissolve polygons based upon an attribute using `geopandas` in `Python`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
-
-
-
 
 
 Get started by loading your libraries. And be sure that your working directory is set. 
@@ -51,9 +49,8 @@ import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from matplotlib.colors import ListedColormap
 import earthpy as et 
-# load the box module from shapely
 from shapely.geometry import box
-# make figures plot inline
+
 plt.ion()
 
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
@@ -72,14 +69,11 @@ base_path = os.path.join("data", "spatial-vector-lidar")
 country_boundary_path = base_path + "/usa/usa-boundary-dissolved.shp"
 state_boundary_path = base_path + "/usa/usa-states-census-2014.shp"
 pop_places_path = base_path + "/global/ne_110m_populated_places_simple/ne_110m_populated_places_simple.shp"
-#ne_roads_path = base_path + "/global/ne_10m_roads/ne_10m_roads.shp"
-
 
 # Import the data
 country_boundary_us = gpd.read_file(country_boundary_path)
 state_boundary_us = gpd.read_file(state_boundary_path)
 pop_places = gpd.read_file(pop_places_path)
-#ne_roads = gpd.read_file(ne_roads_path)
 
 ```
 
@@ -238,7 +232,7 @@ state_boundary_us.geom_type.head()
 
 
 
-Next, select the columns that you with to use for the dissolve and keep. In this case we want to retain the 
+Next, select the columns that you with to use for the dissolve and keep. In this case we want to retain the:
 
 * LSAD 
 * geometry
@@ -307,7 +301,7 @@ This will return an error as region is no longer a column, it is an index!
 
 {:.input}
 ```python
-cont_usa.reset_index
+cont_usa.reset_index()
 ```
 
 {:.output}
@@ -315,9 +309,37 @@ cont_usa.reset_index
 
 
 
-    <bound method DataFrame.reset_index of                                                geometry
-    LSAD                                                   
-    00    (POLYGON Z ((-81.81169299999999 24.568745 0, -...>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>LSAD</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00</td>
+      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
@@ -339,7 +361,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_12_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_12_0.png" alt = "The LSAD attribute value for every polygon in the data is 00. Thus when you dissolve by that attribute, you get one resulting polygon.">
+<figcaption>The LSAD attribute value for every polygon in the data is 00. Thus when you dissolve by that attribute, you get one resulting polygon.</figcaption>
 
 </figure>
 
@@ -447,12 +470,23 @@ regions_agg
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (12,8))
-regions_agg.plot(column = 'ALAND', edgecolor = "black",
-                 scheme='quantiles', cmap='YlOrRd', ax=ax, 
-                 legend = True)
-ax.set_axis_off()
-plt.axis('equal');
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
+regions_agg.plot(column='ALAND',
+                 legend=True,
+                 scheme='quantiles',
+                 ax=ax1)
+regions_agg.plot(column='AWATER',
+                 scheme='quantiles',
+                 legend=True,
+                 ax=ax2)
+
+plt.suptitle('Census Data - Total Land and Water by Region', fontsize=16)
+ax1.set_axis_off()
+ax2.set_axis_off()
+
+plt.axis('equal')
+
+plt.show()
 ```
 
 {:.output}
@@ -460,7 +494,8 @@ plt.axis('equal');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_15_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_15_0.png" alt = "In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.">
+<figcaption>In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.</figcaption>
 
 </figure>
 

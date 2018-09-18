@@ -5,7 +5,7 @@ title: "Intro to Spatial Data"
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-use-vector-spatial-data-in-open-source-python/
 week-landing: 4
 week: 4
-modified: 2018-09-17
+modified: 2018-09-18
 sidebar:
   nav:
 comments: false
@@ -169,19 +169,6 @@ Using the dataframe that you created above with each road assigned to the county
 Below is a map of the road layers clipped to the three counties to help you check your answer!
 HINT: use the `legend=True` argument in `.plot()` to create a legend.
 
-{:.input}
-```python
-# This till test them doing a spatial join and a clip
-fig, ax = plt.subplots()
-three_counties.plot(ax=ax,
-                    facecolor="none",
-                    edgecolor="black")
-roads_county.plot(ax=ax, column="NAME", legend=True)
-ax.set_title("Plot XX -- California Roads by County\n For Del Norte, Modoc & Siskiyou Counties")
-ax.set_axis_off()
-plt.axis('equal')
-plt.show()
-```
 
 {:.output}
 {:.display_data}
@@ -202,26 +189,6 @@ The 2014 census layer: `"data/spatial-vector-lidar/usa/usa-states-census-2014.sh
 
 Use this layer to calculate mean values for `ALAND` and `AWATER` found in the attributes. 
 
-{:.input}
-```python
-# This will test them building a figure with two plots - they've asked about this a lot
-state_boundary_us = gpd.read_file(
-    "data/spatial-vector-lidar/usa/usa-states-census-2014.shp")
-state_boundary_us = state_boundary_us[[
-    'region', 'geometry', 'ALAND', 'AWATER']]
-mean_region_val = state_boundary_us.dissolve(by="region", aggfunc='sum')
-
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
-mean_region_val.plot(column='ALAND',
-                     legend=True,
-                     ax=ax1)
-mean_region_val.plot(column='AWATER',
-                     legend=True,
-                     ax=ax2)
-
-plt.suptitle('Cansus Data - Total Land and Water by  is a somewhat long figure title', fontsize=16)
-plt.show()
-```
 
 {:.output}
 {:.display_data}
@@ -354,29 +321,14 @@ country_path = os.path.join(download_path, "ne_10m_admin_0_countries.shp")
 
 
 
-{:.input}
-```python
-# Final plot of data
-fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
-mean_region_val.plot(column=mean_region_val.columns[3],
-                     legend=True,
-                     ax=ax1)
-mean_region_val.plot(column=mean_region_val.columns[2],
-                     legend=True,
-                     ax=ax2)
-
-plt.suptitle('Global Total Estimated Population by Region', fontsize=16)
-plt.show()
-
-## END SOLUTION
-```
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_17_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_17_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
+<figcaption>Natural Earth Global Mean population rank and total estimated population</figcaption>
 
 </figure>
 

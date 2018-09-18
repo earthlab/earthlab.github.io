@@ -3,7 +3,7 @@ layout: single
 title: "GIS in Python: Intro to Coordinate Reference Systems in Python"
 excerpt: "This lesson introduces what a coordinate reference system is. You will use the `Python` programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-09-14
+modified: 2018-09-18
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-to-coordinate-reference-systems-python/
@@ -35,7 +35,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 

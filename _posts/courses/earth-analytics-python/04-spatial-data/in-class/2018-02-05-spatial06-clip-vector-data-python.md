@@ -3,11 +3,11 @@ layout: single
 title: "Clip a spatial vector layer in python using shapely & geopandas: GIS in Python"
 excerpt: "In this lesson you review how to clip a vector data layer in python using geopandas and shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-17
+modified: 2018-09-18
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/clip-vector-data-in-python-geopandas-shapely/
-nav-title: 'Clip vector data'
+nav-title: 'Clip Vector Data'
 course: 'earth-analytics-python'
 week: 4
 sidebar:
@@ -24,18 +24,17 @@ order: 6
 
 After completing this tutorial, you will be able to:
 
-* Clip a spatial vector point and line layer to the spatial extent of a polygon layer in `Python`
-* Visually "clip" or zoom in to a particular spatial extent in a plot.
+* Clip a spatial vector point and line layer to the spatial extent of a polygon layer in `Python` using geopandas.
+* Plot data with custom legends
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
 </div>
-
 
 In this lesson, you will learn how to spatially clip data for easier plotting and analysis of smaller spatial areas. You will use the `geopandas` library and the `box` module from the `shapely` library. 
 
@@ -71,32 +70,37 @@ In this lesson you will find examples of how to clip point and line data using g
 
 {:.input}
 ```python
-# import libraries
+# Import libraries
 import os
 import numpy as np
 import geopandas as gpd
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from matplotlib.colors import ListedColormap
-import earthpy as et
-# make figures plot inline
-plt.ion()
-# load the box module from shapely
+# Load the box module from shapely to create box objects
 from shapely.geometry import box
+import earthpy as et
+# Plot figures inline
+plt.ion()
+
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+# Import clip_data.py as a module so you can access the clip data functions
+import clip_data as cl
 ```
 
 ## How to Clip Shapefiles in Python
 
 In your dataset for this week you have 3 layers:
 
-1. a country boundary for the USA and
-2. a state boundary layer for the USA and 
-3. populated places in the USA
+1. A country boundary for the USA and
+2. A state boundary layer for the USA and 
+3. Populated places in the USA
 
 The data are imported and plotted below. Notice that there are points outside of your study area which is the continental USA. Your goal is the clip the points out that you NEED for your project - the points that overlay on top of the continental United States.
 
 {:.input}
 ```python
+# Import all of your data at the top of your notebook to keep things organized.
 country_boundary_us = gpd.read_file(
     'data/spatial-vector-lidar/usa/usa-boundary-dissolved.shp')
 state_boundary_us = gpd.read_file(
@@ -119,30 +123,27 @@ print("pop_places", pop_places.crs)
 
 {:.input}
 ```python
-# plot the data
+# Plot the data
 fig, ax = plt.subplots(figsize=(12, 8))
-country_boundary_us.plot(alpha=.5, ax=ax)
-state_boundary_us.plot(cmap='Greys', ax=ax, alpha=.5)
+country_boundary_us.plot(alpha=.5, 
+                         ax=ax)
+state_boundary_us.plot(cmap='Greys', 
+                       ax=ax, 
+                       alpha=.5)
 pop_places.plot(ax=ax)
+
+plt.axis('equal')
+ax.set_axis_off()
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x124728828>
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_5_1.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_5_0.png" alt = "Plot showing populated places for the entire globe overlayed on top of the Continental United States. If your study area is the USA, then you might not need all of the additional points. In this instance, you can clip or crop your data.">
+<figcaption>Plot showing populated places for the entire globe overlayed on top of the Continental United States. If your study area is the USA, then you might not need all of the additional points. In this instance, you can clip or crop your data.</figcaption>
 
 </figure>
 
@@ -174,12 +175,32 @@ The `.intersects()` method returns a boolean mask. Every point that is within th
 What will be returned are just the points that fall within the polygon region.  
 
 
-{:.input}
+The process for clipping points, lines and polygons is different. However, to streamline things, for this class, your instructor has created a `clip_shp()` function that you imported above as a module to use in this lesson.
+
+`import clip_data`
+
+If you wanted to clip data using geopandas you use the `.intersection()` method as follows:
+
 ```python
 # "clip" a points layer to the boundary of a polygon
 poly = country_boundary_us.geometry.unary_union
 points_clip = pop_places[pop_places.geometry.intersects(poly)]
-points_clip.head()
+```
+
+However if you use the `clip_shp()` shape function, it will take care of all of these steps for you.
+Clip shape takes two arguments:
+
+* shp: the vector layer (point, line or polygon) that you wish to clip and
+* clip_obj: the polygon that you wish to use to clip your data
+
+`clip_shp()` will clip the data to the boundary of the polygon layer that ou select. If there are multiple polygons in your clip_obj object, `clip_shp()` will clip the data to the total boundary of all polygons in the layer.
+
+{:.input}
+```python
+# Clip the data using the clip_data module
+points_clip = cl.clip_shp(pop_places, country_boundary_us)
+# View the first 6 rows and a few select columns
+points_clip[['name','geometry','scalerank', 'natscale',]].head()
 ```
 
 {:.output}
@@ -205,153 +226,50 @@ points_clip.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>name</th>
+      <th>geometry</th>
       <th>scalerank</th>
       <th>natscale</th>
-      <th>labelrank</th>
-      <th>featurecla</th>
-      <th>name</th>
-      <th>namepar</th>
-      <th>namealt</th>
-      <th>diffascii</th>
-      <th>nameascii</th>
-      <th>adm0cap</th>
-      <th>...</th>
-      <th>pop_other</th>
-      <th>rank_max</th>
-      <th>rank_min</th>
-      <th>geonameid</th>
-      <th>meganame</th>
-      <th>ls_name</th>
-      <th>ls_match</th>
-      <th>checkme</th>
-      <th>min_zoom</th>
-      <th>geometry</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>175</th>
+      <td>San Francisco</td>
+      <td>POINT (-122.4171687735522 37.76919562968743)</td>
       <td>1</td>
       <td>300</td>
-      <td>1</td>
-      <td>Populated place</td>
-      <td>San Francisco</td>
-      <td>None</td>
-      <td>San Francisco-Oakland</td>
-      <td>0</td>
-      <td>San Francisco</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>27400</td>
-      <td>12</td>
-      <td>11</td>
-      <td>5391959.0</td>
-      <td>San Francisco-Oakland</td>
-      <td>San Francisco1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2.7</td>
-      <td>POINT (-122.4171687735522 37.76919562968743)</td>
     </tr>
     <tr>
       <th>176</th>
+      <td>Denver</td>
+      <td>POINT (-104.9859618109682 39.7411339069655)</td>
       <td>1</td>
       <td>300</td>
-      <td>1</td>
-      <td>Admin-1 capital</td>
-      <td>Denver</td>
-      <td>None</td>
-      <td>Denver-Aurora</td>
-      <td>0</td>
-      <td>Denver</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>1521278</td>
-      <td>12</td>
-      <td>12</td>
-      <td>5419384.0</td>
-      <td>Denver-Aurora</td>
-      <td>Denver</td>
-      <td>1</td>
-      <td>0</td>
-      <td>3.7</td>
-      <td>POINT (-104.9859618109682 39.7411339069655)</td>
     </tr>
     <tr>
       <th>177</th>
+      <td>Houston</td>
+      <td>POINT (-95.34192514914599 29.82192024318886)</td>
       <td>1</td>
       <td>300</td>
-      <td>1</td>
-      <td>Populated place</td>
-      <td>Houston</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>Houston</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>3607616</td>
-      <td>12</td>
-      <td>12</td>
-      <td>4699066.0</td>
-      <td>Houston</td>
-      <td>Houston</td>
-      <td>1</td>
-      <td>0</td>
-      <td>3.0</td>
-      <td>POINT (-95.34192514914599 29.82192024318886)</td>
     </tr>
     <tr>
       <th>178</th>
+      <td>Miami</td>
+      <td>POINT (-80.22605193945003 25.78955655502153)</td>
       <td>1</td>
       <td>300</td>
-      <td>1</td>
-      <td>Populated place</td>
-      <td>Miami</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>Miami</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>1037811</td>
-      <td>13</td>
-      <td>10</td>
-      <td>4164138.0</td>
-      <td>Miami</td>
-      <td>Miami</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2.1</td>
-      <td>POINT (-80.22605193945003 25.78955655502153)</td>
     </tr>
     <tr>
       <th>179</th>
+      <td>Atlanta</td>
+      <td>POINT (-84.40189524187565 33.83195971260585)</td>
       <td>1</td>
       <td>300</td>
-      <td>1</td>
-      <td>Admin-1 capital</td>
-      <td>Atlanta</td>
-      <td>None</td>
-      <td>None</td>
-      <td>0</td>
-      <td>Atlanta</td>
-      <td>0.0</td>
-      <td>...</td>
-      <td>2874096</td>
-      <td>12</td>
-      <td>10</td>
-      <td>4180439.0</td>
-      <td>Atlanta</td>
-      <td>Atlanta</td>
-      <td>1</td>
-      <td>0</td>
-      <td>3.0</td>
-      <td>POINT (-84.40189524187565 33.83195971260585)</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 38 columns</p>
 </div>
 
 
@@ -390,7 +308,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_9_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_9_0.png" alt = "Once you have clipped the points layer to your USA extent, you have fewer points to work with. This will make processing your data more efficient.">
+<figcaption>Once you have clipped the points layer to your USA extent, you have fewer points to work with. This will make processing your data more efficient.</figcaption>
 
 </figure>
 
@@ -413,21 +332,17 @@ For this example you will use the `country_boundary` layer and a clipped version
 
 {:.input}
 ```python
-# open the roads layer
+# Open the roads layer
 ne_roads = gpd.read_file(
     'data/spatial-vector-lidar/global/ne_10m_roads/ne_10m_roads.shp')
-# are both layers in the same CRS?
-ne_roads.crs, country_boundary_us.crs
+# Are both layers in the same CRS?
+
+if (ne_roads.crs == country_boundary_us.crs):
+    print("Both layers are in the same crs!", ne_roads.crs, country_boundary_us.crs)
 ```
 
 {:.output}
-{:.execute_result}
-
-
-
-    ({'init': 'epsg:4326'}, {'init': 'epsg:4326'})
-
-
+    Both layers are in the same crs! {'init': 'epsg:4326'} {'init': 'epsg:4326'}
 
 
 
@@ -440,77 +355,83 @@ In your dataset for this week you have 2 layers.
 
 The roads data are imported below. You imported the boundary layer above.  
 
-If both layers are in the same CRS, you are ready to clip your data. Note that below you
+If both layers are in the same CRS, you are ready to clip your data. Because the clip functions are new and little testing has been done with them, you will see all of the lines of code required to clip your data. However you can use the `clip_shp()` function to clip your data for this week's class! Here are the steps
 
-1. `simplify` the clip geometry which is the United States boundary. You would want to carefully consider whether or not this step is approproiate for your analysis. You are only performing this step below to speed up the time it takes for python to perform the clip in this lesson.
-2. subset the roads data to just the North American continent boundary - this further reduces the amount of data that you need to process. Subsetting is much faster than clipping.
-3. clip the geometry using `.intersection()`
-4. remove all rows in the geodataframe that have no geometry (this is explained below). 
-5. update the original roads layer to contained only the clipped geometry
+1. Subset the roads data using a spatial index.
+1. Clip the geometry using `.intersection()`
+1. Remove all rows in the geodataframe that have no geometry (this is explained below). 
+1. Update the original roads layer to contained only the clipped geometry
 
-Note that below this process is run with a timer to demonstrate that it will take some time to run successfully. Without simplifying your geometry this intersection could take your computer 1 minute or longer. 
 
-{:.input}
 ```python
-country_boundary_us_sim = country_boundary_us.simplify(
-    .3, preserve_topology=True)
-```
-
-{:.input}
-```python
-%%time
 # Create a single polygon object for clipping
-poly = country_boundary_us_sim.geometry.unary_union
+poly = clip_obj.geometry.unary_union
 spatial_index = shp.sindex
 
 # Create a box for the initial intersection
 bbox = poly.bounds
-
 # Get a list of id's for each road line that overlaps the bounding box and subset the data to just those lines
-# This makes the data that you are intersecting smaller and things run faster
 sidx = list(spatial_index.intersection(bbox))
-ne_roads_clip = ne_roads[ne_roads.index.isin(sidx)]
-clipped_roads = ne_roads_clip.copy()
+shp_sub = shp.iloc[sidx]
 
-# Clip the data & remove null geometry values
-clipped_roads['geometry'] = ne_roads_clip.intersection(poly)
-clipped_roads = clipped_roads[clipped_roads.geometry.notnull()]
+# Clip the data - with these data
+clipped = shp_sub.copy()
+clipped['geometry'] = shp_sub.intersection(poly)
+
+# Return the clipped layer with no null geometry values
+final_clipped = clipped[clipped.geometry.notnull()]
+```
+
+Be patient while your clip code below runs. 
+
+To make your code run faster, you can simplify the geometry of your country boundary. Simplify should be used with caution as it does modify your data.
+
+{:.input}
+```python
+# Simplify the geometry of the clip extent for faster processing
+# Use this with caution as it modifies your data.
+country_boundary_us_sim = country_boundary_us.simplify(
+    .2, preserve_topology=True)
+
+```
+
+Clip and plot the data. Be patient. It may take up to a minute to clip the data. 
+
+{:.input}
+```python
+ne_roads_clip = cl.clip_shp(ne_roads, country_boundary_us_sim)
+print("The clipped data have fewer line objects (represented by rows):", ne_roads_clip.shape, ne_roads.shape)
+
 ```
 
 {:.output}
-    CPU times: user 10 s, sys: 43.5 ms, total: 10.1 s
-    Wall time: 10.2 s
+    The clipped data have fewer line objects (represented by rows): (7346, 32) (56601, 32)
 
 
 
 {:.input}
 ```python
-print(ne_roads_clip.shape, ne_roads_sub.shape)
-us_roads_only.plot()
+fig, (ax1, ax2) = plt.subplots(2,1, figsize=(10,10))
+ne_roads.plot(ax=ax1)
+ne_roads_clip.plot(ax=ax2)
+
+ax1.set_title("Unclipped roads")
+ax2.set_title("Clipped roads")
+
+ax1.set_axis_off()
+ax2.set_axis_off()
+
+plt.axis('equal')
+plt.show()
 ```
-
-{:.output}
-    (7334, 32) (7922, 32)
-
-
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x1248e7748>
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_16_2.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_18_0.png" alt = "Clipped vs unclipped roads layer. ">
+<figcaption>Clipped vs unclipped roads layer. </figcaption>
 
 </figure>
 
@@ -527,127 +448,104 @@ country_boundary_us.plot(alpha=1,
                          color="white",
                          edgecolor="black",
                          ax=ax)
-us_roads_only.plot(ax=ax)
+ne_roads_clip.plot(ax=ax)
 ax.set_axis_off()
 plt.axis('equal')
+plt.show()
 ```
 
-Below the steps that you performed above to clip your data are explained. NOTE: the roads layer is for the entire United States. It may take a bit of time for this to run! To begin, look at the simplify function. The higher larger the tolerance that you use in this function, the fewer points or vertices will be kept in your geometry. This makes your shape appear "blockier" and is likely less accurate of a boundary layer. Conversely a smaller number will retain more points and will return a shape that is more true to your original polygon. 
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_20_0.png" alt = "Final plot showing the clipped roads drawn on top of the country boundary. Notice that there are no road segments outside of the country boundary.">
+<figcaption>Final plot showing the clipped roads drawn on top of the country boundary. Notice that there are no road segments outside of the country boundary.</figcaption>
+
+</figure>
+
+
+
+
+## What Does Simplify Do?
 
 {:.input}
 ```python
+fig, (ax1,ax2) = plt.subplots(2,1, figsize=(10,10))
+
 # a larger tolerance yields a blockier polygon
-country_boundary_us.simplify(2, preserve_topology=True).plot()
+country_boundary_us.simplify(2, preserve_topology=True).plot(ax=ax1)
+
+# a larger tolerance yields a blockier polygon
+country_boundary_us.simplify(.2, preserve_topology=True).plot(ax=ax2)
+
+ax1.set_title("Data with a higher tolerance value will become visually blockier as there are fewer vertices")
+ax2.set_title("Data with a very low tolerance value will look smoother but will take longer to process")
+
+ax1.set_axis_off()
+ax2.set_axis_off()
+plt.show()
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_22_0.png" alt = "Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.">
+<figcaption>Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.</figcaption>
+
+</figure>
+
+
+
 
 {:.input}
 ```python
-# a smaller tolerance yields a smoother, but still simplified polygon
-country_boundary_us.simplify(.2, preserve_topology=True).plot()
-```
-
-{:.input}
-```python
-# the simp_geom represents the country boundary with fewer vertices
-simp_geom = country_boundary_us.simplify(.2, preserve_topology=True)
-```
-
-Next, you subset the data to just the roads that are in North America. Note that continent is an attribute field in your polygon geodataframe. Then you perform the intersection using the simplied geometry.
-
-{:.input}
-```python
-# first subset the data to just the north american content (the less data you have the faster clipping will go)
-na_roads = ne_roads[ne_roads['continent'] == "North America"]
-# clip the roads layer to the sjer extent object- this step will take some time
-us_roads = na_roads.intersection(simp_geom.geometry[0])
-```
-
-Finally, plot the data. 
-
-{:.input}
-```python
-# plot the data
-fig, ax = plt.subplots(figsize=(10, 6))
-us_roads.plot(ax=ax)
-country_boundary_us.plot(ax=ax,
-                         color='none',
-                         edgecolor='black',
-                         linewidth=3, zorder=10)
-
-ax.set_axis_off()
-plt.axis('equal')
-```
-
-You can see above that `us_roads.head()` returns only geometry. There are no attributes associated with the newly clipped data. Further, rather than just returning the actual clipped lines, you get null values for any line segment that did not intersect the geometry, but that was in the original data.
-
-{:.input}
-```python
-us_roads.head(5)
-```
-
-To account for the null data, you can next, remove all rows containing empty geometry using `.notnull()`.
-
-{:.input}
-```python
-# create boolean object for geometry that is not empty
-valid_geom = us_roads.geometry.notnull()
-valid_geom.head(6)
-```
-
-You can use the boolean created above to subset the roads layer according to only the rows that have valid geometry. 
-
-{:.input}
-```python
-# subset the roads data to only roads with geometry values
-na_roads.loc[valid_geom].head()
-```
-
-Finally, you can use that subset and chain the `set_geometry()` function onto it to update the geometry of the original roads layer, with the new clipped layer. 
-
-{:.input}
-```python
-# subset the data to the geometry that is "valid" or not empty
-# then update the geometry to the clipped roads rather
-# than the entire road segments unclipped
-us_roads_only = na_roads.loc[valid_geom].set_geometry(
-    us_roads.geometry[valid_geom])
-# now the attributes are reattached to the us roads layer
-us_roads_only.head()
-```
-
-Finally you can plot the data. Notice that you now only have the road segments that fall within the US Country Boundary layer. 
-
-{:.input}
-```python
-# plot the data
-fig, ax = plt.subplots(figsize=(12, 8))
-country_boundary_us.plot(alpha=1,
-                         color="white",
-                         edgecolor="black",
-                         ax=ax)
-us_roads_only.plot(ax=ax)
-ax.set_axis_off()
-plt.axis('equal')
-```
-
-{:.input}
-```python
-us_roads_only[['type', 'geometry', 'level', 'name']].head()
-```
-
-{:.input}
-```python
-# plot the data by attribute
+# Plot the data by attribute
 fig, ax = plt.subplots(figsize=(12, 8))
 country_boundary_us.plot(alpha=1, color="white", edgecolor="black", ax=ax)
-us_roads_only.plot(ax=ax, column='type', legend=True)
+ne_roads_clip.plot(ax=ax, column='type', legend=True)
 ax.set_axis_off()
 plt.axis('equal')
+plt.show()
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_23_0.png" alt = "The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.">
+<figcaption>The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.</figcaption>
+
+</figure>
+
+
+
+
+Below, you create a custom legend. There are many different approaches to this. One is below.
+
+To begin you create a python dictionary for each attribute value in your legend. Below you will see each road type has a dictionary entry and two associated values - a color and a number representing the width of the line in your legend.
+
+`'Beltway': ['black', 2]` Color the line for beltway black with a line width of 2.
+
+Next you loop through the dictionary to plot the data. In the loop below, you select each attribute value, and plot it using the color and line width assigned in the dictionary above. 
+
+```python
+for ctype, data in ne_roads_clip.groupby('type'):
+    data.plot(color=road_attrs[ctype][0],
+              label=ctype,
+              linewidth=road_attrs[ctype][1],
+              ax=ax)
+```
+Finally, a call to `ax.legend()` renders the legend using the colors applied in the loop above.
 
 {:.input}
 ```python
-# make it a bit nicer using a dictionary to assign colors and line widths
+# Plot with a custom legend
+
+# First, create a dictionary with the attributes of each legend item
 road_attrs = {'Beltway': ['black', 2],
               'Secondary Highway': ['grey', .5],
               'Road': ['grey', .5],
@@ -658,7 +556,7 @@ road_attrs = {'Beltway': ['black', 2],
 # plot the data
 fig, ax = plt.subplots(figsize=(12, 8))
 
-for ctype, data in us_roads_only.groupby('type'):
+for ctype, data in ne_roads_clip.groupby('type'):
     data.plot(color=road_attrs[ctype][0],
               label=ctype,
               ax=ax,
@@ -669,9 +567,20 @@ ax.legend(frameon=False)
 ax.set_title("United States Roads by Type", fontsize=25)
 ax.set_axis_off()
 plt.axis('equal')
+plt.show()
 ```
 
-## Clip Data Functions
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_25_0.png" alt = "Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.">
+<figcaption>Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.</figcaption>
+
+</figure>
+
+
 
 
 {:.input}
@@ -724,32 +633,3 @@ def clip_shp(shp, clip_obj):
     else:
         return(clip_line_poly(shp, clip_obj))
 ```
-
-{:.input}
-```python
-final = clip_shp(ne_roads, country_boundary_us_sim)
-final.plot()
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x12488c940>
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_42_1.png">
-
-</figure>
-
-
-

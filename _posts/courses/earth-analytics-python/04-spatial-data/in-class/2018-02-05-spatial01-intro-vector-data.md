@@ -3,7 +3,7 @@ layout: single
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2018-09-17
+modified: 2018-09-18
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-vector-data-python/
@@ -39,11 +39,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
-or using the `earthpy` package:
-
-`et.data.get_data("spatial-vector-lidar")`
 
 </div>
 
@@ -453,7 +450,7 @@ sjer_plot_locations.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x11c9cab00>
+    <matplotlib.axes._subplots.AxesSubplot at 0x120868518>
 
 
 
@@ -464,7 +461,8 @@ sjer_plot_locations.plot()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_18_1.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_18_1.png" alt = "You can quickly plot a geopandas dataframe using the .plot() method. You do not have to setup an axis or figure object to create this quick plot.">
+<figcaption>You can quickly plot a geopandas dataframe using the .plot() method. You do not have to setup an axis or figure object to create this quick plot.</figcaption>
 
 </figure>
 
@@ -494,8 +492,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_20_0.png" alt = "Spatial plot of SJER plot locations using Geopandas.">
-<figcaption>Spatial plot of SJER plot locations using Geopandas.</figcaption>
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_20_0.png" alt = "If you do setup an axis or figure object to create a geopandas plot, then you can easily customize the plot later.">
+<figcaption>If you do setup an axis or figure object to create a geopandas plot, then you can easily customize the plot later.</figcaption>
 
 </figure>
 
@@ -581,7 +579,8 @@ sjer_plot_locations.plot(column='plot_type',
                          legend=True,
                          marker='*',
                          markersize=65,
-                         cmap='OrRd')
+                         cmap='OrRd', 
+                         ax=ax)
 ax.set_title('SJER Plot Locations\nMadera County, CA')
 plt.show()
 ```
@@ -592,19 +591,6 @@ plt.show()
 <figure>
 
 <img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_26_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.">
-<figcaption>Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.</figcaption>
-
-</figure>
-
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_26_1.png" alt = "Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.">
 <figcaption>Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.</figcaption>
 
 </figure>
