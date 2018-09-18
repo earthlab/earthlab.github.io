@@ -85,9 +85,9 @@ regions_agg = state_bound_us.dissolve(by="region")
 
 Just like you might do in ArcMap or QGIS you can perform spatial joins in Python too. A spatial join is when you append the attributes of one layer to another based upon its spatial relationship.
 
-So - for example if you have a roads layer for the United States, and you want to apply the "region" attribute to every road that is spatially in a particular region, you would use a spatial join. To apply a join you can use the `geopandas.sjoin()` function as following
+So - for example if you have a roads layer for the United States, and you want to apply the "region" attribute to every road that is spatially in a particular region, you would use a spatial join. To apply a join you can use the `geopandas.sjoin()` function as following:
 
-.sjoin(layer-to-add-region-to, region-polygon-layer
+`.sjoin(layer-to-add-region-to, region-polygon-layer)`
 
 ### Sjoin Arguments:
 The `op` argument specifies the type of join that will be applied

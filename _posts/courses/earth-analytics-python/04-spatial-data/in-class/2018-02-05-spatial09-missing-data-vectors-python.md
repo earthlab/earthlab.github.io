@@ -7,7 +7,7 @@ authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
 modified: 2018-09-18
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
-permalink: /courses/earth-analytics-python/week-4/missing-data-vector-data-in-python/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/missing-data-vector-data-in-python/
 nav-title: 'Missing spatial data'
 module-type: 'class'
 course: 'earth-analytics-python'
