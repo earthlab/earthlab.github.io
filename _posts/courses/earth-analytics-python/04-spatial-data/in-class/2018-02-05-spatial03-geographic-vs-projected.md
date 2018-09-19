@@ -207,8 +207,8 @@ the UTM zone, to avoid negative Easting numbers.
 
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-Utm-zones.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-Utm-zones.jpg" alt="Nasa image showing the UTM x and y zones">
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-utm-zones.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-utm-zones.jpg" alt="Nasa image showing the UTM x and y zones">
     </a>
     <figcaption>The gridded UTM coordinate system across the globe.
     Source: NASA Earth Observatory</figcaption>
@@ -237,7 +237,7 @@ boulder_loc = gpd.GeoDataFrame(geometry,
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10,10))
+fig, ax = plt.subplots(figsize=(10, 10))
 boulder_loc.plot(ax=ax)
 ax.set_title("Plot of Boulder, CO Location")
 # Turn off scientific notation
@@ -301,7 +301,7 @@ boulder_df_geog.crs
 
 {:.input}
 ```python
-# view the coordinate values of the newly reprojected data.
+# View the coordinate values of the newly reprojected data.
 boulder_df_geog
 ```
 
@@ -350,13 +350,13 @@ Now you can plot your data on top of your world map which is also in a geographi
 ```python
 fig, ax = plt.subplots(figsize=(10, 5))
 
-worldBound.plot(cmap='Greys', 
+worldBound.plot(cmap='Greys',
                 ax=ax)
-ax.set(title="World map with Boulder, CO location \n Geographic WGS84 CRS", 
+ax.set(title="World map with Boulder, CO location \n Geographic WGS84 CRS",
        xlabel="X Coordinates (Decimal Degrees)",
        ylabel="Y Coordinates (Decimal Degrees)")
-boulder_df_geog.plot(ax=ax, 
-                     markersize=52, 
+boulder_df_geog.plot(ax=ax,
+                     markersize=52,
                      color='springgreen')
 plt.show()
 ```

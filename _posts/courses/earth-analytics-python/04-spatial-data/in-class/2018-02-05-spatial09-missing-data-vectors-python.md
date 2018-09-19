@@ -43,17 +43,17 @@ spatial-vector-lidar data subset created for the course.
 {:.input}
 ```python
 import pandas as pd
-import geopandas as gpd
 import numpy as np
+import geopandas as gpd
+import earthpy as et 
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-Frequently data sets you will work with will be messy and having missing values. 
-
-This lesson will cover working with missing data in `geopandas.` since you are working with a `geodataframe.` The methods used here can also be used with regular `pandas` `DataFrames` because `geopandas` inherits methods from `pandas`. 
+This lesson covers how to rename and clean up attribute data using  `geopandas.`
 
 {:.input}
 ```python
-# import roads shapefile
+# Import roads shapefile
 sjer_roads = gpd.read_file("data/spatial-vector-lidar/california/madera-county-roads/tl_2013_06039_roads.shp")
 type(sjer_roads)
 ```
@@ -69,7 +69,7 @@ type(sjer_roads)
 
 
 
-## Exploring Data Values 
+## Explore Data Values 
 
 There are several ways to use `pandas` to explore your data and determine if you have any missing values.
 
@@ -97,13 +97,13 @@ sjer_roads.isnull().sum()
 
 
 
-Based on this method there are no NaN or Nonetype obejcts as values in the `geodataframe`. Double check the unique values in the road type column. 
+Based on this method there are no `NaN` or `None` type obejcts as values in the `geodataframe`. Double check the unique values in the road type column. 
 
 {:.input}
 ```python
-# view data type 
+# View data type 
 print(type(sjer_roads['RTTYP']))
-# view unique attributes for each road in the data
+# View unique attributes for each road in the data
 print(sjer_roads['RTTYP'].unique())
 ```
 
@@ -126,7 +126,7 @@ There are several ways to deal with this issue. One is to use the `.replace` met
 
 {:.input}
 ```python
-# map each value to a new value 
+# Map each value to a new value 
 sjer_roads = sjer_roads.replace({'RTTYP': {'': "Unknown"}})
 print(sjer_roads['RTTYP'].unique())
 ```

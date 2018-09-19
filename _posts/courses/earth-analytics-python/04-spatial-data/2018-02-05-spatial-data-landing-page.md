@@ -1,7 +1,7 @@
 ---
 layout: single
 category: courses
-title: "Intro to Spatial Data"
+title: "Introduction to Shapefiles and Vector Data in Open Source Python"
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-use-vector-spatial-data-in-open-source-python/
 week-landing: 4
 week: 4
@@ -32,7 +32,8 @@ You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course. Note that the data  download below is large (172MB)
 however it contains data that you will use for the next 2 weeks!
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 
@@ -159,10 +160,10 @@ To calculate length of each line in your geodataframe , you can use the syntax `
 HINT: use: `pd.options.display.float_format = '{:.4f}'.format` if you'd like to turn off scientific notation for your outputs.
 
 
-## Plot Roads in Siskiyou, Modoc, Del Norte County in California
+## Plot 2 - Roads in Siskiyou, Modoc, Del Norte County in California
 
 
-## Plot xx - Roads in Del Norte, Modoc & Siskiyou Counties
+## Plot 2 - Roads in Del Norte, Modoc & Siskiyou Counties
 
 Using the dataframe that you created above with each road assigned to the county that it is within, create a map of roads by county. Color the roads in each county using a unique color.
 
@@ -183,7 +184,7 @@ HINT: use the `legend=True` argument in `.plot()` to create a legend.
 
 
 
-## Quantile Map for The USA
+## Plot 3 - Quantile Map for The USA
 
 The 2014 census layer: `"data/spatial-vector-lidar/usa/usa-states-census-2014.shp"` contains an `ALAND` and `AWATER` attribute columns that represent calculated total land and water area for each state in the continental United States. Use this layer to summarize the data by `region`. Then provide a table that shows summary values for each attribute 
 
@@ -195,7 +196,8 @@ Use this layer to calculate mean values for `ALAND` and `AWATER` found in the at
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_11_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_11_0.png" alt = "Total land and total water aggregated by region in the United States.">
+<figcaption>Total land and total water aggregated by region in the United States.</figcaption>
 
 </figure>
 
@@ -289,7 +291,7 @@ Please note that the download function was written to take
 
 The `download()` function will unzip your data for you and place it in the directory that you specify. 
 
-## Plot XX
+## Plot 4
 
 1. Download the natural earth data using the code below. Be sure to add the download packate to the TOP of your notebook. It is just here as an example to highlight that you will need to use this package to download the data.
 
@@ -299,6 +301,8 @@ After you have downloaded the data, import the data and
 3. Create two plots within one matplotlib figure 
     a. Create a plot of the sum estimated population (`POP_EST`) by region
     b. Create a plot of the mean population range (`POP_RANK`) by region
+
+The code below will allow you to download the data required for plot 4.
 
 {:.input}
 ```python
@@ -327,7 +331,7 @@ country_path = os.path.join(download_path, "ne_10m_admin_0_countries.shp")
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_17_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_18_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
 <figcaption>Natural Earth Global Mean population rank and total estimated population</figcaption>
 
 </figure>

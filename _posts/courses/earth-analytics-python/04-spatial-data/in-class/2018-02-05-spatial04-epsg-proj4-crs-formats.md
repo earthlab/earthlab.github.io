@@ -142,12 +142,12 @@ explore the `CRS`.
 ```python
 from glob import glob
 import numpy as np
-import pandas as pd
+import os
 import matplotlib.pyplot as plt
-import os 
+import pandas as pd
 import geopandas as gpd
 from shapely.geometry import Point
-import earthpy as et 
+import earthpy as et
 
 # render plots inline on the page
 plt.ion()
@@ -157,8 +157,9 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 {:.input}
 ```python
-# import world boundary shapefile
-worldBound = gpd.read_file("data/spatial-vector-lidar/global/ne_110m_land/ne_110m_land.shp")
+# Import world boundary shapefile
+worldBound = gpd.read_file(
+    "data/spatial-vector-lidar/global/ne_110m_land/ne_110m_land.shp")
 worldBound.crs
 ```
 
@@ -196,8 +197,8 @@ boulder_xy = np.array([[476911.31, 4429455.35]])
 # Create shapely point object
 boulder_xy_pt = [Point(xy) for xy in boulder_xy]
 
-# convert to spatial dataframe - geodataframe -- assign the CRS using epsg code
-boulder_loc = gpd.GeoDataFrame(boulder_xy_pt, 
+# Convert to spatial dataframe - geodataframe -- assign the CRS using epsg code
+boulder_loc = gpd.GeoDataFrame(boulder_xy_pt,
                                columns=['geometry'],
                                crs={'init': 'epsg:2957'})
 

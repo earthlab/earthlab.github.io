@@ -112,9 +112,9 @@ You will use the `geopandas` library to work with vector data in `Python`. You w
 
 {:.input}
 ```python
+import os
 import geopandas as gpd
 import matplotlib.pyplot as plt
-import os
 import earthpy as et
 # Plot data inline
 plt.ion()
@@ -133,7 +133,7 @@ The first shapefile that you will open contains the point locations of plots whe
 {:.input}
 ```python
 plot_centroid_path = "data/spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_plot_centroids.shp"
-# import shapefile using geopandas
+# Import shapefile using geopandas
 sjer_plot_locations = gpd.read_file(plot_centroid_path)
 ```
 
@@ -506,7 +506,7 @@ Note that you can name that axis whatever you'd like. Below it is called `ax1` i
 ```python
 fig, ax1 = plt.subplots(figsize = (10,10))
 
-# plot the data using geopandas .plot() method
+# Plot the data using geopandas .plot() method
 sjer_plot_locations.plot(ax=ax1)
 plt.show()
 ```
@@ -547,7 +547,7 @@ sjer_plot_locations.plot(column='plot_type',
                          markersize=45,
                          cmap="Set2",
                          ax=ax)
-# Ddd a title to the plot
+# Add a title
 ax.set_title('SJER Plot Locations\nMadera County, CA')
 plt.show()
 ```
@@ -640,7 +640,7 @@ sjer_crop_extent = gpd.read_file("data/spatial-vector-lidar/california/neon-sjer
 ```python
 fig, ax = plt.subplots(figsize=(10, 10))
 
-# first setup the plot using the crop_extent layer as the base layer
+# First setup the plot using the crop_extent layer as the base layer
 sjer_crop_extent.plot(color='lightgrey',
                       edgecolor='black',
                       alpha=.5,

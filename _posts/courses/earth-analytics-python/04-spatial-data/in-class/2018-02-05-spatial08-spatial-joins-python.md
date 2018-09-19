@@ -43,11 +43,11 @@ Get started by loading your libraries and setting your working directory.
 # Import libraries
 import os
 import numpy as np
-import pandas as pd
-import geopandas as gpd
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from matplotlib.colors import ListedColormap
+import pandas as pd
+import geopandas as gpd
 import earthpy as et 
 # Plot figures  inline
 plt.ion()
@@ -107,7 +107,7 @@ How allows the following options: (this is taken directly from the <a href = "ht
 
 {:.input}
 ```python
-# roads within region
+# Roads within region
 roads_region = gpd.sjoin(roads_cl, 
                          regions_agg, 
                          how="inner", 
@@ -272,12 +272,12 @@ plt.show()
 
 {:.input}
 ```python
-# turn off scientific notation
+# Turn off scientific notation
 pd.options.display.float_format = '{:.4f}'.format
 
-# calculate the total length of road 
+# Calculate the total length of road 
 road_albers_length = roads_albers[['index_right', 'length_km']]
-# sum existing columns
+# Sum existing columns
 roads_albers.groupby('index_right').sum()
 
 roads_albers['rdlength'] = roads_albers.length

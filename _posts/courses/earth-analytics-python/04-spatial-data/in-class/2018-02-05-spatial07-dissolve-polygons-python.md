@@ -44,11 +44,11 @@ Get started by loading your libraries. And be sure that your working directory i
 # import libraries
 import os
 import numpy as np
-import geopandas as gpd
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from matplotlib.colors import ListedColormap
-import earthpy as et 
+import geopandas as gpd
+import earthpy as et
 from shapely.geometry import box
 
 plt.ion()
@@ -68,13 +68,13 @@ base_path = os.path.join("data", "spatial-vector-lidar")
 # Define file paths
 country_boundary_path = base_path + "/usa/usa-boundary-dissolved.shp"
 state_boundary_path = base_path + "/usa/usa-states-census-2014.shp"
-pop_places_path = base_path + "/global/ne_110m_populated_places_simple/ne_110m_populated_places_simple.shp"
+pop_places_path = base_path + \
+    "/global/ne_110m_populated_places_simple/ne_110m_populated_places_simple.shp"
 
 # Import the data
 country_boundary_us = gpd.read_file(country_boundary_path)
 state_boundary_us = gpd.read_file(state_boundary_path)
 pop_places = gpd.read_file(pop_places_path)
-
 ```
 
 ## Dissolve Polygons Based On an Attribute with Geopandas
@@ -82,7 +82,7 @@ Next, you will learn how to dissolve polygon data. Dissolving polygons entails c
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif"></a>
+ <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif" alt="When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new "merged" or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI"></a>
  <figcaption> When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new "merged" or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI
  </figcaption>
 </figure>
@@ -243,7 +243,7 @@ columns.
 ```python
 state_boundary = state_boundary_us[['LSAD', 'geometry']]
 cont_usa = state_boundary.dissolve(by='LSAD')
-# view the resulting geodataframe
+# View the resulting geodataframe
 cont_usa
 ```
 
@@ -348,8 +348,8 @@ cont_usa.reset_index()
 {:.input}
 ```python
 # plot the data
-fig, ax = plt.subplots(figsize = (10,6))
-cont_usa.reset_index().plot(column = 'LSAD', 
+fig, ax = plt.subplots(figsize=(10, 6))
+cont_usa.reset_index().plot(column='LSAD',
                             ax=ax)
 ax.set_axis_off()
 plt.axis('equal')
@@ -388,10 +388,10 @@ Below the data are aggregated by the 'sum' method. this means that the values fo
 
 {:.input}
 ```python
-# select the columns that you wish to retain in the data
+# Select the columns that you wish to retain in the data
 state_boundary = state_boundary_us[['region', 'geometry', 'ALAND', 'AWATER']]
-# then summarize the quantative columns by 'sum' 
-regions_agg = state_boundary.dissolve(by='region', aggfunc = 'sum')
+# Then summarize the quantative columns by 'sum'
+regions_agg = state_boundary.dissolve(by='region', aggfunc='sum')
 regions_agg
 ```
 

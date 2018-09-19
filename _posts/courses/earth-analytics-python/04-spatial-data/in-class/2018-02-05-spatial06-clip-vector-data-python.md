@@ -73,10 +73,10 @@ In this lesson you will find examples of how to clip point and line data using g
 # Import libraries
 import os
 import numpy as np
-import geopandas as gpd
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from matplotlib.colors import ListedColormap
+import geopandas as gpd
 # Load the box module from shapely to create box objects
 from shapely.geometry import box
 import earthpy as et
@@ -108,7 +108,7 @@ state_boundary_us = gpd.read_file(
 pop_places = gpd.read_file(
     'data/spatial-vector-lidar/global/ne_110m_populated_places_simple/ne_110m_populated_places_simple.shp')
 
-# are the data all in the same crs?
+# Are the data all in the same crs?
 print("country_boundary_us", country_boundary_us.crs)
 print("state_boundary_us", state_boundary_us.crs)
 print("pop_places", pop_places.crs)
@@ -125,10 +125,10 @@ print("pop_places", pop_places.crs)
 ```python
 # Plot the data
 fig, ax = plt.subplots(figsize=(12, 8))
-country_boundary_us.plot(alpha=.5, 
+country_boundary_us.plot(alpha=.5,
                          ax=ax)
-state_boundary_us.plot(cmap='Greys', 
-                       ax=ax, 
+state_boundary_us.plot(cmap='Greys',
+                       ax=ax,
                        alpha=.5)
 pop_places.plot(ax=ax)
 
@@ -200,7 +200,7 @@ Clip shape takes two arguments:
 # Clip the data using the clip_data module
 points_clip = cl.clip_shp(pop_places, country_boundary_us)
 # View the first 6 rows and a few select columns
-points_clip[['name','geometry','scalerank', 'natscale',]].head()
+points_clip[['name', 'geometry', 'scalerank', 'natscale', ]].head()
 ```
 
 {:.output}
@@ -338,7 +338,8 @@ ne_roads = gpd.read_file(
 # Are both layers in the same CRS?
 
 if (ne_roads.crs == country_boundary_us.crs):
-    print("Both layers are in the same crs!", ne_roads.crs, country_boundary_us.crs)
+    print("Both layers are in the same crs!",
+          ne_roads.crs, country_boundary_us.crs)
 ```
 
 {:.output}
@@ -392,7 +393,6 @@ To make your code run faster, you can simplify the geometry of your country boun
 # Use this with caution as it modifies your data.
 country_boundary_us_sim = country_boundary_us.simplify(
     .2, preserve_topology=True)
-
 ```
 
 Clip and plot the data. Be patient. It may take up to a minute to clip the data. 
@@ -400,8 +400,8 @@ Clip and plot the data. Be patient. It may take up to a minute to clip the data.
 {:.input}
 ```python
 ne_roads_clip = cl.clip_shp(ne_roads, country_boundary_us_sim)
-print("The clipped data have fewer line objects (represented by rows):", ne_roads_clip.shape, ne_roads.shape)
-
+print("The clipped data have fewer line objects (represented by rows):",
+      ne_roads_clip.shape, ne_roads.shape)
 ```
 
 {:.output}
@@ -411,7 +411,7 @@ print("The clipped data have fewer line objects (represented by rows):", ne_road
 
 {:.input}
 ```python
-fig, (ax1, ax2) = plt.subplots(2,1, figsize=(10,10))
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
 ne_roads.plot(ax=ax1)
 ne_roads_clip.plot(ax=ax2)
 
@@ -471,7 +471,7 @@ plt.show()
 
 {:.input}
 ```python
-fig, (ax1,ax2) = plt.subplots(2,1, figsize=(10,10))
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
 
 # a larger tolerance yields a blockier polygon
 country_boundary_us.simplify(2, preserve_topology=True).plot(ax=ax1)
@@ -479,8 +479,10 @@ country_boundary_us.simplify(2, preserve_topology=True).plot(ax=ax1)
 # a larger tolerance yields a blockier polygon
 country_boundary_us.simplify(.2, preserve_topology=True).plot(ax=ax2)
 
-ax1.set_title("Data with a higher tolerance value will become visually blockier as there are fewer vertices")
-ax2.set_title("Data with a very low tolerance value will look smoother but will take longer to process")
+ax1.set_title(
+    "Data with a higher tolerance value will become visually blockier as there are fewer vertices")
+ax2.set_title(
+    "Data with a very low tolerance value will look smoother but will take longer to process")
 
 ax1.set_axis_off()
 ax2.set_axis_off()
@@ -504,8 +506,13 @@ plt.show()
 ```python
 # Plot the data by attribute
 fig, ax = plt.subplots(figsize=(12, 8))
-country_boundary_us.plot(alpha=1, color="white", edgecolor="black", ax=ax)
-ne_roads_clip.plot(ax=ax, column='type', legend=True)
+country_boundary_us.plot(alpha=1, 
+                         color="white", 
+                         edgecolor="black", 
+                         ax=ax)
+ne_roads_clip.plot(ax=ax, 
+                   column='type', 
+                   legend=True)
 ax.set_axis_off()
 plt.axis('equal')
 plt.show()
