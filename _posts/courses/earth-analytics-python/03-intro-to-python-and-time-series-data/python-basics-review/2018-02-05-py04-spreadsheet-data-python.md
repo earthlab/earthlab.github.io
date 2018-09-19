@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/spreadsheet-data-in-python/
 nav-title: 'Spreadsheet Data in Python'
 dateCreated: 2016-12-13
-modified: 2018-09-12
+modified: 2018-09-19
 week: 3
 sidebar:
   nav:
@@ -571,7 +571,7 @@ boulder_precip.dtypes
 Let's now work with the matplotlib and take a little time to customize your plots. Below you add the following arguments to your plot:
 
 * **title:** add a title to your plot
-* **legend = False:** turn off the legend for hte plot
+* **legend = False:** turn off the legend for the plot
 * **kind = bar**: create a bar plot
 
 {:.input}

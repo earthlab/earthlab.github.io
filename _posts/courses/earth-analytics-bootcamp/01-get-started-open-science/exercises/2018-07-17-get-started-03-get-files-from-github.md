@@ -8,7 +8,7 @@ class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/
 nav-title: "Get Files From GitHub"
 dateCreated: 2018-06-27
-modified: 2018-09-18
+modified: 2018-09-19
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -88,8 +88,8 @@ On the main `Github.com` page of the repository, you will see a button on the to
 Click on the `Fork` button and select your `Github.com` account as the home of the forked repository. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/git-fork-repo.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/git-fork-repo.png" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/git-fork-repo.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
  <figcaption> You can create a copy of repositories created by other users on Github by forking their repository to your Github account. 
  </figcaption>
 </figure>
@@ -121,8 +121,8 @@ Because you forked `example-repository`, your `Github.com` account now contains 
 On the main `Github.com` page of your forked repository, click on the green button for `Clone or download`, and copy the URL provided in the box, which will look like: `https://github.com/your-username/example-repository`. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/git-clone-repo.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/git-clone-repo.png" alt="You can make a local copy of your forked repository on your computer with the git clone command."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/git-clone-repo.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/git-clone-repo.gif" alt="You can make a local copy of your forked repository on your computer with the git clone command."></a>
  <figcaption> You can make a local copy of your forked repository on your computer with the git clone command. 
  </figcaption>
 </figure>
@@ -165,8 +165,8 @@ On this web page, create a pull request from the original repository by followin
 5. On the new page, click on `Create pull request` once more to finish creating the pull request. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/github-create-reverse-pull-request.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/github-create-reverse-pull-request.png" alt="You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/github-create-reverse-pull-request.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/github-create-reverse-pull-request.gif" alt="You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork."></a>
  <figcaption> You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork. 
  </figcaption>
 </figure>
@@ -176,8 +176,8 @@ After creating the pull request, you need to merge the pull request, so that the
 You can simply click on the green button for `Merge pull request` and `Confirm merge`. Once you return to the main page of your fork, you will see the changes reflected. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/github-merge-reverse-pull-request.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/github-merge-reverse-pull-request.png" alt="After creating a pull request, you merge the pull request to apply the changes from the original repository to your fork."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/github-merge-reverse-pull-request.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/github-merge-reverse-pull-request.gif" alt="After creating a pull request, you merge the pull request to apply the changes from the original repository to your fork."></a>
  <figcaption> After creating a pull request, you merge the pull request to apply the changes from the original repository to your fork. 
  </figcaption>
 </figure>
