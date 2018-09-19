@@ -3,7 +3,7 @@ layout: single
 title: "Clip a spatial vector layer in python using shapely & geopandas: GIS in Python"
 excerpt: "In this lesson you review how to clip a vector data layer in python using geopandas and shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-18
+modified: 2018-09-19
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/clip-vector-data-in-python-geopandas-shapely/
@@ -356,32 +356,7 @@ In your dataset for this week you have 2 layers.
 
 The roads data are imported below. You imported the boundary layer above.  
 
-If both layers are in the same CRS, you are ready to clip your data. Because the clip functions are new and little testing has been done with them, you will see all of the lines of code required to clip your data. However you can use the `clip_shp()` function to clip your data for this week's class! Here are the steps
-
-1. Subset the roads data using a spatial index.
-1. Clip the geometry using `.intersection()`
-1. Remove all rows in the geodataframe that have no geometry (this is explained below). 
-1. Update the original roads layer to contained only the clipped geometry
-
-
-```python
-# Create a single polygon object for clipping
-poly = clip_obj.geometry.unary_union
-spatial_index = shp.sindex
-
-# Create a box for the initial intersection
-bbox = poly.bounds
-# Get a list of id's for each road line that overlaps the bounding box and subset the data to just those lines
-sidx = list(spatial_index.intersection(bbox))
-shp_sub = shp.iloc[sidx]
-
-# Clip the data - with these data
-clipped = shp_sub.copy()
-clipped['geometry'] = shp_sub.intersection(poly)
-
-# Return the clipped layer with no null geometry values
-final_clipped = clipped[clipped.geometry.notnull()]
-```
+If both layers are in the same CRS, you are ready to clip your data. Because the clip functions are new and little testing has been done with them, you will see all of the lines of code required to clip your data. However you can use the `clip_shp()` function to clip your data for this week's class! 
 
 Be patient while your clip code below runs. 
 
@@ -467,6 +442,37 @@ plt.show()
 
 
 
+<div class="notice" markdown="1">
+<i class="fa fa-star"></i>**How Clip_shp() works:** 
+
+Here are the steps involved with clipping data in geopandas - these steps are completed when you use the `clip_shp()` function which is provided to you as a `.py` script that you can import into this lesson as a module. They are simply described below just in case you ever need to clip data in python and that function doesn't work for you.
+
+1. Subset the roads data using a spatial index.
+1. Clip the geometry using `.intersection()`
+1. Remove all rows in the geodataframe that have no geometry (this is explained below). 
+1. Update the original roads layer to contained only the clipped geometry
+
+
+```python
+# Create a single polygon object for clipping
+poly = clip_obj.geometry.unary_union
+spatial_index = shp.sindex
+
+# Create a box for the initial intersection
+bbox = poly.bounds
+# Get a list of id's for each road line that overlaps the bounding box and subset the data to just those lines
+sidx = list(spatial_index.intersection(bbox))
+shp_sub = shp.iloc[sidx]
+
+# Clip the data - with these data
+clipped = shp_sub.copy()
+clipped['geometry'] = shp_sub.intersection(poly)
+
+# Return the clipped layer with no null geometry values
+final_clipped = clipped[clipped.geometry.notnull()]
+```
+</div>
+
 ## What Does Simplify Do?
 
 {:.input}
@@ -494,7 +500,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_22_0.png" alt = "Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_23_0.png" alt = "Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.">
 <figcaption>Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.</figcaption>
 
 </figure>
@@ -523,7 +529,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_23_0.png" alt = "The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_24_0.png" alt = "The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.">
 <figcaption>The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.</figcaption>
 
 </figure>
@@ -582,7 +588,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_25_0.png" alt = "Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_26_0.png" alt = "Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.">
 <figcaption>Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.</figcaption>
 
 </figure>

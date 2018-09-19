@@ -3,7 +3,7 @@ layout: single
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser']
-modified: 2018-09-18
+modified: 2018-09-19
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/dissolve-polygons-in-python-geopandas-shapely/
@@ -82,7 +82,8 @@ Next, you will learn how to dissolve polygon data. Dissolving polygons entails c
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif" alt="When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new "merged" or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI"></a>
+ <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif" alt="When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new merged or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI"> 
+ </a>
  <figcaption> When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new "merged" or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI
  </figcaption>
 </figure>
@@ -290,7 +291,7 @@ cont_usa
 
 
 
-And finally, plot the data. Note that when you dissolve, the column used to perform the dissolve becomes an index for the resultant geodataframe. Thus you will have to use the reset_index() method when you plot, to access the region "column". 
+And finally, plot the data. Note that when you dissolve, the column used to perform the dissolve becomes an index for the resultant geodataframe. Thus you will have to use the `reset_index()` method when you plot, to access the region "column". 
 
 So this will work:
 
