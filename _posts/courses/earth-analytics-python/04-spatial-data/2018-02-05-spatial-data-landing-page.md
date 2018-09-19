@@ -5,7 +5,7 @@ title: "Introduction to Shapefiles and Vector Data in Open Source Python"
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-use-vector-spatial-data-in-open-source-python/
 week-landing: 4
 week: 4
-modified: 2018-09-18
+modified: 2018-09-19
 sidebar:
   nav:
 comments: false
@@ -100,20 +100,6 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 -->
 
 
-## Plot 1 - Roads Map and Legend
-
-Create a map of California roads:
-
-1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your `spatial-vector-lidar` data download.
-2. Create a map that shows the madera roads layer, sjer plot locations and the `sjer_aoi` boundary (`sjer_crop.shp`).
-3. Plot the roads so different **road types** (using the RTTYP field) are represented using unique symbology. Use the `RTTYP` field to plot unique road types.
-4. Map the plot locations by the attribute **plot type** using unique symbology for each "type".
-4. Add a **title** to your plot.
-5. Adjust your plot legend so that the full name for each `RTTYP` name is clearly represented in your legend. HINT: You will need to consult the metadata for that layer to determine what each `RTTYP` type represents.
-6. Be sure that your plot legend is not covering your data.
-
-**IMPORTANT:** be sure that all of the data are within the same `EXTENT` and `crs` of the `sjer_aoi` layer. This means that you may have to crop and reproject your data prior to plotting it!
-
 {:.input}
 ```python
 #help(clip_points)
@@ -125,7 +111,7 @@ Create a map of California roads:
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_5_0.png" alt = "Map showing the SJER field site roads and plot locations clipped to the site boundary.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_4_0.png" alt = "Map showing the SJER field site roads and plot locations clipped to the site boundary.">
 <figcaption>Map showing the SJER field site roads and plot locations clipped to the site boundary.</figcaption>
 
 </figure>
@@ -133,42 +119,12 @@ Create a map of California roads:
 
 
 
-## Calculate Total Length of Road Siskiyou, Modoc, Del Norte County in California
-
-Create a geopandas `data.frame` that shows the total length of road in each county in the state of California.
-To calculate this use the following layers:
-
-* Counties in California: `spatial-vector-lidar/california/ca_counties/CA_Counties_TIGER2016.shp` layer 
-* Roads: `spatial-vector-lidar/global/ne_10m_roads/ne_10m_roads.shp` layer 
-
-IMPORTANT: before performing this calculation, REPROJECT both data layers to albers `.to_crs({'init': 'epsg:5070'})`
-Tips
-
-* Both layers need to the in the SAME coordinate reference system for you to work with them together. 
-* You will want to clip the roads to the boundary of California. The `unary_union` attribute will be useful for this clip operation!
-* you may need to rename a column for this to work properly. You can use `dataframe.rename(columns = {'old-col-name':'new-col-name'}, inplace = True)` to rename a column in pandas. 
-* To assign each road to it's respective county, you will need to do a spatial join using `.sjoin()`
-
-* Finally calculate the length of each road segment. 
-
-To calculate length of each line in your geodataframe , you can use the syntax `geopandas_dataframe_name.length`. Create a new column using the syntax:
-
-`geopandas_dataframe_name["length"] = geopandas_dataframe_name.length`
-
-* Summarize the data to calculate total length using pandas `.groupby()` on the county column name.
-
-HINT: use: `pd.options.display.float_format = '{:.4f}'.format` if you'd like to turn off scientific notation for your outputs.
-
-
 ## Plot 2 - Roads in Siskiyou, Modoc, Del Norte County in California
 
 
 ## Plot 2 - Roads in Del Norte, Modoc & Siskiyou Counties
 
-Using the dataframe that you created above with each road assigned to the county that it is within, create a map of roads by county. Color the roads in each county using a unique color.
 
-Below is a map of the road layers clipped to the three counties to help you check your answer!
-HINT: use the `legend=True` argument in `.plot()` to create a legend.
 
 
 {:.output}
@@ -176,7 +132,7 @@ HINT: use the `legend=True` argument in `.plot()` to create a legend.
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_9_0.png" alt = "Map showing the roads layer clipped to the three counties and colored according to which county the road is in.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_7_0.png" alt = "Map showing the roads layer clipped to the three counties and colored according to which county the road is in.">
 <figcaption>Map showing the roads layer clipped to the three counties and colored according to which county the road is in.</figcaption>
 
 </figure>
@@ -186,9 +142,6 @@ HINT: use the `legend=True` argument in `.plot()` to create a legend.
 
 ## Plot 3 - Quantile Map for The USA
 
-The 2014 census layer: `"data/spatial-vector-lidar/usa/usa-states-census-2014.shp"` contains an `ALAND` and `AWATER` attribute columns that represent calculated total land and water area for each state in the continental United States. Use this layer to summarize the data by `region`. Then provide a table that shows summary values for each attribute 
-
-Use this layer to calculate mean values for `ALAND` and `AWATER` found in the attributes. 
 
 
 {:.output}
@@ -196,7 +149,7 @@ Use this layer to calculate mean values for `ALAND` and `AWATER` found in the at
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_11_0.png" alt = "Total land and total water aggregated by region in the United States.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_9_0.png" alt = "Total land and total water aggregated by region in the United States.">
 <figcaption>Total land and total water aggregated by region in the United States.</figcaption>
 
 </figure>
@@ -204,84 +157,7 @@ Use this layer to calculate mean values for `ALAND` and `AWATER` found in the at
 
 
 
-{:.input}
-```python
-# Print out the table
-mean_region_val
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>geometry</th>
-      <th>ALAND</th>
-      <th>AWATER</th>
-    </tr>
-    <tr>
-      <th>region</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Midwest</th>
-      <td>(POLYGON Z ((-82.863342 41.693693 0, -82.82571...</td>
-      <td>1943869253244</td>
-      <td>184383393833</td>
-    </tr>
-    <tr>
-      <th>Northeast</th>
-      <td>(POLYGON Z ((-76.04621299999999 38.025533 0, -...</td>
-      <td>869066138232</td>
-      <td>108922434345</td>
-    </tr>
-    <tr>
-      <th>Southeast</th>
-      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
-      <td>1364632039655</td>
-      <td>103876652998</td>
-    </tr>
-    <tr>
-      <th>Southwest</th>
-      <td>POLYGON Z ((-94.48587499999999 33.637867 0, -9...</td>
-      <td>1462631530997</td>
-      <td>24217682268</td>
-    </tr>
-    <tr>
-      <th>West</th>
-      <td>(POLYGON Z ((-118.594033 33.035951 0, -118.540...</td>
-      <td>2432336444730</td>
-      <td>57568049509</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
+## Plot 4
 
 You can use the code below to download and unzip the data from the Natural Earth website.
 Please note that the download function was written to take
@@ -290,19 +166,6 @@ Please note that the download function was written to take
 2. a url - this is the URL where the data are located. The URL below might look odd as it has two "http" strings in it but it is how the url's are organized on natural earth and should work. 
 
 The `download()` function will unzip your data for you and place it in the directory that you specify. 
-
-## Plot 4
-
-1. Download the natural earth data using the code below. Be sure to add the download packate to the TOP of your notebook. It is just here as an example to highlight that you will need to use this package to download the data.
-
-After you have downloaded the data, import the data and 
-1. subset the data to include the following columns: `["REGION_WB", "CONTINENT", "POP_RANK","POP_EST", 'geometry']`
-2. Dissolve the data by region (`REGION_WB`) column and aggregate by sum and mean. HINT: you can provide the aggfun= argument with a [list] of functions in quotes and it will summarize numeric columns using each function
-3. Create two plots within one matplotlib figure 
-    a. Create a plot of the sum estimated population (`POP_EST`) by region
-    b. Create a plot of the mean population range (`POP_RANK`) by region
-
-The code below will allow you to download the data required for plot 4.
 
 {:.input}
 ```python
@@ -331,7 +194,7 @@ country_path = os.path.join(download_path, "ne_10m_admin_0_countries.shp")
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_18_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_13_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
 <figcaption>Natural Earth Global Mean population rank and total estimated population</figcaption>
 
 </figure>
