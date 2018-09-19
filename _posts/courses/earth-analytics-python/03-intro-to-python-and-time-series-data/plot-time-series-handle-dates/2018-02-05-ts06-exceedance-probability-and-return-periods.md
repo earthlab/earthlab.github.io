@@ -3,7 +3,7 @@ layout: single
 title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Probability and Return Periods in Python"
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2018-09-12
+modified: 2018-09-19
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -57,9 +57,9 @@ Recurrence intervals for the annual peak streamflow at a given location change i
 
 This question points out the importance of proper terminology. The term "100-year flood" is used in an attempt to simplify the definition of a flood that statistically has a 1-percent chance of occurring in any given year. Likewise, the term "100-year storm" is used to define a rainfall event that statistically has this same 1-percent chance of occurring. In other words, over the course of 1 million years, these events would be expected to occur 10,000 times. But, just because it rained 10 inches in one day last year doesn't mean it can't rain 10 inches in one day again this year.
 
-Recurrence intervals and probabilities of occurrences Recurrence interval, in years	Probability of occurrence in any given year	Percent chance of occurrence in any given year
+### Recurrence intervals and probabilities of occurrences 
 
-|Recurrance interval, in years | Probability of occurrence in any given year| Percent change of occurrence in any given year | 
+|Recurrance interval, in years | Probability of occurrence in any given year| Percent chance of occurrence in any given year | 
 |100|	1 in 100 |	1 |
 |50	|1 in 50	|2|
 |25|	1 in 25|	4|
