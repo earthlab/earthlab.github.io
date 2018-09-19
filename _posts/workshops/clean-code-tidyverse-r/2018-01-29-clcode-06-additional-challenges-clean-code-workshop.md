@@ -11,12 +11,12 @@ nav-title: 'Challenge Yourself'
 sidebar:
   nav:
 module: "clean-coding-tidyverse-intro"
-permalink: /courses/clean-coding-tidyverse-intro/tidyverse-clean-code-challenges-r/
+permalink: /workshops/clean-coding-tidyverse-intro/tidyverse-clean-code-challenges-r/
 author_profile: false
 comments: true
 order: 6
 topics:
-  reproducible-science-and-programming: ['literate expressive programming']
+  reproducible-science-and-programming: ['literate-expressive-programming']
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
@@ -35,7 +35,7 @@ lessons.
 
 Follow the setup instructions here:
 
-* [Setup instructions]({{ site.url }}/courses/clean-code-tidyverse-r/)
+* [Setup instructions]({{ site.url }}/workshops/clean-coding-tidyverse-intro/)
 
 </div>
 

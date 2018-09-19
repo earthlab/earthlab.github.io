@@ -3,7 +3,7 @@ layout: single
 title: "Time Series Data: Work with Dates in R"
 excerpt: "Times series data can be manipulated efficiently in R. Learn how to work with, plot and subset data with dates in R. "
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/date-class-in-r/
@@ -241,11 +241,3 @@ ggplot(data = boulder_precip, aes(x = DATE, y = PRECIP)) +
 <img src="{{ site.url }}/images/rfigs/courses/earth-analytics/02-time-series-data/time-series-dates-r/2017-01-25-R01-work-with-dates-in-R/qplot-data-1.png" title="precip bar plot" alt="precip bar plot" width="90%" />
 
 Now, your plot looks a lot nicer!
-
-<div class="notice--info" markdown="1">
-
-## Other Time Series R Resources
-
-* For a more in depth overview of date-time formats, check out the
-<a href="http://neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank">NEON Data skills time series tutorial.</a>
-</div>

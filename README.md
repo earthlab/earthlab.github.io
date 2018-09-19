@@ -1,8 +1,11 @@
 
 
-[![DOI](https://zenodo.org/badge/62253359.svg)](https://zenodo.org/badge/latestdoi/62253359)
+Earth Data scienceWebsite: [![Earth Data scienceWebsite DOI](https://zenodo.org/badge/62253359.svg)](https://zenodo.org/badge/latestdoi/62253359)
+Please view our license for all courses and workshop material. Cite our materials following the license and us these DOI's as appropriate:
+* Earth Analytics R Course: [![Earth Analytics R Course DOI](https://zenodo.org/badge/143348761.svg)](https://zenodo.org/badge/latestdoi/143348761)
 
-# Development -- Earth Data Science Website
+
+## Development -- Earth Data Science Website
 
 [![Build Status](https://travis-ci.org/earthlab/earthlab.github.io.svg?branch=master)](https://travis-ci.org/earthlab/earthlab.github.io)
 

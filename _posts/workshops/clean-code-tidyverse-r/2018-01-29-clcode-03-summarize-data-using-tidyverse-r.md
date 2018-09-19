@@ -11,12 +11,12 @@ nav-title: 'Summarize Data'
 sidebar:
   nav:
 module: "clean-coding-tidyverse-intro"
-permalink: /courses/clean-coding-tidyverse-intro/summarise-data-in-R-tidyverse/
+permalink: /workshops/clean-coding-tidyverse-intro/summarise-data-in-R-tidyverse/
 author_profile: false
 comments: true
 order: 3
 topics:
-  reproducible-science-and-programming: ['literate expressive programming']
+  reproducible-science-and-programming: ['literate-expressive-programming']
 ---
 
 

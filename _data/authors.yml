@@ -10,12 +10,24 @@
 - name: Data Carpentry
   slug: data-carpentry
   bio: ''
+- name: Jenny Palomino
+  slug: jenny-palomino
+  bio: 'Jenny is an earth data science course developer and instructor with the Earth Analytics Education Initiative at Earth Lab.'
+- name: Jeremey Diaz
+  slug: jeremey-diaz
+  bio: ''
 - name: Joe McGlinchy
   slug: joe-mcglinchy
   bio: 'Joe is a Remote Sensing Specialist with the Analytics Hub at Earth Lab.'
+- name: Lauren Herwehe
+  slug: lauren-herwehe
+  bio: ''
 - name: Leah Wasser
   slug: leah-wasser
   bio: 'Leah is the director of the Earth Analytics Education Initiative at Earth Lab and maintains this website.'
+- name: Matthew Rossi
+  slug: matthew-rossi
+  bio: ''
 - name: Martha Morrissey
   slug: martha-morrissey
   bio: ''

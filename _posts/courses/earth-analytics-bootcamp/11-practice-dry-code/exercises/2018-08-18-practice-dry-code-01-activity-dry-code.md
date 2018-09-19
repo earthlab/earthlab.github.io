@@ -5,11 +5,11 @@ excerpt: "This activity provides an opportunity to practice writing DRY code usi
 authors: ['Jenny Palomino']
 category: [courses]
 class-lesson: ['practice-dry-code']
-permalink: /courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code
+permalink: /courses/earth-analytics-bootcamp/practice-dry-code/activity-dry-code/
 nav-title: "Activity on Dry Code"
 dateCreated: 2018-08-18
-modified: 2018-08-22
-module-title: 'Practice Writing DRY Code'
+modified: 2018-09-10
+module-title: 'Practice Writing DRY (i.e. Do Not Repeat Yourself) Code in Python'
 module-nav-title: 'Practice Writing DRY Code'
 module-description: 'This tutorial provides an opportunity to practice writing DRY code using loops, conditional statements, and functions.'
 module-type: 'class'

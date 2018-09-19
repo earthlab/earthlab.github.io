@@ -11,12 +11,12 @@ nav-title: 'Missing Data'
 sidebar:
   nav:
 module: "clean-coding-tidyverse-intro"
-permalink: /courses/clean-coding-tidyverse-intro/handle-missing-data-readr-r/
+permalink: /workshops/clean-coding-tidyverse-intro/handle-missing-data-readr-r/
 author_profile: false
 comments: true
 order: 4
 topics:
-  reproducible-science-and-programming: ['literate expressive programming']
+  reproducible-science-and-programming: ['literate-expressive-programming']
 ---
 
 {% include toc title="In this lesson" icon="file-text" %}
@@ -34,7 +34,7 @@ At the end of this activity, you will be able to:
 
 Follow the setup instructions here:
 
-* [Setup instructions]({{ site.url }}/courses/clean-code-tidyverse-r/)
+* [Setup instructions]({{ site.url }}/workshops/clean-coding-tidyverse-intro/)
 
 </div>
 

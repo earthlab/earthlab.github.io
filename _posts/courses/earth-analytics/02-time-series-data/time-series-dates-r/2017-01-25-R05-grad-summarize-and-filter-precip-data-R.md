@@ -3,7 +3,7 @@ layout: single
 title: "Subset & Aggregate Time Series Precipitation Data in R Using mutate(), group_by() and summarise()"
 excerpt: "This lesson introduces the mutate() and group_by() dplyr functions - which allow you to aggregate or summarize time series data by a particular field - in this case you will aggregate data by day to get daily precipitation totals for Boulder during the 2013 floods."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2018-07-30'
 category: [courses]
 class-lesson: ['time-series-r']
 week: 2
@@ -207,9 +207,6 @@ str(precip_boulder$DATE)
 ##  POSIXct[1:14476], format: "1948-08-01 01:00:00" "1948-08-02 15:00:00" ...
 ```
 
-* For more information on date/time classes, see the NEON tutorial
-<a href="http://neondataskills.org/R/time-series-convert-date-time-class-POSIX/" target="_blank"> *Dealing with dates & times in R - as.Date, POSIXct, POSIXlt*</a>.
-
 
 ## Plot Precipitation Data
 
@@ -281,14 +278,14 @@ nrow(daily_sum_precip)
 # view the results
 head(daily_sum_precip)
 ## # A tibble: 6 x 2
-##          day total_precip
-##       <date>        <dbl>
-## 1 1948-08-01         0.00
-## 2 1948-08-02         0.05
-## 3 1948-08-03         0.07
-## 4 1948-08-04         0.14
-## 5 1948-08-06         0.02
-## 6 1948-08-14         0.03
+##   day        total_precip
+##   <date>            <dbl>
+## 1 1948-08-01       0     
+## 2 1948-08-02       0.05  
+## 3 1948-08-03       0.0700
+## 4 1948-08-04       0.14  
+## 5 1948-08-06       0.02  
+## 6 1948-08-14       0.03
 
 # view column names
 names(daily_sum_precip)

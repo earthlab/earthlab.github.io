@@ -30,7 +30,7 @@ you will learn how to
 * Deal with cloud shadows and cloud coverage.
 * Deal with scale factors and no data values.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
 
 </div>
 

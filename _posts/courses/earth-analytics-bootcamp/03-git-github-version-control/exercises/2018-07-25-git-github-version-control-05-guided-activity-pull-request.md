@@ -9,7 +9,7 @@ permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-a
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
 modified: 2018-09-19
-odule-type: 'class'
+module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
 week: 3

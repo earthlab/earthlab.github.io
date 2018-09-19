@@ -8,7 +8,7 @@ class-lesson: ['pandas-dataframes']
 permalink: /courses/earth-analytics-bootcamp/pandas-dataframes/selections-pandas-dataframes/
 nav-title: "Selections From Pandas Dataframes"
 dateCreated: 2019-07-24
-modified: 2018-08-18
+modified: 2018-09-10
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -475,6 +475,7 @@ For example, you can select all data from a specific column in `pandas dataframe
 
 {:.input}
 ```python
+# select the `months` column 
 avg_precip[["months"]]
 ```
 
@@ -569,8 +570,10 @@ For example, you can create a new `pandas dataframe` that only contains the `mon
 
 {:.input}
 ```python
+# select the columns `months` and `seasons` and save to new dataframe
 avg_precip_text = avg_precip[['months', 'seasons']]
 
+# print new dataframe
 avg_precip_text
 ```
 
@@ -674,6 +677,7 @@ If you call your original `pandas dataframe`, you will see it is unchanged.
 
 {:.input}
 ```python
+# print original dataframe
 avg_precip
 ```
 
@@ -794,6 +798,7 @@ For example, you can select all rows that have a `seasons` value of `Summer`.
 
 {:.input}
 ```python
+# select rows that has a value of `Summer` in `seasons` column
 avg_precip[avg_precip.seasons == "Summer"]
 ```
 
@@ -858,6 +863,7 @@ For example, you can select all rows that have a specific value in `precip` such
 
 {:.input}
 ```python
+# select rows that have value of 1.62 in `precip` column
 avg_precip[avg_precip.precip == 1.62]
 ```
 
@@ -918,7 +924,7 @@ For example, you can create an index from a specific column of values using `dat
 # create index using the values in the column `months`
 avg_precip = avg_precip.set_index("months")
 
-# print the data in precip_df to see the new structure
+# print the data to see the new structure
 avg_precip
 ```
 
