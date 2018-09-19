@@ -8,7 +8,7 @@ class-lesson: ['git-github-version-control']
 permalink: /courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-pull-request/
 nav-title: "Guided Activity to Submit Pull Requests"
 dateCreated: 2018-07-25
-modified: 2018-08-09
+modified: 2018-09-19
 odule-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -80,9 +80,9 @@ Pull requests show diffs, (differences), of the content between your repo and th
 To begin a pull request (PR), click the `New pull request` button on the main page of your forked repository (e.g. `https://github.com/yourusername/ea-bootcamp-hw-1-yourusername`).
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/new-pull-request.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/new-pull-request.png" alt="Location of the New pull request button on the main page of an example repository for jenp0277/ea-bootcamp-hw-1-jenp0277."></a>
- <figcaption> Location of the New pull request button on the main page of an example repository for jenp0277/ea-bootcamp-hw-1-jenp0277. 
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/new-pull-request.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/new-pull-request.png" alt="Location of the New pull request button on the main page of an example repository for jenp0277."></a>
+ <figcaption> Location of the New pull request button on the main page of an example repository for jenp0277. 
  </figcaption>
 </figure>
 
@@ -117,9 +117,9 @@ When you compare two repos in a pull request page, `GitHub` provides an overview
 You can also click on the commit titles to see the specific changes in each commit. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/diffs.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/diffs.png" alt="This screenshot shows the differences between the files on earthlab-education/ea-bootcamp-hw-1-jenp0277 in red and jenp0277's copy of the repository in green. Deletions are highlighted in red and additions are highlighted in green. Pull request diffs view can be changed between unified and split (arrow)."></a>
- <figcaption> This screenshot shows the differences between the files on earthlab-education/ea-bootcamp-hw-1-jenp0277 in red and jenp0277's copy of the repository in green. Deletions are highlighted in red and additions are highlighted in green. Pull request diffs view can be changed between unified and split (arrow).
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/diffs.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/diffs.png" alt="This screenshot shows the differences between the files on earthlab-education and jenp0277's fork of the repository. When showing line by line changes, the deletions will be highlighted in red and additions will be highlighted in green. Pull request diffs view can be changed between unified and split (arrow)."></a>
+ <figcaption> This screenshot shows the differences between the files on earthlab-education and jenp0277's fork of the repository. When showing line by line changes, the deletions will be highlighted in red and additions will be highlighted in green. Pull request diffs view can be changed between unified and split (arrow).
  </figcaption>
 </figure>
 
@@ -133,9 +133,9 @@ Add a title and write a brief description of your changes. When you’re done wi
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/create-pull-request.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/create-pull-request.png" alt="Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box. Source: National Ecological Observatory Network (NEON)."></a>
- <figcaption> Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box. Source: National Ecological Observatory Network (NEON).
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/create-pull-request.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/create-pull-request.png" alt="Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box."></a>
+ <figcaption> Pull request titles should be concise and descriptive of the content in the pull request. More detailed notes can be left in the comments box.
  </figcaption>
 </figure>
 
@@ -143,7 +143,7 @@ Notice that when creating a new pull request, you will be automatically transfer
 
 At this point, you are done with the pull request! In this case, you have submitted a pull request for Homework 1!
 
-Though you may see active button for Merge Pull Request, this button is intended for the owner of the repository. They can review your pull request and then decide if/when to merge it into their original repository.
+Though you may see an active button for Merge Pull Request, this button is intended for the owner of the repository. They can review your pull request and then decide if/when to merge it into their original repository.
 
 Note that until the owner merges your pull request, all future commits that you make to your fork will continue to be added to the open pull request. 
 
@@ -157,9 +157,9 @@ For example, the pull request you just created in this lesson can be closed if y
 To close a pull request, simply click on `Close pull request` button toward the bottom of the pull request page.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/close-pull-request.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bootcamp/git/close-pull-request.png" alt="Location of the Close pull request button on an example pull request from jenp0277/ea-bootcamp-hw-1-jenp0277 to earthlab-education/ea-bootcamp-hw-1-jenp0277."></a>
- <figcaption> Location of the Close pull request button on an example pull request from jenp0277/ea-bootcamp-hw-1-jenp0277 to earthlab-education/ea-bootcamp-hw-1-jenp0277.
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/close-pull-request.png">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/close-pull-request.png" alt="Location of the Close pull request button on an example pull request from jenp0277 to earthlab-education."></a>
+ <figcaption> Location of the Close pull request button on an example pull request from jenp0277 to earthlab-education.
  </figcaption>
 </figure>
 
