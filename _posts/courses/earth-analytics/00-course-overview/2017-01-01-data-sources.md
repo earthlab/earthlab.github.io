@@ -106,7 +106,6 @@ from international, national and even local groups.
 * <a href="http://www.unitar.org/unosat/" target="_blank">UNITAR (United Nations Institute for Training & Research)</a>
 * <a href="http://geodata.grid.unep.ch/" target="_blank">UNEP Grid (United Nations Envir Program)</a>
 * <a href="http://www.fao.org/geonetwork/srv/en/main.home#" target="_blank" data-proofer-ignore=''>FAO (United Nations Food and Agriculture Org)</a>
-* <a href="http://www.ciesin.org/" target="_blank">CIESIN (Ctr INt’l Earth Science Info Network</a>
 * <a href="http://www.terrainmap.com/" target="_blank">TERRAIN Map (John Childs data portal) </a>
 * <a href="http://www.openstreetmap.org/" target="_blank">OSM (Open Street Map)</a>
 * <a href="http://www.fgdc.gov/" target="_blank"> Metadata and Federal  Data Standards (Federal Geographic Data Committee, FGDC)</a>

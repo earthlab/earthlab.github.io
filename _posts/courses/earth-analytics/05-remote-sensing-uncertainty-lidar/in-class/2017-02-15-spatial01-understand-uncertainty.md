@@ -296,7 +296,6 @@ The materials on this page were compiled using many internet resources including
 
 * <a href="http://www.ece.rochester.edu/courses/ECE111/error_uncertainty.pdf" target="_blank">Pdf presentation on uncertainty in remote sensing</a>
 * <a href="https://www.nde-ed.org/GeneralResources/ErrorAnalysis/UncertaintyTerms.htm" target="_blank">An overview of key uncertainty terms</a>
-* <a href="http://www.peer.eu/fileadmin/user_upload/opportunities/metier/course3/c3_land_surface_processes.pdf" target="_blank">A pdf that outlines uncertainty relative to land surface processes</a>
 
 
 ##  QGIS Imagery Layer
