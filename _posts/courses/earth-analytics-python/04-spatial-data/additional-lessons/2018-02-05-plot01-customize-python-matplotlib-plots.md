@@ -163,7 +163,7 @@ sjer_roads.plot(column='RTTYP',
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x119e35e10>
+    <matplotlib.axes._subplots.AxesSubplot at 0x122a5d748>
 
 
 
@@ -638,8 +638,7 @@ Then you can plot your data just like you did with the lines
 ```python
 pointsPalette = {'trees': 'chartreuse',
                  'grass': 'darkgreen', 'soil': 'burlywood'}
-roadPalette = {'M': 'grey', 'S': "blue", 'C': "magenta", '': "lightgrey"}
-lineWidths = {'M': .5, 'S': 2, 'C': 2, '': .5}
+lineWidths = {'M': .5, 'S': 2, 'C': 2, 'Unknown': .5}
 
 fig, ax = plt.subplots(figsize=(10, 10))
 ax.set_axis_off()
@@ -700,6 +699,18 @@ To clip your data you need to do the following
 sjer_aoi.total_bounds
 ```
 
+{:.output}
+{:.execute_result}
+
+
+
+    array([  254570.567     ,  4107303.07684455,   258867.40933092,
+            4112361.92026107])
+
+
+
+
+
 {:.input}
 ```python
 # The box function comes from shapely. Be sure to import it at the top of your notebook
@@ -713,25 +724,15 @@ sjer_roads_utm.plot(figsize=(8, 8),
                     column='RTTYP',
                     categorical=True,
                     legend=True)
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x11c79e940>
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_38_1.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_38_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -827,3 +828,17 @@ plt.rcParams['font.size'] = 22
 
 plt.rcParams['legend.fontsize'] = 'small'
 ```
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_46_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
+
+</figure>
+
+
+
