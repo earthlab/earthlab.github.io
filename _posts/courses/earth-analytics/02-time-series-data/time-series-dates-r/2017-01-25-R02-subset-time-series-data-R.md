@@ -69,8 +69,8 @@ directory. They are not nested within another directory. You may have to copy an
 paste your files to make this look right.
 
 <figure>
-<a href="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png">
-<img src="{{ site.url }}/images/courses/earth-analytics/week-02/week-02-data.png" alt="week 2 file organization">
+<a href="{{ site.url }}/images/courses/earth-analytics/co-flood-lessons/week-02-data.png">
+<img src="{{ site.url }}/images/courses/earth-analytics/co-flood-lessons/week-02-data.png" alt="week 2 file organization">
 </a>
 <figcaption>Your `week_02` file directory should look like the one above. Note that
 the data directory is directly under the earth-analytics folder.</figcaption>

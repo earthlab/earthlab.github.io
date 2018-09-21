@@ -4,7 +4,7 @@ category: [courses]
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2018-08-24
+modified: 2018-09-20
 module-type: 'workshop'
 module: "spatial-data-open-source-python"
 permalink: /workshops/gis-open-source-python/dissolve-polygons-in-python-geopandas-shapely/
@@ -69,8 +69,8 @@ Dissolving polygons entails combining polygons based upon a unique attribute val
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif"></a>
- <figcaption> When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new "merged" or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI
+ <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif" alt = "Image showing how dissolve works on polygon data. When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new merged (combined) polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI." ></a>
+ <figcaption>When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new "merged" (or combined) polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI.
  </figcaption>
 </figure>
 
@@ -201,7 +201,11 @@ plt.axis('equal');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_9_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_9_0.png">
+
+</figure>
 
 
 
@@ -329,7 +333,11 @@ plt.axis('equal');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_12_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_12_0.png">
+
+</figure>
 
 
 
@@ -346,7 +354,11 @@ Create a quantile map using the AWATER attribute column.
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_14_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_14_0.png">
+
+</figure>
 
 
 
@@ -366,7 +378,11 @@ Aggregate the data using the 'mean' method on the ALAND and AWATER attributes (t
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_0.png">
+
+</figure>
 
 
 
@@ -374,7 +390,11 @@ Aggregate the data using the 'mean' method on the ALAND and AWATER attributes (t
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_1.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_1.png">
+
+</figure>
 
 
 
