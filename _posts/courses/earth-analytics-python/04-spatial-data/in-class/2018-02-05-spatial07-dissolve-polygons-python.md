@@ -3,7 +3,7 @@ layout: single
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser']
-modified: 2018-09-19
+modified: 2018-09-21
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/dissolve-polygons-in-python-geopandas-shapely/
@@ -491,11 +491,17 @@ plt.show()
 ```
 
 {:.output}
+    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/pysal/__init__.py:65: VisibleDeprecationWarning: PySAL's API will be changed on 2018-12-31. The last release made with this API is version 1.14.4. A preview of the next API version is provided in the `pysal` 2.0 prelease candidate. The API changes and a guide on how to change imports is provided at https://pysal.org/about
+      ), VisibleDeprecationWarning)
+
+
+
+{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_15_0.png" alt = "In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_15_1.png" alt = "In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.">
 <figcaption>In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.</figcaption>
 
 </figure>

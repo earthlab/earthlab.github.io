@@ -2,7 +2,7 @@
 layout: single
 category: courses
 title: "Introduction to Shapefiles and Vector Data in Open Source Python"
-permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-use-vector-spatial-data-in-open-source-python/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 4
 week: 4
 modified: 2018-09-21
@@ -100,13 +100,15 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 -->
 
 
+## Plot 1 - Roads Map and Legend
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_3_0.png" alt = "Map showing the SJER field site roads and plot locations clipped to the site boundary.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_4_0.png" alt = "Map showing the SJER field site roads and plot locations clipped to the site boundary.">
 <figcaption>Map showing the SJER field site roads and plot locations clipped to the site boundary.</figcaption>
 
 </figure>
@@ -114,11 +116,7 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 
 
 
-## Plot 2 - Roads in Siskiyou, Modoc, Del Norte County in California
-
-
-## Plot 2 - Roads in Del Norte, Modoc & Siskiyou Counties
-
+## Plot 2 - Roads in Del Norte, Modoc & Siskiyou Counties in California
 
 
 

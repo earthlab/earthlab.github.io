@@ -3,7 +3,7 @@ layout: single
 title: "Understand EPSG, WKT and Other CRS Definition Styles"
 excerpt: "In this lesson you will break down 3 key formats that Coordinate Reference System (CRS) information is often stored in including proj.4, EPSG and WKT. "
 authors: ['Leah Wasser']
-modified: 2018-09-18
+modified: 2018-09-21
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/epsg-proj4-coordinate-reference-system-formats-python/
@@ -272,7 +272,7 @@ the `CRS` using various formats including `proj4`, `epsg`, `WKT` and others.
 * Read more about <a href="https://www.nceas.ucsb.edu/scicomp/recipes/projections" target="_blank">all three formats from the National Center for Ecological Analysis and Synthesis.</a>
 * A handy four page overview of CRS <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">including file formats on page 1.</a>
 
-* <a href="http://www.epsg-registry.org/" target="_blank">The EPSG Registry. </a>
+* <a href="https://www.epsg-registry.org/" target="_blank">The EPSG Registry. </a>
 * <a href="http://spatialreference.org/" target="_blank">Spatialreference.org</a>
 * <a href="http://spatialreference.org/ref/epsg/" target="_blank">List of ESPG Codes.</a>
 
