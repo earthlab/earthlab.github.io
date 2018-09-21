@@ -4,7 +4,7 @@ title: "Handle missing spatial attribute data Python: GIS in Python"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in Python. "
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-18
+modified: 2018-09-21
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/missing-data-vector-data-in-python/
@@ -42,6 +42,7 @@ spatial-vector-lidar data subset created for the course.
 
 {:.input}
 ```python
+import os
 import pandas as pd
 import numpy as np
 import geopandas as gpd
@@ -86,11 +87,11 @@ sjer_roads.isnull().sum()
 
 
 
-    LINEARID    0
-    FULLNAME    0
-    RTTYP       0
-    MTFCC       0
-    geometry    0
+    LINEARID       0
+    FULLNAME    5149
+    RTTYP       5149
+    MTFCC          0
+    geometry       0
     dtype: int64
 
 
@@ -109,7 +110,7 @@ print(sjer_roads['RTTYP'].unique())
 
 {:.output}
     <class 'pandas.core.series.Series'>
-    ['M' '' 'S' 'C']
+    ['M' None 'S' 'C']
 
 
 
@@ -127,7 +128,7 @@ There are several ways to deal with this issue. One is to use the `.replace` met
 {:.input}
 ```python
 # Map each value to a new value 
-sjer_roads = sjer_roads.replace({'RTTYP': {'': "Unknown"}})
+sjer_roads["RTTYP"] = sjer_roads["RTTYP"].fillna("Unknown")
 print(sjer_roads['RTTYP'].unique())
 ```
 
@@ -139,12 +140,6 @@ print(sjer_roads['RTTYP'].unique())
 Alternatively you can use the `.isnull()` function to select all attribute cells with a value equal to `null` and set those to 'Unknown'.
 
 If the value you want to change is not `NaN` or a `Nonetype` then you will have to specify the origina value that you want to change, as shown below. 
-
-{:.input}
-```python
-
-sjer_roads.loc[sjer_roads['RTTYP'] == '', 'RTTYP'] = 'unknown'
-```
 
 {:.input}
 ```python
