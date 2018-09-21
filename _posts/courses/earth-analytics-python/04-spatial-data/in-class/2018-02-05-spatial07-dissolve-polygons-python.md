@@ -354,7 +354,7 @@ cont_usa.reset_index().plot(column='LSAD',
                             ax=ax)
 ax.set_axis_off()
 plt.axis('equal')
-plt.show()
+plt.show() 
 ```
 
 {:.output}

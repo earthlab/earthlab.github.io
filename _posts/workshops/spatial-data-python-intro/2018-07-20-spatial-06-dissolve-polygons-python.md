@@ -4,7 +4,7 @@ category: [courses]
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2018-09-20
+modified: 2018-09-21
 module-type: 'workshop'
 module: "spatial-data-open-source-python"
 permalink: /workshops/gis-open-source-python/dissolve-polygons-in-python-geopandas-shapely/
@@ -203,7 +203,8 @@ plt.axis('equal');
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_9_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_9_0.png" alt = "You can dissolve the boundaries between polygons based on an attribute label, such as region, as shown in this example.">
+<figcaption>You can dissolve the boundaries between polygons based on an attribute label, such as region, as shown in this example.</figcaption>
 
 </figure>
 
@@ -335,7 +336,8 @@ plt.axis('equal');
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_12_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_12_0.png" alt = "In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the sum of the land area, using the new polygon boundaries. You can also make a quantile map of the aggregated data, as shown in this example.">
+<figcaption>In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the sum of the land area, using the new polygon boundaries. You can also make a quantile map of the aggregated data, as shown in this example.</figcaption>
 
 </figure>
 
@@ -356,7 +358,8 @@ Create a quantile map using the AWATER attribute column.
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_14_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_14_0.png" alt = "In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the sum of the area of water, using the new polygon boundaries. You can also make a quantile map of the aggregated data, as shown in this example.">
+<figcaption>In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the sum of the area of water, using the new polygon boundaries. You can also make a quantile map of the aggregated data, as shown in this example.</figcaption>
 
 </figure>
 
@@ -380,7 +383,8 @@ Aggregate the data using the 'mean' method on the ALAND and AWATER attributes (t
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_0.png" alt = "In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the means of the areas of land and water, using the new polygon boundaries. You can also make quantile maps of the aggregated data, as shown in these examples.">
+<figcaption>In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the means of the areas of land and water, using the new polygon boundaries. You can also make quantile maps of the aggregated data, as shown in these examples.</figcaption>
 
 </figure>
 
@@ -392,7 +396,8 @@ Aggregate the data using the 'mean' method on the ALAND and AWATER attributes (t
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_1.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-06-dissolve-polygons-python_16_1.png" alt = "In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the means of the areas of land and water, using the new polygon boundaries. You can also make quantile maps of the aggregated data, as shown in these examples.">
+<figcaption>In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the means of the areas of land and water, using the new polygon boundaries. You can also make quantile maps of the aggregated data, as shown in these examples.</figcaption>
 
 </figure>
 
