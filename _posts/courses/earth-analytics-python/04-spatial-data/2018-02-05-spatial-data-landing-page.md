@@ -5,7 +5,7 @@ title: "Introduction to Shapefiles and Vector Data in Open Source Python"
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 4
 week: 4
-modified: 2018-09-21
+modified: 2018-09-24
 sidebar:
   nav:
 comments: false
