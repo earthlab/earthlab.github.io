@@ -3,10 +3,10 @@ layout: single
 title: "Customize your Maps in Python using Matplotlib: GIS in Python"
 excerpt: "In this lesson you will review how to customize matplotlib maps created using vector data in Python. You will review how to add legends, titles and how to customize map colors."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-09-21
+modified: 2018-09-24
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
-module-title: 'Custom plots in Python'
+module-title: 'Custom Plots in Python'
 module-description: 'This tutorial covers the basics of creating custom plot legends in Python'
 module-nav-title: 'Spatial Data: Custom Plots in Python'
 module-type: 'homework'
@@ -52,15 +52,15 @@ To begin, you will import all of the required libraries.
 
 {:.input}
 ```python
-# import libraries
+# Import libraries
 import os
 import numpy as np
 import geopandas as gpd
-import os
 import matplotlib.pyplot as plt
 from shapely.geometry import box
 import earthpy as et
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+import clip_data as cl
 ```
 
 ### Import Data
@@ -92,7 +92,7 @@ print(sjer_roads['RTTYP'].unique())
 
 
 
-## Replace missing data values
+## Replace Missing Data Values
 
 It looks like you have some missing values in your road types. You want to plot all
 road types even those that are set to `None` - which is python's default missing data value. Change the roads with an `RTTYP` attribute of `None` to "unknown".
@@ -115,27 +115,6 @@ print(sjer_roads['RTTYP'].unique())
 `sjer_roads.loc[sjer_roads['RTTYP'].isnull(), 'RTTYP'] = 'Unknown' `
 {: .notice}
 
-{:.input}
-```python
-# How many line features are associated with each attribute value?
-sjer_roads['RTTYP'].value_counts()
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    Unknown    5149
-    M          4456
-    S            25
-    C            10
-    Name: RTTYP, dtype: int64
-
-
-
-
-
 
 ## Plot by Attribute 
 
@@ -156,25 +135,15 @@ sjer_roads.plot(column='RTTYP',
                 categorical=True,
                 legend=True,
                 ax=ax)
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x122a5d748>
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_11_1.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_10_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -182,8 +151,8 @@ sjer_roads.plot(column='RTTYP',
 
 
 
-However, you will plot using the more explicit approach of specifying a dictionary to allow for 
-better legend generation later in this lesson.
+The legend above is nice however what if you wanted line symbols to look like lines? To do that you will use
+matplotlib legends rather than geopandas.
 
 To begin, create a dictionary that associated a color with each road type. Remember that you have 4 road types so you will need to select 4 colors associated with those types.
 
@@ -208,7 +177,9 @@ roadPalette
 
 
 
-Next, you loop through each attribute value and plot the lines with that attribute value using the color specified in the dictionary. 
+Next, you loop through each attribute value and plot the lines with that attribute value using the color specified in the dictionary. To ensure your legend generates properly, you add a `label=` argument to your plot call. The label value will be the attribute value that you used to plot. Below that value is defined by the `ctype` variable.
+
+Then you can call `ax.legend()` to create a legend.
 
 {:.input}
 ```python
@@ -217,9 +188,14 @@ fig, ax = plt.subplots(figsize=(10, 10))
 
 # Loop through each attribute type and plot it using the colors assigned in the dictionary
 for ctype, data in sjer_roads.groupby('RTTYP'):
+    # Define the color for each group using the dictionary
     color = roadPalette[ctype]
-    data.plot(color=color, ax=ax)
+    # Plot each group using the color defined above
+    data.plot(color=color,
+              ax=ax,
+              label=ctype)
 
+ax.legend(title="LEGEND")
 ax.set(title='Madera County Roads')
 ax.set_axis_off()
 plt.show()
@@ -230,7 +206,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_15_0.png" alt = "One way to customize plots is to create a dictionary that contains the symbology or colors and symbols that you wish to use for each attribute type in the map and legend.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_14_0.png" alt = "One way to customize plots is to create a dictionary that contains the symbology or colors and symbols that you wish to use for each attribute type in the map and legend.">
 <figcaption>One way to customize plots is to create a dictionary that contains the symbology or colors and symbols that you wish to use for each attribute type in the map and legend.</figcaption>
 
 </figure>
@@ -251,9 +227,11 @@ for ctype, data in sjer_roads.groupby('RTTYP'):
     color = roadPalette[ctype]
     data.plot(color=color,
               ax=ax,
-              linewidth=4)  # Make lines thicker
+              label=ctype,
+              linewidth=4)  # Make all lines thicker
 
-# Add title to plot
+# Add title and legend to plot
+ax.legend()
 ax.set(title='Madera County Roads')
 ax.set_axis_off()
 plt.show()
@@ -264,7 +242,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_17_0.png" alt = "Here the line width is adjusted on the roads layer.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_16_0.png" alt = "Here the line width is adjusted on the roads layer.">
 <figcaption>Here the line width is adjusted on the roads layer.</figcaption>
 
 </figure>
@@ -301,7 +279,10 @@ for ctype, data in sjer_roads.groupby('RTTYP'):
     color = roadPalette[ctype]
     data.plot(color=color,
               ax=ax,
+              label=ctype,
+              # Assign each group to a line width using the dictionary created above
               linewidth=lineWidths[ctype])
+ax.legend()
 ax.set(title='Madera County \n Line width varies by TYPE Attribute Value')
 plt.show()
 ```
@@ -311,7 +292,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_19_0.png" alt = "You can refine plot symbology to make nicer looking plots.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_18_0.png" alt = "You can refine plot symbology to make nicer looking plots.">
 <figcaption>You can refine plot symbology to make nicer looking plots.</figcaption>
 
 </figure>
@@ -321,7 +302,7 @@ plt.show()
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge: Plot line width by attribute
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge: Plot Line Width by Attribute
 
 You can customize the width of each line, according to specific attribute value, too. To do this, you create a vector of line width values, and map that vector to the factor levels - using the same syntax that you used above for colors.
 
@@ -344,7 +325,7 @@ Create a plot of roads using the following line thicknesses:
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_21_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_20_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -352,18 +333,22 @@ Create a plot of roads using the following line thicknesses:
 
 
 
-## Add Plot Legend
-You can add a legend to your plot using the `ax.legend()` method. Here you specify the `loc=` to be in the **lower right** hand part of the plot. 
+## Customize Plot Legend
+You can add a legend to your plot using the `ax.legend()` method. For this to work you need to 
+
+1. Add a `label=` argument to your plot call. You can think of a label as the text that is used in your legend for each group. For road types, "M" and "Unknown" are both label values.
+2. Define the location (`loc=`) of the legend. This location can be numeric or descriptive.
+
+Below you specify the `loc=` to be in the **lower right** hand part of the plot. 
 
 `ax.legend(loc='lower right')`
 
-When you add a legend, you use the following elements to specify labels and colors:
+When you add a legend, you use the following elements to customize legend labels and colors:
 
-* **location**: specify an x and Y location of the plot Or generally specify the location e.g. 'bottom right', 'top', 'top right', etc.
+* **loc**: specify an x and Y location of the plot Or generally specify the location e.g. 'bottom right', 'top', 'top right', etc.
 * **fontsize:** the size of the fonts used in the legend
 * **frameon:** Boolean Values: True of False - if you want a box around your legend use `True`
 
-Add a legend to your plot.
 
 {:.input}
 ```python
@@ -397,7 +382,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_23_0.png" alt = "If you set the label argument in your plot, that will be added to your legend when you call ax.legend().">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_22_0.png" alt = "If you set the label argument in your plot, that will be added to your legend when you call ax.legend().">
 <figcaption>If you set the label argument in your plot, that will be added to your legend when you call ax.legend().</figcaption>
 
 </figure>
@@ -434,7 +419,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_25_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_24_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -442,7 +427,7 @@ plt.show()
 
 
 
-Change the colors that you're using the plot.
+Adjust the plot colors.
 
 {:.input}
 ```python
@@ -471,7 +456,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_27_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_26_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -516,7 +501,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_29_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_28_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -641,7 +626,7 @@ pointsPalette = {'trees': 'chartreuse',
 lineWidths = {'M': .5, 'S': 2, 'C': 2, 'Unknown': .5}
 
 fig, ax = plt.subplots(figsize=(10, 10))
-ax.set_axis_off()
+
 for ctype, data in sjer_plots.groupby('plot_type'):
     color = pointsPalette[ctype]
     label = ctype if len(ctype) > 0 else 'unknown'
@@ -653,6 +638,7 @@ ax.set(title='Study area plot locations\n by plot type (grass, soil and trees)')
 ax.legend(loc='lower right',
           fontsize=20,
           frameon=True)
+ax.set_axis_off()
 plt.show()
 ```
 
@@ -661,7 +647,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_33_0.png" alt = "A similar approach can be taken to customize points on a plot.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_32_0.png" alt = "A similar approach can be taken to customize points on a plot.">
 <figcaption>A similar approach can be taken to customize points on a plot.</figcaption>
 
 </figure>
@@ -687,40 +673,14 @@ sjer_roads_utm = sjer_roads.to_crs(crs=sjer_aoi.crs)
 
 ## Clip (Intersect) the Data
 
-Next, clip the roads layer to the boundary of the sjer_aoi layer. This will remove all roads and road segments that are outside of your square AOI layer. To do this you will use the Polygon module from the shapely.geometry library.
-
-To clip your data you need to do the following
-
-1. create a boundary layer that will create the clipping rectangle
-2. use the `intersection()` function to clip or intersect the data
+Next, clip the roads layer to the boundary of the sjer_aoi layer. This will remove all roads and road segments that are outside of your square AOI layer. 
 
 {:.input}
 ```python
-sjer_aoi.total_bounds
-```
+sjer_roads_utm_cl = cl.clip_shp(sjer_roads_utm, sjer_aoi)
 
-{:.output}
-{:.execute_result}
-
-
-
-    array([  254570.567     ,  4107303.07684455,   258867.40933092,
-            4112361.92026107])
-
-
-
-
-
-{:.input}
-```python
-# The box function comes from shapely. Be sure to import it at the top of your notebook
-from shapely.geometry import box
-
-bounds = box(*sjer_aoi.total_bounds)
-sjer_roads_utm.geometry.intersection(bounds)
-
-# plot the data to see if the clip worked
-sjer_roads_utm.plot(figsize=(8, 8),
+# Plot the data to see if the clip worked
+sjer_roads_utm_cl.plot(figsize=(8, 8),
                     column='RTTYP',
                     categorical=True,
                     legend=True)
@@ -732,8 +692,142 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_38_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_36_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
+
+</figure>
+
+
+
+
+## OPTIONAL - Create Custom Legend Labels
+
+You do not need to do this for your homework but below you can see how you'd add custom labels to your legend. You need to do the following
+
+1. You need to loop through each "Group" that you wish to plot to create an collection object (discussed below)
+2. Then you need to create the legend using those collections.
+
+To begin to customize legends using matplotlib you need to work with collections. Matplotlib stores groups of points, lines or polygons as a collection. In the example above each road type is stored as a collection of type `path` for line. If you call collections AFTER the call to plot in matplotlib, you can see how many collections were created. 
+
+Notice below there are 3 collections - one for each road type.
+
+
+{:.input}
+```python
+# View list of collections created for the plot above.
+ax.collections
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    [<matplotlib.collections.PathCollection at 0x11e75ff60>,
+     <matplotlib.collections.PathCollection at 0x11d03c908>,
+     <matplotlib.collections.PathCollection at 0x11d052e48>]
+
+
+
+
+
+You can subset a collection using standard list subsetting.
+
+{:.input}
+```python
+# Get the first 2 (out of 3) collection objects
+lines = ax.collections[0:2]
+lines
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    [<matplotlib.collections.PathCollection at 0x11e75ff60>,
+     <matplotlib.collections.PathCollection at 0x11d03c908>]
+
+
+
+
+
+When working with collections pay close attention to the collection type:
+
+`PathCollection` represents a point
+`LineCollection` represents a line
+
+
+By plotting the data within a for loop, you can customize the line width, color and any other attribute that you wish. You can then use those attributes to create a custom legend. Below you create a loop that cycles through each group (each road type) and applies dictionary values for color and line width. Notice you also define the label in each cycle to be the group name (road type in this example).
+
+{:.input}
+```python
+# Create line dictionary to specify colors and line widths
+roadPalette = {'M': 'grey', 'S': "blue",
+               'C': "magenta", 'Unknown': "lightgrey"}
+lineWidths = {'M': .5, 'S': 2, 'C': 2, 'Unknown': .5}
+
+fig, ax = plt.subplots(figsize=(10, 10))
+
+for rtype, data in sjer_roads_utm_cl.groupby('RTTYP'):
+    data.plot(color=roadPalette[rtype], 
+              ax=ax, 
+              linewidth=lineWidths[rtype], 
+              label=rtype)
+ax.legend()
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_43_0.png" alt = "Custom legends in matplotlib using collections">
+<figcaption>Custom legends in matplotlib using collections</figcaption>
+
+</figure>
+
+
+
+
+Once you have created your plot loop, you can then loop through each collection, and grab the label. Matplotlib also has the color and attributes of that collection stored so it can create the legend symbology using that label.
+
+{:.input}
+```python
+# Create line dictionary to specify colors and line widths
+roadPalette = {'M': 'grey', 'S': "blue",
+               'C': "magenta", 'Unknown': "lightgrey"}
+lineWidths = {'M': .5, 'S': 2, 'C': 2, 'Unknown': .5}
+
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Plot roads using a for loop to allow for a custom legend
+for rtype, data in sjer_roads_utm_cl.groupby('RTTYP'):
+    data.plot(color=roadPalette[rtype], 
+              ax=ax, 
+              linewidth=lineWidths[rtype], 
+              label=rtype)
+    
+# Get all three collections - one for each line type
+lines = ax.collections[:3]
+
+leg1 = ax.legend(lines, [line.get_label() for line in lines], 
+       loc=(1.1, .1), 
+       frameon=False, 
+       title='Roads')
+ax.add_artist(leg1)
+
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_45_0.png" alt = "Once you have setup a loop, you can access the collections and define the legend using the collection attributes.">
+<figcaption>Once you have setup a loop, you can access the collections and define the legend using the collection attributes.</figcaption>
 
 </figure>
 
@@ -750,8 +844,8 @@ The code looks like this:
 
 `for ctype, data in sjer_plots.groupby('plot_type'):
     color = pointsPalette[ctype]
-    **label = ctype**
-    data.plot(color=color, ax=ax, **label=label**)`
+    label = ctype
+    data.plot(color=color, ax=ax, label=label)`
 
 ## Modify the Legend Location 
 
@@ -796,7 +890,7 @@ Note that you can customize the look of legend elements using the `prop=` argume
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_42_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_49_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
@@ -835,7 +929,7 @@ plt.rcParams['legend.fontsize'] = 'small'
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_46_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots_53_0.png" alt = "Geopandas plot of roads colored according to an attribute.">
 <figcaption>Geopandas plot of roads colored according to an attribute.</figcaption>
 
 </figure>
