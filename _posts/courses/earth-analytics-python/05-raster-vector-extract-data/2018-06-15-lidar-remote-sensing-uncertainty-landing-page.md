@@ -113,21 +113,10 @@ Print the outputs below.
 
 {:.output}
     SJER - Mean Height Comparison
-    slope: 0.05 intercept: 5.26
+    slope: print-slope-value-here intercept: print-intercept-value-here
     
     SJER - Max Height Comparison
-    slope: 0.76 intercept: 2.98
-
-
-
-
-{:.output}
-    
-    SOAP - Mean Height Comparison
-    slope: 0.42 intercept: -0.82
-    
-    SOAP - Max Height Comparison
-    slope: 2.35 intercept: -38.04
+    slope: print-slope-value-here intercept: print-intercept-value-here
 
 
 
