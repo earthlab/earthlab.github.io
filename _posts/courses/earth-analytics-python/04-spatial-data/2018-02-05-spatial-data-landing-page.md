@@ -174,9 +174,27 @@ download(url, download_path, kind='zip', verbose=False)
 country_path = os.path.join(download_path, "ne_10m_admin_0_countries.shp")
 ```
 
+{:.output}
+    file_sizes: 100%|██████████████████████████▉| 4.90M/4.90M [00:20<00:00, 245kB/s]
+
+
 
 {:.output}
-    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/pandas/core/reshape/merge.py:544: UserWarning: merging between different levels can give an unintended result (1 levels on the left, 2 on the right)
+    file_sizes: 100%|███████████████████████████| 4.90M/4.90M [00:40<00:00, 245kB/s]/Users/leah-su/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/pandas/core/reshape/merge.py:544: UserWarning: merging between different levels can give an unintended result (1 levels on the left, 2 on the right)
       warnings.warn(msg, UserWarning)
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_12_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
+<figcaption>Natural Earth Global Mean population rank and total estimated population</figcaption>
+
+</figure>
+
 
 
