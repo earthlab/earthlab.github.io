@@ -9,7 +9,7 @@ class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-vector-data-python/
 nav-title: 'Vector Data in Python'
 module-title: 'Use Vector Spatial data in Open Source Python - Geopandas'
-module-description: 'This tutorial covers working with spatial data in vector format in Python. You will learn how to important, manipulate and map shapefile data in python. Finally you will learn how to reproject vector data into different coordinate reference systems.'
+module-description: 'This tutorial covers working with spatial data in vector format in Python. You will learn how to import, manipulate and map shapefile data in python. Finally you will learn how to reproject vector data into different coordinate reference systems.'
 module-nav-title: 'Spatial Data in Python'
 module-type: 'class'
 course: 'earth-analytics-python'
