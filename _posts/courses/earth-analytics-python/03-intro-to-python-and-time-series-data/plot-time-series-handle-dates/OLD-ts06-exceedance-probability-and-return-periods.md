@@ -3,7 +3,7 @@ layout: single
 title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Probability and Return Periods in Python"
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matt Rossi', 'Leah Wasser']
-modified: 2018-09-11
+modified: 2018-09-25
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'

@@ -3,7 +3,7 @@ layout: single
 title: "Write Clean Python Code - Expressive programming 101"
 excerpt: 'This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: 2018-09-17
+modified: 2018-09-25
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'

@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/work-with-data-types-python/
 nav-title: 'Data Types'
 dateCreated: 2017-05-23
-modified: 2018-09-12
+modified: 2018-09-25
 week: 3
 sidebar:
   nav:
