@@ -43,55 +43,6 @@ For your homework you'll also need to download the data below.
 * <a href="http://www.sciencedirect.com/science/article/pii/S0303243403000047" target="_blank">The characterization and measurement of land cover change through remote sensing: problems in operational applications?</a>
 *  <a href="https://www.nde-ed.org/GeneralResources/ErrorAnalysis/UncertaintyTerms.htm" target="_blank">Learn more about the various uncertainty terms.</a>
 
-
-### 2. Complete the Assignment Below (5 points)
-
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework Submission
-
-### Produce a Report
-
-Create a new `Jupyter notebook`. Name it: **lastName-firstInitial-week5.ipynb**
-Within your `notebook` document, write the code needed to create the plots listed below. 
-Be sure to name your files as instructed! Submit a ipynb file and a .html file with your output to Canvas.
-
-
-<!--
-
-#### Answer Questions Below in Your Report -- turning this into multiple choice questions...
-
-2. **Write *at least* 2 paragraphs:** In this class you learned the relationship between lidar derived canopy height models and measured tree height. Use that plots that you create below, the readings and the course lessons to answer the following questions
-  * Which lidar tree height metric, (max vs. mean height) more closely relates to human measured tree height?
-  * What sources of uncertainty (as discussed in class and the readings) may impact relationship between lidar vs human measured tree height?
-  * Do you notice any differences in the relationship between the lidar vs human measured tree height between SJER vs SOAP field sites? Explain.
-3. **Write *at least* 1 paragraph:** List a minimum of 3 sources of uncertainty associated with the lidar derived tree heights and 3 sources of uncertainty associated with *in situ* measurements of tree height. For each source of uncertainty, specify whether it is a random or systematic error. Be sure to reference the plots and readings as necessary.
-
-
-#### Include the Plots Below
-Be sure to describe what each plot shows in your final report.
-Your plots do not need to be in the order below. I just listed them this way
-to make it easier to keep track of and grade!
-
--->
-
-
-
-#### Questions To Answer
-
-Answer the following questions:
-
-1. When comparing lidar vs measured tree height, which metric, mean or max height has a strong relationship? Why do you think one height measurement might be closer to measured then the other?
-2. For SJER, provide the plot numbers, of the two plots that have the largest difference between lidar vs measured maximum tree height.
-3. For SOAP, provide the plot numbers, of the two plots that have the largest difference between lidar vs measured maximum tree height.
-
-
-### IMPORTANT: For All Plots
-* Label x and y axes appropriately - include units
-* Add a title to your plot that describes what the plot shows
-* Add a brief, 1-3 sentence caption below each plot that describes what it shows.
-
-
 </div>
 
 
@@ -162,21 +113,10 @@ Print the outputs below.
 
 {:.output}
     SJER - Mean Height Comparison
-    slope: 0.05 intercept: 5.26
+    slope: print-slope-value-here intercept: print-intercept-value-here
     
     SJER - Max Height Comparison
-    slope: 0.76 intercept: 2.98
-
-
-
-
-{:.output}
-    
-    SOAP - Mean Height Comparison
-    slope: 0.42 intercept: -0.82
-    
-    SOAP - Max Height Comparison
-    slope: 2.35 intercept: -38.04
+    slope: print-slope-value-here intercept: print-intercept-value-here
 
 
 
