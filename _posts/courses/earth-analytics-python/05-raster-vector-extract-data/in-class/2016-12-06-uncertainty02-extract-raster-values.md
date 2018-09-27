@@ -155,7 +155,7 @@ Notice that below to plot the histogram an additional step is taken to remove `n
 
 Then the data are flattened into a 1-dimensional array to create the histogram:
 
-`np.ma.compressed(SJER_chm_data[~np.isnan(SJER_chm_data)])`
+`SJER_chm_data[~np.isnan(SJER_chm_data)].ravel()`
 
 
 {:.input}
