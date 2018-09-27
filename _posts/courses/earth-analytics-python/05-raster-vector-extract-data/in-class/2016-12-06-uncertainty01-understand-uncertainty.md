@@ -301,7 +301,8 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty01-understand-uncertainty_13_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty01-understand-uncertainty_13_0.png" alt = "Bar plot showing the difference between lidar and measured tree height by plot. ">
+<figcaption>Bar plot showing the difference between lidar and measured tree height by plot. </figcaption>
 
 </figure>
 
