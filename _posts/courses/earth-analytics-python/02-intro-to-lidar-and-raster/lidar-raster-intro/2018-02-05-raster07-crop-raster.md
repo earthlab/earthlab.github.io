@@ -3,7 +3,7 @@ layout: single
 title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']
-modified: 2018-09-25
+modified: 2018-09-26
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/crop-raster-data-with-shapefile-in-python/
@@ -70,41 +70,26 @@ To begin let's load the libraries that you will need in this lesson.
 
 {:.input}
 ```python
-import rasterio as rio
-from rasterio.plot import show
-from rasterio.plot import plotting_extent
-from rasterio.mask import mask
-from shapely.geometry import mapping
 import numpy as np
 import os
 import matplotlib.pyplot as plt
+import rasterio as rio
+from rasterio.plot import plotting_extent
+from rasterio.mask import mask
+from shapely.geometry import mapping
 import geopandas as gpd
 import earthpy as et
 plt.ion()
 
-import seaborn as sns; 
+import seaborn as sns
 sns.set(font_scale=1.5)
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 ## Open Raster and Vector Layers
 
-Next, you will use `rio.open()` to open a raster layer. Open and plot the canopy height model (CHM) that you created in the previous lesson.
+In the previous lessons, you worked with a raster layer that looked like the one below. Notice that the data have an uneven edge on the left hand side. Let's pretend this edge is outside of your study area and you'd like to remove it or clip it off using your study area extent. You can do this using the `mask()` function in `rasterio`. 
 
-{:.input}
-```python
-with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/outputs/lidar_chm.tif") as lidar_chm:
-    lidar_chm_im = lidar_chm.read(1, masked = True)
-    lidar_chm_meta = lidar_chm.profile
-    spatial_extent = plotting_extent(lidar_chm)
-    
-# Plot the data
-fig, ax = plt.subplots(figsize=(10,8))
-show(lidar_chm_im, 
-     cmap='terrain', ax=ax)
-ax.set_title("Lidar Canopy Height Model (CHM)", 
-             fontsize = 16)
-ax.set_axis_off();
-```
 
 {:.output}
 {:.display_data}
@@ -121,15 +106,15 @@ ax.set_axis_off();
 
 ## Open Vector Layer
 
-Next, open up a vector layer that contains the crop extent that you want
+To begin your clip, open up a vector layer that contains the crop extent that you want
 to use to crop your data. To open a shapefile you use the `gpd.read_file()` function
 from geopandas. You will learn more about vector data in Python in a few weeks.
 
 {:.input}
 ```python
-# Open crop extent
-crop_extent = gpd.read_file('data/colorado-flood/spatial/boulder-leehill-rd/clip-extent.shp')
-
+# Open crop extent (your study area extent boundary)
+crop_extent = gpd.read_file(
+    'data/colorado-flood/spatial/boulder-leehill-rd/clip-extent.shp')
 ```
 
 Next, view the coordinate reference system (CRS) of both of your datasets. 
@@ -153,10 +138,10 @@ print('lidar crs: ', lidar_chm.crs)
 # Plot the crop boundary layer
 # Note this is just an example so you can see what it looks like
 # You don't need to plot this layer in your homework!
-fig, ax = plt.subplots(figsize = (6, 6))
+fig, ax = plt.subplots(figsize=(6, 6))
 crop_extent.plot(ax=ax)
-ax.set_title("Shapefile Crop Extent", 
-             fontsize = 16);
+ax.set_title("Shapefile Crop Extent",
+             fontsize=16)
 ```
 
 {:.output}
@@ -187,12 +172,12 @@ Now that you have imported the shapefile. You can use the `crop_extent` function
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10,8))
-ax.imshow(lidar_chm_im, cmap='terrain', 
-          extent = plotting_extent(lidar_chm))
+fig, ax = plt.subplots(figsize=(10, 8))
+ax.imshow(lidar_chm_im, cmap='terrain',
+          extent=plotting_extent(lidar_chm))
 crop_extent.plot(ax=ax, alpha=.8)
 ax.set_title("Raster Layer with Shapefile Overlayed")
-ax.set_axis_off();
+ax.set_axis_off()
 ```
 
 {:.output}
@@ -200,8 +185,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_12_0.png" alt = "Canopy height model with the crop shapefile overlayed.">
-<figcaption>Canopy height model with the crop shapefile overlayed.</figcaption>
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_12_0.png" alt = "Canopy height model with the crop shapefile overlayed. Note this image is just an illustration of what the two layers look like together. Below you will learn how to import the data and mask it rather than using the .read() method.">
+<figcaption>Canopy height model with the crop shapefile overlayed. Note this image is just an illustration of what the two layers look like together. Below you will learn how to import the data and mask it rather than using the .read() method.</figcaption>
 
 </figure>
 
@@ -215,9 +200,9 @@ crop_bounds = crop_extent.total_bounds
 
 ## Crop Data Using the Mask Function
 
-If you want to crop the data itself, rather than simply to draw a smaller area in the vizualization, you can use the `mask` function in `rasterio`. When you crop the data, you can then export it and share it with colleagues. Or use it in another analysis.
+If you want to crop the data you can use the `mask` function in `rasterio`. When you crop the data, you can then export it and share it with colleagues. Or use it in another analysis. IMPORTANT: You do not need to read the data in before cropping! Cropping the data can be your first step.
 
-To perform the crop you
+To perform the crop you:
 
 1. Create a connection to the raster dataset that you wish to crop
 2. Create a geojson structured spatial object from your shapefile. This is what rasterio needs to crop the data to the extent of your vector shapefile.
@@ -253,39 +238,23 @@ Once you have created this object, you are ready to crop your data.
 {:.input}
 ```python
 with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/outputs/lidar_chm.tif") as lidar_chm:
-    lidar_chm_crop, lidar_chm_crop_affine = mask(lidar_chm, 
-                                                 [extent_geojson], 
+    lidar_chm_crop, lidar_chm_crop_affine = mask(lidar_chm,
+                                                 [extent_geojson],
                                                  crop=True)
+
+# Create spatial plotting extent for the cropped layer
+lidar_chm_extent = plotting_extent(lidar_chm_crop[0], lidar_chm_crop_affine)
 ```
 
 Finally, plot the cropped data. Does it look correct?
 
 {:.input}
 ```python
-# Create spatial extent from the clipping layer
-cropped_spatial_extent = [crop_bounds[0], crop_bounds[2],crop_bounds[1], crop_bounds[3]]
-
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    (array([  472510.46511628,  4434000.        ,   476010.46511628,  4436000.        ]),
-     [472510.46511627914, 476010.46511627914, 4434000.0, 4436000.0])
-
-
-
-
-
-{:.input}
-```python
-# Plot your data 
-fig, ax = plt.subplots(figsize = (10,8))
-ax.imshow(lidar_chm_crop[0], 
-          extent=cropped_spatial_extent,
-         cmap = 'Greys')
+# Plot your data
+fig, ax = plt.subplots(figsize=(10, 8))
+ax.imshow(lidar_chm_crop[0],
+          extent=lidar_chm_extent,
+          cmap='Greys')
 ax.set_title("Cropped Raster Dataset")
 ax.set_axis_off()
 ```
@@ -295,7 +264,7 @@ ax.set_axis_off()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_20_0.png" alt = "Final cropped canopy height model plot.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster_19_0.png" alt = "Final cropped canopy height model plot.">
 <figcaption>Final cropped canopy height model plot.</figcaption>
 
 </figure>
@@ -303,7 +272,8 @@ ax.set_axis_off()
 
 
 
-## Export Newly Cropped Raster
+<div class="notice--info" markdown="1">
+## OPTIONAL -- Export Newly Cropped Raster
 
 Once you have cropped your data, you may want to export it. 
 In the subtract rasters lesson you exported a raster that had the same shape and transformation information as the parent rasters. However in this case, you have cropped your data. You will have to update several things to ensure your data export properly:
@@ -313,14 +283,15 @@ In the subtract rasters lesson you exported a raster that had the same shape and
 3. Finally you may want to update the `nodata` value.
 
 In this case you don't have any `nodata` values in your raster. However you may have them in a future raster!
+</div>
 
 {:.input}
 ```python
 # Update with the new cropped affine info and the new width and height
 lidar_chm_meta.update({'transform': lidar_chm_crop_affine,
-                      'height': lidar_chm_crop.shape[1], 
-                      'width': lidar_chm_crop.shape[2],
-                      'nodata': -999.99})
+                       'height': lidar_chm_crop.shape[1],
+                       'width': lidar_chm_crop.shape[2],
+                       'nodata': -999.99})
 lidar_chm_meta
 ```
 
