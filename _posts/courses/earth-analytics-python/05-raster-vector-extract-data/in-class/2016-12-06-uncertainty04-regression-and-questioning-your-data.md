@@ -3,7 +3,7 @@ layout: single
 title: "Use Regression Analysis to Explore Data Relationships & Bad Data"
 excerpt: "You often want to understand the relationships between two different types of data. Learn how to use regression to determine whether there is a relationship between two variables."
 authors: ['Max Joseph', 'Leah Wasser']
-modified: 2018-09-26
+modified: 2018-10-03
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/
@@ -45,7 +45,7 @@ In this lesson you will learn you will learn the basic fundamentals of creating 
 
 ### What Is A One to One Line?
 
-A one to one line line is a line that represents what the relationship between two variables would be if their values were equal. For example, if lidar and ground measurements of tree height were always equal, then observations of height would fall on the one to one line in a scatterplot.
+A one-to-one line is a line that represents what the relationship between two variables would be if their values were equal. For example, if lidar and ground measurements of tree height were always equal, then observations of height would fall on the one to one line in a scatterplot.
 
 See the example below:
 

@@ -3,7 +3,7 @@ layout: single
 title: "Subtract One Raster from Another and Export a New Geotiff in Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output. You then want to save that output as a new file. Learn how to subtract rasters and create a new geotiff file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2018-10-01
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/subtract-rasters-in-python/
@@ -107,23 +107,27 @@ lidar_dsm_im
 
 
 
-    masked_array(data =
-     [[-- -- -- ..., 1695.6300048828125 1695.5899658203125 1696.3900146484375]
-     [-- -- -- ..., 1695.5999755859375 1695.6300048828125 1697.0]
-     [-- -- -- ..., 1695.3800048828125 1695.43994140625 1695.449951171875]
-     ..., 
-     [-- -- -- ..., 1681.449951171875 1681.3900146484375 1681.25]
-     [-- -- -- ..., 1681.719970703125 1681.5699462890625 1681.5599365234375]
-     [-- -- -- ..., 1681.8900146484375 1681.8099365234375 1681.739990234375]],
-                 mask =
-     [[ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     ..., 
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]],
-           fill_value = -3.40282e+38)
+    masked_array(
+      data=[[--, --, --, ..., 1695.6300048828125, 1695.5899658203125,
+             1696.3900146484375],
+            [--, --, --, ..., 1695.5999755859375, 1695.6300048828125, 1697.0],
+            [--, --, --, ..., 1695.3800048828125, 1695.43994140625,
+             1695.449951171875],
+            ...,
+            [--, --, --, ..., 1681.449951171875, 1681.3900146484375, 1681.25],
+            [--, --, --, ..., 1681.719970703125, 1681.5699462890625,
+             1681.5599365234375],
+            [--, --, --, ..., 1681.8900146484375, 1681.8099365234375,
+             1681.739990234375]],
+      mask=[[ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            ...,
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False]],
+      fill_value=-3.402823e+38,
+      dtype=float32)
 
 
 
@@ -180,10 +184,10 @@ Finally, plot your newly created canopy height model.
 {:.input}
 ```python
 # plot the data
-fig, ax = plt.subplots(figsize = (10,10))
+fig, ax = plt.subplots(figsize = (10,6))
 chm_plot = ax.imshow(lidar_chm_im, 
                      cmap='viridis')
-es.colorbar(chm_plot)
+fig.colorbar(chm_plot, fraction=.023, ax=ax)
 ax.set_title("Lidar Canopy Height Model (CHM)")
 ax.set_axis_off();
 ```
@@ -239,7 +243,7 @@ print('CHM max value: ', lidar_chm_im.max())
 
 {:.output}
     CHM minimum value:  0.0
-    CHM max value:  26.9301
+    CHM max value:  26.930054
 
 
 
@@ -315,23 +319,23 @@ lidar_chm_im
 
 
 
-    masked_array(data =
-     [[-- -- -- ..., 0.0 0.1700439453125 0.9600830078125]
-     [-- -- -- ..., 0.0 0.090087890625 1.6400146484375]
-     [-- -- -- ..., 0.0 0.0 0.0799560546875]
-     ..., 
-     [-- -- -- ..., 0.0 0.0 0.0]
-     [-- -- -- ..., 0.0 0.0 0.0]
-     [-- -- -- ..., 0.0 0.0 0.0]],
-                 mask =
-     [[ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     ..., 
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]],
-           fill_value = -3.40282e+38)
+    masked_array(
+      data=[[--, --, --, ..., 0.0, 0.1700439453125, 0.9600830078125],
+            [--, --, --, ..., 0.0, 0.090087890625, 1.6400146484375],
+            [--, --, --, ..., 0.0, 0.0, 0.0799560546875],
+            ...,
+            [--, --, --, ..., 0.0, 0.0, 0.0],
+            [--, --, --, ..., 0.0, 0.0, 0.0],
+            [--, --, --, ..., 0.0, 0.0, 0.0]],
+      mask=[[ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            ...,
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False]],
+      fill_value=-3.402823e+38,
+      dtype=float32)
 
 
 

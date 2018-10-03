@@ -3,7 +3,7 @@ layout: single
 title: "Customize your Maps in Python using Matplotlib: GIS in Python"
 excerpt: "In this lesson you will review how to customize matplotlib maps created using vector data in Python. You will review how to add legends, titles and how to customize map colors."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-09-25
+modified: 2018-10-03
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
 module-title: 'Custom Plots in Python'

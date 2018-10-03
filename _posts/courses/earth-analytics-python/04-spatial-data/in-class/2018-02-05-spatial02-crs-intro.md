@@ -3,7 +3,7 @@ layout: single
 title: "GIS in Python: Intro to Coordinate Reference Systems in Python"
 excerpt: "This lesson introduces what a coordinate reference system is. You will use the `Python` programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-09-25
+modified: 2018-10-03
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-to-coordinate-reference-systems-python/
@@ -107,7 +107,7 @@ systems. If you have data from the same location that are stored in different
 coordinate reference systems, **they will not line up in any GIS or other program**
 unless you have a program like ArcGIS or QGIS that supports **projection on the
 fly**. Even if you work in a tool that supports projection on the fly, you will
-want to all of your data in the same projection for performing analysis and processing
+want all of your data in the same projection for performing analysis and processing
 tasks.
 
 <i class="fa fa-star"></i> **Data Tip:** Spatialreference.org provides an

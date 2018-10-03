@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2018-10-01
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/
@@ -458,23 +458,28 @@ lidar_dem_im
 
 
 
-    masked_array(data =
-     [[-- -- -- ..., 1695.6300048828125 1695.419921875 1695.429931640625]
-     [-- -- -- ..., 1695.5999755859375 1695.5399169921875 1695.3599853515625]
-     [-- -- -- ..., 1695.3800048828125 1695.43994140625 1695.3699951171875]
-     ..., 
-     [-- -- -- ..., 1681.449951171875 1681.3900146484375 1681.25]
-     [-- -- -- ..., 1681.719970703125 1681.5699462890625 1681.5599365234375]
-     [-- -- -- ..., 1681.8900146484375 1681.8099365234375 1681.739990234375]],
-                 mask =
-     [[ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     ..., 
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]],
-           fill_value = -3.40282e+38)
+    masked_array(
+      data=[[--, --, --, ..., 1695.6300048828125, 1695.419921875,
+             1695.429931640625],
+            [--, --, --, ..., 1695.5999755859375, 1695.5399169921875,
+             1695.3599853515625],
+            [--, --, --, ..., 1695.3800048828125, 1695.43994140625,
+             1695.3699951171875],
+            ...,
+            [--, --, --, ..., 1681.449951171875, 1681.3900146484375, 1681.25],
+            [--, --, --, ..., 1681.719970703125, 1681.5699462890625,
+             1681.5599365234375],
+            [--, --, --, ..., 1681.8900146484375, 1681.8099365234375,
+             1681.739990234375]],
+      mask=[[ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            ...,
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False]],
+      fill_value=-3.4028235e+38,
+      dtype=float32)
 
 
 

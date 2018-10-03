@@ -1,9 +1,9 @@
 ---
 layout: single
-title: "What is the Different Between Lidar Measured vs Human Measured Tree Heights - Understand Remote Sensing Uncertainty"
+title: "Compare Lidar With Human Measured Tree Heights - Remote Sensing Uncertainty"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2018-09-26
+modified: 2018-10-03
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/understand-uncertainty-lidar/
@@ -266,11 +266,7 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 
 <figure>
     <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-circular.png" alt="buffer circular">
-    <figcaption>The extract function in R allows you to specify a circular buffer
-    radius around an x,y point location. Values for all pixels in the specified
-    raster that fall within the circular buffer are extracted. In this case, we
-    will tell R to extract the maximum value of all pixels using the fun=max
-    command. Source: Colin Williams, NEON
+    <figcaption>In Python, you can use the buffer function to specify a circular buffer radius around an x,y point location. Then, you can use the zonal_stats function to extract the values for all pixels in the specified raster that fall within that circular buffer. In this case, you can tell Python to extract the maximum value of all pixels in the circular buffer. Source: Colin Williams, NEON
     </figcaption>
 </figure>
 
