@@ -4,7 +4,7 @@ title: "Extract Raster Values At Point Locations in Python"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
-modified: 2018-09-26
+modified: 2018-10-03
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -420,7 +420,7 @@ SJER_plots_poly.to_file(plot_buffer_path)
 
 Once you have the boundary for each plot location (a 20m diameter circle) you can extract all of the pixels that fall within each circle using the function `zonal_stats` in the `rasterstats` library. 
 
-There are serveral ways to use the zonal_stats function. In this case we are providing the following
+There are several ways to use the zonal_stats function. In this case we are providing the following
 
 1. chm data (numpy array): `SJER_chm_data` in a numpy array format
 2. Because a numpy array has no spatial information, you provide the affine data which is the spatial information needed to spatially located the array. 
