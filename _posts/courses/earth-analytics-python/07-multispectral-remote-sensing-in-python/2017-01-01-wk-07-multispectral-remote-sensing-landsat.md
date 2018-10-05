@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery Python - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/
-modified: 2018-10-04
+modified: 2018-10-05
 week-landing: 7
 week: 7
 sidebar:
@@ -83,7 +83,8 @@ Use the following data sources for these plots:
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_3_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_3_0.png" alt = "Homework plots 1 & 2 RGB and CIR images using NAIP data from 2017.">
+<figcaption>Homework plots 1 & 2 RGB and CIR images using NAIP data from 2017.</figcaption>
 
 </figure>
 
@@ -113,8 +114,8 @@ The intermediate NDVI plots below are not required for your homework. They are h
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_6_0.png" alt = "Intermediate NDVI plots if you'd like to check your answer. cmap used = PiYG. Please do not include these plots in your homework.">
-<figcaption>Intermediate NDVI plots if you'd like to check your answer. cmap used = PiYG. Please do not include these plots in your homework.</figcaption>
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_6_0.png" alt = "COMPARISON plots - intermediate NDVI NAIP outputs. These plots are just here if you want to compare your intermediate outputs with the instructors.">
+<figcaption>COMPARISON plots - intermediate NDVI NAIP outputs. These plots are just here if you want to compare your intermediate outputs with the instructors.</figcaption>
 
 </figure>
 
@@ -127,7 +128,8 @@ The intermediate NDVI plots below are not required for your homework. They are h
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_7_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_7_0.png" alt = "Homework plot 3 NDVI difference using NAIP 2017 - NAIP 2015.">
+<figcaption>Homework plot 3 NDVI difference using NAIP 2017 - NAIP 2015.</figcaption>
 
 </figure>
 
@@ -150,7 +152,8 @@ Landsate Prefire Data: `cold-springs-fire/landsat_collect/LC080340322016070701T1
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_9_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_9_0.png" alt = "Homework plots 4 & 5 RGB and CIR images using Landsat 8 pre-fire.">
+<figcaption>Homework plots 4 & 5 RGB and CIR images using Landsat 8 pre-fire.</figcaption>
 
 </figure>
 
@@ -172,7 +175,8 @@ data were collected and pre or post fire!
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_11_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/2017-01-01-wk-07-multispectral-remote-sensing-landsat_11_0.png" alt = "Homework plot  6 NDVI calculated from Landsat 8 pre-fire data.">
+<figcaption>Homework plot  6 NDVI calculated from Landsat 8 pre-fire data.</figcaption>
 
 </figure>
 
