@@ -3,10 +3,10 @@ layout: single
 title: "Create interactive leaflet maps using folium in jupyter notebooks: GIS in Python"
 excerpt: "Learn how to create interative leaflet maps embedded in a Jupyter Notebook using Python and folium. "
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
-permalink: /courses/earth-analytics-python/spatial-data/interactive-leaflet-maps-in-python-folium/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/interactive-leaflet-maps-in-python-folium/
 nav-title: 'Interactive leaflet maps'
 course: 'earth-analytics-python'
 week: 4
@@ -31,7 +31,8 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson and the data for week 4 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 4 Data (~500 MB)](https://ndownloader.figshare.com/files/7525363){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 

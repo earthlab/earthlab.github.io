@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-07
+modified: 2018-09-25
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/classify-plot-raster-data-in-python/
@@ -47,10 +47,7 @@ You will need a computer with internet access to complete this lesson.
 ### Manually Reclassifying Raster Data 
 
 In this lesson, you will learn how to reclassify a raster dataset in `Python`. When you reclassify
-a raster, you
-create a **new** raster
-object / file that can be exported and shared with colleagues and / or open in other tools such
-as QGIS. In that raster each pixel is mapped to a new value based on some approach. This approach can vary depending upon your science question.
+a raster, you create a **new** raster object / file that can be exported and shared with colleagues and / or open in other tools such as QGIS. In that raster each pixel is mapped to a new value based on some approach. This approach can vary depending upon your science question.
 
 <figure>
 <img src="http://resources.esri.com/help/9.3/arcgisdesktop/com/gp_toolref/geoprocessing_with_3d_analyst/Reclass_Reclass2.gif" alt="reclassification process by ESRI">
@@ -66,11 +63,11 @@ You can break your raster processing workflow into several steps as follows:
 
 * **Data import / cleanup:** load and "clean" the data. This includes cropping, removing with `nodata` values
 * **Data Exploration:** understand the range and distribution of values in your data. This may involve plotting histograms and scatter plots to determine what classes are appropriate for our data
-* **Reclassify the Data:** Once you understand the distribution of your data, you are ready to reclassify. There are statistical and non statistical approaches to reclassification. Here you will learn how to manuall reclassify a raster using bins that you define in your data explocation step. 
+* **Reclassify the Data:** Once you understand the distribution of your data, you are ready to reclassify. There are statistical and non-statistical approaches to reclassification. Here you will learn how to manuall reclassify a raster using bins that you define in your data exploration step. 
 
-Please note - working with data is not a linear process. Above you see a potential workflow. You will develop your own workflow and approach.  To get started, first load the required libraries and then open up your raster. In this case you are using the lidar
-canopy height model (CHM) that you calculated in the previous lesson.
+Please note - working with data is not a linear process. Above you see a potential workflow. You will develop your own workflow and approach.  
 
+To get started, first load the required libraries and then open up your raster. In this case, you are using the lidar canopy height model (CHM) that you calculated in the previous lesson.
 
 {:.input}
 ```python
@@ -84,9 +81,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import earthpy as et
 plt.ion()
-# set plot parameters
+# Set plot parameters
 plt.rcParams['figure.figsize'] = (8, 8)
-# prettier plotting with seaborn
+# Prettier plotting with seaborn
 import seaborn as sns; 
 sns.set(font_scale=1.5)
 sns.set_style("whitegrid")
@@ -155,7 +152,7 @@ Start by looking at the min and max values in your CHM.
 
 {:.input}
 ```python
-# view min and max values in the data
+# View min and max values in the data
 print('CHM min value:' ,lidar_chm_im.min())
 print('CHM max value:' ,lidar_chm_im.max())
 ```
@@ -210,7 +207,7 @@ You could also set `bins = 100` or some other arbitrary number if you wish.
 
 {:.input}
 ```python
-# histogram
+# Histogram
 fig, ax = plt.subplots(figsize = (10,10))
 xlim = [0, 25]
 ax.hist(lidar_chm_im.ravel(), 
@@ -246,11 +243,11 @@ Note: if you don't want to worry about a particular variable that is returned by
 
 {:.input}
 ```python
-# patches = the matplotlib objects drawn
+# Patches = the matplotlib objects drawn
 counts, bins, patches = ax.hist(lidar_chm_im.ravel(), 
                                 color='springgreen', 
                                 bins=50, range=xlim)
-# print histogram outputs
+# Print histogram outputs
 print("counts:", counts)
 print("bins:", bins)
 ```
@@ -282,8 +279,7 @@ or number of pixels that have a value within that bin. For instance, there
 is a break between 0 and 1 in the histogram results above. And there are 76,057 pixels
 in the counts element that fall into that bin.
 
-Notice that you've adjusted the x and y lims to zoom into the region of the histogram
-that you am interested in exploring.
+Notice that you have adjusted the x and y lims to zoom into the region of the histogram that you are interested in exploring.
 
 ### Histogram with Custom Breaks
 
@@ -314,7 +310,7 @@ ax.set(title="Histogram with Custom Breaks",
 
 
 
-You may want to play with the distribution of breaks. Below it appears as if there are many values close to 0. In the case of this lidar instrument you know that values between 0 and 2 meters are not reliable (you know this if you read the documentation about the NEON sensor and how these data were processed). Let's create a bin between 0-2.
+You may want to play with the distribution of breaks. Below it appears as if there are many values close to 0. In the case of this lidar instrument, you know that values between 0 and 2 meters are not reliable (you know this if you read the documentation about the NEON sensor and how these data were processed). Let's create a bin between 0-2.
 
 You know you want to create bins for short, medium and tall trees so let's experiment
 with those bins also.
@@ -328,7 +324,7 @@ Below following breaks are used:
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(14,14))
+fig, ax = plt.subplots(figsize=(10,10))
 ax.hist(lidar_chm_im.ravel(), 
         color='purple', 
         edgecolor='white', 
@@ -351,8 +347,7 @@ ax.set(title="Histogram with Custom Breaks",
 
 
 
-You may want to play around with the setting specific bins associated with your science question and the study area. Regardless, let's use the classes above to
-reclassify our CHM raster.
+You may want to play around with the setting specific bins associated with your science question and the study area. Regardless, let's use the classes above to reclassify our CHM raster.
 
 
 ## Map Raster Values to New Values
@@ -369,7 +364,7 @@ The newly defined values will be as follows:
 * Tall trees:  (> 12m tall) = 3
 
 Notice in the list above that you set cells with a value between 0 and 2 meters to
-NA or `nodata` value. This means you are assuming that thereare no trees in those
+NA or `nodata` value. This means you are assuming that there are no trees in those
 locations!
 
 Notice in the matrix below that you use `Inf` to represent the largest or max value
@@ -391,7 +386,7 @@ Numpy has a function called `digitize` that is useful for classifying the values
 
 Instead, `digitize` will replace each datapoint with an integer corresponding to which bin it belongs to. You can use this to determine which datapoints fall within certain ranges. When you use `np.digitize`, the bins that you create work as following
 
-* The starting value by default is included in each bin. The ending value of the bin is not and will be the beginning of the next bin. You can add the argument `right = True` if the want the second value in the bin to be included by not the first. 
+* The starting value by default is included in each bin. The ending value of the bin is not and will be the beginning of the next bin. You can add the argument `right = True` if you want the second value in the bin to be included but not the first. 
 * Any values BELOW the bins as defined will be assigned a `0`. Any values ABOVE the highest value in your bins will be assigned the next value available. Thus if you have
 
 `class_bins = [0, 2, 7, 12, 30]`
@@ -405,6 +400,7 @@ You can use `-np.inf` in your array to tell python to include all values less th
 
 {:.input}
 ```python
+# View the fill value for your array
 lidar_chm_im.fill_value
 ```
 
@@ -459,7 +455,8 @@ You can reassign the first class in your data to a mask using `np.ma.masked_wher
 
 {:.input}
 ```python
-# you can turn your data into a masked array if you want
+# Reassign all values that are classified as 0 to masked (no data value)
+# This will prevent pixels that == 0 from being rendered on a map in matplotlib
 lidar_chm_class_ma = np.ma.masked_where(lidar_chm_im_class == 0 , 
                               lidar_chm_im_class, 
                               copy=True)
@@ -497,11 +494,12 @@ Below you plot the data.
 
 {:.input}
 ```python
-# a cleaner style for raster plots
+# A cleaner seaborn style for raster plots
 sns.set_style("white")
-# plot newly classified and masked raster
+# Plot newly classified and masked raster
 fig, ax = plt.subplots(figsize = (10,6))
-ax.imshow(lidar_chm_class_ma);
+ax.imshow(lidar_chm_class_ma)
+plt.show()
 ```
 
 {:.output}
@@ -539,7 +537,7 @@ np.unique(lidar_chm_class_ma)
 
 {:.input}
 ```python
-# plot data using nicer colors
+# Plot data using nicer colors
 colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']
 
 cmap = ListedColormap(colors)
@@ -569,24 +567,54 @@ The plot looks OK but the legend doesn't represent the data well. The legend is 
 
 Finally, clean up our plot legend. Given you have discrete values you will create a CUSTOM legend with the 3 categories that you created in our classification matrix.
 
+There are a few tricky pieces to creating a custom legend.
+
+1. Notice below that you first create a list of legend items
+
+`height_class_labels = ["Short trees", "Less short trees", "Medium trees","Tall trees"]`
+This represents the text that will appear in your legend. 
+
+2. Next you create the patches. Each path has a colored box and an associated label in your legend. 
+
+This code: `Patch(color=icolor, label=label)` defines a patch
+And this code `for icolor, label in zip(colors, height_class_labels)` loops through each color and label for your legend and combines them into a new patch object or "row" in your legend. 
+
 {:.input}
 ```python
-# create objects to use in the legend
-# this includes the colored boxes and the appropriate labels
-height_class_labels = ["short trees", "less short trees", "medium trees","tall trees"]
+np.unique(lidar_chm_class_ma)
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    masked_array(data = [1 2 3 4 --],
+                 mask = [False False False False  True],
+           fill_value = 999999)
+
+
+
+
+
+{:.input}
+```python
+# Create a list of labels to use for your legend
+height_class_labels = ["Short trees", "Less short trees", "Medium trees","Tall trees"]
+# A path is an object drawn by matplotlib. In this case a patch is a box draw on your legend
+# Below you create a unique path or box with a unique color - one for each of the labels above 
 legend_patches = [Patch(color=icolor, label=label)
                   for icolor, label in zip(colors, height_class_labels)]
 
-cmap = ListedColormap(['w'] + colors)
-#norm = BoundaryNorm(class_bins, len(colors))
+cmap = ListedColormap(colors)
 
 fig, ax = plt.subplots(figsize=(10, 10))
-ax.imshow(lidar_chm_im_class, 
+ax.imshow(lidar_chm_class_ma, 
           cmap=cmap)
 ax.legend(handles=legend_patches,
          facecolor ="white",
          edgecolor = "white",
-         bbox_to_anchor = (1.35,1)) # place legend to the RIGHT of the map
+         bbox_to_anchor = (1.35,1)) # Place legend to the RIGHT of the map
 ax.set_axis_off();
 ```
 
@@ -595,7 +623,7 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_32_0.png" alt = "Canopy height model with a better colormap and a legend.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_33_0.png" alt = "Canopy height model with a better colormap and a legend.">
 <figcaption>Canopy height model with a better colormap and a legend.</figcaption>
 
 </figure>

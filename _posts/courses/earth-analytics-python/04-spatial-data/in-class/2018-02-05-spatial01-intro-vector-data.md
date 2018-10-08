@@ -2,14 +2,14 @@
 layout: single
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
-authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-09-07
+authors: ['Leah Wasser', 'Chris Holdgraf']
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
-permalink: /courses/earth-analytics-python/spatial-data/intro-vector-data-python/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-vector-data-python/
 nav-title: 'Vector Data in Python'
-module-title: 'Spatial data in Python and Remote Sensing Uncertainty'
-module-description: 'This tutorial covers working with spatial data in vector format in Python. You will learn how to important, manipulate and map shapefile data in python. Finally you will learn how to reproject vector data into different coordinate reference systems.'
+module-title: 'Use Vector Spatial data in Open Source Python - Geopandas'
+module-description: 'This tutorial covers working with spatial data in vector format in Python. You will learn how to import, manipulate and map shapefile data in python. Finally you will learn how to reproject vector data into different coordinate reference systems.'
 module-nav-title: 'Spatial Data in Python'
 module-type: 'class'
 course: 'earth-analytics-python'
@@ -28,10 +28,10 @@ order: 1
 
 After completing this tutorial, you will be able to:
 
-* describe the characteristics of 3 key vector data structures: points, lines and polygons.
-* open a shapefile in `Python` using `geopandas` - `gpd.read_file`.
-* view the CRS and other spatial metadata of a vector spatial layer in `Python`
-* access and view the attributes of a vector spatial layer in `Python`.
+* Describe the characteristics of 3 key vector data structures: points, lines and polygons.
+* Open a shapefile in `Python` using `geopandas` - `gpd.read_file`.
+* View the CRS and other spatial metadata of a vector spatial layer in `Python`
+* Access and view the attributes of a vector spatial layer in `Python`.
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -39,7 +39,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 
@@ -63,26 +64,23 @@ with. There are three types of vector data:
 </figure>
 
 
-
-
-
 <i class="fa fa-star"></i> **Data Tip:** Sometimes, boundary layers such as states and countries, are stored as lines rather than polygons. However, these boundaries, when represented as a line, will not create a closed object with a defined "area" that can be "filled".
 {: .notice--warning }
 
 
 ## Shapefiles: Points, Lines, and Polygons
+
 Geospatial data in vector format are often stored in a `shapefile` format. Because the structure of points, lines, and polygons are different, each individual shapefile can only contain one vector type (all points, all lines 
 or all polygons). You will not find a mixture of point, line and polygon objects in a single shapefile.
 
 Objects stored in a shapefile often have a set of associated `attributes` that describe the data. For example, a line shapefile that contains the locations of streams, might contain the associated stream name, stream "order" and other 
 information about each stream line object.
 
-
 * More about shapefiles can found on <a href="https://en.wikipedia.org/wiki/Shapefile" target="_blank">Wikipedia</a>.
 
 ## One Dataset - Many Files
 
-While text files often are self contained (one CSV) is composed of one unique file, many spatial formats are composed of several files. A shapefile is created by 3 or more files, all of which must retain the same NAME and be
+A text file is often self contained. For example, one `.csv` file is composed of one unique file. Many spatial formats are composed of several files. A shapefile is created by 3 or more files, all of which must retain the same NAME and be
 stored in the same file directory, in order for you to be able to work with them.
 
 ### Shapefile Structure
@@ -109,16 +107,18 @@ When you work with a shapefile, you must keep all of the key associated file typ
 them!
 
 ## Import Shapefiles
+
 You will use the `geopandas` library to work with vector data in `Python`. You will also use `matplotlib.pyplot` to plot your data. 
 
 {:.input}
 ```python
+import os
 import geopandas as gpd
 import matplotlib.pyplot as plt
-import os
 import earthpy as et
-import os 
-plt.ion() # plot data inline
+# Plot data inline
+plt.ion()
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 The shapefiles that you will import are:
@@ -132,8 +132,9 @@ The first shapefile that you will open contains the point locations of plots whe
 
 {:.input}
 ```python
-# import shapefile using geopandas
-sjer_plot_locations = gpd.read_file('data/spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_plot_centroids.shp')
+plot_centroid_path = "data/spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_plot_centroids.shp"
+# Import shapefile using geopandas
+sjer_plot_locations = gpd.read_file(plot_centroid_path)
 ```
 
 The CRS **UTM zone 18N**. The CRS is critical to interpreting the object `extent` values as it specifies units.
@@ -154,8 +155,8 @@ attributes stored with it.
 
 <figure>
 
-    <a href="{{ site.baseurl }}/images/courses/earth-analytics/spatial-data/spatial-attribute-tables.png">
-    <img src="{{ site.baseurl }}/images/courses/earth-analytics/spatial-data/spatial-attribute-tables.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/spatial-attribute-tables.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/spatial-attribute-tables.png" alt="A shapefile has an associated attribute table. Each spatial feature in an R spatial object has the same set of
     associated attributes that describe or characterize the feature.
     Attribute data are stored in a separate *.dbf file. "></a>
     <figcaption>Each spatial feature in an R spatial object has the same set of
@@ -169,14 +170,12 @@ attributes stored with it.
 
 
 You can view the attribute table associated with our geopandas `GeoDataFrame` by simply typing the object name into the console
-(e.g., `sjer_plot_locations`).
-
-Her you've used the `.head(3)` function to only display the first 3 rows of the attribute table. Remember that the number in the `.head()` function represents the total number of rows that will be returned by the function. 
+(e.g., `sjer_plot_locations`). Or you can use the `.head(3)` function to only display the first 3 rows of the attribute table. The number in the `.head()` function represents the total number of rows that will be returned by the function. 
 
 
 {:.input}
 ```python
-# view  the top 6 lines of attribute table of data
+# View  the top 6 lines of attribute table of data
 sjer_plot_locations.head(6)
 ```
 
@@ -304,6 +303,7 @@ You can view shapefile metadata using the `class()`, `.crs` and `.total_bounds` 
 
 {:.input}
 ```python
+# View object type
 type(sjer_plot_locations)
 ```
 
@@ -320,7 +320,7 @@ type(sjer_plot_locations)
 
 {:.input}
 ```python
-# view the spatial extent
+# View the spatial extent
 sjer_plot_locations.total_bounds
 ```
 
@@ -336,8 +336,8 @@ sjer_plot_locations.total_bounds
 
 
 <figure>
-    <a href="{{ site.baseurl }}/images/courses/earth-analytics/spatial-data/spatial-extent.png">
-    <img src="{{ site.baseurl }}/images/courses/earth-analytics/spatial-data/spatial-extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers."></a>
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/spatial-extent.png">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/spatial-extent.png" alt="the spatial extent represents the spatial area that a particular dataset covers."></a>
     <figcaption>The spatial extent of a shapefile or geopandas GeoDataFrame represents
     the geographic "edge" or location that is the furthest north, south east and
     west. Thus is represents the overall geographic coverage of the spatial object.
@@ -347,6 +347,7 @@ sjer_plot_locations.total_bounds
 
 {:.input}
 ```python
+# View CRS of object
 sjer_plot_locations.crs
 ```
 
@@ -398,7 +399,7 @@ sjer_plot_locations.geom_type
 
 
 
-## How many features are in your shapefile? 
+## How Many Features Are In Your Shapefile? 
 
 You can view the number of features (counted by the number of rows in the attribute table) and feature attributes (number of columns) in our data using the pandas `.shape` method. Note that the data are returned as a vector of two values:
 
@@ -422,14 +423,6 @@ sjer_plot_locations.shape
 
 
 
-## Loop Through Metadata 
-You can loop through several of the metadata elements too. Below you investigate the **coordinate reference system** (`crs`) and the spatial **extent** of your shapefile.
-
-{:.input}
-```python
-for attr in ['crs', 'total_bounds']:
-    print(attr, '\n', getattr(sjer_plot_locations.head(), attr))
-```
 
 {:.output}
     crs 
@@ -445,12 +438,53 @@ Next, you can visualize the data in your `Python` `geodata.frame` object using t
 
 `dataframe_name.plot()`
 
-The plot is made larger but adding a figsize = () argument. 
+You can call .plot() without setting up a figure and axis object like this: 
 
 {:.input}
 ```python
-# plot the data using geopandas .plot() method
-sjer_plot_locations.plot(figsize = (10,10));
+sjer_plot_locations.plot()
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x120868518>
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_18_1.png" alt = "You can quickly plot a geopandas dataframe using the .plot() method. You do not have to setup an axis or figure object to create this quick plot.">
+<figcaption>You can quickly plot a geopandas dataframe using the .plot() method. You do not have to setup an axis or figure object to create this quick plot.</figcaption>
+
+</figure>
+
+
+
+
+However in general it is good practice to setup an axis object so you can plot different layers together. When you do that you need to provide the plot function with the axis object that you want it to plot on.
+Below, you define the axis as `ax`, here:
+
+`fig, ax = plt.subplots(figsize = (10,10))`
+
+You then plot the data and provide the `ax=` argument with the ax object.
+
+`sjer_plot_locations.plot(ax=ax)`
+
+{:.input}
+```python
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Plot the data using geopandas .plot() method
+sjer_plot_locations.plot(ax=ax)
+plt.show()
 ```
 
 {:.output}
@@ -458,7 +492,32 @@ sjer_plot_locations.plot(figsize = (10,10));
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_19_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_20_0.png" alt = "If you do setup an axis or figure object to create a geopandas plot, then you can easily customize the plot later.">
+<figcaption>If you do setup an axis or figure object to create a geopandas plot, then you can easily customize the plot later.</figcaption>
+
+</figure>
+
+
+
+
+Note that you can name that axis whatever you'd like. Below it is called `ax1` instead of `ax`.
+
+{:.input}
+```python
+fig, ax1 = plt.subplots(figsize = (10,10))
+
+# Plot the data using geopandas .plot() method
+sjer_plot_locations.plot(ax=ax1)
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_22_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with matplotlib axes defined.">
+<figcaption>Spatial plot of SJER plot locations using Geopandas with matplotlib axes defined.</figcaption>
 
 </figure>
 
@@ -472,18 +531,25 @@ You can plot the data by feature attribute and add a legend too. Below you add t
 * **legend:** add a legend
 * **markersize:** increase or decrease the size of the points or markers rendered on the plot
 * **cmap:** set the colors used to plot the data
+* **title** add a title to your plot.
 
 and fig size if you want to specify the size of the output plot. 
 
 {:.input}
 ```python
-# quickly plot the data adding a legend
-sjer_plot_locations.plot(column='plot_type', 
-                         categorical=True, 
-                         legend=True, 
-                         figsize=(10,6),
-                         markersize=45, 
-                         cmap="Set2");
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Plot the data and add a legend
+sjer_plot_locations.plot(column='plot_type',
+                         categorical=True,
+                         legend=True,
+                         figsize=(10, 6),
+                         markersize=45,
+                         cmap="Set2",
+                         ax=ax)
+# Add a title
+ax.set_title('SJER Plot Locations\nMadera County, CA')
+plt.show()
 ```
 
 {:.output}
@@ -491,44 +557,15 @@ sjer_plot_locations.plot(column='plot_type',
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_21_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_24_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with a legend and title.">
+<figcaption>Spatial plot of SJER plot locations using Geopandas with a legend and title.</figcaption>
 
 </figure>
 
 
 
 
-You can add a title to the plot too. Below you assign the plot element to a variable called ax.
-You then add a title to the plot using `ax.set_title()`.
-
-{:.input}
-```python
-# Plot the data adjusting marker size and colors
-# # 'col' sets point symbol color
-# quickly plot the data adding a legend
-ax = sjer_plot_locations.plot(column='plot_type', 
-                         categorical=True, 
-                         legend=True, 
-                         figsize=(10,10),
-                         markersize=45, 
-                         cmap="Set2")
-# add a title to the plot
-ax.set_title('SJER Plot Locations\nMadera County, CA');
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_23_0.png">
-
-</figure>
-
-
-
-
-### Change plot colors & symbols
+### Change Plot Colors & Symbols
 
 You can use the cmap argument to adjust the colors of our plot. Below you used a colormap that is a part of the <a href="http://matplotlib.org/users/colormaps.html" target="_blank">matplotlib colormap library.</a>
 
@@ -536,15 +573,16 @@ Finally you use the **marker=** argument to specify the marker style.
 
 {:.input}
 ```python
-ax = sjer_plot_locations.plot(figsize=(10, 10), 
-                              column='plot_type',
-                              categorical=True,
-                              legend=True,
-                              marker='*', 
-                              markersize=65, 
-                              cmap='OrRd')
-# add a title to the plot
-ax.set_title('SJER Plot Locations\nMadera County, CA');
+fig, ax = plt.subplots(figsize=(10, 10))
+sjer_plot_locations.plot(column='plot_type',
+                         categorical=True,
+                         legend=True,
+                         marker='*',
+                         markersize=65,
+                         cmap='OrRd', 
+                         ax=ax)
+ax.set_title('SJER Plot Locations\nMadera County, CA')
+plt.show()
 ```
 
 {:.output}
@@ -552,22 +590,13 @@ ax.set_title('SJER Plot Locations\nMadera County, CA');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_25_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_26_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.">
+<figcaption>Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.</figcaption>
 
 </figure>
 
 
 
-
-## Plot Shapefiles Using matplotlib and geopandas
-
-Above you saw how to quickly plot shapefiles using geopandas plotting. The geopandas plotting is a great option for quickly exploring your data. However it is less customizable than `matplotlib` plotting. Below you will learn how to  create the same map using `matplotlib` to setup the axes. 
-
-To plot with `matplotlib` you first setup the axes. Below you define the figuresize and marker size in the ax argument. 
-You can adjust the symbol size of our plot using the `markersize` argument.
-You can add a title using `ax.set_title()`.
-
-You can create a larger map by adjusting the `figsize` argument. Below you set it to 10 x 10. 
 
 <div class="notice--warning" markdown="1">
 
@@ -587,11 +616,12 @@ Answer the following questions:
 </div>
 
 
-## Plot Multiple shapefiles
-You can plot several layers on top of each other using the geopandas `.plot` method too. To do this, you:
+## Plot Multiple Shapefiles Together With Geopandas
 
-1. define the `ax` variable just as you did above to add a title to our plot. 
-2. then you add as many layers to the plot as you want using geopandas `.plot()` method.
+You can plot several layers on top of each other using the geopandas `.plot` method. To do this, you:
+
+1. Define the `ax` variable just as you did above to add a title to our plot. 
+2. Then you add as many layers to the plot as you want using geopandas `.plot()` method.
 
 Notice below 
 
@@ -602,39 +632,50 @@ Notice below
 
 {:.input}
 ```python
-# import crop boundary
+# Import crop boundary
 sjer_crop_extent = gpd.read_file("data/spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_crop.shp")
 ```
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10, 10))
+fig, ax = plt.subplots(figsize=(10, 10))
 
-# first setup the plot using the crop_extent layer as the base layer 
+# First setup the plot using the crop_extent layer as the base layer
 sjer_crop_extent.plot(color='lightgrey',
-                      edgecolor = 'black',
-                      ax = ax,
-                      alpha=.5)
-# then add another layer using geopandas syntax .plot, and calling the ax variable as the axis argument
-sjer_plot_locations.plot(ax=ax, 
-                         column='plot_type',
+                      edgecolor='black',
+                      alpha=.5,
+                      ax=ax)
+# Add another layer using geopandas syntax .plot, and calling the ax variable as the axis argument
+sjer_plot_locations.plot(column='plot_type',
                          categorical=True,
                          marker='*',
                          legend=True,
-                         markersize=50, 
-                         cmap='Set2')
-# add a title to the plot
+                         markersize=50,
+                         cmap='Set2', ax=ax)
+# Clean up axes
 ax.set_title('SJER Plot Locations\nMadera County, CA')
 ax.set_axis_off()
-plt.axis('equal');
+plt.axis('equal')
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (254355.7248834534, 259082.25144747042, 4107050.1346737249, 4112614.8624318959)
+
+
+
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_30_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_30_1.png" alt = "Spatial plot of SJER plot locations layered on top of the plot boundary.">
+<figcaption>Spatial plot of SJER plot locations layered on top of the plot boundary.</figcaption>
 
 </figure>
 

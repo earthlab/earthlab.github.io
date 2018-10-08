@@ -3,10 +3,10 @@ layout: single
 title: "GIS in Python: Intro to Coordinate Reference Systems in Python"
 excerpt: "This lesson introduces what a coordinate reference system is. You will use the `Python` programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
-permalink: /courses/earth-analytics-python/spatial-data/intro-to-coordinate-reference-systems-python/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-to-coordinate-reference-systems-python/
 nav-title: 'Coordinate Reference Systems'
 course: 'earth-analytics-python'
 week: 4
@@ -16,7 +16,6 @@ author_profile: false
 comments: true
 order: 2
 ---
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 This lesson covers the key spatial attributes that are needed to work with
@@ -33,11 +32,11 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 
@@ -108,7 +107,7 @@ systems. If you have data from the same location that are stored in different
 coordinate reference systems, **they will not line up in any GIS or other program**
 unless you have a program like ArcGIS or QGIS that supports **projection on the
 fly**. Even if you work in a tool that supports projection on the fly, you will
-want to all of your data in the same projection for performing analysis and processing
+want all of your data in the same projection for performing analysis and processing
 tasks.
 
 <i class="fa fa-star"></i> **Data Tip:** Spatialreference.org provides an
@@ -128,39 +127,56 @@ units are Degrees and the coordinate system itself is **latitude** and
 **longitude** with the `origin` being the location where the equator meets
 the central meridian on the globe (0,0).
 
-{:.input}
-```python
-import geopandas as gpd
-from shapely.geometry import Point
-from glob import glob
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from matplotlib.ticker import ScalarFormatter
-import os 
-plt.ion()
-```
+Next, you will learn more about CRS by exploring some data. Note that you don't need to actually submit anything reviewed in this lesson for your homework. It's just a way to show you how the CRS impacts your data.
 
 {:.input}
 ```python
-# import world boundary shapefile
+import os 
+from glob import glob
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.ticker import ScalarFormatter
+import geopandas as gpd
+from shapely.geometry import Point
+import pandas as pd
+import earthpy as et 
+import seaborn as sns
+# Adjust plot font sizes
+sns.set(font_scale=1.5)
+sns.set_style("white")
+
+plt.ion()
+# Set working directory
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+```
+
+To begin, load a shapefile using geopandas. 
+
+{:.input}
+```python
+# Import world boundary shapefile
 worldBound = gpd.read_file("data/spatial-vector-lidar/global/ne_110m_land/ne_110m_land.shp")
 ```
 
+## Plot the Data
+
 {:.input}
 ```python
-# plot worldBound data using geopandas
-ax = worldBound.plot(figsize=(10, 5), 
-                     color='darkgrey')
-# set the x and y axis labels
-ax.set(xlabel="Longitude (Degrees)", 
+# Plot worldBound data using geopandas
+fig, ax = plt.subplots(figsize=(10, 5))
+worldBound.plot(color='darkgrey', 
+                ax=ax)
+# Set the x and y axis labels
+ax.set(xlabel="Longitude (Degrees)",
        ylabel="Latitude (Degrees)",
        title="Global Map - Geographic Coordinate System - WGS84 Datum\n Units: Degrees - Latitude / Longitude")
 
-# add the x y graticules
+# Add the x y graticules
 ax.set_axisbelow(True)
-ax.yaxis.grid(color='gray', linestyle='dashed')
-ax.xaxis.grid(color='gray', linestyle='dashed')
+ax.yaxis.grid(color='gray', 
+              linestyle='dashed')
+ax.xaxis.grid(color='gray', 
+              linestyle='dashed')
 ```
 
 {:.output}
@@ -168,12 +184,15 @@ ax.xaxis.grid(color='gray', linestyle='dashed')
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_4_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_7_0.png" alt = "Global Map in Geographic Coordinate System WGS84 Datum">
+<figcaption>Global Map in Geographic Coordinate System WGS84 Datum</figcaption>
 
 </figure>
 
 
 
+
+### Create Spatial Points Object
 
 Next, add three coordinate locations to your map. Note that the UNITS are
 in decimal **degrees** (latitude, longitude):
@@ -182,21 +201,21 @@ in decimal **degrees** (latitude, longitude):
 * Oslo, Norway: 59.9500, 10.7500
 * Mallorca, Spain: 39.6167, 2.9833
 
-Create a second map with the locations overlayed on top of the continental
-boundary layer.
+To plot these points spatially you will
 
-### Create spatial points object
- 
-Next, create a numpy array of point locations. You will then transpose that array using the method `.T` within a for loop to create 3 individual sets of xy locations. 
+1. create a numpy array of the point locations and
+2. Use a for loop to populate a `shapely` `Point` object
+
 
 {:.input}
 ```python
-# create numpy array of x,y point locations
-add_points = np.array([[-105.2519, 10.7500, 2.9833], 
-                       [40.0274, 59.9500, 39.6167]])
+# Create numpy array of x,y point locations
+add_points = np.array([[-105.2519,   40.0274], 
+                       [  10.75  ,   59.95  ], 
+                       [   2.9833,   39.6167]])
 
-# turn points into list of x,y shapely points 
-city_locations = [Point(xy) for xy in add_points.T]
+# Turn points into list of x,y shapely points 
+city_locations = [Point(xy) for xy in add_points]
 city_locations
 ```
 
@@ -205,9 +224,9 @@ city_locations
 
 
 
-    [<shapely.geometry.point.Point at 0x1186589b0>,
-     <shapely.geometry.point.Point at 0x118658908>,
-     <shapely.geometry.point.Point at 0x11c7c7cf8>]
+    [<shapely.geometry.point.Point at 0x119e53668>,
+     <shapely.geometry.point.Point at 0x119e532b0>,
+     <shapely.geometry.point.Point at 0x119e537b8>]
 
 
 
@@ -215,7 +234,7 @@ city_locations
 
 {:.input}
 ```python
-# create geodataframe using the points
+# Create geodataframe using the points
 city_locations = gpd.GeoDataFrame(city_locations, 
                                   columns=['geometry'],
                                   crs=worldBound.crs)
@@ -273,18 +292,18 @@ Finally you can plot the points on top of your world map. Does it look right?
 
 {:.input}
 ```python
-# plot point locations
+# Plot point locations
 fig, ax = plt.subplots(figsize=(12, 8))
 
 worldBound.plot(figsize=(10, 5), color='k',
                ax=ax)
-# add city locations
+# Add city locations
 city_locations.plot(ax=ax, 
                     color='springgreen', 
                     marker='*',
                     markersize=45)
 
-# setup x y axes with labels and add graticules
+# Setup x y axes with labels and add graticules
 ax.set(xlabel="Longitude (Degrees)", ylabel="Latitude (Degrees)",
        title="Global Map - Geographic Coordinate System - WGS84 Datum\n Units: Degrees - Latitude / Longitude")
 ax.set_axisbelow(True)
@@ -297,7 +316,8 @@ ax.xaxis.grid(color='gray', linestyle='dashed')
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_10_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_12_0.png" alt = "Global map in geographic coordinate reference system with point locations overlayed on top.">
+<figcaption>Global map in geographic coordinate reference system with point locations overlayed on top.</figcaption>
 
 </figure>
 
@@ -308,18 +328,18 @@ Next, import proper graticules that can be projected into a particular coordinat
 
 {:.input}
 ```python
-# import graticule & world bounding box shapefile data
+# Import graticule & world bounding box shapefile data
 graticule = gpd.read_file("data/spatial-vector-lidar/global/ne_110m_graticules_all/ne_110m_graticules_15.shp")
 bbox = gpd.read_file("data/spatial-vector-lidar/global/ne_110m_graticules_all/ne_110m_wgs84_bounding_box.shp")
 
 # Create map axis object
 fig, ax = plt.subplots(1, 1, figsize=(15, 8))
-# add bounding box and graticule layers
+# Add bounding box and graticule layers
 bbox.plot(ax=ax, alpha=.1, color='grey')
 graticule.plot(ax=ax, color='lightgrey')
 worldBound.plot(ax=ax, color='black')
 
-# add points to plot 
+# Add points to plot 
 city_locations.plot(ax=ax, 
                     markersize=60, 
                     color='springgreen',
@@ -332,7 +352,8 @@ ax.set(title="World Map - Geographic Coordinate Reference System (long/lat degre
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_12_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_14_0.png" alt = "Global map in geographic coordinate reference system with graticules.">
+<figcaption>Global map in geographic coordinate reference system with graticules.</figcaption>
 
 </figure>
 
@@ -368,19 +389,19 @@ Below you first reproject your data into the robinson projects (`+proj=robin`). 
 
 {:.input}
 ```python
-# reproject the data
+# Reproject the data
 worldBound_robin = worldBound.to_crs('+proj=robin')
 graticule_robin = graticule.to_crs('+proj=robin')
 
-# Create map axis object
-fig, ax = plt.subplots(1, 1, figsize=(12, 8))
-# plot the data
-worldBound_robin.plot(ax = ax, 
+# Plot the data
+fig, ax = plt.subplots(figsize=(12, 8))
+
+worldBound_robin.plot(ax=ax,
                       color='k')
 
 graticule_robin.plot(ax=ax, color='lightgrey')
 
-ax.set(title="World map: Robinson Coordinate Reference System", 
+ax.set(title="World Map: Robinson Coordinate Reference System",
        xlabel="X Coordinates (meters)",
        ylabel="Y Coordinates (meters)")
 
@@ -395,7 +416,8 @@ for axis in [ax.xaxis, ax.yaxis]:
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_14_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_16_0.png" alt = "Global map in Robinson CRS.">
+<figcaption>Global map in Robinson CRS.</figcaption>
 
 </figure>
 
@@ -408,10 +430,9 @@ the `CRS` - `Robinson`.
 
 {:.input}
 ```python
-# Create map axis object
+# Plot the data
 fig, ax = plt.subplots(1, 1, figsize=(12, 8))
 
-# map the data
 worldBound_robin.plot(ax=ax,
                       color='k')
 graticule_robin.plot(ax=ax, 
@@ -421,8 +442,7 @@ city_locations.plot(ax=ax,
                     color='springgreen', 
                     markersize=100)
 
-# label axes
-ax.set(title="World map: Robinson Coordinate Reference System", 
+ax.set(title="World Map: Robinson Coordinate Reference System", 
        xlabel="X Coordinates (meters)",
        ylabel="Y Coordinates (meters)")
 
@@ -439,7 +459,8 @@ plt.axis('equal');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_16_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_18_0.png" alt = "If you overlay points in geographic coordinate reference system (WGS84) on top of a map projected using Robinson, notice that they don't line up properly.">
+<figcaption>If you overlay points in geographic coordinate reference system (WGS84) on top of a map projected using Robinson, notice that they don't line up properly.</figcaption>
 
 </figure>
 
@@ -452,18 +473,15 @@ to first convert the points to the same CRS that your other data are in.
 The process of converting a dataset from one CRS to another is often referred
 to as **reprojection**. 
 
-In python, you can use the `.to_crs` method to reproject your data.
+In python, you use the `.to_crs` method to reproject your data.
 
 
 {:.input}
 ```python
-# reproject point locations to the Robinson projection
+# Reproject point locations to the Robinson projection
 city_locations_robin = city_locations.to_crs(worldBound_robin.crs)
 
-# Create map axis object
 fig, ax = plt.subplots(1, 1, figsize=(12, 8))
-
-# Plot the reprojected data 
 worldBound_robin.plot(ax=ax, 
                       cmap='Greys')
 ax.set(title="World map (robinson)", 
@@ -484,7 +502,8 @@ plt.axis('equal');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_18_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_20_0.png" alt = "If you reproject your points to the Robinson CRS, then they plot nicely on top of the basemap in the spatial location that they belog.">
+<figcaption>If you reproject your points to the Robinson CRS, then they plot nicely on top of the basemap in the spatial location that they belog.</figcaption>
 
 </figure>
 
@@ -498,31 +517,43 @@ Both of the plots above look visually different and also use a different coordin
 
 {:.input}
 ```python
-# reproject graticules and bounding box  to robinson
+# Reproject graticules and bounding box  to robinson
 graticule_robinson = graticule.to_crs('+proj=robin')
 bbox_robinson = bbox.to_crs('+proj=robin')
 
 # Setup plot with 2 "rows" one for each map and one column
 fig, (ax0, ax1) = plt.subplots(2, 1, figsize=(13, 12))
 
-# first plot
-bbox.plot(ax=ax0, alpha=.1, color='grey')
-graticule.plot(ax=ax0, color='lightgrey')
-worldBound.plot(ax=ax0, color='k')
-city_locations.plot(ax=ax0, markersize=100, color='springgreen')
+# First plot
+bbox.plot(ax=ax0,
+          alpha=.1,
+          color='grey')
+graticule.plot(ax=ax0,
+               color='lightgrey')
+worldBound.plot(ax=ax0,
+                color='k')
+city_locations.plot(ax=ax0,
+                    markersize=100,
+                    color='springgreen')
 ax0.set(title="World Map - Geographic (long/lat degrees)")
 
-# second plot
-bbox_robinson.plot(ax=ax1, alpha=.1, color='grey')
-graticule_robinson.plot(ax=ax1, color='lightgrey')
-worldBound_robin.plot(ax=ax1, color='k')
-city_locations_robin.plot(ax=ax1, markersize=100, color='springgreen')
-ax1.set(title="World Map Projected - Robinson (Meters)");
+# Second plot
+bbox_robinson.plot(ax=ax1,
+                   alpha=.1,
+                   color='grey')
+graticule_robinson.plot(ax=ax1,
+                        color='lightgrey')
+worldBound_robin.plot(ax=ax1,
+                      color='k')
+city_locations_robin.plot(ax=ax1,
+                          markersize=100,
+                          color='springgreen')
+ax1.set(title="World Map Projected - Robinson (Meters)")
 
 for axis in [ax1.xaxis, ax1.yaxis]:
     formatter = ScalarFormatter()
     formatter.set_scientific(False)
-    axis.set_major_formatter(formatter);
+    axis.set_major_formatter(formatter)
 ```
 
 {:.output}
@@ -530,7 +561,8 @@ for axis in [ax1.xaxis, ax1.yaxis]:
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_20_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial02-crs-intro_22_0.png" alt = "Notice the x and y axis units on these two maps are completely different. This is one reason why points in a geographic WGS84 CRS don't line up properly when plotted on a map in another CRS like Robinson. However if you reproject the data, then they will line up properly.">
+<figcaption>Notice the x and y axis units on these two maps are completely different. This is one reason why points in a geographic WGS84 CRS don't line up properly when plotted on a map in another CRS like Robinson. However if you reproject the data, then they will line up properly.</figcaption>
 
 </figure>
 
@@ -558,6 +590,8 @@ the data.
 We will discuss some of the differences between the projected UTM CRS and geographic
 WGS84 in the next lesson.
 
+
+
 <div class="notice--warning" markdown="1">
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional challenge
@@ -570,7 +604,6 @@ map? Which one is better?
 `CRS`s. What visual differences do you notice in each map? Look up each projection
 online, what elements (shape,area or distance) does each projection used in
 the graphic below optimize?
-
 
 <!--
 ## notes about robinson -- you will see distortion above 40 = 45 degrees latitude
@@ -592,9 +625,6 @@ Robinson: You will see distortion above 40 = 45 degrees latitude
 # ## it is optimized for the latitudes between 0-45 (north and south). -->
 
 </div>
-
-
-
 
 
 <figure>
@@ -633,7 +663,6 @@ in the next lesson.
 * Read more on coordinate systems in the
 <a href="http://docs.qgis.org/2.0/en/docs/gentle_gis_introduction/coordinate_reference_systems.html" target="_blank" data-proofer-ignore=''>
 QGIS documentation.</a>
-* <a href="http://neondataskills.org/GIS-spatial-data/Working-With-Rasters/" target="_blank">The Relationship Between Raster Resolution, Spatial extent & Number of Pixels - in R - NEON</a>
 * For more on types of projections, visit
 <a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Datums/003r00000008000000/" target="_blank"> ESRI's ArcGIS reference on projection types.</a>.
 * Read more about <a href="https://source.opennews.org/en-US/learning/choosing-right-map-projection/" target="_blank"> choosing a projection/datum.</a>

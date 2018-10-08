@@ -3,10 +3,10 @@ layout: single
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
-permalink: /courses/earth-analytics-python/spatial-data/dissolve-polygons-in-python-geopandas-shapely/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/dissolve-polygons-in-python-geopandas-shapely/
 nav-title: 'Dissolve Polygons'
 course: 'earth-analytics-python'
 week: 4
@@ -24,19 +24,17 @@ order: 7
 
 After completing this tutorial, you will be able to:
 
-* 
+* Dissolve polygons based upon an attribute using `geopandas` in `Python`.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
-
-
-
 
 
 Get started by loading your libraries. And be sure that your working directory is set. 
@@ -46,63 +44,57 @@ Get started by loading your libraries. And be sure that your working directory i
 # import libraries
 import os
 import numpy as np
-import geopandas as gpd
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from matplotlib.colors import ListedColormap
-import earthpy as et 
-# make figures plot inline
-plt.ion()
-# load the box module from shapely
+import geopandas as gpd
+import earthpy as et
 from shapely.geometry import box
+
+plt.ion()
+
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+## Import Data
+
+To begin, import the following foud shapefiles using `geopandas`. 
 
 {:.input}
 ```python
-country_boundary_us = gpd.read_file('data/spatial-vector-lidar/usa/usa-boundary-dissolved.shp')
-state_boundary_us = gpd.read_file('data/spatial-vector-lidar/usa/usa-states-census-2014.shp')
-pop_places = gpd.read_file('data/spatial-vector-lidar/global/ne_110m_populated_places_simple/ne_110m_populated_places_simple.shp')
-ne_roads = gpd.read_file('data/spatial-vector-lidar/global/ne_10m_roads/ne_10m_roads.shp')
+# Define base path as it is repeated below
+base_path = os.path.join("data", "spatial-vector-lidar")
 
+# Define file paths
+country_boundary_path = base_path + "/usa/usa-boundary-dissolved.shp"
+state_boundary_path = base_path + "/usa/usa-states-census-2014.shp"
+pop_places_path = base_path + \
+    "/global/ne_110m_populated_places_simple/ne_110m_populated_places_simple.shp"
+
+# Import the data
+country_boundary_us = gpd.read_file(country_boundary_path)
+state_boundary_us = gpd.read_file(state_boundary_path)
+pop_places = gpd.read_file(pop_places_path)
 ```
 
-{:.input}
-```python
-# clip the roads to the US (this is what we did in the previous lesson)
-na_roads = ne_roads[ne_roads['continent'] == "North America"]
-# than the entire road segments unclipped
-us_roads = ne_roads.intersection(country_boundary_us.geometry[0])
-valid_geom = us_roads.geometry.notnull()
-us_roads_only = ne_roads.loc[valid_geom].set_geometry(us_roads.geometry[valid_geom])
-```
-
-{:.input}
-```python
-f, ax = plt.subplots(figsize = (10,6))
-us_roads_only.plot(ax=ax)
-country_boundary_us.plot(ax=ax, 
-                         facecolor = 'none',
-                         edgecolor = "black", 
-                         zorder = 10)
-ax.set_axis_off()
-plt.axis('equal');
-```
-
-{:.output}
-{:.display_data}
+## Dissolve Polygons Based On an Attribute with Geopandas
+Next, you will learn how to dissolve polygon data. Dissolving polygons entails combining polygons based upon a unique attribute value and removing the interior geometry. 
 
 <figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_5_0.png">
-
+ <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif" alt="When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new merged or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI"> 
+ </a>
+ <figcaption> When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new "merged" or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI
+ </figcaption>
 </figure>
 
+Below you will dissolve the US states polygons by the region that each state is in. When you dissolve, you will create a new set polygons - one for each regions in the United States.
 
-
+To begin, explore your data. Using `.geom_type` you can see that you have a mix of single and multi polygons in your data. Sometimes multi-polygons can cause problems when processing. It's always good to check your geometry before you begin to better know what you are working with. 
 
 {:.input}
 ```python
-us_roads_only.head()
+state_boundary_us.head()
 ```
 
 {:.output}
@@ -128,172 +120,97 @@ us_roads_only.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>scalerank</th>
-      <th>featurecla</th>
-      <th>type</th>
-      <th>sov_a3</th>
-      <th>note</th>
-      <th>edited</th>
-      <th>name</th>
-      <th>namealt</th>
-      <th>namealtt</th>
-      <th>routeraw</th>
-      <th>...</th>
-      <th>rwdb_rd_id</th>
-      <th>orig_fid</th>
-      <th>prefix</th>
-      <th>uident</th>
-      <th>continent</th>
-      <th>expressway</th>
-      <th>level</th>
-      <th>min_zoom</th>
-      <th>min_label</th>
+      <th>STATEFP</th>
+      <th>STATENS</th>
+      <th>AFFGEOID</th>
+      <th>GEOID</th>
+      <th>STUSPS</th>
+      <th>NAME</th>
+      <th>LSAD</th>
+      <th>ALAND</th>
+      <th>AWATER</th>
+      <th>region</th>
       <th>geometry</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <th>0</th>
+      <td>06</td>
+      <td>01779778</td>
+      <td>0400000US06</td>
+      <td>06</td>
+      <td>CA</td>
+      <td>California</td>
+      <td>00</td>
+      <td>403483823181</td>
+      <td>20483271881</td>
+      <td>West</td>
+      <td>(POLYGON Z ((-118.593969 33.467198 0, -118.484...</td>
+    </tr>
+    <tr>
       <th>1</th>
-      <td>7</td>
-      <td>Road</td>
-      <td>Secondary Highway</td>
-      <td>USA</td>
-      <td></td>
-      <td>Version 1.5: Changed alignment, a few adds in ...</td>
-      <td>83</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td></td>
-      <td>108105</td>
-      <td>North America</td>
-      <td>0</td>
-      <td>Federal</td>
-      <td>7.0</td>
-      <td>8.6</td>
-      <td>LINESTRING Z (-100.5054284631781 42.8075293067...</td>
+      <td>11</td>
+      <td>01702382</td>
+      <td>0400000US11</td>
+      <td>11</td>
+      <td>DC</td>
+      <td>District of Columbia</td>
+      <td>00</td>
+      <td>158350578</td>
+      <td>18633500</td>
+      <td>Northeast</td>
+      <td>POLYGON Z ((-77.119759 38.934343 0, -77.041017...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>7</td>
-      <td>Road</td>
-      <td>Secondary Highway</td>
-      <td>USA</td>
-      <td></td>
-      <td>Version 1.5: Changed alignment, a few adds in ...</td>
-      <td>840</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td></td>
-      <td>0</td>
-      <td>North America</td>
-      <td>0</td>
-      <td>U/C</td>
-      <td>7.0</td>
-      <td>9.5</td>
-      <td>LINESTRING Z (-87.27431503977813 36.0243912267...</td>
+      <td>12</td>
+      <td>00294478</td>
+      <td>0400000US12</td>
+      <td>12</td>
+      <td>FL</td>
+      <td>Florida</td>
+      <td>00</td>
+      <td>138903200855</td>
+      <td>31407883551</td>
+      <td>Southeast</td>
+      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>8</td>
-      <td>Road</td>
-      <td>Secondary Highway</td>
-      <td>USA</td>
-      <td></td>
-      <td>Version 1.5: Changed alignment, a few adds in ...</td>
-      <td>151</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td></td>
-      <td>0</td>
-      <td>North America</td>
-      <td>0</td>
-      <td>Federal</td>
-      <td>7.1</td>
-      <td>9.6</td>
-      <td>LINESTRING Z (-87.72756620180824 44.1516534424...</td>
+      <td>13</td>
+      <td>01705317</td>
+      <td>0400000US13</td>
+      <td>13</td>
+      <td>GA</td>
+      <td>Georgia</td>
+      <td>00</td>
+      <td>148963503399</td>
+      <td>4947080103</td>
+      <td>Southeast</td>
+      <td>POLYGON Z ((-85.605165 34.984678 0, -85.474338...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>6</td>
-      <td>Road</td>
-      <td>Major Highway</td>
-      <td>USA</td>
-      <td></td>
-      <td>Version 1.5: Changed alignment, a few adds in ...</td>
-      <td>GSP</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td></td>
-      <td>311305</td>
-      <td>North America</td>
-      <td>1</td>
-      <td>State</td>
-      <td>6.0</td>
-      <td>8.5</td>
-      <td>(LINESTRING Z (-74.75920259253698 39.143013260...</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>8</td>
-      <td>Road</td>
-      <td>Secondary Highway</td>
-      <td>USA</td>
-      <td></td>
-      <td>Version 1.5: Changed alignment, a few adds in ...</td>
-      <td>85</td>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td></td>
-      <td>81005</td>
-      <td>North America</td>
-      <td>0</td>
-      <td>Federal</td>
-      <td>7.1</td>
-      <td>9.0</td>
-      <td>LINESTRING Z (-104.4509711456777 42.7571680665...</td>
+      <td>16</td>
+      <td>01779783</td>
+      <td>0400000US16</td>
+      <td>16</td>
+      <td>ID</td>
+      <td>Idaho</td>
+      <td>00</td>
+      <td>214045425549</td>
+      <td>2397728105</td>
+      <td>West</td>
+      <td>POLYGON Z ((-117.243027 44.390974 0, -117.2150...</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 32 columns</p>
 </div>
 
 
 
 
-
-## Dissolve Polygons Based On an Attribute with Geopandas
-Next, you will learn how to dissolve polygon data. Dissolving polygons entails combining polygons based upon a unique attribute value and removing the interior geometry. 
-
-<figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/dissolve-polygons-esri.gif"></a>
- <figcaption> When you dissolve polygons you remove interior boundaries of a set of polygons with the same attribute value and create one new "merged" or combined polygon for each attribute value. In the case above US states are dissolved to regions in the United States. Source: ESRI
- </figcaption>
-</figure>
-
-Below you will dissolve the US states polygons by the region that each state is in. When you dissolve, you will create a new set polygons - one for each regions in the United States.
-
-To begin, explore your data. Using `.geom_type` you can see that you have a mix of single and multi polygons in your data. Sometimes multi-polygons can cause problems when processing. It's always good to check your geometry before you begin to better know what you are working with. 
 
 {:.input}
 ```python
@@ -316,19 +233,19 @@ state_boundary_us.geom_type.head()
 
 
 
-Next, select the columns that you with to use for the dissolve and keep. In this case we want to retain the 
+Next, select the columns that you with to use for the dissolve and keep. In this case we want to retain the:
 
-* region 
+* LSAD 
 * geometry
 
 columns. 
 
 {:.input}
 ```python
-state_boundary = state_boundary_us[['region', 'geometry']]
-us_regions = state_boundary.dissolve(by='region')
-# view the resulting geodataframe
-us_regions
+state_boundary = state_boundary_us[['LSAD', 'geometry']]
+cont_usa = state_boundary.dissolve(by='LSAD')
+# View the resulting geodataframe
+cont_usa
 ```
 
 {:.output}
@@ -357,30 +274,14 @@ us_regions
       <th>geometry</th>
     </tr>
     <tr>
-      <th>region</th>
+      <th>LSAD</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>Midwest</th>
-      <td>(POLYGON Z ((-82.863342 41.693693 0, -82.82571...</td>
-    </tr>
-    <tr>
-      <th>Northeast</th>
-      <td>(POLYGON Z ((-76.04621299999999 38.025533 0, -...</td>
-    </tr>
-    <tr>
-      <th>Southeast</th>
+      <th>00</th>
       <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
-    </tr>
-    <tr>
-      <th>Southwest</th>
-      <td>POLYGON Z ((-94.48587499999999 33.637867 0, -9...</td>
-    </tr>
-    <tr>
-      <th>West</th>
-      <td>(POLYGON Z ((-118.594033 33.035951 0, -118.540...</td>
     </tr>
   </tbody>
 </table>
@@ -390,7 +291,7 @@ us_regions
 
 
 
-And finally, plot the data. Note that when you dissolve, the column used to perform the dissolve becomes an index for the resultant geodataframe. Thus you will have to use the reset_index() method when you plot, to access the region "column". 
+And finally, plot the data. Note that when you dissolve, the column used to perform the dissolve becomes an index for the resultant geodataframe. Thus you will have to use the `reset_index()` method when you plot, to access the region "column". 
 
 So this will work:
 
@@ -401,7 +302,7 @@ This will return an error as region is no longer a column, it is an index!
 
 {:.input}
 ```python
-us_regions.reset_index
+cont_usa.reset_index()
 ```
 
 {:.output}
@@ -409,13 +310,37 @@ us_regions.reset_index
 
 
 
-    <bound method DataFrame.reset_index of                                                     geometry
-    region                                                      
-    Midwest    (POLYGON Z ((-82.863342 41.693693 0, -82.82571...
-    Northeast  (POLYGON Z ((-76.04621299999999 38.025533 0, -...
-    Southeast  (POLYGON Z ((-81.81169299999999 24.568745 0, -...
-    Southwest  POLYGON Z ((-94.48587499999999 33.637867 0, -9...
-    West       (POLYGON Z ((-118.594033 33.035951 0, -118.540...>
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>LSAD</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>00</td>
+      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
@@ -424,10 +349,12 @@ us_regions.reset_index
 {:.input}
 ```python
 # plot the data
-fig, ax = plt.subplots(figsize = (10,6))
-us_regions.reset_index().plot(column = 'region', ax=ax)
+fig, ax = plt.subplots(figsize=(10, 6))
+cont_usa.reset_index().plot(column='LSAD',
+                            ax=ax)
 ax.set_axis_off()
-plt.axis('equal');
+plt.axis('equal')
+plt.show() 
 ```
 
 {:.output}
@@ -435,7 +362,8 @@ plt.axis('equal');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_13_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_12_0.png" alt = "The LSAD attribute value for every polygon in the data is 00. Thus when you dissolve by that attribute, you get one resulting polygon.">
+<figcaption>The LSAD attribute value for every polygon in the data is 00. Thus when you dissolve by that attribute, you get one resulting polygon.</figcaption>
 
 </figure>
 
@@ -461,10 +389,10 @@ Below the data are aggregated by the 'sum' method. this means that the values fo
 
 {:.input}
 ```python
-# select the columns that you wish to retain in the data
+# Select the columns that you wish to retain in the data
 state_boundary = state_boundary_us[['region', 'geometry', 'ALAND', 'AWATER']]
-# then summarize the quantative columns by 'sum' 
-regions_agg = state_boundary.dissolve(by='region', aggfunc = 'sum')
+# Then summarize the quantative columns by 'sum'
+regions_agg = state_boundary.dissolve(by='region', aggfunc='sum')
 regions_agg
 ```
 
@@ -543,24 +471,40 @@ regions_agg
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (12,8))
-regions_agg.plot(column = 'ALAND', edgecolor = "black",
-                 scheme='quantiles', cmap='YlOrRd', ax=ax, 
-                 legend = True)
-ax.set_axis_off()
-plt.axis('equal');
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
+regions_agg.plot(column='ALAND',
+                 legend=True,
+                 scheme='quantiles',
+                 ax=ax1)
+regions_agg.plot(column='AWATER',
+                 scheme='quantiles',
+                 legend=True,
+                 ax=ax2)
+
+plt.suptitle('Census Data - Total Land and Water by Region', fontsize=16)
+ax1.set_axis_off()
+ax2.set_axis_off()
+
+plt.axis('equal')
+
+plt.show()
 ```
+
+{:.output}
+    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/pysal/__init__.py:65: VisibleDeprecationWarning: PySAL's API will be changed on 2018-12-31. The last release made with this API is version 1.14.4. A preview of the next API version is provided in the `pysal` 2.0 prelease candidate. The API changes and a guide on how to change imports is provided at https://pysal.org/about
+      ), VisibleDeprecationWarning)
+
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_16_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_15_1.png" alt = "In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.">
+<figcaption>In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.</figcaption>
 
 </figure>
 
 
 
-
-* http://darribas.org/gds16/content/labs/lab_02.html

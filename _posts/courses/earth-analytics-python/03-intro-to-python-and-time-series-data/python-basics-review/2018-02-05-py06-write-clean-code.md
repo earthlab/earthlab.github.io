@@ -3,7 +3,11 @@ layout: single
 title: "Write Clean Python Code - Expressive programming 101"
 excerpt: 'This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices.'
 authors: ['Leah Wasser', 'Data Carpentry']
+<<<<<<< HEAD
 modified: 2018-09-07
+=======
+modified: 2018-09-25
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
@@ -49,11 +53,14 @@ At the end of this activity, you will be able to:
 
 You need `Python 3.x` and `Jupyter notebooks` to complete this tutorial. Also you should have an `earth-analytics` directory setup on your computer with a `/data` directory with it.
 
+<<<<<<< HEAD
 * [Setup Conda](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
 
+=======
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 ***
 
@@ -144,7 +151,11 @@ variable = 3 * 6
 meanvariable = variable
 
 
+<<<<<<< HEAD
 #calculate something important
+=======
+# calculate something important
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 mean_variable = meanvariable * 5
 
 thefinalthingthatineedtocalculate = mean_variable + 5
@@ -152,7 +163,11 @@ thefinalthingthatineedtocalculate = mean_variable + 5
 
 {:.input}
 ```python
+<<<<<<< HEAD
 #get things that are important
+=======
+# get things that are important
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 import pandas as pd
 %matplotlib inline
 ```
@@ -242,7 +257,12 @@ my_data.plot('DATE', 'PRECIP', figsize = (20, 20), color = 'purple');
 
 <figure>
 
+<<<<<<< HEAD
 <img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py06-write-clean-code_5_0.png">
+=======
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py06-write-clean-code_5_0.png" alt = "You can create a simple plot of a pandas dataframe using the plot function and providing the columns containing the x and y axes. This example plots display daily precipitation data in the fall of 2013 in Boulder, CO.">
+<figcaption>You can create a simple plot of a pandas dataframe using the plot function and providing the columns containing the x and y axes. This example plots display daily precipitation data in the fall of 2013 in Boulder, CO.</figcaption>
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 </figure>
 

@@ -3,7 +3,11 @@ layout: single
 title: "How a Hundred Year Flood Can Occur Every Year. Calculate Exceedance Probability and Return Periods in Python"
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matt Rossi', 'Leah Wasser']
+<<<<<<< HEAD
 modified: 2018-09-07
+=======
+modified: 2018-09-25
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -50,9 +54,76 @@ boulder_precip_daily = boulder_precip.resample("D").sum()
 boulder_precip_daily.head()
 
 # remove all days where rainfall == 0
+<<<<<<< HEAD
 boulder_precip_daily = boulder_precip_daily[boulder_precip_daily["HPCP"] != 0]
 ```
 
+=======
+# if you do this - then you end up with a shorter return-period span given some of the data are missing.
+# this makes me wonder about dividig by 365 ... is there some way to ensure the data return span the time period even if there is no daily value for some days?
+# boulder_precip_daily = boulder_precip_daily[boulder_precip_daily["HPCP"] != 0]
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>HPCP</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1948-08-01</th>
+      <td>0.00</td>
+    </tr>
+    <tr>
+      <th>1948-08-02</th>
+      <td>0.05</td>
+    </tr>
+    <tr>
+      <th>1948-08-03</th>
+      <td>0.07</td>
+    </tr>
+    <tr>
+      <th>1948-08-04</th>
+      <td>0.14</td>
+    </tr>
+    <tr>
+      <th>1948-08-05</th>
+      <td>0.02</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 {:.input}
 ```python
 # plot using matplotlib
@@ -120,6 +191,14 @@ boulder_precip_daily.head()
   </thead>
   <tbody>
     <tr>
+<<<<<<< HEAD
+=======
+      <th>1948-08-01</th>
+      <td>0.00</td>
+      <td>0.00</td>
+    </tr>
+    <tr>
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
       <th>1948-08-02</th>
       <td>0.05</td>
       <td>0.05</td>
@@ -139,11 +218,14 @@ boulder_precip_daily.head()
       <td>0.02</td>
       <td>0.28</td>
     </tr>
+<<<<<<< HEAD
     <tr>
       <th>1948-08-14</th>
       <td>0.03</td>
       <td>0.31</td>
     </tr>
+=======
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
   </tbody>
 </table>
 </div>
@@ -363,6 +445,7 @@ ax.set_title("Annual Maximum Daily Total Precipitation - Boulder, Colorado");
   <tbody>
     <tr>
       <th>1967-08-30</th>
+<<<<<<< HEAD
       <td>4214</td>
       <td>3.09</td>
       <td>328.14</td>
@@ -405,6 +488,50 @@ ax.set_title("Annual Maximum Daily Total Precipitation - Boulder, Colorado");
       <td>2013</td>
       <td>0.000237</td>
       <td>4219.000000</td>
+=======
+      <td>23890</td>
+      <td>3.09</td>
+      <td>328.14</td>
+      <td>1967</td>
+      <td>0.000209</td>
+      <td>13.093151</td>
+    </tr>
+    <tr>
+      <th>1969-05-06</th>
+      <td>23891</td>
+      <td>3.33</td>
+      <td>359.40</td>
+      <td>1969</td>
+      <td>0.000167</td>
+      <td>16.366438</td>
+    </tr>
+    <tr>
+      <th>1951-08-03</th>
+      <td>23892</td>
+      <td>4.90</td>
+      <td>51.13</td>
+      <td>1951</td>
+      <td>0.000126</td>
+      <td>21.821918</td>
+    </tr>
+    <tr>
+      <th>2013-09-11</th>
+      <td>23893</td>
+      <td>6.40</td>
+      <td>1151.13</td>
+      <td>2013</td>
+      <td>0.000084</td>
+      <td>32.732877</td>
+    </tr>
+    <tr>
+      <th>2013-09-12</th>
+      <td>23894</td>
+      <td>7.30</td>
+      <td>1158.43</td>
+      <td>2013</td>
+      <td>0.000042</td>
+      <td>65.465753</td>
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
     </tr>
   </tbody>
 </table>
@@ -428,6 +555,21 @@ ax.set_ylabel("Probability")
 ax.set_xlabel("Precipitation (in?)");
 ```
 
+<<<<<<< HEAD
+=======
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/precip-exceedance-probability-and-return-periods_10_0.png">
+
+</figure>
+
+
+
+
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 # make this plot interactive so they can see the dates!
 
 {:.input}
@@ -435,6 +577,103 @@ ax.set_xlabel("Precipitation (in?)");
 boulder_prob_annual_max_daily.tail()
 ```
 
+<<<<<<< HEAD
+=======
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rank</th>
+      <th>HPCP</th>
+      <th>cum-sum-rain</th>
+      <th>year</th>
+      <th>probability</th>
+      <th>return-years</th>
+    </tr>
+    <tr>
+      <th>DATE</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1997-01-01</th>
+      <td>62</td>
+      <td>3.00</td>
+      <td>892.23</td>
+      <td>1997</td>
+      <td>0.074627</td>
+      <td>13.400000</td>
+    </tr>
+    <tr>
+      <th>1967-01-01</th>
+      <td>63</td>
+      <td>3.09</td>
+      <td>333.94</td>
+      <td>1967</td>
+      <td>0.059701</td>
+      <td>16.750000</td>
+    </tr>
+    <tr>
+      <th>1969-01-01</th>
+      <td>64</td>
+      <td>3.33</td>
+      <td>379.49</td>
+      <td>1969</td>
+      <td>0.044776</td>
+      <td>22.333333</td>
+    </tr>
+    <tr>
+      <th>1951-01-01</th>
+      <td>65</td>
+      <td>4.90</td>
+      <td>60.67</td>
+      <td>1951</td>
+      <td>0.029851</td>
+      <td>33.500000</td>
+    </tr>
+    <tr>
+      <th>2013-01-01</th>
+      <td>66</td>
+      <td>7.30</td>
+      <td>1164.23</td>
+      <td>2013</td>
+      <td>0.014925</td>
+      <td>67.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 {:.input}
 ```python
 # this doesn't look quite right
@@ -452,6 +691,21 @@ ax.set_ylabel("Probability")
 ax.set_xlabel("Discharge Value (CFS)");
 ```
 
+<<<<<<< HEAD
+=======
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/precip-exceedance-probability-and-return-periods_13_0.png">
+
+</figure>
+
+
+
+
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 This is where i got the precip data from... it's only available through 2013... can i get up to date data?
 # https://www.ncdc.noaa.gov/cdo-web/datasets/PRECIP_HLY/locations/CITY:US080001/detail
 

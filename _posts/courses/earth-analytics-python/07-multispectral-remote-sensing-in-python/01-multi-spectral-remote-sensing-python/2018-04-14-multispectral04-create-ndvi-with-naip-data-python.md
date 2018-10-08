@@ -3,7 +3,7 @@ layout: single
 title: "Calculate NDVI Using NAIP Remote Sensing Data in the Python Programming Language"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI vegetation index using NAIP data in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/vegetation-indices-NDVI-in-python/
@@ -63,8 +63,8 @@ NDVI is often used for a quantitate proxy measure of vegetation health, cover
 and phenology (life cycle stage) over large areas.
 
 <figure>
- <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg">
- <img src="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/Images/ndvi_example.jpg" alt="NDVI image from NASA that shows reflectance."></a>
+ <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/nasa-earth-observatory-ndvi-diagram.jpg">
+ <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/nasa-earth-observatory-ndvi-diagram.jpg" alt="NDVI image from NASA that shows reflectance."></a>
     <figcaption>NDVI is calculated from the visible and near-infrared light
     reflected by vegetation. Healthy vegetation (left) absorbs most of the
     visible light that hits it, and reflects a large portion of
@@ -98,18 +98,19 @@ To get started, load all of the required python libraries.
 
 {:.input}
 ```python
+import numpy as np
+import os
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+
 import rasterio as rio
 import geopandas as gpd
 import earthpy as et
 import earthpy.spatial as es
-import os
-import matplotlib.pyplot as plt
-from rasterio.plot import show
-import numpy as np
-plt.ion()
-# set working directory to your home dir/earth-analytics
+
+# Set working directory 
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-import matplotlib as mpl
+
 mpl.rcParams['figure.figsize'] = (14, 14)
 mpl.rcParams['axes.titlesize'] = 20
 ```
@@ -123,7 +124,7 @@ Next, open up the NAIP data that you wish to calculate NDVI with. You will use t
 with rio.open("data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif") as src:
     naip_data = src.read()
     
-# view shape of the data
+# View shape of the data
 naip_data.shape
 ```
 
@@ -138,48 +139,25 @@ naip_data.shape
 
 
 
-Calculate NDVI using regular numpy array math. 
+Calculate NDVI using regular numpy array math. In this case, the bands you are subtracting come from the same data file. The tif file format requires that all layers are in the same CRS and of the same size so you assume the data line up. Thus you do not need to test the data for equal shape, crs and extent.
 
 {:.input}
 ```python
 naip_ndvi = (naip_data[3] - naip_data[0]) / (naip_data[3] + naip_data[0])
 ```
 
-{:.input}
-```python
-# need to add a colorbar to this image
-fig, ax = plt.subplots(figsize=(12,6))
-ndvi = ax.imshow(naip_ndvi, cmap='PiYG')
-es.colorbar(ndvi)
-ax.set(title="NAIP Derived NDVI\n 19 September 2015 - Cold Springs Fire, Colorado")
-ax.set_axis_off();
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_8_0.png">
-
-</figure>
-
-
-
-
-If you'd like, you can use the earthpy colorbar function to ensure your colorbar is the 
-same height as your image. You can also set the vmin and max arguments to -1 and 1 
-to ensure your data colors are scaled to the full range of NDVI values. 
+Finally plot the data. Note below that the vmin and vmax attributes are used to stretch the colorbar across the full possible range of ndvi values (-1 to 1).
 
 {:.input}
 ```python
-# need to add a colorbar to this image
+# Plot NDVI data
 fig, ax = plt.subplots(figsize=(12,6))
 ndvi = ax.imshow(naip_ndvi, cmap='PiYG',
                 vmin=-1, vmax=1)
-es.colorbar(ndvi)
+fig.colorbar(ndvi, fraction=.05)
 ax.set(title="NAIP Derived NDVI\n 19 September 2015 - Cold Springs Fire, Colorado")
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -187,14 +165,15 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_10_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_9_0.png" alt = "Plot of NDVI using 2015 NAIP data - before the Cold Springs Fire.">
+<figcaption>Plot of NDVI using 2015 NAIP data - before the Cold Springs Fire.</figcaption>
 
 </figure>
 
 
 
 
-### View distribution of NDVI values
+### View Distribution of NDVI Values
 
 Using a histogram, you can view the distribution of pixel values in your NDVI output.
 
@@ -210,210 +189,8 @@ es.hist(naip_ndvi,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_12_0.png">
-
-</figure>
-
-
-
-
-## Export a Numpy Array to a Raster Geotiff in Python
-
-When you are done, you can export your NDVI raster data so you could use them in
-QGIS or ArcGIS or share them with your colleagues. To do this you use the `rio.write()`
-function.
-
-Exporting a raster in python is a bit different from what you may have learned using another language like `R`. In python, you need to: 
-
-1. Create a new raster object with all of the metadata needed to define it. This metadata includes:
-   * the shape (rows and columns) of the object
-   * the coordinate reference system (crs)
-   * the type of file (you will export a geotiff (.tif) in this lesson
-   * and the type of data being stored (integer, float, etc). 
-   
-Lucky for you, all of this information can be accessed from the original NAIP data that you imported into python using attribute calls like:
-
-`.transform` and
-`.crs`
-
-To implement this, below we will create a rasterio object (not using a context manager) to explore the attributes.
-   
-
-{:.input}
-```python
-with rio.open("data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif") as src:
-    naip_data_ras = src.read()
-    naip_transform = src.transform
-    naip_crs = src.crs
-    naip_meta = src.profile
-
-```
-
-{:.output}
-    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/IPython/core/interactiveshell.py:2910: FutureWarning: The value of this property will change in version 1.0. Please see https://github.com/mapbox/rasterio/issues/86 for details.
-      exec(code_obj, self.user_global_ns, self.user_ns)
-
-
-
-{:.input}
-```python
-# view spatial attributes including transform information and 
-# the CRS
-naip_transform, naip_crs
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    ([457163.0, 1.0, 0.0, 4426952.0, 0.0, -1.0],
-     CRS({'proj': 'utm', 'zone': 13, 'ellps': 'GRS80', 'towgs84': '0,0,0,0,0,0,0', 'units': 'm', 'no_defs': True}))
-
-
-
-
-
-You can view the type of data stored within the ndvi array using `.dtype`.
-Remember that the naip_ndvi object is a numpy array.
-
-{:.input}
-```python
-type(naip_ndvi), naip_ndvi.dtype
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    (numpy.ndarray, dtype('float64'))
-
-
-
-
-
-Use `rio.open()` to create a new blank raster 'template'. 
-Then write the NDVI numpy array to to that template using `dst.write()`.
-
-Note that when we write the data we need the following elements:
-
-1. the driver or type of file that we want to write. 'Gtiff' is a geotiff format
-2. dtype: the structure of the data that you are writing. We are writing floating point values (values with decimal places)
-3. the heigth and width of the ndvi object (accessed using the .shape attribute)
-4. the crs of the spatial object (accessed using the rasterio NAIP data)
-5. the transform information (accessed using the rasterio NAIP data)
-
-Finally you need to specify the name of the output file and the path to where it will be saved on your computer. 
-
-You can manually specify each raster attribute when you export your geotiff.
-```
-# Write your the ndvi raster object
-with rio.open('data/cold-springs-fire/outputs/naip_ndvi.tif', 'w', driver='GTiff', dtype='float64',
-              height=naip_ndvi.shape[0], width=naip_ndvi.shape[1], count=1,
-              crs=naip_data_ras.crs, transform=naip_data_ras.transform) as dst:
-    dst.write(naip_ndvi, 1)
-```
-
-
-## Export a Numpy Array to a Raster Geotiff Using the Spatial Profile or Metadata of Another Raster
-You can also use the naip_meta variable that we created above. This variable contains all of the spatial metadata for naip data.
-
-In this case, the 
-
-1. number of bands (we have only one band vs 4 in the color image) and
-2. the data format (we have floating point numbers - numers with decimals - vs integers)
-
-have changed. Update those values then write out the image.
-
-{:.input}
-```python
-naip_meta
-
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    {'affine': Affine(1.0, 0.0, 457163.0,
-           0.0, -1.0, 4426952.0),
-     'compress': 'lzw',
-     'count': 4,
-     'crs': CRS({'proj': 'utm', 'zone': 13, 'ellps': 'GRS80', 'towgs84': '0,0,0,0,0,0,0', 'units': 'm', 'no_defs': True}),
-     'driver': 'GTiff',
-     'dtype': 'int16',
-     'height': 2312,
-     'interleave': 'band',
-     'nodata': -32768.0,
-     'tiled': False,
-     'transform': (457163.0, 1.0, 0.0, 4426952.0, 0.0, -1.0),
-     'width': 4377}
-
-
-
-
-
-{:.input}
-```python
-# change the count or number of bands from 4 to 1
-naip_meta['count'] = 1
-# change the data type to float rather than integer
-naip_meta['dtype'] = "float64"
-naip_meta
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    {'affine': Affine(1.0, 0.0, 457163.0,
-           0.0, -1.0, 4426952.0),
-     'compress': 'lzw',
-     'count': 1,
-     'crs': CRS({'proj': 'utm', 'zone': 13, 'ellps': 'GRS80', 'towgs84': '0,0,0,0,0,0,0', 'units': 'm', 'no_defs': True}),
-     'driver': 'GTiff',
-     'dtype': 'float64',
-     'height': 2312,
-     'interleave': 'band',
-     'nodata': -32768.0,
-     'tiled': False,
-     'transform': (457163.0, 1.0, 0.0, 4426952.0, 0.0, -1.0),
-     'width': 4377}
-
-
-
-
-
-Note below that when we write the raster, we use `**naip_meta`
-The two ** tells Python to unpack all of the values in the naip_meta object to use as arguments when writing the geotiff file. We already updated the elements that we needed to above (count and dtype). So this naip_meta object is ready to be used for the NDVI raster. 
-
-{:.input}
-```python
-# write your the ndvi raster object
-with rio.open('data/cold-springs-fire/outputs/naip_ndvi.tif', 'w', **naip_meta) as dst:
-    dst.write(naip_ndvi, 1)
-```
-
-{:.output}
-    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/rasterio/__init__.py:160: FutureWarning: GDAL-style transforms are deprecated and will not be supported in Rasterio 1.0.
-      transform = guard_transform(transform)
-
-
-
-## Post Fire NDVI
-
-For your homework this week, you will get NAIP data from 2017 and will calculate the difference in NDVI between 2015 and 2017. The 2017 data is shown below for reference. 
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_26_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_11_0.png" alt = "Histogram of NDVI values derived from 2015 NAIP data.">
+<figcaption>Histogram of NDVI values derived from 2015 NAIP data.</figcaption>
 
 </figure>
 

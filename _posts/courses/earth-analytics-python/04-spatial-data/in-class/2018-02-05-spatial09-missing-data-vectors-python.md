@@ -4,10 +4,10 @@ title: "Handle missing spatial attribute data Python: GIS in Python"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in Python. "
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
-permalink: /courses/earth-analytics-python/week-4/missing-data-vector-data-in-python/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/missing-data-vector-data-in-python/
 nav-title: 'Missing spatial data'
 module-type: 'class'
 course: 'earth-analytics-python'
@@ -35,24 +35,26 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 
 {:.input}
 ```python
+import os
 import pandas as pd
-import geopandas as gpd
 import numpy as np
+import geopandas as gpd
+import earthpy as et 
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-Frequently data sets you will work with will be messy and having missing values. 
-
-This lesson will cover working with missing data in `geopandas.` since you are working with a `geodataframe.` The methods used here can also be used with regular `pandas` `DataFrames` because `geopandas` inherits methods from `pandas`. 
+This lesson covers how to rename and clean up attribute data using  `geopandas.`
 
 {:.input}
 ```python
-# import roads shapefile
+# Import roads shapefile
 sjer_roads = gpd.read_file("data/spatial-vector-lidar/california/madera-county-roads/tl_2013_06039_roads.shp")
 type(sjer_roads)
 ```
@@ -68,7 +70,7 @@ type(sjer_roads)
 
 
 
-## Exploring Data Values 
+## Explore Data Values 
 
 There are several ways to use `pandas` to explore your data and determine if you have any missing values.
 
@@ -85,30 +87,30 @@ sjer_roads.isnull().sum()
 
 
 
-    LINEARID    0
-    FULLNAME    0
-    RTTYP       0
-    MTFCC       0
-    geometry    0
+    LINEARID       0
+    FULLNAME    5149
+    RTTYP       5149
+    MTFCC          0
+    geometry       0
     dtype: int64
 
 
 
 
 
-Based on this method there are no NaN or Nonetype obejcts as values in the `geodataframe`. Double check the unique values in the road type column. 
+Based on this method there are no `NaN` or `None` type obejcts as values in the `geodataframe`. Double check the unique values in the road type column. 
 
 {:.input}
 ```python
-# view data type 
+# View data type 
 print(type(sjer_roads['RTTYP']))
-# view unique attributes for each road in the data
+# View unique attributes for each road in the data
 print(sjer_roads['RTTYP'].unique())
 ```
 
 {:.output}
     <class 'pandas.core.series.Series'>
-    ['M' '' 'S' 'C']
+    ['M' None 'S' 'C']
 
 
 
@@ -125,8 +127,8 @@ There are several ways to deal with this issue. One is to use the `.replace` met
 
 {:.input}
 ```python
-# map each value to a new value 
-sjer_roads = sjer_roads.replace({'RTTYP': {'': "Unknown"}})
+# Map each value to a new value 
+sjer_roads["RTTYP"] = sjer_roads["RTTYP"].fillna("Unknown")
 print(sjer_roads['RTTYP'].unique())
 ```
 
@@ -138,12 +140,6 @@ print(sjer_roads['RTTYP'].unique())
 Alternatively you can use the `.isnull()` function to select all attribute cells with a value equal to `null` and set those to 'Unknown'.
 
 If the value you want to change is not `NaN` or a `Nonetype` then you will have to specify the origina value that you want to change, as shown below. 
-
-{:.input}
-```python
-
-sjer_roads.loc[sjer_roads['RTTYP'] == '', 'RTTYP'] = 'unknown'
-```
 
 {:.input}
 ```python

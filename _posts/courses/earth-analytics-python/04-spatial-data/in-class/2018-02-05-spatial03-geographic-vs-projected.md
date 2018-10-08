@@ -2,10 +2,10 @@
 layout: single
 title: "Geographic vs projected coordinate reference systems - GIS in Python"
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
-permalink: /courses/earth-analytics-python/spatial-data/geographic-vs-projected-coordinate-reference-systems-python/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/geographic-vs-projected-coordinate-reference-systems-python/
 nav-title: 'Geographic vs projected CRS'
 course: 'earth-analytics-python'
 week: 4
@@ -36,7 +36,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 
@@ -101,15 +102,23 @@ You will review what data projected in a geographic CRS look like.
 
 {:.input}
 ```python
-import geopandas as gpd
-from shapely.geometry import Point
+import os
 from glob import glob
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import os 
-# render plots inline on the page
+from matplotlib.ticker import ScalarFormatter
+import geopandas as gpd
+from shapely.geometry import Point
+import earthpy as et
+import seaborn as sns
+# adjust plot font sizes
+sns.set(font_scale=1.5)
+sns.set_style("white")
+# Render plots inline on the page
 plt.ion()
+# Set working dir
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 
@@ -118,7 +127,8 @@ plt.ion()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_3_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_3_0.png" alt = "Global map in a geographic Coordinate Reference System.">
+<figcaption>Global map in a geographic Coordinate Reference System.</figcaption>
 
 </figure>
 
@@ -197,8 +207,8 @@ the UTM zone, to avoid negative Easting numbers.
 
 
 <figure>
-    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-Utm-zones.jpg">
-    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-Utm-zones.jpg" alt="Nasa image showing the UTM x and y zones">
+    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-utm-zones.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/800px-utm-zones.jpg" alt="Nasa image showing the UTM x and y zones">
     </a>
     <figcaption>The gridded UTM coordinate system across the globe.
     Source: NASA Earth Observatory</figcaption>
@@ -218,11 +228,21 @@ Plot this coordinate on a map.
 
 {:.input}
 ```python
-# create a numpy array w x,y location of Boulder
-boulder_df = np.array([[476911.31], 
-                       [4429455.35]])
-# plot the boulder location point 
-plt.plot(boulder_df[0], boulder_df[1], 'ro');
+boulder_df = np.array([[476911.31,  4429455.35]])
+geometry = [Point(xy) for xy in boulder_df]
+boulder_loc = gpd.GeoDataFrame(geometry,
+                               columns=['geometry'],
+                               crs={'init': 'epsg:2957'})
+```
+
+{:.input}
+```python
+fig, ax = plt.subplots(figsize=(10, 10))
+boulder_loc.plot(ax=ax)
+ax.set_title("Plot of Boulder, CO Location")
+# Turn off scientific notation
+plt.ticklabel_format(useOffset=False)
+plt.show()
 ```
 
 {:.output}
@@ -230,7 +250,8 @@ plt.plot(boulder_df[0], boulder_df[1], 'ro');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_5_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_6_0.png" alt = "Plot of a single point that is provided for Boulder, Colorado in UTM units.">
+<figcaption>Plot of a single point that is provided for Boulder, Colorado in UTM units.</figcaption>
 
 </figure>
 
@@ -239,64 +260,7 @@ plt.plot(boulder_df[0], boulder_df[1], 'ro');
 
 {:.input}
 ```python
-# view the type of object that you created
-type(boulder_df)
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    numpy.ndarray
-
-
-
-
-
-{:.input}
-```python
-# convert to spatial points
-# turn points into a pandas dataframe - note this is not a spatial object
-geometry = [Point(xy) for xy in boulder_df.T]
-boulder_loc = pd.DataFrame(geometry, columns=['geometry'])
-type(boulder_loc)
-
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    pandas.core.frame.DataFrame
-
-
-
-
-
-{:.input}
-```python
-# convert to spatial dataframe - geodataframe -- not this uses 4326 which is a geographic CRS - and it should be utm.
-boulder_loc = gpd.GeoDataFrame(boulder_loc, 
-                               crs={'init' :'epsg:2957'})
-type(boulder_loc)
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    geopandas.geodataframe.GeoDataFrame
-
-
-
-
-
-{:.input}
-```python
-# view crs
+# View crs
 boulder_loc.crs
 ```
 
@@ -319,10 +283,9 @@ location.
 
 {:.input}
 ```python
-# reproject the data to QGS84 
-boulder_df_geog = boulder_loc.to_crs({'init' :'epsg:4326'}) 
+# Reproject the data to WGS84
+boulder_df_geog = boulder_loc.to_crs({'init': 'epsg:4326'})
 boulder_df_geog.crs
-
 ```
 
 {:.output}
@@ -338,7 +301,7 @@ boulder_df_geog.crs
 
 {:.input}
 ```python
-# view the coordinate values of the newly reprojected data. 
+# View the coordinate values of the newly reprojected data.
 boulder_df_geog
 ```
 
@@ -385,12 +348,17 @@ Now you can plot your data on top of your world map which is also in a geographi
 
 {:.input}
 ```python
-ax = worldBound.plot(figsize=(10, 5), cmap='Greys')
-ax.set(title="World map with Boulder, CO location \n Geographic WGS84 CRS", xlabel="X Coordinates (Decimal Degrees)",
+fig, ax = plt.subplots(figsize=(10, 5))
+
+worldBound.plot(cmap='Greys',
+                ax=ax)
+ax.set(title="World map with Boulder, CO location \n Geographic WGS84 CRS",
+       xlabel="X Coordinates (Decimal Degrees)",
        ylabel="Y Coordinates (Decimal Degrees)")
-boulder_df_geog.plot(ax=ax, markersize=52, color='springgreen');
-
-
+boulder_df_geog.plot(ax=ax,
+                     markersize=52,
+                     color='springgreen')
+plt.show()
 ```
 
 {:.output}
@@ -398,7 +366,8 @@ boulder_df_geog.plot(ax=ax, markersize=52, color='springgreen');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_14_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_12_0.png" alt = "Map showing the location of Boulder, CO. All layers are in geographic WGS84 CRS.">
+<figcaption>Map showing the location of Boulder, CO. All layers are in geographic WGS84 CRS.</figcaption>
 
 </figure>
 

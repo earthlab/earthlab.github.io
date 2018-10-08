@@ -6,12 +6,12 @@ title: 'How to find and navigate a repo on the GitHub website'
 attribution: ''
 excerpt: 'Learn how to find a repo on the GitHub website using the search. Also get to know the GitHub repo interface. '
 dateCreated: 2017-09-12
-modified: '2017-09-21'
+modified: '2018-09-10'
 nav-title: 'Navigate GitHub repos'
 sidebar:
   nav:
 module: "intro-version-control-git"
-permalink: /courses/intro-version-control-git/navigate-github-repos/
+permalink: /workshops/intro-version-control-git/navigate-github-repos/
 author_profile: false
 comments: true
 order: 5
@@ -38,7 +38,7 @@ At the end of this activity, you will be able to:
 * git installed and configured on your computer.
 
 Follow the setup instructions here:
-* [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
+* [Setup instructions]({{ site.url }}/workshops/intro-version-control-git/)
 
 </div>
 
@@ -90,7 +90,7 @@ acceptance.
 
  <figure>
 	<a href="{{ site.url }}/images/workshops/version-control/github-repo-interface.png">
-	<img src="{{ site.url }}/images/workshops/version-control/github-repo-interface.png"></a>
+	<img src="{{ site.url }}/images/workshops/version-control/github-repo-interface.png" alt = "Screenshot of the `earthlab/14ers-git` central repository. The GitHub search bar is located at the very top of the page. Notice there are 6 "tabs" below the repo name including: Code, Issues, Pull Request, ...etc. Because you are not an administrator for this repo, you will not see the "Settings" tab in your browser."></a>
 	<figcaption> Screenshot of the `earthlab/14ers-git` central repository.
 	The GitHub search bar is located at the very top of the page. Notice there are 6
 	"tabs" below the repo name including: Code, Issues, Pull Request, ...etc.
@@ -105,7 +105,7 @@ acceptance.
 #### Other text Links
 
 A bit further down the page, you'll notice a few other links including
-commits and branch. We learned how to commit changes in the [basic git commands lesson.]({{ site.url }}/courses/intro-version-control-git/basic-git-commands/)
+commits and branch. We learned how to commit changes in the [basic git commands lesson.]({{ site.url }}/workshops/intro-version-control-git/basic-git-commands/)
 
 
 <i class="fa fa-star"></i> A `commit` is a snapshot of a past state of a repo.

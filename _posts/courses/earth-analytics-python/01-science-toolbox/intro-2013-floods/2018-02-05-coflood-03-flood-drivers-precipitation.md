@@ -3,7 +3,7 @@ layout: single
 title: 'Rain: a Driver of the 2013 Colorado Floods'
 excerpt: "The amount and/or duration of rainfall can impact how severe a flood is. Learn how rainfall is measured and used to understand flood impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-09-07
+modified: 2018-09-25
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/how-rain-impacts-floods/
@@ -42,6 +42,7 @@ This is a reading to provide background on the 2013 flood events. You do not nee
 
 
 ## What Is Precipitation? 
+
 Precipitation refers to moisture from the condensation of atmospheric water vapor that falls to the ground. The term precipitation can refer to rain, snow and even hail. While rainfall is the most common driver of flood events, ice and snow melt can also cause or exacerbate them.
  
 <figure>
@@ -82,9 +83,10 @@ Another ‘citizen science’ source of precipitation data is CoCoRaHS. In contr
 ## Precipitation and the Colorado Floods
 
 The average annual precipitation (which includes rain and snow) in Boulder, Colorado is 20 inches. This precipitation comes from winter snow, intense summer thunderstorms, and intermittent storms throughout the year. The precipitation that led to the 2013 floods was a late summer storm. Due to the atmospheric conditions, the storm produced significant precipitation in a short period of time. 
-How Much Rain Did Boulder Get During the Floods? 
-The figure below shows the total precipitation each month from 1948 to 2013 for a National Weather Service COOP site located in Boulder, CO.
 
+### How Much Rain Did Boulder Get During the Floods? 
+
+The figure below shows the total precipitation each month from 1948 to 2013 for a National Weather Service COOP site located in Boulder, CO.
 
 
 {:.output}

@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration']
 permalink: /courses/earth-analytics-bootcamp/git-github-collaboration/guided-activity-collaboration/
 nav-title: "Guided Activity on Git/Github.com For Collaboration"
 dateCreated: 2018-07-25
-modified: 2018-08-16
+modified: 2018-09-10
 module-type: 'class'
 class-order: 2
 course: "earth-analytics-bootcamp"
@@ -91,7 +91,7 @@ After the owner of the original repository receives pull requests, they can revi
 
 In the terminal, `cd` to your directory for your cloned repository `ea-bootcamp-hometowns` and run the following commands:
 
-* `git pull https://github.com/earthlab-education/ea-bootcamp-cities`: to pull down the changes that have been made to the original repository owned by earthlab-education. After this command, the changes have been made been pulled down to your local clone.  
+* `git pull https://github.com/earthlab-education/ea-bootcamp-hometowns`: to pull down the changes that have been made to the original repository owned by earthlab-education. After this command, the changes have been made been pulled down to your local clone.  
 
 * `git push origin master`: to send these pulled changes back to your fork on `Github.com`. 
 

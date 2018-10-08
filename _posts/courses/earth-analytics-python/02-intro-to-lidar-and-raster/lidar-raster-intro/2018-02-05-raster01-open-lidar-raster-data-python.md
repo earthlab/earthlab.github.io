@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/
@@ -51,8 +51,7 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-In the last lesson, you reviewed the basic principles behind what a lidar raster
-dataset is in `Python` and how point clouds are used to derive the raster. In this lesson, you will learn how to open a plot a lidar raster dataset in `Python`. You will also learn about key attributes of a raster dataset:
+In the last lesson, you reviewed the basic principles behind what a lidar raster dataset is in `Python` and how point clouds are used to derive the raster. In this lesson, you will learn how to open a plot a lidar raster dataset in `Python`. You will also learn about key attributes of a raster dataset:
 
 1. Spatial resolution
 2. Spatial extent and
@@ -72,7 +71,6 @@ dataset is in `Python` and how point clouds are used to derive the raster. In th
 
 You can use the `rasterio` library combined with `numpy` and `matplotlib` to open, manipulate and plot raster data in `Python`.
 
-
 {:.input}
 ```python
 import rasterio as rio
@@ -84,13 +82,13 @@ plt.ion()
 
 from shapely.geometry import Polygon, mapping
 from rasterio.mask import mask
-# a package created for this class that will be discussed later in this lesson
+# A package created for this class that will be discussed later in this lesson
 import earthpy as et
 
-# set standard plot parameters for uniform plotting
+# Set standard plot parameters for uniform plotting
 plt.rcParams['figure.figsize'] = (8, 8)
 
-# prettier plotting with seaborn
+# Prettier plotting with seaborn
 import seaborn as sns; 
 sns.set(font_scale=1.5)
 sns.set_style("white")
@@ -102,7 +100,7 @@ Now, you can use the `rio.open("path-to-raster-here")` function to open a raster
 
 {:.input}
 ```python
-# open raster data
+# Open raster data
 lidar_dem = rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif')
 ```
 
@@ -112,7 +110,7 @@ You can also quickly plot the raster using the `rasterio` function called `show(
 
 {:.input}
 ```python
-# query the spatial extent of the data
+# Query the spatial extent of the data
 lidar_dem.bounds
 ```
 
@@ -129,7 +127,7 @@ lidar_dem.bounds
 
 {:.input}
 ```python
-# plot the dem using raster.io
+# Plot the dem using raster.io
 fig, ax = plt.subplots()
 show(lidar_dem, 
      title="Lidar Digital Elevation Model (DEM) \n Boulder Flood 2013", 
@@ -160,7 +158,7 @@ AND after you've finished working with the data!
 
 {:.input}
 ```python
-# close the connection
+# Close the connection
 lidar_dem.close()
 ```
 
@@ -196,7 +194,7 @@ to re-open the connection. Like this:
 
 {:.input}
 ```python
-# open raster data connection - again
+# Open raster data connection - again
 lidar_dem = rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif')
 
 fig, ax = plt.subplots(figsize = (8,3))
@@ -249,7 +247,7 @@ you don't have to worry about opening and closing files using this syntax.
 
 {:.input}
 ```python
-# note that the src object is now closed 
+# Note that the src object is now closed 
 src
 ```
 
@@ -280,11 +278,11 @@ To plot using matplotlib directly you:
 {:.input}
 ```python
 with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as src:
-    # convert / read the data into a numpy array:
+    # Convert / read the data into a numpy array:
     lidar_dem_im = src.read()
-    # create a spatial extent object using rio.plot.plotting
+    # Create a spatial extent object using rio.plot.plotting
     spatial_extent = rio.plot.plotting_extent(src)
-    # get bounds of object
+    # Get bounds of object
     bounds = src.bounds
 
 ```
@@ -304,9 +302,9 @@ However, if you just use the `.bounds` object that rasterio provides, the number
 
 {:.input}
 ```python
-# this is the format that matplotlib wants
+# This is the format that matplotlib wants
 print("spatial extent:", spatial_extent)
-# this is the format that rasterio provides with the bounds attribute
+# This is the format that rasterio provides with the bounds attribute
 print("rasterio bounds:", bounds)
 ```
 
@@ -320,9 +318,8 @@ print("rasterio bounds:", bounds)
 
 Next let's explore how you read in a raster using rasterio. When you use `.read()`, rasterio imports the data from your raster into a `numpy array`. 
 
-Remember that a numpy array is simply a matrix of values with no particular spatial attributes associated 
-with them. Numpy arrays are however a very efficient structure for working with large and potentially multi-dimensional (layered) matrices.
-
+Remember that a `numpy array` is simply a matrix of values with no particular spatial attributes associated 
+with them. `Numpy arrays` are, however, a very efficient structure for working with large and potentially multi-dimensional (layered) matrices.
 
 {:.input}
 ```python
@@ -351,15 +348,15 @@ See the example below
 {:.input}
 ```python
 with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as src:
-    # convert / read the data into a numpy array:
+    # Convert / read the data into a numpy array:
     lidar_dem_im2 = src.read(1)
 
 with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as src:
-    # convert / read the data into a numpy array:
+    # Convert / read the data into a numpy array:
     lidar_dem_im3 = src.read()
     
 print("Array Shape Using read(1):", lidar_dem_im2.shape)   
-# notice that without the (1), your numpy array has a third dimension
+# Notice that without the (1), your numpy array has a third dimension
 print("Array Shape Using read():", lidar_dem_im3.shape)    
 ```
 
@@ -381,8 +378,8 @@ represent the pixel locations of your raster data.
 ```python
 fig, ax = plt.subplots(figsize = (8,3))
 ax.imshow(lidar_dem_im, 
-          cmap = 'Greys', 
-          extent = spatial_extent)
+          cmap='Greys', 
+          extent=spatial_extent)
 ax.set_title("Digital Elevation Model - Pre 2013 Flood");
 ```
 
@@ -410,8 +407,8 @@ Let's plot again but this time you will:
 ```python
 fig, ax = plt.subplots(figsize = (8,3))
 lidar_plot = ax.imshow(lidar_dem_im, 
-                       cmap = 'Greys', 
-                       extent = spatial_extent)
+                       cmap='Greys', 
+                       extent=spatial_extent)
 ax.set_title("Lidar Digital Elevation Model \n Pre 2013 Boulder Flood | Lee Hill Road", fontsize= 20)
 fig.colorbar(lidar_plot)
 # turn off the x and y axes for prettier plotting
@@ -461,23 +458,28 @@ lidar_dem_im
 
 
 
-    masked_array(data =
-     [[-- -- -- ..., 1695.6300048828125 1695.419921875 1695.429931640625]
-     [-- -- -- ..., 1695.5999755859375 1695.5399169921875 1695.3599853515625]
-     [-- -- -- ..., 1695.3800048828125 1695.43994140625 1695.3699951171875]
-     ..., 
-     [-- -- -- ..., 1681.449951171875 1681.3900146484375 1681.25]
-     [-- -- -- ..., 1681.719970703125 1681.5699462890625 1681.5599365234375]
-     [-- -- -- ..., 1681.8900146484375 1681.8099365234375 1681.739990234375]],
-                 mask =
-     [[ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     ..., 
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]],
-           fill_value = -3.40282e+38)
+    masked_array(
+      data=[[--, --, --, ..., 1695.6300048828125, 1695.419921875,
+             1695.429931640625],
+            [--, --, --, ..., 1695.5999755859375, 1695.5399169921875,
+             1695.3599853515625],
+            [--, --, --, ..., 1695.3800048828125, 1695.43994140625,
+             1695.3699951171875],
+            ...,
+            [--, --, --, ..., 1681.449951171875, 1681.3900146484375, 1681.25],
+            [--, --, --, ..., 1681.719970703125, 1681.5699462890625,
+             1681.5599365234375],
+            [--, --, --, ..., 1681.8900146484375, 1681.8099365234375,
+             1681.739990234375]],
+      mask=[[ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            ...,
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False]],
+      fill_value=-3.4028235e+38,
+      dtype=float32)
 
 
 
@@ -485,15 +487,15 @@ lidar_dem_im
 
 {:.input}
 ```python
-# take advantage of seaborn styles
+# Use seaborn styles
 sns.set_style("whitegrid")
-#%%time
-# plot histogram
+# Plot histogram
 fig, ax = plt.subplots(figsize = (10,8))
 ax.hist(lidar_dem_im.ravel(),
-        bins=100, color = 'purple')
+        bins=100, 
+        color='purple')
 ax.set_title("Lee Hill Road - Digital elevation (terrain) model - \nDistribution of elevation values", 
-             fontsize = 20);
+             fontsize=20);
 ```
 
 {:.output}
@@ -518,9 +520,9 @@ original spatial extent of the data.
 
 {:.input}
 ```python
-# create a new spatial extent 
+# Create a new spatial extent 
 print("Full Spatial extent of raster:", spatial_extent)
-# define a spatial extent that is "smaller"
+# Define a spatial extent that is "smaller"
 zoomed_extent = [472500, 473030, 4434000, 4435030]
 print("Zoomed in raster extent:", zoomed_extent)
 ```
@@ -538,7 +540,6 @@ Next you'll define a box which you'll focus on. You've provided a small helper f
 # Define the four corners of the box
 box = et.utils.bounds_to_box(*zoomed_extent)
 box
-#box(*zoomed_extent)
 ```
 
 {:.output}
@@ -554,7 +555,7 @@ box
 
 {:.input}
 ```python
-# plot the original data with the boundary box
+# Plot the original data with the boundary box
 fig, ax = plt.subplots(figsize = (8,3))
 ax.imshow(lidar_dem_im, 
      extent=spatial_extent)
@@ -580,12 +581,13 @@ ax.set_axis_off()
 
 {:.input}
 ```python
-# plot the data but set the x and y lim
+# Plot the data but set the x and y lim
 fig, ax = plt.subplots(figsize = (8,3))
-ax.imshow(lidar_dem_im, 
-     extent=spatial_extent)
+ax.imshow(lidar_dem_im,
+          extent=spatial_extent)
 ax.set_title("Lidar Raster Zoomed on a Smaller Spatial Extent")
-# set x and y limits of the plot
+
+# Set x and y limits of the plot
 ax.set_xlim(zoomed_extent[:2])
 ax.set_ylim(zoomed_extent[2:4])
 ax.plot(x, y, '-', lw=3, color='r')

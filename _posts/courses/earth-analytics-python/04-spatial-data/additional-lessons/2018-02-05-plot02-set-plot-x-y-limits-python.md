@@ -3,10 +3,10 @@ layout: single
 title: "Customize your Maps in Python: GIS in Python"
 excerpt: "In this lesson you will learn how to adjust the x and y limits of your matplotlib and geopandas map to change the spatial extent.."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
-permalink: /courses/earth-analytics-python/spatial-data/python-change-spatial-extent-of-map-matplotlib-geopandas/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/python-change-spatial-extent-of-map-matplotlib-geopandas/
 nav-title: 'Adjust Map Extent'
 course: 'earth-analytics-python'
 week: 4
@@ -32,7 +32,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 

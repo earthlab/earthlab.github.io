@@ -3,10 +3,10 @@ layout: single
 title: "Understand EPSG, WKT and Other CRS Definition Styles"
 excerpt: "In this lesson you will break down 3 key formats that Coordinate Reference System (CRS) information is often stored in including proj.4, EPSG and WKT. "
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
-permalink: /courses/earth-analytics-python/spatial-data/epsg-proj4-coordinate-reference-system-formats-python/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/epsg-proj4-coordinate-reference-system-formats-python/
 nav-title: 'CRS: epsg vs proj.4'
 course: 'earth-analytics-python'
 week: 4
@@ -36,7 +36,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 
@@ -139,21 +140,26 @@ explore the `CRS`.
 
 {:.input}
 ```python
-import geopandas as gpd
-from shapely.geometry import Point
 from glob import glob
 import numpy as np
-import pandas as pd
+import os
 import matplotlib.pyplot as plt
-import os 
+import pandas as pd
+import geopandas as gpd
+from shapely.geometry import Point
+import earthpy as et
+
 # render plots inline on the page
 plt.ion()
+
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 {:.input}
 ```python
-# import world boundary shapefile
-worldBound = gpd.read_file("data/spatial-vector-lidar/global/ne_110m_land/ne_110m_land.shp")
+# Import world boundary shapefile
+worldBound = gpd.read_file(
+    "data/spatial-vector-lidar/global/ne_110m_land/ne_110m_land.shp")
 worldBound.crs
 ```
 
@@ -185,18 +191,18 @@ To do this you completed the following steps:
 
 {:.input}
 ```python
-# create a numpy array w x,y location of Boulder
-boulder_df = np.array([[476911.31], 
-                       [4429455.35]])
+# Create a numpy array with x,y location of Boulder
+boulder_xy = np.array([[476911.31, 4429455.35]])
 
-# transpose the data and turn each xy into a shapely point object
-geom = [Point(xy) for xy in boulder_df.T]
+# Create shapely point object
+boulder_xy_pt = [Point(xy) for xy in boulder_xy]
 
-# convert to spatial dataframe - geodataframe -- assign the CRS using epsg code
-boulder_loc = gpd.GeoDataFrame(boulder_loc, columns=['geometry'],
-                               crs={'init' :'epsg:2957'})
-                               
-# view crs of new spatial points object
+# Convert to spatial dataframe - geodataframe -- assign the CRS using epsg code
+boulder_loc = gpd.GeoDataFrame(boulder_xy_pt,
+                               columns=['geometry'],
+                               crs={'init': 'epsg:2957'})
+
+# View crs of new spatial points object
 boulder_loc.crs
 ```
 
@@ -266,7 +272,7 @@ the `CRS` using various formats including `proj4`, `epsg`, `WKT` and others.
 * Read more about <a href="https://www.nceas.ucsb.edu/scicomp/recipes/projections" target="_blank">all three formats from the National Center for Ecological Analysis and Synthesis.</a>
 * A handy four page overview of CRS <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">including file formats on page 1.</a>
 
-* <a href="http://www.epsg-registry.org/" target="_blank">The EPSG Registry. </a>
+* <a href="https://www.epsg-registry.org/" target="_blank">The EPSG Registry. </a>
 * <a href="http://spatialreference.org/" target="_blank">Spatialreference.org</a>
 * <a href="http://spatialreference.org/ref/epsg/" target="_blank">List of ESPG Codes.</a>
 

@@ -10,7 +10,11 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/objects-and-variables-in-python/
 nav-title: 'Objects in Python'
 dateCreated: 2017-05-23
+<<<<<<< HEAD
 modified: 2018-09-07
+=======
+modified: 2018-09-25
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 course: "earth-analytics-python"
 week: 3
 sidebar:
@@ -39,10 +43,13 @@ You need `Python 3.x` and `Jupyter notebooks` to complete this tutorial. Also yo
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
+<<<<<<< HEAD
 * [Setup Conda](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
+=======
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>

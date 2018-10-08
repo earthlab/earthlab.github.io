@@ -3,11 +3,11 @@ layout: single
 title: "Use Regression Analysis to Explore Data Relationships & Bad Data"
 excerpt: "You often want to understand the relationships between two different types of data. Learn how to use regression to determine whether there is a relationship between two variables."
 authors: ['Max Joseph', 'Leah Wasser']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
-permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/use-regression-to-compare-lidar-measured-tree-height/
-nav-title: 'Use Regression To Compare Variables'
+permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/
+nav-title: 'Regression to Compare Variables'
 course: 'earth-analytics-python'
 week: 5
 sidebar:
@@ -33,8 +33,7 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson. You will also need the data you downloaded for last week of this class: `spatial-vector-lidar data subset`. 
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
-
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
 </div>
 
@@ -46,7 +45,7 @@ In this lesson you will learn you will learn the basic fundamentals of creating 
 
 ### What Is A One to One Line?
 
-A one to one line line is a line that represents what the relationship between two variables would be if their values were equal. For example, if lidar and ground measurements of tree height were always equal, then observations of height would fall on the one to one line in a scatterplot.
+A one-to-one line is a line that represents what the relationship between two variables would be if their values were equal. For example, if lidar and ground measurements of tree height were always equal, then observations of height would fall on the one to one line in a scatterplot.
 
 See the example below:
 
@@ -67,7 +66,9 @@ ax.set_title("Data Points with a Perfect 1:1 Relationship")
 ax.plot((0, 1), (0, 1), 'y-', 
         transform=ax.transAxes)
 ax.set(xlabel="Variable A", 
-       ylabel="Variable B");
+       ylabel="Variable B")
+
+plt.show()
 ```
 
 {:.output}
@@ -75,7 +76,8 @@ ax.set(xlabel="Variable A",
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_2_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_2_0.png" alt = "Plot showing a one to one relationship between x and y variables.">
+<figcaption>Plot showing a one to one relationship between x and y variables.</figcaption>
 
 </figure>
 
@@ -90,13 +92,74 @@ In other cases, when points lie above or below the 1:1 line, the measurements ar
 This all assumes that you decide that the human measurement is correct all of the time. But you know from discussions about uncertainty and from being a human yourself, that often times, humans make mistakes too! Some people may think that, particularly in dense forests, lidar does an even better job of measuring the tallest trees that humans can not fully get a clear view of to make a measurement.
  
 
+{:.input}
+```python
+lidar_path = 'data/spatial-vector-lidar/california/neon-sjer-site/2013/lidar/SJER_lidarCHM.tif'
+with rio.open(lidar_path) as lidar_chm_src:
+    SJER_chm_data = lidar_chm_src.read(1, masked=True)
+   
+# Import plot locations and extract summary raster statistics
+plot_buffer_path = 'data/spatial-vector-lidar/outputs/plot_buffer.shp'
+
+sjer_tree_heights = rs.zonal_stats(plot_buffer_path, 
+            lidar_path, 
+            geojson_out=True,
+            copy_properties=True,
+            stats="mean max")
+
+SJER_lidar_height_df = gpd.GeoDataFrame.from_features(sjer_tree_heights)
+
+# Import in situ data
+path_insitu = 'data/spatial-vector-lidar/california/neon-sjer-site/2013/insitu/veg_structure/D17_2013_SJER_vegStr.csv'
+SJER_insitu = pd.read_csv(path_insitu)
+
+
+# Get the max and mean stem height for each plot
+insitu_stem_ht = SJER_insitu.groupby('plotid', as_index = False)
+insitu_stem_ht = insitu_stem_ht['stemheight'].agg(['max', 'mean'])
+insitu_stem_ht = insitu_stem_ht.rename(columns={'max': 'insitu_maxht', 'mean': 'insitu_meanht'})
+insitu_stem_ht.reset_index(inplace=True)
+
+# First rename columns so that we know which belongs to lidar
+SJER_lidar_height_df = SJER_lidar_height_df.rename(
+    columns={'max': 'lidar_max', 'mean': 'lidar_mean', 'min': 'lidar_min'})
+
+# join data
+SJER_final_height = SJER_lidar_height_df.merge(insitu_stem_ht,
+                                               left_on='Plot_ID',
+                                               right_on='plotid')
+# Convert to a dataframe so we can use standard pandas plotting
+SJER_final_height_df = pd.DataFrame(SJER_final_height)
+
+# this plot should be a scatter plot with labels and such
+fig, ax = plt.subplots(figsize=(10, 10))
+
+csfont = {'fontname':'Myriad Pro'}
+SJER_final_height_df.plot('lidar_max', 'insitu_maxht', 
+                         kind='scatter',
+                         fontsize=14, s=60, ax=ax)
+
+# Add a diagonal line
+ax.set(xlim=[0, 30], ylim=[0, 30], label = "Data")
+ax.plot((0, 1), (0, 1), transform=ax.transAxes, ls='--', 
+        c='k', label = "1:1 line")
+
+ax.set(xlabel="Lidar derived max tree height", 
+       ylabel="Measured tree height (m)")
+# Customize title, set position, allow space on top of plot for title
+# this doesn't work - i'm not sure why
+ax.set_title("Lidar vs Measured Tree Height - SJER", 
+             fontsize=30, 
+             **csfont);
+```
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_4_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_4_0.png" alt = "Plot showing a the relationship between lidar and measured tree height with a one to one line overlayed on top.">
+<figcaption>Plot showing a the relationship between lidar and measured tree height with a one to one line overlayed on top.</figcaption>
 
 </figure>
 
@@ -198,7 +261,8 @@ plt.legend();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_8_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_8_0.png" alt = "This plot shows the same x and y variables as the previous plot however now you have a regression relationship drawn in grey. This represents a statistical that quantifies how x relates to y. Note that in this case, this relationship is not a purely 1:1 relationship.">
+<figcaption>This plot shows the same x and y variables as the previous plot however now you have a regression relationship drawn in grey. This represents a statistical that quantifies how x relates to y. Note that in this case, this relationship is not a purely 1:1 relationship.</figcaption>
 
 </figure>
 
@@ -260,7 +324,8 @@ print("slope:", slope,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_10_1.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_10_1.png" alt = "Here you can see that the x and y variables have a relationship where the slope is 1 however the intercept in this case is positive. Here the x predictor tends to underestimate y.">
+<figcaption>Here you can see that the x and y variables have a relationship where the slope is 1 however the intercept in this case is positive. Here the x predictor tends to underestimate y.</figcaption>
 
 </figure>
 
@@ -316,7 +381,8 @@ print("slope:", slope,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_12_1.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_12_1.png" alt = "In this plot the x predictor overestimates y values. Yet the slope of the relationship is still 1.">
+<figcaption>In this plot the x predictor overestimates y values. Yet the slope of the relationship is still 1.</figcaption>
 
 </figure>
 
@@ -360,7 +426,8 @@ ax.set(xlabel="Lidar derived max tree height",
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_15_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_15_0.png" alt = "Using Seaborn you can look at the regression relationship and how much of the data variablility is explained by the regression model.">
+<figcaption>Using Seaborn you can look at the regression relationship and how much of the data variablility is explained by the regression model.</figcaption>
 
 </figure>
 
@@ -416,7 +483,8 @@ print("slope:", slope,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_16_1.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_16_1.png" alt = "Plot showing the relationship between x and y variables.">
+<figcaption>Plot showing the relationship between x and y variables.</figcaption>
 
 </figure>
 
@@ -448,7 +516,8 @@ plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_18_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty04-regression-and-questioning-your-data_18_0.png" alt = "Sometimes looking at difference plots like this one can be helpful. If you have outlier points, it can be nice to identify which plots those are in. You may see differences in the plots even in the imagery that could explain the large differences.">
+<figcaption>Sometimes looking at difference plots like this one can be helpful. If you have outlier points, it can be nice to identify which plots those are in. You may see differences in the plots even in the imagery that could explain the large differences.</figcaption>
 
 </figure>
 

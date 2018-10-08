@@ -10,7 +10,11 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/python-syntax-and-using-functions/
 nav-title: 'Review: Get to Know Python'
 dateCreated: 2018-02-05
+<<<<<<< HEAD
 modified: 2018-09-07
+=======
+modified: 2018-09-25
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 module-title: 'Get to Know the Python programming language'
 module-nav-title: 'Review: Get to Know Python'
 module-description: 'This module introduces the Python scientific programming language.
@@ -47,10 +51,13 @@ You need `Python 3.x` and `Jupyter notebooks` to complete this tutorial. Also yo
 an `earth-analytics` directory setup on your computer with a `/data`
 directory with it.
 
+<<<<<<< HEAD
 * [Setup Conda](/courses/earth-analytics-python/get-started-with-python-jupyter/setup-conda-earth-analytics-environment/)
 * [Setup your working directory](/courses/earth-analytics-python/get-started-with-python-jupyter/introduction-to-bash-shell/)
 * [Intro to Jupyter Notebooks](/courses/earth-analytics-python/python-open-science-tool-box/intro-to-jupyter-notebooks/)
 
+=======
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
@@ -60,7 +67,10 @@ This lesson set is a review of some of the  basic python concepts that you need 
 Look closely at the code below:
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 {:.input}
 ```python
 # load all packages you will need in the first cell of code 
@@ -87,6 +97,7 @@ ax.set_ylabel("Precipitation (inches)")
 ax.set_title("Daily Precipitation - Boulder Station\n 2003-2013");
 ```
 
+<<<<<<< HEAD
 {:.output}
 {:.display_data}
 
@@ -99,6 +110,8 @@ ax.set_title("Daily Precipitation - Boulder Station\n 2003-2013");
 
 
 
+=======
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 This codes above does the following:
 
 First it calls required python packages including: 
@@ -338,7 +351,12 @@ data.plot(x='DATE',
 
 <figure>
 
+<<<<<<< HEAD
 <img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions_16_0.png">
+=======
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions_16_0.png" alt = "Basic plot of precipitation data in Boulder, Colorado 2003-2013">
+<figcaption>Basic plot of precipitation data in Boulder, Colorado 2003-2013</figcaption>
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 </figure>
 
@@ -665,7 +683,11 @@ np.round(3.23457457,
 
 
 
+<<<<<<< HEAD
     3.235
+=======
+    3.2349999999999999
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 
 
@@ -682,7 +704,11 @@ np.round(3.14159,
 
 
 
+<<<<<<< HEAD
     3.1
+=======
+    3.1000000000000001
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 
 
@@ -703,7 +729,11 @@ np.round(3.14159, 2)
 
 
 
+<<<<<<< HEAD
     3.14
+=======
+    3.1400000000000001
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 
 
@@ -722,10 +752,17 @@ np.round(2, 3.14159)
 
     AttributeError                            Traceback (most recent call last)
 
+<<<<<<< HEAD
     ~/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapfunc(obj, method, *args, **kwds)
          51     try:
     ---> 52         return getattr(obj, method)(*args, **kwds)
          53 
+=======
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapfunc(obj, method, *args, **kwds)
+         56     try:
+    ---> 57         return getattr(obj, method)(*args, **kwds)
+         58 
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 
     AttributeError: 'int' object has no attribute 'round'
@@ -736,11 +773,16 @@ np.round(2, 3.14159)
 
     TypeError                                 Traceback (most recent call last)
 
+<<<<<<< HEAD
     <ipython-input-22-47fcf09b3043> in <module>()
+=======
+    <ipython-input-23-aed5683d0561> in <module>()
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
           1 # but what happens here?
     ----> 2 np.round(2, 3.14159)
     
 
+<<<<<<< HEAD
     ~/anaconda3/lib/python3.6/site-packages/numpy/core/fromnumeric.py in round_(a, decimals, out)
        2849 
        2850     """
@@ -771,6 +813,38 @@ np.round(2, 3.14159)
     ---> 42     result = getattr(asarray(obj), method)(*args, **kwds)
          43     if wrap:
          44         if not isinstance(result, mu.ndarray):
+=======
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in round_(a, decimals, out)
+       2801 
+       2802     """
+    -> 2803     return around(a, decimals=decimals, out=out)
+       2804 
+       2805 
+
+
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in around(a, decimals, out)
+       2787 
+       2788     """
+    -> 2789     return _wrapfunc(a, 'round', decimals=decimals, out=out)
+       2790 
+       2791 
+
+
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapfunc(obj, method, *args, **kwds)
+         65     # a downstream library like 'pandas'.
+         66     except (AttributeError, TypeError):
+    ---> 67         return _wrapit(obj, method, *args, **kwds)
+         68 
+         69 
+
+
+    ~/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/numpy/core/fromnumeric.py in _wrapit(obj, method, *args, **kwds)
+         45     except AttributeError:
+         46         wrap = None
+    ---> 47     result = getattr(asarray(obj), method)(*args, **kwds)
+         48     if wrap:
+         49         if not isinstance(result, mu.ndarray):
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 
     TypeError: integer argument expected, got float
@@ -843,6 +917,7 @@ If you need help with a specific function, let's say `plt.plot`, you can type:
 ```python
 help(plt.plot)
 ```
+<<<<<<< HEAD
 
 {:.output}
     Help on function plot in module matplotlib.pyplot:
@@ -1120,3 +1195,5 @@ help(plt.plot)
     
 
 
+=======
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00

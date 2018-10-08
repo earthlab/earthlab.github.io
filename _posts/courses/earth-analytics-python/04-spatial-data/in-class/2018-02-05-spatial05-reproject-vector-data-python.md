@@ -3,10 +3,10 @@ layout: single
 title: "GIS in Python: Reproject Vector Data."
 excerpt: "In this lesson we cover how to reproject a vector dataset in `Python` using the `to_crs()` `Geopandas` function."
 authors: ['Martha Morrissey','Leah Wasser','Chris Holdgraf']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
-permalink: /courses/earth-analytics-python/spatial-data/reproject-vector-data-in-python/
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/reproject-vector-data-in-python/
 nav-title: 'Reproject Vector Data'
 course: 'earth-analytics-python'
 week: 4
@@ -33,10 +33,9 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
 </div>
-
 
 
 
@@ -47,18 +46,6 @@ In the previous lesson, you attempted to plot two datasets together - a roads la
 the locations of plots where our field work was occuring. The layers did not plot 
 properly even though you know the data are for the same geographic location. The challenge
 as a reminder is below:
-
-<div class="notice--success" markdown="1">
-#### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge: Import & Plot Roads Shapefile
-
-Import the madera-county-roads layer - `california/madera-county-roads/tl_2013_06039_roads.shp`. Plot the roads.
-
-Next, try to overlay the plot locations `california/SJER/vector_data/SJER_plot_centroids.shp` and sjer_crop- `california/SJER/vector_data/SJER_crop.shp` on top of the
-SJER crop extent. What happens?
-
-* Check the CRS of both layers. What do you notice?
-
-</div>
 
 Often when data do not line up properly, it is because they are in different 
 coordinate reference systems (CRS). In this lesson you will learn how to reproject 
@@ -100,7 +87,9 @@ import geopandas as gpd
 import numpy as np
 import matplotlib.pyplot as plt
 import os 
-import earthpy as et 
+import earthpy as et
+# Set working directory to your earth-analytics dir
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 plt.ion()
 ```
 
@@ -162,7 +151,8 @@ ax.set_title("Madera County Roads with SJER AOI");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_8_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_8_0.png" alt = "Plot showing roads for Madera County, California with the study area extent overlayed on top.">
+<figcaption>Plot showing roads for Madera County, California with the study area extent overlayed on top.</figcaption>
 
 </figure>
 
@@ -343,7 +333,8 @@ state_boundary_us.plot(ax = ax, facecolor = 'white', edgecolor = 'black')
 ax.set(title="Map of Continental US State Boundaries\n United States Census Bureau Data")
 # turn off the axis  
 plt.axis('equal')
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -351,7 +342,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_13_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_13_0.png" alt = "Plot of state boundaries for the USA.">
+<figcaption>Plot of state boundaries for the USA.</figcaption>
 
 </figure>
 
@@ -399,7 +391,8 @@ state_boundary_us.plot(ax = ax,
                       color = "indigo",
                       edgecolor = "white",
                       linewidth = 1)
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -407,7 +400,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_16_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_16_0.png" alt = "Map showing USA boundary and states with custom colors.">
+<figcaption>Map showing USA boundary and states with custom colors.</figcaption>
 
 </figure>
 
@@ -426,7 +420,8 @@ HINT: AOI stands for  "Area of Interest". This is your study area.
 fig, ax = plt.subplots(figsize = (6,6))
 sjer_aoi.plot(ax=ax, color = "indigo")
 ax.set(title='San Joachin Experimental Range \n Area of interest (AOI)')
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -434,7 +429,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_18_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_18_0.png" alt = "Plot of the SJER area of interest (AOI). This represents the boundary of your study area.">
+<figcaption>Plot of the SJER area of interest (AOI). This represents the boundary of your study area.</figcaption>
 
 </figure>
 
@@ -457,7 +453,8 @@ state_boundary_us.plot(ax = ax,
                        edgecolor ="gray")
 sjer_aoi.plot(ax=ax, color = "indigo")
 # turn off axis  
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -465,7 +462,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_20_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_20_0.png" alt = "When you try to plot the state and country boundaries with the SJER_AOI what happens? Notice that this map does not look right even though the layers plotted just fine individually. This suggests there may be a CRS issue.">
+<figcaption>When you try to plot the state and country boundaries with the SJER_AOI what happens? Notice that this map does not look right even though the layers plotted just fine individually. This suggests there may be a CRS issue.</figcaption>
 
 </figure>
 
@@ -614,8 +612,8 @@ sjer_aoi_WGS84.plot(ax=ax,
                    edgecolor = "r")
 ax.set(title="Map of Continental US State Boundaries \n with SJER AOI")
 
-# turn off axis  
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -623,7 +621,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_30_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_30_0.png" alt = "Once you have reprojected your data, you can then plot all of the layers together.">
+<figcaption>Once you have reprojected your data, you can then plot all of the layers together.</figcaption>
 
 </figure>
 
@@ -662,7 +661,8 @@ ax.set(xticks = [], yticks = []);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_32_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_32_0.png" alt = "Here you've zoomed into the data on the map to see the very small study area extent that you are interested in.">
+<figcaption>Here you've zoomed into the data on the map to see the very small study area extent that you are interested in.</figcaption>
 
 </figure>
 
@@ -699,7 +699,8 @@ sjer_aoi_WGS84["geometry"].centroid.plot();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_35_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_35_0.png" alt = "Plot showing the centroid of your AOI boundary. A point might be more visible on a map of the entire United States than a tiny box as you can adjust the markersize.">
+<figcaption>Plot showing the centroid of your AOI boundary. A point might be more visible on a map of the entire United States than a tiny box as you can adjust the markersize.</figcaption>
 
 </figure>
 
@@ -732,7 +733,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_36_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial05-reproject-vector-data-python_36_0.png" alt = "Plot showing the centroid of your AOI boundary overlayed on top of a map of the entire United States.">
+<figcaption>Plot showing the centroid of your AOI boundary overlayed on top of a map of the entire United States.</figcaption>
 
 </figure>
 
@@ -745,6 +747,17 @@ allow us to perform any required geoprocessing (spatial calculations /
 transformations) on our data.
 
 
+<div class="notice--success" markdown="1">
+#### <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge: Import & Plot Roads Shapefile
+
+Import the madera-county-roads layer - `california/madera-county-roads/tl_2013_06039_roads.shp`. Plot the roads.
+
+Next, try to overlay the plot locations `california/SJER/vector_data/SJER_plot_centroids.shp` and sjer_crop- `california/SJER/vector_data/SJER_crop.shp` on top of the
+SJER crop extent. What happens?
+
+* Check the CRS of both layers. What do you notice?
+
+</div>
 
 <div class="notice--info" markdown="1">
 

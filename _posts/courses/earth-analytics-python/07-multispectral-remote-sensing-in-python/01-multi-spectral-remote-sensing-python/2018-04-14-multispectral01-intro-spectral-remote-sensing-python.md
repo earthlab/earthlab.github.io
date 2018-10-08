@@ -3,10 +3,10 @@ layout: single
 title: "Introduction to Multispectral Remote Sensing Data in Python"
 excerpt: "Multispectral remote sensing data can be in different resolutions and formats and often has different bands. Learn about the differences between NAIP, Landsat and MODIS remote sensing data as it is used in Python."
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
-permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/intro-multispectral-data-in-python/
+permalink: /courses/earth-analytics-python/multispectral-remote-sensing/intro-multispectral-data/
 nav-title: 'Intro Multispectral Data'
 module-title: 'Learn How to Work With Multispectral Remote Sensing Data in Python'
 module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in Python.'
@@ -42,7 +42,7 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data for Weeks 7-8 of the course.
+Cold Springs Fire data for Weeks 7-8 of the course.
 
 # check this data link - it all likely needs to be updated
 {% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}

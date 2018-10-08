@@ -4,7 +4,7 @@ title: "Introduction to Light Detection and Ranging (Lidar) Remote Sensing Data"
 excerpt: "This lesson reviews what Lidar remote sensing is, what the lidar instrument measures and discusses the core
 components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: 2018-09-07
+modified: 2018-09-25
 category: [courses]
 class-lesson: ['class-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/lidar-intro/
@@ -65,6 +65,7 @@ Keith Krauss, NEON.
 
 
 ## LiDAR Background
+
 Watch the videos below to better understand what lidar is and how a lidar system works.
 
 ### The Story of LiDAR Data video
@@ -91,8 +92,9 @@ Scientists often need to characterize vegetation over large regions. Scientists 
 </figure>
 
 
-To measure vegetation across large areas you need remote sensing methods that can collect many measurements, quickly using automated sensors. These measurements can be used to estimate forest structure across larger areas. LiDAR, or light detection ranging (sometimes also referred to as active laser scanning) is one remote sensing method that can be used to map structure including vegetation height, density and other characteristics across a region. LiDAR directly
-measures the height and density of vegetation (and buildings and other objects) on the ground making it an ideal tool for scientists studying vegetation over large areas.
+To measure vegetation across large areas you need remote sensing methods that can collect many measurements, quickly, using automated sensors. These measurements can be used to estimate forest structure across larger areas. 
+
+LiDAR, or light detection ranging (sometimes also referred to as active laser scanning) is one remote sensing method that can be used to map structure including vegetation height, density and other characteristics across a region. LiDAR directly measures the height and density of vegetation (and buildings and other objects) on the ground making it an ideal tool for scientists studying vegetation over large areas.
 
 <figure class="half">
    <img src="http://www.nrcan.gc.ca/sites/www.nrcan.gc.ca/files/earthsciences/images/resource/tutor/fundam/images/passiv.gif" alt="active remote sensing">
@@ -107,20 +109,20 @@ measures the height and density of vegetation (and buildings and other objects) 
 ### Lidar is an Active Remote Sensing System
 
 LIDAR is an **active remote sensing** system. An
-<a href="http://www.nrcan.gc.ca/node/14639" target="_blank">active system means that the system itself generates energy </a> - in this case light - to measure things on the ground. In a LiDAR system, light is emitted from a rapidly firing laser. You can imagine, light quickly strobing from a laser light source. This light travels to the ground and reflects off of things like buildings and tree branches. The reflected light energy then returns to the LiDAR sensor where it is recorded.
+<a href="http://www.nrcan.gc.ca/node/14639" target="_blank">active system means that the system itself generates energy </a> - in this case light - to measure things on the ground. In a LiDAR system, light is emitted from a rapidly firing laser. You can imagine a light quickly strobing from a laser light source. This light travels to the ground and reflects off of things like buildings and tree branches. The reflected light energy then returns to the LiDAR sensor where it is recorded.
 
-A LiDAR system measures the time it takes for emitted light to travel to the ground and back. That time is used to calculate distance traveled. Distance traveled is then converted to elevation. These measurements are made using the
-key components of a lidar system including a GPS that identifies the X,Y,Z location of the light energy and an Internal Measurement Unit (IMU) that provides the orientation of the plane in the sky.
+A LiDAR system measures the time it takes for emitted light to travel to the ground and back. That time is used to calculate distance traveled. Distance traveled is then converted to elevation. These measurements are made using the key components of a lidar system including a GPS that identifies the X,Y,Z location of the light energy and an Internal Measurement Unit (IMU) that provides the orientation of the plane in the sky.
 
 <iframe width="560" height="315" src="//www.youtube.com/embed/uSESVm59uDQ?rel=0" frameborder="0" allowfullscreen></iframe>
 
 
 ### How Light Energy Is Used to Measure Trees
 
-Light energy is a collection of photons. As the photons that make up light moves towards the ground, they hit objects such as branches on a tree. Some of the light reflects off of those objects and returns to the sensor. If the object is small, and there are gaps surrounding it that allow light to pass through, some light continues down towards the ground. Because some photons reflect off of things like branches but others continue down towards the ground, multiple reflections may be recorded from one pulse of light.
+Light energy is a collection of photons. As the photons that make up light move toward the ground, they hit objects such as branches on a tree. Some of the light reflects off of those objects and returns to the sensor. 
 
-The distribution of energy that returns to the sensor creates what is called a waveform. The amount of energy that returned to the LiDAR sensor is known as "intensity". The areas where more photons or more light energy returns to the
-sensor create peaks in the distribution of energy. Theses peaks in the waveform often represent objects on the ground like - a branch, a group of leaves or a building.
+If the object is small, and there are gaps surrounding it that allow light to pass through, some light continues down towards the ground. Because some photons reflect off of things like branches but others continue down towards the ground, multiple reflections may be recorded from one pulse of light.
+
+The distribution of energy that returns to the sensor creates what is called a waveform. The amount of energy that returned to the LiDAR sensor is known as "intensity". The areas where more photons or more light energy returns to the sensor create peaks in the distribution of energy. These peaks in the waveform often represent objects on the ground like - a branch, a group of leaves or a building.
 
 <figure>
    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" target="_blank">
@@ -131,6 +133,7 @@ sensor create peaks in the distribution of energy. Theses peaks in the waveform 
 
 
 ## How Scientists Use LiDAR Data
+
 There are many different uses for LiDAR data.
 
 - LiDAR data classically have been used to derive high resolution elevation data
@@ -162,15 +165,16 @@ structure including
 </figure>
 
 ## Discrete vs. Full Waveform LiDAR
+
 A waveform or distribution of light energy is what returns to the LiDAR sensor. However, this return may be recorded in two different ways.
 
 1. A **Discrete Return LiDAR System** records individual (discrete) points for
-the peaks in the waveform curve. Discrete return LiDAR systems, identify peaks
+the peaks in the waveform curve. Discrete return LiDAR systems identify peaks
 and record a point at each peak location in the waveform curve. These discrete
 or individual points are called returns. A discrete system may record 1-4 (and
 sometimes more) returns from each laser pulse.
 2. A **Full Waveform LiDAR System** records a distribution of returned light
-energy. Full waveform LiDAR data are thus more complex to process however they
+energy. Full waveform LiDAR data are thus more complex to process; however, they
 can often capture more information compared to discrete return LiDAR systems.
 
 <figure>
@@ -181,11 +185,13 @@ can often capture more information compared to discrete return LiDAR systems.
 </figure>
 
 ## LiDAR File Formats
+
 Whether it is collected as discrete points or full waveform, most often LiDAR data are available as discrete points. A collection of discrete return LiDAR points is known as a LiDAR point cloud.
 
-The commonly used file format to store LIDAR point cloud data is the .las format. The [.laz](http://www.laszip.org/) format is a highly compressed version of .las and is becoming more widely used.
+The commonly used file format to store LIDAR point cloud data is the .las format. The <a href="https://laszip.org/" target="_blank">.laz</a> format is a highly compressed version of .las and is becoming more widely used.
 
 ### LiDAR Data Attributes: X,Y, Z, Intensity and Classification
+
 LiDAR data attributes can vary, depending upon how the data were collected and processed. You can determine what attributes are available for each lidar point by looking at the metadata.
 
 All lidar data points will have:
@@ -199,10 +205,9 @@ Most lidar data points will have:
 
 ## Classified Lidar Point Clouds
 
-Some LiDAR point cloud data will also be "classified". Classification refers to tagging each point with the object that it reflected off of. So if a pulse reflects off of a tree branch, you would assign it to the class "vegetation". If the pulse reflects off of the ground, you would assign it to the class "ground". Classification of LiDAR point clouds is an additional processing step. 
+Some LiDAR point cloud data will also be "classified". Classification refers to tagging each point with the object off which it reflected. So if a pulse reflects off a tree branch, you would assign it to the class "vegetation". If the pulse reflects off the ground, you would assign it to the class "ground". Classification of LiDAR point clouds is an additional processing step. 
 
-Some LiDAR products will be classified as "ground/non-ground". Some datasets will be further processed to determine which points reflected off of buildings and other infrastructure. Some LiDAR data will be classified according to the
-vegetation type.
+Some LiDAR products will be classified as "ground/non-ground". Some datasets will be further processed to determine which points reflected off of buildings and other infrastructure. Some LiDAR data will be classified according to the vegetation type.
 
 
 

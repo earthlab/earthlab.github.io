@@ -6,10 +6,17 @@ authors: ['Chris Holdgraf', 'Data Carpentry', 'Leah Wasser', 'Martha Morrissey']
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
+<<<<<<< HEAD
 permalink: /courses/earth-analytics-python/02-intro-to-python-and-time-series-data/about-and-get-help-with-python/
 nav-title: 'About Python & Get Help'
 dateCreated: 2017-05-05
 modified: 2018-09-07
+=======
+permalink: /courses/earth-analytics-python/use-time-series-data-in-python/about-and-get-help-with-python/
+nav-title: 'About Python & Get Help'
+dateCreated: 2017-05-05
+modified: 2018-09-25
+>>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 week: 3
 sidebar:
   nav:

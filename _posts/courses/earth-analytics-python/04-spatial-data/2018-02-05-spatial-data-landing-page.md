@@ -1,10 +1,11 @@
 ---
 layout: single
 category: courses
-title: "Intro to Spatial Data"
-permalink: /courses/earth-analytics-python/spatial-data/introduction-to-spatial-data-in-open-source-python/
+title: "Introduction to Shapefiles and Vector Data in Open Source Python"
+permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 4
 week: 4
+modified: 2018-10-08
 sidebar:
   nav:
 comments: false
@@ -13,6 +14,8 @@ course: "earth-analytics-python"
 module-type: 'session'
 ---
 {% include toc title="This Week" icon="file-text" %}
+
+
 
 
 <div class="notice--info" markdown="1">
@@ -29,7 +32,8 @@ You will need a computer with internet access to complete this lesson and the
 spatial-vector-lidar data subset created for the course. Note that the data  download below is large (172MB)
 however it contains data that you will use for the next 2 weeks!
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download spatial-vector-lidar data subset (~172 MB)](https://ndownloader.figshare.com/files/12447845){:data-proofer-ignore='' .btn }
+{% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
+
 
 </div>
 
@@ -39,6 +43,7 @@ however it contains data that you will use for the next 2 weeks!
 | 9:45 - 10:15  | Coordinate reference systems & spatial metadata 101 |  |  |  |
 | 10:25 - 12:20 | `Python` coding session - spatial data in `Python`  | Leah |  |  |
 
+<!-- 
 ### 1. Complete the Assignment Below
 
 <div class="notice--warning" markdown="1">
@@ -53,39 +58,9 @@ Within your `.ipynb` document, include the plots listed below.
 You will submit an `.ipynb` file. Be sure to name your file as instructed above!
 
 In your report, include the plots below. The important part of this week is that you document each step of your workflow using comments. And that you break up the sections of your analysis into SEPARATE code chunks.
-
-
-
-#### Plot 1 - Roads Map and Legend
-
-Create a map of California roads:
-
-1. Import the `madera-county-roads/tl_2013_06039_roads.shp` layer located in your `week_04` data download.
-2. Create a map that shows the madera roads layer, sjer plot locations and the sjer_aoi boundary (sjer_crop.shp).
-3. Plot the roads so different **road types** (using the RTTYP field) are represented using unique symbology. Use the `RTTYP` field to plot unique road types.
-4. Map the plot locations by the attribute **plot type** using unique symbology for each "type".
-4. Add a **title** to your plot.
-5. Adjust your plot legend so that the full name for each `RTTYP` name is clearly represented in your legend. HINT: You will need to consult the metadata for that layer to determine what each `RTTYP` type represents.
-6. Be sure that your plot legend is not covering your data.
-
-**IMPORTANT:** be sure that all of the data are within the same `EXTENT` and `crs` of the `sjer_aoi` layer. This means that you may have to crop and reproject your data prior to plotting it!
-
  
 
-### Calculate Total Length of Road for each County in California
 
-Create a geopandas `data.frame` that shows the total length of road in each county in the state of California.
-To calculate this use the following layers:
-
-* COUNTIES in California: `spatial-vector-lidar/california/ca_counties/CA_Counties_TIGER2016.shp` layer 
-* Roads: `spatial-vector-lidar/global/ne_10m_roads/ne_10m_roads.shp` layer 
-
-IMPORTANT: before performing this calculation, REPROJECT both data layers to albers `.to_crs({'init': 'epsg:5070'})`
-Tips
-
-* remember that both layers need to he in the SAME coordinate reference system for you to work wtih them together. 
-* You will want to clip the roads to the boundary of California. The `unary_union` attribute will be useful for this clip operation!
-* HINT: you may need to rename a column for this to work properly. You can use `dataframe.rename(columns = {'old-col-name':'new-col-name'}, inplace = True)` to rename a column in pandas. 
 
 
 ### Submit to D2L
@@ -122,7 +97,10 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 | Full Credit | No Credit  |
 |:----|----|
 | Road length for each county is correct  |   |   |
+-->
 
+
+## Plot 1 - Roads Map and Legend
 
 
 {:.output}
@@ -130,35 +108,15 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_2_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_4_0.png" alt = "Map showing the SJER field site roads and plot locations clipped to the site boundary.">
+<figcaption>Map showing the SJER field site roads and plot locations clipped to the site boundary.</figcaption>
 
 </figure>
 
 
 
 
-### Road Length For Del Norte, Modoc & Siskiyou Counties
-Below is a map of the road layers clipped to the three counties to help you check your answer!
-
-{:.input}
-```python
-f, ax = plt.subplots()
-three_counties.plot(ax=ax, facecolor="none", 
-                         edgecolor = "black")
-roads_county.plot(ax=ax, column = "NAME", legend = True)
-ax.set_axis_off()
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_4_0.png">
-
-</figure>
-
-
+## Plot 2 - Roads in Del Norte, Modoc & Siskiyou Counties in California
 
 
 
@@ -167,48 +125,119 @@ ax.set_axis_off()
 
 
 
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
+    <matplotlib.axes._subplots.AxesSubplot at 0x1c24bcf9e8>
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
 
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>length</th>
-    </tr>
-    <tr>
-      <th>NAME</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Del Norte</th>
-      <td>121307.4618</td>
-    </tr>
-    <tr>
-      <th>Modoc</th>
-      <td>245029.4067</td>
-    </tr>
-    <tr>
-      <th>Siskiyou</th>
-      <td>472428.0129</td>
-    </tr>
-  </tbody>
-</table>
-</div>
 
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_6_1.png">
+
+</figure>
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_7_0.png" alt = "Map showing the roads layer clipped to the three counties and colored according to which county the road is in.">
+<figcaption>Map showing the roads layer clipped to the three counties and colored according to which county the road is in.</figcaption>
+
+</figure>
+
+
+
+
+
+{:.output}
+    ('STATEFP',)
+    ('COUNTYFP',)
+    ('COUNTYNS',)
+    ('GEOID',)
+    ('NAME',)
+    ('NAMELSAD',)
+    ('LSAD',)
+    ('CLASSFP',)
+    ('MTFCC',)
+    ('CSAFP',)
+    ('CBSAFP',)
+    ('METDIVFP',)
+    ('FUNCSTAT',)
+    ('ALAND',)
+    ('AWATER',)
+    ('INTPTLAT',)
+    ('INTPTLON',)
+    ('geometry',)
+
+
+
+## Plot 3 - Quantile Map for The USA
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_10_0.png" alt = "Total land and total water aggregated by region in the United States.">
+<figcaption>Total land and total water aggregated by region in the United States.</figcaption>
+
+</figure>
+
+
+
+
+## Plot 4
+
+You can use the code below to download and unzip the data from the Natural Earth website.
+Please note that the download function was written to take
+
+1. a download path - this is the directory where you want to store your data
+2. a url - this is the URL where the data are located. The URL below might look odd as it has two "http" strings in it but it is how the url's are organized on natural earth and should work. 
+
+The `download()` function will unzip your data for you and place it in the directory that you specify. 
+
+{:.input}
+```python
+# Add this line importing the download package to your top cell with the other packages!
+from download import download
+
+# Get the data from natural earth
+url = "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip"
+
+# Please note that this is the directory name where your data will be unzipped
+download_path = os.path.join("data", "spatial-vector-lidar", "global","ne_10m_admin_0_countries")
+download(url, download_path, kind='zip', verbose=False)
+country_path = os.path.join(download_path, "ne_10m_admin_0_countries.shp")
+```
+
+
+{:.output}
+    /Users/leah-su/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/pandas/core/reshape/merge.py:544: UserWarning: merging between different levels can give an unintended result (1 levels on the left, 2 on the right)
+      warnings.warn(msg, UserWarning)
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_14_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
+<figcaption>Natural Earth Global Mean population rank and total estimated population</figcaption>
+
+</figure>
 
 
 

@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-07
+modified: 2018-09-25
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/plot-raster-histograms/
@@ -61,19 +61,18 @@ import rasterio as rio
 import matplotlib.pyplot as plt
 import numpy as np
 import os
-# you will use this library to adjust your color bar height below
-from mpl_toolkits.axes_grid1 import make_axes_locatable
-# inline plotting
+import seaborn as sns
+# Inline plotting
 plt.ion()
 
 import earthpy as et
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
-# prettier plotting with seaborn
-import seaborn as sns; 
+# Prettier plotting with seaborn
 sns.set(font_scale=1.5)
+sns.set_style("whitegrid")
 
-#format histograms
+# Format histograms
 plt.rcParams['figure.figsize'] = (8, 8)
 
 ```
@@ -82,12 +81,12 @@ As you did in the previous lessons, you can open your raster data using `rio.ope
 
 {:.input}
 ```python
-# open data and assign negative values to nan
+# Open data and assign negative values to nan
 with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as src:
     lidar_dem_im = src.read(1)
     lidar_dem_im[lidar_dem_im < 0] = np.nan
     
-# view object dimensions   
+# View object dimensions   
 lidar_dem_im.shape
 ```
 
@@ -117,7 +116,7 @@ To begin, you will look at the shape of your lidar array object
 
 {:.input}
 ```python
-# .ravel turns an 2-D array into a 1-D vector
+# The .ravel method turns an 2-D numpy array into a 1-D vector
 print(lidar_dem_im.shape)
 print(lidar_dem_im.ravel().shape)
 ```
@@ -184,9 +183,9 @@ fig, ax = plt.subplots(figsize=(10,10))
 ax.hist(lidar_dem_hist, 
         color='purple', 
         bins=3)
-ax.set(title = "Distribution of Elevation Values",
-       xlabel = 'Elevation (meters)', 
-       ylabel = 'Frequency');
+ax.set(title="Distribution of Elevation Values",
+       xlabel='Elevation (meters)', 
+       ylabel='Frequency');
 ```
 
 {:.output}
