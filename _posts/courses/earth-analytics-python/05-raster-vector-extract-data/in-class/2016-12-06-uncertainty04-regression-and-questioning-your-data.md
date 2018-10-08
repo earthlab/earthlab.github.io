@@ -3,7 +3,7 @@ layout: single
 title: "Use Regression Analysis to Explore Data Relationships & Bad Data"
 excerpt: "You often want to understand the relationships between two different types of data. Learn how to use regression to determine whether there is a relationship between two variables."
 authors: ['Max Joseph', 'Leah Wasser']
-modified: 2018-10-03
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/

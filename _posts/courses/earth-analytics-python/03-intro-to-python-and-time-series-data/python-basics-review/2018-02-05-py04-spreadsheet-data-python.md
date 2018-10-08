@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/spreadsheet-data-in-python/
 nav-title: 'Spreadsheet Data in Python'
 dateCreated: 2016-12-13
-modified: 2018-09-25
+modified: 2018-10-08
 week: 3
 sidebar:
   nav:

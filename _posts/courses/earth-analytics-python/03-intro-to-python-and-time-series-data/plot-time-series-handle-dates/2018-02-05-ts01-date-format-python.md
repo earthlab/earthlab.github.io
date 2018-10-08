@@ -3,7 +3,7 @@ layout: single
 title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in Python. It reviews how to convert a field containing dates as strings to a datetime object that Python can understand and plot efficiently. This tutorial also covers how to handle missing data values in Python."
 authors: ['Jenny Palomino', 'Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'

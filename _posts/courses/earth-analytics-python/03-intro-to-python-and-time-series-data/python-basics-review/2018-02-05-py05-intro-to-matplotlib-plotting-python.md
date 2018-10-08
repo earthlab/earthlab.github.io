@@ -3,7 +3,7 @@ layout: single
 title: "Customize matplotlib plots in Python - earth analytics - data science for scientists"
 excerpt: 'Matplotlib is one of the most commonly used plotting library in Python. This lesson covers how to create a plot using matplotlib and how to customize matplotlib plot colors and label axes in Python.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'

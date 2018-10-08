@@ -3,7 +3,7 @@ layout: single
 title: "The Relationship Between Precipitation and Stream Discharge | Explore Mass Balance"
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2018-09-25
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'

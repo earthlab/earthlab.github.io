@@ -4,7 +4,7 @@ title: "Handle missing spatial attribute data Python: GIS in Python"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in Python. "
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/missing-data-vector-data-in-python/
