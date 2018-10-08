@@ -3,11 +3,7 @@ layout: single
 title: "Customize Matplotlibe Dates Ticks on the x-axis in Python"
 excerpt: 'When you plot time series data in matplotlib, you often want to customize the date format that is presented on the plot. Learn how to customize the date format in a Python matplotlib plot.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-<<<<<<< HEAD
-modified: 2018-09-07
-=======
-modified: 2018-09-25
->>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -217,12 +213,8 @@ ax.set(title="Daily Precipitation (inches)\nBoulder, Colorado 2013");
 
 <figure>
 
-<<<<<<< HEAD
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts04-customize-date-axes-matplotlib_6_0.png">
-=======
 <img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts04-customize-date-axes-matplotlib_6_0.png" alt = "Scatterplot showing daily precipitation in Boulder, Colorado.">
 <figcaption>Scatterplot showing daily precipitation in Boulder, Colorado.</figcaption>
->>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 </figure>
 
@@ -274,12 +266,8 @@ ax.xaxis.set_major_formatter(myFmt);
 
 <figure>
 
-<<<<<<< HEAD
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts04-customize-date-axes-matplotlib_8_0.png">
-=======
 <img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts04-customize-date-axes-matplotlib_8_0.png" alt = "Scatterplot showing daily precipitation with the x-axis dates cleaned up so they are easier to read.">
 <figcaption>Scatterplot showing daily precipitation with the x-axis dates cleaned up so they are easier to read.</figcaption>
->>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 </figure>
 
@@ -315,12 +303,8 @@ ax.xaxis.set_major_formatter(myFmt)
 
 <figure>
 
-<<<<<<< HEAD
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts04-customize-date-axes-matplotlib_10_0.png">
-=======
 <img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts04-customize-date-axes-matplotlib_10_0.png" alt = "Scatterplot showing daily precipitation with the x-axis dates cleaned up and the format customized so they are easier to read.">
 <figcaption>Scatterplot showing daily precipitation with the x-axis dates cleaned up and the format customized so they are easier to read.</figcaption>
->>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 </figure>
 

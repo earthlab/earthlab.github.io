@@ -1,25 +1,15 @@
 ---
 layout: single
 title: "The Relationship Between Precipitation and Stream Discharge | Explore Mass Balance"
-<<<<<<< HEAD
-excerpt: "Text here...."
-authors: ['Matt Rossi', 'Leah Wasser']
-modified: 2018-09-07
-=======
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2018-09-25
->>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
 week: 3
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/
-<<<<<<< HEAD
-nav-title: 'Mass Balance'
-=======
 nav-title: 'Cumulative Sums in Pandas (Optional)'
->>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 sidebar:
   nav:
 author_profile: false
@@ -305,12 +295,8 @@ ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated");
 
 <figure>
 
-<<<<<<< HEAD
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_6_0.png">
-=======
 <img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_6_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
 <figcaption>Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.</figcaption>
->>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 </figure>
 
@@ -499,12 +485,8 @@ plt.show()
 
 <figure>
 
-<<<<<<< HEAD
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_13_0.png">
-=======
 <img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_13_0.png" alt = "Cumulative sum plot for stream discharge.">
 <figcaption>Cumulative sum plot for stream discharge.</figcaption>
->>>>>>> d4dc438e0fe6ada29eadf5591a0cf13f238bca00
 
 </figure>
 
