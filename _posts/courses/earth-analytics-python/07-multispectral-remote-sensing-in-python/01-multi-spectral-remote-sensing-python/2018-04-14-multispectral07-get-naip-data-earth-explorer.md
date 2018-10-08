@@ -122,7 +122,7 @@ extent to search for data. Now, it's time to search for data.
 ### Step 3: Click on Results
 
 
-* Finally click on the Results tab. Here you see all of the NAIP tiles that are avaiable to "order" from the website that cover your study area.
+* Finally click on the Results tab. Here you see all of the NAIP tiles that are available to "order" from the website that cover your study area.
 
 * Notice that you can click on the icons below the scene to see the scene itself rendered on the map and to see the footprint (or extent) of the scene relative to our study area.
 
