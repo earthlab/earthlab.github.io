@@ -507,7 +507,8 @@ es.plot_rgb(naip_csf,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral02-open-NAIP-imagery-in-python_32_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral02-open-NAIP-imagery-in-python_32_0.png" alt = "RGB plot NAIP data from 2015.">
+<figcaption>RGB plot NAIP data from 2015.</figcaption>
 
 </figure>
 
@@ -530,7 +531,8 @@ es.plot_rgb(naip_csf, title="CIR NAIP image",
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral02-open-NAIP-imagery-in-python_34_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral02-open-NAIP-imagery-in-python_34_0.png" alt = "CIR (Color Infrared) plot of NAIP data from 2015.">
+<figcaption>CIR (Color Infrared) plot of NAIP data from 2015.</figcaption>
 
 </figure>
 
