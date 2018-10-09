@@ -121,62 +121,15 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 
 
 {:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x1c24bcf9e8>
-
-
-
-
-
-{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_6_1.png">
-
-</figure>
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_7_0.png" alt = "Map showing the roads layer clipped to the three counties and colored according to which county the road is in.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_6_0.png" alt = "Map showing the roads layer clipped to the three counties and colored according to which county the road is in.">
 <figcaption>Map showing the roads layer clipped to the three counties and colored according to which county the road is in.</figcaption>
 
 </figure>
 
-
-
-
-
-{:.output}
-    ('STATEFP',)
-    ('COUNTYFP',)
-    ('COUNTYNS',)
-    ('GEOID',)
-    ('NAME',)
-    ('NAMELSAD',)
-    ('LSAD',)
-    ('CLASSFP',)
-    ('MTFCC',)
-    ('CSAFP',)
-    ('CBSAFP',)
-    ('METDIVFP',)
-    ('FUNCSTAT',)
-    ('ALAND',)
-    ('AWATER',)
-    ('INTPTLAT',)
-    ('INTPTLON',)
-    ('geometry',)
 
 
 
@@ -189,7 +142,7 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_10_0.png" alt = "Total land and total water aggregated by region in the United States.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_8_0.png" alt = "Total land and total water aggregated by region in the United States.">
 <figcaption>Total land and total water aggregated by region in the United States.</figcaption>
 
 </figure>
@@ -234,7 +187,7 @@ country_path = os.path.join(download_path, "ne_10m_admin_0_countries.shp")
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_14_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_12_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
 <figcaption>Natural Earth Global Mean population rank and total estimated population</figcaption>
 
 </figure>
