@@ -132,17 +132,16 @@ extent to search for data. Now, it's time to search for data.
   
   HINT: view the footprint of the data in Earth Explorer to pick the tile the best covers your study area. There are a few tiles that cover some of the study area but only one that covers the entire area! 
 
-### Step 4: Order Your Data
+### Step 4: Download Your Data
 
 
-* Click the <i class="fa fa-shopping-cart" aria-hidden="true"></i> shopping cart icon to add the data to your cart.
-* Click on "item basket" in the upper right hand corner of your browser to see what you have ordered.
-* Click on <kbd>Proceed to Checkout</kbd>
-* Then finally, click on <kbd>Submit Order </kbd>
+* Click the <i class="fa fa-download" aria-hidden="true"></i> download icon (3rd from the right) to download the image
+* Place the image in your earth-analytics directory to use for your homework.
 
+<!--
 <i class="fa fa-star" aria-hidden="true"></i>**IMPORTANT:** It will take a few days for the link that you can use to download your data to be emailed to your account. Order now!
 {: .notice--success}
-
+-->
 
 ## Explore Newly Downloaded Data
 
