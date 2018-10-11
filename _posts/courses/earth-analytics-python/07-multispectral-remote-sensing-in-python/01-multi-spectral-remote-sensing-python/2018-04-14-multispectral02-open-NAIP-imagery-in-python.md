@@ -3,7 +3,7 @@ layout: single
 title: "Learn to Use NAIP Multiband Remote Sensing Images in Python"
 excerpt: "Learn how to open up a multi-band raster layer or image stored in .tiff format in Python using Rasterio. Learn how to plot histograms of raster values and how to plot 3 band RGB and color infrared or false color images."
 authors: ['Leah Wasser']
-modified: 2018-10-08
+modified: 2018-10-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/naip-imagery-raster-stacks-in-python/
@@ -694,25 +694,32 @@ Just like you did with single band rasters, you can view a histogram of each ban
 You can use the `es.hist()` function in earthpy to plot histograms for all bands in your raster. Hist() accepts several arguments including
 
 * `colors=`: a list of colors to use for each histogram
-* `titles=`: plot titles to use for each histogram
+* `title=`: plot titles to use for each histogram
 
 {:.input}
 ```python
+# Create a colors and titles list to use in the histogram, then plot
 colors = ['r', 'g', 'b', 'k']
 titles = ['red band', 'green band', 'blue band', 'nir band']
-es.hist(naip_csf, colors=colors, title=titles, cols=2)
+es.hist(naip_csf, 
+        colors=colors, 
+        title=titles, 
+        cols=2)
 ```
 
 {:.output}
-{:.display_data}
 
-<figure>
+    ---------------------------------------------------------------------------
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral02-open-NAIP-imagery-in-python_44_0.png" alt = "Histogram for each band in the NAIP data from 2015.">
-<figcaption>Histogram for each band in the NAIP data from 2015.</figcaption>
+    TypeError                                 Traceback (most recent call last)
 
-</figure>
+    <ipython-input-25-8b54f13fb236> in <module>()
+          5         colors=colors,
+          6         title=titles,
+    ----> 7         cols=2)
+    
 
+    TypeError: hist() got an unexpected keyword argument 'title'
 
 
 

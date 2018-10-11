@@ -3,7 +3,7 @@ layout: single
 title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat data in Python. Also learn how to create RGB and color infrafed Landsat image composites."
 authors: ['Leah Wasser']
-modified: 2018-10-08
+modified: 2018-10-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/landsat-bands-geotif-in-Python/
@@ -274,9 +274,34 @@ This tells python to look for the word band anywhere before the `.tif` extension
 
 {:.input}
 ```python
-all_landsat_bands = glob(
+all_landsat_post_bands = glob(
     "data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/*band*.tif")
-all_landsat_bands
+all_landsat_post_bands
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif']
+
+
+
+
+
+Be sure that your bands are in order starting at 1 and ending at 7! If there data are not in order, you can use the `.sort()` list method to sort your list alphabetically. The data in this lesson are sorted properly however we have noticed that this sort doesn't happen by default on some machines. The code below will sort your list.
+
+{:.input}
+```python
+all_landsat_post_bands.sort()
+all_landsat_post_bands
 ```
 
 {:.output}
@@ -303,11 +328,12 @@ Remember that Python uses 0 based indexing so band 3 is actually at index `[2]` 
 {:.input}
 ```python
 # Open a single band and plot
-with rio.open(all_landsat_bands[3]) as src:
+with rio.open(all_landsat_post_bands[3]) as src:
     landsat_band4 = src.read()
 
 es.plot_bands(landsat_band4[0],
-              title="Landsat Cropped Band 4\nColdsprings Fire Scar")
+              title="Landsat Cropped Band 4\nColdsprings Fire Scar",
+              cmap="Greys_r")
 ```
 
 {:.output}
@@ -315,7 +341,7 @@ es.plot_bands(landsat_band4[0],
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_12_0.png" alt = "Landsat band 4  - red band - plot.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_14_0.png" alt = "Landsat band 4  - red band - plot.">
 <figcaption>Landsat band 4  - red band - plot.</figcaption>
 
 </figure>
@@ -342,10 +368,10 @@ down how this function works in case you want to know.
 
 {:.input}
 ```python
-landsat_pre_fire_path = "data/cold-springs-fire/outputs/landsat_post_fire.tif"
+landsat_post_fire_path = "data/cold-springs-fire/outputs/landsat_post_fire.tif"
 # This will create a new stacked raster with all bands
-land_stack, land_meta = es.stack_raster_tifs(all_landsat_bands,
-                                             landsat_pre_fire_path)
+land_stack, land_meta = es.stack_raster_tifs(all_landsat_post_bands,
+                                             landsat_post_fire_path)
 ```
 
 #### Open The New Raster Stack 
@@ -355,17 +381,18 @@ Once you have stacked your data, you can import it and work with it as you need 
 
 {:.input}
 ```python
-with rio.open(landsat_pre_fire_path) as src:
-    landsat_pre_fire = src.read()
+with rio.open(landsat_post_fire_path) as src:
+    landsat_post_fire = src.read()
 ```
 
 {:.input}
 ```python
 # Plot all bands using earthpy
 band_titles = ["Band 1", "Blue", "Green", "Red", "NIR",
-                     "Band 6", "Band7"]
-es.plot_bands(landsat_pre_fire,
-              title=band_titles)
+               "Band 6", "Band7"]
+es.plot_bands(landsat_post_fire,
+              title=band_titles,
+              cmap="Greys_r")
 ```
 
 {:.output}
@@ -373,7 +400,7 @@ es.plot_bands(landsat_pre_fire,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_17_0.png" alt = "Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_19_0.png" alt = "Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.">
 <figcaption>Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.</figcaption>
 
 </figure>
@@ -392,16 +419,16 @@ at the top of this page to figure out the red, green and blue bands. Or read the
 ```python
 # rgb = [3,2,1]
 # # grab 3 bands and turn into array
-# rgb_bands = np.asarray([landsat_pre_fire[i] for i in rgb])
+# rgb_bands = np.asarray([landsat_post_fire[i] for i in rgb])
 # rgb_bands = rgb_bands.transpose([1, 2, 0])
 # rgb_bands.shape
 ```
 
 {:.input}
 ```python
-es.plot_rgb(landsat_pre_fire,
+es.plot_rgb(landsat_post_fire,
             rgb=[3, 2, 1],
-            title="RGB Composite Image\n Landsat Data")
+            title="RGB Composite Image\n Post Fire Landsat Data")
 ```
 
 {:.output}
@@ -409,7 +436,7 @@ es.plot_rgb(landsat_pre_fire,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_20_0.png" alt = "Landsat 8 3 band color RGB composite.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_22_0.png" alt = "Landsat 8 3 band color RGB composite.">
 <figcaption>Landsat 8 3 band color RGB composite.</figcaption>
 
 </figure>
@@ -450,7 +477,7 @@ Below you use the stretch argument built into the earthpy `plot_rgb()` function.
 
 {:.input}
 ```python
-es.plot_rgb(landsat_pre_fire,
+es.plot_rgb(landsat_post_fire,
             rgb=[3, 2, 1],
             title="Landsat RGB Image\n Linear Stretch Applied",
             stretch=True,
@@ -462,7 +489,7 @@ es.plot_rgb(landsat_pre_fire,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_22_0.png" alt = "Landsat 3 band RGB color composite with stretch applied.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_24_0.png" alt = "Landsat 3 band RGB color composite with stretch applied.">
 <figcaption>Landsat 3 band RGB color composite with stretch applied.</figcaption>
 
 </figure>
@@ -473,7 +500,7 @@ es.plot_rgb(landsat_pre_fire,
 {:.input}
 ```python
 # Adjust the amount of linear stretch to futher brighten the image
-es.plot_rgb(landsat_pre_fire,
+es.plot_rgb(landsat_post_fire,
             rgb=[3, 2, 1],
             title="Landsat RGB Image\n Linear Stretch Applied",
             stretch=True,
@@ -485,7 +512,7 @@ es.plot_rgb(landsat_pre_fire,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_23_0.png" alt = "Landsat 3 band RGB color composite with stretch and more clip applied.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_25_0.png" alt = "Landsat 3 band RGB color composite with stretch and more clip applied.">
 <figcaption>Landsat 3 band RGB color composite with stretch and more clip applied.</figcaption>
 
 </figure>
@@ -499,8 +526,8 @@ You can create a histogram to view the distribution of pixel values in the rgb b
 
 {:.input}
 ```python
-es.hist(landsat_pre_fire,
-       title=band_titles)
+es.hist(landsat_post_fire,
+        title=band_titles)
 ```
 
 {:.output}
@@ -508,7 +535,7 @@ es.hist(landsat_pre_fire,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_25_0.png" alt = "Landsat 8 histogram for each band.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_27_0.png" alt = "Landsat 8 histogram for each band.">
 <figcaption>Landsat 8 histogram for each band.</figcaption>
 
 </figure>
@@ -522,9 +549,9 @@ your eye can see. Create a color infrared image using landsat bands: 4,3,2.
 
 {:.input}
 ```python
-es.plot_rgb(landsat_pre_fire, rgb=[4, 3, 2],
+es.plot_rgb(landsat_post_fire, rgb=[4, 3, 2],
             title="RGB Landsat Image Pre-Coldsprings Fire",
-            figsize=(10,10))
+            figsize=(10, 10))
 ```
 
 {:.output}
@@ -532,7 +559,7 @@ es.plot_rgb(landsat_pre_fire, rgb=[4, 3, 2],
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_27_0.png" alt = "Landsat 8 CIR color composite image.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral05-landsat-tifs-in-python_29_0.png" alt = "Landsat 8 CIR color composite image.">
 <figcaption>Landsat 8 CIR color composite image.</figcaption>
 
 </figure>
