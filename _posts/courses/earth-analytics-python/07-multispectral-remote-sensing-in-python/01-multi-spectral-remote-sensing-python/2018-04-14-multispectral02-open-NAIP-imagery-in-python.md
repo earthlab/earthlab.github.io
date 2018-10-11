@@ -708,18 +708,15 @@ es.hist(naip_csf,
 ```
 
 {:.output}
+{:.display_data}
 
-    ---------------------------------------------------------------------------
+<figure>
 
-    TypeError                                 Traceback (most recent call last)
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral02-open-NAIP-imagery-in-python_44_0.png" alt = "Histogram for each band in the NAIP data from 2015.">
+<figcaption>Histogram for each band in the NAIP data from 2015.</figcaption>
 
-    <ipython-input-25-8b54f13fb236> in <module>()
-          5         colors=colors,
-          6         title=titles,
-    ----> 7         cols=2)
-    
+</figure>
 
-    TypeError: hist() got an unexpected keyword argument 'title'
 
 
 
