@@ -183,7 +183,7 @@ elevation data in previous lessons. The same resolution concepts apply to multis
 
 In this week's class, you will look at 2 types of spectral remote sensing data:
 
-1. NAIP: National Agricultural Inventory Program data
+1. NAIP: National Agricultural Imagery Program data
 2. Landsat: Landuse Sattelite 
 
 Next week you will work with MODIS (Moderate Imaging Spectrometer) data.
