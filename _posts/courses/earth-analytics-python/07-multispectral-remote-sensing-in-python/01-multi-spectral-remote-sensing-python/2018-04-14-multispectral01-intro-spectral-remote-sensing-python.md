@@ -3,13 +3,13 @@ layout: single
 title: "Introduction to Multispectral Remote Sensing Data in Python"
 excerpt: "Multispectral remote sensing data can be in different resolutions and formats and often has different bands. Learn about the differences between NAIP, Landsat and MODIS remote sensing data as it is used in Python."
 authors: ['Leah Wasser']
-modified: 2018-10-08
+modified: 2018-10-10
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
-permalink: /courses/earth-analytics-python/multispectral-remote-sensing/intro-multispectral-data/
+permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/intro-multispectral-data/
 nav-title: 'Intro Multispectral Data'
 module-title: 'Learn How to Work With Multispectral Remote Sensing Data in Python'
-module-description: 'This teaching module overviews the use of spectral remote sensing data to better understand fire activity. In it we will review spectral remote sensing as a passive type of remote sensing and how to work with space-borne vs airborne remote sensing data in R. We cover raster stacks in R, plotting multi band composite images, calculating vegetation indices and creating functions to make the processing more efficient in Python.'
+module-description: 'Learn how to use spectral remote sensing data to better understand fire activity.'
 module-nav-title: 'Fire / spectral remote sensing data - in Python'
 module-type: 'class'
 course: "earth-analytics-python"
@@ -110,7 +110,7 @@ only have a new dataset every 2-4 years.
    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/space-airborne.png" alt="space vs airborne remote sensing">
    <figcaption>Spaceborne vs airborne remote sensing. Notice that spaceborne data
    are often of lower resolution, however, because a satellite rotates continuously
-   around the earth, the spatial coverage may be better than airborne data. <a href="http://www.cartospace.com/?page_id=22" target="_blank">Source: Cartospace</a>
+   around the earth, the spatial coverage may be better than airborne data. Source: Cartospace
    </figcaption>
 </figure>
 
@@ -183,10 +183,10 @@ elevation data in previous lessons. The same resolution concepts apply to multis
 
 In this week's class, you will look at 2 types of spectral remote sensing data:
 
-1. NAIP
-2. Landsat
+1. NAIP: National Agricultural Imagery Program data
+2. Landsat: Landuse Sattelite 
 
-Next week you will work with MODIS data.
+Next week you will work with MODIS (Moderate Imaging Spectrometer) data.
 
 ### About NAIP Multispectral Imagery
 

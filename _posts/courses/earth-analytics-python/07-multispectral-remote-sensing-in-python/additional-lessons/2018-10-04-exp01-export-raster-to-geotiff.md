@@ -141,7 +141,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/additional-lessons/2018-10-04-exp01-export-raster-to-geotiff_6_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/additional-lessons/2018-10-04-exp01-export-raster-to-geotiff_6_0.png" alt = "NDVI for the Cold Springs Fire site derived from NAIP data. You may want to export this data as a geotiff to share and use in other tools like QGIS.">
+<figcaption>NDVI for the Cold Springs Fire site derived from NAIP data. You may want to export this data as a geotiff to share and use in other tools like QGIS.</figcaption>
 
 </figure>
 
