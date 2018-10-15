@@ -6,7 +6,7 @@ title: 'An introduction version control'
 attribution: ''
 excerpt: 'Learn what version control is, and how Git and GitHub are used in a typical version control workflow.'
 dateCreated: 2017-09-12
-modified: '2018-09-10'
+modified: '2018-09-14'
 module-title: 'Introduction to version control'
 module-description: 'This module includes instructions for setting up your Git environment, introduces key version control concepts, and describes first steps to start using version control with Git and GitHub.'
 module-nav-title: 'Version control'
@@ -120,7 +120,7 @@ each change and end up with your latest version.
 	<img src="{{  site.url }}/images/workshops/version-control/swc_git_play-changes.svg" alt = "A version control system saves changes to a document, sequentially as you add and commit them to the system."></a>
 	<figcaption> A version control system saves changes to a document, sequentially
   as you add and commit them to the system.
-	Source: <a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -136,7 +136,7 @@ to the same document.
 	<img src="{{  site.url }}/images/workshops/version-control/swc_git_versions.svg" ALT = "Different versions of the same document can be saved within a version control system."></a>
 	<figcaption> Different versions of the same document can be saved within a
   version control system.
-	Source: <a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -151,7 +151,7 @@ ways) you can review two sets of changes on the same base document.
 	together, within a version control system <strong> if </strong> there are no conflicts (areas
 	where both users <strong> modified the same part of the same document in different ways</strong>).
 	Changes submitted by both users can then be merged together.
-	Source: <a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 

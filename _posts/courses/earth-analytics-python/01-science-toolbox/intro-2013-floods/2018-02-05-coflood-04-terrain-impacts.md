@@ -3,7 +3,7 @@ layout: single
 title: 'Measure Changes in the Terrain Caused by a Flood Using Lidar Data'
 excerpt: "A flood event often changes the terrain as water moves sediment and debris across the landscape. Learn how terrain changes are measured using lidar remote sensing data."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2018-09-10
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/measure-changes-in-terrain-caused-by-floods/
@@ -136,7 +136,7 @@ Below is a cross-section showing the data represented by a DoD. The orange areas
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg">
  <img src="{{ site.url }}/images/courses/earth-analytics/science/colorado-floods/dtm-dod-cross-section-colorado-floods.jpg" alt = "A cross section of what is represented in a Digital Elevation Model of Difference (DoD)."></a>
- <figcaption>A cross section of what is represented in a Digital Elevation Model of Difference (DoD). Source:<a href="https://www.neonscience.org/overview-disturbance-events-co13flood" target="_blank">NEON.</a>
+ <figcaption>A cross section of what is represented in a Digital Elevation Model of Difference (DoD). Source: NEON.
  </figcaption>
 </figure>
 

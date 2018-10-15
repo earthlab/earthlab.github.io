@@ -1,14 +1,14 @@
 ---
 layout: single
 title: 'Get Files From GitHub'
-excerpt: "GitHub can be used to store and access files. Learn how to create a copy of files on GitHub (forking) and to use the Terminal to download the copy to your computer (cloning)."
+excerpt: "GitHub can be used to store and access files. Learn how to create a copy of files on Github (forking) and to use the Terminal to download the copy to your computer (cloning). You will also learn how to to update your forked repository with changes made in the original Github repository."
 authors: ['Jenny Palomino', 'Leah Wasser', 'Martha Morrissey',  'Software Carpentry']
 category: [courses]
 class-lesson: ['get-started-with-open-science']
 permalink: /courses/earth-analytics-bootcamp/get-started-with-open-science/get-files-from-github/
 nav-title: "Get Files From GitHub"
 dateCreated: 2018-06-27
-modified: 2018-08-08
+modified: 2018-09-19
 module-type: 'class'
 class-order: 1
 course: "earth-analytics-bootcamp"
@@ -23,7 +23,7 @@ topics:
 ---
 {% include toc title="In This Lesson" icon="file-text" %}
 
-In this lesson, you will learn how to create a copy of other users' files on `GitHub` (i.e. forking) and to use the `Terminal` to download the copy to your computer (i.e. cloning). 
+In this lesson, you will learn how to create a copy of other users' files on `Github.com` (i.e. forking) and to use the `Terminal` to download the copy to your computer (i.e. cloning). You will learn how to to update your forked repository with changes made in the original `Github` repository (i.e. pulling)
 
 <div class='notice--success' markdown="1">
 
@@ -31,9 +31,10 @@ In this lesson, you will learn how to create a copy of other users' files on `Gi
 
 After completing this lesson, you will be able to:
 
-* Explain how `GitHub` and `Git` use repositories to store and manage files
+* Explain how `Github.com` and `Git` use repositories to store and manage files
 * Create a copy of (i.e. `fork`) other users' files on `Github.com` 
 * Use the `Git clone` command to download your copy of files to your computer 
+* Update your forked repository with changes made in the original `Github`repository (i.e. `git pull`)
 
  
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -80,17 +81,17 @@ Throughout the course, you will learn more about the functionality provided by `
 
 The URL link to a `GitHub` repository always follows the same format: `https://github.com/username/repositoryname`. 
 
-You can `fork` an existing `Github` repository from the main `Github.com` page of the repository that you want to copy (example: `https://github.com/earthlab-education/ea-bootcamp-day-1`).
+You can `fork` an existing `Github` repository from the main `Github.com` page of the repository that you want to copy (example: `https://github.com/earthlab-education/example-repository`).
 
 On the main `Github.com` page of the repository, you will see a button on the top right that says `Fork`. The number next to `Fork` tells the number of times that the repository has been copied or forked.
 
 Click on the `Fork` button and select your `Github.com` account as the home of the forked repository. 
 
 <figure>
-   <a href="https://help.github.com/assets/images/help/repository/fork_button.jpg">
-   <img src="https://help.github.com/assets/images/help/repository/fork_button.jpg" alt="Fork an existing Github.com repository to make a copy of other users' files. Source: Github.com."></a>
-   <figcaption>Fork an existing Github.com repository to make a copy of other users' files. Source: Github.com.
-   </figcaption>
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/git-fork-repo.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
+ <figcaption> You can create a copy of repositories created by other users on Github by forking their repository to your Github account. 
+ </figcaption>
 </figure>
 
 
@@ -115,38 +116,96 @@ $ pwd
 
 ### Copy a Github.com Repository URL From Github.com
 
-Because you forked the `ea-bootcamp-day-1` repository, your `Github.com` account now contains a copy of it, which you can access on `https://github.com/your-username/ea-bootcamp-day-1`. 
+Because you forked `example-repository`, your `Github.com` account now contains a copy of it, which you can access on `https://github.com/your-username/example-repository`. 
 
-On the main `Github.com` page of your forked repository, click on the green button for `Clone or download`, and copy the URL provided in the box, which will look like: `https://github.com/jlpalomino/ea-bootcamp-day-1`. 
-
+On the main `Github.com` page of your forked repository, click on the green button for `Clone or download`, and copy the URL provided in the box, which will look like: `https://github.com/your-username/example-repository`. 
 
 <figure>
-    <a href="https://services.github.com/on-demand/images/gifs/github-cli/git-clone.gif">
-   <img src="https://services.github.com/on-demand/images/gifs/github-cli/git-clone.gif" alt="Copy the url of a Github repository on Github.com. Source: Github.com"></a>
-   <figcaption>Copy the url of a Github repository on Github.com. Source: Github.com
-   </figcaption>
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/git-clone-repo.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/git-clone-repo.gif" alt="You can make a local copy of your forked repository on your computer with the git clone command."></a>
+ <figcaption> You can make a local copy of your forked repository on your computer with the git clone command. 
+ </figcaption>
 </figure>
-
 
 Note: you do not have to use the `Clone or download` button to copy the URL. You can also copy it directly from your web browser or you might simply already know the URL. However, in many cases, you will have come across a `Github.com` repository on your own and will need to follow these instructions to copy the URL for future use.
 
 
 ### Run the Git Clone Command in the Terminal
 
-To download your forked copy of the `ea-bootcamp-day1` repository to your computer, be sure that you have changed to the correct working directory (see **Use `Bash` to Change to Your Desired Working Directory**). 
+To download your forked copy of `example-repository` to your computer, be sure that you have changed to the correct working directory (see **Use `Bash` to Change to Your Desired Working Directory**). 
 
 Then, run the command `git clone` followed by the URL that you copied in above as follows: 
 
 ```bash
-git clone https://github.com/your-username/ea-bootcamp-day-1
+git clone https://github.com/your-username/example-repository
 ```
 
-You have now made a local copy of the forked `Github.com` repository under your `earth-analytics-bootcamp` directory. Double check that the directory exists using the `ls` command in terminal. 
+You have now made a local copy of your forked repository under your `earth-analytics-bootcamp` directory. Double check that the directory exists using the `ls` command in terminal. 
 
 ```bash
 $ ls     
-    ea-bootcamp-day-1
+    example-repository
 ```
+
+## Update Your Repository on Github.com and Locally
+
+When others make in the original repository, you can copy (i.e. pull) those changes to your fork of that repository and then you can copy those changes to the clone on your local computer. 
+
+First, you need to create a pull request on `Github.com` to update your fork of the repository from the original repository, and then you need to run the `git pull` command in the Terminal to update your local clone. The following sections review how to complete these steps. 
+
+
+### Update Your Forked Repo on Github.com
+
+To update your fork on `Github.com`, navigate in your web browser to the main `Github.com` page of your forked repository: `https://github.com/your-username/example-repository`.
+
+On this web page, create a pull request from the original repository by following these steps:
+1. Click on the `New pull request` button to begin the pull request
+2. On the new page, choose your fork as the **base fork** and the original repository (e.g. from earthlab-education) as the **head fork**.  This will indicate that the changed files are being requested by your fork (i.e. the base fork) from the original repository (i.e. the head fork). **You will need to click on the text `compare across forks` to be able to update both the base and head forks appropriately.** 
+4. Then, click on `Create pull request`.
+5. On the new page, click on `Create pull request` once more to finish creating the pull request. 
+
+<figure>
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/github-create-reverse-pull-request.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/github-create-reverse-pull-request.gif" alt="You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork."></a>
+ <figcaption> You can update your fork with changes made to the original Github repository by creating a pull request from the original repository to your fork. 
+ </figcaption>
+</figure>
+
+After creating the pull request, you need to merge the pull request, so that the changes in the original repository are copied to your computer. 
+
+You can simply click on the green button for `Merge pull request` and `Confirm merge`. Once you return to the main page of your fork, you will see the changes reflected. 
+
+<figure>
+ <a href="{{ site.url }}/images/courses/earth-analytics/git/github-merge-reverse-pull-request.gif">
+ <img src="{{ site.url }}/images/courses/earth-analytics/git/github-merge-reverse-pull-request.gif" alt="After creating a pull request, you merge the pull request to apply the changes from the original repository to your fork."></a>
+ <figcaption> After creating a pull request, you merge the pull request to apply the changes from the original repository to your fork. 
+ </figcaption>
+</figure>
+
+
+### Update Your Local Clone 
+
+To copy the updated files locally to your computer, you can use the Terminal. 
+
+Run the following commands to navigate to the directory that contains your local clone and then to pull down the changes from your updated `Github` fork.
+
+```bash
+$ cd ~
+$ cd earth-analytics-bootcamp
+$ cd example-repository
+$ git pull
+```
+
+Congratulations! You have now updated your local clone with the updates made to the original `Github` repository.
+
+
+## Making Changes in Your Clone
+
+In this lesson, you will not be modifying the files in the `Github` repository that you clone from `earthlab-education`. If you would like, you can copy/paste files that you want to modify and place them in the named folder that your instructor has designated for you (e.g. `place-your-modified-files-here`). 
+
+Files in this designated folder will be ignored by `git`, so that they will not get overwritten when you download new changes to your local clone.
+
+In future lessons, you will learn how to make changes to files in your local clone and then submit a request to update the original repository. 
 
 <div class="notice--warning" markdown="1">
 

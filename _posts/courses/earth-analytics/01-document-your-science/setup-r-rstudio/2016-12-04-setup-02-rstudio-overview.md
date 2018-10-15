@@ -61,8 +61,8 @@ preferences: (From the RStudio drop down choose: `RStudio -> Preferences -> Pane
 You can also drag the panes using your mouse to move / resize them.
 
 <figure>
-	<a href="{{ site.url }}/images/courses/earth-analytics/week-02/get-to-know-r/rstudio-interface.png">
-	<img src="{{ site.url }}/images/courses/earth-analytics/week-02/get-to-know-r/rstudio-interface.png" alt="rstudio interface">
+	<a href="{{ site.url }}/images/courses/earth-analytics/co-flood-lessons/get-to-know-r/rstudio-interface.png">
+	<img src="{{ site.url }}/images/courses/earth-analytics/co-flood-lessons/get-to-know-r/rstudio-interface.png" alt="rstudio interface">
 	</a>
 	<figcaption>The RStudio IDE (Integrated Development Environment) is divided into
   four panes in its default layout.

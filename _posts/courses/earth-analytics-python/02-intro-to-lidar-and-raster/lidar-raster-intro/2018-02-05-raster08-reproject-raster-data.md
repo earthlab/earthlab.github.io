@@ -3,7 +3,7 @@ layout: single
 title: "Reproject Raster Data Python"
 excerpt: "This lesson teaches you how to reproject raster data using rasterio."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-10
+modified: 2018-09-25
 category: ['courses']
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/reproject-raster/

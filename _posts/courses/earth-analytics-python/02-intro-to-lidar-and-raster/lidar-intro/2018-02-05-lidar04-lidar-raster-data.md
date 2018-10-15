@@ -3,7 +3,7 @@ layout: single
 title: "How lidar point clouds are converted to raster data formats - remote sensing data"
 excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
 authors: ['Leah Wasser']
-modified: 2018-09-10
+modified: 2018-09-25
 category: [courses]
 class-lesson: ['class-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/lidar-raster-data/
@@ -44,7 +44,9 @@ In the last lesson, you learned about lidar points clouds. In this lesson, you w
 
 ### How a Lidar System Records Points
 
-Remember that lidar is an active remote sensing system that records reflected or returned light energy. A discrete return lidar system, records the strongest reflections of light as discrete or individual points. Each point has an associated X, Y and Z value associated with it. It also has an intensity which represents the amount of reflected light energy that returned to the sensor.
+Remember that lidar is an active remote sensing system that records reflected or returned light energy. A discrete return lidar system, records the strongest reflections of light as discrete or individual points. 
+
+Each point has an associated X, Y and Z value associated with it. It also has an intensity which represents the amount of reflected light energy that returned to the sensor.
 
 <figure>
    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/waveform.png" target="_blank">
@@ -57,8 +59,9 @@ Remember that lidar is an active remote sensing system that records reflected or
 
 ## Gridded or Raster LiDAR Data Products
 
-Point clouds provide a lot of information, scientifically. However they can be difficult to work with given the size of the data and tools that are available to handle large volumns of points. LiDAR data products are often
-created and stored in a gridded or raster data format. The raster format can be easier for many people to work with and also is supported by many different commonly used software packages.
+Point clouds provide a lot of information, scientifically. However, they can be difficult to work with given the size of the data and tools that are available to handle large volumns of points. 
+
+LiDAR data products are often created and stored in a gridded or raster data format. The raster format can be easier for many people to work with and also is supported by many different commonly used software packages.
 
 <figure class="half">
    <a href="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-points-hill.png">
@@ -67,7 +70,7 @@ created and stored in a gridded or raster data format. The raster format can be 
    <img src="{{ site.url }}/images/courses/earth-analytics/lidar-raster-data-r/lidar-points-hill-zoomout.png" alt="LEFT: Lidar data points overlayed on top of a hillshade which represents elevation in a graphical 3-dimensional view. RIGHT: If you zoom in on a portion of the data, you will see
    that the elevation data consists of cells or pixels, And there are lidar data
    points that fall within most of the pixels."></a>
-   <figcaption>LEFT: Lidar data points overlayed on top of a hillshade which represents elevationin a graphical 3-dimensional view. RIGHT: If you zoom in on a portion of the data, you will see
+   <figcaption>LEFT: Lidar data points overlayed on top of a hillshade which represents elevation in a graphical 3-dimensional view. RIGHT: If you zoom in on a portion of the data, you will see
    that the elevation data consists of cells or pixels and there are lidar data
    points that fall within most of the pixels.
    </figcaption>
@@ -94,7 +97,7 @@ A few notes about rasters:
 
 -  Each cell is called a pixel.
 -  And each pixel represents an area on the ground.
--  The resolution of the raster represents the area that each pixel represents on the ground. So, a 1 meter resolution raster, means that each pixel represents a 1 m by 1m area on the ground.
+-  The resolution of the raster represents the area that each pixel represents on the ground. So, a 1 meter resolution raster, means that each pixel represents a 1 m by 1 m area on the ground.
 
 A raster dataset can have attributes associated with it as well. For instance in a LiDAR derived digital elevation model (DEM), each cell represents an elevation value for that location on the earth. In a LIDAR derived intensity image, each cell represents a LIDAR intensity value or the amount of light energy returned to and recorded by the sensor.
 

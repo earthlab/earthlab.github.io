@@ -96,16 +96,16 @@ Above: Watch the first 8 minutes for a nice overview of spectral remote sensing.
 ## Space vs Airborne Data
 
 Remote sensing data can be collected from the ground, the air (using airplanes or
-helicopters) or from space. You can imagine that data that are collected from space 
-are often of a lower spatial resolution than data collected from an airplane. The 
-tradeoff however is that data collected from a satellite often offers better (up 
+helicopters) or from space. You can imagine that data that are collected from space
+are often of a lower spatial resolution than data collected from an airplane. The
+tradeoff however is that data collected from a satellite often offers better (up
 to global) coverage.
 
 For example the Landsat 8 satellite has a 16 day repeat cycle for the entire globe.
 This means that you can find a new image for an area, every 16 days. It takes a
 lot of time and financial resources to collect airborne data. Thus data are often
 only available for smaller geographic areas. Also, you may not find that the data are
-available for the time periods that you need. For example, in the case of NAIP, you 
+available for the time periods that you need. For example, in the case of NAIP, you
 may only have a new dataset every 2-4 years.
 
 
@@ -113,7 +113,7 @@ may only have a new dataset every 2-4 years.
    <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/space-airborne.png" alt="space vs airborne remote sensing">
    <figcaption>Spaceborne vs airborne remote sensing. Notice that spaceborne data
    are often of lower resolution, however, because a satellite rotates continuously
-   around the earth, the spatial coverage may be better than airborne data. <a href="http://www.cartospace.com/?page_id=22" target="_blank">Source: Cartospace</a>
+   around the earth, the spatial coverage may be better than airborne data. Source: Cartospace
    </figcaption>
 </figure>
 

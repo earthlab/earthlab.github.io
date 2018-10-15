@@ -83,8 +83,8 @@ increases significantly during a flood event.
 Read more about stream discharge data collected by USGS.</a>
 
 <figure>
-<a href="{{ site.url }}/images/courses/earth-analytics/week-02/USGS-peak-discharge.gif">
-<img src="{{ site.url }}/images/courses/earth-analytics/week-02/USGS-peak-discharge.gif" alt="Plot of stream discharge from the USGS boulder creek stream gage"></a>
+<a href="{{ site.url }}/images/courses/earth-analytics/co-flood-lessons/USGS-peak-discharge.gif">
+<img src="{{ site.url }}/images/courses/earth-analytics/co-flood-lessons/USGS-peak-discharge.gif" alt="Plot of stream discharge from the USGS boulder creek stream gage"></a>
 <figcaption>
 The USGS tracks stream discharge through time at locations across the United
 States. Note the pattern observed in the plot above. The peak recorded discharge

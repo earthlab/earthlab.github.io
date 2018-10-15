@@ -3,7 +3,7 @@ layout: single
 title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in Python. It reviews how to convert a field containing dates as strings to a datetime object that Python can understand and plot efficiently. This tutorial also covers how to handle missing data values in Python."
 authors: ['Jenny Palomino', 'Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-11
+modified: 2018-10-08
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -288,7 +288,7 @@ ax.set(xlabel="Date",
 
 Look closely at the dates on the x-axis. When you plot a string field for the x-axis, `Python` gets stuck trying to plot the all of the date labels. Each value is read as a string, and it is difficult to try to fit all of those values on the x axis efficiently. 
 
-You can avoid this problem by importing the data using a parameter of the `read.csv()` that allows you to indicate that a particular column should be converted to a `datetime` object:
+You can avoid this problem by importing the data using a parameter of the `read_csv()` that allows you to indicate that a particular column should be converted to a `datetime` object:
 
 `parse_dates = ['date_column_name']`
 

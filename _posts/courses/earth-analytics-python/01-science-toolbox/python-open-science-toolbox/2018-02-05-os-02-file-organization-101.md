@@ -3,7 +3,7 @@ layout: single
 title: 'File Organization Tips'
 excerpt: 'This lesson provides a broad overview of file organization principles.'
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-10
+modified: 2018-09-25
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/best-practices-file-organization/
