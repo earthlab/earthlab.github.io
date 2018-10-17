@@ -3,7 +3,7 @@ layout: single
 title: "An Overview of the Cold Springs Wildfire"
 excerpt: "The Cold Springs wildfire burned a total of 528 acres of land between July 9, 2016 and July 14, 2016. Learn more about this wildfire and how scientists study wildfire using both field and remote sensing methods."
 authors: ['Leah Wasser']
-modified: 2018-10-15
+modified: 2018-10-16
 category: [courses]
 class-lesson: ['wildfire-overview']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/intro-wildfires/
@@ -49,13 +49,12 @@ Humans also increase the prevalence of wildfires indirectly through climate chan
 Wildfires can be both devastating and rejuvenating for the environment. While they cause destruction, many ecosystems depend on them. They perform critical ecological tasks like facilitating vegetation growth and removing non-native species. When humans actively try to prevent natural fires, it can lead to larger fires due to fuel buildup. 
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/animals-fleeing-wildfire-montana-cold-springs-fire.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/animals-fleeing-wildfire-montana-cold-springs-fire.png" alt="Two elk flee from a wildfire into a river in this photo of Bitterroot National Forest, Montana.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/animals-fleeing-wildfire-montana-cold-springs-fire.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/animals-fleeing-wildfire-montana-cold-springs-fire.jpg" alt="Two elk flee from a wildfire into a river in this photo of Bitterroot National Forest, Montana.">
   </a>
   <figcaption>Two elk seek safety in a river in this photo of a wildfire in Bitterroot National Forest, Montana taken on August 6, 2000. The year 2000 was one of the worst fire seasons in a half century in the US. By August, when this photo was taken, an area greater than the size of Maryland had burned from wildfires in the country. Source: <a href="https://earthobservatory.nasa.gov/IOTD/view.php?id=843" target="_blank">John McColgan.</a>
   </figcaption>
 </figure>
-
 
 ## Wildfire in the US 
 
@@ -64,8 +63,8 @@ Many fires have extreme impacts on humans. The deadliest fire in U.S. history wa
 One of the most destructive blazes in the world in recent history was the Cedar Fire in San Diego County, California in October 2003, killing 14 people, destroying 2,280 buildings, and burning 280,000 acres of land. The most destructive in Colorado was the Fourmile Canyon Fire in September 2010, which destroyed 168 homes and led to $217 million in insurance claims. 
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/los-angeles-day-fire-nasa-satellite-image-cold-springs-fire.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/los-angeles-day-fire-nasa-satellite-image-cold-springs-fire.png" alt="Remote sensing image of the Los Angeles Day Fire from NASA’s MASTER sensor.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/los-angeles-day-fire-nasa-satellite-image-cold-springs-fire.jp">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/los-angeles-day-fire-nasa-satellite-image-cold-springs-fire.jpg" alt="Remote sensing image of the Los Angeles Day Fire from NASA’s MASTER sensor.">
   </a>
   <figcaption>This image was taken with NASA’s aircraft-based MASTER sensor shows the Day Fire northwest of Los Angeles burning on September 19, 2006. Source: <a href="https://earthobservatory.nasa.gov/NaturalHazards/view.php?id=17339" target="_blank">NASA.</a>
   </figcaption>
@@ -79,23 +78,23 @@ The Cold Springs wildfire was first reported on July 9, 2016 along Hurricane Hil
   <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/map-nederland-cold-springs-fire.png">
     <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/map-nederland-cold-springs-fire.png" alt="Map of Nederland, Colorado.">
   </a>
-  <figcaption>Map showing the location of Nederland, Colorado, in relation to the Denver Metro Area. Source: Google Maps.</a>
+  <figcaption>Map showing the location of Nederland, Colorado, in relation to the Denver Metro Area. Source: Google Maps.
   </figcaption>
 </figure>
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/map-extent-of-cold-springs-fire.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/map-extent-of-cold-springs-fire.png" alt="Map of the extent of the Cold Springs fire near Nederland, Colorado.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/map-extent-of-cold-springs-fire.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/map-extent-of-cold-springs-fire.jpg" alt="Map of the extent of the Cold Springs fire near Nederland, Colorado.">
   </a>
-  <figcaption>This map shows the extent of the Cold Springs fire, just outside of Nederland, Colorado, at its peak on July 10th, 2016. Source: InciWeb.</a>
+  <figcaption>This map shows the extent of the Cold Springs fire, just outside of Nederland, Colorado, at its peak on July 10th, 2016. Source: InciWeb.
   </figcaption>
 </figure>
 
 The human-started wildfire was officially extinguished on July 14, 2016. It burned a total of 528 acres of land, 430 acres on privately owned land and 98 on US Forest Service property. Eight homes were lost.
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/firefighters-on-scene-of-cold-springs-fire.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/firefighters-on-scene-of-cold-springs-fire.png" alt="Firefighters on the scene of the Cold Springs Fire.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/firefighters-on-scene-of-cold-springs-fire.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/firefighters-on-scene-of-cold-springs-fire.jpg" alt="Firefighters on the scene of the Cold Springs Fire.">
   </a>
   <figcaption>Firefighters on the scene of the Cold Springs Fire on July 11, 2016. The wildfire burned mainly in Ponderosa and lodgepole pine forests. The fire burned on a total of 528 acres and destroyed eight homes. Source: <a href="https://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">The Denver Post.</a>
   </figcaption>
@@ -104,20 +103,21 @@ The human-started wildfire was officially extinguished on July 14, 2016. It burn
 The cause of the Cold Springs wildfire has been attributed to a campfire that was not properly extinguished during a county-wide fire ban. Two transient men from Alabama were charged with with fourth-degree arson. They were sentenced with two years of work release to be followed by four years of probation and must pay restitution of up to 1.25 million dollars. 
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-trees-cold-springs-fire.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-trees-cold-springs-fire.png" alt="Burned trees after the Cold Springs wildfire.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-trees-cold-springs-fire.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-trees-cold-springs-fire.jpg" alt="Burned trees after the Cold Springs wildfire.">
   </a>
-  <figcaption>A scene from the fire site taken on September 7th 2016, about two months after the Cold Springs wildfire. Source: Nate Mietkiewicz, Earth Lab.</a>
+  <figcaption>A scene from the fire site taken on September 7th 2016, about two months after the Cold Springs wildfire. Source: Nate Mietkiewicz, Earth Lab.
   </figcaption>
 </figure>
+
 
 ## Impacts of the Cold Springs Fire
 
 In addition to the homes that were destroyed, the Cold Springs Fire had significant impacts on those close to it. Due to the proximity to the town of Nederland, nearly 2,000 people were forced to evacuate. At the height of the fire, officials drafted plans to evacuate residents as far east as Boulder.
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-cars-cold-springs-fire.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-cars-cold-springs-fire.png" alt="Burned cars in Nederland, Colorado after the Cold Springs fire.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-cars-cold-springs-fire.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-cars-cold-springs-fire.jpg" alt="Burned cars in Nederland, Colorado after the Cold Springs fire.">
   </a>
   <figcaption>An image of a burned Porsche and Ford Bronco at the site of a home decimated by the Cold Springs fire in Nederland, Colorado. Source: <a href="https://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">The Denver Post.</a>
   </figcaption>

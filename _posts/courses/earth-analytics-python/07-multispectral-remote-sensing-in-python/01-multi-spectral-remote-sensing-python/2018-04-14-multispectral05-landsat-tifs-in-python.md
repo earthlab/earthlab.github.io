@@ -3,7 +3,7 @@ layout: single
 title: "Work with Landsat Remote Sensing Data in Python"
 excerpt: "Landsat 8 data are downloaded in tif file format. Learn how to open and manipulate Landsat data in Python. Also learn how to create RGB and color infrafed Landsat image composites."
 authors: ['Leah Wasser']
-modified: 2018-10-10
+modified: 2018-10-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/landsat-bands-geotif-in-Python/
@@ -197,11 +197,11 @@ To begin, explore the Landsat files in your `cold-springs-fire` directory. Start
 Note that there is a crop directory. Landsat scenes are large. To make processing quicker for you as you learn, your instructor cropped the data to a smaller spatial extent. She also added the word `_crop` to the end of each file to ensure you know the data have been modified. 
 
 
-Also notice that some of the layers are qualtiy assurance layers. Others have the word band in them. The layers with band in them are the reflectance data that you need to work with. 
+Also, notice that some of the layers are quality assurance layers. Others have the word band in them. The layers with band in them are the reflectance data that you need to work with. 
 
 To work with these files you will do the following
 
-1.  You will generate a list of all files in the directory that contain the word **band** in the name. 
+1. You will generate a list of all files in the directory that contain the word **band** in the name. 
 2. Loop through those layers to create a numpy array.
 
 You will use the `glob` function and library to do this in Python. 
@@ -217,16 +217,16 @@ glob("data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC2018021414
 
 
 
-    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
+    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif']
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif']
 
 
 
@@ -234,12 +234,12 @@ glob("data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC2018021414
 
 ### Grab Subsets of File Names Using File Names and Other Criteria 
 
-Above you generated a list of all files in the directory. However you may want to subset that list to only include
+Above you generated a list of all files in the directory. However, you may want to subset that list to only include:
 
 1. `.tif` files
 2. `.tif` files that contain the word "band" in them
 
-Note that it is important that the file **ends with** .tif. So we use the dollar sign at the end of our pattern to tell Python to only grab files that end with .tif.
+Note that it is important that the file **ends with** .tif. So we use an asterisk at the end of the path to tell Python to only grab files that end with .tif.
 
 `path/*.tif` will grab all files in the crop directory that end with the .tif extension. 
 
@@ -253,16 +253,16 @@ glob("data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC2018021414
 
 
 
-    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif',
+    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif']
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_pixel_qa_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_radsat_qa_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_aerosol_crop.tif']
 
 
 
@@ -284,11 +284,11 @@ all_landsat_post_bands
 
 
 
-    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
+    ['data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band1_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band2_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band4_crop.tif',
-     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band5_crop.tif',
+     'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band3_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band6_crop.tif',
      'data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/LC08_L1TP_034032_20160723_20180131_01_T1_sr_band7_crop.tif']
 
@@ -296,7 +296,7 @@ all_landsat_post_bands
 
 
 
-Be sure that your bands are in order starting at 1 and ending at 7! If there data are not in order, you can use the `.sort()` list method to sort your list alphabetically. The data in this lesson are sorted properly however we have noticed that this sort doesn't happen by default on some machines. The code below will sort your list.
+Be sure that your bands are in order starting at 1 and ending at 7! If the data are not in order, you can use the `.sort()` list method to sort your list alphabetically. The data in this lesson are sorted properly; however, we have noticed that this sort doesn't happen by default on some machines. The code below will sort your list.
 
 {:.input}
 ```python
@@ -351,9 +351,7 @@ es.plot_bands(landsat_band4[0],
 
 ### Create Raster Stack of All Landsat Bands in Python
 
-It's sometimes less efficient to import bands individually into Python. 
-For this class, we have build a function that will create a new stacked tif file
-from a list of tif files. This function takes 2 arguments:
+It's sometimes less efficient to import bands individually into Python. For this class, we have built a function that will create a new stacked tif file from a list of tif files. This function takes 2 arguments:
 
 1. a list of tif files that are all in the same crs and of the same extent
 2. a path to a new file where the stacked raster will be saved
@@ -544,13 +542,14 @@ es.hist(landsat_post_fire,
 
 
 Now you've created a red, green blue color composite image. Remember red green and blue are colors that
-your eye can see. Create a color infrared image using landsat bands: 4,3,2.
+your eye can see. 
 
+Next, create a color infrared image (CIR) using landsat bands: 4,3,2.
 
 {:.input}
 ```python
 es.plot_rgb(landsat_post_fire, rgb=[4, 3, 2],
-            title="RGB Landsat Image Pre-Coldsprings Fire",
+            title="CIR Landsat Image Pre-Coldsprings Fire",
             figsize=(10, 10))
 ```
 
@@ -603,7 +602,7 @@ File: `LC08_L1TP_034032_20160707_20170221_01_T1_sr_band1_crop.tif`
 We won't spend a lot of time on Julian days. The julian day used to be used in Landsat pre collections file naming. However recently they have switched to a normal year-month-date format
 
 There are several links at the bottom of this page that provide tables that help
-you <a href="<a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">convert julian days to actual date</a>.
+you <a href="https://landweb.modaps.eosdis.nasa.gov/browse/calendar.html" target="_blank">convert julian days to actual date</a>.
 
 
 </div>
