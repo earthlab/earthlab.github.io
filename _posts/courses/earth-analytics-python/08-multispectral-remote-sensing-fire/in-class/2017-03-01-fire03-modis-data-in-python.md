@@ -1,12 +1,12 @@
 ---
 layout: single
 title: "Work with MODIS Remote Sensing Data in Python"
-excerpt: "In this lesson you will explore how to import and work with MODIS remote sensing data in raster geotiff format in Python. You will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
-authors: ['Leah Wasser']
-modified: 2018-10-16
+excerpt: "MODIS is a satellite remote sensing data type that is collected daily across the globe at 250 -500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
+authors: ['Leah Wasser', 'Jenny Palomino']
+modified: 2018-10-17
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
-permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/use-modis-remote-sensing-data-in-python/
+permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/
 nav-title: 'MODIS Data in Python'
 week: 8
 course: "earth-analytics-python"
@@ -19,11 +19,9 @@ topics:
   remote-sensing: ['modis']
   earth-science: ['fire']
   spatial-data-and-gis: ['raster-data']
+  reproducible-science-and-programming: ['python']
+
 ---
-
-
-
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -32,1047 +30,347 @@ topics:
 
 After completing this tutorial, you will be able to:
 
-* Open MODIS imagery in `Python`.
-* Create NBR index using MODIS imagery in `Python`.
-* Calculate total burned area in `Python`.
+* List the MODIS spectral bands and identify which bands should be used to calculate a normalized burn ratio (NBR)
+* Import and stack MODIS imagery in `Python`.
+* Scale MODIS surface reflectance values to the appropriate range using `Python`. 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the Cold Springs Fire
 data.
 
-{% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
+{% include /data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
 
 </div>
 
 
-## Intro to modis goes here
+## Introduction to MODIS Imagery
 
+Moderate Resolution Imaging Spectrometer (MODIS) is a satellite-based instrument that continuously collects
+data over the Earth's surface. Currently, MODIS has the finest temporal resolution of the publicly available remote sensing data, spanning the entire globe every 24 hrs. 
+
+MODIS collects data across 36 spectral bands; however, in the class, you will only work with the first 7 bands. 
+
+| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
+|-------------------------------------|------------------|--------------------|----------------|
+| Band 1 - red | 620 - 670 | 250 | 2.0 |
+| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
+| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
+| Band 4 - green | 545 - 565 | 500 | 3.0 |
+| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
+| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
+| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
+
+
+### MODIS Surface Reflectance (MOD09GA Product)
+
+There are many different MODIS data products. These are datasets that are processed for use in science. In this class we are using the MOD09GA product which is a reflectance product that includes the first 7 bands of MODIS.
+
+The normal range of surface reflectance values is 0 to 1, where 1 is the BRIGHTEST values and 0 is the darkest value. Surface reflectance is a measure of the spectral reflectance of the earth's surface, as it would be if measured one the ground. You can think of it - as what your eye would see - except ofcourse your eye can't seem light outside of the visible part of the electromagnetic spectrum. 
+
+<a href="https://modis.gsfc.nasa.gov/data/dataprod/mod09.php" target="_blank">MODIS</a> provides many standardized products, including the MOD09GA product of surface reflectance which you will use in this course. The MOD09GA product provides surface reflectance at a spatial resolution of 500m across the 7 spectral bands listed in the table above. 
+
+According to the <a href="http://modis-sr.ltdri.org/" target="_blank">Land Surface Reflectance Science Computing Facility</a>, who creates the MOD09 products, the products are *estimates of the surface spectral reflectance for each band as it would have been measured at ground level as if there were no atmospheric scattering or absorption. It corrects for the effects of atmospheric gases, aerosols, and thin cirrus clouds.*
+
+### Band Metadata for the MOD09GA Product
+
+To better understand the MODIS data, have a look at the <a href="http://modis-sr.ltdri.org/guide/MOD09_UserGuide_v1_3.pdf" target="_blank">detailed table for the MOD09GA product in the MODIS users guide on page 14</a>.
+
+Part of the table is below:
+
+| Science Data Sets (HDF Layers (21)) | Units  | Data Type | Fill Value (no data) | Valid Range | Scale Factor |
+|---|---|---|---|---|---|
+| surf_Refl_b01: 500m Surface Reflectance Band 1 (620-670 nm) | Reflectance | 16-bit signed integer | -28672 | -100 to 16000 | 0.0001 |
+| surf_Refl_b02: 500m Surface Reflectance Band 2 (841-876 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 to 16000 | 0.0001 |
+| surf_Refl_b03: 500m Surface Reflectance Band 3 (459-479 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 to 16000 | 0.0001 |
+| surf_Refl_b04: 500m Surface Reflectance Band 4 (545-565 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 to 16000 | 0.0001 |
+| surf_Refl_b05: 500m Surface Reflectance Band 5 (1230-1250 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 to 16000 | 0.0001 |
+| surf_Refl_b06: 500m Surface Reflectance Band 6 (1628-1652 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 to 16000 | 0.0001 |
+| surf_Refl_b07: 500m Surface Reflectance Band 7 (2105-2155 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 to 16000 | 0.0001 |
+
+Using this table for the MOD09GA product, answer the following questions:
+1. What is valid range of values for our data?
+2. What the no data value?
+3. What is the scale factor associated with our data?
+
+
+### Identify MODIS Bands for NBR Calculations
+
+This week in class, you will be calculating NBR using MODIS data. However even though you can calculate the same vegetaion indices with many different remote sensing produts, remember that the bands for each remote sensing data  are different. Review the table above which displays the band ranges for the MODIS sensor. Recall that the NBR index will work with any multispectral sensor with a NIR band between 760 - 900 nm and a SWIR band between 2080 - 2350 nm.
+
+
+
+## Open MODIS Imagery
+
+In this lesson, you will learn how to open MODIS data using the pre-fire MODIS imagery for the Coldsprings fire study area in Colorado. 
+
+Before you get started, import the following packages and make sure that your working directory is set.
 
 {:.input}
 ```python
-from glob import glob
 import os
 
-import numpy.ma as ma 
-import pandas as pd
 import numpy as np
+import numpy.ma as ma 
 import matplotlib.pyplot as plt
-from matplotlib import patches as mpatches
-from matplotlib.colors import ListedColormap
-import matplotlib as mpl
-import seaborn as sns
-
-import rasterio as rio
-from rasterio.plot import plotting_extent
 import geopandas as gpd
-from rasterio.mask import mask
-from shapely.geometry import mapping
-
+import rasterio as rio
 import earthpy as et
 import earthpy.spatial as es
+from glob import glob
 
 plt.ion()
-sns.set_style('white')
 
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+In previous lessons, you have used `glob("*keyword*.tif")` to create a list of all files that both:
+1. Contain a certain keyword as denoted by the asterisks (e.g. `*band*`) and
+2. Contain the extension `.tif`.
 
-
-First, let's import MODIS data. Below notice that you have used a slightly different
-version of the `list.files()` `pattern = ` argument.
-
-You have used `glob2rx("*sur_refl*.tif$")` to select all layers that both
-
-1. Contain the word `sur_refl` in them and
-2. Contain the extension `.tif`
-
-Import our MODIS image stack.
-
-
-
+Begin by using glob to create a list of MODIS surface reflectance rasters using the keyword and extension `*sur_refl*.tif`. 
 
 {:.input}
 ```python
-```{r work-with-modis}
+# Create list of MODIS rasters for surface reflectance
+modis_bands_pre_list = glob("data/cold-springs-fire/modis/reflectance/07_july_2016/crop/*_sur_refl_*b*.tif")
 
-# open modis bands (layers with sur_refl in the name)
-
-all_modis_bands_july7 <- list.files("data/week_07/modis/reflectance/07_july_2016/crop",
-
-           pattern = glob2rx("*sur_refl*.tif$"),
-
-           full.names = TRUE)
-
-# create spatial raster stack
-
-all_modis_bands_pre_st <- stack(all_modis_bands_july7)
-
-all_modis_bands_pre_br <- brick(all_modis_bands_pre_st)
-
-# view range of values in stack
-
-all_modis_bands_pre_br[[2]]
-
-
-
-# view band names
-
-names(all_modis_bands_pre_br)
-
-
-
-# clean up the band names for neater plotting
-
-names(all_modis_bands_pre_br) <- gsub("MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b", "Band",
-
-     names(all_modis_bands_pre_br))
-
-
-
-# view cleaned up band names
-
-names(all_modis_bands_pre_br)
-
+# Sort the list of bands
+modis_bands_pre_list.sort()
+modis_bands_pre_list
 ```
 
+{:.output}
+{:.execute_result}
+
+
+
+    ['data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b01_1.tif',
+     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1.tif',
+     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b03_1.tif',
+     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1.tif',
+     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b05_1.tif',
+     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b06_1.tif',
+     'data/cold-springs-fire/modis/reflectance/07_july_2016/crop/MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b07_1.tif']
+
+
+
+
+
+Next, use the function `es.stack_raster_tifs` to create the raster stack from the list of bands you created using glob. Then, you can import the MODIS bands as well as the Cold Springs fire boundary, which you can use to crop the MODIS bands. 
+
+{:.input}
+```python
+# Create raster stack
+modis_bands_pre_out = "data/cold-springs-fire/outputs/modis_bands_pre.tif"
+es.stack_raster_tifs(modis_bands_pre_list,
+                     modis_bands_pre_out)
+
+# Open raster stack
+with rio.open(modis_bands_pre_out) as src_modis_bands:
+    modis_bands_pre = src_modis_bands.read(masked=True)
+    modis_bands_bounds = src_modis_bands.bounds
+    modis_bands_meta = src_modis_bands.profile
 ```
 
-## Reflectance Values Range 0-1
+{:.input}
+```python
+# Plot histogram of values
+fig, ax = plt.subplots(figsize=(8, 8))
 
-As you've learned in class, the normal range of reflectance values is 0-1 where
-1 is the BRIGHTEST values and 0 is the darkest value. Have a close look at the
-min and max values in the second raster layer of our stack, above. What do you notice?
+es.plot_rgb(modis_bands_pre,
+            ax=ax,
+            rgb=[0, 3, 2])
+ax.set_title('Distribution of Surface Reflectance Values \n MODIS Band 1 (Red)',
+             fontsize=18)
+ax.set_xlabel("Surface Reflectance")
 
-The min and max values are widely outside of the expected range of 0-1  - min: -32768, max: 32767
-What could be causing this? You need to better understand our data before you can
-work with it more. Have a look at the table in the MODIS users guide. The data
-that you are working with is the MOD09GA product. Look closely at the table on
-page 14 of the guide. Part of the table can be seen below.
+plt.show()
+```
 
-<a href="http://modis-sr.ltdri.org/guide/MOD09_UserGuide_v1_3.pdf" target="_blank">Click here to check out the MODIS user guide - check out page 14 for the MOD09GA table.</a>
-
-The column headings for the table below:
-
-| Group | Science Data Sets (HDF Layers (21)) | Units | Data Type | Fill Value | Valid Range | Scale Factor |
-|---|
-| | surf_Refl_b01: 500m Surface Reflectance Band 1 (620-670 nm) | Reflectance | 16-bit signed integer | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b02: 500m Surface Reflectance Band 2 (841-876 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b03: 500m Surface Reflectance Band 3 (459-479 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b04: 500m Surface Reflectance Band 4 (545-565 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b05: 500m Surface Reflectance Band 5 (1230-1250 nm)| Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b06: 500m Surface Reflectance Band 6 (1628-1652 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-| | surf_Refl_b07: 500m Surface Reflectance Band 7 (2105-2155 nm) | Reflectance | 16-bit signed integer  | -28672 | -100 - 16000 | 0.0001 |
-
+{:.output}
+{:.display_data}
 
 <figure>
-<a href="{{ site.url }}/images/courses/earth-analytics/raster-data/MOD09GA-metadata.png" target="_blank">
-   <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/MOD09GA-metadata.png" alt="MODIS MOD09GA metadata"></a>
 
-   <figcaption>Notice the valid values for the MOD09GA reflectance product. The range
-
-   is -100 to 16000.
-
-   </figcaption>
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_9_0.png">
 
 </figure>
 
 
 
-Looking at the table, answer the following questions
+
+## Explore Data Values
+
+To start exploring the data, you can calculate the minimum and maximum values of select bands to see the range of values. For example, you can calculate these values for the first band (red) of the MODIS stack. 
+
+{:.input}
+```python
+# Identify minimum and maximum values of band 1 (red)
+print(modis_bands_pre[1].min(), modis_bands_pre[1].max())
+```
+
+{:.output}
+    -100 10039
 
 
 
-1. What is valid range of values for our data?
+It appears as if you have a very large negative value in your data. You can set that data value to `NA` using the `mask=True` argument in rasterio however you also need to crop the data for your homework. 
 
-2. What is the scale factor associated with our data?
+You can do both things in two steps below.
 
-
-
-## Explore Our Data
-
-
-
-Looking at histograms of our data, you can see that the range of values is not
-
-what we'd expect. We'd expect values between -100 to 10000 yet instead you have
-
-much larger numbers.
+1. Import the fire boundary that you will use toe crop your data
+2. Reproject the fire boundary so it's in the same CRS as your MODIS data
+3. Crop the MODIS data using the fire boundary and the `crop_image()` function in earthpy. Alternatively you could use the `rasterio.mask.mask()` (`rasterio.mask` specifies the mask module). The `crop_image` uses rasterio to crop your data on the back end!
 
 
+{:.input}
+```python
+# Open fire boundary
+fire_boundary_path = "data/cold-springs-fire/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp"
+fire_boundary = gpd.read_file(fire_boundary_path)
 
+# Open and crop modis data, reproject fire boundary
+with rio.open(modis_bands_pre_out) as src_modis_pre:
+    fire_bound_sin = fire_boundary.to_crs(src_modis_pre.crs)
+    modis_pre_crop, modis_pre_meta = es.crop_image(src_modis_pre, fire_bound_sin)
+    modis_bands_pre_data = ma.masked_where(modis_pre_crop == -28672, modis_pre_crop)
+    
+print(modis_pre_crop.min(), modis_pre_crop[1].max())
+```
+
+{:.output}
+    203 3013
 
 
 
 {:.input}
 ```python
-```{r explore-data, warning=FALSE, message=FALSE, fig.cap="MODIS stack band 2 plot"}
+# Plot histogram of values
+fig, ax = plt.subplots(figsize=(8, 8))
 
-# turn off scientific notation
+es.plot_rgb(modis_pre_crop,
+            ax=ax,
+            rgb=[0, 3, 2])
+ax.set_title('Distribution of Surface Reflectance Values \n MODIS Band 1 (Red)',
+             fontsize=18)
+ax.set_xlabel("Cropped MODIS Surface Reflectance Data")
 
-options("scipen" = 100, "digits" = 4)
-
-# bottom, left, top and right
-
-#par(mfrow=c(4, 2))
-
-hist(all_modis_bands_pre_br,
-
-  col = "springgreen",
-
-  xlab = "Reflectance Value")
-
-mtext("Distribution of MODIS reflectance values for each band\n Data not scaled",
-
-      outer = TRUE, cex = 1.5)
-
-
-
+plt.show()
 ```
 
-```
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_14_0.png">
+
+</figure>
 
 
 
+
+This looks better. Now the nodata values are masked from the data. Create a histogram to look at the distribution of pixel values. Does the range of values look reasonable?
 
 {:.input}
 ```python
-```{r echo = FALSE, results='hide'}
+# Plot histogram of values
+fig, ax = plt.subplots(figsize=(8, 8))
 
-dev.off()
+ax.hist(modis_bands_pre[1].ravel(),
+        color="red")
+ax.set_title('Distribution of Surface Reflectance Values \n MODIS Band 1 (Red)',
+             fontsize=18)
+ax.set_xlabel("Surface Reflectance")
 
+# Turn off scientific notation
+ax.ticklabel_format(useOffset=False,
+                    style='plain')
 ```
 
-```
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_16_0.png" alt = "You can create histograms of the values of a band such as band 1 (red) to review the range of values.">
+<figcaption>You can create histograms of the values of a band such as band 1 (red) to review the range of values.</figcaption>
+
+</figure>
+
+
+
+
+## Reflectance Values in MODIS Imagery
+
+As noted previously in the lesson, the normal range of reflectance values is 0 to 1, where 1 is the BRIGHTEST values and 0 is the darkest value. 
+
+Look again at the minimum and maximum values that you calculated above for band 1. What do you notice?
+
+As you can see, the minimum and maximum values are widely outside of the expected range of 0 to 1. Looking at histogram of band 1, you can also see that the range of values is not what you would expect. 
+
+What could be causing this? To answer this question, you need to better understand the data before you can work with it more. 
 
 
 
 ## Scale Factor
 
-Looking at the metadata, you can see that our  data have a scale factor. Let's
+Scale factors are common when using remote sensing data. The data are large and scale factors are used to keep the data smaller in size. For example, it takes much more space to store numbers with decimals (known as floating points) than it does to store an integer. Thus often remove sensing data have a scale factor applied that can be used to 
 
-deal with that before doing anything else. The scale factor is .0001. This means
+Looking at the table for the MOD09GA product, you can see that the MODIS data have a scale factor of 0.0001. This means you should multiple each layer by that value to get the actual reflectance values of the data.
 
-you should multiple each layer by that value to get the actual reflectance values
+You can apply this scale factor value to all of the layers in your stack using numpy array math sometimes referred to as raster math in GIS tools. Here you multiply the entire array by .0001 to scale each layer or band.
 
-of the data.
+{:.input}
+```python
+# Scale values of MODIS imagery stack
+modis_bands_pre_scaled = modis_bands_pre * 0.0001
+```
 
+Now the range of values for surface reflectance appear more appropriate, but are still not between 0 and 1. 
 
+{:.input}
+```python
+# Identify minimum and maximum values of scaled band 1 (red)
+print(modis_bands_pre_scaled[1].min(), modis_bands_pre_scaled[1].max())
+```
 
-You can apply this math to all of the layers in our stack using a simple calculation
-
-shown below:
-
+{:.output}
+    -0.01 1.0039
 
 
 
 {:.input}
 ```python
-```{r scale-data, fig.cap="MODIS stack histogram plot", fig.width=7, fig.height=8}
+# Plot histogram of values
+fig, ax = plt.subplots(figsize=(8, 8))
 
-# deal with nodata value --  -28672
+ax.hist(modis_bands_pre_scaled[1].ravel(),
+        color="red")
+ax.set_title('Distribution of Surface Reflectance Values \n MODIS Band 1 (Red)',
+             fontsize=18)
+ax.set_xlabel("Surface Reflectance")
 
-all_modis_bands_pre_br <- all_modis_bands_pre_br * .0001
-
-# view histogram of each layer in our stack
-
-# par(mfrow=c(4, 2))
-
-hist(all_modis_bands_pre_br,
-
-   xlab = "Reflectance Value",
-
-   col = "springgreen")
-
-mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
-
+# Turn off scientific notation
+ax.ticklabel_format(useOffset=False,
+                    style='plain')
 ```
 
-```
+{:.output}
+{:.display_data}
 
+<figure>
 
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_22_0.png" alt = "After scaling the values of a MODIS stack or band, you can create another histogram to review the scaled values.">
+<figcaption>After scaling the values of a MODIS stack or band, you can create another histogram to review the scaled values.</figcaption>
 
-Great - now the range of values in our data appear more reasonable. Next, let's
+</figure>
 
-get rid of data that are outside of the valid data range.
 
 
 
-## NoData Values
+Now, you have a MODIS surface reflectance stack that you can use in further analysis. You are ready to calculate dNBR for your homework! 
 
 
 
-Next, let's deal with no data values. You can see that our data have a "fill" value
-
-of -28672 which you can presume to be missing data. But also you see that valid
-
-range values begin at -100. Let's set all values less than -100 to NA to remove
-
-the extreme negative values that may impact out analysis.
-
-
-
-
-{:.input}
-```python
-```{r echo=F, results='hide'}
-
-dev.off()
-
-```
-
-```
-
-
-
-
-
-
-{:.input}
-```python
-```{r assign-no-data, fig.cap="MODIS stack histogram plot with NA removed"}
-
-# deal with nodata value --  -28672
-
-all_modis_bands_pre_br[all_modis_bands_pre_br < -100 ] <- NA
-
-#par(mfrow=c(4,2))
-
-# plot histogram
-
-hist(all_modis_bands_pre_br,
-
-  xlab = "Reflectance Value",
-
-  col = "springgreen")
-
-mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
-
-```
-
-```
-
-
-
-
-
-
-Next you plot MODIS layers. Use the MODIS band chart to figure out what bands you
-need to plot to create a RGB (true color) image.
-
-
-| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
-|-------------------------------------|------------------|--------------------|----------------|
-| Band 1 - red | 620 - 670 | 250 | 2.0 |
-| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
-| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
-| Band 4 - green | 545 - 565 | 500 | 3.0 |
-| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
-| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
-| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
-
-Notice the Yellow AOI boundary in the plot below.
-Why is it so hard to visually where the study area is in this MODIS image?
-
-
-{:.input}
-```python
-```{r import-shapefile, results='hide', echo=F}
-
-# view fire overlay boundary
-
-fire_boundary <- readOGR("data/cold-springs-fire/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
-
-fire_boundary_sin <- spTransform(fire_boundary,
-                                 CRS = crs(all_modis_bands_pre_br))
-
-# export as sinusoidal
-
-# writeOGR(fire_boundary_sin,
-
-#          dsn = "data/cold-springs-fire/vector_layers/fire-boundary-geomac",
-
-#          layer="co_cold_springs_20160711_2200_sin",
-
-#          driver="ESRI Shapefile",
-
-#          overwrite_layer=TRUE)
-
-```
-
-```
-
-
-
-
-
-
-{:.input}
-```python
-```{r plot-modis-layers, echo=F, fig.cap="plot MODIS stack", fig.width=5, fig.height=5}
-
-## 3 = blue, 4 = green, 1= red 2= nir
-
-par(col.axis = "white", col.lab = "white", tck = 0)
-
-plotRGB(all_modis_bands_pre_br,
-
-        r = 1, g = 4, b = 3,
-
-        stretch = "lin",
-
-        main = "MODIS post-fire RGB image\n Cold springs fire site",
-
-        axes = TRUE)
-
-box(col = "white")
-
-# add fire boundary to plot
-
-plot(fire_boundary_sin,
-
-     add = TRUE,
-
-     border = "yellow",
-
-     lwd = 50)
-
-
-
-```
-
-```
-
-
-
-## MODIS Cloud Mask
-
-## this could be an optional breakout. i'm not sure the students need to handle clouds for this data. 
-
-Next, you can deal with clouds in the same way that you dealt with them using
-
-Landsat data. However, our cloud mask in this case is slightly different with
-
-slightly different cloud cover values as follows:
-
-
-
-| State | Translated Value | Cloud Condition|
-
-|----|
-
-| 00 | 0 | clear |
-
-| 01 | 1 | cloudy |
-
-| 10 | 2 | mixed |
-
-| 11 | 3 | not set, assumed clear |
-
-
-
-The metadata for the MODIS data are a bit trickier to figure out. If you are interested,
-
-the link to the MODIS user guide is below.
-
-
-
-* <a href="http://modis-sr.ltdri.org/guide/MOD09_UserGuide_v1_3.pdf" target="_blank">MODIS user guide</a>
-
-
-
-The MODIS data are also stored natively in a H4 format which you will not be discussing
-
-in this class. For the purposes of this assignment, use the table above to assign
-
-cloud cover "values" and to create a mask.
-
-
-
-Use the cloud cover layer `data/week_07/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m`
-
-to create your mask.
-
-
-
-Set all values >0 in the cloud cover layer to `NA`.
-
-
-
-
-{:.input}
-```python
-```{r reset-dev, warning=F, echo=F, message=F, results='hide'}
-
-dev.off()
-
-```
-
-```
-
-
-
-
-
-
-{:.input}
-```python
-```{r create-apply-mask, echo=F, fig.cap="cloud mask plot"}
-
-# import cloud mask
-
-cloud_mask_7July <- raster("data/week_07/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m.tif")
-
-cloud_mask_7July[cloud_mask_7July > 0] <- NA
-
-plot(cloud_mask_7July,
-
-     main = "Landsat cloud mask layer",
-
-     legend = FALSE,
-
-     axes = FALSE, box = FALSE)
-
-legend("topright",
-
-       legend = c("Cloud free", "Clouds"),
-
-       fill = c("yellow", "white"))
-
-```
-
-```
-
-
-
-
-{:.input}
-```python
-```{r create-mask, fig.cap="Final stack masked", echo=F}
-
-all_modis_bands_st_mask <- mask(all_modis_bands_pre_br,
-
-                                cloud_mask_7July)
-
-
-
-## 3 = blue, 4 = green, 1= red 2= nir
-
-```
-
-```
-
-
-
-Plot the masked data. Notice that now the clouds are gone as they have been assigned
-
-the value `NA`.
-
-
-
-
-{:.input}
-```python
-```{r masked-data, echo=F, fig.cap="MODIS with cloud mask", fig.width=7, fig.height=4}
-
-## 3 = blue, 4 = green, 1= red 2= nir
-
-par(col.axis = "white", col.lab = "white", tck = 0)
-
-plotRGB(all_modis_bands_st_mask,
-
-        r = 1, g = 4, b = 3,
-
-        stretch = "lin",
-
-        main = "MODIS data mask applied\n Cold springs fire AOI",
-
-        axes = TRUE)
-
-box(col = "white")
-
-plot(fire_boundary_sin,
-
-     add = TRUE, col = "yellow",
-
-     lwd = 1)
-
-```
-
-```
-
-
-
-Finally crop the data to view just the pixels that overlay the Cold Springs fire
-
-study area.
-
-
-
-
-{:.input}
-```python
-```{r crop-data, echo=F, fig.cap="cropped data"}
-
-all_modis_bands_st_mask <- crop(all_modis_bands_st_mask, fire_boundary_sin)
-
-par(col.axis = "white", col.lab = "white", tck = 0)
-
-plotRGB(all_modis_bands_st_mask,
-
-        r = 1, g = 4, b = 3,
-
-        stretch = "lin",
-
-        ext = extent(fire_boundary_sin),
-
-        axes = TRUE,
-
-        main = "Final MODIS masked data \n Cold Springs fire scar site")
-
-box(col = "white")
-
-plot(fire_boundary_sin, border = "yellow", add = TRUE)
-
-
-
-```
-
-```
-
-
-
-
-
-## Calculate dNBR With MODIS
-
-
-
-Once we have the data cleaned up with cloudy pixels set to NA and the scale
-
-factor applied, we are ready to calculate dNBR or whatever other vegetation index
-
-that you'd like to calculate.
-
-
-
-1. Figure out what bands you need to use to calculate dNBR with MODIS.
-
-2. Calculate NBR with pre and post fire modis data
-
-3. Subtract post from pre fire NBRto get the dNBR value
-
-4. Classify the data using the dNBR classification matrix.
-
-5. Calculate summary stats of area burned using MODIS
-
-
-
-### MODIS Bands
-
-
-
-The table below shows the band ranges for the MODIS sensor. You know that the
-
-NBR index will work with any multispectral sensor with a NIR
-
-band between 760 - 900 nm and a SWIR band between 2080 - 2350 nm.
-
-What bands should you use to calculate NBR using MODIS?
-
-
-
-| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
-
-|-------------------------------------|------------------|--------------------|----------------|
-
-| Band 1 - red | 620 - 670 | 250 | 2.0 |
-
-| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
-
-| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
-
-| Band 4 - green | 545 - 565 | 500 | 3.0 |
-
-| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
-
-| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
-
-| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
-
-
-
-## Extracting Summary Stats
-
-
-
-Similar to what you did with Landsat data, you can then use `extract()` to
-
-select just pixels that are in the burn area and summarize by pixel
-
-classified value
-
-
-
-
-{:.input}
-```python
-```{r open-fire-boundary, echo = FALSE, results = 'hide'}
-
-# open fire boundary
-
-fire_boundary <- readOGR("data/cold-springs-fire/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp")
-
-
-
-# source functions
-
-source('ea-course-functions.R')
-
-
-
-fire_severity_classes <- c("High Severity", "Moderate Severity",  "Low Severity",  "Unburned", "Enhanced Regrowth")
-
-
-
-# create classification matrix
-
-nbr_reclass <- c(-Inf, -.1, 1,
-
-             -.1, .1, 2,
-
-             .1, .27, 3,
-
-             .27, .66, 4,
-
-             .66, Inf , 5)
-
-
-
-# reshape the object into a matrix with columns and rows
-
-nbr_reclass <- matrix(nbr_reclass,
-
-                ncol = 3,
-
-                byrow = TRUE)
-
-```
-
-```
-
-
-
-
-
-
-{:.input}
-```python
-```{r load-modis-data, echo = FALSE}
-
-
-
-# source functions
-
-source('ea-course-functions.R')
-
-
-
-## Open MODIS pre data
-
-
-
-# open modis bands (layers with sur_refl in the name)
-
-all_modis_bands_pre <- list.files("data/week_07/modis/reflectance/07_july_2016/crop",
-
-           pattern = glob2rx("*sur_refl*.tif$"),
-
-           full.names = TRUE)
-
-
-
-# create spatial raster stack
-
-modis_bands_pre_st <- stack(all_modis_bands_pre)
-
-
-
-# transform the boundary
-
-fire_boundary_sin <- spTransform(fire_boundary,
-
-                                 CRS = crs(modis_bands_pre_st))
-
-#modis_bands_pre_st <- crop(modis_bands_pre_st, fire_boundary_sin)
-
-modis_bands_pre_br <- brick(modis_bands_pre_st)
-
-
-
-# scale the data deal with nodata value --  -28672
-
-modis_bands_pre_br <- modis_bands_pre_br * .0001
-
-
-
-# account for nodata value --  -28672
-
-modis_bands_pre_br[modis_bands_pre_br < -100 ] <- NA
-
-
-
-# import cloud mask
-
-cloud_mask_7July <- raster("data/week_07/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m.tif")
-
-#cloud_mask_7July <- crop(cloud_mask_7July, fire_boundary_sin)
-
-cloud_mask_7July[cloud_mask_7July > 0] <- NA
-
-
-
-# apply cloud mask
-
-modis_bands_pre_br <- mask(modis_bands_pre_br,
-
-                                cloud_mask_7July)
-
-
-
-# crop to the MODIS data
-
-modis_bands_pre_br <- crop(modis_bands_pre_br, fire_boundary_sin)
-
-
-
-# calculate modis NBR
-
-modis_nbr_pre <- overlay(modis_bands_pre_br[[7]], modis_bands_pre_br[[2]],
-
-                     fun = normalized_diff)
-
-
-
-# this is a test to ensure nbr is calculating properly - this code should not be
-
-# plotted in student output
-
-# plot(modis_nbr_pre)
-
-# plot(fire_boundary_sin, add = TRUE)
-
-
-
-```
-
-```
-
-
-
-
-{:.input}
-```python
-```{r post-fire-modis, echo = FALSE }
-
-##### Get post fire layers
-
-# open modis bands (layers with sur_refl in the name)
-
-modis_bands_post <- list.files("data/week_07/modis/reflectance/17_july_2016/crop",
-
-           pattern = glob2rx("*sur_refl*.tif$"),
-
-           full.names = TRUE)
-
-
-
-modis_bands_post_st <- stack(modis_bands_post)
-
-#modis_bands_post_st <- crop(modis_bands_post_st, fire_boundary_sin)
-
-
-
-modis_bands_post_br <- brick(modis_bands_post_st)
-
-
-
-# rescale data
-
-modis_bands_post_br <- modis_bands_post_br * .0001
-
-
-
-# deal with nodata value --  -28672
-
-modis_bands_post_br[modis_bands_post_br < -100] <- NA
-
-
-
-# import cloud mask & mask data
-
-cloud_mask_17July <- raster("data/week_07/modis/reflectance/17_july_2016/crop/cloud_mask_july17_500m.tif")
-
-#cloud_mask_17July <- crop(cloud_mask_17July, fire_boundary_sin)
-
-cloud_mask_17July[cloud_mask_17July > 0] <- NA
-
-modis_bands_post_br <- mask(modis_bands_post_br,
-
-                                cloud_mask_17July)
-
-
-
-# calculate NBR
-
-# crop to the MODIS data
-
-modis_bands_post_br <- crop(modis_bands_post_br, fire_boundary_sin)
-
-
-
-# calculate modis NBR
-
-modis_nbr_post <- overlay(modis_bands_post_br[[7]], modis_bands_post_br[[2]],
-
-                     fun = normalized_diff)
-
-
-
-
-
-# this is a test to ensure nbr is calculating properly - this code should not be
-
-# plotted in student output
-
-# plot(modis_nbr_post)
-
-# plot(fire_boundary_sin, add = TRUE)
-
-
-
-```
-
-```
-
-
-
-
-
-
-{:.input}
-```python
-```{r diff-nbr-modis, echo = FALSE, fig.cap = "dnbr plotted using MODIS data for the Cold Springs fire."}
-
-# calculate dNBR
-
-modis_dnbr <- modis_nbr_pre - modis_nbr_post
-
-
-
-# classify data
-
-# classify data
-
-dnbr_modis_classified <- reclassify(modis_dnbr,
-
-                     nbr_reclass)
-
-
-
-# define color ramp
-
-dnbr_colors <- rev(brewer.pal(5, 'RdYlGn'))
-
-# mar bottom, left, top and right
-
-par(mar = c(0, 0, 2, 5))
-
-plot(dnbr_modis_classified,
-
-     col = dnbr_colors,
-
-     legend = FALSE,
-
-     axes = FALSE,
-
-     box = FALSE,
-
-     main = "MODIS dNBR - Cold Spring fire site \n Add comparison dates here")
-
-plot(fire_boundary_sin, add = TRUE,
-
-     lwd = 5)
-
-legend(dnbr_modis_classified@extent@xmax - 100, dnbr_modis_classified@extent@ymax,
-
-       legend = c(fire_severity_classes, "Fire boundary"),
-
-       col =  "black",
-
-       pt.bg = rev(dnbr_colors),
-
-       pch = c(22, 22, 22, 22, 22, NA),
-
-       lty = c(NA, NA, NA, NA, NA, 1),
-
-       cex = .8,
-
-       bty = "n",
-
-       pt.cex = c(1.75),
-
-       xpd = TRUE)
-
-```
-
-```
-
-
-
-
-
-Finally calculate summary stats of how many pixels fall into each severity class
-
-like you did for the landsat data.
-
-
-
-
-{:.input}
-```python
-```{r, echo = FALSE}
-
-modis_resolution_here <- 500
-
-```
-
-```
-
-
-
-
-
-
-{:.input}
-```python
-```{r summarize-burn-area, eval = 'FALSE', results = 'hide'}
-
-MODIS_pixels_in_fire_boundary <- extract(dnbr_modis_classified, fire_boundary_sin,
-
-                                           df = TRUE)
-
-
-
-MODIS_pixels_in_fire_boundary %>%
-
-  group_by(layer) %>%
-
-  summarize(count = n(), area_meters = (n() * (modis_resolution_here * modis_resolution_here)))
-
-
-
-```
-
-```
