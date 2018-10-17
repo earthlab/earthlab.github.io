@@ -34,28 +34,20 @@ a usual weekly assignment. You have 1 week to complete this assignment. Start
 early!
 
 
-## Plot 1 - Grid of Plots: NAIP, Landsat and MODIS
-
-Create a single plot that contains a grid of 3, 3 band color infrared (also called false color) plots using:
-images using:
-
-* Post Fire NAIP data
-* Post Fire Landsat data
-* Post Fire MODIS data
-
- For each map be sure to:
-<!-- In a CIR image, the NIR band is plotted on the “red” band, the red band is plotted using green and the green band is plotted using blue. -->
-* Crop the data to the fire boundary extent
-* Overlay the fire boundary layer (`vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`).
-* Use the band combination **r = infrared band**, **g = red band**, **b = green** band.
-* Be sure to label each plot with the data type (NAIP vs. Landsat vs. MODIS) and spatial resolution.
-
-Use this figure to help answer question 1 above.
-An example of what this plot should look like (without all of the labels that
-you need to add), is below.
-
-
 ## Homework Plot 1 - Grid of 3 - 3 band CIR plots post fire
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_3_0.png">
+
+</figure>
+
+
+
 
 
 {:.output}
@@ -70,35 +62,13 @@ you need to add), is below.
 
 
 
-## Plot 2 - Difference NBR (dNBR) Using Landsat Data
-
-Create a map of the classified dNBR using Landsat data collected before and
-after the Cold Springs fire. Overlay the fire extent `vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp`
-on top of the NBR map. Add a legend that clearly describes each burn "class"
-that you applied using the table provided in the lessons.
-
-Be sure to use cloud free data.
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_6_0.png">
-
-</figure>
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_7_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_5_0.png">
 
 </figure>
 
@@ -123,7 +93,7 @@ Be sure to use cloud free data.
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_9_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis_7_0.png">
 
 </figure>
 
