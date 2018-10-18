@@ -3,7 +3,7 @@ layout: single
 title: "Learn to Use NAIP Multiband Remote Sensing Images in Python"
 excerpt: "Learn how to open up a multi-band raster layer or image stored in .tiff format in Python using Rasterio. Learn how to plot histograms of raster values and how to plot 3 band RGB and color infrared or false color images."
 authors: ['Leah Wasser']
-modified: 2018-10-10
+modified: 2018-10-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/naip-imagery-raster-stacks-in-python/
@@ -316,7 +316,7 @@ es.plot_bands(naip_csf[0],
 
 
 
-Look closely at the count element in the metadata for your raster. Not that now, the count is 4 rather than 1. This is because you have multiple bands in your raster, one for each 'color' or type of light collected by the camera. For NAIP data you have red, green, blue and near infrared bands. When you worked with the lidar rasters in week 2 your count was 1 as a DSM or DTM is only composed of one band. 
+Look closely at the count element in the metadata for your raster. Note that now, the count is 4 rather than 1. This is because you have multiple bands in your raster, one for each 'color' or type of light collected by the camera. For NAIP data you have red, green, blue and near infrared bands. When you worked with the lidar rasters in week 2 your count was 1 as a DSM or DTM is only composed of one band. 
 
 
 {:.input}
@@ -364,11 +364,15 @@ print(naip_csf.max())
 
 
 
-This raster contains values between 0 and 255. These values represent degrees of brightness associated with the image band. In the case of a RGB image (red, green and blue), band 1 is the red band. When we plot the red band, larger numbers (towards 255) represent pixels with more red in them (a strong red reflection). Smaller numbers (towards 0) represent pixels with less red in them (less red was reflected). To plot an RGB image, we mix red + green + blue values, using the ratio of each. The ratio of each color is determined by how much light was recorded (the reflectance value) in each band. This mixture creates one single color than inturn makes up the full color image - similar to the color image your camera phone creates.
+This raster contains values between 0 and 255. These values represent degrees of brightness associated with the image band. In the case of a RGB image (red, green and blue), band 1 is the red band. When we plot the red band, larger numbers (towards 255) represent pixels with more red in them (a strong red reflection). Smaller numbers (towards 0) represent pixels with less red in them (less red was reflected). 
+
+To plot an RGB image, we mix red + green + blue values, using the ratio of each. The ratio of each color is determined by how much light was recorded (the reflectance value) in each band. This mixture creates one single color that, in turn, makes up the full color image - similar to the color image that your camera phone creates.
 
 ## 8 vs 16 Bit Images
 
-It's important to note that this image is an 8 bit image. This means that all values in the raster are stored within a range of 0:255. Thus the brightest whites will be at or close to 255. The darkest values in each band will be closer to 0.
+It's important to note that this image is an 8 bit image. This means that all values in the raster are stored within a range of 0:255. This differs from a 16-bit image, in which values can be stored within a range of 0:65,535. 
+
+In these lessons, you will work with 8-bit images. For 8-bit images, the brightest whites will be at or close to 255. The darkest values in each band will be closer to 0.
 
 ### Import A Specific Band
 
@@ -400,7 +404,7 @@ plt.show()
 
 ## Rasters and Numpy Arrays - A Review 
 
-Remember that when you import a raster dataset into Python, the data are converted to a numpy array. A numpy array has no inherent spatial information attached to it and is just a matrix or values. This makes processing the data fast.
+Remember that when you import a raster dataset into Python, the data are converted to a numpy array. A numpy array has no inherent spatial information attached to it and is just a matrix of values. This makes processing the data fast.
 
 The spatial information for the raster is stored in a `.meta` attribute. This metadata allows you to export the data as a geotiff or other spatial format. 
 
@@ -408,7 +412,9 @@ The spatial information for the raster is stored in a `.meta` attribute. This me
 
 ### Plot Raster Band Images
 
-Next plot each band in the raster. This is another intermediate step (like plotting histograms) that you might want to do when you first explore and open your data. You will not need this for your homework but you might want to do it to explore other data that you use in your career. Earthpy contains a plot_bands() function that allows you to quickly plot each band individually. Similar to plotting a single band, in each band "color", the brightest pixels are lighter in color or white representing a stronger reflectance for that color on that pixel. The darkest pixels are darker to black in color representing less reflectance of that color in that pixel. 
+Next plot each band in the raster. This is another intermediate step (like plotting histograms) that you might want to do when you first explore and open your data. You will not need this for your homework but you might want to do it to explore other data that you use in your career. Earthpy contains a plot_bands() function that allows you to quickly plot each band individually. 
+
+Similar to plotting a single band, in each band "color", the brightest pixels are lighter in color or white representing a stronger reflectance for that color on that pixel. The darkest pixels are darker to black in color representing less reflectance of that color in that pixel. 
 
 #### Plot Bands Using Earthpy
 
@@ -490,10 +496,7 @@ This function has several key arguments including
 2. rgb: the three bands that you wish to plot on the red, green and blue channels respectively
 3. title: OPTIONAL - if you want to add a title to your plot.
 
-Similar to plotting with geopandsa, you can provide an `ax=` argument as well to plot yyour data on a particular matplotlib axis.
-
-
-
+Similar to plotting with geopandas, you can provide an `ax=` argument as well to plot your data on a particular matplotlib axis.
 
 {:.input}
 ```python
@@ -547,7 +550,7 @@ es.plot_rgb(naip_csf, title="CIR NAIP image",
 To render a 3 band, color image in `Python`, you can use the `imshow()` function. 
 `Imshow` allows you to identify what bands you want to render in the red, green and blue regions. 
 
-To ensure that the image plots and is scalled correctly, you will use the `bytescale()` function which used to be a part of sci-py / sci-image. Scipy deprecate this function so we've added it to the `earthpy` package for you to use in this course
+To ensure that the image plots and is scalled correctly, you will use the `bytescale()` function which used to be a part of sci-py / sci-image. Scipy deprecated this function so we've added it to the `earthpy` package for you to use in this course
 
 The code will look something like this:
 

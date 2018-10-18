@@ -3,7 +3,7 @@ layout: single
 title: "Field Methods to Study Wildfire"
 excerpt: "Learn about how scientists use field survey methods to study the impacts of wildfire through measurements of biomass and soil."
 authors: ['Leah Wasser']
-modified: 2018-10-15
+modified: 2018-10-16
 category: [courses]
 class-lesson: ['wildfire-overview']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/wildfire-field-methods/
@@ -65,18 +65,18 @@ Standing biomass can be broken down by type or species, such as shrub biomass or
 To calculate the standing biomass of a tree, you measure the tree’s diameter (and sometimes height) and then use an equation (based on previous studies on these trees) to calculate biomass. For grasses and shrubs, you measure their percent cover and then harvest samples and bring them to a laboratory where you dry and weigh them for biomass analysis. 
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-1.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-1.png" alt="CU Boulder students perform fieldwork at the site of the Cold Springs Fire.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-1.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-1.jpg" alt="CU Boulder students perform fieldwork at the site of the Cold Springs Fire.">
   </a>
-  <figcaption>University of Colorado Boulder Earth Lab postdocs and graduate students measure the diameter of a tree to calculate standing biomass at the Cold Springs Fire site on November 2nd, 2016. Source: Nate Mietkiewicz.</a>
+  <figcaption>University of Colorado Boulder Earth Lab postdocs and graduate students measure the diameter of a tree to calculate standing biomass at the Cold Springs Fire site on November 2nd, 2016. Source: Nate Mietkiewicz.
   </figcaption>
 </figure>
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-3.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-3.png" alt="CU Boulder students perform fieldwork at the site of the Cold Springs Fire.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-3.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-3.jpg" alt="CU Boulder students perform fieldwork at the site of the Cold Springs Fire.">
   </a>
-  <figcaption>University of Colorado Boulder Earth Lab students perform fieldwork at the Cold Springs Fire site on November 21st, 2016 . Source: Nate Mietkiewicz.</a>
+  <figcaption>University of Colorado Boulder Earth Lab students perform fieldwork at the Cold Springs Fire site on November 21st, 2016 . Source: Nate Mietkiewicz.
   </figcaption>
 </figure>
 
@@ -87,10 +87,10 @@ In addition to biomass and soil calculations,  field surveys are often performed
 
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-2.png">
-    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-2.png" alt="A CU Boulder student performs fieldwork at the site of the Cold Springs Fire.">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-2.jpg">
+    <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/students-fieldwork-cold-springs-fire-2.jpg" alt="A CU Boulder student performs fieldwork at the site of the Cold Springs Fire.">
   </a>
-  <figcaption>A University of Colorado Boulder Earth Lab postdoc performs fieldwork at the Cold Springs Fire site on November 2nd, 2016. Source: Nate Mietkiewicz.</a>
+  <figcaption>A University of Colorado Boulder Earth Lab postdoc performs fieldwork at the Cold Springs Fire site on November 2nd, 2016. Source: Nate Mietkiewicz.
   </figcaption>
 </figure>
 

@@ -3,7 +3,7 @@ layout: single
 title: "How multispectral imagery is drawn on computers - Additive Color Models"
 excerpt: "Learn the basics of how addidative colors models are used to render RGB images in Python."
 authors: ['Leah Wasser']
-modified: 2018-10-08
+modified: 2018-10-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/addititive-color-models-how-multispectral-imagery-is-drawn-on-computers/
@@ -42,9 +42,9 @@ review what you learned in class with the additive light demo.
 
 </div>
 
-The ~3 minute video below inspired the demonstration that you saw in class.
+The ~1 minute video below inspired the demonstration that you saw in class.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Udvapi2lmvQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://youtu.be/hxJ7QbPbNkg" frameborder="0" allowfullscreen></iframe>
 
 The 2:30 minute video below shows the difference between additive and subtractive
 light models and demonstrates subtractive models with paints.
