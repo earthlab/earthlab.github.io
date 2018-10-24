@@ -3,7 +3,7 @@ layout: single
 title: "Find and Download Landsat 8 Remote Sensing Data From the USGS Earth Explorer Website"
 excerpt: "Learn how to find and download Landsat 8 remote sensing imagery from the USGS Earth Explorer website."
 authors: ['Leah Wasser']
-modified: 2018-10-16
+modified: 2018-10-23
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/get-landsat-data-earth-explorer/
@@ -82,8 +82,8 @@ To define your AOI in Earth Explorer:
 
 * Zip up extent file that you want to use. Be sure to use a square extent, if you
 have too many vertices it won't work. Lucky for us there is a zip file already zipped
-up and ready to go in your week 6 data!
-  `data/week-07/vector_layers/fire_boundary_box_shp.zip`
+up and ready to go in your cold-springs-fire download!
+  `data/cold-springs-fire/vector_layers/fire_boundary_box_shp.zip`
 * Next, go to <a href="http://earthexplorer.usgs.gov" target="_blank">the Earth Explorer website</a>. Login. If you don't have a login already, create an account.
 
 Be sure to create an account. You will need it to be able to use your shapefile
@@ -114,7 +114,7 @@ extent to search for data. Now, it's time to search for data.
     <img src="{{ site.url }}/images/courses/earth-analytics/raster-data/ee-select-landsat8.png" alt="Earth explorer search criteria.">
     </a>
     <figcaption>The Landsat 8 data are located in the Pre-Collection drop down.
-    Be sure to select Land Surface Reflectance.
+    Be sure to select Landsat 8 OLI/TIRS C1 Level-2.
     </figcaption>
 </figure>
 
@@ -157,11 +157,8 @@ data to be emailed to your account. Order now!
 
 ## Explore Newly Downloaded Data
 
-In this case, you want to download a scene very close to Julian day 189. An
-example of what the data look like is below. Notice that the spatial extent of
-the data that you download from Earth Explorer is much broader than the
-data that you worked with for your homework last week. The extents are different
-because your instructor cropped the class data to make is easier to work with!
+In this case, you wanted to download a scene very close to Julian day 189. Notice that the spatial extent of
+the data that you download from Earth Explorer is much broader than the data that you worked with for your homework last week. The extents are different because your instructor cropped the class data to make is easier to work with!
 
 
 

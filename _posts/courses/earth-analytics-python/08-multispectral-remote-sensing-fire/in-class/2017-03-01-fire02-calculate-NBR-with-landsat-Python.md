@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) using Landsat 8 Remote Sensing Data in Python"
 excerpt: "The Normalized Burn Index is used to quantify the amount of area that was impacted by a fire. Learn how to calculate the normalized burn index and classify your data using Landsat 8 data in Python."
 authors: ['Leah Wasser','Megan Cattau']
-modified: 2018-10-17
+modified: 2018-10-23
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/calculate-dNBR-Landsat-8/
@@ -89,7 +89,7 @@ sns.set_style('white')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-To calculate difference Normalized Burn Ratio (dNBR), you first need to calculate NBR for the pre and post fire data. This ofcourse presumes that you have data before the area was burned and after of from the same remote sensing sensor. Ideally this data also does not have clouds covering the fire area.
+To calculate difference Normalized Burn Ratio (dNBR), you first need to calculate NBR for the pre and post fire data. This, of course, presumes that you have data before and after the area was burned from the same remote sensing sensor. Ideally, this data also does not have clouds covering the fire area.
 
 Open up and stack the Landsat post-fire data.
 
@@ -158,7 +158,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_6_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_6_0.png" alt = "Normalized burn ratio (NBR) calculated for the post-Cold Springs fire image for July 23, 2016 from Landsat.">
+<figcaption>Normalized burn ratio (NBR) calculated for the post-Cold Springs fire image for July 23, 2016 from Landsat.</figcaption>
 
 </figure>
 
@@ -170,23 +171,6 @@ Next, calculate NBR for the pre-fire data. Note that you will have to download t
 Also note that you will need to clip or crop the data so that you can subtract the post fire data from the pre fire data. The code to do this is hidden but you did this last week so you should know what to do!
 
 
-{:.input}
-```python
-# Create clip extent using the post fire data
-landsat_clip = mapping(box(*landsat_post_bounds))
-
-path_landsat_pre_st = 'data/cold-springs-fire/outputs/landsat_pre_st_hw.tif'
-
-# Open and crop landsat pre-fire data
-with rio.open(path_landsat_pre_st) as landsat_pre:
-    # crop landsat data using the fire boundary reprojected
-    landsat_pre_crop, landsat_pre_meta = es.crop_image(
-        landsat_pre, [landsat_clip])
-
-
-# Are the two rasters the same size?
-landsat_pre_crop.shape == landsat_post_fire.shape
-```
 
 {:.output}
 {:.execute_result}
@@ -212,7 +196,8 @@ The code for this is hidden below because you know how to do this!
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_10_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_10_0.png" alt = "Normalized burn ratio (NBR) calculated for the pre-Cold Springs fire image from Landsat.">
+<figcaption>Normalized burn ratio (NBR) calculated for the pre-Cold Springs fire image from Landsat.</figcaption>
 
 </figure>
 
@@ -238,8 +223,8 @@ function. Use the dNBR classes below.
 | Moderate Severity  | | +.27 to +.66 |
 | High Severity     |  |  > +.66  |
 
-NOTE: your min an max values for NBR may be slightly different from the table
-shown above. In the code example above, `np.inf` is used to suggest "any values larger than `.66`. 
+NOTE: your min and max values for NBR may be slightly different from the table
+shown above. In the code example above, `np.inf` is used to indicate any values larger than `.66`. 
 
 The code to classify below is hidden! You learned how to classify rasters in week 2 of this course.
 
@@ -307,20 +292,51 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_17_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_17_0.png" alt = "Classified difference normalized burn ratio (dNBR) calculated for the Cold Springs fire images from Landsat, with legend created using matplotlib.">
+<figcaption>Classified difference normalized burn ratio (dNBR) calculated for the Cold Springs fire images from Landsat, with legend created using matplotlib.</figcaption>
 
 </figure>
 
 
 
 
+Alternatively, you can create the legend with the earthpy.
+
+{:.input}
+```python
+# Plot the data with a custom legend
+fig, ax = plt.subplots(figsize=(10, 8))
+im = ax.imshow(dnbr_landsat_class,
+               cmap=nbr_cmap,
+               extent=landsat_extent)
+
+fire_bound_utmz13.plot(ax=ax, color='None',
+                       edgecolor='black',
+                       linewidth=2)
+
+
+values = np.unique(dnbr_landsat_class.ravel())
+
+es.draw_legend(im, 
+               classes=values,
+               titles=dnbr_cat_names)
+
+
+ax.set_title("Landsat dNBR - Cold Spring Fire Site \n June 22, 2017 - July 24, 2017",
+             fontsize=16)
+
+# turn off ticks
+ax.set_axis_off()
+plt.show()
+```
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_18_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_19_0.png" alt = "Classified difference normalized burn ratio (dNBR) calculated for the Cold Springs fire images from Landsat, with legend created using earthpy.">
+<figcaption>Classified difference normalized burn ratio (dNBR) calculated for the Cold Springs fire images from Landsat, with legend created using earthpy.</figcaption>
 
 </figure>
 
@@ -329,7 +345,7 @@ plt.show()
 
 ### Create a Colorbar Legend
 
-Alternatively you can create a discrete colorbar with labels. This method might be a bit less technical to follow. You can decide what type of legend you prefer for your homework. 
+Alternatively, you can create a discrete colorbar with labels. This method might be a bit less technical to follow. You can decide what type of legend you prefer for your homework. 
 
 {:.input}
 ```python
@@ -387,7 +403,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_22_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-calculate-NBR-with-landsat-Python_23_0.png" alt = "Classified difference normalized burn ratio (dNBR) calculated for the Cold Springs fire images from Landsat, with a color bar legend.">
+<figcaption>Classified difference normalized burn ratio (dNBR) calculated for the Cold Springs fire images from Landsat, with a color bar legend.</figcaption>
 
 </figure>
 
@@ -430,10 +447,3 @@ print("Landsat Severe Burn Area:", burned_landsat)
     Landsat Severe Burn Area: [3559500]
 
 
-
-{:.input}
-```python
-# # update the metadata (i maybe want to make a copy of this ??)
-# dnbr_meta['count'] = 1
-# dnbr_meta
-```

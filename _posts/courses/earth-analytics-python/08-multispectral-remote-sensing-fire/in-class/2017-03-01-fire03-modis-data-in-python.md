@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data in Python"
 excerpt: "MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2018-10-18
+modified: 2018-10-23
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/
@@ -102,7 +102,7 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 ## Open MODIS Imagery
 
-In this lesson, you will learn how to open MODIS data using the pre-fire MODIS imagery for the Coldsprings fire study area in Colorado. 
+In this lesson, you will learn how to open MODIS data using the pre-fire MODIS imagery for the Cold Springs fire study area in Colorado. 
 
 Before you get started, import the following packages and make sure that your working directory is set.
 
@@ -194,7 +194,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_9_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_9_0.png" alt = "Surface reflectance from MODIS using the RGB bands for the pre-Cold Springs fire time period.">
+<figcaption>Surface reflectance from MODIS using the RGB bands for the pre-Cold Springs fire time period.</figcaption>
 
 </figure>
 
@@ -259,7 +260,8 @@ es.plot_bands(modis_bands_pre_data,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_15_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_15_0.png" alt = "Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
+<figcaption>Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
 
@@ -286,7 +288,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_16_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_16_0.png" alt = "Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.">
+<figcaption>Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
 
@@ -317,7 +320,8 @@ es.hist(modis_bands_pre_data,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_18_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_18_0.png" alt = "Histograms of the cropped surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
+<figcaption>Histograms of the cropped surface reflectance from MODIS for all bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
 
@@ -340,7 +344,7 @@ What could be causing this? To answer this question, you need to better understa
 
 Scale factors are common when using remote sensing data. The data are large and scale factors are used to keep the data smaller in size. For example, it takes much more space to store numbers with decimals (known as floating points) than it does to store an integer. Thus often remove sensing data have a scale factor applied that can be used to 
 
-Looking at the table for the MOD09GA product, you can see that the MODIS data have a scale factor of 0.0001. This means you should multiple each layer by that value to get the actual reflectance values of the data.
+Looking at the table for the MOD09GA product, you can see that the MODIS data have a scale factor of 0.0001. This means you should multiply each layer by that value to get the actual reflectance values of the data.
 
 You can apply this scale factor value to all of the layers in your stack using numpy array math sometimes referred to as raster math in GIS tools. Here you multiply the entire array by .0001 to scale each layer or band.
 
@@ -382,7 +386,8 @@ es.hist(modis_bands_pre_scaled,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_25_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_25_0.png" alt = "Histograms for the cropped and scaled surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
+<figcaption>Histograms for the cropped and scaled surface reflectance from MODIS for all bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
 
