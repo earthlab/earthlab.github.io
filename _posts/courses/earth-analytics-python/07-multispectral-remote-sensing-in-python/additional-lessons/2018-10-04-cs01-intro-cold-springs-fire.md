@@ -3,7 +3,7 @@ layout: single
 title: "An Overview of the Cold Springs Wildfire"
 excerpt: "The Cold Springs wildfire burned a total of 528 acres of land between July 9, 2016 and July 14, 2016. Learn more about this wildfire and how scientists study wildfire using both field and remote sensing methods."
 authors: ['Leah Wasser']
-modified: 2018-10-16
+modified: 2018-10-23
 category: [courses]
 class-lesson: ['wildfire-overview']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/intro-wildfires/
@@ -63,7 +63,7 @@ Many fires have extreme impacts on humans. The deadliest fire in U.S. history wa
 One of the most destructive blazes in the world in recent history was the Cedar Fire in San Diego County, California in October 2003, killing 14 people, destroying 2,280 buildings, and burning 280,000 acres of land. The most destructive in Colorado was the Fourmile Canyon Fire in September 2010, which destroyed 168 homes and led to $217 million in insurance claims. 
 
 <figure>
-  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/los-angeles-day-fire-nasa-satellite-image-cold-springs-fire.jp">
+  <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/los-angeles-day-fire-nasa-satellite-image-cold-springs-fire.jpg">
     <img src="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/los-angeles-day-fire-nasa-satellite-image-cold-springs-fire.jpg" alt="Remote sensing image of the Los Angeles Day Fire from NASA’s MASTER sensor.">
   </a>
   <figcaption>This image was taken with NASA’s aircraft-based MASTER sensor shows the Day Fire northwest of Los Angeles burning on September 19, 2006. Source: <a href="https://earthobservatory.nasa.gov/NaturalHazards/view.php?id=17339" target="_blank">NASA.</a>
@@ -100,7 +100,7 @@ The human-started wildfire was officially extinguished on July 14, 2016. It burn
   </figcaption>
 </figure>
 
-The cause of the Cold Springs wildfire has been attributed to a campfire that was not properly extinguished during a county-wide fire ban. Two transient men from Alabama were charged with with fourth-degree arson. They were sentenced with two years of work release to be followed by four years of probation and must pay restitution of up to 1.25 million dollars. 
+The cause of the Cold Springs wildfire has been attributed to a campfire that was not properly extinguished during a county-wide fire ban. Two transient men from Alabama were charged with fourth-degree arson. They were sentenced with two years of work release to be followed by four years of probation and must pay restitution of up to 1.25 million dollars. 
 
 <figure>
   <a href="{{ site.url }}/images/courses/earth-analytics/science/cold-springs-fire/burned-trees-cold-springs-fire.jpg">
