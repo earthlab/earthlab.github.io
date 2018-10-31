@@ -3,7 +3,7 @@ layout: single
 title: "Learn to Use NAIP Multiband Remote Sensing Images in Python"
 excerpt: "Learn how to open up a multi-band raster layer or image stored in .tiff format in Python using Rasterio. Learn how to plot histograms of raster values and how to plot 3 band RGB and color infrared or false color images."
 authors: ['Leah Wasser']
-modified: 2018-10-16
+modified: 2018-10-30
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/naip-imagery-raster-stacks-in-python/
@@ -559,7 +559,7 @@ The code will look something like this:
 where
 
 * `ax.imshow()` is the call to plot the image
-* `es.bystescale()` ensures that the values in the image are stretched between 0 and 255 which is the range that our monitor can recognize. 
+* `es.bytescale()` ensures that the values in the image are stretched between 0 and 255 which is the range that our monitor can recognize. 
 
 IMPORTANT: when plotting in python, it is important that you TRANSPOSE the data.
 The data are read in with the bands FIRST and then the rows and columns. however imshow expects to find the individual bands last. We adjust the dimensions of the data using:
