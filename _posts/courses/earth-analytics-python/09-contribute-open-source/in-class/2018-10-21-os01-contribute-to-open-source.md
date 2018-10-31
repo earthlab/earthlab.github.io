@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Open Source Software - What Is It and How Can You Help?"
 excerpt: "Open source means that you can view and contribute to software code like packages you use in Python. Learn about the ways that you can contribute without being an expert progammer."
 authors: ['Leah Wasser', 'Max Joseph', 'Tim Head', 'Lauren Herwehe', 'Jenny Palomino']
-modified: 2018-10-23
+modified: 2018-10-30
 category: [courses]
 class-lesson: ['open-source-software-python']
 module-title: 'How To Contribute to Open Source Software'
@@ -55,8 +55,8 @@ You may be thinking that you can’t contribute to open source software because 
 
 Below are two tips that can help you get started:
  
-*Contribute to a tool or package that you already use:* You will be more familiar with a tool that you know, making it easier to contribute.  
-*Start small:* The size of your contribution doesn’t matter. Every contribution counts! Start with small changes. For example, maybe you fix just a few words in the documentation instead of diving into code fixes. This allows you to practice contributing without worrying about the content (assuming you are a native English speaker). Small contributions are how most people who are now prolific open source contributors get started!
+1. **Contribute to a tool or package that you already use:** You will be more familiar with a tool that you know, making it easier to contribute.  
+2. **Start small:** The size of your contribution doesn’t matter. Every contribution counts! Start with small changes. For example, maybe you fix just a few words in the documentation instead of diving into code fixes. This allows you to practice contributing without worrying about the content (assuming you are a native English speaker). Small contributions are how most people who are now prolific open source contributors get started!
 
 Here are some ways that you can contribute to open source without being an expert:
 

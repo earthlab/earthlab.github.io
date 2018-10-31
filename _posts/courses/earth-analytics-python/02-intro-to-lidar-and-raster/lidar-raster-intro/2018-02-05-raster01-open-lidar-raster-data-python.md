@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-10-08
+modified: 2018-10-30
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/
@@ -412,7 +412,8 @@ lidar_plot = ax.imshow(lidar_dem_im,
 ax.set_title("Lidar Digital Elevation Model \n Pre 2013 Boulder Flood | Lee Hill Road", fontsize= 20)
 fig.colorbar(lidar_plot)
 # turn off the x and y axes for prettier plotting
-ax.set_axis_off();
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
@@ -543,13 +544,18 @@ box
 ```
 
 {:.output}
-{:.execute_result}
+
+    ---------------------------------------------------------------------------
+
+    AttributeError                            Traceback (most recent call last)
+
+    <ipython-input-28-0321f7fac266> in <module>()
+          1 # Define the four corners of the box
+    ----> 2 box = et.utils.bounds_to_box(*zoomed_extent)
+          3 box
 
 
-
-![svg]({{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python_39_0.svg)
-
-
+    AttributeError: module 'earthpy.utils' has no attribute 'bounds_to_box'
 
 
 
@@ -566,19 +572,6 @@ ax.plot(x, y, '-', lw=3, color='r')
 ax.set_axis_off()
 ```
 
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python_40_0.png" alt = "A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO with an extent box overlayed on top.">
-<figcaption>A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO with an extent box overlayed on top.</figcaption>
-
-</figure>
-
-
-
-
 {:.input}
 ```python
 # Plot the data but set the x and y lim
@@ -593,16 +586,3 @@ ax.set_ylim(zoomed_extent[2:4])
 ax.plot(x, y, '-', lw=3, color='r')
 ax.set_axis_off()
 ```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python_41_0.png" alt = "A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO clipped to a smaller spatial extent using the x and y lim plot parameters.">
-<figcaption>A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO clipped to a smaller spatial extent using the x and y lim plot parameters.</figcaption>
-
-</figure>
-
-
-
