@@ -3,7 +3,7 @@ layout: single
 title: "How Do You Create a Data Workflow - Design and Develop a Workflow For NDVI Over Time"
 excerpt: "Designing and developing data workflows can complete your work more efficiently by allowing you to repeat and automate data tasks. Learn how to design and develop efficient workflows to automate data analyses in Python."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe', 'Jenny Palomino', 'Joe McGlinchy']
-modified: 2018-10-30
+modified: 2018-10-31
 category: [courses]
 class-lesson: ['create-data-workflows']
 module-title: 'How To Design and Develop a Workflow For NDVI Over Time'
@@ -39,8 +39,6 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the data for week 10 of the course.
 
 {% include/data_subsets/course_earth_analytics/_data-landsat-automation.md %}
-
-Or use earthpy `et.data.get_data('ndvi-automation)`
 
 </div>
 
