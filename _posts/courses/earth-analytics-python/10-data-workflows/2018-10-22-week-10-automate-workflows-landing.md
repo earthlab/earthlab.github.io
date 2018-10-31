@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Learn to Create Efficient Data Workflows in Python"
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/
-modified: 2018-10-30
+modified: 2018-10-31
 week-landing: 10
 week: 10
 sidebar:
@@ -62,11 +62,23 @@ The plots below are provided to guide your thinking about the workflow.
 
 
 {:.output}
+{:.execute_result}
+
+
+
+    <bound method EarthlabData.get_data of Available Datasets: ['co-flood-extras', 'colorado-flood', 'spatial-vector-lidar', 'cold-springs-modis-h5', 'cold-springs-fire', 'cs-test-naip', 'cs-test-landsat', 'ndvi-automation']>
+
+
+
+
+
+
+{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/10-data-workflows/2018-10-22-week-10-automate-workflows-landing_2_0.png" alt = "While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/10-data-workflows/2018-10-22-week-10-automate-workflows-landing_3_0.png" alt = "While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.">
 <figcaption>While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.</figcaption>
 
 </figure>
@@ -82,7 +94,7 @@ The plots below are provided to guide your thinking about the workflow.
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/10-data-workflows/2018-10-22-week-10-automate-workflows-landing_4_0.png" alt = "Limiting the plot to NDVI values over a certain threshold, such as 0.1, can help to highlight the patterns of NDVI at each site.">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/10-data-workflows/2018-10-22-week-10-automate-workflows-landing_5_0.png" alt = "Limiting the plot to NDVI values over a certain threshold, such as 0.1, can help to highlight the patterns of NDVI at each site.">
 <figcaption>Limiting the plot to NDVI values over a certain threshold, such as 0.1, can help to highlight the patterns of NDVI at each site.</figcaption>
 
 </figure>

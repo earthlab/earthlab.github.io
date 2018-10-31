@@ -3,7 +3,7 @@ layout: single
 title: "Data Workflow Best Practices - Things to Consider When Processing Data"
 excerpt: "Identifying aspects of a workflow that can be modularized can help you design data workflows. Learn best practices for designing efficient data workflows."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe','Jenny Palomino']
-modified: 2018-10-30
+modified: 2018-10-31
 category: [courses]
 class-lesson: ['create-data-workflows']
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/design-efficient-workflows/
@@ -35,8 +35,6 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the data for week 10 of the course.
 
 {% include/data_subsets/course_earth_analytics/_data-landsat-automation.md %}
-
-Or use earthpy `et.data.get_data('ndvi-automation)`
 
 </div>
 
