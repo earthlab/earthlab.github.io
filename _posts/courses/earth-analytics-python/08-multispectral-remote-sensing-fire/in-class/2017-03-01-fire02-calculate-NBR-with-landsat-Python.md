@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) using Landsat 8 Remote Sensing Data in Python"
 excerpt: "The Normalized Burn Index is used to quantify the amount of area that was impacted by a fire. Learn how to calculate the normalized burn index and classify your data using Landsat 8 data in Python."
 authors: ['Leah Wasser','Megan Cattau']
-modified: 2018-10-23
+modified: 2018-11-06
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/calculate-dNBR-Landsat-8/
@@ -99,6 +99,8 @@ Open up and stack the Landsat post-fire data.
 
 all_landsat_bands = glob(
     "data/cold-springs-fire/landsat_collect/LC080340322016072301T1-SC20180214145802/crop/*band*.tif")
+
+all_landsat_bands.sort()
 
 landsat_post_fire_path = "data/cold-springs-fire/outputs/landsat_post_fire.tif"
 
@@ -421,29 +423,21 @@ Once you have classified your data, you can calculate the total burn area.
 
 For this lesson, you are comparing the area calculated using modis that is "high severity" to that of Landsat.
 
-You can calculate this using a loop, a function or manually - like so
-
-```python
-landsat_pixel = 30*30
-burned_landsat = [dnbr_landsat_class[dnbr_landsat_class == 5].sum()]
-burned_landsat = np.multiply(burned_landsat, landsat_pixel)
-```
-
-
-
+You can calculate this using a loop, a function or manually - like so:
 
 {:.input}
 ```python
-# To calculate area you'd multiple each bin by 30x30 to total square meters
+# To calculate area, multiply the number of pixels in each bin by image resolution
+# Result will be in total square meters
 
-landsat_pixel = 30*30
-burned_landsat = [dnbr_landsat_class[dnbr_landsat_class == 5].sum()]
+landsat_pixel = landsat_pre.res[0] * landsat_pre.res[0]
+burned_landsat = (dnbr_landsat_class[dnbr_landsat_class == 5]).size
 burned_landsat = np.multiply(burned_landsat, landsat_pixel)
 
 print("Landsat Severe Burn Area:", burned_landsat)
 ```
 
 {:.output}
-    Landsat Severe Burn Area: [3559500]
+    Landsat Severe Burn Area: 711900.0
 
 
