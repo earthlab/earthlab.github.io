@@ -83,6 +83,7 @@ There is no perfect solution of course. You will just learn one approach.
 
 Begin by loading your spatial libraries.
 
+
 {:.input}
 ```python
 from glob import glob
