@@ -3,7 +3,7 @@ layout: single
 title: "About the ReStructured Text Format - Introduction to .rst"
 excerpt: "Restructured text (RST) is a text format similar to markdown that is often used to document python software. Learn how create headings, lists and code blocks in a text file using RST syntax."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe']
-modified: 2018-10-23
+modified: 2018-11-06
 category: [courses]
 class-lesson: ['open-source-software-python']
 permalink: /courses/earth-analytics-python/contribute-to-open-source/restructured-text-format-rst/
@@ -101,12 +101,12 @@ Enumerated or numbered lists are created using a number just like in markdown. H
 
 Code blocks in `.Rst` are created using the syntax 
 
-`.. Code-block:: python` 
+`.. code-block:: python` 
 
 where the name of the coding language used in the block is specified. 
 
 ```xml
-.. code-block:: pycon
+.. code-block:: python
 
     >>> with rio.open('example.tif') as src:
     >>>      im = src.read()

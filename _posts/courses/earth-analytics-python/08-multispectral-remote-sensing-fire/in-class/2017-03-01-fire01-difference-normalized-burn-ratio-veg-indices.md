@@ -3,7 +3,7 @@ layout: single
 title: "Calculate the Difference Normalized Burn Index - On Landsat and MODIS data in Python"
 excerpt: "The Normalized Burn Index (NBR) allows you to measure the impact of a fire on the landscape with remote sensing data. Learn how to calculate NBR using Landsat and MODIS remote sensing data in Python."
 authors: ['Leah Wasser']
-modified: 2018-10-23
+modified: 2018-11-06
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 module-title: 'MODIS, Landsat and the Normalized Burn Ratio Index (NBR) in Python'
@@ -62,7 +62,7 @@ electromagnetic spectrum (Lopez, 1991; Key and Benson, 1995).
 
 The NIR and SWIR parts of the electromagnetic spectrum are a powerful combination
 of bands to use for this index given vegetation reflects strongly in the NIR region
-of the electromagnetic spectrum and weekly in the SWIR. Alternatively, it has been
+of the electromagnetic spectrum and weakly in the SWIR. Alternatively, it has been
 shown that a fire scar which contains scarred woody vegetation and earth will
 reflect more strongly in the SWIR part of the electromagnetic spectrum and beyond
 (see figure below).
