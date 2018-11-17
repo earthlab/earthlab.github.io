@@ -15,7 +15,7 @@ lib: [matplotlib, numpy, elevation, richdem]
 
 Digital elevation models (DEM) provide a representaion of surface topography (elevation) in two dimensional space. DEMs are a 3D representaion of a terrain's surface such as the Earth. Typically, DEM data can be represented as a raster which is most easily expressed as being a 2D array with each individual cell having an elevation associated with it. 
 
-With this data, we are able to use programs in order to analyze certain physical aspects about the area associated with the data. This tutorial will go over how we compute the **slope** and **aspect** of an area using DEM data.
+With a DEM, you can analyze certain derived quantities using prebuild software. This tutorial will go over how to compute the **slope** and **aspect** of an area using DEM data.
 
 ## Objectives
 
@@ -34,6 +34,7 @@ With this data, we are able to use programs in order to analyze certain physical
 
 
 ```python
+import os
 import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
@@ -48,20 +49,21 @@ matplotlib.rcParams['figure.figsize'] = (8, 5.5)
 
 ## Download a digital elevation model
 
-The `elevation` module provides access to elevation data from the NASA SRTM mission, with areas of interest specified via a bounding box. Here we draw a bounding box around Mt. Shasta in northern California, and use the command line interface to output a GeoTIFF. 
+The `elevation` module provides access to elevation data from the NASA SRTM mission, with areas of interest specified via a bounding box. Here you draw a bounding box around Mt. Shasta in northern California, and use the clip funciton to output a GeoTIFF. 
 
 
 ```python
-elevation.clip(bounds=(-122.4, 41.2, -122.1, 41.5), output='Shasta-30m-DEM.tif')
+dem_path = os.path.join(os.getcwd(), 'Shasta-30m-DEM.tif')
+elevation.clip(bounds=(-122.4, 41.2, -122.1, 41.5), output=dem_path)
 ```
 
 ## Load the DEM with richdem
 
-The `richdem` package has a `LoadGDAL` function for loading DEMs that we can use here. 
+The `richdem` package has a `LoadGDAL` function for loading DEMs that you can use here. 
 
 
 ```python
-shasta_dem = rd.LoadGDAL("Shasta-30m-DEM.tif")
+shasta_dem = rd.LoadGDAL(dem_path)
 ```
 
 
@@ -77,9 +79,9 @@ plt.show()
 
 ## Compute and plot slope and aspect
 
-We can use the `rd.TerrainAttribute` function to compute slope and aspect for each pixel. Note that there are multiple ways to represent the slope values. See https://richdem.readthedocs.io/en/latest/python_api.html#richdem.TerrainAttribute for more options.
+You can use the `rd.TerrainAttribute` function to compute slope and aspect for each pixel. Note that there are multiple ways to represent the slope values. <a href="https://richdem.readthedocs.io/en/latest/python_api.html#richdem.TerrainAttribute" target="_blank">Read the richdem docs for more options.</a>
 
-To visualize slope and aspect, we can use the `rdShow` function. 
+To visualize slope and aspect, you can use the `rdShow` function. 
 
 
 ```python
