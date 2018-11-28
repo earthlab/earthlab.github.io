@@ -8,7 +8,7 @@ category: [courses]
 class-lesson: ['intro-APIs-python']
 permalink: /courses/earth-analytics-python/get-data-using-apis/co-water-data-spatial-python/
 nav-title: 'Geospatial Data From APIs'
-week: 12
+week: 13
 sidebar:
     nav:
 author_profile: false

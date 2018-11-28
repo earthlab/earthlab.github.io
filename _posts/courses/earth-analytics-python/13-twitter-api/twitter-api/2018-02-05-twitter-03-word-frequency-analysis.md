@@ -8,7 +8,7 @@ category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/get-data-using-apis/calculate-tweet-word-frequencies-sentiments-in-python/
 nav-title: 'Tweet Word Frequency and Sentiment Analysis'
-week: 12 
+week: 13 
 sidebar:
     nav:
 author_profile: false
@@ -369,7 +369,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/12-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_26_1.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_26_1.png">
 
 </figure>
 
@@ -773,7 +773,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/12-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_50_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_50_0.png">
 
 </figure>
 
@@ -1202,7 +1202,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/12-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_73_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_73_0.png">
 
 </figure>
 
@@ -1363,7 +1363,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/12-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_80_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_80_0.png">
 
 </figure>
 
@@ -1425,7 +1425,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/12-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_84_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_84_0.png">
 
 </figure>
 
@@ -1454,7 +1454,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/12-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_86_0.png">
+<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_86_0.png">
 
 </figure>
 

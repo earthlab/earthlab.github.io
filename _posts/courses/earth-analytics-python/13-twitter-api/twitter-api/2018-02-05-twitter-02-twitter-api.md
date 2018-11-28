@@ -3,12 +3,12 @@ layout: single
 title: 'Get and Work With Twitter Data in Python Using Tweepy'
 excerpt: 'You can use the Twitter RESTful API to access tweet data from Twitter. Learn how to use tweepy to download and work with twitter social media data in Python.'
 authors: ['Martha Morrissey', 'Leah Wasser','Carson Farmer']
-modified: 2018-11-27
+modified: 2018-11-28
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/get-data-using-apis/get-and-use-twitter-data-in-python/
 nav-title: 'Get Twitter Data'
-week: 12
+week: 13
 sidebar:
     nav:
 author_profile: false

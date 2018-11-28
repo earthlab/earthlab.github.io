@@ -4,8 +4,8 @@ category: courses
 title: "Programmatic Data Access"
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/
 modified: 2018-11-28
-week-landing: 12
-week: 12
+week-landing: 13
+week: 13
 sidebar:
   nav:
 comments: false
