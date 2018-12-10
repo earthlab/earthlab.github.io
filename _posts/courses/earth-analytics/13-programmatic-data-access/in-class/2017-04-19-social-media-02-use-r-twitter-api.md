@@ -156,7 +156,7 @@ Note that your tweet needs to be 140 characters or less.
 
 ```r
 # post a tweet from R
-post_tweet("Look, i'm tweeting from R in my #rstats #earthanalytics class!")
+post_tweet("Look, i'm tweeting from R in my #rstats #earthanalytics class! @EarthLabCU")
 ## your tweet has been posted!
 ```
 
@@ -307,7 +307,7 @@ unique(rstats_tweets$screen_name)
 ##  [58] "rstatsdata"      "jebyrnes"        "marinereilly"   
 ##  [61] "MorrisonLisbeth" "mtrost2"         "RebeccaNLewis"  
 ##  [64] "Gaming_Dude"     "SamuelJenness"   "lisafederer"    
-##  [67] "rtelmore"        "AniMove"         "LeafyEricScott" 
+##  [67] "rtelmore"        "AniMove"         "LeafyEricScott"
 ##  [70] "ucfagls"         "FrancoisKeck"    "kklmmr"         
 ##  [73] "MatthewRenze"    "_ColinFay"       "statwonk"       
 ##  [76] "WarwickRUG"      "alex__morley"    "boxuancui"      
@@ -330,7 +330,7 @@ unique(rstats_tweets$screen_name)
 ## [127] "tjmahr"          "expersso"        "GarethNetto"    
 ## [130] "rushworth_a"     "blebeau11"       "OilGains"       
 ## [133] "murnane"         "hrbrmstr"        "Ed_pheasant"    
-## [136] "Benavent"        "coraman"         "MikeTaylorSEMO" 
+## [136] "Benavent"        "coraman"         "MikeTaylorSEMO"
 ## [139] "ilustat"         "ingorohlfing"    "m4xl1n"         
 ## [142] "znmeb"           "f2harrell"       "jonclayden"     
 ## [145] "mdsumner"        "ixek"            "RLadiesPhilly"  
@@ -362,7 +362,7 @@ unique(rstats_tweets$screen_name)
 ## [223] "alspur"          "AedinCulhane"    "sellorm"        
 ## [226] "DJAnderson_07"   "Gui42"           "pabloc_ds"      
 ## [229] "mjhendrickson"   "adolfoalvarez"   "daniellequinn88"
-## [232] "jbryer"          "paleolimbot"     "TheBIccountant" 
+## [232] "jbryer"          "paleolimbot"     "TheBIccountant"
 ## [235] "gladwinmuchena"  "HFazelinia"      "madforsharks"   
 ## [238] "SwindleApe"      "lumbininep"      "dgkeyes"        
 ## [241] "_djli"           "Kwarizmi"        "dj_shaily"      

@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Time Series Data in Python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/
-modified: 2018-10-08
+modified: 2018-11-27
 week-landing: 1
 week: 3
 sidebar:
