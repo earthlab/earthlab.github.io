@@ -3,7 +3,7 @@ layout: single
 title: "Field Methods to Study Wildfire"
 excerpt: "Learn about how scientists use field survey methods to study the impacts of wildfire through measurements of biomass and soil."
 authors: ['Leah Wasser']
-modified: 2018-10-16
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['wildfire-overview']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/wildfire-field-methods/
@@ -18,7 +18,6 @@ author_profile: false
 comments: true
 order: 2
 topics:
-  remote-sensing: ['spectral-remote-sensing']
   earth-science: ['fire']
 ---
 <div class='notice--success' markdown="1">

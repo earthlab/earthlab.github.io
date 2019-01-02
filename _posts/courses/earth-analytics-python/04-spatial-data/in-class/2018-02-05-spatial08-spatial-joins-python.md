@@ -3,7 +3,7 @@ layout: single
 title: "How to Join Attributes From One Shapefile to Another in Open Source Python Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to perform spatial joins in python. A spatial join is when you assign attributes from one shapefile to another based upon it's spatial location."
 authors: ['Leah Wasser','Jenny Palomino']
-modified: 2018-10-08
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/spatial-joins-in-python-geopandas-shapely/
@@ -49,10 +49,12 @@ from matplotlib.colors import ListedColormap
 import pandas as pd
 import geopandas as gpd
 import earthpy as et 
-# Plot figures  inline
-plt.ion()
 from shapely.geometry import box
 
+# Plot figures inline
+plt.ion()
+
+# Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 # Import clip_data.py as a module so you can access the clip data functions
@@ -75,8 +77,10 @@ Next dissolve the state data by region like you did in the previous lesson.
 ```python
 # Simplify the country boundary just a little bit to make this run faster
 country_bound_us_simp = country_bound_us.simplify(.2, preserve_topology=True)
+
 # Clip the roads to the US boundary - this will take about a minute to execute
 roads_cl = cl.clip_shp(ne_roads, country_bound_us_simp)
+
 # Dissolve states by region
 regions_agg = state_bound_us.dissolve(by="region")
 ```
@@ -90,13 +94,14 @@ So - for example if you have a roads layer for the United States, and you want t
 `.sjoin(layer-to-add-region-to, region-polygon-layer)`
 
 ### Sjoin Arguments:
+
 The `op` argument specifies the type of join that will be applied
 
 * `intersects`: Returns True if the boundary and interior of the object intersect in any way with those of the other.
 * `within`: Returns True if the object’s boundary and interior intersect only with the interior of the other (not its boundary or exterior).
 * `contains`: Returns True if the object’s interior contains the boundary and interior of the other object and their boundaries do not touch at all.
 
-<a href ="http://toblerity.org/shapely/manual.html#binary-predicates" target = "_blank">You can read more about each type here.</a>
+<a href ="https://shapely.readthedocs.io/en/stable/manual.html?highlight=binary%20predicates#binary-predicates" target = "_blank">You can read more about each type here.</a>
  
 How allows the following options: (this is taken directly from the <a href = "https://github.com/geopandas/geopandas/blob/master/geopandas/tools/sjoin.py#L18" target = "_blank">geopandas code on github!</a>
 
@@ -112,8 +117,9 @@ roads_region = gpd.sjoin(roads_cl,
                          regions_agg, 
                          how="inner", 
                          op='intersects')
-# Notice once you have joins the data - you have attributes from the regions_object (ie the region) 
-# attached to each road feature
+
+# Notice once you have joins the data - you have attributes 
+# from the regions_object (i.e. the region) attached to each road feature
 roads_region[["featurecla", "index_right", "ALAND"]].head()
 ```
 
@@ -277,6 +283,7 @@ pd.options.display.float_format = '{:.4f}'.format
 
 # Calculate the total length of road 
 road_albers_length = roads_albers[['index_right', 'length_km']]
+
 # Sum existing columns
 roads_albers.groupby('index_right').sum()
 

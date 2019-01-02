@@ -3,10 +3,10 @@ layout: single
 title: 'Introduction to the JSON data structure'
 excerpt: 'This lesson covers the JSON data structure. JSON is a powerful text based format that supports hierarchical data structures. It is the core structure used to create GeoJSON which is a spatial version of JSON that can be used to create maps. JSON is preferred for use over CSV files for data structures, as it has been proven to be more efficient - particulary as data size becomes large.'
 authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey']
-modified: 2018-11-28
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['intro-APIs-python']
-permalink: /courses/earth-analytics-python/get-data-using-apis/intro-to-JSON/
+permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/intro-to-JSON/
 nav-title: 'Intro to JSON'
 week: 13
 sidebar:

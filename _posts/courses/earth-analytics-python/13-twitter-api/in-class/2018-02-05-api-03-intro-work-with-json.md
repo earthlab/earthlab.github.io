@@ -3,10 +3,10 @@ layout: single
 title: 'Introduction to Working With the JSON data structure in Python'
 excerpt: 'This lesson introduces how to work with the JSON data structure using Python using the JSON and Pandas libraries to create and convert JSON objects. '
 authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2018-11-28
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['intro-APIs-python']
-permalink: /courses/earth-analytics-python/get-data-using-apis/work-with-JSON-intro/
+permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/work-with-JSON-intro/
 nav-title: 'Intro to JSON in Python'
 week: 13
 sidebar:

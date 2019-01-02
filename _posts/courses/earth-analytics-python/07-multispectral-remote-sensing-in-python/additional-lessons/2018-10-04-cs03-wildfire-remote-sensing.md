@@ -3,7 +3,7 @@ layout: single
 title: "Remote Sensing to Study Wildfire"
 excerpt: "Learn about how scientists use remote sensing methods to study the impacts of wildfire through calculations of vegetation indices before and after wildfire."
 authors: ['Leah Wasser']
-modified: 2018-10-23
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['wildfire-overview']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/wildfire-remote-sensing/
@@ -18,7 +18,7 @@ author_profile: false
 comments: true
 order: 3
 topics:
-  remote-sensing: ['spectral-remote-sensing']
+  remote-sensing: ['multispectral-remote-sensing']
   earth-science: ['fire']
 ---
 

@@ -3,10 +3,10 @@ layout: single
 title: 'Analyze Word Frequency Counts Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to calculate word frequencies to understand how often words are used in tweets on a particular topic. To complete any analysis, you need to first prepare the data. Learn how to clean Twitter data and calculate word frequencies using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2018-12-10
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['social-media-Python']
-permalink: /courses/earth-analytics-python/get-data-using-apis/calculate-tweet-word-frequencies-in-python/
+permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-frequencies-in-python/
 nav-title: 'Tweet Word Frequency Analysis'
 week: 13 
 sidebar:
