@@ -3,10 +3,10 @@ layout: single
 title: 'Programmatically Accessing Geospatial Data Using APIs'
 excerpt: 'This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping.'
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2018-11-28
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['intro-APIs-python']
-permalink: /courses/earth-analytics-python/get-data-using-apis/co-water-data-spatial-python/
+permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/co-water-data-spatial-python/
 nav-title: 'Geospatial Data From APIs'
 week: 13
 sidebar:

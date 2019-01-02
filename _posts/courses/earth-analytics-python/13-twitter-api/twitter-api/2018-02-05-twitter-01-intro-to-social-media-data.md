@@ -3,10 +3,10 @@ layout: single
 title: "Work With Twitter Social Media Data in Python - An Introduction"
 excerpt: "This lesson will discuss some of the challenges associated with working with social media data in science. These challenges include working with non standard text, large volumes of data, API limitations, and geolocation issues."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-11-28
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['social-media-Python']
-permalink: /courses/earth-analytics/get-data-using-apis/intro-to-social-media-text-mining-python/
+permalink: /courses/earth-analytics/using-apis-natural-language-processing-twitter/intro-to-social-media-text-mining-python/
 nav-title: "Twitter Data for Science"
 module-title: "Introduction to using Twitter Social media data in Python"
 module-description: "This module explores the use of social media data - specifically Twitter data to better understand the social impacts and perceptions of natural disturbances and other events. Working with social media requires the use of APIs to access data, text mining to extract useful information from non-standard text and then finally analysis using text-mining workflows"

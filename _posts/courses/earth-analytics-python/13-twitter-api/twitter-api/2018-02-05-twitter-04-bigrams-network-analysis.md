@@ -3,10 +3,10 @@ layout: single
 title: 'Analyze Co-occurrence and Networks of Words Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to identify the co-occurrence and networks of words in Tweets. Learn how to analyze word co-occurrence (i.e. bigrams) and networks of words using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2018-12-10
+modified: 2019-01-02
 category: [courses]
 class-lesson: ['social-media-Python']
-permalink: /courses/earth-analytics-python/get-data-using-apis/calculate-tweet-word-bigrams-networks-in-python/
+permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-bigrams-networks-in-python/
 nav-title: 'Tweet Word Bigrams and Network Analysis'
 week: 13 
 sidebar:
