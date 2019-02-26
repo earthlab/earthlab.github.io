@@ -4,7 +4,7 @@ category: courses
 title: 'Set Up Your Anaconda Python Environment'
 excerpt: 'This tutorial walks you through installing a conda environment designed for this class.'
 authors: ['Jenny Palomino', 'Martha Morrissey', Leah Wasser', 'Data Carpentry']
-modified: 2018-08-31
+modified: 2019-02-26
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/setup-python-anaconda-earth-analytics-environment/
 nav-title: 'Set up Conda Environment'
@@ -169,21 +169,24 @@ For example, if a `Python` package such as `geopandas` is only installed in the 
 
 ### Activate a Conda Environment
 
-**To active an environment**, use the Terminal to navigate to your earth-analytics directory (e.g. `cd` to the directory). Then, type the following command for your operating system to activate the environment (e.g. earth-analytics-python):
+**To activate an environment**, use the Terminal to navigate to your earth-analytics directory (e.g. `cd` to the directory). Then, type the following command to activate the environment (e.g. earth-analytics-python):
 
+```bash
+conda activate earth-analytics-python
+``` 
 
-#### Mac and Linux Instructions: 
+<a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" target="_blank">For older installations of Anaconda (versions prior to 4.6)</a>, type:
+
+#### Mac, Linux, and Git Bash (Windows) Instructions: 
 
 ```bash
 source activate earth-analytics-python
-
 ```
 
-#### Windows Instructions 
+#### Windows (Other Terminals) Instructions 
 
 ```bash
 activate earth-analytics-python
-
 ```
 
 Once the environment is activated, the name of the activated environment will appear in parentheses on the left side of your terminal. 
