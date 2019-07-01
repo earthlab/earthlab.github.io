@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Spatial and Spectral Resolution: Multispectral Imagery"
 excerpt: "Multispectral imagery can be provided at different resolutions and may contain different bands or types of light. Learn about spectral vs spatial resolution as it relates to spectral data."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2019-07-01'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/introduction-multispectral-imagery-r/
@@ -39,7 +39,7 @@ redirect_from:
 After completing this tutorial, you will be able to:
 
 * Define spectral and spatial resolution and explain how they differ from one another.
-* Describe *atleast* 3 differences between NAIP imagery, Landsat 8 and MODIS in terms of how the data are collected, how frequently they are collected and the spatial and spectral resolution.
+* Describe *at least* 3 differences between NAIP imagery, Landsat 8 and MODIS in terms of how the data are collected, how frequently they are collected and the spatial and spectral resolution.
 * Describe the spatial and temporal tradeoffs between data collected from a satellite vs. an airplane.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -47,7 +47,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for Weeks 7-9 of the course.
 
-{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
 
 </div>
 

@@ -3,7 +3,7 @@ layout: single
 title: "How Multispectral Imagery is Drawn on Computers - Additive Color Models"
 excerpt: "In this lesson you will learn the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2017-12-08'
+modified: '2019-07-01'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/addititive-color-models-how-multispectral-imagery-is-drawn-on-computers/
@@ -57,7 +57,7 @@ light models and demonstrates subtractive models with paints.
 
 
 The ~3 minute video below has no sound, but look closely as they zoom in on the pixels of
-an old school computer monitor. You will notice that each  pixel is composed of three
+an old school computer monitor. You will notice that each pixel is composed of three
 types of light red, green and blue.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/HzY4Q5fKxmU" frameborder="0" allowfullscreen></iframe>

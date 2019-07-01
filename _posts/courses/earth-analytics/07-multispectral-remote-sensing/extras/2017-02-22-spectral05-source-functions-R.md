@@ -3,7 +3,7 @@ layout: single
 title: "How to Reuse Functions That You Create In Scripts - Source a Function in R"
 excerpt: "Learn how to source a function in R. Learn how to import functions that are stored in a separate file into a script or R Markdown file."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2019-07-01'
 category: [courses]
 class-lesson: ['automate-spatial-data-analysis-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/source-function-in-R/
@@ -84,7 +84,7 @@ Next,
 
 `source("remote-sensing-functions.R")`
 
-If the `.R` script is in your main working directory then it won't have a path
+If the `.R` script is in your main working directory, then it won't have a path
 element before it like `week_06/functionfile.R` vs `functionfile.R`.
 
 If it's in a different directory, adjust the path accordingly.
