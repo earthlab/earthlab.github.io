@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Spatial and Spectral Resolution: Multispectral Imagery"
 excerpt: "Multispectral imagery can be provided at different resolutions and may contain different bands or types of light. Learn about spectral vs spatial resolution as it relates to spectral data."
 authors: ['Leah Wasser']
-modified: '2019-07-01'
+modified: '2019-07-02'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/introduction-multispectral-imagery-r/
@@ -47,7 +47,7 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for Weeks 7-9 of the course.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
 
 </div>
 
@@ -75,7 +75,7 @@ from an existing source - in this case the sun.
 
 ## Electromagnetic Spectrum
 
-To better understand multispectral remote sensing you need to know
+To better understand multispectral remote sensing, you need to know
 some basic principles of the electromagnetic spectrum.
 
 The electromagnetic spectrum is composed of a range of different wavelengths or

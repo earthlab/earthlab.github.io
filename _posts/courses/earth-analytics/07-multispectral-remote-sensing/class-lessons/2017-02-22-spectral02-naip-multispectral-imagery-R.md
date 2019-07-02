@@ -3,7 +3,7 @@ layout: single
 title: "How to Open and Work with NAIP Multispectral Imagery in R"
 excerpt: "In this lesson you learn how to open up a multi-band raster layer or image stored in .tiff format in R. You are introduced to the stack() function in R which can be used to import more than one band into a stack object in R. You also review using plotRGB to plot a multi-band image using RGB, color-infrared to other band combinations."
 authors: ['Leah Wasser']
-modified: '2019-07-01'
+modified: '2019-07-02'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/naip-imagery-raster-stacks-in-r/
@@ -33,7 +33,7 @@ redirect_from:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial you will be able to:
+After completing this tutorial, you will be able to:
 
 * Open an RGB image with 3-4 bands in `R` using `plotRGB()`.
 * Export an RGB image as a Geotiff using `writeRaster()`.
@@ -45,7 +45,7 @@ After completing this tutorial you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 7 of the course.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
 
 ## Multispectral Imagery in R
@@ -342,7 +342,7 @@ you process the data.
 # convert data to raster brick
 naip_csf_br <- brick(naip_csf_st)
 inMemory(naip_csf_br)
-## [1] FALSE
+## [1] TRUE
 ```
 
 
@@ -361,7 +361,7 @@ naip_csf_br
 ## resolution : 1, 1  (x, y)
 ## extent     : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## crs        : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## source     : /tmp/RtmpeBMyMv/raster/r_tmp_2019-07-01_163431_99_63931.grd 
+## source     : memory
 ## names      : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
 ## min values :                                 0,                                 0,                                 0,                                 0 
 ## max values :                               255,                               255,                               255,                               255
@@ -374,12 +374,11 @@ View attributes of one band.
 # view attributes for one band
 naip_csf_br[[1]]
 ## class      : RasterLayer 
-## band       : 1  (of  4  bands)
 ## dimensions : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution : 1, 1  (x, y)
 ## extent     : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## crs        : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## source     : /tmp/RtmpeBMyMv/raster/r_tmp_2019-07-01_163431_99_63931.grd 
+## source     : memory
 ## names      : m_3910505_nw_13_1_20130926_crop.1 
 ## values     : 0, 255  (min, max)
 ```
@@ -529,7 +528,7 @@ plotRGB(naip_csf_br,
         main = "NAIP RGB plot with linear stretch\nColdsprings fire scar")
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/class-lessons/rgb-image-stretch-1.png" title="Stretched RGB image." alt="Stretched RGB image." width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/class-lessons/rgb-image-stretch-1.png" title="RGB with linear stretch applied." alt="RGB with linear stretch applied." width="90%" />
 
 What does the image look like using a different stretch? Any better? Worse?
 
@@ -545,7 +544,7 @@ plotRGB(naip_csf_br,
 box(col = "white") # turn all of the lines to white
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/class-lessons/plot-rgb-hist-stretch-1.png" title="RGB histogram with stretch applied." alt="RGB histogram with stretch applied." width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/class-lessons/plot-rgb-hist-stretch-1.png" title="RGB with histogram stretch applied." alt="RGB with histogram stretch applied." width="90%" />
 
 In this case, the stretch doesn't enhance the contrast of your image significantly
 given the distribution of reflectance (or brightness) values is distributed well

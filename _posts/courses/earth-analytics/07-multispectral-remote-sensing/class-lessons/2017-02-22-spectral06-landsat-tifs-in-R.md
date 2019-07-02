@@ -3,7 +3,7 @@ layout: single
 title: "Landsat Remote Sensing tif Files in R"
 excerpt: "In this lesson you will cover the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2019-07-01'
+modified: '2019-07-02'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/landsat-data-in-r-geotiff/
@@ -48,7 +48,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 7 of the course.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
+
 </div>
 
 In the previous lesson, you learned how to import a multi-band image into `R` using
@@ -74,7 +75,7 @@ band rather than a stack of bands.
     </figcaption>
 </figure>
 
-Landsat data is a multispectral dataset, collected from space. The multispectral bands
+Landsat data is a multispectral dataset collected from space. The multispectral bands
 and associated spatial resolution of the first 9 bands in the Landsat 8 sensor
 are listed below.
 

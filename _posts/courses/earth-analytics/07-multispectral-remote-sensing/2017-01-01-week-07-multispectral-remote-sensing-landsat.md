@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery R - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/
-modified: '2019-07-01'
+modified: '2019-07-02'
 week-landing: 7
 week: 7
 sidebar:
@@ -25,7 +25,7 @@ redirect_from:
 
 Welcome to week {{ page.week }} of Earth Analytics!
 
-At the end of this week you will be able to:
+At the end of this week, you will be able to:
 
 * Describe what a spectral band is in remote sensing data.
 * Create maps of spectral remote sensing data using different band combinations including CIR and RGB.
@@ -33,7 +33,7 @@ At the end of this week you will be able to:
 * Use the Landsat file naming convention to determine correct band combinations for plotting and calculating NDVI.
 * Define additive color model.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
 
 
 </div>
