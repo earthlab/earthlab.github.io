@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Multispectral Imagery R - NAIP, Landsat, Fire & Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/
-modified: '2018-01-10'
+modified: '2019-07-02'
 week-landing: 7
 week: 7
 sidebar:
@@ -25,7 +25,7 @@ redirect_from:
 
 Welcome to week {{ page.week }} of Earth Analytics!
 
-At the end of this week you will be able to:
+At the end of this week, you will be able to:
 
 * Describe what a spectral band is in remote sensing data.
 * Create maps of spectral remote sensing data using different band combinations including CIR and RGB.
@@ -284,34 +284,36 @@ NAIP NDVI plots are not below.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-01-01-week-07-multispectral-remote-sensing-landsat/load-packages-1.png" title="NAIP CIR" alt="NAIP CIR" width="90%" />
+
+
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/naip-post-fire-rgb-1.png" title="NAIP RGB post fire." alt="NAIP RGB post fire." width="90%" />
 
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-01-01-week-07-multispectral-remote-sensing-landsat/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/naip-post-fire-cir-1.png" title="NAIP CIR post fire." alt="NAIP CIR post fire." width="90%" />
 
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-01-01-week-07-multispectral-remote-sensing-landsat/unnamed-chunk-5-1.png" title="plot of chunk unnamed-chunk-5" alt="plot of chunk unnamed-chunk-5" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/naip-post-ndvi-1.png" title="NAIP NDVI post fire." alt="NAIP NDVI post fire." width="90%" />
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-01-01-week-07-multispectral-remote-sensing-landsat/landsat-pre-ndvi-1.png" title="Landsat NDVI pre fire" alt="Landsat NDVI pre fire" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/landsat-pre-ndvi-1.png" title="Landsat NDVI pre fire." alt="Landsat NDVI pre fire." width="90%" />
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-01-01-week-07-multispectral-remote-sensing-landsat/landsat-post-ndvi-1.png" title="Landsat NDVI post fire" alt="Landsat NDVI post fire" width="90%" />
-
-
-
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-01-01-week-07-multispectral-remote-sensing-landsat/landsat-pre-fire-rgb-1.png" title="Landsat Pre Fire RGB Image" alt="Landsat Pre Fire RGB Image" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/landsat-post-ndvi-1.png" title="Landsat NDVI post fire." alt="Landsat NDVI post fire." width="90%" />
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/2017-01-01-week-07-multispectral-remote-sensing-landsat/landsat-post-fire-rgb-1.png" title="Landsat Post Fire RGB Image" alt="Landsat Post Fire RGB Image" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/landsat-pre-fire-rgb-1.png" title="Landsat Pre Fire RGB Image." alt="Landsat Pre Fire RGB Image." width="90%" />
+
+
+
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/landsat-post-fire-rgb-1.png" title="Landsat Post Fire RGB Image." alt="Landsat Post Fire RGB Image." width="90%" />
 
 
 

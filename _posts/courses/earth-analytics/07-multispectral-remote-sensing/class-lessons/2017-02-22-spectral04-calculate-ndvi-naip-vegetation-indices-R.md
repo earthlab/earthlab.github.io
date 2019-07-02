@@ -3,7 +3,7 @@ layout: single
 title: "Calculate NDVI in R: Remote Sensing Vegetation Index"
 excerpt: "NDVI is calculated using near infrared and red wavelengths or types of light and is used to measure vegetation greenness or health. Learn how to calculate remote sensing NDVI using multispectral imagery in R."
 authors: ['Leah Wasser']
-modified: '2018-07-30'
+modified: '2019-07-02'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/vegetation-indices-NDVI-in-R/
@@ -46,7 +46,8 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson and the
 data for week 7 of the course.
 
-{% include/data_subsets/course_earth_analytics/_data-week6-7.md %}
+{% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
+
 </div>
 
 ## About Vegetation Indices
@@ -63,7 +64,7 @@ will represent areas that potentially have healthy vegetation.
 ## Normalized Difference Vegetation Index (NDVI)
 
 The Normalized Difference Vegetation Index (NDVI) is a quantitative index of
-greenness ranging from 0-1 where 0 represents minimal or no greenness and 1
+greenness ranging from 0-1, where 0 represents minimal or no greenness and 1
 represents maximum greenness.
 
 NDVI is often used for a quantitate proxy measure of vegetation health, cover
@@ -95,12 +96,11 @@ case, you need to calculate NDVI using the NAIP imagery / reflectance data that 
 library(raster)
 library(rgdal)
 library(rgeos)
-## Error in library(rgeos): there is no package called 'rgeos'
 library(RColorBrewer)
+
 # turn off factors
 options(stringsAsFactors = FALSE)
 ```
-
 
 
 ```r
@@ -119,7 +119,7 @@ naip_multispectral_br <- brick(naip_multispectral_st)
 ### How to Derive the NDVI Vegetation Index
 
 The normalized difference vegetation index (NDVI) uses a ratio between near infrared
-and red light within the electromagnetic spectrum. To calculate NDVI you use the
+and red light within the electromagnetic spectrum. To calculate NDVI, you use the
 following formula where NIR is near infrared light and
 red represents red light. For your raster data, you will take the reflectance value
 in the red and near infrared bands to calculate the index.
@@ -130,24 +130,25 @@ in the red and near infrared bands to calculate the index.
 ```r
 # calculate ndvi with naip
 naip_multispectral_br[[4]]
-## class       : RasterLayer 
-## dimensions  : 2312, 4377, 10119624  (nrow, ncol, ncell)
-## resolution  : 1, 1  (x, y)
-## extent      : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## data source : in memory
-## names       : m_3910505_nw_13_1_20130926_crop.4 
-## values      : 0, 255  (min, max)
+## class      : RasterLayer 
+## dimensions : 2312, 4377, 10119624  (nrow, ncol, ncell)
+## resolution : 1, 1  (x, y)
+## extent     : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
+## crs        : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
+## source     : memory
+## names      : m_3910505_nw_13_1_20130926_crop.4 
+## values     : 0, 255  (min, max)
 
 # calculate NDVI using the red (band 1) and nir (band 4) bands
 naip_ndvi <- (naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip_multispectral_br[[4]] + naip_multispectral_br[[1]])
+
 # plot the data
 plot(naip_ndvi,
      main = "NDVI of Cold Springs Fire Site - Nederland, CO \n Pre-Fire",
      axes = FALSE, box = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/class-lessons/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/naip-ndvi-1.png" title="NAIP derived NDVI plot" alt="NAIP derived NDVI plot" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/class-lessons/naip-ndvi-plot-1.png" title="NAIP derived NDVI plot." alt="NAIP derived NDVI plot." width="90%" />
 
 ### View Distribution of NDVI Values
 
@@ -161,7 +162,7 @@ hist(naip_ndvi,
   xlab = "NDVI Index Value")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/class-lessons/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/ndvi-hist-1.png" title="histogram" alt="histogram" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/class-lessons/naip-ndvi-hist-1.png" title="Histogram of NAIP derived NDVI." alt="Histogram of NAIP derived NDVI." width="90%" />
 
 ## Export Raster
 When you are done, you may want to export your rasters so you can use them in
@@ -223,7 +224,7 @@ plot(band_diff,
      axes = FALSE, box = FALSE, legend = FALSE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/class-lessons/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-3-1.png" title="plot of chunk unnamed-chunk-3" alt="plot of chunk unnamed-chunk-3" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/class-lessons/band-diff-plot-1.png" title="Example plot of band difference." alt="Example plot of band difference." width="90%" />
 
 
 
@@ -241,7 +242,7 @@ plot(naip_ndvi_ov,
      main = "NAIP NDVI calculated using the overlay function")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/07-multispectral-remote-sensing/class-lessons/2017-02-22-spectral04-calculate-ndvi-naip-vegetation-indices-R/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/07-multispectral-remote-sensing/class-lessons/naip-ndvi-ov-plot-1.png" title="NAIP derived NDVI plot using overlay function." alt="NAIP derived NDVI plot using overlay function." width="90%" />
 
 
 Don't believe overlay is faster? Let's test it using a benchmark.
@@ -249,20 +250,27 @@ Don't believe overlay is faster? Let's test it using a benchmark.
 
 ```r
 library(microbenchmark)
-## Error in library(microbenchmark): there is no package called 'microbenchmark'
 # is the raster in memory?
 inMemory(naip_multispectral_st)
 ## [1] FALSE
 
 # How long does it take to calculate ndvi without overlay.
 microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]]) / (naip_multispectral_br[[4]] + naip_multispectral_br[[1]]), times = 10)
-## Error in microbenchmark((naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] + : could not find function "microbenchmark"
+## Unit: milliseconds
+##                                                                                                                      expr
+##  (naip_multispectral_br[[4]] - naip_multispectral_br[[1]])/(naip_multispectral_br[[4]] +      naip_multispectral_br[[1]])
+##       min       lq     mean  median       uq      max neval
+##  732.5547 746.3468 780.2446 766.595 807.0131 896.7674    10
 
 # is a raster brick faster?
 microbenchmark(overlay(naip_multispectral_br[[1]],
         naip_multispectral_br[[4]],
         fun = normalized_diff), times = 10)
-## Error in microbenchmark(overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]], : could not find function "microbenchmark"
+## Unit: milliseconds
+##                                                                                         expr
+##  overlay(naip_multispectral_br[[1]], naip_multispectral_br[[4]],      fun = normalized_diff)
+##       min      lq     mean   median       uq      max neval
+##  508.4428 541.916 568.3845 561.9892 583.8746 637.7223    10
 ```
 
 Notice that the results above suggest that the overlay function is in fact
