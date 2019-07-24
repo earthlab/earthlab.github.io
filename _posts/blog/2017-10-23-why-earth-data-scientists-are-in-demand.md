@@ -1,7 +1,7 @@
 ---
 title: "Why Earth Data Scientists Are in Demand"
 header1: "Why Earth Data Scientists Are In Demand: A Survey of Hiring Managers"
-authors: ["Kendra Sand", "Leah A. Wasser", "Lauren Herwehe"]
+authors: ["Kendra Sand", "Leah Wasser", "Lauren Herwehe"]
 category: blog
 excerpt: "The Earth analytics field sits at the intersection of data science and earth sciences. Discover why hiring managers are seeking earth data science skills."
 layout: single
