@@ -1,20 +1,16 @@
 ---
 title: "Why Earth Data Scientists Are in Demand"
 header1: "Why Earth Data Scientists Are In Demand: A Survey of Hiring Managers"
-author: ["Kendra Sand, Science Writer, House of Sand", "Leah A. Wasser, Director of Earth Analytics Education, Earth Lab", "Lauren Herwehe, Program Manager - Earth Analytics Education, Earth Lab"]
+authors: ["Kendra Sand", "Leah A. Wasser", "Lauren Herwehe"]
 category: blog
-output:
-  html_document: default
-  pdf_document: default
-excerpt: The Earth analytics field sits at the intersection of data science and earth
-  sciences. Discover why hiring managers are seeking earth data science skills.
+excerpt: "The Earth analytics field sits at the intersection of data science and earth sciences. Discover why hiring managers are seeking earth data science skills."
 layout: single
 modified: '2017-10-31'
 comments: yes
 permalink: /blog/earth-data-scientist-demand/
 sidebar:
-  nav: null
-tags: null
+  nav:
+tags:
 author_profile: no
 ---
 
