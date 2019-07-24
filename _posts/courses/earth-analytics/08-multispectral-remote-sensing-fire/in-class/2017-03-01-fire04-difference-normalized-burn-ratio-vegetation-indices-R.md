@@ -3,7 +3,7 @@ layout: single
 title: "Work with the Difference Normalized Burn Index - Using Spectral Remote Sensing to Understand the Impacts of Fire on the Landscape"
 excerpt: "In this lesson you review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically you will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2018-07-30'
+modified: '2019-07-24'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -42,9 +42,10 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data for week 6 of the course.
+data for week 8 of the course.
 
 {% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
+
 </div>
 
 ## Calculate Normalized Burn Ratio (NBR)
@@ -191,14 +192,15 @@ should you use to calculate NBR using MODIS?
 
 
 
+
 ```
 ## OGR data source with driver: ESRI Shapefile 
-## Source: "/Users/lewa8222/Dropbox/earth-analytics/data/week-07/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp", layer: "co_cold_springs_20160711_2200_dd83"
+## Source: "/root/earth-analytics/data/week-08/vector_layers/fire-boundary-geomac", layer: "co_cold_springs_20160711_2200_dd83"
 ## with 1 features
 ## It has 21 fields
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/calculate-nbr-1.png" title="Post fire landsat derived NBR plot" alt="Post fire landsat derived NBR plot" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/calculate-nbr-1.png" title="Post fire landsat derived NBR plot" alt="Post fire landsat derived NBR plot" width="90%" />
 
 
 
@@ -209,14 +211,14 @@ landsat_prefire_nbr <- overlay(all_landsat_bands_173_br[[7]], all_landsat_bands_
         fun = normalized_diff)
 
 plot(landsat_prefire_nbr,
-     main = "Landsat derived NBR\n Pre-Fire \n with fire boundary overlay",
+     main = "Landsat-derived NBR\n Pre-Fire \n with fire boundary overlay",
      axes = FALSE,
      box = FALSE)
 plot(fire_boundary_utm,
      add = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/nbr-pre-fire-1.png" title="Pre fire landsat derived NBR plot" alt="Pre fire landsat derived NBR plot" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/nbr-pre-fire-1.png" title="Pre fire landsat derived NBR plot" alt="Pre fire landsat derived NBR plot" width="90%" />
 
 Now you can calculate the difference NBR (pre fire minus post fire )
 
@@ -250,7 +252,7 @@ the valid range of NBR (in this case they are not).
 You `R` classified map should look something like:
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/classify-output-plot3-1.png" title="classified NBR output" alt="classified NBR output" width="90%" />
 
 
 
@@ -262,7 +264,7 @@ barplot(nbr_classified,
         names.arg = c("Enhanced \nRegrowth", "Unburned", "Low \n Severity", "Moderate \n Severity", "High \nSeverity"))
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire04-difference-normalized-burn-ratio-vegetation-indices-R/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/view-barplot1-1.png" title="plot barplot of fire severity values with labels" alt="plot barplot of fire severity values with labels" width="90%" />
 
 
 <div class="notice--info" markdown="1">

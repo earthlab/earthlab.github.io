@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data in R."
 excerpt: "In this lesson you will explore how to import and work with MODIS remote sensing data in raster geotiff format in R. You will cover importing many files using regular expressions and cleaning raster stack layer names for nice plotting."
 authors: ['Megan Cattau', 'Leah Wasser']
-modified: '2018-01-10'
+modified: '2019-07-23'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/modis-data-in-R/
@@ -42,7 +42,7 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data for week 6 of the course.
+data for week 8 of the course.
 
 {% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
@@ -63,7 +63,7 @@ Let's import your MODIS image stack.
 
 ```r
 # open modis bands (layers with sur_refl in the name)
-all_modis_bands_july7 <- list.files("data/week-07/modis/reflectance/07_july_2016/crop",
+all_modis_bands_july7 <- list.files("data/week-08/modis/reflectance/07_july_2016/crop",
            pattern = glob2rx("*sur_refl*.tif$"),
            full.names = TRUE)
 # create spatial raster stack
@@ -72,15 +72,15 @@ all_modis_bands_pre_br <- brick(all_modis_bands_pre_st)
 
 # view range of values in stack
 all_modis_bands_pre_br[[2]]
-## class       : RasterLayer 
-## band        : 2  (of  7  bands)
-## dimensions  : 2400, 2400, 5760000  (nrow, ncol, ncell)
-## resolution  : 463.3127, 463.3127  (x, y)
-## extent      : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
-## coord. ref. : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## data source : /private/var/folders/43/4q82487d5xsfpxdx6nl_c1wmhckx08/T/RtmpyIbdcu/raster/r_tmp_2018-01-10_155738_5944_58439.grd 
-## names       : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
-## values      : -1000000, 100390000  (min, max)
+## class      : RasterLayer 
+## band       : 2  (of  7  bands)
+## dimensions : 2400, 2400, 5760000  (nrow, ncol, ncell)
+## resolution : 463.3127, 463.3127  (x, y)
+## extent     : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
+## crs        : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
+## source     : /tmp/RtmpvZHBUf/raster/r_tmp_2019-07-23_204823_97_81351.grd 
+## names      : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
+## values     : -1e+06, 100390000  (min, max)
 
 # view band names
 names(all_modis_bands_pre_br)
@@ -162,7 +162,7 @@ mtext("Distribution of MODIS reflectance values for each band\n Data not scaled"
       outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/explore-data-1.png" title="MODIS stack band 2 plot" alt="MODIS stack band 2 plot" width="90%" />
 
 
 
@@ -187,7 +187,7 @@ hist(all_modis_bands_pre_br,
 mtext("Distribution of MODIS reflectance values for each band\n Scale factor applied", outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/scale-data-1.png" title="MODIS stack histogram plot" alt="MODIS stack histogram plot" width="90%" />
 
 Great - now the range of values in your data appear more reasonable. Next, let's
 get rid of data that are outside of the valid data range.
@@ -214,7 +214,7 @@ hist(all_modis_bands_pre_br,
 mtext("Distribution of reflectance values for each band", outer = TRUE, cex = 1.5)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/assign-no-data-1.png" title="MODIS stack histogram plot with NA removed" alt="MODIS stack histogram plot with NA removed" width="90%" />
 
 
 
@@ -237,7 +237,7 @@ Why is it so hard to figure out where the study area is in this MODIS image?
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/plot-modis-layers-1.png" title="plot MODIS stack" alt="plot MODIS stack" width="90%" />
 
 ## MODIS Cloud Mask
 
@@ -261,7 +261,7 @@ The MODIS data are also stored natively in a H4 format which you will not be dis
 in this class. For the purposes of this assignment, use the table above to assign
 cloud cover "values" and to create a mask.
 
-Use the cloud cover layer `data/week-07/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m`
+Use the cloud cover layer `data/week-08/modis/reflectance/07_july_2016/crop/cloud_mask_july7_500m`
 to create your mask.
 
 Set all values >0 in the cloud cover layer to `NA`.
@@ -269,19 +269,19 @@ Set all values >0 in the cloud cover layer to `NA`.
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/create-apply-mask-1.png" title="cloud mask plot" alt="cloud mask plot" width="90%" />
 
 
 
 Plot the masked data. Notice that now the clouds are gone as they have been assigned
 the value `NA`.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/masked-data-1.png" title="MODIS with cloud mask" alt="MODIS with cloud mask" width="90%" />
 
 Finally crop the data to view just the pixels that overlay the Cold Springs fire
 study area.
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/crop-data-1.png" title="cropped data" alt="cropped data" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/crop-data-1.png" title="cropped data" alt="cropped data" width="90%" />
 
 
 ## Calculate dNBR With MODIS
@@ -317,7 +317,7 @@ What bands should you use to calculate NBR using MODIS?
 
 Similar to what you did with Landsat data, you can then use `raster::extract()` to
 select just pixels that are in the burn area and summarize by pixel
-classified value
+classified value.
 
 
 
@@ -327,7 +327,9 @@ classified value
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire06-modis-data-in-R/diff-nbr-modis-1.png" title="dnbr plotted using MODIS data for the Cold Springs fire." alt="dnbr plotted using MODIS data for the Cold Springs fire." width="90%" />
+
+
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/diff-nbr-modis-1.png" title="dnbr plotted using MODIS data for the Cold Springs fire." alt="dnbr plotted using MODIS data for the Cold Springs fire." width="90%" />
 
 
 Finally calculate summary stats of how many pixels fall into each severity class

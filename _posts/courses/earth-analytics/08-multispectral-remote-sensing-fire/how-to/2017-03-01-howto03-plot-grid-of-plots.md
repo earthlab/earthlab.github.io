@@ -3,7 +3,7 @@ layout: single
 title: "Plot Grid of Spatial Plots in R. "
 excerpt: "In this lesson you learn to use the par() or parameter settings in R to plot several raster RGB plots in R in a grid. "
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2019-07-23'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/grid-of-plots-report/
@@ -38,7 +38,7 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data for week 6/7 of the course.
+data for week 8 of the course.
 
 {% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
 </div>
@@ -56,7 +56,7 @@ library(rgdal)
 
 ```r
 # import landsat data
-all_landsat_bands <- list.files("data/week-07/Landsat/LC80340322016189-SC20170128091153/crop",
+all_landsat_bands <- list.files("data/week-08/landsat/LC80340322016189-SC20170128091153/crop",
            pattern = glob2rx("*band*.tif$"),
            full.names = TRUE) # use the dollar sign at the end to get all files that END WITH
 
@@ -116,7 +116,7 @@ box(col = "white") # turn all of the lines to white
 title("My Title", outer = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/how-to/plot-rgb3-1.png" title="Create 2 x 2 grid of plots." alt="Create 2 x 2 grid of plots." width="90%" />
 
 Above, you added an overall title to your grid of plots using the `title()` function.
 However the title is chopped of because there is not enough of a margin at the
@@ -167,7 +167,7 @@ box(col = "white") # turn all of the lines to white
 title("My Title", outer = TRUE)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/how-to/plot-rgb4-1.png" title="Remove axes labels." alt="Remove axes labels." width="90%" />
 
 When you are done with plotting in a grid space, be sure to reset your plot space
 using `dev.off()`.
@@ -183,4 +183,4 @@ Your homework this week should look something like this:
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/how-to/2017-03-01-howto03-plot-grid-of-plots/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/how-to/plot-grid-naip-modis-landsat-1.png" title="grid of plots" alt="grid of plots" width="90%" />
