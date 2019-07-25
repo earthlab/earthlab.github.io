@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically Access Data Using an API in R - The Colorado Information Warehouse"
 excerpt: "This lesson covers accessing data via the Colorado Information Warehouse SODA API in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2019-07-25'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/API-data-access-r/
@@ -31,7 +31,7 @@ After completing this tutorial, you will be able to:
 
 * Access data from the Colorado information warehouse RESTful API.
 * Describe and recognize query parameters in a RESTful call.
-* Define response and request relative to data API data access.
+* Define: response and request relative to data API data access.
 * Define API endpoint in the context of the SODA API.
 * Be able to list the 2 potential responses that you may get when querying a RESTful API.
 * Use the `mutate_at()` function with dplyr pipes to adjust the format / data type of multiple columns.
@@ -52,7 +52,7 @@ programmatically using:
 1. `fromJSON()` ideal for data accessed in JSON format.
 
 In this lesson, you will learn about API interfaces. An API allows us to access
-data stored on a computer or server using a specific query. APIs are powerful
+data stored on a computer or server using a specific query. API's are powerful
 ways to access data and more specifically the specific type and subset of data
 that you need for your analysis, programmatically.
 
@@ -129,8 +129,8 @@ Parameters associated with accessing data using this API are <a href="https://de
 
 The Colorado `SODA` API allows us to write 'queries' that filter out the exact
 subset of the data that you want. Here's the API `URL`
-for population projections for females who live in Boulder that are age 20-40
-for the years 2016-2025:
+for population projections for females who live in Boulder that are age 20--40
+for the years 2016--2025:
 
 ```html
 https://data.colorado.gov/resource/tv8u-hswn.json?$where=age between 20 and 40 and year between 2016 and 2025&county=Boulder&$select=year,age,femalepopulation
@@ -199,9 +199,9 @@ library(rjson)
 # Convert JSON to data frame
 pop_proj_data_df <- fromJSON(getURL(full_url))
 head(pop_proj_data_df, n = 2)
-##   year age femalepopulation
-## 1 1990  20             2751
-## 2 1990  21             2615
+##   age femalepopulation year
+## 1  20             2751 1990
+## 2  21             2615 1990
 typeof(pop_proj_data_df)
 ## [1] "list"
 ```
@@ -245,9 +245,9 @@ with them quantitatively?
 # view data structure
 str(pop_proj_data_df)
 ## 'data.frame':	1000 obs. of  3 variables:
-##  $ year            : chr  "1990" "1990" "1990" "1990" ...
 ##  $ age             : chr  "20" "21" "22" "23" ...
 ##  $ femalepopulation: chr  "2751" "2615" "2167" "1798" ...
+##  $ year            : chr  "1990" "1990" "1990" "1990" ...
 ```
 
 
@@ -276,9 +276,9 @@ pop_proj_data_df <- pop_proj_data_df %>%
 
 str(pop_proj_data_df)
 ## 'data.frame':	1000 obs. of  3 variables:
-##  $ year            : num  1990 1990 1990 1990 1990 1990 1990 1990 1990 1990 ...
 ##  $ age             : num  20 21 22 23 24 25 26 27 28 29 ...
 ##  $ femalepopulation: num  2751 2615 2167 1798 1692 ...
+##  $ year            : num  1990 1990 1990 1990 1990 1990 1990 1990 1990 1990 ...
 ```
 
 <div class="notice--success" markdown="1">
@@ -316,7 +316,7 @@ ggplot(pop_proj_data_df, aes(x = year, y = femalepopulation,
           subtitle = "Boulder, CO: 1990 - 2040")
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api05-get-data-api-r/plot_pop_proj-1.png" title="Female population age 20-40." alt="Female population age 20-40." width="90%" />
 
 
 
@@ -337,7 +337,7 @@ plot a descriptive title.
 
 ## Example Homework Plot
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api05-get-data-api-r/male-population-1.png" title="Male population ages 60-80." alt="Male population ages 60-80." width="90%" />
 
 
 

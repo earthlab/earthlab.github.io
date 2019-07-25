@@ -3,7 +3,7 @@ layout: single
 title: "Create Maps of Social Media Twitter Tweet Locations Over Time in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2019-07-25'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/map-tweet-locations-over-time-r/
@@ -85,9 +85,12 @@ options(stringsAsFactors = FALSE)
 ```
 
 
+
+
+
 ```r
 # create file path
-json_file <- "data/week-13/boulder_flood_geolocated_tweets.json"
+json_file <- "~/Documents/earth-analytics/data/week-13/boulder_flood_geolocated_tweets.json"
 # import json file line by line to avoid syntax errors
 # this takes a few seconds
 boulder_flood_tweets <- stream_in(file(json_file))
@@ -117,6 +120,10 @@ flood_tweets <- tweet_data %>%
   separate(coords.coordinates, c("long", "lat"), sep = ", ") %>%
   mutate_at(c("lat", "long"), as.numeric) %>%
   filter(date_time >= start_date & date_time <= end_date )
+## Warning: Too few values at 14878 locations: 2, 4, 6, 7, 8, 9, 10, 11, 12,
+## 15, 19, 21, 22, 23, 26, 27, 28, 29, 30, 31, ...
+## Warning in evalq(as.numeric(long), <environment>): NAs introduced by
+## coercion
 ```
 
 
@@ -129,7 +136,7 @@ world_basemap <- ggplot() +
 world_basemap
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/create-world-map-1.png" title="plot of chunk create-world-map" alt="plot of chunk create-world-map" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-05-map-tweet-locationsboulder-flood-r/create-world-map-1.png" title="plot of chunk create-world-map" alt="plot of chunk create-world-map" width="90%" />
 
 Below you can see how the `theme_map()` function cleans up the look
 of your map.
@@ -144,7 +151,7 @@ world_basemap <- ggplot() +
 world_basemap
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/create-world-map-theme-1.png" title="plot of chunk create-world-map-theme" alt="plot of chunk create-world-map-theme" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-05-map-tweet-locationsboulder-flood-r/create-world-map-theme-1.png" title="plot of chunk create-world-map-theme" alt="plot of chunk create-world-map-theme" width="90%" />
 
 Next, look closely at your data. Notice that some of the location
 information contains NA values. Let's remove NA values and then plot the
@@ -167,13 +174,13 @@ head(flood_tweets)
 ## 4                From Boulder, Colorado: Notes on a Thousand-Year Flood - #BoulderFlood Jenny Shank - The Atlantic http://t.co/Ln8mmCOQuk
 ## 5                               I'd rather be working from here:) #boulder #colorado #latergram #mountains #monday http://t.co/t8cGzQDyVx
 ## 6              Teaching last minute #Hot #Yoga 6PM tonight yogapodcommunity #Boulder! Join me for this 26 posture… http://t.co/Q4E7e1Qe0U
-##   coords.type      long      lat
-## 1        <NA>        NA       NA
-## 2       Point -104.8314 39.58856
-## 3        <NA>        NA       NA
-## 4        <NA>        NA       NA
-## 5        <NA>        NA       NA
-## 6       Point -105.2562 40.01783
+##   coords.type   long   lat
+## 1        <NA>     NA    NA
+## 2       Point -104.8 39.59
+## 3        <NA>     NA    NA
+## 4        <NA>     NA    NA
+## 5        <NA>     NA    NA
+## 6       Point -105.3 40.02
 ```
 
 
@@ -197,13 +204,13 @@ head(tweet_locations)
 ## 28               We #love you #boulder! #colorado #japangoboulder #beautiful #staystrong #missyouall #remodel #soclose… http://t.co/pkIFpm3roY
 ## 34                               “@mitchellbyars: #Boulder police officer checking in with the #potgiveaway table. \nجاك الموت يا مدخن الحشيش!
 ## 36                       "Sailing" #artsy #artslant #artstudio #artinfodotcom #boulder #canvas #colorado #contemporary… http://t.co/7tUt5T9ILO
-##    coords.type       long      lat
-## 2        Point -104.83141 39.58856
-## 6        Point -105.25616 40.01783
-## 12       Point -105.01977 39.74210
-## 28       Point -105.28022 40.01760
-## 34       Point  -84.17659 39.73888
-## 36       Point -105.27350 40.04817
+##    coords.type    long   lat
+## 2        Point -104.83 39.59
+## 6        Point -105.26 40.02
+## 12       Point -105.02 39.74
+## 28       Point -105.28 40.02
+## 34       Point  -84.18 39.74
+## 36       Point -105.27 40.05
 ```
 
 Plot the data.
@@ -218,12 +225,12 @@ world_basemap +
   labs(title = "Tweet Locations During the Boulder Flood Event")
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/tweet-locations-plot-1.png" title="plot of chunk tweet-locations-plot" alt="plot of chunk tweet-locations-plot" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-05-map-tweet-locationsboulder-flood-r/tweet-locations-plot-1.png" title="plot of chunk tweet-locations-plot" alt="plot of chunk tweet-locations-plot" width="90%" />
 
 
 ## Leaflet Map
 
-Next, let's create an interactive map of the data using leaflet. This will
+Next let's create an interactive map of the data using leaflet. This will
 allow us to explore the tweets. It is particularly interesting that some
 tweets are not even in the United States.
 
@@ -247,7 +254,7 @@ site_locations
 
 
 
-<iframe title = "Basic Map" width="100%" height="400" src="https://earthlab.github.io/example-leaflet-maps/co_flood_tweet_locations.html" frameborder="0" allowfullscreen></iframe>
+<iframe title = "Basic Map" width="100%" height="400" src="{{ site.url }}/example-leaflet-maps/co_flood_tweet_locations.html" frameborder="0" allowfullscreen></iframe>
 
 If you are encountering the bug with RStudio rendering a blank basemap, use the
 `addProviderTiles()` function and specify a different basemap. It should work!
@@ -267,7 +274,7 @@ site_locations_base
 
 
 
-<iframe title = "Basic Map" width="100%" height="400" src="https://earthlab.github.io/example-leaflet-maps/co_flood_tweet_locations_2.html" frameborder="0" allowfullscreen></iframe>
+<iframe title = "Basic Map" width="100%" height="400" src="{{ site.url }}/example-leaflet-maps/co_flood_tweet_locations_2.html" frameborder="0" allowfullscreen></iframe>
 
 
 ## Summarize Data by Day
@@ -289,11 +296,12 @@ grouped_tweet_map <- world_basemap + geom_point(data = tweet_locations_grp,
                         aes(long_round, lat_round, frame = day, size = total_count),
                         color = "purple", alpha = .5) + coord_fixed() +
   labs(title = "Twitter Activity during the 2013 Colorado Floods")
+## Warning: Ignoring unknown aesthetics: frame
 
 grouped_tweet_map
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/map-of-tweet-locations-1.png" title="plot of chunk map-of-tweet-locations" alt="plot of chunk map-of-tweet-locations" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-05-map-tweet-locationsboulder-flood-r/map-of-tweet-locations-1.png" title="plot of chunk map-of-tweet-locations" alt="plot of chunk map-of-tweet-locations" width="90%" />
 
 ## Create Location Animation
 

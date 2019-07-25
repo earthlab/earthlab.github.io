@@ -3,7 +3,7 @@ layout: single
 title: "An Example of Creating Modular Code in R - Efficient Scientific Programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2019-07-25'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/get-data-with-rcurl-r/
@@ -37,7 +37,7 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data that you already downloaded for week 13 of the course.
+data that you already downloaded for week 6 of the course.
 
 </div>
 
@@ -53,13 +53,13 @@ library(RCurl)
 
 ## Direct Data Access
 
-In this lesson, you will learn how to access data via a direct download in `R`.
+In this lesson you will learn how to access data via a direct download in `R`.
 You downloaded data in the first week of this class using `download.file()`
 When you used `download.file()`, you were literally downloading that file,
 which happened to be in `.csv` (comma separated value) text format to your computer.
 
 You specified the location where that file would download to, using the `destfile=`
-argument. Notice below, I specified week 13 as the download location given
+argument. Notice below, I specified week 10 as the download location given
 that is your current class week.
 
 
@@ -89,7 +89,7 @@ ggplot(boulder_precip, aes(x = DATE, y = PRECIP)) +
           subtitle = "August - October 2013")
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/boulder-precip-1.png" title="Boulder precip data plot." alt="Boulder precip data plot." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/boulder-precip-1.png" title="Boulder precip data plot." alt="Boulder precip data plot." width="90%" />
 
 
 ## Download Data via Human Readable url
@@ -133,7 +133,7 @@ ggplot(boulder_precip2, aes(x = DATE, y = PRECIP)) +
           subtitle = "August - October 2013")
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/import-plot-data-1.png" title="boulder precip from figshare plot. " alt="boulder precip from figshare plot. " width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/import-plot-data-1.png" title="boulder precip from figshare plot. " alt="boulder precip from figshare plot. " width="90%" />
 
 ### read.csv() vs RCurl
 
@@ -233,7 +233,7 @@ ggplot(birth_rates, aes(x = effort, y = change)) +
            subtitle = "For 20 Latin America Countries")
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/birth-rates-1.png" title="Birth rates example" alt="Birth rates example" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/birth-rates-1.png" title="Birth rates example" alt="Birth rates example" width="90%" />
 
 Remember that here you've imported a tabular dataset directly from the Princeton
 University website. The data file itself is NOT on your computer so you do not
@@ -289,15 +289,15 @@ to add a facet for each of the three ranks.
 </div>
 
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/all-data-1.png" title="Prof salary data by sex" alt="Prof salary data by sex" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/all-data-1.png" title="Prof salary data by sex" alt="Prof salary data by sex" width="90%" />
 
 ## Example Homework Plot
 Data faceted by rank. You can add the argument `+ facet_wrap(~variableHere)` to
 create a faceted plot like the one below.
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/facet-by-rank-1.png" title="GGPLOT of salary by experience" alt="GGPLOT of salary by experience" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/facet-by-rank-1.png" title="GGPLOT of salary by experience" alt="GGPLOT of salary by experience" width="90%" />
 
 You can also ad a linear model regression to the data if you want using
 `geom_smooth()`.
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/all-data-lm-1.png" title="GGPLOT of gapminder data - life expectance by continent by sex" alt="GGPLOT of gapminder data - life expectance by continent by sex" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api02-get-started-r/all-data-lm-1.png" title="GGPLOT of gapminder data - life expectance by continent by sex" alt="GGPLOT of gapminder data - life expectance by continent by sex" width="90%" />

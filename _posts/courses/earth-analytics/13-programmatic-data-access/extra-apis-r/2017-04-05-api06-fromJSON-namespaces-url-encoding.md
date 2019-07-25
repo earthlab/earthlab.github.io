@@ -3,7 +3,7 @@ layout: single
 title: "Understand Namespaces in R - What Package Does Your fromJSON() Function Come From?"
 excerpt: "This lesson covers namespaces in R and how we can tell R where to get a function from (what code to use) in R."
 authors: ['Leah Wasser']
-modified: '2019-07-15'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/namespaces-in-r/
@@ -51,7 +51,6 @@ calls in `R`.
 library(ggmap)
 library(ggplot2)
 library(dplyr)
-library(RCurl)
 ```
 
 
@@ -80,10 +79,10 @@ rjson library to use `fromJSON()`. What happens?
 library(rjson)
 # Convert JSON to data frame
 pop_proj_data_df <- fromJSON(full_url)
-
+## Error in open.connection(con, "rb"): HTTP error 400.
 ```
 
-The code above returns an error: `Error in open.connection(con, "rb"): HTTP error 400`.  Notice that the URL that you have passed has space
+The code above returns an error.  Notice that the URL that youhave passed has space
 in it. As you did in the previous lesson, you can use the URLencode function to
 replace those spaces with ascii values (`%20`). Let's give that a try.
 
@@ -91,12 +90,21 @@ replace those spaces with ascii values (`%20`). Let's give that a try.
 ```r
 # view url - notice spaces
 full_url
+## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation"
 # encode spaces with ascii value %20
 full_url <- URLencode(full_url)
 full_url
+## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age%20between%2020%20and%2040&$select=year,age,femalepopulation"
 # Convert JSON api returned value to data frame
 pop_proj_data_df <- fromJSON(full_url)
 head(pop_proj_data_df)
+##   age femalepopulation year
+## 1  20             2751 1990
+## 2  21             2615 1990
+## 3  22             2167 1990
+## 4  23             1798 1990
+## 5  24             1692 1990
+## 6  25             1813 1990
 ```
 
 
@@ -111,7 +119,9 @@ full_url = paste0(base_url, "county=Boulder",
              "&$select=year,age,femalepopulation")
 # view full url
 full_url
+## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation"
 pop_proj_data_df <- fromJSON(full_url)
+## Error in open.connection(con, "rb"): HTTP error 400.
 ```
 
 What happened in the code above? Above, you used the same code but got a different
@@ -122,7 +132,7 @@ different error messages from the SAME function `fromJSON()`. Because different 
 and groups create different R packages, AND you also may create functions in your
 code, the same function can exist in different packages.
 
-You can explicitly tell `R` to use a function from a particular package using the
+You can explicetly tell `R` to use a function from a particular package using the
 syntax `packageName::function()`. In this case, there are (atleast) three `R` packages that have
 the same fromJSON() function:
 
@@ -137,18 +147,18 @@ Let's see what happens when you call the same function from each package.
 ```r
 # notice the url has spaces
 full_url
+## [1] "https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation"
 
 pop_proj_data_df <- jsonlite::fromJSON(full_url)
+## Error in open.connection(con, "rb"): HTTP error 400.
 pop_proj_data_df <- rjson::fromJSON(full_url)
+## Error in rjson::fromJSON(full_url): unexpected character 'h'
 pop_proj_data_df <- RJSONIO::fromJSON(full_url)
+## Error in file(con, "r"): cannot open the connection to 'https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation'
 ```
 
-Above, notice that you get three unique errors from the same function call. 
-`Error in open.connection(con, "rb"): HTTP error 400.`
-`Error in rjson::fromJSON(full_url): unexpected character 'h'`
-`Error in file(con, "r"): cannot open the connection to 'https://data.colorado.gov/resource/tv8u-hswn.json?county=Boulder&$where=age between 20 and 40&$select=year,age,femalepopulation'`
-
-However, each time you called the function from a different package!
+Above, notice that you get three unique errors from the same function call. However, each
+time you called the function from a different package!
 
 Next, let's see which of these functions plays nicely if you encode the URL first,
 and then try to open the data!
@@ -167,13 +177,13 @@ full_url_encoded
 
 pop_proj_data_df <- jsonlite::fromJSON(full_url_encoded)
 head(pop_proj_data_df)
-##   year age femalepopulation
-## 1 1990  20             2751
-## 2 1990  21             2615
-## 3 1990  22             2167
-## 4 1990  23             1798
-## 5 1990  24             1692
-## 6 1990  25             1813
+##   age femalepopulation year
+## 1  20             2751 1990
+## 2  21             2615 1990
+## 3  22             2167 1990
+## 4  23             1798 1990
+## 5  24             1692 1990
+## 6  25             1813 1990
 ```
 
 Looks like it works when you use fromJSON from the jsonlite package. How about the
@@ -183,9 +193,11 @@ rjson package?
 
 ```r
 pop_proj_data_df1 <- rjson::fromJSON(full_url_encoded)
+## Error in rjson::fromJSON(full_url_encoded): unexpected character 'h'
 ```
 
-The above example still doesn't work, even when you encode your url string: `Error in rjson::fromJSON(full_url_encoded): unexpected character 'h'`. What happens if you use getURL to grab the URL?
+The above example still doesn't work, even when you encode your url string. What
+happens if you use getURL to grab the URL?
 
 
 ```r
@@ -193,30 +205,30 @@ pop_proj_geturl <- getURL(full_url_encoded)
 pop_proj_data_df1 <- rjson::fromJSON(pop_proj_geturl)
 head(pop_proj_data_df1, n = 2)
 ## [[1]]
-## [[1]]$year
-## [1] "1990"
-## 
 ## [[1]]$age
 ## [1] "20"
 ## 
 ## [[1]]$femalepopulation
 ## [1] "2751"
 ## 
-## 
-## [[2]]
-## [[2]]$year
+## [[1]]$year
 ## [1] "1990"
 ## 
+## 
+## [[2]]
 ## [[2]]$age
 ## [1] "21"
 ## 
 ## [[2]]$femalepopulation
 ## [1] "2615"
+## 
+## [[2]]$year
+## [1] "1990"
 ```
 
 Well the above works WHEN you first use the getURL() function from the RCurl package!
 However, it returns a list rather than a data.frame with columns and rows. In this
-case, you have to change your workflow. You need to convert the list to a data.frame.
+case you have to change your workflow. You need to convert the list to a data.frame.
 
 You can do that using do.call on the rbind.data.frame() function as follows:
 
@@ -224,13 +236,13 @@ You can do that using do.call on the rbind.data.frame() function as follows:
 ```r
 pop_proj_df_convert <- do.call(rbind.data.frame, pop_proj_data_df1)
 head(pop_proj_df_convert)
-##      year age femalepopulation
-## 2    1990  20             2751
-## 2100 1990  21             2615
-## 3    1990  22             2167
-## 4    1990  23             1798
-## 5    1990  24             1692
-## 6    1990  25             1813
+##      age femalepopulation year
+## 2     20             2751 1990
+## 2100  21             2615 1990
+## 3     22             2167 1990
+## 4     23             1798 1990
+## 5     24             1692 1990
+## 6     25             1813 1990
 ```
 
 That works - but it made us use additional code. Seems like the jsonlite example
@@ -243,12 +255,12 @@ format!
 pop_proj_data_df2 <- RJSONIO::fromJSON(full_url_encoded)
 head(pop_proj_data_df2, n = 2)
 ## [[1]]
-##             year              age femalepopulation 
-##           "1990"             "20"           "2751" 
+##              age femalepopulation             year 
+##             "20"           "2751"           "1990" 
 ## 
 ## [[2]]
-##             year              age femalepopulation 
-##           "1990"             "21"           "2615"
+##              age femalepopulation             year 
+##             "21"           "2615"           "1990"
 ```
 
 Here you see different results jet from the RJSONIO package. You would need to once

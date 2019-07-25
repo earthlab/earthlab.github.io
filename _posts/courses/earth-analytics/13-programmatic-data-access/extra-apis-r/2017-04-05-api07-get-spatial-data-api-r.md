@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically Accessing Geospatial Data Using API's - Working with and Mapping JSON Data from the Colorado Information Warehouse in R"
 excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2019-07-25'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/co-water-data-spatial-r/
@@ -43,7 +43,7 @@ You will need a computer with internet access to complete this lesson.
 
 In the previous lesson, you learned how to work with JSON data accessed
 via the Colorado information warehouse. In this lesson, you will explore another
-dataset; however this time, the data will contain geospatial information nested
+dataset however this time, the data will contain geospatial information nested
 within it that will allow us to create a map of the data.
 
 
@@ -68,7 +68,6 @@ library(dplyr)
 library(ggplot2)
 library(rjson)
 library(jsonlite)
-library(ggmap)
 ```
 
 
@@ -84,7 +83,7 @@ water_data_df <- fromJSON(water_data_url)
 
 <i class="fa fa-lightbulb-o" aria-hidden="true"></i> **ATTENTION WINDOWS USERS:**
 We have noticed a bug where on windows machines, sometimes the https URL doesn't work.
-Instead, try the same url as above but without the `s` - like this: `water_base_url <- "http://data.colorado.gov/resource/j5pc-4t32.json?"` This change has resolved many
+Instead try the same url as above but without the `s` - like this: `water_base_url <- "http://data.colorado.gov/resource/j5pc-4t32.json?"` This change has resolved many
 issues on windows machines so give it a try if you are having problems with the API.
 {: .notice--success }
 
@@ -165,15 +164,15 @@ In this case, you have a `data.frame` nested within a `data.frame`.
 # view first 6 lines of the location nested data.frame
 head(water_data_df$location)
 ##    latitude needs_recoding   longitude
-## 1 39.938351          FALSE -105.347906
-## 2 40.177423          FALSE -105.178145
-## 3 39.961655          FALSE  -105.50444
-## 4 40.215043          FALSE -105.256017
-## 5 40.257844          FALSE -105.164397
-## 6 40.216263          FALSE -105.365365
+## 1 40.256031          FALSE -105.209549
+## 2 40.255581          FALSE -105.209595
+## 3  40.15336          FALSE  -105.08869
+## 4 40.215772          FALSE -105.367197
+## 5 40.193757          FALSE  -105.21039
+## 6  40.18188          FALSE  -105.19677
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
-## [1] "39.938351" "40.177423" "39.961655" "40.215043" "40.257844" "40.216263"
+## [1] "40.256031" "40.255581" "40.15336"  "40.215772" "40.193757" "40.18188"
 ```
 
 You can remove the nesting using the `flatten()` function in `R`. When you flatten
@@ -190,18 +189,16 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
-##  [1] "39.938351" "40.177423" "39.961655" "40.215043" "40.257844"
-##  [6] "40.216263" "40.185033" "40.187524" "40.172925" "40.00638" 
-## [11] "40.255776" "40.211389" "40.042028" "40.091391" "39.931659"
-## [16] "40.174844" "40.218335" "40.193758" "40.219046" "40.211083"
-## [21] "40.196422" "40.051652" "40.018667" "40.126389" "40.258038"
-## [26] "40.134278" "40.258367" "40.059809" "40.153341" "39.947704"
-## [31] "40.129806" "40.212505" "40.07856"  "39.931597" "40.18188" 
-## [36] "40.09082"  "40.193019" "40.086278" "40.17395"  "40.153363"
-## [41] "40.260827" "40.187578" "39.931813" "40.188579" "40.220702"
-## [46] "40.053661" "40.204193" "40.17708"  "40.256276" "40.215658"
-## [51] "40.053035" "39.986169" "40.215904" "40.199321" "40.19328" 
-## [56] "40.212658" "40.170998"
+##  [1] "40.256031" "40.255581" "40.15336"  "40.215772" "40.193757"
+##  [6] "40.18188"  "40.187577" "40.19932"  "40.174844" "40.214984"
+## [11] "40.18858"  "40.134278" "40.20419"  "40.173949" "40.172925"
+## [16] "40.19642"  "40.2125"   "40.21266"  "40.187524" NA         
+## [21] "40.21804"  "40.153341" "40.21139"  "40.1946"   "40.170997"
+## [26] "40.160347" "40.21905"  "40.21108"  "40.193018" "40.172677"
+## [31] "40.172677" "40.19328"  "40.18503"  "40.051652" "40.006374"
+## [36] "40.053036" "40.733879" "40.849982" "39.98617"  "40.042028"
+## [41] "40.018667" "40.09404"  NA          "40.05366"  "39.961655"
+## [46] NA          "39.938598" "39.931096" "39.931099"
 ```
 Now you can clean up the data. Notice that your longitude and latitude values
 are in quotes. What does this mean about the structure of the data?
@@ -210,7 +207,7 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
-##  chr [1:57] "39.938351" "40.177423" "39.961655" "40.215043" ...
+##  chr [1:49] "40.256031" "40.255581" "40.15336" "40.215772" "40.193757" ...
 ```
 
 In order to map or work with latitude and longitude data, you need numeric values.
@@ -228,11 +225,10 @@ so it is best to remove them.
 # where are the cells with NA values in your data?
 is.na(water_data_df$location.latitude)
 ##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE FALSE
 ## [23] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [45] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [56] FALSE FALSE
+## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [45] FALSE  TRUE FALSE FALSE FALSE
 ```
 
 Note, in the code above, you can identify each location where there is a NA value
@@ -242,11 +238,11 @@ in your data. If you add an `!` to your code, `R` returns the INVERSE of the abo
 ```r
 # where are calls with values in your data?
 !is.na(water_data_df$location.latitude)
-##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [15] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [29] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [43] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
-## [57] TRUE
+##  [1]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [12]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE  TRUE
+## [23]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+## [34]  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE
+## [45]  TRUE FALSE  TRUE  TRUE  TRUE
 ```
 
 Thus in your dplyr pipe, the code below removes all ROWS cells with a NA value
@@ -263,7 +259,7 @@ water_data_df <- water_data_df %>%
   filter(!is.na(location.latitude))
 ```
 
-Now you can plot the data.
+Now you can plot the data
 
 
 ```r
@@ -277,7 +273,7 @@ ggplot(water_data_df, aes(location.longitude, location.latitude, size = amount,
   labs(size = "Amount", colour = "Station Type")
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/water_data_plot1-1.png" title="ggplot of water surface data." alt="ggplot of water surface data." width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api07-get-spatial-data-api-r/water_data_plot1-1.png" title="ggplot of water surface data." alt="ggplot of water surface data." width="90%" />
 
 Plotting the data using `ggplot()` creates a scatterplot of longitude and latitude,
 with some minor aesthetic tweaks. You really want to create a web
@@ -291,16 +287,14 @@ on top of that basemap to create a nice static map.
 
 
 ```r
-boulder <- get_stamenmap(bbox = c(left = -105.4969, bottom = 39.8995, right =
-  -104.9579, top = 40.1274), zoom = 10, messaging = FALSE, urlonly = FALSE,
-  filename = NULL, color = "color")
-
+boulder <- get_map(location = "Boulder, CO, USA",
+                  source = "google", crop = FALSE, zoom = 10)
 ggmap(boulder) +
   geom_point(data = water_data_df, aes(location.longitude, location.latitude, size = amount,
   color = factor(station_type)))
 ```
 
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/create_ggmap-1.png" title="GGMAP of water surface data" alt="GGMAP of water surface data" width="90%" />
+<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api07-get-spatial-data-api-r/create_ggmap-1.png" title="GGMAP of water surface data" alt="GGMAP of water surface data" width="90%" />
 
 In the next lesson, you will learn how to create interactive maps using the leaflet
 package for `R`.

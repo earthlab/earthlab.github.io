@@ -3,7 +3,7 @@ layout: single
 title: "Work With Twitter Social Media Data in R - An Introduction"
 excerpt: "This lesson will discuss some of the challenges associated with working with social media data in science. These challenges include working with non standard text, large volumes of data, API limitations, and geolocation issues."
 authors: ['Leah Wasser']
-modified: '2019-07-03'
+modified: '2018-01-10'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/intro-to-social-media-text-mining-r/
@@ -69,7 +69,8 @@ snow), disturbances (floods, and other natural disasters) and more.
 
 There are many challenges associated with social media data including:
 
-1. **Non standard text:** because social media data are often a combination of text, graphics and videos, there is a significant data cleaning involved. Often, you need to find information about something in non-standard text format - some
+1. **Non standard text:** because social media data are often a combination of text, graphics and videos, there is a significant data cleaning involved. Often,
+you need to find information about something in non-standard text format - some
 words may be capitalized, abbreviations may be used, punctuation and even
 emojiis all have to be considered when working with text.
 1. **Text mining:** Text mining is the process of examining blocks of text to
