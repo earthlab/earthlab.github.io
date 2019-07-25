@@ -3,7 +3,7 @@ layout: single
 title: "Text Mining Twitter Data With TidyText in R"
 excerpt: "Text mining is used to extract useful information from text - such as Tweets. Learn how to use the Tidytext package in R to analyze twitter data."
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2018-01-10'
+modified: '2019-07-25'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/text-mining-twitter-data-intro-r/
@@ -43,12 +43,12 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-In this lesson you will dive deeper into using twitter to understand a particular
+In this lesson, you will dive deeper into using twitter to understand a particular
 topic or event. You will learn more about text mining.
 
 ## Data Munging  101
 
-When you work with data from sources like NASA, USGS, etc. there are particular
+When you work with data from sources like NASA, USGS, etc., there are particular
 cleaning steps that you often need to do. For instance:
 
 * you may need to remove nodata values
@@ -91,6 +91,8 @@ library(ggraph)
 ```
 
 
+
+
 ```r
 climate_tweets <- search_tweets(q = "#climatechange", n = 10000,
                                       lang = "en",
@@ -114,12 +116,12 @@ climate_tweets <- search_tweets(q = "#climatechange", n = 10000, lang = "en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "Thank you @StanleyPJohnson for bringing #wildlife + #biodiversity loss into @BBCNewsnight debate on #environment, &amp;… https://t.co/r0PKh7lYX1"
-## [2] "NGO´s Urge Shift To 100% Renewable Energy: https://t.co/8Z53igdfW5 #climatechange #climateaction https://t.co/oyye6Blepo"                        
-## [3] "#CostaRica #Ambassador Roman Macaya Speaks About Importance of #Science #Diplomacy in 2018- #climatechange... https://t.co/LHZNxeRdUv"           
-## [4] "\"If you truly love nature, you will find beauty everywhere\". ~Vincent van Gogh https://t.co/I7Y5LKgxnf… https://t.co/aHz23p0885"               
-## [5] "Currently watching the movie, #DayAfterTomorrow on @AMC_TV If this isn’t what is playing out in our world currently… https://t.co/6nFrWXyp23"    
-## [6] "The latest The climate Daily! https://t.co/lF4wusZXEB Thanks to @Gail7175 @nordstjarna @setyourmindfree #climate #climatechange"
+## [1] "But of course, #ClimateChange is \"just a theory\".\n\n#BorisBritain\n#green\n#Planet #future\n#sustainability\n#renewables \n#energy https://t.co/wsbTOFsOHD"                                                                                                                                                
+## [2] "This is spot on. \"ARE YOU NOT PREPARED?\"\n\nNo. 35° heat is not normal. Our 18 hottest summers on record have all been since 2000. Most railways aren't designed to cope with this. \n\nThis is #ClimateChange change, folks. We've only got ourselves to blame. \n\n#green #future https://t.co/Kbzh2S65lv"
+## [3] "@AmyLPrendergast @tommyhigham Nice one ❤️🌱🌍 Wouldn’t it be brilliant if everyone attending made the connection and decided to #GoVegan too for all of us and #ClimateChange"                                                                                                                                   
+## [4] "@tommyhigham @AmyLPrendergast I wonder how many skipped dairy and other animal products in their coffee breaks #govegan #ClimateChange"                                                                                                                                                                       
+## [5] "@tommyhigham @AmyLPrendergast My #vegan daughter with Mary Robinson earlier this year\nThe personal is political and vice versa\nLead by example and be kind always\n\n#ClimateChange https://t.co/DgtvSgP6vb"                                                                                                
+## [6] "https://t.co/5ir6ojHE9N\n\nAlready looking forward to that #Trump tweet about #ClimateChange being a hoax in about six months."
 ```
 
 ## Data Clean-Up
@@ -159,7 +161,7 @@ You can use the `tidytext::unnest_tokens()` function in the tidytext package to
 magically clean up your text! When you use this function the following things
 will be cleaned up in the text:
 
-1. **Convert text to lowercase:** each word found in the text will be converted to lowercase so ensure that you don't get duplicate words due to variation in capitalization.
+1. **Convert text to lowercase:** each word found in the text will be converted to lowercase, so ensure that you don't get duplicate words due to variation in capitalization.
 2. **Punctuation is removed:** all instances of periods, commas etc will be removed from your list of words , and
 3. **Unique id associated with the tweet:** will be added for each occurrence of the word
 
@@ -198,7 +200,7 @@ climate_tweets_clean %>%
       title = "Count of unique words found in tweets")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-text-mine-twitter-data-r/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/plot-uncleaned-data-1.png" title="plot of users tweeting about fire." alt="plot of users tweeting about fire." width="90%" />
 
 You plot of unique words contains some words that may not be useful to use. For instance
 "a" and "to". In the word of text mining you call those words - 'stop words'.
@@ -220,17 +222,17 @@ data("stop_words")
 # view first 6 words
 head(stop_words)
 ## # A tibble: 6 x 2
-##        word lexicon
-##       <chr>   <chr>
-## 1         a   SMART
-## 2       a's   SMART
-## 3      able   SMART
-## 4     about   SMART
-## 5     above   SMART
-## 6 according   SMART
+##   word      lexicon
+##   <chr>     <chr>  
+## 1 a         SMART  
+## 2 a's       SMART  
+## 3 able      SMART  
+## 4 about     SMART  
+## 5 above     SMART  
+## 6 according SMART
 
 nrow(climate_tweets_clean)
-## [1] 133650
+## [1] 232292
 
 # remove stop words from your list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -238,7 +240,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 74490
+## [1] 126073
 ```
 
 Now that you've performed this final step of cleaning, you can try to plot, once
@@ -261,7 +263,7 @@ cleaned_tweet_words %>%
       subtitle = "Stop words removed from the list")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-text-mine-twitter-data-r/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/plot-cleaned-words-1.png" title="top 15 words used in tweets" alt="top 15 words used in tweets" width="90%" />
 
 ## Explore Networks of Words
 
@@ -283,20 +285,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 62,682 x 2
-##        paired_words     n
-##               <chr> <int>
-##  1   climate change  1282
-##  2           in the   636
-##  3           of the   403
-##  4       the arctic   341
-##  5 climatechange is   299
-##  6       learn more   298
-##  7        more here   279
-##  8 of climatechange   250
-##  9             is a   212
-## 10           on the   209
-## # ... with 62,672 more rows
+## # A tibble: 124,079 x 2
+##    paired_words         n
+##    <chr>            <int>
+##  1 climate change    1129
+##  2 in the             834
+##  3 of the             758
+##  4 climatechange is   466
+##  5 of climatechange   405
+##  6 on the             380
+##  7 to the             343
+##  8 this is            321
+##  9 on climatechange   315
+## 10 to be              311
+## # … with 124,069 more rows
 ```
 
 
@@ -316,14 +318,14 @@ climate_words_counts <- climate_tweets_filtered %>%
 
 head(climate_words_counts)
 ## # A tibble: 6 x 3
-##           word1         word2     n
-##           <chr>         <chr> <int>
-## 1       climate        change  1282
-## 2 climatechange globalwarming   146
-## 3        global       warming   132
-## 4           sea       turtles   113
-## 5        sahara        desert    85
-## 6        arctic       climate    81
+##   word1         word2                n
+##   <chr>         <chr>            <int>
+## 1 climate       change            1129
+## 2 18            months             249
+## 3 climatechange climateemergency   231
+## 4 global        warming            228
+## 5 climatechange climatecrisis      159
+## 6 climatechange globalwarming      158
 ```
 
 Finally, plot the data
@@ -346,7 +348,7 @@ climate_words_counts %>%
              x = "", y = "")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-03-text-mine-twitter-data-r/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="90%" />
 
 You expect the words climate & change to have a high
 
