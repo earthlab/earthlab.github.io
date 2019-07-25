@@ -3,7 +3,7 @@ layout: single
 title: "Access Secure Data Connections Using the RCurl R Package."
 excerpt: "This lesson reviews how to use functions within the RCurl package to access data on a secure (https) server in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2018-01-10'
+modified: '2019-07-25'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/access-gapminder-data-rcurl-r/
@@ -37,7 +37,7 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data that you already downloaded for week 6 of the course.
+data that you already downloaded for week 13 of the course.
 
 </div>
 
@@ -56,7 +56,7 @@ library(RCurl)
 
 Next, you will download data from a secure URL. It is important to note that in
 older versions of `R`, particularly on Windows machine, you would need to use
-functions in the RCUrl package that support secure url connections. Below
+functions in the RCUrl package that support secure URL connections. Below
 you can read more about using RCurl to access secure URL's. However for this lessons,
 you will continue to use `read.csv()` to directly access the data given it works
 for secure connections now.
@@ -117,12 +117,12 @@ gap_data <- read.csv(file_url,
                      sep = "\t")
 head(gap_data)
 ##       country continent year lifeExp      pop gdpPercap
-## 1 Afghanistan      Asia 1952   28.80  8425333     779.4
-## 2 Afghanistan      Asia 1957   30.33  9240934     820.9
-## 3 Afghanistan      Asia 1962   32.00 10267083     853.1
-## 4 Afghanistan      Asia 1967   34.02 11537966     836.2
-## 5 Afghanistan      Asia 1972   36.09 13079460     740.0
-## 6 Afghanistan      Asia 1977   38.44 14880372     786.1
+## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+## 2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+## 4 Afghanistan      Asia 1967  34.020 11537966  836.1971
+## 5 Afghanistan      Asia 1972  36.088 13079460  739.9811
+## 6 Afghanistan      Asia 1977  38.438 14880372  786.1134
 ```
 
 That looks better.
@@ -131,7 +131,7 @@ That looks better.
 
 If you have issues using `read.csv()`, you can try the code below which uses the
 `RCurl` library. In past versions of `R`, Windows users often had issues with
-secure URL's in `R`.
+secure URLs in `R`.
 
 
 ```r
@@ -185,6 +185,13 @@ gap_data_url <- getURL(file_url)
 gap_data <- read.csv(textConnection(gap_data_url),
                      sep = "\t")
 head(gap_data)
+##       country continent year lifeExp      pop gdpPercap
+## 1 Afghanistan      Asia 1952  28.801  8425333  779.4453
+## 2 Afghanistan      Asia 1957  30.332  9240934  820.8530
+## 3 Afghanistan      Asia 1962  31.997 10267083  853.1007
+## 4 Afghanistan      Asia 1967  34.020 11537966  836.1971
+## 5 Afghanistan      Asia 1972  36.088 13079460  739.9811
+## 6 Afghanistan      Asia 1977  38.438 14880372  786.1134
 ```
 
 
@@ -228,7 +235,7 @@ ggplot(summary_life_exp, aes(x = year, y = median_life, colour = continent)) +
           subtitle = "Downloaded from Jenny Bryan's Github Page")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api03-get-gapminder-data-github/life-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent" alt="GGPLOT of gapminder data - life expectance by continent" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/life-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent" alt="GGPLOT of gapminder data - life expectance by continent" width="90%" />
 
 ### Piping Data to ggplot()
 
@@ -251,11 +258,11 @@ gap_data %>%
           subtitle = "Data piped directly into GGPLOT! Plot looks the same!")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api03-get-gapminder-data-github/life-by-continent-pipes-1.png" title="GGPLOT of gapminder data - life expectance by continent piped" alt="GGPLOT of gapminder data - life expectance by continent piped" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/life-by-continent-pipes-1.png" title="GGPLOT of gapminder data - life expectance by continent piped" alt="GGPLOT of gapminder data - life expectance by continent piped" width="90%" />
 
 
 Below, you make a boxplot of `lifeExp` by `continent` too. Notice in this case
-you are using the `dplyr` output above, again. Thus it made sense above to
+you are using the `dplyr` output above, again. Thus, it made sense above to
 save your `dplyr` output as a new `data.frame`.
 
 
@@ -270,7 +277,7 @@ ggplot(summary_life_exp,
           subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api03-get-gapminder-data-github/box-plot-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent boxplot" alt="GGPLOT of gapminder data - life expectance by continent boxplot" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/box-plot-by-continent-1.png" title="GGPLOT of gapminder data - life expectance by continent boxplot" alt="GGPLOT of gapminder data - life expectance by continent boxplot" width="90%" />
 
 You can also create a more advanced plot - overlaying the data points on top of
 a box plot. See the <a href="http://docs.ggplot2.org" target="_blank"> ggplot documentation</a> to learn more advanced `ggplot()` plotting approaches.
@@ -285,7 +292,7 @@ ggplot(gap_data, aes(x = continent, y = lifeExp)) +
            subtitle = "Downloaded from Jenny Bryan's Github Page using getURL")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api03-get-gapminder-data-github/box-plot-point-outliers-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/box-plot-point-outliers-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="90%" />
 
 Or create a box plot with the data points overlaid on top.
 
@@ -300,7 +307,7 @@ ggplot(gap_data, aes(x = continent, y = lifeExp)) +
            subtitle = "Data points overlaid on top of the box plot.")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/extra-apis-r/2017-04-05-api03-get-gapminder-data-github/box-plot-point-jitter-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/extra-apis-r/box-plot-point-jitter-1.png" title="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." alt="GGPLOT of gapminder data - life expectance by continent with jitter and outliers." width="90%" />
 
 ### Automation & Secure Url's
 

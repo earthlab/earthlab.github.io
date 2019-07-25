@@ -3,7 +3,7 @@ layout: single
 title: "Creating Interactive Spatial Maps in R Using Leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2018-01-10'
+modified: '2019-07-25'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/leaflet-r/
@@ -21,7 +21,6 @@ redirect_from:
    - "/courses/earth-analytics/week-10/leaflet-r/"
 ---
 
-
 {% include toc title = "In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -38,7 +37,6 @@ After completing this tutorial, you will be able to:
 You will need a computer with internet access to complete this lesson.
 
 </div>
-
 
 
 
@@ -62,7 +60,7 @@ library(RCurl)
 Static maps are useful for creating figures for reports and presentation. Sometimes,
 however, you want to interact with your data. You can use the leaflet package for
 R to overlay your data on top of interactive maps. You can think about it like
-Google  maps with your data overlaid on top!
+Google maps with your data overlaid on top!
 
 ### What is Leaflet?
 
@@ -74,7 +72,7 @@ Leaflet:
 * Has a beautiful, easy to use, and <a href="http://leafletjs.com/reference.html" target="_blank">well-documented API</a>.
 
 
-The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package! Below, you can see some code that creates a basic web-map.
+The `leaflet` `R` package 'wraps' Leaflet functionality in an easy to use `R` package! Below, you can see some code that creates a basic web map.
 
 
 ```r
@@ -87,17 +85,17 @@ r_birthplace_map
 
 
 
-<iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
+<iframe title = "Basic Map" width="80%" height="600" src="https://earthlab.github.io/example-leaflet-maps/birthplace_r.html" frameborder="0" allowfullscreen></iframe>
 
 ### Grey Background When You Knit
 
 If your interactive map has a grey background when you knit to html, you can
-try to change the provider tile background as described <a href="{{ site.url }}/courses/earth-analytics/get-data-using-apis/leaflet-r/"> below on this page.</a>
+try to change the provider tile background, as described <a href="{{ site.url }}/courses/earth-analytics/get-data-using-apis/leaflet-r/"> below on this page.</a>
 
 ## Create Your Own Interactive Map
 
-Let's create your own interactive map using the surface water data that you used
-in the previous lessons, using leaflet. To do this, you will follow the steps below:
+Let's create your own interactive map of the surface water data that you used
+in the previous lessons using leaflet. To do this, you will follow the steps below:
 
 1. Request and get the data from the colorado.gov SODA API in `R` using `fromJSON()`.
 1. Address column data types to ensure your quantitative data (number values) data are in fact numeric.
@@ -153,7 +151,7 @@ water_locations_map
 
 </div>
 
-<iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
+<iframe title = "Basic Map" width="80%" height="600" src="https://earthlab.github.io/example-leaflet-maps/water_map1.html" frameborder="0" allowfullscreen></iframe>
 
 ## Customize Leaflet Maps
 
@@ -183,7 +181,9 @@ leaflet(water_data_df) %>%
 
 
 
-<iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map2.html" frameborder="0" allowfullscreen></iframe>
+
+
+<iframe title = "Basic Map" width="80%" height="600" src="https://earthlab.github.io/example-leaflet-maps/water_map2.html" frameborder="0" allowfullscreen></iframe>
 
 ### Custom Icons
 
@@ -203,12 +203,12 @@ a series of text strings and object values.
 # let's look at the output of your popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## [1] "LITTLE THOMPSON #1 DITCH<br/>Discharge: 0"              
-## [2] "LITTLE THOMPSON #2 DITCH<br/>Discharge: 0"              
-## [3] "BONUS DITCH<br/>Discharge: 0"                           
-## [4] "BUTTONROCK (RALPH PRICE) RESERVOIR<br/>Discharge: 16146"
-## [5] "CLOUGH AND TRUE DITCH<br/>Discharge: 0"                 
-## [6] "DAVIS AND DOWNING DITCH<br/>Discharge: 1.8"
+## [1] "SOUTH BOULDER CREEK BELOW GROSS RESERVOIR<br/>Discharge: 189"
+## [2] "SAINT VRAIN CREEK AT HYGIENE, CO<br/>Discharge: 17.5"        
+## [3] "MIDDLE BOULDER CREEK AT NEDERLAND, CO.<br/>Discharge: 104"   
+## [4] "HIGHLAND DITCH AT LYONS, CO<br/>Discharge: 196"              
+## [5] "BLOWER DITCH<br/>Discharge: 0.05"                            
+## [6] "BUTTONROCK (RALPH PRICE) RESERVOIR<br/>Discharge: 16302"
 ```
 
 The `<br/>` element in your popup above is HTML. This adds a line break to your
@@ -240,15 +240,18 @@ map = leaflet(water_data_df) %>%
   addProviderTiles("Stamen.Terrain") %>%
   addMarkers(lng = ~location.longitude, lat=~location.latitude, icon=water,
              popup = ~paste0(station_name, "<br/>Discharge: ", amount))
+```
+
+
+```r
 saveWidget(widget=map,
            file="water_map3.html",
            selfcontained=TRUE)
 ```
 
-<iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
+<iframe title = "Basic Map" width="80%" height="600" src="https://earthlab.github.io/example-leaflet-maps/water_map3.html" frameborder="0" allowfullscreen></iframe>
 
 There is a lot more to learn about leaflet. Here, you've just scratched the surface.
-
 
 
 ```r
@@ -264,31 +267,32 @@ icons <- awesomeIcons(
   markerColor = new
 )
 
-unique_markers_map2 <- leaflet(water_data_df) %>%
+unique_markers_map <- leaflet(water_data_df) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addAwesomeMarkers(lng=~location.longitude, lat=~location.latitude, icon=icons,
                     popup=~station_name,
                     label=~as.character(station_name))
-
 ```
 
 
-```
-## Error in resolveSizing(x, x$sizingPolicy, standalone = standalone, knitrOptions = knitrOptions): object 'unique_markers_map2' not found
+```r
+saveWidget(widget = unique_markers_map,
+           file = "water_map_unique_markers1.html",
+           selfcontained = TRUE)
 ```
 
 Here you use `addAwesomeMarkers()` and adjust the color of each point on the map
 accordingly.
 
-<iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map_unique_markers1.html" frameborder="0" allowfullscreen></iframe>
+<iframe title = "Basic Map" width="80%" height="600" src="https://earthlab.github.io/example-leaflet-maps/water_map_unique_markers1.html" frameborder="0" allowfullscreen></iframe>
+
+You can also use `addCircleMarkers()` and adjust the colors of the markers accordingly. To use the code below, you need to install additional dependencies including the webshot package and PhantomJS. 
 
 
 ```r
-
 pal <- colorFactor(c("navy", "red", "green"),
                    domain = unique(water_data_df$station_type))
-
-unique_markers_map <- leaflet(water_data_df) %>%
+unique_markers_map_2 <- leaflet(water_data_df) %>%
   addProviderTiles("CartoDB.Positron") %>%
   addCircleMarkers(
     color = ~pal(station_type),
@@ -296,16 +300,13 @@ unique_markers_map <- leaflet(water_data_df) %>%
     lng = ~location.longitude, lat = ~location.latitude,
     label = ~as.character(station_type)
   )
-
-unique_markers_map
-
 ```
 
 
-```
-## Error in resolveSizing(x, x$sizingPolicy, standalone = standalone, knitrOptions = knitrOptions): object 'unique_markers_map' not found
+```r
+saveWidget(widget = unique_markers_map_2,
+           file = "water_map_unique_markers2.html",
+           selfcontained = TRUE)
 ```
 
-Here you use `addCircleMarkers()` and adjust the color accordingly.
-
-<iframe title = "Basic Map" width="80%" height="600" src="{{ site.url }}/example-leaflet-maps/water_map_unique_markers2.html" frameborder="0" allowfullscreen></iframe>
+<iframe title = "Basic Map" width="80%" height="600" src="https://earthlab.github.io/example-leaflet-maps/water_map_unique_markers2.html" frameborder="0" allowfullscreen></iframe>
