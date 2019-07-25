@@ -3,7 +3,7 @@ layout: single
 title: "Use Tidytext to Text Mine Social Media - Twitter Data Using the Twitter API from Rtweet in R"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2018-01-10'
+modified: '2019-07-25'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/text-mine-colorado-flood-tweets-science-r/
@@ -40,7 +40,7 @@ After completing this tutorial, you will be able to:
 
 You will need a computer with internet access to complete this lesson.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 13 Data (~80 MB)](https://ndownloader.figshare.com/files/9751453?private_link=92e248fddafa3af15b98){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 13 Data (~80 MB)](https://ndownloader.figshare.com/files/10960175){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -75,18 +75,13 @@ options(stringsAsFactors = FALSE)
 ```
 
 
-
-
-
 ```r
 # create file path
-json_file <- "~/Documents/earth-analytics/data/week-13/boulder_flood_geolocated_tweets.json"
+json_file <- "data/week-13/boulder_flood_geolocated_tweets.json"
 # import json file line by line to avoid syntax errors
 # this takes a few seconds
 boulder_flood_tweets <- stream_in(file(json_file))
-## opening fileconnectionoldClass input connection.
 ##  Found 500 records... Found 1000 records... Found 1500 records... Found 2000 records... Found 2500 records... Found 3000 records... Found 3500 records... Found 4000 records... Found 4500 records... Found 5000 records... Found 5500 records... Found 6000 records... Found 6500 records... Found 7000 records... Found 7500 records... Found 8000 records... Found 8500 records... Found 9000 records... Found 9500 records... Found 10000 records... Found 10500 records... Found 11000 records... Found 11500 records... Found 12000 records... Found 12500 records... Found 13000 records... Found 13500 records... Found 14000 records... Found 14500 records... Found 15000 records... Found 15500 records... Found 16000 records... Found 16500 records... Found 17000 records... Found 17500 records... Found 18000 records... Found 18500 records... Found 18821 records... Imported 18821 records. Simplifying...
-## closing fileconnectionoldClass input connection.
 
 
 ## Found 18000 records...
@@ -124,7 +119,7 @@ head(tweet_data)
 ##                                                                                                                                     tweet_text
 ## 1                     Boom bitch get out the way! #drunk #islands #girlsnight  #BJs #hookah #zephyrs #boulder #marines… http://t.co/uYmu7c4o0x
 ## 2     @WeatherDude17 Not that revved up yet due to model inconsistency. I'd say 0-2" w/ a decent chance of &gt;1" #snow #COwx #weather #Denver
-## 3                                                                                 Story of my life! \U0001f602 #boulder http://t.co/ZMfNKEl0xD
+## 3                                                                                          Story of my life! 😂 #boulder http://t.co/ZMfNKEl0xD
 ## 4 We're looking for the two who came to help a cyclist after a hit-and-run at 30th/Baseline ~11pm Dec 23rd #Boulder #CO http://t.co/zyk3FkB4og
 ## 5                                                          Happy New Year #Boulder !!!! What are some of your New Years resolutions this year?
 ## 6                                              @simon_Says_so Nearly 60 degrees in #Boulder today. Great place to live. http://t.co/cvAcbpDQTC
@@ -153,9 +148,9 @@ flood_tweets <- tweet_data %>%
   filter(date_time >= start_date & date_time <= end_date )
 
 min(flood_tweets$date_time)
-## [1] "2013-09-13 00:00:18 MDT"
+## [1] "2013-09-13 00:00:18 UTC"
 max(flood_tweets$date_time)
-## [1] "2013-09-23 23:52:53 MDT"
+## [1] "2013-09-23 23:52:53 UTC"
 ```
 
 
@@ -206,10 +201,9 @@ flood_tweet_messages %>%
       labs(x = "Count",
       y = "Unique words",
       title = "Count of unique words found in tweets")
-## Selecting by n
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/plot-top-15-tweets-1.png" title="unique words found in tweets" alt="unique words found in tweets" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/plot-top-15-tweets-1.png" title="unique words found in tweets" alt="unique words found in tweets" width="90%" />
 
 ## Remove Stop Words
 
@@ -231,7 +225,6 @@ nrow(flood_tweet_messages)
 flood_tweet_clean <- flood_tweet_messages %>%
   anti_join(stop_words) %>%
   filter(!word == "rt")
-## Joining, by = "word"
 
 # how many words after removing the stop words?
 nrow(flood_tweet_clean)
@@ -258,10 +251,9 @@ flood_tweet_clean %>%
       labs(x = "Count",
       y = "Unique words",
       title = "Count of unique words found in tweets")
-## Selecting by n
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/top-15-words-without-stops-1.png" title="unique words found in tweets without stop words" alt="unique words found in tweets without stop words" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/top-15-words-without-stops-1.png" title="unique words found in tweets without stop words" alt="unique words found in tweets without stop words" width="90%" />
 
 Finally, notice that http is the top word in the plot above. Let's remove all 
 links from your data using a regular expression. Then you can recreate all of the 
@@ -284,7 +276,6 @@ flood_tweet_clean <- tweet_data %>%
   unnest_tokens(word, tweet_text) %>% 
   anti_join(stop_words) %>%
   filter(!word == "rt") # remove all rows that contain "rt" or retweet
-## Joining, by = "word"
 ```
 
 
@@ -301,10 +292,9 @@ flood_tweet_clean %>%
       labs(x = "Count",
       y = "Unique words",
       title = "Count of unique words found in tweets, ")
-## Selecting by n
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/top-15-words-without-stops2-1.png" title="count of unique words found in tweets without links" alt="count of unique words found in tweets without links" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/top-15-words-without-stops2-1.png" title="count of unique words found in tweets without links" alt="count of unique words found in tweets without links" width="90%" />
 
 ## Paired Word Analysis
 
@@ -335,20 +325,20 @@ flood_tweets_paired <- flood_tweets %>%
 
 flood_tweets_paired %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 57,506 x 2
-##            paired_words     n
-##                   <chr> <int>
-##  1         cowx coflood   358
-##  2        boulder creek   273
+## # A tibble: 57,507 x 2
+##    paired_words             n
+##    <chr>                <int>
+##  1 cowx coflood           358
+##  2 boulder creek          273
 ##  3 boulderflood coflood   242
-##  4         coflood cowx   159
+##  4 coflood cowx           159
 ##  5 coflood boulderflood   151
-##  6       boulder county   130
-##  7         big thompson   113
+##  6 boulder county         130
+##  7 big thompson           113
 ##  8 boulder boulderflood   113
-##  9          flash flood   113
-## 10    boulderflood cowx   110
-## # ... with 57,496 more rows
+##  9 flash flood            113
+## 10 boulderflood cowx      110
+## # … with 57,497 more rows
 ```
 
 Separate the words into columns and count the unique combinations of words.
@@ -362,20 +352,20 @@ flood_tweets_separated <- flood_tweets_paired %>%
 flood_word_counts <- flood_tweets_separated %>%
   count(word1, word2, sort = TRUE)
 flood_word_counts
-## # A tibble: 57,506 x 3
-##           word1        word2     n
-##           <chr>        <chr> <int>
-##  1         cowx      coflood   358
-##  2      boulder        creek   273
-##  3 boulderflood      coflood   242
-##  4      coflood         cowx   159
-##  5      coflood boulderflood   151
-##  6      boulder       county   130
-##  7          big     thompson   113
-##  8      boulder boulderflood   113
-##  9        flash        flood   113
-## 10 boulderflood         cowx   110
-## # ... with 57,496 more rows
+## # A tibble: 57,507 x 3
+##    word1        word2            n
+##    <chr>        <chr>        <int>
+##  1 cowx         coflood        358
+##  2 boulder      creek          273
+##  3 boulderflood coflood        242
+##  4 coflood      cowx           159
+##  5 coflood      boulderflood   151
+##  6 boulder      county         130
+##  7 big          thompson       113
+##  8 boulder      boulderflood   113
+##  9 flash        flood          113
+## 10 boulderflood cowx           110
+## # … with 57,497 more rows
 ```
 
 Finally, plot the word network.
@@ -396,7 +386,7 @@ flood_word_counts %>%
         theme_void()
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/13-programmatic-data-access/in-class/2017-04-19-social-media-04-twitter-data-boulder-flood-r/plot-word-pairs-1.png" title="plot of chunk plot-word-pairs" alt="plot of chunk plot-word-pairs" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/plot-word-pairs-1.png" title="plot of chunk plot-word-pairs" alt="plot of chunk plot-word-pairs" width="90%" />
 
 Note that "http" is still a value that appears in your word analysis. You likely
 need to do a bit more cleaning to complete this analysis! The next step might be
