@@ -1,20 +1,17 @@
 ---
 title: "The Art of Science Blogging"
-header1: "The Art of Science Blogging"
-author: ["Ally Faller, Intern - Earth Analytics Education, Earth Lab", "Lauren Herwehe, Program Manager - Earth Analytics Education, Earth Lab"]
+header1: "The Art of Science Blogging: How to Write a Blog That Non-Scientists Will Read"
+author: ["Ally Faller", "Lauren Herwehe"]
 category: blog
-output:
-  html_document: default
-  pdf_document: default
-excerpt: Blogging is a great way to communicate the importance and results
-  of scientific projects. Learn tips and tricks to get the most out of science blogging.
+excerpt: "Blogging is a great way to communicate the importance and results
+  of scientific projects. Learn tips and tricks to get the most out of science blogging."
 layout: single
-modified: '2019-07-23'
+modified: '2019-07-26'
 comments: yes
-permalink: /blog/art-of-science-blog/
+permalink: /blog/how-to-write-a-blog-for-science-communication/
 sidebar:
-  nav: null
-tags: null
+  nav: 
+tags: 
 author_profile: no
 ---
 
