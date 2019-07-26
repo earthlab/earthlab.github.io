@@ -3,7 +3,7 @@ layout: single
 title: "How to Convert Day of Year to Year, Month, Day in R"
 excerpt: "Learn how to convert a day of year value to a normal date format in R. "
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2019-07-18'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/convert-day-of-year-to-date-in-R/
@@ -34,9 +34,9 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data for week 6 of the course.
+data for week 8 of the course.
 
-[<i class="fa fa-download" aria-hidden="true"></i> Download Week 6 Data (~500 MB)](https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
+[<i class="fa fa-download" aria-hidden="true"></i> Download Week 8 Data (~500 MB)](https://ndownloader.figshare.com/files/7677208){:data-proofer-ignore='' .btn }
 
 </div>
 
@@ -59,6 +59,7 @@ You can quickly convert this in `R`:
 # this means it starts counting at 0 rather than 1 when working with dates
 as.Date(0, origin = "2016-01-01")
 ## [1] "2016-01-01"
+
 # note that R uses a 0 based index
 as.Date(1, origin = "2016-01-01")
 ## [1] "2016-01-02"

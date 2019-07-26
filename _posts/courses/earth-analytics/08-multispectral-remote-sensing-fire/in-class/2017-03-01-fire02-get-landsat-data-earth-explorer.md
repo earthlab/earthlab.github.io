@@ -3,7 +3,7 @@ layout: single
 title: "Get Landsat Remote Sensing Data From the Earth Explorer Website"
 excerpt: "In this lesson you will review how to find and download Landsat imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
-modified: '2018-01-10'
+modified: '2019-07-23'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/get-data-earth-explorer/
@@ -42,7 +42,7 @@ After completing this tutorial, you will be able to:
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-data for week 7 - 9 of the course.
+data for week 8 of the course.
 
 {% include /data_subsets/course_earth_analytics/_data-week6-7.md %}
 
@@ -88,8 +88,8 @@ To define your AOI in Earth Explorer:
 
 * Zip up extent file that you want to use. Be sure to use a square extent, if you
 have too many vertices it won't work. Lucky for us there is a zip file already zipped
-up and ready to go in your week 6 data!
-  `data/week-07/vector_layers/fire_boundary_box_shp.zip`
+up and ready to go in your week 8 data!
+  `data/week-08/vector_layers/fire_boundary_box_shp.zip`
 * Next, go to <a href="http://earthexplorer.usgs.gov" target="_blank">the Earth Explorer website</a>. Login. If you don't have a login already, create an account.
 
 Be sure to create an account. You will need it to be able to use your shapefile
@@ -176,14 +176,14 @@ because your instructor cropped the class data to make is easier to work with!
 First, let's import your new data and create a raster stack. The code is hidden
 because you already know how to do this!
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/import-landsat-1.png" title="landsat new image" alt="landsat new image" width="90%" />
 
 Next, plot the fire boundary extent on top of the newly downloaded Landsat 8 image.
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/plot-extent-1.png" title="rgb with the extent overlayed" alt="rgb with the extent overlayed" width="90%" />
 
 If you look closely at the image above, you'll see the tiny yellow boundary
 that represents the Cold Springs fire boundary. This
@@ -195,7 +195,7 @@ landsat scene is MUCH larger than your Cold Springs Fire study area. You have 2 
 Below i've plotted the cloud mask for the data that I downloaded. It looks like
 the data in your study area are cloud free. How do I know that?
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/import-cloud-mask-1.png" title="cloud mask cropped layer" alt="cloud mask cropped layer" width="90%" />
 
 All of the pixels within your study area are cloud free. This means you have
 downloaded the right scene. This also means that you don't have to worry about
@@ -217,6 +217,6 @@ plot(fire_boundary_utm,
      border = "yellow")
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire02-get-landsat-data-earth-explorer/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/08-multispectral-remote-sensing-fire/in-class/plot-with-extent-1.png" title="plot w extent defined" alt="plot w extent defined" width="90%" />
 
 Now that you have some cloud free data covering the study area, you can proceed to calculate NBR on the pre-fire data.
