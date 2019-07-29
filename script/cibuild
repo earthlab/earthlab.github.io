@@ -2,12 +2,9 @@
 set -e # halt script on error
 
 # create a development _config.yml file and comment out url
-cp _config.yml _config-dev.yml
-sed -i -e 's/"http:\/\/earthdatascience.org"/#"http:\/\/earthdatascience.org"/g' _config-dev.yml
+#cp _config.yml _config-dev.yml
+#sed -i -e 's/"http:\/\/earthdatascience.org"/#"http:\/\/earthdatascience.org"/g' _config.yml
 
 # build the site with that url
-bundle exec jekyll build --config _config-dev.yml
-bundle exec htmlproofer ./_site --file-ignore /example-leaflet-maps/ --http-status-ignore "301"
-
-# remove dev config file
-rm _config-dev.yml
+bundle exec jekyll build --config _config.yml
+bundle exec htmlproofer --url-swap "\{\{ site.url \}\}/images:/images" ./_site --file-ignore /example-leaflet-maps/ --http-status-ignore "301"
