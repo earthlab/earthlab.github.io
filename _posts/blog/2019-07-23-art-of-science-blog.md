@@ -1,12 +1,12 @@
 ---
 title: "The Art of Science Blogging"
 header1: "The Art of Science Blogging: How to Write a Blog That Non-Scientists Will Read"
-author: ["Ally Faller", "Lauren Herwehe"]
+authors: ["Ally Faller", "Lauren Herwehe"]
 category: blog
 excerpt: "Blogging is a great way to communicate the importance and results
   of scientific projects. Learn tips and tricks to get the most out of science blogging."
 layout: single
-modified: '2019-07-26'
+modified: '2019-07-31'
 comments: yes
 permalink: /blog/how-to-write-a-blog-for-science-communication/
 sidebar:
