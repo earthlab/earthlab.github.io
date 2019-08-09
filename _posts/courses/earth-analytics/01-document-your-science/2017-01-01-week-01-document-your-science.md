@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Document Your Science Using R Markdown and R"
 permalink: /courses/earth-analytics/document-your-science/
-modified: '2018-07-30'
+modified: '2019-08-09'
 week-landing: 1
 week: 1
 sidebar:
@@ -29,13 +29,6 @@ report after reading articles on the 2013 Colorado Floods.
 
 <a class="btn btn-info btn--x-large" href="{{ site.url }}/slide-shows/4-earth-analytics-course-intro/" target= "_blank"> <i class="fa fa-youtube-play" aria-hidden="true"></i> View course overview slideshow
 </a>
-
-<a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1EY9vxr3bAi81xfuIcNvjMRQqbSkXc9qoau0Pn3cahLQ/edit" target= "_blank"> View climate change google doc (for CU students only)
-</a>
-<a class="btn btn-info btn--large" href="https://docs.google.com/document/d/1XuPS0oHh6lRo47sQ4XB-WSWvRQBoS2HWksNc6v_JSic/edit#
-" target= "_blank"> View flooding change google doc (for CU students only)
-</a>
-
 
 </div>
 
@@ -190,7 +183,7 @@ qplot(x = boulder_precip$DATE,
       y = boulder_precip$PRECIP)
 ```
 
-<img src="{{ site.url }}/images/rfigs/courses/earth-analytics/01-document-your-science/2017-01-01-week-01-document-your-science/student-example-code-1.png" title="Plot of precip over time that a student should see as output after running code." alt="Plot of precip over time that a student should see as output after running code." width="90%" />
+<img src="{{ site.url }}/images/courses/earth-analytics-r/01-document-your-science/student-example-code-1.png" title="Plot of precip over time that a student should see as output after running code." alt="Plot of precip over time that a student should see as output after running code." width="90%" />
 
 
 If your code ran properly, the plot output should look like the image above.
