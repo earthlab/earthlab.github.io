@@ -1,11 +1,11 @@
 ---
 layout: single
 category: courses
-title: 'Setup Git, Bash, and Anaconda on Your Computer'
-excerpt: "Learn how to install Git, GitBash (a version of command line Bash) and Python Anaconda distribution on your computer."
-authors: ['Leah Wasser', 'Martha Morrissey']
-attribution: 'These materials were adapted from Software Carpentry materials'
-modified: 2018-08-30
+title: 'Setup Git, Bash, and Miniconda on Your Computer'
+excerpt: "Learn how to install Git, GitBash (a version of command line Bash) and Python Miniconda distribution on your computer."
+authors: ['Leah Wasser', 'Jenny Palomino', 'Martha Morrissey']
+attribution: 'These materials were adapted from Software Carpentry materials.'
+modified: 2019-08-09
 nav-title: 'Setup Git Bash & Conda'
 sidebar:
   nav:
@@ -17,10 +17,9 @@ order: 2
 topics:
   reproducible-science-and-programming: ['python']
 ---
-
 {% include toc title="In This Lesson" icon="file-text" %}
 
-In this lesson, you will learn how to install `Git`, `Git Bash` (a version of command line `Bash`) and the Anaconda distribution for `Python` on your computer.
+In this lesson, you will learn how to install `Git`, `Git Bash` (a version of command line `Bash`) and the Miniconda distribution for `Python` on your computer.
 
 <div class='notice--success' markdown="1">
 
@@ -31,14 +30,14 @@ At the end of this activity, you will be able to:
 
 * Install `Bash` and `Git`
 * Open a Terminal 
-* Install Anaconda using the Terminal 
+* Install Miniconda using the Terminal 
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 Before you start this tutorial, be sure that you have a computer with internet access. 
 
-Information below is adapted from materials developed by <a href="https://github.com/swcarpentry/workshop-template" target = "_blank">Data Carpentry</a> and the <a href="https://conda.io/docs/user-guide/install/index.html" target = "_blank">Conda documentation</a>.
+Information below is adapted from materials developed by <a href="https://github.com/swcarpentry/workshop-template" target = "_blank">Data Carpentry</a> and the <a href="https://conda.io/projects/conda/en/latest/user-guide/install/index.html" target = "_blank">Anaconda documentation</a>.
 
 </div>
 
@@ -56,12 +55,13 @@ Run the installer by double-clicking on the downloaded file and by following the
 4. Click on "Next".
 5. Click on "Next".
 6. Click on "Next".
-7. **Leave the selection on  "Use Git from the Windows Command Prompt"** and click on "Next". NOTE: If you forgot to do this, the programs that you need for the workshop will not work properly. If this happens, rerun the installer and select the appropriate option.
+7. **Leave the selection on  "Git from the command line and also from 3rd party software"** and click on "Next". NOTE: If you forgot to do this, the programs that you need for the workshop will not work properly. If this happens, rerun the installer and select the appropriate option.
 8. Click on "Next". 
-9. Leave the selection on  "Checkout Windows-style, commit Unix-style line endings" and click on “Next”.
+9. **Leave the selection on  "Checkout Windows-style, commit Unix-style line endings"** and click on “Next”.
 10. Select the second option for "Use Windows' default console window" and click on "Next".
-11. Click on "Install".
-12. When the install is complete, click on “Finish”.
+11. Click on "Next".
+12. Click on "Install".
+13. When the install is complete, click on “Finish”.
 
 This installation will provide you with both `Git` and `Bash` within the `Git Bash` program.
 
@@ -105,17 +105,21 @@ If you are running Mac OSX El Capitan, you might encounter errors when trying to
 If `Git` is not already available on your machine, you can try to install it via your distro’s package manager. For Debian/Ubuntu, run `sudo apt-get install git` and for Fedora run `sudo yum install git`.
 
 
-## Setup Anaconda 
+## Setup Miniconda 
 
-We will use the Anaconda `Python` 3.x distribution for this course. Anaconda is a distribution of `Python` that comes with many of the libraries that we need to work with scientific data. Anaconda also comes with `Jupyter Notebook` and several other tools that are useful for working in `Python`.
+You will use the Miniconda `Python` 3.x distribution to follow `Python` lessons on this website. 
 
-If you already have Anaconda for `Python` 2 setup, you do not need to install Anaconda again. We will be working with Python version 3.6 in this class, but a `Python` 3.6 environment can be installed into an Anaconda 2.7 distribution. We will discuss setting up conda environments in <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-python-anaconda-earth-analytics-environment/">lesson 4 of this module</a>.
+Miniconda is a paired down version of the Anaconda distribution of `Python` that can easily be built upon to add libraries and packages that are needed to work with scientific data. 
+
+To customize the Miniconda distribution, you will set up a custom conda environment in <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-python-anaconda-earth-analytics-environment/">lesson 4 of this module</a>.
+
+**Even if you already have Anaconda for `Python` 2.x or 3.x setup, you will still need to set-up Miniconda.** You can install Miniconda following the instructions listed below, even if you already have a full Anaconda installation. (Note that when you select the option for “Register Anaconda as my default Python 3.7” during the Miniconda installation, you will be asked to confirm that you want to make the Miniconda installation the default conda on your computer. If you have questions or concerns about this, please contact your course instructor.) 
 
 ### Windows
 
-**IMPORTANT:** if you already have a `Python` installation on your Windows computer, the settings below will replace it with Anaconda as the default `Python`. If you have questions or concerns about this, please contact your course instructor. 
+**IMPORTANT:** if you already have a `Python` installation on your Windows computer, the settings below will replace it with Miniconda `Python 3.7` as the default `Python`. If you have questions or concerns about this, please contact your course instructor. 
 
-Download the <a href="https://www.anaconda.com/download/#windows" target="_blank">Anaconda installer for Windows</a>. Be sure to download the `Python` 3.6 version! 
+Download the <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">Miniconda installer for Windows</a>. Be sure to download the `Python` 3.7 version! 
 
 Run the installer by double-clicking on the downloaded file and follow the steps bellow:
 1. Click “Run”. 
@@ -123,19 +127,18 @@ Run the installer by double-clicking on the downloaded file and follow the steps
 3. Click on “I agree”.
 4. Leave the selection on “Just me” and click on “Next”.
 5. Click on "Next".
-6. **Select the first option for “Add Anaconda to my PATH environment variable”** and also leave the selection on “Register Anaconda as my default Python 3.6”. Click on “Install”. 
+6. **Select the first option for “Add Anaconda to my PATH environment variable”** and also **leave the selection on “Register Anaconda as my default Python 3.7”.** Click on “Install”. (Note that while you will see a message in red text that adding Anaconda to the PATH environment variable is not recommended, continue with this selection to make using conda easier in Git Bash. If you have questions or concerns, please contact your instructor.)
 7. When the install is complete, Click on “Next”.
-8. Click on “Skip”. 
-9. Click on “Finish”. 
+8. Click on “Finish”. 
 
-This installation will provide you with a `Python` 3.6 distribution created by the Anaconda project. 
+This installation will provide you with the Miniconda `Python` 3.7 distribution created by the Anaconda project. 
 
 
 ### Mac
 
-1. Download the installer: <a href="https://www.anaconda.com/download/" target="_blank">Anaconda installer for Mac</a>. Be sure to download the `Python` 3.x version!
+1. Download the installer: <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">Miniconda installer for Mac</a>. Be sure to download the `Python` 3.x version!
 
-2. Install: Anaconda—Double-click the .pkg file.
+2. In your Terminal window, run: `bash Miniconda3-latest-MacOSX-x86_64.sh`.
 
 3. Follow the prompts on the installer screens.
 
@@ -146,9 +149,9 @@ This installation will provide you with a `Python` 3.6 distribution created by t
 
 ### Linux
 
-1. Download the installer: <a href="https://www.anaconda.com/download/" target="_blank">Anaconda installer for Linux</a>. Be sure to download the `Python` 3.x version!
+1. Download the installer: <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">Miniconda installer for Linux</a>. Be sure to download the `Python` 3.x version!
 
-2. In your Terminal window, run: `bash Anaconda-latest-Linux-x86_64.sh`
+2. In your Terminal window, run: `bash Miniconda3-latest-Linux-x86_64.sh`.
 
 3. Follow the prompts on the installer screens.
 
@@ -157,7 +160,7 @@ This installation will provide you with a `Python` 3.6 distribution created by t
 5. To make the changes take effect, close and then re-open your Terminal window.
 
 
-## Test your set-up of Bash, Git and Anaconda
+## Test your set-up of Bash, Git and Miniconda
 
 ### Windows
 
@@ -168,7 +171,7 @@ If you do not get a message back, then `Bash` is available for use.
 If you see a list of commands that you can execute, then `Git` has been installed correctly. 
 
 3. Next, type `conda` and hit enter.
-Again, if you see a list of commands that you can execute, then Anaconda `Python` has been installed correctly.
+Again, if you see a list of commands that you can execute, then Miniconda `Python` has been installed correctly.
 
 4. Close the `Terminal` by typing `exit`.
 
@@ -181,7 +184,7 @@ If you do not get a message back, then `Bash` is available for use.
 If you see a list of commands that you can execute, then `Git` has been installed correctly. 
 
 3. Next, type `conda` and hit enter.
-Again, if you see a list of commands that you can execute, then Anaconda `Python` has been installed correctly.
+Again, if you see a list of commands that you can execute, then Miniconda `Python` has been installed correctly.
 
 4. Close the `Terminal` by typing `exit`.
 
@@ -194,7 +197,7 @@ If you do not get a message back, then `Bash` is available for use.
 If you see a list of commands that you can execute, then `Git` has been installed correctly. 
 
 3. Next, type `conda` and hit enter.
-Again, if you see a list of commands that you can execute, then Anaconda `Python` has been installed correctly.
+Again, if you see a list of commands that you can execute, then Miniconda `Python` has been installed correctly.
 
 4. Close the `Terminal` by typing `exit`.
 
