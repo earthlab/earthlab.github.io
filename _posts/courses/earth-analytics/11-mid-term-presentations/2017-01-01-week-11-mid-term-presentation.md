@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Midterm Presentations"
 permalink: /courses/earth-analytics/week-11/
-modified: '2018-01-10'
+modified: '2019-08-09'
 week-landing: 11
 week: 11
 sidebar:
@@ -34,7 +34,7 @@ your midterm assignment to the class.
 | 11:10 - 12:20  | Midterm Presentations |  |
 
 
-### 2. Complete the Assignment Below (3 points)
+### Complete the Assignment Below (3 points)
 
 #### Evaluation Due: Tuesday 14 November 2017 by 8pm
 
@@ -50,26 +50,11 @@ your midterm assignment to the class.
 
 ### Complete the Assignment Below:
 
-For this week you will review *at least* 4 other presentations during
-class. Please submit your review to qualtrics using the link below. Please
-be sure to add your first and last name and email to the qualtrics form so we can
-count your review when we grade!
-
-
-<a class="btn .btn--x-large btn-info" href="https://cuboulder.qualtrics.com/jfe/form/SV_8eniB7oV1RlHMwd" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
-FOR COURSE STUDENTS ONLY: Qualtrics Survey  - Use this to Submit your review to me by Tuesday at 8pm. </a>
-
-Because you may want to revise your review before submitting it to us and your classmates,
-we created a google doc that you can use to take notes during class.  You don't have
-to use it. We just thought it might be helpful.
-
-<a class="btn .btn--x-large btn-info" href="https://docs.google.com/document/d/1JJQiEvdPO1FnzJkHwpgAT_e1VEFE_fIkWcegug085qI/edit#
-" target= "_blank"> <i class="fa fa-file-text" aria-hidden="true"></i>
-FOR COURSE STUDENTS ONLY: Google doc evaluation form template - use this if you'd like as an example of what the qualtrics form above looks like. You will submit your evaluation through qualtrics. </a>
-
+For this week, you will review *at least* 4 other presentations during
+class. 
 
 #### BONUS (1 Point):
-Review atleast 2 additional presentations to receive an additional homework point.
+Review at least 2 additional presentations to receive an additional homework point.
 
 
 ### Participation
