@@ -5,7 +5,7 @@ authors: ["Kendra Sand", "Leah Wasser", "Lauren Herwehe"]
 category: blog
 excerpt: "The Earth analytics field sits at the intersection of data science and earth sciences. Discover why hiring managers are seeking earth data science skills."
 layout: single
-modified: '2017-10-31'
+modified: '2019-08-05'
 comments: yes
 permalink: /blog/earth-data-scientist-demand/
 sidebar:
@@ -13,15 +13,6 @@ sidebar:
 tags:
 author_profile: no
 ---
-
-
-
-
-
-
-
-
-
 
 
 
