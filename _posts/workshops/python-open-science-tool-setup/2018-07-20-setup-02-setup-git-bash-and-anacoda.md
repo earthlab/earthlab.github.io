@@ -5,7 +5,7 @@ title: 'Setup Git, Bash, and Miniconda on Your Computer'
 excerpt: "Learn how to install Git, GitBash (a version of command line Bash) and Python Miniconda distribution on your computer."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Martha Morrissey']
 attribution: 'These materials were adapted from Software Carpentry materials.'
-modified: 2019-08-09
+modified: 2019-08-12
 nav-title: 'Setup Git Bash & Conda'
 sidebar:
   nav:
@@ -113,7 +113,7 @@ Miniconda is a paired down version of the Anaconda distribution of `Python` that
 
 To customize the Miniconda distribution, you will set up a custom conda environment in <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-python-anaconda-earth-analytics-environment/">lesson 4 of this module</a>.
 
-**Even if you already have Anaconda for `Python` 2.x or 3.x setup, you will still need to set-up Miniconda.** You can install Miniconda following the instructions listed below, even if you already have a full Anaconda installation. (Note that when you select the option for “Register Anaconda as my default Python 3.7” during the Miniconda installation, you will be asked to confirm that you want to make the Miniconda installation the default conda on your computer. If you have questions or concerns about this, please contact your course instructor.) 
+**Even if you already have Anaconda for `Python` 2.x or 3.x setup, you will still need to set-up Miniconda.** You can install Miniconda following the instructions listed below, even if you already have a full Anaconda installation. (Note for Windows Users: if you already have Anaconda 3.7, you will be asked to confirm that you want to make the Miniconda installation the default conda on your computer when you select the option for “Register Anaconda as my default Python 3.7” during the Miniconda installation. If you have questions or concerns about this, please contact your course instructor.) 
 
 ### Windows
 
@@ -144,7 +144,7 @@ This installation will provide you with the Miniconda `Python` 3.7 distribution 
 
 4. If you are unsure about any setting, accept the defaults. You can change them later.
 
-5. To make the changes take effect, close and then re-open your Terminal window.
+5. To make sure that the changes take effect, close and then re-open your Terminal window.
 
 
 ### Linux
@@ -157,7 +157,7 @@ This installation will provide you with the Miniconda `Python` 3.7 distribution 
 
 4. If you are unsure about any setting, accept the defaults. You can change them later.
 
-5. To make the changes take effect, close and then re-open your Terminal window.
+5. To make sure that the changes take effect, close and then re-open your Terminal window.
 
 
 ## Test your set-up of Bash, Git and Miniconda
