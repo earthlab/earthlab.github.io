@@ -14,7 +14,7 @@ sidebar:
 author_profile: false
 comments: true
 course: "earth-analytics-python"
-order: 2
+order: 4
 topics:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis:
