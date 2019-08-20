@@ -275,7 +275,7 @@ ax.imshow(lidar_chm_crop_ma, extent = cr_extent)
 
 
 
-    <matplotlib.image.AxesImage at 0x7f14b70e0080>
+    <matplotlib.image.AxesImage at 0x7f5be14c8be0>
 
 
 
