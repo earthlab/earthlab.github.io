@@ -5,7 +5,7 @@ authors: ["Kendra Sand", "Leah Wasser", "Lauren Herwehe"]
 category: blog
 excerpt: "Earth analytics expertise leads to lucrative and meaningful job opportunities. Get a competitive edge with these in-demand earth data science skills."
 layout: single
-modified: '2019-08-05'
+modified: '2019-08-20'
 comments: yes
 permalink: /blog/four-skills-earth-data-science/
 sidebar:

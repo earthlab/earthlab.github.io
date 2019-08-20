@@ -2,7 +2,7 @@
 layout: single 
 title: "Visualizing hourly traffic crime data for Denver, Colorado using R, dplyr, and ggplot"
 date: 2016-12-06 
-modified: '2019-08-19'
+modified: '2019-08-20'
 authors: [Max Joseph] 
 category: [tutorials] 
 excerpt: 'This tutorial demonstrates how to access and visualize crime data for Denver, Colorado.' 
@@ -42,8 +42,8 @@ Let's lowercase the column names, and look at the structure of the data with the
 names(d) <- tolower(names(d))
 str(d)
 ## 'data.frame':	506248 obs. of  19 variables:
-##  $ incident_id           : num  2.02e+09 2.02e+10 2.02e+10 2.02e+08 2.02e+09 ...
-##  $ offense_id            : num  2.02e+15 2.02e+16 2.02e+16 2.02e+14 2.02e+15 ...
+##  $ incident_id           : num  2016376978 20186000994 20166003953 201872333 2017411405 ...
+##  $ offense_id            : num  2016376978521300 20186000994239900 20166003953230500 201872333239900 2017411405230300 ...
 ##  $ offense_code          : int  5213 2399 2305 2399 2303 5499 2304 5707 5401 2305 ...
 ##  $ offense_code_extension: int  0 0 0 0 0 0 0 0 0 0 ...
 ##  $ offense_type_id       : chr  "weapon-unlawful-discharge-of" "theft-other" "theft-items-from-vehicle" "theft-other" ...
@@ -109,5 +109,5 @@ p <- accidents %>%
 p 
 ```
 
-<img src="{{ site.url }}/images/tutorials//R/plot-hourly-1.png" title="Traffic accident data for each hour in Denver, CO" alt="Traffic accident data for each hour in Denver, CO" width="90%" />
+<img src="{{ site.url }}/images/tutorials/R/plot-hourly-1.png" title="Traffic accident data for each hour in Denver, CO" alt="Traffic accident data for each hour in Denver, CO" width="90%" />
 

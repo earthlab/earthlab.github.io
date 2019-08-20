@@ -4,7 +4,7 @@ category: [courses]
 title: "Crop a Spatial Raster Dataset Using a Shapefile in Python"
 excerpt: "This lesson covers how to crop a raster dataset and export it as a new raster in Python"
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2018-07-19
+modified: 2019-08-20
 permalink: /workshops/gis-open-source-python/crop-raster-data-in-python/
 nav-title: 'Crop a Raster'
 module-type: 'workshop'
@@ -77,9 +77,11 @@ import matplotlib.pyplot as plt
 import geopandas as gpd
 import earthpy as et
 import cartopy as cp
-plt.ion()
 
+# set home directory and download data
+et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
 # optional - turn off warnings
 import warnings
 warnings.filterwarnings('ignore')
@@ -112,7 +114,11 @@ ax.set_title("Lidar Canopy Height Model (CHM)\n NEON SOAP Field Site",
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_5_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_5_0.png">
+
+</figure>
 
 
 
@@ -141,7 +147,7 @@ print('lidar crs: ', soap_profile['crs'])
 
 {:.output}
     crop extent crs:  {'init': 'epsg:32611'}
-    lidar crs:  +init=epsg:32611
+    lidar crs:  EPSG:32611
 
 
 
@@ -158,7 +164,12 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_10_0.png">
+
+</figure>
+
 
 
 
@@ -173,6 +184,7 @@ ax.set_axis_off();
 
 Now that you have imported the shapefile. Plot the two layers together to ensure the overlap each other. If the shapefile does not overlap the raster, then you can not use it to crop!
 
+
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize = (10,10))
@@ -185,7 +197,14 @@ crop_extent_soap.plot(ax=ax, alpha=.6, color='g');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_12_0.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_14_0.png">
+
+</figure>
+
+
+
 
 
 
@@ -256,7 +275,7 @@ ax.imshow(lidar_chm_crop_ma, extent = cr_extent)
 
 
 
-    <matplotlib.image.AxesImage at 0x12c18fb38>
+    <matplotlib.image.AxesImage at 0x7f14b70e0080>
 
 
 
@@ -265,7 +284,12 @@ ax.imshow(lidar_chm_crop_ma, extent = cr_extent)
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_17_1.png)
+<figure>
+
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_22_1.png">
+
+</figure>
+
 
 
 

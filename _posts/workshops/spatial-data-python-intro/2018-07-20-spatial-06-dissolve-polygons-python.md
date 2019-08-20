@@ -4,7 +4,7 @@ category: [courses]
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2018-09-21
+modified: 2019-08-20
 module-type: 'workshop'
 module: "spatial-data-open-source-python"
 permalink: /workshops/gis-open-source-python/dissolve-polygons-in-python-geopandas-shapely/
@@ -53,8 +53,9 @@ import matplotlib.lines as mlines
 from matplotlib.colors import ListedColormap
 import earthpy as et 
 
-# make figures plot inline
-plt.ion()
+# set home directory and download data
+et.data.get_data("spatial-vector-lidar")
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 {:.input}
@@ -400,6 +401,8 @@ Aggregate the data using the 'mean' method on the ALAND and AWATER attributes (t
 <figcaption>In addition to dissolving the boundaries between polygons based on an attribute label, you can also summarize the other attributes, such as calculating the means of the areas of land and water, using the new polygon boundaries. You can also make quantile maps of the aggregated data, as shown in these examples.</figcaption>
 
 </figure>
+
+
 
 
 
