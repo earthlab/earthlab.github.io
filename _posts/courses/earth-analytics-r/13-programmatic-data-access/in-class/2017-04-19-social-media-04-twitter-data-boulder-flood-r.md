@@ -371,38 +371,4 @@ flood_word_counts
 Finally, plot the word network.
 
 
-```r
-# plot climate change word network
-flood_word_counts %>%
-        filter(n >= 50) %>%
-        graph_from_data_frame() %>%
-        ggraph(layout = "fr") +
-        geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
-        geom_node_point(color = "darkslategray4", size = 3) +
-        geom_node_text(aes(label = name), vjust = 1.8, size = 3) +
-        labs(title = "Word Network: Tweets during the 2013 Colorado Flood Event",
-             subtitle = "September 2013 - Text mining twitter data ",
-             x = "", y = "") +
-        theme_void()
-```
-
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/plot-word-pairs-1.png" title="plot of chunk plot-word-pairs" alt="plot of chunk plot-word-pairs" width="90%" />
-
-Note that "http" is still a value that appears in your word analysis. You likely
-need to do a bit more cleaning to complete this analysis! The next step might be
-a <a href="http://tidytextmining.com/sentiment.html" target = "_blank">sentiment analysis. </a>
-This analysis would attempt to capture the general mood of the social media posts
-during and after the flood events. While this is beyond the scope of the class,
-the tidytextmining book link above has a very useful section on this topic.
-
-In the next lesson, you will will take the tweet location data and create an
-interactive map.
-
-<div class="notice--info" markdown="1">
-
-## Additional Resources
-
-* <a href="http://tidytextmining.com/" target = "_blank">Tidy text mining e-book is a great resource for text mining in `R`.  </a>
-
-</div>
 

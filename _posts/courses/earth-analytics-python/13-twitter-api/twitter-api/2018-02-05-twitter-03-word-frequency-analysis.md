@@ -108,11 +108,11 @@ all_tweets[:5]
 
 
 
-    ['“The clearest evidence is that the 3rd world, the developing world, is where the emissions are rising like crazy."… https://t.co/qgOuIQWh1S',
-     '#Climate change to slow global economic growth, new study finds: CNBC https://t.co/CE0cicl1B4\n\nMORE w/ EcoSearch -… https://t.co/19lpdbzIUy',
-     "#Climate change is turning Florida's sea turtles female. How long can these species survive?: Miami Herald… https://t.co/Bm6vtl9cai",
-     'UK Heatwave: Is #Climate Change to blame? https://t.co/gOWlmCJTio #climatechange',
-     '“People can see that the plants are being damaged and I think that’s an important connection for people to make. Pl… https://t.co/2H2me21Fb9']
+    ['“Most of the Amazon was once considered fireproof, but as #climate change and deforestation remake the world, wildf… https://t.co/WEe2Ku1gcf',
+     '#Canada election: Charities warned against #climate change ads https://t.co/tNfuaeJ0e3',
+     "Climate change may change the way ocean waves impact 50% of the world's coastlines - https://t.co/xciA6GBEqg… https://t.co/95yICgHDya",
+     '#Climate Change is making some Homes uninsurable https://t.co/pfvqj5S1zk #climatechange',
+     'Death, blackouts, melting asphalt: ways the #climate crisis will change how we live via @guardian \nhttps://t.co/4cMhRmtAs1']
 
 
 
@@ -167,11 +167,11 @@ all_tweets_no_urls[:5]
 
 
 
-    ['The clearest evidence is that the 3rd world the developing world is where the emissions are rising like crazy',
-     'Climate change to slow global economic growth new study finds CNBC MORE w EcoSearch',
-     'Climate change is turning Floridas sea turtles female How long can these species survive Miami Herald',
-     'UK Heatwave Is Climate Change to blame climatechange',
-     'People can see that the plants are being damaged and I think thats an important connection for people to make Pl']
+    ['Most of the Amazon was once considered fireproof but as climate change and deforestation remake the world wildf',
+     'Canada election Charities warned against climate change ads',
+     'Climate change may change the way ocean waves impact 50 of the worlds coastlines',
+     'Climate Change is making some Homes uninsurable climatechange',
+     'Death blackouts melting asphalt ways the climate crisis will change how we live via guardian']
 
 
 
@@ -262,25 +262,24 @@ all_tweets_no_urls[0].split()
 
 
 
-    ['The',
-     'clearest',
-     'evidence',
-     'is',
-     'that',
+    ['Most',
+     'of',
      'the',
-     '3rd',
+     'Amazon',
+     'was',
+     'once',
+     'considered',
+     'fireproof',
+     'but',
+     'as',
+     'climate',
+     'change',
+     'and',
+     'deforestation',
+     'remake',
+     'the',
      'world',
-     'the',
-     'developing',
-     'world',
-     'is',
-     'where',
-     'the',
-     'emissions',
-     'are',
-     'rising',
-     'like',
-     'crazy']
+     'wildf']
 
 
 
@@ -301,25 +300,24 @@ all_tweets_no_urls[0].lower().split()
 
 
 
-    ['the',
-     'clearest',
-     'evidence',
-     'is',
-     'that',
+    ['most',
+     'of',
      'the',
-     '3rd',
+     'amazon',
+     'was',
+     'once',
+     'considered',
+     'fireproof',
+     'but',
+     'as',
+     'climate',
+     'change',
+     'and',
+     'deforestation',
+     'remake',
+     'the',
      'world',
-     'the',
-     'developing',
-     'world',
-     'is',
-     'where',
-     'the',
-     'emissions',
-     'are',
-     'rising',
-     'like',
-     'crazy']
+     'wildf']
 
 
 
@@ -339,39 +337,32 @@ words_in_tweet[:2]
 
 
 
-    [['the',
-      'clearest',
-      'evidence',
-      'is',
-      'that',
+    [['most',
+      'of',
       'the',
-      '3rd',
-      'world',
-      'the',
-      'developing',
-      'world',
-      'is',
-      'where',
-      'the',
-      'emissions',
-      'are',
-      'rising',
-      'like',
-      'crazy'],
-     ['climate',
+      'amazon',
+      'was',
+      'once',
+      'considered',
+      'fireproof',
+      'but',
+      'as',
+      'climate',
       'change',
-      'to',
-      'slow',
-      'global',
-      'economic',
-      'growth',
-      'new',
-      'study',
-      'finds',
-      'cnbc',
-      'more',
-      'w',
-      'ecosearch']]
+      'and',
+      'deforestation',
+      'remake',
+      'the',
+      'world',
+      'wildf'],
+     ['canada',
+      'election',
+      'charities',
+      'warned',
+      'against',
+      'climate',
+      'change',
+      'ads']]
 
 
 
@@ -402,20 +393,20 @@ counts_no_urls.most_common(15)
 
 
 
-    [('climate', 815),
-     ('change', 619),
+    [('climate', 817),
+     ('change', 622),
      ('the', 618),
-     ('to', 452),
-     ('of', 315),
-     ('is', 251),
+     ('to', 454),
+     ('of', 313),
+     ('is', 247),
      ('a', 246),
-     ('and', 232),
-     ('in', 192),
-     ('climatechange', 157),
+     ('and', 227),
+     ('in', 189),
+     ('climatechange', 160),
      ('on', 137),
-     ('for', 134),
+     ('for', 131),
      ('are', 122),
-     ('we', 117),
+     ('we', 115),
      ('that', 88)]
 
 
@@ -463,12 +454,12 @@ clean_tweets_no_urls.head()
     <tr>
       <th>0</th>
       <td>climate</td>
-      <td>815</td>
+      <td>817</td>
     </tr>
     <tr>
       <th>1</th>
       <td>change</td>
-      <td>619</td>
+      <td>622</td>
     </tr>
     <tr>
       <th>2</th>
@@ -478,12 +469,12 @@ clean_tweets_no_urls.head()
     <tr>
       <th>3</th>
       <td>to</td>
-      <td>452</td>
+      <td>454</td>
     </tr>
     <tr>
       <th>4</th>
       <td>of</td>
-      <td>315</td>
+      <td>313</td>
     </tr>
   </tbody>
 </table>
@@ -531,7 +522,7 @@ plt.show()
 
 
 
-    [19, 14, 16]
+    [18, 8, 14]
 
 
 
@@ -581,7 +572,16 @@ list(stop_words)[0:10]
 
 
 
-    ["isn't", 'his', 'if', 'did', 'which', 'there', 'off', 'was', 'ain', 'a']
+    ['couldn',
+     'against',
+     'aren',
+     'it',
+     'isn',
+     'yourselves',
+     'should',
+     "weren't",
+     'haven',
+     'only']
 
 
 
@@ -601,25 +601,24 @@ words_in_tweet[0]
 
 
 
-    ['the',
-     'clearest',
-     'evidence',
-     'is',
-     'that',
+    ['most',
+     'of',
      'the',
-     '3rd',
+     'amazon',
+     'was',
+     'once',
+     'considered',
+     'fireproof',
+     'but',
+     'as',
+     'climate',
+     'change',
+     'and',
+     'deforestation',
+     'remake',
+     'the',
      'world',
-     'the',
-     'developing',
-     'world',
-     'is',
-     'where',
-     'the',
-     'emissions',
-     'are',
-     'rising',
-     'like',
-     'crazy']
+     'wildf']
 
 
 
@@ -649,16 +648,15 @@ tweets_nsw[0]
 
 
 
-    ['clearest',
-     'evidence',
-     '3rd',
+    ['amazon',
+     'considered',
+     'fireproof',
+     'climate',
+     'change',
+     'deforestation',
+     'remake',
      'world',
-     'developing',
-     'world',
-     'emissions',
-     'rising',
-     'like',
-     'crazy']
+     'wildf']
 
 
 
@@ -680,21 +678,21 @@ counts_nsw.most_common(15)
 
 
 
-    [('climate', 815),
-     ('change', 619),
-     ('climatechange', 157),
+    [('climate', 817),
+     ('change', 622),
+     ('climatechange', 160),
      ('could', 53),
-     ('us', 50),
-     ('new', 45),
-     ('via', 44),
+     ('new', 49),
+     ('us', 48),
+     ('via', 45),
      ('glacier', 41),
      ('news', 39),
-     ('amp', 36),
+     ('amp', 37),
+     ('may', 35),
+     ('study', 33),
+     ('globalwarming', 33),
      ('science', 33),
-     ('global', 32),
-     ('globalwarming', 32),
-     ('lost', 32),
-     ('study', 30)]
+     ('global', 32)]
 
 
 
@@ -764,16 +762,15 @@ tweets_nsw[0]
 
 
 
-    ['clearest',
-     'evidence',
-     '3rd',
+    ['amazon',
+     'considered',
+     'fireproof',
+     'climate',
+     'change',
+     'deforestation',
+     'remake',
      'world',
-     'developing',
-     'world',
-     'emissions',
-     'rising',
-     'like',
-     'crazy']
+     'wildf']
 
 
 
@@ -789,16 +786,13 @@ tweets_nsw_nc[0]
 
 
 
-    ['clearest',
-     'evidence',
-     '3rd',
+    ['amazon',
+     'considered',
+     'fireproof',
+     'deforestation',
+     'remake',
      'world',
-     'developing',
-     'world',
-     'emissions',
-     'rising',
-     'like',
-     'crazy']
+     'wildf']
 
 
 
@@ -827,20 +821,20 @@ counts_nsw_nc.most_common(15)
 
 
     [('could', 53),
-     ('us', 50),
-     ('new', 45),
-     ('via', 44),
+     ('new', 49),
+     ('us', 48),
+     ('via', 45),
      ('glacier', 41),
      ('news', 39),
-     ('amp', 36),
+     ('amp', 37),
+     ('may', 35),
+     ('study', 33),
+     ('globalwarming', 33),
      ('science', 33),
      ('global', 32),
-     ('globalwarming', 32),
      ('lost', 32),
-     ('study', 30),
-     ('people', 30),
-     ('may', 30),
-     ('iceland', 30)]
+     ('iceland', 30),
+     ('fight', 30)]
 
 
 
@@ -858,7 +852,7 @@ len(counts_nsw_nc)
 
 
 
-    3682
+    3645
 
 
 
@@ -908,18 +902,18 @@ clean_tweets_ncw.head()
     </tr>
     <tr>
       <th>1</th>
-      <td>us</td>
-      <td>50</td>
+      <td>new</td>
+      <td>49</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>new</td>
-      <td>45</td>
+      <td>us</td>
+      <td>48</td>
     </tr>
     <tr>
       <th>3</th>
       <td>via</td>
-      <td>44</td>
+      <td>45</td>
     </tr>
     <tr>
       <th>4</th>

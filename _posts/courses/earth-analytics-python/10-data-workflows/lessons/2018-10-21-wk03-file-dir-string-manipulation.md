@@ -157,7 +157,7 @@ all_sites
 
 
 
-    ['data/ndvi-automation/sites/SJER/', 'data/ndvi-automation/sites/HARV/']
+    ['data/ndvi-automation/sites/HARV/', 'data/ndvi-automation/sites/SJER/']
 
 
 
@@ -176,7 +176,7 @@ glob(os.path.join("data", "ndvi-automation", "sites") + "/*/")
 
 
 
-    ['data/ndvi-automation/sites/SJER/', 'data/ndvi-automation/sites/HARV/']
+    ['data/ndvi-automation/sites/HARV/', 'data/ndvi-automation/sites/SJER/']
 
 
 
@@ -192,8 +192,8 @@ for site_files in all_sites:
 ```
 
 {:.output}
-    data/ndvi-automation/sites/SJER/
     data/ndvi-automation/sites/HARV/
+    data/ndvi-automation/sites/SJER/
 
 
 
@@ -218,52 +218,52 @@ for site_files in all_sites:
 ```
 
 {:.output}
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017022401T1-SC20181023152103/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017081901T1-SC20181023153141/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017090401T1-SC20181023162756/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017020801T1-SC20181023162521/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017032801T1-SC20181023162825/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017112301T1-SC20181023170128/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017102201T1-SC20181023153638/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017012301T1-SC20181023170015/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017010701T2-SC20181023153321/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017122501T1-SC20181023152106/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017071801T1-SC20181023153104/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017092001T1-SC20181023170143/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017051501T1-SC20181023151959/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017110701T1-SC20181023170129/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017061601T1-SC20181023152417/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017031201T1-SC20181023152108/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017120901T1-SC20181023152438/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017080301T1-SC20181023185645/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017041301T1-SC20181023170020/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017053101T1-SC20181023151941/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017070201T1-SC20181023153031/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017100601T1-SC20181023152121/
-    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017042901T1-SC20181023153144/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017072301T1-SC20181023152048/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017101101T1-SC20181023151948/
     data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017102701T1-SC20181023151948/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017011201T1-SC20181023151858/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017111201T1-SC20181023151927/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017012801T1-SC20181023151918/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017070701T1-SC20181023152155/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017031701T1-SC20181023151837/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017082401T1-SC20181023152023/
     data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017030101T2-SC20181023151931/
     data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017050401T1-SC20181023152417/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017123001T1-SC20181023151857/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017021301T1-SC20181023152047/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017090901T1-SC20181023151921/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017040201T1-SC20181023152038/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017112801T1-SC20181023151921/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017041801T1-SC20181023152618/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017121401T1-SC20181023152050/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017092501T1-SC20181023152702/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017052001T1-SC20181023151947/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017060501T2-SC20181023151903/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017080801T1-SC20181023151955/
     data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017062101T1-SC20181023151938/
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017082401T1-SC20181023152023/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017011201T1-SC20181023151858/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017112801T1-SC20181023151921/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017012801T1-SC20181023151918/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017072301T1-SC20181023152048/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017111201T1-SC20181023151927/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017041801T1-SC20181023152618/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017052001T1-SC20181023151947/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017090901T1-SC20181023151921/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017080801T1-SC20181023151955/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017121401T1-SC20181023152050/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017040201T1-SC20181023152038/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017092501T1-SC20181023152702/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017021301T1-SC20181023152047/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017060501T2-SC20181023151903/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017070701T1-SC20181023152155/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017123001T1-SC20181023151857/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017031701T1-SC20181023151837/
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017101101T1-SC20181023151948/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017010701T2-SC20181023153321/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017090401T1-SC20181023162756/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017081901T1-SC20181023153141/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017022401T1-SC20181023152103/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017051501T1-SC20181023151959/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017061601T1-SC20181023152417/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017031201T1-SC20181023152108/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017080301T1-SC20181023185645/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017112301T1-SC20181023170128/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017012301T1-SC20181023170015/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017071801T1-SC20181023153104/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017100601T1-SC20181023152121/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017053101T1-SC20181023151941/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017041301T1-SC20181023170020/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017122501T1-SC20181023152106/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017020801T1-SC20181023162521/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017042901T1-SC20181023153144/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017120901T1-SC20181023152438/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017092001T1-SC20181023170143/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017102201T1-SC20181023153638/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017110701T1-SC20181023170129/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017032801T1-SC20181023162825/
+    data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017070201T1-SC20181023153031/
 
 
 
@@ -284,7 +284,7 @@ os.path.normpath(site_files)
 
 
 
-    'data/ndvi-automation/sites/HARV'
+    'data/ndvi-automation/sites/SJER'
 
 
 
@@ -302,7 +302,7 @@ sitename
 
 
 
-    'HARV'
+    'SJER'
 
 
 
@@ -320,7 +320,7 @@ print(os.path.join('data', "ndvi-automation", "outputs", "final.csv"))
 ```
 
 {:.output}
-    data/ndvi-automation/sites/HARV/vector/HARV-crop.shp
+    data/ndvi-automation/sites/SJER/vector/SJER-crop.shp
     data/ndvi-automation/outputs/final.csv
 
 
@@ -337,7 +337,7 @@ os.path.split(os.path.normpath(site_files))
 
 
 
-    ('data/ndvi-automation/sites', 'HARV')
+    ('data/ndvi-automation/sites', 'SJER')
 
 
 
@@ -376,7 +376,7 @@ date
 
 
 
-    '20170824'
+    '20170702'
 
 
 
@@ -399,9 +399,9 @@ path.split(os.sep)
     ['data',
      'ndvi-automation',
      'sites',
-     'HARV',
+     'SJER',
      'landsat-crop',
-     'LC080130302017082401T1-SC20181023152023']
+     'LC080420342017070201T1-SC20181023153031']
 
 
 
@@ -421,7 +421,7 @@ path_components[3]
 
 
 
-    'HARV'
+    'SJER'
 
 
 

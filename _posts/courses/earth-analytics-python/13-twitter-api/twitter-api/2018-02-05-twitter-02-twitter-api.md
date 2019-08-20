@@ -238,11 +238,11 @@ tweets = tw.Cursor(api.search,
 
 
 
-    ['As #wildfires rage through hundreds of thousands of acres of land in #Bolivia, #SantaCruz declared a disaster area.… https://t.co/5oyZr7Jof2',
-     'As #wildfires continue to rage through hundreds of thousands of acres of land in #Bolivia, #SantaCruz declared a… https://t.co/L52XmF5VfQ',
-     "How's your #summer going? The students working in \n@Brian_J_Harvey's lab are hard at work in the field, studying ho… https://t.co/3bDe9Ce1wM",
-     'This is a great compilation showing how a fleet of #Canadair #aerialfirefighters can work together to quickly suppr… https://t.co/lsbhfZZlLa',
-     '#Wildfires in #California are down 90% this year. According to 2019 statistics, the state fire agency has recorded… https://t.co/BnENmqioKc']
+    ['The Amazon Is on Fire and the Smoke Can Be Seen from Space #fogo #temposeco #clima #mudançasClimáticas… https://t.co/fc5qbNy2Oo',
+     'Forest fires in Brazil up 82 pct in 2019 https://t.co/73QJXQI9lR  #fogo #temposeco #clima #mudançasClimáticas… https://t.co/XkZ9kgleqa',
+     'Siberia, Greece, Spain Canary Islands, the Arctic, Alaska and other areas in the U.S.  #wildfires #ClimateChangeIsReal 🔥',
+     'Wildfires are burning around the world. The most alarming is in the Amazon rainforest. https://t.co/5oSBVd1Ocq via… https://t.co/OolAiObU0K',
+     'Firefighters in #Texas are battling three #wildfires covering more than 17,000 acres across the state. \n#TXFire\nhttps://t.co/kjqxmBzo4t']
 
 
 
@@ -274,11 +274,11 @@ users_locs
 
 
 
-    [['Bewickwren', 'New Mexico USA'],
-     ['Bewickwren', 'New Mexico USA'],
-     ['UW_SEFS', 'University of Washington'],
-     ['vikingairltd', 'Sidney, BC.'],
-     ['Simsol_Software', 'Orlando, FL']]
+    [['_athaydes', 'Cruzeiro do Sul, Acre, Brasil'],
+     ['_athaydes', 'Cruzeiro do Sul, Acre, Brasil'],
+     ['NatalyinAK', 'Anchorage, Alaska'],
+     ['BTLRadioNews', ''],
+     ['Bewickwren', 'New Mexico USA']]
 
 
 
@@ -325,28 +325,28 @@ tweet_text
   <tbody>
     <tr>
       <th>0</th>
-      <td>Bewickwren</td>
-      <td>New Mexico USA</td>
+      <td>_athaydes</td>
+      <td>Cruzeiro do Sul, Acre, Brasil</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Bewickwren</td>
-      <td>New Mexico USA</td>
+      <td>_athaydes</td>
+      <td>Cruzeiro do Sul, Acre, Brasil</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>UW_SEFS</td>
-      <td>University of Washington</td>
+      <td>NatalyinAK</td>
+      <td>Anchorage, Alaska</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>vikingairltd</td>
-      <td>Sidney, BC.</td>
+      <td>BTLRadioNews</td>
+      <td></td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Simsol_Software</td>
-      <td>Orlando, FL</td>
+      <td>Bewickwren</td>
+      <td>New Mexico USA</td>
     </tr>
   </tbody>
 </table>

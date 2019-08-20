@@ -203,12 +203,12 @@ a series of text strings and object values.
 # let's look at the output of your popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## [1] "SOUTH FLAT DITCH<br/>Discharge: 4.71"                   
-## [2] "ROUGH AND READY DITCH<br/>Discharge: 0.08"              
-## [3] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.29"             
-## [4] "GOSS DITCH 1<br/>Discharge: 4.6"                        
-## [5] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 64"
-## [6] "DRY CREEK CARRIER<br/>Discharge: 10.97"
+## [1] "SOUTH FLAT DITCH<br/>Discharge: 4.84"                     
+## [2] "ROUGH AND READY DITCH<br/>Discharge: 0.08"                
+## [3] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.29"               
+## [4] "GOSS DITCH 1<br/>Discharge: 5.77"                         
+## [5] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 64.8"
+## [6] "DRY CREEK CARRIER<br/>Discharge: 7.34"
 ```
 
 The `<br/>` element in your popup above is HTML. This adds a line break to your

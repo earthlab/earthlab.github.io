@@ -116,12 +116,12 @@ climate_tweets <- search_tweets(q = "#climatechange", n = 10000, lang = "en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "Rivers need to move—its what makes them resilient to change, including #climatechange--but we've constricted their movement. @watershedted discusses ways to get them back to resilience. #CARivers https://t.co/7sElLLSC1l"                                                                                                 
-## [2] "New on the blog: Interview w/ @watershedted of @ESPM_Berkeley on the state of California's rivers, and steps that can help prepare them for a warming climate. #CARivers #ClimateChange  https://t.co/7sElLLSC1l"                                                                                                            
-## [3] "How are California's rivers faring? We talked to @watershedted of @ESPM_Berkeley on the challenges they face, and ways to prepare them for the changes ahead. #CARivers #ClimateChange https://t.co/7sElLLSC1l"                                                                                                              
-## [4] "@jayoung1892 @JoeBiden @realDonaldTrump Biden is not a progressive.  Just look at his record. He is a Neoliberal,  a corporate guy. Like Hillary was and she lost to Trump. I voted for Obama/Biden 2 times. #CorporateCentrism will not save us from #ClimateChange or give us #Medicare4all or #BeatTrump for that matter."
-## [5] "#DYK 71% of #California adults said they’re very concerned about wildfires becoming more severe due to global warming? \n\nRead more about the results of @PPICnotes’s latest survey, via @KQED’s @aedicorato: #ClimateChange #CAWildfires\nhttps://t.co/iR6a74h9mI"                                                         
-## [6] "I do feel that Prince Harry and Meghan Markle are being unfairly hounded by the press and vilified about every move they make. But I don’t understand why they didn’t just fly first class on a chartered flight. #ClimateChange"
+## [1] "Global sea level rise is already happening! Greenland's Massive Ice Melt Wasn't Supposed To Happen Until 2070 #ClimateChange #ClimateCrisis  via @forbes https://t.co/Ncp1rE83Dh https://t.co/w8ub4U4VG1"                                                                                                        
+## [2] "@rjacktrag @GretaThunberg Lovely tweet , thanks\ngetting ready for the 20th of september?\n  We must have IMPACT..please join climate strike\n #SaveTheEarth #savetheplanet #climatechange #ClimateEmergency #ClimateCrisis #climatestrike #ClimateAction #IMPACT https://t.co/okUZaXGcg7"                       
+## [3] "@anasselbiyad @GretaThunberg Well said\n  getting ready for the 20th of september\n  We must have IMPACT\n #SaveTheEarth #savetheplanet #climatechange #ClimateEmergency #ClimateCrisis #climatestrike #ClimateAction #IMPACT https://t.co/jkrafKMRK0"                                                           
+## [4] "@WJvanDinter @SMusalima Emergencies are everywhere.\n, and clearly visible\nWe need to unite and act.\n\n#SaveTheEarth #savetheplanet #climatechange #ClimateEmergency #ClimateCrisis #climatestrike #ClimateAction #climatechange #gretathunberg #ipcc #giec https://t.co/jUe5TmgvbE"                           
+## [5] "@dr_l_alexandre @rioujeanpierre Climate news of the day..hell in Spain,Turkey  and Brazil\nAnd some Arctic news\nhttps://t.co/UBpICKRzvi\nhttps://t.co/qqj4MzAbOn\nhttps://t.co/8LGeGmh802\nhttps://t.co/3oSDDioDFY\n#rechauffementclimatique #gretathunberg #climat \n#climatechange #gretathunberg #ipcc #giec"
+## [6] "@CiGloFe @GretaThunberg Lovely tweet , thanks.\ngetting ready for the 20th of september?\n  We must have IMPACT..join climate strike\n #SaveTheEarth #savetheplanet #climatechange #ClimateEmergency #ClimateCrisis #climatestrike #ClimateAction #IMPACT"
 ```
 
 ## Data Clean-Up
@@ -232,7 +232,7 @@ head(stop_words)
 ## 6 according SMART
 
 nrow(climate_tweets_clean)
-## [1] 240141
+## [1] 240845
 
 # remove stop words from your list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -240,7 +240,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 129287
+## [1] 129594
 ```
 
 Now that you've performed this final step of cleaning, you can try to plot, once
@@ -285,20 +285,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 125,928 x 2
+## # A tibble: 126,206 x 2
 ##    paired_words            n
 ##    <chr>               <int>
-##  1 climate change       1217
-##  2 in the                917
-##  3 of the                795
-##  4 climatechange is      580
-##  5 of climatechange      460
-##  6 is a                  440
-##  7 to climatechange      400
-##  8 on the                396
-##  9 about climatechange   391
-## 10 to the                374
-## # … with 125,918 more rows
+##  1 climate change       1215
+##  2 in the                922
+##  3 of the                785
+##  4 climatechange is      591
+##  5 of climatechange      469
+##  6 is a                  438
+##  7 to climatechange      396
+##  8 on the                391
+##  9 about climatechange   390
+## 10 to the                370
+## # … with 126,196 more rows
 ```
 
 
@@ -320,37 +320,16 @@ head(climate_words_counts)
 ## # A tibble: 6 x 3
 ##   word1         word2                n
 ##   <chr>         <chr>            <int>
-## 1 climate       change            1217
-## 2 climatechange climatecrisis      271
-## 3 glacier       lost               241
+## 1 climate       change            1215
+## 2 climatechange climatecrisis      262
+## 3 glacier       lost               232
 ## 4 climatechange check              188
-## 5 climatechange globalwarming      161
-## 6 climatechange climateemergency   150
+## 5 climatechange globalwarming      167
+## 6 climatechange climateemergency   148
 ```
 
 Finally, plot the data
 
-
-```r
-library(igraph)
-library(ggraph)
-
-# plot climate change word network
-climate_words_counts %>%
-        filter(n >= 24) %>%
-        graph_from_data_frame() %>%
-        ggraph(layout = "fr") +
-        geom_edge_link(aes(edge_alpha = n, edge_width = n)) +
-        geom_node_point(color = "darkslategray4", size = 3) +
-        geom_node_text(aes(label = name), vjust = 1.8, size = 3) +
-        labs(title = "Word Network: Tweets using the hashtag - Climate Change",
-             subtitle = "Text mining twitter data ",
-             x = "", y = "")
-```
-
-<img src="{{ site.url }}/images/courses/earth-analytics-r/13-programmatic-data-access/in-class/word-assoc-plot-1.png" title="word associations for climate change tweets" alt="word associations for climate change tweets" width="90%" />
-
-You expect the words climate & change to have a high
 
 
 

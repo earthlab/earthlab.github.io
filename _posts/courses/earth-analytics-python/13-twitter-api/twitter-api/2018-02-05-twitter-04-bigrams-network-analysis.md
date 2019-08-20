@@ -161,15 +161,14 @@ terms_bigram[0]
 
 
 
-    [('clearest', 'evidence'),
-     ('evidence', '3rd'),
-     ('3rd', 'world'),
-     ('world', 'developing'),
-     ('developing', 'world'),
-     ('world', 'emissions'),
-     ('emissions', 'rising'),
-     ('rising', 'like'),
-     ('like', 'crazy')]
+    [('expensive', 'act'),
+     ('act', 'gt'),
+     ('gt', 'extreme'),
+     ('extreme', 'weather'),
+     ('weather', 'events'),
+     ('events', 'cuts'),
+     ('cuts', 'worker'),
+     ('worker', 'productivity')]
 
 
 
@@ -188,7 +187,7 @@ tweets_no_urls[0]
 
 
 
-    'The clearest evidence is that the 3rd world the developing world is where the emissions are rising like crazy'
+    'It is too expensive not to act on climate change gt Extreme weather events cuts to worker productivity and other'
 
 
 
@@ -205,16 +204,15 @@ tweets_nsw_nc[0]
 
 
 
-    ['clearest',
-     'evidence',
-     '3rd',
-     'world',
-     'developing',
-     'world',
-     'emissions',
-     'rising',
-     'like',
-     'crazy']
+    ['expensive',
+     'act',
+     'gt',
+     'extreme',
+     'weather',
+     'events',
+     'cuts',
+     'worker',
+     'productivity']
 
 
 
@@ -242,24 +240,24 @@ bigram_counts.most_common(20)
 
     [(('glacier', 'lost'), 27),
      (('first', 'glacier'), 19),
+     (('gpwx', 'globalwarming'), 15),
      (('iceland', 'holds'), 15),
-     (('gpwx', 'globalwarming'), 14),
      (('holds', 'funeral'), 12),
      (('funeral', 'first'), 11),
      (('fracking', 'may'), 11),
+     (('new', 'study'), 10),
+     (('study', 'finds'), 10),
      (('w', 'ecosearch'), 10),
+     (('blackouts', 'melting'), 9),
+     (('melting', 'asphalt'), 9),
+     (('asphalt', 'ways'), 9),
+     (('death', 'blackouts'), 8),
+     (('ways', 'crisis'), 8),
+     (('crisis', 'live'), 8),
      (('could', 'cost'), 8),
      (('cost', 'us'), 8),
      (('2100', 'study'), 8),
-     (('study', 'finds'), 7),
-     (('us', '105'), 7),
-     (('gdp', '2100'), 7),
-     (('forest', 'elephants'), 7),
-     (('hottest', 'month'), 7),
-     (('saying', 'real'), 7),
-     (('real', 'could'), 7),
-     (('rising', 'sea'), 7),
-     (('icelandic', 'glacier'), 7)]
+     (('50', 'worlds'), 7)]
 
 
 
@@ -315,13 +313,13 @@ bigram_df
     </tr>
     <tr>
       <th>2</th>
-      <td>(iceland, holds)</td>
+      <td>(gpwx, globalwarming)</td>
       <td>15</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>(gpwx, globalwarming)</td>
-      <td>14</td>
+      <td>(iceland, holds)</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>4</th>
@@ -340,67 +338,67 @@ bigram_df
     </tr>
     <tr>
       <th>7</th>
-      <td>(w, ecosearch)</td>
+      <td>(new, study)</td>
       <td>10</td>
     </tr>
     <tr>
       <th>8</th>
+      <td>(study, finds)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>(w, ecosearch)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>(blackouts, melting)</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>(melting, asphalt)</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>(asphalt, ways)</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>(death, blackouts)</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>(ways, crisis)</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>(crisis, live)</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>16</th>
       <td>(could, cost)</td>
       <td>8</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>17</th>
       <td>(cost, us)</td>
       <td>8</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>18</th>
       <td>(2100, study)</td>
       <td>8</td>
     </tr>
     <tr>
-      <th>11</th>
-      <td>(study, finds)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>(us, 105)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>(gdp, 2100)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>(forest, elephants)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>(hottest, month)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>(saying, real)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>(real, could)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>(rising, sea)</td>
-      <td>7</td>
-    </tr>
-    <tr>
       <th>19</th>
-      <td>(icelandic, glacier)</td>
+      <td>(50, worlds)</td>
       <td>7</td>
     </tr>
   </tbody>

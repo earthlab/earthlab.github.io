@@ -73,11 +73,12 @@ all_modis_bands_pre_br <- brick(all_modis_bands_pre_st)
 # view range of values in stack
 all_modis_bands_pre_br[[2]]
 ## class      : RasterLayer 
+## band       : 2  (of  7  bands)
 ## dimensions : 2400, 2400, 5760000  (nrow, ncol, ncell)
 ## resolution : 463.3127, 463.3127  (x, y)
 ## extent     : -10007555, -8895604, 3335852, 4447802  (xmin, xmax, ymin, ymax)
 ## crs        : +proj=sinu +lon_0=0 +x_0=0 +y_0=0 +a=6371007.181 +b=6371007.181 +units=m +no_defs 
-## source     : memory
+## source     : /tmp/RtmpgbKyzR/raster/r_tmp_2019-08-20_213802_1742_60424.grd 
 ## names      : MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b02_1 
 ## values     : -1000000, 100390000  (min, max)
 
