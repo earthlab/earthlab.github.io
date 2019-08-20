@@ -434,7 +434,7 @@ sjer_plot_locations.plot(ax=ax);
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_18_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_18_0.png">
 
 </figure>
 
@@ -469,7 +469,7 @@ sjer_plot_locations.plot(column='plot_type',
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_20_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_20_0.png">
 
 </figure>
 
@@ -499,7 +499,7 @@ ax.set_title('SJER Plot Locations\nMadera County, CA', fontsize=16);
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_22_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_22_0.png">
 
 </figure>
 
@@ -532,7 +532,7 @@ ax.set_title('SJER Plot Locations\nMadera County, CA',
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_24_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_24_0.png">
 
 </figure>
 
@@ -557,7 +557,7 @@ ax.set_title('SJER Plot Locations\nMadera County, CA',
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_25_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_25_0.png">
 
 </figure>
 
@@ -641,7 +641,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_31_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_31_0.png">
 
 </figure>
 
@@ -688,7 +688,7 @@ plt.axis('equal');
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_33_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_33_0.png">
 
 </figure>
 

@@ -154,7 +154,7 @@ ax.set_title("Madera County Roads with SJER AOI");
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_9_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_9_0.png">
 
 </figure>
 
@@ -242,7 +242,7 @@ ax.set_title("Madera County Roads with SJER AOI");
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_15_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_15_0.png">
 
 </figure>
 
@@ -277,7 +277,7 @@ Remember: check the CRS of each dataset!
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_18_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_18_0.png">
 
 </figure>
 
@@ -290,7 +290,7 @@ Remember: check the CRS of each dataset!
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_19_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_19_0.png">
 
 </figure>
 
@@ -317,7 +317,7 @@ Create a plot of the United States with the SJER study site location marked as a
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_21_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_21_0.png">
 
 </figure>
 
@@ -330,7 +330,7 @@ Create a plot of the United States with the SJER study site location marked as a
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_22_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_22_0.png">
 
 </figure>
 
@@ -353,7 +353,7 @@ Reproject the original SJER boundary using the full Proj.4 string for EPSG 4269,
 
 <figure>
 
-<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python_24_0.png">
+<img src = "{{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_24_0.png">
 
 </figure>
 
