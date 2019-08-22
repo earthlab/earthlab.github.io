@@ -3,8 +3,8 @@ layout: single
 category: courses
 title: 'How to Access and Use Shell to Set Up a Working Directory'
 excerpt: 'This tutorial walks you through how access the shell through terminal, use basic commands in the terminal for file organization, and set up a working directory for the course.'
-authors: ['Martha Morrissey','Leah Wasser', 'Data Carpentry']
-modified: 2018-08-31
+authors: ['Leah Wasser', 'Martha Morrissey']
+modified: 2019-08-22
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/introduction-to-bash-shell/ 
 nav-title: 'Intro to Bash'
@@ -28,15 +28,14 @@ In this tutorial, you will access `Bash`/Shell through the Terminal, use basic c
 
 At the end of this activity, you will be able to:
 
-* Open the Terminal
-* Navigate and change directories in the Terminal
-* Access `Python` from the Terminal
-* Create an easy-to-use and well-structured project structure
+* Open the Terminal.
+* Navigate and change directories in the Terminal.
+* Create an easy-to-use and well-structured project structure.
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need to have Git and Bash setup on your computer to complete this lesson. Instructions for setting up Git and Bash are here: <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/">Setup Git, Bash & Anaconda lesson</a>.
+You will need to have Git and Bash setup on your computer to complete this lesson. Instructions for setting up Git and Bash are here: <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Setup Git, Bash & Conda lesson</a>. 
 
 </div>
 
