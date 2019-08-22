@@ -3,8 +3,8 @@ layout: single
 category: courses
 title: 'Text Editors for the Command Line and Scientific Programming'
 excerpt: 'Text editors can be used to edit code and for commit messages in git. Learn about features to look for in a text editor and how to change your default text editor at the command line.'
-authors: ['Martha Morrissey', 'Leah Wasser',  'Data Carpentry']
-modified: 2018-08-31
+authors: ['Leah Wasser', 'Martha Morrissey']
+modified: 2019-08-22
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/text-editors-for-science-workflows/
 nav-title: 'Text Editors For Coding'
@@ -28,13 +28,13 @@ In this lesson, you will learn about features to look for in a text editor and h
 
 At the end of this activity, you will be able to:
 
-* Explain how text editors are used in a scientific workflow
-* Change your default text editor in the command line
+* Explain how text editors are used in a scientific workflow.
+* Change your default text editor in the command line.
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Make sure you have followed the installation instructions on the <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/">Setup Git, Bash & Anaconda</a> lesson.
+Make sure you have followed the installation instructions on the <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Setup Git, Bash & Conda lesson</a>. 
 
 Information below is adapted from materials by <a href="http://software-carpentry.org/" target = "_blank">Software Carpentry</a> and <a href = "https://cs61a.org/articles/vim.html#introduction" target = "_blank">UC Berkeley CS61a</a>.
 
@@ -125,8 +125,7 @@ If you want to edit a new file in vim, then you need to be in insert mode. Inser
     2. Enter command mode (press `:`)
     3. Press `w` and then give the file a name such as `earth-analytics-test.txt`
     4. Press `Enter`
-    5. Exit Vim using :q! and hitting `Enter`
-
+    5. Exit Vim using :q! and hitting `Enter`    
 
 <i class="fa fa-star"></i> **Data Tip:**
 Before saving a file in vim, it is a good idea to check your current working directory, as that is where the new file will be saved. To do that after you are in the command mode (press `:`), type `pwd`. If you want to save that file in a different directory, type `w` followed by `filepath/filename.txt`.
@@ -135,7 +134,7 @@ Before saving a file in vim, it is a good idea to check your current working dir
 
 ### How to Open an Existing File in Vim
 
-* Next, let’s open the `earth-analytics-test.txt` file that we just saved from vim.
+* Next, open the `earth-analytics-test.txt` file that we just saved from vim.
 
 To open an existing file, type `vim` followed by the name of the file. For example:
 
@@ -154,7 +153,7 @@ vim earth-analytics-test.txt
     + Exit Vim using :q! and hitting `Enter`
 
 
-If you are working on Linux or on may cloud and High Performance Communing (HPC) environments, you may prefer a non-graphical text editor like Vim. However for this course, if you are running a Mac or Windows operating system and haven’t used Vim before, we recommend you work in Atom.
+If you are working on Linux or on may cloud and High Performance Communing (HPC) environments, you may prefer a non-graphical text editor like Vim. However for this course, if you are running a Mac or Windows operating system and haven’t used Vim before, we recommend you work in Atom. 
 
 
 ## Commonly Used Text Editors
