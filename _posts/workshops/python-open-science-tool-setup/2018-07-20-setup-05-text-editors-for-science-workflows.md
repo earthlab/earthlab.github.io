@@ -4,7 +4,7 @@ category: courses
 title: 'Text Editors for the Command Line and Scientific Programming'
 excerpt: 'Text editors can be used to edit code and for commit messages in git. Learn about features to look for in a text editor and how to change your default text editor at the command line.'
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-08-21
+modified: 2019-08-22
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/text-editors-for-science-workflows/
 nav-title: 'Text Editors For Coding'
@@ -125,8 +125,7 @@ If you want to edit a new file in vim, then you need to be in insert mode. Inser
     2. Enter command mode (press `:`)
     3. Press `w` and then give the file a name such as `earth-analytics-test.txt`
     4. Press `Enter`
-    5. Exit Vim using :q! and hitting `Enter`
-    
+    5. Exit Vim using :q! and hitting `Enter`    
 
 <i class="fa fa-star"></i> **Data Tip:**
 Before saving a file in vim, it is a good idea to check your current working directory, as that is where the new file will be saved. To do that after you are in the command mode (press `:`), type `pwd`. If you want to save that file in a different directory, type `w` followed by `filepath/filename.txt`.
@@ -143,6 +142,7 @@ To open an existing file, type `vim` followed by the name of the file. For examp
 vim earth-analytics-test.txt
 ```
 
+
 ### How to Edit an Existing File in Vim
 
 * To edit files, make sure you are in the insert mode by pressing `i`. To save your edits, follow the same commands as before to save the file:
@@ -151,6 +151,7 @@ vim earth-analytics-test.txt
     + Press `w` (and if desired, save the updated file to a new name such as `earth-analytics-test-v2.txt`)
     + Press `Enter`
     + Exit Vim using :q! and hitting `Enter`
+
 
 If you are working on Linux or on may cloud and High Performance Communing (HPC) environments, you may prefer a non-graphical text editor like Vim. However for this course, if you are running a Mac or Windows operating system and haven’t used Vim before, we recommend you work in Atom. 
 
@@ -168,7 +169,7 @@ You can define any text editor that is installed on your computer, as the defaul
 ### Why We Recommend Using Atom
 
 If you don’t already have a favorite text editor, we suggest you use Atom in this course. We like Atom because:
-* It’s free and open source! 
+* It’s free and open source!
 * It supports <a href="{{ site.url }}/workshops/intro-version-control-git/" target = "_blank">Git/Github integration</a>, which makes it easier to collaborate with others to write code, address merge conflicts and to complete other common `Git` operations. 
 * It has code highlighting support
 * Atom has an active development community which means lots of extra packages are available to gain extra features. For example: <a href="https://github.com/atom/markdown-preview" target = "_blank">Markdown Preview</a> lets you write code in `Markdown` in a .md file and preview the rendered output in a different window. <a href="https://atom.io/packages/hydrogen" target = "_blank">Hydrogen package</a>, allows you to run code inline in Atom, similar to `Jupyter Notebook`.
@@ -213,5 +214,5 @@ If you are interested in learning more about the features of these text editors,
 <a href="https://cs61a.org/articles/sublime.html" target = "_blank">Sublime</a>, or
 <a href="https://cs61a.org/articles/vim.html" target = "_blank">Vim</a>
 
-</div>
 
+</div>

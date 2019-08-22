@@ -4,7 +4,7 @@ category: courses
 title: 'Set Up Your Conda Python Environment'
 excerpt: 'Conda environments allow you to easily manage the Python package installations on your computer. Learn how to install a conda environment.'
 authors: ['Leah Wasser', 'Jenny Palomino', 'Martha Morrissey']
-modified: 2019-08-21
+modified: 2019-08-22
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/setup-python-conda-earth-analytics-environment/
 nav-title: 'Set up Conda Environment'
@@ -43,7 +43,7 @@ You should have `Bash` and the Miniconda distribution of `Python` 3.x setup on y
 
 </div>
 
-Information below is adapted from materials developed by the Conda documentation for <a href="https://conda.io/docs/user-guide/install/index.html" target="_blank">installing conda</a> and <a href="https://conda.io/docs/user-guide/tasks/manage-pkgs.html" target="_blank">managing packages</a>. 
+Information below is adapted from materials developed by the Conda documentation for <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/" target="_blank">installing conda</a> and <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" target="_blank">managing conda environments</a>. 
 
 
 ## Set up a Conda Python Environment 
@@ -55,7 +55,7 @@ Conda allows you to have different environments installed on your computer to ac
 To avoid conflicts, we created an environment called `earth-analytics-python` that contains all of the spatial libraries that you will need for the `Python` lessons on this website.
 
 <i class="fa fa-star"></i> **Data Tip:**
-For more information about conda environments check out the <a href="https://conda.io/docs/user-guide/tasks/index.html" target="_blank">conda documentation</a>.  
+For more information about conda environments, check out the <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html" target="_blank">documentation on conda environments</a>.  
 {: .notice--success }
 
 To install the `earth-analytics-python` environment, you will need to follow these steps: 
@@ -176,7 +176,7 @@ For example, if a `Python` package such as `geopandas` is only installed in the 
 conda activate earth-analytics-python
 ``` 
 
-<a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" target="_blank">For older installations of conda (versions prior to 4.6)</a> on Mac, Linux, and Git Bash for Windows, type:
+<a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html" target="_blank">For older installations of conda (versions prior to 4.6)</a> on Mac, Linux, and Git Bash for Windows, type:
 
 ```bash
 source activate earth-analytics-python
