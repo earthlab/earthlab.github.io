@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Lidar Raster Data in Python"
 permalink: /courses/earth-analytics-python/lidar-raster-data/
-modified: 2018-10-01
+modified: 2019-08-23
 week-landing: 3
 week: 2
 sidebar:
@@ -69,6 +69,7 @@ Note that your plots may look at bit different from the ones on this page as you
 
 The plots below are examples of what your plots might look like. Your plots do not need to look exactly like these! You may use different classes for your different maps for example which will change your rasters! Feel free to customize colors, labels, layers, etc as you like to create nice plots.
 
+
 ## Grade Rubric
 
 Please view the dropbox in Canvas to see the rubric that will be used to grade your assignment
@@ -81,14 +82,8 @@ Note that your plot may have some variation if you select different classificati
 
 
 {:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_4_0.png" alt = "Difference Plot: Canopy Height Model post flood minus pre flood.">
-<figcaption>Difference Plot: Canopy Height Model post flood minus pre flood.</figcaption>
-
-</figure>
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
 
 
 
@@ -99,7 +94,22 @@ Note that your plot may have some variation if you select different classificati
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_5_0.png" alt = "Canopy Height Model Different - Raster plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page/2018-02-05-intro-lidar-raster-landing-page_7_0.png" alt = "Difference Plot: Canopy Height Model post flood minus pre flood.">
+<figcaption>Difference Plot: Canopy Height Model post flood minus pre flood.</figcaption>
+
+</figure>
+
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page/2018-02-05-intro-lidar-raster-landing-page_9_0.png" alt = "Canopy Height Model Different - Raster plot.">
 <figcaption>Canopy Height Model Different - Raster plot.</figcaption>
 
 </figure>
@@ -113,7 +123,7 @@ Note that your plot may have some variation if you select different classificati
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_6_0.png" alt = "Histogram of the DTM different raster.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page/2018-02-05-intro-lidar-raster-landing-page_10_0.png" alt = "Histogram of the DTM different raster.">
 <figcaption>Histogram of the DTM different raster.</figcaption>
 
 </figure>
@@ -127,10 +137,15 @@ Note that your plot may have some variation if you select different classificati
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page_7_0.png" alt = "Plot of classified pre/post DTM difference raster.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/2018-02-05-intro-lidar-raster-landing-page/2018-02-05-intro-lidar-raster-landing-page_11_0.png" alt = "Plot of classified pre/post DTM difference raster.">
 <figcaption>Plot of classified pre/post DTM difference raster.</figcaption>
 
 </figure>
+
+
+
+
+
 
 
 

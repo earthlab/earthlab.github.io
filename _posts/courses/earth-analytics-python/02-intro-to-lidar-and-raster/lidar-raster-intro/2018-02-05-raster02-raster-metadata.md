@@ -3,7 +3,7 @@ layout: single
 title: "Spatial Raster Metadata: CRS, Resolution, and Extent in Python"
 excerpt: "This lesson introduces the raster meta data. You will learn about CRS, resolution, and spatial extent."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2019-08-23
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/raster-metadata-in-python/
@@ -40,6 +40,14 @@ You will need a computer with internet access to complete this lesson.
 
 
 </div>
+
+
+{:.input}
+```python
+# Get data and set wd
+et.data.get_data("colorado-flood")
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+```
 
 You will learn about three important spatial attributes associated with raster data that in this lesson:  Coordinate Reference Systems, resolution, and spatial extent. 
 
@@ -84,7 +92,7 @@ with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pr
 ```
 
 {:.output}
-    +init=epsg:32613
+    EPSG:32613
 
 
 
@@ -102,7 +110,7 @@ myCRS
 
 
 
-    CRS({'init': 'epsg:32613'})
+    CRS.from_epsg(32613)
 
 
 
@@ -165,7 +173,7 @@ crs_proj4
 
 
 
-    CRS({'proj': 'utm', 'zone': 13, 'datum': 'WGS84', 'units': 'm', 'no_defs': True})
+    CRS.from_epsg(32613)
 
 
 

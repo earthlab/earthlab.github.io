@@ -65,12 +65,6 @@ In the previous lesson, you opened and explored a digital elevation model (DEM).
 In this lesson, you will explore Digital Surface Models (DSM) and will use the DEM and the DSM to create a canopy height model (CHM). 
 
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
-
 {:.input}
 ```python
 # open raster data
