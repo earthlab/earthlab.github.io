@@ -87,7 +87,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}%s/images/tutorials/python/2016-07-08-acquire-and-visualize-usgs-hydrology-data/2016-07-08-acquire-and-visualize-usgs-hydrology-data_6_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-08-acquire-and-visualize-usgs-hydrology-data/2016-07-08-acquire-and-visualize-usgs-hydrology-data_6_0.png">
 
 </figure>
 
@@ -162,7 +162,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}%s/images/tutorials/python/2016-07-08-acquire-and-visualize-usgs-hydrology-data/2016-07-08-acquire-and-visualize-usgs-hydrology-data_12_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-08-acquire-and-visualize-usgs-hydrology-data/2016-07-08-acquire-and-visualize-usgs-hydrology-data_12_0.png">
 
 </figure>
 

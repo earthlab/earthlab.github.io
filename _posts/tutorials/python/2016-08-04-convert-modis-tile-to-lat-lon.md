@@ -41,16 +41,16 @@ MODIS provides a text file containing the range of latitude and longitude coordi
 ```
 
 {:.output}
-    --2019-08-23 00:05:16--  https://modis-land.gsfc.nasa.gov/pdf/sn_bound_10deg.txt
+    --2019-08-23 22:58:18--  https://modis-land.gsfc.nasa.gov/pdf/sn_bound_10deg.txt
     Resolving modis-land.gsfc.nasa.gov (modis-land.gsfc.nasa.gov)... 129.164.179.244, 2001:4d0:2310:150::244
     Connecting to modis-land.gsfc.nasa.gov (modis-land.gsfc.nasa.gov)|129.164.179.244|:443... connected.
     HTTP request sent, awaiting response... 200 OK
     Length: 32585 (32K) [text/plain]
     Saving to: ‘sn_bound_10deg.txt’
     
-    sn_bound_10deg.txt  100%[===================>]  31.82K  --.-KB/s    in 0.006s  
+    sn_bound_10deg.txt  100%[===================>]  31.82K  --.-KB/s    in 0.005s  
     
-    2019-08-23 00:05:16 (5.59 MB/s) - ‘sn_bound_10deg.txt’ saved [32585/32585]
+    2019-08-23 22:58:18 (6.10 MB/s) - ‘sn_bound_10deg.txt’ saved [32585/32585]
     
 
 

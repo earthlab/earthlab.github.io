@@ -69,14 +69,14 @@ Our first objective is to read in the data that we want to use. We'll be working
     rm spool/N41/N41W122.hgt spool/N41/N41W123.hgt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdalbuildvrt -q -overwrite SRTM1.vrt cache/N41/N41W123.tif cache/N41/N41W122.tif
+    gdalbuildvrt -q -overwrite SRTM1.vrt cache/N41/N41W122.tif cache/N41/N41W123.tif
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    cp SRTM1.vrt SRTM1.1655923ee3da4d859d1c600051a5390d.vrt
+    cp SRTM1.vrt SRTM1.7557a97ba5c44c0cbc87ee9c6edba3aa.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.1655923ee3da4d859d1c600051a5390d.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
-    rm -f SRTM1.1655923ee3da4d859d1c600051a5390d.vrt
+    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.7557a97ba5c44c0cbc87ee9c6edba3aa.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
+    rm -f SRTM1.7557a97ba5c44c0cbc87ee9c6edba3aa.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
 
 
@@ -125,7 +125,7 @@ img = plt.imshow(data_array, cmap = "viridis")
 
 <figure>
 
-<img src = "{{ site.url }}%s/images/tutorials/python/2016-07-15-extract-raster-around-buffered-points/2016-07-15-extract-raster-around-buffered-points_7_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-15-extract-raster-around-buffered-points/2016-07-15-extract-raster-around-buffered-points_7_0.png">
 
 </figure>
 
@@ -229,7 +229,7 @@ img = plt.imshow(data_array, cmap = "viridis")
 
 <figure>
 
-<img src = "{{ site.url }}%s/images/tutorials/python/2016-07-15-extract-raster-around-buffered-points/2016-07-15-extract-raster-around-buffered-points_15_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-15-extract-raster-around-buffered-points/2016-07-15-extract-raster-around-buffered-points_15_0.png">
 
 </figure>
 
