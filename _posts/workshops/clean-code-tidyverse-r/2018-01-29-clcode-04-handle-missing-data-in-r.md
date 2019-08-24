@@ -4,9 +4,9 @@ authors: ['Max Joseph', 'Leah Wasser']
 category: courses
 title: 'Handle Missing Data in R'
 attribution: ''
-excerpt: 'Learn...'
+excerpt: 'Learn how to handle missing data in the R programming language.'
 dateCreated: 2018-01-29
-modified: '2018-02-02'
+modified: '2019-08-24'
 nav-title: 'Missing Data'
 sidebar:
   nav:
@@ -69,6 +69,14 @@ To account for these, we use the argument:
 You can also send na a vector of missing data values, like this:
 `na = c("value1", "value2")`
 
+
+```r
+# load libraries
+library(readr)
+library(ggplot2)
+library(dplyr)
+```
+
 Let's go through our workflow again but this time account for missing values.
 First, let's have a look at the unique values contained in our `HPCP` column
 
@@ -76,27 +84,11 @@ First, let's have a look at the unique values contained in our `HPCP` column
 ```r
 # import data using readr
 all_paths <- read_csv("data/data_urls.csv")
-## Parsed with column specification:
-## cols(
-##   url = col_character()
-## )
 # grab first url from the file
 first_csv <- all_paths$url[1]
 
 # open data
 year_one <- read_csv(first_csv)
-## Parsed with column specification:
-## cols(
-##   STATION = col_character(),
-##   STATION_NAME = col_character(),
-##   ELEVATION = col_double(),
-##   LATITUDE = col_double(),
-##   LONGITUDE = col_double(),
-##   DATE = col_datetime(format = ""),
-##   HPCP = col_character(),
-##   `Measurement Flag` = col_character(),
-##   `Quality Flag` = col_character()
-## )
 # view unique vales in HPCP field
 unique(year_one$HPCP)
 ## [1] "0"       "0.2"     "0.1"     "999.99"  "missing" "0.3"     "0.9"    
@@ -114,18 +106,6 @@ na_values <- c("missing", "999.99")
 # use the na argument to read in the csv
 year_one <- read_csv(first_csv,
                      na = na_values)
-## Parsed with column specification:
-## cols(
-##   STATION = col_character(),
-##   STATION_NAME = col_character(),
-##   ELEVATION = col_double(),
-##   LATITUDE = col_double(),
-##   LONGITUDE = col_double(),
-##   DATE = col_datetime(format = ""),
-##   HPCP = col_double(),
-##   `Measurement Flag` = col_character(),
-##   `Quality Flag` = col_character()
-## )
 unique(year_one$HPCP)
 ## [1] 0.0 0.2 0.1  NA 0.3 0.9 0.5
 ```
@@ -141,10 +121,9 @@ year_one %>%
   labs(x = "Date",
        y = "Precipitation",
        title = "Precipitation Over Time")
-## Warning: Removed 3 rows containing missing values (geom_point).
 ```
 
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/final-precip-plot-1.png" title="plot of chunk final-precip-plot" alt="plot of chunk final-precip-plot" width="90%" />
+<img src="{{ site.url }}/images/workshops//clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/final-precip-plot-1.png" title="plot of chunk final-precip-plot" alt="plot of chunk final-precip-plot" width="90%" />
 
 Note that when `ggplot` encounters missing data values, it tells you with
 a warning message:
@@ -172,12 +151,7 @@ have learned so far to do this.
 
 Your final plot should look like the one below:
 
-
-```
-## Warning: Removed 2 rows containing missing values (position_stack).
-```
-
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/plot-by-month-1.png" title="plot of chunk plot-by-month" alt="plot of chunk plot-by-month" width="90%" />
+<img src="{{ site.url }}/images/workshops//clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/plot-by-month-1.png" title="plot of chunk plot-by-month" alt="plot of chunk plot-by-month" width="90%" />
 
 HINTS:
 
