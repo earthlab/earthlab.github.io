@@ -6,7 +6,7 @@ title: 'How to find and navigate a repo on the GitHub website'
 attribution: ''
 excerpt: 'Learn how to find a repo on the GitHub website using the search. Also get to know the GitHub repo interface. '
 dateCreated: 2017-09-12
-modified: '2018-09-10'
+modified: '2019-08-24'
 nav-title: 'Navigate GitHub repos'
 sidebar:
   nav:

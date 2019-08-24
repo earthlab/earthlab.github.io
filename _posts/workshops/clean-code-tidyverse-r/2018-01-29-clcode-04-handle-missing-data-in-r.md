@@ -4,9 +4,9 @@ authors: ['Max Joseph', 'Leah Wasser']
 category: courses
 title: 'Handle Missing Data in R'
 attribution: ''
-excerpt: 'Learn...'
+excerpt: 'Learn how to handle missing data in the R programming language.'
 dateCreated: 2018-01-29
-modified: '2018-02-02'
+modified: '2019-08-24'
 nav-title: 'Missing Data'
 sidebar:
   nav:
@@ -69,131 +69,22 @@ To account for these, we use the argument:
 You can also send na a vector of missing data values, like this:
 `na = c("value1", "value2")`
 
+
+```r
+# load libraries
+library(readr)
+library(ggplot2)
+library(dplyr)
+```
+
 Let's go through our workflow again but this time account for missing values.
 First, let's have a look at the unique values contained in our `HPCP` column
 
 
-```r
-# import data using readr
-all_paths <- read_csv("data/data_urls.csv")
-## Parsed with column specification:
-## cols(
-##   url = col_character()
-## )
-# grab first url from the file
-first_csv <- all_paths$url[1]
-
-# open data
-year_one <- read_csv(first_csv)
-## Parsed with column specification:
-## cols(
-##   STATION = col_character(),
-##   STATION_NAME = col_character(),
-##   ELEVATION = col_double(),
-##   LATITUDE = col_double(),
-##   LONGITUDE = col_double(),
-##   DATE = col_datetime(format = ""),
-##   HPCP = col_character(),
-##   `Measurement Flag` = col_character(),
-##   `Quality Flag` = col_character()
-## )
-# view unique vales in HPCP field
-unique(year_one$HPCP)
-## [1] "0"       "0.2"     "0.1"     "999.99"  "missing" "0.3"     "0.9"    
-## [8] "0.5"
-```
-
-Next, we can create a vector of missing data values. We can see that we have
-999.99 and missing as possible `NA` values.
-
-
-```r
-# define all missing data values in a vector
-na_values <- c("missing", "999.99")
-
-# use the na argument to read in the csv
-year_one <- read_csv(first_csv,
-                     na = na_values)
-## Parsed with column specification:
-## cols(
-##   STATION = col_character(),
-##   STATION_NAME = col_character(),
-##   ELEVATION = col_double(),
-##   LATITUDE = col_double(),
-##   LONGITUDE = col_double(),
-##   DATE = col_datetime(format = ""),
-##   HPCP = col_double(),
-##   `Measurement Flag` = col_character(),
-##   `Quality Flag` = col_character()
-## )
-unique(year_one$HPCP)
-## [1] 0.0 0.2 0.1  NA 0.3 0.9 0.5
-```
-
-Once you have specified possible missing data values, try to plot again.
-
-
-```r
-year_one %>%
-  ggplot(aes(x = DATE, y = HPCP)) +
-  geom_point() +
-  theme_bw() +
-  labs(x = "Date",
-       y = "Precipitation",
-       title = "Precipitation Over Time")
-## Warning: Removed 3 rows containing missing values (geom_point).
-```
-
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/final-precip-plot-1.png" title="plot of chunk final-precip-plot" alt="plot of chunk final-precip-plot" width="90%" />
-
-Note that when `ggplot` encounters missing data values, it tells you with
-a warning message:
-
-```r
-Warning message:
-Removed 3 rows containing missing values (geom_point).
-```
 
 
 
-<div class="notice--warning" markdown="1">
-
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> On Your Own (OYO)
-
-The `mutate()` function allows you to add a new column to a `data.frame`.
-And the `month()` function in the `lubridate` package, will convert a `datetime`
-object to a month value (1-12) as follows
-
-`mutate(the_month = month(date_field_here))`
-
-Create a plot that summarizes total precipitation by month for the first csv
-file that we have worked with through this lesson. Use everything that you
-have learned so far to do this.
-
-Your final plot should look like the one below:
 
 
-```
-## Warning: Removed 2 rows containing missing values (position_stack).
-```
 
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-04-handle-missing-data-in-r/plot-by-month-1.png" title="plot of chunk plot-by-month" alt="plot of chunk plot-by-month" width="90%" />
 
-HINTS:
-
-The bar plot was created using the following ggplot elements:
-
-`geom_bar(stat = "identity", fill = "darkorchid4") + theme_bw()`
-
-</div>
-
-<div class="notice--info" markdown="1">
-
-## Additional resources
-
-You may find the materials below useful as an overview of what we cover
-during this workshop:
-
-* <a href="{{ site.url }}/courses/earth-analytics/time-series-data/missing-data-in-r-na/" target="_blank">Handling Missing data in R - Earth Analytics Course</a>
-
-</div>

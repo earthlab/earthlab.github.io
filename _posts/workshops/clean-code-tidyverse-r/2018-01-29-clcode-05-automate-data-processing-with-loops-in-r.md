@@ -6,7 +6,7 @@ title: 'Automate Workflows Using Loops in R'
 attribution: ''
 excerpt: 'When you are programming, it can be easy to copy and paste code that works. However this approach is not efficient. Learn how to create for-loops to process multiple files in R.'
 dateCreated: 2018-01-29
-modified: '2018-02-02'
+modified: '2019-08-24'
 nav-title: 'Write Loops'
 sidebar:
   nav:
@@ -234,10 +234,10 @@ length(my_list)
 my_list
 ## [[1]]
 ## [1] "first element"
-##
+## 
 ## [[2]]
 ## [1] "second element"
-##
+## 
 ## [[3]]
 ## [1] "third element"
 ```
