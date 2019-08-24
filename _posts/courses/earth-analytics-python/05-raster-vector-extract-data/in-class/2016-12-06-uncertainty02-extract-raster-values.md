@@ -4,7 +4,7 @@ title: "Extract Raster Values At Point Locations in Python"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
-modified: 2018-10-08
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -49,22 +49,33 @@ To do this, you need to do the following:
 
 To begin, import your python libraries. 
 
+
 {:.input}
 ```python
 import os
 import numpy as np
 import numpy.ma as ma
+import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 import rasterio as rio
 from rasterio.plot import plotting_extent
 import geopandas as gpd
 # Rasterstats contains the zonalstatistics function that you will use to extract raster values
 import rasterstats as rs
-import pandas as pd
 import earthpy as et
+import earthpy.plot as ep
+
+# Setting consistent plotting style throughout notebook
+sns.set_style("white")
+sns.set(font_scale=1.5)
 
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
+# Download tutorial data
+data = et.data.get_data("spatial-vector-lidar")
 ```
+
 
 ## Import Canopy Height Model
 
@@ -87,9 +98,9 @@ with rio.open('data/spatial-vector-lidar/california/neon-sjer-site/2013/lidar/SJ
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.hist(SJER_chm_data.ravel(),
         color="purple")
-ax.set_title('Distribution of Pixel Values \n Lidar Canopy Height Model',
-             fontsize=18)
-ax.set_xlabel("Lidar Estimated Tree Height (m)")
+ax.set(xlabel="Lidar Estimated Tree Height (m)", 
+       ylabel="Total Pixels", 
+       title="Distribution of Pixel Values \n Lidar Canopy Height Model")
 
 # Turn off scientific notation
 ax.ticklabel_format(useOffset=False,
@@ -101,7 +112,7 @@ ax.ticklabel_format(useOffset=False,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values_4_0.png" alt = "Bar plot showing the distribution of lidar canopy height model pixel values.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_6_0.png" alt = "Bar plot showing the distribution of lidar canopy height model pixel values.">
 <figcaption>Bar plot showing the distribution of lidar canopy height model pixel values.</figcaption>
 
 </figure>
@@ -135,7 +146,7 @@ Set all pixel values `==0` to `nan` as they will impact calculation of plot mean
 # Set CHM values of 0 to NAN (no data or not a number)
 SJER_chm_data[SJER_chm_data == 0] = np.nan
 
-# view summary statistics of canopy height model
+# View summary statistics of canopy height model
 print('Mean:', np.nanmean(SJER_chm_data))
 print('Max:', np.nanmax(SJER_chm_data))
 print('Min:', np.nanmin(SJER_chm_data))
@@ -165,10 +176,8 @@ SJER_chm_data_no_na = SJER_chm_data[~np.isnan(SJER_chm_data)].ravel()
 
 fig, ax = plt.subplots(figsize=(10, 10))
 ax.hist(SJER_chm_data_no_na, color="purple")
-ax.set_title('Distribution of Pixel Values \n Lidar Canopy Height Model',
-             fontsize=18)
-ax.set_xlabel("Lidar Estimated Tree Height (m)")
-ax.set_ylabel("Total Pixels")
+ax.set(xlabel='Lidar Estimated Tree Height (m)', ylabel='Total Pixels',
+       title='Distribution of Pixel Values \n Lidar Canopy Height Model')
 
 ax.ticklabel_format(useOffset=False,
                     style='plain')
@@ -179,7 +188,7 @@ ax.ticklabel_format(useOffset=False,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values_9_0.png" alt = "Bar plot showing the distribution of lidar chm values with 0's removed.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_11_0.png" alt = "Bar plot showing the distribution of lidar chm values with 0's removed.">
 <figcaption>Bar plot showing the distribution of lidar chm values with 0's removed.</figcaption>
 
 </figure>
@@ -261,8 +270,8 @@ SJER_plots_points.plot(ax=ax,
                        marker='s',
                        markersize=45,
                        color='purple')
-ax.set_title("San Joachin Field Site \n Locations Vegetation Plot Locations",
-             fontsize=20)
+ax.set_title("San Joachin Field Site \n Vegetation Plot Locations")
+ax.set_axis_off()
 plt.show()
 ```
 
@@ -271,7 +280,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values_14_0.png" alt = "Map showing SJER plot location points overlayed on top of the SJER Canopy Height Model.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_16_0.png" alt = "Map showing SJER plot location points overlayed on top of the SJER Canopy Height Model.">
 <figcaption>Map showing SJER plot location points overlayed on top of the SJER Canopy Height Model.</figcaption>
 
 </figure>
@@ -350,7 +359,7 @@ SJER_plots_poly.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>SJER1068</td>
       <td>center</td>
       <td>4111567.818</td>
@@ -359,7 +368,7 @@ SJER_plots_poly.head()
       <td>POLYGON ((255872.376 4111567.818, 255872.27969...</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>SJER112</td>
       <td>center</td>
       <td>4111298.971</td>
@@ -368,7 +377,7 @@ SJER_plots_poly.head()
       <td>POLYGON ((257426.967 4111298.971, 257426.87069...</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>SJER116</td>
       <td>center</td>
       <td>4110819.876</td>
@@ -377,7 +386,7 @@ SJER_plots_poly.head()
       <td>POLYGON ((256858.76 4110819.876, 256858.663694...</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>SJER117</td>
       <td>center</td>
       <td>4108752.026</td>
@@ -386,7 +395,7 @@ SJER_plots_poly.head()
       <td>POLYGON ((256196.947 4108752.026, 256196.85069...</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>SJER120</td>
       <td>center</td>
       <td>4110476.079</td>
@@ -432,12 +441,13 @@ There are several ways to use the zonal_stats function. In this case we are prov
 # Extract zonal stats
 sjer_tree_heights = rs.zonal_stats(plot_buffer_path,
                                    SJER_chm_data,
+                                   nodata=-999,
                                    affine=sjer_chm_meta['transform'],
                                    geojson_out=True,
                                    copy_properties=True,
                                    stats="count min mean max median")
 
-# view object type
+# View object type
 type(sjer_tree_heights)
 ```
 
@@ -484,89 +494,89 @@ SJER_lidar_height_df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>geometry</th>
       <th>Plot_ID</th>
       <th>Point</th>
-      <th>count</th>
+      <th>northing</th>
       <th>easting</th>
-      <th>geometry</th>
+      <th>plot_type</th>
+      <th>min</th>
       <th>max</th>
       <th>mean</th>
+      <th>count</th>
       <th>median</th>
-      <th>min</th>
-      <th>northing</th>
-      <th>plot_type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
+      <td>POLYGON ((255872.376 4111567.818, 255872.27969...</td>
       <td>SJER1068</td>
       <td>center</td>
-      <td>161</td>
+      <td>4111567.818</td>
       <td>255852.376</td>
-      <td>POLYGON ((255872.376 4111567.818, 255872.27969...</td>
+      <td>trees</td>
+      <td>2.04</td>
       <td>19.049999</td>
       <td>11.544348</td>
+      <td>161</td>
       <td>12.62</td>
-      <td>2.04</td>
-      <td>4111567.818</td>
-      <td>trees</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
+      <td>POLYGON ((257426.967 4111298.971, 257426.87069...</td>
       <td>SJER112</td>
       <td>center</td>
-      <td>443</td>
+      <td>4111298.971</td>
       <td>257406.967</td>
-      <td>POLYGON ((257426.967 4111298.971, 257426.87069...</td>
+      <td>trees</td>
+      <td>2.10</td>
       <td>24.019999</td>
       <td>10.369277</td>
+      <td>443</td>
       <td>7.87</td>
-      <td>2.10</td>
-      <td>4111298.971</td>
-      <td>trees</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
+      <td>POLYGON ((256858.76 4110819.876, 256858.663694...</td>
       <td>SJER116</td>
       <td>center</td>
-      <td>643</td>
+      <td>4110819.876</td>
       <td>256838.760</td>
-      <td>POLYGON ((256858.76 4110819.876, 256858.663694...</td>
+      <td>grass</td>
+      <td>2.82</td>
       <td>16.070000</td>
       <td>7.518398</td>
+      <td>643</td>
       <td>6.80</td>
-      <td>2.82</td>
-      <td>4110819.876</td>
-      <td>grass</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
+      <td>POLYGON ((256196.947 4108752.026, 256196.85069...</td>
       <td>SJER117</td>
       <td>center</td>
-      <td>245</td>
+      <td>4108752.026</td>
       <td>256176.947</td>
-      <td>POLYGON ((256196.947 4108752.026, 256196.85069...</td>
+      <td>trees</td>
+      <td>3.24</td>
       <td>11.059999</td>
       <td>7.675347</td>
+      <td>245</td>
       <td>7.93</td>
-      <td>3.24</td>
-      <td>4108752.026</td>
-      <td>trees</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
+      <td>POLYGON ((255988.372 4110476.079, 255988.27569...</td>
       <td>SJER120</td>
       <td>center</td>
-      <td>17</td>
+      <td>4110476.079</td>
       <td>255968.372</td>
-      <td>POLYGON ((255988.372 4110476.079, 255988.27569...</td>
+      <td>grass</td>
+      <td>3.38</td>
       <td>5.740000</td>
       <td>4.591176</td>
+      <td>17</td>
       <td>4.45</td>
-      <td>3.38</td>
-      <td>4110476.079</td>
-      <td>grass</td>
     </tr>
   </tbody>
 </table>
@@ -582,8 +592,10 @@ Below is a bar plot of max lidar derived tree height by plot id. This plot allow
 ```python
 fig, ax = plt.subplots(figsize=(10, 5))
 ax.bar(SJER_lidar_height_df['Plot_ID'],
-       SJER_lidar_height_df['max'])
-ax.set(xlabel="Plot ID", ylabel="Max Height")
+       SJER_lidar_height_df['max'], 
+       color="purple")
+ax.set(xlabel='Plot ID', ylabel='Max Height',
+       title='Maximum LIDAR Derived Tree Heights')
 plt.setp(ax.get_xticklabels(), rotation=45, horizontalalignment='right')
 plt.show()
 ```
@@ -593,7 +605,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values_24_0.png" alt = "Bar plot showing maximum tree height per plot in SJER.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_26_0.png" alt = "Bar plot showing maximum tree height per plot in SJER.">
 <figcaption>Bar plot showing maximum tree height per plot in SJER.</figcaption>
 
 </figure>
@@ -632,6 +644,7 @@ shape that we wish. The mask tells us which pixels fall into the zone.
 # Extract zonal stats but retain the individual pixel values
 sjer_tree_heights_ras = rs.zonal_stats(plot_buffer_path,
                                        SJER_chm_data,
+                                       nodata=-999,
                                        affine=sjer_chm_meta['transform'],
                                        geojson_out=True,
                                        raster_out=True,
@@ -677,7 +690,7 @@ SJER_lidar_height_df_ras[["Plot_ID", "count", "geometry",
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>SJER1068</td>
       <td>161</td>
       <td>POLYGON ((255872.376 4111567.818, 255872.27969...</td>
@@ -685,7 +698,7 @@ SJER_lidar_height_df_ras[["Plot_ID", "count", "geometry",
       <td>[[--, --, --, --, --, --, --, --, --, --, --, ...</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>SJER112</td>
       <td>443</td>
       <td>POLYGON ((257426.967 4111298.971, 257426.87069...</td>
@@ -693,7 +706,7 @@ SJER_lidar_height_df_ras[["Plot_ID", "count", "geometry",
       <td>[[--, --, --, --, --, --, --, --, --, --, --, ...</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>SJER116</td>
       <td>643</td>
       <td>POLYGON ((256858.76 4110819.876, 256858.663694...</td>
@@ -701,7 +714,7 @@ SJER_lidar_height_df_ras[["Plot_ID", "count", "geometry",
       <td>[[--, --, --, --, --, --, --, --, --, --, --, ...</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>SJER117</td>
       <td>245</td>
       <td>POLYGON ((256196.947 4108752.026, 256196.85069...</td>
@@ -709,7 +722,7 @@ SJER_lidar_height_df_ras[["Plot_ID", "count", "geometry",
       <td>[[--, --, --, --, --, --, --, --, --, --, --, ...</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>SJER120</td>
       <td>17</td>
       <td>POLYGON ((255988.372 4110476.079, 255988.27569...</td>
@@ -724,28 +737,20 @@ SJER_lidar_height_df_ras[["Plot_ID", "count", "geometry",
 
 
 
-
-
-Below you create a plot for each individual field site of all pixel values. You will need to loop through the data in order to create this plot. 
+Below you create a plot for each individual field site of all pixel values using `earthpy`.
 
 {:.input}
 ```python
-# Plot a histogram of pixel values for each plot
-n_columns = 3
-n_rows = int(np.ceil(len(SJER_lidar_height_df) / n_columns))
-
-fig, axs = plt.subplots(n_rows, n_columns, figsize=(5*n_columns, 5*n_rows),
-                        sharex=True, sharey=True)
-for (zone, ix), ax in zip(SJER_lidar_height_df.iterrows(), axs.ravel()):
-    data = SJER_lidar_height_df_ras.iloc[zone]['mini_raster_array']
-    null_value = SJER_lidar_height_df_ras.iloc[zone]['mini_raster_nodata']
-    data_values = data.data[data.mask]
-    data_values = data_values[~np.isnan(data_values)]
-
-    ax.hist(data_values, color='purple')
-    ax.set(title=SJER_lidar_height_df_ras.iloc[zone]['Plot_ID'],
-           xlabel="Raster Values")
-    plt.tight_layout()
+# Get list of sites
+site_names = list(SJER_lidar_height_df_ras["Plot_ID"])
+# Convert data in dataframe to a numpy array
+arr = np.stack(SJER_lidar_height_df_ras['mini_raster_array'])
+# Plot using earthpy
+ep.hist(arr,
+        bins=[0, 5, 10, 15, 20, 25],
+        cols=3,
+       title=site_names, figsize=(15,30))
+plt.show()
 ```
 
 {:.output}
@@ -753,10 +758,13 @@ for (zone, ix), ax in zip(SJER_lidar_height_df.iterrows(), axs.ravel()):
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values_28_0.png" alt = "Bar plot showing the distribution of pixel values for each plot at the SJER field site.">
-<figcaption>Bar plot showing the distribution of pixel values for each plot at the SJER field site.</figcaption>
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_30_0.png">
 
 </figure>
+
+
+
+
 
 
 

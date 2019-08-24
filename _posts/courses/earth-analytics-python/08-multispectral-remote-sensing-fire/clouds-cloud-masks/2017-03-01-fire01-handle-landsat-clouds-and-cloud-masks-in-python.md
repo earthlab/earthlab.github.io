@@ -3,7 +3,7 @@ layout: single
 title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "In this lesson, you will learn how to deal with clouds when working with spectral remote sensing data. You will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. You will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser']
-modified: 2018-11-06
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['clouds-remote-sensing-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/cloud-masks-with-spectral-data-python/
@@ -36,8 +36,8 @@ topics:
 After completing this tutorial, you will be able to:
 
 * Describe the impacts that thick cloud cover can have on analysis of remote sensing data.
-* Use a cloud mask to remove portions of an spectral dataset (image) that is covered by clouds / shadows.
-* Define cloud mask / describe how a cloud mask can be useful when working with remote sensing data.
+* Use a mask to remove portions of an spectral dataset (image) that is covered by clouds / shadows.
+* Define mask / describe how a mask can be useful when working with remote sensing data.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -62,7 +62,7 @@ surface. These images, are divided into smaller regions - known as scenes.
 ### Challenges Working with Landsat Remote Sensing Data
 
 In the previous lessons, you learned how to import a set of geotiffs that made
-up the bands of a landsat raster. Each geotiff file was a part of a Landsat scene,
+up the bands of a Landsat raster. Each geotiff file was a part of a Landsat scene,
 that had been downloaded for this class by your instructor. The scene was further
 cropped to reduce the file size for the class.
 
@@ -83,15 +83,14 @@ There is no perfect solution of course. You will just learn one approach.
 
 Begin by loading your spatial libraries.
 
-
 {:.input}
 ```python
 from glob import glob
 import os
 
+import numpy as np
 import numpy.ma as ma
 import pandas as pd
-import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import patches as mpatches, colors
 from matplotlib.colors import ListedColormap
@@ -106,11 +105,14 @@ from shapely.geometry import mapping
 
 import earthpy as et
 import earthpy.spatial as es
+import earthpy.plot as ep
+import earthpy.mask as em
 
-plt.ion()
 sns.set_style('white')
 sns.set(font_scale=1.5)
 
+# Get the data
+data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -119,11 +121,13 @@ Next, you will load the landsat bands that you worked with previously in your ho
 
 {:.input}
 ```python
-# Stack the landsat pre fire data
+# Stack the Landsat pre fire data
 landsat_paths_pre = glob(
     "data/cold-springs-fire/landsat_collect/LC080340322016070701T1-SC20180214145604/crop/*band*.tif")
 path_landsat_pre_st = 'data/cold-springs-fire/outputs/landsat_pre_st.tif'
-es.stack_raster_tifs(landsat_paths_pre, path_landsat_pre_st, arr_out=False)
+
+landsat_paths_pre.sort()
+es.stack(landsat_paths_pre, path_landsat_pre_st)
 
 # Read landsat pre fire data
 with rio.open(path_landsat_pre_st) as landsat_pre_src:
@@ -139,21 +143,16 @@ title to my plot.
 customizing plots in `Python`.
 {: .notice--success}
 
-Next, get the extent of the landsat data to use to plot your data with matplotlib `imshow()`. Below you see two ways to achieve the same extent object. 
+Next, get the extent of the Landsat data to use to plot your data with matplotlib `imshow()`. Below you see two ways to achieve the same extent object. 
 
 {:.input}
 ```python
 # Define Landast bands for plotting homework plot 1
 landsat_rgb = [3, 2, 1]
-
-fig, ax = plt.subplots(1, 1, figsize=(10, 6))
-
-es.plot_rgb(landsat_pre,
+ep.plot_rgb(landsat_pre,
             rgb=landsat_rgb,
-            ax=ax,
-            extent=landsat_extent)
-ax.set(title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
-ax.set_axis_off()
+            extent=landsat_extent,
+            title="Landsat True Color Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 plt.show()
 ```
 
@@ -162,7 +161,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_7_0.png" alt = "CIR Composite image for the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_7_0.png" alt = "CIR Composite image for the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image for the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
@@ -170,20 +169,23 @@ plt.show()
 
 
 
+
+
 ## Raster Masks
 
 Many remote sensing data sets come with quality layers that you can use as a mask 
-to remove "bad" pixels from your analysis. In the case of landsat, the mask layers
+to remove "bad" pixels from your analysis. In the case of Landsat, the mask layers
 identify pixels that are likely representative of cloud cover, shadow and even water. 
 When you download Landsat 8 data from Earth Explorer, the data came with a processed 
 cloud shadow / mask raster layer called `landsat_file_name_pixel_qa.tif`.
-Just replace the name of your landsat scene with the text landsat_file_name above. 
+Just replace the name of your Landsat scene with the text landsat_file_name above. 
 For this class the layer is:
 
 `LC80340322016189-SC20170128091153/crop/LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif`
 
 You will explore using this pixel quality assurance (QA) layer, next. To begin, open
 the `pixel_qa` layer using rasterio and plot it with matplotlib.
+
 
 
 {:.input}
@@ -196,20 +198,25 @@ with rio.open("data/cold-springs-fire/landsat_collect/LC080340322016070701T1-SC2
 
 First, plot the pixel_qa layer in matplotlib.
 
+
 {:.input}
 ```python
 cmap = plt.cm.get_cmap('tab20b', 11)
 vals = np.unique(landsat_qa).tolist()
 bins = [0] + vals
-bounds = [((a + b) / 2) for a, b in zip(bins[:-1], bins[1::1])] + [(bins[-1] - bins[-2]) + bins[-1]]
+bounds = [((a + b) / 2) for a, b in zip(bins[:-1], bins[1::1])] + \
+    [(bins[-1] - bins[-2]) + bins[-1]]
 norm = colors.BoundaryNorm(bounds, cmap.N)
 
 fig, ax = plt.subplots(figsize=(12, 8))
 im = ax.imshow(landsat_qa,
                cmap=cmap,
-              norm=norm)
+               norm=norm)
+ep.draw_legend(im,
+               classes=vals,
+               cmap=cmap, titles=vals)
 
-ax.set_title("Landsat Collections Pixel_QA Layer \n The colorbar is currently a bit off but will be fixed")
+ax.set_title("Landsat Collection Quality Assessment Layer")
 ax.set_axis_off()
 plt.show()
 ```
@@ -219,10 +226,13 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_11_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_14_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
 <figcaption>Landsat Collection Pixel QA layer for the Cold Springs fire area.</figcaption>
 
 </figure>
+
+
+
 
 
 
@@ -273,13 +283,28 @@ We are reclassifying the data because matplotlib colormaps will assign colors to
 Reclassifying the data allows us to enforce one color for each unique value in our data. 
 
 
-Next you will create a binary cloud mask layer. In this mask all pixels that you wish to remove from your analysis or mask will be set to `1`. All other pixels which represent pixels you want to use in your analysis will be set to `0`.
+
+
+This next section shows you how to create a mask using the earthpy mask helper function `_create_mask` to create a binary cloud mask layer. In this mask all pixels that you wish to remove from your analysis or mask will be set to `1`. All other pixels which represent pixels you want to use in your analysis will be set to `0`.
+
+### NOTE:
+This step can be done by changing the inputs into the main `mask_pixels` function. We include it here so you can see what is going on in the function. See lower down in the lesson for this call. 
 
 {:.input}
 ```python
-# pre-allocate an array of all zeros representing the same sized array as the landsat scene and cloud mask
-cl_mask = np.zeros(landsat_qa.shape)
+vals
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    [322, 324, 328, 352, 386, 416, 480, 834, 864, 928, 992]
+
+
+
+
 
 {:.input}
 ```python
@@ -321,12 +346,7 @@ all_masked_values
 
 {:.input}
 ```python
-# is there a way to do this without a loop?
-# populate new array with values of 1 for every pixel that is a cloud or cloud shadow
-for cval in all_masked_values:
-    # create cloud mask for all relevant cloud values, for the primary scene
-    cl_mask[landsat_qa == cval] = 1
-    # print(cval)
+cl_mask = em._create_mask(landsat_qa, all_masked_values)
 np.unique(cl_mask)
 ```
 
@@ -335,34 +355,23 @@ np.unique(cl_mask)
 
 
 
-    array([0., 1.])
+    array([0, 1], dtype=int16)
 
 
 
 
 
-Finally, plot the reclassified raster mask. 
 
-{:.input}
-```python
-fig, ax = plt.subplots(figsize=(12, 8))
-im = ax.imshow(cl_mask,
-               cmap=plt.cm.get_cmap('tab20b', 2))
-cbar = fig.colorbar(im)
-cbar.set_ticks((0.25, .75))
-cbar.ax.set_yticklabels(["Clear Pixels", "Cloud / Shadow Pixels"])
-ax.set_title("Landsat Cloud Mask | Light Purple Pixels will be Masked")
-ax.set_axis_off()
 
-plt.show()
-```
+Below is the plot of the reclassified raster mask created from the `_create_mask` helper function.
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_18_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_27_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
 <figcaption>Landsat image in which the masked pixels (cloud) are rendered in light purple.</figcaption>
 
 </figure>
@@ -418,38 +427,29 @@ To create the mask this you do the following:
 
 {:.input}
 ```python
-# Create a mask for all bands in the landsat scene
-landsat_pre_mask = np.broadcast_to(cl_mask == 1, landsat_pre.shape)
+# Call the earthpy mask function using your mask layer
+landsat_pre_cl_free = em.mask_pixels(landsat_pre, cl_mask)
 ```
+
+Alternatively, you can directly input your mask values and the pixel QA layer into the `mask_pixels` function:
 
 {:.input}
 ```python
-landsat_pre_cl_free = ma.masked_array(landsat_pre,
-                                      mask=landsat_pre_mask)
-type(landsat_pre_cl_free)
+# Call the earthpy mask function using pixel QA layer
+landsat_pre_cl_free = em.mask_pixels(
+    landsat_pre, landsat_qa, vals=all_masked_values)
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    numpy.ma.core.MaskedArray
-
-
 
 
 
 {:.input}
 ```python
 # Plot the data
-fig, ax = plt.subplots(1, 1, figsize=(8, 6))
-
-ax.imshow(landsat_pre_cl_free[6],
-          extent=landsat_extent,
-          cmap="Greys")
-ax.set(title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
-ax.set_axis_off()
+ep.plot_bands(landsat_pre_cl_free[6], 
+              extent=landsat_extent, 
+              cmap="Greys",
+              title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
+plt.show()
 ```
 
 {:.output}
@@ -457,7 +457,7 @@ ax.set_axis_off()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_22_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_34_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
@@ -468,14 +468,11 @@ ax.set_axis_off()
 {:.input}
 ```python
 # Plot
-fig, ax = plt.subplots(1, 1, figsize=(8, 6))
-
-es.plot_rgb(landsat_pre_cl_free,
-            rgb=[5, 4, 3],
+ep.plot_rgb(landsat_pre_cl_free,
+            rgb=[4, 3, 2],
             extent=landsat_ext,
-            ax=ax)
-ax.set(title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
-ax.set_axis_off()
+            title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
+plt.show()
 ```
 
 {:.output}
@@ -483,10 +480,27 @@ ax.set_axis_off()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_23_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_35_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

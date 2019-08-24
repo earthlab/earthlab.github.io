@@ -3,7 +3,7 @@ layout: single
 title: "Field Methods to Study Wildfire"
 excerpt: "Learn about how scientists use field survey methods to study the impacts of wildfire through measurements of biomass and soil."
 authors: ['Leah Wasser']
-modified: 2019-01-02
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['wildfire-overview']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/wildfire-field-methods/
@@ -92,4 +92,5 @@ In addition to biomass and soil calculations,  field surveys are often performed
   <figcaption>A University of Colorado Boulder Earth Lab postdoc performs fieldwork at the Cold Springs Fire site on November 2nd, 2016. Source: Nate Mietkiewicz.
   </figcaption>
 </figure>
+
 

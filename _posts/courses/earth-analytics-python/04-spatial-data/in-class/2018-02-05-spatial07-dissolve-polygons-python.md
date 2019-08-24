@@ -3,7 +3,7 @@ layout: single
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser']
-modified: 2018-10-08
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/dissolve-polygons-in-python-geopandas-shapely/
@@ -41,18 +41,23 @@ Get started by loading your libraries. And be sure that your working directory i
 
 {:.input}
 ```python
-# import libraries
+# Import libraries
 import os
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.lines as mlines
 from matplotlib.colors import ListedColormap
+import seaborn as sns
+from shapely.geometry import box
 import geopandas as gpd
 import earthpy as et
-from shapely.geometry import box
 
-plt.ion()
+# Adjust plot font sizes
+sns.set(font_scale=1.5)
+sns.set_style("white")
 
+# Set working dir & get data
+data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -135,7 +140,7 @@ state_boundary_us.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>06</td>
       <td>01779778</td>
       <td>0400000US06</td>
@@ -149,7 +154,7 @@ state_boundary_us.head()
       <td>(POLYGON Z ((-118.593969 33.467198 0, -118.484...</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>11</td>
       <td>01702382</td>
       <td>0400000US11</td>
@@ -163,7 +168,7 @@ state_boundary_us.head()
       <td>POLYGON Z ((-77.119759 38.934343 0, -77.041017...</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>12</td>
       <td>00294478</td>
       <td>0400000US12</td>
@@ -177,7 +182,7 @@ state_boundary_us.head()
       <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>13</td>
       <td>01705317</td>
       <td>0400000US13</td>
@@ -191,7 +196,7 @@ state_boundary_us.head()
       <td>POLYGON Z ((-85.605165 34.984678 0, -85.474338...</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>16</td>
       <td>01779783</td>
       <td>0400000US16</td>
@@ -280,7 +285,7 @@ cont_usa
   </thead>
   <tbody>
     <tr>
-      <th>00</th>
+      <td>00</td>
       <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
     </tr>
   </tbody>
@@ -334,7 +339,7 @@ cont_usa.reset_index()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>00</td>
       <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
     </tr>
@@ -348,7 +353,7 @@ cont_usa.reset_index()
 
 {:.input}
 ```python
-# plot the data
+# Plot the data
 fig, ax = plt.subplots(figsize=(10, 6))
 cont_usa.reset_index().plot(column='LSAD',
                             ax=ax)
@@ -362,7 +367,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_12_0.png" alt = "The LSAD attribute value for every polygon in the data is 00. Thus when you dissolve by that attribute, you get one resulting polygon.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python/2018-02-05-spatial07-dissolve-polygons-python_12_0.png" alt = "The LSAD attribute value for every polygon in the data is 00. Thus when you dissolve by that attribute, you get one resulting polygon.">
 <figcaption>The LSAD attribute value for every polygon in the data is 00. Thus when you dissolve by that attribute, you get one resulting polygon.</figcaption>
 
 </figure>
@@ -432,31 +437,31 @@ regions_agg
   </thead>
   <tbody>
     <tr>
-      <th>Midwest</th>
+      <td>Midwest</td>
       <td>(POLYGON Z ((-82.863342 41.693693 0, -82.82571...</td>
       <td>1943869253244</td>
       <td>184383393833</td>
     </tr>
     <tr>
-      <th>Northeast</th>
+      <td>Northeast</td>
       <td>(POLYGON Z ((-76.04621299999999 38.025533 0, -...</td>
       <td>869066138232</td>
       <td>108922434345</td>
     </tr>
     <tr>
-      <th>Southeast</th>
+      <td>Southeast</td>
       <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
       <td>1364632039655</td>
       <td>103876652998</td>
     </tr>
     <tr>
-      <th>Southwest</th>
+      <td>Southwest</td>
       <td>POLYGON Z ((-94.48587499999999 33.637867 0, -9...</td>
       <td>1462631530997</td>
       <td>24217682268</td>
     </tr>
     <tr>
-      <th>West</th>
+      <td>West</td>
       <td>(POLYGON Z ((-118.594033 33.035951 0, -118.540...</td>
       <td>2432336444730</td>
       <td>57568049509</td>
@@ -471,40 +476,135 @@ regions_agg
 
 {:.input}
 ```python
+# Convert area units from square meters to hectares (divide by 10,000)
+regions_agg["land_ha"] = regions_agg["ALAND"] / 10000
+regions_agg["water_ha"] = regions_agg["AWATER"] / 10000
+regions_agg
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geometry</th>
+      <th>ALAND</th>
+      <th>AWATER</th>
+      <th>land_ha</th>
+      <th>water_ha</th>
+    </tr>
+    <tr>
+      <th>region</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Midwest</td>
+      <td>(POLYGON Z ((-82.863342 41.693693 0, -82.82571...</td>
+      <td>1943869253244</td>
+      <td>184383393833</td>
+      <td>1.943869e+08</td>
+      <td>1.843834e+07</td>
+    </tr>
+    <tr>
+      <td>Northeast</td>
+      <td>(POLYGON Z ((-76.04621299999999 38.025533 0, -...</td>
+      <td>869066138232</td>
+      <td>108922434345</td>
+      <td>8.690661e+07</td>
+      <td>1.089224e+07</td>
+    </tr>
+    <tr>
+      <td>Southeast</td>
+      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+      <td>1364632039655</td>
+      <td>103876652998</td>
+      <td>1.364632e+08</td>
+      <td>1.038767e+07</td>
+    </tr>
+    <tr>
+      <td>Southwest</td>
+      <td>POLYGON Z ((-94.48587499999999 33.637867 0, -9...</td>
+      <td>1462631530997</td>
+      <td>24217682268</td>
+      <td>1.462632e+08</td>
+      <td>2.421768e+06</td>
+    </tr>
+    <tr>
+      <td>West</td>
+      <td>(POLYGON Z ((-118.594033 33.035951 0, -118.540...</td>
+      <td>2432336444730</td>
+      <td>57568049509</td>
+      <td>2.432336e+08</td>
+      <td>5.756805e+06</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+{:.input}
+```python
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
-regions_agg.plot(column='ALAND',
+regions_agg.plot(column='land_ha',
                  legend=True,
-                 scheme='quantiles',
+                 scheme="quantiles",
                  ax=ax1)
-regions_agg.plot(column='AWATER',
-                 scheme='quantiles',
+regions_agg.plot(column='water_ha',
+                 scheme="quantiles",
                  legend=True,
                  ax=ax2)
 
-plt.suptitle('Census Data - Total Land and Water by Region', fontsize=16)
+plt.suptitle('Census Data - Total Land and Water by Region (Hectares)', fontsize=16)
+leg = ax1.get_legend()
+leg.set_bbox_to_anchor((1.5,1))
+
+leg = ax2.get_legend()
+leg.set_bbox_to_anchor((1.5,1))
 ax1.set_axis_off()
 ax2.set_axis_off()
 
 plt.axis('equal')
-
 plt.show()
 ```
-
-{:.output}
-    /Users/lewa8222/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/pysal/__init__.py:65: VisibleDeprecationWarning: PySAL's API will be changed on 2018-12-31. The last release made with this API is version 1.14.4. A preview of the next API version is provided in the `pysal` 2.0 prelease candidate. The API changes and a guide on how to change imports is provided at https://pysal.org/about
-      ), VisibleDeprecationWarning)
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python_15_1.png" alt = "In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial07-dissolve-polygons-python/2018-02-05-spatial07-dissolve-polygons-python_16_0.png" alt = "In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.">
 <figcaption>In this example, you dissolved by region. There are 5 unique region values in the attributes. Thus you end up with 5 polygons. You also summarized attributes by ALAND and AWATER calculating the total value for each.</figcaption>
 
 </figure>
+
+
 
 
 

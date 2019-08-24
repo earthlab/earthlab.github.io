@@ -1,9 +1,9 @@
 ---
 layout: single
-title: 'Data Driven Reports with Jupyter Notebooks | 2013 Colorado Flood Data'
-excerpt: "COnnecting data to analysis and outputs is an important part of open reproducible science. In this lesson you will explore that value of a well documented workflow."
+title: 'Create Data Driven Reports using Jupyter Notebooks | 2013 Colorado Flood Data'
+excerpt: "Connecting data to analysis and outputs is an important part of open reproducible science. In this lesson you will explore that value of a well documented workflow."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/data-driven-reports-jupyter-notebook/
@@ -69,6 +69,14 @@ A lot of rain impacted Colorado. See below.
 
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/7010681
+    Downloading from https://ndownloader.figshare.com/files/7010681
+
+
+
+
+
+{:.output}
 {:.execute_result}
 
 
@@ -91,45 +99,82 @@ A lot of rain impacted Colorado. See below.
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0</th>
+      <th>STATION</th>
+      <th>STATION_NAME</th>
+      <th>ELEVATION</th>
+      <th>LATITUDE</th>
+      <th>LONGITUDE</th>
       <th>DATE</th>
-      <th>PRECIP</th>
+      <th>HPCP</th>
+      <th>Measurement Flag</th>
+      <th>Quality Flag</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>756</td>
-      <td>2013-08-21</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>757</td>
-      <td>2013-08-26</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>758</td>
-      <td>2013-08-27</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>759</td>
-      <td>2013-09-01</td>
+      <td>0</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>20030101 01:00</td>
       <td>0.0</td>
+      <td>g</td>
+      <td></td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>760</td>
-      <td>2013-09-09</td>
+      <td>1</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>20030201 01:00</td>
+      <td>0.0</td>
+      <td>g</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>20030202 19:00</td>
+      <td>0.2</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>20030202 22:00</td>
       <td>0.1</td>
+      <td></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>20030203 02:00</td>
+      <td>0.1</td>
+      <td></td>
+      <td></td>
     </tr>
   </tbody>
 </table>
 </div>
+
 
 
 
@@ -141,7 +186,7 @@ A lot of rain impacted Colorado. See below.
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/use-data-for-science/2018-02-05-flood-02-precip-discharge-python-example_3_0.png" alt = "Plot of daily precipitation for Boulder, Colorado from 2003-2013.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/01-science-toolbox/use-data-for-science/2018-02-05-flood-02-precip-discharge-python-example/2018-02-05-flood-02-precip-discharge-python-example_6_0.png" alt = "Plot of daily precipitation for Boulder, Colorado from 2003-2013.">
 <figcaption>Plot of daily precipitation for Boulder, Colorado from 2003-2013.</figcaption>
 
 </figure>
@@ -163,12 +208,13 @@ Let's check out the data for a few months.
 
 
 
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/use-data-for-science/2018-02-05-flood-02-precip-discharge-python-example_5_0.png" alt = "Plot of Daily Total Precipitation from Aug to Oct 2013 for Boulder Creek.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/01-science-toolbox/use-data-for-science/2018-02-05-flood-02-precip-discharge-python-example/2018-02-05-flood-02-precip-discharge-python-example_9_0.png" alt = "Plot of Daily Total Precipitation from Aug to Oct 2013 for Boulder Creek.">
 <figcaption>Plot of Daily Total Precipitation from Aug to Oct 2013 for Boulder Creek.</figcaption>
 
 </figure>
@@ -177,12 +223,15 @@ Let's check out the data for a few months.
 
 
 
+
+
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/use-data-for-science/2018-02-05-flood-02-precip-discharge-python-example_6_0.png" alt = "Plot of Total Monthly Precipitation for Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/01-science-toolbox/use-data-for-science/2018-02-05-flood-02-precip-discharge-python-example/2018-02-05-flood-02-precip-discharge-python-example_13_0.png" alt = "Plot of Total Monthly Precipitation for Boulder, CO.">
 <figcaption>Plot of Total Monthly Precipitation for Boulder, CO.</figcaption>
 
 </figure>

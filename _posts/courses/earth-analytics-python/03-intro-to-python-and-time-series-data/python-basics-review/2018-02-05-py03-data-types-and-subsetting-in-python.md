@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/work-with-data-types-python/
 nav-title: 'Data Types'
 dateCreated: 2017-05-23
-modified: 2018-10-08
+modified: 2019-08-24
 week: 3
 sidebar:
   nav:
@@ -81,8 +81,7 @@ animals
 
 
 
-    array(['mouse', 'rat', 'dog'], 
-          dtype='<U5')
+    array(['mouse', 'rat', 'dog'], dtype='<U5')
 
 
 
@@ -184,13 +183,13 @@ Below, you add the value 90 to the end of the `weight_g` object.
 
 {:.input}
 ```python
-# add the number 90 to the end of the vector
+# Add the number 90 to the end of the vector
 weight_g = np.hstack([weight_g, 90])
 ```
 
 {:.input}
 ```python
-# add the number 30 to the beginning of the vector
+# Add the number 30 to the beginning of the vector
 weight_g = np.hstack([30, weight_g])
 ```
 
@@ -276,7 +275,6 @@ tricky = np.array([1, 2, 3, '4'])
 ```python
 animals = np.array(["mouse", "rat", "dog", "cat"])
 animals[2]
-
 ```
 
 {:.output}
@@ -305,8 +303,7 @@ animals[[2, 3]]
 
 
 
-    array(['dog', 'cat'], 
-          dtype='<U5')
+    array(['dog', 'cat'], dtype='<U5')
 
 
 
@@ -336,7 +333,7 @@ weight_g > 50
 
 
 
-    array([False, False,  True,  True,  True,  True], dtype=bool)
+    array([False, False,  True,  True,  True,  True])
 
 
 
@@ -348,7 +345,7 @@ that array to select all objects in your weight_g array that are greater than 50
 
 {:.input}
 ```python
-# select only the values greater than 50
+# Select only the values greater than 50
 weight_g[weight_g > 50]
 ```
 
@@ -357,7 +354,7 @@ weight_g[weight_g > 50]
 
 
 
-    array([60, 65, 82])
+    array([60, 65, 82, 90])
 
 
 
@@ -369,7 +366,7 @@ You can combine multiple tests using `&` (both conditions are `TRUE`, AND) or `|
 
 {:.input}
 ```python
-# select objects that are EITHER less than 30 OR greater than 50
+# Select objects that are EITHER less than 30 OR greater than 50
 weight_g[(weight_g < 30) | (weight_g > 50)]
 ```
 
@@ -378,7 +375,7 @@ weight_g[(weight_g < 30) | (weight_g > 50)]
 
 
 
-    array([60, 65, 82])
+    array([60, 65, 82, 90])
 
 
 
@@ -386,7 +383,7 @@ weight_g[(weight_g < 30) | (weight_g > 50)]
 
 {:.input}
 ```python
-# select objects that are greater than or equal to 30 OR equal to 21
+# Select objects that are greater than or equal to 30 OR equal to 21
 weight_g[(weight_g >= 30) & (weight_g == 21)]
 ```
 
@@ -417,8 +414,7 @@ animals[(animals == 'cat') | (animals == 'rat')]
 
 
 
-    array(['rat', 'cat'],
-          dtype='<U5')
+    array(['rat', 'cat'], dtype='<U5')
 
 
 
@@ -430,7 +426,7 @@ if a value is found in an array of values:
 
 {:.input}
 ```python
-# select objects in the animals array that are within the array [`rat`, `cat`, `dog`, `duck`]
+# Select objects in the animals array that are within the array [`rat`, `cat`, `dog`, `duck`]
 set(animals).intersection(set(['rat', 'cat', 'dog', 'duck']))
 ```
 
@@ -454,6 +450,4 @@ set(animals).intersection(set(['rat', 'cat', 'dog', 'duck']))
 
 </div>
 
-## Answers
 
-<!-- When using ">" or "<" on strings, python compares their alphabetical order. Here "four" comes after "five", and therefore is "greater than" it. -->

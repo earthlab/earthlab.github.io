@@ -3,7 +3,7 @@ layout: single
 title: "For Loops in Python Refresher"
 excerpt: "In this lesson you will review the basics of for loops in Python."
 authors: ['Software Carpentry', 'Martha Morrissey']
-modified: 2018-10-08
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/python-for-loops-refresher/
@@ -65,7 +65,6 @@ This is a bad approach for two reasons:
 
 2. It's fragile: if you give it a longer string, it only prints part of the data, and if you give it a shorter one, it produces an error because you're asking for characters that don't exist.
 
-{:.input}
 ```python
 word = 'tin'
 print(word[0])
@@ -74,28 +73,16 @@ print(word[2])
 print(word[3])
 ```
 
-{:.output}
-    t
-    i
-    n
+```
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-2-e59d5eac5430> in <module>()
+      3 print(word[1])
+      4 print(word[2])
+----> 5 print(word[3])
 
-
-
-{:.output}
-
-    ---------------------------------------------------------------------------
-
-    IndexError                                Traceback (most recent call last)
-
-    <ipython-input-3-e59d5eac5430> in <module>()
-          3 print(word[1])
-          4 print(word[2])
-    ----> 5 print(word[3])
-    
-
-    IndexError: string index out of range
-
-
+IndexError: string index out of range
+```
 
 Here's a better approach:
 

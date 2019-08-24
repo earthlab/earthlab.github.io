@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Lidar Raster Data in Python"
 permalink: /courses/earth-analytics-python/lidar-raster-data/
-modified: 2019-08-23
+modified: 2019-08-24
 week-landing: 3
 week: 2
 sidebar:
@@ -78,12 +78,6 @@ Please view the dropbox in Canvas to see the rubric that will be used to grade y
 The plots that you generate for this week's homework should look like the ones below. 
 Note that your plot may have some variation if you select different classification bins and plot colors. 
 
-
-
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
 
 
 

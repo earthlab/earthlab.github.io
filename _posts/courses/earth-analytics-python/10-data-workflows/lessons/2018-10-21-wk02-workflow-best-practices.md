@@ -3,7 +3,7 @@ layout: single
 title: "Data Workflow Best Practices - Things to Consider When Processing Data"
 excerpt: "Identifying aspects of a workflow that can be modularized can help you design data workflows. Learn best practices for designing efficient data workflows."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe','Jenny Palomino']
-modified: 2018-10-31
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['create-data-workflows']
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/design-efficient-workflows/
@@ -118,29 +118,6 @@ In this example, an assumption is made that your data are nicely organized into 
 
 
 {:.output}
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017011201T1-SC20181023151858
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017012801T1-SC20181023151918
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017021301T1-SC20181023152047
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017030101T2-SC20181023151931
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017031701T1-SC20181023151837
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017040201T1-SC20181023152038
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017041801T1-SC20181023152618
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017050401T1-SC20181023152417
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017052001T1-SC20181023151947
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017060501T2-SC20181023151903
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017062101T1-SC20181023151938
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017070701T1-SC20181023152155
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017072301T1-SC20181023152048
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017080801T1-SC20181023151955
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017082401T1-SC20181023152023
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017090901T1-SC20181023151921
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017092501T1-SC20181023152702
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017101101T1-SC20181023151948
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017102701T1-SC20181023151948
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017111201T1-SC20181023151927
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017112801T1-SC20181023151921
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017121401T1-SC20181023152050
-    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017123001T1-SC20181023151857
     data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017010701T2-SC20181023153321
     data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017012301T1-SC20181023170015
     data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017020801T1-SC20181023162521
@@ -164,6 +141,29 @@ In this example, an assumption is made that your data are nicely organized into 
     data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017112301T1-SC20181023170128
     data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017120901T1-SC20181023152438
     data/ndvi-automation/sites/SJER/landsat-crop/LC080420342017122501T1-SC20181023152106
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017011201T1-SC20181023151858
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017012801T1-SC20181023151918
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017021301T1-SC20181023152047
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017030101T2-SC20181023151931
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017031701T1-SC20181023151837
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017040201T1-SC20181023152038
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017041801T1-SC20181023152618
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017050401T1-SC20181023152417
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017052001T1-SC20181023151947
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017060501T2-SC20181023151903
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017062101T1-SC20181023151938
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017070701T1-SC20181023152155
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017072301T1-SC20181023152048
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017080801T1-SC20181023151955
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017082401T1-SC20181023152023
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017090901T1-SC20181023151921
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017092501T1-SC20181023152702
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017101101T1-SC20181023151948
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017102701T1-SC20181023151948
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017111201T1-SC20181023151927
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017112801T1-SC20181023151921
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017121401T1-SC20181023152050
+    data/ndvi-automation/sites/HARV/landsat-crop/LC080130302017123001T1-SC20181023151857
 
 
 
