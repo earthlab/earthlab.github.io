@@ -4,17 +4,18 @@ authors: [Naupaka Zimmerman, Leah Wasser]
 title: 'Open Science Lesson Instructor Notes'
 excerpt: 'Instructor notes for the open science lesson.'
 category: [course-materials]
-modified: '2016-01-01'
 nav-title: 'Instructor Notes'
 module: ['intro-open-science']
-module-type: 'workshop'
-permalink: /workshops/open-science-instructor-notes/
+dateCreated: 2016-06-25
+modified: 2017-07-25
+permalink: /courses/open-science-instructor-notes/
 sidebar:
   nav:
 author_profile: false
 comments: false
 order: 2
 ---
+
 
 ## About
 This lesson challenges students to critically think about good file and process
@@ -134,7 +135,7 @@ There are more issues with the repo that participants will find.
 
 
 ## About This Lesson
-This lesson was originally taught as part of the NEON Data Institute 2016 by
+This lesson was originally taught as part of the [NEON Data Institute 2016](http://neon-workwithdata.github.io/neon-data-institute-2016/) by
 [Naupaka Zimmerman](https://github.com/naupaka). The data and files are
 for the most part derived from various NEON remote sensing data
 products from the D17 California field sites.
