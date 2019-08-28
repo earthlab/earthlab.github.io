@@ -1,4 +1,4 @@
---
+---
 layout: single
 title: 'Introduction to Bash'
 excerpt: "Bash or Shell is a command line tool that is used in open science to efficiently manipulate files and directories. Learn how using Bash can help you implement reproducible workflows."
@@ -26,6 +26,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-shell/"  
 ---
+
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">

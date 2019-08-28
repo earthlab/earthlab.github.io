@@ -27,6 +27,7 @@ redirect_from:
   - "/courses/earth-analytics-bootcamp/get-started-with-open-science/jupyter-notebook-interface/"
   - "/courses/earth-analytics-bootcamp/git-github-version-control/manage-jupyter-notebooks/"
 ---
+
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">

@@ -15,6 +15,7 @@ module-type: 'session'
 redirect_from:
   - "/courses/earth-analytics-bootcamp/get-started-with-open-science/"
 ---
+
 {% include toc title="Section One" icon="file-text" %}
 
 <div class="notice--info" markdown="1">

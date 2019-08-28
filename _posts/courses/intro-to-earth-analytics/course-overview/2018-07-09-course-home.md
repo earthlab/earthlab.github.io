@@ -5,7 +5,7 @@ title: "Introduction to Earth Analytics | Earth Lab CU Boulder"
 nav-title: "Intro to Earth Analytics Home"
 permalink: /courses/intro-to-earth-analytics/
 course: "intro-to-earth-analytics"
-modified: 2019-08-26
+modified: 2019-08-28
 module-type: 'overview'
 module-title: "Intro to Earth Analytics"
 week-landing: 0
@@ -18,6 +18,7 @@ overview-order: 1
 redirect_from:
   - "/courses/earth-analytics-bootcamp/"
 ---
+
 
 {% include toc title="This Textbook" icon="file-text" %}
 

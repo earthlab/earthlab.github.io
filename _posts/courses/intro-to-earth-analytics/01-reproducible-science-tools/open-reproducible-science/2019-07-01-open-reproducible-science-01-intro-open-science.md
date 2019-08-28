@@ -1,3 +1,4 @@
+---
 layout: single
 title: 'What Is Open Reproducible Science'
 excerpt: "Open reproducible science refers to developing workflows that others can easily understand and use. It enables you to build on others' work rather than starting from scratch. Learn about the importance and benefits of open reproducible science."
@@ -25,6 +26,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/get-started-with-open-science/intro-open-science/"
 ---
+
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">

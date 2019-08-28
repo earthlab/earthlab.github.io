@@ -21,6 +21,7 @@ order: 4
 topics:
   reproducible-science-and-programming: ['jupyter-notebook']
 ---
+
 {% include toc title="On This Page" icon="file-text" %}
 
 On this page, you will learn how to create, rename, move, and delete directories using the the `Jupyter` dashboard. 
