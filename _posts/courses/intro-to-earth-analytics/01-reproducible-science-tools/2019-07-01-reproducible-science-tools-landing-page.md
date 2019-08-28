@@ -48,6 +48,6 @@ After completing this section of the introduction to earth analytics online text
 | Chapter 1: Open Reproducible Science            | 
 | Chapter 2: Bash / Shell  |
 | Chapter 3: Jupyter for Python   |
-| Chapter 4: Markdown in Jupyter Notebook   |
+| Chapter 4: Text File Formats for Earth Data Science   |
 | Chapter 5: Git/GitHub.com   |
 

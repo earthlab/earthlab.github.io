@@ -58,7 +58,7 @@ This textbook is highly technical, and each chapter covers some aspect of scient
 | Chapter 1: Open Reproducible Science            | 
 | Chapter 2: Bash / Shell  |
 | Chapter 3: Jupyter Notebook for Python   |
-| Chapter 4: Markdown in Jupyter Notebook   |
+| Chapter 4: Text File Formats for Earth Data Science   |
 | Chapter 5: Git/GitHub.com   |
 
 | Part 2: Get Started with Python |
