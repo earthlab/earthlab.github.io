@@ -5,7 +5,7 @@ excerpt: "Open reproducible science refers to developing workflows that others c
 authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['open-reproducible-science']
-permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/best-practices-for-open-reproducible-science-projects/
+permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/best-practices-for-open-reproducible-science-projects/
 nav-title: "Best Practices for Open Reproducible Science Projects"
 dateCreated: 2019-07-01
 modified: 2019-08-28
