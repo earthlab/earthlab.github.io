@@ -161,6 +161,7 @@ If desired, you can also close your terminal by typing the command `exit` and hi
 
 <div class="notice--success" markdown="1">
 
-You can also shutdown a `Jupyter Notebook` session by clicking in the `Terminal` window and clicking <kbd>Ctrl+c</kbd>. You will be asked to confirm that you want to `Shutdown this notebook server (y/[n])?`.  Type `y` and hit `Enter` to confirm. Then, you can close the `Terminal` by typing the command `exit` and hitting <kbd>Enter</kbd>.
+**NOTE:** You can also shutdown a `Jupyter Notebook` session by clicking in the `Terminal` window and clicking <kbd>Ctrl+c</kbd>. You will be asked to confirm that you want to `Shutdown this notebook server (y/[n])?`.  Type `y` and hit `Enter` to confirm. Then, you can close the `Terminal` by typing the command `exit` and hitting <kbd>Enter</kbd>.
 
 </div>
+

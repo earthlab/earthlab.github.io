@@ -32,6 +32,8 @@ topics:
 * Move `Jupyter Notebook` files using the `Jupyter` dashboard.
 * Convert `Jupyter Notebook` files into user-friendly formats such as `.html`. 
 
+</div>
+
 
 ## Save Jupyter Notebook Files 
 
