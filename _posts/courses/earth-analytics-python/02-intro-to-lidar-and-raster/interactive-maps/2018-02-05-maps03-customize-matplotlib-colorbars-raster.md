@@ -3,7 +3,7 @@ layout: single
 title: "Customize Matplotlib Raster Maps in Python"
 excerpt: "Sometimes you want to customize the colorbar and range of values plotted in a raster map. Learn how to create breaks to plot rasters in Python."
 authors: ['Leah Wasser']
-modified: 2018-12-13
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/customize-matplotlib-raster-maps/
@@ -47,24 +47,25 @@ To begin, load all of the required libraries. Notice that you are loading `Patch
 
 {:.input}
 ```python
-import rasterio as rio
-from rasterio.plot import plotting_extent
+import os
 import numpy as np
-import earthpy as et
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.colors import ListedColormap
 import matplotlib.colors as colors
+import rasterio as rio
+from rasterio.plot import plotting_extent
+import earthpy as et
 import earthpy.spatial as es
-import os
-plt.ion()
-# Set plot parameters
-plt.rcParams['figure.figsize'] = (8, 8)
+import earthpy.plot as ep
+
 # Prettier plotting with seaborn
-import seaborn as sns; 
-sns.set(font_scale=1.5)
+import seaborn as sns
+sns.set(font_scale=1.5, style="white")
 # Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+# Import data
+data = et.data.get_data("colorado-flood")
 ```
 
 You will work with the canopy height model raster that you created in this week's lessons. Below is the code to create that raster if you have not already created it. 
@@ -99,6 +100,7 @@ cmap = ListedColormap(["white", "tan", "springgreen", "darkgreen"])
 norm = colors.BoundaryNorm([0, 2, 10, 20, 30], 5)
 ```
 
+
 Once you have the bins and colors defined, ou can plot your data. 
 Below, the color map (`cmap`) is set to the listed colormap that you created above. 
 The data are then normalized or binned using the bins that you created.
@@ -107,18 +109,19 @@ Finally, you create a custom legend by defining labels and then create a patch o
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10,5))
-chm_plot = ax.imshow(lidar_chm, 
-                     cmap=cmap, 
+fig, ax = plt.subplots(figsize=(10, 5))
+chm_plot = ax.imshow(lidar_chm,
+                     cmap=cmap,
                      norm=norm)
 ax.set_title("Lidar Canopy Height Model (CHM)")
 
 # Add a legend for labels
 legend_labels = {"tan": "short", "springgreen": "medium", "darkgreen": "tall"}
 
-patches = [Patch(color=color, label=label) for color, label in legend_labels.items()]
-ax.legend(handles=patches, 
-          bbox_to_anchor=(1.35,1), 
+patches = [Patch(color=color, label=label)
+           for color, label in legend_labels.items()]
+ax.legend(handles=patches,
+          bbox_to_anchor=(1.35, 1),
           facecolor="white")
 ax.set_axis_off()
 plt.show()
@@ -129,7 +132,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps03-customize-matplotlib-colorbars-raster_9_0.png" alt = "Map of a lidar canopy height model with a custom legend.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps03-customize-matplotlib-colorbars-raster/2018-02-05-maps03-customize-matplotlib-colorbars-raster_10_0.png" alt = "Map of a lidar canopy height model with a custom legend.">
 <figcaption>Map of a lidar canopy height model with a custom legend.</figcaption>
 
 </figure>
@@ -140,15 +143,16 @@ plt.show()
 ### Colorbars With Custom Labels in Matplotlib
 You can also modify the colorbar to the right so that each bin has a human-readable category.
 
+
 {:.input}
 ```python
-fig, ax = plt.subplots()
-chm_plot = ax.imshow(lidar_chm, 
-                     cmap=cmap, 
+fig, ax = plt.subplots(figsize=(10, 5))
+chm_plot = ax.imshow(lidar_chm,
+                     cmap=cmap,
                      norm=norm)
 ax.set_title("Lidar Canopy Height Model (CHM)")
 # Scale color bar to the height of the plot
-cbar = es.colorbar(chm_plot);
+cbar = ep.colorbar(chm_plot)
 
 boundary_means = [np.mean([norm.boundaries[ii], norm.boundaries[ii - 1]])
                   for ii in range(1, len(norm.boundaries))]
@@ -164,7 +168,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps03-customize-matplotlib-colorbars-raster_11_0.png" alt = "Map of a lidar canopy height model with a custom colorbar legend.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps03-customize-matplotlib-colorbars-raster/2018-02-05-maps03-customize-matplotlib-colorbars-raster_13_0.png" alt = "Map of a lidar canopy height model with a custom colorbar legend.">
 <figcaption>Map of a lidar canopy height model with a custom colorbar legend.</figcaption>
 
 </figure>

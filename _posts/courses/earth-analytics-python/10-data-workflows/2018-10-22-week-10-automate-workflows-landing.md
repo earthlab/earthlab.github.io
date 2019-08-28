@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Learn to Create Efficient Data Workflows in Python"
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/
-modified: 2018-12-13
+modified: 2019-08-24
 week-landing: 10
 week: 10
 sidebar:
@@ -61,14 +61,8 @@ The plots below are examples of what your output plots will look like with and w
 
 
 {:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/10-data-workflows/2018-10-22-week-10-automate-workflows-landing_2_0.png" alt = "While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.">
-<figcaption>While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.</figcaption>
-
-</figure>
+    Downloading from https://ndownloader.figshare.com/files/13431344
+    Extracted output to /root/earth-analytics/data/ndvi-automation/.
 
 
 
@@ -79,7 +73,23 @@ The plots below are examples of what your output plots will look like with and w
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/10-data-workflows/2018-10-22-week-10-automate-workflows-landing_3_0.png" alt = "Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/10-data-workflows/2018-10-22-week-10-automate-workflows-landing/2018-10-22-week-10-automate-workflows-landing_4_0.png" alt = "While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.">
+<figcaption>While there can exist month-to-month variability in NDVI values due to natural vegetation changes, the NDVI values for some months in this plot are the result of heavy cloud cover over the site.</figcaption>
+
+</figure>
+
+
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/10-data-workflows/2018-10-22-week-10-automate-workflows-landing/2018-10-22-week-10-automate-workflows-landing_7_0.png" alt = "Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?">
 <figcaption>Plot showing NDVI for each time period at both NEON Sites. In this example the cloudy pixels were removed using the pixel_qa cloud mask. Notice that this makes a significant different in the output values. Why do you think this difference is so significant?</figcaption>
 
 </figure>

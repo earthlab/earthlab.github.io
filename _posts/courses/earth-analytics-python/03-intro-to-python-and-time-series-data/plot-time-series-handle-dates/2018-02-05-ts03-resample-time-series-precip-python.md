@@ -3,7 +3,7 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with pandas."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-10-08
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -51,22 +51,28 @@ Time to get started. First, load your Python libraries.
 
 {:.input}
 ```python
+# Load python libraries
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import os
-plt.ion()
-
-# set default figure parameters 
-plt.rcParams['figure.figsize'] = (8, 8)
-# prettier plotting with seaborn
-import seaborn as sns; 
-sns.set(font_scale=1.5)
-sns.set_style("whitegrid")
-
-# set working dir and import earthpy
+import matplotlib.dates as mdates
+from matplotlib.dates import DateFormatter
+import seaborn as sns
 import earthpy as et
+
+# Date time conversion registration
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+
+# Set working dir and import earthpy
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
+# Get the data
+data = et.data.get_data('colorado-flood')
+
+# Prettier plotting with seaborn
+sns.set(font_scale=1.5, style="whitegrid")
 ```
 
 ## Import Precipitation Data
@@ -103,7 +109,7 @@ When you import, be sure to specify the:
 
 {:.input}
 ```python
-# open the data 
+# Open the data 
 precip_file = "data/colorado-flood/precipitation/805325-precip-daily-2003-2013.csv"
 precip_boulder = pd.read_csv(precip_file,
                              na_values=[999.99],
@@ -158,7 +164,7 @@ precip_boulder.head()
   </thead>
   <tbody>
     <tr>
-      <th>2003-01-01 01:00:00</th>
+      <td>2003-01-01 01:00:00</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -169,7 +175,7 @@ precip_boulder.head()
       <td></td>
     </tr>
     <tr>
-      <th>2003-02-01 01:00:00</th>
+      <td>2003-02-01 01:00:00</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -180,7 +186,7 @@ precip_boulder.head()
       <td></td>
     </tr>
     <tr>
-      <th>2003-02-02 19:00:00</th>
+      <td>2003-02-02 19:00:00</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -191,7 +197,7 @@ precip_boulder.head()
       <td></td>
     </tr>
     <tr>
-      <th>2003-02-02 22:00:00</th>
+      <td>2003-02-02 22:00:00</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -202,7 +208,7 @@ precip_boulder.head()
       <td></td>
     </tr>
     <tr>
-      <th>2003-02-03 02:00:00</th>
+      <td>2003-02-03 02:00:00</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -253,12 +259,14 @@ are interested in summarizing the data for each day.
 
 {:.input}
 ```python
+# Plot the data 
 fig, ax = plt.subplots(figsize = (10,8))
 ax.scatter(precip_boulder.index, 
            precip_boulder["HPCP"], 
            color = 'purple')
 ax.set(xlabel='Date', ylabel='Precipitation (Inches)',
-       title="Hourly Precipitation - Boulder Station\n 1948-2013");
+       title="Hourly Precipitation - Boulder Station\n 1948-2013")
+plt.show()
 ```
 
 {:.output}
@@ -266,10 +274,11 @@ ax.set(xlabel='Date', ylabel='Precipitation (Inches)',
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-resample-time-series-precip-python_8_0.png" alt = "Scatterplot showing daily precipitation for Boulder, CO - 1948-2013.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-resample-time-series-precip-python/2018-02-05-ts03-resample-time-series-precip-python_8_0.png" alt = "Scatterplot showing daily precipitation for Boulder, CO - 1948-2013.">
 <figcaption>Scatterplot showing daily precipitation for Boulder, CO - 1948-2013.</figcaption>
 
 </figure>
+
 
 
 
@@ -308,9 +317,10 @@ daily_sum_precip2 = precip_boulder2.resample('D').sum()
 ```
 </div>
 
+
 {:.input}
 ```python
-# resample the data 
+# Resample the data 
 precip_boulder_daily = precip_boulder.resample('D').sum()
 ```
 
@@ -359,35 +369,35 @@ precip_boulder_daily.head()
   </thead>
   <tbody>
     <tr>
-      <th>2003-01-01</th>
+      <td>2003-01-01</td>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2003-01-02</th>
+      <td>2003-01-02</td>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2003-01-03</th>
+      <td>2003-01-03</td>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2003-01-04</th>
+      <td>2003-01-04</td>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2003-01-05</th>
+      <td>2003-01-05</td>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
@@ -403,14 +413,15 @@ precip_boulder_daily.head()
 
 {:.input}
 ```python
-# plot the data
+# Plot the data
 fig, ax = plt.subplots(figsize = (8,8))
 ax.scatter(precip_boulder_daily.index, 
        precip_boulder_daily['HPCP'], 
        color = 'purple')
 ax.set(xlabel='Date', 
        ylabel='Precipitation (Inches)',
-       title="Daily Precipitation - Boulder Station\n 1983-2013");
+       title="Daily Precipitation - Boulder Station\n 1983-2013")
+plt.show()
 ```
 
 {:.output}
@@ -418,7 +429,7 @@ ax.set(xlabel='Date',
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-resample-time-series-precip-python_13_0.png" alt = "Scatterplot of daily precipitation subsetted 1983-2013.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts03-resample-time-series-precip-python/2018-02-05-ts03-resample-time-series-precip-python_15_0.png" alt = "Scatterplot of daily precipitation subsetted 1983-2013.">
 <figcaption>Scatterplot of daily precipitation subsetted 1983-2013.</figcaption>
 
 </figure>

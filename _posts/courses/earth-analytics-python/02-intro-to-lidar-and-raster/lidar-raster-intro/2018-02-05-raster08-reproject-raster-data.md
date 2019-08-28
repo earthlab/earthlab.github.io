@@ -3,7 +3,7 @@ layout: single
 title: "Reproject Raster Data Python"
 excerpt: "This lesson teaches you how to reproject raster data using rasterio."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2019-08-24
 category: ['courses']
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/reproject-raster/
@@ -51,6 +51,9 @@ import os
 import earthpy as et
 import numpy as np
 from rasterio.warp import calculate_default_transform, reproject, Resampling
+
+# Get data and set wd
+et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -61,8 +64,9 @@ print(lidar_dem.meta)
 ```
 
 {:.output}
-    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4000, 'height': 2000, 'count': 1, 'crs': CRS({'init': 'epsg:32613'}), 'transform': Affine(1.0, 0.0, 472000.0,
+    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4000, 'height': 2000, 'count': 1, 'crs': CRS.from_epsg(32613), 'transform': Affine(1.0, 0.0, 472000.0,
            0.0, -1.0, 4436000.0)}
+
 
 
 
@@ -100,7 +104,7 @@ print(lidar_dem2.meta)
 ```
 
 {:.output}
-    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4004, 'height': 2020, 'count': 1, 'crs': CRS({'init': 'epsg:3857'}), 'transform': Affine(1.3063652820086313, 0.0, -11725101.307458913,
+    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4004, 'height': 2020, 'count': 1, 'crs': CRS.from_epsg(3857), 'transform': Affine(1.3063652820086313, 0.0, -11725101.307458913,
            0.0, -1.3063652820086313, 4876690.453258085)}
 
 
@@ -156,7 +160,7 @@ lidar_dem3.close()
 ```
 
 {:.output}
-    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4004, 'height': 2020, 'count': 1, 'crs': CRS({'init': 'epsg:3857'}), 'transform': Affine(1.3063652820086313, 0.0, -11725101.307458913,
+    {'driver': 'GTiff', 'dtype': 'float32', 'nodata': -3.4028234663852886e+38, 'width': 4004, 'height': 2020, 'count': 1, 'crs': CRS.from_epsg(3857), 'transform': Affine(1.3063652820086313, 0.0, -11725101.307458913,
            0.0, -1.3063652820086313, 4876690.453258085)}
 
 

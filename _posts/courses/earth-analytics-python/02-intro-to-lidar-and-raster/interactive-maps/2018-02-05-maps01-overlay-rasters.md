@@ -3,7 +3,7 @@ layout: single
 title: "Layer a raster dataset over a hillshade in Python to create a beautiful basemap that represents topography."
 excerpt: "This lesson covers how to overlay raster data on top of a hillshade in Python and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: 2018-09-25
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/overlay-raster-maps/
@@ -46,14 +46,17 @@ You need `Python` and `Jupyer Notebook` to complete this tutorial. You should al
 
 {:.input}
 ```python
-import rasterio as rio
+import os
 import numpy as np
 import matplotlib.pyplot as plt
-import os
+import rasterio as rio
 import earthpy as et
-plt.ion()
+import earthpy.plot as ep
+
 # Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+# Import data from EarthPy
+data = et.data.get_data('colorado-flood')
 ```
 
 ## Overlay Rasters in `Python`
@@ -86,11 +89,9 @@ To plot both layers together, you add a alpha value to the dem image. This value
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize = (10,6))
-ax.imshow(lidar_dem_hill, cmap='Greys')
-fin_plot = ax.imshow(lidar_dem_im, cmap='viridis_r', alpha=.5)
-fig.colorbar(fin_plot, fraction=.024, pad=.02)
+ep.plot_bands(lidar_dem_im,ax=ax, cmap='viridis_r',title="Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade")
+ax.imshow(lidar_dem_hill, cmap='Greys', alpha=.5)
 ax.set_axis_off()
-ax.set(title="Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade");
 ```
 
 {:.output}
@@ -98,7 +99,7 @@ ax.set(title="Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillsh
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps01-overlay-rasters_6_0.png" alt = "Plot of the Digital Elevation Model overlayed on top of a hillshade.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/interactive-maps/2018-02-05-maps01-overlay-rasters/2018-02-05-maps01-overlay-rasters_6_0.png" alt = "Plot of the Digital Elevation Model overlayed on top of a hillshade.">
 <figcaption>Plot of the Digital Elevation Model overlayed on top of a hillshade.</figcaption>
 
 </figure>

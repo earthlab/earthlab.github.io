@@ -3,7 +3,7 @@ layout: single
 title: "Calculate NDVI Using NAIP Remote Sensing Data in the Python Programming Language"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI vegetation index using NAIP data in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2018-10-16
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/vegetation-indices-NDVI-in-python/
@@ -69,7 +69,7 @@ and phenology (life cycle stage) over large areas.
     reflected by vegetation. Healthy vegetation (left) absorbs most of the
     visible light that hits it, and reflects a large portion of
     near-infrared light. Unhealthy or sparse vegetation (right) reflects more
-    visible light and less near-infrared light. Source: NASA
+    visible light and less near-infrared light.  Source: NASA
     </figcaption>
 </figure>
 
@@ -107,6 +107,9 @@ import rasterio as rio
 import geopandas as gpd
 import earthpy as et
 import earthpy.spatial as es
+import earthpy.plot as ep
+# Get the data 
+data = et.data.get_data('cold-springs-fire')
 
 # Set working directory 
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
@@ -141,22 +144,19 @@ naip_data.shape
 
 Calculate NDVI using regular numpy array math. In this case, the bands you are subtracting come from the same data file. The tif file format requires that all layers are in the same CRS and of the same size so you assume the data line up. Thus you do not need to test the data for equal shape, crs and extent.
 
+
 {:.input}
 ```python
-naip_ndvi = (naip_data[3] - naip_data[0]) / (naip_data[3] + naip_data[0])
+naip_ndvi = es.normalized_diff(naip_data[3], naip_data[0])
 ```
 
-Finally plot the data. Note below that the vmin and vmax attributes are used to stretch the colorbar across the full possible range of ndvi values (-1 to 1).
+Finally plot the data. Note below that the `vmin=` and `vmax=` arguments are used to stretch the colorbar across the full possible range of NDVI values (-1 to 1).
 
 {:.input}
 ```python
-# Plot NDVI data
-fig, ax = plt.subplots(figsize=(12,6))
-ndvi = ax.imshow(naip_ndvi, cmap='PiYG',
-                vmin=-1, vmax=1)
-fig.colorbar(ndvi, fraction=.05)
-ax.set(title="NAIP Derived NDVI\n 19 September 2015 - Cold Springs Fire, Colorado")
-ax.set_axis_off()
+ep.plot_bands(naip_ndvi, cmap='PiYG',
+             scale=False,
+             vmin=-1, vmax=1)
 plt.show()
 ```
 
@@ -165,8 +165,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_9_0.png" alt = "Plot of NDVI using 2015 NAIP data - before the Cold Springs Fire.">
-<figcaption>Plot of NDVI using 2015 NAIP data - before the Cold Springs Fire.</figcaption>
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_10_0.png">
 
 </figure>
 
@@ -179,9 +178,10 @@ Using a histogram, you can view the distribution of pixel values in your NDVI ou
 
 {:.input}
 ```python
-es.hist(naip_ndvi,
+ep.hist(naip_ndvi,
        figsize=(12,6),
-       titles=["NDVI: Distribution of pixels\n NAIP 2015 Cold Springs fire site"])
+       title=["NDVI: Distribution of pixels\n NAIP 2015 Cold Springs fire site"])
+plt.show()
 ```
 
 {:.output}
@@ -189,7 +189,7 @@ es.hist(naip_ndvi,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_11_0.png" alt = "Histogram of NDVI values derived from 2015 NAIP data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_12_0.png" alt = "Histogram of NDVI values derived from 2015 NAIP data.">
 <figcaption>Histogram of NDVI values derived from 2015 NAIP data.</figcaption>
 
 </figure>

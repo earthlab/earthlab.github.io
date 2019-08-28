@@ -5,7 +5,7 @@ title: "Introduction to Shapefiles and Vector Data in Open Source Python"
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 4
 week: 4
-modified: 2018-10-23
+modified: 2019-08-24
 sidebar:
   nav:
 comments: false
@@ -100,7 +100,19 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 -->
 
 
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
+
+
 ## Plot 1 - Roads Map and Legend
+
+
+
+
 
 
 {:.output}
@@ -108,10 +120,12 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_4_0.png" alt = "Map showing the SJER field site roads and plot locations clipped to the site boundary.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page/2018-02-05-spatial-data-landing-page_9_0.png" alt = "Map showing the SJER field site roads and plot locations clipped to the site boundary.">
 <figcaption>Map showing the SJER field site roads and plot locations clipped to the site boundary.</figcaption>
 
 </figure>
+
+
 
 
 
@@ -120,15 +134,24 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 
 
 
+
+
+
+
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_6_0.png" alt = "Map showing the roads layer clipped to the three counties and colored according to which county the road is in.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page/2018-02-05-spatial-data-landing-page_16_0.png" alt = "Map showing the roads layer clipped to the three counties and colored according to which county the road is in.">
 <figcaption>Map showing the roads layer clipped to the three counties and colored according to which county the road is in.</figcaption>
 
 </figure>
+
+
+
+
 
 
 
@@ -137,15 +160,20 @@ Submit your report in both `.ipynb` and `.html` format to the D2l week 4 dropbox
 
 
 
+
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_8_0.png" alt = "Total land and total water aggregated by region in the United States.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page/2018-02-05-spatial-data-landing-page_23_0.png" alt = "Total land and total water aggregated by region in the United States.">
 <figcaption>Total land and total water aggregated by region in the United States.</figcaption>
 
 </figure>
+
+
+
 
 
 
@@ -163,20 +191,27 @@ The `download()` function will unzip your data for you and place it in the direc
 {:.input}
 ```python
 # Add this line importing the download package to your top cell with the other packages!
-from download import download
+#from download import download
 
 # Get the data from natural earth
 url = "https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip"
 
 # Please note that this is the directory name where your data will be unzipped
-download_path = os.path.join("data", "spatial-vector-lidar", "global","ne_10m_admin_0_countries")
-download(url, download_path, kind='zip', verbose=False)
+download_path = os.path.join("data", "earthpy-downloads", "ne_10m_admin_0_countries")
+
+et.data.get_data(url=url)
 country_path = os.path.join(download_path, "ne_10m_admin_0_countries.shp")
 ```
 
+{:.output}
+    Downloading from https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip
+    Extracted output to /root/earth-analytics/data/earthpy-downloads/ne_10m_admin_0_countries
+
+
+
 
 {:.output}
-    /Users/leah-su/anaconda3/envs/earth-analytics-python/lib/python3.6/site-packages/pandas/core/reshape/merge.py:544: UserWarning: merging between different levels can give an unintended result (1 levels on the left, 2 on the right)
+    /opt/conda/lib/python3.7/site-packages/pandas/core/reshape/merge.py:617: UserWarning: merging between different levels can give an unintended result (1 levels on the left, 2 on the right)
       warnings.warn(msg, UserWarning)
 
 
@@ -187,7 +222,7 @@ country_path = os.path.join(download_path, "ne_10m_admin_0_countries.shp")
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page_12_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/2018-02-05-spatial-data-landing-page/2018-02-05-spatial-data-landing-page_29_0.png" alt = "Natural Earth Global Mean population rank and total estimated population">
 <figcaption>Natural Earth Global Mean population rank and total estimated population</figcaption>
 
 </figure>

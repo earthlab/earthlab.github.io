@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Word Frequency Counts Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to calculate word frequencies to understand how often words are used in tweets on a particular topic. To complete any analysis, you need to first prepare the data. Learn how to clean Twitter data and calculate word frequencies using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-01-02
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-frequencies-in-python/
@@ -50,6 +50,7 @@ Next, you will explore the text associated with a set of tweets that you access 
 
 {:.input}
 ```python
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -77,6 +78,7 @@ consumer_secret= 'yourkeyhere'
 access_token= 'yourkeyhere'
 access_token_secret= 'yourkeyhere'
 ```
+
 
 {:.input}
 ```python
@@ -106,11 +108,11 @@ all_tweets[:5]
 
 
 
-    ['How #Climate Change Scientists Are Learning To Get Their Message Across ... #Communications  #Science via @forbes https://t.co/NnsBYZRDNg',
-     '@Obikonobe @LesIsMore1 @Bruce_Winter @JackieForrest @PTertzakian @RachelNotley Facts do not require your belief to… https://t.co/7L6o5DiVsA',
-     "Here's How Much #Climate Change Could Cost the U.S. https://t.co/5KtsvZYCEY via @sciam",
-     'The UN’s #CLIMATE Change Conference is Meeting…in Poland’s #COAL Country https://t.co/Y8Wt4CTSda #GPWX #GlobalWarming #climatechange',
-     '"..and it highlights how the govt’s current abomination of a #climate change policy is not just hopelessly damaged… https://t.co/6h8kBcI5Tq']
+    ['@island_cynic @bronwentucker True - same as #NDP &amp; #CPC\n(ONE way to force change &amp; get banks + financiers of… https://t.co/n3mBed07XG',
+     '@EcologyAction @drtimball #climate change. The biggest premeditated deception of all time.  timothyball@shaw.ca\nHistorical Climatologist',
+     '@sciam @drtimball #climate change.\nThe lawsuit of Dr Michael Mann vs Dr Tim Ball, has been dismissed in Vancouver C… https://t.co/DIJvmZKX9m',
+     'To be clear, I am NOT in favour of a drone killing program for fossil fuel executives and autocrats led by vulnerab… https://t.co/huXPdmT5Y5',
+     'How a playboy billionaire built a political army to defend his fossil fuel empire.\nhttps://t.co/ebWhMbOr8g\n#Koch #climate #GOP']
 
 
 
@@ -165,11 +167,11 @@ all_tweets_no_urls[:5]
 
 
 
-    ['How Climate Change Scientists Are Learning To Get Their Message Across Communications Science via forbes',
-     'Obikonobe LesIsMore1 BruceWinter JackieForrest PTertzakian RachelNotley Facts do not require your belief to',
-     'Heres How Much Climate Change Could Cost the US via sciam',
-     'The UNs CLIMATE Change Conference is Meetingin Polands COAL Country GPWX GlobalWarming climatechange',
-     'and it highlights how the govts current abomination of a climate change policy is not just hopelessly damaged']
+    ['islandcynic bronwentucker True same as NDP amp CPCONE way to force change amp get banks financiers of',
+     'EcologyAction drtimball climate change The biggest premeditated deception of all time timothyballshawcaHistorical Climatologist',
+     'sciam drtimball climate changeThe lawsuit of Dr Michael Mann vs Dr Tim Ball has been dismissed in Vancouver C',
+     'To be clear I am NOT in favour of a drone killing program for fossil fuel executives and autocrats led by vulnerab',
+     'How a playboy billionaire built a political army to defend his fossil fuel empireKoch climate GOP']
 
 
 
@@ -260,21 +262,23 @@ all_tweets_no_urls[0].split()
 
 
 
-    ['How',
-     'Climate',
-     'Change',
-     'Scientists',
-     'Are',
-     'Learning',
-     'To',
-     'Get',
-     'Their',
-     'Message',
-     'Across',
-     'Communications',
-     'Science',
-     'via',
-     'forbes']
+    ['islandcynic',
+     'bronwentucker',
+     'True',
+     'same',
+     'as',
+     'NDP',
+     'amp',
+     'CPCONE',
+     'way',
+     'to',
+     'force',
+     'change',
+     'amp',
+     'get',
+     'banks',
+     'financiers',
+     'of']
 
 
 
@@ -295,21 +299,23 @@ all_tweets_no_urls[0].lower().split()
 
 
 
-    ['how',
-     'climate',
-     'change',
-     'scientists',
-     'are',
-     'learning',
+    ['islandcynic',
+     'bronwentucker',
+     'true',
+     'same',
+     'as',
+     'ndp',
+     'amp',
+     'cpcone',
+     'way',
      'to',
+     'force',
+     'change',
+     'amp',
      'get',
-     'their',
-     'message',
-     'across',
-     'communications',
-     'science',
-     'via',
-     'forbes']
+     'banks',
+     'financiers',
+     'of']
 
 
 
@@ -329,34 +335,36 @@ words_in_tweet[:2]
 
 
 
-    [['how',
+    [['islandcynic',
+      'bronwentucker',
+      'true',
+      'same',
+      'as',
+      'ndp',
+      'amp',
+      'cpcone',
+      'way',
+      'to',
+      'force',
+      'change',
+      'amp',
+      'get',
+      'banks',
+      'financiers',
+      'of'],
+     ['ecologyaction',
+      'drtimball',
       'climate',
       'change',
-      'scientists',
-      'are',
-      'learning',
-      'to',
-      'get',
-      'their',
-      'message',
-      'across',
-      'communications',
-      'science',
-      'via',
-      'forbes'],
-     ['obikonobe',
-      'lesismore1',
-      'brucewinter',
-      'jackieforrest',
-      'ptertzakian',
-      'rachelnotley',
-      'facts',
-      'do',
-      'not',
-      'require',
-      'your',
-      'belief',
-      'to']]
+      'the',
+      'biggest',
+      'premeditated',
+      'deception',
+      'of',
+      'all',
+      'time',
+      'timothyballshawcahistorical',
+      'climatologist']]
 
 
 
@@ -387,21 +395,21 @@ counts_no_urls.most_common(15)
 
 
 
-    [('climate', 948),
-     ('change', 655),
-     ('the', 621),
-     ('to', 404),
-     ('of', 304),
-     ('in', 243),
-     ('and', 233),
-     ('is', 220),
-     ('on', 211),
-     ('a', 201),
-     ('we', 150),
-     ('for', 145),
-     ('are', 136),
-     ('climatechange', 121),
-     ('you', 82)]
+    [('climate', 828),
+     ('the', 635),
+     ('change', 604),
+     ('to', 446),
+     ('of', 311),
+     ('a', 244),
+     ('is', 243),
+     ('and', 214),
+     ('in', 194),
+     ('climatechange', 174),
+     ('for', 147),
+     ('on', 146),
+     ('are', 108),
+     ('we', 107),
+     ('will', 98)]
 
 
 
@@ -446,29 +454,29 @@ clean_tweets_no_urls.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>climate</td>
-      <td>948</td>
+      <td>828</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>change</td>
-      <td>655</td>
-    </tr>
-    <tr>
-      <th>2</th>
+      <td>1</td>
       <td>the</td>
-      <td>621</td>
+      <td>635</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>2</td>
+      <td>change</td>
+      <td>604</td>
+    </tr>
+    <tr>
+      <td>3</td>
       <td>to</td>
-      <td>404</td>
+      <td>446</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>of</td>
-      <td>304</td>
+      <td>311</td>
     </tr>
   </tbody>
 </table>
@@ -500,10 +508,27 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_28_0.png" alt = "This plot displays the frequency of all words in the tweets on climate change, after URLs have been removed.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis/2018-02-05-twitter-03-word-frequency-analysis_29_0.png" alt = "This plot displays the frequency of all words in the tweets on climate change, after URLs have been removed.">
 <figcaption>This plot displays the frequency of all words in the tweets on climate change, after URLs have been removed.</figcaption>
 
 </figure>
+
+
+
+
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    [17, 13, 19]
+
+
+
+
 
 
 
@@ -520,9 +545,8 @@ nltk.download('stopwords')
 ```
 
 {:.output}
-    [nltk_data] Downloading package stopwords to
-    [nltk_data]     /home/jpalomino/nltk_data...
-    [nltk_data]   Package stopwords is already up-to-date!
+    [nltk_data] Downloading package stopwords to /root/nltk_data...
+    [nltk_data]   Unzipping corpora/stopwords.zip.
 
 
 
@@ -550,16 +574,16 @@ list(stop_words)[0:10]
 
 
 
-    ['wouldn',
-     'our',
-     'who',
-     'under',
-     're',
-     'through',
-     'down',
-     'once',
-     'between',
-     'out']
+    ['of',
+     'out',
+     "you're",
+     'but',
+     "you'd",
+     'how',
+     'its',
+     "hasn't",
+     "aren't",
+     'some']
 
 
 
@@ -579,21 +603,23 @@ words_in_tweet[0]
 
 
 
-    ['how',
-     'climate',
-     'change',
-     'scientists',
-     'are',
-     'learning',
+    ['islandcynic',
+     'bronwentucker',
+     'true',
+     'same',
+     'as',
+     'ndp',
+     'amp',
+     'cpcone',
+     'way',
      'to',
+     'force',
+     'change',
+     'amp',
      'get',
-     'their',
-     'message',
-     'across',
-     'communications',
-     'science',
-     'via',
-     'forbes']
+     'banks',
+     'financiers',
+     'of']
 
 
 
@@ -623,17 +649,19 @@ tweets_nsw[0]
 
 
 
-    ['climate',
+    ['islandcynic',
+     'bronwentucker',
+     'true',
+     'ndp',
+     'amp',
+     'cpcone',
+     'way',
+     'force',
      'change',
-     'scientists',
-     'learning',
+     'amp',
      'get',
-     'message',
-     'across',
-     'communications',
-     'science',
-     'via',
-     'forbes']
+     'banks',
+     'financiers']
 
 
 
@@ -655,21 +683,21 @@ counts_nsw.most_common(15)
 
 
 
-    [('climate', 948),
-     ('change', 655),
-     ('climatechange', 121),
-     ('cop24', 68),
-     ('via', 62),
-     ('world', 61),
-     ('us', 58),
-     ('un', 52),
-     ('amp', 47),
-     ('globalwarming', 44),
-     ('trump', 44),
-     ('people', 41),
-     ('action', 39),
-     ('news', 39),
-     ('gpwx', 36)]
+    [('climate', 828),
+     ('change', 604),
+     ('climatechange', 174),
+     ('new', 79),
+     ('globalwarming', 53),
+     ('could', 52),
+     ('us', 49),
+     ('solar', 41),
+     ('amp', 40),
+     ('energy', 39),
+     ('crisis', 39),
+     ('science', 36),
+     ('news', 32),
+     ('may', 31),
+     ('amazon', 31)]
 
 
 
@@ -700,7 +728,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_39_0.png" alt = "This plot displays the frequency of the words in the tweets on climate change, after URLs and stop words have been removed.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis/2018-02-05-twitter-03-word-frequency-analysis_44_0.png" alt = "This plot displays the frequency of the words in the tweets on climate change, after URLs and stop words have been removed.">
 <figcaption>This plot displays the frequency of the words in the tweets on climate change, after URLs and stop words have been removed.</figcaption>
 
 </figure>
@@ -739,17 +767,19 @@ tweets_nsw[0]
 
 
 
-    ['climate',
+    ['islandcynic',
+     'bronwentucker',
+     'true',
+     'ndp',
+     'amp',
+     'cpcone',
+     'way',
+     'force',
      'change',
-     'scientists',
-     'learning',
+     'amp',
      'get',
-     'message',
-     'across',
-     'communications',
-     'science',
-     'via',
-     'forbes']
+     'banks',
+     'financiers']
 
 
 
@@ -765,15 +795,18 @@ tweets_nsw_nc[0]
 
 
 
-    ['scientists',
-     'learning',
+    ['islandcynic',
+     'bronwentucker',
+     'true',
+     'ndp',
+     'amp',
+     'cpcone',
+     'way',
+     'force',
+     'amp',
      'get',
-     'message',
-     'across',
-     'communications',
-     'science',
-     'via',
-     'forbes']
+     'banks',
+     'financiers']
 
 
 
@@ -801,21 +834,21 @@ counts_nsw_nc.most_common(15)
 
 
 
-    [('cop24', 68),
-     ('via', 62),
-     ('world', 61),
-     ('us', 58),
-     ('un', 52),
-     ('amp', 47),
-     ('globalwarming', 44),
-     ('trump', 44),
-     ('people', 41),
-     ('action', 39),
-     ('news', 39),
-     ('gpwx', 36),
-     ('new', 36),
-     ('climateaction', 34),
-     ('threat', 33)]
+    [('new', 79),
+     ('globalwarming', 53),
+     ('could', 52),
+     ('us', 49),
+     ('solar', 41),
+     ('amp', 40),
+     ('energy', 39),
+     ('crisis', 39),
+     ('science', 36),
+     ('news', 32),
+     ('may', 31),
+     ('amazon', 31),
+     ('says', 31),
+     ('years', 30),
+     ('global', 30)]
 
 
 
@@ -833,7 +866,7 @@ len(counts_nsw_nc)
 
 
 
-    3399
+    3509
 
 
 
@@ -877,29 +910,29 @@ clean_tweets_ncw.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>cop24</td>
-      <td>68</td>
+      <td>0</td>
+      <td>new</td>
+      <td>79</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>via</td>
-      <td>62</td>
+      <td>1</td>
+      <td>globalwarming</td>
+      <td>53</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>world</td>
-      <td>61</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>us</td>
-      <td>58</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>un</td>
+      <td>2</td>
+      <td>could</td>
       <td>52</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>us</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>solar</td>
+      <td>41</td>
     </tr>
   </tbody>
 </table>
@@ -929,7 +962,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis_52_0.png" alt = "This plot displays the frequency of all words in the tweets on climate change, after URLs, stop words, and collection words have been removed.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-03-word-frequency-analysis/2018-02-05-twitter-03-word-frequency-analysis_57_0.png" alt = "This plot displays the frequency of all words in the tweets on climate change, after URLs, stop words, and collection words have been removed.">
 <figcaption>This plot displays the frequency of all words in the tweets on climate change, after URLs, stop words, and collection words have been removed.</figcaption>
 
 </figure>

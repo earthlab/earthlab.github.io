@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Sentiments Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to analyze attitudes (i.e. sentiment) in the tweet text. Learn how to analyze sentiments in Twitter data using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-01-02
+modified: 2019-08-24
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/analyze-tweet-sentiments-in-python/
@@ -45,8 +45,11 @@ In this lesson, you will apply sentiment analysis to Twitter data using the `Pyt
 
 Begin by reviewing how to search for and clean tweets that you will use to analyze sentiments in Twitter data.
 
+_test - force trigger rebuild_
+
 {:.input}
 ```python
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -75,6 +78,7 @@ consumer_secret= 'yourkeyhere'
 access_token= 'yourkeyhere'
 access_token_secret= 'yourkeyhere'
 ```
+
 
 {:.input}
 ```python
@@ -137,8 +141,8 @@ sentiment_objects[0].polarity, sentiment_objects[0]
 
 
 
-    (0.0,
-     TextBlob("trees and Nativeforests are immensely valuable SaveOurNativeForests ecocide is a crime against humanity"))
+    (0.175,
+     TextBlob("islandcynic bronwentucker True same as NDP amp CPCONE way to force change amp get banks financiers of"))
 
 
 
@@ -159,8 +163,8 @@ sentiment_values[0]
 
 
 
-    [0.0,
-     'trees and Nativeforests are immensely valuable SaveOurNativeForests ecocide is a crime against humanity']
+    [0.175,
+     'islandcynic bronwentucker True same as NDP amp CPCONE way to force change amp get banks financiers of']
 
 
 
@@ -203,29 +207,29 @@ sentiment_df.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0.00</td>
-      <td>trees and Nativeforests are immensely valuable...</td>
+      <td>0</td>
+      <td>0.175</td>
+      <td>islandcynic bronwentucker True same as NDP amp...</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>0.20</td>
-      <td>At the end of the day if what you care about i...</td>
+      <td>1</td>
+      <td>0.000</td>
+      <td>EcologyAction drtimball climate change The big...</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>0.00</td>
-      <td>World Bank to raise 200 billion to fight clima...</td>
+      <td>2</td>
+      <td>0.000</td>
+      <td>sciam drtimball climate changeThe lawsuit of D...</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>0.25</td>
-      <td>TheWorld Bankis to make about 200bn 157bn avai...</td>
+      <td>3</td>
+      <td>0.100</td>
+      <td>To be clear I am NOT in favour of a drone kill...</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>0.00</td>
-      <td>Can thank Harper conservatives and now the Tru...</td>
+      <td>4</td>
+      <td>0.000</td>
+      <td>How a playboy billionaire built a political ar...</td>
     </tr>
   </tbody>
 </table>
@@ -255,7 +259,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-05-sentiment-analysis_14_0.png" alt = "This plot displays a histogram of polarity values for tweets on climate change.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-05-sentiment-analysis/2018-02-05-twitter-05-sentiment-analysis_16_0.png" alt = "This plot displays a histogram of polarity values for tweets on climate change.">
 <figcaption>This plot displays a histogram of polarity values for tweets on climate change.</figcaption>
 
 </figure>
@@ -289,7 +293,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-05-sentiment-analysis_17_0.png" alt = "This plot displays a revised histogram of polarity values for tweets on climate change. For this histogram, polarity values equal to zero have been removed, and a break has been added at zero, to better highlight the distribution of polarity values.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-05-sentiment-analysis/2018-02-05-twitter-05-sentiment-analysis_19_0.png" alt = "This plot displays a revised histogram of polarity values for tweets on climate change. For this histogram, polarity values equal to zero have been removed, and a break has been added at zero, to better highlight the distribution of polarity values.">
 <figcaption>This plot displays a revised histogram of polarity values for tweets on climate change. For this histogram, polarity values equal to zero have been removed, and a break has been added at zero, to better highlight the distribution of polarity values.</figcaption>
 
 </figure>
@@ -325,11 +329,11 @@ all_tweets_no_urls[:5]
 
 
 
-    [TextBlob("Paradises evacuation notifications and protocols MTI research associate and deputy director of the National Tran"),
-     TextBlob("Missing tally in Californias CampFire down to 25hbbp ParadiseCA the whole town that burned down had 26000 ppl"),
-     TextBlob("Collecting 70000 images over 17000 acres resulting in 14 trillion pixels of data Thats what a squadron of"),
-     TextBlob("Tuxita Chiquita Lolita is a little under the weather so we did our best to cheer her up CampFire moggyblog"),
-     TextBlob("An entire homeowners insurance company is going under because of the CampFire home claims I doubt this will be th")]
+    [TextBlob("Our firefighters and other area FirstResponders were honored to be part of the pregame festivities at Paradise Hig"),
+     TextBlob("The Bobcats are back ParadiseHighSc1 is moments away from first high school football game since the Campfire"),
+     TextBlob("Fire time glamping campfire summer Elkwater"),
+     TextBlob("PHS Varsity football team about to head out for the first game of the season after the Campfire bobcatstrong"),
+     TextBlob("Massive reception for some first responders at tonights Paradise High football game the first game since the")]
 
 
 
@@ -378,29 +382,29 @@ wild_sent_df.head()
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
-      <td>-0.077778</td>
-      <td>Missing tally in Californias CampFire down to ...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>0.406250</td>
-      <td>Tuxita Chiquita Lolita is a little under the w...</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>-0.092857</td>
-      <td>The communities may have very limited services...</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>0.136364</td>
-      <td>Opal at the vet hospital playroom while we kee...</td>
-    </tr>
-    <tr>
-      <th>7</th>
+      <td>0</td>
       <td>-0.125000</td>
-      <td>California regulator takes over small failing ...</td>
+      <td>Our firefighters and other area FirstResponder...</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.002500</td>
+      <td>The Bobcats are back ParadiseHighSc1 is moment...</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>-0.075000</td>
+      <td>PHS Varsity football team about to head out fo...</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>-0.023333</td>
+      <td>Massive reception for some first responders at...</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>0.600000</td>
+      <td>campfire kind of night WhiteCity ComfortPlusCa...</td>
     </tr>
   </tbody>
 </table>
@@ -426,7 +430,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-05-sentiment-analysis_22_0.png" alt = "This plot displays a histogram of polarity values for tweets on the Camp Fire in California. For this histogram, polarity values equal to zero have been removed and a break has been added at zero, to better highlight the distribution of polarity values.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-05-sentiment-analysis/2018-02-05-twitter-05-sentiment-analysis_24_0.png" alt = "This plot displays a histogram of polarity values for tweets on the Camp Fire in California. For this histogram, polarity values equal to zero have been removed and a break has been added at zero, to better highlight the distribution of polarity values.">
 <figcaption>This plot displays a histogram of polarity values for tweets on the Camp Fire in California. For this histogram, polarity values equal to zero have been removed and a break has been added at zero, to better highlight the distribution of polarity values.</figcaption>
 
 </figure>
