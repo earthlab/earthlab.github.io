@@ -6,7 +6,7 @@ title: 'Submit a pull request on the GitHub website'
 attribution: ''
 excerpt: 'Learn how to create and submit a pull request to another repo.'
 dateCreated: 2017-09-12
-modified: '2018-09-10'
+modified: '2019-08-28'
 nav-title: 'Create pull requests'
 sidebar:
   nav:

@@ -6,7 +6,7 @@ title: 'Challenge Yourself'
 attribution: ''
 excerpt: 'This lesson contains a series of challenges that require using tidyverse functions in R to process data.'
 dateCreated: 2018-01-29
-modified: '2019-08-24'
+modified: '2019-08-28'
 nav-title: 'Challenge Yourself'
 sidebar:
   nav:

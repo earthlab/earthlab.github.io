@@ -6,7 +6,7 @@ title: 'Use tidyverse group_by and summarise to Manipulate Data in R'
 attribution: ''
 excerpt: 'Learn how to write pseudocode to plan our your approach to working with data. Then use tidyverse functions including group_by and summarise to implement your plan.'
 dateCreated: 2018-01-29
-modified: '2019-08-24'
+modified: '2019-08-28'
 nav-title: 'Summarize Data'
 sidebar:
   nav:
