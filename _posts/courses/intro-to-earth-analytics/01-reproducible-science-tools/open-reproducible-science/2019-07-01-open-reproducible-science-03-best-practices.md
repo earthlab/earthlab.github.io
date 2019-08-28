@@ -33,6 +33,7 @@ topics:
 
 </div>
 
+
 ## Organize Your Science Project Directory To Make It Easier to Understand
 
 When you are working on a data project, there are often many files that you need to store on your computer. These files may include:
@@ -59,6 +60,7 @@ It is good practice to use file and directory that are:
 These guidelines not only help you to organize your directories and files, but they can also help you to implement machine readable names that can be easily queried or parsed using scientific programming or other forms of scripting. 
 
 Using a good naming convention when structuring a project directory also supports reproducibility by helping others who are not familiar with your project quickly understand your directory and file structure.
+
 
 ## Best Practices for Open Reproducible Science Projects
 
@@ -97,11 +99,28 @@ A few other best practices to consider when naming files within a project:
 * Use dashes-to-separate-words (slugs): dashes or underscores can make is easier for you to create expressive file names. Dashes or underscores are also easier to parse when coding. 
 * Consider whether you may need to sort your files. If you do, you may want to number things.
 
+
 ### 2. Be Consistent When Naming Files - Use Lower Case
 
-It might be tempting when naming files and directories to use `lower` and `Upper` case. However, mixing case can cause coding issues for you down the road particularly if you are switching between operating systems (Mac vs Linux vs Windows). 
+It might be tempting when naming files and directories to use `lower` and `Upper` case. However, case will cause coding issues for you down the road particularly if you are switching between operating systems (Mac vs Linux vs Windows). 
 
-To keep things simple and to avoid case sensitvity issues, consider using lower case for all file and directory names. 
+Case in point, have a look at the file names below. 
+
+```
+my-file.txt
+My-File.txt
+
+```
+
+If you want to open / read `my-file.txt` it would be easy to call:
+
+`pandas.read.csv("my-file.txt")`
+
+in Python. This call will work on all operating systems. However, this call:
+
+`pandas.read.csv("My-file.txt")`
+
+may work on some machines  (possibly Windows) but it's likely to fail on Linux or MAC. To keep things simple and to avoid case sensitvity issues, usw lower case naming conventions for all file and directory names. 
 
 
 ### 3. Organize Your Project Directories to Make It Easy to Find Data, Code and Outputs
@@ -131,7 +150,7 @@ There is no one perfect example as each project may require different directorie
 
 | Organized Project  | Non Organized Project  | 
 |---|---|
-|/ 01-scripts <br>&nbsp;&nbsp;&nbsp; 01-clean-data.py <br> &nbsp;&nbsp;&nbsp; 02-run-model.py <br>&nbsp;&nbsp;&nbsp; 03-create-plots.py <br> /02-data <br> &nbsp;&nbsp;&nbsp;&nbsp;/raw-data <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/landsat-imagery<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/fire-boundary<br>/ 03-output-graphics<br>&nbsp;&nbsp;&nbsp; study-area-map.png <br> / 04-final-paper <br>&nbsp;&nbsp;&nbsp; fire-paper.pdf| file1-new.py </br>&nbsp; file1.py </br>&nbsp; plotting-test.py <br>&nbsp; data-file.txt  <br>&nbsp; /old-stuff </br>&nbsp; testoutput1.txt </br>&nbsp;testoutput2.csv|
+|/01-scripts <br>&nbsp;&nbsp;&nbsp; 01-clean-data.py <br> &nbsp;&nbsp;&nbsp; 02-run-model.py <br>&nbsp;&nbsp;&nbsp; 03-create-plots.py <br> /02-data <br> &nbsp;&nbsp;&nbsp;&nbsp;/raw-data <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/landsat-imagery<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/fire-boundary<br>/03-output-graphics<br>&nbsp;&nbsp;&nbsp; study-area-map.png <br> /04-final-paper <br>&nbsp;&nbsp;&nbsp; fire-paper.pdf| file1-new.py<br>file1.py<br> plotting-test.py <br> data-file.txt  <br> /old-stuff <br> testoutput1.txt <br>testoutput2.csv|
 
 > Look at the example directory structures above. Which structure is easier to understand? In which could you more easily find what you need?
 
@@ -148,7 +167,7 @@ Expressive names also support machine readibility, as discernible patterns in ex
 
 | Expressive Project  | Non Expressive Project  | 
 |---|---|
-|/ 01-scripts <br>&nbsp;&nbsp;&nbsp; 01-process-landsat-data.py <br> &nbsp;&nbsp;&nbsp; 02-calculate-ndvi.py <br>&nbsp;&nbsp;&nbsp; 03-create-ndvi-maps.py <br> /02-data <br> &nbsp;&nbsp;&nbsp;&nbsp;/raw-data <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/landsat-imagery <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/june-2016 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/july-2016<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/cold-springs-fire-boundary<br>/ 03-output-graphics<br>&nbsp;&nbsp;&nbsp; ndvi-map-june-2016.png <br>  &nbsp;&nbsp;&nbsp; ndvi-map-july-2016.png <br>/ 04-final-paper <br>&nbsp;&nbsp;&nbsp; veg-impacts-cold-springs-fire.pdf| work.py</br>plotting.py</br> plotting-test.py <br>landsat/<br> data-file.txt  <br>old-stuff/ </br> testoutput1.txt </br>testoutput2.csv  |
+|/01-scripts <br>&nbsp;&nbsp;&nbsp; 01-process-landsat-data.py <br> &nbsp;&nbsp;&nbsp; 02-calculate-ndvi.py <br>&nbsp;&nbsp;&nbsp; 03-create-ndvi-maps.py <br> /02-data <br> &nbsp;&nbsp;&nbsp;&nbsp;/raw-data <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/landsat-imagery <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/june-2016 <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/july-2016<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/cold-springs-fire-boundary<br>/03-output-graphics<br>&nbsp;&nbsp;&nbsp; ndvi-map-june-2016.png <br>  &nbsp;&nbsp;&nbsp; ndvi-map-july-2016.png <br>/04-final-paper <br>&nbsp;&nbsp;&nbsp; veg-impacts-cold-springs-fire.pdf| work.py<br>plotting.py<br> plotting-test.py <br>landsat/<br> data-file.txt  <br>old-stuff/ <br> testoutput1.txt <br>testoutput2.csv  |
 
 > Look at the example directory structures above. Which directory structure (the one on the LEFT or the one on the RIGHT) would you prefer to work with? 
 
@@ -159,9 +178,10 @@ Expressive names also support machine readibility, as discernible patterns in ex
 
 ### 5. Document Your Project With a README File 
 
-There are many ways to document a project, however, a readme file at the top level of your project is a standard convention. When you begin to use github, you will notice that almost all well designed github repositories contain readme files. The readme is a text file that describes data / software packages and tool used to process data in your project. The readme should also describe files and associated naming conventions. Finally, the readme can be used to document any abbreviations used, units, etc as needed.  
+There are many ways to document a project; however, a readme file at the top level of your project is a standard convention. When you begin to use GitHub, you will notice that almost all well designed github repositories contain readme files. The readme is a text file that describes data / software packages and tool used to process data in your project. The readme should also describe files and associated naming conventions. Finally, the readme can be used to document any abbreviations used, units, etc as needed.  
 
 There are other files that you may consider as well such as software installation instructions if those are required, citation information and if the project is one that you want others to contribute to, then a `CONTRIBUTING` file may be in order. 
+
 
 ### 6. Don't Use Proprietary File Formats  
 
@@ -169,7 +189,7 @@ Proprietary formats are formats that require a specific tool (and a specific lic
 
 In some cases, certain formats are operating system specific (example: most Linux users do not run Microsoft tools). 
 
-When choosing file formats for your projects, think about whether you Will have a license to access that file format in the future and whether others have access to the license.
+When choosing file formats for your projects, think about whether you will have a license to access that file format in the future and whether others have access to the license.
 
 When you can, stick to formats that are operating system and tool agnostic such as `.csv` and `.txt`. Text files are not proprietary and thus can be opened on any operating system and on any computer with the right open tools. This allows more people to have access to your files including your future self who might not have a license to open these files. 
 
@@ -201,4 +221,3 @@ How could using organized and expressively named directories have helped Jennife
 3. <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002303" target="_blank"> Computing Workflows for Biologists: A Roadmap</a>
 
 </div>
-

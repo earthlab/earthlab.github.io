@@ -55,8 +55,8 @@ Scientific programming using an open source, free programming language like `R` 
 In this textbook, you will learn the `Python` programming language. `Python` is a free and open source programming language that anyone can download and use. Further it is becomming one of the more popular and in-demand skills in today's job market. While you will learn Python in this textbook, many of the principles that you will learn can be applied across many programming languages. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/python-jupyter-notebook.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/python-jupyter-notebook.png" alt="You can write and run Python code in interactive development environments such as Jupyter Notebook. This image shows how Python code can be organized and run using cells in Jupyter Notebook and how the output is displayed under the executed cells. "></a>
+ <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/python-jupyter-notebook.png">
+ <img src="{{ site.url }}/images/earth-analytics/jupyter-interface/python-jupyter-notebook.png" alt="You can write and run Python code in interactive development environments such as Jupyter Notebook. This image shows how Python code can be organized and run using cells in Jupyter Notebook and how the output is displayed under the executed cells. "></a>
  <figcaption>You can write and run Python code in interactive development environments such as Jupyter Notebook. This image shows how Python code can be organized and run using cells in Jupyter Notebook and how the output is displayed under the executed cells. 
  </figcaption>
 </figure>
@@ -76,8 +76,8 @@ Using a `Shell` helps you:
 `Shell` is also important if you need to work on remote machines such as a high performance computing cluster (HPC) or the cloud. Later in this textbook, you will learn how to use a `Bash` (a specific implementation of `Shell`) to access and manage files on your computer and to run other programs that can be started or run from the `Terminal`, such as `Jupyter Notebook` and `git`.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/bash/terminal-ea-dir.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/bash/terminal-ea-dir.png" alt="The terminal and shell (bash) can be used to view file directory structures. The image above shows bash commands to change directories (cd) from the home directory to a subdirectory called earth-analytics, and to list out the contents (ls) of the earth-analytics directory, which includes a subdirectory called data. "></a>
+ <a href="{{ site.url }}/images/earth-analytics/bash/terminal-ea-dir.png">
+ <img src="{{ site.url }}/images/earth-analytics/bash/terminal-ea-dir.png" alt="The terminal and shell (bash) can be used to view file directory structures. The image above shows bash commands to change directories (cd) from the home directory to a subdirectory called earth-analytics, and to list out the contents (ls) of the earth-analytics directory, which includes a subdirectory called data. "></a>
  <figcaption>The terminal and shell (bash) can be used to view file directory structures. The image above shows bash commands to change directories (cd) from the home directory to a subdirectory called earth-analytics, and to list out the contents (ls) of the earth-analytics directory, which includes a subdirectory called data. 
  </figcaption>
 </figure>
@@ -116,10 +116,11 @@ There are three core tools that you should be familiar with associated with Proj
 **JupyterLab:** JupyterLab is a browser-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: you can configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: you can write plugins that add new components and integrate with existing ones.
 
 <figure class="half">
-    <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/python-jupyter-notebook.png"><img src="{{ site.url }}/images/courses/earth-analytics/python-interface/python-jupyter-notebook.png"></a>
-    <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/multiple-notebooks-jupyter-lab.png"><img src="{{ site.url }}/images/courses/earth-analytics/python-interface/multiple-notebooks-jupyter-lab.png"></a>
+    <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/python-jupyter-notebook.png"><img src="{{ site.url }}/images/earth-analytics/jupyter-interface/python-jupyter-notebook.png"></a>
+    <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/multiple-notebooks-jupyter-lab.png"><img src="{{ site.url }}/images/earth-analytics/jupyter-interface//multiple-notebooks-jupyter-lab.png"></a>
     <figcaption>Jupyter Notebook (left) is a browser-based interface that allows you to write code in many programming languages, including Python, and add formatted text that describes what the code does using Markdown. Jupyter Lab (right) provides access to Jupyter Notebook but also allows you to work with multiple documents, including notebook files and other files, at a time.</figcaption>
 </figure>
+
 
 **JupyterHub:** A multi-person version of Jupyter Notebook and Lab that can be run on a server. This is the tool that supports the cloud based classroom used in all of the Earth Analytics courses and workshops.
 
