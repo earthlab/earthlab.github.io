@@ -8,12 +8,12 @@ class-lesson: ['bash']
 permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/bash/what-is-bash/
 nav-title: "Introduction to Bash"
 dateCreated: 2019-07-15
-modified: 2019-08-27
+modified: 2019-08-28
 module-title: 'Bash'
 module-nav-title: 'Learn how to use Bash (Shell) or the Command Line to Manipulate Files'
 module-description: "Bash or Shell is a command line tool that is used in open science to efficiently manipulate files and directories. Learn how to use Bash to access and move files and directories."
 module-type: 'class'
-class-order: 2
+class-order: 3
 course: "intro-to-earth-analytics"
 week: 1
 sidebar:

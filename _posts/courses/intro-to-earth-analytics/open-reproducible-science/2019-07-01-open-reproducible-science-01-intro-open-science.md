@@ -12,7 +12,7 @@ module-title: 'Open Reproducible Science Workflows and Tools'
 module-nav-title: 'Open Reproducible Science Workflows and Tools'
 module-description: 'Open science involves making scientific methods, data and outcomes available to everyone. Learn why open reproducible science is important. Discover tools that support open science including Shell (Bash), git and GitHub, and Jupyter.'
 module-type: 'class'
-class-order: 1
+class-order: 2
 course: "intro-to-earth-analytics"
 week: 1
 sidebar:

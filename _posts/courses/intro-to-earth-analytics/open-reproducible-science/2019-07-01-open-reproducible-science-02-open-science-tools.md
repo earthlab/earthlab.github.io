@@ -10,7 +10,7 @@ nav-title: "Tools for Open Reproducible Science"
 dateCreated: 2019-07-01
 modified: 2019-08-28
 module-type: 'class'
-class-order: 1
+class-order: 2
 course: "intro-to-earth-analytics"
 week: 1
 sidebar:
