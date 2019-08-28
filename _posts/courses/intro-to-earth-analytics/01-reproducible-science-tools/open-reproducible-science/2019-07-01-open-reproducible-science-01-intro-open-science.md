@@ -76,8 +76,9 @@ View Slideshow: Share, Publish & Archive Code & Data</a>
 
 <div class="notice--success" markdown="1">
 
-Watch this 15 minute video to learn more about the importance of reproducibility in science and the current reproducibility "crisis."
 <a href="https://www.youtube.com/watch?v=NGFO0kdbZmk&feature=youtu.be" target="_blank"><img src="http://img.youtube.com/vi/NGFO0kdbZmk/0.jpg" alt="Importance of Reproducibility in Science" width="560" height="315" border = "10" /></a>
+
+>Watch this 15 minute video to learn more about the importance of reproducibility in science and the current reproducibility "crisis."
 
 </div>
 
@@ -136,3 +137,4 @@ Chaya is a scientist at Generic University, studying the role of invasive grasse
 In the first review of her paper, which is returned 3 months later, many changes are suggested which impact her final figures. Updating figures could be a tedious process. However, in this case, Chaya has developed these figures using the Python programming language. Thus, updating figures is easily done by modifying the processing methods used to create them. Further because she stored her data and code in a public repository on GitHub, it is easy and quick for Chaya three months later to find the original data and code that she used and to update the workflow as needed to produce the revised versions of her figures. Throughout the review process, the code (and perhaps data) are updated, and new versions of the code are tracked. Upon acceptance of the manuscript, the preprint can be updated, along with the code and data to ensure that the most recent version of the paper and analysis are openly available for anyone to use.
 
 </div>
+

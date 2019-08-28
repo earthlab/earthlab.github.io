@@ -17,7 +17,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 2
 topics:
   reproducible-science-and-programming: ['shell']
 ---
