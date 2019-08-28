@@ -1,12 +1,12 @@
 ---
 layout: single
-title: 'Manage Directories in Jupyter Dashboard'
-excerpt: "The Jupyter ecosystem contains many useful tools for working with Python including the Jupyter dashboard, which allows you to manage files and directories in your Jupyter environment. Learn how to create, rename, move, and delete directories using the Jupyter dashboard. "
+title: 'Manage Directories in Jupyter Notebook Dashboard'
+excerpt: "The Jupyter ecosystem contains many useful tools for working with Python including the Jupyter Notebook dashboard, which allows you to manage files and directories in your Jupyter environment. Learn how to create, rename, move, and delete directories using the Jupyter Notebook dashboard. "
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['jupyter-notebook']
-permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/manage-directories-jupyter-dashboard/
-nav-title: "Manage Directories in Jupyter Dashboard"
+permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/manage-directories-jupyter-notebook-dashboard/
+nav-title: "Manage Directories in Jupyter Notebook Dashboard"
 dateCreated: 2019-07-15
 modified: 2019-08-28
 module-type: 'class'
@@ -24,7 +24,7 @@ topics:
 
 {% include toc title="On This Page" icon="file-text" %}
 
-On this page, you will learn how to create, rename, move, and delete directories using the the `Jupyter` dashboard. 
+On this page, you will learn how to create, rename, move, and delete directories using the the `Jupyter Notebook` dashboard. 
 
 <div class='notice--success' markdown="1">
 
@@ -32,14 +32,14 @@ On this page, you will learn how to create, rename, move, and delete directories
 
 After completing this page, you will be able to:
 
-* Create and rename directories using the `Jupyter` dashboard.
-* Move and delete directories using the `Jupyter` dashboard.
+* Create and rename directories using the `Jupyter Notebook` dashboard.
+* Move and delete directories using the `Jupyter Notebook` dashboard.
 
 </div>
  
-## Create Directories in Jupyter Dashboard
+## Create Directories in Jupyter Notebook Dashboard
 
-To create a new directory using the `Jupyter` dashboard, you can click on the drop-down menu labeled `New`, and then select `Folder`.
+To create a new directory using the `Jupyter Notebook` dashboard, you can click on the drop-down menu labeled `New`, and then select `Folder`.
 
 <figure>
  <a href="{{ site.url }}/images/courses/earth-analytics/bootcamp/jupyter-interface/create-folder.png">
@@ -50,7 +50,8 @@ To create a new directory using the `Jupyter` dashboard, you can click on the dr
 
 Note that new directories are created as `Untitled.ipynb`.
 
-## Rename Directories in Jupyter Dashboard
+
+## Rename Directories in Jupyter Notebook Dashboard
 
 To rename a directory, you can select the checkbox to the left of the directory name (e.g. `Untitled.ipynb`) and then clicking on the option `Rename`, which becomes available in the menu bar after the checkbox is enabled. 
 
@@ -62,7 +63,7 @@ To rename a directory, you can select the checkbox to the left of the directory 
 </figure>
 
 
-## Move Directories in Jupyter Dashboard
+## Move Directories in Jupyter Notebook Dashboard
 
 Similarly, you can move a directory by selecting the checkbox to the left of the directory name (e.g. `Untitled.ipynb`) and then clicking on the option `Move`.
 
@@ -76,13 +77,13 @@ A new window will open for you to specify the new path for the directory. Once y
 </figure>
 
 
-## Delete Directories in Jupyter Dashboard
+## Delete Directories in Jupyter Notebook Dashboard
 
-You can also delete directories in the `Jupyter` dashboard  by selecting the checkbox to the left of the directory name (e.g. `Untitled.ipynb`) and then clicking on the red trashcan icon that appears. 
+You can also delete directories in the `Jupyter Notebook` dashboard  by selecting the checkbox to the left of the directory name (e.g. `Untitled.ipynb`) and then clicking on the red trashcan icon that appears. 
 
 Note that this action will delete any directory that is selected in the list, enabling you to delete multiple directories at one time. 
 
-Another important thing to remember is that deleting a directory in the `Jupyter` dashboard will delete all of the directory's contents including any subdirectories. So take care when deleting directories! 
+Another important thing to remember is that deleting a directory in the `Jupyter Notebook` dashboard will delete all of the directory's contents including any subdirectories. So take care when deleting directories! 
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/delete-folder.png">
