@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/manage-jupyter-notebook-files/
-nav-title: "Manage Jupyter Notebook Files"
+nav-title: "Manage Jupyter Notebooks"
 dateCreated: 2019-07-15
 modified: 2019-08-29
 module-type: 'class'

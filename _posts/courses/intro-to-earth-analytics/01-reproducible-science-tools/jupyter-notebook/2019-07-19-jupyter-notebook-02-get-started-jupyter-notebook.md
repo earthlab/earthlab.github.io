@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/get-started-with-jupyter-notebook-for-python/
-nav-title: "Get Started With Jupyter Notebook For Python"
+nav-title: "Jupyter Notebook For Python"
 dateCreated: 2019-07-15
 modified: 2019-08-29
 module-type: 'class'
