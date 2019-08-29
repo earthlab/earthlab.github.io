@@ -3,7 +3,7 @@ layout: single
 title: "Subtract One Raster from Another and Export a New Geotiff in Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output. You then want to save that output as a new file. Learn how to subtract rasters and create a new geotiff file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-08-29
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/subtract-rasters-in-python/
@@ -47,16 +47,16 @@ Your instructors recommend the Python Anaconda distribution.
 
 {:.input}
 ```python
+import os
+import numpy as np
 import rasterio as rio
 from rasterio.plot import plotting_extent
-import numpy as np
-import earthpy as et
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.colors import ListedColormap
 import matplotlib.colors as colors
-import os
 import seaborn as sns
+import earthpy as et
 import earthpy.spatial as es
 import earthpy.plot as ep
 
@@ -183,12 +183,10 @@ Finally, plot your newly created canopy height model.
 {:.input}
 ```python
 # plot the data
-fig, ax = plt.subplots(figsize = (10,6))
-chm_plot = ax.imshow(lidar_chm_im, 
-                     cmap='viridis')
-fig.colorbar(chm_plot, fraction=.023, ax=ax)
-ax.set_title("Lidar Canopy Height Model (CHM)")
-ax.set_axis_off();
+ep.plot_bands(lidar_chm_im, 
+              cmap='viridis',
+              title="Lidar Canopy Height Model (CHM)",
+              scale=False);
 ```
 
 {:.output}
@@ -206,11 +204,9 @@ ax.set_axis_off();
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10,8))
-ax.hist(lidar_dem_im[~lidar_dem_im.mask].ravel(), 
-        color = 'purple')
-ax.set_title("Histogram of CHM Values")
-plt.show()
+ep.hist(lidar_dem_im[~lidar_dem_im.mask].ravel(), 
+        colors = 'purple',
+        title="Histogram of CHM Values");
 ```
 
 {:.output}

@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-08-29
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/plot-raster-histograms/
@@ -58,10 +58,10 @@ Remember you can use the `raserio context manager` to import the raster object i
 
 {:.input}
 ```python
+import os
+import numpy as np
 import rasterio as rio
 import matplotlib.pyplot as plt
-import numpy as np
-import os
 import seaborn as sns
 
 import earthpy as et
@@ -126,11 +126,12 @@ print(lidar_dem_im.ravel().shape)
 
 
 If your array has nan values in it, it's best to remove the nan values before trying to plot a histogram.
-Below you
+To do this, you would:
 
 1. flatten the data so it can be coerced into a histogram using `.ravel()`
 2. remove nan values `lidar_dem_hist[~np.isnan(lidar_dem_hist)]`
 
+However, since you used `masked=True` while opening the raster, the nan values have already been removed by the masking operation. 
 
 
 Once you have cleaned up the data you can plot a histogram.
@@ -207,8 +208,8 @@ as follows:
 
 {:.input}
 ```python
-ep.hist(lidar_dem_im, 
-        bins=[1600, 1800, 2000, 2100], 
+ep.hist(lidar_dem_im,
+        bins=[1600, 1800, 2000, 2100],
         colors=['purple'],
         title="Distribution of Lidar DEM Elevation Values",
         xlabel='Elevation (meters)',

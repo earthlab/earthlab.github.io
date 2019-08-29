@@ -3,7 +3,7 @@ layout: single
 title: "Reproject Raster Data Python"
 excerpt: "This lesson teaches you how to reproject raster data using rasterio."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-08-29
 category: ['courses']
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/reproject-raster/
@@ -46,10 +46,10 @@ Sometimes you will work with multiple rasters and they might not always be in th
 
 {:.input}
 ```python
-import rasterio as rio
 import os
-import earthpy as et
 import numpy as np
+import rasterio as rio
+import earthpy as et
 from rasterio.warp import calculate_default_transform, reproject, Resampling
 
 # Get data and set wd

@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-08-29
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/
@@ -270,9 +270,9 @@ src
 
 Above you used the `show()` function to plot a rasterio object. Show "wraps" around the python `matplotlib` plotting library to produce a plot. 
 
-However, you will explore plotting a numpy array with `matplotlib` directly. Using `matplotlib` allows you to fully customize your plots.
+However, you will explore plotting a numpy array with `matplotlib` directly. Using `matplotlib` allows you to fully customize your plots. Alongside `matplotlib`, you will also be exploring using another "wrapper" function to aide in the plotting, `earthpy.plot`.
 
-To plot using matplotlib directly you:
+To plot using matplotlib and EarthPy directly you:
 
 1. open the raster
 2. `create a spatial_extent` object that contains the boundary information needed to plot your raster in space using `rio.plot.plotting_extent`
@@ -376,7 +376,7 @@ Also notice that you used the argument `masked=True` in your `.read()` statement
 
 ## Plot Numpy Array
 
-Finally, you can plot your data using `imshow()`. Notice that you provide `imshow()` with the 
+Finally, you can plot your data using `ep.plot_bands()`. Notice that you provide `ep.plot_bands()` with the 
 `spatial_extent` object that you created above to ensure that the x and y axis 
 represent the pixel locations of your raster data.  
 
@@ -385,7 +385,8 @@ represent the pixel locations of your raster data.
 ep.plot_bands(lidar_dem_im,
               cmap='Greys',
               extent=spatial_extent,
-              title="Digital Elevation Model - Pre 2013 Flood")
+              title="Digital Elevation Model - Pre 2013 Flood",
+              cbar=False)
 plt.show()
 ```
 
@@ -405,15 +406,21 @@ plt.show()
 Let's plot again but this time you will:
 
 1. add a colorbar legend
-2. turn off the axes given you don't need the coordinates in your plot
-3. increase the title font size using the `as.set_title` function and the `fontsize` argument 
+2. increase the title font size using the `as.set_title` function and the `fontsize` argument 
+
+EarthPy's `plot_bands()` function adds a colorbar to your plot automatically. In the last plot, you'll notice the arguement called `cbar` is set to `False`. This turns off the colorbar. The default value for the `cbar` arguement is `True`. This means if you don't modify that arguement, the colorbar will automatically appear! However, you may also notice a new arguement in this plot, `scale=False`. By default, `plot_bands()` will scale values in a raster from 0 to 255. Since this is elevation data, you can avoid this by setting `scale=False`. 
+
+Additionally, you will be using `matplotlib` and `earthpy.plot` together in this plot, in order to modify the title font size. `plot_bands()` can be added into any normal matplotlib plot by just giving it an axis object in the `ax=` arguement. 
 
 {:.input}
 ```python
+fig, ax = plt.subplots(figsize=(12, 10))
 ep.plot_bands(lidar_dem_im,
               cmap='Greys',
               extent=spatial_extent,
-              title="Lidar Digital Elevation Model \n Pre 2013 Boulder Flood | Lee Hill Road")
+              scale=False,
+              ax=ax)
+ax.set_title("Lidar Digital Elevation Model \n Pre 2013 Boulder Flood | Lee Hill Road", fontsize=24)
 plt.show()
 ```
 
@@ -426,8 +433,6 @@ plt.show()
 <figcaption>A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO with a colorbar.</figcaption>
 
 </figure>
-
-
 
 
 
@@ -506,7 +511,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python/2018-02-05-raster01-open-lidar-raster-data-python_42_0.png" alt = "A histogram of lidar derived elevation values for Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python/2018-02-05-raster01-open-lidar-raster-data-python_41_0.png" alt = "A histogram of lidar derived elevation values for Boulder, CO.">
 <figcaption>A histogram of lidar derived elevation values for Boulder, CO.</figcaption>
 
 </figure>
@@ -548,7 +553,8 @@ fig, ax = plt.subplots(figsize=(8, 3))
 ep.plot_bands(lidar_dem_im,
               extent=spatial_extent,
               title="Lidar Raster Full Spatial Extent w Zoom Box Overlayed",
-              ax=ax)
+              ax=ax,
+              scale=False)
 zoom_ext_gdf.plot(ax=ax)
 
 ax.set_axis_off()
@@ -559,7 +565,7 @@ ax.set_axis_off()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python/2018-02-05-raster01-open-lidar-raster-data-python_50_0.png" alt = "A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO with an extent box overlayed on top.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python/2018-02-05-raster01-open-lidar-raster-data-python_49_0.png" alt = "A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO with an extent box overlayed on top.">
 <figcaption>A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO with an extent box overlayed on top.</figcaption>
 
 </figure>
@@ -574,7 +580,8 @@ fig, ax = plt.subplots(figsize=(8, 3))
 ep.plot_bands(lidar_dem_im,
               extent=spatial_extent,
               title="Lidar Raster Zoomed on a Smaller Spatial Extent",
-              ax=ax)
+              ax=ax,
+              scale=False)
 # Set x and y limits of the plot
 ax.set_xlim(zoomed_extent[0], zoomed_extent[2])
 ax.set_ylim(zoomed_extent[1], zoomed_extent[3])
@@ -587,7 +594,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python/2018-02-05-raster01-open-lidar-raster-data-python_51_0.png" alt = "A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO clipped to a smaller spatial extent using the x and y lim plot parameters.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster01-open-lidar-raster-data-python/2018-02-05-raster01-open-lidar-raster-data-python_50_0.png" alt = "A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO clipped to a smaller spatial extent using the x and y lim plot parameters.">
 <figcaption>A plot of a Lidar derived digital elevation model for Lee Hill Road in Boulder, CO clipped to a smaller spatial extent using the x and y lim plot parameters.</figcaption>
 
 </figure>

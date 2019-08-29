@@ -3,7 +3,7 @@ layout: single
 title: "Customize Matplotlib Raster Maps in Python"
 excerpt: "Sometimes you want to customize the colorbar and range of values plotted in a raster map. Learn how to create breaks to plot rasters in Python."
 authors: ['Leah Wasser']
-modified: 2019-08-24
+modified: 2019-08-29
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/customize-matplotlib-raster-maps/
@@ -62,10 +62,10 @@ import earthpy.plot as ep
 # Prettier plotting with seaborn
 import seaborn as sns
 sns.set(font_scale=1.5, style="white")
-# Set working directory
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 # Import data
 data = et.data.get_data("colorado-flood")
+# Set working directory
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 You will work with the canopy height model raster that you created in this week's lessons. Below is the code to create that raster if you have not already created it. 

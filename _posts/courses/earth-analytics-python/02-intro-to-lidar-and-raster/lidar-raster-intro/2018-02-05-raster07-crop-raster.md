@@ -3,7 +3,7 @@ layout: single
 title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']
-modified: 2019-08-24
+modified: 2019-08-29
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/crop-raster-data-with-shapefile-in-python/
@@ -52,7 +52,7 @@ Cropping (sometimes also referred to as clipping), is when you subset or make a 
 by removing all data outside of the crop area or spatial extent. In this case you have a large 
 raster - but let's pretend that you only need to work with a smaller subset of the raster. 
 
-You can use the `crop_extent` function to remove all of the data outside of your study area.
+You can use the `crop_image` function to remove all of the data outside of your study area.
 This is useful as it:
 
 1. Makes the data smaller and 
@@ -70,8 +70,8 @@ To begin let's load the libraries that you will need in this lesson.
 
 {:.input}
 ```python
-import numpy as np
 import os
+import numpy as np
 import matplotlib.pyplot as plt
 import rasterio as rio
 from rasterio.plot import plotting_extent
@@ -79,7 +79,8 @@ from rasterio.mask import mask
 from shapely.geometry import mapping
 import geopandas as gpd
 import earthpy as et
-
+import earthpy.spatial as es
+import earthpy.plot as ep
 import seaborn as sns
 sns.set(font_scale=1.5)
 # Get data and set wd
@@ -90,7 +91,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 ## Open Raster and Vector Layers
 
-In the previous lessons, you worked with a raster layer that looked like the one below. Notice that the data have an uneven edge on the left hand side. Let's pretend this edge is outside of your study area and you'd like to remove it or clip it off using your study area extent. You can do this using the `mask()` function in `rasterio`. 
+In the previous lessons, you worked with a raster layer that looked like the one below. Notice that the data have an uneven edge on the left hand side. Let's pretend this edge is outside of your study area and you'd like to remove it or clip it off using your study area extent. You can do this using the `crop_image()` function in `earthpy.spatial`. 
 
 
 {:.output}
@@ -183,15 +184,17 @@ ax.set_title("Shapefile Crop Extent",
 
 
 
-Now that you have imported the shapefile. You can use the `crop_extent` function from `matplotlib` to crop the raster data using the vector shapefile.
+Now that you have imported the shapefile. You can use the `crop_image` function from `earthpy.spatial` to crop the raster data using the vector shapefile.
 
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(10, 8))
-ax.imshow(lidar_chm_im, cmap='terrain',
-          extent=plotting_extent(lidar_chm))
+ep.plot_bands(lidar_chm_im, cmap='terrain',
+              extent=plotting_extent(lidar_chm),
+              ax=ax,
+              title="Raster Layer with Shapefile Overlayed",
+              cbar=False)
 crop_extent.plot(ax=ax, alpha=.8)
-ax.set_title("Raster Layer with Shapefile Overlayed")
 ax.set_axis_off()
 ```
 
@@ -208,73 +211,40 @@ ax.set_axis_off()
 
 
 
-{:.input}
-```python
-crop_bounds = crop_extent.total_bounds
-```
 
 
+## Crop Data Using the `crop_image` Function
 
-## Crop Data Using the Mask Function
-
-If you want to crop the data you can use the `mask` function in `rasterio`. When you crop the data, you can then export it and share it with colleagues. Or use it in another analysis. IMPORTANT: You do not need to read the data in before cropping! Cropping the data can be your first step.
+If you want to crop the data you can use the `crop_image` function in `earthpy.spatial`. When you crop the data, you can then export it and share it with colleagues. Or use it in another analysis. IMPORTANT: You do not need to read the data in before cropping! Cropping the data can be your first step.
 
 To perform the crop you:
 
 1. Create a connection to the raster dataset that you wish to crop
-2. Create a geojson structured spatial object from your shapefile. This is what rasterio needs to crop the data to the extent of your vector shapefile.
-3. Crop the data using the `mask()` function and the `crop = True` argument. 
+2. Open your shapefile as a geopandas object. This is what EarthPy needs to crop the data to the extent of your vector shapefile.
+3. Crop the data using the `crop_image()` function. 
 
-Geojson is a format that is worth becoming familiar with. It's a text, structured format that is used in many online applications. We will discuss it in  more detail later in the class. For now, have a look at the output below. Notice that you have a polygon that has been converted to sets of coordinates that define each vertex of the polygon and the open and closing vertices. 
-
-{:.input}
-```python
-# create geojson object from the shapefile imported above
-extent_geojson = mapping(crop_extent['geometry'][0])
-extent_geojson
-```
-
-{:.output}
-{:.execute_result}
-
-
-
-    {'type': 'Polygon',
-     'coordinates': (((472510.46511627914, 4436000.0),
-       (476009.76417479065, 4436000.0),
-       (476010.46511627914, 4434000.0),
-       (472510.46511627914, 4434000.0),
-       (472510.46511627914, 4436000.0)),)}
-
-
-
-
-
-Once you have created this object, you are ready to crop your data. 
+Without EarthPy, you would have to perform this with a Geojson object. Geojson is a format that is worth becoming familiar with. It's a text, structured format that is used in many online applications. We will discuss it in  more detail later in the class. For now, have a look at the output below. 
 
 {:.input}
 ```python
 with rio.open("data/colorado-flood/spatial/boulder-leehill-rd/outputs/lidar_chm.tif") as lidar_chm:
-    lidar_chm_crop, lidar_chm_crop_affine = mask(lidar_chm,
-                                                 [extent_geojson],
-                                                 crop=True)
+    lidar_chm_crop, lidar_chm_crop_meta = es.crop_image(lidar_chm,crop_extent)
 
+lidar_chm_crop_affine = lidar_chm_crop_meta["transform"]
 # Create spatial plotting extent for the cropped layer
 lidar_chm_extent = plotting_extent(lidar_chm_crop[0], lidar_chm_crop_affine)
 ```
 
 Finally, plot the cropped data. Does it look correct?
 
-
 {:.input}
 ```python
 # Plot your data
-fig, ax = plt.subplots(figsize=(10, 8))
-ax.imshow(lidar_chm_crop[0],
-          extent=lidar_chm_extent,
-          cmap='Greys')
-ax.set_title("Cropped Raster Dataset")
-ax.set_axis_off()
+ep.plot_bands(lidar_chm_crop[0],
+              extent=lidar_chm_extent,
+              cmap='Greys',
+              title="Cropped Raster Dataset",
+              scale=False);
 ```
 
 {:.output}
@@ -282,7 +252,7 @@ ax.set_axis_off()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster/2018-02-05-raster07-crop-raster_25_0.png" alt = "Final cropped canopy height model plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster07-crop-raster/2018-02-05-raster07-crop-raster_21_0.png" alt = "Final cropped canopy height model plot.">
 <figcaption>Final cropped canopy height model plot.</figcaption>
 
 </figure>
@@ -297,7 +267,7 @@ Once you have cropped your data, you may want to export it.
 In the subtract rasters lesson you exported a raster that had the same shape and transformation information as the parent rasters. However in this case, you have cropped your data. You will have to update several things to ensure your data export properly:
 
 1. The width and height of the raster: You can get this information from the **shape** of the cropped numpy array and
-2. The transformation information of the affine object. The `mask()` function provides this as one of it's outputs!
+2. The transformation information of the affine object. The `crop_image()` function provides this inside the metadata object it returns!
 3. Finally you may want to update the `nodata` value.
 
 In this case you don't have any `nodata` values in your raster. However you may have them in a future raster!
