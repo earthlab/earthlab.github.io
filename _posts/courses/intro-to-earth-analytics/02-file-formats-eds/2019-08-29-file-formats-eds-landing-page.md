@@ -2,7 +2,7 @@
 layout: single
 category: courses
 title: "File Formats for Earth Data Science"
-permalink: /courses/intro-to-earth-data-science/file-formats-earth-data-science/
+permalink: /courses/intro-to-earth-data-science/file-formats/
 week-landing: 2
 modified: 2019-08-29
 week: 2

@@ -5,7 +5,7 @@ excerpt: "Markdown allows you to format text using simple, plain-text syntax and
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['text-file-formats']
-permalink: /courses/intro-to-earth-data-science/text-file-formats/text-file-formats-earth-data-science/format-text-with-markdown-jupyter-notebook/
+permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/format-text-with-markdown-jupyter-notebook/
 nav-title: "Format Text In Jupyter Notebook With Markdown"
 dateCreated: 2019-08-29
 modified: 2019-08-29

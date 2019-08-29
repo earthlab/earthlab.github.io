@@ -5,7 +5,7 @@ excerpt: "There are many text file formats that are useful for earth data scienc
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['text-file-formats']
-permalink: /courses/intro-to-earth-data-science/text-file-formats/text-file-formats-earth-data-science/common-text-file-formats/
+permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/common-text-file-formats/
 nav-title: "Text File Formats for Earth Data Science"
 dateCreated: 2019-08-29
 modified: 2019-08-29
