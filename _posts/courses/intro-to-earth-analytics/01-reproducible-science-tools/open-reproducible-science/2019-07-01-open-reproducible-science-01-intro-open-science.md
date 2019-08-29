@@ -8,7 +8,7 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/what-is-open-reproducible-science/
 nav-title: "What Is Open Reproducible Science"
 dateCreated: 2019-07-01
-modified: 2019-08-28
+modified: 2019-08-29
 module-title: 'Open Reproducible Science Workflows and Tools'
 module-nav-title: 'Open Reproducible Science Workflows and Tools'
 module-description: 'Open science involves making scientific methods, data and outcomes available to everyone. Learn why open reproducible science is important. Discover tools that support open science including Shell (Bash), git and GitHub, and Jupyter.'
@@ -101,7 +101,7 @@ Scientific programming allows you to automate tasks, which facilitates your work
 
 ### Use Expressive Names for Files and Directories to Organize Your Work 
 
-<a href="{{ site.url }}courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/best-practices-for-reproducible-science/">Expressive file and directory names</a> allow you to quickly find what you need and also support reproducibility by facilitating others' understanding of your files and workflows (e.g. names can tell others what the file or directory contains and its purpose). Be sure to organize related files into directories (i.e. folders) that can help you easily categorize and find what you need (e.g. raw-data, scripts, results).
+<a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/best-practices-for-reproducible-science/">Expressive file and directory names</a> allow you to quickly find what you need and also support reproducibility by facilitating others' understanding of your files and workflows (e.g. names can tell others what the file or directory contains and its purpose). Be sure to organize related files into directories (i.e. folders) that can help you easily categorize and find what you need (e.g. raw-data, scripts, results).
 
 ### Use FAIR Data to Enhance the Reproducibility of Projects
 

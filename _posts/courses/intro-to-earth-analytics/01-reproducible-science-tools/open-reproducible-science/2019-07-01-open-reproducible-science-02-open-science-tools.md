@@ -8,7 +8,7 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/open-reproducible-science-tools/
 nav-title: "Tools for Open Reproducible Science"
 dateCreated: 2019-07-01
-modified: 2019-08-28
+modified: 2019-08-29
 module-type: 'class'
 class-order: 1
 course: "intro-to-earth-analytics"
@@ -116,8 +116,8 @@ There are three core tools that you should be familiar with associated with Proj
 **JupyterLab:** JupyterLab is a browser-based interactive development environment for Jupyter notebooks, code, and data. JupyterLab is flexible: you can configure and arrange the user interface to support a wide range of workflows in data science, scientific computing, and machine learning. JupyterLab is extensible and modular: you can write plugins that add new components and integrate with existing ones.
 
 <figure class="half">
-    <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/python-jupyter-notebook.png"><img src="{{ site.url }}/images/earth-analytics/jupyter-interface/python-jupyter-notebook.png"></a>
-    <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/multiple-notebooks-jupyter-lab.png"><img src="{{ site.url }}/images/earth-analytics/jupyter-interface//multiple-notebooks-jupyter-lab.png"></a>
+    <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/python-jupyter-notebook.png"><img src="{{ site.url }}/images/earth-analytics/jupyter-interface/python-jupyter-notebook.png" alt="Jupyter Notebook (left) is a browser-based interface that allows you to write code in many programming languages, including Python, and add formatted text that describes what the code does using Markdown."></a>
+    <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/multiple-notebooks-jupyter-lab.png"><img src="{{ site.url }}/images/earth-analytics/jupyter-interface//multiple-notebooks-jupyter-lab.png" alt="Jupyter Lab (right) provides access to Jupyter Notebook but also allows you to work with multiple documents, including notebook files and other files, at a time."></a>
     <figcaption>Jupyter Notebook (left) is a browser-based interface that allows you to write code in many programming languages, including Python, and add formatted text that describes what the code does using Markdown. Jupyter Lab (right) provides access to Jupyter Notebook but also allows you to work with multiple documents, including notebook files and other files, at a time.</figcaption>
 </figure>
 
