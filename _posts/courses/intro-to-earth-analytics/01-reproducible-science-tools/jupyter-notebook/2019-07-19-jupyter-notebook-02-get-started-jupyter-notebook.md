@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/get-started-with-jupyter-notebook-for-python/
 nav-title: "Get Started With Jupyter Notebook For Python"
 dateCreated: 2019-07-15
-modified: 2019-08-28
+modified: 2019-08-29
 module-type: 'class'
 class-order: 3
 course: "intro-to-earth-analytics"
@@ -41,8 +41,9 @@ Throughout this chapter, you will learn how to use `Jupyter Notebook` to write a
 
 It is ideal (but not required) to launch `Jupyter Notebook` from the working directory where all of the notebook files that you wish to use live, so you can easily access the files you need.
 
-<i class="fa fa-info-circle" aria-hidden="true"></i> **IMPORTANT:** the `jupyter notebook` command requires that you have `Jupyter Notebook` installed on your laptop! Jupyter Notebook was installed when you created the `earth-analytics-python` environment as a part of the setup for this textbook.
+<i class="fa fa-info-circle" aria-hidden="true"></i> **IMPORTANT:** the `jupyter notebook` command requires that you have `Jupyter Notebook` installed on your computer! `Jupyter Notebook` was installed when you created the `earth-analytics-python` environment as a part of the setup for this textbook. Be sure to activate the environment in the terminal using the command `conda activate earth-analytics-python` before launching `Jupyter Notebook`.
 {: .notice--success}
+
 
 ### Use Bash to Change to Your Working Directory
 
@@ -70,6 +71,9 @@ $ jupyter notebook
  <figcaption> You can use Shell (Terminal) to open Jupyter Notebook with the command, Jupyter Notebook.
  </figcaption>
 </figure>
+
+<i class="fa fa-info-circle" aria-hidden="true"></i> **NOTE:** If you get an error `jupyter: command not found`, this means that you have not activated the conda environment that you installed for this textbook. Be sure to activate the environment in the terminal using the command `conda activate earth-analytics-python` before running the `jupyter notebook` command.
+{: .notice--success}
 
 When you type this command into the terminal, it will launch a local web server on your computer. This server runs the `Jupyter Notebook` interface. 
 
