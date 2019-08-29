@@ -8,7 +8,7 @@ class-lesson: ['bash']
 permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/bash/use-bash-to-manipulate-files/
 nav-title: "Introduction to Bash"
 dateCreated: 2019-07-15
-modified: 2019-08-28
+modified: 2019-08-29
 module-title: 'Bash'
 module-nav-title: 'Learn how to use Bash (Shell) or the Command Line to Manipulate Files'
 module-description: "Bash or Shell is a command line tool that is used in open science to efficiently manipulate files and directories. Learn how to use Bash to access and move files and directories."
@@ -145,7 +145,7 @@ You can open the program called `Terminal` (or `Terminal Emulator`) by finding a
 
 There are many options for running `Bash` on Windows. For this textbook, you will use `Git Bash` which comes with your installation of `git`. Instructions for setting this up are here: 
 
-* <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-anaconda/" target = "_blank">Setting up Git, Bash, and Anaconda on your computer</a> 
+* <a href="{{ site.url }}/workshops/setup-earth-analytics-python/" target = "_blank">Setting up Git, Bash, and Conda on your computer</a> 
 
 Once you have installed `git` on a Windows machine, you can open this Terminal by searching for `Git Bash` in the start menu. Use `Git Bash` for all hands-on activities in this textbook that ask you to use the `Terminal`. 
 

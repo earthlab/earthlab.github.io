@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/what-is-jupyter-for-python/
 nav-title: "Introduction to Jupyter For Python"
 dateCreated: 2019-07-15
-modified: 2019-08-28
+modified: 2019-08-29
 module-title: 'Jupyter For Python'
 module-nav-title: 'Learn how to use Jupyter Notebook to interactively write and run Python code'
 module-description: 'This chapter teaches you how to use Jupyter Notebook, an interactive environment where you can write and run code such as Python and add text that describes your workflow using Markdown.'
@@ -54,7 +54,7 @@ Be sure that you have completed the instructions on <a href="{{ site.url }}/work
 
 ## Jupyter Notebook for Open Reproducible Science
 
-If you recall from <a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/open-science-tools/">Chapter One on Open Reproducible Science</a>, Jupyter is an open source platform that contains a suite of tools including:
+If you recall from <a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/open-reproducible-science-tools/">Chapter One on Open Reproducible Science</a>, Jupyter is an open source platform that contains a suite of tools including:
 
 * Jupyter Notebook: A browser-based application that allows you to create and share documents (i.e. Jupyter Notebook files) that contain live code, equations, visualizations and narrative text.
 * Jupyter Lab: A browser-based application that allows you to access multiple Jupyter Notebook files as well as other code and data files
@@ -133,7 +133,7 @@ This functionality supports open reproducible science by facilitating documentat
 
 `Jupyter Notebook` can help save your time:
 
-* **Shortcuts**: `Jupyter Notebook` has <a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/code-markdown-cells-in-jupyter-notebook/">different shortcuts</a> for running cells, adding new cells and formatting the notebook to help save you time.
+* **Shortcuts**: `Jupyter Notebook` has <a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/jupyter-notebook-shortcuts/">different shortcuts</a> for running cells, adding new cells and formatting the notebook to help save you time.
 * **Autocomplete** : Autocomplete is available to quickly find function names, arguments for those functions, and variables that are stored in your environment. This makes typing your code easier and less error-prone. Hitting the `tab` button while typing will prompt `Jupyter Notebook` to help you complete the name of a variable or function that you want to call. 
 * **Markdown Integration**: You can combine text and code in the same document. This allows you to document and explain the code you have written and make your workflow more reproducible. 
 

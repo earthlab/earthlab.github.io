@@ -101,7 +101,7 @@ Scientific programming allows you to automate tasks, which facilitates your work
 
 ### Use Expressive Names for Files and Directories to Organize Your Work 
 
-<a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/best-practices-for-reproducible-science/">Expressive file and directory names</a> allow you to quickly find what you need and also support reproducibility by facilitating others' understanding of your files and workflows (e.g. names can tell others what the file or directory contains and its purpose). Be sure to organize related files into directories (i.e. folders) that can help you easily categorize and find what you need (e.g. raw-data, scripts, results).
+<a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/best-practices-for-open-reproducible-science-projects/">Expressive file and directory names</a> allow you to quickly find what you need and also support reproducibility by facilitating others' understanding of your files and workflows (e.g. names can tell others what the file or directory contains and its purpose). Be sure to organize related files into directories (i.e. folders) that can help you easily categorize and find what you need (e.g. raw-data, scripts, results).
 
 ### Use FAIR Data to Enhance the Reproducibility of Projects
 
@@ -113,7 +113,7 @@ Don't modify (or overwrite) the raw data. Keep data outputs separate from inputs
 
 ### Use Version Control and Share Your Code (If You Can)
 
-Version control allows you to manage and track changes to your files (and even undo them!). If you can openly share your code, implement version control and then publish your code and workflows on the cloud. There are many free tools to do this including <a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/git-github/what-is-version-control/">Git and GitHub</a>. 
+Version control allows you to manage and track changes to your files (and even undo them!). If you can openly share your code, implement version control and then publish your code and workflows on the cloud. There are many free tools to do this including <a href="{{ site.url }}/workshops/intro-version-control-git/">Git and GitHub</a>. 
 
 ### Document Your Workflows
 
