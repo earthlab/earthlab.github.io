@@ -101,7 +101,7 @@ Scientific programming allows you to automate tasks, which facilitates your work
 
 ### Use Expressive Names for Files and Directories to Organize Your Work 
 
-<a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/best-practices-for-open-reproducible-science-projects/">Expressive file and directory names</a> allow you to quickly find what you need and also support reproducibility by facilitating others' understanding of your files and workflows (e.g. names can tell others what the file or directory contains and its purpose). Be sure to organize related files into directories (i.e. folders) that can help you easily categorize and find what you need (e.g. raw-data, scripts, results).
+<a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/">Expressive file and directory names</a> allow you to quickly find what you need and also support reproducibility by facilitating others' understanding of your files and workflows (e.g. names can tell others what the file or directory contains and its purpose). Be sure to organize related files into directories (i.e. folders) that can help you easily categorize and find what you need (e.g. raw-data, scripts, results).
 
 ### Use FAIR Data to Enhance the Reproducibility of Projects
 
