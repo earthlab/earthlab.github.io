@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/format-text-with-markdown-jupyter-notebook/
-nav-title: "Format Text In Jupyter Notebook With Markdown"
+nav-title: "Markdown in Jupyter Notebook"
 dateCreated: 2019-08-29
 modified: 2019-08-29
 module-type: 'class'

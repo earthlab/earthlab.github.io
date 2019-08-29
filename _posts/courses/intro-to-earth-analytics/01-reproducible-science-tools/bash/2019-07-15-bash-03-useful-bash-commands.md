@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['bash']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/bash/bash-commands-to-manage-directories-files/
-nav-title: "Bash Commands to Manage Directories and Files"
+nav-title: "Bash Commands"
 dateCreated: 2019-07-15
 modified: 2019-08-29
 module-type: 'class'

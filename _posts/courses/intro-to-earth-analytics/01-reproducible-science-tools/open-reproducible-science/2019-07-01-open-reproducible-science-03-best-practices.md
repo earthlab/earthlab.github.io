@@ -1,12 +1,12 @@
 ---
 layout: single
-title: 'Best Practices for Open Reproducible Science Projects'
+title: 'How To Organize Your Project: Best Practices for Open Reproducible Science'
 excerpt: "Open reproducible science refers to developing workflows that others can easily understand and use. Learn about best practices for organizing open reproducible science projects including the use of machine readable names."
 authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/
-nav-title: "Best Practices for Open Reproducible Science Projects"
+nav-title: "Project Management Best Practices"
 dateCreated: 2019-07-01
 modified: 2019-08-29
 module-type: 'class'

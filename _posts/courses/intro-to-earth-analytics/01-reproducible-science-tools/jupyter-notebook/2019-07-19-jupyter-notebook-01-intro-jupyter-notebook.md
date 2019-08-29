@@ -6,11 +6,11 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/what-is-jupyter-for-python/
-nav-title: "Introduction to Jupyter For Python"
+nav-title: "Intro to Jupyter"
 dateCreated: 2019-07-15
 modified: 2019-08-29
 module-title: 'Jupyter For Python'
-module-nav-title: 'Learn how to use Jupyter Notebook to interactively write and run Python code'
+module-nav-title: 'Jupyter For Python'
 module-description: 'This chapter teaches you how to use Jupyter Notebook, an interactive environment where you can write and run code such as Python and add text that describes your workflow using Markdown.'
 module-type: 'class'
 class-order: 3
