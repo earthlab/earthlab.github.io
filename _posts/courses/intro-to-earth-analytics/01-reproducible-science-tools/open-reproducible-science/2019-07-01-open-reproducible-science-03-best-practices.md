@@ -5,13 +5,13 @@ excerpt: "Open reproducible science refers to developing workflows that others c
 authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['open-reproducible-science']
-permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/best-practices-for-open-reproducible-science-projects/
+permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/
 nav-title: "Best Practices for Open Reproducible Science Projects"
 dateCreated: 2019-07-01
-modified: 2019-08-28
+modified: 2019-08-29
 module-type: 'class'
 class-order: 1
-course: "intro-to-earth-analytics"
+course: "intro-to-earth-data-science"
 week: 1
 sidebar:
   nav:
@@ -34,7 +34,9 @@ topics:
 </div>
 
 
-## Organize Your Science Project Directory To Make It Easier to Understand
+## Project Organization and Management for Open Reproducible Science Projects
+
+### Organize Your Science Project Directory To Make It Easier to Understand
 
 When you are working on a data project, there are often many files that you need to store on your computer. These files may include:
 
@@ -47,7 +49,7 @@ When you are working on a data project, there are often many files that you need
 It will save you time and make your project more useable and reproducible if you carefully consider how these files are stored on your computer. Below are some best practices to consider when pulling together a project.
 
 
-## Importance of Directory and File Names
+### Importance of Directory and File Names
 
 As you create new directories and files on your computer, consider using a carefully crafted naming convention that makes it easier for anyone to find things and also to understand what each files does or contains. 
 

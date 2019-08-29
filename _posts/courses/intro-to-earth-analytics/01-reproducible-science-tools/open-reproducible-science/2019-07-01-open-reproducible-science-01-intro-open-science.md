@@ -5,7 +5,7 @@ excerpt: "Open reproducible science refers to developing workflows that others c
 authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['open-reproducible-science']
-permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/what-is-open-reproducible-science/
+permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/what-is-open-reproducible-science/
 nav-title: "What Is Open Reproducible Science"
 dateCreated: 2019-07-01
 modified: 2019-08-29
@@ -14,7 +14,7 @@ module-nav-title: 'Open Reproducible Science Workflows and Tools'
 module-description: 'Open science involves making scientific methods, data and outcomes available to everyone. Learn why open reproducible science is important. Discover tools that support open science including Shell (Bash), git and GitHub, and Jupyter.'
 module-type: 'class'
 class-order: 1
-course: "intro-to-earth-analytics"
+course: "intro-to-earth-data-science"
 week: 1
 sidebar:
   nav:

@@ -5,13 +5,13 @@ excerpt: "The Jupyter ecosystem contains many useful tools for working with Pyth
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['jupyter-notebook']
-permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/jupyter-notebook-shortcuts/
+permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/jupyter-notebook-shortcuts/
 nav-title: "Useful Jupyter Notebook Shortcuts"
 dateCreated: 2019-07-15
-modified: 2019-08-28
+modified: 2019-08-29
 module-type: 'class'
 class-order: 3
-course: "intro-to-earth-analytics"
+course: "intro-to-earth-data-science"
 week: 1
 sidebar:
   nav:

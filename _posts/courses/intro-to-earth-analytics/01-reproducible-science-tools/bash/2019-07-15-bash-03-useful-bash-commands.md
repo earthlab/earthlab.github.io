@@ -5,13 +5,13 @@ excerpt: "Bash or Shell is a command line tool that is used in open science to e
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['bash']
-permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/bash/bash-commands-access-manage-directories-files/
+permalink: /courses/intro-to-earth-data-science/open-reproducible-science/bash/bash-commands-to-manage-directories-files/
 nav-title: "Bash Commands to Manage Directories and Files"
 dateCreated: 2019-07-15
-modified: 2019-08-28
+modified: 2019-08-29
 module-type: 'class'
 class-order: 2
-course: "intro-to-earth-analytics"
+course: "intro-to-earth-data-science"
 week: 1
 sidebar:
   nav:
@@ -55,7 +55,7 @@ When typing commands (either from this textbook or from other sources), do not t
 
 Note: In the examples on this page, the indented lines that follow a prompt and do not start with a dollar sign ($) are the output of the command. The results of the commands below on your computer will be slightly different, depending on your operating system and how you have customized your file system.
 
-## Useful Bash Commands to Access and Manage Directories and Files
+## Useful Bash Commands to Manage Directories and Files
 
 ### Print Current Working Directory (`pwd`)
 

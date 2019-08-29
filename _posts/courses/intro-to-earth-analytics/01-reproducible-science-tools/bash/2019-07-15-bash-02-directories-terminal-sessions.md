@@ -5,13 +5,13 @@ excerpt: "A directory refers to a folder on a computer that has relationships to
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['bash']
-permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/bash/directories/
+permalink: /courses/intro-to-earth-data-science/open-reproducible-science/bash/directories/
 nav-title: "Computer Directories"
 dateCreated: 2019-07-15
-modified: 2019-08-28
+modified: 2019-08-29
 module-type: 'class'
 class-order: 2
-course: "intro-to-earth-analytics"
+course: "intro-to-earth-data-science"
 week: 1
 sidebar:
   nav:

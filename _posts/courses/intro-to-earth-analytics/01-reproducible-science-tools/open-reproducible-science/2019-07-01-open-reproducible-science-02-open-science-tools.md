@@ -5,13 +5,13 @@ excerpt: "Key tools for open reproducible science include Shell (Bash), git and 
 authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['open-reproducible-science']
-permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/open-reproducible-science/open-reproducible-science-tools/
+permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/open-science-tools-git-bash-jupyter/
 nav-title: "Tools for Open Reproducible Science"
 dateCreated: 2019-07-01
 modified: 2019-08-29
 module-type: 'class'
 class-order: 1
-course: "intro-to-earth-analytics"
+course: "intro-to-earth-data-science"
 week: 1
 sidebar:
   nav:
@@ -33,7 +33,7 @@ topics:
 </div>
  
 
-## Tools in the Open Reproducible Science Toolbox
+## Useful Tools in the Open Reproducible Science Toolbox
 
 To implement open science workflows, you need tools that help you document, automate, and share your work. For example you may need to document how you collected your data (protocols), how the data were processed and what analysis approaches you used to summarize the data.
 
