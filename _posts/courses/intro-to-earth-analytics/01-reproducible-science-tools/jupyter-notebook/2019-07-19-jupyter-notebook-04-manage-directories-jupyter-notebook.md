@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/manage-directories-jupyter-notebook-dashboard/
 nav-title: "Manage Directories in Jupyter Notebook Dashboard"
 dateCreated: 2019-07-15
-modified: 2019-08-28
+modified: 2019-08-29
 module-type: 'class'
 class-order: 3
 course: "intro-to-earth-analytics"
@@ -23,8 +23,6 @@ topics:
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
-
-On this page, you will learn how to create, rename, move, and delete directories using the the `Jupyter Notebook` dashboard. 
 
 <div class='notice--success' markdown="1">
 
