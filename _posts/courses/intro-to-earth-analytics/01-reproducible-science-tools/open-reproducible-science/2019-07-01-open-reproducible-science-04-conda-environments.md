@@ -45,8 +45,8 @@ While having a plethora of open source functionality available to the community 
 In `Python`, regardless of what project you are working on, your computer will store third party libraries in the same location. This means that if you depend on GDAL 2.4.2 in an older project and GDAL 3.0.1 in your brand new project, you will need a way to store these dependencies separately. If they aren't stored separately, `Python` will not be able to tell the difference between the two that are both installed in the same location. 
 
 <figure>
-   <a href="{{ site.url }}/images/earth-analytics/`Python`/`Python`-environment-dependency-issues.jpg">
-   <img src="{{ site.url }}/images/earth-analytics/`Python`/`Python`-environment-dependency-issues.jpg" alt="Dependency conflicts can cause significant issues when working with `Python`. Conda allows you to install multiple environments on your computer and to address dependency issues."></a>
+   <a href="{{ site.url }}/images/earth-analytics/python/python-environment-dependency-issues.jpg">
+   <img src="{{ site.url }}/images/earth-analytics/python/python-environment-dependency-issues.jpg" alt="Dependency conflicts can cause significant issues when working with `Python`. Conda allows you to install multiple environments on your computer and to address dependency issues."></a>
    <figcaption>Dependency conflicts can cause significant issues when working with `Python`. Conda allows you to install multiple environments on your computer and to address dependency issues.
    </figcaption>
 </figure>
@@ -126,7 +126,7 @@ In order to create a conda environment, we first need to install an Anaconda dis
 
 Anaconda ships with a plethora of libraries and software pre-installed; however, it is large (~3Gb) and can potentially lead to dependency conflicts as you install new packages. Miniconda, on the other hand, is a streamlined version only containing critical packages and software such as the conda package manager and a basic `Python` environment; it is predominately designed for those who know what packages they need and don't want or need the extra installations. 
 
-In this <a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/" target="_blank">lesson on installing conda</a>, we discuss the advantages of Miniconda vs Anaconda and show you how to install Miniconda.  
+In this <a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/">lesson on installing conda</a>, we discuss the advantages of Miniconda vs Anaconda and show you how to install Miniconda.  
 
 Once you have conda installed on your machine, we can create our first conda env!
 

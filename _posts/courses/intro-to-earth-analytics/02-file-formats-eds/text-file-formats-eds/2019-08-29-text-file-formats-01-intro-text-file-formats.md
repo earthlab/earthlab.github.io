@@ -43,6 +43,6 @@ After completing this chapter, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have completed the previous chapter on <a href="{{ site.url }}/courses/intro-to-earth-analytics/open-science-bash-jupyter-markdown-git/jupyter-python/what-is-jupyter-for-python/">Jupyter Notebook</a>.
+Be sure that you have completed the previous chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/what-is-jupyter-for-python/">Jupyter Notebook</a>.
 
 </div>

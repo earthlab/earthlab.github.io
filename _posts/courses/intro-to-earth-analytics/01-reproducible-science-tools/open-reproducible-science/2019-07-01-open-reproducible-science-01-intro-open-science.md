@@ -126,7 +126,7 @@ Documentation can also include <a href="{{ site.url }}/courses/earth-analytics-p
 You can design <a href="{{ site.url }}/courses/earth-analytics-python/create-efficient-data-workflows/design-efficient-workflows/">workflows that can be easily recreated and reproduced by others</a> by:
 * listing all packages and dependencies required to run a workflow at the top of the code file (e.g. Jupyter Notebook or R Markdown files).
 * organizing your code into sections, or code blocks, of related code and include comments to explain the code. 
-* creating reusuable environments for Python workflows using tools like <a href="https://www.docker.com/resources/what-container">docker containers</a>, <a href="https://docs.conda.io/en/latest/">conda environments</a>, and <a href="https://mybinder.org/">interactive notebooks with binder</a>. 
+* creating reusuable environments for Python workflows using tools like <a href="https://www.docker.com/resources/what-container"  target="_blank">docker containers</a>, <a href="https://docs.conda.io/en/latest/"  target="_blank">conda environments</a>, and <a href="https://mybinder.org/" target="_blank">interactive notebooks with binder</a>. 
 
 <div class="notice--info" markdown="1">
 

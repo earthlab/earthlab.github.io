@@ -145,7 +145,7 @@ You can open the program called `Terminal` (or `Terminal Emulator`) by finding a
 
 There are many options for running `Bash` on Windows. For this textbook, you will use `Git Bash` which comes with your installation of `git`. Instructions for setting this up are here: 
 
-* <a href="{{ site.url }}/workshops/setup-earth-analytics-python/" target = "_blank">Setting up Git, Bash, and Conda on your computer</a> 
+* <a href="{{ site.url }}/workshops/setup-earth-analytics-python/">Setting up Git, Bash, and Conda on your computer</a> 
 
 Once you have installed `git` on a Windows machine, you can open this Terminal by searching for `Git Bash` in the start menu. Use `Git Bash` for all hands-on activities in this textbook that ask you to use the `Terminal`. 
 
