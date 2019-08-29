@@ -213,13 +213,3 @@ Jennifer's story can be a common experience for anyone who has moved to a new jo
 How could using organized and expressively named directories have helped Jennifer with this project? How could avoiding proprietary file formats contribute to the longevity of this project? 
 
 </div>
-
-<div class="notice--info" markdown="1">
-
-## Additional Resources
-
-1. <a href="https://phys.org/news/2016-08-science-movement.html" target="_blank">The value of open science</a>
-2. <a href="https://genomebiology.biomedcentral.com/articles/10.1186/s13059-015-0850-7" target="_blank">Five selfish reasons to work reproducibly - Florian Markowetz</a>
-3. <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002303" target="_blank"> Computing Workflows for Biologists: A Roadmap</a>
-
-</div>
