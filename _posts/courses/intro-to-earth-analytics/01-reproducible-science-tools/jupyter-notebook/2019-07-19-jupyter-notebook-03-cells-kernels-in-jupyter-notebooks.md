@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/code-markdown-cells-in-jupyter-notebook/
-nav-title: "Code and Markdown Cells in Jupyter Notebook"
+nav-title: "Code and Markdown Cells"
 dateCreated: 2019-07-15
 modified: 2019-08-29
 module-type: 'class'

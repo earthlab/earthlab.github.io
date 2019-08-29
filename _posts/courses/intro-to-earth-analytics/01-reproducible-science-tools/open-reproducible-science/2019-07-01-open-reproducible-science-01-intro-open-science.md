@@ -6,11 +6,11 @@ authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/what-is-open-reproducible-science/
-nav-title: "What Is Open Reproducible Science"
+nav-title: "About Open Science"
 dateCreated: 2019-07-01
 modified: 2019-08-29
 module-title: 'Open Reproducible Science Workflows and Tools'
-module-nav-title: 'Open Reproducible Science Workflows and Tools'
+module-nav-title: 'Open Reproducible Science Workflows'
 module-description: 'Open science involves making scientific methods, data and outcomes available to everyone. Learn why open reproducible science is important. Discover tools that support open science including Shell (Bash), git and GitHub, and Jupyter.'
 module-type: 'class'
 class-order: 1

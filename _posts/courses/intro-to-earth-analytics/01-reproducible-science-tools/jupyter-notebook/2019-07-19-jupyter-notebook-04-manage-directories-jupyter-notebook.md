@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/manage-directories-jupyter-dashboard/
-nav-title: "Manage Directories in Jupyter Notebook Dashboard"
+nav-title: "Manage Directories Using Dashboard"
 dateCreated: 2019-07-15
 modified: 2019-08-29
 module-type: 'class'

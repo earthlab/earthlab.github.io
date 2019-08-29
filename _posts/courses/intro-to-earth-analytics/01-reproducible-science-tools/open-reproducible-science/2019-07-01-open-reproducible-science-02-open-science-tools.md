@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser', 'Max Joseph']
 category: [courses]
 class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/open-science-tools-git-bash-jupyter/
-nav-title: "Tools for Open Reproducible Science"
+nav-title: "Open Science Tools"
 dateCreated: 2019-07-01
 modified: 2019-08-29
 module-type: 'class'
