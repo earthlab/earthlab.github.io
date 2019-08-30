@@ -5,10 +5,10 @@ excerpt: "The Jupyter ecosystem contains many useful tools for working with Pyth
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['jupyter-notebook']
-permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/what-is-jupyter-for-python/
+permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/
 nav-title: "Intro to Jupyter"
 dateCreated: 2019-07-15
-modified: 2019-08-29
+modified: 2019-08-30
 module-title: 'Jupyter For Python'
 module-nav-title: 'Jupyter For Python'
 module-description: 'This chapter teaches you how to use Jupyter Notebook, an interactive environment where you can write and run code such as Python and add text that describes your workflow using Markdown.'
