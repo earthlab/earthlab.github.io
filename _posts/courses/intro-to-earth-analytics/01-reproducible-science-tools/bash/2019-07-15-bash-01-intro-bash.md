@@ -5,10 +5,10 @@ excerpt: "Bash or Shell is a command line tool that is used in open science to e
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['bash']
-permalink: /courses/intro-to-earth-data-science/open-reproducible-science/bash/what-is-bash/
+permalink: /courses/intro-to-earth-data-science/open-reproducible-science/bash/
 nav-title: "Introduction to Bash"
 dateCreated: 2019-07-15
-modified: 2019-08-29
+modified: 2019-08-30
 module-title: 'Bash'
 module-nav-title: 'Use Bash to Manipulate Files'
 module-description: "Bash or Shell is a command line tool that is used in open science to efficiently manipulate files and directories. Learn how to use Bash to access and move files and directories."
