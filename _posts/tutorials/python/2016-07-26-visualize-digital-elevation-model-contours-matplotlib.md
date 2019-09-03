@@ -31,18 +31,18 @@ Digital elevation models (DEMs) are data in the format of a 2D array where each 
 ```python
 from osgeo import gdal
 import numpy as np
-import matplotlib 
+import matplotlib
 import matplotlib.pyplot as plt
-import elevation 
+import elevation
 ```
 
 ## Fetch and read DEM data
 
-The first objective we'll have to accomplish is acquiring and reading in our data. The data will be downloaded from the NASA SRTM mission via the `elevation` module's command line interface. 
+The first objective we'll have to accomplish is acquiring and reading in our data. The data will be downloaded from the NASA SRTM mission via the `elevation` module's command line interface.
 
 {:.input}
 ```python
-!eio clip -o Shasta-30m-DEM.tif --bounds -122.6 41.15 -121.9 41.6 
+!eio clip -o Shasta-30m-DEM.tif --bounds -122.6 41.15 -121.9 41.6
 ```
 
 {:.output}
@@ -89,7 +89,7 @@ Now that we've read our data in, we're ready to visualize the elevation using co
 #Plot out data with Matplotlib's 'contour'
 fig = plt.figure(figsize = (12, 8))
 ax = fig.add_subplot(111)
-plt.contour(data_array, cmap = "viridis", 
+plt.contour(data_array, cmap = "viridis",
             levels = list(range(0, 5000, 100)))
 plt.title("Elevation Contours of Mt. Shasta")
 cbar = plt.colorbar()
@@ -117,7 +117,7 @@ We just used the 'contour' module to plot our data. Let's do it again but with '
 #Plot our data with Matplotlib's 'contourf'
 fig = plt.figure(figsize = (12, 8))
 ax = fig.add_subplot(111)
-plt.contourf(data_array, cmap = "viridis", 
+plt.contourf(data_array, cmap = "viridis",
             levels = list(range(0, 5000, 500)))
 plt.title("Elevation Contours of Mt. Shasta")
 cbar = plt.colorbar()
@@ -134,7 +134,3 @@ plt.show()
 <figcaption>A filled contour plot of Mt. Shasta.</figcaption>
 
 </figure>
-
-
-
-

@@ -55,7 +55,7 @@ Our first objective is to read in the data that we want to use. We'll be working
 
 {:.input}
 ```python
-!eio clip -o Shasta-30m-DEM.tif --bounds -122.6 41.15 -121.9 41.6 
+!eio clip -o Shasta-30m-DEM.tif --bounds -122.6 41.15 -121.9 41.6
 ```
 
 {:.output}
@@ -175,7 +175,7 @@ coords
 
 
 
-Next, we need to find the row and column index for our point, which is currently defined as a latitude/longitidue tuple. 
+Next, we need to find the row and column index for our point, which is currently defined as a latitude/longitidue tuple.
 
 {:.input}
 ```python
@@ -191,7 +191,7 @@ def get_coords_at_point(rasterfile, pos):
 
 radius = 60 # in units of pixels
 
-row, col = get_coords_at_point(filename, pos = coords[1]) 
+row, col = get_coords_at_point(filename, pos = coords[1])
 circle = (row, col, radius)
 ```
 
@@ -201,17 +201,17 @@ circle = (row, col, radius)
 def points_in_circle(circle, arr):
     buffer_points = []
     i0, j0, r = circle
-    
+
     def int_ceiling(x):
         return int(np.ceil(x))
-    
+
     for i in range(int_ceiling(i0 - r), int_ceiling(i0 + r)):
         ri = np.sqrt(r**2 - (i - i0)**2)
-        
+
         for j in range(int_ceiling(j0 - ri), int_ceiling(j0 + ri)):
             buffer_points.append(arr[i][j])
             arr[i][j] = np.nan
-    
+
     return buffer_points
 
 buffer_points = points_in_circle(circle, data_array)
@@ -257,6 +257,3 @@ print("Variance: %.2f" % variance)
     Mean: 3746.62
     Standard Deviation: 231.50
     Variance: 53592.80
-
-
-
