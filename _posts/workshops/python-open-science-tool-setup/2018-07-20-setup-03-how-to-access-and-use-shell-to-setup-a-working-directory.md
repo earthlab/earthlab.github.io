@@ -4,7 +4,7 @@ category: courses
 title: 'How to Access and Use Shell to Set Up a Working Directory'
 excerpt: 'This tutorial walks you through how access the shell through terminal, use basic commands in the terminal for file organization, and set up a working directory for the course.'
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-09-03
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/introduction-to-bash-shell/ 
 nav-title: 'Intro to Bash'

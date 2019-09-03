@@ -4,7 +4,7 @@ category: courses
 title: 'Setup Git, Bash, and Conda on Your Computer'
 excerpt: "Learn how to install Git, GitBash (a version of command line Bash) and the Miniconda Python distribution on your computer."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-09-03
 nav-title: 'Setup Git Bash & Conda'
 sidebar:
   nav:
