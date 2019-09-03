@@ -3,7 +3,7 @@ layout: single
 title: "Remote Sensing to Study Wildfire"
 excerpt: "Learn about how scientists use remote sensing methods to study the impacts of wildfire through calculations of vegetation indices before and after wildfire."
 authors: ['Leah Wasser']
-modified: 2019-01-02
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['wildfire-overview']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/wildfire-remote-sensing/
@@ -122,4 +122,5 @@ Each one of these data sets have different <a href="{{ site.url }}/courses/earth
 | MODIS |250m, 500m, 1000m (depending on the band) | Daily, 8 day, 16 day, Monthly, Quarterly, Yearly (Depending on the product) | 36 bands |
 | Landsat 8 | 30m | 16 days | 11 bands |
 Sentinel-2 | 10m, 20m, 60m (depending on the band) | 5 days |12 bands |
+
 

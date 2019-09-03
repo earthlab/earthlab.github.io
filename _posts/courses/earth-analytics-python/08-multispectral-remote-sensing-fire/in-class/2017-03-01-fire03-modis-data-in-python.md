@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data in Python"
 excerpt: "MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2018-10-23
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/
@@ -108,8 +108,8 @@ Before you get started, import the following packages and make sure that your wo
 
 {:.input}
 ```python
+from glob import glob
 import os
-
 import numpy as np
 import numpy.ma as ma
 import matplotlib.pyplot as plt
@@ -117,10 +117,9 @@ import geopandas as gpd
 import rasterio as rio
 import earthpy as et
 import earthpy.spatial as es
-from glob import glob
+import earthpy.plot as ep
 
-plt.ion()
-
+data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -158,34 +157,29 @@ modis_bands_pre_list
 
 
 
-Next, use the function `es.stack_raster_tifs` to create the raster stack from the list of bands you created using glob. Then, you can import the MODIS bands and create a RGB plot. 
+Next, use the function `es.stack` to create the raster stack from the list of bands you created using glob. Then, you can import the MODIS bands and create a RGB plot. 
 
 {:.input}
 ```python
 # Create raster stack
 modis_bands_pre_out = "data/cold-springs-fire/outputs/modis_bands_pre.tif"
-es.stack_raster_tifs(modis_bands_pre_list,
-                     modis_bands_pre_out)
+es.stack(modis_bands_pre_list,
+         modis_bands_pre_out)
 
 # Open raster stack
 with rio.open(modis_bands_pre_out) as src_modis_bands:
     modis_bands_pre = src_modis_bands.read(masked=True)
     modis_bands_bounds = src_modis_bands.bounds
     modis_bands_meta = src_modis_bands.profile
+    modis_bands_crs = src_modis_bands.crs
 ```
 
 {:.input}
 ```python
 # Plot MODIS RGB
-fig, ax = plt.subplots(figsize=(8, 8))
-
-es.plot_rgb(modis_bands_pre,
-            ax=ax,
-            rgb=[0, 3, 2])
-ax.set_title('Surface Reflectance \n MODIS RGB Bands',
-             fontsize=18)
-ax.set_xlabel("Surface Reflectance")
-
+ep.plot_rgb(modis_bands_pre,
+            rgb=[0, 3, 2],
+            title="Surface Reflectance \n MODIS RGB Bands")
 plt.show()
 ```
 
@@ -194,7 +188,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_9_0.png" alt = "Surface reflectance from MODIS using the RGB bands for the pre-Cold Springs fire time period.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python/2017-03-01-fire03-modis-data-in-python_9_0.png" alt = "Surface reflectance from MODIS using the RGB bands for the pre-Cold Springs fire time period.">
 <figcaption>Surface reflectance from MODIS using the RGB bands for the pre-Cold Springs fire time period.</figcaption>
 
 </figure>
@@ -230,14 +224,16 @@ However, you also need to crop the data for your homework, so you can do both th
 # Open fire boundary
 fire_boundary_path = "data/cold-springs-fire/vector_layers/fire-boundary-geomac/co_cold_springs_20160711_2200_dd83.shp"
 fire_boundary = gpd.read_file(fire_boundary_path)
-
-# Open and crop modis data, reproject fire boundary
-with rio.open(modis_bands_pre_out) as src_modis_pre:
-    fire_bound_sin = fire_boundary.to_crs(src_modis_pre.crs)
-    modis_pre_crop, modis_pre_meta = es.crop_image(
-        src_modis_pre, fire_bound_sin)
-    modis_bands_pre_data = ma.masked_where(
-        modis_pre_crop == -28672, modis_pre_crop)
+fire_bound_sin = fire_boundary.to_crs(modis_bands_crs)
+output_path = os.path.join("data", "cold-springs-fire",
+                           "outputs", "modis_pre_lsn3")
+if not os.path.exists(output_path):
+    os.mkdir(output_path)
+modis_pre_cropped_images = es.crop_all(
+    modis_bands_pre_list, output_path, fire_bound_sin, overwrite=True)
+modis_pre_crop, modis_pre_meta = es.stack(modis_pre_cropped_images)
+modis_bands_pre_data = ma.masked_where(
+    modis_pre_crop == -28672, modis_pre_crop)
 ```
 
 To explore the cropped data, recall that you can also use the `plot_bands` function in `earthpy` to create plots of each band.
@@ -249,10 +245,11 @@ titles = ["Red Band", "Near Infrared (NIR) Band", "Blue/Green Band", "Green Band
           "Near Infrared (NIR) Band", "Mid-infrared Band", "Mid-infrared Band"]
 
 # Plot all bands individually
-es.plot_bands(modis_bands_pre_data,
+ep.plot_bands(modis_bands_pre_data,
               cols=3,
               title=titles,
               figsize=(10, 6))
+plt.show()
 ```
 
 {:.output}
@@ -260,7 +257,7 @@ es.plot_bands(modis_bands_pre_data,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_15_0.png" alt = "Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python/2017-03-01-fire03-modis-data-in-python_15_0.png" alt = "Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
 <figcaption>Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
@@ -271,14 +268,9 @@ es.plot_bands(modis_bands_pre_data,
 {:.input}
 ```python
 # Plot MODIS RGB
-fig, ax = plt.subplots(figsize=(8, 8))
-
-es.plot_rgb(modis_bands_pre_data,
-            ax=ax,
-            rgb=[0, 3, 2])
-ax.set_title('Surface Reflectance \n MODIS RGB Bands',
-             fontsize=18)
-ax.set_xlabel("Cropped MODIS Surface Reflectance Data")
+ep.plot_rgb(modis_bands_pre_data,
+            rgb=[0, 3, 2],
+            title='Cropped Surface Reflectance \n MODIS RGB Bands')
 
 plt.show()
 ```
@@ -288,7 +280,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_16_0.png" alt = "Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python/2017-03-01-fire03-modis-data-in-python_16_0.png" alt = "Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.">
 <figcaption>Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
@@ -309,10 +301,11 @@ titles = ["Red Band", "Near Infrared (NIR) Band", "Blue/Green Band",
           "Mid-infrared Band", "Mid-infrared Band"]
 
 # Plot histogram
-es.hist(modis_bands_pre_data,
+ep.hist(modis_bands_pre_data,
         colors=colors,
         title=titles,
         cols=2)
+plt.show()
 ```
 
 {:.output}
@@ -320,7 +313,7 @@ es.hist(modis_bands_pre_data,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_18_0.png" alt = "Histograms of the cropped surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python/2017-03-01-fire03-modis-data-in-python_18_0.png" alt = "Histograms of the cropped surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
 <figcaption>Histograms of the cropped surface reflectance from MODIS for all bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
@@ -375,10 +368,11 @@ titles = ["Red Band", "Near Infrared (NIR) Band", "Blue/Green Band", "Green Band
           "Near Infrared (NIR) Band", "Mid-infrared Band", "Mid-infrared Band"]
 
 # Plot histogram
-es.hist(modis_bands_pre_scaled,
+ep.hist(modis_bands_pre_scaled,
         colors=colors,
         title=titles,
         cols=2)
+plt.show()
 ```
 
 {:.output}
@@ -386,7 +380,7 @@ es.hist(modis_bands_pre_scaled,
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python_25_0.png" alt = "Histograms for the cropped and scaled surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/in-class/2017-03-01-fire03-modis-data-in-python/2017-03-01-fire03-modis-data-in-python_25_0.png" alt = "Histograms for the cropped and scaled surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
 <figcaption>Histograms for the cropped and scaled surface reflectance from MODIS for all bands for pre-Cold Springs fire.</figcaption>
 
 </figure>

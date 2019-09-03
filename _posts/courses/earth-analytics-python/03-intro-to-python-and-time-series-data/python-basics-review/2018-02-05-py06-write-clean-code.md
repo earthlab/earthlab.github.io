@@ -3,7 +3,7 @@ layout: single
 title: "Write Clean Python Code - Expressive programming 101"
 excerpt: 'This lesson covers the basics of clean coding meaning that we ensure that the code that we write is easy for someone else to understand. We will briefly cover style guides, consistent spacing, literate object naming best practices.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
@@ -135,6 +135,13 @@ Object Naming Issues
 
 {:.input}
 ```python
+# Import libraries
+import pandas as pd
+
+```
+
+{:.input}
+```python
 variable = 3 * 6
 meanvariable = variable
 
@@ -142,105 +149,24 @@ meanvariable = variable
 # calculate something important
 mean_variable = meanvariable * 5
 
-thefinalthingthatineedtocalculate = mean_variable + 5
-```
-
-{:.input}
-```python
-# get things that are important
-import pandas as pd
-%matplotlib inline
+finalthingthatineedtocalculate = mean_variable + 5
 ```
 
 {:.input}
 ```python
 import earthpy as et
-paths = et.data.get_data('week_02')
-my_data = pd.read_csv(paths[0])
-my_data.head()
+paths = et.data.get_data('colorado-flood')
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Unnamed: 0</th>
-      <th>DATE</th>
-      <th>PRECIP</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>756</td>
-      <td>2013-08-21</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>757</td>
-      <td>2013-08-26</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>758</td>
-      <td>2013-08-27</td>
-      <td>0.1</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>759</td>
-      <td>2013-09-01</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>760</td>
-      <td>2013-09-09</td>
-      <td>0.1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
 
 {:.input}
 ```python
-my_data.plot('DATE', 'PRECIP', figsize = (20, 20), color = 'purple');
+import earthpy as et
+paths = et.data.get_data('colorado-flood')
+
 ```
 
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py06-write-clean-code_5_0.png" alt = "You can create a simple plot of a pandas dataframe using the plot function and providing the columns containing the x and y axes. This example plots display daily precipitation data in the fall of 2013 in Boulder, CO.">
-<figcaption>You can create a simple plot of a pandas dataframe using the plot function and providing the columns containing the x and y axes. This example plots display daily precipitation data in the fall of 2013 in Boulder, CO.</figcaption>
-
-</figure>
-
-
-
+```python
+my_data = pd.read_csv(paths[0])
+my_data.head()
+my_data.plot('DATE', 'PRECIP', figsize = (20, 20), color = 'purple');
+```

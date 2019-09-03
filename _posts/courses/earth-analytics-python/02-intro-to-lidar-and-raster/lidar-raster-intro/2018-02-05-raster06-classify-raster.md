@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-10-18
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/classify-plot-raster-data-in-python/
@@ -69,27 +69,29 @@ Please note - working with data is not a linear process. Above you see a potenti
 
 To get started, first load the required libraries and then open up your raster. In this case, you are using the lidar canopy height model (CHM) that you calculated in the previous lesson.
 
+
 {:.input}
 ```python
+import os
+import numpy as np
+import pandas as pd
 import rasterio as rio
 from rasterio.plot import plotting_extent
 from matplotlib.patches import Patch
 from matplotlib.colors import ListedColormap, BoundaryNorm
-import numpy as np
-import os
 import matplotlib.pyplot as plt
-import pandas as pd
 import earthpy as et
-plt.ion()
-# Set plot parameters
-plt.rcParams['figure.figsize'] = (8, 8)
-# Prettier plotting with seaborn
-import seaborn as sns; 
-sns.set(font_scale=1.5)
-sns.set_style("whitegrid")
+import earthpy.plot as ep
 
+# Prettier plotting with seaborn
+import seaborn as sns
+sns.set(font_scale=1.5, style="whitegrid")
+
+# Get data and set wd
+et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
 
 To begin, open the `lidar_chm.tif` file that you created in the previous lesson. A copy of it is also in your outputs directory of this week's data.
 
@@ -100,7 +102,7 @@ dsm_path = 'data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_D
 with rio.open(dtm_path) as src:
     lidar_dtm_im = src.read(1, masked=True)
     spatial_extent = plotting_extent(src)
-    
+
 with rio.open(dsm_path) as src:
     lidar_dsm_im = src.read(1, masked=True)
     spatial_extent = plotting_extent(src)
@@ -114,23 +116,24 @@ lidar_chm_im
 
 
 
-    masked_array(data =
-     [[-- -- -- ..., 0.0 0.1700439453125 0.9600830078125]
-     [-- -- -- ..., 0.0 0.090087890625 1.6400146484375]
-     [-- -- -- ..., 0.0 0.0 0.0799560546875]
-     ..., 
-     [-- -- -- ..., 0.0 0.0 0.0]
-     [-- -- -- ..., 0.0 0.0 0.0]
-     [-- -- -- ..., 0.0 0.0 0.0]],
-                 mask =
-     [[ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     ..., 
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]],
-           fill_value = -3.40282e+38)
+    masked_array(
+      data=[[--, --, --, ..., 0.0, 0.1700439453125, 0.9600830078125],
+            [--, --, --, ..., 0.0, 0.090087890625, 1.6400146484375],
+            [--, --, --, ..., 0.0, 0.0, 0.0799560546875],
+            ...,
+            [--, --, --, ..., 0.0, 0.0, 0.0],
+            [--, --, --, ..., 0.0, 0.0, 0.0],
+            [--, --, --, ..., 0.0, 0.0, 0.0]],
+      mask=[[ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            ...,
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False]],
+      fill_value=-3.402823e+38,
+      dtype=float32)
+
 
 
 
@@ -153,13 +156,13 @@ Start by looking at the min and max values in your CHM.
 {:.input}
 ```python
 # View min and max values in the data
-print('CHM min value:' ,lidar_chm_im.min())
-print('CHM max value:' ,lidar_chm_im.max())
+print('CHM min value:', lidar_chm_im.min())
+print('CHM max value:', lidar_chm_im.max())
 ```
 
 {:.output}
     CHM min value: 0.0
-    CHM max value: 26.9301
+    CHM max value: 26.930054
 
 
 
@@ -170,26 +173,35 @@ the distribution of values found in your data.
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(8,8))
-
-ax.hist(lidar_chm_im.ravel(), 
-        color='purple', 
-        edgecolor='white')
-ax.set_title("Distribution of Raster Cell Values in the CHM Data",
-             fontsize = 16)
-ax.set(xlabel="Height (m)", 
-       ylabel="Number of Pixels");
+ep.hist(lidar_chm_im.ravel(),
+        title="Distribution of Raster Cell Values in the CHM Data",
+        xlabel="Height (m)",
+        ylabel="Number of Pixels")
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (<Figure size 864x864 with 1 Axes>,
+     <matplotlib.axes._subplots.AxesSubplot at 0x7f03c912a160>)
+
+
+
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_9_0.png" alt = "Histogram of Canopy Height Model values.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_12_1.png" alt = "Histogram of Canopy Height Model values.">
 <figcaption>Histogram of Canopy Height Model values.</figcaption>
 
 </figure>
+
+
 
 
 
@@ -201,22 +213,20 @@ Further explore your histogram, by constraining the x axis limits using the
 
 You might also chose to adjust the number of bins in your plot. Below you plot a bin for each increment on the x axis calculated using:
 
-`range(*xlim)`
+`hist_range(*xlim)`
 
 You could also set `bins = 100` or some other arbitrary number if you wish.
 
 {:.input}
 ```python
 # Histogram
-fig, ax = plt.subplots(figsize = (10,10))
 xlim = [0, 25]
-ax.hist(lidar_chm_im.ravel(), 
-        color='purple', edgecolor='white', range=xlim,
-        bins=range(*xlim))
-ax.set(ylabel="Number of Pixels", xlabel="Height (m)",
-       xlim=[2, 25], ylim=[0, 250000]);
-ax.set_title("Distribution of raster cell values in the DTM difference data\nZoomed in to {} on the x axis".format(xlim),
-             fontsize=16);
+f, ax = ep.hist(lidar_chm_im.ravel(),
+                hist_range=xlim,
+                bins=range(*xlim),
+                ylabel="Number of Pixels", xlabel="Height (m)",
+                title="Distribution of raster cell values in the DTM difference data\nZoomed in to {} on the x axis".format(xlim))
+ax.set(xlim=xlim, ylim=[0, 250000]);
 ```
 
 {:.output}
@@ -224,7 +234,7 @@ ax.set_title("Distribution of raster cell values in the DTM difference data\nZoo
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_11_0.png" alt = "Histogram of CHM data zoomed in to 0-25 on the x axis.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_16_0.png" alt = "Histogram of CHM data zoomed in to 0-25 on the x axis.">
 <figcaption>Histogram of CHM data zoomed in to 0-25 on the x axis.</figcaption>
 
 </figure>
@@ -241,36 +251,30 @@ collect the outputs that are returned when you call `hist`. This consists of thr
 
 Note: if you don't want to worry about a particular variable that is returned by a function, simply replace it with a `_` as shown in the comment below:
 
+
 {:.input}
 ```python
 # Patches = the matplotlib objects drawn
-counts, bins, patches = ax.hist(lidar_chm_im.ravel(), 
-                                color='springgreen', 
-                                bins=50, range=xlim)
+counts, bins = np.histogram(lidar_chm_im,
+                            bins=50, range=xlim)
+
+
 # Print histogram outputs
 print("counts:", counts)
 print("bins:", bins)
 ```
 
 {:.output}
-    counts: [  5.29278500e+06   1.55317000e+05   1.28037000e+05   1.16551000e+05
-       1.09743000e+05   1.10395000e+05   1.07528000e+05   9.85790000e+04
-       8.92340000e+04   8.39470000e+04   7.91230000e+04   7.39340000e+04
-       7.16690000e+04   7.05210000e+04   6.70430000e+04   6.16390000e+04
-       5.63890000e+04   5.19320000e+04   4.61930000e+04   4.06740000e+04
-       3.64420000e+04   3.18770000e+04   2.84280000e+04   2.45530000e+04
-       2.16200000e+04   1.86130000e+04   1.60950000e+04   1.37760000e+04
-       1.14240000e+04   9.40200000e+03   7.50400000e+03   6.19500000e+03
-       4.88300000e+03   3.90100000e+03   2.95400000e+03   2.30600000e+03
-       1.77600000e+03   1.34200000e+03   1.02700000e+03   7.06000000e+02
-       5.25000000e+02   3.58000000e+02   2.71000000e+02   1.60000000e+02
-       1.13000000e+02   9.90000000e+01   4.70000000e+01   4.40000000e+01
-       2.10000000e+01   1.60000000e+01]
-    bins: [  0.    0.5   1.    1.5   2.    2.5   3.    3.5   4.    4.5   5.    5.5
-       6.    6.5   7.    7.5   8.    8.5   9.    9.5  10.   10.5  11.   11.5
-      12.   12.5  13.   13.5  14.   14.5  15.   15.5  16.   16.5  17.   17.5
-      18.   18.5  19.   19.5  20.   20.5  21.   21.5  22.   22.5  23.   23.5
-      24.   24.5  25. ]
+    counts: [5292785  155317  128037  116551  109743  110395  107528   98579   89234
+       83947   79123   73934   71669   70521   67043   61639   56389   51932
+       46193   40674   36442   31877   28428   24553   21620   18613   16095
+       13776   11424    9402    7504    6195    4883    3901    2954    2306
+        1776    1342    1027     706     525     358     271     160     113
+          99      47      44      21      16]
+    bins: [ 0.   0.5  1.   1.5  2.   2.5  3.   3.5  4.   4.5  5.   5.5  6.   6.5
+      7.   7.5  8.   8.5  9.   9.5 10.  10.5 11.  11.5 12.  12.5 13.  13.5
+     14.  14.5 15.  15.5 16.  16.5 17.  17.5 18.  18.5 19.  19.5 20.  20.5
+     21.  21.5 22.  22.5 23.  23.5 24.  24.5 25. ]
 
 
 
@@ -289,20 +293,30 @@ Next, customize your histogram with breaks that you think might make sense as br
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(12,12))
-ax.hist(lidar_chm_im.ravel(), color='purple', 
-        edgecolor='white', 
-        bins=[0, 5, 10, 15, 20, 30])
-ax.set(title="Histogram with Custom Breaks",
-       xlabel="Height (m)", ylabel="Number of Pixels");
+ep.hist(lidar_chm_im.ravel(),
+        bins=[0, 5, 10, 15, 20, 30],
+        title="Histogram with Custom Breaks",
+        xlabel="Height (m)", ylabel="Number of Pixels")
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (<Figure size 864x864 with 1 Axes>,
+     <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1cfa1d0>)
+
+
+
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_15_0.png" alt = "Histogram with custom breaks applied.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_21_1.png" alt = "Histogram with custom breaks applied.">
 <figcaption>Histogram with custom breaks applied.</figcaption>
 
 </figure>
@@ -324,22 +338,32 @@ Below following breaks are used:
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10,10))
-ax.hist(lidar_chm_im.ravel(), 
-        color='purple', 
-        edgecolor='white', 
-        bins=[0, 2, 7, 12, 30])
-ax.set(title="Histogram with Custom Breaks",
-       xlabel="Height (m)", 
-       ylabel="Number of Pixels");
+ep.hist(lidar_chm_im.ravel(),
+        colors='purple',
+        bins=[0, 2, 7, 12, 30],
+        title="Histogram with Custom Breaks",
+        xlabel="Height (m)",
+        ylabel="Number of Pixels")
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (<Figure size 864x864 with 1 Axes>,
+     <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1ce3c88>)
+
+
+
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_17_0.png" alt = "Histogram with custom breaks applied.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_23_1.png" alt = "Histogram with custom breaks applied.">
 <figcaption>Histogram with custom breaks applied.</figcaption>
 
 </figure>
@@ -409,7 +433,7 @@ lidar_chm_im.fill_value
 
 
 
-    -3.4028231e+38
+    -3.402823e+38
 
 
 
@@ -457,9 +481,9 @@ You can reassign the first class in your data to a mask using `np.ma.masked_wher
 ```python
 # Reassign all values that are classified as 0 to masked (no data value)
 # This will prevent pixels that == 0 from being rendered on a map in matplotlib
-lidar_chm_class_ma = np.ma.masked_where(lidar_chm_im_class == 0 , 
-                              lidar_chm_im_class, 
-                              copy=True)
+lidar_chm_class_ma = np.ma.masked_where(lidar_chm_im_class == 0,
+                                        lidar_chm_im_class,
+                                        copy=True)
 lidar_chm_class_ma
 ```
 
@@ -468,23 +492,22 @@ lidar_chm_class_ma
 
 
 
-    masked_array(data =
-     [[-- -- -- ..., 1 1 1]
-     [-- -- -- ..., 1 1 1]
-     [-- -- -- ..., 1 1 1]
-     ..., 
-     [-- -- -- ..., 1 1 1]
-     [-- -- -- ..., 1 1 1]
-     [-- -- -- ..., 1 1 1]],
-                 mask =
-     [[ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     ..., 
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]
-     [ True  True  True ..., False False False]],
-           fill_value = 999999)
+    masked_array(
+      data=[[--, --, --, ..., 1, 1, 1],
+            [--, --, --, ..., 1, 1, 1],
+            [--, --, --, ..., 1, 1, 1],
+            ...,
+            [--, --, --, ..., 1, 1, 1],
+            [--, --, --, ..., 1, 1, 1],
+            [--, --, --, ..., 1, 1, 1]],
+      mask=[[ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            ...,
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False],
+            [ True,  True,  True, ..., False, False, False]],
+      fill_value=999999)
 
 
 
@@ -497,9 +520,8 @@ Below you plot the data.
 # A cleaner seaborn style for raster plots
 sns.set_style("white")
 # Plot newly classified and masked raster
-fig, ax = plt.subplots(figsize = (10,6))
-ax.imshow(lidar_chm_class_ma)
-plt.show()
+ep.plot_bands(lidar_chm_class_ma,
+              scale=False)
 ```
 
 {:.output}
@@ -507,10 +529,25 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_27_0.png" alt = "CHM plot with NA values applied to the data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_33_0.png" alt = "CHM plot with NA values applied to the data.">
 <figcaption>CHM plot with NA values applied to the data.</figcaption>
 
 </figure>
+
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1bdfac8>
+
+
+
+
+
 
 
 
@@ -527,9 +564,9 @@ np.unique(lidar_chm_class_ma)
 
 
 
-    masked_array(data = [1 2 3 4 --],
-                 mask = [False False False False  True],
-           fill_value = 999999)
+    masked_array(data=[1, 2, 3, 4, --],
+                 mask=[False, False, False, False,  True],
+           fill_value=999999)
 
 
 
@@ -543,10 +580,10 @@ colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']
 cmap = ListedColormap(colors)
 norm = BoundaryNorm(class_bins, len(colors))
 
-fig, ax = plt.subplots(figsize=(10, 10))
-ax.imshow(lidar_chm_class_ma, 
-          cmap=cmap)
-ax.set_title("Classified Canopy Height Model");
+ep.plot_bands(lidar_chm_class_ma,
+              cmap=cmap,
+              title="Classified Canopy Height Model",
+              scale=False)
 ```
 
 {:.output}
@@ -554,10 +591,21 @@ ax.set_title("Classified Canopy Height Model");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_30_0.png" alt = "Canopy height model plot with a better colormap applied.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_39_0.png" alt = "Canopy height model plot with a better colormap applied.">
 <figcaption>Canopy height model plot with a better colormap applied.</figcaption>
 
 </figure>
+
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1aeaa58>
+
 
 
 
@@ -589,9 +637,9 @@ np.unique(lidar_chm_class_ma)
 
 
 
-    masked_array(data = [1 2 3 4 --],
-                 mask = [False False False False  True],
-           fill_value = 999999)
+    masked_array(data=[1, 2, 3, 4, --],
+                 mask=[False, False, False, False,  True],
+           fill_value=999999)
 
 
 
@@ -600,22 +648,25 @@ np.unique(lidar_chm_class_ma)
 {:.input}
 ```python
 # Create a list of labels to use for your legend
-height_class_labels = ["Short trees", "Less short trees", "Medium trees","Tall trees"]
+height_class_labels = ["Short trees",
+                       "Less short trees", "Medium trees", "Tall trees"]
 # A path is an object drawn by matplotlib. In this case a patch is a box draw on your legend
-# Below you create a unique path or box with a unique color - one for each of the labels above 
+# Below you create a unique path or box with a unique color - one for each of the labels above
 legend_patches = [Patch(color=icolor, label=label)
                   for icolor, label in zip(colors, height_class_labels)]
 
 cmap = ListedColormap(colors)
 
 fig, ax = plt.subplots(figsize=(10, 10))
-ax.imshow(lidar_chm_class_ma, 
-          cmap=cmap)
+ep.plot_bands(lidar_chm_class_ma,
+              cmap=cmap,
+              ax=ax,
+              cbar=False)
 ax.legend(handles=legend_patches,
-         facecolor ="white",
-         edgecolor = "white",
-         bbox_to_anchor = (1.35,1)) # Place legend to the RIGHT of the map
-ax.set_axis_off();
+          facecolor="white",
+          edgecolor="white",
+          bbox_to_anchor=(1.35, 1))  # Place legend to the RIGHT of the map
+ax.set_axis_off()
 ```
 
 {:.output}
@@ -623,7 +674,7 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster_33_0.png" alt = "Canopy height model with a better colormap and a legend.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_42_0.png" alt = "Canopy height model with a better colormap and a legend.">
 <figcaption>Canopy height model with a better colormap and a legend.</figcaption>
 
 </figure>

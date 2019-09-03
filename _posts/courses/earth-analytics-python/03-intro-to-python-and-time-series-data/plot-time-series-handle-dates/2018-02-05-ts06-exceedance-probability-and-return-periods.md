@@ -3,7 +3,7 @@ layout: single
 title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Probability and Return Periods in Python"
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -80,25 +80,31 @@ You will use the `hydrofunctions` python package to access streamflow data via a
 
 To begin, load all of your libraries.
 
+
+
 {:.input}
 ```python
-import hydrofunctions as hf
-import urllib
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+# Import packages
 import os
 import math
-plt.ion()
-# set standard plot parameters for uniform plotting
-plt.rcParams['figure.figsize'] = (11, 6)
-# prettier plotting with seaborn
-import seaborn as sns; 
-sns.set(font_scale=1.5)
-sns.set_style("whitegrid")
-# set working dir and import earthpy
+import seaborn as sns
+import pandas as pd
+import matplotlib.pyplot as plt
+import hydrofunctions as hf
+import urllib
+import requests
 import earthpy as et
+
+# Date time conversion registration
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+
+# Get the data & set working director
+data = et.data.get_data('colorado-flood')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
+# Prettier plotting with seaborn
+sns.set(font_scale=1.5, style="whitegrid")
 ```
 
 ## Find A Station of Interest
@@ -173,12 +179,12 @@ For this project, we followed the lead of scientists assessing the significance 
 
 {:.input}
 ```python
-# define the site number and start and end dates that you are interested in
+# Define the site number and start and end dates that you are interested in
 site = "06730500"
 start = '1946-05-10'
 end = '2018-08-29'
 
-# then request data for that site and time period 
+# Request data for that site and time period
 longmont_resp = hf.get_nwis(site, 'dv', start, end)
 ```
 
@@ -189,8 +195,11 @@ You can also visit the <a href="https://waterdata.usgs.gov/nwis/inventory/?site_
 
 {:.input}
 ```python
-hf.get_nwis_property(longmont_resp)
-# get metadata about the data
+# Request data for the site and time period
+longmont_resp = hf.get_nwis(site, 'dv', start, end)
+# Convert the response to a json in order to use the extract_nwis_df function
+longmont_resp = longmont_resp.json()
+# Get metadata about the data
 hf.get_nwis(site, 'dv').json()
 ```
 
@@ -210,11 +219,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2018-09-13T01:35:02.595Z', 'title': 'requestDT'},
-        {'value': '3c134a20-b6f5-11e8-8a21-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2019-09-03T16:26:26.209Z', 'title': 'requestDT'},
+        {'value': '93706200-ce67-11e9-99cd-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'caas01', 'title': 'server'}]},
+        {'value': 'sdas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -250,9 +259,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '28.3',
+        'values': [{'value': [{'value': '3.78',
             'qualifiers': ['P'],
-            'dateTime': '2018-09-11T00:00:00.000'}],
+            'dateTime': '2019-09-02T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -277,7 +286,7 @@ Now, request the data. The data will be returned as a `pandas` dataframe.
 
 {:.input}
 ```python
-# get the data in a pandas dataframe format
+# Get the data in a pandas dataframe format
 longmont_discharge = hf.extract_nwis_df(longmont_resp)
 longmont_discharge.head()
 ```
@@ -316,27 +325,27 @@ longmont_discharge.head()
   </thead>
   <tbody>
     <tr>
-      <th>1946-05-10</th>
+      <td>1946-05-10</td>
       <td>16.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <th>1946-05-11</th>
+      <td>1946-05-11</td>
       <td>19.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <th>1946-05-12</th>
+      <td>1946-05-12</td>
       <td>9.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <th>1946-05-13</th>
+      <td>1946-05-13</td>
       <td>3.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <th>1946-05-14</th>
+      <td>1946-05-14</td>
       <td>7.8</td>
       <td>A</td>
     </tr>
@@ -353,9 +362,9 @@ NOTE: if you are working with many different sites, you'd likely want to keep th
 
 {:.input}
 ```python
-# rename columns
+# Rename columns
 longmont_discharge.columns = ["discharge", "flag"]
-# view first 5 rows
+# View first 5 rows
 longmont_discharge.head()
 ```
 
@@ -393,27 +402,27 @@ longmont_discharge.head()
   </thead>
   <tbody>
     <tr>
-      <th>1946-05-10</th>
+      <td>1946-05-10</td>
       <td>16.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <th>1946-05-11</th>
+      <td>1946-05-11</td>
       <td>19.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <th>1946-05-12</th>
+      <td>1946-05-12</td>
       <td>9.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <th>1946-05-13</th>
+      <td>1946-05-13</td>
       <td>3.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <th>1946-05-14</th>
+      <td>1946-05-14</td>
       <td>7.8</td>
       <td>A</td>
     </tr>
@@ -427,7 +436,7 @@ longmont_discharge.head()
 
 {:.input}
 ```python
-# view last 5 rows of the data
+# View last 5 rows of the data
 # Note that the 'P' flag indicates that the data is provisional
 longmont_discharge.tail()
 ```
@@ -466,33 +475,34 @@ longmont_discharge.tail()
   </thead>
   <tbody>
     <tr>
-      <th>2018-08-25</th>
-      <td>12.20</td>
-      <td>P</td>
+      <td>2018-08-25</td>
+      <td>9.86</td>
+      <td>A</td>
     </tr>
     <tr>
-      <th>2018-08-26</th>
-      <td>8.99</td>
-      <td>P</td>
+      <td>2018-08-26</td>
+      <td>7.02</td>
+      <td>A</td>
     </tr>
     <tr>
-      <th>2018-08-27</th>
-      <td>5.52</td>
-      <td>P</td>
+      <td>2018-08-27</td>
+      <td>4.05</td>
+      <td>A</td>
     </tr>
     <tr>
-      <th>2018-08-28</th>
-      <td>3.90</td>
-      <td>P</td>
+      <td>2018-08-28</td>
+      <td>2.67</td>
+      <td>A</td>
     </tr>
     <tr>
-      <th>2018-08-29</th>
-      <td>4.83</td>
-      <td>P</td>
+      <td>2018-08-29</td>
+      <td>3.36</td>
+      <td>A</td>
     </tr>
   </tbody>
 </table>
 </div>
+
 
 
 
@@ -510,18 +520,16 @@ where `{}` is a placeholder for the variable that you want to insert into the ti
 
 {:.input}
 ```python
-# plot using matplotlib
-fig, ax = plt.subplots(figsize = (11,6))
-ax.scatter(x=longmont_discharge.index, 
-        y=longmont_discharge["discharge"], 
-        marker="o",
-        s=4, 
-        color ="purple")
-ax.set_xlabel("Date")
-ax.set_ylabel("Discharge Value (CFS)")
-ax.set_title("Stream Discharge - Station {} \n {} to {}".format(site, start, end))
+# Plot using matplotlib
+fig, ax = plt.subplots(figsize=(11, 6))
+ax.scatter(x=longmont_discharge.index,
+           y=longmont_discharge["discharge"],
+           marker="o",
+           s=4,
+           color="purple")
+ax.set(xlabel="Date", ylabel="Discharge Value (CFS)",
+       title="Stream Discharge - Station {} \n {} to {}".format(site, start, end))
 plt.show()
-
 ```
 
 {:.output}
@@ -529,10 +537,13 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_16_0.png" alt = "Stream Discharge for the longmont USGS stream gage from 1946-2017">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_18_0.png" alt = "Stream Discharge for the longmont USGS stream gage from 1946-2017">
 <figcaption>Stream Discharge for the longmont USGS stream gage from 1946-2017</figcaption>
 
 </figure>
+
+
+
 
 
 
@@ -560,7 +571,7 @@ Note that below you will add a 'year' column to the longmont discharge data. Whi
 {:.input}
 ```python
 # add a year column to your longmont discharge data
-longmont_discharge["year"]=longmont_discharge.index.year
+longmont_discharge["year"] = longmont_discharge.index.year
 
 # Calculate annual max by resampling
 longmont_discharge_annual_max = longmont_discharge.resample('AS').max()
@@ -603,31 +614,31 @@ longmont_discharge_annual_max.head()
   </thead>
   <tbody>
     <tr>
-      <th>1946-01-01</th>
+      <td>1946-01-01</td>
       <td>99.0</td>
       <td>A</td>
       <td>1946.0</td>
     </tr>
     <tr>
-      <th>1947-01-01</th>
+      <td>1947-01-01</td>
       <td>1930.0</td>
       <td>A</td>
       <td>1947.0</td>
     </tr>
     <tr>
-      <th>1948-01-01</th>
+      <td>1948-01-01</td>
       <td>339.0</td>
       <td>A</td>
       <td>1948.0</td>
     </tr>
     <tr>
-      <th>1949-01-01</th>
+      <td>1949-01-01</td>
       <td>2010.0</td>
       <td>A</td>
       <td>1949.0</td>
     </tr>
     <tr>
-      <th>1950-01-01</th>
+      <td>1950-01-01</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -644,6 +655,7 @@ longmont_discharge_annual_max.head()
 Next import the USGS annual maxima data. 
 
 
+
 {:.input}
 ```python
 # download usgs annual max data from figshare
@@ -658,11 +670,27 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x11b172940>)
+     <http.client.HTTPMessage at 0x7fb7390adf98>)
 
 
 
 
+
+{:.input}
+```python
+# A function that counts the number of lines with a comment 
+def count_the(file_url):
+    r = requests.get(file_url, stream=True)
+    file = r.text
+    count = 0
+    for line in file:
+        if line.startswith('#'):
+            count += 1
+    return count
+
+# lines to skip
+line_to_skip = count_the(url)+1
+```
 
 The data that you are downloading are `tab-delimited`. When you import, be sure to specify 
 
@@ -681,171 +709,15 @@ Your pandas read_csv function will include 4 arguments as follows:
 
 {:.input}
 ```python
-# open the data using pandas
+# Open the data using pandas
 usgs_annual_max = pd.read_csv(download_path,
-                              skiprows = 63,
-                              header=[1,2], 
-                              sep='\t', 
-                              parse_dates = [2])
-# notice that the data now have 2 header rows. We only need one - the first row
-usgs_annual_max.head()
-```
+                              skiprows=[line_to_skip],
+                              comment="#",
+                              sep='\t',
+                              usecols=["peak_dt","peak_va"],
+                              parse_dates=["peak_dt"],
+                              index_col="peak_dt")
 
-{:.output}
-{:.execute_result}
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th>agency_cd</th>
-      <th>site_no</th>
-      <th>peak_dt</th>
-      <th>peak_tm</th>
-      <th>peak_va</th>
-      <th>peak_cd</th>
-      <th>gage_ht</th>
-      <th>gage_ht_cd</th>
-      <th>year_last_pk</th>
-      <th>ag_dt</th>
-      <th>ag_tm</th>
-      <th>ag_gage_ht</th>
-      <th>ag_gage_ht_cd</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>5s</th>
-      <th>15s</th>
-      <th>10d</th>
-      <th>6s</th>
-      <th>8s</th>
-      <th>27s</th>
-      <th>8s</th>
-      <th>13s</th>
-      <th>4s</th>
-      <th>10d</th>
-      <th>6s</th>
-      <th>8s</th>
-      <th>11s</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>1927-07-29</td>
-      <td>06:00</td>
-      <td>407.0</td>
-      <td>5</td>
-      <td>3.00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>1928-06-04</td>
-      <td>09:00</td>
-      <td>694.0</td>
-      <td>5</td>
-      <td>3.84</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>1929-07-23</td>
-      <td>15:00</td>
-      <td>530.0</td>
-      <td>5</td>
-      <td>3.40</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>1930-08-18</td>
-      <td>05:00</td>
-      <td>353.0</td>
-      <td>5</td>
-      <td>2.94</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>1931-05-29</td>
-      <td>09:00</td>
-      <td>369.0</td>
-      <td>5</td>
-      <td>2.88</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-
-{:.input}
-```python
-# drop one level of index
-usgs_annual_max.columns = usgs_annual_max.columns.droplevel(1)
-# finally set the date column as the index
-usgs_annual_max = usgs_annual_max.set_index(['peak_dt'])
-
-# optional - remove columns we don't need - this is just to make the lesson easier to read
-# you can skip this step if you want
-usgs_annual_max = usgs_annual_max.drop(["gage_ht_cd", "year_last_pk","ag_dt", "ag_gage_ht", "ag_tm", "ag_gage_ht_cd"], axis=1)
-
-# view cleaned dataframe
 usgs_annual_max.head()
 ```
 
@@ -872,68 +744,33 @@ usgs_annual_max.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>agency_cd</th>
-      <th>site_no</th>
-      <th>peak_tm</th>
       <th>peak_va</th>
-      <th>peak_cd</th>
-      <th>gage_ht</th>
     </tr>
     <tr>
       <th>peak_dt</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1927-07-29</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>06:00</td>
+      <td>1927-07-29</td>
       <td>407.0</td>
-      <td>5</td>
-      <td>3.00</td>
     </tr>
     <tr>
-      <th>1928-06-04</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>09:00</td>
+      <td>1928-06-04</td>
       <td>694.0</td>
-      <td>5</td>
-      <td>3.84</td>
     </tr>
     <tr>
-      <th>1929-07-23</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>15:00</td>
+      <td>1929-07-23</td>
       <td>530.0</td>
-      <td>5</td>
-      <td>3.40</td>
     </tr>
     <tr>
-      <th>1930-08-18</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>05:00</td>
+      <td>1930-08-18</td>
       <td>353.0</td>
-      <td>5</td>
-      <td>2.94</td>
     </tr>
     <tr>
-      <th>1931-05-29</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>09:00</td>
+      <td>1931-05-29</td>
       <td>369.0</td>
-      <td>5</td>
-      <td>2.88</td>
     </tr>
   </tbody>
 </table>
@@ -947,11 +784,11 @@ Next, add a year column to your data for easy plotting and make sure that you ha
 
 {:.input}
 ```python
-# add a year column to the data for easier plotting
+# Add a year column to the data for easier plotting
 usgs_annual_max["year"] = usgs_annual_max.index.year
 
-# are there any years that have two entries?
-usgs_annual_max[usgs_annual_max.duplicated(subset="year")==True]
+# Are there any years that have two entries?
+usgs_annual_max[usgs_annual_max.duplicated(subset="year") == True]
 ```
 
 {:.output}
@@ -977,44 +814,24 @@ usgs_annual_max[usgs_annual_max.duplicated(subset="year")==True]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>agency_cd</th>
-      <th>site_no</th>
-      <th>peak_tm</th>
       <th>peak_va</th>
-      <th>peak_cd</th>
-      <th>gage_ht</th>
       <th>year</th>
     </tr>
     <tr>
       <th>peak_dt</th>
       <th></th>
       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1947-10-15</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>NaN</td>
+      <td>1947-10-15</td>
       <td>721.0</td>
-      <td>5</td>
-      <td>3.55</td>
       <td>1947</td>
     </tr>
     <tr>
-      <th>1993-10-18</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>NaN</td>
+      <td>1993-10-18</td>
       <td>497.0</td>
-      <td>5</td>
-      <td>2.76</td>
       <td>1993</td>
     </tr>
   </tbody>
@@ -1029,10 +846,11 @@ It looks like you have two years that have more than one data value - 1947 and 1
 
 {:.input}
 ```python
-# remove duplicate years - keep the max discharge value
-usgs_annual_max = usgs_annual_max.sort_values('peak_va', ascending=False).drop_duplicates('year').sort_index()
-# if this returns no results you have remove duplicated successfully!
-usgs_annual_max[usgs_annual_max.duplicated(subset="year")==True]
+# Remove duplicate years - keep the max discharge value
+usgs_annual_max = usgs_annual_max.sort_values(
+    'peak_va', ascending=False).drop_duplicates('year').sort_index()
+# If this returns no results you have successfully removed duplicates!
+usgs_annual_max[usgs_annual_max.duplicated(subset="year") == True]
 ```
 
 {:.output}
@@ -1058,21 +876,11 @@ usgs_annual_max[usgs_annual_max.duplicated(subset="year")==True]
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>agency_cd</th>
-      <th>site_no</th>
-      <th>peak_tm</th>
       <th>peak_va</th>
-      <th>peak_cd</th>
-      <th>gage_ht</th>
       <th>year</th>
     </tr>
     <tr>
       <th>peak_dt</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
       <th></th>
       <th></th>
     </tr>
@@ -1092,21 +900,23 @@ What could cause differences in these two different approaches to getting annual
 
 {:.input}
 ```python
-# plot calculated vs USGS annual max flow values
-fig, ax = plt.subplots(figsize = (11,9))
-ax.plot(usgs_annual_max["year"], 
+# Plot calculated vs USGS annual max flow values
+fig, ax = plt.subplots(figsize=(11, 9))
+ax.plot(usgs_annual_max["year"],
         usgs_annual_max["peak_va"],
-        color = "purple",
-        linestyle=':', 
-        marker='o', 
-        label = "Instantaneous Value")
-ax.plot(longmont_discharge_annual_max["year"], 
+        color="purple",
+        linestyle=':',
+        marker='o',
+        label="Instantaneous Value")
+ax.plot(longmont_discharge_annual_max["year"],
         longmont_discharge_annual_max["discharge"],
-        color = "lightgrey",
-        linestyle=':', 
-        marker='o', label = "Mean Daily Value")
+        color="lightgrey",
+        linestyle=':',
+        marker='o', label="Mean Daily Value")
 ax.legend()
-ax.set_title("Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Flows");
+ax.set_title(
+    "Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Flows")
+plt.show()
 ```
 
 {:.output}
@@ -1114,10 +924,12 @@ ax.set_title("Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Fl
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_29_0.png" alt = "Annual maxima data compared - USGS product vs daily value calculated.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_34_0.png" alt = "Annual maxima data compared - USGS product vs daily value calculated.">
 <figcaption>Annual maxima data compared - USGS product vs daily value calculated.</figcaption>
 
 </figure>
+
+
 
 
 
@@ -1128,24 +940,29 @@ To further more quickly explore differences between the USGS annual max data set
 
 {:.input}
 ```python
-# merge the two pandas dataframes on the year column
-usgs_calculated = pd.merge(longmont_discharge_annual_max, 
-                           usgs_annual_max, 
-                           left_on="year", 
-                           right_on = "year")
-# subtract usgs values from your calculated values
-usgs_calculated["diff"] = usgs_calculated["peak_va"] - usgs_calculated["discharge"]
+# Merge the two pandas dataframes on the year column
+usgs_calculated = pd.merge(longmont_discharge_annual_max,
+                           usgs_annual_max,
+                           left_on="year",
+                           right_on="year")
+# Subtract usgs values from your calculated values
+usgs_calculated["diff"] = usgs_calculated["peak_va"] - \
+    usgs_calculated["discharge"]
 ```
 
 Once you have calculated a difference column, create a barplot. 
 
+
 {:.input}
 ```python
-# plot difference
-fig, ax = plt.subplots(figsize = (11,6))
-ax.bar(usgs_calculated["year"], 
-       usgs_calculated["diff"])
-ax.set_title("Difference Plot of Annual Maxima \nInstantaneous Minus Mean Daily");
+# Plot difference
+fig, ax = plt.subplots(figsize=(11, 6))
+ax.bar(usgs_calculated["year"],
+       usgs_calculated["diff"],
+      color="purple")
+ax.set_title(
+    "Difference Plot of Annual Maxima \nInstantaneous Minus Mean Daily")
+plt.show()
 ```
 
 {:.output}
@@ -1153,10 +970,12 @@ ax.set_title("Difference Plot of Annual Maxima \nInstantaneous Minus Mean Daily"
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_33_0.png" alt = "Bar plot showing the difference between the USGS max product and the calculated annual max.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_40_0.png" alt = "Bar plot showing the difference between the USGS max product and the calculated annual max.">
 <figcaption>Bar plot showing the difference between the USGS max product and the calculated annual max.</figcaption>
 
 </figure>
+
+
 
 
 
@@ -1188,15 +1007,17 @@ The steps that you will need to implement are below.
 
 {:.input}
 ```python
-# sort data smallest to largest
-longmont_discharge_sorted = longmont_discharge.sort_values(by = "discharge")
-# count total obervations
+# Sort data smallest to largest
+longmont_discharge_sorted = longmont_discharge.sort_values(by="discharge")
+# Count total obervations
 n = longmont_discharge_sorted.shape[0]
-# add a numbered column 1 -> n to use in return calculation for rank
+# Add a numbered column 1 -> n to use in return calculation for rank
 longmont_discharge_sorted.insert(0, 'rank', range(1, 1 + n))
-# calculate probability - note you may need to adjust this value based upon the time period of your data
-longmont_discharge_sorted["probability"] = ((n - longmont_discharge_sorted["rank"] + 1) / (n + 1))
-longmont_discharge_sorted["return-years"] = (1 / longmont_discharge_sorted["probability"]) 
+# Calculate probability - note you may need to adjust this value based upon the time period of your data
+longmont_discharge_sorted["probability"] = (
+    (n - longmont_discharge_sorted["rank"] + 1) / (n + 1))
+longmont_discharge_sorted["return-years"] = (
+    1 / longmont_discharge_sorted["probability"])
 ```
 
 You will ultimately perform the steps above several times for both the discharge data and the precipitation data as a part of your homework. Turning these steps into a function will help you more efficiently process your data. 
@@ -1206,15 +1027,17 @@ An example of what this function could look like is below. For your homework, yo
 ```python
 # Create a function from the workflow below
 
-## add an argument for annual vs daily... 
+# Add an argument for annual vs daily...
+
+
 def calculate_return(df, colname):
     '''
     Add Documentation Here
-    
-    
+
+
     '''
     # sort data smallest to largest
-    sorted_data = df.sort_values(by = colname)
+    sorted_data = df.sort_values(by=colname)
     # count total obervations
     n = sorted_data.shape[0]
     # add a numbered column 1 -> n to use in return calculation for rank
@@ -1223,9 +1046,8 @@ def calculate_return(df, colname):
     sorted_data["probability"] = (n - sorted_data["rank"] + 1) / (n + 1)
     # calculate return - data are daily to then divide by 365?
     sorted_data["return-years"] = (1 / sorted_data["probability"])
-    
-    return(sorted_data)
 
+    return(sorted_data)
 ```
 
 Once you have a function, you can calculate return period and probability on both datasets.
@@ -1281,7 +1103,7 @@ longmont_prob.tail()
   </thead>
   <tbody>
     <tr>
-      <th>2013-09-16</th>
+      <td>2013-09-16</td>
       <td>17078</td>
       <td>3270.0</td>
       <td>A e</td>
@@ -1290,7 +1112,7 @@ longmont_prob.tail()
       <td>9.360548</td>
     </tr>
     <tr>
-      <th>2013-09-12</th>
+      <td>2013-09-12</td>
       <td>17079</td>
       <td>3680.0</td>
       <td>A</td>
@@ -1299,7 +1121,7 @@ longmont_prob.tail()
       <td>11.700685</td>
     </tr>
     <tr>
-      <th>2013-09-15</th>
+      <td>2013-09-15</td>
       <td>17080</td>
       <td>3970.0</td>
       <td>A e</td>
@@ -1308,7 +1130,7 @@ longmont_prob.tail()
       <td>15.600913</td>
     </tr>
     <tr>
-      <th>2013-09-14</th>
+      <td>2013-09-14</td>
       <td>17081</td>
       <td>4970.0</td>
       <td>A e</td>
@@ -1317,7 +1139,7 @@ longmont_prob.tail()
       <td>23.401370</td>
     </tr>
     <tr>
-      <th>2013-09-13</th>
+      <td>2013-09-13</td>
       <td>17082</td>
       <td>8910.0</td>
       <td>A e</td>
@@ -1335,7 +1157,7 @@ longmont_prob.tail()
 
 {:.input}
 ```python
-# calculate the same thing using the USGS annual max data
+# Calculate the same thing using the USGS annual max data
 usgs_annual_prob = calculate_return(usgs_annual_max, "peak_va")
 usgs_annual_prob.head()
 ```
@@ -1364,12 +1186,7 @@ usgs_annual_prob.head()
     <tr style="text-align: right;">
       <th></th>
       <th>rank</th>
-      <th>agency_cd</th>
-      <th>site_no</th>
-      <th>peak_tm</th>
       <th>peak_va</th>
-      <th>peak_cd</th>
-      <th>gage_ht</th>
       <th>year</th>
       <th>probability</th>
       <th>return-years</th>
@@ -1381,78 +1198,48 @@ usgs_annual_prob.head()
       <th></th>
       <th></th>
       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1954-01-14</th>
+      <td>1954-01-14</td>
       <td>1</td>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>12:30</td>
       <td>26.0</td>
-      <td>2,5</td>
-      <td>NaN</td>
       <td>1954</td>
-      <td>0.984615</td>
-      <td>1.015625</td>
+      <td>0.984848</td>
+      <td>1.015385</td>
     </tr>
     <tr>
-      <th>1932-07-13</th>
+      <td>1932-07-13</td>
       <td>2</td>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>10:00</td>
       <td>128.0</td>
-      <td>5</td>
-      <td>1.86</td>
       <td>1932</td>
-      <td>0.969231</td>
-      <td>1.031746</td>
+      <td>0.969697</td>
+      <td>1.031250</td>
     </tr>
     <tr>
-      <th>1940-07-03</th>
+      <td>1940-07-03</td>
       <td>3</td>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>NaN</td>
       <td>174.0</td>
-      <td>5</td>
-      <td>2.34</td>
       <td>1940</td>
-      <td>0.953846</td>
-      <td>1.048387</td>
+      <td>0.954545</td>
+      <td>1.047619</td>
     </tr>
     <tr>
-      <th>1946-07-19</th>
+      <td>1946-07-19</td>
       <td>4</td>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>NaN</td>
       <td>178.0</td>
-      <td>5</td>
-      <td>2.39</td>
       <td>1946</td>
-      <td>0.938462</td>
-      <td>1.065574</td>
+      <td>0.939394</td>
+      <td>1.064516</td>
     </tr>
     <tr>
-      <th>2002-05-24</th>
+      <td>2002-05-24</td>
       <td>5</td>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>09:15</td>
       <td>238.0</td>
-      <td>5</td>
-      <td>2.60</td>
       <td>2002</td>
-      <td>0.923077</td>
-      <td>1.083333</td>
+      <td>0.924242</td>
+      <td>1.081967</td>
     </tr>
   </tbody>
 </table>
@@ -1463,35 +1250,41 @@ usgs_annual_prob.head()
 
 
 
+
+
+
+
 ### Plot Event Probability
 
 Below, you plot Discharge on the x-axis and the probability that an event of that size will occur on the y-axis. 
 
+
 {:.input}
 ```python
 # Compare both datasets
-fig, ax = plt.subplots(figsize = (11,6) )
-usgs_annual_prob.plot.scatter(x="peak_va", 
-                              y="probability",  
-                              title="Probability ", 
+fig, ax = plt.subplots(figsize=(11, 6))
+usgs_annual_prob.plot.scatter(x="peak_va",
+                              y="probability",
+                              title="Probability ",
                               ax=ax,
-                              color='purple', 
+                              color='purple',
                               fontsize=16,
-                              logy= True,
+                              logy=True,
                               label="USGS Annual Max Calculated")
-longmont_prob.plot.scatter(y="probability", 
-                           x="discharge", 
-                           title="Probability ", 
+longmont_prob.plot.scatter(y="probability",
+                           x="discharge",
+                           title="Probability ",
                            ax=ax,
-                           color='grey', 
+                           color='grey',
                            fontsize=16,
-                           logy= True,
+                           logy=True,
                            label="Daily Mean Calculated")
-ax.legend(frameon = True,
-          framealpha = 1)
+ax.legend(frameon=True,
+          framealpha=1)
 ax.set_ylabel("Probability")
 ax.set_xlabel("Discharge Value (CFS)")
-ax.set_title("Probability of Discharge Events \n USGS Annual Max Data Compared to Daily Mean Calculated Annual Max")
+ax.set_title(
+    "Probability of Discharge Events \n USGS Annual Max Data Compared to Daily Mean Calculated Annual Max")
 plt.show()
 ```
 
@@ -1500,7 +1293,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_42_0.png" alt = "Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_54_0.png" alt = "Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
 <figcaption>Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
 </figure>
@@ -1515,33 +1308,44 @@ And then you plot steram dicharge vs return period. This plot shows you the freq
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (11,6) )
-longmont_prob.plot.scatter(y ="discharge", 
-                         x="return-years", 
-                         title="Return Period (Years)", 
-                         ax=ax,
-                         color='purple',
-                         fontsize=16,
-                         label="Daily Mean Calculated")
-usgs_annual_prob.plot.scatter(y ="peak_va",
-                              x="return-years", 
-                              title = "Return Period (Years)",
+fig, ax = plt.subplots(figsize=(11, 6))
+longmont_prob.plot.scatter(y="discharge",
+                           x="return-years",
+                           title="Return Period (Years)",
+                           ax=ax,
+                           color='purple',
+                           fontsize=16,
+                           label="Daily Mean Calculated")
+usgs_annual_prob.plot.scatter(y="peak_va",
+                              x="return-years",
+                              title="Return Period (Years)",
                               ax=ax,
                               color='grey',
                               fontsize=16,
                               label="USGS Annual Max")
-ax.legend(frameon = True,
-          framealpha = 1)
+ax.legend(frameon=True,
+          framealpha=1)
 ax.set_xlabel("Return Period (Years)")
-ax.set_ylabel("Discharge Value (CFS)");
+ax.set_ylabel("Discharge Value (CFS)")
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    Text(0, 0.5, 'Discharge Value (CFS)')
+
+
+
+
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods_44_0.png" alt = "Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_56_1.png" alt = "Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
 <figcaption>Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
 </figure>
@@ -1555,4 +1359,6 @@ Falcone, J. A. (2011). GAGES-II: Geospatial attributes of gages for evaluating s
 Lins, H. F. (2012). USGS hydro-climatic data network 2009 (HCDN-2009). US Geological Survey Fact Sheet, 3047(4).
 
 Yochum, S. E. (2015, April). Colorado Front Range Flood of 2013: Peak flows and flood frequencies. In Proceedings of the 3rd Joint Federal Interagency Conference on Sedimentation and Hydrologic Modeling, Reno, NV, USA (pp. 19-23).
+
+
 

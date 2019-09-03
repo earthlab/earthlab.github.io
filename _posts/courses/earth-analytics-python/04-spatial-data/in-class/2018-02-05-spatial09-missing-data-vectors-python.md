@@ -4,7 +4,7 @@ title: "Handle missing spatial attribute data Python: GIS in Python"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in Python. "
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/missing-data-vector-data-in-python/
@@ -47,6 +47,9 @@ import pandas as pd
 import numpy as np
 import geopandas as gpd
 import earthpy as et 
+
+# Set working dir & get data
+data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -178,7 +181,7 @@ sjer_roads.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>110454239066</td>
       <td>N 14th St</td>
       <td>M</td>
@@ -186,7 +189,7 @@ sjer_roads.head()
       <td>LINESTRING (-120.272267 37.116151, -120.27244 ...</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>110454239052</td>
       <td>N 11th St</td>
       <td>M</td>
@@ -194,7 +197,7 @@ sjer_roads.head()
       <td>LINESTRING (-120.267877 37.116672, -120.268072...</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>110454239056</td>
       <td>N 12th St</td>
       <td>M</td>
@@ -202,7 +205,7 @@ sjer_roads.head()
       <td>LINESTRING (-120.27053 37.117494, -120.270448 ...</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>110454239047</td>
       <td>N 10th St</td>
       <td>M</td>
@@ -210,7 +213,7 @@ sjer_roads.head()
       <td>LINESTRING (-120.267028 37.11734599999999, -12...</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>110454243091</td>
       <td>N Westberry Blvd</td>
       <td>M</td>

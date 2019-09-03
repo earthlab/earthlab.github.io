@@ -4,7 +4,7 @@ title: "Extract raster values using vector boundaries in Python"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer' ]
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/
@@ -47,6 +47,7 @@ In the previous lesson, you learned how to extract raster values from an area de
 To begin, load all of the required libraries. 
 
 
+
 {:.input}
 ```python
 import os
@@ -61,8 +62,16 @@ import rasterstats as rs
 from earthpy import spatial as es
 import earthpy as et
 
+# Setting consistent plotting style throughout notebook
+sns.set_style("white")
+sns.axes_style("white")
+sns.set(font_scale=1.5)
+
+data = et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+
 
 For this lesson you will work with the Lidar Canopy Height Model created by NEON located here:
 
@@ -177,7 +186,7 @@ SJER_insitu.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER128</td>
@@ -185,7 +194,7 @@ SJER_insitu.head()
       <td>Pinus sabiniana</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER2796</td>
@@ -193,7 +202,7 @@ SJER_insitu.head()
       <td>Arctostaphylos viscida</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER272</td>
@@ -201,7 +210,7 @@ SJER_insitu.head()
       <td>Arctostaphylos viscida</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER112</td>
@@ -209,7 +218,7 @@ SJER_insitu.head()
       <td>Arctostaphylos viscida</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER272</td>
@@ -238,6 +247,7 @@ The steps are
 
 
 `SJER_insitu.groupby('plotid').agg(['mean', 'min', 'max'])['stemheight']`
+
 
 {:.input}
 ```python
@@ -280,27 +290,27 @@ insitu_stem_ht.head()
   </thead>
   <tbody>
     <tr>
-      <th>SJER1068</th>
+      <td>SJER1068</td>
       <td>3.866667</td>
       <td>19.3</td>
     </tr>
     <tr>
-      <th>SJER112</th>
+      <td>SJER112</td>
       <td>8.221429</td>
       <td>23.9</td>
     </tr>
     <tr>
-      <th>SJER116</th>
+      <td>SJER116</td>
       <td>8.218750</td>
       <td>16.0</td>
     </tr>
     <tr>
-      <th>SJER117</th>
+      <td>SJER117</td>
       <td>6.512500</td>
       <td>11.0</td>
     </tr>
     <tr>
-      <th>SJER120</th>
+      <td>SJER120</td>
       <td>7.600000</td>
       <td>8.8</td>
     </tr>
@@ -326,7 +336,7 @@ Notice that below you use a pythonic approach to creating for loops. Rather than
 
 
 
-    ['insitu_plotid', 'insitu_insitu_mean', 'insitu_insitu_max']
+    ['insitu_mean', 'insitu_max']
 
 
 
@@ -374,31 +384,31 @@ insitu_stem_ht.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>SJER1068</td>
       <td>3.866667</td>
       <td>19.3</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>SJER112</td>
       <td>8.221429</td>
       <td>23.9</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>SJER116</td>
       <td>8.218750</td>
       <td>16.0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>SJER117</td>
       <td>6.512500</td>
       <td>11.0</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>SJER120</td>
       <td>7.600000</td>
       <td>8.8</td>
@@ -457,15 +467,15 @@ SJER_final_height.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>geometry</th>
       <th>Plot_ID</th>
       <th>Point</th>
-      <th>count</th>
+      <th>northing</th>
       <th>easting</th>
-      <th>geometry</th>
+      <th>plot_type</th>
       <th>lidar_max</th>
       <th>lidar_mean</th>
-      <th>northing</th>
-      <th>plot_type</th>
+      <th>count</th>
       <th>plotid</th>
       <th>insitu_mean</th>
       <th>insitu_max</th>
@@ -473,76 +483,76 @@ SJER_final_height.head()
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
+      <td>POLYGON ((255872.376 4111567.818, 255872.27969...</td>
       <td>SJER1068</td>
       <td>center</td>
-      <td>161</td>
+      <td>4111567.818</td>
       <td>255852.376</td>
-      <td>POLYGON ((255872.376 4111567.818, 255872.27969...</td>
+      <td>trees</td>
       <td>19.049999</td>
       <td>11.544348</td>
-      <td>4111567.818</td>
-      <td>trees</td>
+      <td>161</td>
       <td>SJER1068</td>
       <td>3.866667</td>
       <td>19.3</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
+      <td>POLYGON ((257426.967 4111298.971, 257426.87069...</td>
       <td>SJER112</td>
       <td>center</td>
-      <td>443</td>
+      <td>4111298.971</td>
       <td>257406.967</td>
-      <td>POLYGON ((257426.967 4111298.971, 257426.87069...</td>
+      <td>trees</td>
       <td>24.019999</td>
       <td>10.369277</td>
-      <td>4111298.971</td>
-      <td>trees</td>
+      <td>443</td>
       <td>SJER112</td>
       <td>8.221429</td>
       <td>23.9</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
+      <td>POLYGON ((256858.76 4110819.876, 256858.663694...</td>
       <td>SJER116</td>
       <td>center</td>
-      <td>643</td>
+      <td>4110819.876</td>
       <td>256838.760</td>
-      <td>POLYGON ((256858.76 4110819.876, 256858.663694...</td>
+      <td>grass</td>
       <td>16.070000</td>
       <td>7.518398</td>
-      <td>4110819.876</td>
-      <td>grass</td>
+      <td>643</td>
       <td>SJER116</td>
       <td>8.218750</td>
       <td>16.0</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
+      <td>POLYGON ((256196.947 4108752.026, 256196.85069...</td>
       <td>SJER117</td>
       <td>center</td>
-      <td>245</td>
+      <td>4108752.026</td>
       <td>256176.947</td>
-      <td>POLYGON ((256196.947 4108752.026, 256196.85069...</td>
+      <td>trees</td>
       <td>11.059999</td>
       <td>7.675347</td>
-      <td>4108752.026</td>
-      <td>trees</td>
+      <td>245</td>
       <td>SJER117</td>
       <td>6.512500</td>
       <td>11.0</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
+      <td>POLYGON ((255988.372 4110476.079, 255988.27569...</td>
       <td>SJER120</td>
       <td>center</td>
-      <td>17</td>
+      <td>4110476.079</td>
       <td>255968.372</td>
-      <td>POLYGON ((255988.372 4110476.079, 255988.27569...</td>
+      <td>grass</td>
       <td>5.740000</td>
       <td>4.591176</td>
-      <td>4110476.079</td>
-      <td>grass</td>
+      <td>17</td>
       <td>SJER120</td>
       <td>7.600000</td>
       <td>8.8</td>
@@ -568,6 +578,7 @@ Take note that while you you don't have to rename the columns as you did above i
 You've now merged the two dataframes together. Your are ready to create your first scatterplot of the data. 
 You can use the pandas `.plot()` to create a scatterplot (or you can use matplotlib directly). The example below uses pandas plotting.  
 
+
 {:.input}
 ```python
 # Convert to a dataframe so you can use standard pandas plotting
@@ -578,13 +589,13 @@ fig, ax = plt.subplots(figsize=(10, 10))
 SJER_final_height_df.plot('lidar_max',
                           'insitu_max',
                           kind='scatter',
-                          fontsize=14, s=60, 
+                          fontsize=14, s=60,
+                          color="purple",
                           ax=ax)
 
 ax.set(xlabel="Lidar derived max tree height",
-       ylabel="Measured tree height (m)")
-ax.set_title("Lidar vs Measured Max Tree Height \n NEON SJER Field Site",
-             fontsize=30)
+       ylabel="Measured tree height (m)",
+       title="Lidar vs Measured Max Tree Height \n NEON SJER Field Site")
 plt.show()
 ```
 
@@ -593,10 +604,12 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_18_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height without a 1:1 line.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_22_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height without a 1:1 line.">
 <figcaption>Scatterplot showing the relationship between lidar and measured tree height without a 1:1 line.</figcaption>
 
 </figure>
+
+
 
 
 
@@ -614,15 +627,15 @@ SJER_final_height_df.plot('lidar_max',
                           'insitu_max',
                           kind='scatter',
                           fontsize=14,
+                          color="purple",
                           s=60, ax=ax)
 
-ax.set(xlabel="Lidar Derived Max Tree Height",
-       ylabel="Measured Tree Height (m)")
-ax.set_title("Lidar vs Measured Max Tree Height \n NEON SJER Field Site",
-             fontsize=30)
+ax.set(xlabel="Lidar Derived Max Tree Height (m)",
+       ylabel="Measured Tree Height (m)",
+       title="Lidar vs. Measured Max Tree Height \n NEON SJER Field Site")
 
 # Add 1:1 line
-ax.plot((0, 1), (0, 1), 
+ax.plot((0, 1), (0, 1),
         transform=ax.transAxes, ls='--', c='k')
 
 # Adjust x and y axis limits
@@ -635,7 +648,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_20_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height with a 1:1 line.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_25_0.png" alt = "Scatterplot showing the relationship between lidar and measured tree height with a 1:1 line.">
 <figcaption>Scatterplot showing the relationship between lidar and measured tree height with a 1:1 line.</figcaption>
 
 </figure>
@@ -726,6 +739,7 @@ SJER_final_height.centroid.plot(ax=ax,
                                 marker='o',
                                 markersize=SJER_final_height['insitu_max'] * 80,
                                 c='purple')
+ax.set_axis_off()
 plt.show()
 ```
 
@@ -734,7 +748,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_26_0.png" alt = "Map showing plot locations with points sized by the height of vegetation in each plot overlayed on top of a canopy height model.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_31_0.png" alt = "Map showing plot locations with points sized by the height of vegetation in each plot overlayed on top of a canopy height model.">
 <figcaption>Map showing plot locations with points sized by the height of vegetation in each plot overlayed on top of a canopy height model.</figcaption>
 
 </figure>
@@ -765,14 +779,15 @@ Below you do the following
 SJER_final_height["lidar_measured"] = SJER_final_height["lidar_max"] - \
     SJER_final_height["insitu_max"]
 
-# creat bar plot
-fig, ax = plt.subplots(figsize=(10, 5))
+# Create a bar plot
+fig, ax = plt.subplots(figsize=(12, 7))
 ax.bar(SJER_final_height['plotid'],
-       SJER_final_height['lidar_measured'])
+       SJER_final_height['lidar_measured'],
+       color="purple")
 
-ax.set_title("Difference Between lidar and Measured Tree Height (m)")
-ax.set(xlabel='Plot ID',
-       ylabel='Difference (Lidar - Measured) meters')
+ax.set(xlabel='Plot ID', ylabel='(Lidar - Measured) Height Difference (m)',
+       title='Difference Between lidar and Measured Tree Height')
+
 plt.setp(ax.get_xticklabels(),
          rotation=45, horizontalalignment='right')
 plt.show()
@@ -783,7 +798,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_28_0.png" alt = "Barplot showing the difference between lidar and measured tree height for each plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data/2016-12-06-uncertainty03-summarize-and-compare-measured-to-lidar-data_33_0.png" alt = "Barplot showing the difference between lidar and measured tree height for each plot.">
 <figcaption>Barplot showing the difference between lidar and measured tree height for each plot.</figcaption>
 
 </figure>
