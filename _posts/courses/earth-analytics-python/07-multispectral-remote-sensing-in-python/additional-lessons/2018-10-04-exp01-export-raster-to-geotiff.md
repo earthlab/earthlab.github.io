@@ -3,7 +3,7 @@ layout: single
 title: "Export Numpy Arrays to Geotiff Format Using Rasterio and Python"
 excerpt: "You often create outputs in Python that you want to use in another tool like QGIS or ArcGIS. Learn how to export a numpy array created through a rasterio workflow in Python to  spatial geotiff."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2018-10-16
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['export-raster-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/export-numpy-array-to-geotiff-in-python/
@@ -100,15 +100,18 @@ To get started, load all of the required python libraries.
 
 {:.input}
 ```python
+import numpy as np
+import os
+import matplotlib.pyplot as plt
 import rasterio as rio
 import geopandas as gpd
 import earthpy as et
 import earthpy.spatial as es
-import os
-import matplotlib.pyplot as plt
-from rasterio.plot import show
-import numpy as np
-plt.ion()
+import earthpy.plot as ep 
+
+# Get the data 
+data = et.data.get_data('cold-springs-fire')
+
 # set working directory to your home dir/earth-analytics
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 import matplotlib as mpl
@@ -116,24 +119,22 @@ mpl.rcParams['figure.figsize'] = (14, 14)
 mpl.rcParams['axes.titlesize'] = 20
 ```
 
-To begin open some data and create an output that you wish to export to geotiff format. Below you calculate NDVD from NAIP data.
+To begin open some data and create an output that you wish to export to geotiff format. Below you calculate NDVD from NAIP data using the earthpy `normalized_diff` function.
 
 {:.input}
 ```python
 with rio.open("data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif") as src:
     naip_data = src.read()
     
-naip_ndvi = (naip_data[3] - naip_data[0]) / (naip_data[3] + naip_data[0])
+naip_ndvi = es.normalized_diff(naip_data[3], naip_data[0])
 ```
 
 {:.input}
 ```python
-# need to add a colorbar to this image
-fig, ax = plt.subplots(figsize=(12,6))
-ndvi = ax.imshow(naip_ndvi, cmap='PiYG')
-fig.colorbar(ndvi, fraction=.05)
-ax.set(title="NAIP Derived NDVI\n 19 September 2015 - Cold Springs Fire, Colorado")
-ax.set_axis_off();
+ep.plot_bands(naip_ndvi, cmap='PiYG', scale=False,
+              vmin=-1, vmax=1,
+             title="NAIP Derived NDVI\n 19 September 2015 - Cold Springs Fire, Colorado")
+plt.show()
 ```
 
 {:.output}
@@ -141,7 +142,7 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/additional-lessons/2018-10-04-exp01-export-raster-to-geotiff_6_0.png" alt = "NDVI for the Cold Springs Fire site derived from NAIP data. You may want to export this data as a geotiff to share and use in other tools like QGIS.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/additional-lessons/2018-10-04-exp01-export-raster-to-geotiff/2018-10-04-exp01-export-raster-to-geotiff_6_0.png" alt = "NDVI for the Cold Springs Fire site derived from NAIP data. You may want to export this data as a geotiff to share and use in other tools like QGIS.">
 <figcaption>NDVI for the Cold Springs Fire site derived from NAIP data. You may want to export this data as a geotiff to share and use in other tools like QGIS.</figcaption>
 
 </figure>
@@ -185,7 +186,7 @@ naip_meta
 
 
 
-    {'driver': 'GTiff', 'dtype': 'int16', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 4, 'crs': CRS({'proj': 'utm', 'zone': 13, 'ellps': 'GRS80', 'towgs84': '0,0,0,0,0,0,0', 'units': 'm', 'no_defs': True}), 'transform': Affine(1.0, 0.0, 457163.0,
+    {'driver': 'GTiff', 'dtype': 'int16', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 4, 'crs': CRS.from_wkt('PROJCS["UTM Zone 13, Northern Hemisphere",GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101],TOWGS84[0,0,0,0,0,0,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'), 'transform': Affine(1.0, 0.0, 457163.0,
            0.0, -1.0, 4426952.0), 'tiled': False, 'compress': 'lzw', 'interleave': 'band'}
 
 
@@ -207,7 +208,7 @@ naip_transform, naip_crs
 
     (Affine(1.0, 0.0, 457163.0,
             0.0, -1.0, 4426952.0),
-     CRS({'proj': 'utm', 'zone': 13, 'ellps': 'GRS80', 'towgs84': '0,0,0,0,0,0,0', 'units': 'm', 'no_defs': True}))
+     CRS.from_wkt('PROJCS["UTM Zone 13, Northern Hemisphere",GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101],TOWGS84[0,0,0,0,0,0,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'))
 
 
 
@@ -245,6 +246,8 @@ Note that when we write the data we need the following elements:
 
 Finally you need to specify the name of the output file and the path to where it will be saved on your computer. 
 
+
+
 ## Export a Numpy Array to a Raster Geotiff Using the Spatial Profile or Metadata of Another Raster
 You can use the naip_meta variable that you created above. This variable contains all of the spatial metadata for naip data.
 
@@ -258,7 +261,6 @@ have changed. Update those values then write out the image.
 {:.input}
 ```python
 naip_meta
-
 ```
 
 {:.output}
@@ -266,7 +268,7 @@ naip_meta
 
 
 
-    {'driver': 'GTiff', 'dtype': 'int16', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 4, 'crs': CRS({'proj': 'utm', 'zone': 13, 'ellps': 'GRS80', 'towgs84': '0,0,0,0,0,0,0', 'units': 'm', 'no_defs': True}), 'transform': Affine(1.0, 0.0, 457163.0,
+    {'driver': 'GTiff', 'dtype': 'int16', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 4, 'crs': CRS.from_wkt('PROJCS["UTM Zone 13, Northern Hemisphere",GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101],TOWGS84[0,0,0,0,0,0,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'), 'transform': Affine(1.0, 0.0, 457163.0,
            0.0, -1.0, 4426952.0), 'tiled': False, 'compress': 'lzw', 'interleave': 'band'}
 
 
@@ -275,9 +277,9 @@ naip_meta
 
 {:.input}
 ```python
-# change the count or number of bands from 4 to 1
+# Change the count or number of bands from 4 to 1
 naip_meta['count'] = 1
-# change the data type to float rather than integer
+# Change the data type to float rather than integer
 naip_meta['dtype'] = "float64"
 naip_meta
 ```
@@ -287,7 +289,7 @@ naip_meta
 
 
 
-    {'driver': 'GTiff', 'dtype': 'float64', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 1, 'crs': CRS({'proj': 'utm', 'zone': 13, 'ellps': 'GRS80', 'towgs84': '0,0,0,0,0,0,0', 'units': 'm', 'no_defs': True}), 'transform': Affine(1.0, 0.0, 457163.0,
+    {'driver': 'GTiff', 'dtype': 'float64', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 1, 'crs': CRS.from_wkt('PROJCS["UTM Zone 13, Northern Hemisphere",GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101],TOWGS84[0,0,0,0,0,0,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'), 'transform': Affine(1.0, 0.0, 457163.0,
            0.0, -1.0, 4426952.0), 'tiled': False, 'compress': 'lzw', 'interleave': 'band'}
 
 
@@ -299,10 +301,13 @@ The two ** tells Python to unpack all of the values in the naip_meta object to u
 
 {:.input}
 ```python
-# write your the ndvi raster object
+# Write your the ndvi raster object
 with rio.open('data/cold-springs-fire/outputs/naip_ndvi.tif', 'w', **naip_meta) as dst:
     dst.write(naip_ndvi, 1)
 ```
+
+
+
 
 <div class="notice--info" markdown="1">
 

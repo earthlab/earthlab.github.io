@@ -3,7 +3,7 @@ layout: single
 title: "Clip a spatial vector layer in python using shapely & geopandas: GIS in Python"
 excerpt: "In this lesson you review how to clip a vector data layer in python using geopandas and shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-10-23
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/clip-vector-data-in-python-geopandas-shapely/
@@ -80,12 +80,16 @@ import geopandas as gpd
 # Load the box module from shapely to create box objects
 from shapely.geometry import box
 import earthpy as et
-# Plot figures inline
-plt.ion()
+from earthpy import clip as cl
+import seaborn as sns
 
+# Adjust plot font sizes
+sns.set(font_scale=1.5)
+sns.set_style("white")
+
+# Set working dir & get data
+data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-# Import clip_data.py as a module so you can access the clip data functions
-import clip_data as cl
 ```
 
 ## How to Clip Shapefiles in Python
@@ -121,6 +125,7 @@ print("pop_places", pop_places.crs)
 
 
 
+
 {:.input}
 ```python
 # Plot the data
@@ -142,7 +147,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_5_0.png" alt = "Plot showing populated places for the entire globe overlayed on top of the Continental United States. If your study area is the USA, then you might not need all of the additional points. In this instance, you can clip or crop your data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_6_0.png" alt = "Plot showing populated places for the entire globe overlayed on top of the Continental United States. If your study area is the USA, then you might not need all of the additional points. In this instance, you can clip or crop your data.">
 <figcaption>Plot showing populated places for the entire globe overlayed on top of the Continental United States. If your study area is the USA, then you might not need all of the additional points. In this instance, you can clip or crop your data.</figcaption>
 
 </figure>
@@ -234,35 +239,35 @@ points_clip[['name', 'geometry', 'scalerank', 'natscale', ]].head()
   </thead>
   <tbody>
     <tr>
-      <th>175</th>
+      <td>175</td>
       <td>San Francisco</td>
       <td>POINT (-122.4171687735522 37.76919562968743)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <th>176</th>
+      <td>176</td>
       <td>Denver</td>
       <td>POINT (-104.9859618109682 39.7411339069655)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <th>177</th>
+      <td>177</td>
       <td>Houston</td>
       <td>POINT (-95.34192514914599 29.82192024318886)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <th>178</th>
+      <td>178</td>
       <td>Miami</td>
       <td>POINT (-80.22605193945003 25.78955655502153)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <th>179</th>
+      <td>179</td>
       <td>Atlanta</td>
       <td>POINT (-84.40189524187565 33.83195971260585)</td>
       <td>1</td>
@@ -308,7 +313,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_9_0.png" alt = "Once you have clipped the points layer to your USA extent, you have fewer points to work with. This will make processing your data more efficient.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_10_0.png" alt = "Once you have clipped the points layer to your USA extent, you have fewer points to work with. This will make processing your data more efficient.">
 <figcaption>Once you have clipped the points layer to your USA extent, you have fewer points to work with. This will make processing your data more efficient.</figcaption>
 
 </figure>
@@ -356,9 +361,12 @@ In your dataset for this week you have 2 layers.
 
 The roads data are imported below. You imported the boundary layer above.  
 
+
 If both layers are in the same CRS, you are ready to clip your data. Because the clip functions are new and little testing has been done with them, you will see all of the lines of code required to clip your data. However you can use the `clip_shp()` function to clip your data for this week's class! 
 
 Be patient while your clip code below runs. 
+
+
 
 To make your code run faster, you can simplify the geometry of your country boundary. Simplify should be used with caution as it does modify your data.
 
@@ -405,10 +413,12 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_18_0.png" alt = "Clipped vs unclipped roads layer. ">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_22_0.png" alt = "Clipped vs unclipped roads layer. ">
 <figcaption>Clipped vs unclipped roads layer. </figcaption>
 
 </figure>
+
+
 
 
 
@@ -417,7 +427,7 @@ Plot the cropped data.
 
 {:.input}
 ```python
-# plot the data
+# Plot the data
 fig, ax = plt.subplots(figsize=(12, 8))
 country_boundary_us.plot(alpha=1,
                          color="white",
@@ -434,7 +444,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_20_0.png" alt = "Final plot showing the clipped roads drawn on top of the country boundary. Notice that there are no road segments outside of the country boundary.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_26_0.png" alt = "Final plot showing the clipped roads drawn on top of the country boundary. Notice that there are no road segments outside of the country boundary.">
 <figcaption>Final plot showing the clipped roads drawn on top of the country boundary. Notice that there are no road segments outside of the country boundary.</figcaption>
 
 </figure>
@@ -479,10 +489,10 @@ final_clipped = clipped[clipped.geometry.notnull()]
 ```python
 fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 10))
 
-# a larger tolerance yields a blockier polygon
+# Set a larger tolerance yields a blockier polygon
 country_boundary_us.simplify(2, preserve_topology=True).plot(ax=ax1)
 
-# a larger tolerance yields a blockier polygon
+# Set  a larger tolerance yields a blockier polygon
 country_boundary_us.simplify(.2, preserve_topology=True).plot(ax=ax2)
 
 ax1.set_title(
@@ -500,7 +510,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_23_0.png" alt = "Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_29_0.png" alt = "Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.">
 <figcaption>Simplify removes vertices or points from a complex object effectively smoothing the data. Use this method with caution as it will impact any outcome statistics of your data.</figcaption>
 
 </figure>
@@ -529,10 +539,12 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_24_0.png" alt = "The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_30_0.png" alt = "The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.">
 <figcaption>The final clipped roads layer. When you use the default pandas plotting, your legend will have circles for each attribute type. If you want to represent line data using lines in the legend, then you will need to create a custom plot and legend as demonstrated below.</figcaption>
 
 </figure>
+
+
 
 
 
@@ -566,7 +578,7 @@ road_attrs = {'Beltway': ['black', 2],
               'Ferry Route': ['grey', .5],
               'Major Highway': ['black', 1]}
 
-# plot the data
+# Plot the data
 fig, ax = plt.subplots(figsize=(12, 8))
 
 for ctype, data in ne_roads_clip.groupby('type'):
@@ -588,7 +600,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python_26_0.png" alt = "Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial06-clip-vector-data-python/2018-02-05-spatial06-clip-vector-data-python_34_0.png" alt = "Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.">
 <figcaption>Currently geopandas does not support too much customization of plot legends. Thus if you want to create a custom legend, you will need to create a dictionary of colors and other legend attributes that you'll need to create the custom legend.</figcaption>
 
 </figure>
@@ -596,53 +608,12 @@ plt.show()
 
 
 
-{:.input}
-```python
-# Create function to clip point data using geopandas
 
 
-def clip_points(shp, clip_obj):
-    '''
-    Docs Here
-    '''
-
-    poly = clip_obj.geometry.unary_union
-    return(shp[shp.geometry.intersects(poly)])
-
-# Create function to clip line and polygon data using geopandas
 
 
-def clip_line_poly(shp, clip_obj):
-    '''
-    docs
-    '''
-
-    # Create a single polygon object for clipping
-    poly = clip_obj.geometry.unary_union
-    spatial_index = shp.sindex
-
-    # Create a box for the initial intersection
-    bbox = poly.bounds
-    # Get a list of id's for each road line that overlaps the bounding box and subset the data to just those lines
-    sidx = list(spatial_index.intersection(bbox))
-    shp_sub = shp.iloc[sidx]
-
-    # Clip the data - with these data
-    clipped = shp_sub.copy()
-    clipped['geometry'] = shp_sub.intersection(poly)
-
-    # Return the clipped layer with no null geometry values
-    return(clipped[clipped.geometry.notnull()])
 
 
-# Final clip function that handles points, lines and polygons
 
 
-def clip_shp(shp, clip_obj):
-    '''
-    '''
-    if shp["geometry"].iloc[0].type == "Point":
-        return(clip_points(shp, clip_obj))
-    else:
-        return(clip_line_poly(shp, clip_obj))
-```
+

@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You cover the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/plot-raster-histograms/
@@ -55,27 +55,26 @@ distribution of your data.
 To work with raster data in `Python`, you can use the `rasterio` and `numpy` packages.
 Remember you can use the `raserio context manager` to import the raster object into `Python`.
 
+
 {:.input}
 ```python
+import os
+import numpy as np
 import rasterio as rio
 import matplotlib.pyplot as plt
-import numpy as np
-import os
 import seaborn as sns
-# Inline plotting
-plt.ion()
 
 import earthpy as et
+import earthpy.plot as ep
+
+# Get data and set wd
+et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 # Prettier plotting with seaborn
-sns.set(font_scale=1.5)
-sns.set_style("whitegrid")
-
-# Format histograms
-plt.rcParams['figure.figsize'] = (8, 8)
-
+sns.set(font_scale=1.5, style="whitegrid")
 ```
+
 
 As you did in the previous lessons, you can open your raster data using `rio.open()`.
 
@@ -83,10 +82,9 @@ As you did in the previous lessons, you can open your raster data using `rio.ope
 ```python
 # Open data and assign negative values to nan
 with rio.open('data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif') as src:
-    lidar_dem_im = src.read(1)
-    lidar_dem_im[lidar_dem_im < 0] = np.nan
-    
-# View object dimensions   
+    lidar_dem_im = src.read(1, masked=True)
+
+# View object dimensions
 lidar_dem_im.shape
 ```
 
@@ -128,28 +126,23 @@ print(lidar_dem_im.ravel().shape)
 
 
 If your array has nan values in it, it's best to remove the nan values before trying to plot a histogram.
-Below you
+To do this, you would:
 
 1. flatten the data so it can be coerced into a histogram using `.ravel()`
 2. remove nan values `lidar_dem_hist[~np.isnan(lidar_dem_hist)]`
 
+However, since you used `masked=True` while opening the raster, the nan values have already been removed by the masking operation. 
 
-{:.input}
-```python
-# Remove the `nan` values for plotting
-lidar_dem_hist = lidar_dem_im.ravel()
-lidar_dem_hist = lidar_dem_hist[~np.isnan(lidar_dem_hist)]
-```
 
 Once you have cleaned up the data you can plot a histogram.
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10,10))
-ax.hist(lidar_dem_hist, color='purple')
-ax.set(xlabel = 'Elevation (meters)', 
-       ylabel = 'Frequency',
-       title = "Distribution of Lidar DEM Elevation Values");
+ep.hist(lidar_dem_im, colors=['purple'],
+        title="Distribution of Lidar DEM Elevation Values",
+        xlabel='Elevation (meters)',
+        ylabel='Frequency')
+plt.show()
 ```
 
 {:.output}
@@ -157,7 +150,7 @@ ax.set(xlabel = 'Elevation (meters)',
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_10_0.png" alt = "This plot displays a histogram of lidar dem elevation values.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms/2018-02-05-raster03-plot-raster-histograms_12_0.png" alt = "This plot displays a histogram of lidar dem elevation values.">
 <figcaption>This plot displays a histogram of lidar dem elevation values.</figcaption>
 
 </figure>
@@ -179,13 +172,12 @@ want in your histogram.
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10,10))
-ax.hist(lidar_dem_hist, 
-        color='purple', 
+ep.hist(lidar_dem_im, colors=['purple'],
+        title="Distribution of Lidar DEM Elevation Values",
+        xlabel='Elevation (meters)',
+        ylabel='Frequency',
         bins=3)
-ax.set(title="Distribution of Elevation Values",
-       xlabel='Elevation (meters)', 
-       ylabel='Frequency');
+plt.show()
 ```
 
 {:.output}
@@ -193,7 +185,7 @@ ax.set(title="Distribution of Elevation Values",
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_12_0.png" alt = "This plot displays a histogram of lidar dem elevation values with 3 bins.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms/2018-02-05-raster03-plot-raster-histograms_14_0.png" alt = "This plot displays a histogram of lidar dem elevation values with 3 bins.">
 <figcaption>This plot displays a histogram of lidar dem elevation values with 3 bins.</figcaption>
 
 </figure>
@@ -216,12 +208,13 @@ as follows:
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10,10))
-ax.hist(lidar_dem_hist, bins=[1600, 1800, 2000, 2100], color='purple')
-ax.set_title("Distribution of Elevation Values \n 3 Histogram Bins",
-            fontsize=16)
-ax.set_xlabel('Elevation (meters)')
-ax.set_ylabel('Frequency');
+ep.hist(lidar_dem_im,
+        bins=[1600, 1800, 2000, 2100],
+        colors=['purple'],
+        title="Distribution of Lidar DEM Elevation Values",
+        xlabel='Elevation (meters)',
+        ylabel='Frequency')
+plt.show()
 ```
 
 {:.output}
@@ -229,7 +222,7 @@ ax.set_ylabel('Frequency');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms_14_0.png" alt = "This plot displays a histogram of lidar dem elevation values with 3 bins.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster03-plot-raster-histograms/2018-02-05-raster03-plot-raster-histograms_16_0.png" alt = "This plot displays a histogram of lidar dem elevation values with 3 bins.">
 <figcaption>This plot displays a histogram of lidar dem elevation values with 3 bins.</figcaption>
 
 </figure>

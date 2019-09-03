@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Co-occurrence and Networks of Words Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to identify the co-occurrence and networks of words in Tweets. Learn how to analyze word co-occurrence (i.e. bigrams) and networks of words using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-01-02
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-bigrams-networks-in-python/
@@ -41,6 +41,7 @@ In the previous lesson, you learned how to collect and clean data that you colle
 
 {:.input}
 ```python
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -70,6 +71,7 @@ consumer_secret= 'yourkeyhere'
 access_token= 'yourkeyhere'
 access_token_secret= 'yourkeyhere'
 ```
+
 
 {:.input}
 ```python
@@ -134,9 +136,8 @@ tweets_nsw_nc = [[w for w in word if not w in collection_words]
 ```
 
 {:.output}
-    [nltk_data] Downloading package stopwords to
-    [nltk_data]     /Users/lewa8222/nltk_data...
-    [nltk_data]   Unzipping corpora/stopwords.zip.
+    [nltk_data] Downloading package stopwords to /root/nltk_data...
+    [nltk_data]   Package stopwords is already up-to-date!
 
 
 
@@ -160,12 +161,15 @@ terms_bigram[0]
 
 
 
-    [('science', 'links'),
-     ('links', 'articles'),
-     ('articles', 'science'),
-     ('science', 'greenenergy'),
-     ('greenenergy', 'progressive'),
-     ('progressive', 'future')]
+    [('insurancebureau', 'hey'),
+     ('hey', 'yoohoo'),
+     ('yoohoo', 'hey'),
+     ('hey', 'insurancebureau'),
+     ('insurancebureau', 'maybe'),
+     ('maybe', 'sometime'),
+     ('sometime', 'today'),
+     ('today', 'everyday'),
+     ('everyday', 'sh')]
 
 
 
@@ -184,7 +188,7 @@ tweets_no_urls[0]
 
 
 
-    'science Links to articles about science and climate change climate greenenergy progressive future'
+    'InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh'
 
 
 
@@ -201,13 +205,16 @@ tweets_nsw_nc[0]
 
 
 
-    ['science',
-     'links',
-     'articles',
-     'science',
-     'greenenergy',
-     'progressive',
-     'future']
+    ['insurancebureau',
+     'hey',
+     'yoohoo',
+     'hey',
+     'insurancebureau',
+     'maybe',
+     'sometime',
+     'today',
+     'everyday',
+     'sh']
 
 
 
@@ -233,26 +240,26 @@ bigram_counts.most_common(20)
 
 
 
-    [(('live', 'cop24'), 11),
-     (('climateaction', 'climatechangeisreal'), 9),
-     (('climatechangeisreal', 'poetry'), 9),
-     (('poetry', 'poem'), 9),
-     (('key', 'scientific'), 9),
-     (('cop24', 'fails'), 9),
-     (('fails', 'adopt'), 9),
-     (('adopt', 'key'), 9),
-     (('side', 'event'), 9),
-     (('scientific', 'report'), 8),
-     (('gpwx', 'globalwarming'), 7),
-     (('32', 'trillion'), 7),
-     (('global', 'reach'), 7),
-     (('saudi', 'arabia'), 6),
-     (('global', 'warming'), 6),
-     (('investors', 'managing'), 6),
-     (('trillion', 'assets'), 6),
-     (('assets', 'call'), 6),
-     (('call', 'action'), 6),
-     (('cop24', 'unfccc'), 6)]
+    [(('great', 'barrier'), 20),
+     (('barrier', 'reef'), 17),
+     (('gpwx', 'globalwarming'), 16),
+     (('trump', 'administration'), 15),
+     (('lifestyle', 'changes'), 14),
+     (('big', 'lifestyle'), 13),
+     (('changes', 'needed'), 13),
+     (('needed', 'cut'), 13),
+     (('cut', 'emissions'), 12),
+     (('declares', 'health'), 11),
+     (('health', 'emergency'), 11),
+     (('medical', 'association'), 10),
+     (('association', 'declares'), 10),
+     (('power', 'interplay'), 10),
+     (('interplay', 'actors'), 10),
+     (('extreme', 'weather'), 10),
+     (('australian', 'medical'), 9),
+     (('3rd', 'september'), 9),
+     (('september', '2019'), 9),
+     (('2019', 'sumit'), 9)]
 
 
 
@@ -297,104 +304,104 @@ bigram_df
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>(live, cop24)</td>
+      <td>0</td>
+      <td>(great, barrier)</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>(barrier, reef)</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>(gpwx, globalwarming)</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>(trump, administration)</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>(lifestyle, changes)</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>(big, lifestyle)</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>(changes, needed)</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>(needed, cut)</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>(cut, emissions)</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>(declares, health)</td>
       <td>11</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>(climateaction, climatechangeisreal)</td>
+      <td>10</td>
+      <td>(health, emergency)</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>(medical, association)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>(association, declares)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>(power, interplay)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>(interplay, actors)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>(extreme, weather)</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>(australian, medical)</td>
       <td>9</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>(climatechangeisreal, poetry)</td>
+      <td>17</td>
+      <td>(3rd, september)</td>
       <td>9</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>(poetry, poem)</td>
+      <td>18</td>
+      <td>(september, 2019)</td>
       <td>9</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>(key, scientific)</td>
+      <td>19</td>
+      <td>(2019, sumit)</td>
       <td>9</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>(cop24, fails)</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>(fails, adopt)</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>(adopt, key)</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>(side, event)</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>(scientific, report)</td>
-      <td>8</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>(gpwx, globalwarming)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>(32, trillion)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>(global, reach)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>(saudi, arabia)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>(global, warming)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>(investors, managing)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>(trillion, assets)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>(assets, call)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>(call, action)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>(cop24, unfccc)</td>
-      <td>6</td>
     </tr>
   </tbody>
 </table>
@@ -425,6 +432,8 @@ for k, v in d[0].items():
 
 G.add_node("china", weight=100)
 ```
+
+
 
 {:.input}
 ```python
@@ -457,10 +466,11 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-04-bigrams-network-analysis_21_0.png" alt = "This plot displays the networks of co-occurring words in tweets on climate change.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/13-twitter-api/twitter-api/2018-02-05-twitter-04-bigrams-network-analysis/2018-02-05-twitter-04-bigrams-network-analysis_23_0.png" alt = "This plot displays the networks of co-occurring words in tweets on climate change.">
 <figcaption>This plot displays the networks of co-occurring words in tweets on climate change.</figcaption>
 
 </figure>
+
 
 
 

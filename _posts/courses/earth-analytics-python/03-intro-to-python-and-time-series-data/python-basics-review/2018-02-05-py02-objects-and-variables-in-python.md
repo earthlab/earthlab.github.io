@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/objects-and-variables-in-python/
 nav-title: 'Objects in Python'
 dateCreated: 2017-05-23
-modified: 2018-10-08
+modified: 2019-09-03
 course: "earth-analytics-python"
 week: 3
 sidebar:
@@ -51,7 +51,7 @@ For example, if you type in `3 + 5`, `Python` will calculate the output value.
 
 {:.input}
 ```python
-# add 3 + 5
+# Add 3 + 5
 3 + 5
 ```
 
@@ -68,7 +68,7 @@ For example, if you type in `3 + 5`, `Python` will calculate the output value.
 
 {:.input}
 ```python
-# divide 12 by 7
+# Divide 12 by 7
 12 / 7
 ```
 
@@ -87,10 +87,10 @@ However, is it more useful to assign _values_ to _objects_. To create an object,
 
 {:.input}
 ```python
-# assign weight_kg to the value of 55
+# Assign weight_kg to the value of 55
 weight_kg = 55
 
-# view object value
+# View object value
 weight_kg
 ```
 
@@ -134,9 +134,9 @@ it to print the value by using parentheses or by typing the name:
 
 {:.input}
 ```python
-# here weight_kg is assigned to the value 55 however nothing is printed
+# Here weight_kg is assigned to the value 55 however nothing is printed
 weight_kg=55  
-# a variable name at the end of a cell will be printed by Jupyter notebook
+# A variable name at the end of a cell will be printed by Jupyter notebook
 weight_kg 
 ```
 
@@ -151,25 +151,20 @@ weight_kg
 
 
 
-{:.input}
-```python
-# python is case sensitive
+# Python is case sensitive
+```
 Weight_kg
 ```
 
-{:.output}
+```python
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-5-243504cb2fcf> in <module>()
+      1 # Python is case sensitive
+----> 2 Weight_kg
 
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-2-b8c9261fc186> in <module>()
-    ----> 1 Weight_kg
-    
-
-    NameError: name 'Weight_kg' is not defined
-
-
+NameError: name 'Weight_kg' is not defined
+```
 
 Now that `Python` has stored `weight_kg` in memory, you can do arithmetic with it. For
 instance, you may want to convert this weight in pounds (weight in pounds is 2.2

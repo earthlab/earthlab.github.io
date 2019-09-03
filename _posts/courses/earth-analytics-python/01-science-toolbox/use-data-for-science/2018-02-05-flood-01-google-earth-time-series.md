@@ -1,9 +1,9 @@
 ---
 layout: single
-title: 'Use Google Earth Time Series Images to Explore Flood Impacts'
+title: 'Use Google Earth Time Series Images to View Flood Impacts'
 excerpt: "Learn how to use the time series feature in Google Earth to view before and after images of a location."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2018-09-25
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/
@@ -52,9 +52,9 @@ Get Google Earth</a>
 
 </div>
 
-## About the 2013 CO Floods
+## About the 2013 Colorado Floods
 
-In early September 2013, a slow moving cold air front moved through Colorado
+In early September 2013, a slow moving cold air front moved through Colorado, USA
 intersecting with a warm, humid air front. The clash between the cold and warm
 airs fronts yielded heavy rain. This rain, combined with a drought conditions,
 Colorado soil conditions and other factors yielded devastating flooding across

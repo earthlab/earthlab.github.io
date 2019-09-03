@@ -3,7 +3,7 @@ layout: single
 title: 'Get and Work With Twitter Data in Python Using Tweepy'
 excerpt: 'You can use the Twitter RESTful API to access tweet data from Twitter. Learn how to use tweepy to download and work with twitter social media data in Python.'
 authors: ['Martha Morrissey', 'Leah Wasser','Carson Farmer']
-modified: 2019-01-02
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/get-and-use-twitter-data-in-python/
@@ -71,6 +71,7 @@ Once you have your Twitter app set-up, you are ready to access tweets in `Python
 
 {:.input}
 ```python
+import os
 import tweepy as tw
 import pandas as pd
 ```
@@ -92,6 +93,7 @@ consumer_secret= 'yourkeyhere'
 access_token= 'yourkeyhere'
 access_token_secret= 'yourkeyhere'
 ```
+
 
 {:.input}
 ```python
@@ -129,7 +131,7 @@ date_since = "2018-11-16"
 
 Below you use `.Cursor()` to search twitter for tweets containing the search term #wildfires. You can restrict the number of tweets returned by specifying a number in the `.items()` method. `.items(5)` will return 5 of the most recent tweets.
 
-{:.input}
+
 ```python
 # Collect tweets
 tweets = tw.Cursor(api.search,
@@ -137,18 +139,12 @@ tweets = tw.Cursor(api.search,
               lang="en",
               since=date_since).items(5)
 tweets
+
 ```
 
-{:.output}
-{:.execute_result}
-
-
-
-    <tweepy.cursor.ItemIterator at 0x7fafc296e400>
-
-
-
-
+```
+<tweepy.cursor.ItemIterator at 0x7fafc296e400>
+```
 
 `.Cursor()` returns an object that you can iterate or loop over to access the data collected. Each item in the iterator has various attributes that you can access to get information about each tweet including:
 
@@ -158,7 +154,8 @@ tweets
 
 and more. The code below loops through the object and prints the text associated with each tweet.
 
-{:.input}
+
+
 ```python
 # Collect tweets
 tweets = tw.Cursor(api.search,
@@ -166,23 +163,23 @@ tweets = tw.Cursor(api.search,
               lang="en",
               since=date_since).items(5)
 
-# Iterate on tweets
+# Iterate and print tweets
 for tweet in tweets:
     print(tweet.text)
+    
 ```
 
-{:.output}
-    2/2 provide forest products to local mills, provide jobs to local communities, and improve the ecological health of… https://t.co/XemzXvyPyX
-    1/2 Obama's Forest Service Chief in 2015 --&gt;"Treating these acres through commercial thinning, hazardous fuels remo… https://t.co/01obvjezQW
-    RT @EnviroEdgeNews: US-#Volunteers care for abandoned #pets found in #California #wildfires; #Dogs, #cats, [#horses], livestock get care an…
-    RT @FairWarningNews: The wildfires that ravaged CA have been contained, but the health impacts from the resulting air pollution will be sev…
-    RT @chiarabtownley: If you know anybody who has been affected by the wildfires, please refer them to @awarenow_io It is one of the companie…
+```
+2/2 provide forest products to local mills, provide jobs to local communities, and improve the ecological health of… https://t.co/XemzXvyPyX
+1/2 Obama's Forest Service Chief in 2015 --&gt;"Treating these acres through commercial thinning, hazardous fuels remo… https://t.co/01obvjezQW
+RT @EnviroEdgeNews: US-#Volunteers care for abandoned #pets found in #California #wildfires; #Dogs, #cats, [#horses], livestock get care an…
+RT @FairWarningNews: The wildfires that ravaged CA have been contained, but the health impacts from the resulting air pollution will be sev…
+RT @chiarabtownley: If you know anybody who has been affected by the wildfires, please refer them to @awarenow_io It is one of the companie…
+```
+
+The above approach uses a standard for loop. However, this is an excellent place to use a Python list comprehension. A list comprehension provides an efficient way to collect object elements contained within an iterator as a list.
 
 
-
-The above approach uses a standard for loop. However, this is an excellent place to use a Python list comprehension. A list comprehension provides an efficient way to collect object elements contained within an iterator as a list.  
-
-{:.input}
 ```python
 # Collect tweets
 tweets = tw.Cursor(api.search,
@@ -192,22 +189,16 @@ tweets = tw.Cursor(api.search,
 
 # Collect a list of tweets
 [tweet.text for tweet in tweets]
+
 ```
 
-{:.output}
-{:.execute_result}
-
-
-
-    ['2/2 provide forest products to local mills, provide jobs to local communities, and improve the ecological health of… https://t.co/XemzXvyPyX',
-     '1/2 Obama\'s Forest Service Chief in 2015 --&gt;"Treating these acres through commercial thinning, hazardous fuels remo… https://t.co/01obvjezQW',
-     'RT @EnviroEdgeNews: US-#Volunteers care for abandoned #pets found in #California #wildfires; #Dogs, #cats, [#horses], livestock get care an…',
-     'RT @FairWarningNews: The wildfires that ravaged CA have been contained, but the health impacts from the resulting air pollution will be sev…',
-     'RT @chiarabtownley: If you know anybody who has been affected by the wildfires, please refer them to @awarenow_io It is one of the companie…']
-
-
-
-
+```
+['Expert insight on how #wildfires impact our environment: https://t.co/sHg6PcC3R3',
+ 'Lomakatsi crews join the firefight: \n\n#wildfires #smoke #firefighter\n\nhttps://t.co/DcI2uvmKQv',
+ 'RT @rpallanuk: Current @PHE_uk #climate extremes bulletin: #Arctic #wildfires &amp; Greenland melt, #drought in Australia/NSW; #flooding+#droug…',
+ "RT @witzshared: And yet the lies continue. Can't trust a corporation this deaf dumb and blind -- PG&amp;E tells court deferred #Maintenance did…",
+ 'The #wildfires have consumed an area twice the size of Connecticut, and their smoke is reaching Seattle. Russia isn… https://t.co/SgoF6tds1s']
+```
 
 ## To Keep or Remove Retweets
 
@@ -247,11 +238,11 @@ tweets = tw.Cursor(api.search,
 
 
 
-    ['2/2 provide forest products to local mills, provide jobs to local communities, and improve the ecological health of… https://t.co/XemzXvyPyX',
-     '1/2 Obama\'s Forest Service Chief in 2015 --&gt;"Treating these acres through commercial thinning, hazardous fuels remo… https://t.co/01obvjezQW',
-     '"Start packing up!" Video shows how gender-reveal stunt sparked wildfire https://t.co/gvfNLI8NbO #Heatwave #Wildfires',
-     'The pictures and stories coming out of the California #wildfires are heartbreaking, but there are plenty of good st… https://t.co/s4D7JB3VGu',
-     'The wildfires that ravaged CA have been contained, but the health impacts from the resulting air pollution will be… https://t.co/bSdg9uHkqH']
+    ['While #wildfires rage across Bolivia, our improved #firebreaks at Laney Rickman Nature Reserve have stopped mayor f… https://t.co/XcpfVlJUSp',
+     '🤔 Circuit-breaker innovation to prevent  🔥🔥🔥 #bushfire ?\n\n🔸 #Wildfires \n🔸 #CO2 \n🔸 #climatechange\n\nCc: @OphelieJanus… https://t.co/yKf9cQcYtK',
+     'Dronefire explores the idea of using drones to "weaponize" wildfires. It\'s every bit as sinister as it sounds. Is i… https://t.co/BzaCGp227P',
+     'New! @LamontEarth climate experts @peedublya and Richard Seager discuss why California #wildfires are expected to e… https://t.co/65sqngZDJU',
+     'Nearly half of the city’s high-school students met the criteria for #PTSD, depression, anxiety or substance abuse,… https://t.co/NfPa2pXUyl']
 
 
 
@@ -266,13 +257,13 @@ You can access a wealth of information associated with each tweet. Below is an e
 
 You can experiment with other items available within each tweet by typing `tweet.` and using the tab button to see all of the available attributes stored. 
 
+
 {:.input}
 ```python
 tweets = tw.Cursor(api.search, 
                            q=new_search,
                            lang="en",
                            since=date_since).items(5)
-
 
 users_locs = [[tweet.user.screen_name, tweet.user.location] for tweet in tweets]
 users_locs
@@ -283,11 +274,11 @@ users_locs
 
 
 
-    [['TamaraHinton', 'Washington, DC'],
-     ['TamaraHinton', 'Washington, DC'],
-     ['robinsnewswire', "RT's Are FYI Purposes Only"],
-     ['PublicityErika', 'Seattle area'],
-     ['FairWarningNews', 'Los Angeles']]
+    [['armonia_bolivia', 'Bolivia'],
+     ['RagusoSergio', 'Switzerland'],
+     ['WillMatlack', 'SF Bay Area'],
+     ['climateandlife', 'Columbia University'],
+     ['C21dynamic21', '']]
 
 
 
@@ -333,29 +324,29 @@ tweet_text
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>TamaraHinton</td>
-      <td>Washington, DC</td>
+      <td>0</td>
+      <td>armonia_bolivia</td>
+      <td>Bolivia</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>TamaraHinton</td>
-      <td>Washington, DC</td>
+      <td>1</td>
+      <td>RagusoSergio</td>
+      <td>Switzerland</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>robinsnewswire</td>
-      <td>RT's Are FYI Purposes Only</td>
+      <td>2</td>
+      <td>WillMatlack</td>
+      <td>SF Bay Area</td>
     </tr>
     <tr>
-      <th>3</th>
-      <td>PublicityErika</td>
-      <td>Seattle area</td>
+      <td>3</td>
+      <td>climateandlife</td>
+      <td>Columbia University</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>FairWarningNews</td>
-      <td>Los Angeles</td>
+      <td>4</td>
+      <td>C21dynamic21</td>
+      <td></td>
     </tr>
   </tbody>
 </table>
@@ -373,7 +364,7 @@ For instance, if you search for `climate+change`, Twitter will return all tweets
 
 Note that the code below creates a list that can be queried using Python indexing to return the first five tweets. 
 
-{:.input}
+
 ```python
 new_search = "climate+change -filter:retweets"
 
@@ -384,22 +375,17 @@ tweets = tw.Cursor(api.search,
 
 all_tweets = [tweet.text for tweet in tweets]
 all_tweets[:5]
+
 ```
 
-{:.output}
-{:.execute_result}
 
-
-
-    ['“But as climate change is happening in real time, the practice of climate science...has never been at greater risk.… https://t.co/hIo1VtDnfW',
-     '“Climate Change isn’t real.” https://t.co/hzY4vQ09xM',
-     'BBC News - Climate change: CO2 emissions rising for first time in four years https://t.co/cxrzCQmmml',
-     "Ooh LOL. Anderson Cooper - giving Trump's ignorance a whipping. https://t.co/wbivZx8YHX",
-     '#NCA2018 makes it abundantly clear: the U.S. must do more to limit carbon emissions and combat the effects of clima… https://t.co/Xc81JouHQb']
-
-
-
-
+```
+['They care so much for these bears, but climate change is altering their relationship with them. It’s getting so dan… https://t.co/D4wLNhhsdt',
+ 'Prediction any celebrity/person in government that preaches about climate change probably is blackmailed… https://t.co/TM64QukGhy',
+ '@RichardBurgon Brain washed and trying to do the same to others. Capitalism is ALL that "Climate Change" is about. https://t.co/GbNE87luVx',
+ "We're in a climate crisis, but Canada's handing out billions to fossil fuel companies. Click to change this:… https://t.co/oQZXUfOWe8",
+ 'Hundreds Of Starved Reindeer Found Dead In Norway, Climate Change Blamed - Forbes #nordic #norway https://t.co/9XLS8yi72l']
+```
 
 In the next lesson, you will explore calculating word frequencies associated with tweets using `Python`.
 
@@ -411,3 +397,4 @@ In the next lesson, you will explore calculating word frequencies associated wit
 * <a href="https://developer.twitter.com/en/docs/tweets/rules-and-filtering/overview/standard-operators" target="_blank">Twitter API documentation</a>
 
 </div >
+
