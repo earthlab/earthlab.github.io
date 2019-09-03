@@ -4,7 +4,7 @@ category: courses
 title: 'Set Up Your Conda Python Environment'
 excerpt: 'Conda environments allow you to easily manage the Python package installations on your computer. Learn how to install a conda environment.'
 authors: ['Leah Wasser', 'Jenny Palomino', 'Martha Morrissey']
-modified: 2019-08-22
+modified: 2019-08-24
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/setup-python-conda-earth-analytics-environment/
 nav-title: 'Set up Conda Environment'

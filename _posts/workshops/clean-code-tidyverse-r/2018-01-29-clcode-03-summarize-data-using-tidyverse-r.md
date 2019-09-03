@@ -6,7 +6,7 @@ title: 'Use tidyverse group_by and summarise to Manipulate Data in R'
 attribution: ''
 excerpt: 'Learn how to write pseudocode to plan our your approach to working with data. Then use tidyverse functions including group_by and summarise to implement your plan.'
 dateCreated: 2018-01-29
-modified: '2018-02-02'
+modified: '2019-08-28'
 nav-title: 'Summarize Data'
 sidebar:
   nav:
@@ -95,14 +95,10 @@ servers.
 ```r
 # import data using readr
 all_paths <- read_csv("data/data_urls.csv")
-## Parsed with column specification:
-## cols(
-##   url = col_character()
-## )
 glimpse(all_paths)
 ## Observations: 33
 ## Variables: 1
-## $ url <chr> "https://s3-us-west-2.amazonaws.com/earthlab-teaching/vchm...
+## $ url <chr> "https://s3-us-west-2.amazonaws.com/earthlab-teaching/vchm/M…
 ```
 
 ### Open a File with readr::read_csv
@@ -116,18 +112,6 @@ just imported above.
 first_csv <- all_paths$url[1]
 # open the first data file using readr:read_csv
 year_one <- read_csv(first_csv)
-## Parsed with column specification:
-## cols(
-##   STATION = col_character(),
-##   STATION_NAME = col_character(),
-##   ELEVATION = col_double(),
-##   LATITUDE = col_double(),
-##   LONGITUDE = col_double(),
-##   DATE = col_datetime(format = ""),
-##   HPCP = col_character(),
-##   `Measurement Flag` = col_character(),
-##   `Quality Flag` = col_character()
-## )
 ```
 
 Note that when you use `readr::read_csv`, it returns the data class that
@@ -239,21 +223,9 @@ read_csv(first_csv) %>%
   group_by(STATION_NAME) %>%
 # 3. calculate the total time by subtracting the min date from the max date.
   summarize(total_days = max(DATE) - min(DATE))
-## Parsed with column specification:
-## cols(
-##   STATION = col_character(),
-##   STATION_NAME = col_character(),
-##   ELEVATION = col_double(),
-##   LATITUDE = col_double(),
-##   LONGITUDE = col_double(),
-##   DATE = col_datetime(format = ""),
-##   HPCP = col_character(),
-##   `Measurement Flag` = col_character(),
-##   `Quality Flag` = col_character()
-## )
 ## # A tibble: 4 x 2
-##      STATION_NAME    total_days
-##             <chr>        <time>
+##   STATION_NAME    total_days   
+##   <chr>           <drtn>       
 ## 1 BOULdER 2 CO US   0.0000 secs
 ## 2 BOULDEr 2 CO US   0.0000 secs
 ## 3 BOULDER 2 cO US 113.5417 secs
@@ -282,23 +254,7 @@ data.frame  %>%
 Note that the code above does NOT create the plot below! It provides you with
 the syntax that you need to create the plot.
 
-
-```
-## Parsed with column specification:
-## cols(
-##   STATION = col_character(),
-##   STATION_NAME = col_character(),
-##   ELEVATION = col_double(),
-##   LATITUDE = col_double(),
-##   LONGITUDE = col_double(),
-##   DATE = col_datetime(format = ""),
-##   HPCP = col_character(),
-##   `Measurement Flag` = col_character(),
-##   `Quality Flag` = col_character()
-## )
-```
-
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-03-summarize-data-using-tidyverse-r/precip-plot-1.png" title="plot of chunk precip-plot" alt="plot of chunk precip-plot" width="90%" />
+<img src="{{ site.url }}/images/workshops//clean-code-tidyverse-r/2018-01-29-clcode-03-summarize-data-using-tidyverse-r/precip-plot-1.png" title="plot of chunk precip-plot" alt="plot of chunk precip-plot" width="90%" />
 
 
 </div>

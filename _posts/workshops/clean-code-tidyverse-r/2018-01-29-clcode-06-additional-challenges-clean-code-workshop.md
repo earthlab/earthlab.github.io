@@ -6,7 +6,7 @@ title: 'Challenge Yourself'
 attribution: ''
 excerpt: 'This lesson contains a series of challenges that require using tidyverse functions in R to process data.'
 dateCreated: 2018-01-29
-modified: '2018-02-02'
+modified: '2019-08-28'
 nav-title: 'Challenge Yourself'
 sidebar:
   nav:
@@ -43,11 +43,12 @@ Follow the setup instructions here:
 [<i class="fa fa-download" aria-hidden="true"></i> Overview of clean code ]({{ site.url }}/courses/earth-analytics/automate-science-workflows/write-efficient-code-for-science-r/){:data-proofer-ignore='' .btn }
 
 
+
 In the previous lessons, you have learned a set of skills that will allow you
 to work with tabular data using the `tidyverse` in `R` including
 
 * Writing for loops
-* Using pipes and `tidyverse` functions to create expressive code that 
+* Using pipes and `tidyverse` functions to create expressive code that
 minimizes intermediate outputs
 * Handling missing data values
 
@@ -67,13 +68,22 @@ HINTS:
 * `year()` is a lubridate function, consider column names CAREFULLY if you add a column to your data.
 
 The plot below is one example of how you might exploration this challenge. Feel
-free to produce other plots that also help explore variability per site! 
+free to produce other plots that also help explore variability per site!
 
 
 
 
 
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-06-additional-challenges-clean-code-workshop/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="90%" />
+
+```
+## 
+## Attaching package: 'scales'
+## The following object is masked from 'package:readr':
+## 
+##     col_factor
+```
+
+<img src="{{ site.url }}/images/workshops//clean-code-tidyverse-r/2018-01-29-clcode-06-additional-challenges-clean-code-workshop/unnamed-chunk-1-1.png" title="plot of chunk unnamed-chunk-1" alt="plot of chunk unnamed-chunk-1" width="90%" />
 
 ## Challenge 2
 
@@ -100,7 +110,16 @@ with only the year and month in it.
 Once the zoo package is loaded, you can then use + scale_x_yearmon() to scale the
 x axis of your ggplot() plot.
 
-<img src="{{ site.url }}/images/rfigs/workshops/clean-code-tidyverse-r/2018-01-29-clcode-06-additional-challenges-clean-code-workshop/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="90%" />
+
+```
+## 
+## Attaching package: 'zoo'
+## The following objects are masked from 'package:base':
+## 
+##     as.Date, as.Date.numeric
+```
+
+<img src="{{ site.url }}/images/workshops//clean-code-tidyverse-r/2018-01-29-clcode-06-additional-challenges-clean-code-workshop/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="90%" />
 
 
 ## Challenge 3
@@ -117,24 +136,23 @@ Calculate it for yourself in R. The correct answer is below.
 ## # A tibble: 3 x 2
 ## # Groups:   toupper(STATION_NAME) [3]
 ##   `toupper(STATION_NAME)`     n
-##                     <chr> <int>
-## 1         BOULDER 2 CO US  1840
-## 2          DENVER 1 CO US  1840
-## 3           LYONS 1 CO US  1840
+##   <chr>                   <int>
+## 1 BOULDER 2 CO US          1840
+## 2 DENVER 1 CO US           1840
+## 3 LYONS 1 CO US            1840
 ```
 
 ## Challenge 4
 
-Explore ggplot! Make a plot that shows monthly mean precipitation at each station 
+Explore ggplot! Make a plot that shows monthly mean precipitation at each station
 that is publication ready. Consider the following when creating this plot:
 
 * Customize axis labels (e.g. display pretty axis labels like Jan
 instead of 1.0 for month)
 * Change the look of the plot using a theme
-* Customize the fonts used in the plot and colors. 
+* Customize the fonts used in the plot and colors.
 
 Customize any aspects of the plot that you wish. Then use `ggsave()` to save
 the plot as a pdf file.
-
 
 

@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-19
+modified: 2019-08-24
 category: [courses]
 permalink: /workshops/gis-open-source-python/open-lidar-raster-python/
 nav-title: 'Open Raster Data Python'
@@ -103,33 +103,21 @@ from rasterio.mask import mask
 # a package created for this class that will be discussed later in this lesson
 import earthpy as et
 import earthpy.spatial as es
-# plot inline in the notebook
-plt.ion()
+import earthpy.plot as ep
+
 # set home directory and download data
+et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 ```
 
-Next, download the data. This line of code should only be run if you don't have the data on your computer already!
-
-{:.input}
-```python
-# get the data (it should end up in your home/earth-analytics/data directory)
-# once you have downloaded the data this will not run again unless you force it to overwrite
-et.data.get_data("spatial-vector-lidar")
-
-```
-
 {:.output}
-{:.execute_result}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
 
 
 
-    'C:\\Users\\jomc9287\\earth-analytics\\data\\spatial-vector-lidar\\.'
-
-
-
-
+Next, download the data. This line of code should only be run if you don't have the data on your computer already!
 
 Note that you import the `rasterio` library using the alias (or shortname) `rio`.
 You use the `rio.open("path-to-raster-here")` function to open a raster dataset using `rio` in `Python`.
@@ -172,7 +160,11 @@ ax.set_axis_off()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_9_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_8_0.png">
+
+</figure>
 
 
 
@@ -234,7 +226,11 @@ ax.set_axis_off()
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_14_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_13_0.png">
+
+</figure>
 
 
 
@@ -343,7 +339,11 @@ ax.imshow(lidar_dem_im,
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_23_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_22_0.png">
+
+</figure>
 
 
 
@@ -368,7 +368,7 @@ ax.set_title("Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Corre
 
 
 
-    Text(0.5,1,'Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Correct Spatial Extent')
+    Text(0.5, 1.0, 'Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Correct Spatial Extent')
 
 
 
@@ -377,7 +377,11 @@ ax.set_title("Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Corre
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_25_1.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_24_1.png">
+
+</figure>
 
 
 
@@ -400,7 +404,11 @@ ax.set_title("Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Corre
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_27_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_26_0.png">
+
+</figure>
 
 
 
@@ -420,14 +428,18 @@ lidar_plot = ax.imshow(lidar_dem_im,
      extent = sjer_ext)
 ax.set_title("Lidar Digital Elevation Model \n Pre 2013 Boulder Flood | Lee Hill Road",
             fontsize=20)
-es.colorbar(lidar_plot)
+ep.colorbar(lidar_plot)
 ax.set_axis_off();
 ```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_29_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_28_0.png">
+
+</figure>
 
 
 
@@ -450,14 +462,18 @@ im = ax.imshow(lidar_dem_im,
                extent = sjer_ext)
 ax.set_title("Digital Elevation Model - Pre 2013 Flood", 
              fontsize=20)
-es.colorbar(im)
+ep.colorbar(im)
 ax.set_axis_off();
 ```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_32_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_31_0.png">
+
+</figure>
 
 
 
@@ -476,6 +492,7 @@ low elevation?
 
 To plot a histogram use the `rasterio` - `show_hist()` function.
 
+
 {:.input}
 ```python
 # create histogram of data
@@ -486,7 +503,11 @@ show_hist(lidar_dem_im,
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_34_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_34_0.png">
+
+</figure>
 
 
 
@@ -505,7 +526,11 @@ show_hist(lidar_dem_im,
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_35_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_35_0.png">
+
+</figure>
 
 
 
@@ -522,7 +547,11 @@ The file that you opened above was an elevation model representing the elvation 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python_37_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_37_0.png">
+
+</figure>
 
 
 

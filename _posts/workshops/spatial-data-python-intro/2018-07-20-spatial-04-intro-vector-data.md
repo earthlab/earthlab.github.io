@@ -4,7 +4,7 @@ category: [courses]
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-08-24
+modified: 2019-08-24
 permalink: /workshops/gis-open-source-python/intro-vector-data-python/
 nav-title: 'Vector Data in Python'
 module-type: 'workshop'
@@ -111,10 +111,8 @@ import matplotlib.pyplot as plt
 import os
 import earthpy as et
 
-# plot data inline
-plt.ion() 
-
-# set working directory
+# set home directory and download data
+et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -206,7 +204,7 @@ sjer_plot_locations.head(6)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>SJER1068</td>
       <td>center</td>
       <td>4111567.818</td>
@@ -215,7 +213,7 @@ sjer_plot_locations.head(6)
       <td>POINT (255852.376 4111567.818)</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>SJER112</td>
       <td>center</td>
       <td>4111298.971</td>
@@ -224,7 +222,7 @@ sjer_plot_locations.head(6)
       <td>POINT (257406.967 4111298.971)</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>SJER116</td>
       <td>center</td>
       <td>4110819.876</td>
@@ -233,7 +231,7 @@ sjer_plot_locations.head(6)
       <td>POINT (256838.76 4110819.876)</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>SJER117</td>
       <td>center</td>
       <td>4108752.026</td>
@@ -242,7 +240,7 @@ sjer_plot_locations.head(6)
       <td>POINT (256176.947 4108752.026)</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>SJER120</td>
       <td>center</td>
       <td>4110476.079</td>
@@ -251,7 +249,7 @@ sjer_plot_locations.head(6)
       <td>POINT (255968.372 4110476.079)</td>
     </tr>
     <tr>
-      <th>5</th>
+      <td>5</td>
       <td>SJER128</td>
       <td>center</td>
       <td>4111388.570</td>
@@ -415,6 +413,7 @@ sjer_plot_locations.shape
 
 
 
+
 # Plot a Shapefile
 
 Next, you can visualize the data in your `Python` `geodata.frame` object using the `.plot()` method. Notice that you can create a plot using the geopandas base plotting using the syntax:
@@ -433,7 +432,11 @@ sjer_plot_locations.plot(ax=ax);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_17_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_18_0.png">
+
+</figure>
 
 
 
@@ -464,7 +467,11 @@ sjer_plot_locations.plot(column='plot_type',
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_19_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_20_0.png">
+
+</figure>
 
 
 
@@ -490,7 +497,11 @@ ax.set_title('SJER Plot Locations\nMadera County, CA', fontsize=16);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_21_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_22_0.png">
+
+</figure>
 
 
 
@@ -519,7 +530,11 @@ ax.set_title('SJER Plot Locations\nMadera County, CA',
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_23_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_24_0.png">
+
+</figure>
 
 
 
@@ -540,7 +555,11 @@ ax.set_title('SJER Plot Locations\nMadera County, CA',
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_24_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_25_0.png">
+
+</figure>
 
 
 
@@ -571,6 +590,7 @@ Answer the following questions:
 4. How many spatial objects are in each file?
 
 </div>
+
 
 
 ## Plot Multiple Shapefiles
@@ -612,13 +632,18 @@ sjer_plot_locations.plot(ax=ax,
 # add a title to the plot
 ax.set_title('SJER Plot Locations\nMadera County, CA')
 ax.set_axis_off()
-plt.axis('equal');
+plt.axis('equal')
+plt.show()
 ```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_29_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_31_0.png">
+
+</figure>
 
 
 
@@ -661,7 +686,11 @@ plt.axis('equal');
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data_31_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_33_0.png">
+
+</figure>
 
 
 

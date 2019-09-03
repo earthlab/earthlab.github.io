@@ -6,7 +6,7 @@ title: 'How to fork a repo in GitHub'
 attribution: ''
 excerpt: 'Learn how to fork a repository using the GitHub website.'
 dateCreated: 2017-09-12
-modified: '2018-09-10'
+modified: '2019-08-28'
 nav-title: 'Fork a GitHub repo'
 sidebar:
   nav:
