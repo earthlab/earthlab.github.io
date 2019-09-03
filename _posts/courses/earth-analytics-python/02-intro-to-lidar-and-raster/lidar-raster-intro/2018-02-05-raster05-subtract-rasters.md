@@ -186,7 +186,8 @@ Finally, plot your newly created canopy height model.
 ep.plot_bands(lidar_chm_im, 
               cmap='viridis',
               title="Lidar Canopy Height Model (CHM)",
-              scale=False);
+              scale=False)
+plt.show()
 ```
 
 {:.output}
@@ -206,7 +207,8 @@ ep.plot_bands(lidar_chm_im,
 ```python
 ep.hist(lidar_dem_im[~lidar_dem_im.mask].ravel(), 
         colors = 'purple',
-        title="Histogram of CHM Values");
+        title="Histogram of CHM Values")
+plt.show()
 ```
 
 {:.output}

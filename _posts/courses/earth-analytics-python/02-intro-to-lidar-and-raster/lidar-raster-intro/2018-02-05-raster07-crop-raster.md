@@ -244,7 +244,8 @@ ep.plot_bands(lidar_chm_crop[0],
               extent=lidar_chm_extent,
               cmap='Greys',
               title="Cropped Raster Dataset",
-              scale=False);
+              scale=False)
+plt.show()
 ```
 
 {:.output}

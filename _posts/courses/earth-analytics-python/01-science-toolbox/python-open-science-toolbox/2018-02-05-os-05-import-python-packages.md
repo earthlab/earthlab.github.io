@@ -38,7 +38,7 @@ At the end of this activity, you will be able to:
  
 </div>
 
-Information below is adapted from materials developed by Anaconda on managing packages: <a href="https://conda.io/docs/user-guide/tasks/manage-pkgs.html" target = "_blank">Conda Documentation</a>.
+Information below is adapted from materials developed by Anaconda on managing packages: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html" target = "_blank">Conda Documentation</a>.
 
 ## What is a Package?
 
