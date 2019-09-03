@@ -3,7 +3,7 @@ layout: single
 title: "The Relationship Between Precipitation and Stream Discharge | Explore Mass Balance"
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -22,24 +22,28 @@ topics:
 
 To begin, load all of your libraries.
 
+
+
 {:.input}
 ```python
-import hydrofunctions as hf
-import urllib
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 import os
 import math
-plt.ion()
-# set standard plot parameters for uniform plotting
-plt.rcParams['figure.figsize'] = (11, 6)
-# prettier plotting with seaborn
-import seaborn as sns; 
-sns.set(font_scale=1.5)
-sns.set_style("whitegrid")
-# set working dir and import earthpy
+import pandas as pd
+import urllib
+import matplotlib.pyplot as plt
+import seaborn as sns
+import hydrofunctions as hf
 import earthpy as et
+
+# Date time conversion registration
+from pandas.plotting import register_matplotlib_converters
+register_matplotlib_converters()
+
+# Prettier plotting with seaborn
+sns.set(font_scale=1.5, style="whitegrid")
+
+# Get the data & set working director
+data = et.data.get_data('colorado-flood')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -48,23 +52,108 @@ picking up from the previous lesson...
 
 {:.input}
 ```python
-# define the site number and start and end dates that you are interested in
+# Define the site number and start and end dates that you are interested in
 site = "06730500"
 start = '1946-05-10'
 end = '2018-08-29'
-
-# then request data for that site and time period 
+# Request data for that site and time period
 longmont_resp = hf.get_nwis(site, 'dv', start, end)
-# get the data in a pandas dataframe format
-longmont_discharge = hf.extract_nwis_df(longmont_resp)
-# rename columns
-longmont_discharge.columns = ["discharge", "flag"]
-# view first 5 rows
-# add a year column to your longmont discharge data
-longmont_discharge["year"]=longmont_discharge.index.year
+# Convert the response to a json in order to use the extract_nwis_df function
+longmont_resp = longmont_resp.json()
+# Get metadata about the data
+hf.get_nwis(site, 'dv').json()
+```
 
+{:.output}
+{:.execute_result}
+
+
+
+    {'name': 'ns1:timeSeriesResponseType',
+     'declaredType': 'org.cuahsi.waterml.TimeSeriesResponseType',
+     'scope': 'javax.xml.bind.JAXBElement$GlobalScope',
+     'value': {'queryInfo': {'queryURL': 'http://waterservices.usgs.gov/nwis/dv/format=json%2C1.1&sites=06730500&parameterCd=00060',
+       'criteria': {'locationParam': '[ALL:06730500]',
+        'variableParam': '[00060]',
+        'parameter': []},
+       'note': [{'value': '[ALL:06730500]', 'title': 'filter:sites'},
+        {'value': '[mode=LATEST, modifiedSince=null]',
+         'title': 'filter:timeRange'},
+        {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
+        {'value': '2019-09-03T23:13:39.817Z', 'title': 'requestDT'},
+        {'value': '77011680-cea0-11e9-a7f4-6cae8b663fb6', 'title': 'requestId'},
+        {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
+         'title': 'disclaimer'},
+        {'value': 'vaas01', 'title': 'server'}]},
+      'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
+         'siteCode': [{'value': '06730500',
+           'network': 'NWIS',
+           'agencyCode': 'USGS'}],
+         'timeZoneInfo': {'defaultTimeZone': {'zoneOffset': '-07:00',
+           'zoneAbbreviation': 'MST'},
+          'daylightSavingsTimeZone': {'zoneOffset': '-06:00',
+           'zoneAbbreviation': 'MDT'},
+          'siteUsesDaylightSavingsTime': True},
+         'geoLocation': {'geogLocation': {'srs': 'EPSG:4326',
+           'latitude': 40.13877778,
+           'longitude': -105.0202222},
+          'localSiteXY': []},
+         'note': [],
+         'siteType': [],
+         'siteProperty': [{'value': 'ST', 'name': 'siteTypeCd'},
+          {'value': '10190005', 'name': 'hucCd'},
+          {'value': '08', 'name': 'stateCd'},
+          {'value': '08123', 'name': 'countyCd'}]},
+        'variable': {'variableCode': [{'value': '00060',
+           'network': 'NWIS',
+           'vocabulary': 'NWIS:UnitValues',
+           'variableID': 45807197,
+           'default': True}],
+         'variableName': 'Streamflow, ft&#179;/s',
+         'variableDescription': 'Discharge, cubic feet per second',
+         'valueType': 'Derived Value',
+         'unit': {'unitCode': 'ft3/s'},
+         'options': {'option': [{'value': 'Mean',
+            'name': 'Statistic',
+            'optionCode': '00003'}]},
+         'note': [],
+         'noDataValue': -999999.0,
+         'variableProperty': [],
+         'oid': '45807197'},
+        'values': [{'value': [{'value': '3.78',
+            'qualifiers': ['P'],
+            'dateTime': '2019-09-02T00:00:00.000'}],
+          'qualifier': [{'qualifierCode': 'P',
+            'qualifierDescription': 'Provisional data subject to revision.',
+            'qualifierID': 0,
+            'network': 'NWIS',
+            'vocabulary': 'uv_rmk_cd'}],
+          'qualityControlLevel': [],
+          'method': [{'methodDescription': '', 'methodID': 17666}],
+          'source': [],
+          'offset': [],
+          'sample': [],
+          'censorCode': []}],
+        'name': 'USGS:06730500:00060:00003'}]},
+     'nil': False,
+     'globalScope': True,
+     'typeSubstituted': False}
+
+
+
+
+
+{:.input}
+```python
+# Get the data in a pandas dataframe format
+longmont_discharge = hf.extract_nwis_df(longmont_resp)
+# Rename columns
+longmont_discharge.columns = ["discharge", "flag"]
+# Add a year column to your longmont discharge data
+longmont_discharge["year"] = longmont_discharge.index.year
 # Calculate annual max by resampling
 longmont_discharge_annual_max = longmont_discharge.resample('AS').max()
+# View first 5 rows
 longmont_discharge_annual_max.head()
 ```
 
@@ -104,31 +193,31 @@ longmont_discharge_annual_max.head()
   </thead>
   <tbody>
     <tr>
-      <th>1946-01-01</th>
+      <td>1946-01-01</td>
       <td>99.0</td>
       <td>A</td>
       <td>1946.0</td>
     </tr>
     <tr>
-      <th>1947-01-01</th>
+      <td>1947-01-01</td>
       <td>1930.0</td>
       <td>A</td>
       <td>1947.0</td>
     </tr>
     <tr>
-      <th>1948-01-01</th>
+      <td>1948-01-01</td>
       <td>339.0</td>
       <td>A</td>
       <td>1948.0</td>
     </tr>
     <tr>
-      <th>1949-01-01</th>
+      <td>1949-01-01</td>
       <td>2010.0</td>
       <td>A</td>
       <td>1949.0</td>
     </tr>
     <tr>
-      <th>1950-01-01</th>
+      <td>1950-01-01</td>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -143,30 +232,26 @@ longmont_discharge_annual_max.head()
 
 {:.input}
 ```python
-# download usgs annual max data from figshare
+# Download usgs annual max data from figshare
 url = "https://nwis.waterdata.usgs.gov/nwis/peak?site_no=06730500&agency_cd=USGS&format=rdb"
 download_path = "data/colorado-flood/downloads/annual-peak-flow.txt"
 urllib.request.urlretrieve(url, download_path)
-# open the data using pandas
+# Open the data using pandas
 usgs_annual_max = pd.read_csv(download_path,
-                              skiprows = 63,
-                              header=[1,2], 
-                              sep='\t', 
-                              parse_dates = [2])
-# drop one level of index
-usgs_annual_max.columns = usgs_annual_max.columns.droplevel(1)
-# finally set the date column as the index
-usgs_annual_max = usgs_annual_max.set_index(['peak_dt'])
+                              comment="#",
+                              sep='\t',
+                              parse_dates=["peak_dt"],
+                              skiprows=[73],
+                              usecols=["peak_dt","peak_va"],
+                              index_col="peak_dt")
+usgs_annual_max.head()
 
-# optional - remove columns we don't need - this is just to make the lesson easier to read
-# you can skip this step if you want
-usgs_annual_max = usgs_annual_max.drop(["gage_ht_cd", "year_last_pk","ag_dt", "ag_gage_ht", "ag_tm", "ag_gage_ht_cd"], axis=1)
-
-# add a year column to the data for easier plotting
+# Add a year column to the data for easier plotting
 usgs_annual_max["year"] = usgs_annual_max.index.year
-# remove duplicate years - keep the max discharge value
-usgs_annual_max = usgs_annual_max.sort_values('peak_va', ascending=False).drop_duplicates('year').sort_index()
-# view cleaned dataframe
+# Remove duplicate years - keep the max discharge value
+usgs_annual_max = usgs_annual_max.sort_values(
+    'peak_va', ascending=False).drop_duplicates('year').sort_index()
+# View cleaned dataframe
 usgs_annual_max.head()
 ```
 
@@ -193,74 +278,39 @@ usgs_annual_max.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>agency_cd</th>
-      <th>site_no</th>
-      <th>peak_tm</th>
       <th>peak_va</th>
-      <th>peak_cd</th>
-      <th>gage_ht</th>
       <th>year</th>
     </tr>
     <tr>
       <th>peak_dt</th>
       <th></th>
       <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1927-07-29</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>06:00</td>
+      <td>1927-07-29</td>
       <td>407.0</td>
-      <td>5</td>
-      <td>3.00</td>
       <td>1927</td>
     </tr>
     <tr>
-      <th>1928-06-04</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>09:00</td>
+      <td>1928-06-04</td>
       <td>694.0</td>
-      <td>5</td>
-      <td>3.84</td>
       <td>1928</td>
     </tr>
     <tr>
-      <th>1929-07-23</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>15:00</td>
+      <td>1929-07-23</td>
       <td>530.0</td>
-      <td>5</td>
-      <td>3.40</td>
       <td>1929</td>
     </tr>
     <tr>
-      <th>1930-08-18</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>05:00</td>
+      <td>1930-08-18</td>
       <td>353.0</td>
-      <td>5</td>
-      <td>2.94</td>
       <td>1930</td>
     </tr>
     <tr>
-      <th>1931-05-29</th>
-      <td>USGS</td>
-      <td>6730500</td>
-      <td>09:00</td>
+      <td>1931-05-29</td>
       <td>369.0</td>
-      <td>5</td>
-      <td>2.88</td>
       <td>1931</td>
     </tr>
   </tbody>
@@ -273,7 +323,7 @@ usgs_annual_max.head()
 
 {:.input}
 ```python
-# plot calculated vs USGS annual max flow values
+# Plot calculated vs USGS annual max flow values
 fig, ax = plt.subplots(figsize = (11,9))
 ax.plot(usgs_annual_max["year"], 
         usgs_annual_max["peak_va"],
@@ -287,7 +337,8 @@ ax.plot(longmont_discharge_annual_max["year"],
         linestyle=':', 
         marker='o', label = "Calculated Annual Max")
 ax.legend()
-ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated");
+ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated")
+plt.show()
 ```
 
 {:.output}
@@ -295,7 +346,7 @@ ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_6_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance/2018-02-05-ts07-cumulative-sum-mass-balance_8_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
 <figcaption>Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.</figcaption>
 
 </figure>
@@ -318,7 +369,7 @@ Together - stream runoff and precipitation can be explored to better understand 
 
 {:.input}
 ```python
-# convert site drainage area to square km
+# Convert site drainage area to square km
 miles_km = 2.58999
 site_drainage = 447
 longmont_area = site_drainage * miles_km
@@ -397,35 +448,35 @@ longmont_discharge.head()
   </thead>
   <tbody>
     <tr>
-      <th>1946-05-10</th>
+      <td>1946-05-10</td>
       <td>16.0</td>
       <td>A</td>
       <td>1946</td>
       <td>1.600440e+09</td>
     </tr>
     <tr>
-      <th>1946-05-11</th>
+      <td>1946-05-11</td>
       <td>19.0</td>
       <td>A</td>
       <td>1946</td>
       <td>3.500962e+09</td>
     </tr>
     <tr>
-      <th>1946-05-12</th>
+      <td>1946-05-12</td>
       <td>9.0</td>
       <td>A</td>
       <td>1946</td>
       <td>4.401209e+09</td>
     </tr>
     <tr>
-      <th>1946-05-13</th>
+      <td>1946-05-13</td>
       <td>3.0</td>
       <td>A</td>
       <td>1946</td>
       <td>4.701292e+09</td>
     </tr>
     <tr>
-      <th>1946-05-14</th>
+      <td>1946-05-14</td>
       <td>7.8</td>
       <td>A</td>
       <td>1946</td>
@@ -453,7 +504,7 @@ Where you define a second axis but tell matplotlib to create that axis on the `a
 
 {:.input}
 ```python
-# plot your data
+# Plot your data
 fig, ax = plt.subplots(figsize=(11,7))
 longmont_discharge["cum-sum-vol"].plot(ax=ax, label = "Cumulative Volume")
 
@@ -473,7 +524,7 @@ ax2.set_ylim(0,10000)
 ax.set_title("Cumulative Sum & Daily Mean Discharge")
 ax.legend()
 
-# reposition the second legend so it renders under the first legend item
+# Reposition the second legend so it renders under the first legend item
 ax2.legend(loc = "upper left", bbox_to_anchor=(0.0, 0.9))
 fig.tight_layout()
 plt.show()
@@ -485,7 +536,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance_13_0.png" alt = "Cumulative sum plot for stream discharge.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance/2018-02-05-ts07-cumulative-sum-mass-balance_15_0.png" alt = "Cumulative sum plot for stream discharge.">
 <figcaption>Cumulative sum plot for stream discharge.</figcaption>
 
 </figure>

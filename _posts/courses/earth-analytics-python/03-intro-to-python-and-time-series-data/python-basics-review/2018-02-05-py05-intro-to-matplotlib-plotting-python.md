@@ -3,7 +3,7 @@ layout: single
 title: "Customize matplotlib plots in Python - earth analytics - data science for scientists"
 excerpt: 'Matplotlib is one of the most commonly used plotting library in Python. This lesson covers how to create a plot using matplotlib and how to customize matplotlib plot colors and label axes in Python.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
@@ -65,42 +65,35 @@ First, explore the code below to that was used to download the data and then cre
 
 {:.input}
 ```python
-# import required python packages
+# Import required python packages
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter
-import os
+import seaborn as sns
 import urllib
-plt.ion()
 import earthpy as et
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
-# set parameters so all plots are consistent
-plt.rcParams['figure.figsize'] = (8, 8)
-plt.rcParams['axes.titlesize'] = 20
-#plt.rcParams['axes.facecolor']='white'
-#plt.rcParams['grid.color'] = 'grey'
-#plt.rcParams['grid.linestyle'] = '-'
-#plt.rcParams['grid.linewidth'] = '.5'
-plt.rcParams['lines.color'] = 'purple'
-#plt.rcParams['axes.grid'] = True
+# Prettier plotting with seaborn
+sns.set(font_scale=1.5, style="whitegrid")
 ```
 
 In the previous lessons you downloaded and imported data from [figshare](https://figshare.com/authors/_/3386570) into Python using the following code.
 
 {:.input}
 ```python
-# download file from Earth Lab figshare repository
-urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/7010681', 
-                           filename= 'data/colorado-flood/boulder-precip.csv')
+# Download file from Earth Lab figshare repository
+urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/7010681',
+                           filename='data/colorado-flood/boulder-precip.csv')
 
-# is parse dates a function argument that recoganizes dates  
-boulder_precip = pd.read_csv('data/colorado-flood/downloads/boulder-precip.csv', 
-                             index_col=['DATE'], 
+# is parse dates a function argument that recoganizes dates
+boulder_precip = pd.read_csv('data/colorado-flood/downloads/boulder-precip.csv',
+                             index_col=['DATE'],
                              parse_dates=['DATE'])
 
-# view first few rows of data
+# View first few rows of data
 boulder_precip.head()
 ```
 
@@ -138,27 +131,27 @@ boulder_precip.head()
   </thead>
   <tbody>
     <tr>
-      <th>2013-08-21</th>
+      <td>2013-08-21</td>
       <td>756</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <th>2013-08-26</th>
+      <td>2013-08-26</td>
       <td>757</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <th>2013-08-27</th>
+      <td>2013-08-27</td>
       <td>758</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <th>2013-09-01</th>
+      <td>2013-09-01</td>
       <td>759</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <th>2013-09-09</th>
+      <td>2013-09-09</td>
       <td>760</td>
       <td>0.1</td>
     </tr>
@@ -174,8 +167,10 @@ Then the data was plotted using the pandas function, `.plot()`.
 
 {:.input}
 ```python
-# plot using pandas .plot()
-boulder_precip.plot('DATE', 'PRECIP');
+# Plot using pandas .plot()
+boulder_precip.plot(y='PRECIP',
+                    color="purple")
+plt.show()
 ```
 
 {:.output}
@@ -183,7 +178,7 @@ boulder_precip.plot('DATE', 'PRECIP');
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_7_0.png" alt = "Basic matplotlib plot with dates on the x axis using .plot().">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_7_0.png" alt = "Basic matplotlib plot with dates on the x axis using .plot().">
 <figcaption>Basic matplotlib plot with dates on the x axis using .plot().</figcaption>
 
 </figure>
@@ -200,23 +195,11 @@ publication quality plots with a minimal amount of settings and tweaking.
 
 To build a matplotlib plot you need to:
 
-1. define the axes 
+1. Define the axes 
 
 {:.input}
 ```python
-# set plot formatting for all plots in the notebook
-plt.rcParams['figure.figsize'] = (8, 8)
-plt.rcParams['axes.titlesize'] = 20
-#plt.rcParams['axes.facecolor']='white'
-#plt.rcParams['grid.color'] = 'grey'
-#plt.rcParams['grid.linestyle'] = '-'
-#plt.rcParams['grid.linewidth'] = '.5'
-#plt.rcParams['axes.grid'] = True
-```
-
-{:.input}
-```python
-# first create the plot space upon which to plot the data
+# Create the plot space upon which to plot the data
 fig, ax = plt.subplots()
 ```
 
@@ -225,7 +208,7 @@ fig, ax = plt.subplots()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_10_0.png" alt = "When you create a figure object you are creating a blank canvas to place a plot on.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_9_0.png" alt = "When you create a figure object you are creating a blank canvas to place a plot on.">
 <figcaption>When you create a figure object you are creating a blank canvas to place a plot on.</figcaption>
 
 </figure>
@@ -242,10 +225,10 @@ fig, ax = plt.subplots()
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.plot(boulder_precip['DATE'], 
-        boulder_precip['PRECIP'], 
-        color = 'purple');
+fig, ax = plt.subplots(figsize=(10, 6))
+ax.plot(boulder_precip['PRECIP'],
+        color='purple')
+plt.show()
 ```
 
 {:.output}
@@ -253,7 +236,7 @@ ax.plot(boulder_precip['DATE'],
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_12_0.png" alt = "Once you add a call to plot using ax.plot - your  blank canvas has a plot on it.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_11_0.png" alt = "Once you add a call to plot using ax.plot - your  blank canvas has a plot on it.">
 <figcaption>Once you add a call to plot using ax.plot - your  blank canvas has a plot on it.</figcaption>
 
 </figure>
@@ -265,13 +248,14 @@ Then finally you can refine your plot adding labels and other elements.
 
 {:.input}
 ```python
-# define figure
-fig, ax = plt.subplots()
+# Define figure
+fig, ax = plt.subplots(figsize=(10, 6))
 # Define data and x and y axes
-ax.plot(boulder_precip['DATE'], boulder_precip['PRECIP'])
-# set plot title
-ax.set(title="matplotlib example plot precip")
-plt.setp(ax.get_xticklabels(), rotation=45);
+ax.plot(boulder_precip['PRECIP'],
+       color="purple")
+# Set plot title
+ax.set(title="Matplotlib Example Plot - Precipation")
+plt.show()
 ```
 
 {:.output}
@@ -279,7 +263,7 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_14_0.png" alt = "You can customize your plot adding and adjust ticks and titles.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_13_0.png" alt = "You can customize your plot adding and adjust ticks and titles.">
 <figcaption>You can customize your plot adding and adjust ticks and titles.</figcaption>
 
 </figure>
@@ -305,10 +289,12 @@ Visit the <a href="http://matplotlib.org/1.4.1/api/markers_api.html" target="_bl
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.plot(boulder_precip['DATE'], boulder_precip['PRECIP'], '-o')
+fig, ax = plt.subplots(figsize=(9,7))
+ax.plot(boulder_precip.index, 
+        boulder_precip['PRECIP'], '-o')
 ax.set(title="matplotlib example plot precip")
-plt.setp(ax.get_xticklabels(), rotation=45);
+plt.setp(ax.get_xticklabels(), rotation=45)
+plt.show()
 ```
 
 {:.output}
@@ -316,7 +302,7 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_16_0.png" alt = "Here you adjust the point markers used in your plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_15_0.png" alt = "Here you adjust the point markers used in your plot.">
 <figcaption>Here you adjust the point markers used in your plot.</figcaption>
 
 </figure>
@@ -357,10 +343,10 @@ For more information about conda environments check out the `matplotlib` [colors
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.scatter(boulder_precip.index.values,
-           boulder_precip['PRECIP'].values,
-           c='blue')
+fig, ax = plt.subplots(figsize=(9,7))
+ax.scatter(boulder_precip.index,
+           boulder_precip['PRECIP'],
+           color='blue')
 plt.setp(ax.get_xticklabels(), rotation=45)
 plt.show()
 ```
@@ -370,7 +356,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_20_0.png" alt = "Adjust the ticklabels on the x-axis and create a scatterplot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_19_0.png" alt = "Adjust the ticklabels on the x-axis and create a scatterplot.">
 <figcaption>Adjust the ticklabels on the x-axis and create a scatterplot.</figcaption>
 
 </figure>
@@ -382,11 +368,12 @@ You can adjust the transparency using the `alpha=` argument.
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.scatter(boulder_precip.index.values, 
+fig, ax = plt.subplots(figsize=(9,7))
+ax.scatter(boulder_precip.index.values,
            boulder_precip['PRECIP'].values,
            c='blue', alpha=.5)
-plt.setp(ax.get_xticklabels(), rotation=45);
+plt.setp(ax.get_xticklabels(), rotation=45)
+plt.show()
 ```
 
 {:.output}
@@ -394,7 +381,7 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_22_0.png" alt = "Adjust the alpha value to add transparency to your points.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_21_0.png" alt = "Adjust the alpha value to add transparency to your points.">
 <figcaption>Adjust the alpha value to add transparency to your points.</figcaption>
 
 </figure>
@@ -412,15 +399,16 @@ and then specifying colors using the `cmap=` argument.
 
 {:.input}
 ```python
-# setup figure
-fig, ax = plt.subplots()
-# create scatterplot
-ax.scatter(boulder_precip.index.values, 
+# Setup figure
+fig, ax = plt.subplots(figsize=(10, 6))
+# Create scatterplot
+ax.scatter(boulder_precip.index.values,
            boulder_precip['PRECIP'].values,
-           c=boulder_precip['PRECIP'].values, 
+           c=boulder_precip['PRECIP'].values,
            alpha=.5, cmap='rainbow')
-# adjust x axis labels
-plt.setp(ax.get_xticklabels(), rotation=45);
+# Adjust x axis labels
+plt.setp(ax.get_xticklabels(), rotation=45)
+plt.show()
 ```
 
 {:.output}
@@ -428,7 +416,7 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_24_0.png" alt = "Color points according to an attribute value.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_23_0.png" alt = "Color points according to an attribute value.">
 <figcaption>Color points according to an attribute value.</figcaption>
 
 </figure>
@@ -443,9 +431,12 @@ You can turn your plot into a bar plot using `ax.bar()`.
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.bar(boulder_precip['DATE'].values, boulder_precip['PRECIP'].values)
-plt.setp(ax.get_xticklabels(), rotation=45);
+fig, ax = plt.subplots(figsize=(9,7))
+ax.bar(boulder_precip.index, 
+       boulder_precip['PRECIP'],
+      color="purple")
+plt.setp(ax.get_xticklabels(), rotation=45)
+plt.show()
 ```
 
 {:.output}
@@ -453,7 +444,7 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_26_0.png" alt = "When you create a bar plot you need to call .values on your data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_25_0.png" alt = "When you create a bar plot you need to call .values on your data.">
 <figcaption>When you create a bar plot you need to call .values on your data.</figcaption>
 
 </figure>
@@ -470,11 +461,12 @@ Turn the bar outlines blue
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.bar(boulder_precip.index.values, 
-       boulder_precip['PRECIP'].values,
+fig, ax = plt.subplots(figsize=(9,7))
+ax.bar(boulder_precip.index,
+       boulder_precip['PRECIP'],
        edgecolor='blue')
-plt.setp(ax.get_xticklabels(), rotation=45);
+plt.setp(ax.get_xticklabels(), rotation=45)
+plt.show()
 ```
 
 {:.output}
@@ -482,7 +474,7 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_28_0.png" alt = "Just like you could adjust point colors you can adjust the bar fill and edge colors.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_27_0.png" alt = "Just like you could adjust point colors you can adjust the bar fill and edge colors.">
 <figcaption>Just like you could adjust point colors you can adjust the bar fill and edge colors.</figcaption>
 
 </figure>
@@ -499,10 +491,12 @@ Change the fill to bright green.
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.bar(boulder_precip['DATE'].values, boulder_precip['PRECIP'].values,
+fig, ax = plt.subplots(figsize=(9,7))
+ax.bar(boulder_precip.index, 
+       boulder_precip['PRECIP'],
        edgecolor='blue', color='green')
-plt.setp(ax.get_xticklabels(), rotation=45);
+plt.setp(ax.get_xticklabels(), rotation=45)
+plt.show()
 ```
 
 {:.output}
@@ -510,7 +504,7 @@ plt.setp(ax.get_xticklabels(), rotation=45);
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_30_0.png" alt = "Here the bar color is set to green and the edge color is blue.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_29_0.png" alt = "Here the bar color is set to green and the edge color is blue.">
 <figcaption>Here the bar color is set to green and the edge color is blue.</figcaption>
 
 </figure>
@@ -529,20 +523,21 @@ Matplotlib also has a set of predefined color palettes that you can apply to a p
 
 {:.input}
 ```python
-# view all styles 
+# view all styles
 print(plt.style.available)
 ```
 
 {:.output}
-    ['_classic_test', 'bmh', 'classic', 'dark_background', 'fast', 'fivethirtyeight', 'ggplot', 'grayscale', 'seaborn-bright', 'seaborn-colorblind', 'seaborn-dark-palette', 'seaborn-dark', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-muted', 'seaborn-notebook', 'seaborn-paper', 'seaborn-pastel', 'seaborn-poster', 'seaborn-talk', 'seaborn-ticks', 'seaborn-white', 'seaborn-whitegrid', 'seaborn', 'Solarize_Light2', 'tableau-colorblind10']
+    ['seaborn-whitegrid', 'fivethirtyeight', 'seaborn-dark-palette', 'seaborn', 'seaborn-talk', 'ggplot', 'seaborn-colorblind', 'bmh', 'seaborn-ticks', 'seaborn-pastel', 'dark_background', 'seaborn-bright', 'seaborn-white', 'seaborn-dark', 'seaborn-notebook', '_classic_test', 'classic', 'seaborn-poster', 'grayscale', 'fast', 'seaborn-muted', 'tableau-colorblind10', 'seaborn-paper', 'seaborn-deep', 'seaborn-darkgrid', 'Solarize_Light2']
 
 
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.bar(boulder_precip['DATE'].values, boulder_precip['PRECIP'].values)
-plt.setp(ax.get_xticklabels(), rotation=45);
+fig, ax = plt.subplots(figsize=(9, 7))
+ax.bar(boulder_precip.index, 
+       boulder_precip['PRECIP'])
+plt.setp(ax.get_xticklabels(), rotation=45)
 plt.style.use('fivethirtyeight')
 plt.show()
 ```
@@ -552,7 +547,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_33_0.png" alt = "There are many styles that you can apply to make your plots look nicer and uniform. Here a style is called within the plot code. This style will only be applied to this plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_32_0.png" alt = "There are many styles that you can apply to make your plots look nicer and uniform. Here a style is called within the plot code. This style will only be applied to this plot.">
 <figcaption>There are many styles that you can apply to make your plots look nicer and uniform. Here a style is called within the plot code. This style will only be applied to this plot.</figcaption>
 
 </figure>
@@ -566,13 +561,14 @@ You can add labels to your plots as well. Let's add a title, and x and y labels 
 
 {:.input}
 ```python
-fig, ax = plt.subplots()
-ax.bar(boulder_precip['DATE'].values, 
-       boulder_precip['PRECIP'].values,
+fig, ax = plt.subplots(figsize=(9,7))
+ax.bar(boulder_precip.index,
+       boulder_precip['PRECIP'],
        edgecolor='blue')
-plt.setp(ax.get_xticklabels(), rotation=45);
+plt.setp(ax.get_xticklabels(), rotation=45)
 ax.set(xlabel="Date", ylabel="Precipitation (Inches)")
-ax.set(title="Daily Precipitation (inches)\nBoulder, Colorado 2013");
+ax.set(title="Daily Precipitation (inches)\nBoulder, Colorado 2013")
+plt.show()
 ```
 
 {:.output}
@@ -580,7 +576,7 @@ ax.set(title="Daily Precipitation (inches)\nBoulder, Colorado 2013");
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python_35_0.png" alt = "You can label your x and y axes as well.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py05-intro-to-matplotlib-plotting-python/2018-02-05-py05-intro-to-matplotlib-plotting-python_34_0.png" alt = "You can label your x and y axes as well.">
 <figcaption>You can label your x and y axes as well.</figcaption>
 
 </figure>
