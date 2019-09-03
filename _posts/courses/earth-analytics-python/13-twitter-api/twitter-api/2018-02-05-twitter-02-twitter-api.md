@@ -3,7 +3,7 @@ layout: single
 title: 'Get and Work With Twitter Data in Python Using Tweepy'
 excerpt: 'You can use the Twitter RESTful API to access tweet data from Twitter. Learn how to use tweepy to download and work with twitter social media data in Python.'
 authors: ['Martha Morrissey', 'Leah Wasser','Carson Farmer']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/get-and-use-twitter-data-in-python/
@@ -238,11 +238,11 @@ tweets = tw.Cursor(api.search,
 
 
 
-    ['California #artist Danielle Nelisse paints #abstract landscape #paintings of #daniellenelisse #wildfires | thank yo… https://t.co/NfcIV3tN2O',
-     '#wildfires are burning in different parts of the earth:\n\n#Amazon rainforest\n#Greece\n#Spain’s Canary Islands\n#Alaska… https://t.co/6yvC9Ubgpk',
-     'World leaders call 4 action 2 stop #Amazon #wildfires 🙏🏽 #TheSavageRoom #Savage https://t.co/t9299pic37',
-     'Leonardo DiCaprio, other celebrities share old, inaccurate photos of Amazon wildfires https://t.co/1TC7UBC6eJ #Heatwave #Wildfires',
-     '@realDonaldTrump @jairbolsonaro You were so helpful with the California #wildfires last year.']
+    ['While #wildfires rage across Bolivia, our improved #firebreaks at Laney Rickman Nature Reserve have stopped mayor f… https://t.co/XcpfVlJUSp',
+     '🤔 Circuit-breaker innovation to prevent  🔥🔥🔥 #bushfire ?\n\n🔸 #Wildfires \n🔸 #CO2 \n🔸 #climatechange\n\nCc: @OphelieJanus… https://t.co/yKf9cQcYtK',
+     'Dronefire explores the idea of using drones to "weaponize" wildfires. It\'s every bit as sinister as it sounds. Is i… https://t.co/BzaCGp227P',
+     'New! @LamontEarth climate experts @peedublya and Richard Seager discuss why California #wildfires are expected to e… https://t.co/65sqngZDJU',
+     'Nearly half of the city’s high-school students met the criteria for #PTSD, depression, anxiety or substance abuse,… https://t.co/NfPa2pXUyl']
 
 
 
@@ -274,11 +274,11 @@ users_locs
 
 
 
-    [['abstractwallart', 'Kihei, HI'],
-     ['ALSAADI__KHALID', ''],
-     ['The_SavageRoom', 'Brooklyn, NY'],
-     ['robinsnewswire', "RT's Are FYI Purposes Only"],
-     ['sweeneymcqueen', 'Santa Monica']]
+    [['armonia_bolivia', 'Bolivia'],
+     ['RagusoSergio', 'Switzerland'],
+     ['WillMatlack', 'SF Bay Area'],
+     ['climateandlife', 'Columbia University'],
+     ['C21dynamic21', '']]
 
 
 
@@ -325,28 +325,28 @@ tweet_text
   <tbody>
     <tr>
       <td>0</td>
-      <td>abstractwallart</td>
-      <td>Kihei, HI</td>
+      <td>armonia_bolivia</td>
+      <td>Bolivia</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>ALSAADI__KHALID</td>
-      <td></td>
+      <td>RagusoSergio</td>
+      <td>Switzerland</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>The_SavageRoom</td>
-      <td>Brooklyn, NY</td>
+      <td>WillMatlack</td>
+      <td>SF Bay Area</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>robinsnewswire</td>
-      <td>RT's Are FYI Purposes Only</td>
+      <td>climateandlife</td>
+      <td>Columbia University</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>sweeneymcqueen</td>
-      <td>Santa Monica</td>
+      <td>C21dynamic21</td>
+      <td></td>
     </tr>
   </tbody>
 </table>

@@ -3,7 +3,7 @@ layout: single
 title: "Export Numpy Arrays to Geotiff Format Using Rasterio and Python"
 excerpt: "You often create outputs in Python that you want to use in another tool like QGIS or ArcGIS. Learn how to export a numpy array created through a rasterio workflow in Python to  spatial geotiff."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['export-raster-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/export-numpy-array-to-geotiff-in-python/

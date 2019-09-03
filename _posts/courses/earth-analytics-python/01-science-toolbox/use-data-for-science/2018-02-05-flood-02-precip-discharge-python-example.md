@@ -3,7 +3,7 @@ layout: single
 title: 'Create Data Driven Reports using Jupyter Notebooks | 2013 Colorado Flood Data'
 excerpt: "Connecting data to analysis and outputs is an important part of open reproducible science. In this lesson you will explore that value of a well documented workflow."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/data-driven-reports-jupyter-notebook/

@@ -3,7 +3,7 @@ layout: single
 title: "The Relationship Between Precipitation and Stream Discharge | Explore Mass Balance"
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -80,8 +80,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2019-08-24T02:59:04.236Z', 'title': 'requestDT'},
-        {'value': '21a467b0-c61b-11e9-afab-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2019-09-03T16:26:40.718Z', 'title': 'requestDT'},
+        {'value': '9c113ec0-ce67-11e9-afab-6cae8b6642f6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'caas01', 'title': 'server'}]},
@@ -120,9 +120,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '3.20',
+        'values': [{'value': [{'value': '3.78',
             'qualifiers': ['P'],
-            'dateTime': '2019-08-22T00:00:00.000'}],
+            'dateTime': '2019-09-02T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,

@@ -3,7 +3,7 @@ layout: single
 title: "How multispectral imagery is drawn on computers - Additive Color Models"
 excerpt: "Learn the basics of how addidative colors models are used to render RGB images in Python."
 authors: ['Leah Wasser']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/addititive-color-models-how-multispectral-imagery-is-drawn-on-computers/

@@ -4,7 +4,7 @@ category: courses
 title: "Get Started Using Data With Python and Jupyter Notebooks"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
 week-landing: 1
-modified: 2019-08-24
+modified: 2019-09-03
 week: 1
 sidebar:
   nav:
