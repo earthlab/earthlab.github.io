@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Co-occurrence and Networks of Words Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to identify the co-occurrence and networks of words in Tweets. Learn how to analyze word co-occurrence (i.e. bigrams) and networks of words using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-bigrams-networks-in-python/
@@ -161,17 +161,15 @@ terms_bigram[0]
 
 
 
-    [('islandcynic', 'bronwentucker'),
-     ('bronwentucker', 'true'),
-     ('true', 'ndp'),
-     ('ndp', 'amp'),
-     ('amp', 'cpcone'),
-     ('cpcone', 'way'),
-     ('way', 'force'),
-     ('force', 'amp'),
-     ('amp', 'get'),
-     ('get', 'banks'),
-     ('banks', 'financiers')]
+    [('insurancebureau', 'hey'),
+     ('hey', 'yoohoo'),
+     ('yoohoo', 'hey'),
+     ('hey', 'insurancebureau'),
+     ('insurancebureau', 'maybe'),
+     ('maybe', 'sometime'),
+     ('sometime', 'today'),
+     ('today', 'everyday'),
+     ('everyday', 'sh')]
 
 
 
@@ -190,7 +188,7 @@ tweets_no_urls[0]
 
 
 
-    'islandcynic bronwentucker True same as NDP amp CPCONE way to force change amp get banks financiers of'
+    'InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh'
 
 
 
@@ -207,18 +205,16 @@ tweets_nsw_nc[0]
 
 
 
-    ['islandcynic',
-     'bronwentucker',
-     'true',
-     'ndp',
-     'amp',
-     'cpcone',
-     'way',
-     'force',
-     'amp',
-     'get',
-     'banks',
-     'financiers']
+    ['insurancebureau',
+     'hey',
+     'yoohoo',
+     'hey',
+     'insurancebureau',
+     'maybe',
+     'sometime',
+     'today',
+     'everyday',
+     'sh']
 
 
 
@@ -244,26 +240,26 @@ bigram_counts.most_common(20)
 
 
 
-    [(('gpwx', 'globalwarming'), 24),
-     (('penn', 'state'), 20),
-     (('state', 'university'), 18),
-     (('study', 'finds'), 14),
-     (('blackouts', 'melting'), 14),
-     (('melting', 'asphalt'), 14),
-     (('asphalt', 'ways'), 14),
-     (('amazon', 'rainforest'), 13),
-     (('death', 'blackouts'), 13),
-     (('ways', 'crisis'), 13),
-     (('crisis', 'live'), 13),
-     (('bernie', 'sanders'), 11),
-     (('scientists', 'underestimating'), 10),
-     (('underestimating', 'pace'), 10),
-     (('new', 'solar'), 10),
-     (('solar', 'farm'), 10),
-     (('farm', 'cover'), 10),
-     (('cover', '25'), 10),
-     (('25', 'percent'), 10),
-     (('percent', 'penn'), 10)]
+    [(('great', 'barrier'), 20),
+     (('barrier', 'reef'), 17),
+     (('gpwx', 'globalwarming'), 16),
+     (('trump', 'administration'), 15),
+     (('lifestyle', 'changes'), 14),
+     (('big', 'lifestyle'), 13),
+     (('changes', 'needed'), 13),
+     (('needed', 'cut'), 13),
+     (('cut', 'emissions'), 12),
+     (('declares', 'health'), 11),
+     (('health', 'emergency'), 11),
+     (('medical', 'association'), 10),
+     (('association', 'declares'), 10),
+     (('power', 'interplay'), 10),
+     (('interplay', 'actors'), 10),
+     (('extreme', 'weather'), 10),
+     (('australian', 'medical'), 9),
+     (('3rd', 'september'), 9),
+     (('september', '2019'), 9),
+     (('2019', 'sumit'), 9)]
 
 
 
@@ -309,103 +305,103 @@ bigram_df
   <tbody>
     <tr>
       <td>0</td>
-      <td>(gpwx, globalwarming)</td>
-      <td>24</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>(penn, state)</td>
+      <td>(great, barrier)</td>
       <td>20</td>
     </tr>
     <tr>
+      <td>1</td>
+      <td>(barrier, reef)</td>
+      <td>17</td>
+    </tr>
+    <tr>
       <td>2</td>
-      <td>(state, university)</td>
-      <td>18</td>
+      <td>(gpwx, globalwarming)</td>
+      <td>16</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>(study, finds)</td>
-      <td>14</td>
+      <td>(trump, administration)</td>
+      <td>15</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>(blackouts, melting)</td>
+      <td>(lifestyle, changes)</td>
       <td>14</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>(melting, asphalt)</td>
-      <td>14</td>
+      <td>(big, lifestyle)</td>
+      <td>13</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>(asphalt, ways)</td>
-      <td>14</td>
+      <td>(changes, needed)</td>
+      <td>13</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>(amazon, rainforest)</td>
+      <td>(needed, cut)</td>
       <td>13</td>
     </tr>
     <tr>
       <td>8</td>
-      <td>(death, blackouts)</td>
-      <td>13</td>
+      <td>(cut, emissions)</td>
+      <td>12</td>
     </tr>
     <tr>
       <td>9</td>
-      <td>(ways, crisis)</td>
-      <td>13</td>
+      <td>(declares, health)</td>
+      <td>11</td>
     </tr>
     <tr>
       <td>10</td>
-      <td>(crisis, live)</td>
-      <td>13</td>
+      <td>(health, emergency)</td>
+      <td>11</td>
     </tr>
     <tr>
       <td>11</td>
-      <td>(bernie, sanders)</td>
-      <td>11</td>
+      <td>(medical, association)</td>
+      <td>10</td>
     </tr>
     <tr>
       <td>12</td>
-      <td>(scientists, underestimating)</td>
+      <td>(association, declares)</td>
       <td>10</td>
     </tr>
     <tr>
       <td>13</td>
-      <td>(underestimating, pace)</td>
+      <td>(power, interplay)</td>
       <td>10</td>
     </tr>
     <tr>
       <td>14</td>
-      <td>(new, solar)</td>
+      <td>(interplay, actors)</td>
       <td>10</td>
     </tr>
     <tr>
       <td>15</td>
-      <td>(solar, farm)</td>
+      <td>(extreme, weather)</td>
       <td>10</td>
     </tr>
     <tr>
       <td>16</td>
-      <td>(farm, cover)</td>
-      <td>10</td>
+      <td>(australian, medical)</td>
+      <td>9</td>
     </tr>
     <tr>
       <td>17</td>
-      <td>(cover, 25)</td>
-      <td>10</td>
+      <td>(3rd, september)</td>
+      <td>9</td>
     </tr>
     <tr>
       <td>18</td>
-      <td>(25, percent)</td>
-      <td>10</td>
+      <td>(september, 2019)</td>
+      <td>9</td>
     </tr>
     <tr>
       <td>19</td>
-      <td>(percent, penn)</td>
-      <td>10</td>
+      <td>(2019, sumit)</td>
+      <td>9</td>
     </tr>
   </tbody>
 </table>

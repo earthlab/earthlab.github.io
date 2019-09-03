@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Word Frequency Counts Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to calculate word frequencies to understand how often words are used in tweets on a particular topic. To complete any analysis, you need to first prepare the data. Learn how to clean Twitter data and calculate word frequencies using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-frequencies-in-python/
@@ -108,11 +108,11 @@ all_tweets[:5]
 
 
 
-    ['@island_cynic @bronwentucker True - same as #NDP &amp; #CPC\n(ONE way to force change &amp; get banks + financiers of… https://t.co/n3mBed07XG',
-     '@EcologyAction @drtimball #climate change. The biggest premeditated deception of all time.  timothyball@shaw.ca\nHistorical Climatologist',
-     '@sciam @drtimball #climate change.\nThe lawsuit of Dr Michael Mann vs Dr Tim Ball, has been dismissed in Vancouver C… https://t.co/DIJvmZKX9m',
-     'To be clear, I am NOT in favour of a drone killing program for fossil fuel executives and autocrats led by vulnerab… https://t.co/huXPdmT5Y5',
-     'How a playboy billionaire built a political army to defend his fossil fuel empire.\nhttps://t.co/ebWhMbOr8g\n#Koch #climate #GOP']
+    ['@InsuranceBureau Hey! Yoohoo! Hey! @InsuranceBureau! \nMaybe sometime before today, and everyday from now on, you sh… https://t.co/sWc2XT1DO8',
+     'Our rulers are golfing and trail running while human civilization burns down. \n\nNew piece by @KateAronoff. #climate… https://t.co/R6HZ78oK67',
+     '"These findings lend themselves to a somewhat controversial idea: that we might be able to manipulate these marine… https://t.co/71w3y6fWfA',
+     'Information based on proven data about #climate change and how this affects #waterAvailability is so important! Tha… https://t.co/YDe1k1sJKj',
+     'Here’s what @EmoryUniversity is doing to tackle #climate change. You can get involved by visiting… https://t.co/eQsGGsob1J']
 
 
 
@@ -167,11 +167,11 @@ all_tweets_no_urls[:5]
 
 
 
-    ['islandcynic bronwentucker True same as NDP amp CPCONE way to force change amp get banks financiers of',
-     'EcologyAction drtimball climate change The biggest premeditated deception of all time timothyballshawcaHistorical Climatologist',
-     'sciam drtimball climate changeThe lawsuit of Dr Michael Mann vs Dr Tim Ball has been dismissed in Vancouver C',
-     'To be clear I am NOT in favour of a drone killing program for fossil fuel executives and autocrats led by vulnerab',
-     'How a playboy billionaire built a political army to defend his fossil fuel empireKoch climate GOP']
+    ['InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh',
+     'Our rulers are golfing and trail running while human civilization burns down New piece by KateAronoff climate',
+     'These findings lend themselves to a somewhat controversial idea that we might be able to manipulate these marine',
+     'Information based on proven data about climate change and how this affects waterAvailability is so important Tha',
+     'Heres what EmoryUniversity is doing to tackle climate change You can get involved by visiting']
 
 
 
@@ -262,23 +262,22 @@ all_tweets_no_urls[0].split()
 
 
 
-    ['islandcynic',
-     'bronwentucker',
-     'True',
-     'same',
-     'as',
-     'NDP',
-     'amp',
-     'CPCONE',
-     'way',
-     'to',
-     'force',
-     'change',
-     'amp',
-     'get',
-     'banks',
-     'financiers',
-     'of']
+    ['InsuranceBureau',
+     'Hey',
+     'Yoohoo',
+     'Hey',
+     'InsuranceBureau',
+     'Maybe',
+     'sometime',
+     'before',
+     'today',
+     'and',
+     'everyday',
+     'from',
+     'now',
+     'on',
+     'you',
+     'sh']
 
 
 
@@ -299,23 +298,22 @@ all_tweets_no_urls[0].lower().split()
 
 
 
-    ['islandcynic',
-     'bronwentucker',
-     'true',
-     'same',
-     'as',
-     'ndp',
-     'amp',
-     'cpcone',
-     'way',
-     'to',
-     'force',
-     'change',
-     'amp',
-     'get',
-     'banks',
-     'financiers',
-     'of']
+    ['insurancebureau',
+     'hey',
+     'yoohoo',
+     'hey',
+     'insurancebureau',
+     'maybe',
+     'sometime',
+     'before',
+     'today',
+     'and',
+     'everyday',
+     'from',
+     'now',
+     'on',
+     'you',
+     'sh']
 
 
 
@@ -335,36 +333,39 @@ words_in_tweet[:2]
 
 
 
-    [['islandcynic',
-      'bronwentucker',
-      'true',
-      'same',
-      'as',
-      'ndp',
-      'amp',
-      'cpcone',
-      'way',
-      'to',
-      'force',
-      'change',
-      'amp',
-      'get',
-      'banks',
-      'financiers',
-      'of'],
-     ['ecologyaction',
-      'drtimball',
-      'climate',
-      'change',
-      'the',
-      'biggest',
-      'premeditated',
-      'deception',
-      'of',
-      'all',
-      'time',
-      'timothyballshawcahistorical',
-      'climatologist']]
+    [['insurancebureau',
+      'hey',
+      'yoohoo',
+      'hey',
+      'insurancebureau',
+      'maybe',
+      'sometime',
+      'before',
+      'today',
+      'and',
+      'everyday',
+      'from',
+      'now',
+      'on',
+      'you',
+      'sh'],
+     ['our',
+      'rulers',
+      'are',
+      'golfing',
+      'and',
+      'trail',
+      'running',
+      'while',
+      'human',
+      'civilization',
+      'burns',
+      'down',
+      'new',
+      'piece',
+      'by',
+      'katearonoff',
+      'climate']]
 
 
 
@@ -395,21 +396,21 @@ counts_no_urls.most_common(15)
 
 
 
-    [('climate', 828),
-     ('the', 635),
-     ('change', 604),
+    [('climate', 865),
+     ('change', 667),
+     ('the', 547),
      ('to', 446),
-     ('of', 311),
-     ('a', 244),
-     ('is', 243),
-     ('and', 214),
-     ('in', 194),
-     ('climatechange', 174),
-     ('for', 147),
-     ('on', 146),
-     ('are', 108),
-     ('we', 107),
-     ('will', 98)]
+     ('of', 252),
+     ('is', 239),
+     ('a', 233),
+     ('and', 226),
+     ('in', 203),
+     ('climatechange', 197),
+     ('on', 176),
+     ('for', 134),
+     ('are', 101),
+     ('we', 93),
+     ('about', 75)]
 
 
 
@@ -456,17 +457,17 @@ clean_tweets_no_urls.head()
     <tr>
       <td>0</td>
       <td>climate</td>
-      <td>828</td>
+      <td>865</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>the</td>
-      <td>635</td>
+      <td>change</td>
+      <td>667</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>change</td>
-      <td>604</td>
+      <td>the</td>
+      <td>547</td>
     </tr>
     <tr>
       <td>3</td>
@@ -476,7 +477,7 @@ clean_tweets_no_urls.head()
     <tr>
       <td>4</td>
       <td>of</td>
-      <td>311</td>
+      <td>252</td>
     </tr>
   </tbody>
 </table>
@@ -524,7 +525,7 @@ plt.show()
 
 
 
-    [17, 13, 19]
+    [16, 17, 18]
 
 
 
@@ -574,16 +575,16 @@ list(stop_words)[0:10]
 
 
 
-    ['of',
-     'out',
-     "you're",
-     'but',
-     "you'd",
-     'how',
+    ['through',
+     "should've",
+     'until',
+     "doesn't",
+     "that'll",
+     'don',
      'its',
-     "hasn't",
-     "aren't",
-     'some']
+     'very',
+     'few',
+     'with']
 
 
 
@@ -603,23 +604,22 @@ words_in_tweet[0]
 
 
 
-    ['islandcynic',
-     'bronwentucker',
-     'true',
-     'same',
-     'as',
-     'ndp',
-     'amp',
-     'cpcone',
-     'way',
-     'to',
-     'force',
-     'change',
-     'amp',
-     'get',
-     'banks',
-     'financiers',
-     'of']
+    ['insurancebureau',
+     'hey',
+     'yoohoo',
+     'hey',
+     'insurancebureau',
+     'maybe',
+     'sometime',
+     'before',
+     'today',
+     'and',
+     'everyday',
+     'from',
+     'now',
+     'on',
+     'you',
+     'sh']
 
 
 
@@ -649,19 +649,16 @@ tweets_nsw[0]
 
 
 
-    ['islandcynic',
-     'bronwentucker',
-     'true',
-     'ndp',
-     'amp',
-     'cpcone',
-     'way',
-     'force',
-     'change',
-     'amp',
-     'get',
-     'banks',
-     'financiers']
+    ['insurancebureau',
+     'hey',
+     'yoohoo',
+     'hey',
+     'insurancebureau',
+     'maybe',
+     'sometime',
+     'today',
+     'everyday',
+     'sh']
 
 
 
@@ -683,21 +680,21 @@ counts_nsw.most_common(15)
 
 
 
-    [('climate', 828),
-     ('change', 604),
-     ('climatechange', 174),
-     ('new', 79),
-     ('globalwarming', 53),
-     ('could', 52),
-     ('us', 49),
-     ('solar', 41),
-     ('amp', 40),
-     ('energy', 39),
-     ('crisis', 39),
-     ('science', 36),
-     ('news', 32),
-     ('may', 31),
-     ('amazon', 31)]
+    [('climate', 865),
+     ('change', 667),
+     ('climatechange', 197),
+     ('us', 52),
+     ('new', 51),
+     ('amp', 50),
+     ('globalwarming', 43),
+     ('news', 35),
+     ('fight', 34),
+     ('health', 33),
+     ('global', 33),
+     ('via', 29),
+     ('emissions', 29),
+     ('great', 29),
+     ('years', 28)]
 
 
 
@@ -767,19 +764,16 @@ tweets_nsw[0]
 
 
 
-    ['islandcynic',
-     'bronwentucker',
-     'true',
-     'ndp',
-     'amp',
-     'cpcone',
-     'way',
-     'force',
-     'change',
-     'amp',
-     'get',
-     'banks',
-     'financiers']
+    ['insurancebureau',
+     'hey',
+     'yoohoo',
+     'hey',
+     'insurancebureau',
+     'maybe',
+     'sometime',
+     'today',
+     'everyday',
+     'sh']
 
 
 
@@ -795,18 +789,16 @@ tweets_nsw_nc[0]
 
 
 
-    ['islandcynic',
-     'bronwentucker',
-     'true',
-     'ndp',
-     'amp',
-     'cpcone',
-     'way',
-     'force',
-     'amp',
-     'get',
-     'banks',
-     'financiers']
+    ['insurancebureau',
+     'hey',
+     'yoohoo',
+     'hey',
+     'insurancebureau',
+     'maybe',
+     'sometime',
+     'today',
+     'everyday',
+     'sh']
 
 
 
@@ -834,21 +826,21 @@ counts_nsw_nc.most_common(15)
 
 
 
-    [('new', 79),
-     ('globalwarming', 53),
-     ('could', 52),
-     ('us', 49),
-     ('solar', 41),
-     ('amp', 40),
-     ('energy', 39),
-     ('crisis', 39),
-     ('science', 36),
-     ('news', 32),
-     ('may', 31),
-     ('amazon', 31),
-     ('says', 31),
-     ('years', 30),
-     ('global', 30)]
+    [('us', 52),
+     ('new', 51),
+     ('amp', 50),
+     ('globalwarming', 43),
+     ('news', 35),
+     ('fight', 34),
+     ('health', 33),
+     ('global', 33),
+     ('via', 29),
+     ('emissions', 29),
+     ('great', 29),
+     ('years', 28),
+     ('trump', 28),
+     ('could', 27),
+     ('one', 26)]
 
 
 
@@ -866,7 +858,7 @@ len(counts_nsw_nc)
 
 
 
-    3509
+    3553
 
 
 
@@ -911,28 +903,28 @@ clean_tweets_ncw.head()
   <tbody>
     <tr>
       <td>0</td>
-      <td>new</td>
-      <td>79</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>globalwarming</td>
-      <td>53</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>could</td>
+      <td>us</td>
       <td>52</td>
     </tr>
     <tr>
+      <td>1</td>
+      <td>new</td>
+      <td>51</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>amp</td>
+      <td>50</td>
+    </tr>
+    <tr>
       <td>3</td>
-      <td>us</td>
-      <td>49</td>
+      <td>globalwarming</td>
+      <td>43</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>solar</td>
-      <td>41</td>
+      <td>news</td>
+      <td>35</td>
     </tr>
   </tbody>
 </table>

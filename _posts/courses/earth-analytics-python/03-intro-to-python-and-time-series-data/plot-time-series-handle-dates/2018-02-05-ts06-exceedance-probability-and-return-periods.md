@@ -3,7 +3,7 @@ layout: single
 title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Probability and Return Periods in Python"
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -219,8 +219,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2019-08-24T02:58:44.554Z', 'title': 'requestDT'},
-        {'value': '15e92b90-c61b-11e9-99cd-6cae8b6642ea', 'title': 'requestId'},
+        {'value': '2019-09-03T16:26:26.209Z', 'title': 'requestDT'},
+        {'value': '93706200-ce67-11e9-99cd-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'sdas01', 'title': 'server'}]},
@@ -259,9 +259,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '3.20',
+        'values': [{'value': [{'value': '3.78',
             'qualifiers': ['P'],
-            'dateTime': '2019-08-22T00:00:00.000'}],
+            'dateTime': '2019-09-02T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -670,7 +670,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7ff6403fbcc0>)
+     <http.client.HTTPMessage at 0x7fb7390adf98>)
 
 
 
@@ -1206,40 +1206,40 @@ usgs_annual_prob.head()
       <td>1</td>
       <td>26.0</td>
       <td>1954</td>
-      <td>0.984615</td>
-      <td>1.015625</td>
+      <td>0.984848</td>
+      <td>1.015385</td>
     </tr>
     <tr>
       <td>1932-07-13</td>
       <td>2</td>
       <td>128.0</td>
       <td>1932</td>
-      <td>0.969231</td>
-      <td>1.031746</td>
+      <td>0.969697</td>
+      <td>1.031250</td>
     </tr>
     <tr>
       <td>1940-07-03</td>
       <td>3</td>
       <td>174.0</td>
       <td>1940</td>
-      <td>0.953846</td>
-      <td>1.048387</td>
+      <td>0.954545</td>
+      <td>1.047619</td>
     </tr>
     <tr>
       <td>1946-07-19</td>
       <td>4</td>
       <td>178.0</td>
       <td>1946</td>
-      <td>0.938462</td>
-      <td>1.065574</td>
+      <td>0.939394</td>
+      <td>1.064516</td>
     </tr>
     <tr>
       <td>2002-05-24</td>
       <td>5</td>
       <td>238.0</td>
       <td>2002</td>
-      <td>0.923077</td>
-      <td>1.083333</td>
+      <td>0.924242</td>
+      <td>1.081967</td>
     </tr>
   </tbody>
 </table>

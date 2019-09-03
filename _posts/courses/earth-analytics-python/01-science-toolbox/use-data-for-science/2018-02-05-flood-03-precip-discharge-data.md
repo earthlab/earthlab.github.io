@@ -3,7 +3,7 @@ layout: single
 title: 'Explore Precipitation and Stream Flow Data Using Interactive Plots: The 2013 Colorado Floods'
 excerpt: "Practice interpreting data on plots that show rainfall (precipitation) and stream flow (discharge) as it changes over time."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/precipitation-discharge-data-for-flood-analysis/

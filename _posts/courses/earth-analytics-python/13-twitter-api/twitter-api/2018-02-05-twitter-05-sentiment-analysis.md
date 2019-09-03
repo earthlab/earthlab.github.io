@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Sentiments Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to analyze attitudes (i.e. sentiment) in the tweet text. Learn how to analyze sentiments in Twitter data using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/analyze-tweet-sentiments-in-python/
@@ -141,8 +141,8 @@ sentiment_objects[0].polarity, sentiment_objects[0]
 
 
 
-    (0.175,
-     TextBlob("islandcynic bronwentucker True same as NDP amp CPCONE way to force change amp get banks financiers of"))
+    (-0.2,
+     TextBlob("InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh"))
 
 
 
@@ -163,8 +163,8 @@ sentiment_values[0]
 
 
 
-    [0.175,
-     'islandcynic bronwentucker True same as NDP amp CPCONE way to force change amp get banks financiers of']
+    [-0.2,
+     'InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh']
 
 
 
@@ -208,28 +208,28 @@ sentiment_df.head()
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.175</td>
-      <td>islandcynic bronwentucker True same as NDP amp...</td>
+      <td>-0.200000</td>
+      <td>InsuranceBureau Hey Yoohoo Hey InsuranceBureau...</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>0.000</td>
-      <td>EcologyAction drtimball climate change The big...</td>
+      <td>-0.006397</td>
+      <td>Our rulers are golfing and trail running while...</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>0.000</td>
-      <td>sciam drtimball climate changeThe lawsuit of D...</td>
+      <td>0.525000</td>
+      <td>These findings lend themselves to a somewhat c...</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>0.100</td>
-      <td>To be clear I am NOT in favour of a drone kill...</td>
+      <td>0.400000</td>
+      <td>Information based on proven data about climate...</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>0.000</td>
-      <td>How a playboy billionaire built a political ar...</td>
+      <td>0.000000</td>
+      <td>Heres what EmoryUniversity is doing to tackle ...</td>
     </tr>
   </tbody>
 </table>
@@ -329,11 +329,11 @@ all_tweets_no_urls[:5]
 
 
 
-    [TextBlob("Our firefighters and other area FirstResponders were honored to be part of the pregame festivities at Paradise Hig"),
-     TextBlob("The Bobcats are back ParadiseHighSc1 is moments away from first high school football game since the Campfire"),
-     TextBlob("Fire time glamping campfire summer Elkwater"),
-     TextBlob("PHS Varsity football team about to head out for the first game of the season after the Campfire bobcatstrong"),
-     TextBlob("Massive reception for some first responders at tonights Paradise High football game the first game since the")]
+    [TextBlob("Nine months after CampFire NorCals Paradise Irrigation District still has a conditional do not drink order in"),
+     TextBlob("In the wake of the CampFire neighboring areas of Butte County have had to absorb much of the displaced population"),
+     TextBlob("Hope everyone had a good laborday yesterday I had a crazy day but at least I got in a good campfire despite the"),
+     TextBlob("pulte If I am a recipient it will go to one of my campfire survivors for their immediate needs and there are so many"),
+     TextBlob("CatFanatic9 Everything of my life except my body burned in the CampFire I never got an evacuation notice Ive w")]
 
 
 
@@ -382,29 +382,29 @@ wild_sent_df.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>-0.125000</td>
-      <td>Our firefighters and other area FirstResponder...</td>
+      <td>1</td>
+      <td>0.200000</td>
+      <td>In the wake of the CampFire neighboring areas ...</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>0.002500</td>
-      <td>The Bobcats are back ParadiseHighSc1 is moment...</td>
+      <td>2</td>
+      <td>0.125000</td>
+      <td>Hope everyone had a good laborday yesterday I ...</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>-0.075000</td>
-      <td>PHS Varsity football team about to head out fo...</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>-0.023333</td>
-      <td>Massive reception for some first responders at...</td>
+      <td>0.500000</td>
+      <td>pulte If I am a recipient it will go to one of...</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>0.600000</td>
-      <td>campfire kind of night WhiteCity ComfortPlusCa...</td>
+      <td>0.433333</td>
+      <td>Thanks to everyone who came to my party this w...</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>0.500000</td>
+      <td>Another effect of more wildfires in CA growing...</td>
     </tr>
   </tbody>
 </table>

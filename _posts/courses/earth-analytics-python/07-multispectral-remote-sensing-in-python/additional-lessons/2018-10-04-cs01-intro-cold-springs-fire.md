@@ -3,7 +3,7 @@ layout: single
 title: "An Overview of the Cold Springs Wildfire"
 excerpt: "The Cold Springs wildfire burned a total of 528 acres of land between July 9, 2016 and July 14, 2016. Learn more about this wildfire and how scientists study wildfire using both field and remote sensing methods."
 authors: ['Leah Wasser']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['wildfire-overview']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/intro-wildfires/

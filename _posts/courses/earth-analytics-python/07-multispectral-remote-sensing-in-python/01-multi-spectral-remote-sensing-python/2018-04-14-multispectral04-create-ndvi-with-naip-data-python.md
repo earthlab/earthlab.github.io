@@ -3,7 +3,7 @@ layout: single
 title: "Calculate NDVI Using NAIP Remote Sensing Data in the Python Programming Language"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI vegetation index using NAIP data in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/vegetation-indices-NDVI-in-python/

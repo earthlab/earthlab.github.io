@@ -3,7 +3,7 @@ layout: single
 title: "Learn to Use NAIP Multiband Remote Sensing Images in Python"
 excerpt: "Learn how to open up a multi-band raster layer or image stored in .tiff format in Python using Rasterio. Learn how to plot histograms of raster values and how to plot 3 band RGB and color infrared or false color images."
 authors: ['Leah Wasser']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/naip-imagery-raster-stacks-in-python/
@@ -126,7 +126,7 @@ in that band. DARKER colors represent a weaker reflection.
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7ff3ef59cd68>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7fe54a3f6f60>
 
 
 

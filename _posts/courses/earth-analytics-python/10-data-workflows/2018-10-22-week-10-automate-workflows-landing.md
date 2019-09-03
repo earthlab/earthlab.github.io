@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Learn to Create Efficient Data Workflows in Python"
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/
-modified: 2019-08-24
+modified: 2019-09-03
 week-landing: 10
 week: 10
 sidebar:
