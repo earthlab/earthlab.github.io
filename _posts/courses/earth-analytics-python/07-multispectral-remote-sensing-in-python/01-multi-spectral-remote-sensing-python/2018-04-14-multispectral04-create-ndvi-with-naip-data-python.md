@@ -98,9 +98,8 @@ To get started, load all of the required python libraries.
 
 {:.input}
 ```python
-import numpy as np
 import os
-import matplotlib as mpl
+import numpy as np
 import matplotlib.pyplot as plt
 
 import rasterio as rio
@@ -108,14 +107,11 @@ import geopandas as gpd
 import earthpy as et
 import earthpy.spatial as es
 import earthpy.plot as ep
-# Get the data 
+# Get the data
 data = et.data.get_data('cold-springs-fire')
 
-# Set working directory 
+# Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-
-mpl.rcParams['figure.figsize'] = (14, 14)
-mpl.rcParams['axes.titlesize'] = 20
 ```
 
 Next, open up the NAIP data that you wish to calculate NDVI with. You will use the data from 2015 for this example that you downloaded for week 7 of this course:
@@ -126,7 +122,7 @@ Next, open up the NAIP data that you wish to calculate NDVI with. You will use t
 ```python
 with rio.open("data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif") as src:
     naip_data = src.read()
-    
+
 # View shape of the data
 naip_data.shape
 ```
@@ -155,8 +151,8 @@ Finally plot the data. Note below that the `vmin=` and `vmax=` arguments are use
 {:.input}
 ```python
 ep.plot_bands(naip_ndvi, cmap='PiYG',
-             scale=False,
-             vmin=-1, vmax=1)
+              scale=False,
+              vmin=-1, vmax=1)
 plt.show()
 ```
 
@@ -179,8 +175,8 @@ Using a histogram, you can view the distribution of pixel values in your NDVI ou
 {:.input}
 ```python
 ep.hist(naip_ndvi,
-       figsize=(12,6),
-       title=["NDVI: Distribution of pixels\n NAIP 2015 Cold Springs fire site"])
+        figsize=(12, 6),
+        title=["NDVI: Distribution of pixels\n NAIP 2015 Cold Springs fire site"])
 plt.show()
 ```
 
