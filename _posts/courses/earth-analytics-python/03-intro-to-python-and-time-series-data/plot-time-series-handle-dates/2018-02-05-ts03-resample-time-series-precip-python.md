@@ -65,11 +65,11 @@ import earthpy as et
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
-# Set working dir and import earthpy
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-
 # Get the data
 data = et.data.get_data('colorado-flood')
+
+# Set working dir and import earthpy
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 # Prettier plotting with seaborn
 sns.set(font_scale=1.5, style="whitegrid")

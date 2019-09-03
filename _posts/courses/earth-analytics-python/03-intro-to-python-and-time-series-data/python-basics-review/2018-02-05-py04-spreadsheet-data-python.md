@@ -48,10 +48,10 @@ In the homework from week 1, you used the code below to create a report with in 
 
 {:.input}
 ```python
+import os
 import numpy as np
 import pandas as pd
 import urllib
-import os
 from matplotlib import pyplot as plt
 import seaborn as sns
 import earthpy as et
@@ -76,7 +76,7 @@ urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/7010681',
 
 
     ('data/colorado-flood/downloads/boulder-precip.csv',
-     <http.client.HTTPMessage at 0x7f68d3cfe780>)
+     <http.client.HTTPMessage at 0x7fc6a49a6668>)
 
 
 
