@@ -53,11 +53,11 @@ The first objective we'll have to accomplish is acquiring and reading in our dat
     make: Nothing to be done for 'all'.
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    cp SRTM1.vrt SRTM1.d3ff90314f7d467f85fab22c1d11f746.vrt
+    cp SRTM1.vrt SRTM1.cca493a82f45439aad7944b156e7f821.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.d3ff90314f7d467f85fab22c1d11f746.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
-    rm -f SRTM1.d3ff90314f7d467f85fab22c1d11f746.vrt
+    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.cca493a82f45439aad7944b156e7f821.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
+    rm -f SRTM1.cca493a82f45439aad7944b156e7f821.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
 
 

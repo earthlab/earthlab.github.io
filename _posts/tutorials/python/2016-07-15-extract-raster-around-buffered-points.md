@@ -72,11 +72,11 @@ Our first objective is to read in the data that we want to use. We'll be working
     gdalbuildvrt -q -overwrite SRTM1.vrt cache/N41/N41W122.tif cache/N41/N41W123.tif
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    cp SRTM1.vrt SRTM1.8ac20adbb293443aaa5c73ca1a0365ec.vrt
+    cp SRTM1.vrt SRTM1.e1cfaf19641846b0bf61105967e4d306.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.8ac20adbb293443aaa5c73ca1a0365ec.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
-    rm -f SRTM1.8ac20adbb293443aaa5c73ca1a0365ec.vrt
+    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.e1cfaf19641846b0bf61105967e4d306.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
+    rm -f SRTM1.e1cfaf19641846b0bf61105967e4d306.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
 
 
