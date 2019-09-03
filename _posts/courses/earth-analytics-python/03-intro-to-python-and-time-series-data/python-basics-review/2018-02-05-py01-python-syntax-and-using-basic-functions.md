@@ -67,11 +67,11 @@ import datetime
 import matplotlib.dates as mdates
 import earthpy as et
 
-# Set working directory
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-
 # Get the data
 data = et.data.get_data('colorado-flood')
+
+# Set working directory
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 # Import precip data into a pandas dataframe
 boulder_precip = pd.read_csv(
@@ -109,24 +109,6 @@ Next, it:
 * Plots the data using the `.plot()` function (which is a part of the `pandas` library and utilizes matplotlib plotting)
 
 In this lesson you will also use `numpy` - a library that is commonly used in python to support mathametical operations. 
-
-{:.input}
-```python
-# Import needed packages
-import pandas as pd
-import numpy as np
-import urllib
-import os
-from matplotlib import pyplot as plt
-import seaborn as sns
-import earthpy as et
-
-# Prettier plotting with seaborn
-sns.set(font_scale=1.5, style="whitegrid")
-
-# Set working directory to your home dir/earth-analytics
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-```
 
 Notice that at the top of your script you also set the working directory. You use the `.chdir()` function from the `os` library to set the working directory in python. Set your working directory to the `earth-analytics` directory that you created last week. Your path should look something like this:
 
@@ -332,7 +314,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions/2018-02-05-py01-python-syntax-and-using-basic-functions_17_0.png" alt = "Basic plot of precipitation data in Boulder, Colorado 2003-2013">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions/2018-02-05-py01-python-syntax-and-using-basic-functions_16_0.png" alt = "Basic plot of precipitation data in Boulder, Colorado 2003-2013">
 <figcaption>Basic plot of precipitation data in Boulder, Colorado 2003-2013</figcaption>
 
 </figure>
@@ -804,7 +786,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions/2018-02-05-py01-python-syntax-and-using-basic-functions_39_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions/2018-02-05-py01-python-syntax-and-using-basic-functions_38_0.png">
 
 </figure>
 

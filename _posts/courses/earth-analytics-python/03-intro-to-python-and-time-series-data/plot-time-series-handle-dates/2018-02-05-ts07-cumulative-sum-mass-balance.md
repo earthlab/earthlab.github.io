@@ -26,13 +26,13 @@ To begin, load all of your libraries.
 
 {:.input}
 ```python
-import pandas as pd
-import matplotlib.pyplot as plt
 import os
 import math
-import hydrofunctions as hf
+import pandas as pd
 import urllib
+import matplotlib.pyplot as plt
 import seaborn as sns
+import hydrofunctions as hf
 import earthpy as et
 
 # Date time conversion registration
@@ -80,11 +80,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2019-09-03T16:26:40.718Z', 'title': 'requestDT'},
-        {'value': '9c113ec0-ce67-11e9-afab-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2019-09-03T22:05:13.199Z', 'title': 'requestDT'},
+        {'value': 'e744e8e0-ce96-11e9-a7f4-6cae8b663fb6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'caas01', 'title': 'server'}]},
+        {'value': 'vaas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',

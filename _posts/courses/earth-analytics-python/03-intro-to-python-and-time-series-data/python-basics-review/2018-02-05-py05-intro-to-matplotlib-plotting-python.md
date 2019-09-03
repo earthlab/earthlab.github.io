@@ -66,11 +66,11 @@ First, explore the code below to that was used to download the data and then cre
 {:.input}
 ```python
 # Import required python packages
+import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.dates import DateFormatter
-import os
 import seaborn as sns
 import urllib
 import earthpy as et
@@ -528,7 +528,7 @@ print(plt.style.available)
 ```
 
 {:.output}
-    ['seaborn-colorblind', 'seaborn-bright', 'dark_background', 'fast', 'seaborn-notebook', 'seaborn-paper', 'seaborn-whitegrid', 'seaborn-pastel', 'seaborn-deep', 'seaborn-darkgrid', 'tableau-colorblind10', 'seaborn-dark', 'seaborn-muted', 'seaborn-talk', 'fivethirtyeight', 'ggplot', 'seaborn-poster', 'seaborn', 'bmh', 'seaborn-white', '_classic_test', 'Solarize_Light2', 'grayscale', 'seaborn-ticks', 'seaborn-dark-palette', 'classic']
+    ['seaborn-pastel', 'seaborn-notebook', 'seaborn-talk', 'grayscale', 'seaborn-bright', 'seaborn-dark', 'classic', 'fivethirtyeight', 'seaborn-dark-palette', 'dark_background', '_classic_test', 'ggplot', 'bmh', 'seaborn-darkgrid', 'seaborn-deep', 'seaborn-colorblind', 'fast', 'Solarize_Light2', 'seaborn-ticks', 'seaborn-poster', 'seaborn-white', 'tableau-colorblind10', 'seaborn-muted', 'seaborn-paper', 'seaborn-whitegrid', 'seaborn']
 
 
 
