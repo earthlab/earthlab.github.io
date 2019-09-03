@@ -4,7 +4,7 @@ category: [courses]
 title: "Crop a Spatial Raster Dataset Using a Shapefile in Python"
 excerpt: "This lesson covers how to crop a raster dataset and export it as a new raster in Python"
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2019-08-24
+modified: 2019-09-03
 permalink: /workshops/gis-open-source-python/crop-raster-data-in-python/
 nav-title: 'Crop a Raster'
 module-type: 'workshop'
@@ -275,7 +275,7 @@ ax.imshow(lidar_chm_crop_ma, extent = cr_extent)
 
 
 
-    <matplotlib.image.AxesImage at 0x7f7e072f03c8>
+    <matplotlib.image.AxesImage at 0x7fd4fc087320>
 
 
 

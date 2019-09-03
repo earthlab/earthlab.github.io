@@ -6,7 +6,7 @@ title: 'First steps with git: clone, add, commit, push'
 attribution: ''
 excerpt: 'Learn basic git commands, including clone, add, commit, and push.'
 dateCreated: 2017-09-12
-modified: '2019-08-28' # will populate during knitting
+modified: '2019-09-03' # will populate during knitting
 nav-title: 'Basic git commands'
 sidebar:
   nav:

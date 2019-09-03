@@ -6,7 +6,7 @@ title: 'Introduction to undoing things in git'
 attribution: ''
 excerpt: 'Learn how to undo changes in git after they have been added or committed.'
 dateCreated: 2017-09-12
-modified: '2019-08-28' # will populate during knitting
+modified: '2019-09-03' # will populate during knitting
 nav-title: 'Undoing things'
 sidebar:
   nav:

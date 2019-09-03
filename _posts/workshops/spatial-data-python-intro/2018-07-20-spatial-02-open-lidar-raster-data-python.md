@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-08-24
+modified: 2019-09-03
 category: [courses]
 permalink: /workshops/gis-open-source-python/open-lidar-raster-python/
 nav-title: 'Open Raster Data Python'

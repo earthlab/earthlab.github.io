@@ -4,7 +4,7 @@ category: [courses]
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2019-08-24
+modified: 2019-09-03
 module-type: 'workshop'
 module: "spatial-data-open-source-python"
 permalink: /workshops/gis-open-source-python/dissolve-polygons-in-python-geopandas-shapely/
