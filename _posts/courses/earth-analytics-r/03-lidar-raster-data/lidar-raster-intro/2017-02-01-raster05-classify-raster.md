@@ -4,7 +4,7 @@ title: "Classify a Raster in R."
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in R."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/classify-raster/
@@ -181,12 +181,12 @@ in the counts element that fall into that bin.
 
 ```r
 histinfo$counts
-##  [1] 76070  3376  3089  2805  2468  2125  1979  1838  1543  1203   958
-## [12]   792   548   385   315   207   118    95    34    29    11     5
-## [23]     3     3     1
+##  [1] 76284  3365  3066  2888  2400  2183  1912  1727  1457  1238   979
+## [12]   788   591   416   274   166   106    80    34    27    10     3
+## [23]     6
 histinfo$breaks
 ##  [1]  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22
-## [24] 23 24 25
+## [24] 23
 ```
 
 If you want to customize your histogram further, you can customize the number of

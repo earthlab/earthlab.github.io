@@ -3,7 +3,7 @@ layout: single
 title: "Create a Canopy Height Model With Lidar Data"
 excerpt: "A canopy height model contains height values trees and can be used to understand landscape change over time. Learn how to use LIDAR elevation data to calculate canopy height and change in terrain over time."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-chm-dem-dsm/

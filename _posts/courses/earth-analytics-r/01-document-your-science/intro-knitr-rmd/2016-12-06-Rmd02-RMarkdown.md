@@ -3,7 +3,7 @@ layout: single
 title: "How to create an R Markdown File in R Studio and the R Markdown File Structure"
 excerpt: 'Learn about the format of a R Markdown file including a YAML header, R code and markdown formatted text.'
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/intro-to-the-rmarkdown-format-and-knitr/

@@ -3,7 +3,7 @@ layout: single
 title: "Work With Precipitation Data in R: 2013 Colorado Floods"
 excerpt: "Learn why documentation is important when analyzing data by evaluating someone elses report on the Colorado floods."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['co-floods-1-intro']
 permalink: /courses/earth-analytics/document-your-science/data-driven-reports/

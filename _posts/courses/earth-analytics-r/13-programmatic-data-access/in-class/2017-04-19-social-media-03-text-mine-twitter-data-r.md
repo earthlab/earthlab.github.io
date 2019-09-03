@@ -3,7 +3,7 @@ layout: single
 title: "Text Mining Twitter Data With TidyText in R"
 excerpt: "Text mining is used to extract useful information from text - such as Tweets. Learn how to use the Tidytext package in R to analyze twitter data."
 authors: ['Leah Wasser','Carson Farmer']
-modified: '2019-08-24'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['social-media-r']
 permalink: /courses/earth-analytics/get-data-using-apis/text-mining-twitter-data-intro-r/
@@ -118,12 +118,12 @@ climate_tweets <- search_tweets(q = "#climatechange", n = 10000, lang = "en",
                              include_rts = FALSE)
 # check data to see if there are emojis
 head(climate_tweets$text)
-## [1] "@Queen_UK @PrincePhilipDoE @Charles_HRH @BBC @PravitR @suthichai @somtow @prayutofficial @UNHCRThailand @UNICEF_Thailand @UN @UNICEF @IRKhomeini @BorisJohnson @Swamy39 @khamenei_ir @BarackObama @AminaJMohammed @nytimesarts @KristieKenney @WorldBank @realXi_Jinping @realDonaldTrump @POTUS @VP @NATO @FBI @CIA @UNDP @LenniMontiel @Kim_Jong_UnFR @EmmaWatson @UN_Women @marinajacoby @punchpstt @xtina @kaothip_tidadin @RepMcGovern @RoyalDickie @JohnKerry @theresa_may @WhiteHouse @thefoodellers @ThaiRoyalFamily @usairforce @IDontLikeYou210 @BillClinton @mkfoyw @lizethlopeztl @JordanDarling32 North Korea launches more short-range missiles - CNN https://t.co/0K1RbXsc1E #Earth #England #UN_Women #GDP #ASEAN #Iran #India #Russia #China #UNDP #World #Thailand #Travel #PhuketClubThailand #ClimateChange #UK #UAE #EU #US #AEC #GinOClock #lol 😝"                        
-## [2] "@Queen_UK @PrincePhilipDoE @Charles_HRH @BBC @PravitR @suthichai @somtow @prayutofficial @UNHCRThailand @UNICEF_Thailand @UN @UNICEF @IRKhomeini @BorisJohnson @Swamy39 @khamenei_ir @BarackObama @AminaJMohammed @nytimesarts @KristieKenney @WorldBank @realXi_Jinping @realDonaldTrump @POTUS @VP @NATO @FBI @CIA @UNDP @LenniMontiel @Kim_Jong_UnFR @EmmaWatson @UN_Women @marinajacoby @punchpstt @xtina @kaothip_tidadin @RepMcGovern @RoyalDickie @JohnKerry @theresa_may @WhiteHouse @thefoodellers @ThaiRoyalFamily @usairforce @IDontLikeYou210 @BillClinton @mkfoyw @EvelynGlez06 @juliaholli It is a time when politicians around the world...Are different...With the fear that the crisis has failed. Like an iceberg #Earth #England #GDP #ASEAN #Iran #India #Russia #China #World🌻 #Thailand #Travel #PhuketClubThailand #ClimateChange #UK #UAE #EU #US #AEC #GinOClock #lol😝"
-## [3] "@Queen_UK @PrincePhilipDoE @Charles_HRH @BBC @PravitR @suthichai @somtow @prayutofficial @UNHCRThailand @UNICEF_Thailand @UN @UNICEF @IRKhomeini @BorisJohnson @Swamy39 @khamenei_ir @BarackObama @AminaJMohammed @nytimesarts @KristieKenney @WorldBank @realXi_Jinping @realDonaldTrump @POTUS @VP @NATO @FBI @CIA @UNDP @LenniMontiel @Kim_Jong_UnFR @EmmaWatson @UN_Women @marinajacoby @punchpstt @xtina @kaothip_tidadin @RepMcGovern @RoyalDickie @JohnKerry @theresa_may @WhiteHouse @thefoodellers @ThaiRoyalFamily @usairforce @IDontLikeYou210 @BillClinton @mkfoyw @EvelynGlez06 @juliaholli https://t.co/37YooqxXh6 #Earth #England #London  #Myanmar #Vietnam #Laos #HongKong #Chiangmai  #Bangkok #UN_Women #GDP #ASEAN #Iran #India #Russia #China #UNDP #World #น่านClubThaiLand #Thailand#Travel #PhuketClubThailand #ClimateChange #UK #UAE #EU #US #AEC #GinOClock #lol 😝"   
-## [4] "@Queen_UK @PrincePhilipDoE @Charles_HRH @BBC @PravitR @suthichai @somtow @prayutofficial @UNHCRThailand @UNICEF_Thailand @UN @UNICEF @IRKhomeini @BorisJohnson @Swamy39 @khamenei_ir @BarackObama @AminaJMohammed @nytimesarts @KristieKenney @WorldBank @realXi_Jinping @realDonaldTrump @POTUS @VP @NATO @FBI @CIA @UNDP @LenniMontiel @Kim_Jong_UnFR @EmmaWatson @UN_Women @marinajacoby @punchpstt @xtina @kaothip_tidadin @RepMcGovern @RoyalDickie @JohnKerry @theresa_may @WhiteHouse @thefoodellers @ThaiRoyalFamily @usairforce @IDontLikeYou210 @BillClinton @mkfoyw @EvelynGlez06 @juliaholli The reality is always beautiful...More...Van Gogh's haggard image #Earth #England #London #Myanmar #Vietnam #Laos #Bangkok #UN_Women #GDP #ASEAN #Iran #India #Russia #China #UNDP #World🌻 #Thailand #Travel #PhuketClubThailand #ClimateChange #UK #UAE #EU #US #AEC #GinOClock #lol😝"
-## [5] "@rumiviajante Use it beautifully Thailand going into the winter...I look at the morning...But no one appeared #Earth #England #UN_Women #BBC_Travel #GDP #ASEAN #Iran #India #Russia #China #UNDP #World #Thailand #Travel #PhuketClubThailand #ClimateChange #UK #UAE #EU #US #AEC #GinOClock #lol 😝"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-## [6] "@_FoggyDew @BerniesBack2020 @EARTH3R Just remember folks that if this was a “classic war” no one would blink at the price tag. End war and fight the real battle...#ClimateChange"
+## [1] "If you are feeling the impacts of climate change in your daily life, you're not alone. What do you want to protect from #climatechange? Tell us below. #AdaptOurWorld https://t.co/RFyNFRLHGB"                                                                                                                          
+## [2] "Tree 🌲 planting is great but it cannot become a PR machine for fake climate initiatives by the governments. We will not push #climatechange back by planting trees. Governments must listen and act. Real-meaningful actions. Not PR!"                                                                                  
+## [3] "Cigarette smokers &amp; vapers are exhaling additional CO2 into the air. I call on all politicians to stop smoking and ban cigarettes and vaping for the earth. If not, then shut up about #climatechange and CO2.\n\nLet’s see how much politicians care about the things they talk about. https://t.co/0v60pNd38q"    
+## [4] "@ThemeParkReview @Starbucks Make your own coffee. You can even buy the Starbucks brand in a grocery store, if it’s that important. This really is a ridiculous tantrum over something with many solutions. There are better things to worry about like the #ClimateChange that keeps causing these hurricanes."         
+## [5] "@GaryCMeleJr @DebraMessing The two party system isn’t working  for the people &amp; #Democrats need to do better because my independent vote is on loan to them. But it’s the #GOP breaking constitutional norms, refusing to protect our elections, shoving church into state, denying #ClimateChange, caging kids etc"
+## [6] "Why are #hurricanes getting bigger and moving slower? 🌪\n\n#HurricaneDorian \n#ClimateChange #ClimateChangeIsReal \n#ThereIsNoPlanetB 🌎 https://t.co/2z1JlpVnUg"
 ```
 
 ## Data Clean-Up
@@ -234,7 +234,7 @@ head(stop_words)
 ## 6 according SMART
 
 nrow(climate_tweets_clean)
-## [1] 251645
+## [1] 247606
 
 # remove stop words from your list of words
 cleaned_tweet_words <- climate_tweets_clean %>%
@@ -242,7 +242,7 @@ cleaned_tweet_words <- climate_tweets_clean %>%
 
 # there should be fewer words now
 nrow(cleaned_tweet_words)
-## [1] 134387
+## [1] 133584
 ```
 
 Now that you've performed this final step of cleaning, you can try to plot, once
@@ -287,20 +287,20 @@ climate_tweets_paired_words <- climate_tweets %>%
 
 climate_tweets_paired_words %>%
   count(paired_words, sort = TRUE)
-## # A tibble: 132,648 x 2
+## # A tibble: 134,656 x 2
 ##    paired_words         n
 ##    <chr>            <int>
-##  1 of the            1019
-##  2 climate change     994
-##  3 in the             854
-##  4 the amazon         574
-##  5 climatechange is   478
-##  6 is a               426
-##  7 on the             422
-##  8 of climatechange   415
-##  9 for the            394
-## 10 the world          394
-## # … with 132,638 more rows
+##  1 climate change    1021
+##  2 of the             804
+##  3 in the             798
+##  4 climatechange is   570
+##  5 is a               442
+##  6 of climatechange   437
+##  7 on the             383
+##  8 on climatechange   364
+##  9 to the             354
+## 10 this is            331
+## # … with 134,646 more rows
 ```
 
 
@@ -320,14 +320,14 @@ climate_words_counts <- climate_tweets_filtered %>%
 
 head(climate_words_counts)
 ## # A tibble: 6 x 3
-##   word1            word2                n
-##   <chr>            <chr>            <int>
-## 1 climate          change             994
-## 2 amazon           rainforest         228
-## 3 climatechange    climatecrisis      198
-## 4 climatechange    climateemergency   193
-## 5 climatechange    globalwarming      148
-## 6 climateemergency climatechange      143
+##   word1         word2             n
+##   <chr>         <chr>         <int>
+## 1 climate       change         1021
+## 2 climatechange climatecrisis   232
+## 3 climatechange globalwarming   147
+## 4 global        warming         141
+## 5 hurricane     dorian          113
+## 6 climate       crisis          100
 ```
 
 Finally, plot the data

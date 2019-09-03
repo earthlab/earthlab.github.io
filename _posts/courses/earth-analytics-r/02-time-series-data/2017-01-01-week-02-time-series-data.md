@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Intro to R & Work with Time Series Data"
 permalink: /courses/earth-analytics/time-series-data/
-modified: '2019-08-23'
+modified: '2019-09-03'
 week-landing: 2
 week: 2
 sidebar:

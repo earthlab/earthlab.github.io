@@ -3,7 +3,7 @@ layout: single
 title: "Make Interactive Maps with Leaflet R - GIS in R"
 excerpt: "In this lesson you learn the steps to create a map in R using ggplot."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-interactive-maps-with-leaflet-r/

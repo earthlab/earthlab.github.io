@@ -3,7 +3,7 @@ layout: single
 title: "Clip Raster in R"
 excerpt: "You can clip a raster to a polygon extent to save processing time and make image sizes smaller. Learn how to crop a raster dataset in R."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/crop-raster-data-in-r/

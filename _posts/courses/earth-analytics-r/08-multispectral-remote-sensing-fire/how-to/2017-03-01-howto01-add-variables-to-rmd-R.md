@@ -3,7 +3,7 @@ layout: single
 title: "Add Variables to an RMD Report R."
 excerpt: " "
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/add-variables-to-rmarkdown-report/

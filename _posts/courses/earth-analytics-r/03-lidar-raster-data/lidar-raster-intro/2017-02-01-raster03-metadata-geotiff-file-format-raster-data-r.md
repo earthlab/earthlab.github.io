@@ -3,7 +3,7 @@ layout: single
 title: "How to Open and Use Files in Geotiff Format"
 excerpt: "A GeoTIFF is a standard file format with spatial metadata embedded as tags. Use the raster package in R to open geotiff files and spatial metadata programmatically."
 authors: ['Leah Wasser', 'NEON Data Skills']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/introduction-to-spatial-metadata-r/

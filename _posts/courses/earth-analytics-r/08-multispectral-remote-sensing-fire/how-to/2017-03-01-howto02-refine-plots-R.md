@@ -3,7 +3,7 @@ layout: single
 title: "How to Remove Borders and Add Legends to Spatial Plots in R. "
 excerpt: "In this lesson you review how to remove those pesky borders from a raster plot using base plot in R. We also cover adding legends to your plot outside of the plot extent."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['how-to-hints-week8']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/refine-plots-report/

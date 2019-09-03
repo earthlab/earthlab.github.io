@@ -8,7 +8,7 @@ class-lesson: ['get-to-know-r']
 permalink: /courses/earth-analytics/time-series-data/open-plot-spreadsheet-data-in-R/
 nav-title: 'Open Spreadsheet Data'
 dateCreated: 2016-12-13
-modified: '2019-08-23'
+modified: '2019-09-03'
 week: 2
 sidebar:
   nav:

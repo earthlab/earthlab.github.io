@@ -3,7 +3,7 @@ layout: single
 title: "How to Write a Function in R - Automate Your Science"
 excerpt: "Learn how to write a function in the R programming language."
 authors: ['Max Joseph', 'Software Carpentry', 'Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-function-r-programming/

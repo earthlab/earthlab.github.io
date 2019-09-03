@@ -4,7 +4,7 @@ title: "How to Use R Markdown Code Chunks"
 excerpt: 'Code chunks in an R Markdown document are used to separate code from text in a Rmd file. Learn how to create reports using R Markdown.'
 authors: ['Leah Wasser', 'NEON Data Skills']
 category: [courses]
-modified: '2019-08-23'
+modified: '2019-09-03'
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/rmarkdown-code-chunks-comments-knitr/
 nav-title: 'Code chunks'

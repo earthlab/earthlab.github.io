@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Document Your Science Using R Markdown and R"
 permalink: /courses/earth-analytics/document-your-science/
-modified: '2019-08-23'
+modified: '2019-09-03'
 week-landing: 1
 week: 1
 sidebar:

@@ -11,7 +11,7 @@ sidebar:
 class-lesson: ['setup-r-rstudio']
 permalink: courses/earth-analytics/document-your-science/setup-working-directory/
 dateCreated: 2016-12-12
-modified: '2019-08-23'
+modified: '2019-09-03'
 author_profile: false
 comments: true
 order: 5

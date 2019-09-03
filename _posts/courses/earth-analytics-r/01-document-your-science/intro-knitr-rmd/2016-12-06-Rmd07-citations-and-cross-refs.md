@@ -3,7 +3,7 @@ layout: single
 title: "Add Citations and Cross References to an R Markdown Report with Bookdown"
 excerpt: "Learn how to use bookdown in R to add citations and cross references to your data-driven reports."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/add-citations-to-rmarkdown-report/

@@ -3,7 +3,7 @@ layout: single
 title: "Use lapply in R Instead of For Loops to Process .csv files - Efficient Coding in R"
 excerpt: "Learn how to take code in a for loop and convert it to be used in an apply function. Make your R code more efficient and expressive programming."
 authors: ['Leah Wasser', 'Bryce Mecum', 'Max Joseph']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/use-apply-functions-for-efficient-code-r/
@@ -95,7 +95,7 @@ lapply
 ##         X <- as.list(X)
 ##     .Internal(lapply(X, FUN))
 ## }
-## <bytecode: 0x5624819c1e00>
+## <bytecode: 0x55612e339e20>
 ## <environment: namespace:base>
 ```
 
@@ -240,8 +240,8 @@ microbenchmark(invisible(lapply(all_precip_files, (FUN = summarize_data),
 ## Unit: microseconds
 ##                                                                               expr
 ##  invisible(lapply(all_precip_files, (FUN = summarize_data), the_dir = the_dir_ex))
-##    min     lq    mean median     uq    max neval
-##  1.166 1.4155 2.30875 2.0595 2.4315 29.301   100
+##   min    lq    mean median     uq   max neval
+##  1.17 1.207 1.70154 1.3335 1.4865 29.29   100
 ```
 
 
@@ -264,8 +264,8 @@ microbenchmark(for (file in all_precip_files) {
 ## Unit: nanoseconds
 ##                                                                                                                                                                                                                                                                                                                                           expr
 ##  for (file in all_precip_files) {     the_data <- read.csv(file, header = TRUE, na.strings = 999.99) %>%          mutate(DATE = as.POSIXct(DATE, tz = "America/Denver",              format = "%Y-%m-%d %H:%M:%S"), precip_mm = in_to_mm(HPCP))     write.csv(the_data, file = paste0(the_dir, "/", basename(file)),          na = "999.99") }
-##  min  lq mean median  uq  max neval
-##  125 132  221    135 138 8464   100
+##  min  lq   mean median    uq   max neval
+##  248 290 497.76    313 453.5 10812   100
 ```
 
 <!--RETURN a single data.frame do.call(rbind, lapply(file_paths, function(path) { read.csv(path, stringsAsFactors = FALSZE }))-->

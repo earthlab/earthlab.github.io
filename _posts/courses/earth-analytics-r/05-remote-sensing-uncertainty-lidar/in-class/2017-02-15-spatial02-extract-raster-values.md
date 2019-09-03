@@ -4,7 +4,7 @@ title: "Extract Raster Values Using Vector Boundaries in R"
 excerpt: "This lesson reviews how to extract pixels from a raster dataset using a
 vector boundary. You can use the extracted pixels to calculate mean and max tree height for a study area (in this case a field site where tree heights were measured on the ground. Finally you will compare tree heights derived from lidar data compared to tree height measured by humans on the ground. "
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-r']
 permalink: /courses/earth-analytics/remote-sensing-uncertainty/extract-data-from-raster/

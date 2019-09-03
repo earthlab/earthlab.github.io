@@ -3,7 +3,7 @@ layout: single
 title: "Programmatically Accessing Geospatial Data Using API's - Working with and Mapping JSON Data from the Colorado Information Warehouse in R"
 excerpt: "This lesson walks through the process of retrieving and manipulating surface water data housed in the Colorado Information Warehouse. These data are stored in JSON format with spatial x, y information that support mapping."
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2019-08-24'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/co-water-data-spatial-r/
@@ -165,15 +165,15 @@ In this case, you have a `data.frame` nested within a `data.frame`.
 # view first 6 lines of the location nested data.frame
 head(water_data_df$location)
 ##    latitude needs_recoding   longitude
-## 1 40.170998          FALSE -105.160876
-## 2 40.212658          FALSE -105.251826
-## 3  40.19328          FALSE -105.210424
-## 4 40.199321          FALSE -105.222639
-## 5 40.215904          FALSE -105.257736
-## 6 39.986169          FALSE -105.218677
+## 1 40.211389          FALSE -105.250952
+## 2  40.17708          FALSE -105.178567
+## 3 40.193019          FALSE -105.210388
+## 4 40.187578          FALSE -105.189191
+## 5 40.153363          FALSE -105.088695
+## 6 40.086278          FALSE -105.217519
 # view for 6 lines of the location.latitude column
 head(water_data_df$location$latitude)
-## [1] "40.170998" "40.212658" "40.19328"  "40.199321" "40.215904" "39.986169"
+## [1] "40.211389" "40.17708"  "40.193019" "40.187578" "40.153363" "40.086278"
 ```
 
 You can remove the nesting using the `flatten()` function in `R`. When you flatten
@@ -190,18 +190,18 @@ by a period, and then the column name. For example
 # remove the nested data frame
 water_data_df <- flatten(water_data_df, recursive = TRUE)
 water_data_df$location.latitude
-##  [1] "40.170998" "40.212658" "40.19328"  "40.199321" "40.215904"
-##  [6] "39.986169" "40.053035" "40.215658" "40.256276" "40.17708" 
-## [11] "40.204193" "40.053661" "40.220702" "40.188579" "39.931813"
-## [16] "40.187578" "40.260827" "40.153363" "40.17395"  "40.086278"
-## [21] "40.193019" "40.09082"  "40.18188"  "39.931597" "40.07856" 
-## [26] "40.212505" "40.129806" "39.947704" "40.153341" "40.059809"
-## [31] "40.258367" "40.134278" "40.258038" "40.126389" "40.018667"
-## [36] "40.051652" "40.196422" "40.211083" "40.219046" "40.193758"
-## [41] "40.218335" "40.174844" "39.931659" "40.091391" "40.042028"
-## [46] "40.211389" "40.255776" "40.00638"  "40.172925" "40.187524"
-## [51] "40.185033" "40.216263" "40.257844" "40.215043" "39.961655"
-## [56] "40.177423" "39.938351"
+##  [1] "40.211389" "40.17708"  "40.193019" "40.187578" "40.153363"
+##  [6] "40.086278" "40.00638"  "40.17395"  "40.260827" "40.212505"
+## [11] "40.091391" "39.947704" "40.177423" "40.215043" "39.938351"
+## [16] "40.257844" "40.18188"  "40.258367" "40.129806" "40.07856" 
+## [21] "40.211083" "40.170998" "40.193758" "39.931813" "40.053035"
+## [26] "40.196422" "40.204193" "40.018667" "40.220702" "40.188579"
+## [31] "40.258038" "40.255776" "40.134278" "40.042028" "40.059809"
+## [36] "40.172925" "40.219046" "40.09082"  "40.216263" "39.931597"
+## [41] "40.185033" "40.153341" "40.199321" "39.961655" "40.126389"
+## [46] "39.986169" "40.218335" "40.256276" "40.051652" "40.215658"
+## [51] "40.212658" "40.19328"  "40.215904" "40.174844" "40.053661"
+## [56] "40.187524" "39.931659"
 ```
 Now you can clean up the data. Notice that your longitude and latitude values
 are in quotes. What does this mean about the structure of the data?
@@ -210,7 +210,7 @@ are in quotes. What does this mean about the structure of the data?
 
 ```r
 str(water_data_df$location.latitude)
-##  chr [1:57] "40.170998" "40.212658" "40.19328" "40.199321" "40.215904" ...
+##  chr [1:57] "40.211389" "40.17708" "40.193019" "40.187578" "40.153363" ...
 ```
 
 In order to map or work with latitude and longitude data, you need numeric values.

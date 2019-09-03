@@ -3,7 +3,7 @@ layout: single
 title: "How to Open and Work with NAIP Multispectral Imagery in R"
 excerpt: "In this lesson you learn how to open up a multi-band raster layer or image stored in .tiff format in R. You are introduced to the stack() function in R which can be used to import more than one band into a stack object in R. You also review using plotRGB to plot a multi-band image using RGB, color-infrared to other band combinations."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/naip-imagery-raster-stacks-in-r/
@@ -342,7 +342,7 @@ you process the data.
 # convert data to raster brick
 naip_csf_br <- brick(naip_csf_st)
 inMemory(naip_csf_br)
-## [1] TRUE
+## [1] FALSE
 ```
 
 
@@ -361,7 +361,7 @@ naip_csf_br
 ## resolution : 1, 1  (x, y)
 ## extent     : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## crs        : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## source     : memory
+## source     : /tmp/RtmpzcDiNN/raster/r_tmp_2019-09-03_191435_109_75703.grd 
 ## names      : m_3910505_nw_13_1_20130926_crop.1, m_3910505_nw_13_1_20130926_crop.2, m_3910505_nw_13_1_20130926_crop.3, m_3910505_nw_13_1_20130926_crop.4 
 ## min values :                                 0,                                 0,                                 0,                                 0 
 ## max values :                               255,                               255,                               255,                               255
@@ -374,11 +374,12 @@ View attributes of one band.
 # view attributes for one band
 naip_csf_br[[1]]
 ## class      : RasterLayer 
+## band       : 1  (of  4  bands)
 ## dimensions : 2312, 4377, 10119624  (nrow, ncol, ncell)
 ## resolution : 1, 1  (x, y)
 ## extent     : 457163, 461540, 4424640, 4426952  (xmin, xmax, ymin, ymax)
 ## crs        : +proj=utm +zone=13 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs 
-## source     : memory
+## source     : /tmp/RtmpzcDiNN/raster/r_tmp_2019-09-03_191435_109_75703.grd 
 ## names      : m_3910505_nw_13_1_20130926_crop.1 
 ## values     : 0, 255  (min, max)
 ```

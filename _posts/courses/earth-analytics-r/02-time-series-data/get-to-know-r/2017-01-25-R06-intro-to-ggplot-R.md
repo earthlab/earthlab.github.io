@@ -3,7 +3,7 @@ layout: single
 title: "Plot Data and Customize Plots with ggplot Plots in R - Earth Analytics - Data Science for Scientists"
 excerpt: 'Learn how to plot data and customize your plots using ggplot in R.'
 authors: ['Leah Wasser', 'Data Carpentry']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['get-to-know-r']
 nav-title: 'Plot Data with ggplot'

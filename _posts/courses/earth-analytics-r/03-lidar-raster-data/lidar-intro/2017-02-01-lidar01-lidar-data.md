@@ -3,7 +3,7 @@ layout: single
 title: "What is Lidar Data"
 excerpt: "This lesson reviews what lidar remote sensing is, what the lidar instrument measures and discusses the core components of a lidar remote sensing system."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/lidar-intro/

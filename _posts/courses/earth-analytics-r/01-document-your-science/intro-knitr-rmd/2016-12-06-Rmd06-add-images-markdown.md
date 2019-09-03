@@ -3,7 +3,7 @@ layout: single
 title: "Add Images to an R Markdown Report"
 excerpt: "This lesson covers how to use markdown to add images to a report. It also discusses good file management practices associated with saving images within your project directory to avoid losing them if you have to go back and work on the report in the future."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-rmarkdown-knitr']
 permalink: /courses/earth-analytics/document-your-science/add-images-to-rmarkdown-report/

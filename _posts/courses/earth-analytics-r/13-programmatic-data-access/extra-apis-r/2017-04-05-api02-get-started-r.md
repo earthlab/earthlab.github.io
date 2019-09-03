@@ -3,7 +3,7 @@ layout: single
 title: "An Example of Creating Modular Code in R - Efficient Scientific Programming"
 excerpt: "This lesson provides an example of modularizing code in R. "
 authors: ['Carson Farmer', 'Leah Wasser', 'Max Joseph']
-modified: '2019-08-24'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/get-data-with-rcurl-r/

@@ -8,7 +8,7 @@ class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/time-series-data/ways-to-get-help-with-R/
 nav-title: 'About R / Get Help'
 dateCreated: 2016-12-13
-modified: '2019-08-23'
+modified: '2019-09-03'
 week: 2
 sidebar:
   nav:

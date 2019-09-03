@@ -3,7 +3,7 @@ layout: single
 title: "Create Interactive Plots in R - Time Series & Scatterplots Using plotly and dygraphs"
 excerpt: "Learn how to create interactive reports using plotly and dygraphs in R for plotting. "
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['time-series-r']
 permalink: /courses/earth-analytics/time-series-data/interactive-time-series-plots-in-r/

@@ -3,7 +3,7 @@ layout: single
 title: "Maps in R: R Maps Tutorial Using Ggplot"
 excerpt: "You can use R as a GIS. Learn how to create a map in R using ggplot in this R maps tutorial."
 authors: ['Leah Wasser']
-modified: '2019-08-23'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['hw-custom-maps-r']
 permalink: /courses/earth-analytics/spatial-data-r/make-maps-with-ggplot-in-R/

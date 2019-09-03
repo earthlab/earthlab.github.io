@@ -3,7 +3,7 @@ layout: single
 title: "Creating Interactive Spatial Maps in R Using Leaflet"
 excerpt: "This lesson covers the basics of creating an interactive map using the leaflet API in R. We will import data from the Colorado Information warehouse using the SODA RESTful API and then create an interactive map that can be published to an HTML formatted file using knitr and rmarkdown."
 authors: ['Carson Farmer', 'Leah Wasser']
-modified: '2019-08-24'
+modified: '2019-09-03'
 category: [courses]
 class-lesson: ['intro-APIs-r']
 permalink: /courses/earth-analytics/get-data-using-apis/leaflet-r/
@@ -203,12 +203,12 @@ a series of text strings and object values.
 # let's look at the output of your popup text before calling it in leaflet
 # use head() to just look at the first 6 lines of the output
 head(paste0(water_data_df$station_name, "<br/>Discharge: ", water_data_df$amount))
-## [1] "SOUTH FLAT DITCH<br/>Discharge: 6.26"                     
-## [2] "ROUGH AND READY DITCH<br/>Discharge: 0.08"                
-## [3] "WEBSTER MCCASLIN DITCH<br/>Discharge: 0.29"               
-## [4] "GOSS DITCH 1<br/>Discharge: 9.4"                          
-## [5] "BOULDER CREEK FEEDER CANAL NEAR LYONS<br/>Discharge: 60.8"
-## [6] "DRY CREEK CARRIER<br/>Discharge: 2.53"
+## [1] "SMEAD DITCH<br/>Discharge: 3.78"            
+## [2] "PECK PELLA CLOVER DITCH<br/>Discharge: 1.56"
+## [3] "TRUE AND WEBSTER DITCH<br/>Discharge: 0.1"  
+## [4] "DENIO TAYLOR DITCH<br/>Discharge: 0.01"     
+## [5] "BONUS DITCH<br/>Discharge: 23.33"           
+## [6] "BOULDER RESERVOIR INLET<br/>Discharge: 64"
 ```
 
 The `<br/>` element in your popup above is HTML. This adds a line break to your
