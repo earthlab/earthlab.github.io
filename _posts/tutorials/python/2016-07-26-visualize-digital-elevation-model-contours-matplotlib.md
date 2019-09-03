@@ -2,7 +2,7 @@
 layout: single
 title: 'Visualizing elevation contours from raster digital elevation models in Python'
 date: 2016-07-26
-modified: 2019-08-23
+modified: 2019-09-03
 authors: [Matt Oakley, Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial shows how to compute and plot contour lines for elevation from a raster DEM (digital elevation model).'
@@ -31,18 +31,18 @@ Digital elevation models (DEMs) are data in the format of a 2D array where each 
 ```python
 from osgeo import gdal
 import numpy as np
-import matplotlib 
+import matplotlib
 import matplotlib.pyplot as plt
-import elevation 
+import elevation
 ```
 
 ## Fetch and read DEM data
 
-The first objective we'll have to accomplish is acquiring and reading in our data. The data will be downloaded from the NASA SRTM mission via the `elevation` module's command line interface. 
+The first objective we'll have to accomplish is acquiring and reading in our data. The data will be downloaded from the NASA SRTM mission via the `elevation` module's command line interface.
 
 {:.input}
 ```python
-!eio clip -o Shasta-30m-DEM.tif --bounds -122.6 41.15 -121.9 41.6 
+!eio clip -o Shasta-30m-DEM.tif --bounds -122.6 41.15 -121.9 41.6
 ```
 
 {:.output}
@@ -53,11 +53,11 @@ The first objective we'll have to accomplish is acquiring and reading in our dat
     make: Nothing to be done for 'all'.
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    cp SRTM1.vrt SRTM1.f1a7dc884b0e44cb90812cff8425fdec.vrt
+    cp SRTM1.vrt SRTM1.cca493a82f45439aad7944b156e7f821.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.f1a7dc884b0e44cb90812cff8425fdec.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
-    rm -f SRTM1.f1a7dc884b0e44cb90812cff8425fdec.vrt
+    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.cca493a82f45439aad7944b156e7f821.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
+    rm -f SRTM1.cca493a82f45439aad7944b156e7f821.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
 
 
@@ -89,7 +89,7 @@ Now that we've read our data in, we're ready to visualize the elevation using co
 #Plot out data with Matplotlib's 'contour'
 fig = plt.figure(figsize = (12, 8))
 ax = fig.add_subplot(111)
-plt.contour(data_array, cmap = "viridis", 
+plt.contour(data_array, cmap = "viridis",
             levels = list(range(0, 5000, 100)))
 plt.title("Elevation Contours of Mt. Shasta")
 cbar = plt.colorbar()
@@ -102,7 +102,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-visualize-digital-elevation-model-contours-matplotlib/2016-07-26-visualize-digital-elevation-model-contours-matplotlib_8_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-visualize-digital-elevation-model-contours-matplotlib/2016-07-26-visualize-digital-elevation-model-contours-matplotlib_8_0.png" alt = "A contour plot of Mt. Shasta.">
+<figcaption>A contour plot of Mt. Shasta.</figcaption>
 
 </figure>
 
@@ -116,7 +117,7 @@ We just used the 'contour' module to plot our data. Let's do it again but with '
 #Plot our data with Matplotlib's 'contourf'
 fig = plt.figure(figsize = (12, 8))
 ax = fig.add_subplot(111)
-plt.contourf(data_array, cmap = "viridis", 
+plt.contourf(data_array, cmap = "viridis",
             levels = list(range(0, 5000, 500)))
 plt.title("Elevation Contours of Mt. Shasta")
 cbar = plt.colorbar()
@@ -129,10 +130,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-visualize-digital-elevation-model-contours-matplotlib/2016-07-26-visualize-digital-elevation-model-contours-matplotlib_10_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-visualize-digital-elevation-model-contours-matplotlib/2016-07-26-visualize-digital-elevation-model-contours-matplotlib_10_0.png" alt = "A filled contour plot of Mt. Shasta.">
+<figcaption>A filled contour plot of Mt. Shasta.</figcaption>
 
 </figure>
-
-
-
-

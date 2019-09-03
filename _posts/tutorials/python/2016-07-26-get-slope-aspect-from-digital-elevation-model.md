@@ -2,7 +2,7 @@
 layout: single
 title: 'Calculating slope and aspect from a digital elevation model in Python'
 date: 2016-07-26
-modified: 2019-08-23
+modified: 2019-09-03
 authors: [Matt Oakley, Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial shows how to compute the slope and aspect from a digital elevation model in Python.'
@@ -78,7 +78,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-get-slope-aspect-from-digital-elevation-model/2016-07-26-get-slope-aspect-from-digital-elevation-model_8_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-get-slope-aspect-from-digital-elevation-model/2016-07-26-get-slope-aspect-from-digital-elevation-model_8_0.png" alt = "An image of Mt. Shasta's elevation.">
+<figcaption>An image of Mt. Shasta's elevation.</figcaption>
 
 </figure>
 
@@ -103,7 +104,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-get-slope-aspect-from-digital-elevation-model/2016-07-26-get-slope-aspect-from-digital-elevation-model_10_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-get-slope-aspect-from-digital-elevation-model/2016-07-26-get-slope-aspect-from-digital-elevation-model_10_0.png" alt = "A plot of the slope around Mt. Shasta.">
+<figcaption>A plot of the slope around Mt. Shasta.</figcaption>
 
 </figure>
 
@@ -122,7 +124,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-get-slope-aspect-from-digital-elevation-model/2016-07-26-get-slope-aspect-from-digital-elevation-model_11_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-get-slope-aspect-from-digital-elevation-model/2016-07-26-get-slope-aspect-from-digital-elevation-model_11_0.png" alt = "A plot of the aspect of Mt. Shasta.">
+<figcaption>A plot of the aspect of Mt. Shasta.</figcaption>
 
 </figure>
 
