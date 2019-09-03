@@ -2,7 +2,7 @@
 layout: single
 title: 'Visualizing elevation contours from raster digital elevation models in Python'
 date: 2016-07-26
-modified: 2019-08-23
+modified: 2019-09-03
 authors: [Matt Oakley, Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial shows how to compute and plot contour lines for elevation from a raster DEM (digital elevation model).'
@@ -53,11 +53,11 @@ The first objective we'll have to accomplish is acquiring and reading in our dat
     make: Nothing to be done for 'all'.
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    cp SRTM1.vrt SRTM1.f1a7dc884b0e44cb90812cff8425fdec.vrt
+    cp SRTM1.vrt SRTM1.d3ff90314f7d467f85fab22c1d11f746.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
     make: Entering directory '/root/.cache/elevation/SRTM1'
-    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.f1a7dc884b0e44cb90812cff8425fdec.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
-    rm -f SRTM1.f1a7dc884b0e44cb90812cff8425fdec.vrt
+    gdal_translate -q -co TILED=YES -co COMPRESS=DEFLATE -co ZLEVEL=9 -co PREDICTOR=2 -projwin -122.6 41.6 -121.9 41.15 SRTM1.d3ff90314f7d467f85fab22c1d11f746.vrt /root/earth-analytics-lessons/Shasta-30m-DEM.tif
+    rm -f SRTM1.d3ff90314f7d467f85fab22c1d11f746.vrt
     make: Leaving directory '/root/.cache/elevation/SRTM1'
 
 
@@ -102,7 +102,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-visualize-digital-elevation-model-contours-matplotlib/2016-07-26-visualize-digital-elevation-model-contours-matplotlib_8_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-visualize-digital-elevation-model-contours-matplotlib/2016-07-26-visualize-digital-elevation-model-contours-matplotlib_8_0.png" alt = "A contour plot of Mt. Shasta.">
+<figcaption>A contour plot of Mt. Shasta.</figcaption>
 
 </figure>
 
@@ -129,7 +130,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-visualize-digital-elevation-model-contours-matplotlib/2016-07-26-visualize-digital-elevation-model-contours-matplotlib_10_0.png">
+<img src = "{{ site.url }}/images/tutorials/python/2016-07-26-visualize-digital-elevation-model-contours-matplotlib/2016-07-26-visualize-digital-elevation-model-contours-matplotlib_10_0.png" alt = "A filled contour plot of Mt. Shasta.">
+<figcaption>A filled contour plot of Mt. Shasta.</figcaption>
 
 </figure>
 
