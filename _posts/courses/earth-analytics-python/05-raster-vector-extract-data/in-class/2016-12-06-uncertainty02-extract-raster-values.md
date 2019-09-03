@@ -98,8 +98,8 @@ with rio.open('data/spatial-vector-lidar/california/neon-sjer-site/2013/lidar/SJ
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.hist(SJER_chm_data.ravel(),
         color="purple")
-ax.set(xlabel="Lidar Estimated Tree Height (m)", 
-       ylabel="Total Pixels", 
+ax.set(xlabel="Lidar Estimated Tree Height (m)",
+       ylabel="Total Pixels",
        title="Distribution of Pixel Values \n Lidar Canopy Height Model")
 
 # Turn off scientific notation
@@ -262,15 +262,17 @@ properly with your geopandas object.
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(10, 10))
-ax.imshow(SJER_chm_data,
-          # Here you must set the spatial extent or else the data will not line up with your geopandas layer
-          extent=plotting_extent(sjer_lidar_chm_src),
-          cmap='Greys')
+ep.plot_bands(SJER_chm_data,
+              # Here you must set the spatial extent or else the data will not line up with your geopandas layer
+              extent=plotting_extent(sjer_lidar_chm_src),
+              cmap='Greys',
+              title="San Joachin Field Site \n Vegetation Plot Locations",
+              scale=False,
+              ax=ax)
 SJER_plots_points.plot(ax=ax,
                        marker='s',
                        markersize=45,
                        color='purple')
-ax.set_title("San Joachin Field Site \n Vegetation Plot Locations")
 ax.set_axis_off()
 plt.show()
 ```
@@ -592,7 +594,7 @@ Below is a bar plot of max lidar derived tree height by plot id. This plot allow
 ```python
 fig, ax = plt.subplots(figsize=(10, 5))
 ax.bar(SJER_lidar_height_df['Plot_ID'],
-       SJER_lidar_height_df['max'], 
+       SJER_lidar_height_df['max'],
        color="purple")
 ax.set(xlabel='Plot ID', ylabel='Max Height',
        title='Maximum LIDAR Derived Tree Heights')
@@ -749,7 +751,7 @@ arr = np.stack(SJER_lidar_height_df_ras['mini_raster_array'])
 ep.hist(arr,
         bins=[0, 5, 10, 15, 20, 25],
         cols=3,
-       title=site_names, figsize=(15,30))
+        title=site_names, figsize=(15, 30))
 plt.show()
 ```
 
