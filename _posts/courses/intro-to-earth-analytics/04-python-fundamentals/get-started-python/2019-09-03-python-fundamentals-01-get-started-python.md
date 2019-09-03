@@ -26,6 +26,7 @@ topics:
 ---
 {% include toc title="In This Chapter" icon="file-text" %}
 
+LEAH MADE THIS CHANGE! 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Ten - Get Started with Python
@@ -82,5 +83,28 @@ Be sure that you have completed the chapter on <a href="{{ site.url }}/courses/i
     * Spyder
 * Other options
     * Desktop GIS
+
+
+{:.input}
+```python
+# Test code cell 1
+a = 5
+b = 1
+```
+
+{:.input}
+```python
+# Test code cell 2
+c = a + b
+```
+
+{:.input}
+```python
+# Test code cell 3
+print(c)
+```
+
+{:.output}
+    6
 
 
