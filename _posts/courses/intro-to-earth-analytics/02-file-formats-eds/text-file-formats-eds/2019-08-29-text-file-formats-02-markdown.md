@@ -8,7 +8,7 @@ class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/format-text-with-markdown-jupyter-notebook/
 nav-title: "Markdown in Jupyter Notebook"
 dateCreated: 2019-08-29
-modified: 2019-08-29
+modified: 2019-09-04
 module-type: 'class'
 class-order: 1
 course: "intro-to-earth-data-science"
@@ -223,12 +223,15 @@ Here is some important text!
 
 You can also use HTML in `Markdown` cells to create hyperlinks to websites using the following syntax:
 
-```markdown
-Our program website can be found at <a href="http://earthdatascience.org" target="_blank">this link</a>. 
+`<a href="url" target="_blank">words that will be hyperlinked</a>`
 
-```
+You can identify the words that will be hyperlinked (i.e. that will prompt the web browser to load the page when clicked) by replacing `words that will be hyperlinked` in the example above.  
 
-It will render as follows:
+For example, the following Markdown:
+
+`Our program website can be found at <a href="http://earthdatascience.org" target="_blank">this link</a>.`
+
+will render as follows with `this link` as the hyperlinked words:
 
 Our program website can be found at <a href="http://earthdatascience.org" target="_blank">this link</a>.
 
@@ -237,9 +240,15 @@ Our program website can be found at <a href="http://earthdatascience.org" target
 
 You can also use `Markdown` to link to images on the web using the following syntax:
 
+`![alt text here](url-to-image-here)`
+
+The alt text is the alternative text that appears if an image fails to load on webpage; it is also used by screen-reading tools to identify the image to users of the screen-reading tools. 
+
+For example, the following Markdown:
+
 `![Markdown Logo is here.](https://www.fullstackpython.com/img/logos/markdown.png)`
 
-It will render as follows:
+will render as follows with an alt text of `Markdown Logo is here.`:
 
 ![Markdown Logo is here.](https://www.fullstackpython.com/img/logos/markdown.png)
 
