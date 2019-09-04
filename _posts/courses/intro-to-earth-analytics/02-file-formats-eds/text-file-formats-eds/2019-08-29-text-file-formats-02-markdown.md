@@ -223,11 +223,11 @@ Here is some important text!
 
 You can also use HTML in `Markdown` cells to create hyperlinks to websites using the following syntax:
 
-`<a href="url" target="_blank">words that will be hyperlinked</a>`
+`<a href="url" target="_blank">hyperlinked words</a>`
 
-You can identify the words that will be hyperlinked (i.e. that will prompt the web browser to load the page when clicked) by replacing `words that will be hyperlinked` in the example above.  
+You can identify the words that will be hyperlinked (i.e. prompt a web page to open when clicked) by replacing `hyperlinked words` in the example above.  
 
-For example, the following Markdown:
+For example, the following syntax:
 
 `Our program website can be found at <a href="http://earthdatascience.org" target="_blank">this link</a>.`
 
@@ -244,7 +244,7 @@ You can also use `Markdown` to link to images on the web using the following syn
 
 The alt text is the alternative text that appears if an image fails to load on webpage; it is also used by screen-reading tools to identify the image to users of the screen-reading tools. 
 
-For example, the following Markdown:
+For example, the following syntax:
 
 `![Markdown Logo is here.](https://www.fullstackpython.com/img/logos/markdown.png)`
 
