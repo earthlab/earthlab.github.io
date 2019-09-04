@@ -5,7 +5,7 @@ excerpt: "This lesson introduces the raster geotiff file format - which is often
 to store lidar raster data. You will learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2019-09-04
 category: [courses]
 permalink: /workshops/gis-open-source-python/open-lidar-raster-python/
 nav-title: 'Open Raster Data Python'
@@ -92,12 +92,12 @@ You can use the `rasterio` library combined with `numpy` and `matplotlib` to ope
 
 {:.input}
 ```python
+import os
+import numpy as np
+import matplotlib.pyplot as plt
 import rasterio as rio
 from rasterio.plot import show
 from rasterio.plot import show_hist
-import matplotlib.pyplot as plt
-import numpy as np
-import os
 from shapely.geometry import Polygon, mapping
 from rasterio.mask import mask
 # a package created for this class that will be discussed later in this lesson
@@ -162,7 +162,8 @@ ax.set_axis_off()
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_8_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_8_0.png" alt = "You can use the rasterio show() function to quickly plot a raster image.">
+<figcaption>You can use the rasterio show() function to quickly plot a raster image.</figcaption>
 
 </figure>
 
@@ -228,7 +229,8 @@ ax.set_axis_off()
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_13_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_13_0.png" alt = "You can use the rasterio show() function to quickly plot a raster image.">
+<figcaption>You can use the rasterio show() function to quickly plot a raster image.</figcaption>
 
 </figure>
 
@@ -264,7 +266,7 @@ Once you are outside of the `with` statement, you can no long access the `src` o
 
 ## Raster Plots with Matplotlib
 
-Let's try this again. Open the same DEM using a context manager. Then let's plot again but this time using matplotlib imshow. Using `matplotlib` allows you to fully customize your plots. Do the following
+Let's try this again. Open the same DEM using a context manager. Then let's plot again but this time using `earthpy` `plot_bands`. Using `matplotlib` allows you to fully customize your plots. Do the following
 
 1. use .read() to read in your raster data as a numpy array
 2. set masked = True to ensure that no data values get translated to `nan`. 
@@ -323,17 +325,17 @@ sjer_ext
 
 
 
-## Plot A Raster Using Rasterio 
+## Plot A Raster Using EarthPy 
 
-You are now ready to plot your data using `imshow()` and matplotlib. 
+You are now ready to plot your data using `plot_bands` and EarthPy. 
  
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10,8))
-ax.imshow(lidar_dem_im, 
-     cmap = 'Greys', 
-     extent = sjer_ext);
+ep.plot_bands(lidar_dem_im,
+              cmap='Greys',
+              extent=sjer_ext,
+              cbar=False)
 ```
 
 {:.output}
@@ -341,9 +343,21 @@ ax.imshow(lidar_dem_im,
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_22_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_22_0.png" alt = "The earthpy plot_bands function allows you to quickly plot one or more bands of a raster. This image shows a DEM generated from lidar data.">
+<figcaption>The earthpy plot_bands function allows you to quickly plot one or more bands of a raster. This image shows a DEM generated from lidar data.</figcaption>
 
 </figure>
+
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f3f46c89a20>
+
 
 
 
@@ -353,33 +367,22 @@ This is important if you plan to overlay another spatial data layer on top of yo
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10,8))
-ax.imshow(lidar_dem_im, 
-     cmap = 'Greys', 
-     extent = sjer_ext)
-# add a title and adjust the size of the font.
-# you can add a title to show() but it's not as easy to define the font size
-ax.set_title("Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Correct Spatial Extent",
-             fontsize = 16)
+ep.plot_bands(lidar_dem_im,
+              cmap='Greys',
+              extent=sjer_ext,
+              cbar=False,
+              # Add a title arguement
+              title="Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Correct Spatial Extent")
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    Text(0.5, 1.0, 'Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Correct Spatial Extent')
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_24_1.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_24_0.png" alt = "The earthpy plot_bands function can be customized to address colormaps and titles as well. This image shows a DEM generated from lidar data.">
+<figcaption>The earthpy plot_bands function can be customized to address colormaps and titles as well. This image shows a DEM generated from lidar data.</figcaption>
 
 </figure>
 
@@ -392,13 +395,12 @@ turn off the message that you might otherwise get from matplotline: `Text(0.5,1,
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10,8))
-ax.imshow(lidar_dem_im, 
-     cmap = 'Greys',
-     extent = sjer_ext)
-# add a title and adjust the size of the font.
-ax.set_title("Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Correct Spatial Extent",
-             fontsize = 16);
+ep.plot_bands(lidar_dem_im,
+              cmap='Greys',
+              extent=sjer_ext,
+              title="Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Correct Spatial Extent",
+              cbar=False)
+plt.show()
 ```
 
 {:.output}
@@ -406,7 +408,8 @@ ax.set_title("Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Corre
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_26_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_26_0.png" alt = "The earthpy plot_bands function allows you to quickly plot one or more bands of a raster. This image shows a DEM generated from lidar data.">
+<figcaption>The earthpy plot_bands function allows you to quickly plot one or more bands of a raster. This image shows a DEM generated from lidar data.</figcaption>
 
 </figure>
 
@@ -415,21 +418,18 @@ ax.set_title("Digital Elevation Model - Pre 2013 Flood\n Plotted Using the Corre
 
 Let's plot again but this time you will:
 
-1. add a colorbar using `es.colorbar()`
+1. add a colorbar by allowing `ep.plot_bands()` to add one. You have been setting the `cbar` arguement to `False` in the previous plots. The default for `plot_bands()` is for `cbar` to be set to `True`
+2. fix the colorbar scaling. By default, `plot_bands()` will scale a colorbar to a 0-255 scale. However, since you are looking at elevation data, you would like the original values of the raster. You can prevent this scaling by setting the `scale` arguement of `plot_bands()` to `False`
 2. turn off the annoying matplotlib message by adding a semicolon `;` to the end of the last line
-3. turn off the axes given you don't need the coordinates in your plot
-4. increase the title font size using the `as.set_title` function and the `fontsize` argument 
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10,10))
-lidar_plot = ax.imshow(lidar_dem_im,
-     cmap = 'Greys',
-     extent = sjer_ext)
-ax.set_title("Lidar Digital Elevation Model \n Pre 2013 Boulder Flood | Lee Hill Road",
-            fontsize=20)
-ep.colorbar(lidar_plot)
-ax.set_axis_off();
+ep.plot_bands(lidar_dem_im,
+              cmap='Greys',
+              extent=sjer_ext,
+              title="Lidar Digital Elevation Model \n Pre 2013 Boulder Flood | Lee Hill Road",
+              scale=False)
+plt.show()
 ```
 
 {:.output}
@@ -437,7 +437,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_28_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_28_0.png" alt = "The earthpy plot_bands function allows you to quickly plot one or more bands of a raster. This image shows a DEM generated from lidar data.">
+<figcaption>The earthpy plot_bands function allows you to quickly plot one or more bands of a raster. This image shows a DEM generated from lidar data.</figcaption>
 
 </figure>
 
@@ -456,14 +457,12 @@ To plot you can select [pre-determined color ramps](https://matplotlib.org/users
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10, 10))
-im = ax.imshow(lidar_dem_im, 
-               cmap='viridis_r',
-               extent = sjer_ext)
-ax.set_title("Digital Elevation Model - Pre 2013 Flood", 
-             fontsize=20)
-ep.colorbar(im)
-ax.set_axis_off();
+ep.plot_bands(lidar_dem_im,
+              cmap='viridis_r',
+              extent=sjer_ext,
+              title="Digital Elevation Model - Pre 2013 Flood",
+              scale=False)
+plt.show()
 ```
 
 {:.output}
@@ -471,7 +470,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_31_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_31_0.png" alt = "Here, the colormap is modified and a colorbar is turned on when using the plot_bands function.">
+<figcaption>Here, the colormap is modified and a colorbar is turned on when using the plot_bands function.</figcaption>
 
 </figure>
 
@@ -490,14 +490,14 @@ range of elevation values in your study area and the degree of difference betwee
 low and high regions (ie is it flat or hilly?). Is it high elevation vs 
 low elevation?
 
-To plot a histogram use the `rasterio` - `show_hist()` function.
+To plot a histogram use the `earthpy.plot` - `hist()` function.
 
 
 {:.input}
 ```python
 # create histogram of data
-show_hist(lidar_dem_im, 
-                   facecolor = 'purple')
+ep.hist(lidar_dem_im)
+plt.show()
 ```
 
 {:.output}
@@ -505,7 +505,8 @@ show_hist(lidar_dem_im,
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_34_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_34_0.png" alt = "The earthpy hist function allows you to quickly view the distribution of pixel values for 1 or more bands of a raster.">
+<figcaption>The earthpy hist function allows you to quickly view the distribution of pixel values for 1 or more bands of a raster.</figcaption>
 
 </figure>
 
@@ -514,13 +515,11 @@ show_hist(lidar_dem_im,
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (8,6))
 # create histogram of data
-show_hist(lidar_dem_im, 
-          facecolor = 'purple',
-          ax=ax,
-          bins = 100,
-          title = "Lee Hill Road - Digital Elevation (terrain) Model - \nDistribution of Elevation Values")
+ep.hist(lidar_dem_im,
+        bins=100,
+        title="Lee Hill Road - Digital Elevation (terrain) Model - \nDistribution of Elevation Values")
+plt.show()
 ```
 
 {:.output}
@@ -528,7 +527,8 @@ show_hist(lidar_dem_im,
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_35_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_35_0.png" alt = "The earthpy hist function allows you to quickly view the distribution of pixel values for 1 or more bands of a raster.">
+<figcaption>The earthpy hist function allows you to quickly view the distribution of pixel values for 1 or more bands of a raster.</figcaption>
 
 </figure>
 
@@ -549,7 +549,8 @@ The file that you opened above was an elevation model representing the elvation 
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_37_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-02-open-lidar-raster-data-python/2018-07-20-spatial-02-open-lidar-raster-data-python_37_0.png" alt = "A plot showing a dsm generated from lidar data and plotted using earthpy plot_bands.">
+<figcaption>A plot showing a dsm generated from lidar data and plotted using earthpy plot_bands.</figcaption>
 
 </figure>
 
