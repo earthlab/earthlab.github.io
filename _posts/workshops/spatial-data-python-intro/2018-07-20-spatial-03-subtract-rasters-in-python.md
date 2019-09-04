@@ -68,12 +68,6 @@ et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 In the previous lesson you learned how to open and plot raster data. In this lesson you'll learn how to subtract one raster from another. In this example we have a lidar digital surface model and an elevation model. If you subtract elevation from the top of the earth's surface then you can get tree (and building) heights!
 
 <figure>

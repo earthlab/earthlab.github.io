@@ -356,7 +356,7 @@ ep.plot_bands(lidar_dem_im,
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f3f46c89a20>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f2509d5fa20>
 
 
 
