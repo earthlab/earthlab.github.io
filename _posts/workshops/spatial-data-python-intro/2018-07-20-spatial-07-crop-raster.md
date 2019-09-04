@@ -4,7 +4,7 @@ category: [courses]
 title: "Crop a Spatial Raster Dataset Using a Shapefile in Python"
 excerpt: "This lesson covers how to crop a raster dataset and export it as a new raster in Python"
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2019-08-22
+modified: 2019-09-04
 permalink: /workshops/gis-open-source-python/crop-raster-data-in-python/
 nav-title: 'Crop a Raster'
 module-type: 'workshop'
@@ -89,12 +89,6 @@ import warnings
 warnings.filterwarnings('ignore')
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 ## Open Raster and Vector Layers
 
 Next, you will use `rio.open()` to open a raster layer. Open and plot the canopy height model (CHM) that you created in the previous lesson. Or you can use the CHM provided to you in the data directory here:
@@ -122,7 +116,8 @@ ep.plot_bands(lidar_chm_im,
 
 <figure>
 
-<img src = "{{ site.url }}%s/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_5_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_5_0.png" alt = "A canopy height model plotted using the plot_bands earthpy function.">
+<figcaption>A canopy height model plotted using the plot_bands earthpy function.</figcaption>
 
 </figure>
 
@@ -172,7 +167,8 @@ ax.set_axis_off();
 
 <figure>
 
-<img src = "{{ site.url }}%s/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_10_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_10_0.png" alt = "A plot of the clipping extent layer that you will use to crop your raster data.">
+<figcaption>A plot of the clipping extent layer that you will use to crop your raster data.</figcaption>
 
 </figure>
 
@@ -207,7 +203,8 @@ crop_extent_soap.plot(ax=ax, alpha=.6, color='g');
 
 <figure>
 
-<img src = "{{ site.url }}%s/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_14_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_14_0.png" alt = "The clipping extent overlayed on top of your raster. When you crop the raster, all of the data outside of the clipping extent will be removed.">
+<figcaption>The clipping extent overlayed on top of your raster. When you crop the raster, all of the data outside of the clipping extent will be removed.</figcaption>
 
 </figure>
 
@@ -268,7 +265,8 @@ ep.plot_bands(lidar_chm_crop_ma, cmap='terrain', cbar=False);
 
 <figure>
 
-<img src = "{{ site.url }}%s/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_21_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_21_0.png" alt = "Here you can see the results of your crop function.">
+<figcaption>Here you can see the results of your crop function.</figcaption>
 
 </figure>
 

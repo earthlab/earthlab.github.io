@@ -4,7 +4,7 @@ category: [courses]
 title: "Subtract Raster Data in Python Using Numpy and Rasterio"
 excerpt: "Sometimes you need to manipulate multiple rasters to create a new raster output data set in Python. Learn how to create a CHM by subtracting an elevation raster dataset from a surface model dataset in Python."
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2018-07-19
+modified: 2019-09-04
 permalink: /workshops/gis-open-source-python/subtract-rasters-in-open-source-python/
 nav-title: 'Subtract Rasters / Raster Math'
 module-type: 'workshop'
@@ -48,28 +48,31 @@ You will need anaconda 3.x, git and bash to set things up.
 
 {:.input}
 ```python
+import os
+import numpy as np
+import matplotlib.pyplot as plt
 import rasterio as rio
 from rasterio.plot import show
 from rasterio.plot import show_hist
-import matplotlib.pyplot as plt
-import numpy as np
-import os
 from shapely.geometry import Polygon, mapping
 from rasterio.mask import mask
-# a package created for this class that will be discussed later in this lesson
 import earthpy as et
 import earthpy.spatial as es
-# plot inline in the notebook
-plt.ion()
+import earthpy.plot as ep
 
 from matplotlib.colors import ListedColormap
 import matplotlib.colors as colors
 
-#import matplotlib.pyplot as plt
-#from matplotlib.patches import Patch
-#from mpl_toolkits.axes_grid1 import make_axes_locatable
+# set home directory and download data
+et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
 
 In the previous lesson you learned how to open and plot raster data. In this lesson you'll learn how to subtract one raster from another. In this example we have a lidar digital surface model and an elevation model. If you subtract elevation from the top of the earth's surface then you can get tree (and building) heights!
 
@@ -184,20 +187,22 @@ lidar_chm = lidar_dsm_im - lidar_dem_im
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10,10))
-chm_plot = ax.imshow(lidar_chm, 
-                     cmap='viridis')
-ax.set_axis_off()
-
-es.colorbar(chm_plot)
-ax.set_title("Lidar Canopy Height Model (CHM)\n Tree Height For Your Field Site From Remote Sensing Data!", 
-             fontsize = 16);
+ep.plot_bands(lidar_chm,
+              cmap='viridis',
+              title="Lidar Canopy Height Model (CHM)\n Tree Height For Your Field Site From Remote Sensing Data!")
+plt.show()
 ```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-03-subtract-rasters-in-python_11_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-03-subtract-rasters-in-python/2018-07-20-spatial-03-subtract-rasters-in-python_11_0.png" alt = "Plot showing a lidar canopy height model plotted using the plot_bands earthpy function.">
+<figcaption>Plot showing a lidar canopy height model plotted using the plot_bands earthpy function.</figcaption>
+
+</figure>
+
 
 
 
@@ -205,17 +210,21 @@ ax.set_title("Lidar Canopy Height Model (CHM)\n Tree Height For Your Field Site 
 {:.input}
 ```python
 # view histogram of the data
-fig, ax = plt.subplots(figsize = (14,14))
-show_hist(lidar_chm, 
-          facecolor = 'purple',
-          bins=100,
-          title = "Distribution of Canopy Height Model Pixels");
+ep.hist(lidar_chm,
+        bins=100,
+        title="Distribution of Canopy Height Model Pixels")
+plt.show()
 ```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-03-subtract-rasters-in-python_12_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-03-subtract-rasters-in-python/2018-07-20-spatial-03-subtract-rasters-in-python_13_0.png" alt = "Histogram of pixel values in the lidar derived canopy height model plotted using the hist function in earthpy.">
+<figcaption>Histogram of pixel values in the lidar derived canopy height model plotted using the hist function in earthpy.</figcaption>
+
+</figure>
 
 
 
@@ -264,14 +273,20 @@ chm_plot = ax.imshow(lidar_chm,
                      cmap=cmap, 
                      norm=norm)
 ax.set_title("Lidar Canopy Height Model (CHM)", fontsize=16)
-es.colorbar(chm_plot)
-ax.set_axis_off();
+ep.colorbar(chm_plot)
+ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-03-subtract-rasters-in-python_17_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-03-subtract-rasters-in-python/2018-07-20-spatial-03-subtract-rasters-in-python_18_0.png" alt = "Plot showing a lidar canopy height model, classified by ranges of values.">
+<figcaption>Plot showing a lidar canopy height model, classified by ranges of values.</figcaption>
+
+</figure>
 
 
 
@@ -290,7 +305,7 @@ chm_plot = ax.imshow(lidar_chm,
                      cmap=cmap, 
                      norm=norm, alpha = .65)
 
-es.colorbar(chm_plot)
+ep.colorbar(chm_plot)
 ax.set_title("Lidar Canopy Height Model (CHM)", fontsize=16);
 
 ```
@@ -298,7 +313,12 @@ ax.set_title("Lidar Canopy Height Model (CHM)", fontsize=16);
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-03-subtract-rasters-in-python_19_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-03-subtract-rasters-in-python/2018-07-20-spatial-03-subtract-rasters-in-python_20_0.png" alt = "Plot showing a lidar canopy height model, classified by ranges of values.">
+<figcaption>Plot showing a lidar canopy height model, classified by ranges of values.</figcaption>
+
+</figure>
 
 
 
@@ -321,11 +341,6 @@ if os.path.exists('data/spatial-vector-lidar/spatial/outputs'):
 else:
     os.makedirs('data/spatial-vector-lidar/spatial/outputs')
 ```
-
-{:.output}
-    The directory exists!
-
-
 
 {:.input}
 ```python
@@ -356,8 +371,4 @@ Your plot should look like the one below (athough the colors may be different.
 Create a Canopy Height Model using the DTM and DSM from the SJER field site. Do you notice
 differences between the two sites?
 
-</div>
-<div class="notice--success" markdown="1">
-
-<i class="fa fa-star" aria-hidden="true"></i>**Data Tip:** You can simplify the directory code above by using the exclamation `not` which tells Python to return the INVERSE or opposite of the function you have requested Python to run.
 </div>
