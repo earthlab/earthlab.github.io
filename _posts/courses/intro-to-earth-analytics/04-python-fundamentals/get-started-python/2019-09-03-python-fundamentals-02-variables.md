@@ -257,7 +257,9 @@ type(city)
 
 Checking the type for a variable can help you make sure that you understand what a variable contains and how it can be used. 
 
-For example, you can actually create a string that contain numbers!
+For example, you can actually create a string that contain numbers if you use the syntax for creating a string (e.g. `variable_name = "value"`).
+
+Notice below that `city_precip` is still a string, even though it contains a number.
 
 {:.input}
 ```python
@@ -277,8 +279,6 @@ type(city_precip)
 
 
 
-Notice that `city_precip` is still a string, even though it contains a number. This is because the syntax for creating a string (e.g. `variable_name = "value"`) was used to create this variable. 
-
 Thus, the value itself is not important for determining whether the variable is a string - the syntax does this. 
 
-Thus, remember that it is important to make sure that you are defining variables with the appropriate syntax to distinguish between numeric and string types. 
+A good reminder that it is important to make sure that you are defining variables with the appropriate syntax to distinguish between numeric and string types. 
