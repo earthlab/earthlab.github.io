@@ -4,7 +4,7 @@ category: [courses]
 title: "How to Reproject Vector Data in Python Using Geopandas - GIS in Python"
 excerpt: "Sometimes two shapefiles do not line up properly even if they cover the same area because they are in different coordinate reference systems. Learn how to reproject vector data in Python using geopandas to ensure your data line up."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2019-09-03
+modified: 2019-09-04
 module-type: 'workshop'
 module: "spatial-data-open-source-python"
 permalink: /workshops/gis-open-source-python/reproject-vector-data-in-python/
@@ -86,10 +86,10 @@ To get started, `import` the packages you will need for this lesson into `Python
 {:.input}
 ```python
 # import necessary packages to work with spatial data in Python
-import geopandas as gpd
-import numpy as np
-import matplotlib.pyplot as plt
 import os 
+import numpy as np
+import geopandas as gpd
+import matplotlib.pyplot as plt
 import earthpy as et 
 
 # set home directory and download data
@@ -154,7 +154,8 @@ ax.set_title("Madera County Roads with SJER AOI");
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_9_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_9_0.png" alt = "When the extent of a plot looks off or two datasets that cover the same area do not plot nicely together, it's often a CRS issue. This plot demonstrates what that can look like.">
+<figcaption>When the extent of a plot looks off or two datasets that cover the same area do not plot nicely together, it's often a CRS issue. This plot demonstrates what that can look like.</figcaption>
 
 </figure>
 
@@ -242,7 +243,8 @@ ax.set_title("Madera County Roads with SJER AOI");
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_15_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_15_0.png" alt = "One the CRS issues are addressed, the data plot together nicely. Here the study site extent over overlayed on top of the roads layer.">
+<figcaption>One the CRS issues are addressed, the data plot together nicely. Here the study site extent over overlayed on top of the roads layer.</figcaption>
 
 </figure>
 
@@ -277,7 +279,8 @@ Remember: check the CRS of each dataset!
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_18_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_18_0.png" alt = "One the CRS issues are addressed, the data plot together nicely. Here the US boundary is overlayed on top of the US states.">
+<figcaption>One the CRS issues are addressed, the data plot together nicely. Here the US boundary is overlayed on top of the US states.</figcaption>
 
 </figure>
 
@@ -290,7 +293,8 @@ Remember: check the CRS of each dataset!
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_19_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_19_0.png" alt = "A plot of the US states zoomed into to a small extent using xlim and ylim values. The data are not cropped here, the plot is simply adjusted.">
+<figcaption>A plot of the US states zoomed into to a small extent using xlim and ylim values. The data are not cropped here, the plot is simply adjusted.</figcaption>
 
 </figure>
 
@@ -317,9 +321,21 @@ Create a plot of the United States with the SJER study site location marked as a
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_21_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_21_0.png" alt = "A plot of the US states with the country boundary overlayed on top.">
+<figcaption>A plot of the US states with the country boundary overlayed on top.</figcaption>
 
 </figure>
+
+
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    <function matplotlib.pyplot.show(*args, **kw)>
 
 
 
@@ -330,7 +346,8 @@ Create a plot of the United States with the SJER study site location marked as a
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_22_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_22_1.png" alt = "A plot of the US states zoomed into  with a point overlayed on top.">
+<figcaption>A plot of the US states zoomed into  with a point overlayed on top.</figcaption>
 
 </figure>
 
@@ -353,7 +370,8 @@ Reproject the original SJER boundary using the full Proj.4 string for EPSG 4269,
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_24_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-05-reproject-vector-data-python/2018-07-20-spatial-05-reproject-vector-data-python_24_0.png" alt = "A plot of the Madera County roads layer with the study site overlayed on top.">
+<figcaption>A plot of the Madera County roads layer with the study site overlayed on top.</figcaption>
 
 </figure>
 

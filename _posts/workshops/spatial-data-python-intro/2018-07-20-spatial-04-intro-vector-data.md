@@ -4,7 +4,7 @@ category: [courses]
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2019-09-04
 permalink: /workshops/gis-open-source-python/intro-vector-data-python/
 nav-title: 'Vector Data in Python'
 module-type: 'workshop'
@@ -106,9 +106,9 @@ You will use the `geopandas` library to work with vector data in `Python`. You w
 {:.input}
 ```python
 # import necessary packages
-import geopandas as gpd
-import matplotlib.pyplot as plt
 import os
+import matplotlib.pyplot as plt
+import geopandas as gpd
 import earthpy as et
 
 # set home directory and download data
@@ -426,7 +426,8 @@ The plot is made larger but adding a figsize = () argument.
 ```python
 # plot the data using geopandas .plot() method
 fig, ax = plt.subplots(figsize = (10,10))
-sjer_plot_locations.plot(ax=ax);
+sjer_plot_locations.plot(ax=ax)
+plt.show()
 ```
 
 {:.output}
@@ -434,7 +435,8 @@ sjer_plot_locations.plot(ax=ax);
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_18_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_18_0.png" alt = "Plot showing a field site locations plotted using geopandas plot method.">
+<figcaption>Plot showing a field site locations plotted using geopandas plot method.</figcaption>
 
 </figure>
 
@@ -469,7 +471,8 @@ sjer_plot_locations.plot(column='plot_type',
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_20_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_20_0.png" alt = "Plot showing a field site locations plotted using geopandas plot method and colored by plot type.">
+<figcaption>Plot showing a field site locations plotted using geopandas plot method and colored by plot type.</figcaption>
 
 </figure>
 
@@ -499,7 +502,8 @@ ax.set_title('SJER Plot Locations\nMadera County, CA', fontsize=16);
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_22_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_22_0.png" alt = "Plot showing a field site locations plotted using geopandas plot method and colored by plot type.">
+<figcaption>Plot showing a field site locations plotted using geopandas plot method and colored by plot type.</figcaption>
 
 </figure>
 
@@ -524,7 +528,8 @@ sjer_plot_locations.plot(column='plot_type',
                               cmap='OrRd', ax=ax)
 # add a title to the plot
 ax.set_title('SJER Plot Locations\nMadera County, CA',
-            fontsize=16);
+            fontsize=16)
+plt.show()
 ```
 
 {:.output}
@@ -532,7 +537,8 @@ ax.set_title('SJER Plot Locations\nMadera County, CA',
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_24_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_24_0.png" alt = "Plot showing a field site locations plotted using geopandas plot method and colored by plot type but with a different color palette.">
+<figcaption>Plot showing a field site locations plotted using geopandas plot method and colored by plot type but with a different color palette.</figcaption>
 
 </figure>
 
@@ -549,7 +555,8 @@ ax = sjer_plot_locations.plot(figsize=(10, 10),
                               cmap='OrRd')
 # add a title to the plot
 ax.set_title('SJER Plot Locations\nMadera County, CA',
-            fontsize = 16);
+            fontsize = 16)
+plt.show()
 ```
 
 {:.output}
@@ -557,7 +564,8 @@ ax.set_title('SJER Plot Locations\nMadera County, CA',
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_25_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_25_0.png" alt = "Plot showing a field site locations plotted using geopandas plot method and colored by plot type and with custom symbology.">
+<figcaption>Plot showing a field site locations plotted using geopandas plot method and colored by plot type and with custom symbology.</figcaption>
 
 </figure>
 
@@ -641,7 +649,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_31_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_31_0.png" alt = "Plot showing a field site locations plotted using geopandas plot method and colored by plot type and with custom symbology.">
+<figcaption>Plot showing a field site locations plotted using geopandas plot method and colored by plot type and with custom symbology.</figcaption>
 
 </figure>
 
@@ -680,7 +689,8 @@ for ctype, data in sjer_plot_locations.groupby('plot_type'):
 ax.legend(title="Custom Legend")
 ax.set_title("United States Roads by Type", fontsize=20)
 ax.set_axis_off()
-plt.axis('equal');
+plt.axis('equal')
+plt.show()
 ```
 
 {:.output}
@@ -688,7 +698,8 @@ plt.axis('equal');
 
 <figure>
 
-<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_33_0.png">
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-04-intro-vector-data/2018-07-20-spatial-04-intro-vector-data_33_0.png" alt = "Plot showing a field site locations plotted using geopandas plot method and colored by plot type and with custom symbology.">
+<figcaption>Plot showing a field site locations plotted using geopandas plot method and colored by plot type and with custom symbology.</figcaption>
 
 </figure>
 
