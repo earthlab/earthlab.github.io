@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2019-09-05
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/classify-plot-raster-data-in-python/
@@ -185,7 +185,7 @@ ep.hist(lidar_chm_im.ravel(),
 
 
     (<Figure size 864x864 with 1 Axes>,
-     <matplotlib.axes._subplots.AxesSubplot at 0x7f03c912a160>)
+     <matplotlib.axes._subplots.AxesSubplot at 0x7f24a2417e10>)
 
 
 
@@ -305,7 +305,7 @@ ep.hist(lidar_chm_im.ravel(),
 
 
     (<Figure size 864x864 with 1 Axes>,
-     <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1cfa1d0>)
+     <matplotlib.axes._subplots.AxesSubplot at 0x7f2514ffeba8>)
 
 
 
@@ -352,7 +352,7 @@ ep.hist(lidar_chm_im.ravel(),
 
 
     (<Figure size 864x864 with 1 Axes>,
-     <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1ce3c88>)
+     <matplotlib.axes._subplots.AxesSubplot at 0x7f251506b2e8>)
 
 
 
@@ -542,7 +542,7 @@ ep.plot_bands(lidar_chm_class_ma,
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1bdfac8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f2514e64320>
 
 
 
@@ -604,7 +604,7 @@ ep.plot_bands(lidar_chm_class_ma,
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1aeaa58>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f2514d6ffd0>
 
 
 
