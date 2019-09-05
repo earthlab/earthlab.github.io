@@ -14,7 +14,7 @@ course: "intro-to-earth-data-science"
 module-type: 'session'
 ---
 
-{% include toc title="Section One" icon="file-text" %}
+{% include toc title="Section Five" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
 
