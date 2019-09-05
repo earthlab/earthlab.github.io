@@ -132,6 +132,29 @@ boulder_avg_precip
 
 
 
+### Check Type
+
+Just like you are able to check the type of data stored in a variable, you can also check the object type for lists to confirm that it is indeed a list: 
+
+`type(list_name)`
+
+
+{:.input}
+```python
+type(boulder_avg_precip)
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    list
+
+
+
+
+
 ## Print the Length of a List
  
 To work efficiently with the list index, it is very helpful to know how long the list is, meaning how many items are stored in the list. 
