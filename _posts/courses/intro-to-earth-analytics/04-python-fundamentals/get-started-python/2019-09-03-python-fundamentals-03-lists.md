@@ -23,6 +23,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/python-variables-lists/lists/"
 ---
+
 {% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
