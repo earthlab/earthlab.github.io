@@ -4,7 +4,7 @@ title: "Extract Raster Values At Point Locations in Python"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
-modified: 2019-09-03
+modified: 2019-09-05
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -760,7 +760,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_30_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/05-raster-vector-extract-data/in-class/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_30_0.png" alt = "Bar plots showing pixel value distribution for all SJER sites.">
+<figcaption>Bar plots showing pixel value distribution for all SJER sites.</figcaption>
 
 </figure>
 

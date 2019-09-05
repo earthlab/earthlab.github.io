@@ -3,7 +3,7 @@ layout: single
 title: "Customize your Maps in Python: GIS in Python"
 excerpt: "In this lesson you will learn how to adjust the x and y limits of your matplotlib and geopandas map to change the spatial extent.."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2019-09-03
+modified: 2019-09-05
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/python-change-spatial-extent-of-map-matplotlib-geopandas/
@@ -132,7 +132,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot02-set-plot-x-y-limits-python/2018-02-05-plot02-set-plot-x-y-limits-python_8_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot02-set-plot-x-y-limits-python/2018-02-05-plot02-set-plot-x-y-limits-python_8_0.png" alt = "Plot showing the North American roads overlaid on the continental US without x and y limits being set.">
+<figcaption>Plot showing the North American roads overlaid on the continental US without x and y limits being set.</figcaption>
 
 </figure>
 
@@ -183,7 +184,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot02-set-plot-x-y-limits-python/2018-02-05-plot02-set-plot-x-y-limits-python_12_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot02-set-plot-x-y-limits-python/2018-02-05-plot02-set-plot-x-y-limits-python_12_0.png" alt = "Plot showing the North American roads overlaid on the continental US with x and y limits being set to the extent of the US layer.">
+<figcaption>Plot showing the North American roads overlaid on the continental US with x and y limits being set to the extent of the US layer.</figcaption>
 
 </figure>
 

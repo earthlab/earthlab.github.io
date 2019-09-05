@@ -3,7 +3,7 @@ layout: single
 title: "Customize your Maps in Python using Matplotlib: GIS in Python"
 excerpt: "In this lesson you will review how to customize matplotlib maps created using vector data in Python. You will review how to add legends, titles and how to customize map colors."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2019-09-03
+modified: 2019-09-05
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
 module-title: 'Custom Plots in Python'
@@ -61,6 +61,12 @@ from earthpy import clip as cl
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
 
 ### Import Data
 
@@ -682,7 +688,8 @@ Next, clip the roads layer to the boundary of the sjer_aoi layer. This will remo
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_35_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_35_0.png" alt = "Geopandas plot of roads clipped to custom bounds to zoom in on a specific area.">
+<figcaption>Geopandas plot of roads clipped to custom bounds to zoom in on a specific area.</figcaption>
 
 </figure>
 
@@ -721,9 +728,9 @@ ax.collections
 
 
 
-    [<matplotlib.collections.PathCollection at 0x7fd42a76c668>,
-     <matplotlib.collections.PathCollection at 0x7fd47a9c1390>,
-     <matplotlib.collections.PathCollection at 0x7fd47a9c1710>]
+    [<matplotlib.collections.PathCollection at 0x7fb31908eda0>,
+     <matplotlib.collections.PathCollection at 0x7fb338bbd160>,
+     <matplotlib.collections.PathCollection at 0x7fb33d963f28>]
 
 
 
@@ -743,8 +750,8 @@ lines
 
 
 
-    [<matplotlib.collections.PathCollection at 0x7fd42a76c668>,
-     <matplotlib.collections.PathCollection at 0x7fd47a9c1390>]
+    [<matplotlib.collections.PathCollection at 0x7fb31908eda0>,
+     <matplotlib.collections.PathCollection at 0x7fb338bbd160>]
 
 
 
