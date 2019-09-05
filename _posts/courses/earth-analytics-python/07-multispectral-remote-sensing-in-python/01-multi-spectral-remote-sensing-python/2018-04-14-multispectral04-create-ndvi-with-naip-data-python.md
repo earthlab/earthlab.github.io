@@ -3,7 +3,7 @@ layout: single
 title: "Calculate NDVI Using NAIP Remote Sensing Data in the Python Programming Language"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI vegetation index using NAIP data in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2019-09-03
+modified: 2019-09-05
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/vegetation-indices-NDVI-in-python/
@@ -114,6 +114,12 @@ data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
+
 Next, open up the NAIP data that you wish to calculate NDVI with. You will use the data from 2015 for this example that you downloaded for week 7 of this course:
 
 `data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif`
@@ -161,7 +167,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_10_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/07-multispectral-remote-sensing-in-python/01-multi-spectral-remote-sensing-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_10_0.png" alt = "Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.">
+<figcaption>Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.</figcaption>
 
 </figure>
 
