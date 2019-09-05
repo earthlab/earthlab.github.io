@@ -5,7 +5,7 @@ excerpt: "A Python list is a data structure that stores a collection of values i
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['get-started-python']
-permalink: /courses/intro-to-earth-data-science/python-fundamentals/get-started-python/lists/
+permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-01
 modified: 2019-09-05
@@ -199,7 +199,7 @@ len(months)
 
 ## Query List Items Using Index
 
-As `Python` indexing begins at `[0]`, you can use the list index to query the value of the nth item in the list with `month[index]`, where index is equal to:
+As **Python** indexing begins at `[0]`, you can use the list index to query the value of the nth item in the list with `month[index]`, where index is equal to:
 
 `number of items - 1` or `n-1`
 
