@@ -4,7 +4,7 @@ title: 'Basic Operators in Python'
 excerpt: "Operators are symbols in Python that carry out a specific computation, or operation, such as arithmetic calculations. Learn how to use basic operators in Python."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
-class-lesson: ['python-fundamentals']
+class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/
 nav-title: "Python Operators"
 dateCreated: 2019-07-01
