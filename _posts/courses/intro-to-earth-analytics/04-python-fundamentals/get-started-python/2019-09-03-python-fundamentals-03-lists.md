@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-01
-modified: 2019-09-05
+modified: 2019-09-06
 module-type: 'class'
 class-order: 1
 course: "intro-to-earth-data-science"
@@ -75,9 +75,9 @@ For example, you can create lists of numeric values such as `floats`.
 
 {:.input}
 ```python
-boulder_precip = [0.70, 0.75, 1.85]
+boulder_precip_in = [0.70, 0.75, 1.85]
 
-boulder_precip
+boulder_precip_in
 ```
 
 {:.output}
@@ -240,9 +240,9 @@ For example, if you want to update the value stored at `months[index]`, you can 
 
 {:.input}
 ```python
-boulder_precip[1] = 0
+boulder_precip_in[1] = 0
 
-boulder_precip
+boulder_precip_in
 ```
 
 {:.output}
@@ -284,7 +284,7 @@ Once again, checking the length of a list is helpful before using the list index
 
 {:.input}
 ```python
-len(boulder_precip)
+len(boulder_precip_in)
 ```
 
 {:.output}
@@ -344,9 +344,9 @@ months
 
 {:.input}
 ```python
-boulder_precip.append(2.93)
+boulder_precip_in.append(2.93)
 
-boulder_precip
+boulder_precip_in
 ```
 
 {:.output}
@@ -362,23 +362,17 @@ boulder_precip
 
 ## Add Items to List
 
-You can also add items to a list using the addition operator `+`.
+You can also add items to a list using the addition operation `+`.
 
 For example, you can add items to the beginning of a list using the following syntax: 
 
 `listname = [value] + listname`
 
-You can also add items to the end of a list using a similar syntax:
-
-`listname += [value]`
-
-which combines the steps to add and set the list equal to itself plus the new value. 
-
 {:.input}
 ```python
-boulder_precip = [-9999] + boulder_precip
+boulder_precip_in = [-9999] + boulder_precip_in
 
-boulder_precip
+boulder_precip_in
 ```
 
 {:.output}
@@ -391,6 +385,12 @@ boulder_precip
 
 
 
+
+You can also add items to the end of a list by combining the addition `+` with an `=`:
+
+`listname += [value]`
+
+which combines the steps to add and set the list equal to itself plus the new value. 
 
 {:.input}
 ```python
@@ -410,6 +410,26 @@ months
 
 
 
-By using the `+=` syntax to add a new value to a list, you have actually just used an assignment operator, which is a symbol used in **Python** to execute specific operations on variables and data structures such as lists. 
+You can even use this same assignment operator to add multiple values to the end of a list. 
 
-You will learn more about different operators in **Python** later in this chapter. 
+{:.input}
+```python
+months += ["May", "June"]
+
+months
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    ['January', 'Feb', 'March', 'April', 'May', 'June']
+
+
+
+
+
+By using the `+` and `+=` syntax to add new values to a list, you have actually just used **Python** operators, which are symbols used in **Python** to execute specific operations on variables and data structures such as lists. 
+
+You will learn more about different operators in **Python** on the next page of this chapter. 
