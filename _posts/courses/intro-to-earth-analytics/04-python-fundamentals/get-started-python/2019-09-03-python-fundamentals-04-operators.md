@@ -5,7 +5,7 @@ excerpt: "Operators are symbols in Python that carry out a specific computation,
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['python-fundamentals']
-permalink: /courses/intro-to-earth-data-science/python-fundamentals/get-started-python/python-operators/
+permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/
 nav-title: "Python Operators"
 dateCreated: 2019-07-01
 modified: 2019-09-06
@@ -21,7 +21,6 @@ order: 4
 topics:
   reproducible-science-and-programming: ['python']
 ---
-
 {% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
