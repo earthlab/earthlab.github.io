@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/variables/
 nav-title: "Python Variables"
 dateCreated: 2019-07-01
-modified: 2019-09-05
+modified: 2019-09-06
 module-type: 'class'
 class-order: 1
 course: "intro-to-earth-data-science"
@@ -65,7 +65,7 @@ While there are occassions in which you might want to overwrite an existing vari
 
 In **Python**, you can create variables to store numeric values such as  integers (`int`) (i.e. whole numbers) and floating point numbers (`float`) (i.e. decimal values).  
 
-For more advanced math applications, you can also use variables to work with <a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" target="_blank">complex numbers</a>. 
+For more advanced math applications, you can also use variables to work with <a href="https://docs.python.org/3/library/stdtypes.html#numeric-types-int-float-complex" target="_blank">complex numbers (see Python documentation for more details)</a>. 
 
 As described previously, you do not need to define which numeric type you want to use to create a variable. 
 
