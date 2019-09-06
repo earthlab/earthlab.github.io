@@ -4,6 +4,8 @@
 
 {% assign sorted_posts = course_posts | sort:"order" %}
 
+{% assign chapters = sorted_posts | where:"order", 1 %}
+
 <!-- make sure we're only grabbing pages for the course -->
 
 
@@ -33,27 +35,46 @@
 {% assign session_weeks = course_posts | where:"module-type", 'session' %}
 {% assign sorted_session_weeks = session_weeks | sort:'week' %}
 {% assign session_size = sorted_session_weeks | size %}
+
 {% if session_size  > 0 %}
 <ul>
   <li><span class="nav__sub-title"><i class="fa fa-book" aria-hidden="true"></i> Units</span>
    <ul>
-    {% for post in sorted_session_weeks %}
 
-    <!-- Only list the week if it's not the week for the current landing page -->
-    {% if post.week != page.week %}
-    <li> <a href="{{ site.url }}{{ post.permalink }}"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
-      {% if post.nav-title %}{{ post.week }}. {{ post.nav-title }} {% else %} {{ post.week }}. {{ post.title }}{% endif %}</a></li>
-    {% endif %}
+       {% assign module_names = classes | where:"order", 1 %}
+
+        {% for post in sorted_session_weeks %}
+
+            <!-- Only list the week if it's not the week for the current landing page -->
+            {% if post.week != page.week %}
+                <li> <a href="{{ site.url }}{{ post.permalink }}"> <!--<i class="fa fa-folder-o" aria-hidden="true"></i>-->
+                {% if post.nav-title %}{{ post.week }}. {{ post.nav-title }} {% else %} {{ post.week }}. {{ post.title }}{% endif %}</a>
+                </li>
+
+                    <!-- list the chapters for each section -->
+                    {% assign sorted_chapters = chapters | sort:"class-order" %}
+                     <ul>
+                        {% for chapter in sorted_chapters %}
+                            {% if chapter.week == post.week %}
+                                <li>
+                                    <a href="{{ site.url }}{{ chapter.permalink }}">{{ post.week }}.{{ chapter.class-order }} {{ chapter.module-nav-title }} </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
 
 
-      {% if post.week == page.week %}
-       {% if post.url == page.url %}
-      <li> <a href="{{ site.url }}{{ post.permalink }}" class='active'> <!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
-        {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
-        {% else %}
-        <li class='active-section'> <a href="{{ site.url }}{{ post.permalink }}"><i class="fa fa-folder-open" aria-hidden="true"></i>
-          {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
-        {% endif %}
+            {% endif %}
+
+            {% if post.week == page.week %}
+                {% if post.url == page.url %}
+                    <li> <a href="{{ site.url }}{{ post.permalink }}" class='active'> <!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
+                        {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
+                {% else %}
+                    <li class='active-section'> <a href="{{ site.url }}{{ post.permalink }}"><i class="fa fa-folder-open" aria-hidden="true"></i>
+                    {% if post.nav-title %}{{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
+
+            {% endif %}
 
 <div class='active-menu'>
       <ul>
@@ -67,7 +88,7 @@
 
         {% assign theLesson = module.class-lesson %}
         {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
-          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i> {{ module.module-nav-title | capitalize }} </span></li>
+          <li><span class="nav__sub-title grey"><i class="fa fa-caret-down" aria-hidden="true"></i>{{ module.week }}.{{ module.class-order }} {{ module.module-nav-title | capitalize }} </span></li>
         <ul>
 
       {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
