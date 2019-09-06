@@ -4,7 +4,7 @@ category: courses
 title: "Git and GitHub"
 permalink: /courses/intro-to-earth-data-science/git-github/
 week-landing: 3
-modified: 2019-09-05
+modified: 2019-09-06
 week: 3
 sidebar:
   nav:

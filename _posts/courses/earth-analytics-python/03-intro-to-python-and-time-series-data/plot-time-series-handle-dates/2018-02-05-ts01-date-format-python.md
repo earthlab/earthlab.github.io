@@ -3,7 +3,7 @@ layout: single
 title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in Python. It reviews how to convert a field containing dates as strings to a datetime object that Python can understand and plot efficiently. This tutorial also covers how to handle missing data values in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2019-09-04
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -82,12 +82,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 sns.set(font_scale=1.5, style="whitegrid")
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
-
 {:.input}
 ```python
 file_path = "data/colorado-flood/downloads/july-2018-temperature-precip.csv"
@@ -102,7 +96,7 @@ urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/12948515'
 
 
     ('data/colorado-flood/downloads/july-2018-temperature-precip.csv',
-     <http.client.HTTPMessage at 0x7fa341859b38>)
+     <http.client.HTTPMessage at 0x7fdbaf93f780>)
 
 
 
