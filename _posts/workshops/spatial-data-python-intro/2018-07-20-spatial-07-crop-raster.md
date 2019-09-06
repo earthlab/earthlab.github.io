@@ -4,7 +4,7 @@ category: [courses]
 title: "Crop a Spatial Raster Dataset Using a Shapefile in Python"
 excerpt: "This lesson covers how to crop a raster dataset and export it as a new raster in Python"
 authors: ['Leah Wasser', 'Joe McGlinchy', 'Chris Holdgraf', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2018-07-19
+modified: 2019-09-04
 permalink: /workshops/gis-open-source-python/crop-raster-data-in-python/
 nav-title: 'Crop a Raster'
 module-type: 'workshop'
@@ -67,19 +67,23 @@ To begin let's load the libraries that you will need in this lesson.
 
 {:.input}
 ```python
+import os
+import numpy as np
 import rasterio as rio
 from rasterio.plot import show
 from rasterio.mask import mask
 from shapely.geometry import mapping
-import numpy as np
-import os
 import matplotlib.pyplot as plt
 import geopandas as gpd
 import earthpy as et
+import earthpy.plot as ep
+import earthpy.spatial as es
 import cartopy as cp
-plt.ion()
 
+# set home directory and download data
+et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+
 # optional - turn off warnings
 import warnings
 warnings.filterwarnings('ignore')
@@ -96,23 +100,26 @@ Next, you will use `rio.open()` to open a raster layer. Open and plot the canopy
 soap_chm_path = 'data/spatial-vector-lidar/california/neon-soap-site/2013/lidar/SOAP_lidarCHM.tif'
 # open the lidar chm
 with rio.open(soap_chm_path) as src:
-    lidar_chm_im = src.read(masked = True)[0]
+    lidar_chm_im = src.read(masked=True)[0]
     extent = rio.plot.plotting_extent(src)
     soap_profile = src.profile
 
-fig, ax = plt.subplots(figsize = (10,10))
-show(lidar_chm_im, 
-     cmap='terrain', 
-     ax=ax,
-      extent = extent)
-ax.set_title("Lidar Canopy Height Model (CHM)\n NEON SOAP Field Site", 
-             fontsize = 16);
+ep.plot_bands(lidar_chm_im,
+               cmap='terrain',
+               extent=extent,
+               title="Lidar Canopy Height Model (CHM)\n NEON SOAP Field Site",
+               cbar=False);
 ```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_5_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_5_0.png" alt = "A canopy height model plotted using the plot_bands earthpy function.">
+<figcaption>A canopy height model plotted using the plot_bands earthpy function.</figcaption>
+
+</figure>
 
 
 
@@ -141,7 +148,7 @@ print('lidar crs: ', soap_profile['crs'])
 
 {:.output}
     crop extent crs:  {'init': 'epsg:32611'}
-    lidar crs:  +init=epsg:32611
+    lidar crs:  EPSG:32611
 
 
 
@@ -158,7 +165,13 @@ ax.set_axis_off();
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_10_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_10_0.png" alt = "A plot of the clipping extent layer that you will use to crop your raster data.">
+<figcaption>A plot of the clipping extent layer that you will use to crop your raster data.</figcaption>
+
+</figure>
+
 
 
 
@@ -173,40 +186,40 @@ ax.set_axis_off();
 
 Now that you have imported the shapefile. Plot the two layers together to ensure the overlap each other. If the shapefile does not overlap the raster, then you can not use it to crop!
 
+
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize = (10,10))
-ax.imshow(lidar_chm_im, 
-          cmap='terrain', 
-          extent=extent)
+fig, ax = plt.subplots(figsize=(10, 10))
+ep.plot_bands(lidar_chm_im,
+              cmap='terrain',
+              extent=extent,
+              ax=ax,
+              cbar=False)
 crop_extent_soap.plot(ax=ax, alpha=.6, color='g');
 ```
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_12_0.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_14_0.png" alt = "The clipping extent overlayed on top of your raster. When you crop the raster, all of the data outside of the clipping extent will be removed.">
+<figcaption>The clipping extent overlayed on top of your raster. When you crop the raster, all of the data outside of the clipping extent will be removed.</figcaption>
+
+</figure>
 
 
 
 
-To crop the data,use the `mask` function in `rasterio`.
 
-{:.input}
-```python
-from rasterio.mask import mask
-from shapely.geometry import mapping
-```
+
+
+To crop the data,use the `crop_image` function in `earthpy.spatial`.
 
 {:.input}
 ```python
 with rio.open(soap_chm_path) as src:
-    extent_geojson = mapping(crop_extent_soap['geometry'][0])
-    lidar_chm_crop, crop_affine = mask(src, 
-                                   shapes=[extent_geojson], 
-                                   crop=True)
-    # metadata for writing or exporting the data
-    soap_lidar_meta = src.meta.copy()
+    lidar_chm_crop, soap_lidar_meta = es.crop_image(src, crop_extent_soap)
 ```
 
 {:.input}
@@ -215,7 +228,7 @@ with rio.open(soap_chm_path) as src:
 soap_lidar_meta.update({"driver": "GTiff",
                  "height": lidar_chm_crop.shape[0],
                  "width": lidar_chm_crop.shape[1],
-                 "transform": crop_affine})
+                 "transform": soap_lidar_meta["transform"]})
 
 # generate an extent for the newly cropped object for plotting
 cr_ext = rio.transform.array_bounds(soap_lidar_meta['height'], 
@@ -244,28 +257,19 @@ cr_extent, crop_extent_soap.total_bounds
 ```python
 # mask the nodata and plot the newly cropped raster layer
 lidar_chm_crop_ma = np.ma.masked_equal(lidar_chm_crop[0], -9999.0) 
-fig, ax = plt.subplots(figsize = (8,8))
-ax.imshow(lidar_chm_crop_ma, extent = cr_extent)
-#crop_extent_soap.plot(ax=ax, alpha=.6, color='g');
-#ax.set_axis_off()
-
+ep.plot_bands(lidar_chm_crop_ma, cmap='terrain', cbar=False);
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.image.AxesImage at 0x12c18fb38>
-
-
-
-
 
 {:.output}
 {:.display_data}
 
-![png]({{ site.url }}//images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster_17_1.png)
+<figure>
+
+<img src = "{{ site.url }}/images/workshops/spatial-data-python-intro/2018-07-20-spatial-07-crop-raster/2018-07-20-spatial-07-crop-raster_21_0.png" alt = "Here you can see the results of your crop function.">
+<figcaption>Here you can see the results of your crop function.</figcaption>
+
+</figure>
+
 
 
 

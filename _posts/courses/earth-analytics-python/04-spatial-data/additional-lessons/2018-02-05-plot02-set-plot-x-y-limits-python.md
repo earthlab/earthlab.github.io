@@ -3,7 +3,7 @@ layout: single
 title: "Customize your Maps in Python: GIS in Python"
 excerpt: "In this lesson you will learn how to adjust the x and y limits of your matplotlib and geopandas map to change the spatial extent.."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['hw-custom-maps-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/python-change-spatial-extent-of-map-matplotlib-geopandas/
@@ -42,13 +42,25 @@ In this lesson, you will learn how to spatially clip data for easier plotting an
 
 {:.input}
 ```python
-# import libraries
+# Import libraries
 import os
 import numpy as np
-import geopandas as gpd
-import os
 import matplotlib.pyplot as plt
-plt.ion()
+import geopandas as gpd
+import earthpy as et
+
+# Get the data & set working dir
+data = et.data.get_data('spatial-vector-lidar')
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+```
+
+{:.input}
+```python
+# Read in necessary files 
+sjer_aoi = gpd.read_file(
+    "data/spatial-vector-lidar/california/neon-sjer-site/vector_data/SJER_crop.shp")
+country_boundary_us = gpd.read_file("data/spatial-vector-lidar/usa/usa-boundary-dissolved.shp")
+ne_roads = gpd.read_file("data/spatial-vector-lidar/global/ne_10m_roads/ne_10m_n_america_roads.shp")
 ```
 
 
@@ -66,14 +78,24 @@ To zoom in on a region of your plot, you first need to grab the spatial extent o
 
 {:.input}
 ```python
-# get spatial extent  - to zoom in on the map rather than clipping
-bounds = sjer_aoi.geometry.total_bounds
-bounds
+# Get spatial extent  - to zoom in on the map rather than clipping
+aoi_bounds = sjer_aoi.geometry.total_bounds
+aoi_bounds
 ```
 
-{:.input}
-```python
-The `total_bounds` attribute represents the total spatial extent for the aoi layer. This is teh total external boundary of the layer - thus if there are multiple polygons in the layer it will take the furtherst edge in the north, south, east and west directions to create the spatial extent box. 
+{:.output}
+{:.execute_result}
+
+
+
+    array([ 254570.567     , 4107303.07684455,  258867.40933092,
+           4112361.92026107])
+
+
+
+
+
+The `total_bounds` attribute represents the total spatial extent for the aoi layer. This is the total external boundary of the layer - thus if there are multiple polygons in the layer it will take the furtherst edge in the north, south, east and west directions to create the spatial extent box. 
 
 <figure>
     <a href="{{ site.baseurl }}/images/courses/earth-analytics/spatial-data/spatial-extent.png">
@@ -86,16 +108,12 @@ The `total_bounds` attribute represents the total spatial extent for the aoi lay
 </figure>
 
 The object that is returned is a tuple - a non editable object containing 4 values:
-(xmin, ymin, xmax, ymax). If you want you can assign each value to a new variable as follows
-```
+`(xmin, ymin, xmax, ymax)`. If you want you can assign each value to a new variable as follows
 
 {:.input}
 ```python
-# create x and y min and max objects to use in the plot boundaries
-xmin, xmax, ymin, ymax = sjer_aoi.total_bounds
-
-#xmin, ymin, xmax, ymax = bounds[0:4]
-#xmax
+# Create x and y min and max objects to use in the plot boundaries
+xmin, ymin, xmax, ymax = aoi_bounds
 ```
 
 {:.input}
@@ -105,22 +123,46 @@ country_boundary_us.plot(alpha = .5, ax = ax)
 ne_roads.plot(color='purple', ax=ax, alpha=.5)
 ax.set(title='Natural Earth Global Roads Layer')
 ax.set_axis_off()
-plt.axis('equal');
+plt.axis('equal')
+plt.show()
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot02-set-plot-x-y-limits-python/2018-02-05-plot02-set-plot-x-y-limits-python_8_0.png">
+
+</figure>
+
+
+
 
 You can set the x and **ylim**its of the plot using the x and y min and max values from your bounds object that you created above to zoom in your map. 
 
 {:.input}
 ```python
-# use the country boundary to set the min and max values for the plot
+# Use the country boundary to set the min and max values for the plot
 country_boundary_us.total_bounds
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    array([-124.725839,   24.498131,  -66.949895,   49.384358])
+
+
+
+
 
 Notice in the plot below, you can still see roads that fall outside of the US Boundary area but are within the rectangular spatial extent of the boundary layer. Hopefully this helps you better understand the difference between clipping the data to a polygon shape vs simply plotting a small geographic region. 
 
 {:.input}
 ```python
-# plot the data with a modified spatial extent
+# Plot the data with a modified spatial extent
 fig, ax = plt.subplots(figsize = (10,6))
 xlim = ([country_boundary_us.total_bounds[0],  country_boundary_us.total_bounds[2]])
 ylim = ([country_boundary_us.total_bounds[1],  country_boundary_us.total_bounds[3]])
@@ -132,7 +174,18 @@ country_boundary_us.plot(alpha = .5, ax = ax)
 ne_roads.plot(color='purple', ax=ax, alpha=.5)
 
 ax.set(title='Natural Earth Global Roads \n Zoomed into the United States')
-ax.set_axis_off();
-
-
+ax.set_axis_off()
+plt.show()
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/additional-lessons/2018-02-05-plot02-set-plot-x-y-limits-python/2018-02-05-plot02-set-plot-x-y-limits-python_12_0.png">
+
+</figure>
+
+
+

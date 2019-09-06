@@ -3,7 +3,7 @@ layout: single
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-vector-data-python/
@@ -113,11 +113,12 @@ You will use the `geopandas` library to work with vector data in `Python`. You w
 {:.input}
 ```python
 import os
-import geopandas as gpd
 import matplotlib.pyplot as plt
+import geopandas as gpd
 import earthpy as et
-# Plot data inline
-plt.ion()
+
+# Set working dir & get data
+data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -212,7 +213,7 @@ sjer_plot_locations.head(6)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>SJER1068</td>
       <td>center</td>
       <td>4111567.818</td>
@@ -221,7 +222,7 @@ sjer_plot_locations.head(6)
       <td>POINT (255852.376 4111567.818)</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>SJER112</td>
       <td>center</td>
       <td>4111298.971</td>
@@ -230,7 +231,7 @@ sjer_plot_locations.head(6)
       <td>POINT (257406.967 4111298.971)</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>SJER116</td>
       <td>center</td>
       <td>4110819.876</td>
@@ -239,7 +240,7 @@ sjer_plot_locations.head(6)
       <td>POINT (256838.76 4110819.876)</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>SJER117</td>
       <td>center</td>
       <td>4108752.026</td>
@@ -248,7 +249,7 @@ sjer_plot_locations.head(6)
       <td>POINT (256176.947 4108752.026)</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>SJER120</td>
       <td>center</td>
       <td>4110476.079</td>
@@ -257,7 +258,7 @@ sjer_plot_locations.head(6)
       <td>POINT (255968.372 4110476.079)</td>
     </tr>
     <tr>
-      <th>5</th>
+      <td>5</td>
       <td>SJER128</td>
       <td>center</td>
       <td>4111388.570</td>
@@ -329,7 +330,7 @@ sjer_plot_locations.total_bounds
 
 
 
-    array([  254738.618,  4107527.074,   258497.102,  4112167.778])
+    array([ 254738.618, 4107527.074,  258497.102, 4112167.778])
 
 
 
@@ -424,11 +425,14 @@ sjer_plot_locations.shape
 
 
 
+
+
 {:.output}
     crs 
      {'init': 'epsg:32611'}
     total_bounds 
-     [  255852.376  4108752.026   257406.967  4111567.818]
+     [ 255852.376 4108752.026  257406.967 4111567.818]
+
 
 
 
@@ -450,7 +454,7 @@ sjer_plot_locations.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x120868518>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7faf1fa5ada0>
 
 
 
@@ -461,7 +465,7 @@ sjer_plot_locations.plot()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_18_1.png" alt = "You can quickly plot a geopandas dataframe using the .plot() method. You do not have to setup an axis or figure object to create this quick plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data/2018-02-05-spatial01-intro-vector-data_20_1.png" alt = "You can quickly plot a geopandas dataframe using the .plot() method. You do not have to setup an axis or figure object to create this quick plot.">
 <figcaption>You can quickly plot a geopandas dataframe using the .plot() method. You do not have to setup an axis or figure object to create this quick plot.</figcaption>
 
 </figure>
@@ -492,7 +496,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_20_0.png" alt = "If you do setup an axis or figure object to create a geopandas plot, then you can easily customize the plot later.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data/2018-02-05-spatial01-intro-vector-data_22_0.png" alt = "If you do setup an axis or figure object to create a geopandas plot, then you can easily customize the plot later.">
 <figcaption>If you do setup an axis or figure object to create a geopandas plot, then you can easily customize the plot later.</figcaption>
 
 </figure>
@@ -516,7 +520,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_22_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with matplotlib axes defined.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data/2018-02-05-spatial01-intro-vector-data_24_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with matplotlib axes defined.">
 <figcaption>Spatial plot of SJER plot locations using Geopandas with matplotlib axes defined.</figcaption>
 
 </figure>
@@ -557,7 +561,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_24_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with a legend and title.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data/2018-02-05-spatial01-intro-vector-data_26_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with a legend and title.">
 <figcaption>Spatial plot of SJER plot locations using Geopandas with a legend and title.</figcaption>
 
 </figure>
@@ -590,7 +594,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_26_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data/2018-02-05-spatial01-intro-vector-data_28_0.png" alt = "Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.">
 <figcaption>Spatial plot of SJER plot locations using Geopandas with custom marker colors and size.</figcaption>
 
 </figure>
@@ -614,6 +618,7 @@ Answer the following questions:
 4. How many spatial objects are in each file?
 
 </div>
+
 
 
 ## Plot Multiple Shapefiles Together With Geopandas
@@ -656,25 +661,15 @@ sjer_plot_locations.plot(column='plot_type',
 ax.set_title('SJER Plot Locations\nMadera County, CA')
 ax.set_axis_off()
 plt.axis('equal')
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    (254355.7248834534, 259082.25144747042, 4107050.1346737249, 4112614.8624318959)
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data_30_1.png" alt = "Spatial plot of SJER plot locations layered on top of the plot boundary.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial01-intro-vector-data/2018-02-05-spatial01-intro-vector-data_33_0.png" alt = "Spatial plot of SJER plot locations layered on top of the plot boundary.">
 <figcaption>Spatial plot of SJER plot locations layered on top of the plot boundary.</figcaption>
 
 </figure>

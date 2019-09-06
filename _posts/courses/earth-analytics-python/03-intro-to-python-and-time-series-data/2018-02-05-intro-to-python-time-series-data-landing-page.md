@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Time Series Data in Python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/
-modified: 2018-11-27
+modified: 2019-09-03
 week-landing: 1
 week: 3
 sidebar:
@@ -107,10 +107,18 @@ Please watch the following short videos before the start of class next week. The
 -->
 
 
+
+
+
+
 ## Homework Plots
 
 Please visit CANVAS for the assignment and grading rubric. Below are examples of what your plots should look like.
 Note that you can modify the colors, style, etc of your plots as you'd like. These plots are just examples to help you visually check your homework. 
+
+
+
+
 
 
 {:.output}
@@ -118,7 +126,7 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_3_0.png" alt = "Homework plot of Monthly max discharge data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png" alt = "Homework plot of Monthly max discharge data.">
 <figcaption>Homework plot of Monthly max discharge data.</figcaption>
 
 </figure>
@@ -127,12 +135,14 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 
 
+
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_4_0.png" alt = "Homework plot of Daily max discharge data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png" alt = "Homework plot of Daily max discharge data.">
 <figcaption>Homework plot of Daily max discharge data.</figcaption>
 
 </figure>
@@ -141,12 +151,14 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 
 
+
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_5_0.png" alt = "Homework plot of Monthly total precipitation data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page/2018-02-05-intro-to-python-time-series-data-landing-page_12_0.png" alt = "Homework plot of Monthly total precipitation data.">
 <figcaption>Homework plot of Monthly total precipitation data.</figcaption>
 
 </figure>
@@ -155,15 +167,23 @@ Note that you can modify the colors, style, etc of your plots as you'd like. The
 
 
 
+
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_6_0.png" alt = "Homework plot of Daily total discharge data.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page/2018-02-05-intro-to-python-time-series-data-landing-page_14_0.png" alt = "Homework plot of Daily total discharge data.">
 <figcaption>Homework plot of Daily total discharge data.</figcaption>
 
 </figure>
+
+
+
+
+
+
 
 
 
@@ -176,7 +196,7 @@ Note: to plot the y axis on a log scale use the argument: `logy= True` in your p
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_8_0.png" alt = "Probabilty of Stream discharge events plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page/2018-02-05-intro-to-python-time-series-data-landing-page_20_0.png" alt = "Probabilty of Stream discharge events plot.">
 <figcaption>Probabilty of Stream discharge events plot.</figcaption>
 
 </figure>
@@ -186,14 +206,11 @@ Note: to plot the y axis on a log scale use the argument: `logy= True` in your p
 
 
 {:.output}
-{:.display_data}
+{:.execute_result}
 
-<figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_9_0.png" alt = "Return period for stream discharge events plot.">
-<figcaption>Return period for stream discharge events plot.</figcaption>
 
-</figure>
+    Text(0, 0.5, 'Discharge Value (CFS)')
 
 
 
@@ -204,7 +221,24 @@ Note: to plot the y axis on a log scale use the argument: `logy= True` in your p
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_10_0.png" alt = "Probabiltiy for precipitation events plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page/2018-02-05-intro-to-python-time-series-data-landing-page_21_1.png" alt = "Return period for stream discharge events plot.">
+<figcaption>Return period for stream discharge events plot.</figcaption>
+
+</figure>
+
+
+
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page/2018-02-05-intro-to-python-time-series-data-landing-page_24_0.png" alt = "Probabiltiy for precipitation events plot.">
 <figcaption>Probabiltiy for precipitation events plot.</figcaption>
 
 </figure>
@@ -218,10 +252,15 @@ Note: to plot the y axis on a log scale use the argument: `logy= True` in your p
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page_11_0.png" alt = "Return period for precipitation events plot.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/2018-02-05-intro-to-python-time-series-data-landing-page/2018-02-05-intro-to-python-time-series-data-landing-page_25_0.png" alt = "Return period for precipitation events plot.">
 <figcaption>Return period for precipitation events plot.</figcaption>
 
 </figure>
+
+
+
+
+
 
 
 

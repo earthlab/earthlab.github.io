@@ -1,10 +1,10 @@
 ---
 layout: single
 category: courses
-title: "Get Started with Data in Python / Jupyter Notebooks"
+title: "Get Started Using Data With Python and Jupyter Notebooks"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
 week-landing: 1
-modified: 2018-09-25
+modified: 2019-09-03
 week: 1
 sidebar:
   nav:
@@ -196,11 +196,29 @@ It is OK if the dates are not formatted properly on your plot. You will learn ho
 
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    Text(0.5, 1.0, 'Daily Precipitation - Boulder Station\n 2013')
+
+
+
+
+
+{:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/01-science-toolbox/2018-02-05-science-toolbox-landing_2_0.png" alt = "Homework plot of precipitation over time in Boulder, Colorado.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/01-science-toolbox/2018-02-05-science-toolbox-landing/2018-02-05-science-toolbox-landing_3_1.png" alt = "Homework plot of precipitation over time in Boulder, Colorado.">
 <figcaption>Homework plot of precipitation over time in Boulder, Colorado.</figcaption>
 
 </figure>

@@ -2,7 +2,7 @@
 layout: single
 title: "Geographic vs projected coordinate reference systems - GIS in Python"
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2018-10-08
+modified: 2019-09-03
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/geographic-vs-projected-coordinate-reference-systems-python/
@@ -112,12 +112,13 @@ import geopandas as gpd
 from shapely.geometry import Point
 import earthpy as et
 import seaborn as sns
-# adjust plot font sizes
+
+# Adjust plot font sizes
 sns.set(font_scale=1.5)
 sns.set_style("white")
-# Render plots inline on the page
-plt.ion()
-# Set working dir
+
+# Set working dir & get data
+data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
@@ -127,7 +128,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_3_0.png" alt = "Global map in a geographic Coordinate Reference System.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected/2018-02-05-spatial03-geographic-vs-projected_3_0.png" alt = "Global map in a geographic Coordinate Reference System.">
 <figcaption>Global map in a geographic Coordinate Reference System.</figcaption>
 
 </figure>
@@ -250,7 +251,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_6_0.png" alt = "Plot of a single point that is provided for Boulder, Colorado in UTM units.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected/2018-02-05-spatial03-geographic-vs-projected_6_0.png" alt = "Plot of a single point that is provided for Boulder, Colorado in UTM units.">
 <figcaption>Plot of a single point that is provided for Boulder, Colorado in UTM units.</figcaption>
 
 </figure>
@@ -333,7 +334,7 @@ boulder_df_geog
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>POINT (-105.2705459796447 40.01498401291801)</td>
     </tr>
   </tbody>
@@ -366,7 +367,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}//images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected_12_0.png" alt = "Map showing the location of Boulder, CO. All layers are in geographic WGS84 CRS.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-spatial-data/in-class/2018-02-05-spatial03-geographic-vs-projected/2018-02-05-spatial03-geographic-vs-projected_12_0.png" alt = "Map showing the location of Boulder, CO. All layers are in geographic WGS84 CRS.">
 <figcaption>Map showing the location of Boulder, CO. All layers are in geographic WGS84 CRS.</figcaption>
 
 </figure>
