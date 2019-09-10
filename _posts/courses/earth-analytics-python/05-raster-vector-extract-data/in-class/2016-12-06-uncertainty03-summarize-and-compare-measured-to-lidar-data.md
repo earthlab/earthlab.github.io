@@ -61,6 +61,7 @@ import geopandas as gpd
 import rasterstats as rs
 from earthpy import spatial as es
 import earthpy as et
+import earthpy.plot as ep
 
 # Setting consistent plotting style throughout notebook
 sns.set_style("white")
@@ -730,9 +731,11 @@ Plot the points by tree height.
 {:.input}
 ```python
 fig, ax = plt.subplots(figsize=(10, 10))
-ax.imshow(SJER_chm_data,
+ep.plot_bands(SJER_chm_data,
           cmap='Greys',
-          extent=sjer_chm_plt)
+          extent=sjer_chm_plt,
+          ax=ax,
+          scale=False)
 
 # Plot centroids of each geometry as points so that you can control their size
 SJER_final_height.centroid.plot(ax=ax,
