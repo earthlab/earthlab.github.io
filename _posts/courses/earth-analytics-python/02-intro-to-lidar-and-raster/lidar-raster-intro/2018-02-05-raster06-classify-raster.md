@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2019-09-04
 category: [courses]
 class-lesson: ['intro-lidar-raster-python']
 permalink: /courses/earth-analytics-python/lidar-raster-data/classify-plot-raster-data-in-python/
@@ -177,26 +177,15 @@ ep.hist(lidar_chm_im.ravel(),
         title="Distribution of Raster Cell Values in the CHM Data",
         xlabel="Height (m)",
         ylabel="Number of Pixels")
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    (<Figure size 864x864 with 1 Axes>,
-     <matplotlib.axes._subplots.AxesSubplot at 0x7f03c912a160>)
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_12_1.png" alt = "Histogram of Canopy Height Model values.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_12_0.png" alt = "Histogram of Canopy Height Model values.">
 <figcaption>Histogram of Canopy Height Model values.</figcaption>
 
 </figure>
@@ -226,7 +215,8 @@ f, ax = ep.hist(lidar_chm_im.ravel(),
                 bins=range(*xlim),
                 ylabel="Number of Pixels", xlabel="Height (m)",
                 title="Distribution of raster cell values in the DTM difference data\nZoomed in to {} on the x axis".format(xlim))
-ax.set(xlim=xlim, ylim=[0, 250000]);
+ax.set(xlim=xlim, ylim=[0, 250000])
+plt.show()
 ```
 
 {:.output}
@@ -297,26 +287,15 @@ ep.hist(lidar_chm_im.ravel(),
         bins=[0, 5, 10, 15, 20, 30],
         title="Histogram with Custom Breaks",
         xlabel="Height (m)", ylabel="Number of Pixels")
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    (<Figure size 864x864 with 1 Axes>,
-     <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1cfa1d0>)
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_21_1.png" alt = "Histogram with custom breaks applied.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_21_0.png" alt = "Histogram with custom breaks applied.">
 <figcaption>Histogram with custom breaks applied.</figcaption>
 
 </figure>
@@ -344,26 +323,15 @@ ep.hist(lidar_chm_im.ravel(),
         title="Histogram with Custom Breaks",
         xlabel="Height (m)",
         ylabel="Number of Pixels")
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    (<Figure size 864x864 with 1 Axes>,
-     <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1ce3c88>)
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_23_1.png" alt = "Histogram with custom breaks applied.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/02-intro-to-lidar-and-raster/lidar-raster-intro/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_23_0.png" alt = "Histogram with custom breaks applied.">
 <figcaption>Histogram with custom breaks applied.</figcaption>
 
 </figure>
@@ -522,6 +490,7 @@ sns.set_style("white")
 # Plot newly classified and masked raster
 ep.plot_bands(lidar_chm_class_ma,
               scale=False)
+plt.show()
 ```
 
 {:.output}
@@ -533,17 +502,6 @@ ep.plot_bands(lidar_chm_class_ma,
 <figcaption>CHM plot with NA values applied to the data.</figcaption>
 
 </figure>
-
-
-
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1bdfac8>
-
 
 
 
@@ -584,6 +542,7 @@ ep.plot_bands(lidar_chm_class_ma,
               cmap=cmap,
               title="Classified Canopy Height Model",
               scale=False)
+plt.show()
 ```
 
 {:.output}
@@ -595,17 +554,6 @@ ep.plot_bands(lidar_chm_class_ma,
 <figcaption>Canopy height model plot with a better colormap applied.</figcaption>
 
 </figure>
-
-
-
-
-{:.output}
-{:.execute_result}
-
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f03b1aeaa58>
-
 
 
 
