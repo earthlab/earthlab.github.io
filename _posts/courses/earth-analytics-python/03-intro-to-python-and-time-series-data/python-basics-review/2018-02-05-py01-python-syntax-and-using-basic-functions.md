@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/python-syntax-and-using-functions/
 nav-title: 'Review: Get to Know Python'
 dateCreated: 2018-02-05
-modified: 2019-09-04
+modified: 2019-09-05
 module-title: 'Get to Know the Python programming language'
 module-nav-title: 'Review: Get to Know Python'
 module-description: 'This module introduces the Python scientific programming language.
@@ -85,6 +85,12 @@ ax.set(xlabel="Date", ylabel="Precipitation (inches)",
        title="Daily Precipitation - Boulder Station\n 2003-2013")
 plt.show()
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 {:.output}
 {:.display_data}
@@ -786,7 +792,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions/2018-02-05-py01-python-syntax-and-using-basic-functions_38_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions/2018-02-05-py01-python-syntax-and-using-basic-functions_38_0.png" alt = "Basic plot of Boulder precipitation around the 2013 flood, with a date label on the x-axis. The dates overlap each other and need to be fixed.">
+<figcaption>Basic plot of Boulder precipitation around the 2013 flood, with a date label on the x-axis. The dates overlap each other and need to be fixed.</figcaption>
 
 </figure>
 
