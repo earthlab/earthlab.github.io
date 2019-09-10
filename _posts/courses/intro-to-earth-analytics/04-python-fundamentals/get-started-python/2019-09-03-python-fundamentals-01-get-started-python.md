@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/
 nav-title: "About Python"
 dateCreated: 2019-07-01
-modified: 2019-09-09
+modified: 2019-09-10
 module-title: 'Get Started Using Python'
 module-nav-title: 'Get Started Using Python'
 module-description: 'Python is programming language that emphasizes the readibility of code and provides many packages and libraries for working with scientific data. Learn how to get started with writing Python code.'
@@ -24,7 +24,6 @@ order: 1
 topics:
   reproducible-science-and-programming: ['python']
 ---
-
 {% include toc title="In This Chapter" icon="file-text" %}
 
 
@@ -149,7 +148,7 @@ Alternatively, some text editors, such as Atom, have plugins that allow you to r
 
 Some people prefer using text editors to write **Python** code because they are light weight, making them easier to use to edit code quickly, and have nice features such as automatic color coding of code, text editing options such as find/replace, and the ability to directly connect to repositories on GitHub.com to track changes to files and share code with others. 
 
-Learn more about the benefits of <a href="{{ site.url }}workshops/setup-earth-analytics-python/text-editors-for-science-workflows/">different text editors</a> including Atom, Nano, and Sublime Text. 
+Learn more about the benefits of <a href="{{ site.url }}/workshops/setup-earth-analytics-python/text-editors-for-science-workflows/">different text editors</a> including Atom, Nano, and Sublime Text. 
 
 ### Write Python Code Using the Terminal
 
