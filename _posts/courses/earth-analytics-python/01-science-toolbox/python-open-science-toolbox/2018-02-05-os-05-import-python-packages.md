@@ -3,7 +3,7 @@ layout: single
 title: 'How to Install Python Packages and Then Use Then in Python'
 excerpt: 'The first step in using packages in Python is to install them on your computer. Learn how to install and and import python packages.'
 authors: ['Martha Morrissey','Leah Wasser', 'Software Carpentry']
-modified: 2019-09-03
+modified: 2019-09-04
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/install-and-import-python-packages/ 
@@ -38,7 +38,7 @@ At the end of this activity, you will be able to:
  
 </div>
 
-Information below is adapted from materials developed by Anaconda on managing packages: <a href="https://conda.io/docs/user-guide/tasks/manage-pkgs.html" target = "_blank">Conda Documentation</a>.
+Information below is adapted from materials developed by Anaconda on managing packages: <a href="https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-pkgs.html" target = "_blank">Conda Documentation</a>.
 
 ## What is a Package?
 

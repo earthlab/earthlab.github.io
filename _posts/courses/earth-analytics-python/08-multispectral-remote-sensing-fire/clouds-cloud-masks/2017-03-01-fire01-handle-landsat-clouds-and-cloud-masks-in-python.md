@@ -3,7 +3,7 @@ layout: single
 title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "In this lesson, you will learn how to deal with clouds when working with spectral remote sensing data. You will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. You will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser']
-modified: 2019-09-03
+modified: 2019-09-04
 category: [courses]
 class-lesson: ['clouds-remote-sensing-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/cloud-masks-with-spectral-data-python/
@@ -115,6 +115,12 @@ sns.set(font_scale=1.5)
 data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
 
 Next, you will load the landsat bands that you worked with previously in your homework.
 
@@ -445,10 +451,11 @@ landsat_pre_cl_free = em.mask_pixels(
 {:.input}
 ```python
 # Plot the data
-ep.plot_bands(landsat_pre_cl_free[6], 
-              extent=landsat_extent, 
+ep.plot_bands(landsat_pre_cl_free[6],
+              extent=landsat_extent,
               cmap="Greys",
-              title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
+              title="Landsat CIR Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016",
+              cbar=False)
 plt.show()
 ```
 

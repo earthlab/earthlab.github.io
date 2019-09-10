@@ -190,6 +190,12 @@ should you use to calculate NBR using MODIS?
 
 
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
+    Extracted output to /root/earth-analytics/data/cs-test-landsat/.
+
+
+
 
 
 {:.output}

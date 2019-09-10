@@ -3,7 +3,7 @@ layout: single
 title: "Layer a raster dataset over a hillshade in Python to create a beautiful basemap that represents topography."
 excerpt: "This lesson covers how to overlay raster data on top of a hillshade in Python and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: 2019-09-03
+modified: 2019-09-04
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/overlay-raster-maps/
@@ -59,6 +59,12 @@ data = et.data.get_data('colorado-flood')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
+
 ## Overlay Rasters in `Python`
 
 In this lesson, you will learn about overlaying rasters on top of a hillshade for nicer looking plots in `python`. To overlay a raster will will plot two different raster datasets in the same plot in `matplotlib`. You will use alpha to adjust the transparency of one of your rasters so the terrain hillshade gives the raster texture! Also you will turn of the legend for the hillshade plot as the legend we want to see is the DEM elevation values.
@@ -93,6 +99,7 @@ ep.plot_bands(lidar_dem_im, ax=ax, cmap='viridis_r',
               title="Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade")
 ax.imshow(lidar_dem_hill, cmap='Greys', alpha=.5)
 ax.set_axis_off()
+plt.show()
 ```
 
 {:.output}
