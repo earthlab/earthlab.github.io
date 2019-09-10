@@ -13,6 +13,7 @@ author_profile: false
 course: "intro-to-earth-data-science"
 module-type: 'session'
 ---
+
 {% include toc title="Section Four" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
