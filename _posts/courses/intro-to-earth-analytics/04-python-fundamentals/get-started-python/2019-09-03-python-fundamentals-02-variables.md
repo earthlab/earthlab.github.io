@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/variables/
 nav-title: "Python Variables"
 dateCreated: 2019-07-01
-modified: 2019-09-06
+modified: 2019-09-10
 module-type: 'class'
 class-order: 1
 course: "intro-to-earth-data-science"
@@ -115,7 +115,7 @@ Notice that in these examples, `boulder_precip_in` was overwritten by the second
 
 To create a variable containing a text string (`str`), you need to use quotations (`""`) around the value to identify the value as a text string (e.g. `variable_name = "text"`). 
 
-While in **Python** the single quote (`''`) and the double quote (`""`) are used interchangeably (see the official <a href=" https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str" target="_blank">Python docs</a> for more examples), it is good to choose one option and use it consistently. This textbook uses the double quote (`""`) for identifying text strings (`str`). 
+While in **Python** the single quote (`''`) and the double quote (`""`) are used interchangeably (see the official <a href="https://docs.python.org/3/library/stdtypes.html#text-sequence-type-str" target="_blank">Python Docs</a> for more examples), it is good to choose one option and use it consistently. This textbook uses the double quote (`""`) for identifying text strings (`str`). 
 
 Using quotes, you can create `str` variables that contain a single word or many words, including punctuation.
 

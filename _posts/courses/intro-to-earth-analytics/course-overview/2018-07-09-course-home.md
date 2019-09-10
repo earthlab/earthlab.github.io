@@ -5,7 +5,7 @@ title: "Introduction to Earth Data Science | Earth Lab CU Boulder"
 nav-title: "Intro to Earth Data Science Home"
 permalink: /courses/intro-to-earth-data-science/
 course: "intro-to-earth-data-science"
-modified: 2019-08-29
+modified: 2019-09-10
 module-type: 'overview'
 module-title: "Intro to Earth Data Science"
 week-landing: 0
@@ -62,4 +62,16 @@ This textbook is highly technical, and each chapter covers some aspect of scient
 | Section 2: File Formats for Earth Data Science |
 |:----------------------------------------------------------|
 | Chapter 4: Text File Formats for Earth Data Science   |
+
+| Section 3: Git/GitHub |
+|:----------------------------------------------------------|
+| Chapters TBA    |
+
+| Section 4: Python Code Fundamentals |
+|:------------------------------------|
+| Chapter 10: Introduction to Python  | 
+
+| Section 5: Clean Code and Literate Expressive Programming |
+|:----------------------------------------------------------|
+| Chapter 11: Introduction to Clean Code and Literate Expressive Programming | 
 
