@@ -100,23 +100,20 @@ To get started, load all of the required python libraries.
 
 {:.input}
 ```python
-import numpy as np
 import os
+import numpy as np
 import matplotlib.pyplot as plt
 import rasterio as rio
 import geopandas as gpd
 import earthpy as et
 import earthpy.spatial as es
-import earthpy.plot as ep 
+import earthpy.plot as ep
 
-# Get the data 
+# Get the data
 data = et.data.get_data('cold-springs-fire')
 
 # set working directory to your home dir/earth-analytics
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-import matplotlib as mpl
-mpl.rcParams['figure.figsize'] = (14, 14)
-mpl.rcParams['axes.titlesize'] = 20
 ```
 
 To begin open some data and create an output that you wish to export to geotiff format. Below you calculate NDVD from NAIP data using the earthpy `normalized_diff` function.
@@ -125,7 +122,7 @@ To begin open some data and create an output that you wish to export to geotiff 
 ```python
 with rio.open("data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif") as src:
     naip_data = src.read()
-    
+
 naip_ndvi = es.normalized_diff(naip_data[3], naip_data[0])
 ```
 
@@ -133,7 +130,7 @@ naip_ndvi = es.normalized_diff(naip_data[3], naip_data[0])
 ```python
 ep.plot_bands(naip_ndvi, cmap='PiYG', scale=False,
               vmin=-1, vmax=1,
-             title="NAIP Derived NDVI\n 19 September 2015 - Cold Springs Fire, Colorado")
+              title="NAIP Derived NDVI\n 19 September 2015 - Cold Springs Fire, Colorado")
 plt.show()
 ```
 
@@ -177,7 +174,7 @@ To implement this, below you will create a rasterio object (not using a context 
 with rio.open("data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif") as src:
     naip_data_ras = src.read()
     naip_meta = src.profile
-       
+
 naip_meta
 ```
 

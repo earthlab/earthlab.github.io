@@ -43,8 +43,8 @@ spatial-vector-lidar data subset created for the course.
 {:.input}
 ```python
 import os
-import pandas as pd
 import numpy as np
+import pandas as pd
 import geopandas as gpd
 import earthpy as et 
 

@@ -93,4 +93,3 @@ In addition to biomass and soil calculations,  field surveys are often performed
   </figcaption>
 </figure>
 
-

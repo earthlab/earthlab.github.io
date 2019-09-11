@@ -4,7 +4,7 @@ category: courses
 title: "Python Code Fundamentals"
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/
 week-landing: 4
-modified: 2019-09-06
+modified: 2019-09-10
 week: 4
 sidebar:
   nav:
@@ -13,13 +13,14 @@ author_profile: false
 course: "intro-to-earth-data-science"
 module-type: 'session'
 ---
+
 {% include toc title="Section Four" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Section Four - Python Code Fundamentals
 
-In section four of this textbook, you will learn fundamental concepts for getting started with **Python**, including what makes **Python** is a useful language for scientific workflows, and you will learn how to start working with data in **Python**, including creating and working with variables and lists. 
+In section four of this textbook, you will learn fundamental concepts for getting started with **Python**, including what makes **Python** a useful language for scientific workflows, and you will learn how to start working with data in **Python**, including creating and working with variables and lists. 
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives

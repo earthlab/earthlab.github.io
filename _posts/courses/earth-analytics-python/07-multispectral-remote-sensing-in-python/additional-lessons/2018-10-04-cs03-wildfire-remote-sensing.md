@@ -123,4 +123,3 @@ Each one of these data sets have different <a href="{{ site.url }}/courses/earth
 | Landsat 8 | 30m | 16 days | 11 bands |
 Sentinel-2 | 10m, 20m, 60m (depending on the band) | 5 days |12 bands |
 
-

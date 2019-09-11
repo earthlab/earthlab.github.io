@@ -121,4 +121,3 @@ In addition to the homes that were destroyed, the Cold Springs Fire had signific
   <figcaption>An image of a burned Porsche and Ford Bronco at the site of a home decimated by the Cold Springs fire in Nederland, Colorado. Source: <a href="https://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">The Denver Post.</a>
   </figcaption>
 </figure>
-
