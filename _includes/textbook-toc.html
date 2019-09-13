@@ -9,17 +9,25 @@
 {% for post in sorted_session_weeks %}
 <div>
 <table>
-<thead>
-    <tr><th><a href="{{ site.url }}{{ post.permalink }}"> Section{% if post.nav-title %}{{ post.week }}. {{ post.nav-title }} {% else %} {{ post.week }}. {{ post.title }}{% endif %}</a> </th></tr>
-</thead>
-<tbody>
-      <!-- list the chapters for each section -->
-      {% for chapter in sorted_chapters %}
+    <thead>
+        <tr>
+            <th>
+                <a href="{{ site.url }}{{ post.permalink }}"> Section{% if post.nav-title %}{{ post.week }}. {{ post.nav-title }} {% else %} {{ post.week }}. {{ post.title }}{% endif %}</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <!-- list the chapters for each section -->
+    {% for chapter in sorted_chapters %}
         {% if chapter.week == post.week %}
-    <tr><td><a href="{{ site.url }}{{ chapter.permalink }}">Chapter {{ chapter.class-order }}: {{ chapter.module-nav-title }} </a></td></tr>
+        <tr>
+            <td>
+                <a href="{{ site.url }}{{ chapter.permalink }}">Chapter {{ chapter.class-order }}: {{ chapter.module-nav-title }} </a>
+            </td>
+        </tr>
         {% endif %}
-      {% endfor %}
-</tbody>
+    {% endfor %}
+    </tbody>
 </table>
 </div>
 
