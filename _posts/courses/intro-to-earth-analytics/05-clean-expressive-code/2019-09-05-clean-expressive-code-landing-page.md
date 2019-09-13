@@ -4,7 +4,7 @@ category: courses
 title: "Clean Code and Literate Expressive Programming"
 permalink: /courses/intro-to-earth-data-science/write-clean-expressive-code/
 week-landing: 5
-modified: 2019-09-05
+modified: 2019-09-09
 week: 5
 sidebar:
   nav:

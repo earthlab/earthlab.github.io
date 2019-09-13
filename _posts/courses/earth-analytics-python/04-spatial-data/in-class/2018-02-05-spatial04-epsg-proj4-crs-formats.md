@@ -140,8 +140,8 @@ explore the `CRS`.
 
 {:.input}
 ```python
-import numpy as np
 import os
+import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import geopandas as gpd
@@ -152,6 +152,12 @@ import earthpy as et
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
 
 {:.input}
 ```python

@@ -126,7 +126,7 @@ in that band. DARKER colors represent a weaker reflection.
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7fe54a3f6f60>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7faf0ef74ba8>
 
 
 
@@ -298,8 +298,9 @@ Just like you've done before, you can plot a single band in the NAIP raster usin
 
 {:.input}
 ```python
-ep.plot_bands(naip_csf[0],
-              title="NAIP RGB Imagery Band 1 Red \nCold Springs Fire Scar")
+fig, ax = plt.subplots()
+ax.imshow(naip_csf[0], cmap="Greys_r")
+ax.set_title("NAIP RGB Imagery Band 1 Red \nCold Springs Fire Scar")
 plt.show()
 ```
 
@@ -321,7 +322,8 @@ Or you can use the earthpy function `plot_bands()`. Note that in this lesson, yo
 {:.input}
 ```python
 ep.plot_bands(naip_csf[0],
-              title="NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar")
+              title="NAIP RGB Imagery - Band 1-Red\nCold Springs Fire Scar",
+              cbar=False)
 plt.show()
 ```
 
@@ -404,7 +406,8 @@ You can plot a single band of your choice using numpy indexing. `naip_csf[1]` wi
 ```python
 # Plot band 2 - green
 ep.plot_bands(naip_csf[1],
-              title="RGB Imagery - Band 2 - Green\nCold Springs Fire Scar")
+              title="RGB Imagery - Band 2 - Green\nCold Springs Fire Scar",
+              cbar=False)
 plt.show()
 ```
 
@@ -448,6 +451,7 @@ plot_bands() takes several key agruments including:
 * `figsize`: a tutple of 2 values representing the x and y dimensions of the image.
 * `cols`: if you are plotting more than one band you can specify the number of columns in the grid that you'd like to plot. 
 * `title`: OPTIONAL - A single title for one band or a list of x titles for x bands in your array.
+* `cbar`: OPTIONAL - `ep.plot_bands()` by default will add a colorbar to each plot it creates. You can turn the colobar off by setting this argument to false. 
 
 {:.input}
 ```python
@@ -457,7 +461,8 @@ titles = ["Red Band", "Green Band", "Blue Band", "Near Infrared (NIR) Band"]
 ep.plot_bands(naip_csf, 
               figsize=(12, 5), 
               cols=2,
-              title=titles)
+              title=titles,
+              cbar=False)
 plt.show()
 ```
 
@@ -606,7 +611,8 @@ healthy leaves reflect MORE green light compared to red light however the bright
 titles = ['red', 'green', 'near\ninfrared']
 ep.plot_bands(naip_csf[[0, 1, 3]],
               figsize=(10,  7),
-              title=titles)
+              title=titles,
+              cbar=False)
 plt.show()
 ```
 
