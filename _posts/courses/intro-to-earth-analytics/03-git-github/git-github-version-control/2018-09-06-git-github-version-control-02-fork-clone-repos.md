@@ -4,7 +4,7 @@ title: 'Copy (Fork) and Download (Clone) GitHub Repositories'
 excerpt: "GitHub.com can be used to store and access files in the cloud to share with others or simply as a backup of your local files. Learn how to create a copy of files on GitHub (fork) and to download files from GitHub to your computer (clone)."
 authors: ['Jenny Palomino', 'Leah Wasser', 'Martha Morrissey']
 category: [courses]
-class-lesson: ['git-github-version-control']
+class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/
 nav-title: "Get Files From GitHub"
 dateCreated: 2019-09-06

@@ -4,7 +4,7 @@ title: 'Git Commands for Version Control'
 excerpt: "A version control system allows you to track and manage changes to your files. Learn how to get started with version control using Git."
 authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
-class-lesson: ['git-github-version-control']
+class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
 nav-title: "Git Commands for Version Control"
 dateCreated: 2019-09-06

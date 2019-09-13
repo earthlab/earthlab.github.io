@@ -4,7 +4,7 @@ title: 'Undo Local Changes With Git'
 excerpt: "A version control system allows you to track and manage changes to your files. Learn how to undo changes in git after they have been added or committed to version control."
 authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
-class-lesson: ['git-github-version-control']
+class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-undo-local-changes/
 nav-title: "Undo Local Changes with Git"
 dateCreated: 2019-09-06
