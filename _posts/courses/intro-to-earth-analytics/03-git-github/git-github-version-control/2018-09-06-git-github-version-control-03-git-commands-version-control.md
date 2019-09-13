@@ -1,14 +1,14 @@
 ---
 layout: single
 title: 'Git Commands for Version Control'
-excerpt: "Version control allows you to track and manage changes to your files. Learn how to get started with version control using Git."
+excerpt: "A version control system allows you to track and manage changes to your files. Learn how to get started with version control using Git."
 authors: ['Jenny Palomino', 'Max Joseph', 'Leah Wasser']
 category: [courses]
 class-lesson: ['git-github-version-control']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-commands/
 nav-title: "Git Commands for Version Control"
 dateCreated: 2019-09-06
-modified: 2019-09-06
+modified: 2019-09-13
 module-type: 'class'
 class-order: 1
 course: "intro-to-earth-data-science"
@@ -23,6 +23,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/git-github-version-control/guided-activity-version-control/"
 ---
+
 {% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -31,56 +32,56 @@ redirect_from:
 
 After completing this page, you will be able to:
 
-* Use `Git` to `add` and `commit` changed files. 
-* Use `Git` to `push` changed files from your local computer to the repository on `Github.com`.
+* Use **git** to `add` and `commit` changed files to version control. 
+* Use **git** to `push` changed files from your local computer to the repository on **Github.com**.
 
 </div>
 
 
 ## Git and GitHub Workflow For Version Control
 
-Previously, you learned how to `fork` and `clone` existing `GitHub` repositories to make copies of other users' repositories and download them to your computer. 
+Previously, you learned how to `fork` **GitHub** repositories to make copies of other users' repositories, and you also learned how to download copies of (i.e. `clone`) **GitHub** repositories to your computer. 
 
-On this page, you expand on those skills to:
-
-* check the `status` of changed files in a repository
-* `add` changed files to version control tracking
-* `commit` the changed files to your local repository
-* `push` those changed files from the local copy of a repository to the cloud (`Github.com`)
-
-Later in this chapter, you will expand on this version control workflow to notify others (your collaborators) about changes you have made and that you would like to add to the original (`master`) copy of a repository.  
-
-## Configure `Git` Settings On Your Computer:
-
-1. In the terminal, set your `Github.com` username by typing: `git config --global user.name "Your UserName"`.
-
-2. In the terminal, set the email for your `Github.com` account by typing: `git config --global user.email "youremail@email.com"`.
-
-Note that you only have to configure these settings once on your computer. You can check your config settings for user.name and user.email using the following commands:
-
-`git config user.name` or `git config user.email`
+On this page, you expand on those skills to use **git** to implement the three key steps of version control:
+* `git add` changed files to version control tracking.
+* `git commit` the changed files to create a unique snapshot of the local repository.
+* `git push` those changed files from the local copy of a repository to the cloud (**GitHub.com**).
 
 
-## Make Changes to Files and Directories
 
-Begin by using Shell to navigate to your forked repository (the `ea-bootcamp-hw-1-yourusername` directory) and launching Jupyter Notebook. 
+## Configure git Settings On Your Computer
 
-Open the `Jupyter Notebook` file for Homework 1 (`ea-bootcamp-hw-1.ipynb`) and make some changes.
+The first time that you use **git**, you will need to configure a few settings including the username and email address that you want to be associated with the changes that you make using **git**. 
 
-* If you previously started working on Homework 1 or complete the optional challenge from the previous lesson on `Markdown`, then you already have some changes that can be added to version control and pushed to `GitHub`.   
-    
-* If you have not modified Homework 1, you can make a simple change in `Jupyter Notebook` to add a new `Markdown` cell below the existing cells and include:
-    * A title for the notebook (e.g. `Earth Analytics Bootcamp - Homework 1`)
-    * A **bullet list** with:
-        * A bold word for `Author:` and then add text for your name. 
-        * A bold word for `Date:` and then add text for today's date.
-     
+You can set your **Github.com** username in the **terminal** by typing: 
+ 
+`git config --global user.name "username"`.
 
-## Check the Status of Changes
+Next, you can set the email for your **Github.com** account by typing: 
 
-In the `terminal`, navigate to your `ea-bootcamp-hw-1-yourusername` repository that you forked and cloned to your computer. 
+`git config --global user.email "email@email.com"`.
 
-Run the command `git status` to check that changes have been made to your files that have not been pushed back to `GitHub`. 
+Using the `--global` configuration option, you are telling **git** to use these settings for all **git** repositories that you work with on your computer. 
+
+Note that you only have to configure these settings once on your computer.  
+
+You can check your config settings for user.name and user.email using the following commands:
+
+`git config user.name` which returns the username that you set previously
+
+`git config user.email` which returns the email that you set previously
+
+These configuration settings ensure that changes you make to repositories are attributed to your username and email, so that you can easily track changes over time. 
+
+## Check the Status of Changes Using Git Status
+
+Once you start making changes to files in the repository, you can use the `git status` command to check what changes are being identified by **git**. 
+
+To practice working with this command, use the **terminal** to navigate to a repository that you have cloned to your computer (e.g. `cd ea-bootcamp-03-git-github-version-control`). 
+
+Make some change to a file in this repository (e.g. open a **Jupyter Notebook** file and add a new Code cell).
+
+Then, run the command `git status` to check that changes have been made to your file(s). 
 
 ```bash
 git status
@@ -90,85 +91,158 @@ Changes not staged for commit:
   (use "git add <file>..." to update what will be committed)
   (use "git checkout -- <file>..." to discard changes in working directory)
 
-	modified:   ea-bootcamp-hw-1.ipynb
+	modified:   ea-bootcamp-03-git-github-version-control.ipynb
     
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-The output from `git status` indicates that you have modified the file `ea-bootcamp-hw-1.ipynb`.
-
-To keep track of changes to this file, you need to:
-
-1. `add` the changes, and then
-2. `commit` the changes.
+The output from the `git status` command indicates that you have modified a file (e.g. `ea-bootcamp-03-git-github-version-control.ipynb`) that can be added to version control if desired.
 
 
-## Add and Commit Changed Files
+### Overview of Adding and Committing Changes To Version Control
 
-You will use the add and commit functions to `add` and `commit` your changed files.
+To keep track of changes to this file using **git**, you need to:
 
-* `git add`: takes a modified file in your working directory and places the modified version in a staging area.
+1. first `git add` the changes to tracking (or staging area), and then
+2. `git commit` the changes to version control. 
 
-* `git commit`: takes everything from the staging area and makes a permanent snapshot of the current state of your repository that is associated with a unique identifier.
+These two commands make up the bulk of many workflows that use **git** for version control:
 
-These two commands make up the bulk of many workflows that use git for version control.
+* `git add`: takes a modified file in your working directory and places the modified version in a staging area for review.
+
+* `git commit`: takes everything from the staging area and makes a permanent snapshot of the current state of your repository that has a unique identifier.
+
+
 
 <figure>
-   <a href="https://www.earthdatascience.org/images/workshops/version-control/git-add-commit.png">
-   <img src="https://www.earthdatascience.org/images/workshops/version-control/git-add-commit.png" alt="Modified files are staged using git add, and following a commit, all files in the staging area are snapshotted and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014)."></a>
-   <figcaption> Modified files are staged using git add, and following a commit, all files in the staging area are snapshotted and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014).
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-add-commit.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-add-commit.png" alt="Modified files are staged using git add. Then, following git commit, all files in the staging area are included in snapshot and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014)."></a>
+   <figcaption> Modified files are staged using git add. Then, following git commit, all files in the staging area are included in snapshot and become part of the repository's history, receiving a unique SHA-1 hash identifier. Source: Max Joseph, adapted from Pro Git by Chacon and Straub (2014).
    </figcaption>
 </figure>
 
-### Add Files
+## Add Changed Files Using git add
 
-You can add an individual file or groups of files to git tracking. To add a single file, use: 
+After making changes, you can add either an individual file or groups of files to version control tracking. 
 
-`git add file-name.extension`.
+To add a single file, run the command: 
 
-For example, to add the `ea-bootcamp-hw-1.ipynb` file that you just modified, you’d use: 
+`git add file-name.extension`
 
-`git add ea-bootcamp-hw-1.ipynb`.
+For example, to add the `ea-bootcamp-03-git-github-version-control.ipynb` file, you would use: 
+
+`git add ea-bootcamp-03-git-github-version-control.ipynb`
 
 You can also add all of the files that you have edited at the same time using: 
 
 `git add .`
 
-However, **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files that you do not want to change in the `GitHub` repository. 
+However, **use `git add .` with caution**. Be sure to review the results from `git status` carefully before using `git add .`. You do not want to accidentally add files that you do not want to change in the **GitHub** repository. 
 
 
-### Commit Files
+## Commit Changed Files Using git commit
 
-Once you are ready to make a snapshot of the current state of your repository, you can use `git commit`. 
+Once you are ready to make a snapshot of the current state of your repository (i.e. move changes from staging area), you can run `git commit`. 
 
-The `git commit` command requires a commit message that describes the snapshot (i.e. changes) that you made in that commit. A commit message should outline what changed and why. These messages:
+The `git commit` command requires a commit message that describes the snapshot (i.e. changes) that you made in that commit. 
 
-1. help collaborators and your future self understand what was changed and why
+A commit message should outline what changed and why. These messages:
+
+1. help collaborators and your future self understand what was changed and why.
 2. allow you and your collaborators to find (and undo if necessary) changes that were previously made.
 
-Since you are not committing a lot of changes, you can create a short one line commit message using the -m flag:
+When you are not committing a lot of changes, you can create a short one line commit message using the -m flag as follows:
 
-`git commit -m "Update title and author name in homework 1"`
+`git commit -m "Update title and author name in homework for week 3"`
 
-You will learn about including longer commit messages later in this course.
+You will learn about including longer commit messages later in this textbook.
 
+Each commit is provided a unique identifier (SHA-1 hash) and includes all changes to files in the staging area when the commit was created (i.e. all files that had been added to staging using `git add`). 
 
-## Push Changed Files to GitHub
+## Push Changed Files to GitHub.com
 
-So far we have only modified our local copy of the repository. To update the files in your `GitHub` repository, you need to `push` the changed files to `GitHub`.
+So far you have only modified your local copy of the repository and completed a local commit to the repository. 
 
-You can push your changes to `GitHub` with:
+To update the files on **GitHub.com**, you need to `push` the changed files to the repository on **GitHub.com**.
+
+You can push your changes to **GitHub** using the command:
 
 `git push origin master`
 
-You will then be prompted for your `Github.com` username and password. 
+Depending on your settings, you may then be prompted for your **Github.com** username and password. 
 
-After you have pushed your commits, visit your repository on `https://github.com/yourusername/ea-bootcamp-hw-1-yourusername` and notice that your changes are reflected there. Also notice that you have access to the full commit history for your repository!
+After you have pushed your commits to **GitHub.com**, visit your repository (e.g. `https://github.com/username/repository-name`) and notice that your changes are reflected there. 
 
-## Need to add to page: 
+Also notice that you have access to the full commit history for your repository!
 
-* more about git configuration
-* git log
-* Change example repository from `https://github.com/yourusername/ea-bootcamp-hw-1-yourusername` to something more generic like `https://github.com/earthlab-education/ea-bootcamp-git-github-workflow` 
-* Replace all mentions of "course" with "textbook"
-* Change all examples from being about `earth-analytics-bootcamp` directory to `earth-analytics` directory.
+<figure>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/access-commits-on-github.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/access-commits-on-github.png" alt="On the GitHub page of a repository, you can click on the Commits option (as shown in the image) to see a full list of commits that have been pushed to a repository."></a>
+   <figcaption> On the GitHub page of a repository, you can click on the Commits option (as shown in the image) to see a full list of commits that have been pushed to a repository.
+   </figcaption>
+</figure>
+
+<figure>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/list-commits-github.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/list-commits-github.png" alt="The full list of commits that have been pushed to a repository are available for you to see and review as needed on GitHub.com."></a>
+   <figcaption> The full list of commits that have been pushed to a repository are available for you to see and review as needed on GitHub.com.
+   </figcaption>
+</figure>
+
+
+## View All Commits to Repository Using git log
+
+You can also see a list of all commits to a repository (even those that have yet not been pushed to **GitHub.com**!) when working locally with the repository on your computer. 
+
+To see a list of all commits, you can run the command:
+
+`git log`
+
+Which returns something like the following:
+
+```bash
+commit 6575476476hdjig946jksg95jywkg034mk6gkro6
+Author: eastudent <eastudent@email.edu>
+Date:   Mon Aug 5 15:30:54 2019 -0600
+
+    Update title and author name in homework for week 3
+```
+
+Notice that `git log` provides a lot of useful information about the commit, including the unique identifier assigned to that snapshot, the message description provided during the commit (i.e. the message after `-m`) as well as the date, time, and author of the commit. 
+
+
+## Tell Git to Ignore Sensitive Files
+
+If you have sensitive files in a repository that you never want to track with **git**, you can add those file names to a file called `.gitignore`, and **git** will not track them. 
+
+For instance, if you have a text file called `social-security.txt` that contains sensitive information, you can add that file to a .gitignore file. 
+
+Once listed in .gitignore, **git** will never add that file to version control or send it to **GitHub.com**.
+
+If the .gitignore file is not already present in the repository, you can create it manually using a text , or using the following `bash` command:
+
+```bash
+# Comment in bash
+# Create a .gitignore file if one doesn't already exist 
+touch .gitignore
+
+```
+
+Open this .gitignore file in a text editor and add the file names (with no other information needed) that you want **git** to ignore, for example:
+
+```
+social-security.txt
+```
+
+Any files listed in the `.gitignore` file will be ignored by **git**. 
+
+You can also tell **git** to ignore directories by adding the directory name to the `gitignore` file (e.g. ignore a directory called `private-directory`):
+
+```
+private-directory/
+```
+
+<i class="fa fa-star"></i> **Data tip:** Learn more about using .gitignore files to ignore files and directories in your **git** repository on the <a href="http://swcarpentry.github.io/git-novice/06-ignore/
+" target="_blank">Software Carpentry Git Lessons</a>.
+{: .notice--success }
+
