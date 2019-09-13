@@ -272,4 +272,4 @@ Your branch is up-to-date with 'origin/master'.
 nothing to commit, working directory clean
 ```
 
-Congratulations! You have now learned how to undo changes using **git** at various stages of the version control process before changed files get pushed to **Github.com**. 
+You have now learned how to undo changes using **git** at various stages of the version control process before changed files get pushed to **Github.com**. 
