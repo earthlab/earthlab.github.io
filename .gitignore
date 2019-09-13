@@ -10,3 +10,4 @@ _config-dev.yml
 _config.yml
 Gemfile.lock
 .idea/workspace.xml
+.idea/
