@@ -1,9 +1,11 @@
 
 {% assign course_posts = site.posts | where:"course", page.course %}
-{% assign sorted_posts = course_posts | sort:"order" %}
+{% assign section_posts = course_posts | where: "week", page.week %}
+{% assign sorted_posts = section_posts | sort:"order" %}
+
 {% assign chapters = sorted_posts | where:"order", 1 %}
 {% assign sorted_chapters = chapters | sort:"class-order" %}
-{% assign session_weeks = course_posts | where:"module-type", 'session' %}
+{% assign session_weeks = section_posts | where:"module-type", 'session' %}
 {% assign sorted_session_weeks = session_weeks | sort:'week' %}
 
 
