@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Customize plots in Python using matplotlib"
-excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to get started with creating different types of plots and customizing plot colors and labels using matplotlib.'
+excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to create different types of plots and customize the colors and look of your plot using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino']
 modified: 2019-09-17
 module-title: 'Introduction to Plotting with Matplotlib'
@@ -66,7 +66,7 @@ Be sure that you have completed the chapter on <a href="{{ site.url }}/courses/i
 * what is the ax object
 
 
-## Create Plot Using Matplotlib
+## Create Plots Using Matplotlib
 
 To begin creating a plot using matplotlib's object oriented approach, you first define the initial axes using `plt.subplots()`, and then create the `fig` (figure) and the `ax` objects that you will use to add data and customize the look of your plot. 
 
@@ -131,7 +131,7 @@ months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July",
           "Aug", "Sept", "Oct", "Nov", "Dec"]
 ```
 
-## Add Data to Plot
+## Add Data to Plots
 
 You can add data to your plot by calling the `ax` object, which is the axis element that you previously defined with: 
 
@@ -160,7 +160,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7f01883d0ac8>]
+    [<matplotlib.lines.Line2D at 0x7f413438cc18>]
 
 
 
@@ -470,7 +470,7 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 
 
-## Plot Colors 
+## Customize Plot Colors 
 
 You can customize the color of your plot using the `color` argument and setting it equal to the color that you want to use for the plot. 
 
@@ -612,7 +612,7 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 
 
-### Additional Ways to Customize Colors For Bar Plots
+### Customize Colors For Bar Plots
 
 You can customize your bar plot further by changing the outline color for each bar to be blue using the argument `edgecolor` and specifying a color from the **matplotlib** color options previously discussed. 
 
@@ -646,7 +646,7 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 
 
-### Additional Ways Customize Colors For Scatter Plots
+### Customize Colors For Scatter Plots
 
 When using scatter plots, you can also assign each point a color based upon its data value using the `c` and `cmap` arguments.
 
@@ -700,12 +700,15 @@ print(plt.style.available)
 ```
 
 {:.output}
-    ['seaborn-bright', 'seaborn-dark', 'fivethirtyeight', 'seaborn-whitegrid', 'Solarize_Light2', 'seaborn-pastel', 'bmh', 'seaborn-paper', 'seaborn-poster', 'seaborn-dark-palette', 'fast', 'seaborn-talk', 'dark_background', 'ggplot', 'seaborn-white', 'seaborn', 'seaborn-deep', 'seaborn-notebook', 'tableau-colorblind10', '_classic_test', 'seaborn-muted', 'seaborn-colorblind', 'seaborn-darkgrid', 'classic', 'seaborn-ticks', 'grayscale']
+    ['seaborn-poster', 'fivethirtyeight', 'bmh', 'seaborn-colorblind', 'seaborn-bright', 'seaborn-dark', 'seaborn-whitegrid', 'seaborn-ticks', 'seaborn-darkgrid', 'seaborn', 'fast', 'seaborn-dark-palette', 'seaborn-deep', 'seaborn-white', 'seaborn-talk', 'seaborn-muted', 'seaborn-notebook', 'Solarize_Light2', '_classic_test', 'seaborn-pastel', 'dark_background', 'grayscale', 'ggplot', 'classic', 'tableau-colorblind10', 'seaborn-paper']
 
 
 
 {:.input}
 ```python
+# Define matplotlib style
+plt.style.use('seaborn-darkgrid')
+
 # Define plot space
 fig, ax = plt.subplots(figsize=(10, 6))
 
@@ -718,9 +721,7 @@ ax.bar(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)")
-
-plt.style.use('seaborn-darkgrid');
+       ylabel = "Precipitation\n(inches)");
 ```
 
 {:.output}
