@@ -27,8 +27,9 @@ In section one of this textbook, you will learn how to plot using **matplotlib**
 
 After completing this section of the Plot Data in Python online textbook, you will be able to:
 
-* create different types of plots in **Python** using **matplotlib**.
-* customize plots, including labels and colors, in **Python** using **matplotlib**.
+* Create different types of plots in **Python** using **matplotlib**.
+* Customize plots, including labels and colors, in **Python** using **matplotlib**.
+* Apply pre-configured matplotlib styles or themes to your plot.
 
 </div>
 

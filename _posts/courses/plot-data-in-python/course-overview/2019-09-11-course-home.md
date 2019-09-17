@@ -48,7 +48,7 @@ This textbook is designed for the Earth Analytics courses for the <a href="https
 
 ### Overview 
 
-In this textbook, you will learn how to plot using key packages for plotting in **Python** including matplotlib.
+In this textbook, you will learn how to plot using key packages for plotting in **Python** including matplotlib, a widely used plotting package in the **Python** programming language.
 
 This textbook is highly technical, and each chapter covers some aspect of plotting with **Python**. Additional sections and chapters will continue to be added. 
 
