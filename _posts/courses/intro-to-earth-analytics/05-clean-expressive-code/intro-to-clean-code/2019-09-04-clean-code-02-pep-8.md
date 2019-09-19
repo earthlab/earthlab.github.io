@@ -10,6 +10,7 @@ nav-title: "PEP 8 Style Guide"
 dateCreated: 2019-09-03
 modified: 2019-09-19
 module-type: 'class'
+class-order: 1
 course: "intro-to-earth-data-science"
 week: 5
 sidebar:
