@@ -4,7 +4,7 @@ category: courses
 title: "Python Code Fundamentals"
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/
 week-landing: 4
-modified: 2019-09-10
+modified: 2019-09-19
 week: 4
 sidebar:
   nav:
@@ -13,7 +13,6 @@ author_profile: false
 course: "intro-to-earth-data-science"
 module-type: 'session'
 ---
-
 {% include toc title="Section Four" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
@@ -34,9 +33,5 @@ After completing this section of the introduction to earth data science online t
 </div>
 
 
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Table of Contents
-
-| Section 4: Python Code Fundamentals |
-|:------------------------------------|
-| Chapter 10: Introduction to Python  | 
+{% include textbook-section-toc.html %}
 

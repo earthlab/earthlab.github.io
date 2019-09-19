@@ -4,7 +4,7 @@ category: courses
 title: "Clean Code and Literate Expressive Programming"
 permalink: /courses/intro-to-earth-data-science/write-clean-expressive-code/
 week-landing: 5
-modified: 2019-09-09
+modified: 2019-09-19
 week: 5
 sidebar:
   nav:
@@ -13,7 +13,6 @@ author_profile: false
 course: "intro-to-earth-data-science"
 module-type: 'session'
 ---
-
 {% include toc title="Section Five" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
@@ -32,9 +31,5 @@ After completing this section of the introduction to earth analytics online text
 </div>
 
 
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Table of Contents
-
-| Section 5: Clean Code and Literate Expressive Programming |
-|:----------------------------------------------------------|
-| Chapter 11: Introduction to Clean Code and Literate Expressive Programming            | 
+{% include textbook-section-toc.html %}
 
