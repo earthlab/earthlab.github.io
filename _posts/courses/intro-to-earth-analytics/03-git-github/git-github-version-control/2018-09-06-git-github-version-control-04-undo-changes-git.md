@@ -8,9 +8,8 @@ class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/git-undo-local-changes/
 nav-title: "Undo Local Changes with Git"
 dateCreated: 2019-09-06
-modified: 2019-09-13
+modified: 2019-09-19
 module-type: 'class'
-class-order: 1
 course: "intro-to-earth-data-science"
 week: 3
 sidebar:
