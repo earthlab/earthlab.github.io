@@ -16,7 +16,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 2
 topics:
   reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
@@ -90,7 +90,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7f048a9ec240>]
+    [<matplotlib.lines.Line2D at 0x7f61abeab7f0>]
 
 
 
