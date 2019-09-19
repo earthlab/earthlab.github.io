@@ -8,11 +8,12 @@ class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/
 nav-title: "Intro to Text File Formats"
 dateCreated: 2019-08-29
-modified: 2019-09-10
+modified: 2019-09-19
 module-title: 'Text File Formats for Earth Data Science'
 module-nav-title: 'Text File Formats'
 module-description: 'There are many text file formats that are useful for earth data science workflows including Markdown, text (.txt, .csv) files, and YAML (Yet Another Markup Language). Learn about these common text file formats for earth data science workflows.'
 module-type: 'class'
+chapter: 4
 class-order: 1
 course: "intro-to-earth-data-science"
 week: 2
