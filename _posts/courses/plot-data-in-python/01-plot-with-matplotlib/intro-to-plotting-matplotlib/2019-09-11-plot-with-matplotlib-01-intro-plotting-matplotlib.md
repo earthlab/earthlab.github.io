@@ -171,11 +171,8 @@ ax.plot(months,
 
 
 
-<<<<<<< HEAD
-    [<matplotlib.lines.Line2D at 0x7f5bc15ee470>]
-=======
     [<matplotlib.lines.Line2D at 0x7f25e1e98ac8>]
->>>>>>> 33c49e3541eeef81a8350a29f2b00bb2ddc75f5f
+
 
 
 
