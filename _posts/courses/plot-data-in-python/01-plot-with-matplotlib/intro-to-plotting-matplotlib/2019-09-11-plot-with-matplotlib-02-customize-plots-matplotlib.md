@@ -90,7 +90,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7f61abeab7f0>]
+    [<matplotlib.lines.Line2D at 0x7f622792b438>]
 
 
 
@@ -176,8 +176,6 @@ plt.show()
 
 
 
-
-</div>
 
 ## Create Different Types of Matplotlib Plots: Scatter and Bar Plots
 

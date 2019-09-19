@@ -120,9 +120,9 @@ fig, ax = plt.subplots()
 
 
 
-### Change Plot Size 
+## Change Figure Size 
 
-You can change the size of your plot using the argument `figsize` to specify a width and height for your plot: 
+You can change the size of your figure using the argument `figsize` to specify a width and height for your figure: 
 
 `figsize = (width, height)`
 
