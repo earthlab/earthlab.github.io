@@ -19,8 +19,6 @@ overview-order: 1
 ---
 {% include toc title="This Textbook" icon="file-text" %}
 
-{% include textbook-toc.html %}
-
 {% assign course_posts = site.posts | course: page.course %}
 {% assign sorted_posts = course_posts | sort:'overview-order' %}
 
@@ -53,4 +51,5 @@ In this textbook, you will learn how to plot using key packages for plotting in 
 
 This textbook is highly technical, and each chapter covers some aspect of plotting with **Python**. Additional sections and chapters will continue to be added. 
 
+{% include textbook-toc.html %}
 
