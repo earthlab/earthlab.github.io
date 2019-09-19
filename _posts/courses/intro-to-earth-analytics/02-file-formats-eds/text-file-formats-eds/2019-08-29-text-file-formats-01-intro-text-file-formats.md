@@ -30,7 +30,7 @@ topics:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Text File Formats for Earth Data Science
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Four - Text File Formats for Earth Data Science
 
 In this chapter, you will learn about common text file formats for earth data science workflows including Markdown, text (.txt, .csv) files, and YAML (Yet Another Markup Language). 
 
