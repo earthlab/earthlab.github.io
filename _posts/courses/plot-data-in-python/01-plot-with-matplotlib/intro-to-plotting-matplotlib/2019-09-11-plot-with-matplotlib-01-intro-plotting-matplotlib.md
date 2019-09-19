@@ -1,9 +1,10 @@
 ---
 layout: single
-title: "Customize plots in Python using matplotlib"
+title: "Introduction to Plotting in Python Using Matplotlib"
 excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to create different types of plots and customize the colors and look of your plot using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2019-09-17
+dateCreated: 2019-09-11
+modified: 2019-09-19
 module-title: 'Introduction to Plotting with Matplotlib'
 module-nav-title: 'Intro to Plotting with Matplotlib'
 module-description: 'Matplotlib is the most commonly used plotting library in Python. Learn how to get started with creating and customizing plots using matplotlib.'
@@ -14,6 +15,7 @@ nav-title: 'Intro to Matplotlib Plotting'
 permalink: /courses/plot-data-in-python/plot-with-matplotlib/intro-plotting-matplotlib/
 module-type: 'class'
 class-order: 1
+chapter: 1
 week: 1
 sidebar:
   nav:
@@ -24,7 +26,6 @@ topics:
   reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
 ---
-
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -37,10 +38,11 @@ In this chapter, you will learn how to create and customize plots in **Python** 
 
 After completing this chapter, you will be able to:
 
-* Use **matplotlib** to create custom scatter, line and bar plots.
-* Add a title and x and y axes labels to your **matplotlib** plot.
-* Customize the colors and look of your **matplotlib** plot.
-* Apply pre-configured **matplotlib** styles or themes to your plot.
+* Explain **matplotlib's** object-oriented approach to plotting. 
+* Use **matplotlib** to create scatter, line and bar plots.
+* Customize the labels, colors and look of your **matplotlib** plot.
+* Create figures with multiple plots.
+* Save figure as an image file (e.g. .png format).
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -54,21 +56,28 @@ Be sure that you have completed the chapter on <a href="{{ site.url }}/courses/i
 
 ## Overview of Plotting with Matplotlib
 
-**Matplotlib** is a **Python** plotting package that makes it simple to create complex plots from data in a variety of data structures including lists, **numpy** arrays, and **pandas** dataframes. 
+<a href="https://matplotlib.org/">**Matplotlib**</a> is a **Python** plotting package that makes it simple to create two-dimensional plots from data stored in a variety of data structures including lists, **numpy** arrays, and **pandas** dataframes. 
 
-* Need to add more here
+**Matplotlib** uses an object-oriented approach to plotting, which allows plots to be built step-by-step by adding new elements to the plot. 
 
-**Matplotlib** plots are object-oriented and can be built step-by-step by adding new elements to the plot.  
+The primary objects of a **matplotlib** plot include:
+* `fig` object: the overall figure space that can contain one or more plots
+* `ax` objects: the individual plots that are rendered within the figure
 
-
-* Need to add more here
-* what is the fig object
-* what is the ax object
+While **Matplotlib** contains many modules that provide different plotting functionality, the most commonly used module is <a href="https://matplotlib.org/api/index.html#the-pyplot-api">**pyplot**</a>, which provides functions that work together to add different components to a figure (`fig`) including:
+* creating the individual plots as `ax` objects
+* adding data to the plots
+* adding titles and labels to the plots
+* etc
 
 
 ## Create Plots Using Matplotlib
 
-To begin creating a plot using matplotlib's object oriented approach, you first define the initial axes using `plt.subplots()`, and then create the `fig` (figure) and the `ax` objects that you will use to add data and customize the look of your plot. 
+To create a plot using matplotlib's object oriented approach, you first create the figure (`fig`) and at least one axis (`ax`) using the function `subplots()` from the `pyplot` module as follows:
+
+`fig, ax = plt.subplots()`
+
+Notice that the `fig` and `ax` are created at the same time by setting them equal to the output of the `pyplot.subplots()` function. As no other arguments have been provided, the result is a figure with one plot that is empty but ready for data. 
 
 {:.input}
 ```python
@@ -78,7 +87,7 @@ import matplotlib.pyplot as plt
 
 {:.input}
 ```python
-# Define the plot space upon which to plot the data
+# Define figure space and one plot (ax object) 
 fig, ax = plt.subplots()
 ```
 
@@ -95,13 +104,13 @@ fig, ax = plt.subplots()
 
 
 
-To change the size of your plot, you can use the argument `figsize` to specify a width and height for your plot: 
+You can change the size of your plot using the argument `figsize` to specify a width and height for your plot as follows: 
 
 `figsize = (width, height)`
 
 {:.input}
 ```python
-# Resize plot
+# Resize figure
 fig, ax = plt.subplots(figsize = (10, 6))
 ```
 
@@ -117,16 +126,17 @@ fig, ax = plt.subplots(figsize = (10, 6))
 
 
 
-Now that you have defined your axis and figure objects, you can add some data to your plot.
+Now that you have defined your `fig` and `ax` objects, you can add some data to your plot.
 
-Begin by creating a few lists to plot the monthly average precipitation (inches) for Boulder, CO. 
+Begin by creating a few lists to plot the monthly average precipitation (inches) for <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html">Boulder, Colorado provided by the U.S. National Oceanic and Atmospheric Administration (NOAA)</a>.
 
 {:.input}
 ```python
-# Lists for plotting monthly average precipitation
+# Monthly average precipitation
 boulder_monthly_precip = [0.70, 0.75, 1.85, 2.93, 3.05, 2.02, 
                           1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
 
+# Month names for plotting
 months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", 
           "Aug", "Sept", "Oct", "Nov", "Dec"]
 ```
@@ -137,13 +147,13 @@ You can add data to your plot by calling the `ax` object, which is the axis elem
 
 `fig, ax = plt.subplots()`
 
-You can call the `.plot` method of the `ax` object and specify the arguments for the x axis (horizontal axis) and the y axis (vertical axis) as follows:
+You can call the `.plot` method of the `ax` object and specify the arguments for the x axis (horizontal axis) and the y axis (vertical axis) of the plot as follows:
 
-```
-ax.plot(x_axis, y_axis)
-```
+`ax.plot(x_axis, y_axis)`
 
-In this example, you are adding data from lists that you previously defined, with months along the x axis and boulder_monthly_precip along the y axis.  Note that the data plotted along the x and y axes can also come from **numpy** arrays as well as rows or columns in a **pandas** dataframes. 
+In this example, you are adding data from lists that you previously defined, with months along the x axis and boulder_monthly_precip along the y axis.  
+
+Note that the data plotted along the x and y axes can also come from **numpy** arrays as well as rows or columns in a **pandas** dataframes. 
 
 {:.input}
 ```python
@@ -160,7 +170,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7f413438cc18>]
+    [<matplotlib.lines.Line2D at 0x7ff3dde41160>]
 
 
 
@@ -179,11 +189,11 @@ ax.plot(months,
 
 
 
-Note that the output displays the object type as well as the unique location of the plot on your computer, e.g.: 
+Note that the output displays the object type as well as the unique location of the plot on your computer, for example: 
 
 `<matplotlib.lines.Line2D at 0x7f12063c7898>`
 
-You can hide this information easily by simply adding a semicolon `;` to the end of the last line you call in your plot. 
+You can hide this information from the output by simply adding a semicolon `;` to the end of the last line you call in your plot. 
 
 {:.input}
 ```python
@@ -244,8 +254,8 @@ bob.plot(months,
 You may have noticed that by default `ax.plot` creates the plot as a line plot (meaning that all of the values are connected by a continuous line across the plot).
 
 You can also use the `ax` object to create:
-* scatter plots (`ax.scatter`): values are displayed as individual points that are not connected with a continuous line. 
-* bar plots (`ax.bar`): values are displayed as bars with height indicating the value at a specific point.
+* scatter plots (using `ax.scatter`): values are displayed as individual points that are not connected with a continuous line. 
+* bar plots ( using `ax.bar`): values are displayed as bars with height indicating the value at a specific point.
 
 {:.input}
 ```python
@@ -422,7 +432,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Define x and y axes
 ax.scatter(months, 
         boulder_monthly_precip,
-        marker = ",")
+        marker = ',')
 
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
@@ -450,7 +460,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Define x and y axes
 ax.plot(months, 
         boulder_monthly_precip,
-        marker = "o")
+        marker = 'o')
 
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
@@ -499,8 +509,8 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Define x and y axes
 ax.plot(months, 
         boulder_monthly_precip,
-        marker = "o",
-        color = "cyan")
+        marker = 'o',
+        color = 'cyan')
 
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
@@ -529,8 +539,8 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Define x and y axes
 ax.scatter(months, 
         boulder_monthly_precip,
-        marker = ",",
-        color = "k")
+        marker = ',',
+        color = 'k')
 
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
@@ -558,7 +568,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Define x and y axes
 ax.bar(months, 
         boulder_monthly_precip,
-        color = "darkblue")
+        color = 'darkblue')
 
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
@@ -590,7 +600,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Define x and y axes
 ax.bar(months, 
        boulder_monthly_precip,
-       color = "darkblue", 
+       color = 'darkblue', 
        alpha = 0.3)
 
 # Set plot title and axes labels
@@ -624,8 +634,8 @@ fig, ax = plt.subplots(figsize=(10, 6))
 # Define x and y axes
 ax.bar(months, 
        boulder_monthly_precip,
-       color = "cyan", 
-       edgecolor = "darkblue")
+       color = 'cyan',
+       edgecolor = 'darkblue')
 
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
@@ -667,7 +677,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 ax.scatter(months, 
         boulder_monthly_precip,
         c = boulder_monthly_precip,
-        cmap = "YlGnBu")
+        cmap = 'YlGnBu')
 
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
@@ -687,39 +697,140 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 
 
-## Use Matplotlib Styles or Themes
+## Multi-plot Figures
 
-**Matplotlib** also has a set of predefined color palettes that you can apply to a plot. To view a list of available styles, use:
+Using matplotlib's object-oriented approach makes it easier to include more than one plot in a figure by creating additional `ax` objects. 
 
-`plt.style.use()` 
+When adding more than one `ax` object, it is good practice to give them distinct names (such as `ax1` and `ax2`), so you can easily work with each `ax` individually.
+
+You will need to provide new arguments to `plt.subplots` for the layout of the figure: number of rows and columns:
+
+`plt.subplots(1, 2)`
+
+In this example, `1, 2` indicates that you want the plot layout to be 1 row across 2 columns.
 
 {:.input}
 ```python
-# view all styles
-print(plt.style.available)
+# Figure with two plots
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize = (10, 6))
 ```
 
 {:.output}
-    ['seaborn-poster', 'fivethirtyeight', 'bmh', 'seaborn-colorblind', 'seaborn-bright', 'seaborn-dark', 'seaborn-whitegrid', 'seaborn-ticks', 'seaborn-darkgrid', 'seaborn', 'fast', 'seaborn-dark-palette', 'seaborn-deep', 'seaborn-white', 'seaborn-talk', 'seaborn-muted', 'seaborn-notebook', 'Solarize_Light2', '_classic_test', 'seaborn-pastel', 'dark_background', 'grayscale', 'ggplot', 'classic', 'tableau-colorblind10', 'seaborn-paper']
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_37_0.png">
+
+</figure>
 
 
+
+
+Conversely, `2, 1` indicates that you want the plot layout to be 2 rows across one column.
 
 {:.input}
 ```python
-# Define matplotlib style
-plt.style.use('seaborn-darkgrid')
+# Figure with two plots
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize = (10, 6))
+```
 
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_39_0.png">
+
+</figure>
+
+
+
+
+Because you have defined `figsize=(10, 6)`, the figure space remains the same size regardless of how many rows or columns you request. 
+
+You can play around with both the number of rows and columns as well as `figsize` to arrive at the look that you want. 
+
+{:.input}
+```python
+# Figure with two plots
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize = (12, 12))
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_41_0.png">
+
+</figure>
+
+
+
+
+Now that you have your `fig` and two `ax` objects defined, you can add data to each `ax` and define the plot with unique characteristics. 
+
+In the example below, `ax1.bar` creates a bar plot for the first plot, and `ax2.scatter` creates a scatter for the second plot. 
+
+{:.input}
+```python
 # Define plot space
-fig, ax = plt.subplots(figsize=(10, 6))
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 12))
 
 # Define x and y axes
-ax.bar(months, 
+ax1.bar(months, 
        boulder_monthly_precip,
-       color = "cyan", 
-       edgecolor = "darkblue")
+       color = 'cyan', 
+       edgecolor = 'darkblue')
+
+# Define x and y axes
+ax2.scatter(months, 
+        boulder_monthly_precip,
+        c = boulder_monthly_precip,
+        cmap = 'YlGnBu');
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_43_0.png">
+
+</figure>
+
+
+
+
+You can continue to add to `ax1` and `ax2` such as adding the title and axes labels for each individual plot, just like you did before when the figure only had one plot.
+
+You can use `ax1.set()` to define these elements for the first plot (the bar plot), and `ax2.set()` to define them for the second plot (the scatter plot). 
+
+{:.input}
+```python
+# Define plot space
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 12))
+
+# Define x and y axes
+ax1.bar(months, 
+       boulder_monthly_precip,
+       color = 'cyan', 
+       edgecolor = 'darkblue')
 
 # Set plot title and axes labels
-ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
+ax1.set(title = "Bar Plot of Average Monthly Precipitation",
+       xlabel = "Month",
+       ylabel = "Precipitation\n(inches)");
+
+# Define x and y axes
+ax2.scatter(months, 
+        boulder_monthly_precip,
+        c = boulder_monthly_precip,
+        cmap = 'YlGnBu')
+
+# Set plot title and axes labels
+ax2.set(title = "Scatter Plot of Average Monthly Precipitation",
        xlabel = "Month",
        ylabel = "Precipitation\n(inches)");
 ```
@@ -729,8 +840,111 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_38_0.png" alt = "There are many styles that you can apply to make your plots look nicer and uniform. Here a style is called within the plot code. This style will only be applied to this plot.">
-<figcaption>There are many styles that you can apply to make your plots look nicer and uniform. Here a style is called within the plot code. This style will only be applied to this plot.</figcaption>
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_45_0.png">
+
+</figure>
+
+
+
+
+Now that you have more than one plot (each with their own labels), you can add an overall title (with a specified font size) for the entire figure using: 
+
+`fig.suptitle("Title text", fontsize = 16)`
+
+{:.input}
+```python
+# Define plot space
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 12))
+
+fig.suptitle("Average Monthly Precipitation for Boulder, CO", fontsize = 16)
+
+# Define x and y axes
+ax1.bar(months, 
+       boulder_monthly_precip,
+       color = 'cyan', 
+       edgecolor = 'darkblue')
+
+# Set plot title and axes labels
+ax1.set(title = "Bar Plot",
+       xlabel = "Month",
+       ylabel = "Precipitation\n(inches)");
+
+# Define x and y axes
+ax2.scatter(months, 
+        boulder_monthly_precip,
+        c = boulder_monthly_precip,
+        cmap = 'YlGnBu')
+
+# Set plot title and axes labels
+ax2.set(title = "Scatter Plot",
+       xlabel = "Month",
+       ylabel = "Precipitation\n(inches)")
+
+plt.savefig('foo.png');
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_47_0.png">
+
+</figure>
+
+
+
+
+## Save Figure to Image File 
+
+You can easily save a figure to an image file such as .png using: 
+
+`plt.savefig("path/name-of-file.png")`
+
+which will save the latest figure rendered. 
+
+If you do not specify a path for the file, the file will be created in your current working directory. 
+
+<a href="https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.savefig.html">**Matplotlib** documentation</a> to see a list of the additional file formats that be used to save figures.
+
+{:.input}
+```python
+# Define plot space
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 12))
+
+fig.suptitle("Average Monthly Precipitation for Boulder, CO", fontsize = 16)
+
+# Define x and y axes
+ax1.bar(months, 
+       boulder_monthly_precip,
+       color = 'cyan', 
+       edgecolor = 'darkblue')
+
+# Set plot title and axes labels
+ax1.set(title = "Bar Plot",
+       xlabel = "Month",
+       ylabel = "Precipitation\n(inches)");
+
+# Define x and y axes
+ax2.scatter(months, 
+        boulder_monthly_precip,
+        c = boulder_monthly_precip,
+        cmap = 'YlGnBu')
+
+# Set plot title and axes labels
+ax2.set(title = "Scatter Plot",
+       xlabel = "Month",
+       ylabel = "Precipitation\n(inches)")
+
+plt.savefig("average-monthly-precip-boulder-co.png");
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_49_0.png">
 
 </figure>
 
@@ -745,4 +959,3 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 * An [in-depth guide to matplotlib](https://realpython.com/blog/python/python-matplotlib-guide/?utm_campaign=Data%2BElixir&utm_medium=email&utm_source=Data_Elixir_172)
 
 </div>
-

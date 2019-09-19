@@ -4,7 +4,8 @@ category: courses
 title: "Plot with Matplotlib"
 permalink: /courses/plot-data-in-python/plot-with-matplotlib/
 week-landing: 1
-modified: 2019-09-17
+dateCreated: 2019-09-11
+modified: 2019-09-19
 week: 1
 sidebar:
   nav:
@@ -13,8 +14,9 @@ author_profile: false
 course: "plot-data-in-python"
 module-type: 'session'
 ---
-
 {% include toc title="Section One" icon="file-text" %}
+
+{% include textbook-section-toc.html %}
 
 <div class="notice--info" markdown="1">
 
@@ -27,16 +29,11 @@ In section one of this textbook, you will learn how to plot using **matplotlib**
 
 After completing this section of the Plot Data in Python online textbook, you will be able to:
 
+* Explain **matplotlib's** object-oriented approach to plotting. 
 * Create different types of plots in **Python** using **matplotlib**.
 * Customize plots, including labels and colors, in **Python** using **matplotlib**.
 * Apply pre-configured matplotlib styles or themes to your plot.
 
 </div>
 
-
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Table of Contents
-
-| Section 1: Plot with Matplotlib |
-|:----------------------------------------------------------|
-| Chapter 1: Intro to Plotting with Matplotlib           | 
 

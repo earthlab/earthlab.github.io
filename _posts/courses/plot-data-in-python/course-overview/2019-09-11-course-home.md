@@ -5,7 +5,8 @@ title: "Plot Data in Python: A Quickstart Guide | Earth Lab CU Boulder"
 nav-title: "Plot Data in Python Home"
 permalink: /courses/plot-data-in-python/
 course: "plot-data-in-python"
-modified: 2019-09-17
+dateCreated: 2019-09-11
+modified: 2019-09-19
 module-type: 'overview'
 module-title: "Plot Data in Python"
 week-landing: 0
@@ -16,9 +17,9 @@ comments: false
 author_profile: false
 overview-order: 1
 ---
-
-
 {% include toc title="This Textbook" icon="file-text" %}
+
+{% include textbook-toc.html
 
 {% assign course_posts = site.posts | course: page.course %}
 {% assign sorted_posts = course_posts | sort:'overview-order' %}
@@ -52,7 +53,4 @@ In this textbook, you will learn how to plot using key packages for plotting in 
 
 This textbook is highly technical, and each chapter covers some aspect of plotting with **Python**. Additional sections and chapters will continue to be added. 
 
-| Section 1: Plot with Matplotlib |
-|:----------------------------------------------------------|
-| Chapter 1: Intro to Plotting with Matplotlib           | 
 
