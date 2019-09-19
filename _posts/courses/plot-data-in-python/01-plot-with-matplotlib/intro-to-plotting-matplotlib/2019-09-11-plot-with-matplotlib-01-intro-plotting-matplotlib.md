@@ -96,8 +96,8 @@ fig, ax = plt.subplots()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_3_0.png" alt = "When you create a figure object you are creating a blank canvas to place a plot on.">
-<figcaption>When you create a figure object you are creating a blank canvas to place a plot on.</figcaption>
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_3_0.png" alt = "When you create a figure object, you are creating a blank canvas upon which to place a plot.">
+<figcaption>When you create a figure object, you are creating a blank canvas upon which to place a plot.</figcaption>
 
 </figure>
 
@@ -119,7 +119,8 @@ fig, ax = plt.subplots(figsize = (10, 6))
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_5_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_5_0.png" alt = "When you create a figure object, you can define the figure size by providing a width and height value (width, height).">
+<figcaption>When you create a figure object, you can define the figure size by providing a width and height value (width, height).</figcaption>
 
 </figure>
 
@@ -170,7 +171,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7ff3dde41160>]
+    [<matplotlib.lines.Line2D at 0x7f5bc15ee470>]
 
 
 
@@ -181,19 +182,19 @@ ax.plot(months,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_9_1.png" alt = "Once you add a call to plot using ax.plot - your  blank canvas has a plot on it.">
-<figcaption>Once you add a call to plot using ax.plot - your  blank canvas has a plot on it.</figcaption>
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_9_1.png" alt = "You can use ax.plot to add a line plot to your figure.">
+<figcaption>You can use ax.plot to add a line plot to your figure.</figcaption>
 
 </figure>
 
 
 
 
-Note that the output displays the object type as well as the unique location of the plot on your computer, for example: 
+Note that the output displays the object type as well as the unique identifier for the figure, for example: 
 
 `<matplotlib.lines.Line2D at 0x7f12063c7898>`
 
-You can hide this information from the output by simply adding a semicolon `;` to the end of the last line you call in your plot. 
+You can hide this information from the output by simply adding `plt.show()` as the last line you call in your plot code. 
 
 {:.input}
 ```python
@@ -202,7 +203,9 @@ fig, ax = plt.subplots(figsize=(10, 6))
 
 # Define x and y axes
 ax.plot(months, 
-        boulder_monthly_precip);
+        boulder_monthly_precip)
+
+plt.show()
 ```
 
 {:.output}
@@ -210,7 +213,8 @@ ax.plot(months,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_11_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_11_0.png" alt = "You can add plt.show() as the last code line to hide the extra output that is generated about the unique identifier for the figure.">
+<figcaption>You can add plt.show() as the last code line to hide the extra output that is generated about the unique identifier for the figure.</figcaption>
 
 </figure>
 
@@ -234,7 +238,9 @@ fig, bob = plt.subplots(figsize=(10, 6))
 
 # Define x and y axes
 bob.plot(months, 
-         boulder_monthly_precip);
+         boulder_monthly_precip)
+
+plt.show()
 ```
 
 {:.output}
@@ -242,7 +248,8 @@ bob.plot(months,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_13_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_13_0.png" alt = "While it is convention to use ax as the name of the axis object, you can actually call it whatever you want, even something like bob.">
+<figcaption>While it is convention to use ax as the name of the axis object, you can actually call it whatever you want, even something like bob.</figcaption>
 
 </figure>
 
@@ -264,7 +271,9 @@ fig, ax = plt.subplots(figsize=(10, 6))
 
 # Create scatter plot
 ax.scatter(months, 
-           boulder_monthly_precip);
+           boulder_monthly_precip)
+
+plt.show()
 ```
 
 {:.output}
@@ -272,7 +281,8 @@ ax.scatter(months,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_15_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_15_0.png" alt = "You can use ax.scatter to create a scatter plot.">
+<figcaption>You can use ax.scatter to create a scatter plot.</figcaption>
 
 </figure>
 
@@ -286,7 +296,9 @@ fig, ax = plt.subplots(figsize=(10, 6))
 
 # Create bar plot
 ax.bar(months, 
-       boulder_monthly_precip);
+       boulder_monthly_precip)
+
+plt.show()
 ```
 
 {:.output}
@@ -294,7 +306,8 @@ ax.bar(months,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_16_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_16_0.png" alt = "You can use ax.bar to create a scatter bar.">
+<figcaption>You can use ax.bar to create a scatter bar.</figcaption>
 
 </figure>
 
@@ -323,7 +336,9 @@ ax.plot(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation in Boulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation (inches)");
+       ylabel = "Precipitation (inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -331,8 +346,8 @@ ax.set(title = "Average Monthly Precipitation in Boulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_18_0.png" alt = "You can customize your plot adding and adjust ticks and titles.">
-<figcaption>You can customize your plot adding and adjust ticks and titles.</figcaption>
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_18_0.png" alt = "You can customize your plot by adding titles and axes labels.">
+<figcaption>You can customize your plot by adding titles and axes labels.</figcaption>
 
 </figure>
 
@@ -355,7 +370,9 @@ ax.plot(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -363,7 +380,12 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_20_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_20_0.png" alt = "You can use the new line symbol 
+ between words to generate multi line titles and axes labels (e.g. Precipitation
+(inches)).">
+<figcaption>You can use the new line symbol 
+ between words to generate multi line titles and axes labels (e.g. Precipitation
+(inches)).</figcaption>
 
 </figure>
 
@@ -390,7 +412,9 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
        ylabel = "Precipitation\n(inches)")
 
-plt.setp(ax.get_xticklabels(), rotation = 45);
+plt.setp(ax.get_xticklabels(), rotation = 45)
+
+plt.show()
 ```
 
 {:.output}
@@ -398,7 +422,8 @@ plt.setp(ax.get_xticklabels(), rotation = 45);
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_22_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_22_0.png" alt = "You can use plt.setp(ax.get_xticklabels(), rotation 45) to rotate the tick marks along the x axis by 45 degrees.">
+<figcaption>You can use plt.setp(ax.get_xticklabels(), rotation 45) to rotate the tick marks along the x axis by 45 degrees.</figcaption>
 
 </figure>
 
@@ -437,7 +462,9 @@ ax.scatter(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -445,7 +472,8 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_24_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_24_0.png" alt = "You can customize the symbol on a scatter or line plot using a variety of characters such as a , which indicates that you want a square symbol at each data point in the plot.">
+<figcaption>You can customize the symbol on a scatter or line plot using a variety of characters such as a , which indicates that you want a square symbol at each data point in the plot.</figcaption>
 
 </figure>
 
@@ -465,7 +493,9 @@ ax.plot(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -473,7 +503,8 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_25_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_25_0.png" alt = "You can customize the symbol on a scatter or line plot using a variety of characters such as an o which indicates that you want a circular symbol at each data point in the plot.">
+<figcaption>You can customize the symbol on a scatter or line plot using a variety of characters such as an o which indicates that you want a circular symbol at each data point in the plot.</figcaption>
 
 </figure>
 
@@ -515,7 +546,9 @@ ax.plot(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -523,8 +556,8 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_27_0.png" alt = "Adjust the ticklabels on the x-axis and create a scatterplot.">
-<figcaption>Adjust the ticklabels on the x-axis and create a scatterplot.</figcaption>
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_27_0.png" alt = "You can customize the colors on a plot using the argument called color and provided a key word for a base color such as cyan.">
+<figcaption>You can customize the colors on a plot using the argument called color and provided a key word for a base color such as cyan.</figcaption>
 
 </figure>
 
@@ -545,7 +578,9 @@ ax.scatter(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -553,7 +588,8 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_28_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_28_0.png" alt = "You can customize the colors on a plot using the argument called color and provided a key word abbreviation for a base color such as k for black.">
+<figcaption>You can customize the colors on a plot using the argument called color and provided a key word abbreviation for a base color such as k for black.</figcaption>
 
 </figure>
 
@@ -573,7 +609,9 @@ ax.bar(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -581,7 +619,8 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_29_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_29_0.png" alt = "You can customize the colors on a plot using the argument called color and provided a key word for a base color such as darkblue.">
+<figcaption>You can customize the colors on a plot using the argument called color and provided a key word for a base color such as darkblue.</figcaption>
 
 </figure>
 
@@ -606,7 +645,9 @@ ax.bar(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -614,8 +655,8 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_31_0.png" alt = "Adjust the alpha value to add transparency to your points.">
-<figcaption>Adjust the alpha value to add transparency to your points.</figcaption>
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_31_0.png" alt = "You can add and adjust an alpha value to add transparency to your plot data.">
+<figcaption>You can add and adjust an alpha value to add transparency to your plot data.</figcaption>
 
 </figure>
 
@@ -640,7 +681,9 @@ ax.bar(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -648,8 +691,8 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_33_0.png" alt = "Just like you could adjust point colors you can adjust the bar fill and edge colors.">
-<figcaption>Just like you could adjust point colors you can adjust the bar fill and edge colors.</figcaption>
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_33_0.png" alt = "You can adjust the bar fill and edge colors of a bar plot using the arguments color and edgecolor.">
+<figcaption>You can adjust the bar fill and edge colors of a bar plot using the arguments color and edgecolor.</figcaption>
 
 </figure>
 
@@ -682,7 +725,9 @@ ax.scatter(months,
 # Set plot title and axes labels
 ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -690,7 +735,8 @@ ax.set(title = "Average Monthly Precipitation\nBoulder, CO",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_35_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_35_0.png" alt = "You can adjust the colors of the points in a scatter plot using color maps (cmap argument), which allows you to specify a range of colors that will be applied to the data points depending on their value.">
+<figcaption>You can adjust the colors of the points in a scatter plot using color maps (cmap argument), which allows you to specify a range of colors that will be applied to the data points depending on their value.</figcaption>
 
 </figure>
 
@@ -720,7 +766,8 @@ fig, (ax1, ax2) = plt.subplots(1, 2, figsize = (10, 6))
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_37_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_37_0.png" alt = "You can create figures with multiple plots by adding additional ax objects (e.g. ax1, ax2).">
+<figcaption>You can create figures with multiple plots by adding additional ax objects (e.g. ax1, ax2).</figcaption>
 
 </figure>
 
@@ -740,7 +787,8 @@ fig, (ax1, ax2) = plt.subplots(2, 1, figsize = (10, 6))
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_39_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_39_0.png" alt = "You can change the layout of the figure to specify how many rows and columns you want to use to display the plots.">
+<figcaption>You can change the layout of the figure to specify how many rows and columns you want to use to display the plots.</figcaption>
 
 </figure>
 
@@ -762,7 +810,8 @@ fig, (ax1, ax2) = plt.subplots(2, 1, figsize = (12, 12))
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_41_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_41_0.png" alt = "You can adjust the figshare as well as the number of rows and columns for a figure layout, in order to achieve the desired layout of the plots.">
+<figcaption>You can adjust the figshare as well as the number of rows and columns for a figure layout, in order to achieve the desired layout of the plots.</figcaption>
 
 </figure>
 
@@ -788,7 +837,9 @@ ax1.bar(months,
 ax2.scatter(months, 
         boulder_monthly_precip,
         c = boulder_monthly_precip,
-        cmap = 'YlGnBu');
+        cmap = 'YlGnBu')
+
+plt.show()
 ```
 
 {:.output}
@@ -796,7 +847,8 @@ ax2.scatter(months,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_43_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_43_0.png" alt = "Each ax object (e.g. ax1, ax2) is independent and can contain different data, plot colors, etc.">
+<figcaption>Each ax object (e.g. ax1, ax2) is independent and can contain different data, plot colors, etc.</figcaption>
 
 </figure>
 
@@ -832,7 +884,9 @@ ax2.scatter(months,
 # Set plot title and axes labels
 ax2.set(title = "Scatter Plot of Average Monthly Precipitation",
        xlabel = "Month",
-       ylabel = "Precipitation\n(inches)");
+       ylabel = "Precipitation\n(inches)")
+
+plt.show()
 ```
 
 {:.output}
@@ -840,7 +894,8 @@ ax2.set(title = "Scatter Plot of Average Monthly Precipitation",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_45_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_45_0.png" alt = "Each ax object (e.g. ax1, ax2) is independent and can contain different titles, axes labels, etc.">
+<figcaption>Each ax object (e.g. ax1, ax2) is independent and can contain different titles, axes labels, etc.</figcaption>
 
 </figure>
 
@@ -880,7 +935,7 @@ ax2.set(title = "Scatter Plot",
        xlabel = "Month",
        ylabel = "Precipitation\n(inches)")
 
-plt.savefig('foo.png');
+plt.show()
 ```
 
 {:.output}
@@ -888,7 +943,8 @@ plt.savefig('foo.png');
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_47_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_47_0.png" alt = "You can define an overall title for your figure using the fig.suptitle() method.">
+<figcaption>You can define an overall title for your figure using the fig.suptitle() method.</figcaption>
 
 </figure>
 
@@ -936,7 +992,9 @@ ax2.set(title = "Scatter Plot",
        xlabel = "Month",
        ylabel = "Precipitation\n(inches)")
 
-plt.savefig("average-monthly-precip-boulder-co.png");
+plt.savefig("average-monthly-precip-boulder-co.png")
+
+plt.show()
 ```
 
 {:.output}
@@ -944,7 +1002,8 @@ plt.savefig("average-monthly-precip-boulder-co.png");
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_49_0.png">
+<img src = "{{ site.url }}/images/courses/plot-data-in-python/01-plot-with-matplotlib/intro-to-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib/2019-09-11-plot-with-matplotlib-01-intro-plotting-matplotlib_49_0.png" alt = "You can save a figure to an image file such as .png usingthe plt.savefig() method.">
+<figcaption>You can save a figure to an image file such as .png usingthe plt.savefig() method.</figcaption>
 
 </figure>
 
