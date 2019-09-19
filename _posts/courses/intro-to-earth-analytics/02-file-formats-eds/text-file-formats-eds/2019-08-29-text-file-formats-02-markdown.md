@@ -8,9 +8,8 @@ class-lesson: ['text-file-formats']
 permalink: /courses/intro-to-earth-data-science/file-formats/use-text-files/format-text-with-markdown-jupyter-notebook/
 nav-title: "Markdown in Jupyter Notebook"
 dateCreated: 2019-08-29
-modified: 2019-09-04
+modified: 2019-09-19
 module-type: 'class'
-class-order: 1
 course: "intro-to-earth-data-science"
 week: 2
 sidebar:
