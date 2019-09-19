@@ -42,15 +42,13 @@ overview-order: 1
 
 ## About Plot Data in Python: A Quickstart Guide
 
-Plot Data in Python: A Quickstart Guide is an online textbook for anyone new to plotting using the **Python** programming language. 
+Plot Data in Python: A Quickstart Guide is an online textbook for anyone new to plotting using the **Python** programming language.
 
-This textbook is designed for the Earth Analytics courses for the <a href="https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate" target = "_blank">Earth Data Analytics Professional Certificate </a> taught by instructors at CU Boulder. 
+This textbook is designed for the Earth Analytics courses for the <a href="https://www.colorado.edu/earthlab/earth-data-analytics-foundations-professional-certificate" target = "_blank">Earth Data Analytics Professional Certificate </a> taught by instructors in Earth Lab at CU Boulder.
 
 
-### Overview 
+### Overview
 
 In this textbook, you will learn how to plot using key packages for plotting in **Python** including matplotlib, a widely used plotting package in the **Python** programming language.
 
-This textbook is highly technical, and each chapter covers some aspect of plotting with **Python**. Additional sections and chapters will continue to be added. 
-
-
+This textbook is highly technical, and each chapter covers some aspect of plotting with **Python**. Additional sections and chapters will continue to be added.

@@ -29,11 +29,10 @@ In section one of this textbook, you will learn how to plot using **matplotlib**
 
 After completing this section of the Plot Data in Python online textbook, you will be able to:
 
-* Explain **matplotlib's** object-oriented approach to plotting. 
-* Create different types of plots in **Python** using **matplotlib**.
-* Customize plots, including labels and colors, in **Python** using **matplotlib**.
-* Apply pre-configured matplotlib styles or themes to your plot.
+* Explain the **matplotlib** object-oriented approach to plotting.
+* Create different types of plots using **matplotlib**.
+* Customize plots, including labels and colors, using **matplotlib**.
+* Create figures with multiple plots using **matplotlib**.
+* Apply pre-configured **matplotlib** styles or themes to your plots.
 
 </div>
-
-
