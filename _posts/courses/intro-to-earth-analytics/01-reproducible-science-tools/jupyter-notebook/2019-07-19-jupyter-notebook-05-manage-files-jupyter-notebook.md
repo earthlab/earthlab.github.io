@@ -8,9 +8,8 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/manage-jupyter-notebook-files/
 nav-title: "Manage Jupyter Notebooks"
 dateCreated: 2019-07-15
-modified: 2019-08-29
+modified: 2019-09-23
 module-type: 'class'
-class-order: 3
 course: "intro-to-earth-data-science"
 week: 1
 sidebar:

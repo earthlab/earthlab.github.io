@@ -4,7 +4,7 @@ category: courses
 title: "Introduction to Open Reproducible Science Workflows"
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/
 week-landing: 1
-modified: 2019-08-29
+modified: 2019-09-23
 week: 1
 sidebar:
   nav:
@@ -39,11 +39,5 @@ After completing this section of the introduction to earth data science online t
 </div>
 
 
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Table of Contents
-
-| Section 1: Open Reproducible Science Workflows |
-|:----------------------------------------------------------|
-| Chapter 1: Open Reproducible Science            | 
-| Chapter 2: Bash / Shell  |
-| Chapter 3: Jupyter for Python   |
+{% include textbook-section-toc.html %}
 

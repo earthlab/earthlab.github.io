@@ -4,7 +4,7 @@ category: courses
 title: "File Formats for Earth Data Science"
 permalink: /courses/intro-to-earth-data-science/file-formats/
 week-landing: 2
-modified: 2019-08-29
+modified: 2019-09-23
 week: 2
 sidebar:
   nav:
@@ -36,9 +36,5 @@ After completing this section of the introduction to earth analytics online text
 </div>
 
 
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Table of Contents
-
-| Section 2: File Formats for Earth Data Science |
-|:----------------------------------------------------------|
-| Chapter 4: Text File Formats for Earth Data Science            | 
+{% include textbook-section-toc.html %}
 

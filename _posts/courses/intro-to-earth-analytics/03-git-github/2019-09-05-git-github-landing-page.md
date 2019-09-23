@@ -4,7 +4,7 @@ category: courses
 title: "Git and GitHub"
 permalink: /courses/intro-to-earth-data-science/git-github/
 week-landing: 3
-modified: 2019-09-09
+modified: 2019-09-23
 week: 3
 sidebar:
   nav:
@@ -13,7 +13,6 @@ author_profile: false
 course: "intro-to-earth-data-science"
 module-type: 'session'
 ---
-
 {% include toc title="Section Three" icon="file-text" %}
 
 <div class="notice--info" markdown="1">
@@ -32,10 +31,5 @@ After completing this section of the introduction to earth analytics online text
 
 </div>
 
-
-## <i class="fa fa-calendar-check-o" aria-hidden="true"></i> Table of Contents
-
-| Section 3: Git and GitHub |
-|:-----------------------------------------------------|
-| Chapter 7: Git/GitHub for Version Control            | 
+{% include textbook-section-toc.html %}
 

@@ -8,9 +8,8 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/open-science-tools-git-bash-jupyter/
 nav-title: "Open Science Tools"
 dateCreated: 2019-07-01
-modified: 2019-08-29
+modified: 2019-09-23
 module-type: 'class'
-class-order: 1
 course: "intro-to-earth-data-science"
 week: 1
 sidebar:

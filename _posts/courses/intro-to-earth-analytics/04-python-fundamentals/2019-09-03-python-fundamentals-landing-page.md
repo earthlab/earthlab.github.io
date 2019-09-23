@@ -36,4 +36,5 @@ After completing this section of the introduction to earth data science online t
 </div>
 
 
+{% include textbook-section-toc.html %}
 

@@ -8,11 +8,12 @@ class-lesson: ['clean-expressive-code']
 permalink: /courses/intro-to-earth-data-science/write-clean-expressive-code/intro-to-clean-code/
 nav-title: "What is Clean Code"
 dateCreated: 2019-09-04
-modified: 2019-09-09
+modified: 2019-09-23
 module-title: 'Learn to Write Clean Code and Literate Expressive Programming'
 module-nav-title: 'Write Clean Expressive Code'
 module-description: "Clean code refers to writing code that runs efficiently, is not redundant and is easy for anyone to understand. Learn learn best practices for writing clean, expressive code in Python."
 module-type: 'class'
+chapter: 13
 class-order: 1
 course: "intro-to-earth-data-science"
 week: 5
@@ -24,12 +25,11 @@ order: 1
 topics:
   reproducible-science-and-programming: ['python']
 ---
-
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Eleven - Introduction to Clean Code and Literate Expressive Programming
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Thirteen - Introduction to Clean Code and Literate Expressive Programming
 
 In this chapter, you will learn about the characteristics and benefits of writing clean, expressive code. You will also learn best practices for writing clean, expressive code in **Python**, including the PEP 8 Style Guide standards.
 

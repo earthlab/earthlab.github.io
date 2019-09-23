@@ -8,9 +8,8 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/variables/
 nav-title: "Python Variables"
 dateCreated: 2019-07-01
-modified: 2019-09-10
+modified: 2019-09-23
 module-type: 'class'
-class-order: 1
 course: "intro-to-earth-data-science"
 week: 4
 sidebar:
