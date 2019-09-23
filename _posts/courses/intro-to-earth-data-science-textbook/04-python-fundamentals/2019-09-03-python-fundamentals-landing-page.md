@@ -10,7 +10,7 @@ sidebar:
   nav:
 comments: false
 author_profile: false
-course: "intro-to-earth-data-science"
+course: "intro-to-earth-data-science-textbook"
 module-type: 'session'
 ---
 {% include toc title="Section Four" icon="file-text" %}
