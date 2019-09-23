@@ -8,7 +8,7 @@ class-lesson: ['clean-expressive-code']
 permalink: /courses/intro-to-earth-data-science/write-clean-expressive-code/intro-to-clean-code/python-pep-8-style-guide/
 nav-title: "PEP 8 Style Guide"
 dateCreated: 2019-09-03
-modified: 2019-09-07
+modified: 2019-09-23
 module-type: 'class'
 class-order: 1
 course: "intro-to-earth-data-science"
