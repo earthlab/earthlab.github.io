@@ -104,3 +104,8 @@ precip = np.array([ [1.07, 0.44, 1.50],
 This means that indexing for two-dimensional `numpy arrays` requires two values identifying the location of an element within the `numpy array`: the row number and the column number. 
 
 In this course, you will work with one and two dimensional `numpy arrays`, and in the lessons that follow, you will learn how you can use indexing to access data in one- and two-dimensional `numpy arrays`.
+
+{:.input}
+```python
+# Add to this page: Manual definition of numpy arrays
+```
