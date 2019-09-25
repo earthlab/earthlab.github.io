@@ -44,7 +44,7 @@ software such as the **conda** package manager and a basic **Python** environmen
 
 **Miniconda** is predominately designed for users who know what packages they need and do not want or need the extra installations. For this textbook, we suggest that you use the **Miniconda** installation.
 
-<i class=\"fa fa-star\"></i> **Data Tip:** In this <a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/">lesson on installing conda</a>, you will learn about the advantages of **Miniconda** vs **Anaconda**. You will also learn how to install **Miniconda**.
+<i class="fa fa-star"></i> **Data Tip:** In this <a href="https://www.earthdatascience.org/workshops/setup-earth-analytics-python/setup-git-bash-conda/">lesson on installing conda</a>, you will learn about the advantages of **Miniconda** vs **Anaconda**. You will also learn how to install **Miniconda**.
 {: .notice--success}
 
 Once you have **conda** installed on your machine, you can create your first **conda** environment:
@@ -227,7 +227,7 @@ As `conda list` will tell you which channel was used to download each package, i
 
 `Conda list` is also a great way to create a list to share your environment specs with other users online.
 
-<i class=\"fa fa-star\"></i> **IMPORTANT:** note that when you run `conda list`, it is listing packages installed in the current active environment.
+<i class="fa fa-star"></i> **IMPORTANT:** note that when you run `conda list`, it is listing packages installed in the current active environment.
 {: .notice--success}
 
 ### Summary of Installing Packages In Python Environments
@@ -243,5 +243,5 @@ To summarize what you have learned above, you need to complete the following ste
 2. Activate the **Python** environment that you wish to add the package to.
 3. Install the package that you want to add to that environment using either a .yml file or `conda install`.  
 
-<i class=\"fa fa-star\"></i> **Data Tip:** You can also install a package into an environment without activating it by using `conda install conda-forge --name myenv package-name`
+<i class="fa fa-star"></i> **Data Tip:** You can also install a package into an environment without activating it by using `conda install conda-forge --name myenv package-name`
 {: .notice--success}

@@ -100,7 +100,7 @@ Once packages are installed in your **Python** environment (e.g. `earth-analytic
 
 You have to explicitly call and load (i.e. import) each package that you want to use in your script (.py file) or **Jupyter Notebook** file, in order for the functions (or tools) in that package to be available for use in your code.
 
-<i class=\"fa fa-star\"></i> **Data Tip:**  You can import `Python` packages using `import package-name`. Once a package has been imported, you can call functions from that package
+<i class="fa fa-star"></i> **Data Tip:**  You can import `Python` packages using `import package-name`. Once a package has been imported, you can call functions from that package
 {: .notice--success}
 
 
@@ -182,7 +182,7 @@ Now, every time you want to call a function from **pyplot**, you can simply use 
 </figure>
 
 
-<i class=\"fa fa-star\"></i> **Data Tip:** You can use tab complete to get a list of all available functions in a package. For example, using the alias `np` for **numpy**, you can get a list of the functions available using `np.()` and hitting the tab key. A list of callable functions will appear.
+<i class="fa fa-star"></i> **Data Tip:** You can use tab complete to get a list of all available functions in a package. For example, using the alias `np` for **numpy**, you can get a list of the functions available using `np.()` and hitting the tab key. A list of callable functions will appear.
 {: .notice--success}
 
 <figure>
@@ -207,7 +207,7 @@ There are many packages and modules that have standard alias names. A few common
 | geopandas  | gpd|
 | earthpy  | et|
 
-<i class=\"fa fa-star\"></i> **Data Tip:** The **os** package has a short name and is not given an alias
+<i class="fa fa-star"></i> **Data Tip:** The **os** package has a short name and is not given an alias
 {: .notice--success}
 
 ## Best Practices for Importing Python Packages In Scientific Code
