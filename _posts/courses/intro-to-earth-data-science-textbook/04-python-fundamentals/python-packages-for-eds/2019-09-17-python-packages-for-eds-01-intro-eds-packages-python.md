@@ -27,7 +27,6 @@ topics:
 ---
 {% include toc title="In This Chapter" icon="file-text" %}
 
-
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Eleven - Import and Install Python Packages for Earth Data Science
@@ -57,7 +56,7 @@ In **Python**, a package is a bundle of pre-built functionality that adds to the
 
 You can think of a **Python** package as a toolbox filled with tools. The tools in the toolbox can be used to do things that you would have to otherwise hand code in base **Python**. These tasks are things that many people might want to do in **Python**, thus warranting the creation of a package. After all, it doesn't make sense for everyone to hand code everything!
 
-For example, the `matplotlib` package allows you to create plots of data. Since most of us create plots routinely, having a **Python** package to create plots makes programming more efficient for everyone who needs to create plots.
+For example, the **matplotlib** package allows you to create plots of data. Since most of us create plots routinely, having a **Python** package to create plots makes programming more efficient for everyone who needs to create plots.
 
 
 ## Open Source Python Packages for Earth Data Science
@@ -72,14 +71,14 @@ There are many different packages available for **Python**. Some of these are op
 
 and more! The list below contains the core packages that you will use in the upcoming chapters of this textbook to work with scientific data.
 
-* `os`: handle files and directories.
-* `glob`: create lists of files and directories for batch processing.
-* `matplotlib`: plot data.
-* `numpy`: work with data in array formats (often related to imagery and raster format data).
-* `pandas`: work with tabular data in a data.frame format.
-* `rasterio`: work with raster (image and arrays) data.
-* `geopandas`: work with vector format (shapefiles, geojson - points, lines and polygons) using a geodataframe format.
-* `earthpy`: plot and manipulate spatial data (raster and vector).
+* **os**: handle files and directories.
+* **glob**: create lists of files and directories for batch processing.
+* **matplotlib**: plot data.
+* **numpy**: work with data in array formats (often related to imagery and raster format data).
+* **pandas**: work with tabular data in a data.frame format.
+* **rasterio**: work with raster (image and arrays) data.
+* **geopandas**: work with vector format (shapefiles, geojson - points, lines and polygons) using a geodataframe format.
+* **earthpy**: plot and manipulate spatial data (raster and vector).
 
 
 ## Where Do Packages Live On Your Computer?
@@ -107,11 +106,11 @@ You have to explicitly call and load (i.e. import) each package that you want to
 
 ### Python Packages Can Contain Modules
 
-Packages can contain many modules (i.e. units of code) that each provide different functions and can build on each other. For example, the `matplotlib` package provides functionality to plot data using modules, one of which is the commonly used module called `pyplot`.
+Packages can contain many modules (i.e. units of code) that each provide different functions and can build on each other. For example, the **matplotlib** package provides functionality to plot data using modules, one of which is the commonly used module called **pyplot**.
 
 Every **Python** package should have a unique name. This allows you to import the package using the name with the `import` command. 
 
-For example, the command below imports the `matplotlib` package.
+For example, the command below imports the **matplotlib** package.
 
 ```python
 import matplotlib
@@ -121,9 +120,9 @@ import matplotlib
 
 Packages often have modules. A module is a set of related functionality that lives within the package. 
 
-For example, `pyplot` is a module within the matplotlib package that makes it easier to quickly setup plots. 
+For example, **pyplot** is a module within the matplotlib package that makes it easier to quickly setup plots. 
 
-You can import a specific module like `pyplot` by first calling the package name and then the module name - using `.` to separate the names like this:
+You can import a specific module like **pyplot** by first calling the package name and then the module name - using `.` to separate the names like this:
 
 ```python
 import matplotlib.pyplot
@@ -153,7 +152,7 @@ import package_name_here as alias_here
 
 Alias allows you to call functions from the imported package and/or module using the short name, rather than having to type out the full name of the packages and/or module each time that you want to call a function from it. 
 
-For example, you could call functions from the `pyplot` module to plot using the following code:
+For example, you could call functions from the **pyplot** module to plot using the following code:
 
 ```python
 matplotlib.pyplot.title("Title Here")
@@ -170,9 +169,9 @@ import matplotlib.pyplot as plt
 plt.title("Title Here")
 
 ```
-Notice that in the above example, you imported the `pyplot` module from the `matplotlib` package using the alias `plt`. 
+Notice that in the above example, you imported the **pyplot** module from the **matplotlib** package using the alias `plt`. 
 
-Now, every time you want to call a function from `pyplot`, you can simply use `plt` (e.g.`plt.title("Title Here")`) rather than `matplotlib.pyplot`(e.g. `matplotlib.pyplot.title("Title Here")`). 
+Now, every time you want to call a function from **pyplot**, you can simply use `plt` (e.g.`plt.title("Title Here")`) rather than `matplotlib.pyplot`(e.g. `matplotlib.pyplot.title("Title Here")`). 
 
 
 <figure>
@@ -183,7 +182,7 @@ Now, every time you want to call a function from `pyplot`, you can simply use `p
 </figure>
 
 
-<i class=\"fa fa-star\"></i> **Data Tip:** You can use tab complete to get a list of all available functions in a package. For example, using the alias `np` for `numpy`, you can get a list of the functions available using `np.()` and hitting the tab key. A list of callable functions will appear.
+<i class=\"fa fa-star\"></i> **Data Tip:** You can use tab complete to get a list of all available functions in a package. For example, using the alias `np` for **numpy**, you can get a list of the functions available using `np.()` and hitting the tab key. A list of callable functions will appear.
 {: .notice--success}
 
 <figure>
@@ -204,11 +203,11 @@ There are many packages and modules that have standard alias names. A few common
 | matplotlib.pyplot  | plt  |
 | numpy  | np  |
 | pandas  | pd|
-| geopandas  | gpd|
 | rasterio  | rio|
+| geopandas  | gpd|
 | earthpy  | et|
 
-<i class=\"fa fa-star\"></i> **Data Tip:** The `os` package has a short name and is not given an alias
+<i class=\"fa fa-star\"></i> **Data Tip:** The **os** package has a short name and is not given an alias
 {: .notice--success}
 
 ## Best Practices for Importing Python Packages In Scientific Code
@@ -247,16 +246,16 @@ In essence, this means that if you import a package *after* running some code th
 
 You may be wondering, what is a standard library import? The standard imports are commonly used tools that are general in purpose. These including things like:
 
-* `os`: handle files and directories.
-* `numpy`: work with data in array formats.
-* `matplotlib`: plot data.
+* **os**: handle files and directories.
+* **numpy**: work with data in array formats.
+* **matplotlib**: plot data.
 
 Third party imports might include geospatial tools and others that are less commonly used. These might include:
 
-* `rasterio`: work with raster (image and arrays) data.
-* `geopandas`: work with vector format (shapefiles, geojson - points, lines and polygons) using a geodataframe format.
-* `hydrofunctions`: work with hydrological data. 
-* `tweepy`: work with Twitter data.
+* **rasterio**: work with raster (image and arrays) data.
+* **geopandas**: work with vector format (shapefiles, geojson - points, lines and polygons) using a geodataframe format.
+* **hydrofunctions**: work with hydrological data. 
+* **tweepy**: work with Twitter data.
 
 A PEP 8 order of imports for commonly used **Python** packages for science would look something like this:
 
