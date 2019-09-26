@@ -1,17 +1,17 @@
 ---
 layout: single
 title: 'Intro to Numpy Arrays'
-excerpt: "Numpy arrays are . Learn ."
+excerpt: "Numpy arrays are a commonly used scientific data structure in Python that store data as a grid, or a matrix. Learn about the key characteristics of numpy arrays that make them an efficient data structure for storing and working with large scientific datasets."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
-class-lesson: ['numpy-arrays']
+class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/
 nav-title: "Intro to Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-09-23
-module-title: 'Numpy Arrays'
+modified: 2019-09-26
+module-title: 'Work with Scientific Data Using Numpy Arrays'
 module-nav-title: 'Numpy Arrays'
-module-description: 'Numpy arrays are . Learn .'
+module-description: 'Numpy arrays are a commonly used scientific data structure in Python that store data as a grid, or a matrix. Learn how to import data into numpy arrays and how to run calculations, summarize, and select data from numpy arrays.'
 module-type: 'class'
 chapter: 14
 class-order: 1
@@ -27,25 +27,25 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/numpy-arrays/intro-numpy-arrays/"
 ---
-
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Fourteen - Numpy Arrays
 
-In this chapter, you will learn about a commonly used data structure in Python for scientific data: numpy arrays. You will write `Python` code to import text data (.txt and .csv) as `numpy arrays` and to manipulate, summarize, and plot data in `numpy arrays`.
+In this chapter, you will learn about a commonly used data structure in Python for scientific data: **numpy** arrays. You will write **Python** code to import text data (.txt and .csv) as **numpy** arrays and to run calculations and summarize data in **numpy** arrays.
 
 After completing this chapter, you will be able to:
 
 * Describe the key characteristics of **numpy** arrays.
 * Import data from text files (.txt, .csv) into **numpy** arrays. 
 * Run calculations and summarize data in **numpy** arrays.
+* Use indexing to slice (i.e. select) data from **numpy arrays**.
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-Be sure that you have completed the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Setting up Git, Bash, and Conda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux). 
+You should have Conda setup on your computer and the Earth Analytics Python Conda environment. Follow the <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Set up Git, Bash, and Conda on your computer</a> to install these tools.
 
 Be sure that you have completed the chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/">Jupyter Notebook</a>.
 
@@ -54,58 +54,91 @@ Be sure that you have completed the chapter on <a href="{{ site.url }}/courses/i
 
 ## What are Numpy Arrays
 
-`Numpy arrays` are a commonly used data structure for scientific data. Data structures are **Python** objects that provide the ability to organize and manipulate data by defining the relationships between data values stored within the data structure and by providing a set of functionality that can be executed on the data structure. 
+**Numpy** arrays are a commonly used scientific data structure in **Python** that store data as a grid, or a matrix.
 
-Recall that in the previous lessons, you also used `Python` lists (another data structure in **Python**) to store values of monthly precipitation for Boulder, CO. 
+In **Python**, data structures are objects that provide the ability to organize and manipulate data by defining the relationships between data values stored within the data structure and by providing a set of functionality that can be executed on the data structure. 
 
-Like `Python` lists, `numpy arrays` are also composed of ordered values, which are called elements, and also use indexing to organize and manipulate the elements in the `numpy array`. 
+Recall that in the previous chapters, you used lists (another data structure in **Python**) to store values of monthly precipitation for Boulder, CO. 
 
-`array([0.7 , 0.75, 1.85])`
+Like **Python** lists, **numpy** arrays are also composed of ordered values (called elements) and also use indexing to organize and manipulate the elements in the **numpy** arrays. 
 
-Unlike lists, which do not require a specific package to be defined, `Numpy arrays` are defined using the `numpy.array()` function with a list of values (i.e. the elements) as the input parameter. 
+A key characteristic of **numpy** arrays is that all elements in the array must be the same type of data (i.e. all integers, floats, text strings, etc).
 
-All elements in an `numpy array` must be the same type of data (i.e. all integers, floats, text strings, etc).
+Unlike lists which do not require a specific **Python** package to be defined (or worked with), **numpy** arrays are defined using the `array()` function from the **numpy** package.  
 
-`Numpy arrays` can store data along multiple dimensions (e.g. rows, columns) that are relative to each other, resulting in dimensionality contained within this data structure. This dimensionality makes `numpy arrays` very efficient for storing large amounts of data of the same type and characteristic.
+To this function, you can provide a list of values (i.e. the elements) as the input parameter:
 
+`array = numpy.array([0.7 , 0.75, 1.85])`
+
+The example above creates a **numpy** array with a simple grid structure along one dimension. However, the grid structure of **numpy** arrays allow them to store data along multiple dimensions (e.g. rows, columns) that are relative to each other. This dimensionality makes **numpy** arrays very efficient for storing large amounts of data of the same type and characteristic.
 
 
 ## Key Differences Between Python Lists and Numpy Arrays
 
-While `Python` lists and `numpy arrays` have similarities in that they are both collections of values that use indexing to help you store and access data, there are a few key differences between these two data structures:
+While **Python** lists and **numpy** arrays have similarities in that they are both collections of values that use indexing to help you store and access data, there are a few key differences between these two data structures:
 
-1. Unlike a `Python` list, all elements in a `numpy array` must be the same data type (i.e. all integers, decimals, text strings, etc).
+1. Unlike a **Python** list, all elements in a **numpy** arrays must be the same data type (i.e. all integers, decimals, text strings, etc).
 
-2. Because of this requirement, `numpy arrays` support arithmetic and other mathematical operations that run on each element of the array (e.g. element-by-element multiplication). `Lists` do not support these calculations.
+2. Because of this requirement, **numpy** arrays support arithmetic and other mathematical operations that run on each element of the array (e.g. element-by-element multiplication). Recall that lists cannot have these numeric calculations applied directly to them.
 
-3. Unlike a `Python` list, a `numpy array` is not edited by adding/removing/replacing elements in the array. Instead, the `numpy array` is deleted and recreated each time that it is manipulated.
+3. Unlike a **Python** list, a **numpy** arrays is not edited by adding/removing/replacing elements in the array. Instead, each time that the the **numpy** arrays is manipulated in some way, it is actually deleted and recreated each time.
 
-4. `Numpy arrays` can store data along multiple dimensions (e.g. rows, columns) that are relative to each other.
+4. **Numpy** arrays can store data along multiple dimensions (e.g. rows, columns) that are relative to each other. This makes **numpy** arrays a very efficient data structure for large datasets. 
 
 
 ## Dimensionality of Numpy Arrays 
 
-`Numpy arrays` can be one-dimensional, meaning that they contain values along one dimension similar to a `Python` list, or they can be multi-dimensional with multiple rows and columns. 
+**Numpy** arrays can be:
+* one-dimensional composed of values along one dimension (resembling a **Python** list).
+* two-dimensional composed of rows of individual arrays with one or more columns.
+* multi-dimensional composed of nested arrays with one or more dimensions. 
 
-In `numpy arrays`, brackets `[]` are used to assign the dimensions of the `numpy array`. 
+In this chapter, you will work with one-dimensional and two-dimensional **numpy** arrays.
 
-```python
-# example of one-dimensional numpy array of monthly average precipitation for January through March in Boulder, CO
-precip = numpy.array([0.70, 0.75, 1.85])
-```
+For **numpy** arrays, brackets `[]` are used to assign and identify the dimensions of the **numpy** arrays. 
 
-```python
-# example of two-dimensional numpy array of January through March precipitation in Boulder, CO for two years: 2002 and 2013
-# dimensions are 2 rows, 3 columns
-precip = np.array([ [1.07, 0.44, 1.50], 
-                 [0.27, 1.13, 1.72] ])
-```
-
-This means that indexing for two-dimensional `numpy arrays` requires two values identifying the location of an element within the `numpy array`: the row number and the column number. 
-
-In this course, you will work with one and two dimensional `numpy arrays`, and in the lessons that follow, you will learn how you can use indexing to access data in one- and two-dimensional `numpy arrays`.
+This first example below shows how a single set of brackets `[]` are used to define a one-dimensional array. 
 
 {:.input}
 ```python
-# Add to this page: Manual definition of numpy arrays
+# Import numpy with alias np
+import numpy as np
 ```
+
+{:.input}
+```python
+# Monthly avg precip for Jan through Mar in Boulder, CO
+avg_monthly_precip = np.array([0.70, 0.75, 1.85])
+
+print(avg_monthly_precip)
+```
+
+{:.output}
+    [0.7  0.75 1.85]
+
+
+
+Notice that the output of the one-dimensional **numpy** array is also contained within a single set of brackets `[]`.
+
+To create a two-dimensional array, you need to specify two sets of brackets `[]`, the outer set that defines the entire array structure and inner sets that define the rows of the individual arrays.
+
+{:.input}
+```python
+# Monthly precip for Jan through Mar in 2002 and 2013
+precip_2002_2013 = np.array([
+    [1.07, 0.44, 1.50],
+    [0.27, 1.13, 1.72]
+])
+
+print(precip_2002_2013)
+```
+
+{:.output}
+    [[1.07 0.44 1.5 ]
+     [0.27 1.13 1.72]]
+
+
+
+Notice again that the output of the two-dimensional **numpy** array is contained with two sets of brackets `[]`, which is an easy, visual way to identify whether the **numpy** array is two-dimensional. 
+
+Dimensionality will remain a key concept for working with **numpy** arrays, as you learn more throughout this chapter including how to use attributes of the **numpy** arrays to identify the number of dimensions and how to use indexing to slice (i.e. select) data from **numpy** arrays.
