@@ -1,21 +1,21 @@
 ---
 layout: single
-title: 'What is a Working Directory and Other Science Project Management Terms Defined'
-excerpt: "A directory refers to a folder on a computer that has relationships to other folders. Learn about the key terms associated with files and directories in a science project."
-authors: ['Jenny Palomino', 'Leah Wasser']
+title: 'Working Directories, Absolute and Relative Paths and Other Science Project Management Terms Defined'
+excerpt: "A directory refers to a folder on a computer that has relationships to other folders. Learn about the directories, files and paths as it relates to creating reproducible science projects."
+authors: ['Leah Wasser','Jenny Palomino']
 category: [courses]
 class-lesson: ['work-with-files-directories-in-python']
-permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-in-python/
+permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/understand-files-directories-and-paths-in-python/
 nav-title: "Computer Directories"
 dateCreated: 2019-09-18
 modified: 2019-09-26
-module-title: 'Intro to Working with Files and Directories in Python'
-module-nav-title: 'Work with Files and Directories'
-module-description: 'Paths . Learn how . '
+module-title: 'Introduction to Working with Files, Directories and Paths in Python'
+module-nav-title: 'Files, Directories & Paths'
+module-description: 'Writing code that uses opens files using paths that will work on many different machines will make your project more reproducible. Learn how to construct paths in your Python code using the os package that will work on any machine.'
 module-type: 'class'
 class-order: 3
 chapter: 12
-course: "intro-to-earth-data-science"
+course: "intro-to-earth-data-science-textbook"
 week: 4
 sidebar:
   nav:
@@ -46,7 +46,6 @@ After completing this chapter, you will be able to:
 * Explain the difference between relative and absolute paths.
 * Check and set your working directory in **Python** using the **os** package.
 
-
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 Be sure that you have followed the instructions on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/">Setting up Git, Bash, and Conda on your computer</a> to install the tools for your operating system (Windows, Mac, Linux).
@@ -54,8 +53,6 @@ Be sure that you have followed the instructions on <a href="{{ site.url }}/works
 Be sure that you have completed the chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/">Jupyter Notebook</a>.
 
 </div>
-
-<a href="https://www.python.org/doc/essays/blurb/" target="_blank">**Python**</a> is a free, open source scientific programming language.
 
 
 ## About Computer Directories
@@ -72,9 +69,17 @@ the folders within and around it. Directories are hierarchical which means that
 they can exist within other folders as well as have folders exist within them.
 
 
+<i class="fa fa-star"></i> **Data Tip:** Directory vs Folder: You can think
+of a directory as a folder. However the term directory considers the relationship
+between that folder and the folders within it and around it (it's full path).
+{: .notice--success}
+
 ## What Is a Parent Directory
 
-The term "parent" directory is used to describe the preceding directory in which a subdirectory is created. A parent directory can have many subdirectories; thus, many subdirectories can share the same parent directory. This also means that parent directories can also be subdirectories of a parent directory above them in the hierarchy.
+The term "parent" directory is used to describe the preceding directory in which
+a subdirectory is created. A parent directory can have many subdirectories; thus,
+many subdirectories can share the same parent directory. This also means that
+parent directories can also be subdirectories of a parent directory above them in the hierarchy.
 
 An example of a directory is your downloads directory. It is the parent directory
 of any directories or files that get downloaded to your computer or placed
@@ -112,6 +117,7 @@ On Mac and Linux, the home directory is typically `/home/your-user-name`.
 
 
 <div id = "notice--success">
+
 ### Home Directories In Bash
 When you first open the terminal, if no settings are customized, it opens
 within the default directory of your computer which is called the **home**
