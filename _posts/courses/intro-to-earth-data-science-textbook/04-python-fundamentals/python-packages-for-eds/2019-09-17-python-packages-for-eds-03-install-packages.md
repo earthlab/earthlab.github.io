@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/use-conda-environments-and-install-packages/
 nav-title: "Install Packages"
 dateCreated: 2019-09-17
-modified: 2019-09-25
+modified: 2019-09-26
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -31,9 +31,9 @@ topics:
 
 </div>
 
-Previously in this chapter, you learned about **conda** environments and the difference between **conda** and **pip**. On this page, you will learn how to create and work with **conda** environments. You will also learn how to install **Python** packages using the **conda-forge** channel.
-
 ## Create Conda Environments
+
+Previously in this chapter, you learned about **conda** environments and the difference between **conda** and **pip**. On this page, you will learn how to create and work with **conda** environments. You will also learn how to install **Python** packages using the **conda-forge** channel.
 
 In order to create a **conda** environment, you first need to install an **conda** distribution. To do this, you have two main options: **Anaconda** and **Miniconda**.
 
