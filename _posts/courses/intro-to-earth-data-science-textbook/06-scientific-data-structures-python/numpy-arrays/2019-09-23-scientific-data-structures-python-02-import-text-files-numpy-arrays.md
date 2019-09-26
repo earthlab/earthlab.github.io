@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'Import Text Files Into Numpy Arrays'
-excerpt: "Numpy arrays are an efficient data structure for working with scientific data. Learn how to import text data from .txt and .csv files into numpy arrays."
+excerpt: "Numpy arrays are an efficient data structure for working with scientific data in Python. Learn how to import text data from .txt and .csv files into numpy arrays."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-numpy-arrays']
@@ -200,7 +200,7 @@ Notice the structure of each file. While `avg-monthly-precip.txt` contains numer
 On the other hand, `monthly-precip-2002-2013.csv` contains rows and columns of data, with each year of data on a separate line and each month of data within a specific year separated by commas.
 
 
-## Import Numeric Data from Text Files
+## Import Numeric Data from Text Files Into Numpy Arrays
 
 You can easily create new **numpy** arrays by importing numeric data from text files (.txt and .csv) using the `loadtxt()` function from **numpy** (which you imported with the alias `np`) .
 
@@ -302,7 +302,7 @@ print(precip_2002_2013)
 
 Notice that the data from the .csv file has been imported as a two-dimensional array (`precip_2002_2013`), contained within two set of brackets `[]`.  
 
-## Import Text String Data from Text File
+## Import Text String Data from Text Files Into Numpy Arrays
 
 As needed, you can also import text files with text string values (such as month names) to **numpy** arrays using the `genfromtxt()` function from **numpy**. 
 
