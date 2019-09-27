@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/import-txt-csv-files-numpy-arrays/
 nav-title: "Import Data Into Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-09-26
+modified: 2019-09-27
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -204,7 +204,9 @@ On the other hand, `monthly-precip-2002-2013.csv` contains rows and columns of d
 
 You can easily create new **numpy** arrays by importing numeric data from text files (.txt and .csv) using the `loadtxt()` function from **numpy** (which you imported with the alias `np`) .
 
-Begin by setting the working directory using the **os** package to your `earth-analytics` directory. This will provide you the flexibility to specify files to import from various subdirectories that you might have within the `earth-analytics` directory. 
+Begin by setting the working directory to your `earth-analytics` directory using the **os** package and the **HOME** attribute of the **earthpy** package. 
+
+As you learned in the chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/">working with paths and directories</a>, this will provide you with the flexibility to specify files to import from various subdirectories that you might have within the `earth-analytics` directory. 
 
 {:.input}
 ```python
@@ -218,12 +220,15 @@ To import data from a .txt file, you simply need to specify a value for the para
 
 `np.loadtxt(fname)`
 
-In the example below, the `fname` is defined as the relative path to the `avg-monthly-precip.txt` file because you previously set the working directory to `earth-analytics`. 
+Recall from the chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/">working with paths and directories</a> that you can use `os.path.join()` to create paths that will work on any operating system. 
+
+In the example below, the `fname` is defined using `os.path.join()` with a relative path to the `avg-monthly-precip.txt` file because you previously set the working directory to `earth-analytics`. 
 
 {:.input}
 ```python
-# Define path to file
-fname = "data/earthpy-downloads/avg-monthly-precip.txt"
+# Define path to file using os.path.join
+fname = os.path.join("data", "earthpy-downloads",
+                     "avg-monthly-precip.txt")
 
 # Import average monthly precip to numpy array
 avg_monthly_precip = np.loadtxt(fname)
@@ -268,8 +273,9 @@ You will need to specify both the `fname` parameter as well as the `delimiter` p
 {:.input}
 ```python
 # Import monthly precip for 2002 and 2013 to numpy array
-fname = "data/earthpy-downloads/monthly-precip-2002-2013.csv"
-precip_2002_2013 = np.loadtxt(fname, delimiter = ",")
+fname = os.path.join("data", "earthpy-downloads",
+                     "monthly-precip-2002-2013.csv")
+precip_2002_2013 = np.loadtxt(fname, delimiter=",")
 ```
 
 {:.input}
@@ -313,7 +319,7 @@ You need to specify a parameter value for `fname` as well as a parameter value f
 {:.input}
 ```python
 # Import month names
-fname = "data/earthpy-downloads/months.txt"
+os.path.join("data", "earthpy-downloads", "months.txt")
 months = np.genfromtxt(fname, dtype='str')
 
 type(months)
@@ -336,8 +342,10 @@ print(months)
 ```
 
 {:.output}
-    ['Jan' 'Feb' 'Mar' 'Apr' 'May' 'June' 'July' 'Aug' 'Sept' 'Oct' 'Nov'
-     'Dec']
+    [['1.07,' '0.44,' '1.50,' '0.20,' '3.20,' '1.18,' '0.09,' '1.44,' '1.52,'
+      '2.44,' '0.78,' '0.02']
+     ['0.27,' '1.13,' '1.72,' '4.14,' '2.66,' '0.61,' '1.03,' '1.40,'
+      '18.16,' '2.24,' '0.29,' '0.5']]
 
 
 
