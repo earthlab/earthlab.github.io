@@ -4,7 +4,7 @@ category: courses
 title: "Python Code Fundamentals"
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/
 week-landing: 4
-modified: 2019-09-23
+modified: 2019-09-24
 week: 4
 sidebar:
   nav:
@@ -14,8 +14,6 @@ course: "intro-to-earth-data-science-textbook"
 module-type: 'session'
 ---
 {% include toc title="Section Four" icon="file-text" %}
-
-
 
 <div class="notice--info" markdown="1">
 
@@ -30,7 +28,6 @@ After completing this section of the introduction to earth data science online t
 
 * List key characteristics and benefits of using the **Python** language for scientific workflows.
 * Write code to create and start working with data in **Python**, including running basic operations (e.g. updates, comparisons) on variables and lists.
-
 
 </div>
 
