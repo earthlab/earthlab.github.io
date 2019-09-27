@@ -4,7 +4,7 @@ category: courses
 title: "Python Code Fundamentals"
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/
 week-landing: 4
-modified: 2019-09-26
+modified: 2019-09-27
 week: 4
 sidebar:
   nav:
