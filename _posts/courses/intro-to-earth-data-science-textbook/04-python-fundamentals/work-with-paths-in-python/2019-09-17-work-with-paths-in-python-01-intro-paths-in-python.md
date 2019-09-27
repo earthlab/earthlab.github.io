@@ -1,17 +1,17 @@
 ---
 layout: single
 title: 'Working Directories, Absolute and Relative Paths and Other Science Project Management Terms Defined'
-excerpt: "A directory refers to a folder on a computer that has relationships to other folders. Learn about the directories, files and paths as it relates to creating reproducible science projects."
+excerpt: "A directory refers to a folder on a computer that has relationships to other folders. Learn about directories, files, and paths, as they relate to creating reproducible science projects."
 authors: ['Leah Wasser','Jenny Palomino']
 category: [courses]
 class-lesson: ['work-with-files-directories-in-python']
-permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/understand-files-directories-and-paths-in-python/
+permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/
 nav-title: "Computer Directories"
 dateCreated: 2019-09-18
-modified: 2019-09-26
-module-title: 'Introduction to Working with Files, Directories and Paths in Python'
+modified: 2019-09-27
+module-title: 'Introduction to Working with Files, Directories, and Paths in Python'
 module-nav-title: 'Files, Directories & Paths'
-module-description: 'Writing code that uses opens files using paths that will work on many different machines will make your project more reproducible. Learn how to construct paths in your Python code using the os package that will work on any machine.'
+module-description: 'Writing code that opens files using paths that will work on many different machines will make your project more reproducible. Learn how to construct paths in your Python code that will work on any machine using the os package.'
 module-type: 'class'
 class-order: 3
 chapter: 12
@@ -24,18 +24,17 @@ comments: true
 order: 1
 topics:
   reproducible-science-and-programming: ['python']
+redirect_from:
+  - "/courses/intro-to-earth-data-science/open-reproducible-science/bash/directories/"  
 ---
+
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Twelve - Work with Files and Directories in Python
 
-In this chapter, you will learn how to work with paths in **Python**. You will
-learn how absolute and relative paths
-
-You will learn how to set a working directory and using absolute and relative
-paths to access files and directories.
+In this chapter, you will learn how to work with paths in **Python**. You will also learn how to set a working directory and use absolute and relative paths to access files and directories.
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -57,8 +56,8 @@ Be sure that you have completed the chapter on <a href="{{ site.url }}/courses/i
 
 ## About Computer Directories
 
-You've probably used files and directories on your computer before. However,
-there are a set of terms that you will hear particularly as you work on open
+You have probably used files and directories on your computer before. However, 
+there are a set of terms that you will hear often, particularly as you work on open
 science projects or use the command line to manipulate files and directories.
 Below you will learn about some important terms associated with working with
 files including working and parent directories.
@@ -68,11 +67,11 @@ folders. The term "directory" considers the relationship between that folder and
 the folders within and around it. Directories are hierarchical which means that
 they can exist within other folders as well as have folders exist within them.
 
-
 <i class="fa fa-star"></i> **Data Tip:** Directory vs Folder: You can think
-of a directory as a folder. However the term directory considers the relationship
+of a directory as a folder. However, the term directory considers the relationship
 between that folder and the folders within it and around it (it's full path).
 {: .notice--success}
+
 
 ## What Is a Parent Directory
 
@@ -87,7 +86,9 @@ within this directory.
 
 In the example below, `earth-analytics` is the parent directory of both the `data`
 and `output-plots` subdirectories. `field-sites` is the parent directory for the
-`california` directory, etc. The image files (study-site.jpg and tree-species-distribution-map.jpg) exist within their parent directory: `output-plots/spatial-vector directory`.
+`california` directory, etc. 
+
+The image files (study-site.jpg and tree-species-distribution-map.jpg) exist within their parent directory: `output-plots/spatial-vector directory`.
 
 ```
 * earth-analytics\
@@ -102,106 +103,105 @@ _           * colorado\
             * tree-species-distribution-map.jpg
 ```
 
-
-https://github.com/earthlab/earthpy/pull/425/files#diff-af55cfdb602c7380c901ea17674c2dfcR85
-> add an example and download hte data so they can see how working directories work
-
 ## What Is the Home Directory?
 
-The home directory on a computer is a directory defined by your operating system. The home directory is the primary directory for your user account on
-your computer. Your files are by default stored in your home directory.
+The home directory on a computer is a directory defined by your operating system. The home directory is the primary directory for your user account on your computer. Your files are by default stored in your home directory.
 
 On Windows, the home directory is typically `C:/Users/your-username`
 
 On Mac and Linux, the home directory is typically `/home/your-user-name`.
 
-
-<div id = "notice--success">
+ 
+<div class="notice--success" markdown="1">
 
 ### Home Directories In Bash
+
 When you first open the terminal, if no settings are customized, it opens
 within the default directory of your computer which is called the **home**
 directory.
+
 </div>
 
 
 ## What Is A Working Directory?
 
-While the terminal will open in your home directory by default, you can change the default
-working directory that the terminal opens to a different location within your computer's file structure.
+While the terminal will open in your home directory by default, you can change the working directory of the terminal to a different location within your computer's file structure.
 
-The working directory refers to the directory or location on your computer that
-the tool that you are using is assuming is the starting place for all paths that you construct.  
+The working directory refers to the directory (or location) on your computer that a the tool assumes is the starting place for all paths that you construct or try to access.  
 
-So for example, if you run ls within the earth-analytics directory
+For example, when you cd into the `earth-analytics` directory, it becomes your working directory. 
+
+If you run the `ls` command within the `earth-analytics` directory (with the contents in the example above):
 
 ```bash
 $ ls
 ```
 
-You will see something like this:
+You would see something like this:
 
 ```bash
 data/
 output-plots/
 ```
 
-The data and output-plots directories are the immediately visible subdirectories
-within earth-analytics.
+The `data` and `output-plots` directories are the immediately visible subdirectories within `earth-analytics`. By setting your working directory to `earth-analytics`, you can easily access anything in both of those subdirectories.
 
 ## Working Directories and Relative vs Absolute Paths in Python
 
-You may be wondering why working directories are important to understand when working with **Python** (or **R** or most scientific programming languages). Working directories, when set
-help the programming language where to find files when you create paths. Within
-Python, you can define (or set) the working directory of your choice. Then, if
-you want, you can create paths that are either relative to that working directory,
+You may be wondering why working directories are important to understand when working with **Python** (or **R** or most scientific programming languages). When set, working directories 
+help the programming language to find files when you create paths. 
+
+Within **Python**, you can define (or set) the working directory of your choice. Then, you can create paths that are either relative to that working directory, 
 or absolute which means they begin at the root directory of your computer and
 provide the full path to the file that you wish to open.
 
-Following the example above, pretend that you have a Jupyter Notebook that was saved
-in the **earth-analytics** directory. If you set the working directory for that
-Notebook to the **earth-analytics** directory,
-then the **relative path** to access **streams.csv** would be:
+Following the example above, pretend that you have a **Jupyter Notebook** file that was saved
+in the **earth-analytics** directory. 
+
+If you set the working directory in that **Jupyter Notebook** file to the **earth-analytics** directory,
+then the *relative path* to access `streams.csv` would be:
 
 `data/field-sites/california/colorado/streams.csv`
 
 <i class="fa fa-star"></i>**Data Tip** The default working directory
-of a Jupyter Notebook is the directory in which it is saved.
+of a **Jupyter Notebook** file is the directory in which it is saved.
 {: .notice--success}
 
-A relative path is the path that as it name sounds is relative to the working
-directory location on your computer. If the working directory is
-**earth-analytics** than Python knows to start looking for your file in the
-**earth-analytics** directory. T
+### Relative Paths
 
-The path: `data/field-sites/california/colorado/` exists within the
-**earth-analytics** directory.
+A relative path is the path that (as the name sounds) is relative to the working
+directory location on your computer. 
 
-However, pretend again that you set your working directory to
-**earth-analytics/data** which is a subdirectory of **earth-analytics**.
+If the working directory is
+`earth-analytics`, then **Python** knows to start looking for your files in the
+`earth-analytics` directory. 
 
-The correct **relative** path to the **streams.csv** file would now look like this:
+Note that the path `data/field-sites/california/colorado/` exists within the
+`*earth-analytics` directory in the example above.
+
+However, imagine that you set your working directory to
+`earth-analytics/data` which is a subdirectory of `earth-analytics`.
+
+The correct *relative* path to the `streams.csv` file would now look like this:
 
 `field-sites/california/colorado/streams.csv`
 
 Relative paths are useful if you can count on whoever is running your code to
-always have their working directory setup similar to yours.
+have a working directory setup similar to yours. When the details of your directory setup are shared with others who can replicate it, then you can use relative paths to support reproducibility and collaboration. 
 
-## Absolute Paths
+### Absolute Paths
 
 An absolute path is a path that contains the entire path to the file or
 directory that you need to access. This path will begin at the home directory
 of your computer and will end with the file or directory that you wish to access.
 
-Absolute paths ensure that Python can find the file on your computer, however,
-as you can imagine, each computer can have a different path structure. For example
+Absolute paths ensure that **Python** can find the exact file on your computer. 
+
+However, as you can imagine, each computer can have a different path structure. For example,
 some computers have a path that includes a username that may be unique to only that machine.  
 
 `/Users/your-user-name/earth-analytics`
 
 There are ways to overcome this issue and others associated with finding files
-on different machines using tools such as the `os` package in python. You will
-learn more about these approaches in the next lessons in this chapter.
-
-
-
+on different machines using tools such as the **os** package in **Python**. You will
+learn more about these approaches later in this chapter.
