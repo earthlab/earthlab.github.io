@@ -319,7 +319,7 @@ You need to specify a parameter value for `fname` as well as a parameter value f
 {:.input}
 ```python
 # Import month names
-os.path.join("data", "earthpy-downloads", "months.txt")
+fname = os.path.join("data", "earthpy-downloads", "months.txt")
 months = np.genfromtxt(fname, dtype='str')
 
 type(months)
@@ -342,10 +342,8 @@ print(months)
 ```
 
 {:.output}
-    [['1.07,' '0.44,' '1.50,' '0.20,' '3.20,' '1.18,' '0.09,' '1.44,' '1.52,'
-      '2.44,' '0.78,' '0.02']
-     ['0.27,' '1.13,' '1.72,' '4.14,' '2.66,' '0.61,' '1.03,' '1.40,'
-      '18.16,' '2.24,' '0.29,' '0.5']]
+    ['Jan' 'Feb' 'Mar' 'Apr' 'May' 'June' 'July' 'Aug' 'Sept' 'Oct' 'Nov'
+     'Dec']
 
 
 
