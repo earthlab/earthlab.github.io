@@ -8,7 +8,7 @@ class-lesson: ['bash']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/bash/bash-commands-to-manage-directories-files/
 nav-title: "Bash Commands"
 dateCreated: 2019-07-15
-modified: 2019-09-23
+modified: 2019-09-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -16,7 +16,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 2
 topics:
   reproducible-science-and-programming: ['shell']
 ---
