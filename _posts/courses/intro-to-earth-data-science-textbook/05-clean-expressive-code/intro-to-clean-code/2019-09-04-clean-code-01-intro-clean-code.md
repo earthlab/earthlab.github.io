@@ -15,7 +15,7 @@ module-description: "Clean code refers to writing code that runs efficiently, is
 module-type: 'class'
 chapter: 13
 class-order: 1
-course: "intro-to-earth-data-science"
+course: "intro-to-earth-data-science-textbook"
 week: 5
 sidebar:
   nav:

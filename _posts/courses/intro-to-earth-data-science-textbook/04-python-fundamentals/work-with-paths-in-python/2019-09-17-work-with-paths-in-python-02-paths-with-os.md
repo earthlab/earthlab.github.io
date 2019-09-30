@@ -88,15 +88,15 @@ will create a path from a list of strings. When this function is run, it will
 adapt to the operating system that is calling **Python**.
 
 `os.path.join` takes as many strings as you provide it. It reads each string as a
-directory name and then creates an output path.
+directory name (or file name) and then creates an output path.
 
-`os.path.join("dir1", "dir2", "dir3")`
+`os.path.join("dir1", "dir2", "dir3", "file-name")`
 
 Note the example below which creates a path to the `data` subdirectory within `earth-analytics`.
 
 {:.input}
 ```python
-# Direction and number of slashes are handling by the function
+# Direction and number of slashes are handled by the function
 os.path.join("earth-analytics", "data")
 ```
 

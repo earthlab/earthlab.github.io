@@ -10,7 +10,7 @@ nav-title: "Python Lists"
 dateCreated: 2019-07-01
 modified: 2019-09-30
 module-type: 'class'
-course: "intro-to-earth-data-science"
+course: "intro-to-earth-data-science-textbook"
 week: 4
 sidebar:
   nav:
