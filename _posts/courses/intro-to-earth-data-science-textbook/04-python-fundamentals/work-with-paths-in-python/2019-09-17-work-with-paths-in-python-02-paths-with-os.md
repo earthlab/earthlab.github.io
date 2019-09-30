@@ -1,6 +1,6 @@
 ---
 layout: single
-title: 'Write Code That Will Work On Any Computer: Introduction to Using the OS Python Package to Setup Working Directories and Construct File Paths'
+title: 'Write Code That Will Work On Any Computer: Introduction to Using the OS Python Package to Set Up Working Directories and Construct File Paths'
 excerpt: "Manually constructed files paths will often not run on computers with different operating systems. Learn how to construct file paths in Python that will work on Mac, Linux and Windows, in support of open reproducible science."
 authors: ['Leah Wasser', 'Jenny Palomino']
 category: [courses]
@@ -8,7 +8,7 @@ class-lesson: ['work-with-files-directories-in-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-in-python/set-working-directory-os-package/
 nav-title: "Set Working Directory"
 dateCreated: 2019-09-18
-modified: 2019-09-27
+modified: 2019-09-30
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -68,7 +68,7 @@ Paths are constructed differently on different operating systems. For example, t
 path to **earth-analytics/data** that you examined in the previous lesson looks like:
 
 * **earth-analytics/data** on Mac and Linux and
-* **earth-analytics\\data** on Windows
+* **earth-analytics\\\data** on Windows
 
 The noticeable difference is the direction and number of slashes. 
 
@@ -96,7 +96,7 @@ Note the example below which creates a path to the `data` subdirectory within `e
 
 {:.input}
 ```python
-# Required direction and number of slashs are handling by the function
+# Direction and number of slashes are handling by the function
 os.path.join("earth-analytics", "data")
 ```
 
@@ -164,7 +164,7 @@ You can use the **os** package to check and set your working directory. This is 
 There are two functions in the **os** package that help you accomplish these tasks:
 
 * `getcwd()`: CWD stands for Current Working Directory. This allows you to see what your current working directory is.
-* `setchdir("path-to-wd-here/path-dir2/path-dir3")`: Short for *CH*ange *DIR*ectory, this functions allows you to set the current working directory to a path of your choice.  
+* `chdir("path-to-dir")`: Short for *CH*ange *DIR*ectory, this functions allows you to set the current working directory to a path of your choice.  
 
 
 ## Check Your Current Working Directory
@@ -310,7 +310,7 @@ already exists.
 In a later chapter of this textbook, you will learn how to use
 conditional statements (if statements) to write code that accounts for this issue, so that your code does not attempt to make directories that already exist. 
 
-## Set the Your Working Directory to home/earth-analytics
+## Set Your Working Directory to home/earth-analytics
 
 Now that you have the basics of good project structure out of the way, you can get
 your project directory set up. 

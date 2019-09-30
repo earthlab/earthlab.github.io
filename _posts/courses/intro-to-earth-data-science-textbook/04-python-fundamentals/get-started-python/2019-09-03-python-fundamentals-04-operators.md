@@ -8,9 +8,9 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/
 nav-title: "Python Operators"
 dateCreated: 2019-07-01
-modified: 2019-09-23
+modified: 2019-09-30
 module-type: 'class'
-course: "intro-to-earth-data-science-textbook"
+course: "intro-to-earth-data-science"
 week: 4
 sidebar:
   nav:
@@ -236,7 +236,7 @@ months
 
 
 
-However, not all assignment operators can be used on all object types. For example, the following code will result in an error because lists cannot have mathmematical operations executed on them.  
+However, not all assignment operators can be used on all object types. For example, the following code will result in an error because lists cannot have mathematical operations executed on them.  
 
 ```python
 boulder_precip_in = [0.70, 0.75, 1.85]
