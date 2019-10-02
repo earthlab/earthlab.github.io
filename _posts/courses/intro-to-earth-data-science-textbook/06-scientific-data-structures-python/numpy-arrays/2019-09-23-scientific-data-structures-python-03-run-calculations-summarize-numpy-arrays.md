@@ -1,7 +1,7 @@
 ---
 layout: single
-title: 'Run Calculations and Summarize Numpy Arrays'
-excerpt: "Numpy arrays are an efficient data structure for working with scientific data in Python. Learn how to run calculations on numpy arrays and summarize data in numpy arrays."
+title: 'Run Calculations and Summary Statistics on Numpy Arrays'
+excerpt: "Numpy arrays are an efficient data structure for working with scientific data in Python. Learn how to run calculations and summary statistics (such as mean) on numpy arrays."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-numpy-arrays']
@@ -19,6 +19,8 @@ comments: true
 order: 3
 topics:
   reproducible-science-and-programming: ['python']
+redirect_from:
+  - "/courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -30,7 +32,7 @@ topics:
 After completing this page, you will be able to:
 
 * Check the dimensions and shape of **numpy** arrays.
-* Run calculations and summarize data in one-dimensional and two-dimensional **numpy** arrays.
+* Run calculations and summary statistics (e.g. mean, minimum, maximum) on one-dimensional and two-dimensional **numpy** arrays.
 
 </div>
 
@@ -114,7 +116,7 @@ print(precip_2002_2013)
 
 ## Check Dimensions and Shape of Numpy Arrays
 
-It can be helpful to check the dimensions and shape of **numpy** arrays (e.g. the number of rows and columns of a two-dimensional array) before you begin to use the data. 
+Before you begin to use the data in **numpy** arrays, it can be helpful to check the dimensions and shape of **numpy** arrays (e.g. the number of rows and columns of a two-dimensional array). 
 
 **Numpy** arrays have two attributes (i.e. built-in characteristics automatically assigned to objects) that provide useful information on their dimensions and shape: `ndim` and `.shape`.  
 
@@ -221,13 +223,20 @@ print(avg_monthly_precip)
 
 # Use assignment operator to convert values from in to mm
 avg_monthly_precip *= 25.4
+```
 
+{:.output}
+    [0.7  0.75 1.85 2.93 3.05 2.02 1.93 1.62 1.84 1.31 1.39 0.84]
+
+
+
+{:.input}
+```python
 # Print new values
 print(avg_monthly_precip)
 ```
 
 {:.output}
-    [0.7  0.75 1.85 2.93 3.05 2.02 1.93 1.62 1.84 1.31 1.39 0.84]
     [17.78  19.05  46.99  74.422 77.47  51.308 49.022 41.148 46.736 33.274
      35.306 21.336]
 
@@ -242,14 +251,21 @@ print(precip_2002_2013)
 
 # Use assignment operator to convert values from in to mm
 precip_2002_2013 *= 25.4
-
-# Print new values
-print(precip_2002_2013)
 ```
 
 {:.output}
     [[ 1.07  0.44  1.5   0.2   3.2   1.18  0.09  1.44  1.52  2.44  0.78  0.02]
      [ 0.27  1.13  1.72  4.14  2.66  0.61  1.03  1.4  18.16  2.24  0.29  0.5 ]]
+
+
+
+{:.input}
+```python
+# Print new values
+print(precip_2002_2013)
+```
+
+{:.output}
     [[ 27.178  11.176  38.1     5.08   81.28   29.972   2.286  36.576  38.608
        61.976  19.812   0.508]
      [  6.858  28.702  43.688 105.156  67.564  15.494  26.162  35.56  461.264
@@ -282,15 +298,17 @@ TypeError: can't multiply sequence by non-int of type 'float'
 
 As you can see, using **numpy** arrays makes it very easy to run calculations on scientific data.  Next, you will learn how **numpy** arrays can be used to calculate summary statistics of data such as identifying mean, maximum, and minimum values. 
 
-## Summarize Data in One-dimensional Numpy Arrays
+## Run Summary Statistics on One-dimensional Numpy Arrays
+
+### Calculate Mean and Median 
 
 Another useful feature of **numpy** arrays is the ability to run summary statistics (e.g. calculating averages, finding minimum or maximum values) across the entire array of values. 
 
-For example, you can use the `np.mean()` function in to calculate the average value across an array (e.g. `np.mean(array)`). 
+For example, you can use the `np.mean()` function in to calculate the average value across an array (e.g. `np.mean(array)`) or `np.median()` to identify the median value across an array (e.g. `np.median(array)`). 
 
 {:.input}
 ```python
-# Calculate mean
+# Create variable with mean value
 mean_avg_precip = np.mean(avg_monthly_precip)
 
 print("mean average monthly precipitation:", mean_avg_precip)
@@ -301,16 +319,32 @@ print("mean average monthly precipitation:", mean_avg_precip)
 
 
 
-To identify other functions that you can within **numpy**
+{:.input}
+```python
+# Create variable with median value
+median_avg_precip = np.median(avg_monthly_precip)
+
+print("median average monthly precipitation:", median_avg_precip)
+```
+
+{:.output}
+    median average monthly precipitation: 43.942
 
 
 
+It can useful to calculate both the mean and median of data, as sometimes the median value (the value at which half of the values are lower and at which half of the values are higher) is quite different from the mean value, if the data are skewed in one direction (e.g. skewed toward lower or higher values) or contain a few outliers (e.g. a few really low or really high values). 
 
-For example, we can use `min()` and `max()` to find the minimum and maximum values in an array.  
+### Identify Minimum and Maximum Values
+
+Recall that you can use tab complete to get a list of all available functions in any package.  
+
+This means you can get a list of the functions available in **numpy** (which you imported with the alias `np`) by typing `np.`, and hitting the tab key. A list of callable functions will appear.
+
+If you type `np.m` and hit the tab key, you will see options for other summary functions that begin with the letter `m`, such as `np.min()` and `np.max()` to find the minimum and maximum values in an array. 
 
 {:.input}
 ```python
-# Calculate and pront minimum and maximum values
+# Calculate and print minimum and maximum values
 print("minimum average monthly precipitation:", np.min(avg_monthly_precip))
 print("maximum average monthly precipitation:", np.max(avg_monthly_precip))
 ```
@@ -321,68 +355,89 @@ print("maximum average monthly precipitation:", np.max(avg_monthly_precip))
 
 
 
-Notice that in this code, you can only identify the value that is the minimum or maximum but not the month in which the value occurred. This is because `precip` and `months` are not connected in an easy way that would allow you to determine the month that matches the values. 
+Notice that in this code, you can only identify the value that is the minimum or maximum but not the month in which the value occurred. This is because `avg_monthly_precip` is not connected to the month names (e.g. the `months` array). 
 
-You could use indexing to determine the index location of the maximum value in `precip` and then query that same index location in `months`, but rest assured, there is an easier way to do this! 
+You could use indexing to determine the index location of the maximum value in `avg_monthly_precip` and then query that same index location in the `months` array that contains the month names, but rest assured, there is an easier way to do this! 
 
-In future lessons on `pandas dataframes`, you will learn how to work with data in a tabular structure, so that precip values are linked with their corresponding month names.
+In the next chapter on **pandas** dataframes, you will learn how to work with data in a tabular structure, so that precipitation values are linked with their corresponding month names.
 
+## Run Summary Statistics Across Axes of Two-dimensional Numpy Arrays
 
+In the examples above, you calculated summary statistics (e.g. mean, min, max) of one-dimensional **numpy** arrays, and you received one summary value for the whole array. 
 
-## Summarize Data Across Axes of Two-dimensional Numpy Arrays
+To calculate statistics on two-dimensional arrays, you can use the `axis` argument in the same functions (e.g. `np.max`) to specify which axis you would like to summarize: 
+* vertical axis downwards, summarizing all rows (`axis=0`)
+* hortizonal axis, summarizing all columns (`axis=1`)
 
-You can also expand your function to calculate the statistics separately for each row or each column in the two-dimensional numpy array, using the axes of numpy arrays.
+When using `axis=0` to calculate summary statistics, you are requesting the summary of each column across all rows of data.  For example, running `axis=0` on an array with 2 rows and 12 columns will result in an output with 12 values: one value summarized across 2 rows for each column in the array. There are 12 columns, and thus, 12 summary values. 
 
-This means that you would receive one summary value for each row or each column in the two-dimensional numpy array.
+When using `axis=1`, you are requesting the summary of each row across all columns of data. For example, running `axis=1` on an array with 2 rows and 12 columns will result in an output with 2 values: one value summarized across 12 columns for each row in the array. There are 2 rows, and thus, 2 summary values.
 
-### Calculate Across Rows
+To better understand the `axis` argument and the resulting output, it can help to see it on action such as in the examples below with real data. 
 
-To run a summary statistic for each row of a two-dimensional array, you can add a parameter axis = 1 to the numpy function that you are using to run the summary statistic.
+### Calculate Summary Statistics Across Rows
 
-In the example below, the maximum value for each row is identified using axis = 1 as a parameter in the np.max() function.
+Recall that `precip_2002_2013` contained two rows of data: one for 2002 and one for 2013. It also contained twelve columns, one value for each month of the year.
 
-As there were only two rows in the numpy array, the function will only return two values (i.e. one maximum value for each row in the array). Recall that the data only contained two years of data.
+By using `np.max(array, axis=0)`, you are requesting the maximum value across all rows, or years, of data. This means that you will receive twelve maximum values: one for each column (or month) of data. 
+
+Compare the output of `np.max(precip_2002_2013, axis=0)` to your visual inspection of the maximum value for each column.  In the first column, the two values are 27.178 for 2002 and 6.858 for 2013. The maximum value between the two rows is 27.178, which is the value that you receive in the output of the function. 
 
 {:.input}
 ```python
-np.max(precip_2002_2013, axis = 1)
+# Visually identify max value across the rows of precip_2002_2013
+print(precip_2002_2013)
 ```
 
 {:.output}
-{:.execute_result}
+    [[ 27.178  11.176  38.1     5.08   81.28   29.972   2.286  36.576  38.608
+       61.976  19.812   0.508]
+     [  6.858  28.702  43.688 105.156  67.564  15.494  26.162  35.56  461.264
+       56.896   7.366  12.7  ]]
 
-
-
-    array([ 81.28 , 461.264])
-
-
-
-
-
-### Calculate Across Columns
-
-Similarly, you can use axis = 0 to run a summary statistic separately for each column of a two-dimensional array.
-
-In the example below, the maximum value for each column of the two-dimensional array is identified using axis = 0 as a parameter in the np.max() function.
-
-As there were twelve columns in the numpy array, the function will return twelve values (i.e. one maximum value for each column in the array). Recall that the data contained values for each month of the year.
 
 
 {:.input}
 ```python
-
-np.max(precip_2002_2013, axis = 0)
+# Maximum value for each month across years 2002 and 2013
+print(np.max(precip_2002_2013, axis=0))
 ```
 
 {:.output}
-{:.execute_result}
+    [ 27.178  28.702  43.688 105.156  81.28   29.972  26.162  36.576 461.264
+      61.976  19.812  12.7  ]
 
 
 
-    array([ 27.178,  28.702,  43.688, 105.156,  81.28 ,  29.972,  26.162,
-            36.576, 461.264,  61.976,  19.812,  12.7  ])
+### Calculate Summary Statistics Across Columns
+
+You can use `np.max(array, axis=1)` to identify the maximum value across the columns, or in the case of `precip_2002_2013`, identify the maximum value for each row (or year) of data. 
+
+Again, compare the output of `np.max(precip_2002_2013, axis=1)` to your visual inspection of the maximum value for each row.  In the first row, the maximum value is 81.28, while in the second row, the maximum value is 461.264. 
+
+Thus, your output returns the maximum value for each row (or year) of data by summarizing all of the columns for each row to identify the maximum value. 
+
+{:.input}
+```python
+# Visually identify max value across the rows of precip_2002_2013
+print(precip_2002_2013)
+```
+
+{:.output}
+    [[ 27.178  11.176  38.1     5.08   81.28   29.972   2.286  36.576  38.608
+       61.976  19.812   0.508]
+     [  6.858  28.702  43.688 105.156  67.564  15.494  26.162  35.56  461.264
+       56.896   7.366  12.7  ]]
 
 
 
+{:.input}
+```python
+# Maximum value for each year 2002 and 2013
+print(np.max(precip_2002_2013, axis=1))
+```
+
+{:.output}
+    [ 81.28  461.264]
 
 
