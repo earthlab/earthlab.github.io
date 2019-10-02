@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/introduction-to-python-conda-environments/
 nav-title: "Conda Environments"
 dateCreated: 2019-09-24
-modified: 2019-09-27
+modified: 2019-10-02
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -133,7 +133,7 @@ Below, you will learn about the **conda-forge** channel which is an alternative 
 
 There are two main **conda** channels that you should consider: 
 * **conda:** this is the default repository that is used and maintained for the Anaconda distribution of **Python**. To install libraries from **conda**, you use the syntax `conda install package-name` at the command line.
-* **conda-forge:** This channel is community maintained, and we have found that installing many of the spatial packages using **conda-forge** will minimize conflicts between packages. To install libraries from **conda-forge**, you use the syntax `conda install -c conda-forge package-name` at the command line..
+* **conda-forge:** This channel is community maintained, and we have found that installing many of the spatial packages using **conda-forge** will minimize conflicts between packages. To install libraries from **conda-forge**, you use the syntax `conda install -c conda-forge package-name` at the command line.
 
 For consistency, in this course, you will download most packages from the **conda-forge** repository.
 

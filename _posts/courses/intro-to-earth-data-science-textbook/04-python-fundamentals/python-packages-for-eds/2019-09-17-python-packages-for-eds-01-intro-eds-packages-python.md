@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/
 nav-title: "Python Packages"
 dateCreated: 2019-09-17
-modified: 2019-09-27
+modified: 2019-10-02
 module-title: 'Import and Install Python Packages for Earth Data Science'
 module-nav-title: 'Use Python Packages'
 module-description: 'The Python programming language provides many packages and libraries for working with scientific data. Learn how to import and install Python packages for earth data science.'
@@ -87,7 +87,7 @@ Packages are organized directories of code that can be installed and then import
 
 When you install a package, you may be wondering, where does it go? If you have not changed any of your default installation settings, the packages that you will use for this textbook are located in your miniconda directory under `envs` (e.g. `/home/username/miniconda/envs/`). 
 
-When you install a package into the conda environment of your choice (for example, `earth-analytics-python` which is the environment that you installed for this textbook and the associated earth analytics courses), it ends up in the `/home/username/miniconda/envs/earth-analytcs-python` folder.
+When you install a package into the conda environment of your choice (for example, `earth-analytics-python` which is the environment that you installed for this textbook and the associated earth analytics courses), it ends up in the `/home/username/miniconda/envs/earth-analytics-python` folder.
 
 <figure>
     <a href="{{ site.url }}/images/earth-analytics/python/conda-environment-python-packages.png">

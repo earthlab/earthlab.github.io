@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-01
-modified: 2019-09-23
+modified: 2019-10-02
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -314,9 +314,9 @@ months
 
 
 
-## Append Items to List
+## Append an Item to List
 
-To add items to the end of a list, you can use the `.append()` function that is associated with lists (referred to as a method of the list object). 
+To add an item to the end of a list, you can use the `.append()` function that is associated with lists (referred to as a method of the list object). 
 
 You can call this method to add values to a list using the syntax: 
 

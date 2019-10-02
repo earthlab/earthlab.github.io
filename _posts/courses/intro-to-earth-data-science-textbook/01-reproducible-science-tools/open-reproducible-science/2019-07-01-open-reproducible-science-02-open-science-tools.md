@@ -8,7 +8,7 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/open-science-tools-git-bash-jupyter/
 nav-title: "Open Science Tools"
 dateCreated: 2019-07-01
-modified: 2019-09-23
+modified: 2019-10-02
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -47,7 +47,7 @@ While there are many tools that support open reproducible science, this textbook
 
 ## Use Scientific Programming to Automate Workflows
 
-Many people begin to use data in tools such as Microsoft Excel (for spreadsheets / tabular data) or ArcGIS (for spatial data) that have graphical user interfaces (GUIs). GUIs can be easier to learn early on as they have a visual interface that can be less overwhelming as a beginner. However, as the data that you are working with get larger, you will often run into challenges where the GUI based tools can not handle larger volumes of data. Further GUI based tools require individual steps that are often manually implemented (unless you build macros or small auoation scripts). This makes your workflow difficult to reproduce. Some tools such as Excel require paid licenses which will limit who can access your data and further, will limit including your workflow in a cloud or other remote environment. 
+Many people begin to use data in tools such as Microsoft Excel (for spreadsheets / tabular data) or ArcGIS (for spatial data) that have graphical user interfaces (GUIs). GUIs can be easier to learn early on as they have a visual interface that can be less overwhelming as a beginner. However, as the data that you are working with get larger, you will often run into challenges where the GUI based tools can not handle larger volumes of data. Further GUI based tools require individual steps that are often manually implemented (unless you build macros or small automation scripts). This makes your workflow difficult to reproduce. Some tools such as Excel require paid licenses which will limit who can access your data and further, will limit including your workflow in a cloud or other remote environment. 
 
 Scientific programming using an open source, free programming language like `R` or `Python`, is an effective and efficient way to begin building a workflow that is both reproducible and that can be easily shared. 
 

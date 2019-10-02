@@ -4,7 +4,7 @@ title: "Introduction to Plotting in Python Using Matplotlib"
 excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to create plots using the matplotlib object oriented approach.'
 authors: ['Jenny Palomino', 'Leah Wasser']
 dateCreated: 2019-09-11
-modified: 2019-09-23
+modified: 2019-10-02
 module-title: 'Introduction to Plotting with Matplotlib'
 module-nav-title: 'Intro to Plotting with Matplotlib'
 module-description: 'Matplotlib is the most commonly used plotting library in Python. Learn how to get started with creating and customizing plots using matplotlib.'
@@ -224,7 +224,7 @@ You can continue to add as many as `axis` objects as you need to create the over
 
 {:.input}
 ```python
-# Figure with two plots
+# Figure with three plots
 fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize = (15, 15))
 ```
 

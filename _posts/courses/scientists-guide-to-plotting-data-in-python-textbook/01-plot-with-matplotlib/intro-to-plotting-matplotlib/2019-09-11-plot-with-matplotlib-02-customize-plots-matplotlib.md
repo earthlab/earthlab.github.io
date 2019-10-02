@@ -4,7 +4,7 @@ title: "Customize Your Plots Using Matplotlib"
 excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to customize the colors, symbols, and labels on your plots using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino']
 dateCreated: 2019-09-11
-modified: 2019-09-23
+modified: 2019-10-02
 category: [courses]
 class-lesson: ['intro-to-plotting-matplotlib']
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
@@ -90,7 +90,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fb1af23ffd0>]
+    [<matplotlib.lines.Line2D at 0x7fd4234a2cc0>]
 
 
 
@@ -355,7 +355,7 @@ plt.show()
 
 You can change the point marker type in your line or scatter plot using the argument  `marker =` and setting it equal to the symbol that you want to use to identify the points in the plot. 
 
-For example, `","` will display the point markers as a pixel or box, and "o" will displau point markers as a circle.   
+For example, `","` will display the point markers as a pixel or box, and "o" will display point markers as a circle.   
 
 |Marker symbol| Marker description
 |---|---|
@@ -548,7 +548,7 @@ plt.show()
 
 
 
-### Set Color Transpareny
+### Set Color Transparency
 
 You can also adjust the transparency of color using the `alpha = ` argument, with values closer to 0.0 indicating a higher transparency. 
 
