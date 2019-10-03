@@ -1,14 +1,14 @@
 ---
 layout: single
 title: 'Run Calculations and Summary Statistics on Numpy Arrays'
-excerpt: "Numpy arrays are an efficient data structure for working with scientific data in Python. Learn how to run calculations and summary statistics (such as mean) on numpy arrays."
+excerpt: "Numpy arrays are an efficient data structure for working with scientific data in Python. Learn how to run calculations and summary statistics (such as mean or maximum) on numpy arrays."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-numpy-arrays']
-permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/run-calculations-summarize-numpy-arrays/
+permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/run-calculations-summary-statistics-numpy-arrays/
 nav-title: "Recalculate and Summarize Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-02
+modified: 2019-10-03
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -22,7 +22,6 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/numpy-arrays/manipulate-summarize-plot-numpy-arrays/"
 ---
-
 {% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -334,13 +333,15 @@ print("median average monthly precipitation:", median_avg_precip)
 
 It can useful to calculate both the mean and median of data, as sometimes the median value (the value at which half of the values are lower and at which half of the values are higher) is quite different from the mean value, if the data are skewed in one direction (e.g. skewed toward lower or higher values) or contain a few outliers (e.g. a few really low or really high values). 
 
-### Identify Minimum and Maximum Values
+### Find Other Summary Statistics Functions Including Minimum and Maximum Values
 
 Recall that you can use tab complete to get a list of all available functions in any package.  
 
-This means you can get a list of the functions available in **numpy** (which you imported with the alias `np`) by typing `np.`, and hitting the tab key. A list of callable functions will appear.
+This means you can get a list of the functions available in **numpy** (which you imported with the alias `np`) by typing `np.`, and hitting the tab key. A list of callable functions will appear. 
 
-If you type `np.m` and hit the tab key, you will see options for other summary functions that begin with the letter `m`, such as `np.min()` and `np.max()` to find the minimum and maximum values in an array. 
+For example: `np.std` for identifying the standard deviation or `np.sum` for calculating the sum of elements.
+
+If you provide letter such as `.np.m` and hit the tab key, you will see options for other summary functions that begin with the letter `m`, such as `np.min()` and `np.max()` to find the minimum and maximum values in an array. 
 
 {:.input}
 ```python
@@ -355,19 +356,13 @@ print("maximum average monthly precipitation:", np.max(avg_monthly_precip))
 
 
 
-Notice that in this code, you can only identify the value that is the minimum or maximum but not the month in which the value occurred. This is because `avg_monthly_precip` is not connected to the month names (e.g. the `months` array). 
-
-You could use indexing to determine the index location of the maximum value in `avg_monthly_precip` and then query that same index location in the `months` array that contains the month names, but rest assured, there is an easier way to do this! 
-
-In the next chapter on **pandas** dataframes, you will learn how to work with data in a tabular structure, so that precipitation values are linked with their corresponding month names.
-
 ## Run Summary Statistics Across Axes of Two-dimensional Numpy Arrays
 
 In the examples above, you calculated summary statistics (e.g. mean, min, max) of one-dimensional **numpy** arrays, and you received one summary value for the whole array. 
 
 To calculate statistics on two-dimensional arrays, you can use the `axis` argument in the same functions (e.g. `np.max`) to specify which axis you would like to summarize: 
-* vertical axis downwards, summarizing all rows (`axis=0`)
-* hortizonal axis, summarizing all columns (`axis=1`)
+* vertical axis downwards, summarizing across rows (`axis=0`)
+* hortizonal axis, summarizing across columns (`axis=1`)
 
 When using `axis=0` to calculate summary statistics, you are requesting the summary of each column across all rows of data.  For example, running `axis=0` on an array with 2 rows and 12 columns will result in an output with 12 values: one value summarized across 2 rows for each column in the array. There are 12 columns, and thus, 12 summary values. 
 
@@ -379,9 +374,9 @@ To better understand the `axis` argument and the resulting output, it can help t
 
 Recall that `precip_2002_2013` contained two rows of data: one for 2002 and one for 2013. It also contained twelve columns, one value for each month of the year.
 
-By using `np.max(array, axis=0)`, you are requesting the maximum value across all rows, or years, of data. This means that you will receive twelve maximum values: one for each column (or month) of data. 
+By using `np.max(array, axis=0)`, you are requesting the maximum value from each column across all rows (or years) of data. This means that you will receive twelve maximum values: one for each column (or month) of data. 
 
-Compare the output of `np.max(precip_2002_2013, axis=0)` to your visual inspection of the maximum value for each column.  In the first column, the two values are 27.178 for 2002 and 6.858 for 2013. The maximum value between the two rows is 27.178, which is the value that you receive in the output of the function. 
+Compare the output of `np.max(precip_2002_2013, axis=0)` to your visual inspection of the maximum value in each column.  In the first column, the two values are 27.178 for 2002 and 6.858 for 2013. 
 
 {:.input}
 ```python
@@ -396,6 +391,8 @@ print(precip_2002_2013)
        56.896   7.366  12.7  ]]
 
 
+
+The maximum value across the two rows is 27.178, which is the first value in the output of the function. 
 
 {:.input}
 ```python
@@ -409,13 +406,32 @@ print(np.max(precip_2002_2013, axis=0))
 
 
 
+Note that you can then save the output to a new **numpy** arrays for additional use. 
+
+{:.input}
+```python
+# Create new array of the maximum value for each month
+precip_2002_2013_monthly_max = np.max(precip_2002_2013, axis=0)
+
+type(precip_2002_2013_monthly_max)
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    numpy.ndarray
+
+
+
+
+
 ### Calculate Summary Statistics Across Columns
 
-You can use `np.max(array, axis=1)` to identify the maximum value across the columns, or in the case of `precip_2002_2013`, identify the maximum value for each row (or year) of data. 
+You can use `np.max(array, axis=1)` to identify the maximum value from each row across all columns. In the case of `precip_2002_2013`, this identifies the maximum value for each row (or year) of data. 
 
-Again, compare the output of `np.max(precip_2002_2013, axis=1)` to your visual inspection of the maximum value for each row.  In the first row, the maximum value is 81.28, while in the second row, the maximum value is 461.264. 
-
-Thus, your output returns the maximum value for each row (or year) of data by summarizing all of the columns for each row to identify the maximum value. 
+Again, compare the output of `np.max(precip_2002_2013, axis=1)` to your visual inspection of the maximum value in each row.  In the first row, the maximum value is 81.28, while in the second row, the maximum value is 461.264. 
 
 {:.input}
 ```python
@@ -431,6 +447,8 @@ print(precip_2002_2013)
 
 
 
+Since you requested the maximum value of each row across all the columns, your output returns the maximum value for each row (or year) of data.
+
 {:.input}
 ```python
 # Maximum value for each year 2002 and 2013
@@ -441,3 +459,5 @@ print(np.max(precip_2002_2013, axis=1))
     [ 81.28  461.264]
 
 
+
+These summary statistics make it easy to quickly summarize large amounts of data using **numpy** arrays. On the next page of this chapter, you will learn how to select (i.e. slice) data from **numpy** arrays. 
