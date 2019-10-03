@@ -101,6 +101,12 @@ et.data.get_data(url=precip_2002_2013_url)
 ```
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/12565616
+    Downloading from https://ndownloader.figshare.com/files/12707792
+
+
+
+{:.output}
 {:.execute_result}
 
 
@@ -466,17 +472,4 @@ Test your `Python` skills to:
 4. Use the converted **numpy** array for 2013 and the **numpy** array of month names to create plot of Average Monthly Precipitation in 2013 for Boulder, CO.  
 
 </div>
-
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12565619
-
-
-
-{:.output}
-{:.display_data}
-
-    <Figure size 1000x1000 with 1 Axes>
-
-
 
