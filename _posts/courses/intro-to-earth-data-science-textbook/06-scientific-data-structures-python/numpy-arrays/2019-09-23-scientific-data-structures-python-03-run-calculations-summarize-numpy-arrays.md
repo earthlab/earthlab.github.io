@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'Run Calculations and Summary Statistics on Numpy Arrays'
-excerpt: "Numpy arrays are an efficient data structure for working with scientific data in Python. Learn how to run calculations and summary statistics (such as mean or maximum) on numpy arrays."
+excerpt: "Numpy arrays are an efficient data structure for working with scientific data in Python. Learn how to run calculations and summary statistics (such as mean or maximum) on one-dimensional and two-dimensional numpy arrays."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-numpy-arrays']
