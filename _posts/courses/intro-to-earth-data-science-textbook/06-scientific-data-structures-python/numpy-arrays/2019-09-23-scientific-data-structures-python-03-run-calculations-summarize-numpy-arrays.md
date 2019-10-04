@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/run-calculations-summary-statistics-numpy-arrays/
 nav-title: "Recalculate and Summarize Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-03
+modified: 2019-10-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -331,7 +331,7 @@ print("median average monthly precipitation:", median_avg_precip)
 
 
 
-It can useful to calculate both the mean and median of data, as sometimes the median value (the value at which half of the values are lower and at which half of the values are higher) is quite different from the mean value, if the data are skewed in one direction (e.g. skewed toward lower or higher values) or contain a few outliers (e.g. a few really low or really high values). 
+It can useful to calculate both the mean and median of data, as sometimes the mean can be noticeably different from the median value (the value at which half of the values are lower and at which half of the values are higher), if the data are skewed in one direction (e.g. skewed toward lower or higher values) or contain a few outliers (e.g. a few really low or really high values). 
 
 ### Find Other Summary Statistics Functions Including Minimum and Maximum Values
 

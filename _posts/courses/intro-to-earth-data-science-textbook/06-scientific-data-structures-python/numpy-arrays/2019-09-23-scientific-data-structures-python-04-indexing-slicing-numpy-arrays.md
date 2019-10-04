@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/indexing-slicing-numpy-arrays/
 nav-title: "Slice Data From Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-03
+modified: 2019-10-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -34,11 +34,13 @@ After completing this page, you will be able to:
 </div>
 
 
-##  Indexing on One-dimensional Numpy Arrays
+##  Indexing on Numpy Arrays
 
 In a previous chapter that introduced **Python** lists, you learned that **Python** indexing begins with `[0]`, and that you can use indexing to query the value of items within **Python** lists.
 
 You can also access elements (i.e. values) in **numpy** arrays using indexing. 
+
+### Indexing on One-dimensional Numpy Arrays
 
 For one-dimensional **numpy** arrays, you only need to specific one index value, which is the position of the element in the **numpy** array (e.g.  `arrayname[index]`). 
 
@@ -53,7 +55,7 @@ You can use `avg_monthly_precip[2]` to select the third element in (`1.85`) from
 Recall that you are using use the index `[2]` for the third place because **Python** indexing begins with `[0]`, not with `[1]`.
 
 
-## Indexing on Two-dimensional Numpy Arrays
+### Indexing on Two-dimensional Numpy Arrays
 
 For two-dimensional **numpy** arrays, you need to specify both a row index and a column index for the element (or range of elements) that you want to access. 
 
@@ -99,12 +101,6 @@ et.data.get_data(url=monthly_precip_url)
 precip_2002_2013_url = 'https://ndownloader.figshare.com/files/12707792'
 et.data.get_data(url=precip_2002_2013_url)
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12565616
-    Downloading from https://ndownloader.figshare.com/files/12707792
-
-
 
 {:.output}
 {:.execute_result}
@@ -408,7 +404,7 @@ precip_2002_2013[:2, :2].shape
 
 Recall that `precip_2002_2013` contains two rows (or years) of data for average monthly precipitation (one row for 2002 and one row for 2013) and twelve columns (one for each month). 
 
-You can use shortcuts to easily select an entire row or column by simply specifying the index of the row or column (e.g. `0`) and providing `:` for the other index (meaning all of the row or column). 
+You can use shortcuts to easily select an entire row or column by simply specifying the index of the row or column (e.g. `0` for the first, `1` for the second, etc) and providing `:` for the other index (meaning all of the row or column). 
 
 The output of these shortcuts will be one-dimensional arrays, which is very useful if you want to easily plot the data.  
 
@@ -470,6 +466,7 @@ Test your `Python` skills to:
 3. Convert the values in the **numpy** array from inches to millimeters (1 inch = 25.4 millimeters). 
 
 4. Use the converted **numpy** array for 2013 and the **numpy** array of month names to create plot of Average Monthly Precipitation in 2013 for Boulder, CO.  
+    * If needed, review how to <a href="{{ site.url }}/courses/scientists-guide-to-plotting-data-in-python/plot-with-matplotlib/customize-plot-colors-labels-matplotlib/">create **matplotlib** plots with lists</a>, and then substitute the list names for the appropriate numpy array name.  
 
 </div>
 
