@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/
 nav-title: "Intro to Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-09-26
+modified: 2019-10-03
 module-title: 'Work with Scientific Data Using Numpy Arrays'
 module-nav-title: 'Numpy Arrays'
 module-description: 'Numpy arrays are a commonly used scientific data structure in Python that store data as a grid, or a matrix. Learn how to import data into numpy arrays and how to run calculations, summarize, and select data from numpy arrays.'
@@ -47,7 +47,7 @@ After completing this chapter, you will be able to:
 
 You should have Conda setup on your computer and the Earth Analytics Python Conda environment. Follow the <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Set up Git, Bash, and Conda on your computer</a> to install these tools.
 
-Be sure that you have completed the chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/">Jupyter Notebook</a>.
+Be sure that you have completed the chapters on <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/">Jupyter Notebook</a>, <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">working with packages in Python</a>, and <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/">working with paths and directories in Python</a>.
 
 </div>
 
@@ -81,7 +81,7 @@ While **Python** lists and **numpy** arrays have similarities in that they are b
 
 2. Because of this requirement, **numpy** arrays support arithmetic and other mathematical operations that run on each element of the array (e.g. element-by-element multiplication). Recall that lists cannot have these numeric calculations applied directly to them.
 
-3. Unlike a **Python** list, a **numpy** arrays is not edited by adding/removing/replacing elements in the array. Instead, each time that the the **numpy** arrays is manipulated in some way, it is actually deleted and recreated each time.
+3. Unlike a **Python** list, a **numpy** array is not edited by adding/removing/replacing elements in the array. Instead, each time that the **numpy** array is manipulated in some way, it is actually deleted and recreated each time.
 
 4. **Numpy** arrays can store data along multiple dimensions (e.g. rows, columns) that are relative to each other. This makes **numpy** arrays a very efficient data structure for large datasets. 
 
