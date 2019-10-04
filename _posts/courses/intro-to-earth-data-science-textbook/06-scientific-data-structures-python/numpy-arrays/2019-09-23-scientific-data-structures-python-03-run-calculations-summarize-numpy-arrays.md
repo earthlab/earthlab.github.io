@@ -331,7 +331,7 @@ print("median average monthly precipitation:", median_avg_precip)
 
 
 
-It can useful to calculate both the mean and median of data, as sometimes the mean can be noticeably different from the median value (the value at which half of the values are lower and at which half of the values are higher), if the data are skewed in one direction (e.g. skewed toward lower or higher values) or contain a few outliers (e.g. a few really low or really high values). 
+It can useful to calculate both the mean and median of data, as sometimes the mean can be noticeably different from the median value (i.e. the middle value of the data at which exactly half of the values are lower or higher). This difference between the mean and median can occur when the data are skewed in one direction (e.g. skewed toward lower or higher values) or contain a few significant outliers (e.g. a few really low or really high values). 
 
 ### Find Other Summary Statistics Functions Including Minimum and Maximum Values
 
