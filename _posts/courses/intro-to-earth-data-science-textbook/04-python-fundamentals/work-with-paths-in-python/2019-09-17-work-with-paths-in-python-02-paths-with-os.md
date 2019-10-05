@@ -68,10 +68,10 @@ There are a few things to consider when creating paths that can make reproducibi
 challenging.
 
 Paths are constructed differently on different operating systems. For example, the
-path to **earth-analytics/data** in the home directory that you examined in the previous lesson looks like:
+path to **earth-analytics/data** in the home directory that you examined in the previous lesson looks like this in **Python**:
 
 * **/home/username/earth-analytics/data** on Mac and Linux and
-* **C:\\Users\\username\\earth-analytics\\\data** on Windows
+* **C:\\\Users\\\username\\\earth-analytics\\\data** on Windows
 
 The noticeable differences are the identification of the home directory (e.g. `/home/username` or `C:\\Users\\username`) and the direction and number of slashes. 
 
@@ -95,7 +95,7 @@ directory name (or file name) and then creates an output path by concatenating t
 
 `os.path.join("dir1", "dir2", "dir3", "file-name")`
 
-Note the example below which creates a relative path to the `data` subdirectory within `earth-analytics`.
+The example below creates a relative path to the `data` subdirectory within the `earth-analytics` directory.
 
 {:.input}
 ```python
@@ -114,17 +114,16 @@ os.path.join("earth-analytics", "data")
 
 
 
-The `join()` function from the **os.path** module creates a path in the format required by
-that the operating system upon which the code is being run (i.e. whatever operating system your
+The `join()` function from the **os.path** module creates a path in the format required by the operating system upon which the code is being run (i.e. whatever operating system your
 computer is running). 
 
 Constructing a path using the `join()` function
-will save you time when you move your code to another computer. You will not
+will save you time when you (or your others!( move your code to another computer, as you will not
 have to manually create or fix paths.
 
 <i class="fa fa-exclamation-circle"></i> **IMPORTANT** You can create paths that do not exist on
 your computer using this approach. So be careful about ensuring that you have
-spelled directories correctly and that they are in the correct order. `os.path.join`
+created the necessary directories, spelled them correctly, and that they are in the correct order in the path (i.e. correct parent directories). `os.path.join` 
 does does not actually test to ensure that the path exists!
 {: .notice--success}
 
@@ -161,7 +160,7 @@ If **Python** cannot find the directory, there are several issues to consider:
 2. You have a misspelling in you path. Or, the case (e.g. upper, lower) is incorrect.
 3. The directory has not been created on your computer.
 
-Even if spelled correctly, relative paths will only return True if a working directory has been set correctly. This is because relative paths are (as named) relative to some directory. Thus, you want to set the working directory to be the starting point for relative paths that you want to build in your code.  
+Note that relative paths will only return True if a working directory has been set correctly. This is because relative paths are (as named) relative to some directory. Thus, you want to set the working directory to be the starting point for relative paths that you want to build in your code.  
 
 In the example above, the relative path returns a False because the working directory has not yet been set. 
 
@@ -171,8 +170,8 @@ You can use the **os** package to check and set your working directory. This is 
 
 There are two functions in the **os** package that help you accomplish these tasks:
 
-* `getcwd()`: CWD stands for Current Working Directory. This allows you to see what your current working directory is.
-* `chdir("path-to-dir")`: Short for *CH*ange *DIR*ectory, this functions allows you to set the current working directory to a path of your choice.  
+* `getcwd()`: CWD stands for Current Working Directory. This function allows you to see what your current working directory is.
+* `chdir("path-to-dir")`: Short for *CH*ange *DIR*ectory, this function allows you to set the current working directory to a path of your choice.  
 
 
 ## Check Your Current Working Directory
@@ -188,7 +187,7 @@ Do you notice any characteristics of this path that might make it difficult to r
 Output
 `/home/username/Documents/github/earth-analytics-lessons`
 
-1. The path above use a specific username in it.
+1. The path above has a specific username in it.
 2. It also has subdirectories including **Documents** and **github** that may or may not be on another computer.
 3. Finally there are slashes that create that path. Notice that these slashes could work on a Mac but they might not work on Windows.
 
@@ -323,10 +322,9 @@ conditional statements (referred to as `if` statements) to write code that accou
 
 ## Set Your Working Directory to home/earth-analytics
 
-Now that you have the basics of good project structure out of the way, you can get
-your project directory set up. 
+Now that you have the basics of good project structure out of the way, you can get your project directory set up. 
 
-You have above already created the `earth-analytics` directory where you will store data and files used in the textbook. 
+By now, you have already created the `earth-analytics` directory (in your home directory) where you will store data and files used in the textbook. 
 
 You will now set that **project directory** as your **working directory** in **Python** using
 the following syntax, which provides the output of `os.path.join` as input into the the `os.chdir` function: 
