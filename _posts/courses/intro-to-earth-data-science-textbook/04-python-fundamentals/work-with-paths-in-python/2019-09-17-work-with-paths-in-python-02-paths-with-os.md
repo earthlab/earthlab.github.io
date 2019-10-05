@@ -40,8 +40,8 @@ You will need the **os** and the **earthpy** packages to run the code on this pa
 On this page, your goal is to create and set the **earth-analytics** directory
 as your working directory, using code that will work on any computer.
 
-This directory should exist in your **HOME** directory. The path will look
-something like this: `user-name/earth-analytics` following the example on the previous page of this chapter.
+This **earth-analytics** directory should exist in your home directory. The path will look
+something like this: `/home/user-name/earth-analytics` following the example on the previous page of this chapter.
 
 To create and construct this working directory, you will use several functions
 located in the **os** **Python** package. You will also use **earthpy** package.
@@ -118,7 +118,7 @@ The `join()` function from the **os.path** module creates a path in the format r
 computer is running). 
 
 Constructing a path using the `join()` function
-will save you time when you (or your others!( move your code to another computer, as you will not
+will save you time when you (or others!) move your code to another computer, as you will not
 have to manually create or fix paths.
 
 <i class="fa fa-exclamation-circle"></i> **IMPORTANT** You can create paths that do not exist on
@@ -335,7 +335,7 @@ Breaking the above commands down, you are doing the following.
 
 1. `os.chdir()`: remember from above that this function changes the working directory. However, you need to tell **Python** the path of the working directory that you want to use.
 2. `os.path.join()`: this function combines strings or path variables into a full path that will work on any operating system.
-3. `et.io.HOME`: this provides the path for the home directory on your (or any) computer.
+3. `et.io.HOME`: this attribute provides the path for the home directory on your (or any) computer.
 
 Combing the three commands above in a nested structure will:
 1. create the path for the `home/earth-analytics` directory and
@@ -419,6 +419,6 @@ os.getcwd()
 
 
 
-Recall that if the directory does not already exist (i.e. `earth-analytics` in your home directory), then `os.chdir()` will fail when you try to change to that directory. 
+Recall that if the directory does not already exist (e.g. `earth-analytics` in your home directory), then `os.chdir()` will fail when you try to change to that directory. 
 
 If needed, you can review the section above on creating a directory using `os.mkdir()` to create an `earth-analytics` directory in your home directory. 
