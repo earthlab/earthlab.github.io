@@ -8,7 +8,7 @@ class-lesson: ['work-with-files-directories-in-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/
 nav-title: "Computer Directories"
 dateCreated: 2019-09-18
-modified: 2019-09-27
+modified: 2019-10-05
 module-title: 'Introduction to Working with Files, Directories, and Paths in Python'
 module-nav-title: 'Files, Directories & Paths'
 module-description: 'Writing code that opens files using paths that will work on many different machines will make your project more reproducible. Learn how to construct paths in your Python code that will work on any machine using the os package.'
@@ -27,7 +27,6 @@ topics:
 redirect_from:
   - "/courses/intro-to-earth-data-science/open-reproducible-science/bash/directories/"  
 ---
-
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -107,9 +106,11 @@ _           * colorado\
 
 The home directory on a computer is a directory defined by your operating system. The home directory is the primary directory for your user account on your computer. Your files are by default stored in your home directory.
 
-On Windows, the home directory is typically `C:/Users/your-username`
+On Windows, the home directory is typically `C:/Users/your-username`.
 
-On Mac and Linux, the home directory is typically `/home/your-user-name`.
+On Mac and Linux, the home directory is typically `/home/your-username`.
+
+Throughout this textbook, `/home/your-username` is used as the example home directory and is considered equivalent to `C:/Users/your-username` on Windows.
 
  
 <div class="notice--success" markdown="1">
@@ -198,9 +199,9 @@ of your computer and will end with the file or directory that you wish to access
 Absolute paths ensure that **Python** can find the exact file on your computer. 
 
 However, as you can imagine, each computer can have a different path structure. For example,
-some computers have a path that includes a username that may be unique to only that machine.  
+different computers can have paths that include a username that unique to only that specific machine.  
 
-`/Users/your-user-name/earth-analytics`
+`/home/your-username/earth-analytics`
 
 There are ways to overcome this issue and others associated with finding files
 on different machines using tools such as the **os** package in **Python**. You will

@@ -136,7 +136,7 @@ import matplotlib.pyplot as plt
 
 ```
 
-When using earthpy, you can import the earthpy plotting module using the alias `ep`:
+From the earthpy package, you can import the earthpy module called plot using the alias `ep`:
 
 ```python
 import earthpy.plot as ep
