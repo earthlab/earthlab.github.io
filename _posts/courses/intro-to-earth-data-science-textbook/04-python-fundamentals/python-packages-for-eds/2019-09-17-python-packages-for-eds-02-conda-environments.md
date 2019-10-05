@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/introduction-to-python-conda-environments/
 nav-title: "Conda Environments"
 dateCreated: 2019-09-24
-modified: 2019-09-30
+modified: 2019-10-05
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -38,7 +38,7 @@ redirect_from:
 
 ### The Third Party Library Issue
 
-Most projects written in **Python** require a certain set of third party libraries that aren't in the **Python** standard library. There is a good chance you have used at least one of these libraries such as **numpy**, **matplotli**, or **pandas**. 
+Most projects written in **Python** require a certain set of third party libraries that are not in the **Python** standard library. There is a good chance you have used at least one of these libraries such as **numpy**, **matplotlib**, or **pandas**. 
 
 Third party libraries are critical to making **Python** the great tool it is. Developers and scientists all over the world are constantly improving and adding to the functionality **Python** provides by writing new packages. When you require one of these third party libraries in your workflow, they are called dependencies because your workflow depends on them to function.
 

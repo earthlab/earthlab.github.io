@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/use-conda-environments-and-install-packages/
 nav-title: "Install Packages"
 dateCreated: 2019-09-17
-modified: 2019-09-26
+modified: 2019-10-05
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -115,9 +115,9 @@ Once you have activated a **conda** environment, all installations that you run 
 
 ## Update Conda Environments Using a YAML File
 
-Once you have created a conda environment, you can update it anytime by activating the environment and then running the `conda env update` command. 
+Once you have created a conda environment, you can update it anytime by first activating the environment and then running the `conda env update` command. 
 
-The example below updates the `earth-analytics-python` environment using the environment.yml file.
+The example below updates the `earth-analytics-python` environment using the environment.yml file. In this example, the command `conda env update` is run in the same directory that contains the environment.yml file.
 
 ```bash
 $ conda activate earth-analytics-python
