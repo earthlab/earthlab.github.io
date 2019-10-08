@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/lists/
 nav-title: "Python Lists"
 dateCreated: 2019-07-01
-modified: 2019-10-05
+modified: 2019-10-08
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
