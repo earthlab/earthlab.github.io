@@ -136,7 +136,7 @@ import matplotlib.pyplot as plt
 
 ```
 
-When using earthpy, you can import the earthpy plotting module using the alias `ep`:
+From the earthpy package, you can import the earthpy module called plot using the alias `ep`:
 
 ```python
 import earthpy.plot as ep
@@ -236,7 +236,7 @@ In essence, this means that if you import a package *after* running some code th
 
 ### 2. List Package Imports Following PEP 8 Standards: Most Common First, Followed By Third Party
 
-<a href="https://www.python.org/dev/peps/pep-0008/#imports" target="_blank">PEP 8</a> also specifies the order in which you should list your imports as follows:
+<a href="https://www.python.org/dev/peps/pep-0008/#imports" target="_blank">PEP 8</a> also specifies the order in which you should list your imports as follows (starting with the most commonly used):
 
 > Imports should be grouped in the following order:
 >    Standard library imports.
@@ -244,9 +244,13 @@ In essence, this means that if you import a package *after* running some code th
 >    Local application/library specific imports.
 > You should put a blank line between each group of imports.
 
-You may be wondering, what is a standard library import? The standard imports are commonly used tools that are general in purpose. These including things like:
+You may be wondering, what is a standard library import? The standard library imports are commonly used tools that are general in purpose and are part of the standard library of **Python**. These including things like:
 
 * **os**: handle files and directories.
+* **glob**: create lists of files and directories for batch processing.
+
+In the PEP 8 order, other commonly used packages that are general in purpose will follow such as: 
+
 * **numpy**: work with data in array formats.
 * **matplotlib**: plot data.
 

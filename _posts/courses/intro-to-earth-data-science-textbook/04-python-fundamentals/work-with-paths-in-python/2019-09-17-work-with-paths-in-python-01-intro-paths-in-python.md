@@ -27,7 +27,6 @@ topics:
 redirect_from:
   - "/courses/intro-to-earth-data-science/open-reproducible-science/bash/directories/"  
 ---
-
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -107,9 +106,11 @@ _           * colorado\
 
 The home directory on a computer is a directory defined by your operating system. The home directory is the primary directory for your user account on your computer. Your files are by default stored in your home directory.
 
-On Windows, the home directory is typically `C:/Users/your-username`
+On Windows, the home directory is typically `C:\Users\your-username`.
 
-On Mac and Linux, the home directory is typically `/home/your-user-name`.
+On Mac and Linux, the home directory is typically `/home/your-username`.
+
+Throughout this textbook, `/home/your-username` is used as the example home directory and can be considered equivalent to `C:\Users\your-username` on Windows.
 
  
 <div class="notice--success" markdown="1">
@@ -118,7 +119,7 @@ On Mac and Linux, the home directory is typically `/home/your-user-name`.
 
 When you first open the terminal, if no settings are customized, it opens
 within the default directory of your computer which is called the **home**
-directory.
+directory. 
 
 </div>
 
@@ -144,43 +145,37 @@ data/
 output-plots/
 ```
 
-The `data` and `output-plots` directories are the immediately visible subdirectories within `earth-analytics`. By setting your working directory to `earth-analytics`, you can easily access anything in both of those subdirectories.
+The `data` and `output-plots` directories are the immediately visible subdirectories within `earth-analytics`. 
+
+By setting your working directory to `earth-analytics`, you can easily access anything in both of those subdirectories.
 
 ## Working Directories and Relative vs Absolute Paths in Python
 
-You may be wondering why working directories are important to understand when working with **Python** (or **R** or most scientific programming languages). When set, working directories 
-help the programming language to find files when you create paths. 
+You may be wondering why working directories are important to understand when working with **Python** (or **R** or most scientific programming languages). 
 
-Within **Python**, you can define (or set) the working directory of your choice. Then, you can create paths that are either relative to that working directory, 
-or absolute which means they begin at the root directory of your computer and
-provide the full path to the file that you wish to open.
+When set correctly, working directories help the programming language to find files when you create paths. 
 
-Following the example above, pretend that you have a **Jupyter Notebook** file that was saved
-in the **earth-analytics** directory. 
+Within **Python**, you can define (or set) the working directory of your choice. Then, you can create paths that are relative to that working directory, or create absolute paths, which means they begin at the home directory of your computer and provide the full path to the file that you wish to open.
 
-If you set the working directory in that **Jupyter Notebook** file to the **earth-analytics** directory,
-then the *relative path* to access `streams.csv` would be:
-
-`data/field-sites/california/colorado/streams.csv`
-
-<i class="fa fa-star"></i>**Data Tip** The default working directory
-of a **Jupyter Notebook** file is the directory in which it is saved.
-{: .notice--success}
 
 ### Relative Paths
 
 A relative path is the path that (as the name sounds) is relative to the working
 directory location on your computer. 
 
-If the working directory is
-`earth-analytics`, then **Python** knows to start looking for your files in the
+If the working directory is `earth-analytics`, then **Python** knows to start looking for your files in the
 `earth-analytics` directory. 
 
-Note that the path `data/field-sites/california/colorado/` exists within the
-`*earth-analytics` directory in the example above.
+Following the example above, if you set the working directory to the **earth-analytics** directory,
+then the *relative path* to access `streams.csv` would be:
 
-However, imagine that you set your working directory to
-`earth-analytics/data` which is a subdirectory of `earth-analytics`.
+`data/field-sites/california/colorado/streams.csv`
+
+<i class="fa fa-star"></i>**Data Tip** The default working directory
+in any **Jupyter Notebook** file is the directory in which it is saved. However, you can change the working directory in your code!
+{: .notice--success}
+
+However, imagine that you set your working directory to `earth-analytics/data` which is a subdirectory of `earth-analytics`.
 
 The correct *relative* path to the `streams.csv` file would now look like this:
 
@@ -195,12 +190,11 @@ An absolute path is a path that contains the entire path to the file or
 directory that you need to access. This path will begin at the home directory
 of your computer and will end with the file or directory that you wish to access.
 
+`/home/your-username/earth-analytics/data/field-sites/california/colorado/streams.csv`
+
 Absolute paths ensure that **Python** can find the exact file on your computer. 
 
-However, as you can imagine, each computer can have a different path structure. For example,
-some computers have a path that includes a username that may be unique to only that machine.  
-
-`/Users/your-user-name/earth-analytics`
+However, as you have seen, computers can have a different path constructions, depending on the operating system, and contain usernames that unique to that specific machine.  
 
 There are ways to overcome this issue and others associated with finding files
 on different machines using tools such as the **os** package in **Python**. You will
