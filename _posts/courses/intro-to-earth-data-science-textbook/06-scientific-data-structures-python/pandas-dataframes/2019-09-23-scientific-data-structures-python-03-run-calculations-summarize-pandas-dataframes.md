@@ -41,26 +41,25 @@ After completing this page, you will be able to:
 
 Previous chapters in this textbook have introduced the concept of functions as commands that can take inputs that are used to produce output. For example, you have used many functions, including the `print()` function to display the results of your code and to write messages about the results. 
 
-```python
-print("Message as text string goes here")
-```
-You have also used functions provided by **Python** packages such as **numpy** to run calculations on **numpy** arrays.  
-
-For example, you used `np.mean()` to calculate the average value of specified **numpy** array. In these **numpy** functions, you explicitly provided the name of the variable as an input parameter.    
+You have also used functions provided by **Python** packages such as **numpy** to run calculations on **numpy** arrays. For example, you used `np.mean()` to calculate the average value of specified **numpy** array. To run these **numpy** functions, you explicitly provided the name of the variable as an input parameter.    
 
 ```python
-print("Mean Value: ", np.mean(arrayname))
+np.mean(arrayname)
 ```
 
-In **Python**, data structures such as **pandas** dataframes can also provide built-in functions that are referred to as methods. Each data structure has its own set of methods, based on how the data is organized and the types of operations supported by the data structure . 
+In **Python**, data structures such as **pandas** dataframes can also provide built-in functions that are referred to as methods. Each data structure has its own set of methods, based on how the data is organized and the types of operations supported by the data structure. 
 
 A method can be called by adding the `.method_name()` after the name of the data structure (i.e. object):
 
-`object_name.method()`
+```python
+object_name.method()
+```
 
 rather than providing the name as an input parameter to a function:
 
-`function(object_name)`
+```python
+function(object_name)
+```
 
 In this chapter, you will explore some methods (i.e. functions specific to certain objects) that are accessible for **pandas** dataframes.
 
@@ -69,7 +68,7 @@ In this chapter, you will explore some methods (i.e. functions specific to certa
 
 In addition to functions and methods, you have also worked with attributes, which are automatically created characteristics (i.e. metadata) about the data structure or object that you are working with. 
 
-For example, you used `.shape` to get the dimensions of a specific **numpy** array (e.g. `array.shape`). This attribute `.shape` is automatically generated for a **numpy** array when it is created.
+For example, you used `.shape` to get the structure (i.e. rows, columns) of a specific **numpy** array using `array.shape`. This attribute `.shape` is automatically generated for a **numpy** array when it is created.
 
 In this chapter, you will use attributes (i.e. metadata) to get more information about **pandas** dataframes that is automatically generated when it is created.
 
@@ -90,17 +89,12 @@ import earthpy as et
 
 {:.input}
 ```python
-# Define variable for URL to .csv with avg monthly precip data
+# URL for .csv with avg monthly precip data
 avg_monthly_precip_url = "https://ndownloader.figshare.com/files/12710618"
 
-# Provide variable as parameter value for url
+# Download file
 et.data.get_data(url=avg_monthly_precip_url)
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12710618
-
-
 
 {:.output}
 {:.execute_result}
@@ -122,7 +116,9 @@ os.chdir(os.path.join(et.io.HOME, "earth-analytics"))
 {:.input}
 ```python
 # Import data from .csv file
-fname = os.path.join("data", "earthpy-downloads", "avg-precip-months-seasons.csv")
+fname = os.path.join("data", "earthpy-downloads", 
+                     "avg-precip-months-seasons.csv")
+
 avg_monthly_precip = pd.read_csv(fname)
 
 avg_monthly_precip
@@ -391,7 +387,7 @@ avg_monthly_precip.tail()
 
 ## Describe Contents of Pandas Dataframes
 
-You can use the method `.info()` to get details about a `pandas dataframe` (e.g. `dataframe.info()`) such as the number of rows and columns and the column names. 
+You can use the method `.info()` to get details about a **pandas** dataframe (e.g. `dataframe.info()`) such as the number of rows and columns and the column names. 
 
 The output of the `.info()` method shows you the number of rows (or entries) and the number of columns, as well as the columns names and the types of data they contain (e.g. float64 which is the default decimal type in **Python**).
 
@@ -412,6 +408,44 @@ avg_monthly_precip.info()
     memory usage: 416.0+ bytes
 
 
+
+You can also use the attribute `.columns` to see just the column names in a dataframe, or the attribute `.shape` to just see the number of rows and columns. 
+
+{:.input}
+```python
+# Get column names
+avg_monthly_precip.columns
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    Index(['months', 'precip', 'seasons'], dtype='object')
+
+
+
+
+
+{:.input}
+```python
+# Number of rows and columns
+avg_monthly_precip.shape
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (12, 3)
+
+
+
+
+
+### Summary of Numeric Values in Pandas Dataframes
 
 You can use other methods to produce summarized results about data values contained within the **pandas** dataframe.
 
@@ -501,7 +535,9 @@ Note that the `.describe()` method also provides the standard deviation (i.e. a 
 
 Recall that in the lessons on **numpy** arrays, you can identify the minimum or maximum value, but not the month in which that value occurred. This is because the **numpy** arrays for `precip` and `months` were not connected in an easy way that would allow you to determine the month that matches the values. 
 
-Using **pandas** dataframes, you can sort the values with the method `.sort_values()`, which takes as input the the column name to sort and a Boolean value of True or False for the parameter `ascending`:
+Using **pandas** dataframes, you can sort the values with the method `.sort_values()`, which takes as input: 
+* the name of the column to sort
+* a Boolean value of True or False for the parameter `ascending`
 
 `dataframe.sort_values(by="columname", ascending = True)`
 
@@ -628,7 +664,7 @@ You can easily create a new column within a **pandas** dataframe using mathemati
 
 `dataframe["column_2"] = dataframe["column_1"] * 25.4` 
 
-However, if you do not need to store the original values of `column_1`, you can use assignment operators to recalculate the values in the original column using: 
+However, if you do not need to store the original values of `column_1`, you can use assignment operators to recalculate the values in the original column like this: 
 
 `dataframe["column_1"] *= 25.4`
 
@@ -767,7 +803,7 @@ In this example, the `label_column` on which you want to group data is `seasons`
 
 {:.input}
 ```python
-# Column to group data is seasons; column to summarize is precip 
+# Group data by seasons and summarize precip 
 avg_monthly_precip.groupby(["seasons"])[["precip"]].describe()
 ```
 
@@ -877,7 +913,7 @@ avg_monthly_precip.groupby(["seasons"])[["precip"]].describe()
 
 
 In addition to running `.describe()` using a groupby, you can also run individual statistics such as:
-* `.count()` to get the number of rows belonging to a specific group (i.e. month)
+* `.count()` to get the number of rows belonging to a specific group (e.g. season)
 * other summary statistics such as `.median()`, `.sum()`, `.mean()`, etc, to calculate these summary statistics by a chosen group
 
 In the example below, a new dataframe is created by running `.median()` on `precip` using a groupby on `seasons`. 
@@ -885,8 +921,9 @@ In the example below, a new dataframe is created by running `.median()` on `prec
 {:.input}
 ```python
 # Save median of precip for each season to dataframe
-avg_monthly_precip_median = avg_monthly_precip.groupby(["seasons"])[
-                                                       ["precip"]].median()
+avg_monthly_precip_median = avg_monthly_precip.groupby(
+                                ["seasons"])[["precip"]].median()
+
 avg_monthly_precip_median
 ```
 
@@ -964,22 +1001,13 @@ avg_monthly_precip_median.info()
 
 
 
-## Reset Index of Pandas Dataframes After Groupby
-
-After creating a new dataframe using `groupby`, you can easily reset the index back to the original index by using the syntax: 
-
-`dataframe.reset_index(inplace=True)`
-
-The `inplace=True` tells the method `reset_index` to replace the named dataframe with the reset. 
-
-For example, running this syntax on `avg_monthly_precip_median` will set the index to original values (i.e. starting at [0], rather than using the season name) and reset `seasons` as a column in the dataframe.
-
-Now the data is back to a familiar format but retains the values calculated with `groupby`.
+To avoid setting a new index, you can add a Boolean value of False for the parameter `as_index` of `groupby()` to keep the original index.
 
 {:.input}
 ```python
-# Reset index 
-avg_monthly_precip_median.reset_index(inplace=True)
+# Save to new dataframe with original index
+avg_monthly_precip_median = avg_monthly_precip.groupby(
+                                ["seasons"], as_index=False)[["precip"]].median()
 
 avg_monthly_precip_median
 ```
@@ -1028,6 +1056,87 @@ avg_monthly_precip_median
       <td>49.022</td>
     </tr>
     <tr>
+      <td>3</td>
+      <td>Winter</td>
+      <td>19.050</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+## Reset Index of Pandas Dataframes
+
+After creating a new dataframe using `groupby()`, you can also easily reset the index back to the original index by using the syntax: 
+
+`dataframe.reset_index(inplace=True)`
+
+The `inplace=True` tells the method `reset_index` to replace the named dataframe with the reset. 
+
+For example, running this syntax on `avg_monthly_precip_median` will set the index to original values (i.e. starting at [0], rather than using the season name) and reset `seasons` as a column in the dataframe.
+
+Now the data is back to a familiar format but retains the values calculated with `groupby()`.
+
+{:.input}
+```python
+# Reset index 
+avg_monthly_precip_median.reset_index(inplace=True)
+
+avg_monthly_precip_median
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>seasons</th>
+      <th>precip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>Fall</td>
+      <td>35.306</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>Spring</td>
+      <td>74.422</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2</td>
+      <td>Summer</td>
+      <td>49.022</td>
+    </tr>
+    <tr>
+      <td>3</td>
       <td>3</td>
       <td>Winter</td>
       <td>19.050</td>

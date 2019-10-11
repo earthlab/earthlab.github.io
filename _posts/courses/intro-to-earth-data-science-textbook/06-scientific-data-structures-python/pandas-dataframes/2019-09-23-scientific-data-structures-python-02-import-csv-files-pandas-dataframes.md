@@ -64,10 +64,10 @@ Begin by downloading a .csv file for average monthly precipitation for Boulder, 
 
 {:.input}
 ```python
-# Define variable for URL to .csv with avg monthly precip data
+# URL for .csv with avg monthly precip data
 avg_monthly_precip_url = "https://ndownloader.figshare.com/files/12710618"
 
-# Provide variable as parameter value for url
+# Download file from URL
 et.data.get_data(url=avg_monthly_precip_url)
 ```
 
@@ -102,7 +102,9 @@ Remember that you gave `pandas` an alias (`pd`), so you will use `pd` to call `p
 {:.input}
 ```python
 # Import data from .csv file
-fname = os.path.join("data", "earthpy-downloads", "avg-precip-months-seasons.csv")
+fname = os.path.join("data", "earthpy-downloads", 
+                     "avg-precip-months-seasons.csv")
+
 avg_monthly_precip = pd.read_csv(fname)
 
 avg_monthly_precip

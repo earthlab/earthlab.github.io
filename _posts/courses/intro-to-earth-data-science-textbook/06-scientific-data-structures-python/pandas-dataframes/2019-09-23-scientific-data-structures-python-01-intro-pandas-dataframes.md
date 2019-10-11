@@ -103,11 +103,11 @@ In addition, **pandas** dataframes have other unique characteristics that differ
 
 ## Tabular Structure of Pandas Dataframes
 
-The structure of a **pandas** dataframe includes the column names and the rows that represent individual observations (i.e. records).  
+The structure of a **pandas** dataframe includes the column names and the rows that represent individual observations (i.e. records). **Pandas** dataframes can have many columns that each contain a different type of data (e.g. strings, floats). 
 
-The function `DataFrame` from **pandas** (e.g. `pd.DataFrame`) can be used to manually define a **pandas** dataframe by providing a list of column names (`columns`) and a list of data values (`data`) for each column (one value for each column). 
+The function `DataFrame` from **pandas** (e.g. `pd.DataFrame`) can be used to manually define a **pandas** dataframe. 
 
-**Pandas** dataframes can have many columns that each contain a different type of data (e.g. strings, floats). 
+One way to use this function is to provide a list of column names (`columns`) and a list of data values (`data`) for each column (one value for each column). 
 
 In the example below, the **pandas** dataframe stores the average monthly precipitation values in inches for Boulder, CO.  The **pandas** dataframe contains one column with abbreviated month names as text strings and one column for the precipitation (inches) as numeric values.
 
