@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/
 nav-title: "Intro to Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-10
+modified: 2019-10-11
 module-title: 'Work with Scientific Data Using Pandas Dataframes'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'Pandas dataframes are a commonly used scientific data structure in Python that store tabular data using rows and columns with headers. Learn how to import data into pandas dataframes and how to run calculations, summarize, and select data from pandas dataframes.'
@@ -38,7 +38,7 @@ In this chapter, you will learn about another commonly used data structure in Py
 After completing this chapter, you will be able to:
 
 * Describe the key characteristics of **pandas** dataframes.
-* Import data from .csv files into **pandas** dataframes.
+* Import tabular data from .csv files into **pandas** dataframes.
 * Run calculations and summarize data in **pandas** dataframes.
 * Use indexing to select data from **pandas** dataframes.
 
@@ -47,12 +47,12 @@ After completing this chapter, you will be able to:
 
 You should have Conda setup on your computer and the Earth Analytics Python Conda environment. Follow the <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">Set up Git, Bash, and Conda on your computer</a> to install these tools.
 
-Be sure that you have completed the chapters on <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/">Jupyter Notebook</a>, <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">working with packages in Python</a>, and <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/">working with paths and directories in Python</a>.
+Be sure that you have completed the chapters on <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/">Jupyter Notebook</a>, <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/">working with packages in Python</a>, <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/">working with paths and directories in Python</a>, and <a href="{{ site.url }}/courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/">working with numpy arrays</a>.
 
 </div>
 
 
-## Pandas Dataframes
+## What are Pandas Dataframes
 
 In the chapters introducing **Python** lists and **numpy** arrays, you learn that both of these data structures can store collections of values, instead of just single values. 
 
@@ -62,14 +62,24 @@ In this chapter, you will learn about **Pandas** dataframes, which provide the a
 
 **Pandas** dataframes are data structures that are composed of rows and columns that can have header names, and the columns in **pandas** dataframes can be different types (e.g. the first column containing integers and the second column containing text strings). 
 
-
-| months          |  precip |
-|:----------------|:--------|
-| January         | 0.70    |
-| February        | 0.75    |
-| March           | 1.85    |  
-
 Each value in **pandas** dataframe is referred to as a cell that has a specific row index and column index within the tabular structure. 
+
+The dataset below of average monthly precipitation (inches) for Boulder, CO provided by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a> is an example of the type of tabular dataset that can be imported into a **pandas** dataframe. 
+
+month  | precip_in |
+--- | --- |
+Jan | 0.70 |
+Feb | 0.75 |
+Mar | 1.85 |
+Apr | 2.93 |
+May | 3.05 |
+June | 2.02 |
+July | 1.93 |
+Aug | 1.62 |
+Sept | 1.84 |
+Oct | 1.31 |
+Nov | 1.39 |
+Dec | 0.84 |
 
 
 ## Distinguishing Characteristics of Pandas Dataframes
@@ -91,7 +101,7 @@ In addition, **pandas** dataframes have other unique characteristics that differ
 5. Due to its inherent tabular structure, **pandas** dataframes also allow for cells to have `null` or blank values.
 
 
-## Structure of Pandas Dataframes
+## Tabular Structure of Pandas Dataframes
 
 The structure of a **pandas** dataframe includes the column names and the rows that represent individual observations (i.e. records).  
 
@@ -99,9 +109,7 @@ The function `DataFrame` from **pandas** (e.g. `pd.DataFrame`) can be used to ma
 
 **Pandas** dataframes can have many columns that each contain a different type of data (e.g. strings, floats). 
 
-In the example below, the **pandas** dataframe stores daily precipitation values in inches for Boulder, CO for one week in September 2013, during which there was a major flooding event. 
-
-The **pandas** dataframe contains one column with the dates as text strings and one column for the precipitation (inches) as numeric values.
+In the example below, the **pandas** dataframe stores the average monthly precipitation values in inches for Boulder, CO.  The **pandas** dataframe contains one column with abbreviated month names as text strings and one column for the precipitation (inches) as numeric values.
 
 {:.input}
 ```python
@@ -111,16 +119,18 @@ import pandas as pd
 
 {:.input}
 ```python
-# Precipitation for Sept flood event in Boulder, CO
-boulder_precip = pd.DataFrame(columns=["date", "precip_in"],
-                              data=[
-                                  ["2013-09-09", 0.1], ["2013-09-10", 1.0],
-                                  ["2013-09-11", 2.3], ["2013-09-12", 9.8],
-                                  ["2013-09-13", 1.9], ["2013-09-14", 0.01],
-                                  ["2013-09-15", 1.4], ["2013-09-16", 0.4]])
+# Average monthly precip for Boulder, CO
+avg_monthly_precip = pd.DataFrame(columns=["month", "precip_in"],
+                                  data=[
+                                      ["Jan", 0.70],  ["Feb", 0.75],
+                                      ["Mar", 1.85],  ["Apr", 2.93],
+                                      ["May", 3.05],  ["June", 2.02],
+                                      ["July", 1.93], ["Aug", 1.62],
+                                      ["Sept", 1.84], ["Oct", 1.31],
+                                      ["Nov", 1.39],  ["Dec", 0.84]])
 
 # Notice the nicely formatted output without use of print
-boulder_precip
+avg_monthly_precip
 ```
 
 {:.output}
@@ -146,50 +156,70 @@ boulder_precip
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>date</th>
+      <th>month</th>
       <th>precip_in</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>0</td>
-      <td>2013-09-09</td>
-      <td>0.10</td>
+      <td>Jan</td>
+      <td>0.70</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>2013-09-10</td>
-      <td>1.00</td>
+      <td>Feb</td>
+      <td>0.75</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>2013-09-11</td>
-      <td>2.30</td>
+      <td>Mar</td>
+      <td>1.85</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>2013-09-12</td>
-      <td>9.80</td>
+      <td>Apr</td>
+      <td>2.93</td>
     </tr>
     <tr>
       <td>4</td>
-      <td>2013-09-13</td>
-      <td>1.90</td>
+      <td>May</td>
+      <td>3.05</td>
     </tr>
     <tr>
       <td>5</td>
-      <td>2013-09-14</td>
-      <td>0.01</td>
+      <td>June</td>
+      <td>2.02</td>
     </tr>
     <tr>
       <td>6</td>
-      <td>2013-09-15</td>
-      <td>1.40</td>
+      <td>July</td>
+      <td>1.93</td>
     </tr>
     <tr>
       <td>7</td>
-      <td>2013-09-16</td>
-      <td>0.40</td>
+      <td>Aug</td>
+      <td>1.62</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Sept</td>
+      <td>1.84</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Oct</td>
+      <td>1.31</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Nov</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Dec</td>
+      <td>0.84</td>
     </tr>
   </tbody>
 </table>
