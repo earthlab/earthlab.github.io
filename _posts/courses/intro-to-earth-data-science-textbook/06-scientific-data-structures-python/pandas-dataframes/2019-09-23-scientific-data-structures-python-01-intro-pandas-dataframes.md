@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/
 nav-title: "Intro to Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-11
+modified: 2019-10-12
 module-title: 'Work with Scientific Data Using Pandas Dataframes'
 module-nav-title: 'Pandas Dataframes'
 module-description: 'Pandas dataframes are a commonly used scientific data structure in Python that store tabular data using rows and columns with headers. Learn how to import data into pandas dataframes and how to run calculations, summarize, and select data from pandas dataframes.'
@@ -33,14 +33,14 @@ redirect_from:
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Fifteen - Pandas Dataframes
 
-In this chapter, you will learn about another commonly used data structure in Python for scientific data: **pandas** dataframes. You will write **Python** code to import text data (.csv) as **pandas** dataframes and to run calculations and summarize data in **pandas** dataframes.
+In this chapter, you will learn about another commonly used data structure in Python for scientific data: **pandas** dataframes. You will write **Python** code to import text data (.csv) as **pandas** dataframes and to run calculations, summarize, and select data in **pandas** dataframes.
 
 After completing this chapter, you will be able to:
 
 * Describe the key characteristics of **pandas** dataframes.
 * Import tabular data from .csv files into **pandas** dataframes.
 * Run calculations and summarize data in **pandas** dataframes.
-* Use indexing to select data from **pandas** dataframes.
+* Select data in **pandas** dataframes.
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -58,13 +58,15 @@ In the chapters introducing **Python** lists and **numpy** arrays, you learn tha
 
 You also learned that while **Python** lists are flexible and can store data items of various types (e.g. integers, floats, text strings), **numpy** arrays require all data elements to be of the same type. Because of this requirement, **numpy** arrays can provide more functionality for running calculations such as element-by-element arithmetic operations (e.g. multiplication of each element in the `numpy array` by the same value) that **Python** lists do not support.  
 
-In this chapter, you will learn about **Pandas** dataframes, which provide the ability to work with tabular data. 
+You may now be noticing that each data structure provides different functionality that can be useful in different workflows.
 
-**Pandas** dataframes are data structures that are composed of rows and columns that can have header names, and the columns in **pandas** dataframes can be different types (e.g. the first column containing integers and the second column containing text strings). 
+In this chapter, you will learn about **Pandas** dataframes, a data structure in **Python** that provides the ability to work with tabular data. 
+
+**Pandas** dataframes are composed of rows and columns that can have header names, and the columns in **pandas** dataframes can be different types (e.g. the first column containing integers and the second column containing text strings). 
 
 Each value in **pandas** dataframe is referred to as a cell that has a specific row index and column index within the tabular structure. 
 
-The dataset below of average monthly precipitation (inches) for Boulder, CO provided by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a> is an example of the type of tabular dataset that can be imported into a **pandas** dataframe. 
+The dataset below of average monthly precipitation (inches) for Boulder, CO provided by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a> is an example of the type of tabular dataset that can easily be imported into a **pandas** dataframe. 
 
 month  | precip_in |
 --- | --- |
@@ -88,28 +90,51 @@ These characteristics (i.e. tabular format with rows and columns that can have h
 
 Recall that in the chapter on **numpy** arrays, you could not easily connect the values across two numpy arrays, such as those for `precip` and `months`. 
 
-Within **pandas** dataframes (such as the example above), the relationship between the value `January` in the `months` column and the value `0.70` in the `precip` column is maintained. 
+Using a **pandas** dataframe, the relationship between the value `January` in the `months` column and the value `0.70` in the `precip` column is maintained. 
 
-These two values (`January` and `0.70`) are considered the same record, representing the same observation in the **pandas** dataframe.
+month  | precip_in |
+--- | --- |
+Jan | 0.70 |
 
-In addition, **pandas** dataframes have other unique characteristics that differentiate them from **numpy** arrays:
+These two values (`January` and `0.70`) are considered part of the same record, representing the same observation in the **pandas** dataframe.
 
-1. Each column in a **pandas** dataframe can have a labeled name (i.e. header name such as `months`) and can contain a different type of data from its neighboring columns. 
-2. Cells within the **pandas** dataframe are always identified by its combined row and column index (e.g. `[row index, column index]`). All cells have both a row index and a column index, even if there is only one row and/or one column in the **pandas** dataframe.
-3. In addition to querying values through location indexing (i.e. row index, column index), you can also query for data within **pandas** dataframes based on specific values or attributes (i.e. filtering values). 
-4. Because of the tabular indexing, you can query and run calculations on **pandas** dataframes across an entire row, an entire column, or a specific cell or series of cells based on either location and attribute values. 
-5. Due to its inherent tabular structure, **pandas** dataframes also allow for cells to have `null` or blank values.
+In addition, **pandas** dataframes have other unique characteristics that differentiate them from other data structures: 
+
+1. Each column in a **pandas** dataframe can have a label name (i.e. header name such as `months`) and can contain a different type of data from its neighboring columns (e.g. column_1 with numeric values and column_2 with text strings). 
+2. By default, each row has an index within a range of values beginning at `[0]`. However, the row index in **pandas** dataframes can also be set as labels (e.g. a location name, date). 
+3. All cells in **pandas** dataframe have both a row index and a column index (i.e. two-dimensional table structure), even if there is only one cell (i.e. value) in the **pandas** dataframe. 
+4. In addition to selecting cells through location-based indexing (e.g. cell at row 1, column 1), you can also query for data within **pandas** dataframes based on specific values (e.g. querying for specific text strings or numeric values). 
+5. Because of the tabular structure, you can work with cells in **pandas** dataframes: 
+    * across an entire row
+    * across an entire column (or series, a one-dimensional array in **pandas**)
+    * by selecting cells based on location or specific values 
+6. Due to its inherent tabular structure, **pandas** dataframes also allow for cells to have null values (i.e. no data value such as blank space, `NaN`, -999, etc).
 
 
 ## Tabular Structure of Pandas Dataframes
 
-The structure of a **pandas** dataframe includes the column names and the rows that represent individual observations (i.e. records). **Pandas** dataframes can have many columns that each contain a different type of data (e.g. strings, floats). 
+As described in the previous paragraphs, the structure of a **pandas** dataframe includes the column names and the rows that represent individual observations (i.e. records). 
+
+In a typical **pandas** dataframe, the default row index is a range of values beginning at `[0]`, and the column headers are also organized into an index of the column names. 
 
 The function `DataFrame` from **pandas** (e.g. `pd.DataFrame`) can be used to manually define a **pandas** dataframe. 
 
-One way to use this function is to provide a list of column names (`columns`) and a list of data values (`data`) for each column (one value for each column). 
+One way to use this function is to provide a list of column names (to the parameter `columns`) and a list of data values (to the parameter `data`), which is composed of individual lists for each row:
 
-In the example below, the **pandas** dataframe stores the average monthly precipitation values in inches for Boulder, CO.  The **pandas** dataframe contains one column with abbreviated month names as text strings and one column for the precipitation (inches) as numeric values.
+```python
+# Dataframe with 2 columns and 4 rows
+dataframe = pd.DataFrame(columns=["column_1", "column_2"],
+                         data=[
+                              [value_column_1, value_column_2],  
+                              [value_column_1, value_column_2]
+                         ])
+```
+
+In the example below, the **pandas** dataframe is created using the average monthly precipitation values in inches for Boulder, CO.  
+
+The **pandas** dataframe is created with a column called `month` containing abbreviated month names as text strings and another column called `precip_in` for the precipitation (inches) as numeric values.
+
+For example, the first row is created using `["Jan", 0.70]`, with `Jan` as the value for `month` and `0.70` as the value for `precip_in`.
 
 {:.input}
 ```python
@@ -122,12 +147,13 @@ import pandas as pd
 # Average monthly precip for Boulder, CO
 avg_monthly_precip = pd.DataFrame(columns=["month", "precip_in"],
                                   data=[
-                                      ["Jan", 0.70],  ["Feb", 0.75],
-                                      ["Mar", 1.85],  ["Apr", 2.93],
-                                      ["May", 3.05],  ["June", 2.02],
-                                      ["July", 1.93], ["Aug", 1.62],
-                                      ["Sept", 1.84], ["Oct", 1.31],
-                                      ["Nov", 1.39],  ["Dec", 0.84]])
+                                       ["Jan", 0.70],  ["Feb", 0.75],
+                                       ["Mar", 1.85],  ["Apr", 2.93],
+                                       ["May", 3.05],  ["June", 2.02],
+                                       ["July", 1.93], ["Aug", 1.62],
+                                       ["Sept", 1.84], ["Oct", 1.31],
+                                       ["Nov", 1.39],  ["Dec", 0.84]
+                                  ])
 
 # Notice the nicely formatted output without use of print
 avg_monthly_precip
@@ -229,6 +255,6 @@ avg_monthly_precip
 
 
 
-You can see from the **pandas** dataframe that each row has an index value, and that the indexing still begins with `[0]`, as it does for `Python` lists and `numpy arrays`. 
+You can see from the **pandas** dataframe that each row has an index value, and that the default indexing still begins with `[0]`, as it does for `Python` lists and `numpy arrays`. 
 
 In the pages that follow, you will learn how to import data from .csv files into **pandas** dataframes, run calculations and summary statistics on **pandas** dataframes, and select data from **pandas** dataframes.
