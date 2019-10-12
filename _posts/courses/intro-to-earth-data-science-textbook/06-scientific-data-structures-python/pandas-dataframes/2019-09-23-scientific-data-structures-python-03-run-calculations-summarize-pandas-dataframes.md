@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/
-nav-title: "Recalculate and Summarize Dataframes"
+nav-title: "Recalculate and Summarize Pandas Dataframes"
 dateCreated: 2019-09-06
 modified: 2019-10-12
 module-type: 'class'

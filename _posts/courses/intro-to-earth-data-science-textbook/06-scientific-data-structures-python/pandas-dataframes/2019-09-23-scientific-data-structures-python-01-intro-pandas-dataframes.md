@@ -102,11 +102,11 @@ In addition, **pandas** dataframes have other unique characteristics that differ
 
 1. Each column in a **pandas** dataframe can have a label name (i.e. header name such as `months`) and can contain a different type of data from its neighboring columns (e.g. column_1 with numeric values and column_2 with text strings). 
 2. By default, each row has an index within a range of values beginning at `[0]`. However, the row index in **pandas** dataframes can also be set as labels (e.g. a location name, date). 
-3. All cells in **pandas** dataframe have both a row index and a column index (i.e. two-dimensional table structure), even if there is only one cell (i.e. value) in the **pandas** dataframe. 
+3. All cells in a **pandas** dataframe have both a row index and a column index (i.e. two-dimensional table structure), even if there is only one cell (i.e. value) in the **pandas** dataframe. 
 4. In addition to selecting cells through location-based indexing (e.g. cell at row 1, column 1), you can also query for data within **pandas** dataframes based on specific values (e.g. querying for specific text strings or numeric values). 
 5. Because of the tabular structure, you can work with cells in **pandas** dataframes: 
     * across an entire row
-    * across an entire column (or series, a one-dimensional array in **pandas**)
+    * across an entire column (or <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html" target="_blank">series</a>, a one-dimensional array in **pandas**)
     * by selecting cells based on location or specific values 
 6. Due to its inherent tabular structure, **pandas** dataframes also allow for cells to have null values (i.e. no data value such as blank space, `NaN`, -999, etc).
 
@@ -119,10 +119,10 @@ In a typical **pandas** dataframe, the default row index is a range of values be
 
 The function `DataFrame` from **pandas** (e.g. `pd.DataFrame`) can be used to manually define a **pandas** dataframe. 
 
-One way to use this function is to provide a list of column names (to the parameter `columns`) and a list of data values (to the parameter `data`), which is composed of individual lists for each row:
+One way to use this function is to provide a list of column names (to the parameter `columns`) and a list of data values (to the parameter `data`), which is composed of individual lists of values for each row:
 
 ```python
-# Dataframe with 2 columns and 4 rows
+# Dataframe with 2 columns and 2 rows
 dataframe = pd.DataFrame(columns=["column_1", "column_2"],
                          data=[
                               [value_column_1, value_column_2],  
