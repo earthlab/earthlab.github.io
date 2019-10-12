@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/run-calculations-summary-statistics-pandas-dataframes/
 nav-title: "Recalculate and Summarize Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-11
+modified: 2019-10-12
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -72,7 +72,8 @@ For example, you used `.shape` to get the structure (i.e. rows, columns) of a sp
 
 In this chapter, you will use attributes (i.e. metadata) to get more information about **pandas** dataframes that is automatically generated when it is created.
 
-  
+<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html" target="_blank">**Pandas** documentation</a> provides a list of all attributes and methods of **pandas** dataframes. 
+
 ### Import Python Packages and Get Data
 
 Begin by importing the necessary **Python** packages and then downloading and importing data into **pandas** dataframes.
@@ -95,6 +96,11 @@ avg_monthly_precip_url = "https://ndownloader.figshare.com/files/12710618"
 # Download file
 et.data.get_data(url=avg_monthly_precip_url)
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12710618
+
+
 
 {:.output}
 {:.execute_result}
@@ -445,17 +451,23 @@ avg_monthly_precip.shape
 
 
 
-### Summary of Numeric Values in Pandas Dataframes
+## Run Summary Statistics on Numeric Values in Pandas Dataframes
 
-You can use other methods to produce summarized results about data values contained within the **pandas** dataframe.
+**Pandas** dataframes also provide methods to summarize numeric values contained within the dataframe.
 
-For example, you can use the method `.describe()` to run summary statistics about the numeric columns in **pandas** dataframe (e.g. `dataframe.describe()`), such as the count, mean, minimum and maximum values. 
+For example, you can use the method `.describe()` to run summary statistics on all of the numeric columns in a **pandas** dataframe:
 
-Note that in the example dataset, the column called `precip` is the only column with numeric values, so the output of `describe()` only includes that column. 
+`dataframe.describe()`
+
+such as the count, mean, minimum and maximum values. 
+
+The output of `.describe()` is provided in a nicely formatted dataframe. 
+
+Note that in the example dataset, the column called `precip` is the only column with numeric values, so the output of `.describe()` only includes that column. 
 
 {:.input}
 ```python
-# Summary stats of numeric columns
+# Summary stats of all numeric columns
 avg_monthly_precip.describe()
 ```
 
@@ -530,16 +542,143 @@ Recall that in the lessons on **numpy** arrays, you ran multiple functions to ge
 
 Note that the `.describe()` method also provides the standard deviation (i.e. a measure of the amount of variation, or spread, across the data) as well as the quantiles of the **pandas** dataframes, which tell us how the data are distributed between the minimum and maximum values (e.g. the 25% quantile indicates the cut-off for the lowest 25% values in the data).
 
+You can also run other summary statistics that are not included in `describe()` such as `.median()`, `.sum()`, etc, which provide the output in a <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.html" target="_blank">**pandas** series</a> (i.e. a one-dimensional array for **pandas**).  
+
+{:.input}
+```python
+# Median of all numeric columns
+avg_monthly_precip.median()
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    precip    1.73
+    dtype: float64
+
+
+
+
+
+### Run Summary Statistics on Individual Columns
+
+You can also run `.describe()` on individual columns in a **pandas** dataframe using:
+
+`dataframe[["column_name"]].describe()`
+
+Note that using the double set of brackets `[]` around `column_name` selects the column as a dataframe, and thus, the output is also provided as a dataframe. 
+
+{:.input}
+```python
+# Summary stats on precip column as dataframe
+avg_monthly_precip[["precip"]].describe()
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>precip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>12.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>1.685833</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>0.764383</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>0.700000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>1.192500</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>1.730000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>1.952500</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>3.050000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+Using a single set of brackets (e.g. `dataframe["column_name"].describe()`) selects the column as a **pandas** series (a one-dimensional array of the column) and thus, the output is also provided as a **pandas** series. 
+
+{:.input}
+```python
+# Summary stats on precip column as series
+avg_monthly_precip["precip"].describe()
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    count    12.000000
+    mean      1.685833
+    std       0.764383
+    min       0.700000
+    25%       1.192500
+    50%       1.730000
+    75%       1.952500
+    max       3.050000
+    Name: precip, dtype: float64
+
+
+
+
 
 ## Sort Data Values in Pandas Dataframes
 
-Recall that in the lessons on **numpy** arrays, you can identify the minimum or maximum value, but not the month in which that value occurred. This is because the **numpy** arrays for `precip` and `months` were not connected in an easy way that would allow you to determine the month that matches the values. 
+Recall that in the lessons on **numpy** arrays, you can easily identify the minimum or maximum value, but not the month in which that value occurred. This is because the individual **numpy** arrays for `precip` and `months` were not connected in an easy way that would allow you to determine the month that matches the values. 
 
 Using **pandas** dataframes, you can sort the values with the method `.sort_values()`, which takes as input: 
 * the name of the column to sort
 * a Boolean value of True or False for the parameter `ascending`
 
-`dataframe.sort_values(by="columname", ascending = True)`
+`dataframe.sort_values(by="column_name", ascending = True)`
 
 Using this method, you can sort by the values in the `precip` column in descending order (`ascending = False`) to find the maximum value and its corresponding month. 
 
@@ -660,17 +799,13 @@ avg_monthly_precip.sort_values(by="precip", ascending = False)
 
 ## Run Calculations on Columns Within Pandas Dataframes
 
-You can easily create a new column within a **pandas** dataframe using mathematical calculations such as:
+You can run mathematical calculations on columns within **pandas** dataframes using any mathematical calculation and assignment operator such as:
 
-`dataframe["column_2"] = dataframe["column_1"] * 25.4` 
-
-However, if you do not need to store the original values of `column_1`, you can use assignment operators to recalculate the values in the original column like this: 
-
-`dataframe["column_1"] *= 25.4`
+`dataframe["column_name"] *= 25.4`
 
 which would multiply each value in the column by 25.4.
 
-Using an assignment operator, you can now convert the values in the `precip` column from inches to millimeters (recall that one inch is equal to 25.4 millimeters). 
+Using an assignment operator, you can convert the values in the `precip` column from inches to millimeters (recall that one inch is equal to 25.4 millimeters). 
 
 {:.input}
 ```python
@@ -789,13 +924,153 @@ avg_monthly_precip
 
 
 
+You can also easily replace or create a new column within a **pandas** dataframe using mathematical calculations on itself or other columns such as:
+
+`dataframe["column_name_2"] = dataframe["column_name_1"] / 25.4` 
+
+If `column_name_2` already exists, then the values are replaced by the calculation (e.g. values in `column_name_2` are set to values of `column_name_1` divided by 25.4). 
+
+If `column_name_2` does not already exist, then the column is created as the new last column of the dataframe. 
+
+{:.input}
+```python
+# Create new column with precip in the original units (inches)
+avg_monthly_precip["precip_in"] = avg_monthly_precip["precip"] / 25.4
+
+avg_monthly_precip
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>months</th>
+      <th>precip</th>
+      <th>seasons</th>
+      <th>precip_in</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Jan</td>
+      <td>17.780</td>
+      <td>Winter</td>
+      <td>0.70</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Feb</td>
+      <td>19.050</td>
+      <td>Winter</td>
+      <td>0.75</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mar</td>
+      <td>46.990</td>
+      <td>Spring</td>
+      <td>1.85</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Apr</td>
+      <td>74.422</td>
+      <td>Spring</td>
+      <td>2.93</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>May</td>
+      <td>77.470</td>
+      <td>Spring</td>
+      <td>3.05</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>June</td>
+      <td>51.308</td>
+      <td>Summer</td>
+      <td>2.02</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>July</td>
+      <td>49.022</td>
+      <td>Summer</td>
+      <td>1.93</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Aug</td>
+      <td>41.148</td>
+      <td>Summer</td>
+      <td>1.62</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Sept</td>
+      <td>46.736</td>
+      <td>Fall</td>
+      <td>1.84</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Oct</td>
+      <td>33.274</td>
+      <td>Fall</td>
+      <td>1.31</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Nov</td>
+      <td>35.306</td>
+      <td>Fall</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Dec</td>
+      <td>21.336</td>
+      <td>Winter</td>
+      <td>0.84</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
 ## Group Values in Pandas Dataframes
 
-Another benefit of **pandas** dataframes is that you can group data using a shared common value and then summarize another column using those groups. To do this, you can use the following syntax: 
+Another benefit of **pandas** dataframes is that you can group data using a shared common value and then summarize the values in another column using those groups. 
+
+To do this, you can use the following syntax: 
 
 `dataframe.groupby(['label_column'])[["value_column"]].method()`
 
-in which the `label_column` is the column that will create the groups and the `value_column` is the column that will be summarized for each group. 
+in which the `label_column` is the column is used to create the groups and the `value_column` is the column that will be summarized for each group. 
 
 For example, you could group the example dataframe by the `seasons` and then run the `describe()` method on `precip`. This would run `.describe()` on the precipitation values for each season as a grouped dataset.
 
@@ -984,7 +1259,7 @@ avg_monthly_precip_median
 
 Note the structure of the new dataframe. Does it look different than other dataframes you have seen?
 
-When you run the `.info()` on this new dataframe, you will see that the index is now the season names, which you recall means that `seasons` is no longer a column.
+When you run the `.info()` on this new dataframe, you will see that the index is now the season names, which means that `seasons` is no longer a column.
 
 {:.input}
 ```python
@@ -1001,7 +1276,7 @@ avg_monthly_precip_median.info()
 
 
 
-To avoid setting a new index, you can add a Boolean value of False for the parameter `as_index` of `groupby()` to keep the original index.
+To avoid setting a new index when running summary statistics such as `median()`, you can add a Boolean value of False for the parameter `as_index` of `groupby()` to keep the original index.
 
 {:.input}
 ```python
@@ -1070,22 +1345,23 @@ avg_monthly_precip_median
 
 ## Reset Index of Pandas Dataframes
 
-After creating a new dataframe using `groupby()`, you can also easily reset the index back to the original index by using the syntax: 
+You can also easily reset the index of any dataframe back to a range index (i.e. starting at [0]) as needed using the syntax:
 
 `dataframe.reset_index(inplace=True)`
 
 The `inplace=True` tells the method `reset_index` to replace the named dataframe with the reset. 
 
-For example, running this syntax on `avg_monthly_precip_median` will set the index to original values (i.e. starting at [0], rather than using the season name) and reset `seasons` as a column in the dataframe.
+Running this syntax on any dataframe will reset the index to a range index (i.e. starting at [0]). 
 
-Now the data is back to a familiar format but retains the values calculated with `groupby()`.
+In the example below, the index is reset back to a range index starting at [0], rather than using the season name.
 
 {:.input}
 ```python
-# Reset index 
-avg_monthly_precip_median.reset_index(inplace=True)
+# Save summary stats of precip for each season to dataframe
+avg_monthly_precip_stats = avg_monthly_precip.groupby(
+                                ["seasons"])[["precip"]].describe()
 
-avg_monthly_precip_median
+avg_monthly_precip_stats
 ```
 
 {:.output}
@@ -1103,43 +1379,87 @@ avg_monthly_precip_median
         vertical-align: top;
     }
 
-    .dataframe thead th {
+    .dataframe thead tr th {
+        text-align: left;
+    }
+
+    .dataframe thead tr:last-of-type th {
         text-align: right;
     }
 </style>
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
+    <tr>
       <th></th>
-      <th>index</th>
+      <th colspan="8" halign="left">precip</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+    <tr>
       <th>seasons</th>
-      <th>precip</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>0</td>
       <td>Fall</td>
+      <td>3.0</td>
+      <td>38.438667</td>
+      <td>7.257173</td>
+      <td>33.274</td>
+      <td>34.290</td>
       <td>35.306</td>
+      <td>41.021</td>
+      <td>46.736</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>1</td>
       <td>Spring</td>
+      <td>3.0</td>
+      <td>66.294000</td>
+      <td>16.787075</td>
+      <td>46.990</td>
+      <td>60.706</td>
       <td>74.422</td>
+      <td>75.946</td>
+      <td>77.470</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>2</td>
       <td>Summer</td>
+      <td>3.0</td>
+      <td>47.159333</td>
+      <td>5.329967</td>
+      <td>41.148</td>
+      <td>45.085</td>
       <td>49.022</td>
+      <td>50.165</td>
+      <td>51.308</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>3</td>
       <td>Winter</td>
+      <td>3.0</td>
+      <td>19.388667</td>
+      <td>1.802028</td>
+      <td>17.780</td>
+      <td>18.415</td>
       <td>19.050</td>
+      <td>20.193</td>
+      <td>21.336</td>
     </tr>
   </tbody>
 </table>
@@ -1148,5 +1468,111 @@ avg_monthly_precip_median
 
 
 
+
+{:.input}
+```python
+# Reset index 
+avg_monthly_precip_stats.reset_index(inplace=True)
+
+avg_monthly_precip_stats
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>seasons</th>
+      <th colspan="8" halign="left">precip</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Fall</td>
+      <td>3.0</td>
+      <td>38.438667</td>
+      <td>7.257173</td>
+      <td>33.274</td>
+      <td>34.290</td>
+      <td>35.306</td>
+      <td>41.021</td>
+      <td>46.736</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Spring</td>
+      <td>3.0</td>
+      <td>66.294000</td>
+      <td>16.787075</td>
+      <td>46.990</td>
+      <td>60.706</td>
+      <td>74.422</td>
+      <td>75.946</td>
+      <td>77.470</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Summer</td>
+      <td>3.0</td>
+      <td>47.159333</td>
+      <td>5.329967</td>
+      <td>41.148</td>
+      <td>45.085</td>
+      <td>49.022</td>
+      <td>50.165</td>
+      <td>51.308</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Winter</td>
+      <td>3.0</td>
+      <td>19.388667</td>
+      <td>1.802028</td>
+      <td>17.780</td>
+      <td>18.415</td>
+      <td>19.050</td>
+      <td>20.193</td>
+      <td>21.336</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+Note in this example that the dataframe is back to a familiar format with a range index starting at `[0]`, but also retains the values calculated with `groupby()`.
 
 You have now learned how to run calculations and summary statistics on columns in **pandas** dataframes. On the next page, you will learn various ways to select data from **pandas** dataframes, including indexing and filtering of values.

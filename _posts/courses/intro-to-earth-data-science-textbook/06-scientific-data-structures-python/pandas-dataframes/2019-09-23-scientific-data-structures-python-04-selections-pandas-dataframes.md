@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/
 nav-title: "Select Data From Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-11
+modified: 2019-10-12
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -734,15 +734,15 @@ avg_monthly_precip_index.loc[["Aug"]]
 
 
 
-## Filter Data Values Using Specific Criteria
+## Select Data Using Columns
 
-In addition to location-based and label-based indexing, you can also select data from **pandas** dataframes by filtering for specific values. 
+In addition to location-based and label-based indexing, you can also select data from **pandas** dataframes by selecting entire columns using the column names. 
 
 For example, you can select all data from a specific column in a **pandas** dataframe using: 
 
 `dataframe["column"]`
 
-which provides the data from the column as a **pandas** series, which is a one-dimensional array. This series is useful for selecting columns for plotting using **matplotlib**. 
+which provides the data from the column as a **pandas** series, which is a one-dimensional array. A **pandas** series is useful for selecting columns for plotting using **matplotlib**. 
 
 {:.input}
 ```python
@@ -777,7 +777,7 @@ You can also specify that you want an output that is also a **pandas** dataframe
     
 `dataframe[["column"]]`    
 
-which includes a second set of brackets to indicate that the output should be a **pandas** dataframe. 
+which includes a second set of brackets `[]` to indicate that the output should be a **pandas** dataframe. 
 
 {:.input}
 ```python
@@ -982,9 +982,9 @@ avg_monthly_precip_text
 
 
 
-### Filter Data Using Specific Values
+## Filter Data Using Specific Values
 
-You can also select or filter data based on specific values within a column using:
+In addition to location-based and label-based indexing, you can select or filter data based on specific values within a column using:
     
 `dataframe[dataframe["column"] == value]`
 
