@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/
 nav-title: "GitHub for Collaboration"
 dateCreated: 2019-10-02
-modified: 2019-10-14
+modified: 2019-10-18
 module-title: 'GitHub for Collaboration'
 module-nav-title: 'GitHub for Collaboration'
 module-description: 'GitHub is a website that supports git version control and also collaborative project management. Learn how to use git and GitHub to collaborate on projects in support of reproducible open science.'
@@ -183,18 +183,8 @@ pieces of the pull request workflow. To break it down, it looks something like t
 
 All of the above steps may be repeated over and over through time, as issues are identified and contributors submit changes. 
 
-This is the open source collaborative software
-workflow and a workflow that many use to manage **GitHub** projects in general.
+This is the open source collaborative software workflow and a workflow that many use to manage **GitHub** projects in general.
 
-In this chapter, you will first learn about and practice submitting pull requests.
-In the second half of the chapter, you will be exposed to the full open source
-collaboration workflow.
-
-> TODO Put together an overview of what a pull request workflow looks like. add graphics. Posted on slack for ally to work on - note this graphic doesn't have to be done for this page to be published.
+In this chapter, you will first learn about and practice submitting pull requests to update repositories. In the second half of the chapter, you will be exposed to the full open source collaboration workflow, including the use of issues.
 
 
-
-
-## GitHub Open Source Collaboration and Project Management  - A Case Study
-
-Add a story here about a person is working with a colleague and a group and wanted to update some things... use that story throughout the chapter.
