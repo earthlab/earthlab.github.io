@@ -41,7 +41,9 @@ with the central repo will reduce the risk of merge conflicts (a topic that you 
 
 ### Syncing Your GitHub Repo Reduces the Chances of a Merge Conflict
 
-A merge conflict occurs when two people edit the same line in a file. **Git** does not know how to resolve the conflict (i.e. which changes to keep and which to remove). When **git** does not know how to resolve a conflict, it will ask you to manually fix the conflict. If you sync your files regularly, you will ultimately reduce the risk of a merge conflict.
+A merge conflict occurs when two people edit the same line in a file. **Git** does not know how to resolve the conflict (i.e. which changes to keep and which to remove). 
+
+When **git** does not know how to resolve a conflict, it will ask you to manually fix the conflict. If you sync your files regularly, you will ultimately reduce the risk of a merge conflict.
 
 
 ### An Example Workflow Where Syncing Is Important
@@ -61,12 +63,12 @@ to the code and files that have been made to the parent repo.
 </figure>
 
 
-## Two Ways to Sync A Repo - Command Line and on the Github Website
+## Two Ways to Sync A Repo - Command Line and on GitHub
 
 There are a few ways to update or sync your repo with the central repo (e.g. your colleague's repo).
 
 1. You can perform a "Reverse Pull Request" on GitHub. A reverse pull request will follow the same steps as a regular pull request. However, in this case, your fork becomes the **base** and your colleague's repo is the **head**. If you update your fork this way, you will then have to PULL your changes down to your local clone of the repo (on your computer) where you are working.  
-2. You can manually set or pull down changes from the central repo to your clone locally. This can be done in the Terminal. When you update your local clone, you will then need to push the changes or commits back up to your fork on **Github.com**.
+2. You can manually set or pull down changes from the central repo to your clone locally. This can be done in the Terminal. When you update your local clone, you will then need to push the changes or commits back up to your fork on **GitHub.com**.
 
 This lesson will focus on syncing your fork using a reverse pull request approach on **GitHub.com.**
 
@@ -86,20 +88,20 @@ To sync your forked repo with the parent or central repo you:
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-sync-repo.gif">
- <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-sync-repo.gif" alt="An animated gif showing you how to sync a GitHub repo on GitHub.com. Note that you can also sync individual branches within a repo using this same approach."></a>
- <figcaption>An animated gif showing you how to sync a GitHub repo on GitHub.com. In this case, the user lwasser is updating her fork of the abc-classroom repo from the earthlab/abc-classroom repo. Note that the fork is the base (the repo being updated). The earthlab owned repo is teh head. You can also sync individual branches within a repo using this same approach.
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/github-sync-repo.gif" alt="An animated gif showing you how to sync a GitHub repo on GitHub.com. Note that the fork is the base (the repo being updated). The earthlab owned repo is the head. You can also sync individual branches within a repo using this same approach."></a>
+ <figcaption>An animated gif showing you how to sync a GitHub repo on GitHub.com. In this case, the user lwasser is updating her fork of the abc-classroom repo from the earthlab/abc-classroom repo. Note that the fork is the base (the repo being updated). The earthlab owned repo is the head. You can also sync individual branches within a repo using this same approach.
  </figcaption>
 </figure>
 
 
 ## How To Sync or Update Your Forked Repo Using the Github Website
 
-To update your fork on **GitHub.com**, navigate in your web browser to the main **GitHub.com** page of your forked repository: `https://github.com/your-username/example-repository`.
+To update your fork on **GitHub.com**, navigate in your web browser to the main **GitHub.com** page of your forked repository (e.g. `https://github.com/your-username/example-repository` if you <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/#create-a-copy-of-other-users-files-on-githubcom-forking">created a fork</a> in previous chapter on version control with git).
 
 On this web page, create a pull request by following these steps:
 1. Click on the `New pull request` button to begin the pull request.
 2. On the new page, choose your fork as the **base fork** and the original repository (e.g. your colleague's repo) as the **head fork**.
-    * **IMPORTANT: You need to click on the text `compare across forks` to be able to select both the base and head forks appropriately.**
+    * **IMPORTANT:** You need to click on the text `compare across forks` to be able to select the base and head forks appropriately.
 4. Then, click on `Create pull request`.
 5. On the new page, click on `Create pull request` once more to finish creating the pull request.
 
@@ -135,25 +137,26 @@ changes that you have just merged into your fork.
  </figcaption>
 </figure>
 
-If you update your fork on **GitHub.com**, you then need to update your files locally. The steps to do that are below.
+When you update your fork using a reverse pull request on **GitHub.com**, you then need to update your files locally. The steps to do that are below.
 
 ### How to Update Your Local Clone
 
-Once you have synced your fork on **GitHub.com**, you are ready to update your cloned repo on your local computer.
+Once you have synced (i.e. updated) your fork on **GitHub.com**, you are ready to update your cloned repo on your local computer.
 
-To pull down (i.e. copy) the changes merged into your synced fork, you can use the Terminal and the `git pull` command.
+To pull down (i.e. copy) the changes merged into your fork, you can use the Terminal and the `git pull` command.
 
 To begin:
 
 1. On your local computer, navigate to your forked repo directory.
-2. Once you have changed directories to the forked repo directory, run the commang `git pull`.
+2. Once you have changed directories to the forked repo directory, run the command `git pull`.
 
 The code that you type into the terminal might look something like the example
 below:
 
 ```bash
-$ cd path/to/your/repo/here/repo-name
+$ cd path-to-repo/repo-name
 $ git pull
 ```
 
-You have now updated your local clone with the updates made to the original **GitHub** repository.
+You have now updated your local clone with the updates that you merged into your fork from original **GitHub** repository.
+

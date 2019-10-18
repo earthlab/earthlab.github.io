@@ -40,12 +40,13 @@ that is used in the open software community.
 
 After completing this chapter, you will be able to:
 
-* Explain what a pull request (PR) is and how PRs are used on **GitHub**. 
-* Explain what a **GitHub** issue is and explain how issues are used on **GitHub**. 
-* Create an issue in **GitHub**. 
-* Create a pull request in **GitHub**. 
-* Describe the open source software collaboration model as it is implemented on **GitHub**. 
 * Explain the difference between **git** and **GitHub**. 
+* Describe the open source software collaboration model as it is implemented on **GitHub**. 
+* Explain what a pull request (PR) is and how PRs are used on **GitHub**. 
+* Create a pull request in **GitHub**.
+* Explain what a **GitHub** issue is and explain how issues are used on **GitHub**. 
+* Create an issue in **GitHub**.  
+
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
@@ -114,7 +115,7 @@ on what items in the repository.
 
 Once an issue is defined (with requested
 changes to the code in your repo), you can then assign it to someone. At that point, you have documentation of who is working on what task. Finally,
-when the person assigned submits a pull request, they can link the pull request back to the
+when the person assigned an issue submits a pull request to address that issue, they can link the pull request back to the
 original issues.
 
 If you are familiar with IT (Information Technology) groups or computer help
@@ -127,8 +128,8 @@ chapter.
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow-neon.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow-neon.png" alt="In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes a bunch of changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request. Source: Colin Williams, NEON"></a>
-   <figcaption>In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes a bunch of changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request.  Source: Colin Williams, NEON
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-push-pull-flow-neon.png" alt="In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request. Source: Colin Williams, NEON"></a>
+   <figcaption>In a GitHub workflow, there is often a central repository. This is where the code or content maintainers keep the most up to date and 'live' versions of the code. Changes are suggested by users using a pull request workflow where someone makes changes in a fork and then suggests that the maintainers add those changes to the central repository using a pull request.  Source: Colin Williams, NEON
    </figcaption>
 </figure>
 
@@ -157,7 +158,7 @@ setup boards similar to a tool like Trello to manage pull requests and milestone
 who is working on what and associated deadlines. 
 
 These more advanced **GitHub** project management tools are not
-discussed in this chapter but you are encouraged to check them out if you are interested in using **GitHub** to manage your open science projects.
+discussed in this chapter, but you are encouraged to check them out if you are interested in using **GitHub** to manage your open science projects.
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/github-project-page.png">

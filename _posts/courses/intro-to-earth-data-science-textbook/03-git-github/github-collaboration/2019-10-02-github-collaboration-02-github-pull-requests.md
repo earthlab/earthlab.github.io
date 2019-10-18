@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/how-to-submit-pull-requests-on-github/
 nav-title: "GitHub Pull Requests"
 dateCreated: 2019-10-02
-modified: 2019-10-14
+modified: 2019-10-18
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 3
@@ -30,9 +30,9 @@ redirect_from:
 
 * Explain what a pull request is and how it can be used.
 * Explain the relationship between the head repository (e.g. a forked repository) and base (e.g. original repository or master branch) repository.
-* Submit a pull request of changes to a repository on **GitHub.com**.
 * Mention or call out someone to review your pull request on **GitHub** using @GitHubUsername.
 * Explain what a diff is in **GitHub**.
+* Submit a pull request of changes to a repository on **GitHub.com**.
 
 </div>
 
@@ -44,7 +44,7 @@ to a repository that are visible and can be easily reviewed.
 
 Pull requests are specific to **GitHub** and can be implemented in two ways:
 
-1. You submit changes to another repository based upon changes that you made to a fork of that repository.
+1. You submit changes to another repository based upon changes that you made to a fork (i.e. copy owned by you) of that repository.
 2. You submit changes to an existing repository using a branch (i.e. a copy of the master branch of repository). Branches are not discussed in this chapter but you will learn more about branches as you get into more advanced **GItHub** topics.
 
 ## Introduction to the Pull Request Workflow
@@ -53,7 +53,7 @@ For the purposes of this page, pretend that you are working with your colleague
 on a project. You have been asked to make some changes to a file called contributing.rst
 in your collaborator's repository. 
 
-A contributing.rst file is commonly used in open source projects on GitHub to outline the steps that users can follow to contribute to a project (see for example, the <a href="https://github.com/earthlab/earthpy/blob/master/CONTRIBUTING.rst">contributing.rst for earthpy</a>).  
+A contributing.rst file is commonly used in open source projects on GitHub to outline the steps that users can follow to contribute to a project (see for example, the <a href="https://github.com/earthlab/earthpy/blob/master/CONTRIBUTING.rst" target="_blank">contributing.rst for earthpy</a>).  
 
 Specifically, you have been asked to replace
 the word **earthpy** in the contributing.rst document in the repo with the word
@@ -61,11 +61,10 @@ the word **earthpy** in the contributing.rst document in the repo with the word
 
 To begin this task, you:
 
-1. <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/">Create a fork</a> of your colleague's repository. 
+1. <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/#create-a-copy-of-other-users-files-on-githubcom-forking">Create a fork</a> of your colleague's repository. 
 2. Clone that fork to your local computer and begin to work on the contributing.rst file in a text editor.
-3. When you are done editing the text file locally on your computer, you save the file and `git add` your changes.
-4. `git commit` the changes using git at the command line
-5. Finally, you `git push` those changes back up to your fork of your colleague's repository.
+3. When you are done editing the text file locally on your computer, you save the file and `git add` and `git commit` your changes using git.
+4. Finally, you `git push` those changes back up to your fork of your colleague's repository.
 
 Now, the changes are in your fork but you want to suggest those changes as updates to your colleague's repository. To do this, you submit a pull request with the changes to your colleague's repository.
 
@@ -98,12 +97,16 @@ to the file whereas red represents deletions.
 
 After you have submitted your PR, your colleague can review the changes. It is
 good practice to "mention" your colleague specifically when you submit your PR to
-ensure that they see it. You can do that by using `@their-github-username-here` in a
-comment in the PR (e.g. `@eastudent`). 
+ensure that they see it. 
+
+You can do that by using `@their-github-username-here` in a
+comment in the PR (e.g. `@eastudent` which will notify the GitHub user called eastudent). 
+
+Your colleague will review the changes.  If they would like a few additional changes, they will
+request changes. 
 
 Once your colleague is happy with the changes, then they
-will merge your PR. If they would like a few additional changes, they will
-request changes. This is the general PR workflow.
+will merge your PR. This is the general PR workflow.
 
 
 ## The Anatomy of a Diff (Difference Between Two Files)
@@ -114,9 +117,7 @@ As mentioned above, a diff represents differences between two files in **git**.
 character and line by line basis.
 
 So, pretend that the word "great" is spelled incorrectly in a file, and you wish
-to fix the spelling. The edit that you will make is:
-
-**graet** is changed to **great**
+to fix the spelling. The edit that you will make is: **graet** is changed to **great**
 
 The change above represents 2 character deletions and 2 additions.
 
@@ -154,15 +155,14 @@ that the owner of the original repository incorporate those changes using a pull
 ## Pull Request Terminology - Head vs. Base
 
 Consider the example above where you were submitting changes to the contributing.rst
-file in your colleague's repo. You are ready to make a pull request to the repo.  
+file in your colleague's repo. After pushing the changes to your fork, you are ready to make a pull request to your colleague's repo.  
 
 When submitting a pull request, you need to specify both where you'd like to
-suggest the changes (your colleague's repo) and where the changes are
-coming from (your repo). 
+suggest the changes (e.g. your colleague's repo) and where the changes are
+coming from (e.g. your fork). 
 
 There are two key terms that you should know to set this
-up in Github: **head** and **base**.
-
+up in Github: 
 * **Base**: Base is the repository that will be updated. Changes will be added to this repository via the pull request. Following the example above, the base repo is your colleague's repo.
 * **Head**: Head is the repository containing the changes that will be added to the base. Following the example above, this is your repository (your fork of your colleague's repo).
 
@@ -177,7 +177,7 @@ When you begin a pull request, the head and base will auto-populate. It may
 look something like this:
 
 * base fork: `your-colleagues-username/project-name`
-* head fork: `/your-username/project-name`
+* head fork: `your-username/project-name`
 
 Next, you will learn how to create a pull request in **GitHub**.
 
@@ -251,8 +251,7 @@ cleaning up what you can FIRST, before submitting the PR.
 
 ### Step 4 - Click on the Create New Pull Request Button
 
-The next step of the create PR process is to click the "Create Pull Request" button. Note that this button will NOT be available if you don't have
-any changes in your PR. 
+The next step of the create PR process is to click the "Create Pull Request" button. Note that this button will NOT be available if you have not made changes in your repo (e.g. fork). 
 
 Click the green “Create Pull Request” button to start your pull request. Once you do that, a title box and description box will be visible.
 
@@ -292,7 +291,7 @@ review your PR and may ask for changes. When they are happy with all of the chan
 ## How To Merge GitHub Pull Requests on GitHub
 
 After you have submitted your PR, someone who owns or manages the repo where you
-are submitting the PR will review it. At this point, they will either
+are submitting the PR will review it. At this point, they will either:
 
 1. suggest that you make some changes to the PR or
 2. merge the PR if they are happy with all of the changes that you made.
