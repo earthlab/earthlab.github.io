@@ -186,6 +186,13 @@ All of the above steps may be repeated over and over through time, as issues are
 
 This is the open source collaborative software workflow and a workflow that many use to manage **GitHub** projects in general.
 
+<figure>
+   <a href="{{ site.url }}/images/earth-analytics/git-version-control/overview-github-collaboration.png">
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/overview-github-collaboration.png" alt="GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request."></a>
+   <figcaption>GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request.
+   </figcaption>
+</figure>
+
 In this chapter, you will first learn about and practice submitting pull requests to update repositories. In the second half of the chapter, you will be exposed to the full open source collaboration workflow, including the use of issues.
 
 
