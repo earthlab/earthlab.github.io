@@ -5,7 +5,7 @@ excerpt: "When you are working on a forked GitHub repository you will need to up
 authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph']
 category: [courses]
 class-lesson: ['git-github-collaboration-tb']
-permalink: /courses/intro-to-earth-data-science/git-github/collaboration/update-github-repositories-with-changes-by-others/
+permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/update-github-repositories-with-changes-by-others/
 nav-title: "Sync GitHub Repos"
 dateCreated: 2019-09-06
 modified: 2019-10-18
