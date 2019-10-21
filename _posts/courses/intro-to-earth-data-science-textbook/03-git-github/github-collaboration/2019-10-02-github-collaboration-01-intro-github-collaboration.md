@@ -8,7 +8,7 @@ class-lesson: ['git-github-collaboration-tb']
 permalink: /courses/intro-to-earth-data-science/git-github/github-collaboration/
 nav-title: "GitHub for Collaboration"
 dateCreated: 2019-10-02
-modified: 2019-10-18
+modified: 2019-10-21
 module-title: 'GitHub for Collaboration'
 module-nav-title: 'GitHub for Collaboration'
 module-description: 'GitHub is a website that supports git version control and also collaborative project management. Learn how to use git and GitHub to collaborate on projects in support of reproducible open science.'
@@ -188,8 +188,8 @@ This is the open source collaborative software workflow and a workflow that many
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/overview-github-collaboration.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/overview-github-collaboration.png" alt="GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request."></a>
-   <figcaption>GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request.
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/overview-github-collaboration.png" alt="GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request. Source: Earth Lab, Alana Faller"></a>
+   <figcaption>GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request. Source: Earth Lab, Alana Faller
    </figcaption>
 </figure>
 
