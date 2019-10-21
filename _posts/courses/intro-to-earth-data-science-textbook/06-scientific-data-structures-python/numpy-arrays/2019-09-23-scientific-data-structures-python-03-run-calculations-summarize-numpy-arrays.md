@@ -62,6 +62,12 @@ et.data.get_data(url=precip_2002_2013_url)
 ```
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/12565616
+    Downloading from https://ndownloader.figshare.com/files/12707792
+
+
+
+{:.output}
 {:.execute_result}
 
 
@@ -213,9 +219,6 @@ Or, if you do not need to retain the original **numpy** array, you can use an as
 ```python
 # Check the original values
 print(avg_monthly_precip)
-
-# Use assignment operator to convert values from in to mm
-avg_monthly_precip *= 25.4
 ```
 
 {:.output}
@@ -225,6 +228,9 @@ avg_monthly_precip *= 25.4
 
 {:.input}
 ```python
+# Use assignment operator to convert values from in to mm
+avg_monthly_precip *= 25.4
+
 # Print new values
 print(avg_monthly_precip)
 ```
@@ -241,9 +247,6 @@ These arithmetic calculations will work on any **numpy** array, including two-di
 ```python
 # Check the original values
 print(precip_2002_2013)
-
-# Use assignment operator to convert values from in to mm
-precip_2002_2013 *= 25.4
 ```
 
 {:.output}
@@ -254,6 +257,9 @@ precip_2002_2013 *= 25.4
 
 {:.input}
 ```python
+# Use assignment operator to convert values from in to mm
+precip_2002_2013 *= 25.4
+
 # Print new values
 print(precip_2002_2013)
 ```
