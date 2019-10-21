@@ -4,7 +4,7 @@ title: "Introduction to Plotting in Python Using Matplotlib"
 excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to create plots using the matplotlib object oriented approach.'
 authors: ['Jenny Palomino', 'Leah Wasser']
 dateCreated: 2019-09-11
-modified: 2019-10-09
+modified: 2019-10-21
 module-title: 'Introduction to Plotting with Matplotlib'
 module-nav-title: 'Intro to Plotting with Matplotlib'
 module-description: 'Matplotlib is the most commonly used plotting library in Python. Learn how to get started with creating and customizing plots using matplotlib.'
@@ -66,20 +66,19 @@ There are two primary objects associated with a **matplotlib** plot:
 
 You can think of the figure object as your plot canvas. You can think about the axis object as an individual plot. 
 
-A figure can hold one or more axis objects. This structure allows you to create plots with one or more axes on them.
+A figure can hold one or more axis objects. This structure allows you to create figures with one or more plots on them.
 
 <figure>
- <a href="https://files.realpython.com/media/fig_map.bc8c7cabd823.png">
- <img src="https://files.realpython.com/media/fig_map.bc8c7cabd823.png" alt="A figure created using matplotlib can contain many plots, or axes. Source: Real Python."></a>
- <figcaption> A figure created using matplotlib can contain many plots, or axes. Source: <a href="https://files.realpython.com/media/fig_map.bc8c7cabd823.png" target="_blank">Real Python</a>.
+ <a href="{{ site.url }}/images/earth-analytics/plot-data/fig-1-plot.png">
+ <img src="{{ site.url }}/images/earth-analytics/plot-data/fig-1-plot.png" alt="A figure created using matplotlib can contain one or many plots, or axis objects. Source: Earth Lab, Alana Faller"></a>
+ <figcaption> A figure created using matplotlib can contain one or many plots, or axis objects. Source: Earth Lab, Alana Faller
  </figcaption>
 </figure>
 
 
 While **Matplotlib** contains many modules that provide different plotting functionality, the most commonly used module is <a href="https://matplotlib.org/api/index.html#the-pyplot-api" target="_blank">**pyplot**</a>. 
 
-Pyplot provides methods that can be used to add different components to `figure` objects, including creating the individual plots as `axis` objects, also known as subplots.
-
+**Pyplot** provides methods that can be used to add different components to `figure` objects, including creating the individual plots as `axis` objects, also known as subplots.
 
 The **pyplot** module is typically imported using the alias `plt` as demonstrated below.
 
@@ -148,6 +147,21 @@ fig, ax = plt.subplots(figsize = (10, 6))
 ## Multi-plot Figures
 
 Using matplotlib's object-oriented approach makes it easier to include more than one plot in a figure by creating additional `axis` objects. 
+
+<figure>
+ <a href="{{ site.url }}/images/earth-analytics/plot-data/fig-2-plots.png">
+ <img src="{{ site.url }}/images/earth-analytics/plot-data/fig-2-plots.png" alt="A figure created using matplotlib can contain many plots, or axis objects. Source: Earth Lab, Alana Faller"></a>
+ <figcaption> A figure created using matplotlib can contain many plots, or axis objects. Source: Earth Lab, Alana Faller
+ </figcaption>
+</figure>
+
+<figure>
+ <a href="{{ site.url }}/images/earth-analytics/plot-data/fig-4-plots.png">
+ <img src="{{ site.url }}/images/earth-analytics/plot-data/fig-4-plots.png" alt="When creating a figure with multiple axis objects, you can arrange the plots across multiple rows and columns. Source: Earth Lab, Alana Faller"></a>
+ <figcaption> When creating a figure with multiple axis objects, you can arrange the plots across multiple rows and columns. Source: Earth Lab, Alana Faller
+ </figcaption>
+</figure>
+
 
 When adding more than one `axis` object, it is good practice to give them distinct names (such as `ax1` and `ax2`), so you can easily work with each `axis` individually.
 
