@@ -188,8 +188,8 @@ This is the open source collaborative software workflow and a workflow that many
 
 <figure>
    <a href="{{ site.url }}/images/earth-analytics/git-version-control/overview-github-collaboration.png">
-   <img src="{{ site.url }}/images/earth-analytics/git-version-control/overview-github-collaboration.png" alt="GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request."></a>
-   <figcaption>GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request.
+   <img src="{{ site.url }}/images/earth-analytics/git-version-control/overview-github-collaboration.png" alt="GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request. Source: Earth Lab, Alana Faller"></a>
+   <figcaption>GitHub supports collaboration across multiple users working on related tasks within one repository. One way that GitHub supports this collaboration is through the use of forks (i.e. copies of a central repository that each user can use to work independently on tasks). After work is completed in a fork, a user can request to have their changes applied to the central repository using a pull request. Source: Earth Lab, Alana Faller
    </figcaption>
 </figure>
 
