@@ -103,6 +103,12 @@ et.data.get_data(url=precip_2002_2013_url)
 ```
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/12565616
+    Downloading from https://ndownloader.figshare.com/files/12707792
+
+
+
+{:.output}
 {:.execute_result}
 
 
@@ -408,7 +414,7 @@ You can use shortcuts to easily select an entire row or column by simply specify
 
 The output of these shortcuts will be one-dimensional arrays, which is very useful if you want to easily plot the data.  
 
-For example, you can use `[:, 0]` to select the entire first column of `precip_2002_2013`, which are all of the values for January (in the case in 2002 and 2013). 
+For example, you can use `[:, 0]` to select the entire first column of `precip_2002_2013`, which are all of the values for January (in this case, for 2002 and 2013). 
 
 {:.input}
 ```python
