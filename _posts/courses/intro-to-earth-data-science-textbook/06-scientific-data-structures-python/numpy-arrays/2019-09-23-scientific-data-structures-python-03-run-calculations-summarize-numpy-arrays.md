@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/run-calculations-summary-statistics-numpy-arrays/
 nav-title: "Recalculate and Summarize Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-09
+modified: 2019-10-21
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -60,6 +60,12 @@ et.data.get_data(url=monthly_precip_url)
 precip_2002_2013_url = 'https://ndownloader.figshare.com/files/12707792'
 et.data.get_data(url=precip_2002_2013_url)
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12565616
+    Downloading from https://ndownloader.figshare.com/files/12707792
+
+
 
 {:.output}
 {:.execute_result}
@@ -283,7 +289,7 @@ precip_list = [0.70, 0.75, 1.85, 2.93, 3.05, 2.02,
 precip_list *=  25.4
 ```
 
-You will receive an error that this type of operation is allowed on lists:
+You will receive an error that this type of operation is not allowed on lists:
 
 ```python
 TypeError: can't multiply sequence by non-int of type 'float'
@@ -297,7 +303,7 @@ As you can see, using **numpy** arrays makes it very easy to run calculations on
 
 Another useful feature of **numpy** arrays is the ability to run summary statistics (e.g. calculating averages, finding minimum or maximum values) across the entire array of values. 
 
-For example, you can use the `np.mean()` function in to calculate the average value across an array (e.g. `np.mean(array)`) or `np.median()` to identify the median value across an array (e.g. `np.median(array)`). 
+For example, you can use the `np.mean()` function to calculate the average value across an array (e.g. `np.mean(array)`) or `np.median()` to identify the median value across an array (e.g. `np.median(array)`). 
 
 {:.input}
 ```python
@@ -325,7 +331,7 @@ print("median average monthly precipitation:", median_avg_precip)
 
 
 
-It can useful to calculate both the mean and median of data, as sometimes the mean can be noticeably different from the median value (i.e. the middle value of the data at which exactly half of the values are lower or higher). This difference between the mean and median can occur when the data are skewed in one direction (e.g. skewed toward lower or higher values) or contain a few significant outliers (e.g. a few really low or really high values). 
+It can be useful to calculate both the mean and median of data, as sometimes the mean can be noticeably different from the median value (i.e. the middle value of the data at which exactly half of the values are lower or higher). This difference between the mean and median can occur when the data are skewed in one direction (e.g. skewed toward lower or higher values) or contain a few significant outliers (e.g. a few really low or really high values). 
 
 ### Find Other Summary Statistics Functions Including Minimum and Maximum Values
 
@@ -356,13 +362,13 @@ In the examples above, you calculated summary statistics (e.g. mean, min, max) o
 
 To calculate statistics on two-dimensional arrays, you can use the `axis` argument in the same functions (e.g. `np.max`) to specify which axis you would like to summarize: 
 * vertical axis downwards, summarizing across rows (`axis=0`)
-* hortizonal axis, summarizing across columns (`axis=1`)
+* hortizontal axis, summarizing across columns (`axis=1`)
 
 When using `axis=0` to calculate summary statistics, you are requesting the summary of each column across all rows of data.  For example, running `axis=0` on an array with 2 rows and 12 columns will result in an output with 12 values: one value summarized across 2 rows for each column in the array. There are 12 columns, and thus, 12 summary values. 
 
 When using `axis=1`, you are requesting the summary of each row across all columns of data. For example, running `axis=1` on an array with 2 rows and 12 columns will result in an output with 2 values: one value summarized across 12 columns for each row in the array. There are 2 rows, and thus, 2 summary values.
 
-To better understand the `axis` argument and the resulting output, it can help to see it on action such as in the examples below with real data. 
+To better understand the `axis` argument and the resulting output, it can help to see it in action such as in the examples below with real data. 
 
 ### Calculate Summary Statistics Across Rows
 

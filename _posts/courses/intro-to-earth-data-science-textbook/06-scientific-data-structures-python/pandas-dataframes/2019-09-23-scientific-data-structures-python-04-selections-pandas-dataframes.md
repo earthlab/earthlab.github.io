@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/
 nav-title: "Select Data From Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-14
+modified: 2019-10-21
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -112,6 +112,11 @@ avg_monthly_precip_url = "https://ndownloader.figshare.com/files/12710618"
 # Download file
 et.data.get_data(url=avg_monthly_precip_url)
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12710618
+
+
 
 {:.output}
 {:.execute_result}
@@ -549,7 +554,7 @@ avg_monthly_precip.iloc[:, 0:1]
 
 In addition to selecting data based on location, you can also select data based on labels. 
 
-To do this, you first create new index using a column of values that you want to use for organizing and querying your data. 
+To do this, you first create a new index using a column of values that you want to use for organizing and querying your data. 
 
 For example, you can create an index from a specific column of values using: 
 
@@ -667,7 +672,7 @@ avg_monthly_precip_index
 
 
 
-Test that `months` no longer functions as a column by atempting to select that column name:
+Test that `months` no longer functions as a column by attempting to select that column name:
 
 ```python
 avg_monthly_precip_index[["months"]]

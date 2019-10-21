@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/indexing-slicing-numpy-arrays/
 nav-title: "Slice Data From Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-09
+modified: 2019-10-21
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -408,20 +408,7 @@ You can use shortcuts to easily select an entire row or column by simply specify
 
 The output of these shortcuts will be one-dimensional arrays, which is very useful if you want to easily plot the data.  
 
-For example, you can use `[0, :]` to select the entire first row of `precip_2002_2013`, which are all of the monthly values for 2002. 
-
-{:.input}
-```python
-# Select 1st row
-print(precip_2002_2013[0, :])
-```
-
-{:.output}
-    [1.07 0.44 1.5  0.2  3.2  1.18 0.09 1.44 1.52 2.44 0.78 0.02]
-
-
-
-Or conversely, you can use `[:, 0]` to select the entire first column of `precip_2002_2013`, which are all of the values for January (in the case in 2002 and 2013). 
+For example, you can use `[:, 0]` to select the entire first column of `precip_2002_2013`, which are all of the values for January (in this case, for 2002 and 2013). 
 
 {:.input}
 ```python
@@ -431,6 +418,19 @@ print(precip_2002_2013[:, 0])
 
 {:.output}
     [1.07 0.27]
+
+
+
+Or conversely, you can use `[0, :]` to select the entire first row of `precip_2002_2013`, which are all of the monthly values for 2002. 
+
+{:.input}
+```python
+# Select 1st row
+print(precip_2002_2013[0, :])
+```
+
+{:.output}
+    [1.07 0.44 1.5  0.2  3.2  1.18 0.09 1.44 1.52 2.44 0.78 0.02]
 
 
 
@@ -450,6 +450,23 @@ print(precip_2002)
 {:.output}
     (12,)
     [1.07 0.44 1.5  0.2  3.2  1.18 0.09 1.44 1.52 2.44 0.78 0.02]
+
+
+
+To select rows, there is an even shorter shortcut - you can provide an index for the desired row by itself!
+
+{:.input}
+```python
+# Select 2nd row of data for 2013
+precip_2013 = precip_2002_2013[1]
+
+print(precip_2013.shape)
+print(precip_2013)
+```
+
+{:.output}
+    (12,)
+    [ 0.27  1.13  1.72  4.14  2.66  0.61  1.03  1.4  18.16  2.24  0.29  0.5 ]
 
 
 

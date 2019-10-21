@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/
 nav-title: "Python Packages"
 dateCreated: 2019-09-17
-modified: 2019-10-09
+modified: 2019-10-21
 module-title: 'Import and Install Python Packages for Earth Data Science'
 module-nav-title: 'Use Python Packages'
 module-description: 'The Python programming language provides many packages and libraries for working with scientific data. Learn how to import and install Python packages for earth data science.'
@@ -221,8 +221,8 @@ It is good practice to import all of the packages that you will need at the top 
 This allows anyone looking at your code to immediately know what packages they need to have installed in order to successfully run the code. This rule also follows the PEP 8 conventions for **Python** code.
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/python-interface/import_packages-first-cell.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/python-interface/import_packages-first-cell.png" alt= "Jupyter Notebook with the first code cell importing the numpy package (and many others) to be used with abbreviations or aliases (e.g. np)."></a>
+ <a href="{{ site.url }}/images/earth-analytics/jupyter-interface/import-packages-first-cell.png">
+ <img src="{{ site.url }}/images/earth-analytics/jupyter-interface/import-packages-first-cell.png" alt= "Jupyter Notebook with the first code cell importing the numpy package (and many others) to be used with abbreviations or aliases (e.g. np)."></a>
  <figcaption> Jupyter Notebook with the first code cell importing the numpy package (and many others) to be used with abbreviations or aliases (e.g. np for numpy).
  </figcaption>
 </figure>
