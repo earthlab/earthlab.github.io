@@ -44,7 +44,7 @@ Scientific data can come in a variety of file formats and types. In this textboo
 
 Plain text files simply list out the values on separate lines without any symbols or delimiters to indicate separate values. 
 
-For example, average monthly precipitation (inches) for Boulder, CO collected by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a> can be stored as a plain text file (.txt), with a separate line for each month's value. 
+For example, average monthly precipitation (inches) for Boulder, CO, collected by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a>, can be stored as a plain text file (.txt), with a separate line for each month's value. 
 
 ```python
 0.70
@@ -166,7 +166,7 @@ et.data.get_data(url=month_names_url)
 
 
 
-Next, download a .csv file that contains the monthly precipitation (inches) for Boulder, CO for the years 2002 and 2013, collected by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a>
+Next, download a .csv file that contains the monthly precipitation (inches) for Boulder, CO for the years 2002 and 2013, collected by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a>.
 
 {:.input}
 ```python
