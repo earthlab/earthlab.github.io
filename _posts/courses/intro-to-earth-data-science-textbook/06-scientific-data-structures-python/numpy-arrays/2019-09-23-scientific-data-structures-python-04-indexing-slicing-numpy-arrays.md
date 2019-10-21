@@ -93,11 +93,11 @@ import earthpy as et
 
 {:.input}
 ```python
-# Download data from URL to .txt with avg monthly precip data
+# Download .txt with avg monthly precip (inches)
 monthly_precip_url = 'https://ndownloader.figshare.com/files/12565616'
 et.data.get_data(url=monthly_precip_url)
 
-# Download data from URL to .csv of precip data for 2002 and 2013
+# Download .csv of precip data for 2002 and 2013 (inches)
 precip_2002_2013_url = 'https://ndownloader.figshare.com/files/12707792'
 et.data.get_data(url=precip_2002_2013_url)
 ```

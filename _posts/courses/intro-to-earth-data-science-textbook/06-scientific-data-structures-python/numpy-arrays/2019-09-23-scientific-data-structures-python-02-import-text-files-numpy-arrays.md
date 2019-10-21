@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/import-txt-csv-files-numpy-arrays/
 nav-title: "Import Data Into Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-09
+modified: 2019-10-21
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -44,7 +44,7 @@ Scientific data can come in a variety of file formats and types. In this textboo
 
 Plain text files simply list out the values on separate lines without any symbols or delimiters to indicate separate values. 
 
-For example, average monthly precipitation values for Boulder, CO can be stored as a plain text file (.txt), with a separate line for each month's value. 
+For example, average monthly precipitation (inches) for Boulder, CO, collected by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a>, can be stored as a plain text file (.txt), with a separate line for each month's value. 
 
 ```python
 0.70
@@ -102,7 +102,7 @@ You can use the function `data.get_data()` from the **earthpy** package (which y
 
 To use the function `et.data.get_data()`, you need to provide a parameter value for the `url`, which you define by providing a text string of the URL to the dataset.
 
-Begin by downloading a .txt file for average monthly precipitation for Boulder, CO from the following URL: 
+Begin by downloading a .txt file for average monthly precipitation (inches) for Boulder, CO collected by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a> from the following URL: 
 
 `https://ndownloader.figshare.com/files/12565616`
 
@@ -166,7 +166,7 @@ et.data.get_data(url=month_names_url)
 
 
 
-Next, download a .csv file that contains the monthly precipitation for Boulder, CO for the years 2002 and 2013. 
+Next, download a .csv file that contains the monthly precipitation (inches) for Boulder, CO for the years 2002 and 2013, collected by the <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank"> U.S. National Oceanic and Atmospheric Administration (NOAA)</a>.
 
 {:.input}
 ```python
