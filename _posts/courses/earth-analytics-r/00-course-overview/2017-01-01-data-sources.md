@@ -36,9 +36,9 @@ from international, national and even local groups.
 |Site Name / URL | Description|
 |---|
 | <a href="https://earthexplorer.usgs.gov/" target="_blank">Earth Explorer (USGS)</a> | A site managed by the USGS. Here you can find many different raster datasets including satellite remote sensing (MODIS, Landsat, and more). It is best to register for an account as then you can search by geographic extent. |
-| <a href="http://reverb.echo.nasa.gov/reverb/" target="_blank">NASA Reverb</a>| Lots of different NASA datasets; has some overlap with Earth Explorer.|
+| <a href="https://search.earthdata.nasa.gov/search" target="_blank">NASA Reverb</a>| Lots of different NASA datasets; has some overlap with Earth Explorer.|
 | <a href="http://www.opentopography.org" target="_blank">OpenTopography</a>| A great source for lidar remote sensing data (predominately) across the United states. |
-| <a href="http://nadp.sws.uiuc.edu/" target="_blank">NADP (National Atmospheric Deposition Program)</a> | The National Trends Network has weekly precipitation chemistry data, along with some basic meteorology (daily precip, phase, and perhaps temp) at a number of sites across the country. |
+| <a href="http://nadp.slh.wisc.edu/ntn/" target="_blank">NADP (National Atmospheric Deposition Program)</a> | The National Trends Network has weekly precipitation chemistry data, along with some basic meteorology (daily precip, phase, and perhaps temp) at a number of sites across the country. |
 
 
 ## International Sources
