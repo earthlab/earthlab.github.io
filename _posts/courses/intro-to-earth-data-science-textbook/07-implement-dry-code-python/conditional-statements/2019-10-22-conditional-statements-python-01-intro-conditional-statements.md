@@ -1,17 +1,17 @@
 ---
 layout: single
 title: 'Intro to Conditional Statements'
-excerpt: "Conditional statements support efficient code by executing code only when certain conditions are met. Learn about the structure of conditional statements in Python and how they can be used to write DRY (Don't Repeat Yourself) code in Python."
+excerpt: "Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn about the structure of conditional statements in Python and how they can be used to write DRY (Don't Repeat Yourself) code in Python."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-10-22
-modified: 2019-10-23
+modified: 2019-10-30
 module-title: 'Conditional Statements in Python'
 module-nav-title: 'Conditional Statements'
-module-description: 'Conditional statements support efficient code by executing code only when certain conditions are met. Learn how to use conditional statements to write DRY (Don't Repeat Yourself) code in Python.'
+module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write DRY (Don't Repeat Yourself) code in Python.'
 module-type: 'class'
 chapter: 17
 class-order: 1
@@ -37,8 +37,8 @@ In this chapter, you will learn about the structure of conditional statements in
 
 After completing this chapter, you will be able to:
 
-* Describe the syntax for conditional statements in **Python**.
 * Explain how conditional statements can be used to write DRY code in **Python**.
+* Describe the syntax for conditional statements in **Python**.
 * Write conditional statements in **Python** to control the flow of code. 
 
 
@@ -51,11 +51,11 @@ Be sure that you have completed the chapters on <a href="{{ site.url }}/courses/
 </div>
 
 
-## Don't Repeat Yourself: Remove Repetition in Your Code
+## Review of Don't Repeat Yourself (DRY) to Remove Repetition in Your Code
 
 ### Why Write Efficient, DRY (Don’t Repeat Yourself) Code
 
-In the first chapter of this textbook, you learned that one component of reproducibility is writing code that is easy to read. 
+In previous chapters of this textbook, you learned that one component of reproducibility is writing code that is easy to read. 
 
 If your code is easier to read, it will be easier for your future self to understand, and it will also be easier for your colleagues to work with and contribute to your code. 
 
@@ -80,7 +80,7 @@ By implementing DRY strategies for writing code, you can make your code:
 
 While there are many strategies for improving efficiency and removing repetition in code, three commonly used DRY strategies are conditional statements, loops, and functions.
 
-This chapter introduces conditional statements in **Python**, which can be used to improve code efficiency by executing code only when certain conditions are met.
+This chapter introduces conditional statements in **Python**, which can be used to control the flow of code by executing code only when certain conditions are met.
 
 ## Why Use Conditional Statements
 
@@ -95,7 +95,7 @@ For example, conditional statements can be used to check that a certain variable
 
 ## Structure of Conditional Statements
 
-A conditional statement uses a syntax structure based on `if` and `else` statements that define the potential actions that can be completed: 
+A conditional statement uses a syntax structure based on `if` and `else` statements that define the potential actions that can be completed based on whether the condition is true or not: 
 
 ```python
 if condition:
@@ -104,28 +104,46 @@ else:
     some other code here
 ```
 
-When the condition following the `if` is met, then a certain code will execute. When that condition is not met, then the code following the `else` will execute. For example:
+If the condition following the `if` is satisfied (i.e. results in a value of `True`), then a certain code will execute. If that condition is not met (i.e. results in a value of `False`), then the code following the `else` will execute. For example:
 
 ```python
 if condition:
-    print("Condition is true.")
+    print("Condition is true, which prints this statement.")
 else:
-    print("Condition is not true.")
+    print("Condition is false (i.e. not true), so a different statement is printed.")
 ```
 
-In conditional statements, it can be useful to include <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/">operators</a> to compare values, such as comparison operators (e.g. equal to `==`, less than `<`), membership operators (e.g. `in` or `not in`) and identity operators (e.g. `is`, `is not`). 
-
+In conditional statements, it can be useful to include <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/">operators</a>, such as comparison operators (e.g. equal to `==`, less than `<`) to compare values, membership operators (e.g. `in` or `not in`) to check for a specific value within an object such as list, and identity operators (e.g. `is`, `is not`) to check the definition of an object (e.g. `list`). 
 
 ## Compare Numeric Values Using Conditional Statements
 
-For example, you can use comparison operators to check the value of variable against some other value or variable. 
+You can use comparison operators (e.g.  equal to `==`, less than `<`)  to check the value of a variable against some other value or variable. 
+
+For example, you can check whether the value of a variable is equal (`==`) to a certain value. 
+
+{:.input}
+```python
+# Set x to 10
+x = 10
+
+# Compare x to 10
+if x == 10:
+    print("x is equal to 10.")    
+else:
+    print("x has a value of", x, "which is not equal to 10.")   
+```
+
+{:.output}
+    x is equal to 10.
+
+
 
 {:.input}
 ```python
 # Set x to 0
 x = 0
 
-# Print statement based on comparison of x to 10
+# Compare x to 10
 if x == 10:
     print("x is equal to 10.")    
 else:
@@ -137,33 +155,18 @@ else:
 
 
 
-{:.input}
-```python
-# Set x to 0
-x = 0
-
-# Print statement based on comparison of x to 10
-if x == 10:
-    print("x is equal to 10.")    
-else:
-    print("x has a value of", x, "which is not equal to 10.")   
-```
-
-{:.output}
-    x has a value of 0 which is not equal to 10.
-
-
+You can also use other comparison operators to check whether the value of variable is less than (`<`) or greater (`>`) than a certain value or another variable. 
 
 {:.input}
 ```python
 # Set x to 0
 x = 0
 
-# Print statement based on comparison of x to 10
+# Check whether x is less than 10
 if x < 10:
     print("x has a value of", x, "which is less than 10.")    
 else:
-    print("x has a value of", x, "which is not less than 10.")    
+    print("x has a value of", x, "which is greater than 10.")    
 ```
 
 {:.output}
@@ -173,33 +176,121 @@ else:
 
 {:.input}
 ```python
-# Now make x equal to 100
-x = 100
+# Create y equal to -10
+y = -10
 
-# Print statement based on comparison of x to 10
-if x < 10:
-    print("x has a value of", x, "which is less than 10.")
+# Check whether x is greater than y
+if x > y:
+    print("x has a value of", x, "which is greater than", y)
 else:
-    print("x has a value of", x, "which is not less than 10.") 
+    print("x has a value of", x, "which is less than", y) 
 ```
 
 {:.output}
-    x has a value of 100 which is not less than 10.
+    x has a value of 0 which is greater than -10
 
 
-
-## Check Text Strings Using Conditional Statements
-
-You can use membership operators to also write conditional statements to identify keywords within a text string, such as the name of a variable. 
 
 {:.input}
 ```python
-# check if the text string "precip" in contained within the text string "avg_monthly_precip"
+# Set y equal to 100 
+y = 100
+
+# Check whether x is greater than y
+if x > y:
+    print("x has a value of", x, "which is greater than", y)
+else:
+    print("x has a value of", x, "which is less than", y) 
+```
+
+{:.output}
+    x has a value of 0 which is less than 100
+
+
+
+## Check For Values Using Conditional Statements
+
+You can use membership operators (e.g. `in` or `not in`) to write conditional statements to check whether certain values are contained within a data structure, such as a list, or even a text string. 
+
+{:.input}
+```python
+# Create list of average monthly precip (inches) in Boulder, CO
+avg_monthly_precip = [0.7,  0.75, 1.85, 2.93, 3.05, 2.02, 
+                      1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
+
+# Check for value 0.70 in list
+if 0.70 in avg_monthly_precip:
+    print("Value is in list.")
+else:     
+    print("Value is not in list.")
+```
+
+{:.output}
+    Value is in list.
+
+
+
+{:.input}
+```python
+# Check for value 0.71 in list
+if 0.71 in avg_monthly_precip:
+    print("Value is in list.")
+else:     
+    print("Value is not in list.")
+```
+
+{:.output}
+    Value is not in list.
+
+
+
+The condition above could also be checked in the opposite manner using `not in` to check that the value is not in the list:
+
+{:.input}
+```python
+# Check that value 0.71 not in list
+if 0.71 not in avg_monthly_precip:
+    print("Value is not in list.")
+else:     
+    print("Value is in list.")
+```
+
+{:.output}
+    Value is not in list.
+
+
+
+You can also use membership operators to check for specific words within a text string.
+
+{:.input}
+```python
+# Check for string "precip" within text string "avg_monthly_temp"
+if "precip" in "avg_monthly_temp":
+    print("This textstring contains the keyword: precip.")
+    
+else:
+    print("This textstring does not contain the keyword: precip.")
+```
+
+{:.output}
+    This textstring does not contain the keyword: precip.
+
+
+
+Note that with this syntax, you are simply checking whether one text string is contained within another text string.
+
+Thus, if you check for a specific text string within the name of an object, such as a list (e.g. `avg_monthly_precip`), you are not actually checking the values contained with the object.
+
+Instead, specifying the object name using quotations `""` (e.g. `"list_name"`) identifies that you are referring to the name as text string.  
+
+{:.input}
+```python
+# Check for string "precip" within text string "avg_monthly_precip"
 if "precip" in "avg_monthly_precip":
     print("This textstring contains the keyword: precip.")
     
 else:
-    print("This textstring does NOT contain the keyword: precip")
+    print("This textstring does not contain the keyword: precip.")
 ```
 
 {:.output}
@@ -207,67 +298,90 @@ else:
 
 
 
+Checking for specific text strings within the names of objects, such as lists or data structures, can be helpful when you have a long, automated workflow for which you want to execute code on only those objects that have a particular word in the name.
+
+## Check Object Type Using Conditional Statements  
+
+You can also identity operators (e.g. `is` or `is not`) to write conditional statements to check whether an object is of a certain type (e.g. `int`, `str`, `list`). 
+
 {:.input}
 ```python
-# check if the text string "precip" in contained within the text string "avg_monthly_temp"
-if "precip" not in "avg_monthly_temp":
-    print("This textstring does NOT contain the keyword: precip.")
-    
+# Set x to 0
+x = 0
+
+# Check if x is type integer
+if type(x) is int:
+    print(x, "is an integer.")
 else:
-    print("This textstring contains the keyword: precip.")
+    print(x, "is not an integer.")
 ```
 
 {:.output}
-    This textstring does NOT contain the keyword: precip.
-
-
-
-## Compare Object Type and Attributes Using Conditional Statements  
-
-Identify Operators in Conditional Statements
-
-Is
-Is not
-
-{:.input}
-```python
-avg_monthly_precip = [0.7,  0.75, 1.85, 2.93, 3.05, 2.02, 1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
-
-if type(avg_monthly_precip) is list:
-    print("")
-```
-
-{:.output}
-    
+    0 is an integer.
 
 
 
 {:.input}
 ```python
-months = ["Jan", "Feb", "Mar"]
+# Check if x is type float
+if type(x) is float:
+    print(x, "is a float.")
+else:
+    print(x, "is not a float.")
+```
 
+{:.output}
+    0 is not a float.
+
+
+
+{:.input}
+```python
+# Check if x is not type string
+if type(x) is not str:
+    print(x, "is not a string.")
+else:
+    print(x, "is a string.")
+```
+
+{:.output}
+    0 is not a string.
+
+
+
+With identity operators, you can also check that an object is a certain data structure, such as a list, and even compare its type to the type of another object. 
+
+{:.input}
+```python
+# Create list of abbreviated month names
+months = ["Jan", "Feb", "Mar", "Apr", "May", "June"
+         "July", "Aug", "Sept", "Oct", "Mov", "Dec"]
+
+if type(months) is list:
+    print("Object is a list.")
+else:
+    print("Object is not a list.")
+```
+
+{:.output}
+    Object is a list.
+
+
+
+{:.input}
+```python
+# Check that type of months matches type of avg_monthly_precip
 if type(avg_monthly_precip) is type(months):
-    print("")
+    print("These objects are of the same type.")
+else: 
+    print("These objects are not of the same type.")
 ```
 
 {:.output}
-    
+    These objects are of the same type.
 
 
 
-{:.input}
-```python
-import numpy as np
-avg_monthly_precip = np.array([0.7,  0.75, 1.85, 2.93, 3.05, 2.02, 1.93, 1.62, 1.84, 1.31, 1.39, 0.84])
+Note in the example above that you are not checking whether the objects are lists, but rather whether they are both of the same type. 
 
-type(avg_monthly_precip)
-
-if avg_monthly_precip.ndim is 1:
-    print("")
-```
-
-{:.output}
-    
-
-
-
+On the next pages of this chapter, you will learn how to write conditional statements that check for multiple conditions and how to apply conditional statements to **numpy** arrays and **pandas** dataframes. 
