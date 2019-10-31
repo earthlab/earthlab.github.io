@@ -104,24 +104,28 @@ else:
     some other code here
 ```
 
-If the condition provided with the `if` statement is satisfied (i.e. results in a value of `True`), then a certain code will execute. If that condition is not met (i.e. results in a value of `False`), then the code provided with the `else` statement will execute. For example:
+If the condition provided with the `if` statement is satisfied (i.e. results in a value of `True`), then a certain code will execute. If that condition is not met (i.e. results in a value of `False`), then the code provided with the `else` statement will execute. 
+
+For example:
 
 ```python
 if condition:
-    print("Condition is true, which prints this statement.")
+    print("Condition is true, and this statement is printed.")
 else:
     print("Condition is false (i.e. not true), so a different statement is printed.")
 ```
 
-To help you get familiar with conditional statements, the examples on this page are written to provide different `print` statements depending on whether the condition is satisfied. 
+### Indentation and Execution of Code Lines 
 
-However, note that the `print` code can be replaced by any code that will execute in **Python**. For example, you could choose to add values, select data, plot data, etc. depending on whether the condition is satisfied. 
+Note that the indentations for the code lines after `if` and `else` are an important part of the syntax of conditional statements. These indentations indicate which code should be executed with which statement, and they make the code easier to read. 
 
+In the examples above, the `print()` code can actually be replaced by any code that will execute in **Python**. For example, you could choose to add values, select data, plot data, etc. depending on whether the condition is satisfied. 
 
+To help you get familiar with conditional statements first, the examples on this page simply execute different `print` statements depending on whether the condition is satisfied. 
 
 ## Compare Numeric Values Using Conditional Statements
 
-You can use comparison operators (e.g.  equal to `==`, less than `<`)  to check the value of a variable against some other value or variable. 
+You can write conditional statements that use comparison operators (e.g.  equal to `==`, less than `<`)  to check the value of a variable against some other value or variable. 
 
 For example, you can check whether the value of a variable is equal (`==`) to a certain value. 
 
@@ -386,6 +390,6 @@ else:
 
 
 
-Note in the example above that you are not checking whether the objects are lists, but rather whether they are both of the same type. 
+Note in the example above that you are not checking whether the objects are lists, but rather whether they are both of the same type. Because both of the objects are indeed lists, the condition is satisfied.
 
 On the next pages of this chapter, you will learn how to write conditional statements that check for multiple conditions and how to apply conditional statements to **numpy** arrays and **pandas** dataframes. 
