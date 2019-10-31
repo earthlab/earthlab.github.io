@@ -35,6 +35,8 @@ redirect_from:
 
 In this chapter, you will learn about the structure of conditional statements in **Python** and how you can use them to write DRY (Don't Repeat Yourself) code in **Python**.  
 
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
 After completing this chapter, you will be able to:
 
 * Explain how conditional statements can be used to write DRY code in **Python**.
@@ -95,7 +97,7 @@ For example, conditional statements can be used to check that a certain variable
 
 ## Structure of Conditional Statements
 
-A conditional statement uses a syntax structure based on `if` and `else` statements that define the potential actions that can be completed based on whether the condition is true or not: 
+A conditional statement uses a syntax structure based on `if` and `else` statements (each ending with a colon `:`) that define the potential actions that can be completed based on whether the condition is true or not: 
 
 ```python
 if condition:

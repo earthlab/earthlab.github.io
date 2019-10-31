@@ -33,6 +33,7 @@ redirect_from:
 
 </div>
 
+
 ## Conditional Statements With Alternative Conditions
 
 On the previous page, you learned how to write conditional statements that check for one condition before executing some code: 
@@ -167,7 +168,7 @@ else:
 
 You can also apply the `elif` syntax to structure conditional statements that use other operators or check values for text strings or objects.  
 
-For example, you can check if a text string is contained within another text string and define a file name based on which condition is satisfied. 
+For example, you can check if a text string is contained within another text string and define a filename based on which condition is satisfied. 
 
 {:.input}
 ```python
