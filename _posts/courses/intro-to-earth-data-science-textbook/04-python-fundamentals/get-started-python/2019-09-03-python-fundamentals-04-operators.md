@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/
 nav-title: "Python Operators"
 dateCreated: 2019-07-01
-modified: 2019-10-23
+modified: 2019-10-31
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4
@@ -164,50 +164,6 @@ jan_precip * 25.4
 
 
 
-
-## Comparison Operators
-
-you will work with comparison operators, which allow you to compare values such as checking whether one value is greater than another (e.g. `>`). 
-
-With comparison operators, you can compare whether a value or variable is:
-
-* `>` greater than 
-* `>=` greater than or equal to
-* `<` less than
-* `<=` less than or equal to
-* `==` equal to
-* `=!` not equal to 
-
-another value or variable that follows the operator. 
-
-
-
-
-## Logical Operators
-
-In previous lessons, you used comparison operators, which allow you to compare values such as checking whether one value is greater than another (e.g. `<`, `>`). You also used assignment operators (e.g. `+=`), which allow you to set a variable to a new value based on an arithmetic operation or some other calculation.
-
-In this lesson, you will learn about another type of operator: logical. In conditional statements, logical operators are very useful for checking for multiple conditions as well as creating combinations of conditions to control the flow of code. 
-
-For example, you can use:
-
-* `and` to provide multiple conditions that all have to be met before executing code
-* `or` to provide multiple conditions, of which only one has to be met before executing code
-* `not` to execute code only if the stated condition is not met (note: you can use `not` in combination with `and` or `or` to check whether multiple conditions are not met)
-
-In this lesson, you will use these logical operators to write conditional statements that determine whether a specific combination of conditions is met before executing code. 
-
-
-
-
-## Identity Operators
-
-is
-is not
-
-## Membership Operators
-
-in, not in 
 
 ## Assignment Operators
 
