@@ -1,14 +1,14 @@
 ---
 layout: single
-title: 'Multiple Conditional Statements'
-excerpt: "Conditional statements can be used to control the flow of your code by executing code only when certain conditions are met. Learn how to write conditional statements in Python that combine conditions or to choose between alternative conditions."
+title: 'Conditional Statements with Alternative or Combined Conditions'
+excerpt: "Conditional statements in Python can be written to check for alternative conditions or combinations of multiple conditions. Learn how to write conditional statements in Python that choose betweeen alternative conditions or check for combinations of conditions before executing code."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['conditional-statements-tb']
-permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/multiple-conditions/
-nav-title: "Multiple Conditional Statements"
+permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/alternative-multiple-conditions/
+nav-title: "Alternative or Combined Conditional Statements"
 dateCreated: 2019-10-22
-modified: 2019-10-23
+modified: 2019-10-31
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -28,128 +28,321 @@ redirect_from:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* 
+* Describe the syntax for conditional statements with alternative conditions or combinations of conditions in **Python**.
+* Write conditional statements with alternative conditions or combinations of conditions in **Python**.
 
 </div>
 
-## Structure of Conditional Statements With Multiple Conditions
+## Conditional Statements With Alternative Conditions
 
+On the previous page, you learned how to write conditional statements that check for one condition before executing some code: 
 
-
-
-### Review Logical Operators
-
-
-
-For example, you can use:
-
-* `and` to provide multiple conditions that all have to be met before executing code
-* `or` to provide multiple conditions, of which only one has to be met before executing code
-* `not` to execute code only if the stated condition is not met (note: you can use `not` in combination with `and` or `or` to check whether multiple conditions are not met)
-
-In this lesson, you will use these logical operators to write conditional statements that determine whether a specific combination of conditions is met before executing code. 
-
-### Import Python Packages and Get Data
-
-Begin by importing the necessary **Python** packages and downloading and importing the data into **numpy** arrays. 
-
-As you learned previously in this chapter, you will use the **earthpy** package to download the data files, **os** to set the working directory, and **numpy** to import the data files into **numpy** arrays. 
-
-{:.input}
 ```python
-# Import necessary packages
-import os
-import numpy as np
-import earthpy as et
+if condition:
+    print("Condition is true.")
+else:
+    print("Condition is false (i.e. not true).")
 ```
 
-{:.input}
-```python
-# Download .txt with avg monthly precip (inches)
-monthly_precip_url = 'https://ndownloader.figshare.com/files/12565616'
-et.data.get_data(url=monthly_precip_url)
+You can expand on this syntax to check for an alternative condition with an `elif` statement, if the first condition is not satisfied. 
 
-# Download .csv of precip data for 2002 and 2013 (inches)
-precip_2002_2013_url = 'https://ndownloader.figshare.com/files/12707792'
-et.data.get_data(url=precip_2002_2013_url)
+If the first condition provided with the `if` statement is not satisfied (i.e. results in value of `False`) , then **Python** will check the condition provided with the `elif` statement.
+
+If the condition for `elif` is satisfied, then the code provided with it will execute.
+
+However, if neither the `if` nor `elif` conditions are satisfied, then the code provided with `else` will execute.
+
+
+```python
+if condition1:
+    print("Condition 1 is true.")
+elif condition 2:
+    print("Condition 1 is not true but condition 2 is true.")
+else:
+    print("Neither of these conditions is true.")
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12565616
-    Downloading from https://ndownloader.figshare.com/files/12707792
-
-
-
-{:.output}
-{:.execute_result}
-
-
-
-    '/root/earth-analytics/data/earthpy-downloads/monthly-precip-2002-2013.csv'
-
-
-
-
+Recall that the `print` code in the examples above can be replaced by any code that will execute in **Python**. 
+Check out the examples below to see `elif` in action and see how `print` statements can be replaced with other code.
 
 {:.input}
 ```python
-# Set working directory to earth-analytics
-os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
-```
+# Set x equal to 5 and y equal to 10
+x = 5
+y = 10
 
-{:.input}
-```python
-# Import average monthly precip to numpy array
-fname = "data/earthpy-downloads/avg-monthly-precip.txt"
-avg_monthly_precip = np.loadtxt(fname)
-
-print(avg_monthly_precip)
+# Execute code based on comparison of x to y
+if x < y:
+    print("x started with value of", x)
+    x += 5
+    print("It now has a value of", x, "which is equal to y.")
+elif x > y:
+    print("x started with value of", x)
+    x -= 5
+    print("It now has a value of", x, "which is equal to y.")
+else:
+    print("x started with a value of", x, "which is already equal to y.")
 ```
 
 {:.output}
-    [0.7  0.75 1.85 2.93 3.05 2.02 1.93 1.62 1.84 1.31 1.39 0.84]
+    x started with value of 5
+    It now has a value of 10 which is equal to y.
 
 
 
 {:.input}
 ```python
-# Import monthly precip for 2002 and 2013 to numpy array
-fname = "data/earthpy-downloads/monthly-precip-2002-2013.csv"
-precip_2002_2013 = np.loadtxt(fname, delimiter = ",")
+# Set x equal to 15 
+x = 15
 
-print(precip_2002_2013)
+# Execute code based on comparison of x to y
+if x < y:
+    print("x started with value of", x)
+    x += 5
+    print("It now has a value of", x, "which is equal to y.")
+elif x > y:
+    print("x started with value of", x)
+    x -= 5
+    print("It now has a value of", x, "which is equal to y.")
+else:
+    print("x started with a value of", x, "which is already equal to y.")
 ```
 
 {:.output}
-    [[ 1.07  0.44  1.5   0.2   3.2   1.18  0.09  1.44  1.52  2.44  0.78  0.02]
-     [ 0.27  1.13  1.72  4.14  2.66  0.61  1.03  1.4  18.16  2.24  0.29  0.5 ]]
+    x started with value of 15
+    It now has a value of 10 which is equal to y.
 
 
 
-## Combinations of Conditions
+In the first example, `x` is equal to a value less than `y`, so the first condition is satisfied. In the second example, `x` is equal to a value greater than `y`, so the first condition is no longer satisfied but the second condition is.
 
-You can also use multiple conditions to check for more than directory, such as checking for both the `data` directory and the `ea-bootcamp-day-5` directory. 
-
-Recall that you can combine multiple conditions using `and`, and that both conditions have to be true, in order to execute the code under `if`. 
-
-This means that only one condition has to fail, in order for the conditional statement to execute code under `else`. 
+However, if `x` is set to same value as `y`, neither the first nor second conditions are met, and the code provided with `else` is executed. 
 
 {:.input}
 ```python
-# Check if two files (or directories) exist
+# Set y equal to 15 
+x = 10
+
+# Execute code based on comparison of x to y
+if x < y:
+    print("x started with value of", x)
+    x += 5
+    print("It now has a value of", x, "which is equal to y.")
+elif x > y:
+    print("x started with value of", x)
+    x -= 5
+    print("It now has a value of", x, "which is equal to y.")
+else:
+    print("x started with a value of", x, "which is already equal to y.")
 ```
 
-You could also add `not` to check that items are not in a list before continuing. For example, you can check for some directories that should have been replaced or deleted. 
+{:.output}
+    x started with a value of 10 which is already equal to y.
 
 
 
-## Alternative Conditions
+You can apply the `elif` syntax to structure conditional statements that use other operators or check values for text strings or objects.  
+
+For example, you can check if a text string is contained within another text string and define a file name based on which condition is satisfied. 
+
+{:.input}
+```python
+# Set fname based on which text string contains "precip"
+if "precip" in "avg_monthly_temp":
+    fname = "avg_monthly_temp"
+    print(fname)
+elif "precip" in "avg_monthly_precip":
+    fname = "avg_monthly_precip"
+    print(fname)  
+else:
+    print("Neither textstring contains the word precip.")
+```
+
+{:.output}
+    avg_monthly_precip
+
+
+
+As another example, you can add values to a list depending on which condition is satisfied.
+
+In the example below, the first condition checks whether the last value of the list (using index `[-1]`) is equal to 0.84, the average precipitation value for December. 
+
+As the last value in the list is actually 1.39 for November, the second condition is checked and results in value of `True`.  The code provided for `elif` is executed, adding the value of December to the list. 
+
+{:.input}
+```python
+# List of average monthly precip (inches) in Boulder, CO without Dec value
+avg_monthly_precip = [0.7,  0.75, 1.85, 2.93, 3.05, 2.02, 
+                      1.93, 1.62, 1.84, 1.31, 1.39]
+
+# Add value to list depending on existing last value
+if avg_monthly_precip[-1] == 0.84:   
+    print(avg_monthly_precip[-1]) # Print last value in the list
+elif avg_monthly_precip[-1] == 1.39:   
+    avg_monthly_precip += [0.84] # Add Dec value
+    print(avg_monthly_precip)    
+else:     
+    print("The last item in the list is neither 0.84 nor 1.39.")
+```
+
+{:.output}
+    [0.7, 0.75, 1.85, 2.93, 3.05, 2.02, 1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
+
+
+
+## Conditional Statements With Combinations of Conditions
+
+Logical operators (e.g. `and`, `or`, `not`) allow you to create conditional statements that can check for combinations of conditions.  You can use:
+
+* `and` to execute code if all specified conditions have been met
+* `or` to execute code if at least one specified condition has been met 
+* `not` to execute code only if the specified condition has not been met (note that you can use `not` in combination with `and` or `or` to check whether multiple conditions are not met)
+
+### Check For Two Conditions Using `and`
+
+You can check for multiple conditions by including `and` between two conditions. If both conditions are true, then the code provided with the `if` statement is executed. 
+
+This means that only one condition has to fail, in order for the conditional statement to execute code provided with `else`. 
+
+```python
+# Check that both conditions are true
+if condition1 and condition2:
+    print("Conditions 1 and 2 are both true.")
+else:
+    print("One condition (either 1 or 2) is not true.")
+```
+
+For example, you can check whether two variables are both integers, and if so, then add them together. 
+
+{:.input}
+```python
+# Set x equal to 5 and y equal to 10
+x = 5
+y = 10
+
+# Add x and y if they are both integers
+if type(x) is int and type(y) is int:
+    print(x + y)
+else:
+    print("Either x or y is not an integer.")
+```
+
+{:.output}
+    15
 
 
 
 {:.input}
 ```python
-# Check if 
-# elif: 
-# else: 
+# Set x equal to 5 and y equal to text string
+x = 5
+y = "Some text"
+
+# Add x and y if they are both integers
+if type(x) is int and type(y) is int:
+    print(x + y)
+else:
+    print("Either x or y is not an integer.")
 ```
+
+{:.output}
+    Either x or y is not an integer.
+
+
+
+You can also check whether two objects are of the same type and length, such as two lists.
+
+{:.input}
+```python
+# Create list of abbreviated month names without Nov
+months = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+          "July", "Aug", "Sept", "Oct", "Nov"]
+
+# Length of avg_monthly_precip
+precip_len = len(avg_monthly_precip) 
+print(precip_len)
+
+# Length of months
+months_len = len(months)
+print(months_len)
+```
+
+{:.output}
+    12
+    11
+
+
+
+{:.input}
+```python
+# Check whether both type and length of avg_monthly_precip and months match
+if type(avg_monthly_precip) is type(months) and precip_len == months_len:
+    print("These objects are of the same type and have the same length.")
+else:
+    print("These objects are not of the same type or do not have same length.")
+```
+
+{:.output}
+    These objects are not of the same type or do not have same length.
+
+
+
+In the example above, the first condition is satisfied because both objects are lists. 
+
+However, the second condition is not satistifed because the `months` list is missing `Dec` (leaving it with only 11 values), and thus, the conditional statement executes the code provided with `else`.  
+
+
+### Check For At Least One Condition Using `or`
+
+You can check whether at least one condition is true by including `or` between two conditions. 
+
+Only one condition has to pass in order for the conditional statement to execute code provided with `if`. 
+
+```python
+# Check that at least one condition is true
+if condition1 or condition2:
+    print("Either condition 1 or 2 is true.")
+else:
+    print("Neither of these conditions is true.")
+```
+For example:
+
+{:.input}
+```python
+# Set x equal to 0 and y equal to 10
+x = 0
+y = 10
+
+# Check whether either is equal to zero
+if x == 0 or y == 0:
+    print("Either x or y is equal to 0.")
+else:
+    print("Neither x nor y is equal to 0.")
+```
+
+{:.output}
+    Either x or y is equal to 0.
+
+
+
+As another example, recall the conditional statement comparing the types and lengths of two lists. 
+
+The first condition is true, as both objects are lists, but the second condition is not true because the `months` list is missing `Dec` (leaving it with only 11 values). 
+
+By using the `or` statement, only one condition has to be true, in order for the `if` statement to be satisfied and for the code provided with `if` to execute. 
+
+{:.input}
+```python
+# Check match for either type and length of avg_monthly_precip and months
+if type(avg_monthly_precip) is type(months) or precip_len == months_len:
+    print("These objects have either the same type or length.")
+else:
+    print("These objects either do not have the same type or same length.")
+```
+
+{:.output}
+    These objects have either the same type or length.
+
+
+
+You have now learned how to control the flow of your code using conditional statements. In the next chapter, you will learn how to write loops, in order to execute a task multiple times without having to repeat the code. 

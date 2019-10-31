@@ -8,7 +8,7 @@ class-lesson: ['conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-10-22
-modified: 2019-10-30
+modified: 2019-10-31
 module-title: 'Conditional Statements in Python'
 module-nav-title: 'Conditional Statements'
 module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write DRY (Don't Repeat Yourself) code in Python.'
@@ -104,7 +104,7 @@ else:
     some other code here
 ```
 
-If the condition following the `if` is satisfied (i.e. results in a value of `True`), then a certain code will execute. If that condition is not met (i.e. results in a value of `False`), then the code following the `else` will execute. For example:
+If the condition provided with the `if` statement is satisfied (i.e. results in a value of `True`), then a certain code will execute. If that condition is not met (i.e. results in a value of `False`), then the code provided with the `else` statement will execute. For example:
 
 ```python
 if condition:
@@ -113,7 +113,11 @@ else:
     print("Condition is false (i.e. not true), so a different statement is printed.")
 ```
 
-In conditional statements, it can be useful to include <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/python-operators/">operators</a>, such as comparison operators (e.g. equal to `==`, less than `<`) to compare values, membership operators (e.g. `in` or `not in`) to check for a specific value within an object such as list, and identity operators (e.g. `is`, `is not`) to check the definition of an object (e.g. `list`). 
+To help you get familiar with conditional statements, the examples on this page are written to provide different `print` statements depending on whether the condition is satisfied. 
+
+However, note that the `print` code can be replaced by any code that will execute in **Python**. For example, you could choose to add values, select data, plot data, etc. depending on whether the condition is satisfied. 
+
+
 
 ## Compare Numeric Values Using Conditional Statements
 
@@ -266,14 +270,14 @@ You can also use membership operators to check for specific words within a text 
 ```python
 # Check for string "precip" within text string "avg_monthly_temp"
 if "precip" in "avg_monthly_temp":
-    print("This textstring contains the keyword: precip.")
+    print("This textstring contains the word precip.")
     
 else:
-    print("This textstring does not contain the keyword: precip.")
+    print("This textstring does not contain the word precip.")
 ```
 
 {:.output}
-    This textstring does not contain the keyword: precip.
+    This textstring does not contain the word precip.
 
 
 
@@ -287,14 +291,14 @@ Instead, specifying the object name using quotations `""` (e.g. `"list_name"`) i
 ```python
 # Check for string "precip" within text string "avg_monthly_precip"
 if "precip" in "avg_monthly_precip":
-    print("This textstring contains the keyword: precip.")
+    print("This textstring contains the word precip.")
     
 else:
-    print("This textstring does not contain the keyword: precip.")
+    print("This textstring does not contain the word precip.")
 ```
 
 {:.output}
-    This textstring contains the keyword: precip.
+    This textstring contains the word precip.
 
 
 
@@ -354,8 +358,8 @@ With identity operators, you can also check that an object is a certain data str
 {:.input}
 ```python
 # Create list of abbreviated month names
-months = ["Jan", "Feb", "Mar", "Apr", "May", "June"
-         "July", "Aug", "Sept", "Oct", "Mov", "Dec"]
+months = ["Jan", "Feb", "Mar", "Apr", "May", "June",
+         "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
 
 if type(months) is list:
     print("Object is a list.")
