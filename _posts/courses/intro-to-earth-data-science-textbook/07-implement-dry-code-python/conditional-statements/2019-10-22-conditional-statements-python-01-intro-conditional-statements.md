@@ -1,7 +1,7 @@
 ---
 layout: single
-title: 'Intro to Conditional Statements'
-excerpt: "Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn about the structure of conditional statements in Python and how they can be used to write DRY (Don't Repeat Yourself) code in Python."
+title: "Intro to Conditional Statements in Python"
+excerpt: "Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn about the structure of conditional statements in Python and how they can be used to write Don't Repeat Yourself, or DRY, code in Python."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-conditional-statements-tb']
@@ -11,7 +11,7 @@ dateCreated: 2019-10-22
 modified: 2019-11-01
 module-title: 'Introduction to Conditional Statements in Python'
 module-nav-title: 'Conditional Statements in Python'
-module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write DRY (Don't Repeat Yourself) code in Python.'
+module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write Don't Repeat Yourself, or DRY, code in Python.'
 module-type: 'class'
 class-order: 1
 chapter: 17
@@ -27,6 +27,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/conditional-statements/intro-conditional-statements/"
 ---
+
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
