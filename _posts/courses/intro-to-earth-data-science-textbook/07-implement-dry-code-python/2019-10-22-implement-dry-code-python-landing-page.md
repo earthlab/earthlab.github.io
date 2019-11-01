@@ -3,8 +3,8 @@ layout: single
 category: courses
 title: "Implement DRY Code in Python"
 permalink: /courses/intro-to-earth-data-science/dry-code-python/
-week-landing: 6
-modified: 2019-10-23
+week-landing: 7
+modified: 2019-11-01
 week: 7
 sidebar:
   nav:

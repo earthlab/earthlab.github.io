@@ -13,8 +13,8 @@ module-title: 'Introduction to Loops in Python'
 module-nav-title: 'Loops in Python'
 module-description: 'Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn how to write loops in Python to write DRY (Don't Repeat Yourself) code in Python.'
 module-type: 'class'
-chapter: 18
 class-order: 2
+chapter: 18
 course: "intro-to-earth-data-science-textbook"
 week: 7
 sidebar:
@@ -27,7 +27,6 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/loops/intro-loops/"
 ---
-
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">

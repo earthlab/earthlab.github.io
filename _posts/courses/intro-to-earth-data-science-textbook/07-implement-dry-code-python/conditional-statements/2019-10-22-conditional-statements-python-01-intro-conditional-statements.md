@@ -13,8 +13,8 @@ module-title: 'Introduction to Conditional Statements in Python'
 module-nav-title: 'Conditional Statements in Python'
 module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write DRY (Don't Repeat Yourself) code in Python.'
 module-type: 'class'
-chapter: 17
 class-order: 1
+chapter: 17
 course: "intro-to-earth-data-science-textbook"
 week: 7
 sidebar:
