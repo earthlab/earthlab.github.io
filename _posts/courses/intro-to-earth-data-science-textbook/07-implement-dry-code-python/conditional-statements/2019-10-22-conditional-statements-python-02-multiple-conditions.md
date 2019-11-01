@@ -6,7 +6,7 @@ authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/alternative-multiple-conditions/
-nav-title: "Alternative or Combined Conditional Statements"
+nav-title: "Alternative and Multiple Conditions"
 dateCreated: 2019-10-22
 modified: 2019-11-01
 module-type: 'class'

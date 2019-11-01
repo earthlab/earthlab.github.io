@@ -5,8 +5,8 @@ excerpt: "Loops can be used to automate data tasks in Python by iteratively exec
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-numpy-arrays']
-permalink: /courses/intro-to-earth-data-science/dry-code-python/loops/automate-tasks-with-loops/
-nav-title: "Loops To Automate Tasks"
+permalink: /courses/intro-to-earth-data-science/dry-code-python/loops/automate-data-tasks-with-loops/
+nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
 modified: 2019-11-01
 module-type: 'class'
