@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/loops/
 nav-title: "Intro to Loops"
 dateCreated: 2019-10-23
-modified: 2019-10-31
+modified: 2019-11-01
 module-title: 'Introduction to Loops in Python'
 module-nav-title: 'Loops'
 module-description: 'Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn how to write loops in Python to write DRY (Don't Repeat Yourself) code in Python.'
@@ -288,16 +288,17 @@ In the first example below, a list with 4 non-sequential values is created. The 
 # Create list of integers
 num_list = [12, 5, 136, 47]
 
-# For each item in list, print the value
+# For each item in list, add 10 and print new value
 for i in num_list:
+    i += 10
     print(i)    
 ```
 
 {:.output}
-    12
-    5
-    136
-    47
+    22
+    15
+    146
+    57
 
 
 
@@ -307,43 +308,47 @@ This is a unique characeteristic of `for` loops; the placeholder represents the 
 
 Thus, `i` is not an explicit variable, but rather a placeholder for the current item that the loop is working with in each iteration of the code.  
 
-This means that you could use any word or character to indicate the placeholder, with the exception of numeric values. You simply need to reuse that same word or character in the code lines that are being executed, in order to use the placeholder to access the items in the list. 
+This means that you could use any word or character to indicate the placeholder, with the exception of numeric values. 
+
+You simply need to reuse that same word or character in the code lines that are being executed, in order to use the placeholder to access the items in the list. 
 
 For example, the placeholder could be called `x`, or even something completely unrelated like `banana`. 
 
 {:.input}
 ```python
-# Create list of integers
+# Reset list of integers
 num_list = [12, 5, 136, 47]
 
-# For each item in list, print the value
+# For each item in list, add 10 and print new value
 for x in num_list:
+    x += 10
     print(x)   
 ```
 
 {:.output}
-    12
-    5
-    136
-    47
+    22
+    15
+    146
+    57
 
 
 
 {:.input}
 ```python
-# Create list of integers
+# Reset list of integers
 num_list = [12, 5, 136, 47]
 
-# For each item in list, print the value
+# For each item in list, add 10 and print new value
 for banana in num_list:
+    banana += 10
     print(banana)   
 ```
 
 {:.output}
-    12
-    5
-    136
-    47
+    22
+    15
+    146
+    57
 
 
 
@@ -394,7 +399,7 @@ months = ["Jan", "Feb", "Mar", "Apr", "May", "June",
          "July", "Aug", "Sept", "Oct", "Nov", "Dec"]
 
 # Create list of average monthly precip (inches) in Boulder, CO
-avg_monthly_precip = [0.7,  0.75, 1.85, 2.93, 3.05, 2.02, 
+avg_monthly_precip = [0.70,  0.75, 1.85, 2.93, 3.05, 2.02, 
                       1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
 
 # List of list names
@@ -455,6 +460,4 @@ for dlist in lists:
 
 `AttributeError: 'list' object has no attribute 'shape'`
 
-You have now learned about the basic types of loops in **Python** (`while` and `for`) and how to use the appropriate syntax to write and execute these loops. 
-
-In the rest of this chapter, you will learn how to automate data tasks using loops applied to data structures, such as **numpy** arrays and **pandas dataframes**. 
+In the rest of this chapter, you will continue to apply loops to data structures, including lists,**numpy** arrays and **pandas dataframes** and learn how to automate data tasks using loops.

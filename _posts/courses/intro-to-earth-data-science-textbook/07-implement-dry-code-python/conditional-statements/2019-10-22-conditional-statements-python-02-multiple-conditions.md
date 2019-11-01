@@ -8,7 +8,7 @@ class-lesson: ['conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/alternative-multiple-conditions/
 nav-title: "Alternative or Combined Conditional Statements"
 dateCreated: 2019-10-22
-modified: 2019-10-31
+modified: 2019-11-01
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -203,7 +203,7 @@ The code provided for `elif` is then executed, adding the value of December to t
 {:.input}
 ```python
 # List of average monthly precip (inches) in Boulder, CO without Dec value
-avg_monthly_precip = [0.7,  0.75, 1.85, 2.93, 3.05, 2.02, 
+avg_monthly_precip = [0.70,  0.75, 1.85, 2.93, 3.05, 2.02, 
                       1.93, 1.62, 1.84, 1.31, 1.39]
 
 # Add value to list depending on existing last value

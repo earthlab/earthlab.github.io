@@ -8,7 +8,7 @@ class-lesson: ['conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-10-22
-modified: 2019-10-31
+modified: 2019-11-01
 module-title: 'Conditional Statements in Python'
 module-nav-title: 'Conditional Statements'
 module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write DRY (Don't Repeat Yourself) code in Python.'
@@ -225,7 +225,7 @@ You can use membership operators (e.g. `in` or `not in`) to write conditional st
 {:.input}
 ```python
 # Create list of average monthly precip (inches) in Boulder, CO
-avg_monthly_precip = [0.7,  0.75, 1.85, 2.93, 3.05, 2.02, 
+avg_monthly_precip = [0.70,  0.75, 1.85, 2.93, 3.05, 2.02, 
                       1.93, 1.62, 1.84, 1.31, 1.39, 0.84]
 
 # Check for value 0.70 in list
