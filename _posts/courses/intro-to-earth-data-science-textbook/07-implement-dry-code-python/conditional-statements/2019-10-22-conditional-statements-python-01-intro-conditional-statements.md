@@ -4,7 +4,7 @@ title: 'Intro to Conditional Statements'
 excerpt: "Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn about the structure of conditional statements in Python and how they can be used to write DRY (Don't Repeat Yourself) code in Python."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
-class-lesson: ['conditional-statements-tb']
+class-lesson: ['intro-conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-10-22

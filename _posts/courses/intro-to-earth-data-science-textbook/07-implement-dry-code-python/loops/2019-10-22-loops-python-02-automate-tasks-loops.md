@@ -4,7 +4,7 @@ title: 'Automate Tasks With Loops in Python'
 excerpt: "Loops can be used to automate data tasks in Python by iteratively executing the same code on multiple data structures. Learn how to automate data tasks in Python using data structures such as lists, numpy arrays, and pandas dataframes."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
-class-lesson: ['intro-numpy-arrays']
+class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/loops/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23

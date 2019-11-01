@@ -4,7 +4,7 @@ title: 'Conditional Statements with Alternative or Combined Conditions'
 excerpt: "Conditional statements in Python can be written to check for alternative conditions or combinations of multiple conditions. Learn how to write conditional statements in Python that choose betweeen alternative conditions or check for combinations of conditions before executing code."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
-class-lesson: ['conditional-statements-tb']
+class-lesson: ['intro-conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/alternative-multiple-conditions/
 nav-title: "Alternative and Multiple Conditions"
 dateCreated: 2019-10-22

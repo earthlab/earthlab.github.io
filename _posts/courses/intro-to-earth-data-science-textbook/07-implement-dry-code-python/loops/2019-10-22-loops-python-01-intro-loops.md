@@ -4,7 +4,7 @@ title: 'Intro to Loops in Python'
 excerpt: "Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn about the basic types of loops in Python and how they can be used to write Don't Repeat Yourself (DRY) code in Python."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
-class-lesson: ['intro-numpy-arrays']
+class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/loops/
 nav-title: "Intro to Loops"
 dateCreated: 2019-10-23
@@ -27,6 +27,7 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-bootcamp/loops/intro-loops/"
 ---
+
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
