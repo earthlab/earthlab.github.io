@@ -11,14 +11,13 @@ dateCreated: 2019-10-23
 modified: 2019-11-01
 module-type: 'class'
 chapter: 18
-class-order: 2
 course: "intro-to-earth-data-science-textbook"
 week: 7
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 2
 topics:
   reproducible-science-and-programming: ['python']
 redirect_from:

@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Intro to Loops in Python"
-excerpt: "Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn about the basic types of loops in Python and how they can be used to write Don't Repeat Yourself, or DRY, code in Python."
+excerpt: "Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn about the basic types of loops in Python and how they can be used to write Do Not Repeat Yourself, or DRY, code in Python."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-loops-tb']
@@ -11,7 +11,7 @@ dateCreated: 2019-10-23
 modified: 2019-11-01
 module-title: 'Introduction to Loops in Python'
 module-nav-title: 'Loops in Python'
-module-description: 'Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn how to write loops in Python to write Don't Repeat Yourself, or DRY, code in Python.'
+module-description: 'Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn how to write loops in Python to write Do Not Repeat Yourself, or DRY, code in Python.'
 module-type: 'class'
 class-order: 2
 chapter: 18
