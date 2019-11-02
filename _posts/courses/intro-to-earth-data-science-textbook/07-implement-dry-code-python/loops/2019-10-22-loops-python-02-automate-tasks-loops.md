@@ -31,8 +31,9 @@ redirect_from:
 
 After completing this chapter, you will be able to:
 
-* Automate tasks with data structures such as lists, **numpy** arrays, and **pandas** dataframe.
+* Automate tasks using data structures such as lists, **numpy** arrays, and **pandas** dataframe.
 * Add the results of a loop to a new list. 
+* Automate data downloads with **earthpy**.
  
 </div>
 
@@ -648,6 +649,7 @@ for file_url in urls:
 ```
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/12565616
     Downloading from https://ndownloader.figshare.com/files/12707792
 
 
@@ -674,9 +676,11 @@ You can see that when using `et.data.get_data()` in a loop, you no longer get th
 
 However, you can use another function from the **os** package to list the contents (i.e. files and subdirectories) of a directory: `os.listdir()`. 
 
-Recall that by default, **earthpy** downloads files to a subdirectory called `earthpy-downloads` under the data directory in the `earth-analytics` directory (e.g. `earth-analytics/data/earthpy-downloads/`).
+Recall that by default, **earthpy** downloads files to a subdirectory called `earthpy-downloads` under the `data` directory in the `earth-analytics` directory (e.g. `earth-analytics/data/earthpy-downloads/`).
 
-With this knowledge, you can define a path to this directory and provide that path to the function `os.listdir()` to list out the contents of that directory, which now includes the files downloaded above. 
+With this knowledge, you can define a path to this directory and provide that path to the function `os.listdir()` to list out the contents of that directory. 
+
+The files that you downloaded with the loop above will be listed in the contents of the directory.
 
 {:.input}
 ```python
