@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/run-calculations-summary-statistics-numpy-arrays/
 nav-title: "Recalculate and Summarize Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-21
+modified: 2019-11-02
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -87,7 +87,9 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 {:.input}
 ```python
 # Import average monthly precip to numpy array
-fname = "data/earthpy-downloads/avg-monthly-precip.txt"
+fname = os.path.join("data", "earthpy-downloads",
+                     "avg-monthly-precip.txt")
+
 avg_monthly_precip = np.loadtxt(fname)
 
 print(avg_monthly_precip)
@@ -101,7 +103,9 @@ print(avg_monthly_precip)
 {:.input}
 ```python
 # Import monthly precip for 2002 and 2013 to numpy array
-fname = "data/earthpy-downloads/monthly-precip-2002-2013.csv"
+fname = os.path.join("data", "earthpy-downloads",
+                     "monthly-precip-2002-2013.csv")
+
 precip_2002_2013 = np.loadtxt(fname, delimiter = ",")
 
 print(precip_2002_2013)

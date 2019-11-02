@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/
 nav-title: "Select Data From Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-21
+modified: 2019-11-02
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -71,7 +71,7 @@ For example, you can create an index from a specific column of values, and then 
 
 ```python
 
-dataframe.setindex("column")
+dataframe.set_index("column")
 dataframe.loc["value"]
 ```
 
