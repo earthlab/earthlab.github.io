@@ -8,7 +8,7 @@ class-lesson: ['intro-conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-10-22
-modified: 2019-11-01
+modified: 2019-11-02
 module-title: 'Introduction to Conditional Statements in Python'
 module-nav-title: 'Conditional Statements in Python'
 module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write Do Not Repeat Yourself, or DRY, code in Python.'
@@ -393,5 +393,94 @@ else:
 
 
 Note in the example above that you are not checking whether the objects are lists, but rather whether they are both of the same type. Because both of the objects are indeed lists, the condition is satisfied.
+
+## Check Paths Using Conditional Statements
+
+You can also use conditional statements to check paths using a familiar function: `os.path.exists()`.
+
+In the example below, you will download a .txt file that contains the average monthly precipitation values for <a href="https://www.esrl.noaa.gov/psd/boulder/Boulder.mm.precip.html" target="_blank">Boulder, Colorado, provided by the U.S. National Oceanic and Atmospheric Administration (NOAA)</a>. 
+
+Begin by importing the necessary packages and writing the code needed to download the data (**earthpy**) and set the working directory (**os**). You will also use **numpy** package to import the data into a **numpy** array. 
+
+{:.input}
+```python
+# Import necessary packages
+import os
+import numpy as np
+import earthpy as et
+```
+
+{:.input}
+```python
+# Avg monthly precip (inches) of Boulder, CO for 1-d array
+avg_month_precip_url = 'https://ndownloader.figshare.com/files/12565616'
+et.data.get_data(url=avg_month_precip_url)
+```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12565616
+
+
+
+{:.output}
+{:.execute_result}
+
+
+
+    '/root/earth-analytics/data/earthpy-downloads/avg-monthly-precip.txt'
+
+
+
+
+
+{:.input}
+```python
+# Set working directory to earth-analytics
+os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
+```
+
+Next, define a relative path to the downloaded file, which you will use in the conditional statement. 
+
+{:.input}
+```python
+# Path relative to working directory
+avg_month_precip_path = os.path.join("data", "earthpy-downloads", 
+                                     "avg-monthly-precip.txt")
+```
+
+Last, add the defined path to the conditional statement to check whether the path exists. 
+
+{:.input}
+```python
+# Check path
+if os.path.exists(avg_month_precip_path):
+    print("This is a valid path.")
+else:
+    print("This path does not exist.")
+```
+
+{:.output}
+    This is a valid path.
+
+
+
+You can expand on the conditional statement to execute additional code if the path is valid, such as code to import the file into a **numpy** array. 
+
+{:.input}
+```python
+# Import data into array if path exists
+if os.path.exists(avg_month_precip_path):
+    avg_month_precip = np.loadtxt(avg_month_precip_path)
+    print(avg_month_precip)
+else:
+    print("This path does not exist.")
+```
+
+{:.output}
+    [0.7  0.75 1.85 2.93 3.05 2.02 1.93 1.62 1.84 1.31 1.39 0.84]
+
+
+
+Using this syntax, you can check whether any defined path exists and then execute additional code as needed.
 
 On the next pages of this chapter, you will learn how to write conditional statements that check for multiple conditions and how to apply conditional statements to **numpy** arrays and **pandas** dataframes. 
