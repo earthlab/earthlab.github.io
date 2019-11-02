@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/dry-code-python/loops/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2019-11-01
+modified: 2019-11-02
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -591,6 +591,8 @@ precip_2002_2013_df
 
 
 
+### Review the List Being Iterated Upon and the Placeholder in Loop
+
 Note that because `column` is an implicit variable or placeholder for the columns in the list, you do not need to use quotations `""` to indicate a specific column name in the loop such as `"precip_2002"`. 
 
 In the first iteration, `column` would contain the values in the `precip_2002` column, while in the last iteration, `column` would contain the values in the `precip_2013` column.
@@ -601,4 +603,101 @@ Also, notice the placement of code `precip_2002_2013` to display the dataframe *
 
 This code is not contained with the loop, so you do not see the dataframe each time that the loop iterates. You only see the dataframe when the loop is completed. 
 
+## Automate Data Downloads Using EarthPy
+
+Imagine that you have multiple URLs from which you need to download data for a workflow. Rather than writing out the same code to download each file at time, you can use a loop to download all of these files using one set of code. 
+
+Begin by importing the necessary package, **earthpy**, which is needed to access the `get_data()` function. You will also use **os** to print the contents of the default data directory.
+
+{:.input}
+```python
+# Import necessary packages
+import os
+import earthpy as et
+```
+
+### Create List of URLs For Loop
+
+Just like in the previous examples, begin by creating the list upon which your loop will iterate.
+
+As you want to iterate on multiple URLs, you can create a list that contains the URLs for all of the files that you want to download.
+
+In this case, it is useful to create variables for the individual URLs first, so that you can easily manage them as well as make the code more readable.  
+
+{:.input}
+```python
+# URL for avg monthly precip (inches) for Boulder, CO
+avg_month_precip_url = 'https://ndownloader.figshare.com/files/12565616'
+
+# URL for precip data for 2002 and 2013 (inches) for array
+precip_2002_2013_url = 'https://ndownloader.figshare.com/files/12707792'
+
+# Create list of URLs
+urls = [avg_month_precip_url, precip_2002_2013_url]
+```
+
+### Write Loop
+
+Once again, think about what type of loop would work best for this task. You have a list of URLs upon which you want to iterate some code, which in this case is `et.data.get_data()` to download each file.
+
+{:.input}
+```python
+# Download each url in list
+for file_url in urls:
+    et.data.get_data(url=file_url)
+```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12707792
+
+
+
+### Review the List Being Iterated Upon and the Placeholder in Loop
+
+Note that in order for `et.data.get_data()` to execute successfully, you must specify that the parameter `url` for the function is equal to the placeholder, which in this example is `file_url`. 
+
+This is a specific requirement of this function, as `et.data.get_data(url)` will result in an error that `url` is not a valid key for a dataset in **earthpy** (see more details in the
+<a href="https://earthpy.readthedocs.io/en/latest/gallery_vignettes/get_data.html#sphx-glr-gallery-vignettes-get-data-py" target="_blank">code examples for earthpy</a>).
+
+```
+KeyError: "Key not found in earthpy.io.DATA_URLS
+```
+
+With the correct syntax shown in the example above, the loop will execute `et.data.get_data(url=file_url)` successfully on the URLs provided in the list. 
+
+In the first iteration, `file_url` is set to `avg_month_precip_url`, and then in the last iteration, `file_url` is set to `precip_2002_2013_url`.
+
+
+### Check Files in Directory
+
+You can see that when using `et.data.get_data()` in a loop, you no longer get the path printed for each downloaded file. 
+
+However, you can use another function from the **os** package to list the contents (i.e. files and subdirectories) of a directory: `os.listdir()`. 
+
+Recall that by default, **earthpy** downloads files to a subdirectory called `earthpy-downloads` under the data directory in the `earth-analytics` directory (e.g. `earth-analytics/data/earthpy-downloads/`).
+
+With this knowledge, you can define a path to this directory and provide that path to the function `os.listdir()` to list out the contents of that directory, which now includes the files downloaded above. 
+
+{:.input}
+```python
+# Create path for data directory
+data_dir = os.path.join(et.io.HOME, "earth-analytics", 
+                        "data", "earthpy-downloads")
+
+os.listdir(data_dir)
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    ['avg-monthly-precip.txt', 'monthly-precip-2002-2013.csv']
+
+
+
+
+
 Congratulations - you have automated your first tasks in this textbook using **Python**!
+
+In the next chapter, you will learn how to write custom functions in **Python**, so that you can customize your code as needed to reduce repetition and automate tasks even further. 
