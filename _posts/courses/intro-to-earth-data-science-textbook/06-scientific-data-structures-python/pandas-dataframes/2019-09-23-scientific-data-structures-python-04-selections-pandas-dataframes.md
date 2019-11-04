@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/
 nav-title: "Select Data From Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-21
+modified: 2019-11-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -71,8 +71,8 @@ For example, you can create an index from a specific column of values, and then 
 
 ```python
 
-dataframe.setindex("column")
-dataframe.loc["value"]
+dataframe.set_index("column")
+dataframe.loc[[value]]
 ```
 
 ### Filtering Data Values
@@ -82,7 +82,7 @@ In addition to using indexing, you can also select or filter data from **pandas*
 For example, you can select data in a **pandas** dataframe based on specific values within a column using:
     
 ```python
-dataframe[dataframe["column"] == "value"]
+dataframe[dataframe["column"] == value]
 ```
 
 This will return all rows containing that value within the specified column. 
@@ -687,6 +687,8 @@ Notice that the error message indicates that the value `months` is not in the in
 
 After setting an index, you can use `.loc` to select data from the **pandas** dataframe using a value that is found in that index. 
 
+When selecting text string values, you need to specify the text string with quotations `""`, as shown below for the text string `"Aug"`. 
+
 {:.input}
 ```python
 # Select Aug using months index 
@@ -1115,7 +1117,7 @@ jan_avg_precip
 
 
 
-You can also select data based on numeric values. Note that these selections do not require the use of quotations `""` because they are not text strings. 
+You can also select data based on numeric values. Note that these selections on numeric values do not require the use of quotations `""` because they are not text strings. 
 
 For example, you can select all rows that have a specific value in `precip` such as `1.62`.
 
