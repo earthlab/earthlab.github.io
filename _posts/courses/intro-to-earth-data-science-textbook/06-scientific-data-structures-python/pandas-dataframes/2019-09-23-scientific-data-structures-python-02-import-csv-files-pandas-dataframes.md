@@ -8,7 +8,7 @@ class-lesson: ['intro-pandas-dataframes']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/import-csv-files-pandas-dataframes/
 nav-title: "Import Data Into Pandas Dataframes"
 dateCreated: 2019-09-06
-modified: 2019-10-14
+modified: 2019-11-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6

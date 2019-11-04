@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/use-conda-environments-and-install-packages/
 nav-title: "Install Packages"
 dateCreated: 2019-09-17
-modified: 2019-10-09
+modified: 2019-11-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 4

@@ -114,11 +114,6 @@ et.data.get_data(url=avg_monthly_precip_url)
 ```
 
 {:.output}
-    Downloading from https://ndownloader.figshare.com/files/12710618
-
-
-
-{:.output}
 {:.execute_result}
 
 

@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/
 nav-title: "Intro to Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-09
+modified: 2019-11-04
 module-title: 'Work with Scientific Data Using Numpy Arrays'
 module-nav-title: 'Numpy Arrays'
 module-description: 'Numpy arrays are a commonly used scientific data structure in Python that store data as a grid, or a matrix. Learn how to import data into numpy arrays and how to run calculations, summarize, and select data from numpy arrays.'

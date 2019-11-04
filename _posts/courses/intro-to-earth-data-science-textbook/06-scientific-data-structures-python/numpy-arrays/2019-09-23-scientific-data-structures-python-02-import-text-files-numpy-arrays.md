@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/import-txt-csv-files-numpy-arrays/
 nav-title: "Import Data Into Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-21
+modified: 2019-11-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6

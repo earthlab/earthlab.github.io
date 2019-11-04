@@ -8,7 +8,7 @@ class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/
 nav-title: "Python Packages"
 dateCreated: 2019-09-17
-modified: 2019-10-21
+modified: 2019-11-04
 module-title: 'Import and Install Python Packages for Earth Data Science'
 module-nav-title: 'Use Python Packages'
 module-description: 'The Python programming language provides many packages and libraries for working with scientific data. Learn how to import and install Python packages for earth data science.'

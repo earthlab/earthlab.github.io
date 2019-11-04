@@ -4,7 +4,7 @@ category: courses
 title: "Scientific Data Structures in Python"
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/
 week-landing: 6
-modified: 2019-10-09
+modified: 2019-11-04
 week: 6
 sidebar:
   nav:

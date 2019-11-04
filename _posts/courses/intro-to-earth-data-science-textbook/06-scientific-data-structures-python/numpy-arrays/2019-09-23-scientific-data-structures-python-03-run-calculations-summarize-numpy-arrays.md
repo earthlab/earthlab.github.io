@@ -62,12 +62,6 @@ et.data.get_data(url=precip_2002_2013_url)
 ```
 
 {:.output}
-    Downloading from https://ndownloader.figshare.com/files/12565616
-    Downloading from https://ndownloader.figshare.com/files/12707792
-
-
-
-{:.output}
 {:.execute_result}
 
 

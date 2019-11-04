@@ -8,7 +8,7 @@ class-lesson: ['work-with-files-directories-in-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-paths-in-python/
 nav-title: "Computer Directories"
 dateCreated: 2019-09-18
-modified: 2019-10-09
+modified: 2019-11-04
 module-title: 'Introduction to Working with Files, Directories, and Paths in Python'
 module-nav-title: 'Files, Directories & Paths'
 module-description: 'Writing code that opens files using paths that will work on many different machines will make your project more reproducible. Learn how to construct paths in your Python code that will work on any machine using the os package.'
