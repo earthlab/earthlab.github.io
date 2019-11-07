@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/
 nav-title: "Intro to Loops"
 dateCreated: 2019-10-23
-modified: 2019-11-04
+modified: 2019-11-07
 module-title: 'Introduction to Loops in Python'
 module-nav-title: 'Loops in Python'
 module-description: 'Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn how to write loops in Python to write Do Not Repeat Yourself, or DRY, code in Python.'
@@ -73,7 +73,7 @@ You can create lists of variables, filenames, or other objects like data structu
 
 You can also provide a numerical range of values to control how many times the code is executed. 
 
-In **Pythom**, there are two primary structures for loops: `while` and `for`. Below you will learn about each one and how they can help you to write DRY (Don't Repeat Yourself) code. 
+In **Python**, there are two primary structures for loops: `while` and `for`. Below you will learn about each one and how they can help you to write DRY (Don't Repeat Yourself) code. 
 
 
 ## While Loops
@@ -305,7 +305,7 @@ for i in num_list:
 
 Note that in this example, the values are not in sequential order or follow any kind of pattern. However, the loop is executed on each item, in the same order in which they are defined in the list. 
 
-This is a unique characeteristic of `for` loops; the placeholder represents the value of whichever item is being accessed from the list in that iteration. 
+This is a unique characteristic of `for` loops; the placeholder represents the value of whichever item is being accessed from the list in that iteration. 
 
 Thus, `i` is not an explicit variable, but rather a placeholder for the current item that the loop is working with in each iteration of the code.  
 
@@ -417,7 +417,7 @@ for dlist in lists:
 
 
 
-When workng with data structures such as lists, **numpy** arrays, or **pandas** dataframes, the code that is executed in the loop is still subject to the object type that is provided. 
+When working with data structures such as lists, **numpy** arrays, or **pandas** dataframes, the code that is executed in the loop is still subject to the object type that is provided. 
 
 For example, because the items in `lists` are lists, then you can execute any code that can run on the list object type, such as querying the length of the list or for a specific index value. 
 

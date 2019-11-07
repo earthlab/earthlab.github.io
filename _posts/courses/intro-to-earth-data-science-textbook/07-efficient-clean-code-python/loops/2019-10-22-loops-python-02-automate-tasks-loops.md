@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2019-11-04
+modified: 2019-11-07
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -259,7 +259,7 @@ Again, you can capture these values in new, separate lists by defining empty lis
 
 {:.input}
 ```python
-# Create new empty to receive values
+# Create new empty lists to receive values
 monthly_precip_sum = []
 monthly_precip_median = []
 
@@ -696,7 +696,7 @@ os.listdir(data_dir)
 
 
 
-    ['monthly-precip-2002-2013.csv', 'avg-monthly-precip.txt']
+    ['avg-monthly-precip.txt', 'monthly-precip-2002-2013.csv']
 
 
 

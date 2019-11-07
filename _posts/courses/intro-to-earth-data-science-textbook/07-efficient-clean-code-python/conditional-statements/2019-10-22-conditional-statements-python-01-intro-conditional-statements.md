@@ -8,7 +8,7 @@ class-lesson: ['intro-conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-10-22
-modified: 2019-11-04
+modified: 2019-11-07
 module-title: 'Introduction to Conditional Statements in Python'
 module-nav-title: 'Conditional Statements in Python'
 module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write Do Not Repeat Yourself, or DRY, code in Python.'
@@ -313,7 +313,7 @@ Checking for specific text strings within the names of objects, such as lists or
 
 ## Check Object Type Using Conditional Statements  
 
-You can also identity operators (e.g. `is` or `is not`) to write conditional statements to check whether an object is of a certain type (e.g. `int`, `str`, `list`). 
+You can also use identity operators (e.g. `is` or `is not`) to write conditional statements to check whether an object is of a certain type (e.g. `int`, `str`, `list`). 
 
 {:.input}
 ```python

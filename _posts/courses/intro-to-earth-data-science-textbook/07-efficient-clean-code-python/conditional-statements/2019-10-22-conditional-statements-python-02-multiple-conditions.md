@@ -8,7 +8,7 @@ class-lesson: ['intro-conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/alternative-multiple-conditions/
 nav-title: "Alternative and Multiple Conditions"
 dateCreated: 2019-10-22
-modified: 2019-11-04
+modified: 2019-11-07
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -112,7 +112,7 @@ else:
 
 
 
-In this second example below, `x` is equal to a value greater than `y`, so the first condition is no longer satisfied. Howeer, the second condition is satisfied, which results in a value of 5 being subtracted from `x`. 
+In this second example below, `x` is equal to a value greater than `y`, so the first condition is no longer satisfied. However, the second condition is satisfied, which results in a value of 5 being subtracted from `x`. 
 
 {:.input}
 ```python
