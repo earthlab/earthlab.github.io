@@ -1,14 +1,14 @@
 ---
 layout: single
 title: 'DRY Code and Modularity'
-excerpt: "DRY code . Learn how to ."
+excerpt: "DRY (Do Not Repeat Yourself) code supports reproducibility by removing repetition and making code easier to read. Learn about key strategies to write DRY code in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
 category: [courses]
 class-lesson: ['clean-expressive-code-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/dry-modular-code/
 nav-title: "DRY Modular Code"
 dateCreated: 2019-09-03
-modified: 2019-11-04
+modified: 2019-11-07
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -28,9 +28,9 @@ topics:
 
 After completing this lesson, you will be able to:
 
-* Be able to define the DRY principle
-* List key strategies for writing DRY code in Python
-* Explain how these strategies help you write DRY code
+* Be able to define the DRY principle.
+* List key strategies for writing DRY code in Python.
+* Explain how these strategies help you write DRY code.
 
 </div>
 
@@ -75,9 +75,9 @@ By implementing DRY code approaches, you can make your code:
 
 Below you will learn about three commonly used strategies associated with writing clean code:
 
-1. Write functions when a task is performed over and over
-2. Create loops that iterative over repetitive tasks
-3. Use conditional statements to automate workflows.
+1. Write functions for a task that is performed over and over.
+2. Create loops that iterative over repetitive tasks.
+3. Use conditional statements to control if and when code is executed.
 
 The above three approaches are often used together when writing 
 code. You will learn more about each one in the upcoming chapters.  
@@ -90,40 +90,39 @@ Below, you will see the function that you looked at in the previous lesson. This
 
 
 ```python
-
 def fahr_to_kelvin(fahr) 
-"""
-Convert temperature in fahrenheit to kelvin.
-    parameters:
+    """Convert temperature in Fahrenheit to kelvin.
+
+    Parameters:
     -----------
-    temp_fahr: int or float
-                The tempature in fahrenheit to be converted to kelvin
+    fahr: int or float
+        The temperature in Fahrenheit.
     
-    returns:
+    Returns:
     -----------
     kelvin : int or float
-            The temperature in kelvin.
-"""
-  kelvin = ((fahr - 32) * (5 / 9)) + 273.15
-  return kelvin
+        The temperature in kelvin.
+    """
+    kelvin = ((fahr - 32) * (5 / 9)) + 273.15
+    return kelvin
 ```
 
-This function converts temperature in fahrenheit to kelvin. You can 
-learn more about it by reading its documentation (docstring).  
+This function converts temperature in Fahrenheit to kelvin. You can 
+learn more about it by reading its documentation (docstring).
+
 Now imagine that you need to perform this calculation over and over.
 
 ```python
-
 temp = 55
 new_temp = ((temp - 32) * (5 / 9)) + 273.15
 
 temp2 = 46 
 new_temp_k = ((temp2 - 32) * (5 / 9)) + 273.15
-
 ```
 
 In the example above, you are repeating the same calculation twice.
-In this example 
+
+In this example: 
 1. if the calculation needs to change, you need to change it twice
 2. it's not neccesarily clear what the calculation is doing unless you know the calculation itself. 
 
@@ -131,13 +130,11 @@ The example below is cleaner because now you are replacing a repeated calculatio
 to both understand and use. If you need to change the calculation itself, you can do so once in the function. Then you rerun your code.
 
 ```python
-
 temp = 55
-new_temp = fahr_to_kelvin(temp)
+new_temp = fahr_to_kelvin(fahr = temp)
 
 temp2 = 46 
-new_temp_k = fahr_to_kelvin(temp2)
-
+new_temp_k = fahr_to_kelvin(fahr = temp2)
 ```
 
 The task above could be further simplied using loops which will be discussed below. Writing modular code allows you to subdivide tasks of a workflows into organized units of code that can be reused by yourself and others, often without them needing to know the specific details of the code.
@@ -166,7 +163,6 @@ This code could be replaced by a loop that iterates over a list of variable name
 all_vars = [avg_monthly_precip, months, precip_2002_2013]
 for avar in vars:
     print(avar)
-
 ```
 
 You can create lists of variables, filenames, or other objects like data structures upon which you want to execute the same code. These lists can then be used as variables in loops. 
@@ -178,8 +174,7 @@ A conditional statement is used to determine whether a certain condition exists 
 
 For example, conditional statements can be used to check that a certain variable or file exists before code is executed, or to continue code if some criteria is met such as a calculation resulting in a specific value. 
 
-In the example below, you only want to print the variable value 
-if the value is greater than 20.  
+In the example below, you can combine a loop and a conditional statement to only print the variable value if the value is greater than 20.  
 
 
 ```python

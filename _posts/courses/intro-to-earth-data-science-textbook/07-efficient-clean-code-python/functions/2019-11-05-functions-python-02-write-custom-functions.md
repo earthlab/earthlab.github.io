@@ -65,15 +65,15 @@ The input parameter is the required information that you pass to the function fo
 In **Python**, the required parameters are provided within parenthesis `()`, as shown below.
 
 ```python
-def function_name(parameter):   
-    
+def function_name(parameter):       
 ```    
 
 You can define an input parameter for a function using a placeholder variable, such as `data`, which represents the value or object that will be acted upon in the function. 
 
 
 ```python
-def function_name(data):```   
+def function_name(data):
+```   
 
 
 When the function is called, a user can provide any value for `data` that the function can take as input (e.g. single value variable, list, **numpy** array, **pandas** dataframe column). 
@@ -127,7 +127,7 @@ def function_name(data):
     input : type
         Description of input.
     
-    Return
+    Returns
     ------
     output : type
         Description of output.
@@ -139,7 +139,7 @@ def function_name(data):
 
 Note that a docstring is not required for the function to work in **Python**. However, good documentation will save you time in the future when you need to use this code again, and it also helps others understand how they can use your function.
 
-You can learn more about docstrings in the <a href="https://www.python.org/dev/peps/pep-0008/#documentation-strings">PEP 257 guidelines</a> focused on docstrings. This textbook uses the docstring standard that is outlined in the <a href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">**numpy**  documentation</a>.  
+You can learn more about docstrings in the <a href="https://www.python.org/dev/peps/pep-0257/">PEP 257 guidelines</a> focused on docstrings. This textbook uses the docstring standard that is outlined in the <a href="https://numpydoc.readthedocs.io/en/latest/format.html#docstring-standard">**numpy**  documentation</a>.  
 
 
 ## Write a Function in Python
@@ -203,7 +203,7 @@ def mm_to_in(mm):
     input : type
         Description of input.
     
-    Return
+    Returns
     ------
     output : type
         Description of output.
@@ -225,10 +225,10 @@ def mm_to_in(mm):
     
     Parameters
     ----------
-    mm : int, float
+    mm : int or float
         Numeric value with units in millimeters.
     
-    Return
+    Returns
     ------
     output : type
         Description of output.
@@ -250,12 +250,12 @@ def mm_to_in(mm):
     
     Parameters
     ----------
-    mm : int, float
+    mm : int or float
         Numeric value with units in millimeters.
 
-    Return
+    Returns
     ------
-    inches : int, float
+    inches : int or float
         Numeric value with units in inches.
     """
     inches = mm / 25.4    
@@ -508,12 +508,12 @@ def mm_to_in(mm):
     
     Parameters
     ----------
-    mm : int, float
+    mm : int or float
         Numeric value with units in millimeters.
 
-    Return
+    Returns
     ------
-    inches : int, float
+    inches : int or float
         Numeric value with units in inches.
     """
     inches = mm / 25.4    

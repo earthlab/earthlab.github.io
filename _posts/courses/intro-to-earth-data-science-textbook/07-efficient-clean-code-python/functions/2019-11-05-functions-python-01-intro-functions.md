@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "Intro to Functions in Python"
-excerpt: "A function is a reusable block of code that performs a specific task. Learn about the benefits of functions and how they can be used to write Do Not Repeat Yourself, or DRY, code in Python."
+title: "Introduction to Creating Functions in Python"
+excerpt: "A function is a reusable block of code that performs a specific task. Learn how functions can be used to write efficient and DRY (Do Not Repeat Yourself), code in Python."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-functions-tb']
-permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions/
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions-modular-code/
 nav-title: "Intro to Functions"
 dateCreated: 2019-11-05
-modified: 2019-11-06
+modified: 2019-11-07
 module-title: 'Introduction to Functions in Python'
 module-nav-title: 'Intro to Functions in Python'
 module-description: 'A function is a reusable block of code that performs a specific task and can help you to eliminate repetition and improve efficiency in your code through modularity. Learn how to write functions in Python to write Do Not Repeat Yourself, or DRY, code in Python.'
@@ -55,15 +55,17 @@ Be sure that you have completed the chapters on <a href="{{ site.url }}/courses/
 </div>
 
 
-## Modular Code With Functions
+## Write Efficient Modular Code Using Functions
 
-In the introduction to DRY code, you learned about the DRY (i.e. Do Not Repeat Yourself) code principle and were introduced to three strategies for eliminating repetition and improving the efficiency of your code: loops, conditional statements, and functions. 
+In the introduction to DRY code, you learned about the DRY (i.e. Do Not Repeat Yourself) code principle. You were also introduced to three strategies for eliminating repetition and improving the efficiency of your code: 
 
-In previous chapters, you learned how to use conditional structures to control the flow of your code and how to loops to eliminate repetitive lines of code. 
+1. loops, 
+2. conditional statements, and 
+3. functions. 
 
-In this chapter, you will learn how writing functions in **Python** can help you to execute a specific, outlined task on command, using sets of input parameters to specify how the task is performed.
+In previous chapters, you learned how to use conditional structures to control the flow of your code and how to loops to eliminate repetitive lines of code. In this chapter, you will learn how writing functions in **Python** can help you to execute a specific task.
 
-Essentially, a function is a reusable block of code that performs a specific task. Functions receive inputs to which code is applied and return outputs (or results) of the code. 
+A function is a reusable block of code that performs a specific task. Functions receive inputs to which code is applied and return outputs (or results) of the code. 
 
 `input parameter –> function does something –> output results`
 
@@ -89,8 +91,8 @@ Modularity means that code is separated into independent units that can be reuse
 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/week-8/funct-all-things.png">
- <img src="{{ site.url }}/images/courses/earth-analytics/week-8/funct-all-things.png" alt="You can implement strategies such as loops and functions in your code to replace tasks that you are performing over and over. Source: Francois Michonneau."></a>
+ <a href="{{ site.url }}/images/earth-analytics/clean-code/write-functions-for-all-things.png">
+ <img src="{{ site.url }}/images/earth-analytics/clean-code/write-functions-for-all-things.png" alt="You can implement strategies such as loops and functions in your code to replace tasks that you are performing over and over. Source: Francois Michonneau."></a>
  <figcaption> You can implement strategies such as loops and functions in your code to replace tasks that you are performing over and over. Source: Francois Michonneau.
  </figcaption>
 </figure>
@@ -149,7 +151,7 @@ Functions allow you to focus on the inputs and the outputs of your workflow, rat
 
 ## Reasons Why Functions Improve Code Readability
 
-### Better Documentation
+### Functions Can Result in Better Documentation
 
 Ideally, your code is easy to understand and is well-documented with **Python** comments (and **Markdown** in **Jupyter Notebook**). However, what might seem clear to you now might not be clear 6 months from now, or even 3 weeks from now.
 
@@ -165,7 +167,7 @@ When writing your own functions, you should name functions using verbs and/or cl
 This makes your code more expressive (or self-describing), and in turn, makes it easier to read for you, your future self, and your colleagues.
 
 
-### Easier to Maintain and Edit
+### Modular Code is Easier to Maintain and Edit
 
 If all your code is written line by line (with repeated code in multiple parts of your document) it can be challenging to maintain and edit.
 

@@ -8,7 +8,7 @@ class-lesson: ['clean-expressive-code-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/expressive-variable-names-make-code-easier-to-read/
 nav-title: "Expressive Code"
 dateCreated: 2019-09-03
-modified: 2019-11-04
+modified: 2019-11-07
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -116,10 +116,10 @@ Following PEP 8 guidelines, function names should be formatted using
 
 ```python
 ## This function name is less expressive 
-`text_edit()`
+text_edit()
 
 # This function name is more expressive
-`remove_hyphens()`
+remove_hyphens()
 ```
 
 ## Example Function 
@@ -129,23 +129,21 @@ in a numeric format in degrees fahrenheit to kelvin.
 
 ```python
 
-def fahr_to_kelvin(temp_fahr):
-"""
-Convert temperature in fahrenheit to kelvin.
-    parameters:
-    -----------
-    temp_fahr: int or float
-                The tempature in fahrenheit to be converted to kelvin
+def fahr_to_kelvin(fahr):
+    """Convert temperature in Fahrenheit to kelvin.
     
-    returns:
+    Parameters:
+    -----------
+    fahr: int or float
+        The tempature in Fahrenheit.
+    
+    Returns:
     -----------
     kelvin : int or float
-            The temperature in kelvin.
-"""
-
-def fahr_to_kelvin(fahr) 
-  kelvin = ((fahr - 32) * (5 / 9)) + 273.15
-  return kelvin
+        The temperature in kelvin.
+    """
+    kelvin = ((fahr - 32) * (5 / 9)) + 273.15
+    return kelvin
 
 ```
 
