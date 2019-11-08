@@ -4,19 +4,19 @@ title: 'Introduction to Writing Clean Code and Literate Expressive Programming'
 excerpt: "Clean code refers to writing code that runs efficiently, is not redundant and is easy for anyone to understand. Learn about the characteristics and benefits of writing clean, expressive code in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
 category: [courses]
-class-lesson: ['clean-expressive-code']
-permalink: /courses/intro-to-earth-data-science/write-clean-expressive-code/intro-to-clean-code/
+class-lesson: ['clean-expressive-code-tb']
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/
 nav-title: "What is Clean Code"
 dateCreated: 2019-09-04
-modified: 2019-10-05
+modified: 2019-11-04
 module-title: 'Learn to Write Clean Code and Literate Expressive Programming'
 module-nav-title: 'Write Clean Expressive Code'
 module-description: "Clean code refers to writing code that runs efficiently, is not redundant and is easy for anyone to understand. Learn best practices for writing clean, expressive code in Python."
 module-type: 'class'
-chapter: 13
+chapter: 16
 class-order: 1
 course: "intro-to-earth-data-science-textbook"
-week: 5
+week: 7
 sidebar:
   nav:
 author_profile: false
@@ -24,12 +24,14 @@ comments: true
 order: 1
 topics:
   reproducible-science-and-programming: ['python']
+redirect_from:
+  - "/courses/intro-to-earth-data-science/write-clean-expressive-code/intro-to-clean-code/"
 ---
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Thirteen - Introduction to Clean Code and Literate Expressive Programming
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Sixteen - Introduction to Clean Code and Literate Expressive Programming
 
 In this chapter, you will learn about the characteristics and benefits of writing clean, expressive code. You will also learn best practices for writing clean, expressive code in **Python**, including the PEP 8 Style Guide standards.
 
@@ -90,13 +92,9 @@ There are several ways that you can begin to write clean code. A few of these in
 1. **Write Modular Code and Practice: Don't Repeat Yourself (DRY):** rather than repeating chunks of code to automate a workflow, consider using loops and functions to automate tasks. If you use the same set of code more than once, it likely belongs in a function. You will learn more about functions later in this textbook.
 2. **Document Your Code:** Documentation can mean many different things. When you are writing code, a combination of expressive names combined with sparsely added comments can go a long way towards making your code easier to read. 
 
-
 A more advanced topic that you will learn about later in this textbook is pseudocode. Rather than writing code line by line, you should plan out your workflow first. Write out the steps in plain English (or whatever language you prefer!). Then, identify steps that may need to repeat tasks. Once you have a plan for your code, then begin to actually use **Python** to implement that plan. 
 
 
 ### What's Next?
 
-In the next sections of this textbook, you will learn more about writing clean code. 
-
-
-
+In the next sections of this textbook, you will learn more about writing clean code in **Python**.

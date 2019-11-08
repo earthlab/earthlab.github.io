@@ -1,14 +1,14 @@
 ---
 layout: single
-title: 'Automate Tasks With Loops in Python'
+title: 'Automate Data Tasks With Loops in Python'
 excerpt: "Loops can be used to automate data tasks in Python by iteratively executing the same code on multiple data structures. Learn how to automate data tasks in Python using data structures such as lists, numpy arrays, and pandas dataframes."
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-loops-tb']
-permalink: /courses/intro-to-earth-data-science/dry-code-python/loops/automate-data-tasks-with-loops/
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2019-11-02
+modified: 2019-11-07
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -22,6 +22,7 @@ topics:
   reproducible-science-and-programming: ['python']
 redirect_from:
   - "/courses/earth-analytics-bootcamp/loops/automate-tasks-loops/"
+  - "/courses/intro-to-earth-data-science/dry-code-python/loops/automate-data-tasks-with-loops/"
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -258,7 +259,7 @@ Again, you can capture these values in new, separate lists by defining empty lis
 
 {:.input}
 ```python
-# Create new empty to receive values
+# Create new empty lists to receive values
 monthly_precip_sum = []
 monthly_precip_median = []
 
@@ -649,7 +650,6 @@ for file_url in urls:
 ```
 
 {:.output}
-    Downloading from https://ndownloader.figshare.com/files/12565616
     Downloading from https://ndownloader.figshare.com/files/12707792
 
 

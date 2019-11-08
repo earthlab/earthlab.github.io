@@ -5,10 +5,10 @@ excerpt: "Conditional statements in Python can be written to check for alternati
 authors: ['Jenny Palomino', 'Leah Wasser']
 category: [courses]
 class-lesson: ['intro-conditional-statements-tb']
-permalink: /courses/intro-to-earth-data-science/dry-code-python/conditional-statements/alternative-multiple-conditions/
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/alternative-multiple-conditions/
 nav-title: "Alternative and Multiple Conditions"
 dateCreated: 2019-10-22
-modified: 2019-11-01
+modified: 2019-11-07
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
@@ -21,6 +21,7 @@ topics:
   reproducible-science-and-programming: ['python']
 redirect_from:
   - "/courses/earth-analytics-bootcamp/conditional-statements/control-flow/"
+  - "/courses/intro-to-earth-data-science/dry-code-python/conditional-statements/alternative-multiple-conditions/"
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -111,7 +112,7 @@ else:
 
 
 
-In this second example below, `x` is equal to a value greater than `y`, so the first condition is no longer satisfied. Howeer, the second condition is satisfied, which results in a value of 5 being subtracted from `x`. 
+In this second example below, `x` is equal to a value greater than `y`, so the first condition is no longer satisfied. However, the second condition is satisfied, which results in a value of 5 being subtracted from `x`. 
 
 {:.input}
 ```python

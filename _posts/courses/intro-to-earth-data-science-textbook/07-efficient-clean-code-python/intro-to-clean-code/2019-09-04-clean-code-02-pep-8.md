@@ -4,14 +4,14 @@ title: 'Clean Code Syntax for Python: Introduction to PEP 8 Style Guide'
 excerpt: "Using a standard format and syntax when programming makes your code easier to read. Learn more about PEP 8, a set of guidelines for writing clean code in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
 category: [courses]
-class-lesson: ['clean-expressive-code']
-permalink: /courses/intro-to-earth-data-science/write-clean-expressive-code/intro-to-clean-code/python-pep-8-style-guide/
+class-lesson: ['clean-expressive-code-tb']
+permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/python-pep-8-style-guide/
 nav-title: "PEP 8 Style Guide"
 dateCreated: 2019-09-03
-modified: 2019-09-23
+modified: 2019-11-04
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
-week: 5
+week: 7
 sidebar:
   nav:
 author_profile: false
@@ -21,6 +21,7 @@ topics:
   reproducible-science-and-programming: ['python']
 redirect_from:
   - "/courses/earth-analytics-bootcamp/pep-8-style-guide/"
+  - "/courses/intro-to-earth-data-science/write-clean-expressive-code/intro-to-clean-code/python-pep-8-style-guide/"
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -185,10 +186,11 @@ return the_total_sum
 
 ## Line Length
 
-PEP 8 guidelines suggest that each line of code code should be 79 characters wide or less. This is a common standard that is also used in other languages including **R**.
+PEP 8 guidelines suggest that each line of code (as well as comment lines) should be 79 characters wide or less. This is a common standard that is also used in other languages including **R**.
 
 <i fa fa-star></i>**Data Tip:** Most text editors allow you to set up guides that allow you to see how long your code is. You can then use these guides to create line breaks in your code. 
 {: .notice--success }
+
 
 ## Python PEP 8 Rules for White Space
 
@@ -213,7 +215,7 @@ precip_timeseries.plot()
 The code below is more difficult to read as the spacing does not break up the text.
 
 ```python
-#perform some math and do some things 
+# Perform some math and do some things 
 a=1+2
 b=3+4
 c=a+b 
@@ -225,12 +227,12 @@ data.plot()
 * **Break up sections of code with white space:** As you are writing code, it's always good to consider readability and to break up sections of code accordingly. Breaking up your 
 code becomes even more important when you start working in Jupyter Notebooks which offer individual cells where you can add Markdown and code.
 
+
 ```python
 # Process some data here 
 data=pd.readcsv("precip-2019.csv")
 
-
-# Plot the data - notice how separating the code into sections makes it easier to read
+# Plot data - notice how separating code into sections makes it easier to read
 fig, ax = plot.subplots()
 data.plot(ax=ax)
 plt.show()
