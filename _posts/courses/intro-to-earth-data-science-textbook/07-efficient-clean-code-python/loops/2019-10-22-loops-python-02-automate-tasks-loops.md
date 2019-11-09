@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/automate-data-tasks-with-loops/
 nav-title: "Automate Data Tasks With Loops"
 dateCreated: 2019-10-23
-modified: 2019-11-07
+modified: 2019-11-09
 module-type: 'class'
 chapter: 18
 course: "intro-to-earth-data-science-textbook"
@@ -156,11 +156,11 @@ Look carefully at how the variables `avg_monthly_precip_mm` and `month` are crea
 
 The list variable `avg_monthly_precip_mm` was explicitly created; in this case, you manually created the variable `avg_monthly_precip_mm` as an empty list.
 
-The variable `month` is the placeholder (or implicit variable), meaning that it was not explicitly created by you. 
+The variable `month` is the placeholder variable, meaning that it was not explicitly created by you. 
 
 Rather, it is created as part of the loop and serves as a placeholder to represent each item from the original list (`avg_monthly_precip_in`), as the loop iterates. 
 
-At the end of the loop, an implicit variable is equal to the last value that it was assigned (e.g. `month` is equal to 21.336 when the loop ends). 
+At the end of the loop, the placeholder variable is equal to the last value that it was assigned (e.g. `month` is equal to 21.336 when the loop ends). 
 
 {:.input}
 ```python
@@ -291,7 +291,7 @@ print(monthly_precip_median)
 
 
 
-The variable `arr` is the placeholder (or implicit variable) that is created as part of the loop and serves as a placeholder to represent each item from the original list (`arr_list`), as the loop iterates. 
+The variable `arr` is the placeholder variable that is created as part of the loop and serves as a placeholder to represent each item from the original list (`arr_list`), as the loop iterates. 
 
 At the end of the loop, `arr` is equal to the last value that it was assigned (e.g. `precip_2013_arr`, the last array in the list).
 
@@ -650,6 +650,7 @@ for file_url in urls:
 ```
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/12565616
     Downloading from https://ndownloader.figshare.com/files/12707792
 
 
