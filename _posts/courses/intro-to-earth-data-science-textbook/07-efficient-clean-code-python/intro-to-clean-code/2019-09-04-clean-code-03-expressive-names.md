@@ -35,7 +35,7 @@ topics:
 
 ## Why Use Expressive Names? 
 
-In chapter one on open reproducible science, you learned about <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/" target="_blank">best practices for organizing open reproducible science projects</a>, including how to create directories and files with names that are both expressive and machine readable. As a refresher, expressive names are ones that describe the contents of the object itself. So for example you probably expect a directory called `data` to contain data within it. 
+In chapter one on open reproducible science, you learned about <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/">best practices for organizing open reproducible science projects</a>, including how to create directories and files with names that are both expressive and machine readable. As a refresher, expressive names are ones that describe the contents of the object itself. So for example you probably expect a directory called `data` to contain data within it. 
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/clean-code/expressive-file-names-make-science-projects-easier-to-work-with.png">
@@ -50,10 +50,11 @@ Expressive code is another part of clean coding - that is writing code that is e
 
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/python-interface/clean-code-expressive-variable-names-basmati-rice.png">
- <img src="{{ site.url }}/images/earth-analytics/python-interface/clean-code-expressive-variable-names-basmati-rice.png" alt= "This container clearly contains cookies and yet it's labeled as rice. You can imagine that this might be confusing to someone who is looking for rice in your kitchen! Consider this when writing code. It's easier for someone to understand your code without running it when your code variables describe the objects that they contain.  Source: Jenny Bryan, Reproducible Science Curriculum." ></a>
+ <a href="{{ site.url }}/images/earth-analytics/clean-code/clean-code-expressive-variable-names-basmati-rice.png">
+ <img src="{{ site.url }}/images/earth-analytics/clean-code/clean-code-expressive-variable-names-basmati-rice.png" alt= "This container clearly contains cookies and yet it's labeled as rice. You can imagine that this might be confusing to someone who is looking for rice in your kitchen! Consider this when writing code. It's easier for someone to understand your code without running it when your code variables describe the objects that they contain.  Source: Jenny Bryan, Reproducible Science Curriculum." ></a>
  <figcaption> This container clearly contains cookies and yet it's labeled as rice. You can imagine that this might be confusing to someone who is looking for rice in your kitchen! Consider this when writing code. It's easier for someone to understand your code without running it when your code variables describe the objects that they contain. Source: Jenny Bryan, Reproducible Science Curriculum.
  </figcaption>
+</figure>
 
 
 <i class="fa fa-star"></i> **Data Tip:** The <a href="https://www.python.org/dev/peps/pep-0008/" target="_blank">the PEP 8 Style Guide</a> suggests that all objects (variables, functions and methods) in your code are named using meaningful words. 
@@ -70,7 +71,7 @@ PEP 8 style guide has a suite of recommendations that focus on making Python cod
 
 3. **Do not start names with numbers** Objects that start with a number are NOT VALID in **Python**.
 
-4. **Avoid names that are existing functions in Python:** e.g., `if`, `else`, `for`, see [here](https://www.programiz.com/python-programming/keywords-identifier) for more reserved names.
+4. **Avoid names that are existing functions in Python:** e.g., `if`, `else`, `for`, see <a href="https://www.programiz.com/python-programming/keywords-identifier" target="_blank">here</a> for more reserved names.
 
 A few other notes about object names in **Python**:
 
@@ -91,7 +92,7 @@ We suggest that you use directory and file names that contain words that describ
 
 Directory and files names should be kept as short and concise as possible, while also clearly indicating what is contained within the directory or file. 
 
-For a review of how to create directories and files with names that are both expressive and machine readable, revisit <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/" target="_blank">best practices for organizing open reproducible science projects</a>.
+For a review of how to create directories and files with names that are both expressive and machine readable, revisit <a href="{{ site.url }}/courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/best-practices-for-organizing-open-reproducible-science/">best practices for organizing open reproducible science projects</a>.
 
 ### Best Practices Variable Names In Python
 
