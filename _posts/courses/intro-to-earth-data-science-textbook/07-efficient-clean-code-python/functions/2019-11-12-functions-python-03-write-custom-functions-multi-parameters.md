@@ -543,7 +543,7 @@ import earthpy as et
 
 {:.input}
 ```python
-# URL for average monthly precip (mm) for 2002 and 2013 in Boulder, CO
+# URL for average monthly precip (inches) for 2002 and 2013 in Boulder, CO
 precip_2002_2013_df_url = "https://ndownloader.figshare.com/files/12710621"
 
 # Path to downloaded .csv file with headers
@@ -696,9 +696,9 @@ precip_2002_2013_df
 
 You have a function that combines the mean calculation along a specified axis and the conversion from millimeters to inches for a **numpy** array. 
 
-How might you need to change this function to create an equivalent for **pandas** dataframe?
+How might you need to change this function to create a similar function for **pandas** dataframe, but now converting from inches to millimeters?
 
-You can actually run summary statistics on pandas using a specified axis as well with the following code:
+For the mean, you can run summary statistics on pandas using a specified axis (just like a **numpy** array) with the following code:
 
 ```python
 df.mean(axis = axis_value) 
