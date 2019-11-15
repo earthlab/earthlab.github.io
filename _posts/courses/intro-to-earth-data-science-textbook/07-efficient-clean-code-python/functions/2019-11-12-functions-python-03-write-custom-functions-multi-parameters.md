@@ -687,6 +687,10 @@ You can actually run summary statistics on pandas using a specified axis as well
 df.mean(axis = axis_value) 
 ```
 
+With the axis value `0`, the code will calculate a mean for each numeric column in the dataframe.
+
+With the axis value `1`, the code will calculate a mean for each row with numeric values in the dataframe.
+
 Think about which code lines in the existing function `mean_mm_to_in_arr()` can be modified to run the equivalent code on a **pandas** dataframe.
 
 Note that the `df.mean(axis = axis_value)` returns the mean values of a dataframe (along the specified axis) as a **pandas** series.
