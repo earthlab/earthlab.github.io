@@ -531,6 +531,8 @@ def download_import_df(file_url, path):
     return df
 ```
 
+Now that you have defined the function, you can import the packages needed to run the function and define the variables that you will use as input parameters.
+
 {:.input}
 ```python
 # Import necessary packages to run function
@@ -541,26 +543,28 @@ import earthpy as et
 
 {:.input}
 ```python
-# URL for .csv with headers for avg monthly precip data in Boulder, CO
-avg_month_precip_url = "https://ndownloader.figshare.com/files/12710618"
+# URL for average monthly precip (mm) for 2002 and 2013 in Boulder, CO
+precip_2002_2013_df_url = "https://ndownloader.figshare.com/files/12710621"
 
 # Path to downloaded .csv file with headers
-avg_month_precip_path = os.path.join("data", "earthpy-downloads", 
-                                     "avg-precip-months-seasons.csv")
+precip_2002_2013_df_path = os.path.join("data", "earthpy-downloads", 
+                                        "precip-2002-2013-months-seasons.csv")
 ```
+
+Using these variables, you can now call the function to download and import the file into a **pandas** dataframe. 
 
 {:.input}
 ```python
 # Create dataframe using download/import function
-avg_month_precip_df = download_import_df(
-    file_url = avg_month_precip_url, 
-    path = avg_month_precip_path)
+precip_2002_2013_df = download_import_df(
+    file_url = precip_2002_2013_df_url, 
+    path = precip_2002_2013_df_path)
 
-avg_month_precip_df
+precip_2002_2013_df
 ```
 
 {:.output}
-    Downloading from https://ndownloader.figshare.com/files/12710618
+    Downloading from https://ndownloader.figshare.com/files/12710621
 
 
 
@@ -588,7 +592,8 @@ avg_month_precip_df
     <tr style="text-align: right;">
       <th></th>
       <th>months</th>
-      <th>precip</th>
+      <th>precip_2002</th>
+      <th>precip_2013</th>
       <th>seasons</th>
     </tr>
   </thead>
@@ -596,73 +601,85 @@ avg_month_precip_df
     <tr>
       <td>0</td>
       <td>Jan</td>
-      <td>0.70</td>
+      <td>1.07</td>
+      <td>0.27</td>
       <td>Winter</td>
     </tr>
     <tr>
       <td>1</td>
       <td>Feb</td>
-      <td>0.75</td>
+      <td>0.44</td>
+      <td>1.13</td>
       <td>Winter</td>
     </tr>
     <tr>
       <td>2</td>
       <td>Mar</td>
-      <td>1.85</td>
+      <td>1.50</td>
+      <td>1.72</td>
       <td>Spring</td>
     </tr>
     <tr>
       <td>3</td>
       <td>Apr</td>
-      <td>2.93</td>
+      <td>0.20</td>
+      <td>4.14</td>
       <td>Spring</td>
     </tr>
     <tr>
       <td>4</td>
       <td>May</td>
-      <td>3.05</td>
+      <td>3.20</td>
+      <td>2.66</td>
       <td>Spring</td>
     </tr>
     <tr>
       <td>5</td>
       <td>June</td>
-      <td>2.02</td>
+      <td>1.18</td>
+      <td>0.61</td>
       <td>Summer</td>
     </tr>
     <tr>
       <td>6</td>
       <td>July</td>
-      <td>1.93</td>
+      <td>0.09</td>
+      <td>1.03</td>
       <td>Summer</td>
     </tr>
     <tr>
       <td>7</td>
       <td>Aug</td>
-      <td>1.62</td>
+      <td>1.44</td>
+      <td>1.40</td>
       <td>Summer</td>
     </tr>
     <tr>
       <td>8</td>
       <td>Sept</td>
-      <td>1.84</td>
+      <td>1.52</td>
+      <td>18.16</td>
       <td>Fall</td>
     </tr>
     <tr>
       <td>9</td>
       <td>Oct</td>
-      <td>1.31</td>
+      <td>2.44</td>
+      <td>2.24</td>
       <td>Fall</td>
     </tr>
     <tr>
       <td>10</td>
       <td>Nov</td>
-      <td>1.39</td>
+      <td>0.78</td>
+      <td>0.29</td>
       <td>Fall</td>
     </tr>
     <tr>
       <td>11</td>
       <td>Dec</td>
-      <td>0.84</td>
+      <td>0.02</td>
+      <td>0.50</td>
       <td>Winter</td>
     </tr>
   </tbody>
