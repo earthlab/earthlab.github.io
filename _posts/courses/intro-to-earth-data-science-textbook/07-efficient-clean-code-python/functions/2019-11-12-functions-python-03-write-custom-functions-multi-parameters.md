@@ -675,9 +675,29 @@ avg_month_precip_df
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Practice Writing Multi-Parameter Functions
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Practice Writing Multi-Parameter Functions for Pandas Dataframes
 
-Now that you have a function that combines the data download and import for a **pandas** dataframe, you can modify the function for other data structures such as a **numpy** array. 
+You have a function that combines the mean calculation along a specified axis and the conversion from millimeters to inches for a **numpy** array. 
+
+How might you need to change this function to create an equivalent for **pandas** dataframe?
+
+You can actually run summary statistics on pandas using a specified axis as well with the following code:
+
+```python
+df.mean(axis = axis_value) 
+```
+
+Think about which code lines in the existing function `mean_mm_to_in_arr()` can be modified to run the equivalent code on a **pandas** dataframe.
+
+Note that the `df.mean(axis = axis_value)` returns the mean values of a dataframe (along the specified axis) as a **pandas** series.
+
+</div>
+
+<div class="notice--warning" markdown="1">
+
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Practice Writing Multi-Parameter Functions for Numpy Arrays
+
+You also have a function that combines the data download and import for a **pandas** dataframe, you can modify the function for other data structures such as a **numpy** array. 
 
 How might you need to change this function to create an equivalent for **numpy** arrays?
 
