@@ -8,7 +8,7 @@ class-lesson: ['intro-functions-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions/write-functions-with-multiple-and-optional-parameters-in-python/
 nav-title: "Write Multi-Parameter Functions in Python"
 dateCreated: 2019-11-12
-modified: 2019-11-15
+modified: 2019-11-16
 module-type: 'class'
 chapter: 19
 course: "intro-to-earth-data-science-textbook"
@@ -152,7 +152,7 @@ precip_jan_mm
 
 
 
-Note that the function is not defined specifically for unit conversions, but as it completes a generalizable task, it can be used for simply unit conversions. 
+Note that the function is not defined specifically for unit conversions, but as it completes a generalizable task, it can be used for simple unit conversions. 
 
 ## Combine Unit Conversion and Calculation of Statistics into One Function
 
@@ -480,7 +480,7 @@ Next, add the code for download and the import.
 ```python
 def download_import_arr(file_url, path):  
     et.data.get_data(url=file_url)  
-    df = pd.loadtxt(path)
+    df = pd.read_csv(path)
 ```
 
 However, what if the working directory has not been set before this function is called, and you do not want to use absolute paths? 
@@ -494,7 +494,7 @@ def download_import_df(file_url, path):
     
     et.data.get_data(url=file_url)      
     os.chdir(os.path.join(et.io.HOME, "earth-analytics"))    
-    df = pd.loadtxt(path)
+    df = pd.read_csv(path)
     
     return df
 ```
@@ -505,9 +505,11 @@ Last, include a docstring to provide the details about this function, including 
 ```python
 def download_import_df(file_url, path):   
     """Download file from specified URL and import file
-    into a pandas dataframe from a specified path. Working
-    directory is set to earth-analytics directory under
-    home (this directory is automatically created). 
+    into a pandas dataframe from a specified path. 
+    
+    Working directory is set to earth-analytics directory 
+    under home, which is automatically created by the
+    download. 
 
     
     Parameters
@@ -567,6 +569,187 @@ precip_2002_2013_df
     Downloading from https://ndownloader.figshare.com/files/12710621
 
 
+
+{:.output}
+{:.execute_result}
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>months</th>
+      <th>precip_2002</th>
+      <th>precip_2013</th>
+      <th>seasons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Jan</td>
+      <td>1.07</td>
+      <td>0.27</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Feb</td>
+      <td>0.44</td>
+      <td>1.13</td>
+      <td>Winter</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Mar</td>
+      <td>1.50</td>
+      <td>1.72</td>
+      <td>Spring</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Apr</td>
+      <td>0.20</td>
+      <td>4.14</td>
+      <td>Spring</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>May</td>
+      <td>3.20</td>
+      <td>2.66</td>
+      <td>Spring</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>June</td>
+      <td>1.18</td>
+      <td>0.61</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>July</td>
+      <td>0.09</td>
+      <td>1.03</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Aug</td>
+      <td>1.44</td>
+      <td>1.40</td>
+      <td>Summer</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Sept</td>
+      <td>1.52</td>
+      <td>18.16</td>
+      <td>Fall</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Oct</td>
+      <td>2.44</td>
+      <td>2.24</td>
+      <td>Fall</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Nov</td>
+      <td>0.78</td>
+      <td>0.29</td>
+      <td>Fall</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Dec</td>
+      <td>0.02</td>
+      <td>0.50</td>
+      <td>Winter</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+###  Making Functions More Efficient Does Not Always Mean More Parameters
+
+Note that you previously defined `download_import_df()` to take in two parameters, one for the URL and for the path, and the function works well to accomplish the task.
+
+However, with a little investigation into the `et.data.get_data()` function, you can see that the output of that function is actually a path to the downloaded file!
+
+```python
+help(et.data.get_data)
+```
+In the docstring details provided, you can see that the full path to the downloaded data is returned by the function:
+
+```
+Returns
+-------
+path_data : str
+    The path to the downloaded data.
+```
+
+This means that you can redefine `download_import_df()` to be more efficient by simply using the output of the `et.data.get_data()` function as the input to the `pd.read_csv()` function. 
+
+Now, you actually only need one parameter for the URL and you do not have to define the working directory in the function, in order to find the appropriate file.
+
+{:.input}
+```python
+def download_import_df(file_url):   
+    """Download file from specified URL and import file
+    into a pandas dataframe. 
+    
+    The path to the downloaded file is automatically 
+    generated by the download and is passed to the 
+    pandas function to create a new dataframe. 
+    
+    Parameters
+    ----------
+    file_url : str
+        URL to CSV file (http or https).       
+
+    Returns
+    ------
+    df : pandas dataframe
+        Dataframe imported from downloaded CSV file.
+    """ 
+
+    df = pd.read_csv(et.data.get_data(url=file_url))
+    
+    return df
+```
+
+Your revised function now executes only one line, rather than three lines! Note that the docstring was also updated to reflect that there is only one input parameter for this function. 
+
+{:.input}
+```python
+# Create dataframe using download/import function
+precip_2002_2013_df = download_import_df(
+    file_url = precip_2002_2013_df_url)
+
+precip_2002_2013_df
+```
 
 {:.output}
 {:.execute_result}
