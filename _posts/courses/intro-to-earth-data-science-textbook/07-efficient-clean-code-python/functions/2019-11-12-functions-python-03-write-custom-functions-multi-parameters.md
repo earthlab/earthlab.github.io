@@ -742,6 +742,8 @@ def download_import_df(file_url):
 
 Your revised function now executes only one line, rather than three lines! Note that the docstring was also updated to reflect that there is only one input parameter for this function. 
 
+Now you can call the function with just a single parameter for the URL. 
+
 {:.input}
 ```python
 # Create dataframe using download/import function
