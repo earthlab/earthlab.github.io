@@ -8,7 +8,7 @@ class-lesson: ['intro-functions-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/functions/write-functions-with-multiple-and-optional-parameters-in-python/
 nav-title: "Write Multi-Parameter Functions in Python"
 dateCreated: 2019-11-12
-modified: 2019-11-16
+modified: 2019-11-17
 module-type: 'class'
 chapter: 19
 course: "intro-to-earth-data-science-textbook"
@@ -472,13 +472,13 @@ From this code, you can see that you will need two input parameters for the comb
 Begin by specifying a function name and the placeholder variable names for the necessary input parameters. 
 
 ```python
-def download_import_arr(file_url, path):  
+def download_import_df(file_url, path):  
 ```
 
 Next, add the code for download and the import. 
 
 ```python
-def download_import_arr(file_url, path):  
+def download_import_df(file_url, path):  
     et.data.get_data(url=file_url)  
     df = pd.read_csv(path)
 ```
