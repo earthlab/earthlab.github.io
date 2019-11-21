@@ -1,13 +1,13 @@
 ---
 layout: single
 category: courses
-title: "Intermediate Earth Data Science | Earth Lab CU Boulder"
-nav-title: "Intermediate Earth Data Science Home"
-permalink: /courses/intermediate-earth-data-science/
+title: "Use Data for Earth and Environmental Science in Open Source Python | Earth Lab CU Boulder"
+nav-title: "Use Data for Earth and Environmental Science in Open Source Python Home"
+permalink: /courses/use-data-open-source-python/
 course: "intermediate-earth-data-science-textbook"
 modified: 2019-11-21
 module-type: 'overview'
-module-title: "Intermediate Earth Data Science Textbook"
+module-title: "Use Data for Earth and Environmental Science in Open Source Python Textbook"
 week-landing: 0
 week: 0
 sidebar:
@@ -28,7 +28,7 @@ overview-order: 1
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to the Intermediate Earth Data Science Textbook!
+## <i class="fa fa-ship" aria-hidden="true"></i> Welcome to the Use Data for Earth and Environmental Science in Open Source Python Textbook!
 
 ## Key Materials
 
@@ -39,10 +39,9 @@ overview-order: 1
 </div>
 <!-- an overview module specifies the overview content for the course including syllabus and any assignments  module-type: 'session' specified a week or a particular set of content surrounding a topic - eg internship seminar, etc -->
 
-## About the IIntermediate Earth Data Science Textbook
+## About the Use Data for Earth and Environmental Science in Open Source Python Textbook
 
-Intermediate Earth Data Science is an intermediate and multidisciplinary online textbook that addresses major
-questions in Earth science and teaches students to use the analytical tools necessary to undertake exploration of heterogeneous "big" scientific data.
+Use Data for Earth and Environmental Science in Open Source Python is an intermediate and multidisciplinary online textbook that addresses major questions in Earth science and teaches students to use the analytical tools necessary to undertake exploration of heterogeneous "big" scientific data.
 
 This textbook assumes that readers have reviewed the <a href="{{ site.url }}/courses/intro-to-earth-data-science/">Introduction to Earth Data Science textbook </a> or are familiar with the **Python** programming language, **Jupyter Notebook**, and **git/GitHub**. 
 

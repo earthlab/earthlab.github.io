@@ -8,7 +8,7 @@ category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 week: 1
-permalink: /courses/intermediate-earth-data-science/use-time-series-data-in-python/resample-time-series-data-pandas-python/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/resample-time-series-data-pandas-python/
 nav-title: 'Resample Time Series Data'
 sidebar:
   nav:

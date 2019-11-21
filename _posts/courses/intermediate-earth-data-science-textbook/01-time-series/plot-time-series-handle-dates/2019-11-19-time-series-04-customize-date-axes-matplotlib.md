@@ -8,7 +8,7 @@ category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 nav-title: 'Custom Date Formats for Plots'
-permalink: /courses/intermediate-earth-data-science/use-time-series-data-in-python/customize-dates-matplotlib-plots-python/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/customize-dates-matplotlib-plots-python/
 module-type: 'class'
 week: 1
 sidebar:
