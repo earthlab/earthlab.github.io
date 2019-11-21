@@ -57,10 +57,9 @@ This time, however, you will use the hourly data that was not aggregated to a da
 
 This dataset contains the precipitation values collected hourly from the COOP station 050843 in Boulder, CO for January 1, 2003 through December 31, 2013. This means that there are sometimes multiple values collected for each day if it happened to rain throughout the day. 
 
-However, before using the data, there are consider a few things: 
-
-1. The data were collected over several decades and the data were not always collected consistently.
-2. The data are not cleaned. You will find heading names that may not be meaningful, and other issues with the data that need to be explored.
+Before using the data, consider a few things about how it was collected: 
+1. The data were collected over several decades, and the data were not always collected consistently.
+2. The data are not cleaned. You may find heading names that are not meaningful, and other issues with the data that need to be explored.
 
 To begin, import the necessary packages to work with **pandas** dataframe and download data. 
 
@@ -90,12 +89,6 @@ sns.set(font_scale=1.5, style="whitegrid")
 # Download the data
 data = et.data.get_data('colorado-flood')
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 {:.input}
 ```python

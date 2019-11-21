@@ -4,12 +4,12 @@ title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need for your analysis or plot. Learn how to subset your data using a begin and end date in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2019-11-20
+modified: 2019-11-21
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 permalink: /courses/intermediate-earth-data-science/use-time-series-data-in-python/subset-time-series-data-python/
-nav-title: 'Subset time series data in Python'
+nav-title: 'Subset Time Series Data in Python'
 week: 1
 sidebar:
   nav:
@@ -35,20 +35,28 @@ topics:
 </div>
 
 
-## About the NOAA Precipitation Data
+## Temporally Subset Data Using Pandas Dataframes
 
-You will use a slightly modified version of precipitation data (inches) downloaded from the <a href="https://www.ncdc.noaa.gov/cdo-web/search" target ="_blank">National Centers for Environmental Information (formerly National Climate Data Center) Cooperative Observer Network (COOP) </a> station 050843 in Boulder, CO. The data were collected from January 1, 2003 through December 31, 2013.
+Sometimes a dataset contains a much larger timeframe than you need for your analysis or plot, and it can helpful to select, or subset, the data to the needed timeframe. 
+
+There are many ways to subset the data temporally in **Python**; one easy way to do this is to use **pandas**.
+
+**Pandas** natively understands time operations if:
+1. you tell it what column contains your time stamps (using the parameter `parse_dates`) and 
+2. you set the date column to be the index of the dataframe (using the parameter `index_col`)
+
+On the previous page of this chapter, you already learned how to complete these steps during the `read_csv()` import into the **pandas** dataframe. On this page, you will learn how to use the `datetime` index to subset data from a **pandas dataframe**. 
+
+### Import Packages and Get Data
+
+You will use a slightly modified version of precipitation data (inches) downloaded from the <a href="https://www.ncdc.noaa.gov/cdo-web/search" target ="_blank">National Centers for Environmental Information (formerly National Climate Data Center) Cooperative Observer Network (COOP)</a> station 050843 in Boulder, CO. The data were collected from January 1, 2003 through December 31, 2013.
 
 Your instructor has modified these data as follows:
 * aggregated the data to represent daily sum values.
 * added some no data values to allow you to practice handing missing data.
-* added several columns to this data that would not usually be there if you downloaded it directly. 
-
-The added columns include:
-* Year
-* Julian day (i.e. the calendar day number)
-
-### Import Packages and Get Data
+* added new columns to this data that would not usually be there if you downloaded it directly:
+    * Year
+    * Julian day (i.e. the calendar day number)
 
 To begin, import the necessary packages to work with **pandas** dataframe and download data. 
 
@@ -93,18 +101,24 @@ Note that when you download data using a data key in **earthpy**, the data are a
 
 For this dataset, there is `precipitation` subdirectory within `colorado-flood` for the precipitation data.  
 
-Now that you have downloaded the dataset, you can import the file for the measurement station for Boulder, CO, using the parameters to import the dates as a `datetime` index and the no data values as `-999.99`.
-
 {:.input}
 ```python
 # Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
-# Define relative path to file
+# Define relative path to file with daily precip total
 file_path = os.path.join("data", "colorado-flood",
                          "precipitation",
                          "805325-precip-dailysum-2003-2013.csv")
+```
 
+Now that you have downloaded the dataset, you can import the file for the measurement station for Boulder, CO, and specify the:
+1. no data values using the parameter `na_values`
+2. date column using the parameter `parse_dates`
+3. datetime index using the parameter `index_col`
+
+{:.input}
+```python
 # Import data using datetime and no data value
 boulder_precip_2003_2013 = pd.read_csv(file_path,
                                        parse_dates=['DATE'],
@@ -225,14 +239,14 @@ boulder_precip_2003_2013.head()
 
 
 
-### About the Data
+### About the Precipitation Data
 
 Viewing the structure of these data, you can see that different types of data are included in
 this file.
 
 * **STATION** and **STATION_NAME**: Identification of the COOP station.
 * **ELEVATION, LATITUDE** and **LONGITUDE**: The spatial location of the station.
-* **DAILY_PRECIP**: The total precipitation in inches. The metadata for this dataset notes that the value `999.99` indicates missing data. Also important, hours with no precipitation are not recorded.
+* **DAILY_PRECIP**: The total precipitation in inches. The metadata for this dataset notes that the value `999.99` indicates missing data. Also important, days with no precipitation are not included in the data.
 * **YEAR**: the year the data were collected
 * **JULIAN**: the JULIAN DAY the data were collected.
 
@@ -242,6 +256,7 @@ Notice that `DATE` is now the index value because you used the `parse_date` and 
 
 Additional information about the data, known as metadata, is available in the
 <a href="https://ndownloader.figshare.com/files/7283453">PRECIP_HLY_documentation.pdf</a>.
+
 The metadata tell us that the no data value for these data is 999.99. IMPORTANT:
 your instructor has modified these data a bit for ease of teaching and learning. Specifically,
 data have been aggregated to represent daily sum values and some no data values have been added.
@@ -420,23 +435,13 @@ boulder_precip_2003_2013.index
 
 
 
-## Temporally Subset Data Using Pandas Dataframes
-
-There are many ways to subset the data temporally in **Python**; one easy way to do this is to use **pandas**.
-
-**Pandas** natively understands time operations if:
-1. you tell it what column contains your time stamps (using the parameter `parse_dates`) and 
-2. you set the date column to be the index of the dataframe (using the parameter `index_col`)
-
-You have already completed these steps during the `read_csv()` import into the **pandas** dataframe. 
+## Subset Pandas Dataframe By Year
 
 Because you have a dataframe setup with an index, you can start to easily subset your data using the syntax:
 
 `df["index_date"]`
 
-Note that the `datetime` are accessed using parenthesis `""` similar to how you query for text strings. 
-
-### Select Data By Year
+Note that the `datetime` index value is accessed using parenthesis `""` similar to how you query for text strings. 
 
 Using this syntax, you can select all of the data for the year 2013 by specifying the value that you want to select from the `datetime` index:
 
@@ -670,7 +675,8 @@ boulder_precip_2003_2013['2013'].tail()
 
 Note that in the previous example, you are querying the `datetime` index directly, not querying the values from the `Year` column.
 
-### Select Data By Month
+
+## Subset Pandas Dataframe By Month
 
 Using a `datetime` index with **pandas** makes it really easy to continue to select data using additional attributes of the index such as `month`.
 
@@ -680,7 +686,7 @@ This attribute of the `datetime` index can be accessed as:
 
 where the month values are numeric values ranging from 1 to 12, representing January through December.
 
-With this attribute, you can now employ the **pandas** syntax to <a href="{{ site.url }}/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/#filter-data-using-specific-values">filter values</a> using the syntax:
+With this attribute, you can now employ the **pandas** syntax to <a href="{{ site.url }}/courses/intro-to-earth-data-science/scientific-data-structures-python/pandas-dataframes/indexing-filtering-data-pandas-dataframes/#filter-data-using-specific-values">filter values in a pandas dataframe</a> using the syntax:
 
 `df[df.index.month == value]`
 
@@ -914,7 +920,7 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.month == 12].tail()
 
 Notice that `head()` displays December records in 2003, while `tail()` displays December records in 2013. 
 
-### Select Data By Day of Month
+## Subset Pandas Dataframe By Day of Month
 
 Similarly, you can the attribute `day` of the index to select all records for a specific day of the month as follows: 
 
@@ -1103,13 +1109,11 @@ boulder_precip_2003_2013[boulder_precip_2003_2013.index.day == 1]
 
 
 
-### Select Data Using Range of Dates
+## Subset Pandas Dataframe Using Range of Dates
 
 You can also subset the data using a specific date range using the syntax:
 
 `df["begin_index_date" : "end_index_date]`
-
-This is particularly helpful when a dataset contains a much larger timeframe than you need for your analysis or plot. 
 
 For example, you can subset the data to the time period **August 1 2013 - October 31 2013** and then save it to a new dataframe. 
 
@@ -1248,7 +1252,7 @@ print(precip_aug_oct_2013.index.max())
 
 
 
-## Plot Temporally Subsetted Data
+## Plot Temporal Subsets From Pandas Dataframe
 
 Once you have subsetted the data and saved it, you can plot the data from the new dataframe to focus in on the desired time period. 
 
@@ -1281,7 +1285,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-subset-plot-time-series-data-python/2019-11-19-time-series-02-subset-plot-time-series-data-python_29_0.png" alt = "Scatterplot showing daily total precipitation for Boulder Creek.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-subset-plot-time-series-data-python/2019-11-19-time-series-02-subset-plot-time-series-data-python_31_0.png" alt = "Scatterplot showing daily total precipitation for Boulder Creek.">
 <figcaption>Scatterplot showing daily total precipitation for Boulder Creek.</figcaption>
 
 </figure>
@@ -1291,4 +1295,7 @@ plt.show()
 
 Subsetting the precipitation data for Boulder, CO to August 1 2013 - October 31 2013 allows you to create a plot centered around the September 2013 flood, which is clearly highlighted in the plot. 
 
-On the next pages of this chapter, you will learn how to resample data as well as customize your date labels on your plot, so that you do not have to rotate the labels.
+### Think of New Applications and Uses of Subsetting
+
+Given what you have learned about using `df.index.month` and `df.index.day` to select data by the month or day of the month value:
+* What would you replace `month` or `day` with, in order to select data by year or even a specific week of the year?

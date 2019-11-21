@@ -4,14 +4,14 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2019-11-20
+modified: 2019-11-21
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 permalink: /courses/intermediate-earth-data-science/use-time-series-data-in-python/date-time-types-in-pandas-python/
 module-description: 'Python provides a datetime object for storing and working with dates. Learn how to handle date fields using pandas to work with time series data in Python.'
 module-nav-title: 'Time Series Data in Pandas'
-module-title: 'Use Time Series Data in Python Pandas'
+module-title: 'Use Time Series Data in Python With Pandas'
 module-type: 'class'
 nav-title: 'Dates in Python'
 chapter: 1
@@ -555,11 +555,9 @@ On later pages of this chapter, you will learn how to customize the date labels 
 
 As mentioned previously, you likely noticed that there are many negative values in this dataset, which are actually "no data" values. 
 
-Sometimes data are missing from a file due to errors in collection, inability to record a data point, or other reasons. 
+Sometimes data are missing from a file due to errors in collection, inability to record a data point, or other reasons. For example, imagine a spreadsheet with cells that are blank. If the cells are blank, you don't know for sure whether those data weren't collected, or whether someone forgot to fill them in. 
 
-For example, imagine a spreadsheet with cells that are blank. If the cells are blank, you don't know for sure whether those data weren't collected, or whether someone forgot to fill them in. 
-
-To account for data that are missing (not by mistake), you can put a value into those cells that represents "no data" to make it clear that these data should not be used in analysis or plotting.
+To account for data that are missing (not by mistake), you can put a value into those cells that represents "no data" to make it clear that these data are not usable for analysis or plotting.
 
 Often, you'll find a dataset that uses a specific value for "no data". In many scientific disciplines, the value `-999` is often used to indicate "no data" values. 
 
