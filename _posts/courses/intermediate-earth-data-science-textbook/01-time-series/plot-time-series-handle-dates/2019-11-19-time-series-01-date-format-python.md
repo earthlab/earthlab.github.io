@@ -75,15 +75,13 @@ On this page, you will learn how to handle dates using the `datetime` object in 
 
 ### Import Packages and Get Data
 
-To begin, import the necessary packages to work with **pandas** dataframe and download data. You will work with new modules from **pandas** and **matplotlib** to plot dates more efficiently, and you will work with the <a href="https://seaborn.pydata.org/introduction.html" target="_blank">**seaborn**</a> package to make more attractive plots.  
+To begin, import the necessary packages to work with **pandas** dataframe and download data. You will work with modules from **pandas** and **matplotlib** to plot dates more efficiently, and you will work with the <a href="https://seaborn.pydata.org/introduction.html" target="_blank">**seaborn**</a> package to make more attractive plots.  
 
 {:.input}
 ```python
 # Import necessary packages
 import os
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-from matplotlib.dates import DateFormatter
 import seaborn as sns
 import pandas as pd
 import earthpy as et

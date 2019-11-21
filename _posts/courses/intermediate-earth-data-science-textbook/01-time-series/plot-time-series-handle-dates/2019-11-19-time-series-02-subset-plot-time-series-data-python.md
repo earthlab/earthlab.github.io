@@ -60,15 +60,13 @@ Your instructor has modified these data as follows:
 
 To begin, import the necessary packages to work with **pandas** dataframe and download data. 
 
-You will continue to work with additional modules from **pandas** and **matplotlib** to plot dates more efficiently and with <a href="https://seaborn.pydata.org/introduction.html" target="_blank">**seaborn**</a> to make more attractive plots.  
+You will continue to work with modules from **pandas** and **matplotlib** to plot dates more efficiently and with <a href="https://seaborn.pydata.org/introduction.html" target="_blank">**seaborn**</a> to make more attractive plots.  
 
 {:.input}
 ```python
 # Import necessary packages
 import os
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-from matplotlib.dates import DateFormatter
 import seaborn as sns
 import pandas as pd
 import earthpy as et
@@ -1115,14 +1113,14 @@ You can also subset the data using a specific date range using the syntax:
 
 `df["begin_index_date" : "end_index_date]`
 
-For example, you can subset the data to the time period **August 1 2013 - October 31 2013** and then save it to a new dataframe. 
+For example, you can subset the data to a desired time period such as May 1, 2005 - August 31 2005, and then save it to a new dataframe. 
 
 {:.input}
 ```python
-# Subset data to Jan-Oct 2003
-precip_aug_oct_2013 = boulder_precip_2003_2013['2013-08-01':'2013-10-31']
+# Subset data to May-Aug 2005
+precip_may_aug_2005 = boulder_precip_2003_2013['2005-05-01':'2005-08-31']
 
-precip_aug_oct_2013.head()
+precip_may_aug_2005.head()
 ```
 
 {:.output}
@@ -1171,59 +1169,59 @@ precip_aug_oct_2013.head()
   </thead>
   <tbody>
     <tr>
-      <td>2013-08-01</td>
+      <td>2005-05-01</td>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
-      <td>40.0338</td>
-      <td>-105.2811</td>
-      <td>2013</td>
-      <td>213</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2005</td>
+      <td>121</td>
     </tr>
     <tr>
-      <td>2013-08-05</td>
+      <td>2005-05-11</td>
+      <td>1.2</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2005</td>
+      <td>131</td>
+    </tr>
+    <tr>
+      <td>2005-05-30</td>
+      <td>0.5</td>
+      <td>COOP:050843</td>
+      <td>BOULDER 2 CO US</td>
+      <td>1650.5</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2005</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>2005-05-31</td>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
-      <td>40.0338</td>
-      <td>-105.2811</td>
-      <td>2013</td>
-      <td>217</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2005</td>
+      <td>151</td>
     </tr>
     <tr>
-      <td>2013-08-06</td>
-      <td>0.1</td>
+      <td>2005-06-01</td>
+      <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
-      <td>40.0338</td>
-      <td>-105.2811</td>
-      <td>2013</td>
-      <td>218</td>
-    </tr>
-    <tr>
-      <td>2013-08-10</td>
-      <td>0.2</td>
-      <td>COOP:050843</td>
-      <td>BOULDER 2 CO US</td>
-      <td>1650.5</td>
-      <td>40.0338</td>
-      <td>-105.2811</td>
-      <td>2013</td>
-      <td>222</td>
-    </tr>
-    <tr>
-      <td>2013-08-13</td>
-      <td>0.2</td>
-      <td>COOP:050843</td>
-      <td>BOULDER 2 CO US</td>
-      <td>1650.5</td>
-      <td>40.0338</td>
-      <td>-105.2811</td>
-      <td>2013</td>
-      <td>225</td>
+      <td>40.03389</td>
+      <td>-105.28111</td>
+      <td>2005</td>
+      <td>152</td>
     </tr>
   </tbody>
 </table>
@@ -1240,15 +1238,15 @@ Rather than just checking the results of `head()` and `tail()`, you can actually
 {:.input}
 ```python
 # Check min value of index 
-print(precip_aug_oct_2013.index.min())
+print(precip_may_aug_2005.index.min())
 
 # Check max value of index 
-print(precip_aug_oct_2013.index.max())
+print(precip_may_aug_2005.index.max())
 ```
 
 {:.output}
-    2013-08-01 00:00:00
-    2013-10-30 00:00:00
+    2005-05-01 00:00:00
+    2005-08-23 00:00:00
 
 
 
@@ -1265,14 +1263,14 @@ Once again, you will use `.index.values` to access the `datetime` index values f
 fig, ax = plt.subplots(figsize=(10, 10))
 
 # Add x-axis and y-axis
-ax.bar(precip_aug_oct_2013.index.values,
-        precip_aug_oct_2013['DAILY_PRECIP'],
-        color='purple')
+ax.bar(precip_may_aug_2005.index.values,
+       precip_may_aug_2005['DAILY_PRECIP'],
+       color='purple')
 
 # Set title and labels for axes
 ax.set(xlabel="Date",
        ylabel="Precipitation (inches)",
-       title="Daily Total Precipitation\nAug - Oct 2013 for Boulder Creek")
+       title="Daily Total Precipitation\nMay - Aug 2005 for Boulder Creek")
 
 # Rotate tick marks on x-axis
 plt.setp(ax.get_xticklabels(), rotation=45)
@@ -1292,8 +1290,6 @@ plt.show()
 
 
 
-
-Subsetting the precipitation data for Boulder, CO to August 1 2013 - October 31 2013 allows you to create a plot centered around the September 2013 flood, which is clearly highlighted in the plot. 
 
 ### Think of New Applications and Uses of Subsetting
 

@@ -63,15 +63,13 @@ Before using the data, consider a few things about how it was collected:
 
 To begin, import the necessary packages to work with **pandas** dataframe and download data. 
 
-You will continue to work with additional modules from **pandas** and **matplotlib** to plot dates more efficiently and with <a href="https://seaborn.pydata.org/introduction.html" target="_blank">**seaborn**</a> to make more attractive plots. 
+You will continue to work with modules from **pandas** and **matplotlib** to plot dates more efficiently and with <a href="https://seaborn.pydata.org/introduction.html" target="_blank">**seaborn**</a> to make more attractive plots. 
 
 {:.input}
 ```python
 # Import necessary packages
 import os
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-from matplotlib.dates import DateFormatter
 import seaborn as sns
 import pandas as pd
 import earthpy as et
@@ -101,7 +99,7 @@ file_path = os.path.join("data", "colorado-flood",
                          "805325-precip-daily-2003-2013.csv")
 ```
 
-Just as before, when you import the file to a **pandas* * dataframe, be sure to specify the:
+Just as before, when you import the file to a **pandas** dataframe, be sure to specify the:
 * no data values using the parameter `na_values`
 * date column using the parameter `parse_dates`
 * datetime index using the parameter `index_col`
