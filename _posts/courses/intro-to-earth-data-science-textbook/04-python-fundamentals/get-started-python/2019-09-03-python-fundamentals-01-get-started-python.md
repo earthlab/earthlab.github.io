@@ -10,7 +10,7 @@ nav-title: "About Python"
 dateCreated: 2019-07-01
 modified: 2019-11-21
 module-title: 'Get Started with Variables and Lists in Python'
-module-nav-title: 'Get Started Using Python'
+module-nav-title: 'Get Started with Python Variables and Lists'
 module-description: 'Python is programming language that emphasizes the readibility of code and provides many packages and libraries for working with scientific data. Learn how to get started with writing Python code.'
 module-type: 'class'
 chapter: 10
