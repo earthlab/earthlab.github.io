@@ -4,7 +4,7 @@ title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need for your analysis or plot. Learn how to subset your data using a begin and end date in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2019-11-21
+modified: 2019-11-22
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -28,7 +28,7 @@ topics:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Subset time series data using a begin and end date. 
+* Subset time series data using different options for time frames, including by year, month, and with a specified begin and end date. 
 
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
