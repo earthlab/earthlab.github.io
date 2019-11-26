@@ -7,7 +7,7 @@ excerpt: "Making your codebase more robust with unit tests, linting, and continu
 layout: single
 modified: '2019-11-26'
 comments: yes
-permalink: blog/unit-testing-linting-ci-Python/
+permalink: blog/unit-testing-linting-ci-python/
 sidebar:
   nav:
 tags: 
