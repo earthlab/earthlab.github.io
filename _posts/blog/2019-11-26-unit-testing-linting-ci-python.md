@@ -127,8 +127,8 @@ Travis enables a great workflow when combined with the other tools mentioned bec
 To show you the flow, let’s look at the steps:
 
 <figure>
-  <a href="{{ site.url }}/images/blog/2019-11-26-unit-testing-linting-ci-Python/workflow-unit-testing-linting-ci-Python.jpg">
-    <img src="{{ site.url }}/images/blog/2019-11-26-unit-testing-linting-ci-Python/workflow-unit-testing-linting-ci-Python.jpg" alt="You can integrate tools for testing, linting, and continuous integration into one workflow.">
+  <a href="{{ site.url }}/images/blog/2019-11-26-unit-testing-linting-ci-Python/workflow-unit-testing-linting-ci-python.jpg">
+    <img src="{{ site.url }}/images/blog/2019-11-26-unit-testing-linting-ci-Python/workflow-unit-testing-linting-ci-python.jpg" alt="You can integrate tools for testing, linting, and continuous integration into one workflow.">
   </a>
   <figcaption>You can integrate tools for testing, linting, and continuous integration into one workflow. Source: Will Norris
   </figcaption>
@@ -244,7 +244,7 @@ If you have a more complex environment to set up, or are running your tests on m
 
 **Note**: It is always possible to change the way you are building your Travis environments later, so there is no harm starting with one option and converting later. It is a small time investment to change your Travis configuration.
 
-## GitHub Companion Guide: 
+## GitHub Companion Guide 
 
 There are several links to a GitHub repository that contains examples for this post. This repo is set up as a Python module itself called “my_module”. In the main repo, you will see this structure: 
 
@@ -265,20 +265,21 @@ There are several links to a GitHub repository that contains examples for this p
         └── travis.yml
 ```
 
-### Important Notes for Repo: 
+### Important Notes for Repo
 
 * Every Python module needs a `setup.py` file; our module is very basic, so it only runs `setuptools` to find the local package. 
 * Your `.travis.yml` file is set to install dependencies using `pip` and a `requirements.txt` file. 
   * If you would rather use Anaconda, refer to their <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/use-conda-with-travis-ci.html" target="_blank">documentation</a> for installing in Travis.
 * In order to view this repo’s Travis outputs, click on the <a href="https://github.com/wino6687/blogci/commits/master" target="_blank">commits</a> tab, and click on the green check mark (which signifies passing tests) then select “details”.
 
-## Wrap Up and Documentation:
+## Wrap Up
 
 You now have all of the tools to begin ensuring that your Python project will be maintainable well into the future. While we have provided several examples for you, there is no replacement for reading the documentation for each framework we are using. Below I have linked most of the relevant documentation that should help guide you through any troubleshooting you may still need after reading this article.
 
 While it takes a decent amount of work up front, setting up a robust system for writing maintainable and deployable code will benefit you in the long run. You will thank yourself for doing it later, and each time you go through this process it will get faster to implement. 
 
-Documentation: 
+## Documentation
+
 * <a href="https://pytest.org/en/latest/" target="_blank">Pytest</a> 
 * <a href="https://docs.codecov.io/docs" target="_blank">Codecov</a>
 * <a href="https://docs.travis-ci.com/" target="_blank">Travis-CI</a> 
