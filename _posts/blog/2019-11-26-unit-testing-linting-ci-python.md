@@ -127,8 +127,8 @@ Travis enables a great workflow when combined with the other tools mentioned bec
 To show you the flow, let’s look at the steps:
 
 <figure>
-  <a href="{{ site.url }}/images/blog/2019-11-26-unit-testing-linting-ci-Python/workflow-unit-testing-linting-ci-python.jpg">
-    <img src="{{ site.url }}/images/blog/2019-11-26-unit-testing-linting-ci-Python/workflow-unit-testing-linting-ci-python.jpg" alt="You can integrate tools for testing, linting, and continuous integration into one workflow.">
+  <a href="{{ site.url }}/images/blog/2019-11-26-unit-testing-linting-ci-python/workflow-unit-testing-linting-ci-python.jpg">
+    <img src="{{ site.url }}/images/blog/2019-11-26-unit-testing-linting-ci-python/workflow-unit-testing-linting-ci-python.jpg" alt="You can integrate tools for testing, linting, and continuous integration into one workflow.">
   </a>
   <figcaption>You can integrate tools for testing, linting, and continuous integration into one workflow. Source: Will Norris
   </figcaption>
