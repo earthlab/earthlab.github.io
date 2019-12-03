@@ -7,7 +7,7 @@ published: true
 site-map: true
 ---
 
-{% assign sortedTags = (site.tags | sort:0) %}
+{% assign sortedTags = site.tags | sort:0 %}
 {% for tag in sortedTags %}
   <details id="tag-{{ tag[0] }}">
     <summary>
@@ -17,6 +17,6 @@ site-map: true
       {% for post in tag[1] %}
         <li><a href="{{ post.url }}">{{ post.title }}</a> — {{ post.date | date_to_string }}</li>
       {% endfor %}
-    </ul>         
+    </ul>
   </details>
 {% endfor %}

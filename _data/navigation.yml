@@ -7,8 +7,14 @@ main:
   - title: "Courses"
     url: /courses/
 
+  - title: "Workshops"
+    url: /workshops/  
+
   - title: "Tools"
     url: /tools/
+
+  - title: "Blog"
+    url: /blog/
 
   - title: "Events"
     url: /events/

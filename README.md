@@ -1,6 +1,11 @@
 
 
-# Development -- Analytics Hub Tutorial website
+Earth Data scienceWebsite: [![Earth Data scienceWebsite DOI](https://zenodo.org/badge/62253359.svg)](https://zenodo.org/badge/latestdoi/62253359)
+Please view our license for all courses and workshop material. Cite our materials following the license and us these DOI's as appropriate:
+* Earth Analytics R Course: [![Earth Analytics R Course DOI](https://zenodo.org/badge/143348761.svg)](https://zenodo.org/badge/latestdoi/143348761)
+
+
+## Development -- Earth Data Science Website
 
 [![Build Status](https://travis-ci.org/earthlab/earthlab.github.io.svg?branch=master)](https://travis-ci.org/earthlab/earthlab.github.io)
 
@@ -56,4 +61,4 @@ Currently, we are using less. to install less
 ## License
 
 Please see license information, here https://github.com/earthlab/earthlab.github.io/blob/master/LICENSE
-- all materials are Creative comments by attribution. If you use our materials - please cite us! 
+If you use our materials following license guidelines - please cite us! 

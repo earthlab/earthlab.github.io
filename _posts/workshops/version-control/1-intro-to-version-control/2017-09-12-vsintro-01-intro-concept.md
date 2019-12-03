@@ -6,7 +6,7 @@ title: 'An introduction version control'
 attribution: ''
 excerpt: 'Learn what version control is, and how Git and GitHub are used in a typical version control workflow.'
 dateCreated: 2017-09-12
-modified: '2017-09-21'
+modified: '2019-09-03'
 module-title: 'Introduction to version control'
 module-description: 'This module includes instructions for setting up your Git environment, introduces key version control concepts, and describes first steps to start using version control with Git and GitHub.'
 module-nav-title: 'Version control'
@@ -14,7 +14,7 @@ nav-title: 'What is version control?'
 sidebar:
   nav:
 module: "intro-version-control-git"
-permalink: /courses/intro-version-control-git/about-version-control/
+permalink: /workshops/intro-version-control-git/about-version-control/
 author_profile: false
 comments: true
 order: 2
@@ -42,7 +42,7 @@ At the end of this activity, you will be able to:
 
 Follow the setup instructions here:
 
-* [Setup instructions]({{ site.url }}/courses/intro-version-control-git/)
+* [Setup instructions]({{ site.url }}/workshops/intro-version-control-git/)
 
 
 </div>
@@ -53,7 +53,7 @@ scientific workflows.
 
 The text and graphics in the first three sections were borrowed, with some
 modifications, from
-<a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry's Version Control with Git lessons</a>.
+<a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry's Version Control with Git lessons</a>.
 
 ## What is Version Control?
 
@@ -63,7 +63,7 @@ It also allows us to revert changes to a previous point in time.
 
 <figure>
 	<a href="http://www.phdcomics.com/comics/archive/phd101212s.gif">
-	<img src="http://www.phdcomics.com/comics/archive/phd101212s.gif"></a>
+	<img src="http://www.phdcomics.com/comics/archive/phd101212s.gif" alt = "Many of us have used the "append a date" to a file name version of version control at some point in our lives. "></a>
 	<figcaption> Many of us have used the "append a date" to a file name version
  of version control at some point in our lives.  Source: "Piled Higher and
 Deeper" by Jorge Cham <a href="http://www.phdcomics.com" target="_blank"> www.phdcomics.com</a>
@@ -117,10 +117,10 @@ each change and end up with your latest version.
 
  <figure>
 	<a href="{{  site.url }}/images/workshops/version-control/swc_git_play-changes.svg">
-	<img src="{{  site.url }}/images/workshops/version-control/swc_git_play-changes.svg"></a>
+	<img src="{{  site.url }}/images/workshops/version-control/swc_git_play-changes.svg" alt = "A version control system saves changes to a document, sequentially as you add and commit them to the system."></a>
 	<figcaption> A version control system saves changes to a document, sequentially
   as you add and commit them to the system.
-	Source: <a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -133,10 +133,10 @@ to the same document.
 
  <figure>
 	<a href="{{  site.url }}/images/workshops/version-control/swc_git_versions.svg">
-	<img src="{{  site.url }}/images/workshops/version-control/swc_git_versions.svg"></a>
+	<img src="{{  site.url }}/images/workshops/version-control/swc_git_versions.svg" ALT = "Different versions of the same document can be saved within a version control system."></a>
 	<figcaption> Different versions of the same document can be saved within a
   version control system.
-	Source: <a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -146,12 +146,12 @@ ways) you can review two sets of changes on the same base document.
 
  <figure>
 	<a href="{{  site.url }}/images/workshops/version-control/swc_git_merge.svg">
-	<img src="{{  site.url }}/images/workshops/version-control/swc_git_merge.svg"></a>
+	<img src="{{  site.url }}/images/workshops/version-control/swc_git_merge.svg" ALT = "Two sets of changes to the same base document can be reviewed together, within a version control system if there are no conflicts (areas where both users modified the same part of the same document in different ways). Changes submitted by both users can then be merged together."></a>
 	<figcaption>Two sets of changes to the same base document can be reviewed
 	together, within a version control system <strong> if </strong> there are no conflicts (areas
 	where both users <strong> modified the same part of the same document in different ways</strong>).
 	Changes submitted by both users can then be merged together.
-	Source: <a href="http://swcarpentry.github.io/git-novice/01-basics.html" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -173,7 +173,7 @@ GitHub also allows you to share your work and collaborate with others on project
 
 <figure>
  <a href="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png">
- <img src="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png" width="70%"></a>
+ <img src="https://git-scm.com/book/en/v2/book/01-introduction/images/distributed.png" ALT = "One advantage of a distributed version control system is that there are many copies of the repository. Thus, if any server or computer dies, any of the client repositories can be copied and used to restore the data! Every clone (or fork) is a full backup of all the data." width="70%"></a>
  <figcaption>One advantage of a distributed version control system is that there
  are many copies of the repository. Thus, if any server or computer dies, any of
   the client repositories can be copied and used to restore the data! Every clone

@@ -2,7 +2,8 @@
 layout: default
 ---
 
-{% if (page.header.overlay_color or page.header.overlay_image) or page.header.image %}
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
   {% include page__hero.html %}
 {% endif %}
 
@@ -54,7 +55,7 @@ layout: default
       {% endfor %}
 
       {% else %}
-        {% for post in site.categories.[page.category] %}
+        {% for post in site.categories[page.category] %}
       <!-- List all posts in the page category  -->
       <!-- Somehow loop through each class lesson and count - right now i'm not including category on series pages -->
       <div class="list__item">

@@ -40,7 +40,7 @@ Check out the instructor notes to better understand how each lesson can be taugh
   <p class='archive__item-excerpt'>{{ module.module-description }}</p>
 
   {% assign counter = 0 %}
-  {% for post in site.categories.[page.category] %}
+  {% for post in site.categories[page.category] %}
       {% if post.class-lesson == module.class-lesson %}
         {% assign counter = counter | plus: 1 %}
       {% endif %}
@@ -66,7 +66,7 @@ Check out the instructor notes to better understand how each lesson can be taugh
   <a href="{{ site.url }}/courses/{{ member.slug}}">{{ member.name }} </a></h2>
   <p class='archive__item-excerpt'>{{ member.description }}</p>
   {% assign counter = 0 %}
-  {% for post in site.categories.[page.category] %}
+  {% for post in site.categories[page.category] %}
       {% if post.class-lesson contains member.slug %}
         {% assign counter = counter | plus: 1 %}
       {% endif %}
@@ -91,7 +91,7 @@ Check out the instructor notes to better understand how each lesson can be taugh
 Check out our latest code tutorials. Leave questions in the comment box at
 the bottom. We'll try our best to help!
 
-  {% for post in site.categories.tutorials limit:3 %}
+  {% for post in site.categories[tutorials] limit:3 %}
   <div class="list__item">
     <article class="archive__item" >
     {% if post.link %}
@@ -100,7 +100,7 @@ the bottom. We'll try our best to help!
       <h2 class="archive__item-title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
       <span class="post-date">
       {% if post.lastModified %}Last modified: {{ post.lastModified | date: "%b %-d, %Y" }}{% endif %}
-      {% if post.packagesLibraries %} - Libraries: {{ post.packagesLibraries | join: ', ' %}}{% endif %}
+      {% if post.packagesLibraries %} - Libraries: {{ post.packagesLibraries | join: ', ' }}{% endif %}
       </span>
       <p class='archive__item-excerpt'>{% if post.excerpt %}{{ post.excerpt }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 120 }}{% endif %}</p>
     {% endif %}

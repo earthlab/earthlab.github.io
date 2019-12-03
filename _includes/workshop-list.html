@@ -1,0 +1,51 @@
+
+<!-- This part will only list workshops  -->
+
+{% assign workshops = site.posts | where:"module-type", 'workshop' %}
+{% assign workshop_landing_pages = workshops | where:"order", 1 %}
+
+{% for workshop in workshop_landing_pages %}
+<div class="list__item">
+  <article class="archive__item" >
+  <h2 class="archive__item-title">
+    <a href="{{ site.url }}{{ workshop.permalink }}">{{ workshop.module-title }} </a></h2>
+    <p class='archive__item-excerpt'>{{ workshop.module-description | truncatewords:35 }}
+      <br><i>Last updated: {{ workshop.modified | date_to_string }}</i> </p>
+  </article>
+</div>
+
+{% endfor %}
+
+{% comment %}
+<!-- This include will add all modules in the site to the page -->
+
+{% assign modules = site.posts | where:"order", 1 %}
+
+{% for module in modules %}
+
+<div class="list__item">
+  <article class="archive__item" >
+  <h2 class="archive__item-title">
+  <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}link:{{ module.permalink }}</a></h2>
+  <p class='archive__item-excerpt'><i>{% if module.course %}This teaching module is a part of the {{ module.course }} course. Last taught: {{ module.date | date_to_string }}{% endif %}</i> </p>
+  <p class='archive__item-excerpt'>{{ module.module-description | truncatewords:35 }} <a href="{{ site.url }}{{ module.permalink }}">read more.</a> <i>Last updated: {{ module.modified | date_to_string }}</i> </p>
+
+  {% assign counter = 0 %}
+  {% for post in site.categories.[page.category] %}
+      {% if post.class-lesson == module.class-lesson %}
+        {% assign counter = counter | plus: 1 %}
+      {% endif %}
+  {% endfor %}
+
+ {% assign slideCounter = 0 %}
+  {% for slides in site.slide-shows %}
+    {% if slides.class-lesson == module.class-lesson %}
+      {% assign slideCounter = slideCounter | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+  <p class="page__meta">lessons: {{ counter }}, presentations {{ slideCounter }}</p>
+  </article>
+</div>
+
+{% endfor %}
+{% endcomment %}

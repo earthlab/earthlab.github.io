@@ -2,13 +2,13 @@
 layout: single
 category: courses
 title: "Version control intro and setup"
-modified: '2017-09-21'
+modified: '2019-09-03'
 nav-title: "Workshop overview & setup"
-permalink: /courses/intro-version-control-git/
+permalink: /workshops/intro-version-control-git/
 module: "intro-version-control-git"
-module-type: 'workshop'
-module-title: "Introduction to version control and Git"
-module-description: 'Learn why version control is useful to science workflows and how to use git and GitHub for version control to back up your work.'
+module-type: "workshop"
+module-title: "Introduction to Version Control and Git"
+module-description: 'Learn about and how to use version control to back up your work.'
 sidebar:
   nav:
 comments: false
@@ -41,8 +41,9 @@ computer. Please follow the instructions below to install this PRIOR to showing 
 
 </div>
 
+
 <i class="fa fa-star"></i> **Data Tip:** Anyone with an `.edu` email affiliation can get a
-free GitHub account with unlimited private repos. 
+free GitHub account with unlimited private repos.
 <a href="https://help.github.com/articles/discounted-organization-accounts/" target="_blank" >Learn more here</a>.
 {: .notice--success }
 
@@ -71,7 +72,7 @@ free GitHub account with unlimited private repos.
 
 ### Create a GitHub account
 
-If you do not already have a GitHub account, go to <a href="http://github.com/join" target="_blank">GitHub </a> and sign up fora free account. Pick a username that you like! 
+If you do not already have a GitHub account, go to <a href="http://github.com/join" target="_blank">GitHub </a> and sign up fora free account. Pick a username that you like!
 This username is what your colleagues will see as you work with them in GitHub and Git.
 
 Take a minute to setup your account. If you want to make your account more
@@ -92,8 +93,7 @@ $ git config --global user.email "your-email-used-for-github-acct@email.com"
 $ git config --global color.ui "auto"
 ```
 
-Please configure your text editor as well. Follow the software carpentry lessons 
+Please configure your text editor as well. Follow the software carpentry lessons
 and if they don't make sense we can go through this together during the workshop.
 
-If you're not sure whether you've already configured Git, you can list your configuration 
-by executing `git config --list`.
+If you're not sure whether you've already configured Git, you can list your configuration by executing `git config --list`.

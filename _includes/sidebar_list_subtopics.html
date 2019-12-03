@@ -5,7 +5,7 @@
 {% for tags in page.topics %}
   {% assign page_main_tag = tags.first %}
 {% endfor %}
-<div id="sub-topics">
+<div id="sub-topics" class="active-menu">
     <ul>
     <!-- Just get the sub topics associated with the main page tag -->
     {% for main_tag in site.data.topics %}
@@ -27,7 +27,7 @@
           {% if topic_tag_counter > 0%}
 
           {% if page.topics.first[1] == sub_topic %}
-          <li class='active'><a href="{{ site.url }}/tags/{{ main_tag[0] }}/{{ sub_topic }}"><i class="fa fa-tag" aria-hidden="true"></i> {{ sub_topic | uppercase }} {{ topic_tag_counter }}</a></li>
+          <li><a class='active' href="{{ site.url }}/tags/{{ main_tag[0] }}/{{ sub_topic }}"><i class="fa fa-tag" aria-hidden="true"></i> {{ sub_topic | uppercase }} {{ topic_tag_counter }}</a></li>
           {% else %}
           <li><a href="{{ site.url }}/tags/{{ main_tag[0] }}/{{ sub_topic }}"><i class="fa fa-tag" aria-hidden="true"></i> {{ sub_topic }} {{ topic_tag_counter }}</a></li>
           {% endif %}

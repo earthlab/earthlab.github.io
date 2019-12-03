@@ -5,23 +5,23 @@
   - ee
   - elevation
   - folium
-  - ftplib
   - gdal
   - geopy
-  - h5py
   - ipyparallel
   - matplotlib
   - numpy
   - ogr
+  - os
   - osgeo
   - pandas
   - pydem
   - pysal
+  - requests
   - rpy2
   - shapely
-  - sys
   - urllib
   - urllib2
+  - xml
   - zipfile
 - lang: r
   libs:

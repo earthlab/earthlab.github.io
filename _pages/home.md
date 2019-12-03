@@ -57,74 +57,54 @@ sidebar:
 {% assign posts_minus_sessions = total_posts | minus: session_posts  %}
 {% assign posts_minus_overview = posts_minus_sessions | minus: overview_posts %}
 
-This site contains open, tutorials and course materials covering topics including data integration, GIS
-and data intensive science. Currently, we have {{ posts_minus_overview }} lessons
-available on our site with more under development!
 
-## Online courses
+
+<div class = "prof-cert-wrapper">
+<div id = "right" >
+<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a>
+</div>
+
+<div id = "left" markdown="1">This site contains open, tutorials and course materials covering topics including data integration, GIS
+and data intensive science.
+
+Explore our **{{ posts_minus_overview }} earth data science lessons**
+that will help you learn how to work with data in the `R` and `Python` programming languages.
+
+Also be sure to check back often as we are posting a suite of new `Python` lessons and courses!
+</div>
+</div>
+
+
+## Online Earth Data Science Courses
 
 {% assign courses = site.posts | where:"overview-order", 1 %}
 {% for course in courses %}
 * <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
 {% endfor %}
 
-## Newest lessons
 
-<div class="list__item">
-We are always adding to our course lesson materials. Below are the top 3
-newest lessons that we've added to our courses.
-</div>
+## Earth Analytics Workshops
 
-{% assign lesson_posts = site.posts | where:"module-type", "class" or "homework" %}
-{% for post in lesson_posts limit:3 %}
-  <div class="list__item">
-  <article class="archive__item">
-    <h2 class="archive__item-title"><a href="{{ site.baseurl }}{{ post.url}}">{{ post.title }}</a></h2>
-    <p class="archive__item-excerpt">{{ post.excerpt }}</p>
-    <p class="archive__item-excerpt"><i>{% if post.course %}Course: {{ post.course }},{% endif %} {% if post.modified %}last updated: {{ post.modified | date_to_string }}{% endif %}</i></p>
-  </article>
-  </div>
+{% assign workshops = site.posts | where:"module-type", 'workshop' %}
+{% assign workshop_landing_pages = workshops | where:"order", 1 %}
 
-{% endfor %}
-
-## Recent course lesson sets
-
-<div class="list__item">
-Below, are the most recently develop course units. These units include a series
-of lessons that are developed around a particular topic. You may want to take
-the entire lesson set.
-</div>
-
-{% assign modules = site.posts | where:"order", 1 %}
-{% for module in modules limit:3 %}
-
+{% for workshop in workshop_landing_pages limit:3 %}
 <div class="list__item">
   <article class="archive__item" >
   <h2 class="archive__item-title">
-  <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}</a></h2>
-  <p class='archive__item-excerpt'>{{ module.module-description | truncatewords:35 }} <a href="{{ site.url }}{{ module.permalink }}">read more.</a>  </p>
-
-  {% assign counter = 0 %}
-
-  <!-- this may not work -->
-  {% assign module_posts = site.posts | where:"class-lesson", {{ module.class-lesson }} %}
-  {% for post in site.posts %}
-      {% if post.class-lesson == module.class-lesson %}
-        {% assign counter = counter | plus: 1 %}
-      {% endif %}
-  {% endfor %}
-
-  <p class="archive__item-excerpt"><i>lessons: {{ counter }}, last updated: {{ module.modified | date_to_string }}</i></p>
+    <a href="{{ site.url }}{{ workshop.permalink }}">{{ workshop.module-title }} </a></h2>
+    <p class='archive__item-excerpt'>{{ workshop.module-description | truncatewords:35 }}
+      <br><i>Last updated: {{ workshop.modified | date_to_string }}</i> </p>
   </article>
 </div>
 
 {% endfor %}
 
-<a href="{{ site.url}}/courses/">View all modules </a>
+<a href="{{ site.url}}/workshops/">View all earth analytics workshops. </a>
 
-## Recent tutorials
+## Recent Tutorials
 
-{% for post in site.categories.['tutorials'] limit:3 %}
+{% for post in site.categories['tutorials'] limit:3 %}
 <!-- List the most recent 3 tutorials  -->
 <div class="list__item">
 <article class="archive__item">
@@ -133,6 +113,7 @@ the entire lesson set.
 </article>
 </div>
 {% endfor %}
+
 
 </div>
 {% include feature_row id="intro" type="center" %}

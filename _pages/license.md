@@ -10,35 +10,19 @@ permalink: /license/
 ### Instructional Material
 
 All Earth Lab instructional material is made available under
-the Creative Commons Attribution license. You are free:
+the [Creative Commons Attribution NonCommercial No Derivatives license](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
-* to **Share**---to copy, distribute and transmit the work
-* to **Remix**---to adapt the work
+You are free to use these materials in a classroom setting where there is no monetary exchange involved. 
 
-Under the following conditions:
+If you use these materials following the license - please also provide attribution as follows:
 
 * **Attribution**---You must attribute the work using "Copyright (c)
   Earth Lab" (but not in any way that suggests that we
-  endorse you or your use of the work). Where practical, you must
-  also include a hyperlink to http://earthlab.github.io.
+  endorse you or your use of the work). You must
+  also include a hyperlink to https://www.earthdatascience.org.
 
-With the understanding that:
+* **NonCommercial**--You may not use the material for commercial purposes or where there is a monetary exchange involved.
 
-* **Waiver**---Any of the above conditions can be waived if you get
-  permission from the copyright holder.
-* **Other Rights**---In no way are any of the following rights
-  affected by the license:
-    * Your fair dealing or fair use rights;
-    * The author's moral rights;
-    * Rights other persons may have either in the work itself or in
-      how the work is used, such as publicity or privacy rights.  *
-* **Notice**---For any reuse or distribution, you must make clear to
-  others the license terms of this work. The best way to do this is
-  with a link to
-  [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/).
-
-For the full legal text of this license, please see
-[http://creativecommons.org/licenses/by/4.0/legalcode](http://creativecommons.org/licenses/by/4.0/legalcode).
 
 ### Software
 

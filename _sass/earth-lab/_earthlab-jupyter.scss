@@ -1,0 +1,63 @@
+/* ==========================================================================
+   Forms
+   Jupyter cell styles - this code forces before and after styling on code cells to
+   avoid multiple divs (visually) per line of code and respective output
+   ========================================================================== */
+div.input {
+  background-color: #fafafa;
+  border-bottom: 0px !important;
+  margin-bottom: 0; }
+
+div.input pre {
+  background-color: inherit;
+  padding: 0px; }
+
+div.output {
+  background-color: #fafafa;
+  padding: 0px;
+  border-top: none !important; }
+
+div.execute_result {
+  padding: 0px; }
+
+div.output table {
+  margin-top: 2em; }
+
+/* Remove the code icon from output chunks */
+div.output.highlighter-rouge::before, figure.highlight::before {
+  content: none; }
+
+.highlight > code {
+  color: #93a1a1; }
+
+/* Add hash symbols so it looks like the R output */
+div.output .highlight > code::before {
+  content: "## "; }
+
+div.output .highlight {
+  border-top: medium none;
+  padding-top: 0.4em; }
+
+div.output .highlighter-rouge .highlight {
+  border-top: none; }
+
+/* Ensure there is top padding after a input block if there's no output! */
+div.input + p {
+  padding-top: 2em; }
+
+/* Fix padding around python figure outputs! */
+.output.display_data {
+  padding: 2em 0;
+  margin: 0 auto !important;
+  width: 90%; }
+
+p.display_data {
+  /* padding-top: 20px; */
+  margin: 0px 20%;
+  width: 50%; }
+
+p.display_data img {
+  margin: 0 auto !important;
+  max-width: 100%;
+  height: auto;
+  display: block; }

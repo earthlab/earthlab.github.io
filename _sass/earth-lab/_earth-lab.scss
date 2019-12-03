@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Earth Lab Specific css highlighting this will allow us to more easily
+   integrate with Minimal Minstakes in the future
+   ========================================================================== */
+
+/* reduce padding in the top bar  */
+.masthead__inner-wrap {
+       padding: 0 1em!important;
+   }
+
+/* tags on the bottom of the page */
+.a-main-tag {
+       font-weight: bold;
+       padding-left: .7em;
+  }
+
+/* Search pages for content pages 4 courses... */
+#home-search table {
+    font-size: 1em!important;
+    width: 70%
+}
+
+#single-search table {
+      font-size: 1em!important;
+      width: 90%;
+}
+#single-search .gsc-table-result tr {
+  border: none!important;
+}
+.gsc-table-cell-thumbnail.gsc-thumbnail {
+      background-color: #fff;
+}
+
+#single-search .gsc-table-cell-snippet-close {
+      background-color: #fff;
+}
+/* search results on the main search page */
+#main-search {
+    font-size: .8em;
+    width: 75%
+}
+
+/* search form on the top bar */
+#searchString {
+   }
+div.search {
+  margin-left: 65%;
+  width: 30%;
+  font-size: .8em;
+   }
+div.notice--success, div.notice--warning {
+   padding: 2em !important;
+   font-size: .8em !important;
+
+   code {
+     font-size: .9em;
+     background-color: $code-background-color;
+   }
+}
+
+.page__content .notice--warning h4 {
+  font-size: 1.1em;
+  margin-bottom: 0;
+  margin-top: 2em !important;
+  }
+
+
+.nav__sub-title {
+  background-color: mix(#000, $info-color, 20%);
+  color: #fff;
+  padding-left: .7em;
+}
+.nav__list li .active {
+  margin-top: .5em;
+}
+
+.nav__list .active {
+  margin-top: .2em;
+}
+
+.nav__list li ul li:hover{
+  background-color: #e3e3e3;
+}
+
+.active-menu li:hover {
+  background-color: #ccc!important;
+}
+
+.active-menu a, a.active {
+    padding-left: .4em;
+}
+
+.nav__list li ul li {
+    padding-left: 0.5em;
+  }
+
+/* previous and next buttons */
+  .previous--next {
+      margin-top: 2.5em;
+  }
+
+
+/* if the warning block is a header, remove the top margin so things line up */
+
+  .header {
+      margin-top: 0 !important;
+  }
+
+  /* for font awesome sizing */
+
+  .fa-2 {
+    font-size: .8em;
+  }
+
+
+  .nav__sub-title.grey {
+    background-color: #fff;
+    color: #7a8288;
+    background-color: #fff;
+    color: #7a8288;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 0;
+  }
+
+  /* Custom side bar links to Home and before /next week */
+
+  .sidebar.sticky a {
+      text-decoration: none;
+  }
+
+  .sidebar.sticky > h4 {
+    margin-top: 0.3em;
+}
+  /* Force the TOC to have grey text not blue */
+
+  #markdown-toc a {
+    color: #7a8288;
+    font-size: 0.9em;
+}
+
+/* Adding space under authors */
+.page__title + .page__meta {
+    margin-bottom: 1.4em;
+}
+
+/* For code blocks within .notice tags */
+
+.notice pre, .notice--success pre, .notice--warning pre {
+    font-size: 0.8em !important;
+    padding: 0;
+}
+/* grade rubrics in notice divs */
+
+.notice--info td {
+    font-size: 1.3em;
+}
+
+.notice--info th {
+    font-size: 1.3em;
+}
+
+/* Site bar menu items */
+
+.nav__list .active {
+  border-radius: 0!important;
+}
+div.active-menu {
+    box-shadow: 1px 5px 3px #ccc;
+}
+
+.active-menu .nav__sub-title.grey {
+    margin-top: 0;
+}
+
+.active-menu {
+  border-right: 1px solid #428aa0;
+  border-bottom: 1px solid #428aa0;
+  margin-bottom: .6em;
+  background-color: #e3e3e3;
+}
+
+.active-menu .nav__sub-title.grey {
+  background-color: #e3e3e3;
+}
+div.active-section{
+  box-shadow: 1px 5px 3px #ccc;
+}
+
+.active-section {
+  background-color: #ccc;
+  font-weight: bold!important;
+  padding: 0.5em!important;
+  border-right: 1px solid #428aa0;
+}
+
+.tag-landing-intro {
+  margin: 0 15em 0em 0 !important;
+}
+
+
+/* Prof certifcate and other sidebar banners*/
+.prof-cert-wrapper {
+  overflow:hidden;
+}
+
+.prof-cert-wrapper div {
+   min-height: 100px;
+   padding: 2px;
+}
+#left {
+  float:left;
+  width:69%;
+}
+#right {
+  /*overflow:hidden;*/
+  float:right;
+  min-height:80px;
+  width:31%
+}
+
+@media screen and (max-width: 400px) {
+   #right, #left {
+    float: none;
+    margin-right:0;
+    width:auto;
+    border:0;
+  }
+}

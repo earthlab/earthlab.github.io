@@ -1,12 +1,42 @@
+- name: Ally Faller
+  slug: ally-faller
+  bio: ''
+- name: Bryce Mecum
+  slug: bryce-mecum
+  bio: 'Bryce is a Scientific Software Engineer at the National Center for Ecological Analysis and Synthesis working remotely from Juneau'
 - name: Carson Farmer
   slug: carson-farmer
   bio: ''
+- name: Chris Holdgraf
+  slug: chris-holdgraf
+  bio: 'Chris is a core member of the Jupyter team at University of California'
 - name: Data Carpentry
   slug: data-carpentry
+  bio: ''
+- name: Jenny Palomino
+  slug: jenny-palomino
+  bio: 'Jenny is an earth data science course developer and instructor with the Earth Analytics Education Initiative at Earth Lab.'
+- name: Jeremey Diaz
+  slug: jeremey-diaz
+  bio: ''
+- name: Joe McGlinchy
+  slug: joe-mcglinchy
+  bio: 'Joe is a Remote Sensing Specialist with the Analytics Hub at Earth Lab.'
+- name: Kendra Sand
+  slug: kendra-sand
+  bio: 'Kendra is a content specialist with House of Sand and is a guest blogger for Earth Lab.'
+- name: Lauren Herwehe
+  slug: lauren-herwehe
   bio: ''
 - name: Leah Wasser
   slug: leah-wasser
   bio: 'Leah is the director of the Earth Analytics Education Initiative at Earth Lab and maintains this website.'
+- name: Matthew Rossi
+  slug: matthew-rossi
+  bio: ''
+- name: Martha Morrissey
+  slug: martha-morrissey
+  bio: ''
 - name: Matt Oakley
   slug: matt-oakley
   bio: 'Matt worked with the Analytics Hub as an undergraduate intern in 2016 while pursuing his degree in computer science.'
@@ -15,9 +45,6 @@
   bio: 'Max is a data scientist with the Analytics Hub at Earth Lab and maintains this website.'
 - name: Megan Cattau
   slug: megan-cattau
-  bio: ''
-- name: Mollie Buckland
-  slug: mollie-buckland
   bio: ''
 - name: Naupaka Zimmerman
   slug: naupaka-zimmerman
@@ -30,6 +57,9 @@
   bio: ''
 - name: Software Carpentry
   slug: software-carpentry
+  bio: ''
+- name: Will Norris
+  slug: will-norris
   bio: ''
 - name: Zach Schira
   slug: zach-schira
