@@ -1,13 +1,15 @@
 ---
 layout: splash
 permalink: /
+splash_header: 'Free online courses, tutorials and tools'
+title: 'Earth Lab: Free, online courses, tutorials and tools'
 header:
   overlay_image: about-header.jpg
   cta_label: "Join our meetup!"
   cta_url: "/meetup/"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
-excerpt: 'We support computationally intensive, transformative science'
+excerpt: 'Learn to use earth science and other data in R & Python'
 intro:
   - excerpt: 'Follow us &nbsp; [<i class="fa fa-twitter"></i> @EarthLabCU](https://twitter.com/EarthLabCU){: .btn .btn--twitter}'
 feature_row:
@@ -37,8 +39,6 @@ sidebar:
   nav: earth-analytics-2017
 ---
 
-
-
 <!-- hiding this until the functionality is fully working -->
 <div class="sidebar notsticky">
   {% include sidebar_home.html %}
@@ -46,44 +46,65 @@ sidebar:
 
 <div class="archive" markdown="1">
 
-## Welcome to Earth * Data * Science !
+## Welcome to Earth Data Science !
 
-This site contains open, tutorials and course materials covering topics including data integration, GIS
-and data intensive science. Currently, we have {{ site.posts | size }} lessons
-available on our site with more under development!
+{% assign course_sessions = site.posts | where:"module-type", 'session' %}
+{% assign course_overview = site.posts | where:"module-type", 'overview' %}
 
-## Recent course modules
+{% assign total_posts = site.posts | size  %}
+{% assign session_posts = course_sessions | size %}
+{% assign overview_posts = course_overview | size %}
+{% assign posts_minus_sessions = total_posts | minus: session_posts  %}
+{% assign posts_minus_overview = posts_minus_sessions | minus: overview_posts %}
 
-{% assign modules = site.posts | where:"order", 1 %}
-{% for module in modules limit:3 %}
 
+
+<div class = "prof-cert-wrapper">
+<div id = "right" >
+<a href="http://bit.ly/2jc5SXy" target="_blank"><img src="{{ site.url }}/images/earth-data-analytics-professional-certificate-banner.png" alt="Get a professional Certificate in Earth Data Analytics at University of Colorado, Boulder"></a>
+</div>
+
+<div id = "left" markdown="1">This site contains open, tutorials and course materials covering topics including data integration, GIS
+and data intensive science.
+
+Explore our **{{ posts_minus_overview }} earth data science lessons**
+that will help you learn how to work with data in the `R` and `Python` programming languages.
+
+Also be sure to check back often as we are posting a suite of new `Python` lessons and courses!
+</div>
+</div>
+
+
+## Online Earth Data Science Courses
+
+{% assign courses = site.posts | where:"overview-order", 1 %}
+{% for course in courses %}
+* <a href="{{ site.url }}{{ course.permalink }}">{{ course.module-title }}</a>
+{% endfor %}
+
+
+## Earth Analytics Workshops
+
+{% assign workshops = site.posts | where:"module-type", 'workshop' %}
+{% assign workshop_landing_pages = workshops | where:"order", 1 %}
+
+{% for workshop in workshop_landing_pages limit:3 %}
 <div class="list__item">
   <article class="archive__item" >
   <h2 class="archive__item-title">
-  <a href="{{ site.url }}{{ module.permalink }}">{{ module.module-title }}</a></h2>
-  <p class='archive__item-excerpt'>{{ module.module-description | truncatewords:35 }} <a href="{{ site.url }}{{ module.permalink }}">read more.</a>  </p>
-
-  {% assign counter = 0 %}
-
-  <!-- this may not work -->
-  {% assign module_posts = site.posts | where:"class-lesson", {{ module.class-lesson }} %}
-  {% for post in site.posts %}
-      {% if post.class-lesson == module.class-lesson %}
-        {% assign counter = counter | plus: 1 %}
-      {% endif %}
-  {% endfor %}
-
-  <p class="archive__item-excerpt"><i>lessons: {{ counter }}, last updated: {{ module.modified | date_to_string }}</i></p>
+    <a href="{{ site.url }}{{ workshop.permalink }}">{{ workshop.module-title }} </a></h2>
+    <p class='archive__item-excerpt'>{{ workshop.module-description | truncatewords:35 }}
+      <br><i>Last updated: {{ workshop.modified | date_to_string }}</i> </p>
   </article>
 </div>
 
 {% endfor %}
 
-<a href="{{ site.url}}/course-materials/">View all modules </a>
+<a href="{{ site.url}}/workshops/">View all earth analytics workshops. </a>
 
-## Recent tutorials
+## Recent Tutorials
 
-{% for post in site.categories.['tutorials'] limit:3 %}
+{% for post in site.categories['tutorials'] limit:3 %}
 <!-- List the most recent 3 tutorials  -->
 <div class="list__item">
 <article class="archive__item">
@@ -92,6 +113,7 @@ available on our site with more under development!
 </article>
 </div>
 {% endfor %}
+
 
 </div>
 {% include feature_row id="intro" type="center" %}

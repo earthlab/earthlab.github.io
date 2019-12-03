@@ -29,14 +29,14 @@ Note: an overview module type contains the overview content for a course.
 
         {% assign class_lessons = weeks | where:"class-lesson", theLesson %}
       <!-- count lessons -->
-
+    <!-- removing numbers for the time being {{ alesson.order }}. -->
         {% for alesson in weeks %}
         {% if alesson.class-lesson == theLesson %}
         {% assign lesson_count = lesson_count | plus: 1 %}
           {% if alesson.url == page.url %}
-          <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+          <li><a href= {{ site.url }}{{ alesson.url }} class='active'>{{ alesson.nav-title }}</a></li>
           {% else %}
-          <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.order }}. {{ alesson.nav-title }}</a></li>
+          <li><a href= {{ site.url }}{{ alesson.url }}>{{ alesson.nav-title }}</a></li>
           {% endif %}
           {% endif %}
         {% endfor %}

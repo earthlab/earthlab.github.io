@@ -1,0 +1,50 @@
+/* ==========================================================================
+   TABLES
+   ========================================================================== */
+
+
+
+table {
+  margin-bottom: 1em;
+  width: 100%;
+  font-family: $global-font-family;
+  font-size: .7em!important;
+  border-collapse: collapse;
+
+  & + table {
+    margin-top: 1em;
+  }
+}
+
+thead {
+  border-bottom: 2px solid $light-gray;
+  color: #428aa0;
+  font-size:1.2em;
+}
+
+tfoot {
+    border-bottom: 2px solid $light-gray;
+    border-top: 1px solid $light-gray;
+}
+
+th {
+  padding: 0.5em;
+  font-weight: bold;
+  text-align: left;
+}
+
+td {
+  padding: 0.5em;
+}
+
+tr, td, th {
+  vertical-align: middle;
+}
+
+/*  Only apply these styles to main pages but not the search */
+
+.page__content tbody tr:nth-child(2n+1) {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid $light-gray;
+  border-top: 1px solid $light-gray;
+}

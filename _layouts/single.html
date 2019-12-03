@@ -2,11 +2,37 @@
 layout: default
 ---
 
+
 {% include base_path %}
 
-{% if (page.header.overlay_color or page.header.overlay_image) or page.header.image %}
-  {% include page__hero.html %}
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  <div>{% include page__hero.html %}</div>
 {% endif %}
+
+{% if page.course == "earth-analytics" %}
+<div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ site.url }}/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
+  <div class="wrapper">
+        <h1 class="page__title" itemprop="headline">
+          Earth Data Analytics Online Certificate
+        </h1>
+        <p><a href="http://bit.ly/2jc5SXy" target = "_blank" class="btn btn--light-outline btn--large">Enroll now! Learn more.</a></p>
+  </div>
+</div>
+{% endif %}
+
+
+{% if page.category contains "tutorials" %}
+
+<div class="page__hero--overlay" style=" background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ site.url }}/images/header-images/earth-data-analytics-professional-certificate-banner.jpg');">
+  <div class="wrapper">
+        <h1 class="page__title" itemprop="headline">
+          Earth Data Analytics Online Certificate
+        </h1>
+        <p><a href="http://bit.ly/2jc5SXy" target = "_blank" class="btn btn--light-outline btn--large">Enroll now! Learn more.</a></p>
+  </div>
+</div>
+{% endif %}
+
 
 {% if page.url != "/" and site.breadcrumbs %}
   {% unless paginator %}
@@ -29,18 +55,14 @@ layout: default
 
         <header>
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
-          {% if page.order == 1 %}
-          <div class="notice--warning header" markdown="1">
-          {% if page.module-description %}
-           <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> MODULE: {{ page.module-title }}</h1>
-          Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
-          {{ page.module-description }}
-          {% endif %}
-          </div>
-          {% endif %}
+
           <!-- END: insert welcome block -->
           {% if page.title %}<h1 class="page__title" itemprop="headline">
-            {% if page.order %}Lesson {{ page.order }}. {% endif %}{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
+            {% if page.order %}Lesson {{ page.order }}. {% endif %}
+            {% if page.header1 %}{{ page.header1 | markdownify | remove: "<p>" | remove: "</p>" }}{% else %} {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %} </h1>
+            {% if page.module %} {{ page.module | replace: '-', ' ' | capitalize }} {{ page.module-type | capitalize }} {% endif %}
+          {% endif %}
+
           {% if page.authors %}
             <div class="page__meta">
               {% for anAuthor in page.authors %}
@@ -48,6 +70,18 @@ layout: default
               <a href="{{ site.url }}{{ site.baseurl }}/authors/{{ currentItem[0].slug }}">{{ currentItem[0].name }}</a>{% if forloop.last == false %}, {% endif %}
               {% endfor %}
             </div>
+          {% endif %}
+
+        <br/>
+
+        {% if page.order == 1 %}
+        <div class="notice--warning header" markdown="1">
+        {% if page.module-description %}
+         <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
+        Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
+        {{ page.module-description }}
+        {% endif %}
+        </div>
         {% endif %}
 
           {% comment %}{% if page.read_time %}
@@ -61,7 +95,6 @@ layout: default
         {% if page.class-lesson %}
 
         {% endif %}
-
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
@@ -78,11 +111,15 @@ layout: default
         {% endif %}
         {% include page__taxonomy.html %}
 
+
+
         {% if page.modified %}
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label }}</strong> <time datetime="{{ page.modified | date: "%Y-%m-%d" }}">{{ page.modified | date: "%B %d, %Y" }}</time></p>
         {% elsif page.date %}
           <p class="page__date"><strong><i class="fa fa-fw fa-calendar" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time></p>
         {% endif %}
+        <!-- Add license information w/ DOI to the bottom -->
+        {% include license.html %}
       </footer>
 
       {% if page.share %}{% include social-share.html %}{% endif %}

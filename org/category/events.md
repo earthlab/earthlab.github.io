@@ -11,6 +11,7 @@ header:
 excerpt: 'Supporting data intensive community.'
 modified: 2016-11-31T12:19:29-04:00
 author_profile: false
+sitemap: false
 ---
 
 {% capture nowyear %}{{'now' | date: '%Y'}}{% endcapture %}
@@ -18,6 +19,9 @@ author_profile: false
 
 
 ## Upcoming events
+
+Connect with the Earth Lab and earth data science community by attending an
+event at the University of Colorado Boulder Earth Lab.
 
 {% for event in site.events reversed %}
   {% capture eventyear %}{{event.date | date: '%Y'}}{% endcapture %}
@@ -28,7 +32,7 @@ author_profile: false
     {% if event.link %}
     <a href="{{ event.link }}" class="event-link" target="_blank">{{ event.title }}</a>
     {% else %}
-    <a href="{{ site.url }}{{ site.baseurl }}{{ event.permalink }}" class="event-link">{{ event.title }}</a>
+    <a href="{{ site.url }}{{ event.permalink }}" class="event-link">{{ event.title }}</a>
     {% endif %}
   </li>
   {% endif %}

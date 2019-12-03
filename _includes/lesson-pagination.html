@@ -6,15 +6,24 @@
 <div class="previous--next">
 
 {% assign counter = 0 %}
-{% for post in site.categories.course-materials %}
+
+{% for post in site.categories.courses %}
+  {% if post.class-lesson %}
     {% if post.class-lesson == page.class-lesson %}
       {% assign counter = counter | plus: 1 %}
     {% endif %}
+  {% endif %}
+  {% if post.module %}
+    {% if post.module == page.module %}
+      {% assign counter = counter | plus: 1 %}
+    {% endif %}
+  {% endif %}
 {% endfor %}
 
 <!-- if it's page one - then no previous button -->
 <!-- how do i figure out the link? i have to loop through again? -->
-{% for post in site.categories.course-materials %}
+{% for post in site.categories.courses %}
+{% if post.class-lesson %}
     {% if post.class-lesson == page.class-lesson %}
 
     {% assign prevPageNum = page.order | minus: 1 %}
@@ -29,6 +38,26 @@
        <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn--info btn--large btn-success" style="float:right" >
          {{ post.nav-title }}
          <i class="fa fa-4 fa-arrow-circle-right" aria-hidden="true"></i></a>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  <!-- ELSE if it's a module -->
+  {% if post.module %}
+      {% if post.module == page.module %}
+
+      {% assign prevPageNum = page.order | minus: 1 %}
+        {% if post.order == prevPageNum %}
+          <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn--info btn--large btn-success">
+            <i class="fa fa-4 fa-arrow-circle-left fa-4" aria-hidden="true"></i>
+            {{ post.nav-title }} </a>
+        {% endif %}
+
+        {% assign nextPageNum = page.order | plus: 1 %}
+        {% if post.order == nextPageNum %}
+         <a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" class="btn btn--info btn--large btn-success" style="float:right" >
+           {{ post.nav-title }}
+           <i class="fa fa-4 fa-arrow-circle-right" aria-hidden="true"></i></a>
+        {% endif %}
       {% endif %}
     {% endif %}
 {% endfor %}

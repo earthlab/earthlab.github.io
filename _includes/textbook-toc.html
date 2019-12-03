@@ -1,0 +1,35 @@
+
+{% assign course_posts = site.posts | where:"course", page.course %}
+{% assign sorted_posts = course_posts | sort:"order" %}
+{% assign chapters = sorted_posts | where:"order", 1 %}
+{% assign sorted_chapters = chapters | sort:"class-order" %}
+{% assign session_weeks = course_posts | where:"module-type", 'session' %}
+{% assign sorted_session_weeks = session_weeks | sort:'week' %}
+
+
+{% for post in sorted_session_weeks %}
+<div>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <a href="{{ site.url }}{{ post.permalink }}"> Section{% if post.nav-title %}{{ post.week }}. {{ post.nav-title }} {% else %} {{ post.week }}. {{ post.title }}{% endif %}</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    <!-- list the chapters for each section -->
+    {% for achapter in sorted_chapters %}
+        {% if achapter.week == post.week %}
+        <tr>
+            <td>
+                <a href="{{ site.url }}{{ achapter.permalink }}">Chapter {% if achapter.chapter %} {{ achapter.chapter }} {% else %} {{ achapter.class-order }}{% endif %}: {{ achapter.module-nav-title }} </a>
+            </td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endfor %}

@@ -5,7 +5,7 @@ permalink: /learn/
 header:
   overlay_color: "#333"
   cta_label: "CU Students, Enroll Now - GEOG 4100 / 5100"
-  cta_url: "/course-materials/earth-analytics"
+  cta_url: "/courses/earth-analytics"
   overlay_filter: rgba(0, 0, 0, 0.5)
   caption:
 excerpt: 'Data intensive learning.'
@@ -15,7 +15,7 @@ author_profile: false
 
 ## <i class="fa fa-plane" aria-hidden="true"></i> New course: Earth Analytics - Spring 2017
 A newly designed
-[Earth Systems Analytics course - GEOG 4563 / 5563]({{ site.url }}/course-materials/earth-analytics/)
+[Earth Systems Analytics course - GEOG 4563 / 5563]({{ site.url }}/courses/earth-analytics/)
 is being held this Spring 2017 on the CU Boulder campus. This course fuses key
 topics related to the grand challenges in science, remote sensing and
 computationally intensive approaches.
@@ -40,7 +40,7 @@ Check out the instructor notes to better understand how each lesson can be taugh
   <p class='archive__item-excerpt'>{{ module.module-description }}</p>
 
   {% assign counter = 0 %}
-  {% for post in site.categories.[page.category] %}
+  {% for post in site.categories[page.category] %}
       {% if post.class-lesson == module.class-lesson %}
         {% assign counter = counter | plus: 1 %}
       {% endif %}
@@ -63,10 +63,10 @@ Check out the instructor notes to better understand how each lesson can be taugh
 <div class="list__item">
   <article class="archive__item" >
   <h2 class="archive__item-title">
-  <a href="{{ site.url }}/course-materials/{{ member.slug}}">{{ member.name }} </a></h2>
+  <a href="{{ site.url }}/courses/{{ member.slug}}">{{ member.name }} </a></h2>
   <p class='archive__item-excerpt'>{{ member.description }}</p>
   {% assign counter = 0 %}
-  {% for post in site.categories.[page.category] %}
+  {% for post in site.categories[page.category] %}
       {% if post.class-lesson contains member.slug %}
         {% assign counter = counter | plus: 1 %}
       {% endif %}
@@ -84,14 +84,14 @@ Check out the instructor notes to better understand how each lesson can be taugh
 {% endif %}
 {% endfor %}
 
-[View All Class Lessons]({{ site.url }}{{ site.baseurl }}/course-materials/)
+[View All Class Lessons]({{ site.url }}{{ site.baseurl }}/courses/)
 
 ## Recent code tutorials
 
 Check out our latest code tutorials. Leave questions in the comment box at
 the bottom. We'll try our best to help!
 
-  {% for post in site.categories.tutorials limit:3 %}
+  {% for post in site.categories[tutorials] limit:3 %}
   <div class="list__item">
     <article class="archive__item" >
     {% if post.link %}
@@ -100,7 +100,7 @@ the bottom. We'll try our best to help!
       <h2 class="archive__item-title"><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
       <span class="post-date">
       {% if post.lastModified %}Last modified: {{ post.lastModified | date: "%b %-d, %Y" }}{% endif %}
-      {% if post.packagesLibraries %} - Libraries: {{ post.packagesLibraries | join: ', ' %}}{% endif %}
+      {% if post.packagesLibraries %} - Libraries: {{ post.packagesLibraries | join: ', ' }}{% endif %}
       </span>
       <p class='archive__item-excerpt'>{% if post.excerpt %}{{ post.excerpt }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 120 }}{% endif %}</p>
     {% endif %}

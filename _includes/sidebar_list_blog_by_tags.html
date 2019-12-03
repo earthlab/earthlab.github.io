@@ -1,0 +1,43 @@
+
+
+
+<!-- first get the main tag for the page -->
+
+
+
+
+<div class="sidebar sticky">
+  <nav class="nav__list">
+    <ul>
+      <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Recent blog posts</span>
+        <ul>
+          {% for post in site.categories.blog %}
+          <ul>
+            <li>
+              <a href="{{ post.url }}">{{ post.title }}</a>
+              <span class="date">{{ post.date | date: "%B %-d, %Y" }}</span>
+            </li>
+          </ul>
+          {% endfor %}
+          </ul>
+      </li>
+
+      <li><span class="nav__sub-title"><i class="fa fa-folder-open" aria-hidden="true"></i> Posts by tag</span>
+        <ul>
+          {% for tag in site.tags %}
+          <!-- first count tags as .size is doing weird things  -->
+          {% assign main_tag_counter = 0 %}
+            {% assign t = tag | first %}
+            {% assign posts = tag | last %}
+            {% for post in posts %}
+              {% if post.tags contains t %}
+              {% assign main_tag_counter = main_tag_counter | plus: 1 %}
+              {% endif%}
+            {% endfor %}
+        <li>  {{ t | downcase }} ({{ main_tag_counter }})</li>
+          {% endfor %}
+          </ul>
+      </li>
+    </ul>
+  </nav>
+</div>

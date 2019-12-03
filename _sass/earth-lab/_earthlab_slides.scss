@@ -1,0 +1,289 @@
+/* this is very time intensive to load. removing it.
+
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif);
+@import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+@import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+*/
+
+.remark-slide-content .logo {
+  position: absolute;
+  bottom: 1px;
+  left: 30px;
+}
+.remark-slide-content .logo img {
+  width: 2.5em;
+}
+.remark-slide-content img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.remark-slide-content .wCaption img {
+  max-height: 70%;
+  max-width: 70%;
+}
+
+.remark-slide-content .wCaption-50 img {
+  max-height: 50%;
+  max-width: 50%;
+}
+
+ /* Add a Caption to an image */
+.remark-slide-content .caption {
+  font-size: .7em;
+  font-style: italic;
+}
+
+.remark-slide-content blockquote {
+    background-color: #fff;
+    border-radius: .3em;
+    display:  block;
+    padding: 15px 20px 15px 45px;
+    margin: 50px 0 20px;
+    position: relative;
+    /*Box Shadow - (Optional)*/
+    -moz-box-shadow: 2px 2px 15px #ccc;
+    -webkit-box-shadow: 2px 2px 15px #ccc;
+    box-shadow: 2px 2px 15px #ccc;
+
+    /*Borders - (Optional)*/
+    border-left: 15px solid #52adc8;
+    border-right: 2px solid #52adc8;
+}
+
+.remark-slide-content blockquote p {
+    line-height: 2.1em;
+    color: #272822;
+}
+
+
+.remark-slide-content body {
+  font-family: 'Droid Serif';
+  font-size: 1.2em;
+}
+
+.remark-slide-content {
+    font-size: 1.5em;
+}
+
+.remark-slide-content.middle.hljs-default > ul li {
+  padding-top: 1em;
+}
+
+.remark-slide-content ul li, .remark-slide-content ol li {
+    padding-top: .6em;
+}
+.remark-slide-content ul li li {
+    font-size: 0.8em;
+    margin: 0;
+    padding: 0;
+}
+
+
+.remark-slide-content h1, .remark-slide-content h2,  .remark-slide-content h3 {
+  font-weight: 400;
+  margin-bottom: 0;
+}
+.remark-slide-content h1, .remark-slide-content h2{
+  padding-top: 0;
+  margin-top: 0;
+}
+
+
+.remark-slide-content h1 { font-size: 3em; }
+.remark-slide-content h2 { font-size: 1.5em; }
+.remark-slide-content h3 { font-size: 1.3em; }
+.remark-slide-content .remark-slide-content.footnote {
+  position: absolute;
+  bottom: 3em;
+}
+.remark-slide-content li p { line-height: 1.25em; }
+.remark-slide-content .red { color: #fa0000; }
+.remark-slide-content .large { font-size: 2em; }
+
+.remark-slide-content a, .remark-slide-content a > code {
+  color: rgb(249, 38, 114);
+  text-decoration: none;
+}
+.remark-slide-content code {
+  background: #e7e8e2;
+  border-radius: 5px;
+}
+
+.remark-slide-content .remark-code, .remark-slide-content .remark-inline-code { font-family: 'Ubuntu Mono'; }
+.remark-code-line-highlighted  { background-color: #373832; }
+.pull-left {
+  float: left;
+  width: 47%;
+}
+.pull-right {
+  float: right;
+  width: 47%;
+}
+.pull-right ~ p {
+  clear: both;
+}
+#slideshow .slide .content code {
+  font-size: 0.8em;
+}
+#slideshow .slide .content pre code {
+  font-size: 0.9em;
+  padding: 15px;
+}
+.inverse {
+  background: #272822;
+  color: #777872;
+  text-shadow: 0 0 20px #333;
+}
+.inverse h1, .inverse h2 {
+  color: #f3f3f3;
+  line-height: 0.8em;
+  padding-top: 0;
+  margin-top: 0;
+}
+/* Slide-specific styling */
+#slide-inverse .footnote {
+  bottom: 12px;
+  left: 20px;
+}
+#slide-how .slides {
+  font-size: 0.9em;
+  position: absolute;
+  top:  151px;
+  right: 140px;
+}
+#slide-how .slides h3 {
+  margin-top: 0.2em;
+}
+#slide-how .slides .first, #slide-how .slides .second {
+  padding: 1px 20px;
+  height: 90px;
+  width: 120px;
+  -moz-box-shadow: 0 0 10px #777;
+  -webkit-box-shadow: 0 0 10px #777;
+  box-shadow: 0 0 10px #777;
+}
+#slide-how .slides .first {
+  background: #fff;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  z-index: 1;
+}
+#slide-how .slides .second {
+  position: relative;
+  background: #fff;
+  z-index: 0;
+}
+/* Two-column layout */
+.left-column {
+  color: #777;
+  width: 20%;
+  height: 92%;
+  float: left;
+}
+  .left-column h2:last-of-type, .left-column h3:last-child {
+    color: #000;
+  }
+.right-column {
+  width: 75%;
+  float: right;
+  padding-top: 1em;
+}
+
+
+.columns {
+  clear: right;
+  float: left;
+  padding: 0.4em;
+  box-sizing: border-box;
+}
+.full-width,
+.one-third,
+.two-third,
+.one-half,
+.two-third,
+.one-fourth,
+.three-fourth {
+  clear: right;
+  float: left;
+  padding: 0.4em;
+  box-sizing: border-box;
+}
+.one-third {
+  width: 33.3%;
+}
+.two-third {
+  width: 66.7%;
+}
+.one-half {
+  width: 50%;
+}
+.one-fourth {
+  width: 25%;
+}
+.three-fourth {
+  width: 75%;
+}
+.full-width {
+  width: 100%;
+}
+
+
+
+.remark-slide-number {
+  font-size: .5em;
+}
+
+.small { font-size: .8em}
+
+.smaller-image > img { width: 65% }
+
+.inverse > blockquote {
+    border-left: none;
+    border-right: none;
+    box-shadow: 0px 0px 0px;
+    background-color: #272822;
+    color: #fff;
+
+}
+.inverse > blockquote >p {
+    font-size: 1.45em;
+    line-height: 1.1em;
+    color: #fff;
+
+}
+
+
+.remark-slide > .full {
+  padding: 0em;
+}
+
+/* turn off logo */
+.full .logo {
+    left: -300px;
+}
+
+.inverse {
+  color: #c1c1bd !important
+}
+
+.remark-slide-content .outline-header {
+      color: #ccc;
+      left: 80px;
+      position: absolute;
+      text-align: left;
+      top: 30px;
+}
+
+/*  Also apply these to slides search */
+
+.remark-slide tbody tr:nth-child(2n+1) {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid $light-gray;
+  border-top: 1px solid $light-gray;
+}
+
+.remark-slide tbody {
+  font-size: .9em;
+}

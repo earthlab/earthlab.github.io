@@ -1,10 +1,10 @@
 # Site Settings
 locale                   : "en-US"
-title                    : "Earth * Data * Science - Earth Lab"
-title_separator          : "-"
+title                    : "Earth Data Science - Earth Lab"
+title_separator          : "|"
 name                     : "Earth Analytics"
 description              : "Code, tutorials, and tools for modern Earth analytics"
-url                      : #"http://earthdatascience.org"
+url                      : "https://www.earthdatascience.org"
 baseurl                  :
 gh_repo                  :
 teaser                   : # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -30,7 +30,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               :
+  username               : "earthlabcu"
 facebook:
   username               :
   app_id                 :
@@ -122,6 +122,12 @@ encoding: "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
+
+# Sass/SCSS
+sass:
+  sass_dir: _sass
+style: compressed # http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
+
 # Conversion
 markdown: kramdown
 highlighter: rouge
@@ -150,17 +156,18 @@ timezone: # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
-gems:
+plugins:
   - jekyll-paginate
-  - jekyll-sitemap
+#  - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jemoji
+  - jekyll-redirect-from
 
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
-  - jekyll-sitemap
+#  - jekyll-sitemap
   - jekyll-gist
   - jekyll-feed
   - jemoji

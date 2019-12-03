@@ -1,7 +1,9 @@
 
+
 {% assign modules = site.posts | where:"order", 1 %}
 
 {% for module in modules %}
+{% if module.course %}
 
 <div class="list__item">
   <article class="archive__item" >
@@ -27,4 +29,5 @@
   </article>
 </div>
 
+{% endif %}
 {% endfor %}

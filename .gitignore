@@ -6,4 +6,8 @@ _site/
 *.Rproj
 .Rhistory
 pdf/
-tutorials/
+_config-dev.yml
+_config.yml
+Gemfile.lock
+.idea/workspace.xml
+.idea/

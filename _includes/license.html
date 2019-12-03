@@ -1,0 +1,12 @@
+{% for course in site.data.doi_license %}
+  {% if page.course == course.name %}
+     The {{ course.name | replace:'-',' ' | capitalize }} course is subject to the
+     <a href="{{ site.url }}{{ site.baseurl }}/license" target="_blank">CC BY-NC-ND 4.0 License </a>.
+      Citation DOI: <a href="{{ course.doi }}" target="_blank"> {{ course.doi }}</a>
+  {% endif %}
+  {% if page.module == course.name %}
+     The {{ course.module | replace:'-',' ' | capitalize }} workshop is subject to the
+     <a href="{{ site.url }}{{ site.baseurl }}/license" target="_blank">CC BY-NC-ND 4.0 License </a>.
+      Citation DOI: <a href="{{ course.doi }}" target="_blank"> {{ course.doi }}</a>
+  {% endif %}
+{% endfor %}

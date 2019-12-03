@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -e # halt script on error
 
-bundle exec jekyll build
-bundle exec htmlproofer ./_site
-
+# build the site with that url
+bundle exec jekyll build --config _config.yml
+bundle exec htmlproofer --url-swap "https\:\/\/www\.earthdatascience\.org\/images:/images" ./_site --file-ignore /example-leaflet-maps/ --http-status-ignore "301"
