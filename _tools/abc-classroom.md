@@ -1,26 +1,21 @@
-
 ---
 layout: single
 title: "ABC Classroom"
-excerpt: "A suite of command-line utilities that simplify and streamline managing a class of students using GitHub classroom."
+excerpt: "A suite of Python command-line utilities that makes it easier to manage a class using GitHub classroom."
+splash_header: "ABC Classroom"
+authors: ["Leah Wasser", "Karen Cranston", "Tim Head"]
 header:
-  image: abc-classroom.png
+  overlay_color: "#000080"
   teaser: abc-classroom.png
   image_alt: ABC Classroom Badge
 published: true
 ---
 
+# Why ABC Classroom
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3539582.svg)](https://doi.org/10.5281/zenodo.3539582)
-
-
 ![PyPI](https://img.shields.io/pypi/v/abc-classroom.svg?color=purple&style=plastic)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/abc-classroom.svg?color=purple&label=pypi%20downloads&style=plastic)
-[![codecov](https://codecov.io/gh/earthlab/abc-classroom/branch/master/graph/badge.svg)](https://codecov.io/gh/earthlab/abc-classroom)
-
-[![Documentation Status](https://readthedocs.org/projects/abc-classroom/badge/?version=latest)](https://abc-classroom.readthedocs.io/en/latest/?badge=latest)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://img.shields.io/badge/code%20style-black-000000.svg)
-
-# Why ABC Classroom
 
 Many of us teaching data science are using GitHub Classroom as a way to teach students
 both git and GitHub skills and also potentially collaboration skills that align
@@ -37,4 +32,4 @@ manage a class of students using GitHub classroom by:
 We are currently using nbgrader in our workflow and are thus building this tool
 out to support the use of nbgrader as well.
 
-[Check it out on GitHub.](https://github.com/earthlab/abc-classroom)
+[Check out abc-classroom on GitHub.](https://github.com/earthlab/abc-classroom)

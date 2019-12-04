@@ -1,9 +1,11 @@
 ---
 layout: single
-title: "Earth Analytics Python Environment"
-excerpt: "A python environment for teaching and learning earth analytics."
+title: "Earth Analytics Python Conda Environment"
+excerpt: "A python environment for working with earth and environment data."
+authors: ["Leah Wasser", "Tim Head", "Filipe", "Jenny Palomino"]
+splash_header: "Earth Analytics Python Conda Environment"
 header:
-  image: ea-python-envt.png
+  overlay_color: "#000080"
   teaser: ea-python-envt.png
   image_alt: Earth Analytics Python Environment Badge
 published: true
@@ -16,6 +18,8 @@ published: true
 [![](https://images.microbadger.com/badges/image/earthlab/earth-analytics-python-env.svg)](https://microbadger.com/images/earthlab/earth-analytics-python-env "EA-Environment Docker Stats")
 ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/earthlab/earth-analytics-python-env?style=plastic)
 
-This is an earth analytics conda environment that can be installed on your computer using a `.yaml` file. The tool also includes a docker image that can be used to actually run it in a containerized environment.
+This is an earth analytics conda environment that can be installed on your
+computer using a `.yaml` file. The tool also includes a docker image that can be
+used to actually run it in a containerized environment.
 
-[Find it on GitHub.](https://github.com/earthlab/earth-analytics-python-env)
+[Find the earth analytics python conda environment on GitHub.](https://github.com/earthlab/earth-analytics-python-env)

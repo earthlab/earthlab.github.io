@@ -1,9 +1,10 @@
 ---
 layout: single
 title: "matplotcheck"
-excerpt: "A package for testing different types of matplotlib plots."
+excerpt: "Matplotcheck is a Python package that makes it easier to test plots. It can be used to support autograding Python homework assignments."
+splash_header: "MatPlotCheck: Test and validate matplotlib plots in Python"
 header:
-  image: matplotcheck.png
+  overlay_color: "#000080"
   teaser: matplotcheck.png
   image_alt: Matplotcheck Badge
 published: true
@@ -16,12 +17,7 @@ published: true
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/matplotcheck.svg?color=purple&label=pypi%20downloads&style=plastic)
 ![Conda](https://img.shields.io/conda/v/conda-forge/matplotcheck.svg?color=purple&style=plastic)
 ![Conda](https://img.shields.io/conda/dn/conda-forge/matplotcheck.svg?color=purple&label=conda-forge%20downloads&style=plastic)
-
-[![Build Status](https://travis-ci.com/earthlab/matplotcheck.svg?branch=master)](https://travis-ci.com/earthlab/matplotcheck)
-[![Build status](https://ci.appveyor.com/api/projects/status/xgf5g4ms8qhgtp21?svg=true)](https://ci.appveyor.com/project/earthlab/matplotcheck)
-[![codecov](https://codecov.io/gh/earthlab/matPlotCheck/branch/master/graph/badge.svg)](https://codecov.io/gh/earthlab/matPlotCheck)
 [![Documentation Status](https://readthedocs.org/projects/matplotcheck/badge/?version=latest)](https://matplotcheck.readthedocs.io/en/latest/?badge=latest)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://img.shields.io/badge/code%20style-black-000000.svg)
 
 A package for testing different types of matplotlib plots including:
 
@@ -46,4 +42,4 @@ MatPlotCheck was inspired by [plotChecker][cdeac58a] developed by Jess Hamrick.
 
 We spoke with her about our development and decided to extend plotChecker to suite some of the grading needs in our classes which include plots with spatial data using numpy for images and geopandas for vector data.
 
-[Find it on GitHub.](https://github.com/earthlab/matplotcheck)
+[Find MatPlotCheck on GitHub.](https://github.com/earthlab/matplotcheck)
