@@ -3,6 +3,7 @@ layout: single
 title: "EarthPy"
 excerpt: "EarthPy makes it easier to plot and manipulate spatial data in Python."
 splash_header: "EarthPy: A Python package for spatial data."
+tool_page_title: "EarthPy for Open Source GIS in Python"
 authors: ["Leah Wasser", "Max Joseph", "Joe McGlinchy"]
 header:
   overlay_color: "#000080"
@@ -12,8 +13,6 @@ header:
   image_alt: Earthpy Badge
 published: true
 ---
-
-## EarthPy
 
 EarthPy makes it easier to plot and manipulate spatial data in Python.
 

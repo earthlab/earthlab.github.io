@@ -3,6 +3,7 @@ layout: single
 title: "ABC Classroom"
 excerpt: "A suite of Python command-line utilities that makes it easier to manage a class using GitHub classroom."
 splash_header: "ABC Classroom"
+tool_page_title: "ABC Classroom an Open Source Python Tool for GitHub Classroom"
 authors: ["Leah Wasser", "Karen Cranston", "Tim Head"]
 header:
   overlay_color: "#000080"

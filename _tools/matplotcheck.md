@@ -3,21 +3,14 @@ layout: single
 title: "matplotcheck"
 excerpt: "Matplotcheck is a Python package that makes it easier to test plots. It can be used to support autograding Python homework assignments."
 splash_header: "MatPlotCheck: Test and validate matplotlib plots in Python"
+authors: ["Leah Wasser", "Kristen Curry", "Ryan LaRoque"]
+tool_page_title: "Use MatPlotCheck to Autograde Matplotlib Plots in Python"
 header:
   overlay_color: "#000080"
   teaser: matplotcheck.png
   image_alt: Matplotcheck Badge
 published: true
 ---
-
-[![DOI](https://zenodo.org/badge/138660604.svg)](https://zenodo.org/badge/latestdoi/138660604)
-
-# MatPlotCheck
-![PyPI](https://img.shields.io/pypi/v/matplotcheck.svg?color=purple&style=plastic)
-![PyPI - Downloads](https://img.shields.io/pypi/dm/matplotcheck.svg?color=purple&label=pypi%20downloads&style=plastic)
-![Conda](https://img.shields.io/conda/v/conda-forge/matplotcheck.svg?color=purple&style=plastic)
-![Conda](https://img.shields.io/conda/dn/conda-forge/matplotcheck.svg?color=purple&label=conda-forge%20downloads&style=plastic)
-[![Documentation Status](https://readthedocs.org/projects/matplotcheck/badge/?version=latest)](https://matplotcheck.readthedocs.io/en/latest/?badge=latest)
 
 A package for testing different types of matplotlib plots including:
 
@@ -28,6 +21,13 @@ A package for testing different types of matplotlib plots including:
 * folium plots
 
 and more!
+
+[![DOI](https://zenodo.org/badge/138660604.svg)](https://zenodo.org/badge/latestdoi/138660604)
+![PyPI](https://img.shields.io/pypi/v/matplotcheck.svg?color=purple&style=plastic)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/matplotcheck.svg?color=purple&label=pypi%20downloads&style=plastic)
+![Conda](https://img.shields.io/conda/v/conda-forge/matplotcheck.svg?color=purple&style=plastic)
+![Conda](https://img.shields.io/conda/dn/conda-forge/matplotcheck.svg?color=purple&label=conda-forge%20downloads&style=plastic)
+[![Documentation Status](https://readthedocs.org/projects/matplotcheck/badge/?version=latest)](https://matplotcheck.readthedocs.io/en/latest/?badge=latest)
 
 ## Why MatPlotCheck?
 There is often a need to test plots particularly when teaching data science
