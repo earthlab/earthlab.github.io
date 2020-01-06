@@ -86,6 +86,12 @@ sns.set(font_scale=1.5, style="whitegrid")
 data = et.data.get_data('colorado-flood')
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
+
 {:.input}
 ```python
 # Set working directory
@@ -413,8 +419,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_12_0.png" alt = "Scatter plot showing hourly precipitation for Boulder, CO - 1948-2013.">
-<figcaption>Scatter plot showing hourly precipitation for Boulder, CO - 1948-2013.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_12_0.png" alt = "Scatter plot showing hourly precipitation for Boulder, CO from 2003 to 2013.">
+<figcaption>Scatter plot showing hourly precipitation for Boulder, CO from 2003 to 2013.</figcaption>
 
 </figure>
 
@@ -573,8 +579,6 @@ precip_2003_2013_daily
 
 Now that you have resampled the data, each HPCP value now represents a daily total or sum of all precipitation measured that day. Also notice that your `DATE` index no longer contains hourly time stamps, as you now have only one summary value or row per day. 
 
-<div class = "notice--success">
-
 <i class="fa fa-star"></i> **Data Tip:** You can also resample using the syntax below if you have not already set the DATE column as an index during the import process. 
 
 ```python
@@ -584,7 +588,8 @@ precip_hourly_index = precip_hourly.set_index('DATE')
 # Resample to daily sum of precip
 precip_daily = precip_hourly_index.resample('D').sum()
 ```
-</div>
+{: .notice--success}
+
 
 ### Plot Daily Precipitation Data
 
