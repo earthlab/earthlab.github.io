@@ -3,7 +3,7 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with Pandas."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2019-11-22
+modified: 2020-01-06
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -53,7 +53,7 @@ This time, however, you will use the hourly data that was not aggregated to a da
 
 `805333-precip-daily-1948-2013.csv` 
 
-This dataset contains the precipitation values collected hourly from the COOP station 050843 in Boulder, CO for January 1, 2003 through December 31, 2013. This means that there are sometimes multiple values collected for each day if it happened to rain throughout the day. 
+This dataset contains the precipitation values collected hourly from the COOP station 050843 in Boulder, CO for January 1, 1948 through December 31, 2013. This means that there are sometimes multiple values collected for each day if it happened to rain throughout the day. 
 
 Before using the data, consider a few things about how it was collected: 
 1. The data were collected over several decades, and the data were not always collected consistently.
@@ -107,7 +107,7 @@ Just as before, when you import the file to a **pandas** dataframe, be sure to s
 # Import data using datetime and no data value
 precip_2003_2013_hourly = pd.read_csv(file_path,
                                       parse_dates=['DATE'],
-                                      index_col= ['DATE'],
+                                      index_col=['DATE'],
                                       na_values=['999.99'])
 
 # View first few rows
@@ -413,8 +413,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_12_0.png" alt = "Scatterplot showing daily precipitation for Boulder, CO - 1948-2013.">
-<figcaption>Scatterplot showing daily precipitation for Boulder, CO - 1948-2013.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_12_0.png" alt = "Scatter plot showing hourly precipitation for Boulder, CO - 1948-2013.">
+<figcaption>Scatter plot showing hourly precipitation for Boulder, CO - 1948-2013.</figcaption>
 
 </figure>
 
@@ -575,10 +575,10 @@ Now that you have resampled the data, each HPCP value now represents a daily tot
 
 <div class = "notice--success">
 
-<i class="fa fa-star"></i> **Data Tip:** You can also resample using the syntax below if you have not already set the `DATE` as an index during the import process. 
+<i class="fa fa-star"></i> **Data Tip:** You can also resample using the syntax below if you have not already set the DATE column as an index during the import process. 
 
 ```python
-# Set date as index 
+# Set date column as index 
 precip_hourly_index = precip_hourly.set_index('DATE')
 
 # Resample to daily sum of precip
@@ -613,8 +613,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_18_0.png" alt = "Scatterplot of daily precipitation subsetted 1983-2013.">
-<figcaption>Scatterplot of daily precipitation subsetted 1983-2013.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_18_0.png" alt = "Scatter plot of daily total precipitation subsetted 2003-2013.">
+<figcaption>Scatter plot of daily total precipitation subsetted 2003-2013.</figcaption>
 
 </figure>
 
@@ -789,7 +789,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_22_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_22_0.png" alt = "Scatter plot of monthly total precipitation subsetted 2003-2013.">
+<figcaption>Scatter plot of monthly total precipitation subsetted 2003-2013.</figcaption>
 
 </figure>
 
@@ -934,7 +935,53 @@ precip_2003_2013_yearly
 
 
 
-After the resample, each HPCP value now represents a yearly total and that you have only one summary value for each year.
+After the resample, each HPCP value now represents a yearly total, and there is now only one summary value for each year.
+
+Note that the dates have also been updated in the dataframe as the last day of each year (e.g. 2013-12-31). This is important to note for the plot, in which the values will appear along the x axis with one value at the end of each year. 
+
+You can also resample the hourly data directly to a yearly timestep:
+
+```python
+precip_2003_2013_yearly = precip_2003_2013_hourly.resample('Y').sum()
+```
+
+This helps to improve the efficiency of your code if you do not need the intermediate resampled times (e.g. daily, monthly) for a different purpose.
+
+
+### Plot Yearly Precipitation Data
+
+To minimize your code further, you can include the resample code directly in the plot code by using `precip_2003_2013_hourly.resample('Y').sum()`, rather than `precip_2003_2013_yearly` as follows:
+
+{:.input}
+```python
+# Create figure and plot space
+fig, ax = plt.subplots(figsize=(10, 10))
+
+# Add x-axis and y-axis
+ax.scatter(precip_2003_2013_hourly.resample('Y').sum().index.values,
+           precip_2003_2013_hourly.resample('Y').sum()['HPCP'],
+           color='purple')
+
+# Set title and labels for axes
+ax.set(xlabel="Date",
+       ylabel="Precipitation (inches)",
+       title="Yearly Precipitation - Boulder Station\n 2003-2013")
+
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-03-resample-time-series-precip-python/2019-11-19-time-series-03-resample-time-series-precip-python_26_0.png" alt = "Scatter plot of yearly total precipitation subsetted 2003-2013.">
+<figcaption>Scatter plot of yearly total precipitation subsetted 2003-2013.</figcaption>
+
+</figure>
+
+
+
 
 ### Think of New Applications and Uses of Resampling
 
