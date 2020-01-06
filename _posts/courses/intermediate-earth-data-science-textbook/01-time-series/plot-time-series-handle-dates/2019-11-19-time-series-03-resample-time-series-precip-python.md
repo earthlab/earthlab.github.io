@@ -579,6 +579,8 @@ precip_2003_2013_daily
 
 Now that you have resampled the data, each HPCP value now represents a daily total or sum of all precipitation measured that day. Also notice that your `DATE` index no longer contains hourly time stamps, as you now have only one summary value or row per day. 
 
+<div class='notice--success' markdown="1">
+
 <i class="fa fa-star"></i> **Data Tip:** You can also resample using the syntax below if you have not already set the DATE column as an index during the import process. 
 
 ```python
@@ -589,6 +591,8 @@ precip_hourly_index = precip_hourly.set_index('DATE')
 precip_daily = precip_hourly_index.resample('D').sum()
 ```
 {: .notice--success}
+
+</div>
 
 
 ### Plot Daily Precipitation Data
@@ -942,20 +946,20 @@ precip_2003_2013_yearly
 
 After the resample, each HPCP value now represents a yearly total, and there is now only one summary value for each year.
 
-Note that the dates have also been updated in the dataframe as the last day of each year (e.g. 2013-12-31). This is important to note for the plot, in which the values will appear along the x axis with one value at the end of each year. 
+Notice that the dates have also been updated in the dataframe as the last day of each year (e.g. 2013-12-31). This is important to note for the plot, in which the values will appear along the x axis with one value at the end of each year. 
 
-You can also resample the hourly data directly to a yearly timestep:
+Note that you can also resample the hourly data to a yearly timestep, without first resampling the data to a daily or monthly timestep:
 
 ```python
 precip_2003_2013_yearly = precip_2003_2013_hourly.resample('Y').sum()
 ```
 
-This helps to improve the efficiency of your code if you do not need the intermediate resampled times (e.g. daily, monthly) for a different purpose.
+This helps to improve the efficiency of your code if you do not need the intermediate resampled timesteps (e.g. daily, monthly) for a different purpose.
 
 
 ### Plot Yearly Precipitation Data
 
-To minimize your code further, you can include the resample code directly in the plot code by using `precip_2003_2013_hourly.resample('Y').sum()`, rather than `precip_2003_2013_yearly` as follows:
+To minimize your code further, you can use `precip_2003_2013_hourly.resample('Y').sum()` directly in the plot code, rather than `precip_2003_2013_yearly`, as shown below:
 
 {:.input}
 ```python
