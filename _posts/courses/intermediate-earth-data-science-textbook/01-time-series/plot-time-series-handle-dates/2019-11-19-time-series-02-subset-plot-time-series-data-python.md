@@ -4,7 +4,7 @@ title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need for your analysis or plot. Learn how to subset your data using a begin and end date in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2019-11-22
+modified: 2020-01-06
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -53,7 +53,7 @@ You will use a slightly modified version of precipitation data (inches) download
 
 Your instructor has modified these data as follows:
 * aggregated the data to represent daily sum values.
-* added some no data values to allow you to practice handing missing data.
+* added some no data values to allow you to practice handling missing data.
 * added new columns to this data that would not usually be there if you downloaded it directly:
     * Year
     * Julian day (i.e. the calendar day number)
@@ -97,7 +97,7 @@ data = et.data.get_data('colorado-flood')
 
 Note that when you download data using a data key in **earthpy**, the data are automatically downloaded to a new directory in the `data` directory under `earth-analytics`.  The name of the directory will be the same as the name of the dataset, for example, `colorado-flood`. 
 
-For this dataset, there is `precipitation` subdirectory within `colorado-flood` for the precipitation data.  
+For this dataset, there is a `precipitation` subdirectory within `colorado-flood` for the precipitation data.  
 
 {:.input}
 ```python
@@ -265,7 +265,7 @@ data have been aggregated to represent daily sum values and some no data values 
 
 Even after reading documentation, it is always a good idea to explore data before working with them such as:
 1. checking out the data types
-2. calculating the summary statistics to get a sense of the data values (and make sure that no data values have been identified)
+2. calculating the summary statistics to get a sense of the data values (and make sure that "no data" values have been identified)
 3. checking out the values in the `datetime` index. 
 
 {:.input}
@@ -435,11 +435,11 @@ boulder_precip_2003_2013.index
 
 ## Subset Pandas Dataframe By Year
 
-Because you have a dataframe setup with an index, you can start to easily subset your data using the syntax:
+Because you have a dataframe set up with an index, you can start to easily subset your data using the syntax:
 
 `df["index_date"]`
 
-Note that the `datetime` index value is accessed using parenthesis `""` similar to how you query for text strings. 
+Note that the `datetime` index value is accessed using quotation marks `""` similar to how you query for text strings. 
 
 Using this syntax, you can select all of the data for the year 2013 by specifying the value that you want to select from the `datetime` index:
 
@@ -1283,8 +1283,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-subset-plot-time-series-data-python/2019-11-19-time-series-02-subset-plot-time-series-data-python_31_0.png" alt = "Scatterplot showing daily total precipitation for Boulder Creek.">
-<figcaption>Scatterplot showing daily total precipitation for Boulder Creek.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-02-subset-plot-time-series-data-python/2019-11-19-time-series-02-subset-plot-time-series-data-python_31_0.png" alt = "Bar plot showing daily total precipitation for Boulder Creek between May and Aug 2005.">
+<figcaption>Bar plot showing daily total precipitation for Boulder Creek between May and Aug 2005.</figcaption>
 
 </figure>
 
