@@ -11,6 +11,7 @@ permalink: /courses/use-data-open-source-python/data-stories/lidar-raster-data/e
 nav-title: 'Explore Lidar Point Clouds'
 week: 7
 course: 'intermediate-earth-data-science-textbook'
+chapter: 21
 sidebar:
   nav:
 author_profile: false

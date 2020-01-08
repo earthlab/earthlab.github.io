@@ -11,6 +11,7 @@ permalink: /courses/use-data-open-source-python/data-stories/lidar-raster-data/l
 nav-title: 'CHM, DTM, DSM'
 week: 7
 course: 'intermediate-earth-data-science-textbook'
+chapter: 21
 sidebar:
   nav:
 author_profile: false
@@ -65,12 +66,6 @@ thus easier to work with. In this lesson, you will import and work with 3 of the
 In the previous lesson, you opened and explored a digital elevation model (DEM). The DEM, also known as a digital terrain model (DTM) represents the elevation of the earth's surface. The DEM represents the ground - and thus DOES NOT INCLUDE trees and buildings and other objects.
 
 In this lesson, you will explore Digital Surface Models (DSM) and will use the DEM and the DSM to create a canopy height model (CHM). 
-
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
 
 
 {:.input}

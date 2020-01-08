@@ -7,6 +7,7 @@ modified: 2020-01-08
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'
+chapter: 20
 permalink: /courses/use-data-open-source-python/data-stories/colorado-2013-floods/how-rain-impacts-floods/
 nav-title: 'Precipitation'
 dateCreated: 2018-05-24
