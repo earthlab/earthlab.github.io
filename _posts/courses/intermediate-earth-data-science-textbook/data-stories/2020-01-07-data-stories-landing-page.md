@@ -18,7 +18,7 @@ module-type: 'session'
 
 <div class="notice--info" markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Data Stories
+## <i class="fa fa-ship" aria-hidden="true"></i> Section 7 - Data Stories
 
 In this section of this textbook, you will learn about a variety of environmental phenomena, ranging from flood to fire events, for which data can be used to provide insight and understanding. 
 
