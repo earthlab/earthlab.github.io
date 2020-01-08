@@ -3,7 +3,7 @@ layout: single
 title: "Landsat Remote Sensing tif Files in R"
 excerpt: "In this lesson you will cover the basics of using Landsat 7 and 8 in R. You will learn how to import Landsat data stored in .tif format - where each .tif file represents a single band rather than a stack of bands. Finally you will plot the data using various 3 band combinations including RGB and color-infrared."
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-01-08'
 category: [courses]
 class-lesson: ['spectral-data-fire-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-data/landsat-data-in-r-geotiff/
@@ -63,7 +63,7 @@ band rather than a stack of bands.
 
 ## About Landsat Data
 
-> At over 40 years, the Landsat series of satellites provides the longest temporal record of moderate resolution multispectral data of the Earth’s surface on a global basis. The Landsat record has remained remarkably unbroken, proving a unique resource to assist a broad range of specialists in managing the world’s food, water, forests, and other natural resources for a growing world population.  It is a record unmatched in quality, detail, coverage, and value. Source: <a href="https://landsat.usgs.gov/about-landsat" target="_blank">USGS</a>
+> At over 40 years, the Landsat series of satellites provides the longest temporal record of moderate resolution multispectral data of the Earth’s surface on a global basis. The Landsat record has remained remarkably unbroken, proving a unique resource to assist a broad range of specialists in managing the world’s food, water, forests, and other natural resources for a growing world population.  It is a record unmatched in quality, detail, coverage, and value. Source: <a href="https://www.usgs.gov/land-resources/nli/landsat/about?qt-science_support_page_related_con=2#qt-science_support_page_related_con" target="_blank">USGS</a>
 
 
 
@@ -71,7 +71,7 @@ band rather than a stack of bands.
     <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/TimelineOnlyForWebRGB.png">
     <img src="{{ site.url }}/images/courses/earth-analytics/remote-sensing/TimelineOnlyForWebRGB.png" alt="Landsat 40 year timeline source: USGS.">
     </a>
-    <figcaption>The 40 year history of Landsat missions. Source: USGS - <a href="https://landsat.usgs.gov/landsat-missions-timeline" target = "_blank"> USGS Landsat</a>
+    <figcaption>The 40 year history of Landsat missions. Source: USGS - <a href="https://www.usgs.gov/land-resources/nli/landsat/landsat-satellite-missions?qt-science_support_page_related_con=2#qt-science_support_page_related_con" target = "_blank"> USGS Landsat</a>
     </figcaption>
 </figure>
 
@@ -102,7 +102,7 @@ where the data are from and how they are structured.
 The file names, tell you what sensor collected the data, the date the data
 were collected, and more.
 
-<a href="https://landsat.usgs.gov/what-are-naming-conventions-landsat-scene-identifiers" target="_blank">Landsat file naming convention</a>
+<a href="https://www.usgs.gov/faqs/what-naming-convention-landsat-collections-level-1-scenes?qt-news_science_products=0#qt-news_science_products" target="_blank">Landsat file naming convention</a>
 
 <figure>
     <a href="{{ site.url }}/images/courses/earth-analytics/remote-sensing/Collection_FileNameDiffs.png">

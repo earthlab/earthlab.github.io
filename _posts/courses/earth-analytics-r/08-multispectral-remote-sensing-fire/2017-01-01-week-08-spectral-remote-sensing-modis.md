@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify Fire Impacts - Remote Sensing"
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/
-modified: '2019-09-03'
+modified: '2020-01-08'
 week-landing: 8
 week: 8
 sidebar:
@@ -58,7 +58,7 @@ Please read the articles below to prepare for next week's class.
 * <a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank" data-proofer-ignore=''>Fire science for rainforests -  Cochrane 2003.</a>
 * <a href="https://www.webpages.uidaho.edu/for570/Readings/2006_Lentile_et_al.pdf
 " target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a>
-* <a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices -  Soverel et al 2010.</a>
+* <a href="https://doi.org/10.1016/j.rse.2010.03.013" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices -  Soverel et al 2010.</a>
 
 ### 2. Complete the Assignment Below (20 points)
 Please note that like the flood report, this assignment is worth more points than

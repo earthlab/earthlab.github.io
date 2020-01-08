@@ -4,7 +4,7 @@ title: "Introduction to Lidar Point Cloud Data - Active Remote Sensing"
 excerpt: "This lesson covers what a lidar point cloud is. We will use the free
 plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
-modified: '2019-09-03'
+modified: '2020-01-08'
 category: [courses]
 class-lesson: ['class-lidar-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/explore-lidar-point-clouds-plasio/
@@ -196,7 +196,7 @@ Finally, spend some time exploring the data. What features do you see in this da
 
 ## Additional Resources
 
-*	<a href="https://www.asprs.org/committee-general/laser-las-file-format-exchange-activities.html" target="_blank"> About the .las file format.</a>
+*	<a href="https://www.asprs.org/divisions-committees/lidar-division/laser-las-file-format-exchange-activities" target="_blank"> About the .las file format.</a>
 *	<a href="http://laspy.readthedocs.org/en/latest/tut_background.html" target="_blank"> Las: python ingest</a>
 *	<a href="http://www.asprs.org/a/society/committees/standards/asprs_las_spec_v13.pdf" target="_blank"> las v1.3 specifications</a>
 

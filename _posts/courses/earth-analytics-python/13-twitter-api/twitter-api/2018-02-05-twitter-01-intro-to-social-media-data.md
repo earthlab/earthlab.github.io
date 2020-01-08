@@ -3,7 +3,7 @@ layout: single
 title: "Work With Twitter Social Media Data in Python - An Introduction"
 excerpt: "This lesson will discuss some of the challenges associated with working with social media data in science. These challenges include working with non standard text, large volumes of data, API limitations, and geolocation issues."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2019-09-03
+modified: 2020-01-08
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics/using-apis-natural-language-processing-twitter/intro-to-social-media-text-mining-python/
@@ -56,7 +56,7 @@ snow), disturbances (floods, and other natural disasters), and more.
 
 <figure>
 <img src="{{ site.url }}/images/courses/earth-analytics/week-12/social-media-3.png" alt="image showing overall stats for several platforms from 2014">
-<figcaption>A graphic showing the use of several social media platforms from 2014. Note that while use of these platforms has changed over the past few years, this provides a general summary of overall use by platform. Source: <a href="https://www.dbsquaredinc.com/social-media514/" target="_blank">https://www.dbsquaredinc.com/social-media514/</a>
+<figcaption>A graphic showing the use of several social media platforms from 2014. Note that while use of these platforms has changed over the past few years, this provides a general summary of overall use by platform. Source: <a href="https://www.leveragestl.com/social-media-infographic" target="_blank">https://www.leveragestl.com/social-media-infographic</a>
     </figcaption>
 </figure>
 

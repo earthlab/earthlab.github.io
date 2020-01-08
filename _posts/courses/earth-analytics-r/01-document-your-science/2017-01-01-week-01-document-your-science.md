@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Document Your Science Using R Markdown and R"
 permalink: /courses/earth-analytics/document-your-science/
-modified: '2019-09-03'
+modified: '2020-01-08'
 week-landing: 1
 week: 1
 sidebar:
@@ -60,7 +60,7 @@ Suzanne Anderson (faculty here at CU Boulder).
 
 4. Read the short article and **listen to the 7 minute interview with Suzanne Anderson**: To listen - click on the "<i class="fa fa-volume-up" aria-hidden="true"></i>
 Listen" icon on the page
-<a href="http://www.cpr.org/news/story/study-2013-front-range-floods-caused-thousand-years-worth-erosion" target="_blank">Study: 2013 Front Range floods caused a thousand year's worth of erosion</a>
+<a href="https://www.cpr.org/show-segment/study-2013-front-range-floods-caused-a-thousand-years-worth-of-erosion/" target="_blank">Study: 2013 Front Range floods caused a thousand year's worth of erosion</a>
 
 ### 2. Watch Flood Video
 Watch this video to learn more about the 2013 Colorado floods and some

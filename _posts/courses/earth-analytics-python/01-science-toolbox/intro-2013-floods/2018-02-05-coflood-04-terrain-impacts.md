@@ -3,7 +3,7 @@ layout: single
 title: 'Measure Changes in the Terrain Caused by a Flood Using Lidar Data'
 excerpt: "A flood event often changes the terrain as water moves sediment and debris across the landscape. Learn how terrain changes are measured using lidar remote sensing data."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2019-09-03
+modified: 2020-01-08
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/measure-changes-in-terrain-caused-by-floods/
@@ -85,7 +85,7 @@ Several public organizations offer free lidar data including:
 
 * <a href="https://earthexplorer.usgs.gov/" target="_blank">USGS Earth Explorer</a>
 * <a href="http://www.opentopography.org/" target = "_blank">OpenTopography</a>
-* <a href="https://viewer.nationalmap.gov/" target = "_blank">The National Map</a>
+* <a href="https://www.usgs.gov/core-science-systems/ngp/tnm-delivery/" target = "_blank">The National Map</a>
 * <a href="http://www.neonscience.org/" target = "_blank">National Ecological Observatory Network (NEON)
 
 The data that you will use this week in the course was collected by NEON.
