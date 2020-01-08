@@ -4,7 +4,7 @@ title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2019-11-21
+modified: 2020-01-06
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -61,7 +61,7 @@ Be sure that you have reviewed the <a href="{{ site.url }}/courses/intro-to-eart
 
 Dates can be tricky in any programming language. While you may see a date in a dataset and recognize it as something that can be quantified and related to time, a computer reads in numbers and characters. Often by default, date information is loaded as a string (i.e. a set of characters), rather than something that has an order in time. 
 
-Luckily, **Python** provides an easy way to work with dates using `datetime` objects, and you can actually convert columns in **pandas** dataframe that contain dates and times as strings into `datetime` objects.
+Luckily, **Python** provides an easy way to work with dates using `datetime` objects, and you can actually convert **pandas** dataframes columns containing dates and times as strings into `datetime` objects.
 
 Recall that objects are used in **Python** to provide a set of functionality and rules that apply to that specific object type such as: 
 1. lists
@@ -285,8 +285,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_11_0.png" alt = "Plot of precipitation in Boulder, CO without no data values removed.">
-<figcaption>Plot of precipitation in Boulder, CO without no data values removed.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_11_0.png" alt = "Line plot of precipitation in Boulder, CO with dates as strings and without no-data values removed.">
+<figcaption>Line plot of precipitation in Boulder, CO with dates as strings and without no-data values removed.</figcaption>
 
 </figure>
 
@@ -501,8 +501,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_21_0.png" alt = "Plot of precipitation with the x-axis dates formated as datetime.">
-<figcaption>Plot of precipitation with the x-axis dates formated as datetime.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_21_0.png" alt = "Scatter plot of precipitation with the x-axis dates formated as datetime.">
+<figcaption>Scatter plot of precipitation with the x-axis dates formated as datetime.</figcaption>
 
 </figure>
 
@@ -535,8 +535,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_22_0.png" alt = "Bar plot showing daily precipitation with the x-axis dates cleaned up.">
-<figcaption>Bar plot showing daily precipitation with the x-axis dates cleaned up.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_22_0.png" alt = "Bar plot showing daily precipitation with the x-axis dates as datetimes.">
+<figcaption>Bar plot showing daily precipitation with the x-axis dates as datetimes.</figcaption>
 
 </figure>
 
@@ -647,9 +647,9 @@ boulder_july_2018.describe()
 
 
 
-The `-999` values were imported as numeric values into the **pandas** dataframe when it was created, and thus, these values are included in the summary statistic. 
+The `-999` values were imported as numeric values into the **pandas** dataframe when it was created, and thus, these values are included in the summary statistics. 
 
-To ensure nodata values are properly ignored in your summary statistics, you can specify a "no data" value during the import, so that those values are not read as true numeric values using the parameter `na_values` as follows: 
+To ensure "no data" values are properly ignored in your summary statistics, you can specify a "no data" value during the import, so that those values are not read as true numeric values using the parameter `na_values` as follows: 
 
 `na_values = value`
 
@@ -659,7 +659,7 @@ For example:
 
 This will tell **pandas** to treat all values of `-999` as no data, and thus, not to include them in the analysis or on a plot. 
 
-Now that you know how to handle no data values, recreate the dataframe once more by including a value for the parameter `na_values`. 
+Now that you know how to handle "no data" values, recreate the dataframe once more by including a value for the parameter `na_values`. 
 
 {:.input}
 ```python
@@ -667,7 +667,7 @@ Now that you know how to handle no data values, recreate the dataframe once more
 boulder_july_2018 = pd.read_csv(file_path,
                                 parse_dates=['date'],
                                 index_col=['date'],
-                                na_values= [-999])
+                                na_values=[-999])
 
 boulder_july_2018.head()
 ```
@@ -738,7 +738,7 @@ boulder_july_2018.head()
 
 
 
-Notice that the `-999` value for `precip` on July 3rd has been replaced with `NaN` to indicate a no data value. 
+Notice that the `-999` value for `precip` on July 3rd has been replaced with `NaN` to indicate a "no data" value. 
 
 Now have a look at the summary statistics.
 
@@ -849,8 +849,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_31_0.png" alt = "Bar plot showing daily precipitation with the x-axis dates cleaned up and no data values removed.">
-<figcaption>Bar plot showing daily precipitation with the x-axis dates cleaned up and no data values removed.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2019-11-19-time-series-01-date-format-python/2019-11-19-time-series-01-date-format-python_31_0.png" alt = "Scatter plot showing daily precipitation with the x-axis dates cleaned up and the no-data values removed.">
+<figcaption>Scatter plot showing daily precipitation with the x-axis dates cleaned up and the no-data values removed.</figcaption>
 
 </figure>
 
@@ -863,8 +863,8 @@ By using the `na_values` parameter, you told **Python** to ignore those "no data
 
 `na_values=['NA', ' ', -999])`
 
-which would specify that the "no data" values are "NA" as a string, an empty space as a string, or the numeric value `999`. 
+which would specify that the "no data" values are "NA" as a string, an empty space as a string, or the numeric value `-999`. 
 
-Now know you how to import dates into **pandas** dataframes using the `datetime` object in **Python** and how to deal with no data values. 
+You now know how to import dates into **pandas** dataframes using the `datetime` object in **Python** and how to deal with no data values. 
 
 On the next pages of this chapter, you will learn more about working with `datetime` in **Python** to temporally subset and resample data as well as customize your plots even more.

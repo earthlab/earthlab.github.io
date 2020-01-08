@@ -51,9 +51,10 @@ layout: default
     {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
 
     <div class="page__inner-wrap">
-      {% unless page.header.overlay_color or page.header.overlay_image %}
 
         <header>
+          {% unless page.header.overlay_color or page.header.overlay_image %}
+
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
 
           <!-- END: insert welcome block -->
@@ -87,8 +88,25 @@ layout: default
           {% comment %}{% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
           {% endif %}{% endcomment %}
+        {% endunless %}
+
+        <!-- For tools pages add authors and tool title -->
+
+        {% if page.header.overlay_color or page.header.overlay_image %}
+          <h2> {{ page.tool_page_title }} </h2>
+          {% if page.authors %}
+            <div class="page__meta">
+              Developers:
+              {% for anAuthor in page.authors %}
+              {% assign currentItem = site.data.authors | where:"name", anAuthor %}
+              <a href="{{ site.url }}{{ site.baseurl }}/authors/{{ currentItem[0].slug }}">{{ currentItem[0].name }}</a>{% if forloop.last == false %}, {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endif %}
         </header>
-      {% endunless %}
+
+
 
       <section class="page__content" itemprop="text">
         <!-- would like to include the TOC automatically but this does weird things-->
