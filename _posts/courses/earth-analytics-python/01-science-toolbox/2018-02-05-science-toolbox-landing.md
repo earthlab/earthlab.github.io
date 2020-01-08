@@ -4,7 +4,7 @@ category: courses
 title: "Get Started Using Data With Python and Jupyter Notebooks"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
 week-landing: 1
-modified: 2019-09-03
+modified: 2020-01-08
 week: 1
 sidebar:
   nav:
@@ -193,12 +193,6 @@ An example table that shows what you might post:
 
 ## Your Homework Plot Should Look Something Like This
 It is OK if the dates are not formatted properly on your plot. You will learn how to handle dates next week! 
-
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
 
 
 
