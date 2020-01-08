@@ -126,8 +126,8 @@ You will not learn about interpolation in today's class, but will learn about it
 
 
 <figure>
-  <a href="{{ site.url }}/images/earth-analytics/lidar-raster-data-r/gridding.gif">
-  <img src="{{ site.url }}/images/earth-analytics/lidar-raster-data-r/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
+  <a href="{{ site.url }}/images/earth-analytics/lidar-raster-data/gridding.gif">
+  <img src="{{ site.url }}/images/earth-analytics/lidar-raster-data/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
   <figcaption>
   Animation Showing the general process of taking lidar point clouds and
   converting them to a Raster Format. Source: Tristan Goulden, NEON.

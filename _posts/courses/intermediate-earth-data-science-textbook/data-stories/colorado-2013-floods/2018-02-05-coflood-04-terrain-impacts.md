@@ -18,7 +18,6 @@ sidebar:
 author_profile: false
 comments: true
 order: 5
-course: 'earth-analytics-python' 
 topics: 
     remote-sensing: ['multispectral-remote-sensing']
     earth-science: ['flood-erosion']
