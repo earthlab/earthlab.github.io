@@ -23,7 +23,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 1
-class-order: 1
+class-order: 2
 topics:
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
