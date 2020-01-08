@@ -1,30 +1,27 @@
 ---
 layout: single
-title: "Earthpy"
+title: "EarthPy"
 excerpt: "EarthPy makes it easier to plot and manipulate spatial data in Python."
+splash_header: "EarthPy: A Python package for spatial data."
+tool_page_title: "EarthPy for Open Source GIS in Python"
+authors: ["Leah Wasser", "Max Joseph", "Joe McGlinchy"]
 header:
-  image: earthpy.png
+  overlay_color: "#000080"
+  overlay_filter: rgba(0, 0, 0, 0.3)
+  cta_label: "EarthPy"
   teaser: earthpy.png
   image_alt: Earthpy Badge
 published: true
 ---
 
+EarthPy makes it easier to plot and manipulate spatial data in Python.
+
 [![DOI](https://joss.theoj.org/papers/10.21105/joss.01886/status.svg)](https://doi.org/10.21105/joss.01886)
 [![pyOpenSci](https://tinyurl.com/y22nb8up)](https://github.com/pyOpenSci/software-review/issues/12)
-[![Build Status](https://travis-ci.org/earthlab/earthpy.svg?branch=master)](https://travis-ci.org/earthlab/earthpy)
-[![Build status](https://ci.appveyor.com/api/projects/status/xgf5g4ms8qhgtp21?svg=true)](https://ci.appveyor.com/project/earthlab/earthpy)
-[![codecov](https://codecov.io/gh/earthlab/earthpy/branch/master/graph/badge.svg)](https://codecov.io/gh/earthlab/earthpy)
-[![Docs build](https://readthedocs.org/projects/earthpy/badge/?version=latest)](https://earthpy.readthedocs.io/en/latest/?badge=latest)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://img.shields.io/badge/code%20style-black-000000.svg)
-
-# EarthPy
-
 ![PyPI](https://img.shields.io/pypi/v/earthpy.svg?color=purple&style=plastic)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/earthpy.svg?color=purple&label=pypi%20downloads&style=plastic)
 ![Conda](https://img.shields.io/conda/v/conda-forge/earthpy.svg?color=purple&style=plastic)
 ![Conda](https://img.shields.io/conda/dn/conda-forge/earthpy.svg?color=purple&label=conda-forge%20downloads&style=plastic)
-
-EarthPy makes it easier to plot and manipulate spatial data in Python.
 
 ## Why EarthPy?
 
@@ -56,4 +53,4 @@ EarthPy's design was inspired by the `raster` and `sp` package functionality ava
 Check out our [vignette gallery](https://earthpy.readthedocs.io/en/latest/gallery_vignettes/index.html) for
 applied examples of using EarthPy in common spatial workflows.
 
-[Access it on GitHub.](https://github.com/earthlab/earthpy)
+[Find EarthPy on GitHub.](https://github.com/earthlab/earthpy)
