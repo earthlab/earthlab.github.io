@@ -26,13 +26,19 @@ redirect_from:
   - "/courses/earth-analytics-python/python-open-science-toolbox/measure-changes-in-terrain-caused-by-floods/"
 ---
 
-{% include toc title="On This Page" icon="file-text" %}
+{% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
+At the end of this activity, you will be able to:
+
 * Describe how lidar data are used to measure changes in the landscape after a flood.
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+
+This is a reading to provide background on the 2013 flood events. You do not need anything to go through it. 
 
 </div>
 
@@ -52,7 +58,7 @@ In the following weeks, you will use Light Detection and Ranging (lidar) data to
  
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/science/colorado-2013-floods/jamestown-home-destroyed-colorado-floods.jpg">
- <img src="{{ site.url }}/images/earth-analytics/science/colorado-2013-floods/jamestown-home-destroyed-colorado-floods.jpg" alt = "An emotional couple looks on at a home destroyed by the floods near Jamestown, Colorado.."></a>
+ <img src="{{ site.url }}/images/earth-analytics/science/colorado-2013-floods/jamestown-home-destroyed-colorado-floods.jpg" alt = "An emotional couple looks on at a home destroyed by the floods near Jamestown, Colorado."></a>
  <figcaption>An emotional couple looks on at a home destroyed by the floods near Jamestown, Colorado. Source:<a href="https://www.denverpost.com/2015/09/12/two-years-later-2013-colorado-floods-remain-a-nightmare-for-some/" target="_blank">The Denver Post.</a>
  </figcaption>
 </figure>
