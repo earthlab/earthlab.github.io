@@ -27,6 +27,7 @@ In section three of this textbook, you will learn how to work with and plot rast
 
 After completing this section of the textbook, you will be able to:
 
+* Open raster data using **Python**.
 * Be able to list and identify 3 spatial attributes of a raster dataset: extent, crs and resolution.
 * Explore and plot the distribution of values within a raster using histograms.
 * Access metadata stored within a GeoTIFF raster file via TIF tags in **Python**.
@@ -39,4 +40,3 @@ After completing this section of the textbook, you will be able to:
 
 
 {% include textbook-section-toc.html %}
-
