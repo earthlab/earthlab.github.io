@@ -3,8 +3,8 @@ layout: single
 title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need for your analysis or plot. Learn how to subset your data using a begin and end date in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-dateCreated: 2019-11-19
-modified: 2020-01-06
+dateCreated: 2018-02-05
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -20,6 +20,8 @@ topics:
   reproducible-science-and-programming: ['python']
   time-series:
   data-exploration-and-analysis: ['data-visualization']
+redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/subset-time-series-data-python/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -29,8 +31,6 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * Subset time series data using different options for time frames, including by year, month, and with a specified begin and end date. 
-
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -88,12 +88,6 @@ You will also download data from **earthpy** by specifiying a data key for the d
 # Download the data
 data = et.data.get_data('colorado-flood')
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 Note that when you download data using a data key in **earthpy**, the data are automatically downloaded to a new directory in the `data` directory under `earth-analytics`.  The name of the directory will be the same as the name of the dataset, for example, `colorado-flood`. 
 
