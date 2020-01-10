@@ -4,7 +4,7 @@ title: "Spatial Raster Metadata: CRS, Resolution, and Extent in Python"
 excerpt: "Raster metadata includes the coordinate reference system (CRS), resolution, and spatial extent. Learn about these metadata and how to access them in Python"
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-09
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/raster-metadata-in-python/
@@ -77,12 +77,12 @@ method.
 ```python
 # Import necessary packages
 import os
+import matplotlib.pyplot as plt
 import numpy as np
-import rasterio as rio
 from shapely.geometry import Polygon, mapping
+import rasterio as rio
 from rasterio.mask import mask
 from rasterio.plot import show
-import matplotlib.pyplot as plt
 
 # Package created for the earth analytics program
 import earthpy as et

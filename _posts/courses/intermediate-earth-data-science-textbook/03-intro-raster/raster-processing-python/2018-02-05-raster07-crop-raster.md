@@ -64,17 +64,19 @@ To begin let's load the libraries that you will need in this lesson.
 {:.input}
 ```python
 import os
-import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+from shapely.geometry import mapping
+import geopandas as gpd
 import rasterio as rio
 from rasterio.plot import plotting_extent
 from rasterio.mask import mask
-from shapely.geometry import mapping
-import geopandas as gpd
 import earthpy as et
 import earthpy.spatial as es
 import earthpy.plot as ep
-import seaborn as sns
+
+# Prettier plotting with seaborn
 sns.set(font_scale=1.5)
 
 # Get data and set working directory

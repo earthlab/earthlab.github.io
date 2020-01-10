@@ -54,10 +54,10 @@ Remember you can use the **rasterio context manager** to import the raster objec
 ```python
 # Import necessary packages
 import os
-import numpy as np
-import rasterio as rio
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
+import rasterio as rio
 import earthpy as et
 import earthpy.plot as ep
 

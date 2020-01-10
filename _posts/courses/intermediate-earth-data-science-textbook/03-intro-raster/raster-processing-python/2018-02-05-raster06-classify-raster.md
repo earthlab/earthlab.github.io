@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "Reclassifying raster data allows you to use a set of defined values to organize pixel values into new bins or categories. Learn how to classify a raster dataset and export it as a new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-09
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/classify-plot-raster-data-in-python/
@@ -65,13 +65,13 @@ To get started, first load the required libraries and then open up your raster. 
 {:.input}
 ```python
 import os
+import matplotlib.pyplot as plt
+from matplotlib.patches import Patch
+from matplotlib.colors import ListedColormap, BoundaryNorm
 import numpy as np
 import pandas as pd
 import rasterio as rio
 from rasterio.plot import plotting_extent
-from matplotlib.patches import Patch
-from matplotlib.colors import ListedColormap, BoundaryNorm
-import matplotlib.pyplot as plt
 import earthpy as et
 import earthpy.plot as ep
 

@@ -63,14 +63,14 @@ Begin by importing the necessary packages, downloading data, and setting the wor
 {:.input}
 ```python
 import os
-import numpy as np
-import rasterio as rio
-from rasterio.plot import plotting_extent
 import matplotlib.pyplot as plt
 from matplotlib.patches import Patch
 from matplotlib.colors import ListedColormap
 import matplotlib.colors as colors
 import seaborn as sns
+import numpy as np
+import rasterio as rio
+from rasterio.plot import plotting_extent
 import earthpy as et
 import earthpy.spatial as es
 import earthpy.plot as ep

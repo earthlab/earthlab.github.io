@@ -83,8 +83,9 @@ You can use the **rasterio** library combined with **numpy** and **matplotlib** 
 ```python
 # Import necessary packages
 import os
-import numpy as np
 import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
 from shapely.geometry import Polygon, box
 import geopandas as gpd
 import rasterio as rio
@@ -96,7 +97,6 @@ import earthpy as et
 import earthpy.plot as ep
 
 # Prettier plotting with seaborn
-import seaborn as sns
 sns.set(font_scale=1.5, style="white")
 ```
 
