@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM)."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-08
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['lidar-data-story']
 permalink: /courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-chm-dem-dsm/
@@ -65,20 +65,15 @@ thus easier to work with. In this lesson, you will import and work with 3 of the
 
 In the previous lesson, you opened and explored a digital elevation model (DEM). The DEM, also known as a digital terrain model (DTM) represents the elevation of the earth's surface. The DEM represents the ground - and thus DOES NOT INCLUDE trees and buildings and other objects.
 
-In this lesson, you will explore Digital Surface Models (DSM) and will use the DEM and the DSM to create a canopy height model (CHM). 
+In this lesson, you will explore Digital Surface Models (DSM) and learn how to use the DEM and the DSM to create a canopy height model (CHM). 
 
 
-{:.input}
-```python
-# open raster data
-lidar_dem = rio.open(
-    'data/colorado-flood/spatial/boulder-leehill-rd/pre-flood/lidar/pre_DTM.tif')
-lidar_dem_im = lidar_dem.read(masked=True)
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
 
-ep.plot_bands(lidar_dem_im[0], cmap='viridis',
-              title='Lidar Digital Elevation Model (DEM)')
-plt.show()
-```
+
+
 
 {:.output}
 {:.display_data}
@@ -94,7 +89,8 @@ plt.show()
 
 
 ### Import digital surface model (DSM)
-Next, let's open the digital surface model (DSM). The DSM represents the top of the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
+
+Next, let's review the digital surface model (DSM). The DSM represents the top of the earth's surface. Thus, it INCLUDES TREES, BUILDINGS and other objects that sit on the earth.
 
 
 
@@ -123,13 +119,7 @@ There are different ways to calculate a CHM. One easy way is to subtract the DEM
 
 DSM - DEM = CHM
 
-You can learn how to subtract rasters in the <a href="{{ site.url }}/courses/use-data-open-source-python/"> Use Data for Earth and Environmental Science in Open Source Python textbook.</a>
-
-
-{:.output}
-    /opt/conda/lib/python3.7/site-packages/numpy/ma/core.py:1015: RuntimeWarning: overflow encountered in multiply
-      result = self.f(da, db, *args, **kwargs)
-
+You can learn how to subtract rasters in the <a href="{{ site.url }}/courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/subtract-rasters-in-python/"> Use Data for Earth and Environmental Science in Open Source Python textbook.</a>
 
 
 {:.output}
@@ -137,7 +127,7 @@ You can learn how to subtract rasters in the <a href="{{ site.url }}/courses/use
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/lidar-intro/2018-02-05-lidar03-chm-dtm-dsm/2018-02-05-lidar03-chm-dtm-dsm_8_1.png" alt = "Raster plot of a Lidar canopy height model.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/lidar-intro/2018-02-05-lidar03-chm-dtm-dsm/2018-02-05-lidar03-chm-dtm-dsm_8_0.png" alt = "Raster plot of a Lidar canopy height model.">
 <figcaption>Raster plot of a Lidar canopy height model.</figcaption>
 
 </figure>
