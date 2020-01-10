@@ -23,6 +23,17 @@ redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/floods-return-period-and-probability/"
 ---
 
+{% include toc title="On This Page" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+* Calculate exceedance probability and return periods associated with a flood in **Python**.
+
+</div>
+
+
 ## Introduction to Flood Frequency Analysis
 
 One way to analyze time series data - particularly related to events like floods - is to calculate the frequency of different magnitude events. You have have likey heard the term *"100-year flood"*. While you may think it means that it is the size of flood that occurs every 100 years, it actually refers to the flood magnitude that has a probability of exceedance of 1/100 in any given year (i.e., a 1% chance). This is why the hundred year flood event can occur two years in a row.
@@ -232,8 +243,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-01-10T16:22:15.801Z', 'title': 'requestDT'},
-        {'value': '5d78e780-33c5-11ea-b610-6cae8b6642ea', 'title': 'requestId'},
+        {'value': '2020-01-10T17:00:17.561Z', 'title': 'requestDT'},
+        {'value': 'ad81d980-33ca-11ea-b610-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'sdas01', 'title': 'server'}]},
@@ -687,7 +698,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7ff14575fba8>)
+     <http.client.HTTPMessage at 0x7ff7fce4ff60>)
 
 
 

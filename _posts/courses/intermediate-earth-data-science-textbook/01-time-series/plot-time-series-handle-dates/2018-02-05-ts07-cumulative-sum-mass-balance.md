@@ -23,6 +23,17 @@ redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/"
 ---
 
+{% include toc title="On This Page" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+* Create a cumulative sum plot in **Pandas** to better understand stream discharge in a watershed.
+
+</div>
+
+
 ## Introduction to Flood Frequency Analysis
 
 To begin, load all of your libraries.
@@ -88,8 +99,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-01-10T16:22:33.057Z', 'title': 'requestDT'},
-        {'value': '67c1f600-33c5-11ea-aec2-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2020-01-10T17:00:34.339Z', 'title': 'requestDT'},
+        {'value': 'b78134d0-33ca-11ea-aec2-6cae8b6642f6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'caas01', 'title': 'server'}]},
