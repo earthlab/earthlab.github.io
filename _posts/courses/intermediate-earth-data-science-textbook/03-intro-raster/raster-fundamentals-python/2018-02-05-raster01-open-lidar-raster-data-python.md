@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Rasters are gridded data composed of pixels that store values, such as an image file. Learn how to open raster files in Python, and learn about the 3 key spatial attributes of a raster dataset including coordinate reference system (CRS), spatial extent and resolution."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-09
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -57,7 +57,7 @@ You will need a computer with internet access to complete this lesson.
 
 </div>
 
-The <a href="{{ site.url }}/courses/use-data-open-source-python/intro-raster-data-python/lidar-raster-data/open-lidar-raster-python/" target="_blank">data story on Lidar data</a> reviews the basic principles behind what a Lidar raster dataset is and how point clouds are used to derive the raster. 
+The <a href="{{ site.url }}/courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-intro/" target="_blank">data story on Lidar data</a> reviews the basic principles behind what a Lidar raster dataset is and how point clouds are used to derive the raster. 
 
 In this chapter, you will learn how to open a plot a lidar raster dataset in **Python**. You will also learn about key attributes of a raster dataset:
 
