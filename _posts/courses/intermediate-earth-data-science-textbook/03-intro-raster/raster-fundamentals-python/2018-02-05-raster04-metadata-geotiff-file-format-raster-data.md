@@ -4,7 +4,7 @@ title: "About the Geotiff (.tif) Raster File Format: Raster Data in Python"
 excerpt: "Metadata describe the key characteristics of a dataset such as a raster. For spatial data, these characteristics including the coordinate reference system (CRS), resolution and spatial extent. Learn about the use of TIF tags or metadata embedded within a GeoTIFF file to explore the metadata programatically."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-09
+modified: 2020-01-10
 category: ['courses']
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-to-the-geotiff-file-format/
@@ -28,7 +28,7 @@ redirect_from:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning objectives
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * Access metadata stored within a geotiff raster file via tif tags in Python.
 * Describe the difference between embedded metadata and non embedded metadata.
@@ -85,6 +85,12 @@ import earthpy as et
 et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 Next let's open up a raster file in geotiff format (.tif). 
 

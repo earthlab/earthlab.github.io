@@ -4,7 +4,7 @@ title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Sometimes a raster dataset covers a larger spatial extent than is needed for a particular purpose. In these cases, you can crop a raster file to a smaller extent. Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-09
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/crop-raster-data-with-shapefile-in-python/
@@ -35,12 +35,12 @@ redirect_from:
 
 </div>
 
-In this lesson, you will learn how to crop a raster dataset in **Python**. Previously,
-you reclassified a raster in **Python**, however the edges of your raster dataset were uneven.
+In previous lessons, you reclassified a raster in **Python**; however, the edges of your raster dataset were uneven.
 
 In this lesson, you will learn how to crop a raster - to create a new raster
 object / file that you can share with colleagues and / or open in other tools such
-as QGIS.
+as a Desktop GIS tool like QGIS.
+
 
 ## About Spatial Crop
 

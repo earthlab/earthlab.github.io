@@ -4,7 +4,7 @@ title: "Subtract One Raster from Another and Export a New GeoTIFF in Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output and then save that output as a new file. Learn how to subtract rasters and create a new GeoTIFF file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-09
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/subtract-rasters-in-python/
@@ -55,6 +55,10 @@ You will need a computer with internet access to complete this lesson.
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
+
+Often you need to process two raster datasets together to create a new raster output and then save that output as a new file. In this lesson, you will learn how to subtract rasters and create a new GeoTIFF file in open source **Python** using **rasterio**.
+
+Begin by importing the necessary packages, downloading data, and setting the working directory.
 
 {:.input}
 ```python
