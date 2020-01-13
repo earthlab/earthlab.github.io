@@ -3,7 +3,7 @@ layout: single
 title: 'How the Atmosphere Drives Floods: The 2013 Colorado Floods'
 excerpt: "Changes in the atmosphere, including how quickly a storm moves can impact the severity of a flood. Learn more about how atmospheric conditions impact flood events."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2020-01-08
+modified: 2020-01-13
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -41,11 +41,14 @@ redirect_from:
 ## Primary Driver: Atmospheric Conditions - a Driver of Flood Impacts
 
 ### What Are Atmospheric Conditions?
+
 Atmospheric conditions are what produces weather. The term refers to the physical conditions in the Earth’s atmosphere including temperature, wind, clouds, and precipitation.
 
 ### How Are Atmospheric Conditions Measured?
 
-Atmospheric conditions can be measured with ground-based or satellite observations. Ground measurements can include air temperature and heat indices, barometric pressure, humidity, precipitation, wind speed and direction, and solar radiation. There are several satellites that track atmospheric conditions, the most popular being the NOAA operated Geostationary Operational Environmental Satellite System.
+Atmospheric conditions can be measured with ground-based or satellite observations. Ground measurements can include air temperature and heat indices, barometric pressure, humidity, precipitation, wind speed and direction, and solar radiation. 
+
+There are several satellites that track atmospheric conditions, the most popular being the NOAA operated Geostationary Operational Environmental Satellite System.
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/science/colorado-2013-floods/goes-satellite-data-colorado-floods.jpg">
@@ -74,12 +77,6 @@ Drought is a disturbance event that occurs when a given area experiences below a
 ### How Are Droughts Measured?
 
 There are many ways to measure or quantify drought. The Palmer Drought Severity Index is one commonly used drought index. The Palmer Drought Severity Index is a measure of soil moisture content. It is calculated from soil available water content, precipitation and temperature data. The values range from extreme drought (values <-4.0) through near normal (-.49 to .49) to extremely moist (>4.0). 
-
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
 
 
 

@@ -3,7 +3,7 @@ layout: single
 title: 'Rain: a Driver of the 2013 Colorado Floods'
 excerpt: "The amount and/or duration of rainfall can impact how severe a flood is. Learn how rainfall is measured and used to understand flood impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2020-01-10
+modified: 2020-01-13
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -65,7 +65,9 @@ Rainfall is reported as the total amount of rain (millimeters, centimeters, or i
 
 ## Where Can You Find Precipitation Data?
 
-Several US governmental organizations collect precipitation data. In this lesson, you will use data from the National Weather Service (NWS) Cooperative Observer Platform (COOP). This platform, which is operated by thousands of volunteer weather observers, consists of over 11,000 stations, about 5,000 of them measuring climate. These climate stations report 24 hour minimum and maximum temperature, liquid equivalent precipitation, snowfall, snow depth, and other weather metrics.
+Several US governmental organizations collect precipitation data. In this lesson, you will use data from the National Weather Service (NWS) Cooperative Observer Platform (COOP). 
+
+This platform, which is operated by thousands of volunteer weather observers, consists of over 11,000 stations, about 5,000 of them measuring climate. These climate stations report 24 hour minimum and maximum temperature, liquid equivalent precipitation, snowfall, snow depth, and other weather metrics.
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/science/colorado-2013-floods/map-of-coop-sites-colorado-floods.jpg">
@@ -79,17 +81,13 @@ Another ‘citizen science’ source of precipitation data is CoCoRaHS. In contr
 
 ## Precipitation and the Colorado Floods
 
-The average annual precipitation (which includes rain and snow) in Boulder, Colorado is 20 inches. This precipitation comes from winter snow, intense summer thunderstorms, and intermittent storms throughout the year. The precipitation that led to the 2013 floods was a late summer storm. Due to the atmospheric conditions, the storm produced significant precipitation in a short period of time. 
+The average annual precipitation (which includes rain and snow) in Boulder, Colorado is 20 inches. This precipitation comes from winter snow, intense summer thunderstorms, and intermittent storms throughout the year. 
+
+The precipitation that led to the 2013 floods was a late summer storm. Due to the atmospheric conditions, the storm produced significant precipitation in a short period of time. 
 
 ### How Much Rain Did Boulder Get During the Floods? 
 
 The figure below shows the total precipitation each month from 1948 to 2013 for a National Weather Service COOP site located in Boulder, CO.
-
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
 
 
 

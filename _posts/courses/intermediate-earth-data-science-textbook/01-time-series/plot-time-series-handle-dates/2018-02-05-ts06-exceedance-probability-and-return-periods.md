@@ -4,7 +4,7 @@ title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Prob
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-10
+modified: 2020-01-13
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -36,7 +36,7 @@ redirect_from:
 
 ## Introduction to Flood Frequency Analysis
 
-One way to analyze time series data - particularly related to events like floods - is to calculate the frequency of different magnitude events. You have have likey heard the term *"100-year flood"*. While you may think it means that it is the size of flood that occurs every 100 years, it actually refers to the flood magnitude that has a probability of exceedance of 1/100 in any given year (i.e., a 1% chance). This is why the hundred year flood event can occur two years in a row.
+One way to analyze time series data - particularly related to events like floods - is to calculate the frequency of different magnitude events. You have have likey heard the term **"100-year flood"**. While you may think it means that it is the size of flood that occurs every 100 years, it actually refers to the flood magnitude that has a probability of exceedance of 1/100 in any given year (i.e., a 1% chance). This is why the hundred year flood event can occur two years in a row.
 
 In this lesson you will learn how "100-year floods" (and other flood frequencies) are calculated using some basic statistics. To begin, let's define two terms:
 
@@ -102,14 +102,14 @@ To begin, load all of your libraries.
 ```python
 # Import packages
 import os
-import math
-import seaborn as sns
-import pandas as pd
-import matplotlib.pyplot as plt
-import hydrofunctions as hf
 import urllib
 import requests
+import math
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
 import earthpy as et
+import hydrofunctions as hf
 
 # Date time conversion registration
 from pandas.plotting import register_matplotlib_converters
@@ -243,8 +243,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-01-10T17:00:17.561Z', 'title': 'requestDT'},
-        {'value': 'ad81d980-33ca-11ea-b610-6cae8b6642ea', 'title': 'requestId'},
+        {'value': '2020-01-13T16:29:24.437Z', 'title': 'requestDT'},
+        {'value': 'dc32d140-3621-11ea-b610-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'sdas01', 'title': 'server'}]},
@@ -283,9 +283,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '53.2',
+        'values': [{'value': [{'value': '51.4',
             'qualifiers': ['P'],
-            'dateTime': '2020-01-09T00:00:00.000'}],
+            'dateTime': '2020-01-12T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -688,7 +688,10 @@ Next import the USGS annual maxima data.
 ```python
 # Download usgs annual max data from figshare
 url = "https://nwis.waterdata.usgs.gov/nwis/peak?site_no=06730500&agency_cd=USGS&format=rdb"
-download_path = "data/colorado-flood/downloads/annual-peak-flow.txt"
+
+download_path = os.path.join("data", "colorado-flood", 
+                             "downloads", "annual-peak-flow.txt")
+
 urllib.request.urlretrieve(url, download_path)
 ```
 
@@ -698,7 +701,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7ff7fce4ff60>)
+     <http.client.HTTPMessage at 0x7f9f54f698d0>)
 
 
 
