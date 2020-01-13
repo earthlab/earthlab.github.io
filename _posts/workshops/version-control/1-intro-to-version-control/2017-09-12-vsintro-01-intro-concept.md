@@ -63,8 +63,8 @@ It also allows us to revert changes to a previous point in time.
 
 <figure>
 	<a href="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif">
-	<img src="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif" alt = "Many of us have used the "append a date" to a file name version of version control at some point in our lives. "></a>
-	<figcaption> Many of us have used the "append a date" to a file name version
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif" alt = "Many of us have used the append-a-date" to a file name version of version control at some point in our lives. "></a>
+	<figcaption> Many of us have used the append-a-date to a file name version
  of version control at some point in our lives.  Source: "Piled Higher and
 Deeper" by Jorge Cham <a href="http://www.phdcomics.com" target="_blank"> www.phdcomics.com</a>
 	</figcaption>
