@@ -4,7 +4,7 @@ title: "Customize Your Plots Using Matplotlib"
 excerpt: 'Matplotlib is the most commonly used plotting library in Python. Learn how to customize the colors, symbols, and labels on your plots using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino']
 dateCreated: 2019-09-11
-modified: 2019-10-05
+modified: 2020-01-13
 category: [courses]
 class-lesson: ['intro-to-plotting-matplotlib']
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
@@ -20,6 +20,8 @@ order: 2
 topics:
   reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
+redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/plot-with-matplotlib-python/"
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
@@ -90,7 +92,7 @@ ax.plot(months,
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fd6713622e8>]
+    [<matplotlib.lines.Line2D at 0x7f45a6edd208>]
 
 
 
