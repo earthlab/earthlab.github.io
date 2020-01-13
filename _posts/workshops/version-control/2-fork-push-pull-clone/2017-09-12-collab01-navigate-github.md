@@ -6,7 +6,7 @@ title: 'How to find and navigate a repo on the GitHub website'
 attribution: ''
 excerpt: 'Learn how to find a repo on the GitHub website using the search. Also get to know the GitHub repo interface. '
 dateCreated: 2017-09-12
-modified: '2019-09-03'
+modified: '2020-01-13'
 nav-title: 'Navigate GitHub repos'
 sidebar:
   nav:
@@ -89,8 +89,8 @@ the content in the repo, here.
 acceptance.
 
  <figure>
-	<a href="{{ site.url }}/images/workshops/version-control/github-repo-interface.png">
-	<img src="{{ site.url }}/images/workshops/version-control/github-repo-interface.png" alt = "Screenshot of the `earthlab/14ers-git` central repository. The GitHub search bar is located at the very top of the page. Notice there are 6 "tabs" below the repo name including: Code, Issues, Pull Request, ...etc. Because you are not an administrator for this repo, you will not see the "Settings" tab in your browser."></a>
+	<a href="{{ site.url }}/images/earth-analytics/git-version-control/github-repo-interface.png">
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/github-repo-interface.png" alt = "Screenshot of the `earthlab/14ers-git` central repository. The GitHub search bar is located at the very top of the page. Notice there are 6 "tabs" below the repo name including: Code, Issues, Pull Request, ...etc. Because you are not an administrator for this repo, you will not see the "Settings" tab in your browser."></a>
 	<figcaption> Screenshot of the `earthlab/14ers-git` central repository.
 	The GitHub search bar is located at the very top of the page. Notice there are 6
 	"tabs" below the repo name including: Code, Issues, Pull Request, ...etc.
