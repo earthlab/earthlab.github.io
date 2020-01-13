@@ -21,7 +21,7 @@ topics:
   reproducible-science-and-programming: ['python']
 redirect_from:
   - "/courses/intro-to-earth-data-science/python-code-fundamentals/work-with-files-directories-in-python/set-working-directory-os-package/"  
-   - "/courses/earth-analytics-python/python-open-science-toolbox/setup-earth-analytics-working-directory/"  
+  - "/courses/earth-analytics-python/python-open-science-toolbox/setup-earth-analytics-working-directory/"  
 ---
 {% include toc title="On This Page" icon="file-text" %}
 
