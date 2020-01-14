@@ -8,7 +8,7 @@ class-lesson: ['get-started-python']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/get-started-using-python/
 nav-title: "About Python"
 dateCreated: 2019-07-01
-modified: 2019-11-21
+modified: 2020-01-13
 module-title: 'Get Started with Variables and Lists in Python'
 module-nav-title: 'Get Started with Python Variables and Lists'
 module-description: 'Python is programming language that emphasizes the readibility of code and provides many packages and libraries for working with scientific data. Learn how to get started with writing Python code.'
@@ -24,6 +24,8 @@ comments: true
 order: 1
 topics:
   reproducible-science-and-programming: ['python']
+redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/about-and-get-help-with-python/"
 ---
 {% include toc title="In This Chapter" icon="file-text" %}
 
