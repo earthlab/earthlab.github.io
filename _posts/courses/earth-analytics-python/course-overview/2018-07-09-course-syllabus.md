@@ -5,7 +5,7 @@ authors: ['Leah Wasser']
 category: courses
 excerpt:
 nav-title: Course Syllabus
-modified: 2020-01-08
+modified: 2020-01-14
 comments: no
 permalink: /courses/earth-analytics-python/earth-analytics-syllabus/
 author_profile: no
@@ -22,7 +22,7 @@ sidebar:
 ## Course Location & Time
 
 * **Location:** SEEC N125 (distance learning classroom)
-* **Time:** Wednesdays, 3:00PM - 5:30
+* **Time:** Spring 2020: Wednesdays, 3:00PM - 5:30
 
 ## Instructor & TA
 
@@ -35,7 +35,6 @@ sidebar:
 
 There will be a few weeks where office hours will need to be adjusted.
 However unless otherwise notified, office hours are as follows:
-
 
 | Day | Time | Location | Who |
 |---|---|---|---|
@@ -72,20 +71,20 @@ There are several ways that you can get help when you get stuck in this class.
 
 #### Textbook
 
-The textbook for this course is online here: https://www.earthdatascience.org/courses/use-data-open-source-python/.
+The textbook for this course is online here: https://www.earthdatascience.org/courses/use-data-open-source-python/. 
 
 </div>
 
 
 ## Course Overview
 
-This multidisciplinary course will address major questions in Earth science and
-teach students to use the analytical tools necessary to undertake exploration of
+This multidisciplinary course will address major questions in Earth science and 
+teach students to use the analytical tools necessary to undertake exploration of 
 heterogeneous 'big scientific data.' This course is designed for upper level (junior /
 senior level) undergraduate students and graduate students.
 
 Throughout the course you will use computationally intensive techniques to address
-scientific questions. You will use a suite of different types of publicly available
+scientific questions. You will use a suite of different types of publicly available 
 data including:
 
 * Satellite and airborne lidar and spectral remote sensing data.
@@ -183,7 +182,7 @@ In the example above the fix would be to make sure your function name is correct
 ## Assignments & Week to Week Communication
 
 All assignments and week to week items will be communicated through Canvas - our course learning management system. Please canvas daily for assignment and
-content updates. Turn on notifications if you don't login to canvas regularly.
+content updates. Turn on notifications if you don't login to canvas regularly. 
 
 ## Course Policies
 
@@ -201,7 +200,7 @@ participation grade is calculated using a combination of
 
 1. Answering questions posted by students in the Canvas Discussions
 2. Participation in discussions and group work in class
-3. Identifying issues with the course website and posting them on Canvas
+3. Identifying issues with the course website and posting them on Canvas 
 
 ### Classroom Behavior
 
@@ -328,3 +327,5 @@ Please note that some of these topics may change or move around on the calendar 
 | 14 | Contribute to Open Source Software | | Leah |
 | 15 | Work on Projects | | Leah |
 | 16 | LAST DAY OF CLASS! Final Project Presentations | | Leah |
+
+
