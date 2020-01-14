@@ -39,7 +39,7 @@ However unless otherwise notified, office hours are as follows:
 
 | Day | Time | Location | Who |
 |---|---|---|---|
-| Mondays (in person) | 10:30 am - 12:30 pm | Earth Lab  S346 SEEC | Leah |
+| Mondays (in person) | 11:00 am - 12:30 pm | Earth Lab  S346 SEEC | Leah |
 | Tuesday (in person / zoom) | 3:00 pm - 4:30 pm | Earth Lab S346 SEEC | Jenny |
 |===
 
