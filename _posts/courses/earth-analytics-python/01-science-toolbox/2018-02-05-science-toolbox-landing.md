@@ -50,18 +50,13 @@ The details of this assignment are in your first GitHub Classroom assignment rep
 
 * <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-intro/">Raster data:</a> We will be covering raster data in Python in more details next week. However you can get a jump start if you want to review these lessons.  
 
-#### Review Readings
+**Review Readings (OPTIONAL)**
+
 * <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/">Time Series Review:</a> You covered working with pandas and timeseries data in the bootcamp. These lessons review what you learned.
 
 
 
-
-
-
-
-
 ### 2. Watch Short Videos On the 2013 Colorado Floods
-> [name=Leah Wasser] let's move these videos into the textbook and off of this page! 
 
 This 4 minute video will help you understand what happened during the 2013
 floods in Colorado. It will also help you understand the flood data that you will use 
