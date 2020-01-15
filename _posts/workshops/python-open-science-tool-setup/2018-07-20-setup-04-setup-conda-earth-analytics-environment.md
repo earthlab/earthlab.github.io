@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: 'Set Up Your Conda Python Environment'
 excerpt: 'Conda environments allow you to easily manage the Python package installations on your computer. Learn how to install a conda environment.'
-authors: ['Leah Wasser', 'Jenny Palomino', 'Martha Morrissey']
+authors: ['Leah Wasser', 'Jenny Palomino', 'Martha Morrissey', 'Will Norris']
 modified: 2020-01-15
 module: "setup-earth-analytics-environment"
 permalink: /workshops/setup-earth-analytics-python/setup-python-conda-earth-analytics-environment/
@@ -107,8 +107,8 @@ On the main `Github.com` page of the repository, you will see a button on the to
 Click on the `Fork` button and select your `Github.com` account as the home of the forked repository. 
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/git/git-fork-repo.gif">
- <img src="{{ site.url }}/images/earth-analytics/git/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif" alt="You can create a copy of repositories created by other users on Github by forking their repository to your Github account."></a>
  <figcaption> You can create a copy of repositories created by other users on Github by forking their repository to your Github account. 
  </figcaption>
 </figure>
