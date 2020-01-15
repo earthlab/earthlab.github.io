@@ -3,8 +3,8 @@ layout: single
 title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-dateCreated: 2019-11-19
-modified: 2020-01-06
+dateCreated: 2018-02-05
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -26,6 +26,8 @@ topics:
   reproducible-science-and-programming: ['jupyter-notebook', 'python']
   time-series:
   data-exploration-and-analysis: ['data-visualization']
+redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/date-time-types-in-pandas-python/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}
