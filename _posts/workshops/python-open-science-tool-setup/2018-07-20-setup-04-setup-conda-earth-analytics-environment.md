@@ -37,10 +37,10 @@ At the end of this activity, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You should have `Bash` and the Miniconda distribution of **Python** 3.x setup on your computer and an `earth-analytics` working directory. Be sure you have:
+You should have **Bash** and the Miniconda distribution of **Python** 3.x setup on your computer and an `earth-analytics` working directory. Be sure you have:
 
-* Completed <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">the setup for `Git`, `Bash` and Conda</a>
-* Created a `earth-analytics` directory on your computer 
+* Completed <a href="{{ site.url }}/workshops/setup-earth-analytics-python/setup-git-bash-conda/">the setup for Git, Bash and Conda</a>.
+* Created a `earth-analytics` directory on your computer.
 
 </div>
 
@@ -54,13 +54,17 @@ Conda allows you to have different environments installed on your computer to ac
 
 To avoid conflicts, we created an environment called `earth-analytics-python` that contains all of the spatial libraries that you will need for the **Python** lessons on this website.
 
-<i class="fa fa-star"></i> **Data Tip:**
-For general information about conda environments, see the section below on **About Conda Environments**.   
+<div class='notice--success' markdown="1">
+
+<i class="fa fa-star"></i> **Data Tip:** For general information about conda environments, see the section below on **About Conda Environments**.   
 
 For a more detailed explanation of conda environments, see the Intro to Earth Data Science textbook page on <a href="{{ site.url }}/courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/introduction-to-python-conda-environments/">Using Conda Environments to Manage Python Dependencies</a>.
 
 You can also check out the <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html" target="_blank">documentation on conda environments</a>.  
+
 {: .notice--success }
+
+</div>
 
 
 ## Install the Earth Analytics Python Conda Environment
@@ -92,13 +96,13 @@ The instructions above will only work if you run them in the directory where you
 
 <div class="notice--success" markdown="1">
 
-### How to Fork and Clone a GitHub Repository
+**How to Fork and Clone a GitHub Repository**
 
 This section provides the basic steps for forking a `Github` repository (i.e. copying an existing repository to your `Github` account) and cloning a forked repository (i.e. downloading your forked repository locally to your computer). 
 
 For a more detailed explanation of these steps, see the Intro to Earth Data Science textbook chapter on <a href="{{ site.url }}/courses/intro-to-earth-data-science/git-github/version-control/fork-clone-github-repositories/">Copy (Fork) and Download (Clone) GitHub Repositories</a>.
 
-#### Fork a Repository on GitHub.com
+**1. Fork a Repository on GitHub.com**
 
 You can `fork` an existing `Github` repository from the main `Github.com` page of the repository that you want to copy (example: `https://github.com/earthlab/earth-analytics-python-env`).
 
@@ -114,7 +118,7 @@ Click on the `Fork` button and select your `Github.com` account as the home of t
 </figure>
 
 
-#### Clone a Repository to Local Computer or JupyterHub 
+**2. Clone a Repository to Local Computer or JupyterHub**
 
 To download your forked copy of the `earth-analytics-python-env` repository to your computer, open the Terminal and change directories to your `earth-analytics` directory (e.g. `cd ~`, then `cd  earth-analytics`).
 
