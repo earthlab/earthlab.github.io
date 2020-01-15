@@ -5,7 +5,7 @@ authors: ['Leah Wasser']
 category: courses
 excerpt:
 nav-title: Course Syllabus
-modified: 2020-01-08
+modified: 2020-01-15
 comments: no
 permalink: /courses/earth-analytics-python/earth-analytics-syllabus/
 author_profile: no
@@ -22,7 +22,7 @@ sidebar:
 ## Course Location & Time
 
 * **Location:** SEEC N125 (distance learning classroom)
-* **Time:** Wednesdays, 3:00PM - 5:30
+* **Time:** Spring 2020: Wednesdays, 3:00PM - 5:30
 
 ## Instructor & TA
 
@@ -35,7 +35,6 @@ sidebar:
 
 There will be a few weeks where office hours will need to be adjusted.
 However unless otherwise notified, office hours are as follows:
-
 
 | Day | Time | Location | Who |
 |---|---|---|---|

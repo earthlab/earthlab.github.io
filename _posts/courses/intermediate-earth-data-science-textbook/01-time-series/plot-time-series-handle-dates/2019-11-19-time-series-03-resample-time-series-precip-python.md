@@ -3,7 +3,8 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with Pandas."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2020-01-06
+dateCreated: 2018-02-05
+modified: 2020-01-10
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -19,6 +20,8 @@ topics:
   reproducible-science-and-programming: ['python']
   time-series:
   data-exploration-and-analysis: ['data-visualization']
+redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/resample-time-series-data-pandas-python/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -28,8 +31,6 @@ topics:
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 * Resample time series data from hourly to daily, monthly, or yearly using **pandas**.
-
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
 
@@ -85,12 +86,6 @@ sns.set(font_scale=1.5, style="whitegrid")
 # Download the data
 data = et.data.get_data('colorado-flood')
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 {:.input}
 ```python
