@@ -6,7 +6,7 @@ title: 'An introduction version control'
 attribution: ''
 excerpt: 'Learn what version control is, and how Git and GitHub are used in a typical version control workflow.'
 dateCreated: 2017-09-12
-modified: '2020-01-13'
+modified: '2020-01-17'
 module-title: 'Introduction to version control'
 module-description: 'This module includes instructions for setting up your Git environment, introduces key version control concepts, and describes first steps to start using version control with Git and GitHub.'
 module-nav-title: 'Version control'
@@ -63,10 +63,10 @@ It also allows us to revert changes to a previous point in time.
 
 <figure>
 	<a href="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif">
-	<img src="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif" alt = "Many of us have used the append-a-date to a file name version of version control at some point in our lives. "></a>
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/final-doc-phd-comics.gif" alt = "Many of us have used the append-a-date to a file name version of version control at some point in our lives. Source: Piled Higher and Deeper by Jorge Cham www.phdcomics.com. "></a>
 	<figcaption> Many of us have used the append-a-date to a file name version
- of version control at some point in our lives.  Source: "Piled Higher and
-Deeper" by Jorge Cham <a href="http://www.phdcomics.com" target="_blank"> www.phdcomics.com</a>
+ of version control at some point in our lives.  Source: <a href="http://phdcomics.com/comics/archive/phd101212s.gif" target="_blank"> Piled Higher and
+Deeper by Jorge Cham</a>
 	</figcaption>
 </figure>
 
@@ -120,7 +120,7 @@ each change and end up with your latest version.
 	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-play-changes.svg" alt = "A version control system saves changes to a document, sequentially as you add and commit them to the system."></a>
 	<figcaption> A version control system saves changes to a document, sequentially
   as you add and commit them to the system.
-	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
+	Source: <a href="http://swcarpentry.github.io/git-novice/fig/play-changes.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -136,7 +136,7 @@ to the same document.
 	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-versions.svg" ALT = "Different versions of the same document can be saved within a version control system."></a>
 	<figcaption> Different versions of the same document can be saved within a
   version control system.
-	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
+	Source: <a href="http://swcarpentry.github.io/git-novice/fig/versions.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -151,7 +151,7 @@ ways) you can review two sets of changes on the same base document.
 	together, within a version control system <strong> if </strong> there are no conflicts (areas
 	where both users <strong> modified the same part of the same document in different ways</strong>).
 	Changes submitted by both users can then be merged together.
-	Source: <a href="https://swcarpentry.github.io/git-novice/" target="_blank"> Software Carpentry </a>
+	Source: <a href="http://swcarpentry.github.io/git-novice/fig/merge.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
