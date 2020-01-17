@@ -120,7 +120,7 @@ each change and end up with your latest version.
 	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-play-changes.svg" alt = "A version control system saves changes to a document, sequentially as you add and commit them to the system."></a>
 	<figcaption> A version control system saves changes to a document, sequentially
   as you add and commit them to the system.
-	Source: <a href="http://swcarpentry.github.io/git-novice/fig/play-changes.svg" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/fig/play-changes.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -136,7 +136,7 @@ to the same document.
 	<img src="{{ site.url }}/images/earth-analytics/git-version-control/git-versions.svg" ALT = "Different versions of the same document can be saved within a version control system."></a>
 	<figcaption> Different versions of the same document can be saved within a
   version control system.
-	Source: <a href="http://swcarpentry.github.io/git-novice/fig/versions.svg" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/fig/versions.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
@@ -151,7 +151,7 @@ ways) you can review two sets of changes on the same base document.
 	together, within a version control system <strong> if </strong> there are no conflicts (areas
 	where both users <strong> modified the same part of the same document in different ways</strong>).
 	Changes submitted by both users can then be merged together.
-	Source: <a href="http://swcarpentry.github.io/git-novice/fig/merge.svg" target="_blank"> Software Carpentry </a>
+	Source: <a href="https://swcarpentry.github.io/git-novice/fig/merge.svg" target="_blank"> Software Carpentry </a>
 	</figcaption>
 </figure>
 
