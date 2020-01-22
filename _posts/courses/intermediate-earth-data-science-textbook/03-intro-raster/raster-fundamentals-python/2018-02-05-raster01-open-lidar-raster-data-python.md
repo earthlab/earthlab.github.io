@@ -1,27 +1,21 @@
 ---
 layout: single
 title: "Open, Plot and Explore Raster Data with Python"
-excerpt: "Rasters are gridded data composed of pixels that store values, such as an image file. Learn how to open raster files in Python, and learn about the 3 key spatial attributes of a raster dataset including coordinate reference system (CRS), spatial extent and resolution."
+excerpt: "Rasters are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-10
+modified: 2020-01-22
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
 nav-title: 'Open Raster Data Python'
-module-title: 'Fundamentals of Raster Data in Python'
-module-description: 'The GeoTIFF file format is often used to store raster data. Learn how to to open and explore raster data stored as GeoTIFF files in Python.'
-module-nav-title: 'Intro to Raster Data in Python'
-module-type: 'class'
 week: 3
 course: 'intermediate-earth-data-science-textbook'
-chapter: 3
 sidebar:
   nav:
 author_profile: false
 comments: false
-order: 1
-class-order: 1
+order: 3
 topics:
   reproducible-science-and-programming: ['python']
   remote-sensing: ['lidar']
@@ -31,48 +25,15 @@ redirect_from:
   - "/courses/earth-analytics-python/lidar-raster-data/open-lidar-raster-python/"
 ---
 
-{% include toc title="In This Chapter" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Three - Fundamentals of Raster Data in Python 
-
-In this chapter, you will learn fundamental concepts related to working with raster data in **Python**, including understanding the spatial attributes of raster data, how to open raster data and access its metadata, and how to explore the distribution of values in a raster dataset. 
-
-
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this chapter, you will be able to:
-
-* Open raster data using **Python**.
-* Be able to list and identify 3 spatial attributes of a raster dataset: extent, crs and resolution.
-* Explore and plot the distribution of values within a raster using histograms.
-* Access metadata stored within a GeoTIFF raster file via TIF tags in **Python**.
-
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You will need a computer with internet access to complete this lesson.
-
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+* Open, plot, and explore raster data using **Python**.
 
 </div>
-
-The <a href="{{ site.url }}/courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-intro/" target="_blank">data story on Lidar data</a> reviews the basic principles behind what a Lidar raster dataset is and how point clouds are used to derive the raster. 
-
-In this chapter, you will learn how to open a plot a lidar raster dataset in **Python**. You will also learn about key attributes of a raster dataset:
-
-1. Spatial resolution
-2. Spatial extent and
-3. Coordinate reference systems
-
-<figure>
-  <a href="{{ site.url }}/images/earth-analytics/lidar-raster-data/gridding.gif">
-  <img src="{{ site.url }}/images/earth-analytics/lidar-raster-data/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
-  <figcaption>
-  Animation that shows the general process of taking lidar point clouds and
-  converting them to a Raster Format. Source: Tristan Goulden, NEON.
-  </figcaption>
-</figure>
 
 
 ## Open Raster Data in Python

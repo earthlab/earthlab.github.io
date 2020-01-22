@@ -1,10 +1,10 @@
 ---
 layout: single
-title: "How lidar point clouds are converted to raster data formats - remote sensing data"
-excerpt: "This lesson reviews how a lidar data point cloud is converted to a raster format such as a geotiff."
+title: "How lidar point clouds are converted to raster data formats"
+excerpt: "Rasters are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how a lidar data point cloud is converted to a raster format such as a GeoTIFF."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-08
+modified: 2020-01-22
 category: [courses]
 class-lesson: ['lidar-data-story']
 permalink: /courses/use-data-open-source-python/data-stories/lidar-raster-data/intro-lidar-raster-data/
@@ -36,7 +36,7 @@ redirect_from:
 
 </div>
 
-In the last lesson, you learned about lidar points clouds. In this lesson, you will learn how a point cloud is converted into a gridded or raster data format.
+In the last lesson, you learned about lidar point clouds. In this lesson, you will learn how a point cloud is converted into a gridded or raster data format.
 
 
 ### How a Lidar System Records Points
@@ -74,38 +74,8 @@ LiDAR data products are often created and stored in a gridded or raster data for
 </figure>
 
 
-## What is a Raster?
+For a review of raster data, check out the chapter on <a href="{{ site.url }}/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-raster-data/" target="_blank">Fundamentals of Raster Data</a>. 
 
-Raster or “gridded” data are stored as a grid of values which are rendered on a map as pixels. Each pixel value represents an area on the Earth’s surface. A raster file is composed of regular grid of cells, all of which are the same size. 
-
-You've looked at and used rasters before if you've looked at photographs or imagery in a tool like Google Earth. However, the raster files that you will work with are different from photographs in that they are spatially referenced. Each pixel represents an area of land on the ground. That area is defined by the spatial **resolution** of the raster.
-
-<figure>
-   <a href="{{ site.url }}/images/earth-analytics/raster-data/raster-concept.png" target="_blank">
-   <img src="{{ site.url }}/images/earth-analytics/raster-data/raster-concept.png" alt="Raster data concept diagram."></a>
-   <figcaption>A raster is composed of a regular grid of cells. Each cell is the same
-   size in the x and y direction. Source: Colin Williams, NEON.
-   </figcaption>
-</figure>
-
-### Raster Facts
-
-A few notes about rasters:
-
--  Each cell is called a pixel.
--  And each pixel represents an area on the ground.
--  The resolution of the raster represents the area that each pixel represents on the ground. So, a 1 meter resolution raster, means that each pixel represents a 1 m by 1 m area on the ground.
-
-A raster dataset can have attributes associated with it as well. For instance in a LiDAR derived digital elevation model (DEM), each cell represents an elevation value for that location on the earth. In a LIDAR derived intensity image, each cell represents a LIDAR intensity value or the amount of light energy returned to and recorded by the sensor.
-
-
-<figure>
-   <a href="{{ site.url }}/images/earth-analytics/raster-data/raster-resolution.png" target="_blank">
-   <img src="{{ site.url }}/images/earth-analytics/raster-data/raster-resolution.png" alt="Raster data resolution concept diagram."></a>
-   <figcaption>Rasters can be stored at different resolutions. The resolution simply
-   represents the size of each pixel cell. Source: Colin Williams, NEON.
-   </figcaption>
-</figure>
 
 ## Creating a Raster from LiDAR Point Clouds
 
@@ -135,4 +105,4 @@ You will not learn about interpolation in today's class, but will learn about it
 </figure>
 
 
-In the next lesson, you will learn how to open a lidar raster dataset in `Python`.
+
