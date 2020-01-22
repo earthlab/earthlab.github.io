@@ -66,10 +66,8 @@ To get started, first load the required libraries and then open up your raster. 
 ```python
 import os
 import matplotlib.pyplot as plt
-from matplotlib.patches import Patch
 from matplotlib.colors import ListedColormap, BoundaryNorm
 import numpy as np
-import pandas as pd
 import rasterio as rio
 from rasterio.plot import plotting_extent
 import earthpy as et
@@ -83,6 +81,12 @@ sns.set(font_scale=1.5, style="whitegrid")
 et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 
 To begin, open the `lidar_chm.tif` file that you created in the previous lesson. A copy of it is also in your outputs directory of this week's data.
@@ -596,29 +600,22 @@ np.unique(lidar_chm_class_ma)
 {:.input}
 ```python
 # Create a list of labels to use for your legend
-height_class_labels = ["Short trees",
-                       "Less short trees", "Medium trees", "Tall trees"]
+height_class_labels = ["Short trees", "Medium trees",
+                       "Tall trees", "Really tall trees"]
 
-# A path is an object drawn by matplotlib. In this case a patch is a box draw on your legend
-# Below you create a unique path or box with a unique color - one for each of the labels above
-legend_patches = [Patch(color=icolor, label=label)
-                  for icolor, label in zip(colors, height_class_labels)]
-
+# Create a colormap from a list of colors
+colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']
 cmap = ListedColormap(colors)
 
-fig, ax = plt.subplots(figsize=(10, 10))
+f, ax = plt.subplots(figsize=(12, 12))
 
-ep.plot_bands(lidar_chm_class_ma,
-              cmap=cmap,
-              ax=ax,
-              cbar=False)
+im = ax.imshow(lidar_chm_class_ma, 
+               cmap=cmap)
 
-ax.legend(handles=legend_patches,
-          facecolor="white",
-          edgecolor="white",
-          bbox_to_anchor=(1.35, 1))  # Place legend to the RIGHT of the map
-
+ep.draw_legend(im, titles=height_class_labels)
 ax.set_axis_off()
+
+plt.show()
 ```
 
 {:.output}
