@@ -74,7 +74,7 @@ LiDAR data products are often created and stored in a gridded or raster data for
 </figure>
 
 
-For a review of raster data, check out the chapter on <a href="{{ site.url }}/courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-intro/" target="_blank">Fundamentals of Raster Data</a>. 
+For a review of raster data, check out the chapter on <a href="{{ site.url }}/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-raster-data/" target="_blank">Fundamentals of Raster Data</a>. 
 
 
 ## Creating a Raster from LiDAR Point Clouds

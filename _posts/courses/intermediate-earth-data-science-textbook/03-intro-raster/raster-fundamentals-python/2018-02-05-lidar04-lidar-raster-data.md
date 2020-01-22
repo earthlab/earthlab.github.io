@@ -64,16 +64,6 @@ In this chapter, you will learn how to open and plot a lidar raster dataset in *
 2. Spatial extent and
 3. Coordinate reference systems
 
-<figure>
-  <a href="{{ site.url }}/images/earth-analytics/lidar-raster-data/gridding.gif">
-  <img src="{{ site.url }}/images/earth-analytics/lidar-raster-data/gridding.gif" alt="Animation Showing the general process of taking lidar point clouds and converting them to a Raster Format"></a>
-  <figcaption>
-  Animation that shows the general process of taking lidar point clouds and
-  converting them to a Raster Format. Source: Tristan Goulden, NEON.
-  </figcaption>
-</figure>
-
-
 
 ## What is a Raster?
 
