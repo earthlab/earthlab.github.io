@@ -570,15 +570,17 @@ Given you have discrete values, you can create a custom legend with the four cat
 
 There are a few tricky pieces to creating a custom legend.
 
-1. Notice below that you first create a list of legend items (or labels).
+1. Notice below that you first create a list of legend items (or labels):
 
-`height_class_labels = ["Short trees", "Less short trees", "Medium trees","Tall trees"]`
+`height_class_labels = ["Short trees", "Less short trees", "Medium trees", "Tall trees"]`
+
 This represents the text that will appear in your legend. 
 
 2. Next you create the colormap from a list of colors. 
 
-This code: `colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']` creates the color list
-And this code `cmap = ListedColormap(colors)` create the colormap to be used in the plot code.  
+This code: `colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']` creates the color list.
+
+And this code: `cmap = ListedColormap(colors)` creates the colormap to be used in the plot code.  
 
 {:.input}
 ```python
