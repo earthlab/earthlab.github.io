@@ -4,7 +4,7 @@ category: courses
 title: "Intro to Raster Data in Python"
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/
 week-landing: 3
-modified: 2020-01-09
+modified: 2020-01-22
 week: 3
 sidebar:
   nav:
