@@ -562,22 +562,23 @@ plt.show()
 
 
 
-## Add Custom Legend
-The plot looks OK but the legend doesn't represent the data well. The legend is continuous - with a range between 0 and 3. However you want to plot the data using discrete bins.
+## Add a Custom Legend to Your Plot with EarthPy
 
-Finally, clean up our plot legend. Given you have discrete values you will create a CUSTOM legend with the 3 categories that you created in our classification matrix.
+The plot looks OK but the legend does not represent the data well. The legend is continuous - with a range between 1.0 and 4.0 However you want to plot the data using discrete bins.
+
+Given you have discrete values, you can create a custom legend with the four categories that you created in your classification matrix.
 
 There are a few tricky pieces to creating a custom legend.
 
-1. Notice below that you first create a list of legend items
+1. Notice below that you first create a list of legend items (or labels).
 
 `height_class_labels = ["Short trees", "Less short trees", "Medium trees","Tall trees"]`
 This represents the text that will appear in your legend. 
 
-2. Next you create the patches. Each path has a colored box and an associated label in your legend. 
+2. Next you create the colormap from a list of colors. 
 
-This code: `Patch(color=icolor, label=label)` defines a patch
-And this code `for icolor, label in zip(colors, height_class_labels)` loops through each color and label for your legend and combines them into a new patch object or "row" in your legend. 
+This code: `colors = ['linen', 'lightgreen', 'darkgreen', 'maroon']` creates the color list
+And this code `cmap = ListedColormap(colors)` create the colormap to be used in the plot code.  
 
 {:.input}
 ```python
