@@ -8,7 +8,7 @@ class-lesson: ['open-reproducible-science']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/get-started-open-reproducible-science/open-science-tools-git-bash-jupyter/
 nav-title: "Open Science Tools"
 dateCreated: 2019-07-01
-modified: 2019-10-05
+modified: 2020-01-23
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -91,8 +91,8 @@ These tools work together to support sharing files and collaboration within work
 Later in this textbook, you will learn how to use the `git`/`GitHub` workflow to implement version control for your files, share work and collaborate with others. 
 
 <figure>
- <a href="{{ site.url }}/images/courses/earth-analytics/git/git-clone-repo.gif">
- <img src="{{ site.url }}/images/courses/earth-analytics/git/git-clone-repo.gif" alt="You can make local copies on your computer of repositories on Github.com, using git commands that you run in the Terminal."></a>
+ <a href="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif">
+ <img src="{{ site.url }}/images/earth-analytics/git-version-control/git-fork-repo.gif" alt="You can make local copies on your computer of repositories on Github.com, using git commands that you run in the Terminal."></a>
  <figcaption> You can make local copies on your computer of repositories on Github.com, using git commands that you run in the Terminal. It's valuable to have copies of your code in multiple places (for example, on your computer and GitHub) just in case something happens to your computer. 
  </figcaption>
 </figure>
