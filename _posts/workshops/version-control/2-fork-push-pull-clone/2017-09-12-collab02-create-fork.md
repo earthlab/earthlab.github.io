@@ -6,7 +6,7 @@ title: 'How to fork a repo in GitHub'
 attribution: ''
 excerpt: 'Learn how to fork a repository using the GitHub website.'
 dateCreated: 2017-09-12
-modified: '2020-01-13'
+modified: '2020-01-23'
 nav-title: 'Fork a GitHub repo'
 sidebar:
   nav:
@@ -92,8 +92,8 @@ You can fork any repo by clicking the fork button in the upper right hand corner
 
  <figure>
 	<a href="{{ site.url }}/images/earth-analytics/git-version-control/githubguides-bootcamp-fork.png">
-	<img src="{{ site.url }}/images/earth-analytics/git-version-control/githubguides-bootcamp-fork.png" alt="Click on the "Fork" button to fork any repo on github.com." width="70%"></a>
-	<figcaption> Click on the "Fork" button to fork any repo on github.com. Source:
+	<img src="{{ site.url }}/images/earth-analytics/git-version-control/githubguides-bootcamp-fork.png" alt="Click on the Fork button to fork any repo on github.com." width="70%"></a>
+	<figcaption> Click on the Fork button to fork any repo on github.com. Source:
 <a href="https://guides.github.com/activities/forking/" target="_blank">GitHub Guides</a>.
 	</figcaption>
 </figure>
