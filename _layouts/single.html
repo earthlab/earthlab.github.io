@@ -76,19 +76,28 @@ layout: default
         <br/>
 
         {% if page.order == 1 %}
-        <div class="notice--warning header" markdown="1">
-        {% if page.module-description %}
-         <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
+          <div class="notice--warning header" markdown="1">
+          {% if page.deprecated %}
+            <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> THIS LESSON HAS MOVED! {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
+            <ul>
+              <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Use Data for Earth and Environmental Science in Open Source Python Textbook</a></li>
+            </ul>
+          {% else % }
+
+          {% endif %}
+
+          {% if page.module-description %}
+            <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
         Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
-        {{ page.module-description }}
-        {% endif %}
-        </div>
+            {{ page.module-description }}
+          {% endif %}
+          </div>
         {% endif %}
 
           {% comment %}{% if page.read_time %}
             <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
-          {% endif %}{% endcomment %}
-        {% endunless %}
+            {% endif %}{% endcomment %}
+          {% endunless %}
 
         <!-- For tools pages add authors and tool title -->
 
@@ -113,7 +122,13 @@ layout: default
         {% if page.class-lesson %}
 
         {% endif %}
+
+        {% if page.deprecated %}
+
+        {% else %}
         {{ content }}
+        {% endif %}
+
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
         <!-- if the page is a course lesson, add pagination -->
