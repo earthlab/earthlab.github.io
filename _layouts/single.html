@@ -59,9 +59,13 @@ layout: default
 
           <!-- END: insert welcome block -->
           {% if page.title %}<h1 class="page__title" itemprop="headline">
-            {% if page.order %}Lesson {{ page.order }}. {% endif %}
-            {% if page.header1 %}{{ page.header1 | markdownify | remove: "<p>" | remove: "</p>" }}{% else %} {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %} </h1>
-            {% if page.module %} {{ page.module | replace: '-', ' ' | capitalize }} {{ page.module-type | capitalize }} {% endif %}
+            {% if page.deprecated %}
+                {% if page.order %}<i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> DEPRECATED Lesson ! {{ page.order }}. {% endif %}
+            {% else %}
+                {% if page.order %}Lesson {{ page.order }}. {% endif %}
+                {% if page.header1 %}{{ page.header1 | markdownify | remove: "<p>" | remove: "</p>" }}{% else %} {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %} </h1>
+                {% if page.module %} {{ page.module | replace: '-', ' ' | capitalize }} {{ page.module-type | capitalize }} {% endif %}
+            {% endif %}
           {% endif %}
 
           {% if page.authors %}
@@ -78,9 +82,20 @@ layout: default
         {% if page.order == 1 %}
         <div class="notice--warning header" markdown="1">
         {% if page.module-description %}
-         <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
-        Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
-        {{ page.module-description }}
+          {% if page.deprecated %}
+            <h1> <i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> THIS LESSON IS MOVING! {{ page.module-title }} </h1>
+              We are moving all of the lessons in our courses to a more carefully designed set of textbooks. All of the same
+            content will be available in these textbooks and will also be greatly improved and easier to use in a class!
+            By the end of Spring 2020 this page will be deprecated. Visit the links below to check out our new content!
+            <ul>
+                <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Introduction to Earth Analytics Textbook</a></li>
+                <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Intermediate Earth Analytics Textbook</a></li>
+            </ul>
+          {% else %}
+              <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
+              Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
+              {{ page.module-description }}
+           {% endif %}
         {% endif %}
         </div>
         {% endif %}
@@ -113,7 +128,11 @@ layout: default
         {% if page.class-lesson %}
 
         {% endif %}
-        {{ content }}
+          {% if page.deprecated %}
+          {% else %}
+            {{ content }}
+          {% endif %}
+
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
         <!-- if the page is a course lesson, add pagination -->
