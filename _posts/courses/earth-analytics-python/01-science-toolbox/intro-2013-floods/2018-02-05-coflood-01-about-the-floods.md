@@ -1,5 +1,6 @@
 ---
 layout: single
+deprecated: true
 title: 'An Overview of the 2013 Colorado Floods'
 excerpt: "The 2013 flood event caused significant damage throughout the state of Colorado, USA. Learn about what caused the 2013 floods in Colorado and also some of the impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
@@ -29,9 +30,7 @@ topics:
 
 <div class='notice--success' markdown="1">
 
-<i class="fa fa-exclamation-circle" aria-hidden="true"></i> **Attention:** Hey there, we are moving all lessons from our courses into a new shiny textbook. You can find the new content in the <a href="{{ site.url }}/courses/use-data-open-source-python/data-stories/colorado-2013-floods/an-overview-of-the-colorado-2013-floods/">Use Data for Earth and Environmental Science in Open Source Python Textbook</a>.
-
-{: .notice--success}
+TESTING WHETHER THIS TEXT SHOWS UP!
 
 </div>
 
