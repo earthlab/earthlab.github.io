@@ -51,17 +51,22 @@ layout: default
     {% if page.modified %}<meta itemprop="dateModified" content="{{ page.modified | date: "%B %d, %Y" }}">{% endif %}
 
     <div class="page__inner-wrap">
-
         <header>
           {% unless page.header.overlay_color or page.header.overlay_image %}
 
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
 
           <!-- END: insert welcome block -->
-          {% if page.title %}<h1 class="page__title" itemprop="headline">
-            {% if page.order %}Lesson {{ page.order }}. {% endif %}
-            {% if page.header1 %}{{ page.header1 | markdownify | remove: "<p>" | remove: "</p>" }}{% else %} {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %} </h1>
-            {% if page.module %} {{ page.module | replace: '-', ' ' | capitalize }} {{ page.module-type | capitalize }} {% endif %}
+          {% if page.title %}
+            <h1 class="page__title" itemprop="headline">
+            {% if page.deprecated %}
+                {% if page.order %}<i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> DEPRECATED / MOVED Lesson  {% endif %}
+            {% else %}
+                {% if page.order %}Lesson {{ page.order }}. {% endif %}
+                {% if page.header1 %}{{ page.header1 | markdownify | remove: "<p>" | remove: "</p>" }}{% else %} {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}
+                {% if page.module %} {{ page.module | replace: '-', ' ' | capitalize }} {{ page.module-type | capitalize }} {% endif %}
+            {% endif %}
+            </h1>
           {% endif %}
 
           {% if page.authors %}
@@ -73,37 +78,48 @@ layout: default
             </div>
           {% endif %}
 
-        <br/>
+            <br/>
 
-        {% if page.order == 1 %}
-        <div class="notice--warning header" markdown="1">
-        {% if page.module-description %}
-         <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
-        Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
-        {{ page.module-description }}
-        {% endif %}
-        </div>
-        {% endif %}
-
-          {% comment %}{% if page.read_time %}
-            <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
-          {% endif %}{% endcomment %}
-        {% endunless %}
-
-        <!-- For tools pages add authors and tool title -->
-
-        {% if page.header.overlay_color or page.header.overlay_image %}
-          <h2> {{ page.tool_page_title }} </h2>
-          {% if page.authors %}
-            <div class="page__meta">
-              Developers:
-              {% for anAuthor in page.authors %}
-              {% assign currentItem = site.data.authors | where:"name", anAuthor %}
-              <a href="{{ site.url }}{{ site.baseurl }}/authors/{{ currentItem[0].slug }}">{{ currentItem[0].name }}</a>{% if forloop.last == false %}, {% endif %}
-              {% endfor %}
+            {% if page.order == 1 %}
+            <div class="notice--warning header" markdown="1">
+            {% if page.module-description %}
+              {% if page.deprecated %}
+                <h1> <i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> THIS LESSON IS MOVING! {{ page.module-title }} </h1>
+                  We are moving all of the lessons in our courses to a more carefully designed set of textbooks. All of the same
+                content will be available in these textbooks and will also be greatly improved and easier to use in a class!
+                By the end of Spring 2020 this page will be deprecated. Visit the links below to check out our new content!
+                <ul>
+                    <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Introduction to Earth Analytics Textbook</a></li>
+                    <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Intermediate Earth Analytics Textbook</a></li>
+                </ul>
+              {% else %}
+                  <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
+                  Welcome to the first lesson in the <strong>{{ page.module-title }}</strong> module.
+                  {{ page.module-description }}
+               {% endif %}
+            {% endif %}
             </div>
-          {% endif %}
-        {% endif %}
+            {% endif %}
+
+              {% comment %}{% if page.read_time %}
+                <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
+              {% endif %}{% endcomment %}
+            {% endunless %}
+
+            <!-- For tools pages add authors and tool title -->
+
+            {% if page.header.overlay_color or page.header.overlay_image %}
+              <h2> {{ page.tool_page_title }} </h2>
+              {% if page.authors %}
+                <div class="page__meta">
+                  Developers:
+                  {% for anAuthor in page.authors %}
+                  {% assign currentItem = site.data.authors | where:"name", anAuthor %}
+                  <a href="{{ site.url }}{{ site.baseurl }}/authors/{{ currentItem[0].slug }}">{{ currentItem[0].name }}</a>{% if forloop.last == false %}, {% endif %}
+                  {% endfor %}
+                </div>
+              {% endif %}
+            {% endif %}
         </header>
 
 
@@ -113,7 +129,11 @@ layout: default
         {% if page.class-lesson %}
 
         {% endif %}
-        {{ content }}
+          {% if page.deprecated %}
+          {% else %}
+            {{ content }}
+          {% endif %}
+
         {% if page.link %}<div><a href="{{ page.link }}" class="btn">{{ site.data.ui-text[site.locale].ext_link_label }}</a></div>{% endif %}
 
         <!-- if the page is a course lesson, add pagination -->
