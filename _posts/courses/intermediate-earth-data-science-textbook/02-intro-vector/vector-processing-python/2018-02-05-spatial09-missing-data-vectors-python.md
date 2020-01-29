@@ -235,3 +235,15 @@ sjer_roads.head()
 ## Removing Values
 
 In some specific instances you will want to remove `NaN` values from your `DataFrame`, to do this you can use the `pandas` `.dropna` function, note that this function will remove all rows from the dataframe that have a `Nan` value in any of the columns. 
+
+<div class="notice--success" markdown="1">
+##<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge: Import & Plot Roads Shapefile
+
+Import the madera-county-roads layer - `california/madera-county-roads/tl_2013_06039_roads.shp`. Plot the roads.
+
+Next, try to overlay the plot locations `california/SJER/vector_data/SJER_plot_centroids.shp` and sjer_crop- `california/SJER/vector_data/SJER_crop.shp` on top of the
+SJER crop extent. What happens?
+
+* Check the CRS of both layers. What do you notice?
+
+</div>
