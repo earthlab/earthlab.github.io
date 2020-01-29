@@ -16,7 +16,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 2
 topics:
   spatial-data-and-gis: ['vector-data']
 redirect_from:

@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 topics:
   spatial-data-and-gis: ['vector-data']
 redirect_from:
@@ -57,12 +57,6 @@ sns.set_style("white")
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
 
 ### Import Data
 
