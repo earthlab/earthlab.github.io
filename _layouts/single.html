@@ -89,8 +89,9 @@ layout: default
                 content will be available in these textbooks and will also be greatly improved and easier to use in a class!
                 By the end of Spring 2020 this page will be deprecated. Visit the links below to check out our new content!
                 <ul>
-                    <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Introduction to Earth Analytics Textbook</a></li>
+                    <li><a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/">Introduction to Earth Analytics Textbook</a></li>
                     <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Intermediate Earth Analytics Textbook</a></li>
+                    <li><a href="https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/">Earth Analytics Plotting Data Textbook</a></li>
                 </ul>
               {% else %}
                   <h1> <i class="fa fa-6 fa-book" aria-hidden="true"></i> {{ page.module-title }} - {{ page.course | replace: '-', ' ' | capitalize }} course module</h1>
@@ -130,6 +131,19 @@ layout: default
 
         {% endif %}
           {% if page.deprecated %}
+            {% unless page.module-description %}
+              <div class="notice--warning header" markdown="1">
+              <h1> <i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> THIS LESSON IS MOVING! {{ page.module-title }} </h1>
+                We are moving all of the lessons in our courses to a more carefully designed set of textbooks. All of the same
+              content will be available in these textbooks and will also be greatly improved and easier to use in a class!
+              By the end of Spring 2020 this page will be deprecated. Visit the links below to check out our new content!
+              <ul>
+                  <li><a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/">Introduction to Earth Analytics Textbook</a></li>
+                  <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Intermediate Earth Analytics Textbook</a></li>
+                  <li><a href="https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/">Earth Analytics Plotting Data Textbook</a></li>
+              </ul>
+             {% endunless %}
+          </div>
           {% else %}
             {{ content }}
           {% endif %}
