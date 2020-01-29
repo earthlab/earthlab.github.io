@@ -91,6 +91,7 @@ below.
 that are on a round surface (e.g. the earth) so you can view them on a flat surface
 (e.g. your computer screens or a paper map).
 
+
 ## Why CRS is Important
 
 It is important to understand the coordinate system that your data uses -
@@ -142,6 +143,12 @@ data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
+
 To begin, load a shapefile using geopandas. 
 
 {:.input}
@@ -152,7 +159,7 @@ worldBound_path = os.path.join("data", "spatial-vector-lidar", "global",
 worldBound = gpd.read_file(worldBound_path)
 ```
 
-## Plot the Data
+### Plot the Data
 
 {:.input}
 ```python
@@ -218,9 +225,9 @@ city_locations
 
 
 
-    [<shapely.geometry.point.Point at 0x7f706ab40240>,
-     <shapely.geometry.point.Point at 0x7f706ab40978>,
-     <shapely.geometry.point.Point at 0x7f706ab40da0>]
+    [<shapely.geometry.point.Point at 0x7f9e04a43208>,
+     <shapely.geometry.point.Point at 0x7f9e04a43828>,
+     <shapely.geometry.point.Point at 0x7f9e04a43748>]
 
 
 
@@ -383,6 +390,7 @@ have been developed.
 	</figcaption>
 </figure>
 
+
 ## Projected CRS - Robinson
 
 You can view the same data above, in another CRS - `Robinson`. `Robinson` is a
@@ -515,7 +523,7 @@ plt.axis('equal');
 
 
 
-## Compare Maps
+### Compare Maps
 
 Both of the plots above look visually different and also use a different coordinate system. Look at both, side by side, with the actual **graticules** or latitude and longitude lines rendered on the map.
 
@@ -660,7 +668,7 @@ Robinson: You will see distortion above 40 = 45 degrees latitude
 </figure>
 
 
-## Geographic vs. Projected CRS
+### Geographic vs. Projected CRS
 
 The above maps provide examples of the two main types of coordinate systems:
 

@@ -114,12 +114,6 @@ data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 Revisiting the challenge from a previous lesson, here are the two layers:
 Notice the CRS of each layer.
 
@@ -485,7 +479,7 @@ layers in your basemap plot.
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(12, 9))
+fig, ax = plt.subplots(figsize=(6, 6))
 
 country_boundary_us.plot(ax=ax, 
                          edgecolor="black",
