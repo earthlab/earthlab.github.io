@@ -5,6 +5,7 @@ excerpt: "A spatial join is when you assign attributes from one shapefile to ano
 authors: ['Leah Wasser','Jenny Palomino']
 dateCreated: 2018-02-05
 modified: 2020-01-29
+category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/spatial-joins-in-python-geopandas-shapely/
 nav-title: 'Spatial Joins'

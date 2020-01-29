@@ -49,12 +49,6 @@ data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 {:.input}
 ```python
 # Import roads shapefile
@@ -237,7 +231,7 @@ sjer_roads.head()
 In some specific instances you will want to remove `NaN` values from your `DataFrame`, to do this you can use the `pandas` `.dropna` function, note that this function will remove all rows from the dataframe that have a `Nan` value in any of the columns. 
 
 <div class="notice--success" markdown="1">
-##<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge: Import & Plot Roads Shapefile
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Optional Challenge: Import & Plot Roads Shapefile
 
 Import the madera-county-roads layer - `california/madera-county-roads/tl_2013_06039_roads.shp`. Plot the roads.
 
