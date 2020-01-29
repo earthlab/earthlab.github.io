@@ -118,31 +118,6 @@ Please read the following chapters to support completing this week's assignment:
 
 
 
-
-
-
-
-
-
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/03-spatial-data/2018-02-05-spatial-data-landing-page/2018-02-05-spatial-data-landing-page_24_0.png" alt = "Total land and total water aggregated by region in the United States.">
-<figcaption>Total land and total water aggregated by region in the United States.</figcaption>
-
-</figure>
-
-
-
-
-
-
-
 ## Plot 3 - Census Data
 
 You can use the code below to download and unzip the data from the Natural Earth website.
