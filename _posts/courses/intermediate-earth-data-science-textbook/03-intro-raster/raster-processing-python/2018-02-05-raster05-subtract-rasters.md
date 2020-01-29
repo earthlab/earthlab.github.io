@@ -4,7 +4,7 @@ title: "Subtract One Raster from Another and Export a New GeoTIFF in Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output and then save that output as a new file. Learn how to subtract rasters and create a new GeoTIFF file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-22
+modified: 2020-01-29
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/subtract-rasters-in-python/
@@ -16,7 +16,7 @@ module-type: 'class'
 week: 3
 class-order: 2
 course: 'intermediate-earth-data-science-textbook'
-chapter: 4
+chapter: 5
 sidebar:
   nav:
 author_profile: false
@@ -35,7 +35,7 @@ redirect_from:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Four - Raster Data Processing in Python 
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Five - Raster Data Processing in Python 
 
 In this chapter, you will learn how to process raster data, such as cropping and reprojecting rasters, using raster math to derive new rasters, and reclassifying rasters using a set of values. 
 
@@ -82,6 +82,12 @@ sns.set(font_scale=1.5, style="whitegrid")
 et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
 
 Open and plot the lidar digital elevation model (DEM). Note that when you read the data, you can use the argument `masked = True` to ensure that the no data values do not plot and are assign `nan` or `nodata`. 
 
