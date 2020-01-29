@@ -7,7 +7,7 @@ dateCreated: 2018-02-05
 modified: 2020-01-29
 category: [courses]
 class-lesson: ['intro-vector-python-tb']
-permalink: /courses/use-data-open-source-python/intro-vector-data-python/fundamentals-spatial-data-vector-shapefiles/intro-to-coordinate-reference-systems-python/
+permalink: /courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/intro-to-coordinate-reference-systems-python/
 nav-title: 'Coordinate Reference Systems'
 course: 'intermediate-earth-data-science-textbook'
 week: 2
@@ -143,12 +143,6 @@ data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 To begin, load a shapefile using geopandas. 
 
 {:.input}
@@ -225,9 +219,9 @@ city_locations
 
 
 
-    [<shapely.geometry.point.Point at 0x7f9e04a43208>,
-     <shapely.geometry.point.Point at 0x7f9e04a43828>,
-     <shapely.geometry.point.Point at 0x7f9e04a43748>]
+    [<shapely.geometry.point.Point at 0x7fb6a66fbd30>,
+     <shapely.geometry.point.Point at 0x7fb6a66a6898>,
+     <shapely.geometry.point.Point at 0x7fb6a66fb4a8>]
 
 
 

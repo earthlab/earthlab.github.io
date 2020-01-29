@@ -7,7 +7,7 @@ dateCreated: 2018-02-05
 modified: 2020-01-29
 category: [courses]
 class-lesson: ['intro-vector-python-tb']
-permalink: /courses/use-data-open-source-python/intro-vector-data-python/fundamentals-spatial-data-vector-shapefiles/epsg-proj4-coordinate-reference-system-formats-python/
+permalink: /courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/epsg-proj4-coordinate-reference-system-formats-python/
 nav-title: 'CRS: epsg vs proj.4'
 course: 'intermediate-earth-data-science-textbook'
 week: 2

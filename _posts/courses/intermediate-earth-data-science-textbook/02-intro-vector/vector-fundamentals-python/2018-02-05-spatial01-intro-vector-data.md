@@ -7,7 +7,7 @@ dateCreated: 2018-02-05
 modified: 2020-01-29
 category: [courses]
 class-lesson: ['intro-vector-python-tb']
-permalink: /courses/use-data-open-source-python/intro-vector-data-python/fundamentals-spatial-data-vector-shapefiles/intro-vector-data-python/
+permalink: /courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/
 nav-title: 'Vector Data in Python'
 module-title: 'Use Vector Spatial data in Open Source Python - GeoPandas'
 module-description: 'Vector data are composed of discrete geometric locations (x, y values) known as vertices that define the shape of the spatial object. Learn how to work with spatial data in vector format in Python, including how to import, manipulate and map shapefile data. You will also learn how to reproject vector data into different coordinate reference systems.'
@@ -468,7 +468,7 @@ sjer_plot_locations.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f4c2e160a58>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f1128c76c18>
 
 
 

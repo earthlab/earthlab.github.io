@@ -7,7 +7,7 @@ dateCreated: 2018-02-05
 modified: 2020-01-29
 category: [courses]
 class-lesson: ['intro-vector-python-tb']
-permalink: /courses/use-data-open-source-python/intro-vector-data-python/fundamentals-spatial-data-vector-shapefiles/geographic-vs-projected-coordinate-reference-systems-python/
+permalink: /courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/geographic-vs-projected-coordinate-reference-systems-python/
 nav-title: 'Geographic vs projected CRS'
 course: 'intermediate-earth-data-science-textbook'
 week: 2
@@ -109,12 +109,6 @@ sns.set_style("white")
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
 
 
 {:.output}
@@ -278,7 +272,7 @@ location.
 {:.input}
 ```python
 # Reproject the data to WGS84
-boulder_df_geog = boulder_loc.to_crs({'init': 'epsg:4326'})
+boulder_df_geog = boulder_loc.to_crs(epsg=4326)
 boulder_df_geog.crs
 ```
 
@@ -287,7 +281,7 @@ boulder_df_geog.crs
 
 
 
-    {'init': 'epsg:4326'}
+    {'init': 'epsg:4326', 'no_defs': True}
 
 
 
