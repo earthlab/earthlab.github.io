@@ -114,6 +114,12 @@ data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
+
 Revisiting the challenge from a previous lesson, here are the two layers:
 Notice the CRS of each layer.
 
@@ -158,7 +164,7 @@ If you are simply reprojecting to create a base map then it doesn't matter what 
 {:.input}
 ```python
 # Reproject the aoi to match the roads layer
-sjer_aoi_wgs84  = sjer_aoi.to_crs({'init': 'epsg:4269'})
+sjer_aoi_wgs84  = sjer_aoi.to_crs(epsg=4269)
 ```
 
 {:.input}
