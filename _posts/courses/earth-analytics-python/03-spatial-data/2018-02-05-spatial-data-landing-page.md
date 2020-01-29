@@ -35,7 +35,7 @@ The best way to get the data is to use earthpy:
 
 `et.data.get_data("spatial-vector-lidar")`
 
-You can also download it using the link below. 
+You can also download the data using the link below. 
 
 {% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
@@ -59,7 +59,7 @@ You can also download it using the link below.
 The lessons for this week have been moved to our <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">intermediate Earth Analytics Textbook. </a>
 
 Please read the following chapters:
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/courses/use-data-open-source-python/intro-vector-data-python/">Chapters 5-6 - INtroduction to vector data- spatial data in open source python </a>
+* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/courses/use-data-open-source-python/intro-vector-data-python/">Chapters 5-6 - Introduction to vector data- spatial data in open source python </a>
 
 
 
