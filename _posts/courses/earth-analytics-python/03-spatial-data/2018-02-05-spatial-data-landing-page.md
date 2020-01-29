@@ -118,18 +118,6 @@ Please read the following chapters to support completing this week's assignment:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## Plot 3 - Census Data
 
 You can use the code below to download and unzip the data from the Natural Earth website.
