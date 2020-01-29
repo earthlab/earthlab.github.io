@@ -29,7 +29,7 @@ like coordinate reference systems and varying data structures.
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
 You will need a computer with internet access to complete this lesson and the
-spatial-vector-lidar data subset created for the course. Note that the data download below is large (172MB)
+`spatial-vector-lidar` data subset created for the course. Note that the data download below is large (172MB)
 however it contains data that you will use for the next 2 weeks! 
 The best way to get the data is to use earthpy:
 
