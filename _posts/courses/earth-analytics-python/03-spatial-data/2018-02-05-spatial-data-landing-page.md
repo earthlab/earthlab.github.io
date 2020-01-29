@@ -54,12 +54,13 @@ You can also download the data using the link below.
 
 <a href="https://github.com/earthlab-education/ea-python-2020-03-spatial-vector-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
 
-</div>
-
 The lessons for this week have been moved to our <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">intermediate Earth Analytics Textbook. </a>
 
-Please read the following chapters:
+Please read the following chapters to support completing this week's assignment:
 * <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/courses/use-data-open-source-python/intro-vector-data-python/">Chapters 5-6 - Introduction to vector data- spatial data in open source python </a>
+
+</div>
+
 
 
 
