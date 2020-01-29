@@ -25,7 +25,7 @@ deprecated: True
 
 After completing this tutorial, you will be able to:
 
-* Clip a spatial vector point and line layer to the spatial extent of a polygon layer in `Python`
+* CLIP a spatial vector point and line layer to the spatial extent of a polygon layer in `Python`
 * Visually "clip" or zoom in to a particular spatial extent in a plot.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
