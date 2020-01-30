@@ -443,7 +443,7 @@ plt.show()
 
 
 
-Now, adjust both tht plot colors and line widths.
+Now, adjust both the plot colors and line widths.
 
 {:.input}
 ```python
@@ -752,10 +752,6 @@ plt.show()
 
 
 
-{:.input}
-```python
-# sjer_roads_utm_cl = sjer_roads_utm
-```
 
 
 
@@ -770,14 +766,6 @@ plt.show()
 
 
 
-
-
-
-
-{:.output}
-{:.display_data}
-
-    <Figure size 432x288 with 0 Axes>
 
 
 

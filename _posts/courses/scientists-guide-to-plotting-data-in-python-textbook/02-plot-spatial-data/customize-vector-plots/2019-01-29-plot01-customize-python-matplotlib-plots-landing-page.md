@@ -26,7 +26,7 @@ topics:
   reproducible-science-and-programming:
   data-exploration-and-analysis: ['data-visualization']
   spatial-data-and-gis: ['vector-data']
---
+---
 
 {% include toc title="In This Chapter" icon="file-text" %}
 
