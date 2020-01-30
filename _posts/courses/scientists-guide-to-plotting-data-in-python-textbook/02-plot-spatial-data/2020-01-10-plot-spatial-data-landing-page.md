@@ -5,7 +5,7 @@ title: "Plotting Spatial Data"
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/
 week-landing: 2
 dateCreated: 2020-01-10
-modified: 2020-01-21
+modified: 2020-01-30
 week: 2
 sidebar:
   nav:
@@ -27,8 +27,11 @@ In section two of this textbook, you will learn how to create and customize plot
 
 After completing this section of the Scientist's Guide to Plotting Data in Python online textbook, you will be able to:
 
-* Overlay two rasters in **Python** to create a plot.
+* Create a map containing multiple vector datasets, colored by unique attributes in **Python**.
+* Add a custom legend to a map of vector data in **Python** with unique colors.
+* Visually "clip" or zoom in to a particular spatial extent in a plot.
 * Create interactive map in **Jupyter Notebook** using the **folium** package for **Python**.
+* Overlay two rasters in **Python** to create a plot.
 * Overlay a raster on an interactive map created with **folium**.
 * Customize a raster map in **Python** using **matplotlib**.
 
