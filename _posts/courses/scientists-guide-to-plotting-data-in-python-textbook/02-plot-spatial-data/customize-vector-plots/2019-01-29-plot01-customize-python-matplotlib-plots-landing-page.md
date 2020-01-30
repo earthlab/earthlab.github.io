@@ -38,7 +38,7 @@ In this chapter, you will learn how to create and customize vector plots in **Py
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial, you will be able to:
+After completing this chapter, you will be able to:
 
 * Create a map containing multiple vector datasets, colored by unique attributes in **Python**.
 * Add a custom legend to a map in **Python** with unique colors.

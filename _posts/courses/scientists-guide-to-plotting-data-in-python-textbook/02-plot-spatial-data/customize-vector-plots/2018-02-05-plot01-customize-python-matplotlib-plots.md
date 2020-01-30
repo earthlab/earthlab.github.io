@@ -741,7 +741,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_34_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-vector-plots/2018-02-05-plot01-customize-python-matplotlib-plots/2018-02-05-plot01-customize-python-matplotlib-plots_34_0.png" alt = "You can customize points and lines in one plot by using the ax object for both plots.">
+<figcaption>You can customize points and lines in one plot by using the ax object for both plots.</figcaption>
 
 </figure>
 
