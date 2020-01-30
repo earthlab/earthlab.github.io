@@ -15,6 +15,7 @@ permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-dat
 nav-title: 'Customize Python Maps'
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
 chapter: 3
+class-order: 2
 week: 2
 sidebar:
   nav:
