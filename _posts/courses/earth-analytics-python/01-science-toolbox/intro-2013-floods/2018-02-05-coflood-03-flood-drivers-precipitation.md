@@ -3,7 +3,7 @@ layout: single
 title: 'Rain: a Driver of the 2013 Colorado Floods'
 excerpt: "The amount and/or duration of rainfall can impact how severe a flood is. Learn how rainfall is measured and used to understand flood impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/how-rain-impacts-floods/
@@ -115,7 +115,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation/2018-02-05-coflood-03-flood-drivers-precipitation_3_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/01-science-toolbox/intro-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation/2018-02-05-coflood-03-flood-drivers-precipitation_3_0.png" alt = "Scatter plot showing daily precipitation values for Boulder from 1948 to 2016.">
+<figcaption>Scatter plot showing daily precipitation values for Boulder from 1948 to 2016.</figcaption>
 
 </figure>
 

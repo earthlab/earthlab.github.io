@@ -4,7 +4,7 @@ title: "Handle missing spatial attribute data Python: GIS in Python"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in
 shapefile format in Python. "
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/missing-data-vector-data-in-python/
@@ -182,44 +182,44 @@ sjer_roads.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>110454239066</td>
       <td>N 14th St</td>
       <td>M</td>
       <td>S1400</td>
-      <td>LINESTRING (-120.272267 37.116151, -120.27244 ...</td>
+      <td>LINESTRING (-120.27227 37.11615, -120.27244 37...</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>110454239052</td>
       <td>N 11th St</td>
       <td>M</td>
       <td>S1400</td>
-      <td>LINESTRING (-120.267877 37.116672, -120.268072...</td>
+      <td>LINESTRING (-120.26788 37.11667, -120.26807 37...</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>110454239056</td>
       <td>N 12th St</td>
       <td>M</td>
       <td>S1400</td>
-      <td>LINESTRING (-120.27053 37.117494, -120.270448 ...</td>
+      <td>LINESTRING (-120.27053 37.11749, -120.27045 37...</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>110454239047</td>
       <td>N 10th St</td>
       <td>M</td>
       <td>S1400</td>
-      <td>LINESTRING (-120.267028 37.11734599999999, -12...</td>
+      <td>LINESTRING (-120.26703 37.11735, -120.26721 37...</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>110454243091</td>
       <td>N Westberry Blvd</td>
       <td>M</td>
       <td>S1400</td>
-      <td>LINESTRING (-120.101219 36.96524099999999, -12...</td>
+      <td>LINESTRING (-120.10122 36.96524, -120.10123 36...</td>
     </tr>
   </tbody>
 </table>

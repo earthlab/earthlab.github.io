@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Co-occurrence and Networks of Words Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to identify the co-occurrence and networks of words in Tweets. Learn how to analyze word co-occurrence (i.e. bigrams) and networks of words using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-bigrams-networks-in-python/
@@ -161,15 +161,15 @@ terms_bigram[0]
 
 
 
-    [('insurancebureau', 'hey'),
-     ('hey', 'yoohoo'),
-     ('yoohoo', 'hey'),
-     ('hey', 'insurancebureau'),
-     ('insurancebureau', 'maybe'),
-     ('maybe', 'sometime'),
-     ('sometime', 'today'),
-     ('today', 'everyday'),
-     ('everyday', 'sh')]
+    [('januarys', 'dry'),
+     ('dry', 'handsravaged'),
+     ('handsravaged', 'landturning'),
+     ('landturning', 'timberto'),
+     ('timberto', 'ashsinew'),
+     ('ashsinew', 'tosmokelivelihood'),
+     ('tosmokelivelihood', 'nogoodonly'),
+     ('nogoodonly', 'words'),
+     ('words', 'holl')]
 
 
 
@@ -188,7 +188,7 @@ tweets_no_urls[0]
 
 
 
-    'InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh'
+    'Januarys dry handsravaged our landturning timberto ashsinew tosmokelivelihood nogoodonly words some holl'
 
 
 
@@ -205,16 +205,16 @@ tweets_nsw_nc[0]
 
 
 
-    ['insurancebureau',
-     'hey',
-     'yoohoo',
-     'hey',
-     'insurancebureau',
-     'maybe',
-     'sometime',
-     'today',
-     'everyday',
-     'sh']
+    ['januarys',
+     'dry',
+     'handsravaged',
+     'landturning',
+     'timberto',
+     'ashsinew',
+     'tosmokelivelihood',
+     'nogoodonly',
+     'words',
+     'holl']
 
 
 
@@ -240,26 +240,26 @@ bigram_counts.most_common(20)
 
 
 
-    [(('great', 'barrier'), 20),
-     (('barrier', 'reef'), 17),
-     (('gpwx', 'globalwarming'), 16),
-     (('trump', 'administration'), 15),
-     (('lifestyle', 'changes'), 14),
-     (('big', 'lifestyle'), 13),
-     (('changes', 'needed'), 13),
-     (('needed', 'cut'), 13),
-     (('cut', 'emissions'), 12),
-     (('declares', 'health'), 11),
-     (('health', 'emergency'), 11),
-     (('medical', 'association'), 10),
-     (('association', 'declares'), 10),
-     (('power', 'interplay'), 10),
-     (('interplay', 'actors'), 10),
-     (('extreme', 'weather'), 10),
-     (('australian', 'medical'), 9),
-     (('3rd', 'september'), 9),
-     (('september', '2019'), 9),
-     (('2019', 'sumit'), 9)]
+    [(('gpwx', 'globalwarming'), 21),
+     (('tipping', 'points'), 12),
+     (('amazon', 'employees'), 11),
+     (('fossil', 'fuel'), 10),
+     (('social', 'tipping'), 9),
+     (('investor', 'ideas'), 8),
+     (('cleantech', 'podcast'), 8),
+     (('w', 'ecosearch'), 8),
+     (('global', 'warming'), 8),
+     (('new', 'jersey'), 8),
+     (('doomsday', 'glacier'), 7),
+     (('points', 'hope'), 7),
+     (('science', 'links'), 6),
+     (('antarctica', 'melting'), 6),
+     (('journey', 'doomsday'), 6),
+     (('ideas', 'cleantech'), 6),
+     (('rieea', 'annual'), 6),
+     (('annual', 'summit'), 6),
+     (('summit', '2020'), 6),
+     (('2020', 'effective'), 6)]
 
 
 
@@ -304,104 +304,104 @@ bigram_df
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>(great, barrier)</td>
-      <td>20</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>(barrier, reef)</td>
-      <td>17</td>
-    </tr>
-    <tr>
-      <td>2</td>
+      <th>0</th>
       <td>(gpwx, globalwarming)</td>
-      <td>16</td>
+      <td>21</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>(trump, administration)</td>
-      <td>15</td>
+      <th>1</th>
+      <td>(tipping, points)</td>
+      <td>12</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>(lifestyle, changes)</td>
-      <td>14</td>
+      <th>2</th>
+      <td>(amazon, employees)</td>
+      <td>11</td>
     </tr>
     <tr>
-      <td>5</td>
-      <td>(big, lifestyle)</td>
-      <td>13</td>
+      <th>3</th>
+      <td>(fossil, fuel)</td>
+      <td>10</td>
     </tr>
     <tr>
-      <td>6</td>
-      <td>(changes, needed)</td>
-      <td>13</td>
+      <th>4</th>
+      <td>(social, tipping)</td>
+      <td>9</td>
     </tr>
     <tr>
-      <td>7</td>
-      <td>(needed, cut)</td>
-      <td>13</td>
-    </tr>
-    <tr>
+      <th>5</th>
+      <td>(investor, ideas)</td>
       <td>8</td>
-      <td>(cut, emissions)</td>
-      <td>12</td>
     </tr>
     <tr>
-      <td>9</td>
-      <td>(declares, health)</td>
-      <td>11</td>
+      <th>6</th>
+      <td>(cleantech, podcast)</td>
+      <td>8</td>
     </tr>
     <tr>
-      <td>10</td>
-      <td>(health, emergency)</td>
-      <td>11</td>
+      <th>7</th>
+      <td>(w, ecosearch)</td>
+      <td>8</td>
     </tr>
     <tr>
-      <td>11</td>
-      <td>(medical, association)</td>
-      <td>10</td>
+      <th>8</th>
+      <td>(global, warming)</td>
+      <td>8</td>
     </tr>
     <tr>
-      <td>12</td>
-      <td>(association, declares)</td>
-      <td>10</td>
+      <th>9</th>
+      <td>(new, jersey)</td>
+      <td>8</td>
     </tr>
     <tr>
-      <td>13</td>
-      <td>(power, interplay)</td>
-      <td>10</td>
+      <th>10</th>
+      <td>(doomsday, glacier)</td>
+      <td>7</td>
     </tr>
     <tr>
-      <td>14</td>
-      <td>(interplay, actors)</td>
-      <td>10</td>
+      <th>11</th>
+      <td>(points, hope)</td>
+      <td>7</td>
     </tr>
     <tr>
-      <td>15</td>
-      <td>(extreme, weather)</td>
-      <td>10</td>
+      <th>12</th>
+      <td>(science, links)</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td>16</td>
-      <td>(australian, medical)</td>
-      <td>9</td>
+      <th>13</th>
+      <td>(antarctica, melting)</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td>17</td>
-      <td>(3rd, september)</td>
-      <td>9</td>
+      <th>14</th>
+      <td>(journey, doomsday)</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td>18</td>
-      <td>(september, 2019)</td>
-      <td>9</td>
+      <th>15</th>
+      <td>(ideas, cleantech)</td>
+      <td>6</td>
     </tr>
     <tr>
-      <td>19</td>
-      <td>(2019, sumit)</td>
-      <td>9</td>
+      <th>16</th>
+      <td>(rieea, annual)</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>(annual, summit)</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>(summit, 2020)</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>(2020, effective)</td>
+      <td>6</td>
     </tr>
   </tbody>
 </table>

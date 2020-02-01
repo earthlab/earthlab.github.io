@@ -3,7 +3,7 @@ layout: single
 title: 'Get and Work With Twitter Data in Python Using Tweepy'
 excerpt: 'You can use the Twitter RESTful API to access tweet data from Twitter. Learn how to use tweepy to download and work with twitter social media data in Python.'
 authors: ['Martha Morrissey', 'Leah Wasser','Carson Farmer']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/get-and-use-twitter-data-in-python/
@@ -238,11 +238,11 @@ tweets = tw.Cursor(api.search,
 
 
 
-    ['While #wildfires rage across Bolivia, our improved #firebreaks at Laney Rickman Nature Reserve have stopped mayor f… https://t.co/XcpfVlJUSp',
-     '🤔 Circuit-breaker innovation to prevent  🔥🔥🔥 #bushfire ?\n\n🔸 #Wildfires \n🔸 #CO2 \n🔸 #climatechange\n\nCc: @OphelieJanus… https://t.co/yKf9cQcYtK',
-     'Dronefire explores the idea of using drones to "weaponize" wildfires. It\'s every bit as sinister as it sounds. Is i… https://t.co/BzaCGp227P',
-     'New! @LamontEarth climate experts @peedublya and Richard Seager discuss why California #wildfires are expected to e… https://t.co/65sqngZDJU',
-     'Nearly half of the city’s high-school students met the criteria for #PTSD, depression, anxiety or substance abuse,… https://t.co/NfPa2pXUyl']
+    ['Fires still burning in Australia thanks to record warm and dry conditions. #ClimateEmergency #ClimateChange… https://t.co/JpkcnX7TZf',
+     'Storms? wildfires? Whatever the reason is,  this is unacceptable.\nWhat to do with my food in the refrigerator?😮… https://t.co/hLtM6SJHki',
+     'BLM Announces New Assistant Director for Fire and Aviation, Grant Beebe.\n#wildfires https://t.co/DzjmlMm9XW',
+     'Fires have been burning and approaching the #Australia capital city of Canberra for days, prompting a state of emer… https://t.co/YaBNepze9c',
+     'How Forest Fire-Prone Regions Leverage IoT to Limit Wildfires and Mitigate Destruction: https://t.co/iUYrS03cLD… https://t.co/XRwXrsBvTw']
 
 
 
@@ -274,11 +274,11 @@ users_locs
 
 
 
-    [['armonia_bolivia', 'Bolivia'],
-     ['RagusoSergio', 'Switzerland'],
-     ['WillMatlack', 'SF Bay Area'],
-     ['climateandlife', 'Columbia University'],
-     ['C21dynamic21', '']]
+    [['elliemcohen1', ''],
+     ['Eloncity_io', ''],
+     ['wildfiretoday', 'South Dakota (Black Hills)'],
+     ['BreakinNewz01', 'Pennsylvania'],
+     ['Neo_IoT', 'Silicon Valley']]
 
 
 
@@ -324,29 +324,29 @@ tweet_text
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>armonia_bolivia</td>
-      <td>Bolivia</td>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>RagusoSergio</td>
-      <td>Switzerland</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>WillMatlack</td>
-      <td>SF Bay Area</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>climateandlife</td>
-      <td>Columbia University</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>C21dynamic21</td>
+      <th>0</th>
+      <td>elliemcohen1</td>
       <td></td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Eloncity_io</td>
+      <td></td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>wildfiretoday</td>
+      <td>South Dakota (Black Hills)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>BreakinNewz01</td>
+      <td>Pennsylvania</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Neo_IoT</td>
+      <td>Silicon Valley</td>
     </tr>
   </tbody>
 </table>

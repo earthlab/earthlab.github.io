@@ -3,7 +3,7 @@ layout: single
 title: "How to Join Attributes From One Shapefile to Another in Open Source Python Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to perform spatial joins in python. A spatial join is when you assign attributes from one shapefile to another based upon it's spatial location."
 authors: ['Leah Wasser','Jenny Palomino']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/spatial-joins-in-python-geopandas-shapely/
@@ -82,6 +82,16 @@ roads_cl.crs = ne_roads.crs
 regions_agg = state_bound_us.dissolve(by="region")
 ```
 
+{:.output}
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
+    
+    To further ignore this warning, you can do: 
+    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
+      return self.notna()
+
+
+
 ## Spatial Joins in Python
 
 Just like you might do in ArcMap or QGIS you can perform spatial joins in Python too. A spatial join is when you append the attributes of one layer to another based upon its spatial relationship.
@@ -150,31 +160,31 @@ roads_region[["featurecla", "index_right", "ALAND"]].head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>Road</td>
       <td>Midwest</td>
       <td>143794747023</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>Road</td>
       <td>Midwest</td>
       <td>143794747023</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>Road</td>
       <td>Midwest</td>
       <td>143794747023</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>Road</td>
       <td>Midwest</td>
       <td>143794747023</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>Road</td>
       <td>Midwest</td>
       <td>143794747023</td>
@@ -328,23 +338,23 @@ sub
   </thead>
   <tbody>
     <tr>
-      <td>Midwest</td>
+      <th>Midwest</th>
       <td>86575020.6373</td>
     </tr>
     <tr>
-      <td>Northeast</td>
+      <th>Northeast</th>
       <td>33786036.8608</td>
     </tr>
     <tr>
-      <td>Southeast</td>
+      <th>Southeast</th>
       <td>84343077.8904</td>
     </tr>
     <tr>
-      <td>Southwest</td>
+      <th>Southwest</th>
       <td>49373104.8209</td>
     </tr>
     <tr>
-      <td>West</td>
+      <th>West</th>
       <td>61379830.5534</td>
     </tr>
   </tbody>

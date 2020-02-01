@@ -3,7 +3,7 @@ layout: single
 title: "Customize matplotlib plots in Python - earth analytics - data science for scientists"
 excerpt: 'Matplotlib is one of the most commonly used plotting library in Python. This lesson covers how to create a plot using matplotlib and how to customize matplotlib plot colors and label axes in Python.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
@@ -132,27 +132,27 @@ boulder_precip.head()
   </thead>
   <tbody>
     <tr>
-      <td>2013-08-21</td>
+      <th>2013-08-21</th>
       <td>756</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>2013-08-26</td>
+      <th>2013-08-26</th>
       <td>757</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>2013-08-27</td>
+      <th>2013-08-27</th>
       <td>758</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>2013-09-01</td>
+      <th>2013-09-01</th>
       <td>759</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2013-09-09</td>
+      <th>2013-09-09</th>
       <td>760</td>
       <td>0.1</td>
     </tr>
@@ -529,7 +529,7 @@ print(plt.style.available)
 ```
 
 {:.output}
-    ['ggplot', 'seaborn-bright', '_classic_test', 'seaborn-muted', 'classic', 'dark_background', 'seaborn-deep', 'seaborn-ticks', 'seaborn-paper', 'fast', 'seaborn-darkgrid', 'seaborn-colorblind', 'fivethirtyeight', 'grayscale', 'seaborn-notebook', 'seaborn-dark', 'tableau-colorblind10', 'seaborn', 'Solarize_Light2', 'seaborn-talk', 'seaborn-whitegrid', 'seaborn-poster', 'seaborn-pastel', 'seaborn-dark-palette', 'bmh', 'seaborn-white']
+    ['dark_background', 'seaborn-muted', 'seaborn-paper', 'grayscale', 'classic', '_classic_test', 'seaborn-colorblind', 'seaborn-ticks', 'bmh', 'seaborn', 'seaborn-notebook', 'ggplot', 'fivethirtyeight', 'seaborn-dark', 'seaborn-poster', 'seaborn-bright', 'seaborn-pastel', 'Solarize_Light2', 'seaborn-talk', 'fast', 'seaborn-dark-palette', 'seaborn-deep', 'seaborn-white', 'seaborn-whitegrid', 'seaborn-darkgrid', 'tableau-colorblind10']
 
 
 

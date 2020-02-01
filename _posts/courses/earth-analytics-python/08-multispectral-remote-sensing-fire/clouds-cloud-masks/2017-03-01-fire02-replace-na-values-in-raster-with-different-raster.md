@@ -3,7 +3,7 @@ layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in Python"
 excerpt: "Most remote sensing data sets contain no data values represented as nan or none in Python. This normally represents pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['clouds-remote-sensing-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -126,7 +126,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster_7_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/08-multispectral-remote-sensing-fire/clouds-cloud-masks/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster_7_0.png" alt = "Plotting the image and the mask together to ensure the mask does indeed cover the cloud in the image.">
+<figcaption>Plotting the image and the mask together to ensure the mask does indeed cover the cloud in the image.</figcaption>
 
 </figure>
 

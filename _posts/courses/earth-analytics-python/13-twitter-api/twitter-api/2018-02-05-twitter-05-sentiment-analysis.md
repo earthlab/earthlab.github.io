@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Sentiments Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to analyze attitudes (i.e. sentiment) in the tweet text. Learn how to analyze sentiments in Twitter data using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/analyze-tweet-sentiments-in-python/
@@ -141,8 +141,8 @@ sentiment_objects[0].polarity, sentiment_objects[0]
 
 
 
-    (-0.2,
-     TextBlob("InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh"))
+    (-0.06666666666666665,
+     TextBlob("Januarys dry handsravaged our landturning timberto ashsinew tosmokelivelihood nogoodonly words some holl"))
 
 
 
@@ -163,8 +163,8 @@ sentiment_values[0]
 
 
 
-    [-0.2,
-     'InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh']
+    [-0.06666666666666665,
+     'Januarys dry handsravaged our landturning timberto ashsinew tosmokelivelihood nogoodonly words some holl']
 
 
 
@@ -207,29 +207,29 @@ sentiment_df.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>-0.200000</td>
-      <td>InsuranceBureau Hey Yoohoo Hey InsuranceBureau...</td>
+      <th>0</th>
+      <td>-0.066667</td>
+      <td>Januarys dry handsravaged our landturning timb...</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>-0.006397</td>
-      <td>Our rulers are golfing and trail running while...</td>
+      <th>1</th>
+      <td>0.050000</td>
+      <td>Quiet Australians speak up on climate change a...</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>0.525000</td>
-      <td>These findings lend themselves to a somewhat c...</td>
+      <th>2</th>
+      <td>0.100000</td>
+      <td>BBC News Greta Thunberg seeks Africa climate c...</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>0.400000</td>
-      <td>Information based on proven data about climate...</td>
+      <th>3</th>
+      <td>0.100000</td>
+      <td>Climate change calls for action not adaptation...</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>0.000000</td>
-      <td>Heres what EmoryUniversity is doing to tackle ...</td>
+      <td>science Links to videos about CLIMATE CHANGE a...</td>
     </tr>
   </tbody>
 </table>
@@ -329,11 +329,11 @@ all_tweets_no_urls[:5]
 
 
 
-    [TextBlob("Nine months after CampFire NorCals Paradise Irrigation District still has a conditional do not drink order in"),
-     TextBlob("In the wake of the CampFire neighboring areas of Butte County have had to absorb much of the displaced population"),
-     TextBlob("Hope everyone had a good laborday yesterday I had a crazy day but at least I got in a good campfire despite the"),
-     TextBlob("pulte If I am a recipient it will go to one of my campfire survivors for their immediate needs and there are so many"),
-     TextBlob("CatFanatic9 Everything of my life except my body burned in the CampFire I never got an evacuation notice Ive w")]
+    [TextBlob("Grab a tripod hanging cooking pot before your next camping trip Go to Yazoos Outdoor World to get your camping ki"),
+     TextBlob("Colorful Campfire Desert Sands Vintage Trailer RV Park"),
+     TextBlob("Wishing everyone a happy Friday evening with good friends juniorretreat campfire smores roastingmarshmellows"),
+     TextBlob("Nice campfire tonightcampfire campfires"),
+     TextBlob("Solo Overnight With My NEW Emergency Kit and Campfire BBQ Beans and Weenies Check it Out Now at Corporals Corner o")]
 
 
 
@@ -382,29 +382,29 @@ wild_sent_df.head()
   </thead>
   <tbody>
     <tr>
-      <td>1</td>
-      <td>0.200000</td>
-      <td>In the wake of the CampFire neighboring areas ...</td>
+      <th>1</th>
+      <td>0.300000</td>
+      <td>Colorful Campfire Desert Sands Vintage Trailer...</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>0.125000</td>
-      <td>Hope everyone had a good laborday yesterday I ...</td>
+      <th>2</th>
+      <td>0.750000</td>
+      <td>Wishing everyone a happy Friday evening with g...</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>0.500000</td>
-      <td>pulte If I am a recipient it will go to one of...</td>
+      <th>3</th>
+      <td>0.600000</td>
+      <td>Nice campfire tonightcampfire campfires</td>
     </tr>
     <tr>
-      <td>5</td>
-      <td>0.433333</td>
-      <td>Thanks to everyone who came to my party this w...</td>
+      <th>4</th>
+      <td>0.136364</td>
+      <td>Solo Overnight With My NEW Emergency Kit and C...</td>
     </tr>
     <tr>
-      <td>6</td>
-      <td>0.500000</td>
-      <td>Another effect of more wildfires in CA growing...</td>
+      <th>5</th>
+      <td>0.633333</td>
+      <td>Gorgeous sunset and lovely fire Life is good s...</td>
     </tr>
   </tbody>
 </table>

@@ -3,7 +3,7 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with pandas."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -165,7 +165,7 @@ precip_boulder.head()
   </thead>
   <tbody>
     <tr>
-      <td>2003-01-01 01:00:00</td>
+      <th>2003-01-01 01:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -176,7 +176,7 @@ precip_boulder.head()
       <td></td>
     </tr>
     <tr>
-      <td>2003-02-01 01:00:00</td>
+      <th>2003-02-01 01:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -187,7 +187,7 @@ precip_boulder.head()
       <td></td>
     </tr>
     <tr>
-      <td>2003-02-02 19:00:00</td>
+      <th>2003-02-02 19:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -198,7 +198,7 @@ precip_boulder.head()
       <td></td>
     </tr>
     <tr>
-      <td>2003-02-02 22:00:00</td>
+      <th>2003-02-02 22:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -209,7 +209,7 @@ precip_boulder.head()
       <td></td>
     </tr>
     <tr>
-      <td>2003-02-03 02:00:00</td>
+      <th>2003-02-03 02:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -370,35 +370,35 @@ precip_boulder_daily.head()
   </thead>
   <tbody>
     <tr>
-      <td>2003-01-01</td>
+      <th>2003-01-01</th>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-01-02</td>
+      <th>2003-01-02</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-01-03</td>
+      <th>2003-01-03</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-01-04</td>
+      <th>2003-01-04</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-01-05</td>
+      <th>2003-01-05</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>

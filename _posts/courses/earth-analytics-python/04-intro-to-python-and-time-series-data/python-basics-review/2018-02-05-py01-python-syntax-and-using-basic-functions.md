@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/python-syntax-and-using-functions/
 nav-title: 'Review: Get to Know Python'
 dateCreated: 2018-02-05
-modified: 2020-01-29
+modified: 2020-02-01
 module-title: 'Get to Know the Python programming language'
 module-nav-title: 'Review: Get to Know Python'
 module-description: 'This module introduces the Python scientific programming language.
@@ -90,7 +90,12 @@ plt.show()
 {:.output}
 {:.display_data}
 
-    <Figure size 1200x800 with 1 Axes>
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-intro-to-python-and-time-series-data/python-basics-review/2018-02-05-py01-python-syntax-and-using-basic-functions/2018-02-05-py01-python-syntax-and-using-basic-functions_2_0.png" alt = "Basic plot of precipitation data in Boulder, Colorado 2003-2013">
+<figcaption>Basic plot of precipitation data in Boulder, Colorado 2003-2013</figcaption>
+
+</figure>
 
 
 
@@ -238,31 +243,31 @@ data.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>756</td>
       <td>2013-08-21</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>757</td>
       <td>2013-08-26</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>758</td>
       <td>2013-08-27</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>759</td>
       <td>2013-09-01</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>760</td>
       <td>2013-09-09</td>
       <td>0.1</td>
@@ -382,109 +387,109 @@ data
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>756</td>
       <td>2013-08-21</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>757</td>
       <td>2013-08-26</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>758</td>
       <td>2013-08-27</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>759</td>
       <td>2013-09-01</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>760</td>
       <td>2013-09-09</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>761</td>
       <td>2013-09-10</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <td>6</td>
+      <th>6</th>
       <td>762</td>
       <td>2013-09-11</td>
       <td>2.3</td>
     </tr>
     <tr>
-      <td>7</td>
+      <th>7</th>
       <td>763</td>
       <td>2013-09-12</td>
       <td>9.8</td>
     </tr>
     <tr>
-      <td>8</td>
+      <th>8</th>
       <td>764</td>
       <td>2013-09-13</td>
       <td>1.9</td>
     </tr>
     <tr>
-      <td>9</td>
+      <th>9</th>
       <td>765</td>
       <td>2013-09-15</td>
       <td>1.4</td>
     </tr>
     <tr>
-      <td>10</td>
+      <th>10</th>
       <td>766</td>
       <td>2013-09-16</td>
       <td>0.4</td>
     </tr>
     <tr>
-      <td>11</td>
+      <th>11</th>
       <td>767</td>
       <td>2013-09-22</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>12</td>
+      <th>12</th>
       <td>768</td>
       <td>2013-09-23</td>
       <td>0.3</td>
     </tr>
     <tr>
-      <td>13</td>
+      <th>13</th>
       <td>769</td>
       <td>2013-09-27</td>
       <td>0.3</td>
     </tr>
     <tr>
-      <td>14</td>
+      <th>14</th>
       <td>770</td>
       <td>2013-09-28</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>15</td>
+      <th>15</th>
       <td>771</td>
       <td>2013-10-01</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>16</td>
+      <th>16</th>
       <td>772</td>
       <td>2013-10-04</td>
       <td>0.9</td>
     </tr>
     <tr>
-      <td>17</td>
+      <th>17</th>
       <td>773</td>
       <td>2013-10-11</td>
       <td>0.1</td>

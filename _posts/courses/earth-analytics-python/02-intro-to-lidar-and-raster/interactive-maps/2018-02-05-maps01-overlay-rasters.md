@@ -3,7 +3,7 @@ layout: single
 title: "Layer a raster dataset over a hillshade in Python to create a beautiful basemap that represents topography."
 excerpt: "This lesson covers how to overlay raster data on top of a hillshade in Python and layer opacity arguments."
 authors: ['Leah Wasser']
-modified: 2019-09-04
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['hw-lidar']
 permalink: /courses/earth-analytics-python/lidar-raster-data/overlay-raster-maps/
@@ -58,12 +58,6 @@ data = et.data.get_data('colorado-flood')
 # Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 ## Overlay Rasters in `Python`
 

@@ -3,7 +3,7 @@ layout: single
 title: "The Relationship Between Precipitation and Stream Discharge | Explore Mass Balance"
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -81,11 +81,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-01-29T17:16:04.833Z', 'title': 'requestDT'},
-        {'value': '07f47400-42bb-11ea-affe-6cae8b663fb6', 'title': 'requestId'},
+        {'value': '2020-02-01T02:52:03.464Z', 'title': 'requestDT'},
+        {'value': 'd3597170-449d-11ea-b610-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'vaas01', 'title': 'server'}]},
+        {'value': 'sdas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -121,9 +121,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '50.0',
+        'values': [{'value': [{'value': '49.5',
             'qualifiers': ['P'],
-            'dateTime': '2020-01-28T00:00:00.000'}],
+            'dateTime': '2020-01-30T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -194,31 +194,31 @@ longmont_discharge_annual_max.head()
   </thead>
   <tbody>
     <tr>
-      <td>1946-01-01</td>
+      <th>1946-01-01</th>
       <td>99.0</td>
       <td>A</td>
       <td>1946.0</td>
     </tr>
     <tr>
-      <td>1947-01-01</td>
+      <th>1947-01-01</th>
       <td>1930.0</td>
       <td>A</td>
       <td>1947.0</td>
     </tr>
     <tr>
-      <td>1948-01-01</td>
+      <th>1948-01-01</th>
       <td>339.0</td>
       <td>A</td>
       <td>1948.0</td>
     </tr>
     <tr>
-      <td>1949-01-01</td>
+      <th>1949-01-01</th>
       <td>2010.0</td>
       <td>A</td>
       <td>1949.0</td>
     </tr>
     <tr>
-      <td>1950-01-01</td>
+      <th>1950-01-01</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -290,27 +290,27 @@ usgs_annual_max.head()
   </thead>
   <tbody>
     <tr>
-      <td>1927-07-29</td>
+      <th>1927-07-29</th>
       <td>407.0</td>
       <td>1927</td>
     </tr>
     <tr>
-      <td>1928-06-04</td>
+      <th>1928-06-04</th>
       <td>694.0</td>
       <td>1928</td>
     </tr>
     <tr>
-      <td>1929-07-23</td>
+      <th>1929-07-23</th>
       <td>530.0</td>
       <td>1929</td>
     </tr>
     <tr>
-      <td>1930-08-18</td>
+      <th>1930-08-18</th>
       <td>353.0</td>
       <td>1930</td>
     </tr>
     <tr>
-      <td>1931-05-29</td>
+      <th>1931-05-29</th>
       <td>369.0</td>
       <td>1931</td>
     </tr>
@@ -341,19 +341,6 @@ ax.legend()
 ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated")
 plt.show()
 ```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance/2018-02-05-ts07-cumulative-sum-mass-balance_8_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
-<figcaption>Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.</figcaption>
-
-</figure>
-
-
-
 
 ## Calculate Cumulative Sum
 
@@ -449,35 +436,35 @@ longmont_discharge.head()
   </thead>
   <tbody>
     <tr>
-      <td>1946-05-10</td>
+      <th>1946-05-10</th>
       <td>16.0</td>
       <td>A</td>
       <td>1946</td>
       <td>1.600440e+09</td>
     </tr>
     <tr>
-      <td>1946-05-11</td>
+      <th>1946-05-11</th>
       <td>19.0</td>
       <td>A</td>
       <td>1946</td>
       <td>3.500962e+09</td>
     </tr>
     <tr>
-      <td>1946-05-12</td>
+      <th>1946-05-12</th>
       <td>9.0</td>
       <td>A</td>
       <td>1946</td>
       <td>4.401209e+09</td>
     </tr>
     <tr>
-      <td>1946-05-13</td>
+      <th>1946-05-13</th>
       <td>3.0</td>
       <td>A</td>
       <td>1946</td>
       <td>4.701292e+09</td>
     </tr>
     <tr>
-      <td>1946-05-14</td>
+      <th>1946-05-14</th>
       <td>7.8</td>
       <td>A</td>
       <td>1946</td>
@@ -531,16 +518,3 @@ fig.tight_layout()
 plt.show()
 
 ```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/04-intro-to-python-and-time-series-data/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance/2018-02-05-ts07-cumulative-sum-mass-balance_15_0.png" alt = "Cumulative sum plot for stream discharge.">
-<figcaption>Cumulative sum plot for stream discharge.</figcaption>
-
-</figure>
-
-
-

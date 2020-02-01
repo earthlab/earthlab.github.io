@@ -3,7 +3,7 @@ layout: single
 title: "Find and Download Landsat 8 Remote Sensing Data From the USGS Earth Explorer Website"
 excerpt: "Learn how to find and download Landsat 8 remote sensing imagery from the USGS Earth Explorer website."
 authors: ['Leah Wasser']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/get-landsat-data-earth-explorer/

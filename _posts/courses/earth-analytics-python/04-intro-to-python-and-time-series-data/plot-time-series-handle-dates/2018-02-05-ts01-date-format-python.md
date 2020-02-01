@@ -3,7 +3,7 @@ layout: single
 title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "This lesson covers how to deal with dates in Python. It reviews how to convert a field containing dates as strings to a datetime object that Python can understand and plot efficiently. This tutorial also covers how to handle missing data values in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -83,12 +83,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 sns.set(font_scale=1.5, style="whitegrid")
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
-
 {:.input}
 ```python
 file_path = "data/colorado-flood/downloads/july-2018-temperature-precip.csv"
@@ -103,7 +97,7 @@ urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/12948515'
 
 
     ('data/colorado-flood/downloads/july-2018-temperature-precip.csv',
-     <http.client.HTTPMessage at 0x7f9bd0b1dcf8>)
+     <http.client.HTTPMessage at 0x7f93fbd62b50>)
 
 
 
@@ -150,31 +144,31 @@ boulder_july.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>2018-07-01</td>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>2018-07-02</td>
       <td>92</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>2018-07-03</td>
       <td>90</td>
       <td>-999.00</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>2018-07-04</td>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>2018-07-05</td>
       <td>84</td>
       <td>0.24</td>
@@ -393,27 +387,27 @@ boulder_july_datetime.head()
   </thead>
   <tbody>
     <tr>
-      <td>2018-07-01</td>
+      <th>2018-07-01</th>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-02</td>
+      <th>2018-07-02</th>
       <td>92</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-03</td>
+      <th>2018-07-03</th>
       <td>90</td>
       <td>-999.00</td>
     </tr>
     <tr>
-      <td>2018-07-04</td>
+      <th>2018-07-04</th>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-05</td>
+      <th>2018-07-05</th>
       <td>84</td>
       <td>0.24</td>
     </tr>
@@ -570,42 +564,42 @@ boulder_july_datetime.describe()
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>31.000000</td>
       <td>31.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>88.129032</td>
       <td>-96.618065</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>6.626925</td>
       <td>300.256388</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>75.000000</td>
       <td>-999.000000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>84.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>88.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>94.000000</td>
       <td>0.050000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>97.000000</td>
       <td>0.450000</td>
     </tr>
@@ -680,42 +674,42 @@ boulder_july_datetime_nodata.describe()
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>31.000000</td>
       <td>28.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>88.129032</td>
       <td>0.065714</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>6.626925</td>
       <td>0.120936</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>75.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>84.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>88.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>94.000000</td>
       <td>0.055000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>97.000000</td>
       <td>0.450000</td>
     </tr>
