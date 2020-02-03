@@ -274,7 +274,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x7f0d931d4b50>
+    <matplotlib.legend.Legend at 0x7ff815dbdf90>
 
 
 
@@ -424,6 +424,62 @@ The ouputs of a linear regression model help you assess how statistically useful
 Note that to calculate the `RMSE` you take the squareroot of the standard error provided to you by Python.
 
 
+{:.input}
+```python
+# Create some points with a one to one relationships
+x = np.array([1, 22, 3, 14, 16, 45, 45])
+y = np.array([item-5 for item in x])
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
+
+fig, ax = plt.subplots(figsize=(10, 10))
+
+ax.scatter(x, y, c='blue', label="data")
+
+ax.plot((0, 1), (0, 1), transform=ax.transAxes,
+        ls='--', c='k', label="1:1 line")
+
+ax.plot(x, intercept + slope*x, 'grey', label='regression fitted line',
+        color="purple")
+
+ax.set(xlim=[0, 50], ylim=[0, 50])
+
+ax.set(xlabel="Variable A", ylabel="Variable B",
+       title="Data Points with a Strong \nR-squared but There is a Positive Bias")
+
+plt.legend()
+
+print("slope:", slope,
+      "\nintercept:", intercept,
+      "\nr squared:", r_value**2,
+      "\np-value:", p_value,
+      "\nst_error", std_err,
+      "\nRMSE", sqrt(std_err))
+```
+
+{:.output}
+    slope: 1.0 
+    intercept: -5.0 
+    r squared: 1.0 
+    p-value: 1.9206748078018256e-50 
+    st_error 0.0 
+    RMSE 0.0
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_16_1.png" alt = "Plot showing the relationship between x and y variables.">
+<figcaption>Plot showing the relationship between x and y variables.</figcaption>
+
+</figure>
+
+
+
+
 ### Use Seaborn To Plot Regression Fit
 
 Below is a plot of the same data using the `seaborn` package. The Seaborn package wraps around Matplotlib. It makes it easier to make nice looking plots, quickly. 
@@ -461,32 +517,8 @@ ax.set(xlabel="Lidar derived max tree height (m)",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_17_1.png" alt = "Using Seaborn you can look at the regression relationship and how much of the data variablility is explained by the regression model.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_18_1.png" alt = "Using Seaborn you can look at the regression relationship and how much of the data variablility is explained by the regression model.">
 <figcaption>Using Seaborn you can look at the regression relationship and how much of the data variablility is explained by the regression model.</figcaption>
-
-</figure>
-
-
-
-
-
-{:.output}
-    slope: 1.0 
-    intercept: -5.0 
-    r squared: 1.0 
-    p-value: 1.9206748078018256e-50 
-    st_error 0.0 
-    RMSE 0.0
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty04-regression-and-questioning-your-data/2016-12-06-uncertainty04-regression-and-questioning-your-data_18_1.png" alt = "Plot showing the relationship between x and y variables.">
-<figcaption>Plot showing the relationship between x and y variables.</figcaption>
 
 </figure>
 

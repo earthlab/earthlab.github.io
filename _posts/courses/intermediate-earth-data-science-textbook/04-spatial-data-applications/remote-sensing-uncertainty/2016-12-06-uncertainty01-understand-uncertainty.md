@@ -11,7 +11,7 @@ permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-
 nav-title: 'Remote Sensing Uncertainty'
 module-title: 'Lidar Compared to Human Measurements: Uncertainty and Remote Sensing Data'
 module-description: 'Uncertainty quantifies the range of values within which the value of the measurement falls - within a specified level of confidence. Learn about the concept of uncertainty as it relates to both remote sensing and other spatial data.'
-module-nav-title: 'Uncertainty in Scientific Data'
+module-nav-title: 'Uncertainty in Remote Sensing Data'
 module-type: 'class'
 course: 'intermediate-earth-data-science-textbook'
 chapter: 6
