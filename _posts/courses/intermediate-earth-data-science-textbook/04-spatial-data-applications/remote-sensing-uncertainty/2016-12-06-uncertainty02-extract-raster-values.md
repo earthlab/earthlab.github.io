@@ -34,8 +34,6 @@ redirect_from:
 
 </div>
 
-## Why Extract Data From Raster Using Vector Data
-
 On this page, you will extract pixel values that cover each field plot area where trees were measured in the NEON Field Sites. The idea is that you can calculate the mean or max height value for all pixels that fall in each NEON site. 
 
 Then, you will compare that mean or max height value derived from the lidar data derived canopy height model pixels to height values calculated using human tree height measurements. 

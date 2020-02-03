@@ -431,7 +431,7 @@ insitu_stem_ht.head()
 
 
 
-## Merge InSitu Data With Spatial data.frame
+## Merge InSitu Data With Spatial Dataframe
 
 Once you have our summarized insitu data, you can `merge` it into the centroids
 `data frame`. Merge requires two data.frames and the names of the columns

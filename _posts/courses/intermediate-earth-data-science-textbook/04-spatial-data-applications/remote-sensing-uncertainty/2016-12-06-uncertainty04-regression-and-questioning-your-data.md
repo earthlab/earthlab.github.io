@@ -163,7 +163,7 @@ ax.set(xlabel="Lidar derived max tree height (m)",
 
 
 In practice, observations from different methods rarely show a 1:1 relationship. 
-For example below you can see how lidar estimates compare to human made measurements of tree height. 
+For example above, you can see how lidar estimates compare to human made measurements of tree height. 
 Notice that some measurements are similar, and close to the 1:1 line. 
 In other cases, when points lie above or below the 1:1 line, the measurements are different. 
 
@@ -274,7 +274,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x7fbc5d360410>
+    <matplotlib.legend.Legend at 0x7f0d931d4b50>
 
 
 
@@ -469,38 +469,6 @@ ax.set(xlabel="Lidar derived max tree height (m)",
 
 
 
-{:.input}
-```python
-# Create some points with a one to one relationships
-x = np.array([1, 22, 3, 14, 16, 45, 45])
-y = np.array([item-5 for item in x])
-
-slope, intercept, r_value, p_value, std_err = stats.linregress(x, y)
-
-fig, ax = plt.subplots(figsize=(10, 10))
-
-ax.scatter(x, y, c='blue', label="data")
-
-ax.plot((0, 1), (0, 1), transform=ax.transAxes,
-        ls='--', c='k', label="1:1 line")
-
-ax.plot(x, intercept + slope*x, 'grey', label='regression fitted line',
-        color="purple")
-
-ax.set(xlim=[0, 50], ylim=[0, 50])
-
-ax.set(xlabel="Variable A", ylabel="Variable B",
-       title="Data Points with a Strong \nR-squared but There is a Positive Bias")
-
-plt.legend()
-
-print("slope:", slope,
-      "\nintercept:", intercept,
-      "\nr squared:", r_value**2,
-      "\np-value:", p_value,
-      "\nst_error", std_err,
-      "\nRMSE", sqrt(std_err))
-```
 
 {:.output}
     slope: 1.0 

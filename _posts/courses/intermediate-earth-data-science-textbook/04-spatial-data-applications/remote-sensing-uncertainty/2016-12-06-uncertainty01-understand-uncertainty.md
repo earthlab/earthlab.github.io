@@ -103,12 +103,6 @@ heights that we are likely to get when we measure the tree.
 
 
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 
 {:.output}
 {:.display_data}
