@@ -2,7 +2,7 @@
 layout: single
 title: "Geographic vs projected coordinate reference systems - GIS in Python"
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/geographic-vs-projected-coordinate-reference-systems-python/
@@ -335,8 +335,8 @@ boulder_df_geog
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>POINT (-105.2705459796447 40.01498401291801)</td>
+      <th>0</th>
+      <td>POINT (-105.27055 40.01498)</td>
     </tr>
   </tbody>
 </table>

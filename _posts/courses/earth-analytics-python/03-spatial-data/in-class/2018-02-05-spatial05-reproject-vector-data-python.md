@@ -3,7 +3,7 @@ layout: single
 title: "GIS in Python: Reproject Vector Data."
 excerpt: "In this lesson we cover how to reproject a vector dataset in `Python` using the `to_crs()` `Geopandas` function."
 authors: ['Leah Wasser','Martha Morrissey','Chris Holdgraf']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/reproject-vector-data-in-python/
@@ -250,7 +250,7 @@ state_boundary_us.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>06</td>
       <td>01779778</td>
       <td>0400000US06</td>
@@ -261,10 +261,10 @@ state_boundary_us.head()
       <td>403483823181</td>
       <td>20483271881</td>
       <td>West</td>
-      <td>(POLYGON Z ((-118.593969 33.467198 0, -118.484...</td>
+      <td>MULTIPOLYGON Z (((-118.59397 33.46720 0.00000,...</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>11</td>
       <td>01702382</td>
       <td>0400000US11</td>
@@ -275,10 +275,10 @@ state_boundary_us.head()
       <td>158350578</td>
       <td>18633500</td>
       <td>Northeast</td>
-      <td>POLYGON Z ((-77.119759 38.934343 0, -77.041017...</td>
+      <td>POLYGON Z ((-77.11976 38.93434 0.00000, -77.04...</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>12</td>
       <td>00294478</td>
       <td>0400000US12</td>
@@ -289,10 +289,10 @@ state_boundary_us.head()
       <td>138903200855</td>
       <td>31407883551</td>
       <td>Southeast</td>
-      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+      <td>MULTIPOLYGON Z (((-81.81169 24.56874 0.00000, ...</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>13</td>
       <td>01705317</td>
       <td>0400000US13</td>
@@ -303,10 +303,10 @@ state_boundary_us.head()
       <td>148963503399</td>
       <td>4947080103</td>
       <td>Southeast</td>
-      <td>POLYGON Z ((-85.605165 34.984678 0, -85.474338...</td>
+      <td>POLYGON Z ((-85.60516 34.98468 0.00000, -85.47...</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>16</td>
       <td>01779783</td>
       <td>0400000US16</td>
@@ -317,7 +317,7 @@ state_boundary_us.head()
       <td>214045425549</td>
       <td>2397728105</td>
       <td>West</td>
-      <td>POLYGON Z ((-117.243027 44.390974 0, -117.2150...</td>
+      <td>POLYGON Z ((-117.24303 44.39097 0.00000, -117....</td>
     </tr>
   </tbody>
 </table>

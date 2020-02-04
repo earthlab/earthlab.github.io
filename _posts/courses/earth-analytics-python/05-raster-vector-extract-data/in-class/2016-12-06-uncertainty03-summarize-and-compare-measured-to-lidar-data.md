@@ -4,7 +4,7 @@ title: "Extract raster values using vector boundaries in Python"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer' ]
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/
@@ -187,7 +187,7 @@ SJER_insitu.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER128</td>
@@ -195,7 +195,7 @@ SJER_insitu.head()
       <td>Pinus sabiniana</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER2796</td>
@@ -203,7 +203,7 @@ SJER_insitu.head()
       <td>Arctostaphylos viscida</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER272</td>
@@ -211,7 +211,7 @@ SJER_insitu.head()
       <td>Arctostaphylos viscida</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER112</td>
@@ -219,7 +219,7 @@ SJER_insitu.head()
       <td>Arctostaphylos viscida</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>SJER</td>
       <td>San Joaquin</td>
       <td>SJER272</td>
@@ -291,27 +291,27 @@ insitu_stem_ht.head()
   </thead>
   <tbody>
     <tr>
-      <td>SJER1068</td>
+      <th>SJER1068</th>
       <td>3.866667</td>
       <td>19.3</td>
     </tr>
     <tr>
-      <td>SJER112</td>
+      <th>SJER112</th>
       <td>8.221429</td>
       <td>23.9</td>
     </tr>
     <tr>
-      <td>SJER116</td>
+      <th>SJER116</th>
       <td>8.218750</td>
       <td>16.0</td>
     </tr>
     <tr>
-      <td>SJER117</td>
+      <th>SJER117</th>
       <td>6.512500</td>
       <td>11.0</td>
     </tr>
     <tr>
-      <td>SJER120</td>
+      <th>SJER120</th>
       <td>7.600000</td>
       <td>8.8</td>
     </tr>
@@ -385,31 +385,31 @@ insitu_stem_ht.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>SJER1068</td>
       <td>3.866667</td>
       <td>19.3</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>SJER112</td>
       <td>8.221429</td>
       <td>23.9</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>SJER116</td>
       <td>8.218750</td>
       <td>16.0</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>SJER117</td>
       <td>6.512500</td>
       <td>11.0</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>SJER120</td>
       <td>7.600000</td>
       <td>8.8</td>
@@ -484,8 +484,8 @@ SJER_final_height.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>POLYGON ((255872.376 4111567.818, 255872.27969...</td>
+      <th>0</th>
+      <td>POLYGON ((255872.376 4111567.818, 255872.280 4...</td>
       <td>SJER1068</td>
       <td>center</td>
       <td>4111567.818</td>
@@ -499,8 +499,8 @@ SJER_final_height.head()
       <td>19.3</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>POLYGON ((257426.967 4111298.971, 257426.87069...</td>
+      <th>1</th>
+      <td>POLYGON ((257426.967 4111298.971, 257426.871 4...</td>
       <td>SJER112</td>
       <td>center</td>
       <td>4111298.971</td>
@@ -514,8 +514,8 @@ SJER_final_height.head()
       <td>23.9</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>POLYGON ((256858.76 4110819.876, 256858.663694...</td>
+      <th>2</th>
+      <td>POLYGON ((256858.760 4110819.876, 256858.664 4...</td>
       <td>SJER116</td>
       <td>center</td>
       <td>4110819.876</td>
@@ -529,8 +529,8 @@ SJER_final_height.head()
       <td>16.0</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>POLYGON ((256196.947 4108752.026, 256196.85069...</td>
+      <th>3</th>
+      <td>POLYGON ((256196.947 4108752.026, 256196.851 4...</td>
       <td>SJER117</td>
       <td>center</td>
       <td>4108752.026</td>
@@ -544,8 +544,8 @@ SJER_final_height.head()
       <td>11.0</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>POLYGON ((255988.372 4110476.079, 255988.27569...</td>
+      <th>4</th>
+      <td>POLYGON ((255988.372 4110476.079, 255988.276 4...</td>
       <td>SJER120</td>
       <td>center</td>
       <td>4110476.079</td>

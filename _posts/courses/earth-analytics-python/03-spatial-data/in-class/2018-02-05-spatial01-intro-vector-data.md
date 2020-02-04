@@ -3,7 +3,7 @@ layout: single
 title: "GIS in Python: Introduction to Vector Format Spatial Data - Points, Lines and Polygons"
 excerpt: "This lesson introduces what vector data are and how to open vector data stored in shapefile format in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-vector-data-python/
@@ -213,7 +213,7 @@ sjer_plot_locations.head(6)
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>SJER1068</td>
       <td>center</td>
       <td>4111567.818</td>
@@ -222,7 +222,7 @@ sjer_plot_locations.head(6)
       <td>POINT (255852.376 4111567.818)</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>SJER112</td>
       <td>center</td>
       <td>4111298.971</td>
@@ -231,16 +231,16 @@ sjer_plot_locations.head(6)
       <td>POINT (257406.967 4111298.971)</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>SJER116</td>
       <td>center</td>
       <td>4110819.876</td>
       <td>256838.760</td>
       <td>grass</td>
-      <td>POINT (256838.76 4110819.876)</td>
+      <td>POINT (256838.760 4110819.876)</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>SJER117</td>
       <td>center</td>
       <td>4108752.026</td>
@@ -249,7 +249,7 @@ sjer_plot_locations.head(6)
       <td>POINT (256176.947 4108752.026)</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>SJER120</td>
       <td>center</td>
       <td>4110476.079</td>
@@ -258,13 +258,13 @@ sjer_plot_locations.head(6)
       <td>POINT (255968.372 4110476.079)</td>
     </tr>
     <tr>
-      <td>5</td>
+      <th>5</th>
       <td>SJER128</td>
       <td>center</td>
       <td>4111388.570</td>
       <td>257078.867</td>
       <td>trees</td>
-      <td>POINT (257078.867 4111388.57)</td>
+      <td>POINT (257078.867 4111388.570)</td>
     </tr>
   </tbody>
 </table>
@@ -454,7 +454,7 @@ sjer_plot_locations.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7ff4d1810c50>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f9b32e50f50>
 
 
 

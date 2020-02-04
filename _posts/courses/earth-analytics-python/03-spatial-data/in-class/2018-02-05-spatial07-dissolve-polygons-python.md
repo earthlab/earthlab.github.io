@@ -3,7 +3,7 @@ layout: single
 title: "How to Dissolve Polygons Using Geopandas: GIS in Python"
 excerpt: "In this lesson you review how to dissolve polygons in python. A spatial join is when you assign attributes from one shapefile to another based upon its spatial location."
 authors: ['Leah Wasser']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/dissolve-polygons-in-python-geopandas-shapely/
@@ -141,7 +141,7 @@ state_boundary_us.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>06</td>
       <td>01779778</td>
       <td>0400000US06</td>
@@ -152,10 +152,10 @@ state_boundary_us.head()
       <td>403483823181</td>
       <td>20483271881</td>
       <td>West</td>
-      <td>(POLYGON Z ((-118.593969 33.467198 0, -118.484...</td>
+      <td>MULTIPOLYGON Z (((-118.59397 33.46720 0.00000,...</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>11</td>
       <td>01702382</td>
       <td>0400000US11</td>
@@ -166,10 +166,10 @@ state_boundary_us.head()
       <td>158350578</td>
       <td>18633500</td>
       <td>Northeast</td>
-      <td>POLYGON Z ((-77.119759 38.934343 0, -77.041017...</td>
+      <td>POLYGON Z ((-77.11976 38.93434 0.00000, -77.04...</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>12</td>
       <td>00294478</td>
       <td>0400000US12</td>
@@ -180,10 +180,10 @@ state_boundary_us.head()
       <td>138903200855</td>
       <td>31407883551</td>
       <td>Southeast</td>
-      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+      <td>MULTIPOLYGON Z (((-81.81169 24.56874 0.00000, ...</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>13</td>
       <td>01705317</td>
       <td>0400000US13</td>
@@ -194,10 +194,10 @@ state_boundary_us.head()
       <td>148963503399</td>
       <td>4947080103</td>
       <td>Southeast</td>
-      <td>POLYGON Z ((-85.605165 34.984678 0, -85.474338...</td>
+      <td>POLYGON Z ((-85.60516 34.98468 0.00000, -85.47...</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>16</td>
       <td>01779783</td>
       <td>0400000US16</td>
@@ -208,7 +208,7 @@ state_boundary_us.head()
       <td>214045425549</td>
       <td>2397728105</td>
       <td>West</td>
-      <td>POLYGON Z ((-117.243027 44.390974 0, -117.2150...</td>
+      <td>POLYGON Z ((-117.24303 44.39097 0.00000, -117....</td>
     </tr>
   </tbody>
 </table>
@@ -286,8 +286,8 @@ cont_usa
   </thead>
   <tbody>
     <tr>
-      <td>00</td>
-      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+      <th>00</th>
+      <td>MULTIPOLYGON Z (((-81.81169 24.56874 0.00000, ...</td>
     </tr>
   </tbody>
 </table>
@@ -340,9 +340,9 @@ cont_usa.reset_index()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>00</td>
-      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+      <td>MULTIPOLYGON Z (((-81.81169 24.56874 0.00000, ...</td>
     </tr>
   </tbody>
 </table>
@@ -438,32 +438,32 @@ regions_agg
   </thead>
   <tbody>
     <tr>
-      <td>Midwest</td>
-      <td>(POLYGON Z ((-82.863342 41.693693 0, -82.82571...</td>
+      <th>Midwest</th>
+      <td>MULTIPOLYGON Z (((-82.86334 41.69369 0.00000, ...</td>
       <td>1943869253244</td>
       <td>184383393833</td>
     </tr>
     <tr>
-      <td>Northeast</td>
-      <td>(POLYGON Z ((-76.04621299999999 38.025533 0, -...</td>
+      <th>Northeast</th>
+      <td>MULTIPOLYGON Z (((-76.04621 38.02553 0.00000, ...</td>
       <td>869066138232</td>
       <td>108922434345</td>
     </tr>
     <tr>
-      <td>Southeast</td>
-      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+      <th>Southeast</th>
+      <td>MULTIPOLYGON Z (((-81.81169 24.56874 0.00000, ...</td>
       <td>1364632039655</td>
       <td>103876652998</td>
     </tr>
     <tr>
-      <td>Southwest</td>
-      <td>POLYGON Z ((-94.48587499999999 33.637867 0, -9...</td>
+      <th>Southwest</th>
+      <td>POLYGON Z ((-94.48587 33.63787 0.00000, -94.41...</td>
       <td>1462631530997</td>
       <td>24217682268</td>
     </tr>
     <tr>
-      <td>West</td>
-      <td>(POLYGON Z ((-118.594033 33.035951 0, -118.540...</td>
+      <th>West</th>
+      <td>MULTIPOLYGON Z (((-118.59403 33.03595 0.00000,...</td>
       <td>2432336444730</td>
       <td>57568049509</td>
     </tr>
@@ -523,40 +523,40 @@ regions_agg
   </thead>
   <tbody>
     <tr>
-      <td>Midwest</td>
-      <td>(POLYGON Z ((-82.863342 41.693693 0, -82.82571...</td>
+      <th>Midwest</th>
+      <td>MULTIPOLYGON Z (((-82.86334 41.69369 0.00000, ...</td>
       <td>1943869253244</td>
       <td>184383393833</td>
       <td>1.943869e+08</td>
       <td>1.843834e+07</td>
     </tr>
     <tr>
-      <td>Northeast</td>
-      <td>(POLYGON Z ((-76.04621299999999 38.025533 0, -...</td>
+      <th>Northeast</th>
+      <td>MULTIPOLYGON Z (((-76.04621 38.02553 0.00000, ...</td>
       <td>869066138232</td>
       <td>108922434345</td>
       <td>8.690661e+07</td>
       <td>1.089224e+07</td>
     </tr>
     <tr>
-      <td>Southeast</td>
-      <td>(POLYGON Z ((-81.81169299999999 24.568745 0, -...</td>
+      <th>Southeast</th>
+      <td>MULTIPOLYGON Z (((-81.81169 24.56874 0.00000, ...</td>
       <td>1364632039655</td>
       <td>103876652998</td>
       <td>1.364632e+08</td>
       <td>1.038767e+07</td>
     </tr>
     <tr>
-      <td>Southwest</td>
-      <td>POLYGON Z ((-94.48587499999999 33.637867 0, -9...</td>
+      <th>Southwest</th>
+      <td>POLYGON Z ((-94.48587 33.63787 0.00000, -94.41...</td>
       <td>1462631530997</td>
       <td>24217682268</td>
       <td>1.462632e+08</td>
       <td>2.421768e+06</td>
     </tr>
     <tr>
-      <td>West</td>
-      <td>(POLYGON Z ((-118.594033 33.035951 0, -118.540...</td>
+      <th>West</th>
+      <td>MULTIPOLYGON Z (((-118.59403 33.03595 0.00000,...</td>
       <td>2432336444730</td>
       <td>57568049509</td>
       <td>2.432336e+08</td>

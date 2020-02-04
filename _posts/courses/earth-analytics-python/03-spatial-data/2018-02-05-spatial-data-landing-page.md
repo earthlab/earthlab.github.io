@@ -5,7 +5,7 @@ title: "Introduction to Shapefiles and Vector Data in Open Source Python - Spati
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 3
 week: 3
-modified: 2020-01-29
+modified: 2020-02-01
 sidebar:
   nav:
 comments: false
@@ -80,6 +80,16 @@ Please read the following chapters to support completing this week's assignment:
 
 
 
+{:.output}
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
+    
+    To further ignore this warning, you can do: 
+    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
+      return self.notna()
+
+
+
 
 {:.output}
 {:.display_data}
@@ -100,6 +110,26 @@ Please read the following chapters to support completing this week's assignment:
 
 
 
+{:.output}
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
+    
+    To further ignore this warning, you can do: 
+    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
+      return self.notna()
+
+
+
+
+
+{:.output}
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
+    
+    To further ignore this warning, you can do: 
+    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
+      return self.notna()
+
 
 
 
@@ -114,6 +144,18 @@ Please read the following chapters to support completing this week's assignment:
 <figcaption>Map showing the roads layer clipped to the three counties and colored according to which county the road is in.</figcaption>
 
 </figure>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -137,7 +179,7 @@ The `download()` function will unzip your data for you and place it in the direc
 
 
 {:.output}
-    /opt/conda/lib/python3.7/site-packages/pandas/core/reshape/merge.py:617: UserWarning: merging between different levels can give an unintended result (1 levels on the left, 2 on the right)
+    /opt/conda/lib/python3.7/site-packages/pandas/core/reshape/merge.py:618: UserWarning: merging between different levels can give an unintended result (1 levels on the left, 2 on the right)
       warnings.warn(msg, UserWarning)
 
 

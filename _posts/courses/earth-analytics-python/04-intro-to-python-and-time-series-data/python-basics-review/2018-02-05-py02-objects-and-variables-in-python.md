@@ -10,7 +10,7 @@ class-lesson: ['get-to-know-python']
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/objects-and-variables-in-python/
 nav-title: 'Objects in Python'
 dateCreated: 2017-05-23
-modified: 2020-01-29
+modified: 2020-02-01
 course: "earth-analytics-python"
 week: 4
 sidebar:

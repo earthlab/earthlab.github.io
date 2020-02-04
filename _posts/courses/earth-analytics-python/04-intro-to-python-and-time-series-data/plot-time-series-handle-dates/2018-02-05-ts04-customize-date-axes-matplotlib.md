@@ -3,7 +3,7 @@ layout: single
 title: "Customize Matplotlibe Dates Ticks on the x-axis in Python"
 excerpt: 'When you plot time series data in matplotlib, you often want to customize the date format that is presented on the plot. Learn how to customize the date format in a Python matplotlib plot.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['time-series-python']
 course: 'earth-analytics-python'
@@ -132,7 +132,7 @@ precip_boulder_AugOct.head()
   </thead>
   <tbody>
     <tr>
-      <td>2013-08-21</td>
+      <th>2013-08-21</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -143,7 +143,7 @@ precip_boulder_AugOct.head()
       <td>233</td>
     </tr>
     <tr>
-      <td>2013-08-26</td>
+      <th>2013-08-26</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -154,7 +154,7 @@ precip_boulder_AugOct.head()
       <td>238</td>
     </tr>
     <tr>
-      <td>2013-08-27</td>
+      <th>2013-08-27</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -165,7 +165,7 @@ precip_boulder_AugOct.head()
       <td>239</td>
     </tr>
     <tr>
-      <td>2013-09-01</td>
+      <th>2013-09-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -176,7 +176,7 @@ precip_boulder_AugOct.head()
       <td>244</td>
     </tr>
     <tr>
-      <td>2013-09-09</td>
+      <th>2013-09-09</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>

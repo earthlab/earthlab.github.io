@@ -3,7 +3,7 @@ layout: single
 title: "Clip a spatial vector layer in python using shapely & geopandas: GIS in Python"
 excerpt: "In this lesson you review how to clip a vector data layer in python using geopandas and shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/clip-vector-data-in-python-geopandas-shapely/
@@ -240,37 +240,37 @@ points_clip[['name', 'geometry', 'scalerank', 'natscale', ]].head()
   </thead>
   <tbody>
     <tr>
-      <td>175</td>
+      <th>175</th>
       <td>San Francisco</td>
-      <td>POINT (-122.4171687735522 37.76919562968743)</td>
+      <td>POINT (-122.41717 37.76920)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <td>176</td>
+      <th>176</th>
       <td>Denver</td>
-      <td>POINT (-104.9859618109682 39.7411339069655)</td>
+      <td>POINT (-104.98596 39.74113)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <td>177</td>
+      <th>177</th>
       <td>Houston</td>
-      <td>POINT (-95.34192514914599 29.82192024318886)</td>
+      <td>POINT (-95.34193 29.82192)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <td>178</td>
+      <th>178</th>
       <td>Miami</td>
-      <td>POINT (-80.22605193945003 25.78955655502153)</td>
+      <td>POINT (-80.22605 25.78956)</td>
       <td>1</td>
       <td>300</td>
     </tr>
     <tr>
-      <td>179</td>
+      <th>179</th>
       <td>Atlanta</td>
-      <td>POINT (-84.40189524187565 33.83195971260585)</td>
+      <td>POINT (-84.40190 33.83196)</td>
       <td>1</td>
       <td>300</td>
     </tr>
@@ -387,6 +387,16 @@ ne_roads_clip = cl.clip_shp(ne_roads, country_boundary_us_sim)
 print("The clipped data have fewer line objects (represented by rows):",
       ne_roads_clip.shape, ne_roads.shape)
 ```
+
+{:.output}
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
+    
+    To further ignore this warning, you can do: 
+    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
+      return self.notna()
+
+
 
 {:.output}
     The clipped data have fewer line objects (represented by rows): (7346, 32) (56601, 32)
@@ -607,6 +617,16 @@ plt.show()
 </figure>
 
 
+
+
+
+{:.output}
+    /opt/conda/lib/python3.7/site-packages/geopandas/geoseries.py:330: UserWarning: GeoSeries.notna() previously returned False for both missing (None) and empty geometries. Now, it only returns False for missing values. Since the calling GeoSeries contains empty geometries, the result has changed compared to previous versions of GeoPandas.
+    Given a GeoSeries 's', you can use '~s.is_empty & s.notna()' to get back the old behaviour.
+    
+    To further ignore this warning, you can do: 
+    import warnings; warnings.filterwarnings('ignore', 'GeoSeries.notna', UserWarning)
+      return self.notna()
 
 
 

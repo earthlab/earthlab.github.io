@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/spreadsheet-data-in-python/
 nav-title: 'Spreadsheet Data in Python'
 dateCreated: 2016-12-13
-modified: 2020-01-29
+modified: 2020-02-01
 week: 4
 sidebar:
   nav:
@@ -77,7 +77,7 @@ urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/7010681',
 
 
     ('data/colorado-flood/downloads/boulder-precip.csv',
-     <http.client.HTTPMessage at 0x7f05de406748>)
+     <http.client.HTTPMessage at 0x7fb8c1865d10>)
 
 
 
@@ -137,31 +137,31 @@ boulder_precip.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>756</td>
       <td>2013-08-21</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>757</td>
       <td>2013-08-26</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>758</td>
       <td>2013-08-27</td>
       <td>0.1</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>759</td>
       <td>2013-09-01</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>760</td>
       <td>2013-09-09</td>
       <td>0.1</td>
@@ -418,42 +418,42 @@ boulder_precip.describe()
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>18.000000</td>
       <td>18.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>764.500000</td>
       <td>1.055556</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>5.338539</td>
       <td>2.288905</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>756.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>760.250000</td>
       <td>0.100000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>764.500000</td>
       <td>0.200000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>768.750000</td>
       <td>0.975000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>773.000000</td>
       <td>9.800000</td>
     </tr>

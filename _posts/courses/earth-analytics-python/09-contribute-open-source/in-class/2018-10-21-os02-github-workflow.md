@@ -3,7 +3,7 @@ layout: single
 title: "The GitHub Workflow - How to Contribute To Open Source Software"
 excerpt: "Open source means that you can view and contribute to software code like packages you use in Python. Learn about the ways that you can contribute without being an expert progammer."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['open-source-software-python']
 permalink: /courses/earth-analytics-python/contribute-to-open-source/contribute-to-open-source-on-github/

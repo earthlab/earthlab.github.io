@@ -3,7 +3,7 @@ layout: single
 title: "Introduction to Open Source Software - What Is It and How Can You Help?"
 excerpt: "Open source means that you can view and contribute to software code like packages you use in Python. Learn about the ways that you can contribute without being an expert progammer."
 authors: ['Leah Wasser', 'Max Joseph', 'Tim Head', 'Lauren Herwehe', 'Jenny Palomino']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['open-source-software-python']
 module-title: 'How To Contribute to Open Source Software'

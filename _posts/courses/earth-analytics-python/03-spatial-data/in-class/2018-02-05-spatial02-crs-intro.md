@@ -3,7 +3,7 @@ layout: single
 title: "GIS in Python: Intro to Coordinate Reference Systems in Python"
 excerpt: "This lesson introduces what a coordinate reference system is. You will use the `Python` programming language to explore and reproject data into geographic and projected CRSs."
 authors: ['Chris Holdgraf', 'Leah Wasser']
-modified: 2020-01-29
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['class-intro-spatial-python']
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/intro-to-coordinate-reference-systems-python/
@@ -224,9 +224,9 @@ city_locations
 
 
 
-    [<shapely.geometry.point.Point at 0x7f162ff045c0>,
-     <shapely.geometry.point.Point at 0x7f162feffa20>,
-     <shapely.geometry.point.Point at 0x7f162feff0f0>]
+    [<shapely.geometry.point.Point at 0x7fc107b77950>,
+     <shapely.geometry.point.Point at 0x7fc107b77850>,
+     <shapely.geometry.point.Point at 0x7fc136f52b90>]
 
 
 
@@ -269,16 +269,16 @@ city_locations.head(3)
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>POINT (-105.2519 40.0274)</td>
+      <th>0</th>
+      <td>POINT (-105.25190 40.02740)</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>POINT (10.75 59.95)</td>
+      <th>1</th>
+      <td>POINT (10.75000 59.95000)</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>POINT (2.9833 39.6167)</td>
+      <th>2</th>
+      <td>POINT (2.98330 39.61670)</td>
     </tr>
   </tbody>
 </table>
