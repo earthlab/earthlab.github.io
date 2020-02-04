@@ -4,7 +4,7 @@ title: "Compare Lidar With Human Measured Tree Heights - Remote Sensing Uncertai
 excerpt: "Uncertainty quantifies the range of values within which the value of the measurement falls - within a specified level of confidence. Learn about the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements and learn about sources of error including systematic vs. random error."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2016-12-06
-modified: 2020-02-03
+modified: 2020-02-04
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/
@@ -34,9 +34,9 @@ redirect_from:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Three - Spatial Vector Data Processing in Python 
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Six - Uncertainty in Remote Sensing Data
 
-In this chapter, you will integrate vector and raster data to explore uncertainty in scientific analyses.
+In this chapter, you will integrate vector and raster data using **Python** to explore uncertainty in scientific analyses.
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
@@ -61,7 +61,7 @@ You will need a computer with internet access to complete this lesson. You will 
 </div>
 
 
-## Understand Uncertainty and Error.
+## Understand Uncertainty and Error
 
 It is important to consider error and uncertainty when presenting scientific
 results. Most measurements that we make - be they from instruments or humans -
