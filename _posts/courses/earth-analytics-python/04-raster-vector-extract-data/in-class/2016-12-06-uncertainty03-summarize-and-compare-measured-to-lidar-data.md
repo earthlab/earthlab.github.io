@@ -4,11 +4,7 @@ title: "Extract raster values using vector boundaries in Python"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer' ]
-<<<<<<< HEAD
-modified: 2020-02-04
-=======
 modified: 2020-02-05
->>>>>>> 6a8feaabdd6954d8f3551d6e9e8bb36024f028a3
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/
@@ -20,11 +16,9 @@ sidebar:
 author_profile: false
 comments: true
 order: 3
-<<<<<<< HEAD
-=======
 deprecated: True
->>>>>>> 6a8feaabdd6954d8f3551d6e9e8bb36024f028a3
 ---
+
 {% include toc title="In This Lesson" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -39,7 +33,7 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson. You will also need the data you downloaded for last week of this class: `spatial-vector-lidar data subset`. 
+You will need a computer with internet access to complete this lesson. You will also need the data you downloaded for last week of this class: `spatial-vector-lidar data subset`.
 
 {% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
@@ -50,9 +44,9 @@ In this lesson series your overall goal is to compare tree height measurements t
 1. Raster - the lidar canopy height model and
 2. Vector point location data
 
-In the previous lesson, you learned how to extract raster values from an area derived by create a buffer region around each point in a shapefile. In this lesson you will summarize the human made measurements and then compare them to lidar. 
+In the previous lesson, you learned how to extract raster values from an area derived by create a buffer region around each point in a shapefile. In this lesson you will summarize the human made measurements and then compare them to lidar.
 
-To begin, load all of the required libraries. 
+To begin, load all of the required libraries.
 
 
 
@@ -242,11 +236,11 @@ SJER_insitu.head()
 
 
 
-## Summarize Tree Height Data  Using Pandas 
-You want to calculate a summary value of max tree height (the tallest tree measured) in each plot. 
+## Summarize Tree Height Data  Using Pandas
+You want to calculate a summary value of max tree height (the tallest tree measured) in each plot.
 You have a unique id for each plot - **plotid** that can be used to group the data. The tree height values themselves are located in the **stemheight** column.
 
-You can calculate this by using the `.groupy()` method in pandas. 
+You can calculate this by using the `.groupy()` method in pandas.
 
 The steps are
 
@@ -351,7 +345,7 @@ Notice that below you use a pythonic approach to creating for loops. Rather than
 
 
 
-Rename each column - appending "insitu". 
+Rename each column - appending "insitu".
 
 {:.input}
 ```python
@@ -584,7 +578,7 @@ Take note that while you you don't have to rename the columns as you did above i
 
 ## Plot Data (CHM vs Measured)
 
-You've now merged the two dataframes together. Your are ready to create your first scatterplot of the data. 
+You've now merged the two dataframes together. Your are ready to create your first scatterplot of the data.
 You can use the pandas `.plot()` to create a scatterplot (or you can use matplotlib directly). The example below uses pandas plotting.  
 
 
@@ -734,7 +728,7 @@ SJER_final_height['insitu_max']
 
 
 
-Plot the points by tree height. 
+Plot the points by tree height.
 
 {:.input}
 ```python
@@ -777,11 +771,11 @@ The last comparison that you may wish to explore is the plot by plot difference 
 You may decide to either:
 
 1. Visit the sites if you are close to the field site or
-2. Explore imagery for the sites to see if you can figure out a good reason for why the results may be so different. 
+2. Explore imagery for the sites to see if you can figure out a good reason for why the results may be so different.
 
 Below you do the following
 1. You first subtract field measured tree height from lidar estimates
-2. Then you create a barplot of that value 
+2. Then you create a barplot of that value
 </div>
 
 {:.input}
@@ -813,6 +807,3 @@ plt.show()
 <figcaption>Barplot showing the difference between lidar and measured tree height for each plot.</figcaption>
 
 </figure>
-
-
-

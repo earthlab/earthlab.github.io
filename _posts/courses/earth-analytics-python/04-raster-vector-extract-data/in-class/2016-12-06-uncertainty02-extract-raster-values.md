@@ -4,11 +4,7 @@ title: "Extract Raster Values At Point Locations in Python"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
-<<<<<<< HEAD
-modified: 2020-02-04
-=======
 modified: 2020-02-05
->>>>>>> 6a8feaabdd6954d8f3551d6e9e8bb36024f028a3
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -20,10 +16,7 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
-<<<<<<< HEAD
-=======
 deprecated: True
->>>>>>> 6a8feaabdd6954d8f3551d6e9e8bb36024f028a3
 ---
 
 
@@ -40,22 +33,22 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson. You will also need the data you downloaded for last week of this class: `spatial-vector-lidar data subset`. 
+You will need a computer with internet access to complete this lesson. You will also need the data you downloaded for last week of this class: `spatial-vector-lidar data subset`.
 
 {% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
 
 </div>
 
-In this lesson you will extract pixel values that cover each field plot area where trees were measured in the NEON Field Sites. The idea is that you can calculate the mean or max height value for all pixels that fall in each NEON site. Then you will compare that mean or max height value derived from the lidar data derived canopy height model pixels to height values calcualted using human tree height measurements. 
+In this lesson you will extract pixel values that cover each field plot area where trees were measured in the NEON Field Sites. The idea is that you can calculate the mean or max height value for all pixels that fall in each NEON site. Then you will compare that mean or max height value derived from the lidar data derived canopy height model pixels to height values calcualted using human tree height measurements.
 
 To do this, you need to do the following:
 
-1. Import the canopy height model that you wish to extra tree height data from. 
+1. Import the canopy height model that you wish to extra tree height data from.
 2. Clean up that data. For instance if there are values of 0 for areas where there are no trees they will impact a mean value calculation. It is better to remove those values from the data.
-3. Finally you will import and create a buffer zone that represents the area where trees were sampled in each NEON field site. 
+3. Finally you will import and create a buffer zone that represents the area where trees were sampled in each NEON field site.
 
-To begin, import your python libraries. 
+To begin, import your python libraries.
 
 
 {:.input}
@@ -93,7 +86,7 @@ subtracting the Digital elevation model (DEM) from the Digital surface model (DS
 
 ## Context Managers and Rasterio
 
-As you learned in the previous raster lessons, you will use a context manager `with` to create 
+As you learned in the previous raster lessons, you will use a context manager `with` to create
 a connection to your raster dataset. This connection will be automatically closed at the end of the `with` statement.
 
 {:.input}
@@ -144,7 +137,7 @@ print('Min:', SJER_chm_data.min())
 
 
 ## Clean Up Data - Remove 0's
-Looking at the distribution of data, you can see there are many pixels that have a value of 0 - where there are no trees. Also, using the NEON data, values below 2m are normally set to 0 given the accuracy of the lidar instrument used to collect these data. 
+Looking at the distribution of data, you can see there are many pixels that have a value of 0 - where there are no trees. Also, using the NEON data, values below 2m are normally set to 0 given the accuracy of the lidar instrument used to collect these data.
 
 Set all pixel values `==0` to `nan` as they will impact calculation of plot mean height. A mean calculated with values of 0 will be significantly lower than a mean calculated with just tree height values.  
 
@@ -167,10 +160,10 @@ print('Min:', np.nanmin(SJER_chm_data))
 
 
 
-Look at the histogram of the data with the 0's removed. Now you can see the true distribution of heights in the data. 
-Notice that below to plot the histogram an additional step is taken to remove `nan` values from the data. There are several ways to do this but here, we simply subset the data using 
+Look at the histogram of the data with the 0's removed. Now you can see the true distribution of heights in the data.
+Notice that below to plot the histogram an additional step is taken to remove `nan` values from the data. There are several ways to do this but here, we simply subset the data using
 
-`SJER_chm_data[~np.isnan(SJER_chm_data)])` 
+`SJER_chm_data[~np.isnan(SJER_chm_data)])`
 
 Then the data are flattened into a 1-dimensional array to create the histogram:
 
@@ -259,12 +252,12 @@ SJER_plots_points.geom_type.head()
 
 ### Overlay Points on Top Of Your Raster Data
 
-Finally, a quick plot allows you to check that your points actually overlay on top of the canopy 
-height model. This is a good sanity check just to ensure your data actually line up and are for the 
+Finally, a quick plot allows you to check that your points actually overlay on top of the canopy
+height model. This is a good sanity check just to ensure your data actually line up and are for the
 same location.
 
-If you recall in week 2, we discussed the spatial extent of a raster. Here is where you will need to set the spatial 
-extent when plotting raster using `imshow()`. If you do not specify a spatial extent, your raster will not line up 
+If you recall in week 2, we discussed the spatial extent of a raster. Here is where you will need to set the spatial
+extent when plotting raster using `imshow()`. If you do not specify a spatial extent, your raster will not line up
 properly with your geopandas object.
 
 {:.input}
@@ -302,7 +295,7 @@ plt.show()
 
 Each point in your data represent the center location of a plot where trees were measured. You want to extract tree height values derived from the lidar data for the entire plot. To do this, you will need to create a BUFFER around the points representing the region of the plot where data were collected.
 
-In this case your plot size is 40m. If you create a circular buffer with a 20m diameter it will closely approximate where trees were measured on the ground. 
+In this case your plot size is 40m. If you create a circular buffer with a 20m diameter it will closely approximate where trees were measured on the ground.
 
 You can use the `.buffer()` method to create the buffer. Here the buffer size is specified in the `()` of the function. We will send the new object to a new shapefile using `.to_file()` as follows:
 
@@ -320,10 +313,10 @@ You can use the `.buffer()` method to create the buffer. Here the buffer size is
     </figcaption>
 </figure>
 
-Below you 
+Below you
 1. Make a copy of the points layer and create a new, to be created polygon layer
-2. Buffer the points layer using the `.buffer()` method. This will produce a circle around each point that is x units radius. The units will coincide with the CRS of your data. This known as a buffer. 
-3. When you perform the buffer, you UPDATE the "geometry" column of your new poly layer with the buffer output. 
+2. Buffer the points layer using the `.buffer()` method. This will produce a circle around each point that is x units radius. The units will coincide with the CRS of your data. This known as a buffer.
+3. When you perform the buffer, you UPDATE the "geometry" column of your new poly layer with the buffer output.
 
 
 {:.input}
@@ -435,14 +428,14 @@ plot_buffer_path = 'data/spatial-vector-lidar/outputs/plot_buffer.shp'
 SJER_plots_poly.to_file(plot_buffer_path)
 ```
 
-## Extract Pixel Values For Each Plot 
+## Extract Pixel Values For Each Plot
 
-Once you have the boundary for each plot location (a 20m diameter circle) you can extract all of the pixels that fall within each circle using the function `zonal_stats` in the `rasterstats` library. 
+Once you have the boundary for each plot location (a 20m diameter circle) you can extract all of the pixels that fall within each circle using the function `zonal_stats` in the `rasterstats` library.
 
 There are several ways to use the zonal_stats function. In this case we are providing the following
 
 1. chm data (numpy array): `SJER_chm_data` in a numpy array format
-2. Because a numpy array has no spatial information, you provide the affine data which is the spatial information needed to spatially located the array. 
+2. Because a numpy array has no spatial information, you provide the affine data which is the spatial information needed to spatially located the array.
 3. `plot_buffer_path`: this is the path to the buffered point shapefile that you created at the top of this lesson
 
 
@@ -472,7 +465,7 @@ type(sjer_tree_heights)
 
 
 
-Convert the list output to a geodataframe that you can plot the data. 
+Convert the list output to a geodataframe that you can plot the data.
 
 {:.input}
 ```python
@@ -596,7 +589,7 @@ SJER_lidar_height_df.head()
 
 
 
-Below is a bar plot of max lidar derived tree height by plot id. This plot allows you to see how vegetation height varies across the field sites. 
+Below is a bar plot of max lidar derived tree height by plot id. This plot allows you to see how vegetation height varies across the field sites.
 
 {:.input}
 ```python
@@ -629,7 +622,7 @@ plt.show()
 
 ## OPTIONAL -- Explore The Data Distribution
 
-You will not need to perform the steps below for this weeks homework. However, 
+You will not need to perform the steps below for this weeks homework. However,
 if you were really working with lidar data, you may want to look at the distribution
 of pixels in each extracted set of cells for further analysis. The steps below show you how to do this.
 
@@ -772,10 +765,3 @@ plt.show()
 <figcaption>Bar plots showing pixel value distribution for all SJER sites.</figcaption>
 
 </figure>
-
-
-
-
-
-
-
