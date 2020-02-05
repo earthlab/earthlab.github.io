@@ -33,7 +33,7 @@ After completing this lesson, you will be able to:
 
 * Explain how `Github.com` and `Git` use repositories to store and manage files.
 * Create a copy of (i.e. `fork`) other users' files on `Github.com`. 
-* Use the `Git clone` command to download your copy of files to your computer 
+* Use the `Git clone` command to download your copy of files to your computer. 
 * Update your forked repository with changes made in the original `Github`repository (i.e. `git pull`)
 
  
