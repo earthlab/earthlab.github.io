@@ -1,9 +1,10 @@
 ---
 layout: single
+deprecated: true
 title: 'How to Install Python Packages and Then Use Then in Python'
 excerpt: 'The first step in using packages in Python is to install them on your computer. Learn how to install and and import python packages.'
 authors: ['Martha Morrissey','Leah Wasser', 'Software Carpentry']
-modified: 2020-02-01
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/install-and-import-python-packages/ 

@@ -1,9 +1,10 @@
 ---
 layout: single
+deprecated: true
 title: 'Introduction to Markdown'
 excerpt: 'Markdown is a syntax that is used to format text in text files, Jupyter Notebooks and even R Markdown files. Learn how to format text using Markdown.'
 authors: ['Leah Wasser', 'Martha Morrissey', 'Data Carpentry']
-modified: 2020-02-01
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-markdown-in-jupyter-notebooks/

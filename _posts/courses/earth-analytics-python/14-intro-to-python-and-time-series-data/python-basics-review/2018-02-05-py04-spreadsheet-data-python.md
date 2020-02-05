@@ -77,7 +77,7 @@ urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/7010681',
 
 
     ('data/colorado-flood/downloads/boulder-precip.csv',
-     <http.client.HTTPMessage at 0x7f4e7a959cd0>)
+     <http.client.HTTPMessage at 0x7fddb7f9ec90>)
 
 
 

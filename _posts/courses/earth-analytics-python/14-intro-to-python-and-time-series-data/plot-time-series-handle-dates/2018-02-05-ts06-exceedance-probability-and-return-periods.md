@@ -220,8 +220,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-02-05T17:19:59.350Z', 'title': 'requestDT'},
-        {'value': 'bca1c490-483b-11ea-9a45-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2020-02-05T17:32:09.482Z', 'title': 'requestDT'},
+        {'value': '6fd75790-483d-11ea-9a45-6cae8b6642f6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'caas01', 'title': 'server'}]},
@@ -658,7 +658,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7f99d6b0ee10>)
+     <http.client.HTTPMessage at 0x7fd157d8f910>)
 
 
 

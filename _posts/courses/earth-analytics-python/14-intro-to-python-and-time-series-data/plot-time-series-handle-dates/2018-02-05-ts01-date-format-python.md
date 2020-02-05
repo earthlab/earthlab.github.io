@@ -83,12 +83,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 sns.set(font_scale=1.5, style="whitegrid")
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
-
 {:.input}
 ```python
 file_path = "data/colorado-flood/downloads/july-2018-temperature-precip.csv"
@@ -103,7 +97,7 @@ urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/12948515'
 
 
     ('data/colorado-flood/downloads/july-2018-temperature-precip.csv',
-     <http.client.HTTPMessage at 0x7fc96402b090>)
+     <http.client.HTTPMessage at 0x7faa22f85e10>)
 
 
 

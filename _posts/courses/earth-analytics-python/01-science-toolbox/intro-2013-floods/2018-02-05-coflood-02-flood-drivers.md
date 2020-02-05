@@ -1,9 +1,10 @@
 ---
 layout: single
+deprecated: true
 title: 'How the Atmosphere Drives Floods: The 2013 Colorado Floods'
 excerpt: "Changes in the atmosphere, including how quickly a storm moves can impact the severity of a flood. Learn more about how atmospheric conditions impact flood events."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2020-02-01
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['about-2013-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/how-atmospheric-conditions-and-drought-impact-floods/
@@ -75,6 +76,12 @@ Drought is a disturbance event that occurs when a given area experiences below a
 ### How Are Droughts Measured?
 
 There are many ways to measure or quantify drought. The Palmer Drought Severity Index is one commonly used drought index. The Palmer Drought Severity Index is a measure of soil moisture content. It is calculated from soil available water content, precipitation and temperature data. The values range from extreme drought (values <-4.0) through near normal (-.49 to .49) to extremely moist (>4.0). 
+
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
 
 
 

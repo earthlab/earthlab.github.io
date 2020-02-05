@@ -529,7 +529,7 @@ print(plt.style.available)
 ```
 
 {:.output}
-    ['seaborn', 'seaborn-colorblind', 'seaborn-ticks', 'ggplot', 'seaborn-deep', 'seaborn-notebook', 'seaborn-talk', 'seaborn-whitegrid', 'tableau-colorblind10', 'classic', 'fivethirtyeight', 'seaborn-pastel', 'seaborn-muted', 'seaborn-poster', 'Solarize_Light2', 'seaborn-bright', 'bmh', 'seaborn-white', 'dark_background', 'seaborn-dark-palette', '_classic_test', 'seaborn-paper', 'fast', 'grayscale', 'seaborn-darkgrid', 'seaborn-dark']
+    ['seaborn-pastel', 'seaborn-dark', 'dark_background', 'tableau-colorblind10', 'bmh', 'seaborn-dark-palette', 'fivethirtyeight', 'seaborn-bright', 'fast', 'seaborn-ticks', '_classic_test', 'Solarize_Light2', 'seaborn-poster', 'seaborn-darkgrid', 'seaborn-talk', 'seaborn', 'seaborn-muted', 'seaborn-white', 'ggplot', 'classic', 'seaborn-deep', 'seaborn-notebook', 'seaborn-paper', 'grayscale', 'seaborn-colorblind', 'seaborn-whitegrid']
 
 
 
