@@ -1,6 +1,6 @@
 ---
 layout: single
-deprecate: true
+deprecated: true
 title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models - Work With LiDAR Data in Python"
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM)."
 authors: ['Leah Wasser']

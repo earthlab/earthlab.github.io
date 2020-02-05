@@ -1,6 +1,6 @@
 ---
 layout: single
-deprecate: true
+deprecated: true
 title: "Plot Histograms of Raster Values in Python"
 excerpt: "This lesson introduces the raster geotiff file format - which is often used
 to store lidar raster data. You cover the 3 key spatial attributes of a raster dataset

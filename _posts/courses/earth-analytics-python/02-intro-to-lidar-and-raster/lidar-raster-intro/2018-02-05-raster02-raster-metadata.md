@@ -1,6 +1,6 @@
 ---
 layout: single
-deprecate: true
+deprecated: true
 title: "Spatial Raster Metadata: CRS, Resolution, and Extent in Python"
 excerpt: "This lesson introduces the raster meta data. You will learn about CRS, resolution, and spatial extent."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']

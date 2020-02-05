@@ -1,6 +1,6 @@
 ---
 layout: single
-deprecate: true
+deprecated: true
 title: "Get to know Lidar (Light Detection and Ranging) Point Cloud Data - Active Remote Sensing"
 excerpt: "This lesson covers what a lidar point cloud is. You will use the free
 plas.io point cloud viewer to explore a point cloud."

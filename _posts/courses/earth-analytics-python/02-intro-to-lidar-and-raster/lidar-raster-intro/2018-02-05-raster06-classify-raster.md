@@ -1,6 +1,6 @@
 ---
 layout: single
-deprecate: true
+deprecated: true
 title: "Classify and Plot Raster Data in Python"
 excerpt: "This lesson presents how to classify a raster dataset and export it as a
 new raster in Python."

@@ -1,6 +1,6 @@
 ---
 layout: single
-deprecate: true
+deprecated: true
 title: "Reproject Raster Data Python"
 excerpt: "This lesson teaches you how to reproject raster data using rasterio."
 authors: ['Leah Wasser', 'Martha Morrissey']

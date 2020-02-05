@@ -1,6 +1,6 @@
 ---
 layout: single
-deprecate: true
+deprecated: true
 title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']

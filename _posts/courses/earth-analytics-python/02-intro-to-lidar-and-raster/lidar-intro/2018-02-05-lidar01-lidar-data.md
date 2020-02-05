@@ -1,6 +1,6 @@
 ---
 layout: single
-deprecate: true
+deprecated: true
 title: "Introduction to Light Detection and Ranging (Lidar) Remote Sensing Data"
 excerpt: "This lesson reviews what Lidar remote sensing is, what the lidar instrument measures and discusses the core
 components of a lidar remote sensing system."
