@@ -3,7 +3,7 @@ layout: single
 title: 'Use Google Earth Time Series Images to View Flood Impacts'
 excerpt: "Learn how to use the time series feature in Google Earth to view before and after images of a location."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2020-02-01
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['data-for-science-floods']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/use-data-for-science/
@@ -13,7 +13,7 @@ module-title: 'Understand Disturbance with Data - Flooding and Erosion'
 module-nav-title: 'Use Data For Science'
 module-description: 'This module uses time series data to explore the impacts of a flood. Learn how to use Google Earth imagery, NOAA precipitation data and USGS stream flow data to explore the 2013 Colorado floods.'
 module-type: 'class'
-class-order: 3
+class-order: 1
 week: 1
 sidebar:
   nav:

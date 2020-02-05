@@ -1,9 +1,10 @@
 ---
 layout: single
+deprecated: true
 title: 'Why Expressive File and Folder Names Matter: File Organization For Reproducible Science'
 excerpt: 'Learn why self-explanatory file and directory names are important when setting up a science project on your computer. This lesson provides a broad overview of file organization principles.'
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2020-02-01
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/best-practices-file-organization/
