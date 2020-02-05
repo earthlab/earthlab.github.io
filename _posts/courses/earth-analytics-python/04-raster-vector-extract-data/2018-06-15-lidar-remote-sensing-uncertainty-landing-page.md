@@ -28,6 +28,8 @@ For your homework you'll also need to download the data below.
 
 {% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
+*******
+
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework 
 
@@ -96,11 +98,6 @@ customize or modify plot settings as you see fit!
 
 
 
-### Calculated Regression Fit 
-
-The above plots show the regression fit as calculated by the `seaborn` python package. Use `stats.linregression()` to calculate the slope and intercept of the regresion fit for each of the plots above. 
-
-Print the outputs below. 
 
 
 
