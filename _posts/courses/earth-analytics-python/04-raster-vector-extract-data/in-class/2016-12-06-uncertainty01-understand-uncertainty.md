@@ -3,7 +3,7 @@ layout: single
 title: "Compare Lidar With Human Measured Tree Heights - Remote Sensing Uncertainty"
 excerpt: "In this lesson, we cover the topic of uncertainty. We focus on the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements. Further we cover sources of error including systematic vs. random error."
 authors: ['Leah Wasser', 'Chris Holdgraf']
-modified: 2020-02-04
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/understand-uncertainty-lidar/
@@ -18,6 +18,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
+deprecated: True
 order: 1
 ---
 
@@ -38,7 +39,7 @@ with a comparison between remote sensing values with field measured values
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson. You will also need the data you downloaded for last week of this class: `spatial-vector-lidar data subset`. 
+You will need a computer with internet access to complete this lesson. You will also need the data you downloaded for last week of this class: `spatial-vector-lidar data subset`.
 
 {% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
@@ -326,7 +327,3 @@ Do they follow a 1:1 line? Do the data diverge from a 1:1 relationship?
 ## View interactive difference barplot
 
 <a href="https://plot.ly/~leahawasser/158/chm-minus-insitu-differences/" target="_blank">View scatterplot differences</a>
-
-
-
-

@@ -4,7 +4,11 @@ title: "Extract Raster Values At Point Locations in Python"
 excerpt: "This lesson reviews how to extract data from a raster dataset using a
 vector dataset. "
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
+<<<<<<< HEAD
 modified: 2020-02-04
+=======
+modified: 2020-02-05
+>>>>>>> 6a8feaabdd6954d8f3551d6e9e8bb36024f028a3
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python']
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -16,6 +20,10 @@ sidebar:
 author_profile: false
 comments: true
 order: 2
+<<<<<<< HEAD
+=======
+deprecated: True
+>>>>>>> 6a8feaabdd6954d8f3551d6e9e8bb36024f028a3
 ---
 
 

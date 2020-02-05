@@ -4,7 +4,7 @@ category: courses
 title: "Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python"
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/
 week-landing: 5
-modified: 2020-02-04
+modified: 2020-02-05
 week: 4
 sidebar:
   nav:
@@ -34,9 +34,9 @@ For your homework you'll also need to download the data below.
 
 <div class="notice--warning" markdown="1">
 
-## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework 
+## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework
 
-### The Homework Assignment for This Week Can Be Found on Github 
+### The Homework Assignment for This Week Can Be Found on Github
 
 
 <a href="https://github.com/earthlab-education/ea-python-2020-03-spatial-vector-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
@@ -62,7 +62,7 @@ Please read the following chapters to support completing this week's assignment:
 ## Example Homework Plots
 
 The plots below are examples of what your plot could look like. Feel free to
-customize or modify plot settings as you see fit! 
+customize or modify plot settings as you see fit!
 
 
 
@@ -102,31 +102,8 @@ customize or modify plot settings as you see fit!
 
 
 
-### Calculated Regression Fit 
+### Calculated Regression Fit
 
-The above plots show the regression fit as calculated by the `seaborn` python package. Use `stats.linregression()` to calculate the slope and intercept of the regresion fit for each of the plots above. 
+The above plots show the regression fit as calculated by the `seaborn` python package. Use `stats.linregression()` to calculate the slope and intercept of the regresion fit for each of the plots above.
 
-Print the outputs below. 
-
-
-
-{:.output}
-    SJER - Mean Height Comparison
-    slope: print-slope-value-here intercept: print-intercept-value-here
-    
-    SJER - Max Height Comparison
-    slope: print-slope-value-here intercept: print-intercept-value-here
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Print the outputs below.
