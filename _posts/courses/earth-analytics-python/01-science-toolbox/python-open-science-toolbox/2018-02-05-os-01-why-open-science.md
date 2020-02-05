@@ -1,9 +1,10 @@
 ---
 layout: single
+deprecated: true
 title: 'Jupyter Notebooks - An Important Part of the Open Science Toolbox'
 excerpt: "Jupyter Notebooks are a tool you can use to combine code, documentation and outputs in the same file. Learn how how to use Jupyter Notebooks for reproducible open science work."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2020-02-01
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['open-science-python']
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/jupyter-notebooks-for-open-science/

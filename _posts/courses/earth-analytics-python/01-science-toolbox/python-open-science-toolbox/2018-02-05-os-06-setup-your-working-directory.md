@@ -1,5 +1,6 @@
 ---
 layout: single
+deprecated: true
 title: 'Setup Your Earth Analytics Working Directory'
 excerpt: 'This tutorial walks you through how to create your earth-analytics working directory in bash. It also covers how to change the working directory in Jupyter Notebook.'
 authors: ['Leah Wasser']
