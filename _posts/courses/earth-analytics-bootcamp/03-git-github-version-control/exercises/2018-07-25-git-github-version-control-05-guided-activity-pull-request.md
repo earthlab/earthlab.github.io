@@ -32,7 +32,7 @@ In this lesson, you will learn how to submit a pull request to suggest that your
 After completing this lesson, you will be able to:
 
 * Explain the relationship between a forked repository (head) and the original repository (base).
-* Submit a pull request of changes to a repository on `GitHub.com` 
+* Submit a pull request of changes to a repository on `GitHub.com`. 
 
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need

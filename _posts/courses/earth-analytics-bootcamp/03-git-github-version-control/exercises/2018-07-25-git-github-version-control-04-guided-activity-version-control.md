@@ -31,7 +31,7 @@ In this lesson, you will learn how to implement version control using `Git` and 
 
 After completing this lesson, you will be able to:
 
-* Explain how `Git` and `GitHub` are used to implement version control.
+* Explain how `Git` and `GitHub.com` are used to implement version control.
 * Use `Git` to `add` and `commit` changed files.
 * Use `Git` to `push` changed files from your local computer to the repository on `GitHub.com`.
 

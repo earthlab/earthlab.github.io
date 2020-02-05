@@ -35,7 +35,7 @@ In this lesson, you will learn about the process and benefits of version control
 After completing this lesson, you will be able to:
 
 * Define version control.
-* Explain how version control is useful in a scientific workflow
+* Explain how version control is useful in a scientific workflow.
 * Describe how `Git` and `GitHub` support version control
 
 
