@@ -22,7 +22,6 @@ module-type: 'session'
 Welcome to week {{ page.week }} of Earth Analytics! This week, you will explore
 the concept of uncertainty surrounding lidar raster data (and remote sensing
 data in general). You will use the same data that you downloaded last week for class.
-You will also use pipes again this week to work with tabular data.
 
 For your homework you'll also need to download the data below.
 
