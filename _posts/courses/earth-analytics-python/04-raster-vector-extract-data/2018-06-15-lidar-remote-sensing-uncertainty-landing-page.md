@@ -4,7 +4,7 @@ category: courses
 title: "Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python"
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/
 week-landing: 4
-modified: 2020-02-05
+modified: 2020-02-06
 week: 4
 sidebar:
   nav:
@@ -43,7 +43,7 @@ The lessons for this week have been moved to our <a href="https://www.earthdatas
 
 Please read the following chapters to support completing this week's assignment:
 * <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/">NEW: Raster / Vector Spatial Data Applications: Compare Lidar to Human Measured Tree Heights -- Uncertainty</a>
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/courses/use-data-open-source-python/intro-vector-data-python/">REVIEW: Intro to Vector Spatial Data in Open Source Python</a>
+* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/">REVIEW: Intro to Vector Spatial Data in Open Source Python</a>
 
 
 ### 1. Readings
