@@ -3,7 +3,7 @@ layout: single
 title: "Customize matplotlib plots in Python - earth analytics - data science for scientists"
 excerpt: 'Matplotlib is one of the most commonly used plotting library in Python. This lesson covers how to create a plot using matplotlib and how to customize matplotlib plot colors and label axes in Python.'
 authors: ['Chris Holdgraf', 'Leah Wasser', 'Martha Morrissey']
-modified: 2020-02-04
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['get-to-know-python']
 course: 'earth-analytics-python'
@@ -529,7 +529,7 @@ print(plt.style.available)
 ```
 
 {:.output}
-    ['seaborn', 'bmh', 'seaborn-paper', 'seaborn-darkgrid', 'seaborn-whitegrid', 'Solarize_Light2', 'seaborn-muted', 'seaborn-dark', 'fast', 'grayscale', 'seaborn-poster', 'seaborn-ticks', 'seaborn-white', 'fivethirtyeight', 'seaborn-deep', 'seaborn-colorblind', 'dark_background', 'seaborn-dark-palette', 'tableau-colorblind10', 'seaborn-bright', 'ggplot', 'classic', '_classic_test', 'seaborn-talk', 'seaborn-notebook', 'seaborn-pastel']
+    ['seaborn-pastel', 'seaborn-dark', 'dark_background', 'tableau-colorblind10', 'bmh', 'seaborn-dark-palette', 'fivethirtyeight', 'seaborn-bright', 'fast', 'seaborn-ticks', '_classic_test', 'Solarize_Light2', 'seaborn-poster', 'seaborn-darkgrid', 'seaborn-talk', 'seaborn', 'seaborn-muted', 'seaborn-white', 'ggplot', 'classic', 'seaborn-deep', 'seaborn-notebook', 'seaborn-paper', 'grayscale', 'seaborn-colorblind', 'seaborn-whitegrid']
 
 
 

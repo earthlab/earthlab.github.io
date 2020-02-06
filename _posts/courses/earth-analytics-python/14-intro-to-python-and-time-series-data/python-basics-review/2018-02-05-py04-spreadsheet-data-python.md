@@ -9,7 +9,7 @@ course: "earth-analytics-python"
 permalink: /courses/earth-analytics-python/use-time-series-data-in-python/spreadsheet-data-in-python/
 nav-title: 'Spreadsheet Data in Python'
 dateCreated: 2016-12-13
-modified: 2020-02-04
+modified: 2020-02-05
 week: 14
 sidebar:
   nav:
@@ -77,7 +77,7 @@ urllib.request.urlretrieve(url='https://ndownloader.figshare.com/files/7010681',
 
 
     ('data/colorado-flood/downloads/boulder-precip.csv',
-     <http.client.HTTPMessage at 0x7fed66d40cd0>)
+     <http.client.HTTPMessage at 0x7fddb7f9ec90>)
 
 
 
