@@ -5,7 +5,7 @@ title: "Introduction to Shapefiles and Vector Data in Open Source Python - Spati
 permalink: /courses/earth-analytics-python/spatial-data-vector-shapefiles/
 week-landing: 3
 week: 3
-modified: 2020-02-01
+modified: 2020-02-06
 sidebar:
   nav:
 comments: false
@@ -14,6 +14,7 @@ course: "earth-analytics-python"
 module-type: 'session'
 ---
 {% include toc title="This Week" icon="file-text" %}
+
 
 
 
@@ -51,17 +52,14 @@ You can also download the data using the link below.
 
 ### The Homework Assignment for This Week Can Be Found on Github 
 
-
 <a href="https://github.com/earthlab-education/ea-python-2020-03-spatial-vector-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
 
 The lessons for this week have been moved to our <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Intermediate Earth Analytics Textbook. </a>
 
 Please read the following chapters to support completing this week's assignment:
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/courses/use-data-open-source-python/intro-vector-data-python/">Chapters 5-6 - Introduction to vector data- spatial data in open source python </a>
+* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/">Chapters 2-3 - Introduction to vector data- spatial data in open source python </a>
 
 </div>
-
-
 
 
 
