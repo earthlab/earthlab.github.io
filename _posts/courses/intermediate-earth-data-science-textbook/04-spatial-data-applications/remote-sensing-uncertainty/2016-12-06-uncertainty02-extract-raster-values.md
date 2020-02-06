@@ -4,7 +4,7 @@ title: "Extract Raster Values at Point Locations in Python"
 excerpt: "For many scientific analyses, it is helpful to be able to select raster pixels based on their relationship to a vector dataset (e.g. locations, boundaries). Learn how to extract data from a raster dataset using a vector dataset."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
 dateCreated: 2016-12-06
-modified: 2020-02-06
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -34,17 +34,17 @@ redirect_from:
 
 </div>
 
-On this page, you will extract pixel values that cover each field plot area where trees were measured in the NEON Field Sites. The idea is that you can calculate the mean or max height value for all pixels that fall in each NEON site. 
+On this page, you will extract pixel values that cover each field plot area where trees were measured in the NEON Field Sites. The idea is that you can calculate the mean or max height value for all pixels that fall in each NEON site.
 
-Then, you will compare that mean or max height value derived from the lidar data derived canopy height model pixels to height values calculated using human tree height measurements. 
+Then, you will compare that mean or max height value derived from the lidar data derived canopy height model pixels to height values calculated using human tree height measurements.
 
 To do this, you need to do the following:
 
-1. Import the canopy height model that you wish to extra tree height data from. 
+1. Import the canopy height model that you wish to extra tree height data from.
 2. Clean up that data. For instance if there are values of 0 for areas where there are no trees they will impact a mean value calculation. It is better to remove those values from the data.
-3. Finally you will import and create a buffer zone that represents the area where trees were sampled in each NEON field site. 
+3. Finally you will import and create a buffer zone that represents the area where trees were sampled in each NEON field site.
 
-To begin, import your python libraries. 
+To begin, import your python libraries.
 
 
 {:.input}
@@ -59,7 +59,7 @@ import rasterio as rio
 from rasterio.plot import plotting_extent
 import geopandas as gpd
 
-# Rasterstats contains the zonalstatistics function 
+# Rasterstats contains the zonalstatistics function
 # that you will use to extract raster values
 import rasterstats as rs
 import earthpy as et
@@ -69,7 +69,7 @@ import earthpy.plot as ep
 sns.set_style("white")
 sns.set(font_scale=1.5)
 
-# Download data and set working directory 
+# Download data and set working directory
 data = et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
@@ -82,14 +82,14 @@ subtracting the Digital elevation model (DEM) from the Digital surface model (DS
 
 ## Context Managers and Rasterio
 
-As you learned in the previous raster lessons, you will use a context manager `with` to create 
+As you learned in the previous raster lessons, you will use a context manager `with` to create
 a connection to your raster dataset. This connection will be automatically closed at the end of the `with` statement.
 
 {:.input}
 ```python
 # Load & plot the data
-sjer_lidar_chm_path = os.path.join("data", "spatial-vector-lidar", 
-                                   "california", "neon-sjer-site", 
+sjer_lidar_chm_path = os.path.join("data", "spatial-vector-lidar",
+                                   "california", "neon-sjer-site",
                                    "2013", "lidar", "SJER_lidarCHM.tif")
 
 with rio.open(sjer_lidar_chm_path) as sjer_lidar_chm_src:
@@ -139,7 +139,7 @@ print('Min:', SJER_chm_data.min())
 
 
 ## Clean Up Data - Remove 0's
-Looking at the distribution of data, you can see there are many pixels that have a value of 0 - where there are no trees. Also, using the NEON data, values below 2m are normally set to 0 given the accuracy of the lidar instrument used to collect these data. 
+Looking at the distribution of data, you can see there are many pixels that have a value of 0 - where there are no trees. Also, using the NEON data, values below 2m are normally set to 0 given the accuracy of the lidar instrument used to collect these data.
 
 Set all pixel values `==0` to `nan` as they will impact calculation of plot mean height. A mean calculated with values of 0 will be significantly lower than a mean calculated with just tree height values.  
 
@@ -162,10 +162,10 @@ print('Min:', np.nanmin(SJER_chm_data))
 
 
 
-Look at the histogram of the data with the 0's removed. Now you can see the true distribution of heights in the data. 
-Notice that below to plot the histogram an additional step is taken to remove `nan` values from the data. There are several ways to do this but here, we simply subset the data using 
+Look at the histogram of the data with the 0's removed. Now you can see the true distribution of heights in the data.
+Notice that below to plot the histogram an additional step is taken to remove `nan` values from the data. There are several ways to do this but here, we simply subset the data using
 
-`SJER_chm_data[~np.isnan(SJER_chm_data)])` 
+`SJER_chm_data[~np.isnan(SJER_chm_data)])`
 
 Then the data are flattened into a 1-dimensional array to create the histogram:
 
@@ -181,7 +181,7 @@ fig, ax = plt.subplots(figsize=(10, 10))
 
 ax.hist(SJER_chm_data_no_na, color="purple")
 
-ax.set(xlabel='Lidar Estimated Tree Height (m)', 
+ax.set(xlabel='Lidar Estimated Tree Height (m)',
        ylabel='Total Pixels',
        title='Distribution of Pixel Values \n Lidar Canopy Height Model')
 
@@ -217,8 +217,8 @@ First, import the shapefile that contains the plot centroid (the center point of
 
 {:.input}
 ```python
-sjer_centroids_path = os.path.join("data", "spatial-vector-lidar", 
-                                   "california", "neon-sjer-site", 
+sjer_centroids_path = os.path.join("data", "spatial-vector-lidar",
+                                   "california", "neon-sjer-site",
                                    "vector_data", "SJER_plot_centroids.shp")
 
 SJER_plots_points = gpd.read_file(sjer_centroids_path)
@@ -261,12 +261,12 @@ SJER_plots_points.geom_type.head()
 
 ### Overlay Points on Top Of Your Raster Data
 
-Finally, a quick plot allows you to check that your points actually overlay on top of the canopy 
-height model. This is a good sanity check just to ensure your data actually line up and are for the 
+Finally, a quick plot allows you to check that your points actually overlay on top of the canopy
+height model. This is a good sanity check just to ensure your data actually line up and are for the
 same location.
 
-If you recall in week 2, we discussed the spatial extent of a raster. Here is where you will need to set the spatial 
-extent when plotting raster using `imshow()`. If you do not specify a spatial extent, your raster will not line up 
+If you recall in week 2, we discussed the spatial extent of a raster. Here is where you will need to set the spatial
+extent when plotting raster using `imshow()`. If you do not specify a spatial extent, your raster will not line up
 properly with your geopandas object.
 
 {:.input}
@@ -274,7 +274,7 @@ properly with your geopandas object.
 fig, ax = plt.subplots(figsize=(10, 10))
 
 ep.plot_bands(SJER_chm_data,
-              extent=plotting_extent(sjer_lidar_chm_src), # Set spatial extent 
+              extent=plotting_extent(sjer_lidar_chm_src), # Set spatial extent
               cmap='Greys',
               title="San Joachin Field Site \n Vegetation Plot Locations",
               scale=False,
@@ -305,7 +305,7 @@ plt.show()
 
 Each point in your data represent the center location of a plot where trees were measured. You want to extract tree height values derived from the lidar data for the entire plot. To do this, you will need to create a BUFFER around the points representing the region of the plot where data were collected.
 
-In this case, your plot size is 40m. If you create a circular buffer with a 20m diameter, it will closely approximate where trees were measured on the ground. 
+In this case, your plot size is 40m. If you create a circular buffer with a 20m diameter, it will closely approximate where trees were measured on the ground.
 
 You can use the `.buffer()` method to create the buffer. Here the buffer size is specified in the `()` of the function. You will send the new object to a new shapefile using `.to_file()` as follows:
 
@@ -323,17 +323,17 @@ You can use the `.buffer()` method to create the buffer. Here the buffer size is
     </figcaption>
 </figure>
 
-Below you: 
+Below you:
 1. Make a copy of the points layer and create a new, to be created polygon layer.
-2. Buffer the points layer using the `.buffer()` method. This will produce a circle around each point that is x units radius. The units will coincide with the CRS of your data. This known as a buffer. 
-3. When you perform the buffer, you UPDATE the "geometry" column of your new poly layer with the buffer output. 
+2. Buffer the points layer using the `.buffer()` method. This will produce a circle around each point that is x units radius. The units will coincide with the CRS of your data. This known as a buffer.
+3. When you perform the buffer, you UPDATE the "geometry" column of your new poly layer with the buffer output.
 
 {:.input}
 ```python
 # Create a buffered polygon layer from your plot location points
 SJER_plots_poly = SJER_plots_points.copy()
 
-# Buffer each point using a 20 meter circle radius 
+# Buffer each point using a 20 meter circle radius
 # and replace the point geometry with the new buffered geometry
 SJER_plots_poly["geometry"] = SJER_plots_points.geometry.buffer(20)
 SJER_plots_poly.head()
@@ -440,14 +440,14 @@ plot_buffer_path = os.path.join(output_path, "plot_buffer.shp")
 SJER_plots_poly.to_file(plot_buffer_path)
 ```
 
-## Extract Pixel Values For Each Plot 
+## Extract Pixel Values For Each Plot
 
-Once you have the boundary for each plot location (a 20m diameter circle) you can extract all of the pixels that fall within each circle using the function `zonal_stats` in the `rasterstats` library. 
+Once you have the boundary for each plot location (a 20m diameter circle) you can extract all of the pixels that fall within each circle using the function `zonal_stats` in the `rasterstats` library.
 
 There are several ways to use the zonal_stats function. In this case we are providing the following
 
 1. chm data (numpy array): `SJER_chm_data` in a numpy array format
-2. Because a numpy array has no spatial information, you provide the affine data which is the spatial information needed to spatially located the array. 
+2. Because a numpy array has no spatial information, you provide the affine data which is the spatial information needed to spatially located the array.
 3. `plot_buffer_path`: this is the path to the buffered point shapefile that you created at the top of this lesson
 
 
@@ -477,7 +477,7 @@ type(sjer_tree_heights)
 
 
 
-Convert the list output to a geodataframe that you can plot the data. 
+Convert the list output to a geodataframe that you can plot the data.
 
 {:.input}
 ```python
@@ -601,7 +601,7 @@ SJER_lidar_height_df.head()
 
 
 
-Below is a bar plot of max lidar derived tree height by plot id. This plot allows you to see how vegetation height varies across the field sites. 
+Below is a bar plot of max lidar derived tree height by plot id. This plot allows you to see how vegetation height varies across the field sites.
 
 {:.input}
 ```python
@@ -637,7 +637,7 @@ plt.show()
 
 ## OPTIONAL -- Explore The Data Distribution
 
-You will not need to perform the steps below for this weeks homework. However, 
+You will not need to perform the steps below for this weeks homework. However,
 if you were really working with lidar data, you may want to look at the distribution
 of pixels in each extracted set of cells for further analysis. The steps below show you how to do this.
 
@@ -784,10 +784,3 @@ plt.show()
 <figcaption>Bar plots showing pixel value distribution for all SJER sites.</figcaption>
 
 </figure>
-
-
-
-
-
-
-

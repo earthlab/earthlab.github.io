@@ -4,7 +4,7 @@ title: "Use Regression Analysis to Explore Data Relationships & Bad Data"
 excerpt: "You often want to understand the relationships between two different types of data. Learn how to use regression to determine whether there is a relationship between two variables."
 authors: ['Max Joseph', 'Leah Wasser']
 dateCreated: 2016-12-06
-modified: 2020-02-06
+modified: 2020-02-05
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/
@@ -73,15 +73,15 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 {:.input}
 ```python
-lidar_path = os.path.join("data", "spatial-vector-lidar", 
-                          "california", "neon-sjer-site", 
+lidar_path = os.path.join("data", "spatial-vector-lidar",
+                          "california", "neon-sjer-site",
                           "2013", "lidar", "SJER_lidarCHM.tif")
 
 with rio.open(lidar_path) as lidar_chm_src:
     SJER_chm_data = lidar_chm_src.read(1, masked=True)
 
 # Import plot locations and extract summary raster statistics
-plot_buffer_path = os.path.join("data", "spatial-vector-lidar", 
+plot_buffer_path = os.path.join("data", "spatial-vector-lidar",
                                 "outputs", "plot_buffer.shp")
 
 sjer_tree_heights = rs.zonal_stats(plot_buffer_path,
@@ -93,9 +93,9 @@ sjer_tree_heights = rs.zonal_stats(plot_buffer_path,
 SJER_lidar_height_df = gpd.GeoDataFrame.from_features(sjer_tree_heights)
 
 # Import in situ data
-path_insitu = os.path.join("data", "spatial-vector-lidar", 
-                           "california", "neon-sjer-site", 
-                           "2013", "insitu", 
+path_insitu = os.path.join("data", "spatial-vector-lidar",
+                           "california", "neon-sjer-site",
+                           "2013", "insitu",
                            "veg_structure/D17_2013_SJER_vegStr.csv")
 
 SJER_insitu = pd.read_csv(path_insitu)
@@ -162,13 +162,13 @@ ax.set(xlabel="Lidar derived max tree height (m)",
 
 
 
-In practice, observations from different methods rarely show a 1:1 relationship. 
-For example above, you can see how lidar estimates compare to human made measurements of tree height. 
-Notice that some measurements are similar, and close to the 1:1 line. 
-In other cases, when points lie above or below the 1:1 line, the measurements are different. 
+In practice, observations from different methods rarely show a 1:1 relationship.
+For example above, you can see how lidar estimates compare to human made measurements of tree height.
+Notice that some measurements are similar, and close to the 1:1 line.
+In other cases, when points lie above or below the 1:1 line, the measurements are different.
 
 This all assumes that you decide that the human measurement is correct all of the time. But you know from discussions about uncertainty and from being a human yourself, that often times, humans make mistakes too! Some people may think that, particularly in dense forests, lidar does an even better job of measuring the tallest trees that humans can not fully get a clear view of to make a measurement.
- 
+
 
 
 {:.output}
@@ -184,17 +184,17 @@ This all assumes that you decide that the human measurement is correct all of th
 
 
 
-A 1:1 line is a start at comparing two sets of measurements. 
-However, what if you want to predict one measurement from another? 
+A 1:1 line is a start at comparing two sets of measurements.
+However, what if you want to predict one measurement from another?
 For example, given a measurement of lidar derived tree height, what would be the measured tree height on the ground?
 
-<a href="https://en.wikipedia.org/wiki/Regression_analysis" target = "_blank">Linear regression</a> is a way to predict one measurement from another. 
+<a href="https://en.wikipedia.org/wiki/Regression_analysis" target = "_blank">Linear regression</a> is a way to predict one measurement from another.
 It accounts for the fact that the linear relationship between the two variables might not be a one to one line, and that there may be variation in the data around the line.
 
-Linear regression requires two variables: 
+Linear regression requires two variables:
 
-1. an independent variable - let's call it x and 
-2. a dependent variable - let's call it y 
+1. an independent variable - let's call it x and
+2. a dependent variable - let's call it y
 
 Linear regression uses x to predict y by finding the "best fit" line between x and y, assuming the following model:
 
@@ -202,14 +202,14 @@ $$y = a + bx + \text{error},$$
 
 where:
 
-* $a$ is an **intercept** and 
+* $a$ is an **intercept** and
 * $b$ is a **slope**
 
-Conceptually "best fit" implies that the error term is minimized. 
-One measure of fit is **R-squared**. 
-When $R^2$ is close to one, the model fits well, and when $R^2$ is close to zero, the model fits poorly. 
+Conceptually "best fit" implies that the error term is minimized.
+One measure of fit is **R-squared**.
+When $R^2$ is close to one, the model fits well, and when $R^2$ is close to zero, the model fits poorly.
 
-You can run a regression analysis on the data above using the `stats` package in `scipy`. 
+You can run a regression analysis on the data above using the `stats` package in `scipy`.
 
 {:.input}
 ```python
@@ -226,22 +226,22 @@ print("slope:", slope,
 ```
 
 {:.output}
-    slope: 0.7607314439776315 
-    intercept: 2.98146647443445 
+    slope: 0.7607314439776315
+    intercept: 2.98146647443445
     r squared: 0.6910551716430489
 
 
 
 ### Translating the Output
 
-**Intercept 2.98:** Here our intercept is close to 3. 
+**Intercept 2.98:** Here our intercept is close to 3.
 This means that if the lidar derived height were 0, the estimated ground truth height would be close to 3, which may suggest some systematic offset between the lidar and ground measurements of height. But, we should be careful with this interpretation, because we did not have any lidar data with zero height measurements. Any conclusions we draw about such observations are extrapolations beyond the range of data that were observed.
 
 **Slope of .76:** The slope is positive and while it's not 1, it's also not that far from 1 at .76. This is not terrible. This slope suggests that for a one meter increase in lidar derived height, we expect a 76 cm increase in ground truth height. This actually could make some sense if you think about how difficult it can be to hand measure tall trees. But how hard it might be for lidar systems to reflect off of shorter and potentially smaller trees
 
-**R squared of .69:** This tells us that the linear regression model explains 69% of the variablility found in the data. 
+**R squared of .69:** This tells us that the linear regression model explains 69% of the variablility found in the data.
 
-Overall with results like these we can conclude that lidar does a reasonable job of estimating tree height. 
+Overall with results like these we can conclude that lidar does a reasonable job of estimating tree height.
 
 ## Plot Regression Fits Compared to 1:1
 
@@ -274,7 +274,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x7fc13cce5510>
+    <matplotlib.legend.Legend at 0x7fb86884a250>
 
 
 
@@ -334,11 +334,11 @@ print("slope:", slope,
 ```
 
 {:.output}
-    slope: 1.0 
-    intercept: 10.0 
-    r squared: 1.0 
-    p-value: 1.9206748078018256e-50 
-    st_error 0.0 
+    slope: 1.0
+    intercept: 10.0
+    r squared: 1.0
+    p-value: 1.9206748078018256e-50
+    st_error 0.0
     RMSE 0.0
 
 
@@ -391,11 +391,11 @@ print("slope:", slope,
 ```
 
 {:.output}
-    slope: 1.0 
-    intercept: -5.0 
-    r squared: 1.0 
-    p-value: 1.9206748078018256e-50 
-    st_error 0.0 
+    slope: 1.0
+    intercept: -5.0
+    r squared: 1.0
+    p-value: 1.9206748078018256e-50
+    st_error 0.0
     RMSE 0.0
 
 
@@ -417,9 +417,9 @@ print("slope:", slope,
 
 The ouputs of a linear regression model help you assess how statistically useful or significant the model is as compared to a hypothesis or theory that there is no relationship between the variables. If the data have no relationship, then the slope of the line is 0. In scientific terms this translates to whether you want to trust the model or not. These outputs includes:
 
-**Root Mean Squared Error (RMSE):** RMSE is an overall measure of how far the y-values lie from the estimated line on average. You can think of it as on average, how far away from a 1:1 relationship are the predicted data. If lidar is predicting human measurements is it on average 1m taller, 2m shorter, etc? Technically defined, it's defined as the square root of the variance of the residuals. 
+**Root Mean Squared Error (RMSE):** RMSE is an overall measure of how far the y-values lie from the estimated line on average. You can think of it as on average, how far away from a 1:1 relationship are the predicted data. If lidar is predicting human measurements is it on average 1m taller, 2m shorter, etc? Technically defined, it's defined as the square root of the variance of the residuals.
 
-**P-value:** The p-value can be used to see how consistent the data are with the notion that the true slope of the line is zero (that there is no relationship between the variables of interest). A threshold of 0.05 is commonly used to determine whether there is sufficient evidence to reject the hypothesis that the true slope is zero. If p < 0.05, then one typically concludes the true slope is nonzero, though this threshold is arbitrary. 
+**P-value:** The p-value can be used to see how consistent the data are with the notion that the true slope of the line is zero (that there is no relationship between the variables of interest). A threshold of 0.05 is commonly used to determine whether there is sufficient evidence to reject the hypothesis that the true slope is zero. If p < 0.05, then one typically concludes the true slope is nonzero, though this threshold is arbitrary.
 
 Note that to calculate the `RMSE` you take the squareroot of the standard error provided to you by Python.
 
@@ -458,11 +458,11 @@ print("slope:", slope,
 ```
 
 {:.output}
-    slope: 1.0 
-    intercept: -5.0 
-    r squared: 1.0 
-    p-value: 1.9206748078018256e-50 
-    st_error 0.0 
+    slope: 1.0
+    intercept: -5.0
+    r squared: 1.0
+    p-value: 1.9206748078018256e-50
+    st_error 0.0
     RMSE 0.0
 
 
@@ -482,7 +482,7 @@ print("slope:", slope,
 
 ### Use Seaborn To Plot Regression Fit
 
-Below is a plot of the same data using the `seaborn` package. The Seaborn package wraps around Matplotlib. It makes it easier to make nice looking plots, quickly. 
+Below is a plot of the same data using the `seaborn` package. The Seaborn package wraps around Matplotlib. It makes it easier to make nice looking plots, quickly.
 
 {:.input}
 ```python
@@ -562,6 +562,3 @@ plt.show()
 <figcaption>Sometimes looking at difference plots like this one can be helpful. If you have outlier points, it can be nice to identify which plots those are in. You may see differences in the plots even in the imagery that could explain the large differences.</figcaption>
 
 </figure>
-
-
-

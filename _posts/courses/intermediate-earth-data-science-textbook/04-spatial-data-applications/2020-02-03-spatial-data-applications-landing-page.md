@@ -4,7 +4,7 @@ category: courses
 title: "Spatial Data Applications in Python"
 permalink: /courses/use-data-open-source-python/spatial-data-applications/
 week-landing: 4
-modified: 2020-02-06
+modified: 2020-02-05
 week: 4
 sidebar:
   nav:
@@ -20,7 +20,7 @@ module-type: 'session'
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Section Four - Spatial Data Applications in Python
 
-In section four of this textbook, you will review applications of spatial data (vector and raster) to answer scientific questions in **Python**. 
+In section four of this textbook, you will review applications of spatial data (vector and raster) to answer scientific questions in **Python**.
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
