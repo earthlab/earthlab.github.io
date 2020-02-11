@@ -74,12 +74,6 @@ data = et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 ## Import Canopy Height Model
 
 First, you will import a canopy height model created by the National Ecological Observatory Network (NEON). In the
