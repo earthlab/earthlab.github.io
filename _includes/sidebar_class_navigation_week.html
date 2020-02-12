@@ -72,7 +72,7 @@
                 {% if post.url == page.url %}
                     <li>  <a href="{{ site.url }}{{ post.permalink }}" class='active'> SECTION {{ post.week }}<br><!--<i class="fa fa-folder-open" aria-hidden="true"></i> -->
                          {% if post.nav-title %} {{ post.nav-title | upcase }} {% else %} {{ post.title | upcase }}{% endif %}</a></li>
-                {% else %} 
+                {% else %}
                     <li class='active-section'> <a href="{{ site.url }}{{ post.permalink }}"><i class="fa fa-folder-open" aria-hidden="true"></i>
                     {% if post.nav-title %}{{ post.chapter }} {{ post.week }}. {{ post.nav-title | upcase }} {% else %} {{ post.week }}. {{ post.title | upcase }}{% endif %}</a></li>
 
@@ -112,7 +112,7 @@
        </ul>
         {% endfor %}
 
-        {% if lesson_count == 0 %} <li>There are no lessons for this week. </li> {% endif %}
+        {% if lesson_count == 0 %} <li>We have moved our lessons to a shiny new textbook series to make content easier to find! </li> {% endif %}
       </ul>
 
       <!-- BEGIN Learn how to lessons -->
