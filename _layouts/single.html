@@ -57,16 +57,35 @@ layout: default
           <!-- BEGIN: insert a welcome to the module block on pages that are part of a module set -->
 
           <!-- END: insert welcome block -->
+
           {% if page.title %}
-            <h1 class="page__title" itemprop="headline">
+
+              {% if page.course == "earth-analytics-python" %}
+                  <div class="notice--warning header" markdown="1">
+                  <h1 class="page__title" itemprop="headline"> <i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> THIS CONTENT IS MOVING! {{ page.module-title }} </h1>
+                  <p>We are moving our course lessons to an improved textbook series. All of the same
+                  content will be improved and available by the end of Spring 2020. While these pages will automagically redirect,
+                  you can also visit the links below to check out our new content!
+
+                  Our course landing pages with associated readings and assignments will stay here so you can continue to follow along with our courses!
+                  </p>
+                  <ul>
+                      <li><a href="https://www.earthdatascience.org/courses/intro-to-earth-data-science/">Introduction to Earth Analytics Textbook</a></li>
+                      <li><a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Intermediate Earth Analytics Textbook</a></li>
+                      <li><a href="https://www.earthdatascience.org/courses/scientists-guide-to-plotting-data-in-python/">Earth Analytics Plotting Data Textbook</a></li>
+                  </ul>
+                  </div>
+              {% endif %}
             {% if page.deprecated %}
-                {% if page.order %}<i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> DEPRECATED / MOVED Lesson  {% endif %}
+                <h1 class="page__title" itemprop="headline">{% if page.order %}<i class="fa fa-6 fa-exclamation-circle" aria-hidden="true"></i> DEPRECATED / MOVED Lesson  {% endif %}</h1>
             {% else %}
+                <h1 class="page__title" itemprop="headline">
                 {% if page.order %}Lesson {{ page.order }}. {% endif %}
                 {% if page.header1 %}{{ page.header1 | markdownify | remove: "<p>" | remove: "</p>" }}{% else %} {{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}{% endif %}
                 {% if page.module %} {{ page.module | replace: '-', ' ' | capitalize }} {{ page.module-type | capitalize }} {% endif %}
+                </h1>
             {% endif %}
-            </h1>
+
           {% endif %}
 
           {% if page.authors %}
