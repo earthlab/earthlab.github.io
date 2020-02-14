@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "Subtract One Raster from Another and Export a New GeoTIFF in Python"
+title: "Subtract One Raster from Another and Export a New GeoTIFF in Open Source Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output and then save that output as a new file. Learn how to subtract rasters and create a new GeoTIFF file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
@@ -31,22 +31,15 @@ redirect_from:
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Five - Raster Data Processing in Python 
+## <i class="fa fa-ship" aria-hidden="true"></i> Subtract Raster Data in Open Source Python 
 
-In this chapter, you will learn how to process raster data, such as cropping and reprojecting rasters, using raster math to derive new rasters, and reclassifying rasters using a set of values. 
-
-## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
-
-After completing this chapter, you will be able to:
-
-* Use raster math in **Python** to derive new rasters, such as a Canopy Height Model (CHM).
-* Reclassify a raster dataset in **Python** using a set of defined values. 
-* Crop a raster dataset in **Python** using a vector extent object derived from a shapefile.
-* Reproject a raster using **rasterio**.
+After completing this tutorial, you will be able to:
+* Derive a **Canopy Height Model** in `Python` using a Digital Elevation Model and a Digital Surface Model derived from Lidar data. 
+* Subtract one raster layer from another using raster math and open source Python.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson.
+You will need a computer with internet access to complete this lesson and a working version of python version 3.x.
 
 {% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
