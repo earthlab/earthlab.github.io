@@ -97,7 +97,7 @@ The figure below shows the total precipitation each month from 1948 to 2013 for 
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/colorado-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation/2018-02-05-coflood-03-flood-drivers-precipitation_3_0.png" alt = "Scatter plot showing daily precipitation values for Boulder from 1948 to 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/colorado-2013-floods/2018-02-05-coflood-04-flood-drivers-precipitation/2018-02-05-coflood-04-flood-drivers-precipitation_3_0.png" alt = "Scatter plot showing daily precipitation values for Boulder from 1948 to 2016.">
 <figcaption>Scatter plot showing daily precipitation values for Boulder from 1948 to 2016.</figcaption>
 
 </figure>
@@ -116,7 +116,7 @@ Within this 65 years of data, you can see that there is a jump in the amount of 
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/colorado-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation/2018-02-05-coflood-03-flood-drivers-precipitation_5_0.png" alt = "Plot of total daily precipitation from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/colorado-2013-floods/2018-02-05-coflood-04-flood-drivers-precipitation/2018-02-05-coflood-04-flood-drivers-precipitation_5_0.png" alt = "Plot of total daily precipitation from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.">
 <figcaption>Plot of total daily precipitation from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.</figcaption>
 
 </figure>
@@ -159,7 +159,7 @@ The daily average data for the stream gauge along Boulder Creek, five miles down
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/colorado-2013-floods/2018-02-05-coflood-03-flood-drivers-precipitation/2018-02-05-coflood-03-flood-drivers-precipitation_7_0.png" alt = "Plot of Daily Average Stream Discharge (CFS) for Boulder Creek from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/colorado-2013-floods/2018-02-05-coflood-04-flood-drivers-precipitation/2018-02-05-coflood-04-flood-drivers-precipitation_7_0.png" alt = "Plot of Daily Average Stream Discharge (CFS) for Boulder Creek from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.">
 <figcaption>Plot of Daily Average Stream Discharge (CFS) for Boulder Creek from August 15th to September 15th, 2013 for a National Weather Service COOP site located in Boulder, CO.</figcaption>
 
 </figure>
