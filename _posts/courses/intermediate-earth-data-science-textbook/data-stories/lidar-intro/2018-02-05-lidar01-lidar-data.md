@@ -5,10 +5,10 @@ excerpt: "This lesson reviews what Lidar remote sensing is, what the lidar instr
 components of a lidar remote sensing system."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-22
+modified: 2020-02-14
 category: [courses]
 class-lesson: ['lidar-data-story']
-permalink: /courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-intro/
+permalink: /courses/use-data-open-source-python/data-stories/what-is-lidar-data/
 nav-title: 'Intro to Lidar Data'
 module-title: 'Intro to Lidar Data'
 module-description: 'This tutorial covers the basic principles of LiDAR remote sensing and
@@ -30,6 +30,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 redirect_from:
   - "/courses/earth-analytics-python/lidar-raster-data/lidar-intro/"
+  - "/courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-intro/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}
