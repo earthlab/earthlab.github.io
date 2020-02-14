@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Introduction to Raster Data Processing in Open Source Python"
-excerpt: "You can perform the same raster processing steps in Python that you would in a GIS tool like ArcGIS. Learn how to process spatial raster data using Open Source Python."
+excerpt: "You can perform the same raster processing steps in Python that you would in a tool like ArcGIS. Learn how to process spatial raster data using Open Source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
 modified: 2020-02-14
@@ -30,3 +30,28 @@ topics:
 redirect_from:
   - "/courses/earth-analytics-python/lidar-raster-data/subtract-rasters-in-python/"
 ---
+{% include toc title="On This Page" icon="file-text" %}
+
+<div class='notice--success' markdown="1">
+
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Five - Raster Data Processing in Python 
+
+In this chapter, you will learn how to process raster data. You will learn how to 
+crop, reproject and reclassify raster data.
+
+## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
+
+After completing this chapter, you will be able to:
+
+* Use raster math in **Python** to derive new rasters, such as a Canopy Height Model (CHM).
+* Reclassify a raster dataset in **Python** using a set of defined values. 
+* Crop a raster dataset in **Python** using a vector extent object derived from a shapefile.
+* Reproject a raster using **rasterio**.
+
+## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
+
+You will need a computer with internet access to complete this lesson.
+
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
+</div>
