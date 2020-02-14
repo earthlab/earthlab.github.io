@@ -4,7 +4,7 @@ title: "Reproject Raster Data Python"
 excerpt: "Sometimes you will work with multiple rasters that are not in the same projections, and thus, need to reproject the rasters, so they are in the same coordinate reference system. Learn how to reproject raster data in Python using Rasterio."
 authors: ['Leah Wasser', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-22
+modified: 2020-02-14
 category: ['courses']
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/reproject-raster/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: false
-order: 4
+order: 5
 topics:
   reproducible-science-and-programming: ['python']
   spatial-data-and-gis: ['raster-data']

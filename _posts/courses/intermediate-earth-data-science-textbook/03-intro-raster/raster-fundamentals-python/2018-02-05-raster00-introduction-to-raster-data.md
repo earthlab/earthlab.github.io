@@ -4,10 +4,10 @@ title: "What is Raster Data"
 excerpt: "Rasters are gridded data composed of pixels that store values. Learn more about the structure of raster data and how to use them to store data, such as imagery or elevation values."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-29
+modified: 2020-02-14
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
-permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-raster-data/
+permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/
 nav-title: 'Intro to Raster Data'
 module-title: 'Fundamentals of Raster Data in Python'
 module-description: 'The GeoTIFF file format is often used to store raster data. Learn how to to open and explore raster data stored as GeoTIFF files in Python.'
@@ -28,6 +28,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 redirect_from:
   - "/courses/earth-analytics-python/lidar-raster-data/lidar-raster-data/"
+  - "/courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/intro-raster-data/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}

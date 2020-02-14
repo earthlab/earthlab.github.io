@@ -4,7 +4,7 @@ title: "Classify and Plot Raster Data in Python"
 excerpt: "Reclassifying raster data allows you to use a set of defined values to organize pixel values into new bins or categories. Learn how to classify a raster dataset and export it as a new raster in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-22
+modified: 2020-02-14
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/classify-plot-raster-data-in-python/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 2
+order: 3
 topics:
   reproducible-science-and-programming: ['python']
   remote-sensing: ['lidar']
@@ -81,12 +81,6 @@ sns.set(font_scale=1.5, style="whitegrid")
 et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
 
 
 To begin, open the `lidar_chm.tif` file that you created in the previous lesson. A copy of it is also in your outputs directory of this week's data.
@@ -188,7 +182,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_12_0.png" alt = "Histogram of Canopy Height Model values.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster02-classify-raster/2018-02-05-raster02-classify-raster_12_0.png" alt = "Histogram of Canopy Height Model values.">
 <figcaption>Histogram of Canopy Height Model values.</figcaption>
 
 </figure>
@@ -227,7 +221,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_16_0.png" alt = "Histogram of CHM data zoomed in to 0-25 on the x axis.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster02-classify-raster/2018-02-05-raster02-classify-raster_16_0.png" alt = "Histogram of CHM data zoomed in to 0-25 on the x axis.">
 <figcaption>Histogram of CHM data zoomed in to 0-25 on the x axis.</figcaption>
 
 </figure>
@@ -298,7 +292,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_21_0.png" alt = "Histogram with custom breaks applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster02-classify-raster/2018-02-05-raster02-classify-raster_21_0.png" alt = "Histogram with custom breaks applied.">
 <figcaption>Histogram with custom breaks applied.</figcaption>
 
 </figure>
@@ -334,7 +328,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_23_0.png" alt = "Histogram with custom breaks applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster02-classify-raster/2018-02-05-raster02-classify-raster_23_0.png" alt = "Histogram with custom breaks applied.">
 <figcaption>Histogram with custom breaks applied.</figcaption>
 
 </figure>
@@ -502,7 +496,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_33_0.png" alt = "CHM plot with NA values applied to the data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster02-classify-raster/2018-02-05-raster02-classify-raster_33_0.png" alt = "CHM plot with NA values applied to the data.">
 <figcaption>CHM plot with NA values applied to the data.</figcaption>
 
 </figure>
@@ -554,7 +548,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_39_0.png" alt = "Canopy height model plot with a better colormap applied.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster02-classify-raster/2018-02-05-raster02-classify-raster_39_0.png" alt = "Canopy height model plot with a better colormap applied.">
 <figcaption>Canopy height model plot with a better colormap applied.</figcaption>
 
 </figure>
@@ -626,7 +620,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster06-classify-raster/2018-02-05-raster06-classify-raster_42_0.png" alt = "Canopy height model with a better colormap and a legend.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster02-classify-raster/2018-02-05-raster02-classify-raster_42_0.png" alt = "Canopy height model with a better colormap and a legend.">
 <figcaption>Canopy height model with a better colormap and a legend.</figcaption>
 
 </figure>

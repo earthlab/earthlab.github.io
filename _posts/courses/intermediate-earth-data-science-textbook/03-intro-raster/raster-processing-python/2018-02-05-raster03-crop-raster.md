@@ -4,7 +4,7 @@ title: "Crop Spatial Raster Data With a Shapefile in Python"
 excerpt: "Sometimes a raster dataset covers a larger spatial extent than is needed for a particular purpose. In these cases, you can crop a raster file to a smaller extent. Learn how to crop raster data using a shapefile and export it as a new raster in open source Python"
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-22
+modified: 2020-02-14
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/crop-raster-data-with-shapefile-in-python/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 4
 topics:
   reproducible-science-and-programming: ['python']
   remote-sensing: ['lidar']
@@ -95,7 +95,7 @@ In the previous lessons, you worked with a raster layer that looked like the one
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster07-crop-raster/2018-02-05-raster07-crop-raster_5_0.png" alt = "Canopy height model plot - uncropped.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-crop-raster/2018-02-05-raster03-crop-raster_5_0.png" alt = "Canopy height model plot - uncropped.">
 <figcaption>Canopy height model plot - uncropped.</figcaption>
 
 </figure>
@@ -165,7 +165,7 @@ ax.set_title("Shapefile Crop Extent",
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster07-crop-raster/2018-02-05-raster07-crop-raster_12_1.png" alt = "Plot of the shapefile that you will use to crop the CHM data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-crop-raster/2018-02-05-raster03-crop-raster_12_1.png" alt = "Plot of the shapefile that you will use to crop the CHM data.">
 <figcaption>Plot of the shapefile that you will use to crop the CHM data.</figcaption>
 
 </figure>
@@ -204,7 +204,7 @@ ax.set_axis_off()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster07-crop-raster/2018-02-05-raster07-crop-raster_14_0.png" alt = "Canopy height model with the crop shapefile overlayed. Note this image is just an illustration of what the two layers look like together. Below you will learn how to import the data and mask it rather than using the .read() method.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-crop-raster/2018-02-05-raster03-crop-raster_14_0.png" alt = "Canopy height model with the crop shapefile overlayed. Note this image is just an illustration of what the two layers look like together. Below you will learn how to import the data and mask it rather than using the .read() method.">
 <figcaption>Canopy height model with the crop shapefile overlayed. Note this image is just an illustration of what the two layers look like together. Below you will learn how to import the data and mask it rather than using the .read() method.</figcaption>
 
 </figure>
@@ -258,7 +258,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster07-crop-raster/2018-02-05-raster07-crop-raster_20_0.png" alt = "Final cropped canopy height model plot.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster03-crop-raster/2018-02-05-raster03-crop-raster_20_0.png" alt = "Final cropped canopy height model plot.">
 <figcaption>Final cropped canopy height model plot.</figcaption>
 
 </figure>

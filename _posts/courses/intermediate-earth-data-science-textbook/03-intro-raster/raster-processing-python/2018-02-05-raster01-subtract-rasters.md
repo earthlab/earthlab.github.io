@@ -4,24 +4,20 @@ title: "Subtract One Raster from Another and Export a New GeoTIFF in Python"
 excerpt: "Often you need to process two raster datasets together to create a new raster output and then save that output as a new file. Learn how to subtract rasters and create a new GeoTIFF file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-01-29
+modified: 2020-02-14
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/subtract-rasters-in-python/
 nav-title: 'Subtract Rasters & Export Geotiffs'
-module-title: 'Raster Data Processing in Python'
-module-description: 'Common raster data processing tasks include cropping and reprojecting raster data, using raster math to derive new rasters, and reclassifying rasters using a set of values. Learn how to process raster data using open source Python.'
-module-nav-title: 'Processing Raster Data in Python'
 module-type: 'class'
 week: 3
-class-order: 2
 course: 'intermediate-earth-data-science-textbook'
 chapter: 5
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 2
 topics:
   reproducible-science-and-programming: ['python']
   remote-sensing: ['lidar']
@@ -228,7 +224,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-subtract-rasters/2018-02-05-raster05-subtract-rasters_13_0.png" alt = "A plot of a Lidar derived canopy height model for Lee Hill Road in Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster01-subtract-rasters/2018-02-05-raster01-subtract-rasters_13_0.png" alt = "A plot of a Lidar derived canopy height model for Lee Hill Road in Boulder, CO.">
 <figcaption>A plot of a Lidar derived canopy height model for Lee Hill Road in Boulder, CO.</figcaption>
 
 </figure>
@@ -249,7 +245,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-subtract-rasters/2018-02-05-raster05-subtract-rasters_14_0.png" alt = "A histogram of a Lidar derived canopy height model values for Lee Hill Road in Boulder, CO.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster01-subtract-rasters/2018-02-05-raster01-subtract-rasters_14_0.png" alt = "A histogram of a Lidar derived canopy height model values for Lee Hill Road in Boulder, CO.">
 <figcaption>A histogram of a Lidar derived canopy height model values for Lee Hill Road in Boulder, CO.</figcaption>
 
 </figure>
@@ -480,7 +476,7 @@ Your plot should look like the one below (athough the colors may be different.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster05-subtract-rasters/2018-02-05-raster05-subtract-rasters_31_0.png" alt = "Lidar canopy height model derived from the DTM and DSM.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/03-intro-raster/raster-processing-python/2018-02-05-raster01-subtract-rasters/2018-02-05-raster01-subtract-rasters_31_0.png" alt = "Lidar canopy height model derived from the DTM and DSM.">
 <figcaption>Lidar canopy height model derived from the DTM and DSM.</figcaption>
 
 </figure>
