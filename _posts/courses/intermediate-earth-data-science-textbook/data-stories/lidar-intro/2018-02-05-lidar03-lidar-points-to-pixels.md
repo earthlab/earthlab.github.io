@@ -4,25 +4,26 @@ title: "How lidar point clouds are converted to raster data formats"
 excerpt: "Rasters are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how a lidar data point cloud is converted to a raster format such as a GeoTIFF."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-22
+modified: 2020-02-14
 category: [courses]
 class-lesson: ['lidar-data-story']
-permalink: /courses/use-data-open-source-python/data-stories/lidar-raster-data/intro-lidar-raster-data/
-nav-title: 'Intro Lidar Raster Data'
+permalink: /courses/use-data-open-source-python/data-stories/what-is-lidar-data/lidar-points-to-pixels-raster/
+nav-title: 'Points to Pixels'
 week: 7
 course: 'intermediate-earth-data-science-textbook'
 chapter: 21
 sidebar:
   nav:
 author_profile: false
-comments: false
-order: 4
+comments: true
+order: 3
 topics:
   remote-sensing: ['lidar']
   earth-science: ['vegetation']
   spatial-data-and-gis: ['raster-data']
 redirect_from:
   - "/courses/earth-analytics-python/lidar-raster-data/lidar-raster-data/"
+  - "/courses/use-data-open-source-python/data-stories/lidar-raster-data/intro-lidar-raster-data"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
