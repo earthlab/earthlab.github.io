@@ -15,7 +15,7 @@ chapter: 21
 sidebar:
   nav:
 author_profile: false
-comments: false
+comments: true
 order: 3
 topics:
   remote-sensing: ['lidar']
@@ -23,7 +23,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 redirect_from:
   - "/courses/earth-analytics-python/lidar-raster-data/lidar-raster-data/"
-  - ""/courses/use-data-open-source-python/data-stories/lidar-raster-data/intro-lidar-raster-data"
+  - "/courses/use-data-open-source-python/data-stories/lidar-raster-data/intro-lidar-raster-data"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
