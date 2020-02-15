@@ -11,16 +11,11 @@ permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/lan
 nav-title: 'Export Raster Data'
 week: 5
 course: "intermediate-earth-data-science-textbook"
-module-title: 'Export Raster Data with Rasterio'
-module-nav-title: 'Export Rasters'
-module-description: 'In this module you will learn how to export raster data with rasterio in python.'
-module-type: 'class'
-class-order: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 2
 topics:
   remote-sensing: ['naip']
   reproducible-science-and-programming: ["python"]
@@ -116,6 +111,12 @@ import earthpy.plot as ep
 data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
 
 To begin open some data and create an output that you wish to export to geotiff format. Below you calculate NDVD from NAIP data using the earthpy `normalized_diff` function.
 
