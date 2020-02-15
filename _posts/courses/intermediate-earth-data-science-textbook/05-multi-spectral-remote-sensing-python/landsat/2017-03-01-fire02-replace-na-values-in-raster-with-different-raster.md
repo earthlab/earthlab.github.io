@@ -7,7 +7,7 @@ dateCreated: 2017-03-01
 modified: 2020-02-15
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
-permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-python/
+permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
 nav-title: 'Replace Raster Cell Values'
 week: 5
 course: "intermediate-earth-data-science-textbook"

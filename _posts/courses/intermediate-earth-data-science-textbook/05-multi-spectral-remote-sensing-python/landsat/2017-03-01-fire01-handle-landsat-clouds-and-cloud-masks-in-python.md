@@ -7,7 +7,7 @@ dateCreated: 2017-03-01
 modified: 2020-02-15
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
-permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/cloud-masks-with-spectral-data-python/
+permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/cloud-masks-with-spectral-data-python/
 nav-title: 'Clouds, Shadows & Masks'
 course: "intermediate-earth-data-science-textbook"
 week: 5

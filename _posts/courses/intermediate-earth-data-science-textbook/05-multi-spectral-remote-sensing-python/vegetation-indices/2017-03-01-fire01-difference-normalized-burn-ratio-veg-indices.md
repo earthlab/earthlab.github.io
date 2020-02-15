@@ -7,7 +7,7 @@ dateCreated: 2017-03-01
 modified: 2020-02-15
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
-permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
+permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/normalized-burn-index-dNBR/
 nav-title: 'dNBR Vegetation Index'
 week: 5
 course: "intermediate-earth-data-science-textbook"

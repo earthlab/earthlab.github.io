@@ -7,7 +7,7 @@ dateCreated: 2018-04-14
 modified: 2020-02-15
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
-permalink: /courses/earth-analytics-python/multispectral-remote-sensing-in-python/export-numpy-array-to-geotiff-in-python/
+permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/export-numpy-array-to-geotiff-in-python/
 nav-title: 'Export Raster Data'
 week: 5
 course: "intermediate-earth-data-science-textbook"
