@@ -107,6 +107,12 @@ in that band. DARKER colors represent a weaker reflection.
 
 
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
+
 
 
 {:.output}
@@ -483,7 +489,7 @@ Previously you have plotted individual bands using a greyscale color ramp in Pyt
 
 <figure>
     <a href="{{ site.url }}/images/earth-analytics/raster-data/RGB-bands-raster-stack.jpg">
-    <img src="{{ site.url }}/images/ earth-analytics/raster-data/RGB-bands-raster-stack.jpg" alt="A true color image consists of 3 bands - red, green and blue.
+    <img src="{{ site.url }}/images/earth-analytics/raster-data/RGB-bands-raster-stack.jpg" alt="A true color image consists of 3 bands - red, green and blue.
     When composited or rendered together in a GIS, or even a image-editor like
     Photoshop the bands create a color image."></a>
     <figcaption>A "true" color image consists of 3 bands - red, green and blue.

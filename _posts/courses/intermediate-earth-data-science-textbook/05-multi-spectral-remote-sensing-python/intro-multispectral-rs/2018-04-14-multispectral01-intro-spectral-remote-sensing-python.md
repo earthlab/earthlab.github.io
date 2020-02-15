@@ -229,8 +229,8 @@ Landsat 8 bands 1-9 are listed below:
 Source: <a href="http://landsat.usgs.gov" target="_blank">USGS Landsat</a>
 
 <figure>
-    <a href="{{ site.url }}/images/earth-analytics/remote-sensing/landsat8_band_uses.png">
-    <img src="{{ site.url }}/images/earth-analytics/remote-sensing/landsat8_band_uses.png" alt="landsat 8 bands image">
+    <a href="{{ site.url }}/images/earth-analytics/remote-sensing/landsat-band-uses.png">
+    <img src="{{ site.url }}/images/earth-analytics/remote-sensing/landsat8-band-uses.png" alt="landsat 8 bands image">
     </a>
     <figcaption>The bands for Landsat 7 (bottom) vs Landsat 8 (top).
     there are several other Landsat instruments that provide data - the most
