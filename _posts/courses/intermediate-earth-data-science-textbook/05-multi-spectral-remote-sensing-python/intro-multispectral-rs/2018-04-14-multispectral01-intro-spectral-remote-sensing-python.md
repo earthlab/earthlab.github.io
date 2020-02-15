@@ -11,7 +11,7 @@ permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/int
 nav-title: 'Intro Multispectral Data'
 module-title: 'Learn How to Work With Multispectral Remote Sensing Data in Python'
 module-description: 'Learn how to use spectral remote sensing data to better understand fire activity.'
-module-nav-title: 'Fire / spectral remote sensing data - in Python'
+module-nav-title: 'Intro to Multispectral Remote Sensing Data'
 module-type: 'class'
 course: "intermediate-earth-data-science-textbook"
 week: 5
