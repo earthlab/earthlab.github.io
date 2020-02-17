@@ -92,7 +92,15 @@ and phenology (life cycle stage) over large areas.
 * <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">
 More on NDVI from NASA</a>
 
+### How to Derive the NDVI Vegetation Index From Multispectral Imagery
 
+The normalized difference vegetation index (NDVI) uses a ratio between near infrared
+and red light within the electromagnetic spectrum. To calculate NDVI you use the
+following formula where NIR is near infrared light and
+red represents red light. For your raster data, you will take the reflectance value
+in the red and near infrared bands to calculate the index.
+
+`(NIR - Red) / (NIR + Red)`
 
 
 
@@ -268,7 +276,6 @@ sensitive to water and thus sometimes, pixels that are classified as "high sever
 may actually be water. Because of this, it is important to mask out areas of water
 PRIOR to performing any quantitative analysis on the difference NBR results.
 
-### Example dNBR Plot Calculated from Pre and Post Fire Landsat Images
 
 
 
