@@ -4,7 +4,7 @@ title: "How to Replace Raster Cell Values with Values from A Different Raster Da
 excerpt: "Most remote sensing data sets contain no data values represented as nan or none in Python. This normally represents pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-02-15
+modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -25,22 +25,13 @@ redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-modis/replace-raster-cell-values-in-remote-sensing-images-in-python/"
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial, you will be able to:
-
-* Replace (masked) values in one numpy array with values in another array
-
-
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You will need a computer with internet access to complete this lesson and the Cold Springs Fire course data.
-
-{% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
+* Replace (masked) values in one numpy array with values in another array.
 
 </div>
 

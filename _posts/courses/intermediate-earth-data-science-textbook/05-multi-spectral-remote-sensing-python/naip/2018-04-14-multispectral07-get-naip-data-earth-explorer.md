@@ -4,7 +4,7 @@ title: "Get NAIP Remote Sensing Data From the Earth Explorer Website"
 excerpt: "In this lesson you will review how to find and download USDS NAIP imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-02-15
+modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-naip']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/get-naip-data-earth-explorer/
@@ -25,30 +25,20 @@ redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-in-python/get-naip-data-earth-explorer/"
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial, you will be able to:
-
 * Find and download NAIP data from the USGS Earth Explorer Website.
 * Filter data by cloud cover to find datasets with the least amount of clouds for a study area.
-
-
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You will need a computer with internet access to complete this lesson.
 
 </div>
 
 
-In class this week, you will review how to grab data from the Earth Explorer website.
-The Earth Explorer website is a data portal run by the USGS. Here you can find
-many different types of remote sensing and other data for both the US and in
-some cases, the globe.
+On this page,  you will review how to grab NAIP data from the Earth Explorer website. The Earth Explorer website is a data portal run by the USGS. Here you can find many different types of remote sensing and other data for both the US and in some cases, the globe.
 
 
 <i class="fa fa-star" aria-hidden="true"></i> **IMPORTANT:** Be sure to order your data several days ahead of time or else you won't have it in time to finish your homework.

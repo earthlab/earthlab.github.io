@@ -4,7 +4,7 @@ title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) using Landsat
 excerpt: "The Normalized Burn Index is used to quantify the amount of area that was impacted by a fire. Learn how to calculate the normalized burn index and classify your data using Landsat 8 data in Python."
 authors: ['Leah Wasser','Megan Cattau']
 dateCreated: 2017-03-01
-modified: 2020-02-15
+modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/calculate-dNBR-Landsat-8/
@@ -25,24 +25,14 @@ redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-modis/calculate-dNBR-Landsat-8/"
 ---
 
-
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial, you will be able to:
-
 * Calculate `dNBR` in `Python`
 * Describe how the `dNBR` index is used to quantify fire severity.
-
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You will need a computer with internet access to complete this lesson and th
-Cold Springs Fire data.
-
-{% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
 
 </div>
 

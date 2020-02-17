@@ -4,7 +4,7 @@ title: "Learn to Use NAIP Multiband Remote Sensing Images in Python"
 excerpt: "Learn how to open up a multi-band raster layer or image stored in .tiff format in Python using Rasterio. Learn how to plot histograms of raster values and how to plot 3 band RGB and color infrared or false color images."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-02-15
+modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-naip']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/
@@ -31,13 +31,17 @@ redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-in-python/naip-imagery-raster-stacks-in-python/"
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Eight - NAIP Data In Python
+
+In this chapter, you will learn how to work with NAIP multi-band raster data stored in `.tif` format in **Python** using **rasterio**.
+
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial you will be able to:
+After completing this chapter, you will be able to:
 
 * Open an RGB image with 3-4 bands in **Python** using **rasterio**.
 <!--* Export an RGB image as a Geotiff using `writeRaster()`.-->
@@ -46,11 +50,12 @@ After completing this tutorial you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the Cold Springs Fire data.
+You will need a computer with internet access to complete this chapter and the Cold Springs Fire data.
 
 {% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
 
 </div>
+
 
 ## Multispectral Imagery in Python
 
@@ -104,12 +109,6 @@ You can plot each band of a multi-band image individually using a grayscale
 color gradient. Remember from the videos that you watched in class that the
 LIGHTER colors represent a stronger reflection
 in that band. DARKER colors represent a weaker reflection.
-
-
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
 
 
 

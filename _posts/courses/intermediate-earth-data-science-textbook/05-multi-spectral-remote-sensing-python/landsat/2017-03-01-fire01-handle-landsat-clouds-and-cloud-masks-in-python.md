@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "In this lesson, you will learn how to deal with clouds when working with spectral remote sensing data. You will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. You will also discuss issues associated with cloud cover - particular as they relate to a research topic."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-02-15
+modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/cloud-masks-with-spectral-data-python/
@@ -25,24 +25,15 @@ redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-modis/cloud-masks-with-spectral-data-python/"
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial, you will be able to:
-
 * Describe the impacts that thick cloud cover can have on analysis of remote sensing data.
 * Use a mask to remove portions of an spectral dataset (image) that is covered by clouds / shadows.
 * Define mask / describe how a mask can be useful when working with remote sensing data.
-
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You will need a computer with internet access to complete this lesson and the
-data that you already downloaded for the Cold Springs Fire.
-
-{% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
 
 </div>
 

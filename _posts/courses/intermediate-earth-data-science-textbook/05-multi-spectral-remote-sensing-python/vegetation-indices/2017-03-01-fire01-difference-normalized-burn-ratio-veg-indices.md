@@ -4,7 +4,7 @@ title: "Calculate the Difference Normalized Burn Index - On Landsat and MODIS da
 excerpt: "The Normalized Burn Index (NBR) allows you to measure the impact of a fire on the landscape with remote sensing data. Learn how to calculate NBR using Landsat and MODIS remote sensing data in Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-02-15
+modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/normalized-burn-index-dNBR/
@@ -25,22 +25,14 @@ redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/"
 ---
 
-{% include toc title="In This Lesson" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial, you will be able to:
-
 * Describe how the `dNBR` index is used to quantify fire severity.
 
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You will need a computer with internet access to complete this lesson and the
-data for week 6 of the course.
-
-{% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
 </div>
 
 ## Calculate Normalized Burn Ratio (NBR)

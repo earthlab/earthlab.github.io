@@ -4,7 +4,7 @@ title: "Calculate NDVI Using NAIP Remote Sensing Data in the Python Programming 
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI vegetation index using NAIP data in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2018-04-14
-modified: 2020-02-15
+modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/
@@ -14,7 +14,7 @@ module-description: 'Learn how to calculate vegetation indices from multispectra
 module-nav-title: 'Calculate Vegetation Indices in Python'
 module-type: 'class'
 chapter: 11
-class-order: 5
+class-order: 4
 week: 5
 course: "intermediate-earth-data-science-textbook"
 sidebar:
@@ -31,24 +31,31 @@ lang-lib:
   python: []
 redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-in-python/vegetation-indices-NDVI-in-python/"
+  - "/courses/earth-analytics-python/multispectral-remote-sensing-in-python/export-numpy-array-to-geotiff-in-python/"
 ---
 
+{% include toc title="In This Chapter" icon="file-text" %}
+
 <div class='notice--success' markdown="1">
+
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Eleven - Calculate Vegetation Indices From Remote Sensing Data Using Python
+
+In this chapter, you will learn how to calculate vegetation indices such as normalized difference vegetation index (NDVI) and normalized burn ratio (NBR) from multispectral remote sensing data in **Python**. 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
-* Calculate NDVI using NAIP multispectral imagery in `Python`.
+* Calculate NDVI using NAIP multispectral imagery in **Python**.
 * Describe what a vegetation index is and how it is used with spectral remote sensing data.
-* Export or write a raster to a `.tif` file from `Python`.
+* Export or write a raster to a `.tif` file from **Python**.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the Cold Springs Fire
-data.
+You will need a computer with internet access to complete this lesson and the Cold Springs Fire data.
 
-{% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
+{% include /data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
+
 </div>
 
 ## About Vegetation Indices
@@ -57,7 +64,9 @@ A vegetation index is a single value that quantifies vegetation health or struct
 The math associated with calculating a vegetation index is derived from the physics
 of light reflection and absorption across bands. For instance, it is known that
 healthy vegetation reflects light strongly in the near infrared band and less strongly
-in the visible portion of the spectrum. Thus, if you create a ratio between light
+in the visible portion of the spectrum. 
+
+Thus, if you create a ratio between light
 reflected in the near infrared and light reflected in the visible spectrum, it
 will represent areas that potentially have healthy vegetation.
 
@@ -103,7 +112,7 @@ in the red and near infrared bands to calculate the index.
 
 You can perform this calculation using matrix math with the `numpy` library.
 
-To get started, load all of the required python libraries. 
+To get started, load all of the required **Python** libraries. 
 
 {:.input}
 ```python
@@ -164,7 +173,8 @@ Finally plot the data. Note below that the `vmin=` and `vmax=` arguments are use
 ep.plot_bands(naip_ndvi, 
               cmap='PiYG',
               scale=False,
-              vmin=-1, vmax=1)
+              vmin=-1, vmax=1,
+              title="NAIP Derived NDVI\n 19 September 2015 - Cold Springs Fire, Colorado")
 plt.show()
 ```
 
@@ -206,6 +216,173 @@ plt.show()
 
 
 
+
+## Optional - Export a Numpy Array to a Raster Geotiff in Python
+
+When you are done, you can export your NDVI raster data so you could use them in
+QGIS or ArcGIS or share them with your colleagues. To do this, you use the `rio.write()`
+function.
+
+Exporting a raster in **Python** is a bit different from what you may have learned using another language like `R`. In **Python**, you need to: 
+
+1. Create a new raster object with all of the metadata needed to define it. This metadata includes:
+   * the shape (rows and columns) of the object
+   * the coordinate reference system (crs)
+   * the type of file (you will export a geotiff (.tif) in this lesson
+   * and the type of data being stored (integer, float, etc). 
+   
+Lucky for you, all of this information can be accessed from the original NAIP data that you imported into **Python** using attribute calls like:
+
+`.transform` and
+`.crs`
+
+To implement this, below you will create a rasterio object to grab the needed spatial attributes.
+   
+
+{:.input}
+```python
+naip_data_path = os.path.join("data", "cold-springs-fire", 
+                              "naip", "m_3910505_nw_13_1_20150919", 
+                              "crop", "m_3910505_nw_13_1_20150919_crop.tif")
+
+with rio.open(naip_data_path) as src:
+    naip_data = src.read()
+    naip_meta = src.profile
+
+naip_meta
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    {'driver': 'GTiff', 'dtype': 'int16', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 4, 'crs': CRS.from_wkt('PROJCS["UTM Zone 13, Northern Hemisphere",GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101],TOWGS84[0,0,0,0,0,0,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'), 'transform': Affine(1.0, 0.0, 457163.0,
+           0.0, -1.0, 4426952.0), 'tiled': False, 'compress': 'lzw', 'interleave': 'band'}
+
+
+
+
+
+{:.input}
+```python
+naip_transform = naip_meta["transform"]
+naip_crs = naip_meta["crs"]
+
+# View spatial attributes
+naip_transform, naip_crs
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (Affine(1.0, 0.0, 457163.0,
+            0.0, -1.0, 4426952.0),
+     CRS.from_wkt('PROJCS["UTM Zone 13, Northern Hemisphere",GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101],TOWGS84[0,0,0,0,0,0,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'))
+
+
+
+
+
+You can view the type of data stored within the ndvi array using `.dtype`.
+Remember that the naip_ndvi object is a numpy array.
+
+{:.input}
+```python
+type(naip_ndvi), naip_ndvi.dtype
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    (numpy.ndarray, dtype('float64'))
+
+
+
+
+
+Use `rio.open()` to create a new blank raster 'template'. 
+Then write the NDVI numpy array to to that template using `dst.write()`.
+
+Note that when we write the data we need the following elements:
+
+1. the driver or type of file that we want to write. 'Gtiff' is a geotiff format
+2. dtype: the structure of the data that you are writing. We are writing floating point values (values with decimal places)
+3. the heigth and width of the ndvi object (accessed using the .shape attribute)
+4. the crs of the spatial object (accessed using the rasterio NAIP data)
+5. the transform information (accessed using the rasterio NAIP data)
+
+Finally you need to specify the name of the output file and the path to where it will be saved on your computer. 
+
+
+
+### Export a Numpy Array to a Raster Geotiff Using the Spatial Profile or Metadata of Another Raster
+
+You can use the naip_meta variable that you created above. This variable contains all of the spatial metadata for naip data.
+
+In this case, the 
+
+1. number of bands (we have only one band vs 4 in the color image) and
+2. the data format (we have floating point numbers - numers with decimals - vs integers)
+
+have changed. Update those values then write out the image.
+
+{:.input}
+```python
+naip_meta
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    {'driver': 'GTiff', 'dtype': 'int16', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 4, 'crs': CRS.from_wkt('PROJCS["UTM Zone 13, Northern Hemisphere",GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101],TOWGS84[0,0,0,0,0,0,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'), 'transform': Affine(1.0, 0.0, 457163.0,
+           0.0, -1.0, 4426952.0), 'tiled': False, 'compress': 'lzw', 'interleave': 'band'}
+
+
+
+
+
+{:.input}
+```python
+# Change the count or number of bands from 4 to 1
+naip_meta['count'] = 1
+
+# Change the data type to float rather than integer
+naip_meta['dtype'] = "float64"
+naip_meta
+```
+
+{:.output}
+{:.execute_result}
+
+
+
+    {'driver': 'GTiff', 'dtype': 'float64', 'nodata': -32768.0, 'width': 4377, 'height': 2312, 'count': 1, 'crs': CRS.from_wkt('PROJCS["UTM Zone 13, Northern Hemisphere",GEOGCS["GRS 1980(IUGG, 1980)",DATUM["unknown",SPHEROID["GRS80",6378137,298.257222101],TOWGS84[0,0,0,0,0,0,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",0],PARAMETER["central_meridian",-105],PARAMETER["scale_factor",0.9996],PARAMETER["false_easting",500000],PARAMETER["false_northing",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]'), 'transform': Affine(1.0, 0.0, 457163.0,
+           0.0, -1.0, 4426952.0), 'tiled': False, 'compress': 'lzw', 'interleave': 'band'}
+
+
+
+
+
+Note below that when we write the raster, we use `**naip_meta`.
+
+The two ** tells Python to unpack all of the values in the naip_meta object to use as arguments when writing the geotiff file. We already updated the elements that we needed to above (count and dtype). So this naip_meta object is ready to be used for the NDVI raster. 
+
+{:.input}
+```python
+naip_ndvi_outpath = os.path.join("data", "cold-springs-fire", 
+                                 "outputs", "naip_ndvi.tif")
+
+# Write your the ndvi raster object
+with rio.open(naip_ndvi_outpath, 'w', **naip_meta) as dst:
+    dst.write(naip_ndvi, 1)
+```
 
 <div class="notice--info" markdown="1">
 

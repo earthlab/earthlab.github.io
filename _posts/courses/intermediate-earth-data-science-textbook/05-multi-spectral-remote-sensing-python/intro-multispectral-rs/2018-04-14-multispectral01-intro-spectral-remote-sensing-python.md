@@ -4,7 +4,7 @@ title: "Introduction to Multispectral Remote Sensing Data in Python"
 excerpt: "Multispectral remote sensing data can be in different resolutions and formats and often has different bands. Learn about the differences between NAIP, Landsat and MODIS remote sensing data as it is used in Python."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-02-15
+modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-tb']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/
@@ -30,15 +30,17 @@ redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-in-python/intro-multispectral-data/"
 ---
 
-
-{% include toc title="In This Lesson" icon="file-text" %}
-
+{% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
+## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Seven - Intro to Multispectral Remote Sensing Data
+
+In this chapter, you will learn about various options for multispectral remote sensing data and the advantages and disadvantages of these data options. 
+
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this tutorial, you will be able to:
+After completing this chapter, you will be able to:
 
 * Define spectral and spatial resolution and explain how they differ from one another.
 * Describe *at least* 3 differences between NAIP imagery, Landsat 8 and MODIS in terms of how the data are collected, how frequently they are collected and the spatial and spectral resolution.
@@ -46,11 +48,7 @@ After completing this tutorial, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the
-Cold Springs Fire data for Weeks 7-8 of the course.
-
-# check this data link - it all likely needs to be updated
-{% include/data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
+You will need a computer with internet access to complete this chapter.
 
 </div>
 
