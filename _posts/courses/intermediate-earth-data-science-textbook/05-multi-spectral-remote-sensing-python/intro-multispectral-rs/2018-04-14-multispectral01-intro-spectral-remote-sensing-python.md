@@ -43,6 +43,7 @@ In this chapter, you will learn about various options for multispectral remote s
 After completing this chapter, you will be able to:
 
 * Define spectral and spatial resolution and explain how they differ from one another.
+* Define multispectral (or multi-band) remote sensing data. 
 * Describe *at least* 3 differences between NAIP imagery, Landsat 8 and MODIS in terms of how the data are collected, how frequently they are collected and the spatial and spectral resolution.
 * Describe the spatial and temporal tradeoffs between data collected from a satellite vs an airplane.
 
@@ -182,6 +183,145 @@ elevation data in previous lessons. The same resolution concepts apply to multis
     that each pixel covers. Source: Colin Williams, NEON.</figcaption>
 </figure>
 
+
+
+## What is Multispectral Imagery?
+
+### Introduction to Multi-Band Raster Data
+
+Earlier in this course, you worked with raster data derived from lidar remote sensing
+instruments. These rasters consisted of one layer or band and contained 
+height values derived from lidar data. In this lesson, you will
+learn how to work with rasters containing multispectral imagery data stored within
+multiple bands (or layers).
+
+Just like you did with single band rasters, you will use the `rasterio.open()` function to open multi band raster data in **Python**.  
+
+* To import multi-band raster data you will use the `stack()` function.
+* If your multi-band data are imagery that you wish to composite into a color image, you can use the `earthpy`
+`plot_rgb()` function to plot a 3 band raster image.
+
+<figure>
+    <a href="{{ site.url }}/images/earth-analytics/raster-data/single-vs-multi-band-raster-data.png">
+    <img src="{{ site.url }}/images/earth-analytics/raster-data/single-vs-multi-band-raster-data.png" alt="A raster can contain one or more bands. You can use the
+    raster function to import one single band from a single OR multi-band
+    raster.">
+    </a>
+    <figcaption>A raster can contain one or more bands. You can use the
+    raster function to import one single band from a single OR multi-band
+    raster. Source: Colin Williams, NEON.</figcaption>
+</figure>
+
+
+One type of multispectral imagery that is familiar to many of us is a color
+image. A color image consists of three bands: red, green, and blue. Each
+band represents light reflected from the red, green or blue portions of the
+electromagnetic spectrum. The pixel brightness for each band, when composited
+creates the colors that you see in an image. These colors are the ones your eyes
+can see within the visible portion of the electromagnetic spectrum.
+
+<figure>
+    <a href="{{ site.url }}/images/earth-analytics/raster-data/RGB-bands-raster-stack.jpg">
+    <img src="{{ site.url }}/images/earth-analytics/raster-data/RGB-bands-raster-stack.jpg" alt="A color image consists of 3 bands - red, green and blue. When
+    rendered together in a GIS, or even a tool like Photoshop or any other
+    image software, the 3 bands create a color image."></a>
+    <figcaption>A color image consists of 3 bands - red, green and blue. When
+    rendered together in a GIS, or even a tool like Photoshop or any other
+    image software, the 3 bands create a color image.
+	Source: Colin Williams, NEON.
+    </figcaption>
+</figure>
+
+You can plot each band of a multi-band image individually using a grayscale
+color gradient. Remember from the videos that you watched in class that the
+LIGHTER colors represent a stronger reflection
+in that band. DARKER colors represent a weaker reflection.
+
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/intro-multispectral-rs/2018-04-14-multispectral01-intro-spectral-remote-sensing-python/2018-04-14-multispectral01-intro-spectral-remote-sensing-python_5_0.png" alt = "A multiband image has more than one layer. You can plot bands individually just like you plotted lidar height rasters earlier in this course.">
+<figcaption>A multiband image has more than one layer. You can plot bands individually just like you plotted lidar height rasters earlier in this course.</figcaption>
+
+</figure>
+
+
+
+
+### RBG Plot 
+
+You can plot the red, green and blue bands together to create an RGB image. This is
+what you would see with our eyes if you were in the airplane looking down at the earth.
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/intro-multispectral-rs/2018-04-14-multispectral01-intro-spectral-remote-sensing-python/2018-04-14-multispectral01-intro-spectral-remote-sensing-python_7_0.png" alt = "A color image is just a composite of the red, green and blue bands of the data. Here NAIP data are used to plot a color RGB composite image.">
+<figcaption>A color image is just a composite of the red, green and blue bands of the data. Here NAIP data are used to plot a color RGB composite image.</figcaption>
+
+</figure>
+
+
+
+
+### Each band plotted separately
+
+Note there are four bands below. You are looking at the red, green, blue and near
+infrared bands of a NAIP image. What do you notice about the relative darkness /
+lightness of each image? Is one image brighter than the other?
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/intro-multispectral-rs/2018-04-14-multispectral01-intro-spectral-remote-sensing-python/2018-04-14-multispectral01-intro-spectral-remote-sensing-python_9_0.png" alt = "You can plot each band individually to better look at reflectance values. In python you would usually create this plot using a loop. However the plot_bands function in earthpy will plot all bands for you automatically.">
+<figcaption>You can plot each band individually to better look at reflectance values. In python you would usually create this plot using a loop. However the plot_bands function in earthpy will plot all bands for you automatically.</figcaption>
+
+</figure>
+
+
+
+
+
+### Color Infrared (CIR) Image
+
+If the image has a 4th NIR band, you can create a CIR (sometimes called false color)
+image. In a color infrared image, the NIR band is plotted on the "red" band. Thus vegetation, which reflects strongly in the NIR part of the spectrum, is colored "red". CIR images are often used to better understand vegetation cover and health in an area.
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/intro-multispectral-rs/2018-04-14-multispectral01-intro-spectral-remote-sensing-python/2018-04-14-multispectral01-intro-spectral-remote-sensing-python_12_0.png" alt = "Near infrared light reflects strongly off of vegetation. When you plot a near infrared band from remote sensing images on the red channel, vegetation is emphasized.">
+<figcaption>Near infrared light reflects strongly off of vegetation. When you plot a near infrared band from remote sensing images on the red channel, vegetation is emphasized.</figcaption>
+
+</figure>
+
+
+
+
+### Other Types of Multi-band Raster Data
+
+Multi-band raster data might also contain:
+
+1. **Time series:** the same variable, over the same area, over time.
+2. **Multi or hyperspectral imagery:** image rasters that have 4 or more (multi-spectral) or more than 10-15 (hyperspectral) bands.
+
+Recall that you have worked with time series data in earlier chapters of this textbook.
+
 ## NAIP, Landsat & MODIS
 
 To begin working with multispectral remote sensing data, you will look at 2 sources of data:
@@ -260,8 +400,6 @@ Below, you can see the first 7 bands of the MODIS instrument
 | Band 6 - mid-infrared | 1628 | 1652 | 500 | 18 |
 | Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
 
-
-In the next lesson, you will learn how to work with NAIP imagery in `Python`.
 
 <div class="notice--info" markdown="1">
 
