@@ -8,7 +8,7 @@ modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/calculate-dNBR-Landsat-8/
-nav-title: 'dNBR With Landsat'
+nav-title: 'Calculate dNBR'
 week: 5
 course: "intermediate-earth-data-science-textbook"
 sidebar:
@@ -81,6 +81,12 @@ data1 = et.data.get_data('cold-springs-fire')
 data2 = et.data.get_data('cs-test-landsat')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
+    Extracted output to /root/earth-analytics/data/cs-test-landsat/.
+
+
 
 To calculate difference Normalized Burn Ratio (dNBR), you first need to calculate NBR for the pre and post fire data. This, of course, presumes that you have data before and after the area was burned from the same remote sensing sensor. Ideally, this data also does not have clouds covering the fire area.
 

@@ -8,7 +8,7 @@ modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/
-nav-title: 'NDVI vegetation index'
+nav-title: 'Calculate NDVI vegetation index'
 module-title: 'NAIP, Landsat, MODIS and Vegetation Indices in Python'
 module-description: 'Learn how to calculate vegetation indices from multispectral remote sensing data in Python. '
 module-nav-title: 'Calculate Vegetation Indices in Python'

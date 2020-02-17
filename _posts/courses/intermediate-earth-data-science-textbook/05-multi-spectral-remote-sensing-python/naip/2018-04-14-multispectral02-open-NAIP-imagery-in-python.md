@@ -8,6 +8,7 @@ modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-naip']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/
+nav-title: 'Open NAIP in Python'
 module-title: 'Learn How to Work With NAIP Multispectral Remote Sensing Data in Python'
 module-description: 'Learn how to work with NAIP multi-band raster data stored in .tif format in Python using Rasterio'
 module-nav-title: 'NAIP'
@@ -15,7 +16,6 @@ module-type: 'class'
 week: 5
 chapter: 8
 class-order: 2
-nav-title: 'Open NAIP Python'
 sidebar:
   nav:
 author_profile: false

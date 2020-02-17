@@ -8,7 +8,7 @@ modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/get-landsat-data-earth-explorer/
-nav-title: 'Get Data - Earth Explorer'
+nav-title: 'Get Landsat Data - Earth Explorer'
 week: 5
 course: "intermediate-earth-data-science-textbook"
 sidebar:

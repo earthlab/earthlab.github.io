@@ -8,7 +8,7 @@ modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-tb']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-multispectral-data/
-nav-title: 'Intro Multispectral Data'
+nav-title: 'Intro to Multispectral Data'
 module-title: 'Learn How to Work With Multispectral Remote Sensing Data in Python'
 module-description: 'Learn how to use spectral remote sensing data to better understand fire activity.'
 module-nav-title: 'Intro to Multispectral Remote Sensing Data'
