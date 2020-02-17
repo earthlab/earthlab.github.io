@@ -27,8 +27,6 @@ topics:
   earth-science: ['fire']
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
-lang-lib:
-  python: []
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}
@@ -142,13 +140,70 @@ reflect more strongly in the SWIR part of the electromagnetic spectrum and beyon
 </figure>
 
 
-### NBR Bands
+## NBR Bands
 
 The NBR index was originally developed for use with Landsat TM and ETM+ bands 4 and 7,
 but it will work with any multispectral sensor with a NIR
 band between **760 - 900 nm** and a SWIR band between **2080 - 2350 nm**. Thus this
 index can be used with both Landsat 8, MODIS and other multi (and hyper) spectral
 sensors.
+
+### NBR & Landsat 8
+
+The table below which shows the band distribution of Landsat 8. These bands
+are different from Landsat 7. What
+bands should you use to calculate NBR using Landsat 8?
+
+#### Landsat 8 Bands
+
+| Band | Wavelength range (nanometers) | Spatial Resolution (m) | Spectral Width (nm)|
+|-------------------------------------|------------------|--------------------|----------------|
+| Band 1 - Coastal aerosol | 430 - 450 | 30 | 2.0 |
+| Band 2 - Blue | 450 - 510 | 30 | 6.0 |
+| Band 3 - Green | 530 - 590 | 30 | 6.0 |
+| Band 4 - Red | 640 - 670 | 30 | 0.03 |
+| Band 5 - Near Infrared (NIR) | 850 - 880 | 30 | 3.0 |
+| Band 6 - SWIR 1 | 1570 - 1650 | 30 | 8.0  |
+| Band 7 - SWIR 2 | 2110 - 2290 | 30 | 18 |
+| Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
+| Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
+
+
+### NBR & MODIS
+
+Similarly the table below shows the band ranges for the MODIS sensor. What bands
+should you use to calculate NBR using MODIS?
+
+| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
+|-------------------------------------|------------------|--------------------|----------------|
+| Band 1 - red | 620 - 670 | 250 | 2.0 |
+| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
+| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
+| Band 4 - green | 545 - 565 | 500 | 3.0 |
+| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
+| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
+| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
+
+
+### Example NBR Plots Calculated for Post and Pre Fire Landsat Images
+
+
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vegetation-indices-landing-page/2020-02-17-vegetation-indices-landing-page_6_0.png" alt = "NBR - Post Cold Springs Fire using Landsat 8 data.">
+<figcaption>NBR - Post Cold Springs Fire using Landsat 8 data.</figcaption>
+
+</figure>
+
+
+
+
+
 
 ## Difference NBR
 
@@ -213,66 +268,9 @@ sensitive to water and thus sometimes, pixels that are classified as "high sever
 may actually be water. Because of this, it is important to mask out areas of water
 PRIOR to performing any quantitative analysis on the difference NBR results.
 
-NOTE: Check out the mask lessons for this week for an example of how to remove unwanted pixels from your image!
-
-### NBR & Landsat 8
-
-The table below which shows the band distribution of Landsat 8. These bands
-are different from Landsat 7. What
-bands should you use to calculate NBR using Landsat 8?
-
-#### Landsat 8 Bands
-
-| Band | Wavelength range (nanometers) | Spatial Resolution (m) | Spectral Width (nm)|
-|-------------------------------------|------------------|--------------------|----------------|
-| Band 1 - Coastal aerosol | 430 - 450 | 30 | 2.0 |
-| Band 2 - Blue | 450 - 510 | 30 | 6.0 |
-| Band 3 - Green | 530 - 590 | 30 | 6.0 |
-| Band 4 - Red | 640 - 670 | 30 | 0.03 |
-| Band 5 - Near Infrared (NIR) | 850 - 880 | 30 | 3.0 |
-| Band 6 - SWIR 1 | 1570 - 1650 | 30 | 8.0  |
-| Band 7 - SWIR 2 | 2110 - 2290 | 30 | 18 |
-| Band 8 - Panchromatic | 500 - 680 | 15 | 18 |
-| Band 9 - Cirrus | 1360 - 1380 | 30 | 2.0 |
-
-
-### NBR & MODIS
-
-Similarly the table below shows the band ranges for the MODIS sensor. What bands
-should you use to calculate NBR using MODIS?
-
-| Band | Wavelength range (nm) | Spatial Resolution (m) | Spectral Width (nm)|
-|-------------------------------------|------------------|--------------------|----------------|
-| Band 1 - red | 620 - 670 | 250 | 2.0 |
-| Band 2 - near infrared | 841 - 876 | 250 | 6.0 |
-| Band 3 -  blue/green | 459 - 479 | 500 | 6.0 |
-| Band 4 - green | 545 - 565 | 500 | 3.0 |
-| Band 5 - near infrared  | 1230 – 1250 | 500 | 8.0  |
-| Band 6 - mid-infrared | 1628 – 1652 | 500 | 18 |
-| Band 7 - mid-infrared | 2105 - 2155 | 500 | 18 |
-
-### Example NBR Plots Calculated for Post and Pre Fire Landsat Images
-
-
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vegetation-indices-landing-page/2020-02-17-vegetation-indices-landing-page_6_0.png" alt = "NBR - Post Cold Springs Fire using Landsat 8 data.">
-<figcaption>NBR - Post Cold Springs Fire using Landsat 8 data.</figcaption>
-
-</figure>
-
-
-
-
-
-
-
-
-
 ### Example dNBR Plot Calculated from Pre and Post Fire Landsat Images
+
+
+
 
 
