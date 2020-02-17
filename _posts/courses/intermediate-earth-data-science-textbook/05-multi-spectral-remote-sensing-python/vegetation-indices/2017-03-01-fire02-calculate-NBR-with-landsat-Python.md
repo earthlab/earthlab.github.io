@@ -7,7 +7,7 @@ dateCreated: 2017-03-01
 modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
-permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/calculate-dNBR-Landsat-8/
+permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/calculate-dNBR-Landsat-8/
 nav-title: 'Calculate dNBR'
 week: 5
 course: "intermediate-earth-data-science-textbook"
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 3
 topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
@@ -31,8 +31,7 @@ redirect_from:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Calculate `dNBR` in `Python`
-* Describe how the `dNBR` index is used to quantify fire severity.
+* Calculate `dNBR` in **Python**.
 
 </div>
 
@@ -83,6 +82,8 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
 {:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
     Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
     Extracted output to /root/earth-analytics/data/cs-test-landsat/.
 

@@ -7,21 +7,15 @@ dateCreated: 2018-04-14
 modified: 2020-02-17
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
-permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/vegetation-indices-in-python/
+permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/calculate-NDVI-python/
 nav-title: 'Calculate NDVI'
-module-title: 'NAIP, Landsat, MODIS and Vegetation Indices in Python'
-module-description: 'Learn how to calculate vegetation indices from multispectral remote sensing data in Python. '
-module-nav-title: 'Calculate Vegetation Indices in Python'
-module-type: 'class'
-chapter: 11
-class-order: 4
 week: 5
 course: "intermediate-earth-data-science-textbook"
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
+order: 2
 topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
@@ -34,65 +28,19 @@ redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-in-python/export-numpy-array-to-geotiff-in-python/"
 ---
 
-{% include toc title="In This Chapter" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
-
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Eleven - Calculate Vegetation Indices From Remote Sensing Data Using Python
-
-In this chapter, you will learn how to calculate vegetation indices such as normalized difference vegetation index (NDVI) and normalized burn ratio (NBR) from multispectral remote sensing data in **Python**. 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
 After completing this tutorial, you will be able to:
 
 * Calculate NDVI using NAIP multispectral imagery in **Python**.
-* Describe what a vegetation index is and how it is used with spectral remote sensing data.
 * Export or write a raster to a `.tif` file from **Python**.
-
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You will need a computer with internet access to complete this lesson and the Cold Springs Fire data.
-
-{% include /data_subsets/course_earth_analytics/_data-cold-springs-fire.md %}
 
 </div>
 
-## About Vegetation Indices
-
-A vegetation index is a single value that quantifies vegetation health or structure.
-The math associated with calculating a vegetation index is derived from the physics
-of light reflection and absorption across bands. For instance, it is known that
-healthy vegetation reflects light strongly in the near infrared band and less strongly
-in the visible portion of the spectrum. 
-
-Thus, if you create a ratio between light
-reflected in the near infrared and light reflected in the visible spectrum, it
-will represent areas that potentially have healthy vegetation.
-
-
-## Normalized Difference Vegetation Index (NDVI)
-
-The Normalized Difference Vegetation Index (NDVI) is a quantitative index of
-greenness ranging from 0-1 where 0 represents minimal or no greenness and 1
-represents maximum greenness.
-
-NDVI is often used for a quantitate proxy measure of vegetation health, cover
-and phenology (life cycle stage) over large areas.
-
-<figure>
- <a href="{{ site.url }}/images/earth-analytics/remote-sensing/nasa-earth-observatory-ndvi-diagram.jpg">
- <img src="{{ site.url }}/images/earth-analytics/remote-sensing/nasa-earth-observatory-ndvi-diagram.jpg" alt="NDVI image from NASA that shows reflectance."></a>
-    <figcaption>NDVI is calculated from the visible and near-infrared light
-    reflected by vegetation. Healthy vegetation (left) absorbs most of the
-    visible light that hits it, and reflects a large portion of
-    near-infrared light. Unhealthy or sparse vegetation (right) reflects more
-    visible light and less near-infrared light.  Source: NASA
-    </figcaption>
-</figure>
-
-* <a href="http://earthobservatory.nasa.gov/Features/MeasuringVegetation/measuring_vegetation_2.php" target="_blank">
-More on NDVI from NASA</a>
 
 ## Calculate NDVI in Python
 
