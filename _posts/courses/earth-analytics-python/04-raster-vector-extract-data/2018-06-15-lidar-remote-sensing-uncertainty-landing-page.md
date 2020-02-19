@@ -4,7 +4,7 @@ category: courses
 title: "Lidar Remote Sensing Uncertainty - Compare Ground to Lidar Measurements of Tree Height in Python"
 permalink: /courses/earth-analytics-python/lidar-remote-sensing-uncertainty/
 week-landing: 4
-modified: 2020-02-13
+modified: 2020-02-19
 week: 4
 sidebar:
   nav:
@@ -23,19 +23,18 @@ Welcome to week {{ page.week }} of Earth Analytics! This week, you will explore
 the concept of uncertainty surrounding lidar raster data (and remote sensing
 data in general). You will use the same data that you downloaded last week for class.
 
-For your homework you'll also need to download the data below.
+For your homework you'll also need to download the data below. You can do this most easily `using earthpy.get_data()`.
 
 {% include/data_subsets/course_earth_analytics/_data-spatial-lidar.md %}
 
 *******
-
 
 ## <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Homework 
 
 ### The Homework Assignment for This Week Can Be Found on Github 
 
 
-<a href="https://github.com/earthlab-education/ea-python-2020-03-spatial-vector-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
+<a href="https://github.com/earthlab-education/ea-python-2020-04-lidar-uncertainty-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
 
 The lessons for this week have been moved to our <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/">Intermediate Earth Analytics Textbook. </a>
 
