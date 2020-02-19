@@ -40,7 +40,9 @@ At the end of this week you will be able to:
 
 <a href="https://github.com/earthlab-education/ea-python-2020-06-multispectral-remote-sensing-template" target="_blank">Click here to view the GitHub Repo with the assignment template. </a>
 
-Please be sure to read chapters 7, 8, 9 and 11 of Section 5 of the <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/">Intermediate Earth Analytics Textbook. </a> 
+Please be sure to read Chapters 7-9 and 11 of Section 5 of the Intermediate Earth Analytics Textbook on <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/">Multispectral Remote Sensing Data in Python</a>. 
+
+Please be sure to read about the <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/">Cold Springs fire</a> in Chapter 22 of Section 7 of the Intermediate Earth Analytics Textbook. 
 
 
 ### 1a. Remote Sensing Readings
