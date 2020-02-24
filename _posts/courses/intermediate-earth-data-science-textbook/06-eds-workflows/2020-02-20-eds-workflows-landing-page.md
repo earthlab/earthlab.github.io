@@ -20,7 +20,7 @@ module-type: 'session'
 
 ## <i class="fa fa-ship" aria-hidden="true"></i> Section Six - Earth Data Science Workflows
 
-In section six of this textbook, you will learn how about designing and automating Earth Data Science workflows as well as how to contribute to open source Python projects. 
+In section six of this textbook, you will learn how about useful Earth Data Science workflows, including how to design and automate data workflows as well as how to contribute to open source Python projects. 
 
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
