@@ -8,7 +8,7 @@ modified: 2020-02-26
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-in-pandas-python/subset-time-series-data-python/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/subset-time-series-data-python/
 nav-title: 'Subset Time Series Data in Python'
 week: 1
 sidebar:
