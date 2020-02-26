@@ -4,7 +4,7 @@ title: "Remote Sensing to Study Wildfire"
 excerpt: "Scientists often use remote sensing methods to study the impacts of wildfire through calculations of vegetation indices before and after wildfire. Learn more about how remote sensing can be used to study wildfire impacts."
 authors: ['Leah Wasser']
 dateCreated: 2018-10-04
-modified: 2020-02-13
+modified: 2020-02-26
 category: [courses]
 class-lesson: ['wildfire-overview-tb']
 permalink: /courses/use-data-open-source-python/data-stories/cold-springs-wildfire/wildfire-remote-sensing/
@@ -50,11 +50,11 @@ Since remote sensing data are collected over time, they can be used to, among ot
 
 **Vegetation indices** can be useful tools for quantifying and visualizing the before and after effects of wildfire. They are calculations performed on specific spectral bands of remotely sensed imagery to accentuate a particular vegetation characteristic. They can be used for anything from understanding disasters like floods or fires to deciding when to irrigate crops. 
 
-To calculate a vegetation index, you will need access to specific imagery bands across the electromagnetic spectrum; in other words, you will need access to satellite imagery with a certain <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing-in-python/">spectral resolution.</a>
+To calculate a vegetation index, you will need access to specific imagery bands across the electromagnetic spectrum; in other words, you will need access to satellite imagery with a certain <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/">spectral resolution.</a>
 
 ### Normalized Difference Vegetation Index (NDVI)
 
-<a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing-in-python/vegetation-indices-NDVI-in-python/">The normalized difference vegetation index (NDVI)</a> is a vegetation index that is used to measure the greenness of the area. For the purpose of studying wildfires like the Cold Springs Fire, it allows you to visualize and quantify vegetation health before and after the fire. 
+<a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/">The normalized difference vegetation index (NDVI)</a> is a vegetation index that is used to measure the greenness of the area. For the purpose of studying wildfires like the Cold Springs Fire, it allows you to visualize and quantify vegetation health before and after the fire. 
 
 Further, you can use NDVI to track the rate of vegetation growing back in a burned area over time. This can tell you the speed of ecosystem recovery. In this course, you will learn how to calculate NDVI and create images like those below using Python.
 
@@ -76,7 +76,7 @@ Further, you can use NDVI to track the rate of vegetation growing back in a burn
 
 ### Normalized Burn Ratio (NBR)
 
-<a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/">The normalized burn ratio (NBR)</a> is another vegetation index that allows you to visualize burned areas to understand fire severity. To use NBR to understand wildfire, you can perform the calculation on a remotely sensed image taken prior to the fire and on another taken after, and then calculate the difference between the two. 
+<a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/">The normalized burn ratio (NBR)</a> is another vegetation index that allows you to visualize burned areas to understand fire severity. To use NBR to understand wildfire, you can perform the calculation on a remotely sensed image taken prior to the fire and on another taken after, and then calculate the difference between the two. 
 
 This difference image is called a dNBR (difference NBR) image. The images below show an example of an dNBR image for the Cold Springs Fire. In this course, you will learn how to perform these calculations and create these images using Python.
 
@@ -107,11 +107,11 @@ This difference image is called a dNBR (difference NBR) image. The images below 
 ## Where to Find Remote Sensing Data
 
 There are many different free and proprietary sources of remote sensing data. In this course, you will learn how to use the following types of satellite data to understand fire impacts:
-* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing-in-python/">NAIP</a> 
-* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing-in-python/">Landsat</a> 
-* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing-in-python/">MODIS</a> 
+* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/">NAIP</a> 
+* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/">Landsat</a> 
+* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/">MODIS</a> 
 
-Each one of these data sets have different <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing-in-python/">spatial and temporal resolutions.</a> 
+Each one of these data sets have different <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/">spatial and temporal resolutions.</a> 
 
 
 | Data Source | Spatial Resolution | Temporal Resolution | Spectral Resolution |
