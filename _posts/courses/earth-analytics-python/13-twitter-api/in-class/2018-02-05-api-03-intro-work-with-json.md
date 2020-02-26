@@ -3,7 +3,7 @@ layout: single
 title: 'Introduction to Working With the JSON data structure in Python'
 excerpt: 'This lesson introduces how to work with the JSON data structure using Python using the JSON and Pandas libraries to create and convert JSON objects. '
 authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['intro-APIs-python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/work-with-JSON-intro/
@@ -262,19 +262,19 @@ df
   </thead>
   <tbody>
     <tr>
-      <td>name</td>
+      <th>name</th>
       <td>Chaya</td>
     </tr>
     <tr>
-      <td>age</td>
+      <th>age</th>
       <td>12</td>
     </tr>
     <tr>
-      <td>city</td>
+      <th>city</th>
       <td>Boulder</td>
     </tr>
     <tr>
-      <td>type</td>
+      <th>type</th>
       <td>Canine</td>
     </tr>
   </tbody>

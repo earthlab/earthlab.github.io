@@ -3,7 +3,7 @@ layout: single
 title: "smapr"
 excerpt: "An R package for acquiring and processing soil moisture data from the NASA SMAP mission."
 header:
-  image: smap.png
+  overlay_color: "#000080"
   teaser: smap.png
   image_alt: "Intensity plot of soil moisture across the Earth"
 published: true
@@ -13,6 +13,6 @@ published: true
 
 smapr is an R package for acquisition and processing of [NASA (Soil Moisture Active-Passive) SMAP data](http://smap.jpl.nasa.gov/).
 The NASA SMAP mission collects global soil moisture daily, providing an invaluable resource to the research community.
-The smapr package facilitates data search, download, and processing, with the goal of quickly acquiring georeferenced spatial rasters that can be exported to any desired format. 
+The smapr package facilitates data search, download, and processing, with the goal of quickly acquiring georeferenced spatial rasters that can be exported to any desired format.
 
 [Check it out on GitHub!](https://github.com/ropensci/smapr)

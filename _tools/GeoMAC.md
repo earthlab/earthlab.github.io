@@ -3,7 +3,7 @@ layout: single
 title: "GeoMAC_DL"
 excerpt: "Programmatic access to Geospatial Multi-Agency Coordination (GeoMAC) fire data in Python."
 header:
-  image: airtanker-fire.jpg
+  overlay_color: "#000080"
   teaser: airtanker-fire.jpg
   image_alt: "Air tanker dumping flame retardant on a wild fire"
 published: true

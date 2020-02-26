@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Word Frequency Counts Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to calculate word frequencies to understand how often words are used in tweets on a particular topic. To complete any analysis, you need to first prepare the data. Learn how to clean Twitter data and calculate word frequencies using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2019-09-03
+modified: 2020-02-01
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-frequencies-in-python/
@@ -108,11 +108,11 @@ all_tweets[:5]
 
 
 
-    ['@InsuranceBureau Hey! Yoohoo! Hey! @InsuranceBureau! \nMaybe sometime before today, and everyday from now on, you sh… https://t.co/sWc2XT1DO8',
-     'Our rulers are golfing and trail running while human civilization burns down. \n\nNew piece by @KateAronoff. #climate… https://t.co/R6HZ78oK67',
-     '"These findings lend themselves to a somewhat controversial idea: that we might be able to manipulate these marine… https://t.co/71w3y6fWfA',
-     'Information based on proven data about #climate change and how this affects #waterAvailability is so important! Tha… https://t.co/YDe1k1sJKj',
-     'Here’s what @EmoryUniversity is doing to tackle #climate change. You can get involved by visiting… https://t.co/eQsGGsob1J']
+    ['Januarys dry \nhands\nravaged our \nland\nturning timber\nto ash\nsinew to\nsmoke\nlivelihood no\ngood\nonly words \nsome holl… https://t.co/AROnGqJVpY',
+     'Quiet Australians speak up on #climate change action #auspol https://t.co/flCBI86F18 via @ABCNews',
+     'BBC News - Greta Thunberg seeks Africa #climate change action (#nuclear power is not in it) #auspol NO #thorium… https://t.co/y6pIP7yQJo',
+     '#Climate change calls for action, not adaptation #auspol https://t.co/qeFUMlpriS via @smh',
+     '#science Links to videos about CLIMATE CHANGE and SCIENCE #climate #change #water #air #CO2 #greenenergy #solar\nhttps://t.co/PWxh2hTaUa']
 
 
 
@@ -167,11 +167,11 @@ all_tweets_no_urls[:5]
 
 
 
-    ['InsuranceBureau Hey Yoohoo Hey InsuranceBureau Maybe sometime before today and everyday from now on you sh',
-     'Our rulers are golfing and trail running while human civilization burns down New piece by KateAronoff climate',
-     'These findings lend themselves to a somewhat controversial idea that we might be able to manipulate these marine',
-     'Information based on proven data about climate change and how this affects waterAvailability is so important Tha',
-     'Heres what EmoryUniversity is doing to tackle climate change You can get involved by visiting']
+    ['Januarys dry handsravaged our landturning timberto ashsinew tosmokelivelihood nogoodonly words some holl',
+     'Quiet Australians speak up on climate change action auspol via ABCNews',
+     'BBC News Greta Thunberg seeks Africa climate change action nuclear power is not in it auspol NO thorium',
+     'Climate change calls for action not adaptation auspol via smh',
+     'science Links to videos about CLIMATE CHANGE and SCIENCE climate change water air CO2 greenenergy solar']
 
 
 
@@ -262,22 +262,18 @@ all_tweets_no_urls[0].split()
 
 
 
-    ['InsuranceBureau',
-     'Hey',
-     'Yoohoo',
-     'Hey',
-     'InsuranceBureau',
-     'Maybe',
-     'sometime',
-     'before',
-     'today',
-     'and',
-     'everyday',
-     'from',
-     'now',
-     'on',
-     'you',
-     'sh']
+    ['Januarys',
+     'dry',
+     'handsravaged',
+     'our',
+     'landturning',
+     'timberto',
+     'ashsinew',
+     'tosmokelivelihood',
+     'nogoodonly',
+     'words',
+     'some',
+     'holl']
 
 
 
@@ -298,22 +294,18 @@ all_tweets_no_urls[0].lower().split()
 
 
 
-    ['insurancebureau',
-     'hey',
-     'yoohoo',
-     'hey',
-     'insurancebureau',
-     'maybe',
-     'sometime',
-     'before',
-     'today',
-     'and',
-     'everyday',
-     'from',
-     'now',
-     'on',
-     'you',
-     'sh']
+    ['januarys',
+     'dry',
+     'handsravaged',
+     'our',
+     'landturning',
+     'timberto',
+     'ashsinew',
+     'tosmokelivelihood',
+     'nogoodonly',
+     'words',
+     'some',
+     'holl']
 
 
 
@@ -333,39 +325,29 @@ words_in_tweet[:2]
 
 
 
-    [['insurancebureau',
-      'hey',
-      'yoohoo',
-      'hey',
-      'insurancebureau',
-      'maybe',
-      'sometime',
-      'before',
-      'today',
-      'and',
-      'everyday',
-      'from',
-      'now',
+    [['januarys',
+      'dry',
+      'handsravaged',
+      'our',
+      'landturning',
+      'timberto',
+      'ashsinew',
+      'tosmokelivelihood',
+      'nogoodonly',
+      'words',
+      'some',
+      'holl'],
+     ['quiet',
+      'australians',
+      'speak',
+      'up',
       'on',
-      'you',
-      'sh'],
-     ['our',
-      'rulers',
-      'are',
-      'golfing',
-      'and',
-      'trail',
-      'running',
-      'while',
-      'human',
-      'civilization',
-      'burns',
-      'down',
-      'new',
-      'piece',
-      'by',
-      'katearonoff',
-      'climate']]
+      'climate',
+      'change',
+      'action',
+      'auspol',
+      'via',
+      'abcnews']]
 
 
 
@@ -396,21 +378,21 @@ counts_no_urls.most_common(15)
 
 
 
-    [('climate', 865),
-     ('change', 667),
-     ('the', 547),
-     ('to', 446),
-     ('of', 252),
-     ('is', 239),
-     ('a', 233),
-     ('and', 226),
-     ('in', 203),
-     ('climatechange', 197),
-     ('on', 176),
-     ('for', 134),
-     ('are', 101),
-     ('we', 93),
-     ('about', 75)]
+    [('climate', 800),
+     ('the', 631),
+     ('change', 554),
+     ('to', 453),
+     ('of', 299),
+     ('and', 288),
+     ('a', 243),
+     ('is', 217),
+     ('in', 194),
+     ('on', 182),
+     ('for', 165),
+     ('climatechange', 113),
+     ('are', 100),
+     ('that', 98),
+     ('we', 91)]
 
 
 
@@ -455,29 +437,29 @@ clean_tweets_no_urls.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>climate</td>
-      <td>865</td>
+      <td>800</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>change</td>
-      <td>667</td>
-    </tr>
-    <tr>
-      <td>2</td>
+      <th>1</th>
       <td>the</td>
-      <td>547</td>
+      <td>631</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>2</th>
+      <td>change</td>
+      <td>554</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>to</td>
-      <td>446</td>
+      <td>453</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>of</td>
-      <td>252</td>
+      <td>299</td>
     </tr>
   </tbody>
 </table>
@@ -525,7 +507,7 @@ plt.show()
 
 
 
-    [16, 17, 18]
+    [12, 11, 18]
 
 
 
@@ -575,16 +557,16 @@ list(stop_words)[0:10]
 
 
 
-    ['through',
-     "should've",
-     'until',
+    ['wasn',
+     'weren',
+     "weren't",
+     'their',
+     'me',
+     'mightn',
+     'had',
+     'isn',
      "doesn't",
-     "that'll",
-     'don',
-     'its',
-     'very',
-     'few',
-     'with']
+     'again']
 
 
 
@@ -604,22 +586,18 @@ words_in_tweet[0]
 
 
 
-    ['insurancebureau',
-     'hey',
-     'yoohoo',
-     'hey',
-     'insurancebureau',
-     'maybe',
-     'sometime',
-     'before',
-     'today',
-     'and',
-     'everyday',
-     'from',
-     'now',
-     'on',
-     'you',
-     'sh']
+    ['januarys',
+     'dry',
+     'handsravaged',
+     'our',
+     'landturning',
+     'timberto',
+     'ashsinew',
+     'tosmokelivelihood',
+     'nogoodonly',
+     'words',
+     'some',
+     'holl']
 
 
 
@@ -649,16 +627,16 @@ tweets_nsw[0]
 
 
 
-    ['insurancebureau',
-     'hey',
-     'yoohoo',
-     'hey',
-     'insurancebureau',
-     'maybe',
-     'sometime',
-     'today',
-     'everyday',
-     'sh']
+    ['januarys',
+     'dry',
+     'handsravaged',
+     'landturning',
+     'timberto',
+     'ashsinew',
+     'tosmokelivelihood',
+     'nogoodonly',
+     'words',
+     'holl']
 
 
 
@@ -680,21 +658,21 @@ counts_nsw.most_common(15)
 
 
 
-    [('climate', 865),
-     ('change', 667),
-     ('climatechange', 197),
-     ('us', 52),
-     ('new', 51),
-     ('amp', 50),
-     ('globalwarming', 43),
-     ('news', 35),
-     ('fight', 34),
-     ('health', 33),
-     ('global', 33),
+    [('climate', 800),
+     ('change', 554),
+     ('climatechange', 113),
+     ('new', 53),
+     ('globalwarming', 48),
+     ('amp', 47),
+     ('action', 38),
+     ('crisis', 36),
+     ('one', 36),
+     ('global', 32),
      ('via', 29),
-     ('emissions', 29),
-     ('great', 29),
-     ('years', 28)]
+     ('us', 29),
+     ('news', 28),
+     ('science', 28),
+     ('world', 28)]
 
 
 
@@ -764,16 +742,16 @@ tweets_nsw[0]
 
 
 
-    ['insurancebureau',
-     'hey',
-     'yoohoo',
-     'hey',
-     'insurancebureau',
-     'maybe',
-     'sometime',
-     'today',
-     'everyday',
-     'sh']
+    ['januarys',
+     'dry',
+     'handsravaged',
+     'landturning',
+     'timberto',
+     'ashsinew',
+     'tosmokelivelihood',
+     'nogoodonly',
+     'words',
+     'holl']
 
 
 
@@ -789,16 +767,16 @@ tweets_nsw_nc[0]
 
 
 
-    ['insurancebureau',
-     'hey',
-     'yoohoo',
-     'hey',
-     'insurancebureau',
-     'maybe',
-     'sometime',
-     'today',
-     'everyday',
-     'sh']
+    ['januarys',
+     'dry',
+     'handsravaged',
+     'landturning',
+     'timberto',
+     'ashsinew',
+     'tosmokelivelihood',
+     'nogoodonly',
+     'words',
+     'holl']
 
 
 
@@ -826,21 +804,21 @@ counts_nsw_nc.most_common(15)
 
 
 
-    [('us', 52),
-     ('new', 51),
-     ('amp', 50),
-     ('globalwarming', 43),
-     ('news', 35),
-     ('fight', 34),
-     ('health', 33),
-     ('global', 33),
+    [('new', 53),
+     ('globalwarming', 48),
+     ('amp', 47),
+     ('action', 38),
+     ('crisis', 36),
+     ('one', 36),
+     ('global', 32),
      ('via', 29),
-     ('emissions', 29),
-     ('great', 29),
-     ('years', 28),
-     ('trump', 28),
-     ('could', 27),
-     ('one', 26)]
+     ('us', 29),
+     ('news', 28),
+     ('science', 28),
+     ('world', 28),
+     ('could', 26),
+     ('2020', 26),
+     ('gpwx', 25)]
 
 
 
@@ -858,7 +836,7 @@ len(counts_nsw_nc)
 
 
 
-    3553
+    3863
 
 
 
@@ -902,29 +880,29 @@ clean_tweets_ncw.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>us</td>
-      <td>52</td>
-    </tr>
-    <tr>
-      <td>1</td>
+      <th>0</th>
       <td>new</td>
-      <td>51</td>
+      <td>53</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>amp</td>
-      <td>50</td>
-    </tr>
-    <tr>
-      <td>3</td>
+      <th>1</th>
       <td>globalwarming</td>
-      <td>43</td>
+      <td>48</td>
     </tr>
     <tr>
-      <td>4</td>
-      <td>news</td>
-      <td>35</td>
+      <th>2</th>
+      <td>amp</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>action</td>
+      <td>38</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>crisis</td>
+      <td>36</td>
     </tr>
   </tbody>
 </table>

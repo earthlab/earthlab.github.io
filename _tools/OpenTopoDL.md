@@ -3,7 +3,7 @@ layout: single
 title: "OpenTopoDL"
 excerpt: "Programmatic access to digital elevation models and lidar point clouds from OpenTopo with Python."
 header:
-  image: dem.JPG
+  overlay_color: "#000080"
   teaser: dem.JPG
   image_alt: "Digital elevation model"
 published: true

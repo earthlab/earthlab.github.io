@@ -8,7 +8,7 @@ class-lesson: ['intro-numpy-arrays']
 permalink: /courses/intro-to-earth-data-science/scientific-data-structures-python/numpy-arrays/indexing-slicing-numpy-arrays/
 nav-title: "Slice Data From Numpy Arrays"
 dateCreated: 2019-09-06
-modified: 2019-10-04
+modified: 2019-11-02
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 6
@@ -93,11 +93,11 @@ import earthpy as et
 
 {:.input}
 ```python
-# Download data from URL to .txt with avg monthly precip data
+# Download .txt with avg monthly precip (inches)
 monthly_precip_url = 'https://ndownloader.figshare.com/files/12565616'
 et.data.get_data(url=monthly_precip_url)
 
-# Download data from URL to .csv of precip data for 2002 and 2013
+# Download .csv of precip data for 2002 and 2013 (inches)
 precip_2002_2013_url = 'https://ndownloader.figshare.com/files/12707792'
 et.data.get_data(url=precip_2002_2013_url)
 ```
@@ -122,7 +122,9 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 {:.input}
 ```python
 # Import average monthly precip
-fname = "data/earthpy-downloads/avg-monthly-precip.txt"
+fname = os.path.join("data", "earthpy-downloads",
+                     "avg-monthly-precip.txt")
+
 avg_monthly_precip = np.loadtxt(fname)
 
 print(avg_monthly_precip)
@@ -136,7 +138,9 @@ print(avg_monthly_precip)
 {:.input}
 ```python
 # Import monthly precip for 2002 and 2013
-fname = "data/earthpy-downloads/monthly-precip-2002-2013.csv"
+fname = os.path.join("data", "earthpy-downloads",
+                     "monthly-precip-2002-2013.csv")
+
 precip_2002_2013 = np.loadtxt(fname, delimiter=",")
 
 print(precip_2002_2013)
@@ -408,20 +412,7 @@ You can use shortcuts to easily select an entire row or column by simply specify
 
 The output of these shortcuts will be one-dimensional arrays, which is very useful if you want to easily plot the data.  
 
-For example, you can use `[0, :]` to select the entire first row of `precip_2002_2013`, which are all of the monthly values for 2002. 
-
-{:.input}
-```python
-# Select 1st row
-print(precip_2002_2013[0, :])
-```
-
-{:.output}
-    [1.07 0.44 1.5  0.2  3.2  1.18 0.09 1.44 1.52 2.44 0.78 0.02]
-
-
-
-Or conversely, you can use `[:, 0]` to select the entire first column of `precip_2002_2013`, which are all of the values for January (in the case in 2002 and 2013). 
+For example, you can use `[:, 0]` to select the entire first column of `precip_2002_2013`, which are all of the values for January (in this case, for 2002 and 2013). 
 
 {:.input}
 ```python
@@ -431,6 +422,19 @@ print(precip_2002_2013[:, 0])
 
 {:.output}
     [1.07 0.27]
+
+
+
+Or conversely, you can use `[0, :]` to select the entire first row of `precip_2002_2013`, which are all of the monthly values for 2002. 
+
+{:.input}
+```python
+# Select 1st row
+print(precip_2002_2013[0, :])
+```
+
+{:.output}
+    [1.07 0.44 1.5  0.2  3.2  1.18 0.09 1.44 1.52 2.44 0.78 0.02]
 
 
 
@@ -450,6 +454,23 @@ print(precip_2002)
 {:.output}
     (12,)
     [1.07 0.44 1.5  0.2  3.2  1.18 0.09 1.44 1.52 2.44 0.78 0.02]
+
+
+
+To select rows, there is an even shorter shortcut - you can provide an index for the desired row by itself!
+
+{:.input}
+```python
+# Select 2nd row of data for 2013
+precip_2013 = precip_2002_2013[1]
+
+print(precip_2013.shape)
+print(precip_2013)
+```
+
+{:.output}
+    (12,)
+    [ 0.27  1.13  1.72  4.14  2.66  0.61  1.03  1.4  18.16  2.24  0.29  0.5 ]
 
 
 
