@@ -1,15 +1,15 @@
 ---
 layout: single
-title: "How Do You Create a Data Workflow"
-excerpt: "Designing and developing data workflows can complete your work more efficiently by allowing you to repeat and automate data tasks. Learn how to design and develop efficient workflows to automate data analyses in Python."
+title: "How Do You Design a Data Workflow"
+excerpt: "Designing and developing data workflows can help you complete your work more efficiently by allowing you to repeat and automate data tasks. Learn how to design and develop efficient workflows to automate data analyses in Python."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe', 'Jenny Palomino', 'Joe McGlinchy']
 dateCreated: 2018-10-21
-modified: 2020-02-24
+modified: 2020-02-26
 category: [courses]
 class-lesson: ['create-data-workflows-tb']
 module-title: 'How To Design and Develop a Workflow'
-module-description: 'Learn how to design and develop automated workflows using the example of calculating a NDVI time series in Python.'
-module-nav-title: 'Design and Develop Workflows'
+module-description: 'Designing and developing data workflows can help you complete your work more efficiently by allowing you to repeat and automate data tasks. Learn how to design and develop automated workflows using the example of calculating a NDVI time series in Python.'
+module-nav-title: 'Design Data Workflows'
 module-type: 'class'
 class-order: 1
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/
