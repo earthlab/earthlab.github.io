@@ -3,9 +3,9 @@ layout: single
 category: courses
 title: "Learn to Create Efficient Data Workflows in Python"
 permalink: /courses/earth-analytics-python/create-efficient-data-workflows/
-modified: 2020-02-01
-week-landing: 10
-week: 10
+modified: 2020-02-26
+week-landing: 7
+week: 7
 sidebar:
   nav:
 comments: false
@@ -28,7 +28,13 @@ Welcome to week {{ page.week }} of Earth Analytics! This week you will learn how
 </div>
 
 
-## Automate a Workflow in Python
+## Materials to Review For This Week's Assignment
+
+Please be sure to review Chapter of Section 6 of the Intermediate Earth Analytics Textbook on <a href="{{ site.url }}/courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/">Designing and Automating Data Workflows in Python</a>. 
+
+
+
+### Automate a Workflow in Python
 
 For this week’s assignment, you will generate a plot of the normalized difference vegetation index (NDVI) for two different locations in the United States to begin to understand how the growing seasons vary in each site:
 
@@ -39,7 +45,8 @@ From this plot, you will be able to compare the seasonal vegetation patterns of 
 
 As a bonus, you will also create a stacked NDVI output data product to share with your colleagues. You are doing all of the work to clean and process the data. It would be nice if you could share a data product output to save others the hassle. 
 
-## Design A Workflow 
+
+### Design A Workflow 
 
 Your goal this week is to calculate the mean NDVI value for each Landsat 8 scene captured for a NEON site over a year. You have the following data to do accomplish this goal:
 
@@ -49,14 +56,9 @@ Your goal this week is to calculate the mean NDVI value for each Landsat 8 scene
 Before writing `Python` code, write pseudocode for your implementation. Pseudo-coding means that you will write out all of the steps that you need to perform. Then, you will identify areas where tasks are repeated that could benefit from a function, areas where loops might be appropriate, etc.  
 
 
-## Homework for this Week
-
-Your homework for this week is provided in the assignment dropbox on Canvas.
-
-
 ## Homework Plots
 
-The plots below are examples of what your output plots will look like with and without dealing with clouds.
+The plots below are examples of what your output plots will look like with and without cleaning the data to deal with cloud cover.
 
 
 
