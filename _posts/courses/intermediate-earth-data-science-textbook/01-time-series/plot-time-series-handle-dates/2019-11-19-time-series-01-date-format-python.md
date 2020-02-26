@@ -3,12 +3,12 @@ layout: single
 title: "Work With Datetime Format in Python - Time Series Data "
 excerpt: "Python provides a datetime object for storing and working with dates. Learn how you can convert columns in a pandas dataframe containing dates and times as strings into datetime objects for more efficient analysis and plotting."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-dateCreated: 2018-02-05
-modified: 2020-01-10
+dateCreated: 2019-11-19
+modified: 2020-02-26
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-in-pandas-python/
 module-description: 'Python provides a datetime object for storing and working with dates. Learn how to handle date fields using pandas to work with time series data in Python.'
 module-nav-title: 'Time Series Data in Pandas'
 module-title: 'Use Time Series Data in Python With Pandas'
@@ -27,7 +27,7 @@ topics:
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 redirect_from:
-  - "/courses/earth-analytics-python/use-time-series-data-in-python/date-time-types-in-pandas-python/"
+  - "/courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}
@@ -154,31 +154,31 @@ boulder_july_2018.head()
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
+      <th>0</th>
       <td>2018-07-01</td>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>1</td>
+      <th>1</th>
       <td>2018-07-02</td>
       <td>92</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2</td>
+      <th>2</th>
       <td>2018-07-03</td>
       <td>90</td>
       <td>-999.00</td>
     </tr>
     <tr>
-      <td>3</td>
+      <th>3</th>
       <td>2018-07-04</td>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>4</td>
+      <th>4</th>
       <td>2018-07-05</td>
       <td>84</td>
       <td>0.24</td>
@@ -201,9 +201,11 @@ boulder_july_2018.info()
     <class 'pandas.core.frame.DataFrame'>
     RangeIndex: 31 entries, 0 to 30
     Data columns (total 3 columns):
-    date        31 non-null object
-    max_temp    31 non-null int64
-    precip      31 non-null float64
+     #   Column    Non-Null Count  Dtype  
+    ---  ------    --------------  -----  
+     0   date      31 non-null     object 
+     1   max_temp  31 non-null     int64  
+     2   precip    31 non-null     float64
     dtypes: float64(1), int64(1), object(1)
     memory usage: 872.0+ bytes
 
@@ -360,27 +362,27 @@ boulder_july_2018.head()
   </thead>
   <tbody>
     <tr>
-      <td>2018-07-01</td>
+      <th>2018-07-01</th>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-02</td>
+      <th>2018-07-02</th>
       <td>92</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-03</td>
+      <th>2018-07-03</th>
       <td>90</td>
       <td>-999.00</td>
     </tr>
     <tr>
-      <td>2018-07-04</td>
+      <th>2018-07-04</th>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-05</td>
+      <th>2018-07-05</th>
       <td>84</td>
       <td>0.24</td>
     </tr>
@@ -406,8 +408,10 @@ boulder_july_2018.info()
     <class 'pandas.core.frame.DataFrame'>
     DatetimeIndex: 31 entries, 2018-07-01 to 2018-07-31
     Data columns (total 2 columns):
-    max_temp    31 non-null int64
-    precip      31 non-null float64
+     #   Column    Non-Null Count  Dtype  
+    ---  ------    --------------  -----  
+     0   max_temp  31 non-null     int64  
+     1   precip    31 non-null     float64
     dtypes: float64(1), int64(1)
     memory usage: 744.0 bytes
 
@@ -602,42 +606,42 @@ boulder_july_2018.describe()
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>31.000000</td>
       <td>31.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>88.129032</td>
       <td>-96.618065</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>6.626925</td>
       <td>300.256388</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>75.000000</td>
       <td>-999.000000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>84.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>88.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>94.000000</td>
       <td>0.050000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>97.000000</td>
       <td>0.450000</td>
     </tr>
@@ -708,27 +712,27 @@ boulder_july_2018.head()
   </thead>
   <tbody>
     <tr>
-      <td>2018-07-01</td>
+      <th>2018-07-01</th>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-02</td>
+      <th>2018-07-02</th>
       <td>92</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-03</td>
+      <th>2018-07-03</th>
       <td>90</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <td>2018-07-04</td>
+      <th>2018-07-04</th>
       <td>87</td>
       <td>0.00</td>
     </tr>
     <tr>
-      <td>2018-07-05</td>
+      <th>2018-07-05</th>
       <td>84</td>
       <td>0.24</td>
     </tr>
@@ -779,42 +783,42 @@ boulder_july_2018.describe()
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>31.000000</td>
       <td>28.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>88.129032</td>
       <td>0.065714</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>6.626925</td>
       <td>0.120936</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>75.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>84.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>88.000000</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>94.000000</td>
       <td>0.055000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>97.000000</td>
       <td>0.450000</td>
     </tr>
