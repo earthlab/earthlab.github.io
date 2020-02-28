@@ -4,23 +4,17 @@ title: "Layer a raster dataset over a hillshade in Python to create a beautiful 
 excerpt: "A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. Learn how to overlay raster data on top of a hillshade in Python."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-30
+modified: 2020-02-28
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/overlay-raster-maps/
 nav-title: 'Overlay Rasters'
-module-title: 'Customize Plots of Raster Data'
-module-description: 'This module covers how overlay rasters to create visualizations and how to make interactive plots.'
-module-nav-title: 'Customize Raster Plots'
-module-type: 'class'
-chapter: 4
 week: 2
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 1
-class-order: 2
+order: 2
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
 topics:
   reproducible-science-and-programming:
@@ -30,32 +24,16 @@ redirect_from:
   - "/courses/earth-analytics-python/lidar-raster-data/overlay-raster-maps/"
 ---
 
-{% include toc title="In This Chapter" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-## <i class="fa fa-ship" aria-hidden="true"></i> Chapter Four - Customize Raster Plots
-
-In this chapter, you will learn how to create and customize raster plots in **Python** using **earthpy**, **matplotlib**, and **folium**. 
-
-
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this chapter, you will be able to:
-
 * Overlay two rasters in **Python** to create a plot.
-* Create interactive map in **Jupyter Notebook** using the **folium** package for **Python**.
-* Overlay a raster on an interactive map created with **folium**.
-* Customize a raster map in **Python** using **matplotlib**.
-
-
-## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
-
-You need **Python** and **Jupyer Notebook** to complete this chapter. You should also have an `earth-analytics` directory setup on your computer with a `data` subdirectory within it. You should have completed the lesson on <a href="{{ site.url }}/workshops/setup-earth-analytics-python/">Setting Up the Earth Analytics Python Conda Environment.</a>.
-
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
 
 </div>
+
 
 ## Overlay Rasters in Python
 
@@ -135,7 +113,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps01-overlay-rasters/2018-02-05-maps01-overlay-rasters_6_0.png" alt = "Plot of the Digital Elevation Model overlayed on top of a hillshade.">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps01-overlay-rasters/2018-02-05-maps01-overlay-rasters_5_0.png" alt = "Plot of the Digital Elevation Model overlayed on top of a hillshade.">
 <figcaption>Plot of the Digital Elevation Model overlayed on top of a hillshade.</figcaption>
 
 </figure>
