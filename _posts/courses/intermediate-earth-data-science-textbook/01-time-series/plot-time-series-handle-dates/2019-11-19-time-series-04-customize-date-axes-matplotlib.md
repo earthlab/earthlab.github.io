@@ -3,7 +3,7 @@ layout: single
 title: "Customize Dates on Time Series Plots in Python Using Matplotlib"
 excerpt: 'When you plot time series data using the matplotlib package in Python, you often want to customize the date format that is presented on the plot. Learn how to customize the date format on time series plots created using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2020-02-26
+modified: 2020-02-28
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -20,6 +20,7 @@ topics:
   reproducible-science-and-programming: ['python']
   data-exploration-and-analysis: ['data-visualization']
 redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/customize-dates--matplotlib-plots-python/"
   - "/courses/use-data-open-source-python/use-time-series-data-in-python/customize-dates-matplotlib-plots-python/"
 ---
 

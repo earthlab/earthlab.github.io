@@ -3,7 +3,7 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with Pandas."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2020-02-26
+modified: 2020-02-28
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -20,6 +20,7 @@ topics:
   time-series:
   data-exploration-and-analysis: ['data-visualization']
 redirect_from:
+  - "/courses/earth-analytics-python/use-time-series-data-in-python/resample-time-series-data-pandas-python/"
   - "/courses/use-data-open-source-python/use-time-series-data-in-python/resample-time-series-data-pandas-python/"
 ---
 
