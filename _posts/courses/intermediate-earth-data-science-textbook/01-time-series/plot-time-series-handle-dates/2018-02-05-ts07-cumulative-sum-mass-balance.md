@@ -1,26 +1,25 @@
 ---
 layout: single
 title: "The Relationship Between Precipitation and Stream Discharge | Explore Mass Balance"
-excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed."
+excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-13
+modified: 2020-02-28
 category: [courses]
-class-lesson: ['time-series-python-tb']
-course: 'intermediate-earth-data-science-textbook'
-week: 1
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/
+class-lesson: ['time-series-python']
+course: 'earth-analytics-python'
+week: 3
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/precipitation-discharge-mass-balance/
 nav-title: 'Cumulative Sums in Pandas (Optional)'
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 7
 topics:
-  reproducible-science-and-programming: ['python']
-  data-exploration-and-analysis: ['data-visualization']
 redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/"
+  - "/courses/use-data-open-source-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -32,7 +31,6 @@ redirect_from:
 * Create a cumulative sum plot in **Pandas** to better understand stream discharge in a watershed.
 
 </div>
-
 
 ## Introduction to Flood Frequency Analysis
 
@@ -100,11 +98,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-01-13T16:29:40.812Z', 'title': 'requestDT'},
-        {'value': 'e5f571b0-3621-11ea-aec2-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2020-02-28T22:28:13.216Z', 'title': 'requestDT'},
+        {'value': '9b5a23e0-5a79-11ea-acf4-6cae8b663fb6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'caas01', 'title': 'server'}]},
+        {'value': 'vaas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -140,9 +138,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '51.4',
+        'values': [{'value': [{'value': '66.4',
             'qualifiers': ['P'],
-            'dateTime': '2020-01-12T00:00:00.000'}],
+            'dateTime': '2020-02-27T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -217,31 +215,31 @@ longmont_discharge_annual_max.head()
   </thead>
   <tbody>
     <tr>
-      <td>1946-01-01</td>
+      <th>1946-01-01</th>
       <td>99.0</td>
       <td>A</td>
       <td>1946.0</td>
     </tr>
     <tr>
-      <td>1947-01-01</td>
+      <th>1947-01-01</th>
       <td>1930.0</td>
       <td>A</td>
       <td>1947.0</td>
     </tr>
     <tr>
-      <td>1948-01-01</td>
+      <th>1948-01-01</th>
       <td>339.0</td>
       <td>A</td>
       <td>1948.0</td>
     </tr>
     <tr>
-      <td>1949-01-01</td>
+      <th>1949-01-01</th>
       <td>2010.0</td>
       <td>A</td>
       <td>1949.0</td>
     </tr>
     <tr>
-      <td>1950-01-01</td>
+      <th>1950-01-01</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -258,7 +256,6 @@ longmont_discharge_annual_max.head()
 ```python
 # Download usgs annual max data from figshare
 url = "https://nwis.waterdata.usgs.gov/nwis/peak?site_no=06730500&agency_cd=USGS&format=rdb"
-
 download_path = os.path.join("data", "colorado-flood", 
                              "downloads", "annual-peak-flow.txt")
 
@@ -319,27 +316,27 @@ usgs_annual_max.head()
   </thead>
   <tbody>
     <tr>
-      <td>1927-07-29</td>
+      <th>1927-07-29</th>
       <td>407.0</td>
       <td>1927</td>
     </tr>
     <tr>
-      <td>1928-06-04</td>
+      <th>1928-06-04</th>
       <td>694.0</td>
       <td>1928</td>
     </tr>
     <tr>
-      <td>1929-07-23</td>
+      <th>1929-07-23</th>
       <td>530.0</td>
       <td>1929</td>
     </tr>
     <tr>
-      <td>1930-08-18</td>
+      <th>1930-08-18</th>
       <td>353.0</td>
       <td>1930</td>
     </tr>
     <tr>
-      <td>1931-05-29</td>
+      <th>1931-05-29</th>
       <td>369.0</td>
       <td>1931</td>
     </tr>
@@ -355,34 +352,25 @@ usgs_annual_max.head()
 ```python
 # Plot calculated vs USGS annual max flow values
 fig, ax = plt.subplots(figsize = (11,9))
+
 ax.plot(usgs_annual_max["year"], 
         usgs_annual_max["peak_va"],
         color = "purple",
         linestyle=':', 
         marker='o', 
         label = "USGS Annual Max")
+
 ax.plot(longmont_discharge_annual_max["year"], 
         longmont_discharge_annual_max["discharge"],
         color = "lightgrey",
         linestyle=':', 
         marker='o', label = "Calculated Annual Max")
+
 ax.legend()
 ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated")
+
 plt.show()
 ```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance/2018-02-05-ts07-cumulative-sum-mass-balance_8_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
-<figcaption>Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.</figcaption>
-
-</figure>
-
-
-
 
 ## Calculate Cumulative Sum
 
@@ -436,7 +424,9 @@ convert_to_runoff
 {:.input}
 ```python
 # MAR - Mean Annual Runoff
-longmont_discharge["cum-sum-vol"] = longmont_discharge['discharge'].cumsum()*convert_to_runoff
+longmont_discharge["cum-sum-vol"] = longmont_discharge[
+    'discharge'].cumsum()*convert_to_runoff
+
 longmont_discharge.head()
 ```
 
@@ -478,35 +468,35 @@ longmont_discharge.head()
   </thead>
   <tbody>
     <tr>
-      <td>1946-05-10</td>
+      <th>1946-05-10</th>
       <td>16.0</td>
       <td>A</td>
       <td>1946</td>
       <td>1.600440e+09</td>
     </tr>
     <tr>
-      <td>1946-05-11</td>
+      <th>1946-05-11</th>
       <td>19.0</td>
       <td>A</td>
       <td>1946</td>
       <td>3.500962e+09</td>
     </tr>
     <tr>
-      <td>1946-05-12</td>
+      <th>1946-05-12</th>
       <td>9.0</td>
       <td>A</td>
       <td>1946</td>
       <td>4.401209e+09</td>
     </tr>
     <tr>
-      <td>1946-05-13</td>
+      <th>1946-05-13</th>
       <td>3.0</td>
       <td>A</td>
       <td>1946</td>
       <td>4.701292e+09</td>
     </tr>
     <tr>
-      <td>1946-05-14</td>
+      <th>1946-05-14</th>
       <td>7.8</td>
       <td>A</td>
       <td>1946</td>
@@ -543,33 +533,24 @@ ax.set_ylabel('Total Area Runoff', color='b')
 ax.tick_params('y', colors='b')
 
 ax2 = ax.twinx()
+
 ax2.scatter(x=longmont_discharge.index, 
         y=longmont_discharge["discharge"], 
         marker="o",
         s=4, 
         color ="purple", label="Daily Mean")
+
 ax2.set_ylabel('Stream Discharge (CFS)', color='purple')
 ax2.tick_params('y', colors='purple')
 ax2.set_ylim(0,10000)
+
 ax.set_title("Cumulative Sum & Daily Mean Discharge")
 ax.legend()
 
 # Reposition the second legend so it renders under the first legend item
 ax2.legend(loc = "upper left", bbox_to_anchor=(0.0, 0.9))
 fig.tight_layout()
+
 plt.show()
-
 ```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance/2018-02-05-ts07-cumulative-sum-mass-balance_15_0.png" alt = "Cumulative sum plot for stream discharge.">
-<figcaption>Cumulative sum plot for stream discharge.</figcaption>
-
-</figure>
-
-
 
