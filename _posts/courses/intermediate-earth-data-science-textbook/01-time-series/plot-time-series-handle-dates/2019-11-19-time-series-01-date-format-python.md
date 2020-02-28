@@ -56,6 +56,8 @@ You should have Conda setup on your computer and the Earth Analytics Python Cond
 
 Be sure that you have reviewed the <a href="{{ site.url }}/courses/intro-to-earth-data-science/">Introduction to Earth Data Science textbook</a> or are familiar with the **Python** programming language and the **pandas** package for working with dataframes. 
 
+{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
+
 </div>
 
 

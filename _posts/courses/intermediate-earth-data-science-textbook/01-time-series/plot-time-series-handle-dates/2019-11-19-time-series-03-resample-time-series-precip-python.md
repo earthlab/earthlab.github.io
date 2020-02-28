@@ -32,8 +32,6 @@ redirect_from:
 
 * Resample time series data from hourly to daily, monthly, or yearly using **pandas**.
 
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
-
 </div>
 
 

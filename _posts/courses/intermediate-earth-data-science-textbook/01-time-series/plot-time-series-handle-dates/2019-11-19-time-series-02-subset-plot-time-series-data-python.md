@@ -33,8 +33,6 @@ redirect_from:
 
 * Subset time series data using different options for time frames, including by year, month, and with a specified begin and end date. 
 
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
-
 </div>
 
 

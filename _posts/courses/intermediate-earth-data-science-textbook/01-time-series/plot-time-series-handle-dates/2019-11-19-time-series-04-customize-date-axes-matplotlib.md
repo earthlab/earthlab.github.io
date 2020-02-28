@@ -32,8 +32,6 @@ redirect_from:
 
 * Customize date formats on a plot created with **matplotlib** in **Python**.
 
-{% include/data_subsets/course_earth_analytics/_data-colorado-flood.md %}
-
 </div>
 
 
