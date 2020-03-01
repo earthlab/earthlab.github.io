@@ -5,5 +5,5 @@ Disallow: /leaflet-maps/water_map2.html
 Disallow: /meetup/
 Disallow: /slide-shows/
 Disallow: /leaflet-maps/
-
+Disallow: /word/
 Sitemap: https://earthdatascience.org/sitemap.xml
