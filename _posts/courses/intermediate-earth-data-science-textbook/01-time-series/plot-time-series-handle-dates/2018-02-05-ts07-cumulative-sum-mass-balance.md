@@ -4,19 +4,21 @@ title: "The Relationship Between Precipitation and Stream Discharge | Explore Ma
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-02-28
+modified: 2020-03-02
 category: [courses]
-class-lesson: ['time-series-python']
-course: 'earth-analytics-python'
-week: 3
+class-lesson: ['time-series-python-tb']
+course: 'intermediate-earth-data-science-textbook'
+week: 1
 permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/precipitation-discharge-mass-balance/
 nav-title: 'Cumulative Sums in Pandas (Optional)'
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 7
+order: 6
 topics:
+  reproducible-science-and-programming: ['python']
+  data-exploration-and-analysis: ['data-visualization']
 redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/"
   - "/courses/use-data-open-source-python/use-time-series-data-in-python/precipitation-discharge-mass-balance/"
@@ -98,11 +100,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-02-28T22:28:13.216Z', 'title': 'requestDT'},
-        {'value': '9b5a23e0-5a79-11ea-acf4-6cae8b663fb6', 'title': 'requestId'},
+        {'value': '2020-03-02T21:51:41.722Z', 'title': 'requestDT'},
+        {'value': '005c1890-5cd0-11ea-8bc9-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'vaas01', 'title': 'server'}]},
+        {'value': 'sdas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -138,9 +140,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '66.4',
+        'values': [{'value': [{'value': '65.2',
             'qualifiers': ['P'],
-            'dateTime': '2020-02-27T00:00:00.000'}],
+            'dateTime': '2020-03-01T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -256,6 +258,7 @@ longmont_discharge_annual_max.head()
 ```python
 # Download usgs annual max data from figshare
 url = "https://nwis.waterdata.usgs.gov/nwis/peak?site_no=06730500&agency_cd=USGS&format=rdb"
+
 download_path = os.path.join("data", "colorado-flood", 
                              "downloads", "annual-peak-flow.txt")
 

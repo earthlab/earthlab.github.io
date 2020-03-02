@@ -4,19 +4,21 @@ title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Prob
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-02-28
+modified: 2020-03-02
 category: [courses]
-class-lesson: ['time-series-python']
-course: 'earth-analytics-python'
-week: 3
+class-lesson: ['time-series-python-tb']
+course: 'intermediate-earth-data-science-textbook'
+week: 1
 permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/floods-return-period-and-probability/
 nav-title: 'Calculate Flood Return Period'
 sidebar:
   nav:
 author_profile: false
 comments: true
-order: 6
+order: 5
 topics:
+  reproducible-science-and-programming: ['python']
+  data-exploration-and-analysis: ['data-visualization']
 redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/floods-return-period-and-probability/"
   - "/courses/use-data-open-source-python/use-time-series-data-in-python/floods-return-period-and-probability/"
@@ -242,11 +244,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-02-28T22:27:59.573Z', 'title': 'requestDT'},
-        {'value': '93388940-5a79-11ea-b0d8-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2020-03-02T21:51:28.178Z', 'title': 'requestDT'},
+        {'value': 'f8497210-5ccf-11ea-acf4-6cae8b663fb6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'caas01', 'title': 'server'}]},
+        {'value': 'vaas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -282,9 +284,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '66.4',
+        'values': [{'value': [{'value': '65.2',
             'qualifiers': ['P'],
-            'dateTime': '2020-02-27T00:00:00.000'}],
+            'dateTime': '2020-03-01T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -686,7 +688,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7ff59826ea10>)
+     <http.client.HTTPMessage at 0x7f9c3e9b07d0>)
 
 
 
