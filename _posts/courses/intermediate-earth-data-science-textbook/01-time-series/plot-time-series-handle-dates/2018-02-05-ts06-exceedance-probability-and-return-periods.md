@@ -130,6 +130,7 @@ sns.set(font_scale=1.5, style="whitegrid")
 
 
 
+
 ## Find A Station of Interest
 
 The `hf.draw_map()` function allows you to explore the station visually in a particular area. Explore the map below. Notice the gage locations in the Boulder, Colorado area. 
@@ -244,11 +245,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-03-02T23:09:30.968Z', 'title': 'requestDT'},
-        {'value': 'df727e70-5cda-11ea-b0d8-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2020-03-02T23:37:24.840Z', 'title': 'requestDT'},
+        {'value': 'c5271770-5cde-11ea-8bc9-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'caas01', 'title': 'server'}]},
+        {'value': 'sdas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -557,17 +558,19 @@ ax.scatter(x=longmont_discharge.index,
 
 ax.set(xlabel="Date", ylabel="Discharge Value (CFS)",
        title="Stream Discharge - Station {} \n {} to {}".format(site, start, end))
+
+plt.show()
 ```
 
 {:.output}
-{:.execute_result}
+{:.display_data}
 
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_19_0.png" alt = "Stream Discharge for the longmont USGS stream gage from 1946-2017">
+<figcaption>Stream Discharge for the longmont USGS stream gage from 1946-2017</figcaption>
 
-    [Text(0, 0.5, 'Discharge Value (CFS)'),
-     Text(0.5, 0, 'Date'),
-     Text(0.5, 1.0, 'Stream Discharge - Station 06730500 \n 1946-05-10 to 2018-08-29')]
-
+</figure>
 
 
 
@@ -699,7 +702,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7fe83832bf10>)
+     <http.client.HTTPMessage at 0x7f80f6be6c10>)
 
 
 
@@ -948,15 +951,19 @@ ax.plot(longmont_discharge_annual_max["year"],
 ax.legend()
 ax.set_title(
     "Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Flows")
+
+plt.show()
 ```
 
 {:.output}
-{:.execute_result}
+{:.display_data}
 
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_35_0.png" alt = "Annual maxima data compared - USGS product vs daily value calculated.">
+<figcaption>Annual maxima data compared - USGS product vs daily value calculated.</figcaption>
 
-    Text(0.5, 1.0, 'Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Flows')
-
+</figure>
 
 
 
@@ -994,15 +1001,19 @@ ax.bar(usgs_calculated["year"],
 
 ax.set_title(
     "Difference Plot of Annual Maxima \nInstantaneous Minus Mean Daily")
+
+plt.show()
 ```
 
 {:.output}
-{:.execute_result}
+{:.display_data}
 
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_41_0.png" alt = "Bar plot showing the difference between the USGS max product and the calculated annual max.">
+<figcaption>Bar plot showing the difference between the USGS max product and the calculated annual max.</figcaption>
 
-    Text(0.5, 1.0, 'Difference Plot of Annual Maxima \nInstantaneous Minus Mean Daily')
-
+</figure>
 
 
 
@@ -1324,15 +1335,19 @@ ax.set_ylabel("Probability")
 ax.set_xlabel("Discharge Value (CFS)")
 ax.set_title(
     "Probability of Discharge Events \n USGS Annual Max Data Compared to Daily Mean Calculated Annual Max")
+
+plt.show()
 ```
 
 {:.output}
-{:.execute_result}
+{:.display_data}
 
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_54_0.png" alt = "Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<figcaption>Plot showing the probability of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
-    Text(0.5, 1.0, 'Probability of Discharge Events \n USGS Annual Max Data Compared to Daily Mean Calculated Annual Max')
-
+</figure>
 
 
 
@@ -1366,15 +1381,19 @@ ax.legend(frameon=True,
 
 ax.set_xlabel("Return Period (Years)")
 ax.set_ylabel("Discharge Value (CFS)")
+
+plt.show()
 ```
 
 {:.output}
-{:.execute_result}
+{:.display_data}
 
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_56_0.png" alt = "Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<figcaption>Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
-    Text(0, 0.5, 'Discharge Value (CFS)')
-
+</figure>
 
 
 

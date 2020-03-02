@@ -63,6 +63,7 @@ data = et.data.get_data('colorado-flood')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+
 ## Download Stream Gage Data
 
 Picking up from the previous lesson... 
@@ -100,11 +101,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-03-02T23:09:44.232Z', 'title': 'requestDT'},
-        {'value': 'e75a6b70-5cda-11ea-acf4-6cae8b663fb6', 'title': 'requestId'},
+        {'value': '2020-03-02T23:37:41.462Z', 'title': 'requestDT'},
+        {'value': 'cf0f6850-5cde-11ea-b0d8-6cae8b6642f6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'vaas01', 'title': 'server'}]},
+        {'value': 'caas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -371,15 +372,19 @@ ax.plot(longmont_discharge_annual_max["year"],
 
 ax.legend()
 ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated")
+
+plt.show()
 ```
 
 {:.output}
-{:.execute_result}
+{:.display_data}
 
+<figure>
 
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance/2018-02-05-ts07-cumulative-sum-mass-balance_9_0.png" alt = "Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.">
+<figcaption>Comparison of USGS peak annual max vs calculated annual max from the USGS daily mean data.</figcaption>
 
-    Text(0.5, 1.0, 'Annual Maxima - USGS Peak Flow vs Daily Calculated')
-
+</figure>
 
 
 
@@ -562,5 +567,21 @@ ax.legend()
 
 # Reposition the second legend so it renders under the first legend item
 ax2.legend(loc = "upper left", bbox_to_anchor=(0.0, 0.9))
+
 fig.tight_layout()
+
+plt.show()
 ```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts07-cumulative-sum-mass-balance/2018-02-05-ts07-cumulative-sum-mass-balance_16_0.png" alt = "Cumulative sum plot for stream discharge.">
+<figcaption>Cumulative sum plot for stream discharge.</figcaption>
+
+</figure>
+
+
+
