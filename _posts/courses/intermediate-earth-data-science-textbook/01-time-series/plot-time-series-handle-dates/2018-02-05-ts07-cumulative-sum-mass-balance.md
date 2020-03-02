@@ -100,11 +100,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-03-02T21:51:41.722Z', 'title': 'requestDT'},
-        {'value': '005c1890-5cd0-11ea-8bc9-6cae8b6642ea', 'title': 'requestId'},
+        {'value': '2020-03-02T23:09:44.232Z', 'title': 'requestDT'},
+        {'value': 'e75a6b70-5cda-11ea-acf4-6cae8b663fb6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'sdas01', 'title': 'server'}]},
+        {'value': 'vaas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -371,9 +371,18 @@ ax.plot(longmont_discharge_annual_max["year"],
 
 ax.legend()
 ax.set_title("Annual Maxima - USGS Peak Flow vs Daily Calculated")
-
-plt.show()
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    Text(0.5, 1.0, 'Annual Maxima - USGS Peak Flow vs Daily Calculated')
+
+
+
+
 
 ## Calculate Cumulative Sum
 
@@ -394,6 +403,7 @@ Together - stream runoff and precipitation can be explored to better understand 
 miles_km = 2.58999
 site_drainage = 447
 longmont_area = site_drainage * miles_km
+
 print("The site drainage area in square km =", longmont_area)
 ```
 
@@ -553,7 +563,4 @@ ax.legend()
 # Reposition the second legend so it renders under the first legend item
 ax2.legend(loc = "upper left", bbox_to_anchor=(0.0, 0.9))
 fig.tight_layout()
-
-plt.show()
 ```
-

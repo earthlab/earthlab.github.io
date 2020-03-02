@@ -37,7 +37,7 @@ redirect_from:
 
 ## Introduction to Flood Frequency Analysis
 
-One way to analyze time series data - particularly related to events like floods - is to calculate the frequency of different magnitude events. You have have likey heard the term *"100-year flood"*. While you may think it means that it is the size of flood that occurs every 100 years, it actually refers to the flood magnitude that has a probability of exceedance of 1/100 in any given year (i.e., a 1% chance). This is why the hundred year flood event can occur two years in a row.
+One way to analyze time series data - particularly related to events like floods - is to calculate the frequency of different magnitude events. You have have likey heard the term **"100-year flood"**. While you may think it means that it is the size of flood that occurs every 100 years, it actually refers to the flood magnitude that has a probability of exceedance of 1/100 in any given year (i.e., a 1% chance). This is why the hundred year flood event can occur two years in a row.
 
 In this lesson you will learn how "100-year floods" (and other flood frequencies) are calculated using some basic statistics. To begin, let's define two terms:
 
@@ -139,7 +139,7 @@ For the purposes of this lesson, you will use gage `dv06730500` This gage along 
 The map below also allows you to explore hydrographs for several stream gages at once if you click on the buttons at the bottom center of the map. 
 
 ```python
-# create map of stations
+# Create map of stations
 hf.draw_map()
 ```
 
@@ -244,11 +244,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-03-02T21:51:28.178Z', 'title': 'requestDT'},
-        {'value': 'f8497210-5ccf-11ea-acf4-6cae8b663fb6', 'title': 'requestId'},
+        {'value': '2020-03-02T23:09:30.968Z', 'title': 'requestDT'},
+        {'value': 'df727e70-5cda-11ea-b0d8-6cae8b6642f6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'vaas01', 'title': 'server'}]},
+        {'value': 'caas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -557,9 +557,20 @@ ax.scatter(x=longmont_discharge.index,
 
 ax.set(xlabel="Date", ylabel="Discharge Value (CFS)",
        title="Stream Discharge - Station {} \n {} to {}".format(site, start, end))
-
-plt.show()
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    [Text(0, 0.5, 'Discharge Value (CFS)'),
+     Text(0.5, 0, 'Date'),
+     Text(0.5, 1.0, 'Stream Discharge - Station 06730500 \n 1946-05-10 to 2018-08-29')]
+
+
+
+
 
 
 
@@ -688,7 +699,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7f9c3e9b07d0>)
+     <http.client.HTTPMessage at 0x7fe83832bf10>)
 
 
 
@@ -706,7 +717,7 @@ def count_the(file_url):
             count += 1
     return count
 
-# lines to skip
+# Lines to skip
 line_to_skip = count_the(url)+1
 ```
 
@@ -937,9 +948,18 @@ ax.plot(longmont_discharge_annual_max["year"],
 ax.legend()
 ax.set_title(
     "Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Flows")
-
-plt.show()
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    Text(0.5, 1.0, 'Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Flows')
+
+
+
+
 
 
 
@@ -974,9 +994,18 @@ ax.bar(usgs_calculated["year"],
 
 ax.set_title(
     "Difference Plot of Annual Maxima \nInstantaneous Minus Mean Daily")
-
-plt.show()
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    Text(0.5, 1.0, 'Difference Plot of Annual Maxima \nInstantaneous Minus Mean Daily')
+
+
+
+
 
 ## Calculate Return Period
 
@@ -1037,15 +1066,19 @@ def calculate_return(df, colname):
 
 
     '''
-    # sort data smallest to largest
+    # Sort data smallest to largest
     sorted_data = df.sort_values(by=colname)
-    # count total obervations
+    
+    # Count total obervations
     n = sorted_data.shape[0]
-    # add a numbered column 1 -> n to use in return calculation for rank
+    
+    # Add a numbered column 1 -> n to use in return calculation for rank
     sorted_data.insert(0, 'rank', range(1, 1 + n))
-    # calculate probability
+    
+    # Calculate probability
     sorted_data["probability"] = (n - sorted_data["rank"] + 1) / (n + 1)
-    # calculate return - data are daily to then divide by 365?
+    
+    # Calculate return - data are daily to then divide by 365?
     sorted_data["return-years"] = (1 / sorted_data["probability"])
 
     return(sorted_data)
@@ -1057,7 +1090,8 @@ Once you have a function, you can calculate return period and probability on bot
 ```python
 longmont_prob = calculate_return(longmont_discharge, "discharge")
 
-# Because these data are daily, divide return period in days by 365 to get a return period in years
+# Because these data are daily,
+# divide return period in days by 365 to get a return period in years
 longmont_prob["return-years"] = longmont_prob["return-years"] / 365
 longmont_prob["probability"] = longmont_prob["probability"] * 365
 longmont_prob.tail()
@@ -1290,9 +1324,18 @@ ax.set_ylabel("Probability")
 ax.set_xlabel("Discharge Value (CFS)")
 ax.set_title(
     "Probability of Discharge Events \n USGS Annual Max Data Compared to Daily Mean Calculated Annual Max")
-
-plt.show()
 ```
+
+{:.output}
+{:.execute_result}
+
+
+
+    Text(0.5, 1.0, 'Probability of Discharge Events \n USGS Annual Max Data Compared to Daily Mean Calculated Annual Max')
+
+
+
+
 
 ## Plot Stream Discharge Return Period
 
