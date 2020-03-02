@@ -4,7 +4,7 @@ title: "Data Workflow Best Practices - Things to Consider When Processing Data"
 excerpt: "Identifying aspects of a workflow that can be modularized and tested can help you design efficient and effective data workflows. Learn best practices for designing efficient data workflows."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph', 'Lauren Herwehe']
 dateCreated: 2018-10-21
-modified: 2020-02-26
+modified: 2020-03-02
 category: [courses]
 class-lesson: ['create-data-workflows-tb']
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/efficient-workflow-best-practices/
@@ -103,22 +103,23 @@ You can use existing functions from commonly used packages (i.e. `geopandas.read
 1. `def` keyword
 2. Function name
 3. Input parameters/arguments
-4. Docstring
+4. Docstring (that identifies parameters and returns)
 5. `return` statement
 
 {:.input}
 ```python
 # Example of a simple function
 def add_five(x):
-    """Adds the numeric value 5 to input value
+    """Add the numeric value 5 to an input value.
     
     Parameters
     ----------
-    x : numeric value (e.g. integer, float)
+    x : int or float
             
     Returns
     ----------
-    input data with values increased by 5
+    int or float
+        Input data with value increased by 5.
     """
     
     return (x + 5)
@@ -174,7 +175,7 @@ Example: Goal is a function that can be used to calculate Normalized Difference 
 
 ### How Can We Generalize This For Broader Use?
 
-We know that other indices can be calculated using the same formula:
+There are other indices that can be calculated using the same formula:
 
 ```python
 # Normalized Burn Ratio (NBR)
@@ -198,7 +199,7 @@ Even better for conciseness and readibility:
 
 {:.input}
 ```python
-def norm_diff(b1, b2):
+def normalized_diff(b1, b2):
     """Calculate the normalized difference of two arrays of same shape.
     Math will be calculated (b1-b2) / (b1+b2). 
     
@@ -283,7 +284,7 @@ nir_band_3d.ndim
 ```python
 # Note that the if/else is used when calling the function
 if nir_band_3d.shape == red_band.shape:
-    ndvi = calc_indices.norm_diff(b1=nir_band_3d, b2=red_band)
+    ndvi = normalized_diff(b1=nir_band_3d, b2=red_band)
     print(ndvi)
 else:
     print("Input arrays are not of same shape")
@@ -436,7 +437,7 @@ except FileExistsError:
 # You could also explore error handling in your function definitions
 
 # Example of ValueError
-def norm_diff(b1, b2):
+def normalized_diff(b1, b2):
     """Calculate the normalized difference of two arrays of same shape.
     Math will be calculated (b1-b2) / (b1+b2). 
     
@@ -460,7 +461,7 @@ def norm_diff(b1, b2):
 
 Now if you try to run the following code:
 
-`ndvi = norm_diff(b1=nir_band_3d, b2=red_band)`
+`ndvi = normalized_diff(b1=nir_band_3d, b2=red_band)`
 
 You will see the following ValueError that can help you (and others) understand why the function did not execute successfully. 
 
@@ -469,7 +470,7 @@ You will see the following ValueError that can help you (and others) understand 
 ---------------------------------------------------------------------------
 ValueError                                Traceback (most recent call last)
 <ipython-input-13-7a66955ecfea> in <module>
-----> 1 ndvi = norm_diff(b1=nir_band_3d, b2=red_band)
+----> 1 ndvi = normalized_diff(b1=nir_band_3d, b2=red_band)
       2 
 
 <ipython-input-11-018feb34e9f1> in norm_diff(b1, b2)
@@ -499,7 +500,7 @@ red_band = np.array([[1, 2, 3, 4, 5], [11, 12, 13, 14, 15]])
 {:.input}
 ```python
 # Produces infinity values due to divide by zero
-ndvi = norm_diff(b1=nir_band, b2=red_band)
+ndvi = normalized_diff(b1=nir_band, b2=red_band)
 print(ndvi)
 ```
 
@@ -526,12 +527,14 @@ def normalized_diff(b1, b2):
     """Take two numpy arrays and calculate the normalized difference.
     Math will be calculated (b1-b2) / (b1+b2). The arrays must be of the
     same shape.
+    
     Parameters
     ----------
     b1, b2 : numpy arrays
         Two numpy arrays that will be used to calculate the normalized difference.
         Math will be calculated (b1-b2) / (b1+b2).
-    Returns
+   
+   Returns
     ----------
     n_diff : numpy array
         The element-wise result of (b1-b2) / (b1+b2) calculation. Inf values are set
@@ -571,8 +574,8 @@ print(ndvi)
 
 
 {:.output}
-    /opt/conda/lib/python3.7/site-packages/ipykernel_launcher.py:23: RuntimeWarning: divide by zero encountered in true_divide
-    /opt/conda/lib/python3.7/site-packages/ipykernel_launcher.py:29: Warning: Divide by zero produced infinity values that will be replaced with nan values
+    /opt/conda/lib/python3.7/site-packages/ipykernel_launcher.py:25: RuntimeWarning: divide by zero encountered in true_divide
+    /opt/conda/lib/python3.7/site-packages/ipykernel_launcher.py:31: Warning: Divide by zero produced infinity values that will be replaced with nan values
 
 
 
