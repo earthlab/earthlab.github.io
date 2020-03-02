@@ -4,7 +4,7 @@ title: "Subset Time Series By Dates Python Using Pandas"
 excerpt: "Sometimes you have data over a longer time span than you need for your analysis or plot. Learn how to subset your data using a begin and end date in Python."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2019-11-19
-modified: 2020-02-28
+modified: 2020-03-02
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -44,7 +44,7 @@ There are many ways to subset the data temporally in **Python**; one easy way to
 
 **Pandas** natively understands time operations if:
 1. you tell it what column contains your time stamps (using the parameter `parse_dates`) and 
-2. you set the date column to be the index of the dataframe (using the parameter `index_col`)
+2. you set the date column to be the index of the dataframe (using the parameter `index_col`).
 
 On the previous page of this chapter, you already learned how to complete these steps during the `read_csv()` import into the **pandas** dataframe. On this page, you will learn how to use the `datetime` index to subset data from a **pandas dataframe**. 
 

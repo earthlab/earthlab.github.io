@@ -3,7 +3,7 @@ layout: single
 title: "Customize Dates on Time Series Plots in Python Using Matplotlib"
 excerpt: 'When you plot time series data using the matplotlib package in Python, you often want to customize the date format that is presented on the plot. Learn how to customize the date format on time series plots created using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-modified: 2020-02-28
+modified: 2020-03-02
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -447,7 +447,7 @@ Create plots for the following time subsets for the year of the September 2013 f
 * Time period A: 2012-08-01 to 2012-11-01
 * Time period B: 2013-08-01 to 2013-11-01
 
-Be sure to set the y limits to be the same for both plots, so they are visually comparable, using:
+Be sure to set the y limits to be the same for both plots, so they are visually comparable, using the parameter `ylim` for `ax.set()`:
 
 `ylim=[min, max]`
 
