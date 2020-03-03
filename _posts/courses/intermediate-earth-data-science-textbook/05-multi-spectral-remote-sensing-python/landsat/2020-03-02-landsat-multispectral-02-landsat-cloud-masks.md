@@ -71,7 +71,7 @@ dark (shadows which represent blocked or absorbed light).
 In this lesson you will learn how to deal with clouds in your remote sensing data.
 There is no perfect solution of course. You will just learn one approach.
 
-Begin by loading your spatial libraries.
+
 
 {:.input}
 ```python
@@ -109,7 +109,7 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
 
 
-Next, you will load the landsat bands that you worked with previously in your homework.
+Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework.
 
 
 {:.input}
@@ -131,18 +131,7 @@ es.stack(landsat_paths_pre, landsat_pre_st_path)
 with rio.open(landsat_pre_st_path) as landsat_pre_src:
     landsat_pre = landsat_pre_src.read(masked=True)
     landsat_extent = plotting_extent(landsat_pre_src)
-```
-
-When you plotted the pre-fire image, you noticed a large cloud in your scene.
-Notice as i'm plotting below, i'm adding a few parameters to force `Python` to add a
-title to my plot.
-
-<i class="fa fa-star" aria-hidden="true"></i> **Data Tip:** Check out the additional "How to" lessons for this week to learn more about
-customizing plots in `Python`.
-{: .notice--success}
-
-{:.input}
-```python
+    
 ep.plot_rgb(landsat_pre,
             rgb=[3, 2, 1],
             extent=landsat_extent,
@@ -156,60 +145,45 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_6_0.png" alt = "CIR Composite image for the post-Cold Springs fire area on July 8, 2016.">
-<figcaption>CIR Composite image for the post-Cold Springs fire area on July 8, 2016.</figcaption>
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_4_0.png">
 
 </figure>
 
 
 
 
+Notice in the data above there is a large cloud in your scene. This cloud will impact any quantitative analysis that you perform on the data. You can remove cloudy pixels using a mask. Masking "bad" pixels:
 
+1. Allows you to remove them from any quantitative analysis that you may perform such as calculating NDVI. 
+2. Allows you to replace them (if you want) with better pixels from another scene. This replacement if often performed when performing time series analysis of data. The following lesson will teach you have to replace pixels in a scene. 
 
-Notice that the image above has a bit cloud covering part of the data. You can remove cloudy pixels using the code below. Each step of the code is explained below!
+## Cloud Masks in Python
 
-{:.input}
-```python
-# Open the landsat qa layer
-landsat_pre_cl_path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
-                                   "LC080340322016070701T1-SC20180214145604", "crop", 
-                                   "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
+You can use the cloud mask layer to identify pixels that are likely to be clouds
+or shadows. You can then set those pixel values to `masked` so they are not included in
+your quantitative analysis in Python.
 
-# Open the pixel_qa layer for your landsat scene
-with rio.open(landsat_pre_cl_path) as landsat_pre_cl:
-    landsat_qa = landsat_pre_cl.read(1)
-    landsat_ext = plotting_extent(landsat_pre_cl)
-
-high_cloud_confidence = em.pixel_flags["pixel_qa"]["L8"]["High Cloud Confidence"]
-cloud = em.pixel_flags["pixel_qa"]["L8"]["Cloud"]
-cloud_shadow = em.pixel_flags["pixel_qa"]["L8"]["Cloud Shadow"]
-
-all_masked_values = cloud_shadow + cloud + high_cloud_confidence
-# Call the earthpy mask function using pixel QA layer
-landsat_pre_cl_free = em.mask_pixels(
-    landsat_pre, landsat_qa, vals=all_masked_values)
-
-ep.plot_rgb(landsat_pre_cl_free,
-            rgb=[3, 2, 1],
-            extent=landsat_extent,
-            title="Landsat True Color Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
-
-plt.show()
-```
-
-{:.output}
-{:.display_data}
+When you say "mask", you are talking about a layer that "turns off" or sets to `nan`,
+the values of pixels in a raster that you don't want to include in an analysis.
+It's very similar to setting data points that equal -9999 to `nan` in a time series
+data set. You are just doing it with spatial raster data instead.
 
 <figure>
+    <a href="{{ site.url }}/images/earth-analytics/raster-data/raster_masks.jpg">
+    <img src="{{ site.url }}/images/earth-analytics/raster-data/raster_masks.jpg" alt="Raster masks">
+    </a>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_9_0.png">
-
+    <figcaption>When you use a raster mask, you are defining what pixels you want to exclude from a quantitative analysis. Notice in this image, the raster max is simply a layer that contains values of 1 (use these pixels) and values of NA (exclude these pixels). If the raster is the same extent and spatial resolution as your remote sensing data (in this case your landsat raster stack) you can then mask ALL PIXELS that occur at the spatial location of clouds and shadows (represented by an NA in the image above). Source: Colin Williams (NEON)
+    </figcaption>
 </figure>
 
 
 
 
-## Raster Masks
+The code below demonstrated how to mask a landsat scene using the pixel_qa layer. 
+
+
+## Raster Masks for Remote Sensing Data
 
 Many remote sensing data sets come with quality layers that you can use as a mask 
 to remove "bad" pixels from your analysis. In the case of Landsat, the mask layers
@@ -275,7 +249,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_15_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_14_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
 <figcaption>Landsat Collection Pixel QA layer for the Cold Springs fire area.</figcaption>
 
 </figure>
@@ -423,12 +397,10 @@ Below is the plot of the reclassified raster mask created from the `_create_mask
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_29_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_28_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
 <figcaption>Landsat image in which the masked pixels (cloud) are rendered in light purple.</figcaption>
 
 </figure>
-
-
 
 
 
@@ -446,26 +418,6 @@ created the data will do some of the work for us to detect where clouds and
 shadows are - given they are common challenges that you need to work around when
 using remote sensing data.
 
-
-## Cloud Masks in Python
-
-You can use the cloud mask layer to identify pixels that are likely to be clouds
-or shadows. You can then set those pixel values to `masked` so they are not included in
-your quantitative analysis in Python.
-
-When you say "mask", you are talking about a layer that "turns off" or sets to `nan`,
-the values of pixels in a raster that you don't want to include in an analysis.
-It's very similar to setting data points that equal -9999 to `nan` in a time series
-data set. You are just doing it with spatial raster data instead.
-
-<figure>
-    <a href="{{ site.url }}/images/earth-analytics/raster-data/raster_masks.jpg">
-    <img src="{{ site.url }}/images/earth-analytics/raster-data/raster_masks.jpg" alt="Raster masks">
-    </a>
-
-    <figcaption>When you use a raster mask, you are defining what pixels you want to exclude from a quantitative analysis. Notice in this image, the raster max is simply a layer that contains values of 1 (use these pixels) and values of NA (exclude these pixels). If the raster is the same extent and spatial resolution as your remote sensing data (in this case your landsat raster stack) you can then mask ALL PIXELS that occur at the spatial location of clouds and shadows (represented by an NA in the image above). Source: Colin Williams (NEON)
-    </figcaption>
-</figure>
 
 ### Create Mask Layer in Python
 
@@ -511,7 +463,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_36_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_35_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
@@ -534,7 +486,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_37_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_36_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
