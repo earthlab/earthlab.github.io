@@ -1,10 +1,10 @@
 ---
 layout: single
 title: "How to Replace Raster Cell Values with Values from A Different Raster Data Set in Python"
-excerpt: "Most remote sensing data sets contain no data values represented as nan or none in Python. This normally represents pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
+excerpt: "Most remote sensing data sets contain no data values that represent pixels that contain invalid data. Learn how to handle no data values in Python for better raster processing."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-02-17
+modified: 2020-03-03
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/replace-raster-cell-values-in-remote-sensing-images-in-python/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 4
+order: 3
 topics:
   remote-sensing: ['landsat']
   reproducible-science-and-programming: ['python']
@@ -132,7 +132,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster_6_0.png" alt = "Plotting the image and the mask together to ensure the mask does indeed cover the cloud in the image.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster_6_0.png" alt = "Plotting the image and the mask together to ensure the mask does indeed cover the cloud in the image.">
 <figcaption>Plotting the image and the mask together to ensure the mask does indeed cover the cloud in the image.</figcaption>
 
 </figure>
@@ -228,7 +228,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster_13_0.png" alt = "Overlapping spatial extents of the masked Landsat image and the image that will be used to fill in the masked values.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster_13_0.png" alt = "Overlapping spatial extents of the masked Landsat image and the image that will be used to fill in the masked values.">
 <figcaption>Overlapping spatial extents of the masked Landsat image and the image that will be used to fill in the masked values.</figcaption>
 
 </figure>
@@ -350,7 +350,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster/2017-03-01-fire02-replace-na-values-in-raster-with-different-raster_25_0.png" alt = "Landsat CIR Composite image after replacement of masked pixel values using a cloud-free image for the post-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster/2020-03-02-landsat-multispectral-03-replace-na-values-in-raster-with-different-raster_25_0.png" alt = "Landsat CIR Composite image after replacement of masked pixel values using a cloud-free image for the post-Cold Springs fire.">
 <figcaption>Landsat CIR Composite image after replacement of masked pixel values using a cloud-free image for the post-Cold Springs fire.</figcaption>
 
 </figure>

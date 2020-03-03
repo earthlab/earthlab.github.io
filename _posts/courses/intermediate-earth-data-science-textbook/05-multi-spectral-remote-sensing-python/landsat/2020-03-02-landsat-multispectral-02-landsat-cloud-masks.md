@@ -1,13 +1,13 @@
 ---
 layout: single
 title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
-excerpt: "In this lesson, you will learn how to deal with clouds when working with spectral remote sensing data. You will learn how to mask clouds from landsat and MODIS remote sensing data in R using the mask() function. You will also discuss issues associated with cloud cover - particular as they relate to a research topic."
+excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-02-17
+modified: 2020-03-03
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
-permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/cloud-masks-with-spectral-data-python/
+permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
 nav-title: 'Clouds, Shadows & Masks'
 course: "intermediate-earth-data-science-textbook"
 week: 5
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 3
+order: 2
 topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
@@ -23,6 +23,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-modis/cloud-masks-with-spectral-data-python/"
+  - "/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/cloud-masks-with-spectral-data-python/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -31,7 +32,7 @@ redirect_from:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Describe the impacts that thick cloud cover can have on analysis of remote sensing data.
+* Describe the impacts of cloud cover on analysis of remote sensing data.
 * Use a mask to remove portions of an spectral dataset (image) that is covered by clouds / shadows.
 * Define mask / describe how a mask can be useful when working with remote sensing data.
 
@@ -140,15 +141,10 @@ title to my plot.
 customizing plots in `Python`.
 {: .notice--success}
 
-Next, get the extent of the Landsat data to use to plot your data with matplotlib `imshow()`. Below you see two ways to achieve the same extent object. 
-
 {:.input}
 ```python
-# Define Landast bands for plotting homework plot 1
-landsat_rgb = [3, 2, 1]
-
 ep.plot_rgb(landsat_pre,
-            rgb=landsat_rgb,
+            rgb=[3, 2, 1],
             extent=landsat_extent,
             title="Landsat True Color Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
 
@@ -160,12 +156,55 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_7_0.png" alt = "CIR Composite image for the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_6_0.png" alt = "CIR Composite image for the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image for the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
 
 
+
+
+
+
+Notice that the image above has a bit cloud covering part of the data. You can remove cloudy pixels using the code below. Each step of the code is explained below!
+
+{:.input}
+```python
+# Open the landsat qa layer
+landsat_pre_cl_path = os.path.join("data", "cold-springs-fire", "landsat_collect", 
+                                   "LC080340322016070701T1-SC20180214145604", "crop", 
+                                   "LC08_L1TP_034032_20160707_20170221_01_T1_pixel_qa_crop.tif")
+
+# Open the pixel_qa layer for your landsat scene
+with rio.open(landsat_pre_cl_path) as landsat_pre_cl:
+    landsat_qa = landsat_pre_cl.read(1)
+    landsat_ext = plotting_extent(landsat_pre_cl)
+
+high_cloud_confidence = em.pixel_flags["pixel_qa"]["L8"]["High Cloud Confidence"]
+cloud = em.pixel_flags["pixel_qa"]["L8"]["Cloud"]
+cloud_shadow = em.pixel_flags["pixel_qa"]["L8"]["Cloud Shadow"]
+
+all_masked_values = cloud_shadow + cloud + high_cloud_confidence
+# Call the earthpy mask function using pixel QA layer
+landsat_pre_cl_free = em.mask_pixels(
+    landsat_pre, landsat_qa, vals=all_masked_values)
+
+ep.plot_rgb(landsat_pre_cl_free,
+            rgb=[3, 2, 1],
+            extent=landsat_extent,
+            title="Landsat True Color Composite Image | 30 meters \n Post Cold Springs Fire \n July 8, 2016")
+
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_9_0.png">
+
+</figure>
 
 
 
@@ -204,14 +243,18 @@ First, plot the pixel_qa layer in matplotlib.
 
 {:.input}
 ```python
-# Get values from qa layer
+# This is optional code to plot the qa layer - don't worry too much about the details.
+# Create a colormap with 11 colors
 cmap = plt.cm.get_cmap('tab20b', 11)
+# Get a list of unique values in the qa layer
 vals = np.unique(landsat_qa).tolist()
 bins = [0] + vals
+# Normalize the colormap 
 bounds = [((a + b) / 2) for a, b in zip(bins[:-1], bins[1::1])] + \
     [(bins[-1] - bins[-2]) + bins[-1]]
 norm = colors.BoundaryNorm(bounds, cmap.N)
 
+# Plot the data
 fig, ax = plt.subplots(figsize=(12, 8))
 
 im = ax.imshow(landsat_qa,
@@ -224,7 +267,6 @@ ep.draw_legend(im,
 
 ax.set_title("Landsat Collection Quality Assessment Layer")
 ax.set_axis_off()
-
 plt.show()
 ```
 
@@ -233,7 +275,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_14_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_15_0.png" alt = "Landsat Collection Pixel QA layer for the Cold Springs fire area.">
 <figcaption>Landsat Collection Pixel QA layer for the Cold Springs fire area.</figcaption>
 
 </figure>
@@ -263,7 +305,6 @@ Note that your specific analysis may require a different set of masked pixels. F
 require you identify pixels that are low confidence clouds too. We are just using these classes
 for the purpose of this class. 
 
-# URL - make sure you click on the landsat 8 tab to view appropriate values
 
 | Attribute                | Pixel Value                                                     | 
 |--------------------------|-----------------------------------------------------------------| 
@@ -315,12 +356,12 @@ vals
 
 {:.input}
 ```python
-# Generate array of all possible cloud / shadow values
-cloud_shadow = [328, 392, 840, 904, 1350]
-cloud = [352, 368, 416, 432, 480, 864, 880, 928, 944, 992]
-high_confidence_cloud = [480, 992]
+# You can grab the cloud pixel values from earthpy
+high_cloud_confidence = em.pixel_flags["pixel_qa"]["L8"]["High Cloud Confidence"]
+cloud = em.pixel_flags["pixel_qa"]["L8"]["Cloud"]
+cloud_shadow = em.pixel_flags["pixel_qa"]["L8"]["Cloud Shadow"]
 
-all_masked_values = cloud_shadow + cloud + high_confidence_cloud
+all_masked_values = cloud_shadow + cloud + high_cloud_confidence
 all_masked_values
 ```
 
@@ -351,8 +392,12 @@ all_masked_values
 
 
 
+
 {:.input}
 ```python
+# This is using a helper function from earthpy to create the mask so we can plot it
+# You don't need to do this in your workflow as you can perform the mask in one step
+# But we have it here for demonstration purposes
 cl_mask = em._create_mask(landsat_qa, all_masked_values)
 np.unique(cl_mask)
 ```
@@ -378,7 +423,7 @@ Below is the plot of the reclassified raster mask created from the `_create_mask
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_27_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_29_0.png" alt = "Landsat image in which the masked pixels (cloud) are rendered in light purple.">
 <figcaption>Landsat image in which the masked pixels (cloud) are rendered in light purple.</figcaption>
 
 </figure>
@@ -430,7 +475,8 @@ To create the mask this you do the following:
 2. Set all of the values in that layer that are clouds and / or shadows to `1` (1 to represent `mask = True`)
 3. Finally you use the `masked_array` function to apply the mask layer to the numpy array (or the landsat scene that you are working with in Python).  all pixel locations that were flagged as clouds or shadows in your mask to `NA` in your `raster` or in this case `rasterstack`.
 
-
+## Mask A Landsat Scene Using EarthPy
+Below you mask your data in one single step. This function `em.mask_pixels()` creates the mask as you saw above and then masks your data. 
 
 {:.input}
 ```python
@@ -438,7 +484,7 @@ To create the mask this you do the following:
 landsat_pre_cl_free = em.mask_pixels(landsat_pre, cl_mask)
 ```
 
-Alternatively, you can directly input your mask values and the pixel QA layer into the `mask_pixels` function:
+Alternatively, you can directly input your mask values and the pixel QA layer into the `mask_pixels` function. This is the easiest way to mask your data!
 
 {:.input}
 ```python
@@ -465,7 +511,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_34_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_36_0.png" alt = "CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image in grey scale with mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
@@ -488,7 +534,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python/2017-03-01-fire01-handle-landsat-clouds-and-cloud-masks-in-python_35_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_37_0.png" alt = "CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.">
 <figcaption>CIR Composite image with cloud mask applied, covering the post-Cold Springs fire area on July 8, 2016.</figcaption>
 
 </figure>
