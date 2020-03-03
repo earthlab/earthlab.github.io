@@ -3,13 +3,12 @@ layout: single
 title: "Resample or Summarize Time Series Data in Python With Pandas - Hourly to Daily Summary"
 excerpt: "Sometimes you need to take time series data collected at a higher resolution (for instance many times a day) and summarize it to a daily, weekly or even monthly value. This process is called resampling in Python and can be done using pandas dataframes. Learn how to resample time series data in Python with Pandas."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-dateCreated: 2018-02-05
-modified: 2020-01-10
+modified: 2020-03-02
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 week: 1
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/resample-time-series-data-pandas-python/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/resample-time-series-data-pandas-python/
 nav-title: 'Resample Time Series Data'
 sidebar:
   nav:
@@ -22,6 +21,7 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/resample-time-series-data-pandas-python/"
+  - "/courses/use-data-open-source-python/use-time-series-data-in-python/resample-time-series-data-pandas-python/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -43,7 +43,7 @@ This process of changing the time period that data are summarized for is often c
 
 Lucky for you, there is a nice `resample()` method for **pandas** dataframes that have a `datetime` index.
 
-On this page, you will learn how to use this `resample()` method to 
+On this page, you will learn how to use this `resample()` method to aggregate time series data by a new time period (e.g. daily to monthly).  
 
 
 ### Import Packages and Get Data
@@ -161,7 +161,7 @@ precip_2003_2013_hourly.head()
   </thead>
   <tbody>
     <tr>
-      <td>2003-01-01 01:00:00</td>
+      <th>2003-01-01 01:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -172,7 +172,7 @@ precip_2003_2013_hourly.head()
       <td></td>
     </tr>
     <tr>
-      <td>2003-02-01 01:00:00</td>
+      <th>2003-02-01 01:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -183,7 +183,7 @@ precip_2003_2013_hourly.head()
       <td></td>
     </tr>
     <tr>
-      <td>2003-02-02 19:00:00</td>
+      <th>2003-02-02 19:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -194,7 +194,7 @@ precip_2003_2013_hourly.head()
       <td></td>
     </tr>
     <tr>
-      <td>2003-02-02 22:00:00</td>
+      <th>2003-02-02 22:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -205,7 +205,7 @@ precip_2003_2013_hourly.head()
       <td></td>
     </tr>
     <tr>
-      <td>2003-02-03 02:00:00</td>
+      <th>2003-02-03 02:00:00</th>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
       <td>1650.5</td>
@@ -246,14 +246,16 @@ precip_2003_2013_hourly.info()
     <class 'pandas.core.frame.DataFrame'>
     DatetimeIndex: 1840 entries, 2003-01-01 01:00:00 to 2013-12-31 00:00:00
     Data columns (total 8 columns):
-    STATION             1840 non-null object
-    STATION_NAME        1840 non-null object
-    ELEVATION           1840 non-null float64
-    LATITUDE            1840 non-null float64
-    LONGITUDE           1840 non-null float64
-    HPCP                1746 non-null float64
-    Measurement Flag    1840 non-null object
-    Quality Flag        1840 non-null object
+     #   Column            Non-Null Count  Dtype  
+    ---  ------            --------------  -----  
+     0   STATION           1840 non-null   object 
+     1   STATION_NAME      1840 non-null   object 
+     2   ELEVATION         1840 non-null   float64
+     3   LATITUDE          1840 non-null   float64
+     4   LONGITUDE         1840 non-null   float64
+     5   HPCP              1746 non-null   float64
+     6   Measurement Flag  1840 non-null   object 
+     7   Quality Flag      1840 non-null   object 
     dtypes: float64(4), object(4)
     memory usage: 129.4+ KB
 
@@ -296,56 +298,56 @@ precip_2003_2013_hourly.describe()
   </thead>
   <tbody>
     <tr>
-      <td>count</td>
+      <th>count</th>
       <td>1840.0</td>
       <td>1840.000000</td>
       <td>1840.000000</td>
       <td>1746.000000</td>
     </tr>
     <tr>
-      <td>mean</td>
+      <th>mean</th>
       <td>1650.5</td>
       <td>40.033851</td>
       <td>-105.281106</td>
       <td>0.111856</td>
     </tr>
     <tr>
-      <td>std</td>
+      <th>std</th>
       <td>0.0</td>
       <td>0.000045</td>
       <td>0.000005</td>
       <td>0.093222</td>
     </tr>
     <tr>
-      <td>min</td>
+      <th>min</th>
       <td>1650.5</td>
       <td>40.033800</td>
       <td>-105.281110</td>
       <td>0.000000</td>
     </tr>
     <tr>
-      <td>25%</td>
+      <th>25%</th>
       <td>1650.5</td>
       <td>40.033800</td>
       <td>-105.281110</td>
       <td>0.100000</td>
     </tr>
     <tr>
-      <td>50%</td>
+      <th>50%</th>
       <td>1650.5</td>
       <td>40.033890</td>
       <td>-105.281110</td>
       <td>0.100000</td>
     </tr>
     <tr>
-      <td>75%</td>
+      <th>75%</th>
       <td>1650.5</td>
       <td>40.033890</td>
       <td>-105.281100</td>
       <td>0.100000</td>
     </tr>
     <tr>
-      <td>max</td>
+      <th>max</th>
       <td>1650.5</td>
       <td>40.033890</td>
       <td>-105.281100</td>
@@ -487,77 +489,77 @@ precip_2003_2013_daily
   </thead>
   <tbody>
     <tr>
-      <td>2003-01-01</td>
+      <th>2003-01-01</th>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-01-02</td>
+      <th>2003-01-02</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-01-03</td>
+      <th>2003-01-03</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-01-04</td>
+      <th>2003-01-04</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-01-05</td>
+      <th>2003-01-05</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
+      <th>...</th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <td>2013-12-27</td>
-      <td>0.0</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>0.0</td>
-    </tr>
-    <tr>
-      <td>2013-12-28</td>
+      <th>2013-12-27</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2013-12-29</td>
+      <th>2013-12-28</th>
+      <td>0.0</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2013-12-29</th>
       <td>1650.5</td>
       <td>40.03380</td>
       <td>-105.28110</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2013-12-30</td>
+      <th>2013-12-30</th>
       <td>0.0</td>
       <td>0.00000</td>
       <td>0.00000</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2013-12-31</td>
+      <th>2013-12-31</th>
       <td>1650.5</td>
       <td>40.03380</td>
       <td>-105.28110</td>
@@ -679,77 +681,77 @@ precip_2003_2013_monthly
   </thead>
   <tbody>
     <tr>
-      <td>2003-01-31</td>
+      <th>2003-01-31</th>
       <td>1650.5</td>
       <td>40.03389</td>
       <td>-105.28111</td>
       <td>0.0</td>
     </tr>
     <tr>
-      <td>2003-02-28</td>
+      <th>2003-02-28</th>
       <td>26408.0</td>
       <td>640.54224</td>
       <td>-1684.49776</td>
       <td>1.4</td>
     </tr>
     <tr>
-      <td>2003-03-31</td>
+      <th>2003-03-31</th>
       <td>74272.5</td>
       <td>1801.52505</td>
       <td>-4737.64995</td>
       <td>5.2</td>
     </tr>
     <tr>
-      <td>2003-04-30</td>
+      <th>2003-04-30</th>
       <td>28058.5</td>
       <td>680.57613</td>
       <td>-1789.77887</td>
       <td>1.6</td>
     </tr>
     <tr>
-      <td>2003-05-31</td>
+      <th>2003-05-31</th>
       <td>34660.5</td>
       <td>840.71169</td>
       <td>-2210.90331</td>
       <td>3.3</td>
     </tr>
     <tr>
-      <td>...</td>
+      <th>...</th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
     <tr>
-      <td>2013-08-31</td>
+      <th>2013-08-31</th>
       <td>14854.5</td>
       <td>360.30420</td>
       <td>-947.52990</td>
       <td>1.0</td>
     </tr>
     <tr>
-      <td>2013-09-30</td>
+      <th>2013-09-30</th>
       <td>118836.0</td>
       <td>2882.43360</td>
       <td>-7580.23920</td>
       <td>17.7</td>
     </tr>
     <tr>
-      <td>2013-10-31</td>
+      <th>2013-10-31</th>
       <td>31359.5</td>
       <td>760.64220</td>
       <td>-2000.34090</td>
       <td>2.0</td>
     </tr>
     <tr>
-      <td>2013-11-30</td>
+      <th>2013-11-30</th>
       <td>8252.5</td>
       <td>200.16900</td>
       <td>-526.40550</td>
       <td>0.4</td>
     </tr>
     <tr>
-      <td>2013-12-31</td>
+      <th>2013-12-31</th>
       <td>16505.0</td>
       <td>400.33800</td>
       <td>-1052.81100</td>
@@ -855,77 +857,77 @@ precip_2003_2013_yearly
   </thead>
   <tbody>
     <tr>
-      <td>2003-12-31</td>
+      <th>2003-12-31</th>
       <td>255827.5</td>
       <td>6205.25295</td>
       <td>-16318.57205</td>
       <td>17.6</td>
     </tr>
     <tr>
-      <td>2004-12-31</td>
+      <th>2004-12-31</th>
       <td>349906.0</td>
       <td>8487.18468</td>
       <td>-22319.59532</td>
       <td>22.6</td>
     </tr>
     <tr>
-      <td>2005-12-31</td>
+      <th>2005-12-31</th>
       <td>292138.5</td>
       <td>7085.99853</td>
       <td>-18634.75647</td>
       <td>16.7</td>
     </tr>
     <tr>
-      <td>2006-12-31</td>
+      <th>2006-12-31</th>
       <td>278934.5</td>
       <td>6765.72741</td>
       <td>-17792.50759</td>
       <td>16.8</td>
     </tr>
     <tr>
-      <td>2007-12-31</td>
+      <th>2007-12-31</th>
       <td>259128.5</td>
       <td>6285.32073</td>
       <td>-16529.13427</td>
       <td>15.0</td>
     </tr>
     <tr>
-      <td>2008-12-31</td>
+      <th>2008-12-31</th>
       <td>239322.5</td>
       <td>5804.91405</td>
       <td>-15265.76095</td>
       <td>14.0</td>
     </tr>
     <tr>
-      <td>2009-12-31</td>
+      <th>2009-12-31</th>
       <td>250876.0</td>
       <td>6085.13949</td>
       <td>-16002.72741</td>
       <td>14.7</td>
     </tr>
     <tr>
-      <td>2010-12-31</td>
+      <th>2010-12-31</th>
       <td>272332.5</td>
       <td>6605.57700</td>
       <td>-17371.38150</td>
       <td>17.6</td>
     </tr>
     <tr>
-      <td>2011-12-31</td>
+      <th>2011-12-31</th>
       <td>300391.0</td>
       <td>7286.15160</td>
       <td>-19161.16020</td>
       <td>17.5</td>
     </tr>
     <tr>
-      <td>2012-12-31</td>
+      <th>2012-12-31</th>
       <td>153496.5</td>
       <td>3723.14340</td>
       <td>-9791.14230</td>
       <td>9.5</td>
     </tr>
     <tr>
-      <td>2013-12-31</td>
+      <th>2013-12-31</th>
       <td>384566.5</td>
       <td>9327.87540</td>
       <td>-24530.49630</td>

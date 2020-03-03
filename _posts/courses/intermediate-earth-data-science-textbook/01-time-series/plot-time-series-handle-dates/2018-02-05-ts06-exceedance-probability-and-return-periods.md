@@ -4,12 +4,12 @@ title: "Why A Hundred Year Flood Can Occur Every Year. Calculate Exceedance Prob
 excerpt: "Learn how to calculate exceedance probability and return periods associated with a flood in Python."
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-13
+modified: 2020-03-02
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 week: 1
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/floods-return-period-and-probability/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/floods-return-period-and-probability/
 nav-title: 'Calculate Flood Return Period'
 sidebar:
   nav:
@@ -21,6 +21,7 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/floods-return-period-and-probability/"
+  - "/courses/use-data-open-source-python/use-time-series-data-in-python/floods-return-period-and-probability/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -126,6 +127,7 @@ sns.set(font_scale=1.5, style="whitegrid")
 {:.output}
     Downloading from https://ndownloader.figshare.com/files/16371473
     Extracted output to /root/earth-analytics/data/colorado-flood/.
+
 
 
 
@@ -243,8 +245,8 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-01-13T16:29:24.437Z', 'title': 'requestDT'},
-        {'value': 'dc32d140-3621-11ea-b610-6cae8b6642ea', 'title': 'requestId'},
+        {'value': '2020-03-02T23:37:24.840Z', 'title': 'requestDT'},
+        {'value': 'c5271770-5cde-11ea-8bc9-6cae8b6642ea', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
         {'value': 'sdas01', 'title': 'server'}]},
@@ -283,9 +285,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '51.4',
+        'values': [{'value': [{'value': '65.2',
             'qualifiers': ['P'],
-            'dateTime': '2020-01-12T00:00:00.000'}],
+            'dateTime': '2020-03-01T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,
@@ -349,27 +351,27 @@ longmont_discharge.head()
   </thead>
   <tbody>
     <tr>
-      <td>1946-05-10</td>
+      <th>1946-05-10</th>
       <td>16.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>1946-05-11</td>
+      <th>1946-05-11</th>
       <td>19.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>1946-05-12</td>
+      <th>1946-05-12</th>
       <td>9.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>1946-05-13</td>
+      <th>1946-05-13</th>
       <td>3.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>1946-05-14</td>
+      <th>1946-05-14</th>
       <td>7.8</td>
       <td>A</td>
     </tr>
@@ -427,27 +429,27 @@ longmont_discharge.head()
   </thead>
   <tbody>
     <tr>
-      <td>1946-05-10</td>
+      <th>1946-05-10</th>
       <td>16.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>1946-05-11</td>
+      <th>1946-05-11</th>
       <td>19.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>1946-05-12</td>
+      <th>1946-05-12</th>
       <td>9.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>1946-05-13</td>
+      <th>1946-05-13</th>
       <td>3.0</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>1946-05-14</td>
+      <th>1946-05-14</th>
       <td>7.8</td>
       <td>A</td>
     </tr>
@@ -500,27 +502,27 @@ longmont_discharge.tail()
   </thead>
   <tbody>
     <tr>
-      <td>2018-08-25</td>
+      <th>2018-08-25</th>
       <td>9.86</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>2018-08-26</td>
+      <th>2018-08-26</th>
       <td>7.02</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>2018-08-27</td>
+      <th>2018-08-27</th>
       <td>4.05</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>2018-08-28</td>
+      <th>2018-08-28</th>
       <td>2.67</td>
       <td>A</td>
     </tr>
     <tr>
-      <td>2018-08-29</td>
+      <th>2018-08-29</th>
       <td>3.36</td>
       <td>A</td>
     </tr>
@@ -565,7 +567,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_18_0.png" alt = "Stream Discharge for the longmont USGS stream gage from 1946-2017">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_19_0.png" alt = "Stream Discharge for the longmont USGS stream gage from 1946-2017">
 <figcaption>Stream Discharge for the longmont USGS stream gage from 1946-2017</figcaption>
 
 </figure>
@@ -642,31 +644,31 @@ longmont_discharge_annual_max.head()
   </thead>
   <tbody>
     <tr>
-      <td>1946-01-01</td>
+      <th>1946-01-01</th>
       <td>99.0</td>
       <td>A</td>
       <td>1946.0</td>
     </tr>
     <tr>
-      <td>1947-01-01</td>
+      <th>1947-01-01</th>
       <td>1930.0</td>
       <td>A</td>
       <td>1947.0</td>
     </tr>
     <tr>
-      <td>1948-01-01</td>
+      <th>1948-01-01</th>
       <td>339.0</td>
       <td>A</td>
       <td>1948.0</td>
     </tr>
     <tr>
-      <td>1949-01-01</td>
+      <th>1949-01-01</th>
       <td>2010.0</td>
       <td>A</td>
       <td>1949.0</td>
     </tr>
     <tr>
-      <td>1950-01-01</td>
+      <th>1950-01-01</th>
       <td>NaN</td>
       <td>NaN</td>
       <td>NaN</td>
@@ -686,9 +688,8 @@ Next import the USGS annual maxima data.
 
 {:.input}
 ```python
-# Download usgs annual max data from figshare
+# download usgs annual max data from figshare
 url = "https://nwis.waterdata.usgs.gov/nwis/peak?site_no=06730500&agency_cd=USGS&format=rdb"
-
 download_path = os.path.join("data", "colorado-flood", 
                              "downloads", "annual-peak-flow.txt")
 
@@ -701,7 +702,7 @@ urllib.request.urlretrieve(url, download_path)
 
 
     ('data/colorado-flood/downloads/annual-peak-flow.txt',
-     <http.client.HTTPMessage at 0x7f9f54f698d0>)
+     <http.client.HTTPMessage at 0x7f80f6be6c10>)
 
 
 
@@ -784,23 +785,23 @@ usgs_annual_max.head()
   </thead>
   <tbody>
     <tr>
-      <td>1927-07-29</td>
+      <th>1927-07-29</th>
       <td>407.0</td>
     </tr>
     <tr>
-      <td>1928-06-04</td>
+      <th>1928-06-04</th>
       <td>694.0</td>
     </tr>
     <tr>
-      <td>1929-07-23</td>
+      <th>1929-07-23</th>
       <td>530.0</td>
     </tr>
     <tr>
-      <td>1930-08-18</td>
+      <th>1930-08-18</th>
       <td>353.0</td>
     </tr>
     <tr>
-      <td>1931-05-29</td>
+      <th>1931-05-29</th>
       <td>369.0</td>
     </tr>
   </tbody>
@@ -856,12 +857,12 @@ usgs_annual_max[usgs_annual_max.duplicated(subset="year") == True]
   </thead>
   <tbody>
     <tr>
-      <td>1947-10-15</td>
+      <th>1947-10-15</th>
       <td>721.0</td>
       <td>1947</td>
     </tr>
     <tr>
-      <td>1993-10-18</td>
+      <th>1993-10-18</th>
       <td>497.0</td>
       <td>1993</td>
     </tr>
@@ -947,9 +948,7 @@ ax.plot(longmont_discharge_annual_max["year"],
         color="lightgrey",
         linestyle=':',
         marker='o', label="Mean Daily Value")
-
 ax.legend()
-
 ax.set_title(
     "Annual Maxima - Downloaded Instantaneous vs. Derived Daily Peak Flows")
 
@@ -961,7 +960,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_34_0.png" alt = "Annual maxima data compared - USGS product vs daily value calculated.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_35_0.png" alt = "Annual maxima data compared - USGS product vs daily value calculated.">
 <figcaption>Annual maxima data compared - USGS product vs daily value calculated.</figcaption>
 
 </figure>
@@ -1011,12 +1010,10 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_40_0.png" alt = "Bar plot showing the difference between the USGS max product and the calculated annual max.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_41_0.png" alt = "Bar plot showing the difference between the USGS max product and the calculated annual max.">
 <figcaption>Bar plot showing the difference between the USGS max product and the calculated annual max.</figcaption>
 
 </figure>
-
-
 
 
 
@@ -1104,7 +1101,8 @@ Once you have a function, you can calculate return period and probability on bot
 ```python
 longmont_prob = calculate_return(longmont_discharge, "discharge")
 
-# Because these data are daily, divide return period in days by 365 to get a return period in years
+# Because these data are daily,
+# divide return period in days by 365 to get a return period in years
 longmont_prob["return-years"] = longmont_prob["return-years"] / 365
 longmont_prob["probability"] = longmont_prob["probability"] * 365
 longmont_prob.tail()
@@ -1152,7 +1150,7 @@ longmont_prob.tail()
   </thead>
   <tbody>
     <tr>
-      <td>2013-09-16</td>
+      <th>2013-09-16</th>
       <td>17078</td>
       <td>3270.0</td>
       <td>A e</td>
@@ -1161,7 +1159,7 @@ longmont_prob.tail()
       <td>9.360548</td>
     </tr>
     <tr>
-      <td>2013-09-12</td>
+      <th>2013-09-12</th>
       <td>17079</td>
       <td>3680.0</td>
       <td>A</td>
@@ -1170,7 +1168,7 @@ longmont_prob.tail()
       <td>11.700685</td>
     </tr>
     <tr>
-      <td>2013-09-15</td>
+      <th>2013-09-15</th>
       <td>17080</td>
       <td>3970.0</td>
       <td>A e</td>
@@ -1179,7 +1177,7 @@ longmont_prob.tail()
       <td>15.600913</td>
     </tr>
     <tr>
-      <td>2013-09-14</td>
+      <th>2013-09-14</th>
       <td>17081</td>
       <td>4970.0</td>
       <td>A e</td>
@@ -1188,7 +1186,7 @@ longmont_prob.tail()
       <td>23.401370</td>
     </tr>
     <tr>
-      <td>2013-09-13</td>
+      <th>2013-09-13</th>
       <td>17082</td>
       <td>8910.0</td>
       <td>A e</td>
@@ -1251,44 +1249,44 @@ usgs_annual_prob.head()
   </thead>
   <tbody>
     <tr>
-      <td>1954-01-14</td>
+      <th>1954-01-14</th>
       <td>1</td>
       <td>26.0</td>
       <td>1954</td>
-      <td>0.984848</td>
-      <td>1.015385</td>
+      <td>0.985075</td>
+      <td>1.015152</td>
     </tr>
     <tr>
-      <td>1932-07-13</td>
+      <th>1932-07-13</th>
       <td>2</td>
       <td>128.0</td>
       <td>1932</td>
-      <td>0.969697</td>
-      <td>1.031250</td>
+      <td>0.970149</td>
+      <td>1.030769</td>
     </tr>
     <tr>
-      <td>1940-07-03</td>
+      <th>1940-07-03</th>
       <td>3</td>
       <td>174.0</td>
       <td>1940</td>
-      <td>0.954545</td>
-      <td>1.047619</td>
+      <td>0.955224</td>
+      <td>1.046875</td>
     </tr>
     <tr>
-      <td>1946-07-19</td>
+      <th>1946-07-19</th>
       <td>4</td>
       <td>178.0</td>
       <td>1946</td>
-      <td>0.939394</td>
-      <td>1.064516</td>
+      <td>0.940299</td>
+      <td>1.063492</td>
     </tr>
     <tr>
-      <td>2002-05-24</td>
+      <th>2002-05-24</th>
       <td>5</td>
       <td>238.0</td>
       <td>2002</td>
-      <td>0.924242</td>
-      <td>1.081967</td>
+      <td>0.925373</td>
+      <td>1.080645</td>
     </tr>
   </tbody>
 </table>
@@ -1330,13 +1328,11 @@ longmont_prob.plot.scatter(y="probability",
                            fontsize=16,
                            logy=True,
                            label="Daily Mean Calculated")
-
 ax.legend(frameon=True,
           framealpha=1)
 
 ax.set_ylabel("Probability")
 ax.set_xlabel("Discharge Value (CFS)")
-
 ax.set_title(
     "Probability of Discharge Events \n USGS Annual Max Data Compared to Daily Mean Calculated Annual Max")
 
@@ -1385,25 +1381,16 @@ ax.legend(frameon=True,
 
 ax.set_xlabel("Return Period (Years)")
 ax.set_ylabel("Discharge Value (CFS)")
+
+plt.show()
 ```
-
-{:.output}
-{:.execute_result}
-
-
-
-    Text(0, 0.5, 'Discharge Value (CFS)')
-
-
-
-
 
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_56_1.png" alt = "Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/01-time-series/plot-time-series-handle-dates/2018-02-05-ts06-exceedance-probability-and-return-periods/2018-02-05-ts06-exceedance-probability-and-return-periods_56_0.png" alt = "Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.">
 <figcaption>Plot showing the return period of a discharge event using both datasets. Note that the y-axis is log scaled in this plot.</figcaption>
 
 </figure>
