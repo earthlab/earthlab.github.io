@@ -4,7 +4,7 @@ category: courses
 title: "Earth Analytics Python Course - Week One"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
 week-landing: 1
-modified: 2020-02-13
+modified: 2020-03-04
 week: 1
 sidebar:
   nav:
