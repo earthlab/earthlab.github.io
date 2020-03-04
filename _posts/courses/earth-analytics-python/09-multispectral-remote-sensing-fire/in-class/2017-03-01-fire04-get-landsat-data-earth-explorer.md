@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Find and Download Landsat 8 Remote Sensing Data From the USGS Earth Explorer Website"
-excerpt: "Learn how to find and download Landsat 8 remote sensing imagery from the USGS Earth Explorer website."
+excerpt: "Learn how to find and download Landsat 8 remote sensing data from the USGS Earth Explorer website."
 authors: ['Leah Wasser']
 modified: 2020-03-04
 category: [courses]
