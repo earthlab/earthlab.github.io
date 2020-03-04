@@ -13,7 +13,7 @@ module-type: 'class'
 class-order: 1
 permalink: /courses/earth-analytics-python/contribute-to-open-source/intro-to-open-source-software-python/
 nav-title: 'Intro to Open Source'
-week: 9
+week: 10
 course: "earth-analytics-python"
 sidebar:
   nav:

@@ -54,7 +54,7 @@ early!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis/2017-01-01-week-08-spectral-remote-sensing-modis_12_0.png" alt = "CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_12_0.png" alt = "CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire.">
 <figcaption>CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire.</figcaption>
 
 </figure>
@@ -71,7 +71,7 @@ early!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis/2017-01-01-week-08-spectral-remote-sensing-modis_15_0.png" alt = "NBR images calculated from Landsat for pre- and post-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_15_0.png" alt = "NBR images calculated from Landsat for pre- and post-Cold Springs fire.">
 <figcaption>NBR images calculated from Landsat for pre- and post-Cold Springs fire.</figcaption>
 
 </figure>
@@ -89,7 +89,7 @@ early!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis/2017-01-01-week-08-spectral-remote-sensing-modis_20_0.png" alt = "NBR images calculated from MODIS for pre- and post-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_20_0.png" alt = "NBR images calculated from MODIS for pre- and post-Cold Springs fire.">
 <figcaption>NBR images calculated from MODIS for pre- and post-Cold Springs fire.</figcaption>
 
 </figure>
@@ -104,7 +104,7 @@ early!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis/2017-01-01-week-08-spectral-remote-sensing-modis_22_0.png" alt = "Histogram for the dNBR image calculated from MODIS for the Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_22_0.png" alt = "Histogram for the dNBR image calculated from MODIS for the Cold Springs fire.">
 <figcaption>Histogram for the dNBR image calculated from MODIS for the Cold Springs fire.</figcaption>
 
 </figure>
@@ -122,7 +122,7 @@ early!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-08-spectral-remote-sensing-modis/2017-01-01-week-08-spectral-remote-sensing-modis_25_0.png" alt = "Difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_25_0.png" alt = "Difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.">
 <figcaption>Difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.</figcaption>
 
 </figure>
