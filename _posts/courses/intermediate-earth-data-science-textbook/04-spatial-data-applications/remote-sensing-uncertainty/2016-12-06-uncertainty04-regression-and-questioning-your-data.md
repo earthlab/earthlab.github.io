@@ -4,7 +4,7 @@ title: "Use Regression Analysis to Explore Data Relationships & Bad Data"
 excerpt: "You often want to understand the relationships between two different types of data. Learn how to use regression to determine whether there is a relationship between two variables."
 authors: ['Max Joseph', 'Leah Wasser']
 dateCreated: 2016-12-06
-modified: 2020-02-05
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/compare-lidar-and-measured-tree-height-regression/
@@ -237,7 +237,7 @@ print("slope:", slope,
 **Intercept 2.98:** Here our intercept is close to 3. 
 This means that if the lidar derived height were 0, the estimated ground truth height would be close to 3, which may suggest some systematic offset between the lidar and ground measurements of height. But, we should be careful with this interpretation, because we did not have any lidar data with zero height measurements. Any conclusions we draw about such observations are extrapolations beyond the range of data that were observed.
 
-**Slope of .76:** The slope is positive and while it's not 1, it's also not that far from 1 at .76. This is not terrible. This slope suggests that for a one meter increase in lidar derived height, we expect a 76 cm increase in ground truth height. This actually could make some sense if you think about how difficult it can be to hand measure tall trees. But how hard it might be for lidar systems to reflect off of shorter and potentially smaller trees
+**Slope of .76:** The slope is positive and while it's not 1, it's also not that far from 1 at .76. This is not terrible. This slope suggests that for a one meter increase in lidar derived height, we expect a 76 cm increase in ground truth height. This actually could make some sense if you think about how difficult it can be to measure tall trees manually. But how hard it might be for lidar systems to reflect off of shorter and potentially smaller trees
 
 **R squared of .69:** This tells us that the linear regression model explains 69% of the variablility found in the data. 
 
@@ -274,7 +274,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x7fb86884a250>
+    <matplotlib.legend.Legend at 0x7fc3dc821b10>
 
 
 

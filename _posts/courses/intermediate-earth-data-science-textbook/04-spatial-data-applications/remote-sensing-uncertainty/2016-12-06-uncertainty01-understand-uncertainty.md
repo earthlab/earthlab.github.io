@@ -4,7 +4,7 @@ title: "Compare Lidar With Human Measured Tree Heights - Remote Sensing Uncertai
 excerpt: "Uncertainty quantifies the range of values within which the value of the measurement falls - within a specified level of confidence. Learn about the types of uncertainty that you can expect when working with tree height data both derived from lidar remote sensing and human measurements and learn about sources of error including systematic vs. random error."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2016-12-06
-modified: 2020-02-05
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/
@@ -265,7 +265,7 @@ have some "ground truth" data. That is we have measured tree height values colle
 at a set of field site plots by technicians at NEON. We will call these measured
 values *in situ* measurements.
 
-A map of our study plots is below overlaid on top of the canopy height mode.
+A map of our study plots is below overlaid on top of the canopy height model.
 
 
 {:.output}
