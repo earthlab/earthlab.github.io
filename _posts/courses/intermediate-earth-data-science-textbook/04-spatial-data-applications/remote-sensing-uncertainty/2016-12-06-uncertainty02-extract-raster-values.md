@@ -4,7 +4,7 @@ title: "Extract Raster Values at Point Locations in Python"
 excerpt: "For many scientific analyses, it is helpful to be able to select raster pixels based on their relationship to a vector dataset (e.g. locations, boundaries). Learn how to extract data from a raster dataset using a vector dataset."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
 dateCreated: 2016-12-06
-modified: 2020-02-13
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -309,17 +309,16 @@ You can use the `.buffer()` method to create the buffer. Here the buffer size is
 <figure>
    <a href="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-circular.png">
    <img src="{{ site.url }}/images/courses/earth-analytics/spatial-data/buffer-circular.png" alt="national geographic scaling trees graphic"></a>
-   <figcaption>The extract function in R allows you to specify a circular buffer
-    radius around an x,y point location. Values for all pixels in the specified
-    raster that fall within the circular buffer are extracted. In this case, we
-    will tell R to extract the maximum value of all pixels using the fun=max
-    command. Source: Colin Williams, NEON
+   <figcaption>The buffer function in GeoPandas allows you to specify a circular buffer
+    radius around an x,y point location. We can than use the zonalstats function in 
+    rasterstats to find the maximum value of a raster that's within each buffer we've
+    created. Source: Colin Williams, NEON
     </figcaption>
 </figure>
 
 Below you: 
-1. Make a copy of the points layer and create a new, to be created polygon layer.
-2. Buffer the points layer using the `.buffer()` method. This will produce a circle around each point that is x units radius. The units will coincide with the CRS of your data. This known as a buffer. 
+1. Make a copy of the points layer that will become a new polygon layer.
+2. Buffer the points layer using the `.buffer()` method. This will produce a circle around each point that is x units radius. The units will coincide with the CRS of your data. This is known as a buffer. 
 3. When you perform the buffer, you UPDATE the "geometry" column of your new poly layer with the buffer output. 
 
 {:.input}
