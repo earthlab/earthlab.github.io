@@ -4,12 +4,12 @@ title: 'An Overview of the 2013 Colorado Floods'
 excerpt: "The 2013 flood event caused significant damage throughout the state of Colorado, USA. Learn about what caused the 2013 floods in Colorado and also some of the impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
 dateCreated: 2018-05-24
-modified: 2020-01-22
+modified: 2020-02-14
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'
 chapter: 20
-permalink: /courses/use-data-open-source-python/data-stories/colorado-2013-floods/an-overview-of-the-colorado-2013-floods/
+permalink: /courses/use-data-open-source-python/data-stories/colorado-floods-2013/
 nav-title: 'CO Flood Overview'
 module-title: 'An Overview of the 2013 Floods in Colorado, USA'
 module-nav-title: 'Flood overview '
@@ -28,6 +28,7 @@ topics:
     time-series:  
 redirect_from:
   - "/courses/earth-analytics-python/python-open-science-toolbox/an-overview-of-the-floods/"
+  - "/courses/use-data-open-source-python/data-stories/colorado-2013-floods/an-overview-of-the-colorado-2013-floods/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}

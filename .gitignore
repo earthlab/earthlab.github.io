@@ -1,13 +1,5 @@
-_site/
-.sass-cache/
-.jekyll-metadata
 .DS_Store
-.Rproj.user
-*.Rproj
 .Rhistory
-pdf/
-_config-dev.yml
-_config.yml
-Gemfile.lock
-.idea/workspace.xml
 .idea/
+changed_files.txt
+deleted_files.txt

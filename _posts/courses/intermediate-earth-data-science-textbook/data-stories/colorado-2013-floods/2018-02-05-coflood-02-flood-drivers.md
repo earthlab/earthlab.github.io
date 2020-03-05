@@ -3,12 +3,12 @@ layout: single
 title: 'How the Atmosphere Drives Floods: The 2013 Colorado Floods'
 excerpt: "Changes in the atmosphere, including how quickly a storm moves can impact the severity of a flood. Learn more about how atmospheric conditions impact flood events."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2020-01-22
+modified: 2020-02-14
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'
 chapter: 20
-permalink: /courses/use-data-open-source-python/data-stories/colorado-2013-floods/how-atmospheric-conditions-and-drought-impact-floods/
+permalink: /courses/use-data-open-source-python/data-stories/colorado-floods-2013/how-atmospheric-conditions-and-drought-impact-floods/
 nav-title: 'Atmosphere & Drought'
 dateCreated: 2018-05-24
 module-type: 'class'
@@ -24,6 +24,7 @@ topics:
     time-series: 
 redirect_from:
   - "/courses/earth-analytics-python/python-open-science-toolbox/how-atmospheric-conditions-and-drought-impact-floods/"
+  - "/courses/use-data-open-source-python/data-stories/colorado-2013-floods/how-atmospheric-conditions-and-drought-impact-floods/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -83,7 +84,12 @@ There are many ways to measure or quantify drought. The Palmer Drought Severity 
 {:.output}
 {:.display_data}
 
-    <Figure size 1800x800 with 1 Axes>
+<figure>
+
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/colorado-2013-floods/2018-02-05-coflood-02-flood-drivers/2018-02-05-coflood-02-flood-drivers_3_0.png" alt = "Plot of Palmer Drought Index for Colorado 2005-2016.">
+<figcaption>Plot of Palmer Drought Index for Colorado 2005-2016.</figcaption>
+
+</figure>
 
 
 
