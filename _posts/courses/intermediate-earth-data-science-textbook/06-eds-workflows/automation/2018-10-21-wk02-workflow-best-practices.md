@@ -4,7 +4,7 @@ title: "Data Workflow Best Practices - Things to Consider When Processing Data"
 excerpt: "Identifying aspects of a workflow that can be modularized and tested can help you design efficient and effective data workflows. Learn best practices for designing efficient data workflows."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph', 'Lauren Herwehe']
 dateCreated: 2018-10-21
-modified: 2020-03-02
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['create-data-workflows-tb']
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/efficient-workflow-best-practices/
@@ -35,11 +35,11 @@ redirect_from:
 
 ## Data Workflow Best Practices 
 
-In the previous lessons, you designed a workflow to process several sites worth of lLandsat data, but of course, identifying the workflow is just beginning. 
+In the previous lessons, you designed a workflow to process several sites worth of Landsat data, but of course, identifying the workflow is just beginning. 
 
 For each of the steps you identified in your pseudocode, you need to flesh out how you can accomplish each task. 
 
-Before you design your workflow in more detail, there are many things to keep in mind regarding how you will use use and name files, how you will modularize code to reduce repetitive code, etc. 
+Before you design your workflow in more detail, there are many things to keep in mind regarding how you will use and name files, how you will modularize code to reduce repetitive code, etc. 
 
 Consider the data workflow best practices discussed below. 
  
