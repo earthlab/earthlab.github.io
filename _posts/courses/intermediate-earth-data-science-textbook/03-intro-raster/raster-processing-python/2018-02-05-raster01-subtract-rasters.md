@@ -4,7 +4,7 @@ title: "Subtract One Raster from Another and Export a New GeoTIFF in Open Source
 excerpt: "Often you need to process two raster datasets together to create a new raster output and then save that output as a new file. Learn how to subtract rasters and create a new GeoTIFF file using open source Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-02-14
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['raster-processing-python']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/raster-data-processing/subtract-rasters-in-python/
@@ -72,13 +72,7 @@ et.data.get_data("colorado-flood")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/16371473
-    Extracted output to /root/earth-analytics/data/colorado-flood/.
-
-
-
-Open and plot the lidar digital elevation model (DEM). Note that when you read the data, you can use the argument `masked = True` to ensure that the no data values do not plot and are assign `nan` or `nodata`. 
+Open and plot the lidar digital elevation model (DEM). Note that when you read the data, you can use the argument `masked = True` to ensure that the no data values do not plot and are assigned `nan` or `nodata`. 
 
 <!-- 
 If we use masked=True we can skip this step
@@ -227,7 +221,7 @@ plt.show()
 
 {:.input}
 ```python
-ep.hist(lidar_dem_im[~lidar_dem_im.mask].ravel(), 
+ep.hist(lidar_chm_im, 
         colors = 'purple',
         title="Histogram of CHM Values")
 plt.show()
