@@ -4,7 +4,7 @@ title: "GIS in Python: Intro to Coordinate Reference Systems in Python"
 excerpt: "A coordinate reference system (CRS) defines the translation between a location on the round earth and that same location, on a flattened, 2 dimensional coordinate system. Learn how to explore and reproject data into geographic and projected CRS in Python."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-29
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['intro-vector-python-tb']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/intro-to-coordinate-reference-systems-python/
@@ -143,6 +143,12 @@ data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
+
 To begin, load a shapefile using geopandas. 
 
 {:.input}
@@ -219,9 +225,9 @@ city_locations
 
 
 
-    [<shapely.geometry.point.Point at 0x7fb6a66fbd30>,
-     <shapely.geometry.point.Point at 0x7fb6a66a6898>,
-     <shapely.geometry.point.Point at 0x7fb6a66fb4a8>]
+    [<shapely.geometry.point.Point at 0x7f44eccb5ad0>,
+     <shapely.geometry.point.Point at 0x7f44eccb56d0>,
+     <shapely.geometry.point.Point at 0x7f44eccb5250>]
 
 
 
@@ -264,16 +270,16 @@ city_locations.head(3)
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>POINT (-105.2519 40.0274)</td>
+      <th>0</th>
+      <td>POINT (-105.25190 40.02740)</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>POINT (10.75 59.95)</td>
+      <th>1</th>
+      <td>POINT (10.75000 59.95000)</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>POINT (2.9833 39.6167)</td>
+      <th>2</th>
+      <td>POINT (2.98330 39.61670)</td>
     </tr>
   </tbody>
 </table>
@@ -389,7 +395,7 @@ have been developed.
 
 You can view the same data above, in another CRS - `Robinson`. `Robinson` is a
 **projected** `CRS`. Notice that the country boundaries on the map - have a
-different shape compared to the map that youcreated above in the `CRS`:
+different shape compared to the map that you created above in the `CRS`:
 **Geographic lat/long WGS84**. 
 
 Below you first reproject your data into the robinson projects (`+proj=robin`). Then you plot the data once again. 
