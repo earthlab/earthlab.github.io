@@ -4,7 +4,7 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM)."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-02-14
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['lidar-data-story']
 permalink: /courses/use-data-open-source-python/data-stories/what-is-lidar-data/lidar-chm-dem-dsm/
@@ -44,7 +44,7 @@ thus easier to work with. In this lesson, you will import and work with 3 of the
 
 1. **Digital Terrain Model (or DTM):** ground elevation.
 2. **Digital Surface Model (or DSM):** top of the surface (imagine draping a sheet over the canopy of a forest
-3. **Canopy Height Model (CHM):** the elevation of the Earth's surface - and it sometimes also called a DEM or digital elevation model.
+3. **Canopy Height Model (CHM):** the height or residual distance between the ground and the top of the of objects above the ground. This includes the actual heights of trees, builds and any other objects on the earth's surface. This CHM is created by subtracting the DTM from the DSM.
 
 ## Three Important Lidar Data Products: CHM, DEM, DSM
 
