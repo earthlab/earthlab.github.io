@@ -4,7 +4,7 @@ category: courses
 title: "Data Stories"
 permalink: /courses/use-data-open-source-python/data-stories/
 week-landing: 7
-modified: 2020-01-22
+modified: 2020-03-06
 week: 7
 sidebar:
   nav:
