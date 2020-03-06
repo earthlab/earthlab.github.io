@@ -4,7 +4,7 @@ category: courses
 title: "Earth Analytics Python Course - Week One"
 permalink: /courses/earth-analytics-python/python-open-science-toolbox/
 week-landing: 1
-modified: 2020-02-01
+modified: 2020-03-06
 week: 1
 sidebar:
   nav:
@@ -46,7 +46,7 @@ The details of this assignment are in your first GitHub Classroom assignment rep
 
 ### 1. Readings
 
-* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/colorado-2013-floods/an-overview-of-the-colorado-2013-floods/">Colorado Flood Overview:</a> This chapter will provide some background on the flood event and some data assocaited with understanding the events drivers and impacts. 
+* <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/colorado-2013-floods/an-overview-of-the-colorado-2013-floods/">Colorado Flood Overview:</a> This chapter will provide some background on the flood event and some data associated with understanding the events drivers and impacts. 
 
 * <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/lidar-raster-data/lidar-intro/">Raster data:</a> We will be covering raster data in Python in more details next week. However you can get a jump start if you want to review these lessons.  
 
