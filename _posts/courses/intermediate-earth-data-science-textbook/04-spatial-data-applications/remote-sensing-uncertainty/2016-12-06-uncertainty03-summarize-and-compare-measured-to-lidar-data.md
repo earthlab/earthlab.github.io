@@ -4,7 +4,7 @@ title: "Compare Lidar to Measured Tree Height"
 excerpt: "To explore uncertainty in remote sensing data, it is helpful to compare ground-based measurements and data that are collected via airborne instruments or satellites. Learn how to create scatter plots that compare values across two datasets."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
 dateCreated: 2016-12-06
-modified: 2020-02-05
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/
@@ -41,7 +41,7 @@ In this lesson series, your overall goal is to compare tree height measurements 
 1. Raster of the lidar canopy height model and
 2. Vector point location data
 
-In the previous lesson, you learned how to extract raster values from an area derived by create a buffer region around each point in a shapefile. In this lesson, you will summarize the human made measurements and then compare them to lidar. 
+In the previous lesson, you learned how to extract raster values from an area derived by creating a buffer region around each point in a shapefile. In this lesson, you will summarize the human made measurements and then compare them to lidar. 
 
 To begin, load all of the required libraries. 
 

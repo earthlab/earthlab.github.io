@@ -4,7 +4,7 @@ title: "Geographic vs projected coordinate reference systems - GIS in Python"
 excerpt: "Geographic coordinate systems span the entire globe (e.g. latitude / longitude), while projected coordinate systems are localized to minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane). Learn more about key differences between projected vs. geographic coordinate reference systems."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-01-29
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['intro-vector-python-tb']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/geographic-vs-projected-coordinate-reference-systems-python/
@@ -143,7 +143,7 @@ Spatial projection refers to the mathematical calculations
 performed to flatten the 3D data onto a 2D plane (your computer screen
 or a paper map). Projecting data from a round surface onto a flat surface, results
 in visual modifications to the data when plotted on a map. Some areas are stretched
-and some some are compressed. You can see this distortion when you look at a map
+and some are compressed. You can see this distortion when you look at a map
 of the entire globe.
 
 The mathematical calculations used in spatial projections are designed to
@@ -321,8 +321,8 @@ boulder_df_geog
   </thead>
   <tbody>
     <tr>
-      <td>0</td>
-      <td>POINT (-105.2705459796447 40.01498401291801)</td>
+      <th>0</th>
+      <td>POINT (-105.27055 40.01498)</td>
     </tr>
   </tbody>
 </table>

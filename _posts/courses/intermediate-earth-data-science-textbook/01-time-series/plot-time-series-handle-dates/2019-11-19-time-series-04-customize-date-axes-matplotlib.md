@@ -3,13 +3,12 @@ layout: single
 title: "Customize Dates on Time Series Plots in Python Using Matplotlib"
 excerpt: 'When you plot time series data using the matplotlib package in Python, you often want to customize the date format that is presented on the plot. Learn how to customize the date format on time series plots created using matplotlib.'
 authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey']
-dateCreated: 2018-02-05
-modified: 2020-01-10
+modified: 2020-03-02
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
 nav-title: 'Custom Date Formats for Plots'
-permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/customize-dates-matplotlib-plots-python/
+permalink: /courses/use-data-open-source-python/use-time-series-data-in-python/date-time-types-in-pandas-python/customize-dates-matplotlib-plots-python/
 module-type: 'class'
 week: 1
 sidebar:
@@ -22,6 +21,7 @@ topics:
   data-exploration-and-analysis: ['data-visualization']
 redirect_from:
   - "/courses/earth-analytics-python/use-time-series-data-in-python/customize-dates--matplotlib-plots-python/"
+  - "/courses/use-data-open-source-python/use-time-series-data-in-python/customize-dates-matplotlib-plots-python/"
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -169,7 +169,7 @@ precip_june_aug_2005.head()
   </thead>
   <tbody>
     <tr>
-      <td>2005-06-01</td>
+      <th>2005-06-01</th>
       <td>0.0</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -180,7 +180,7 @@ precip_june_aug_2005.head()
       <td>152</td>
     </tr>
     <tr>
-      <td>2005-06-02</td>
+      <th>2005-06-02</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -191,7 +191,7 @@ precip_june_aug_2005.head()
       <td>153</td>
     </tr>
     <tr>
-      <td>2005-06-03</td>
+      <th>2005-06-03</th>
       <td>0.3</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -202,7 +202,7 @@ precip_june_aug_2005.head()
       <td>154</td>
     </tr>
     <tr>
-      <td>2005-06-04</td>
+      <th>2005-06-04</th>
       <td>0.7</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -213,7 +213,7 @@ precip_june_aug_2005.head()
       <td>155</td>
     </tr>
     <tr>
-      <td>2005-06-09</td>
+      <th>2005-06-09</th>
       <td>0.1</td>
       <td>COOP:050843</td>
       <td>BOULDER 2 CO US</td>
@@ -447,7 +447,7 @@ Create plots for the following time subsets for the year of the September 2013 f
 * Time period A: 2012-08-01 to 2012-11-01
 * Time period B: 2013-08-01 to 2013-11-01
 
-Be sure to set the y limits to be the same for both plots, so they are visually comparable, using:
+Be sure to set the y limits to be the same for both plots, so they are visually comparable, using the parameter `ylim` for `ax.set()`:
 
 `ylim=[min, max]`
 

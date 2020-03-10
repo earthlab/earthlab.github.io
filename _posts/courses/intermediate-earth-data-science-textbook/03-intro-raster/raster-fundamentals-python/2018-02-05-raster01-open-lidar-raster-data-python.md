@@ -4,7 +4,7 @@ title: "Open, Plot and Explore Raster Data with Python"
 excerpt: "Rasters are gridded data composed of pixels that store values, such as an image or elevation data file. Learn how to open, plot, and explore raster files in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-02-14
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['intro-raster-python-tb']
 permalink: /courses/use-data-open-source-python/intro-raster-data-python/fundamentals-raster-data/open-lidar-raster-python/
@@ -402,9 +402,9 @@ Let's plot again but this time you will:
 1. add a colorbar legend
 2. increase the title font size using the `as.set_title` function and the `fontsize` argument 
 
-EarthPy's `plot_bands()` function adds a colorbar to your plot automatically. In the last plot, you'll notice the arguement called `cbar` is set to `False`. This turns off the colorbar. The default value for the `cbar` arguement is `True`. This means if you don't modify that arguement, the colorbar will automatically appear! However, you may also notice a new arguement in this plot, `scale=False`. By default, `plot_bands()` will scale values in a raster from 0 to 255. Since this is elevation data, you can avoid this by setting `scale=False`. 
+EarthPy's `plot_bands()` function adds a colorbar to your plot automatically. In the last plot, you'll notice the argument called `cbar` is set to `False`. This turns off the colorbar. The default value for the `cbar` argument is `True`. This means if you don't modify that argument, the colorbar will automatically appear! However, you may also notice a new argument in this plot, `scale=False`. By default, `plot_bands()` will scale values in a raster from 0 to 255. Since this is elevation data, you can avoid this by setting `scale=False`. 
 
-Additionally, you will be using **matplotlib** and `earthpy.plot` together in this plot, in order to modify the title font size. `plot_bands()` can be added into any normal matplotlib plot by just giving it an axis object in the `ax=` arguement. 
+Additionally, you will be using **matplotlib** and `earthpy.plot` together in this plot, in order to modify the title font size. `plot_bands()` can be added into any normal matplotlib plot by just giving it an axis object in the `ax=` argument. 
 
 {:.input}
 ```python
