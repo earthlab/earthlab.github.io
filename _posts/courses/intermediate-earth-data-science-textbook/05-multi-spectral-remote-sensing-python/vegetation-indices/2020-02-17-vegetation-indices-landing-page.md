@@ -27,6 +27,8 @@ topics:
   earth-science: ['fire']
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data'] 
+redirect_from:
+  - "/courses/earth-analytics-python/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}
