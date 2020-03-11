@@ -175,18 +175,6 @@ NDVI difference "class".
 
 
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960211?private_link=18f892d9f3645344b2fe
-    Extracted output to /root/earth-analytics/data/cs-test-naip/.
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
-    Downloading from https://ndownloader.figshare.com/files/10960112
-    Extracted output to /root/earth-analytics/data/cold-springs-modis-h5/.
-    Downloading from https://ndownloader.figshare.com/files/21941085
-    Extracted output to /root/earth-analytics/data/earthpy-downloads/landsat-coldsprings-hw
-
-
-
 
 ## Plot 1 - Grid of Plots: NAIP, Landsat and MODIS
 
