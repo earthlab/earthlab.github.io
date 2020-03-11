@@ -56,12 +56,6 @@ Please read the articles below to prepare for next week's class.
 
 
 
-{:.output}
-    There are no pixels to mask
-    There are no pixels to mask
-
-
-
 
 
 

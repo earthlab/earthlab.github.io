@@ -4,7 +4,7 @@ title: "Calculate Vegetation Indices in Python"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI and NBR vegetation indices to study vegetation health and wildfire impacts in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2018-04-14
-modified: 2020-02-17
+modified: 2020-03-11
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/
@@ -26,7 +26,9 @@ topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
   reproducible-science-and-programming:
-  spatial-data-and-gis: ['raster-data']
+  spatial-data-and-gis: ['raster-data'] 
+redirect_from:
+  - "/courses/earth-analytics-python/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/"
 ---
 
 {% include toc title="In This Chapter" icon="file-text" %}
@@ -236,7 +238,7 @@ NBR raster as follows:
 <figure>
  <a href="{{ site.url}}/images/earth-analytics/remote-sensing/dnbr-equation.jpg">
  <img src="{{ site.url}}/images/earth-analytics/remote-sensing/dnbr-equation.jpg" alt="NBR - US Forest Service."></a>
-    <figcaption>difference NBR (dNBR) equation.  <a href="http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html" target = "_blank">Source Humboldt.edu</a>
+    <figcaption>difference NBR (dNBR) equation.  <a href="http://gsp.humboldt.edu/OLM/Courses/GSP_216_Online/lesson5-1/NBR.html" target = "_blank">Source Humboldt.edu</a>
     </figcaption>
 </figure>
 
