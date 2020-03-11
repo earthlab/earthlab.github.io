@@ -239,7 +239,8 @@ Be sure to use cloud free data.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_24_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_24_0.png" alt = "NBR images calculated from Landsat for pre- and post-Cold Springs fire.">
+<figcaption>NBR images calculated from Landsat for pre- and post-Cold Springs fire.</figcaption>
 
 </figure>
 
@@ -257,7 +258,8 @@ Be sure to use cloud free data.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_30_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_30_0.png" alt = "NBR images calculated from MODIS for pre- and post-Cold Springs fire.">
+<figcaption>NBR images calculated from MODIS for pre- and post-Cold Springs fire.</figcaption>
 
 </figure>
 
@@ -276,7 +278,8 @@ Be sure to use cloud free data.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_35_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_35_0.png" alt = "Classified difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.">
+<figcaption>Classified difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.</figcaption>
 
 </figure>
 
@@ -313,7 +316,8 @@ Be sure to use cloud free data.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_44_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_44_0.png" alt = "Classified difference NDVI images calculated from Landsat for the Cold Springs fire.">
+<figcaption>Classified difference NDVI images calculated from Landsat for the Cold Springs fire.</figcaption>
 
 </figure>
 
@@ -330,7 +334,8 @@ Be sure to use cloud free data.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_47_0.png">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_47_0.png" alt = "Classified difference NDVI images calculated from MODIS for the Cold Springs fire.">
+<figcaption>Classified difference NDVI images calculated from MODIS for the Cold Springs fire.</figcaption>
 
 </figure>
 
