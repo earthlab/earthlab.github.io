@@ -4,7 +4,7 @@ title: "Extract Raster Values at Point Locations in Python"
 excerpt: "For many scientific analyses, it is helpful to be able to select raster pixels based on their relationship to a vector dataset (e.g. locations, boundaries). Learn how to extract data from a raster dataset using a vector dataset."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
 dateCreated: 2016-12-06
-modified: 2020-03-05
+modified: 2020-03-11
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -21,7 +21,7 @@ topics:
   remote-sensing: ['lidar']
   spatial-data-and-gis: ['raster-data']
 redirect_from:
-  - "/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/"
+  - "/courses/earth-analytics-python/lidar-remote-sensing-uncertainty/extract-data-from-raster/" 
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -74,6 +74,12 @@ data = et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
+
 ## Import Canopy Height Model
 
 First, you will import a canopy height model created by the National Ecological Observatory Network (NEON). In the
@@ -119,7 +125,8 @@ ax[1].ticklabel_format(useOffset=False,
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_6_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/04-spatial-data-applications/remote-sensing-uncertainty/2016-12-06-uncertainty02-extract-raster-values/2016-12-06-uncertainty02-extract-raster-values_6_0.png" alt = "Bar plot showing the distribution of lidar chm values.">
+<figcaption>Bar plot showing the distribution of lidar chm values.</figcaption>
 
 </figure>
 

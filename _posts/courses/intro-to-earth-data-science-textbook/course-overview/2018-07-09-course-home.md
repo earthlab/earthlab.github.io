@@ -5,7 +5,7 @@ title: "Introduction to Earth Data Science | Earth Lab CU Boulder"
 nav-title: "Intro to Earth Data Science Home"
 permalink: /courses/intro-to-earth-data-science/
 course: "intro-to-earth-data-science-textbook"
-modified: 2019-09-23
+modified: 2020-03-11
 module-type: 'overview'
 module-title: "Intro to Earth Data Science Textbook"
 week-landing: 0
@@ -17,6 +17,7 @@ author_profile: false
 overview-order: 1
 redirect_from:
   - "/courses/earth-analytics-bootcamp/"
+  - "/courses/intro-to-earth-data-science-textbook/" 
 ---
 
 

@@ -6,7 +6,7 @@ nav-title: "Scientist's Guide to Plotting Data in Python Home"
 permalink: /courses/scientists-guide-to-plotting-data-in-python/
 course: 'scientists-guide-to-plotting-data-in-python-textbook'
 dateCreated: 2019-09-11
-modified: 2019-09-22
+modified: 2020-03-11
 module-type: 'overview'
 module-title: "Scientist's Guide to Plotting Data in Python Textbook"
 week-landing: 0
@@ -16,6 +16,8 @@ sidebar:
 comments: false
 author_profile: false
 overview-order: 1
+redirect_from:
+  - "/courses/scientists-guide-to-plotting-data-in-python-textbook/" 
 ---
 {% include toc title="This Textbook" icon="file-text" %}
 

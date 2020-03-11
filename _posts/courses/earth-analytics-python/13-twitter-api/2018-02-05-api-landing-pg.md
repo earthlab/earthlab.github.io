@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Programmatic Data Access"
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/
-modified: 2020-02-01
+modified: 2020-03-11
 week-landing: 13
 week: 13
 sidebar:
@@ -12,6 +12,8 @@ comments: false
 author_profile: false
 course: "earth-analytics-python"
 module-type: 'session'
+redirect_from:
+  - "/courses/earth-analytics/using-apis-natural-language-processing-twitter/" 
 ---
 {% include toc title = "This Week" icon="file-text" %}
 

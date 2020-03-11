@@ -4,7 +4,7 @@ title: "Get to know Lidar (Light Detection and Ranging) Point Cloud Data - Activ
 excerpt: "This lesson covers what a lidar point cloud is. You will use the free plas.io point cloud viewer to explore a point cloud."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-06
+modified: 2020-03-11
 category: [courses]
 class-lesson: ['lidar-data-story']
 permalink: /courses/use-data-open-source-python/data-stories/what-is-lidar-data/explore-lidar-point-clouds-plasio/
@@ -23,7 +23,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 redirect_from:
   - "/courses/earth-analytics-python/lidar-raster-data/explore-lidar-point-clouds-plasio/"
-  - "/courses/use-data-open-source-python/data-stories/lidar-raster-data/explore-lidar-point-clouds-plasio/"
+  - "/courses/use-data-open-source-python/data-stories/lidar-raster-data/explore-lidar-point-clouds-plasio/" 
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -166,7 +166,7 @@ Finally, spend some time exploring the data. what features do you see in this da
 
 ## Additional Resources
 
-*	<a href="https://www.asprs.org/committee-general/laser-las-file-format-exchange-activities.html" target="_blank"> About the .las file format.</a>
+*	<a href="https://www.asprs.org/divisions-committees/lidar-division/laser-las-file-format-exchange-activities" target="_blank"> About the .las file format.</a>
 *	<a href="http://laspy.readthedocs.org/en/latest/tut_background.html" target="_blank"> Las: python ingest</a>
 *	<a href="http://www.asprs.org/a/society/committees/standards/asprs_las_spec_v13.pdf" target="_blank"> las v1.3 specifications</a>
 

@@ -3,7 +3,7 @@ layout: single
 title: "Work with the Difference Normalized Burn Index - Using Spectral Remote Sensing to Understand the Impacts of Fire on the Landscape"
 excerpt: "In this lesson you review the normalized burn ratio (NBR) index which can be used to identify the area and severity of a fire. Specifically you will calculate NBR using Landsat 8 spectral remote sensing data in raster, .tif format."
 authors: ['Leah Wasser', 'Megan Cattau']
-modified: '2019-11-15'
+modified: '2020-03-11'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/normalized-burn-index-dNBR/
@@ -68,7 +68,7 @@ of bands to use for this index given vegetation reflects strongly in the NIR reg
 of the electromagnetic spectrum and weekly in the SWIR. Alternatively, it has been
 shown that a fire scar which contains scarred woody vegetation and earth will
 reflect more strongly in the SWIR part of the electromagnetic spectrum and beyond
-(see figure below).
+(see figure below). 
 
 <figure>
  <a href="{{ site.url}}/images/courses/earth-analytics/remote-sensing/barc_spectral_response_US_forest_service.png">
@@ -271,6 +271,6 @@ barplot(nbr_classified,
 
 ## Additional Resources
 
-* <a href="http://gsp.humboldt.edu/olm_2015/Courses/GSP_216_Online/lesson5-1/NBR.html" target="_blank">Humboldt GSP Course online NBR lesson</a>
+* <a href="http://gsp.humboldt.edu/OLM/Courses/GSP_216_Online/lesson5-1/NBR.html" target="_blank">Humboldt GSP Course online NBR lesson</a>
 
 </div>

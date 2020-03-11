@@ -11,7 +11,7 @@ sidebar:
 author_profile: false
 comments: true
 lang: [python]
-lib: [matplotlib, climata, pandas, numpy]
+lib: [matplotlib, climata, pandas, numpy] 
 ---
 Climata is a python package aimed at acquiring climate and water flow data from a variety of organizations including NOAA, CoCoRaHS, USBR, NWS, NRCS, and USGS. 
 Here, we'll use climata to acquire streamflow data in and around Boulder, Colorado.
