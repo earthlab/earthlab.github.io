@@ -72,8 +72,8 @@ In a HDF file, what you call "directories" or "folders" on your computer are cal
 HDF files containing datasets might be structured like this:  
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure.jpg">
- <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure.jpg" alt = "An example HDF5 file structure containing data for multiple field sites and also containing various datasets."></a>
+ <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure-with-metadata.jpg">
+ <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure-with-metadata.jpg" alt = "An example HDF5 file structure containing data for multiple field sites and also containing various datasets."></a>
  <figcaption> An example HDF5 file structure containing data for multiple field sites and also containing various datasets (averaged at different time intervals). Source: NEON
  </figcaption>
 </figure>
@@ -96,8 +96,8 @@ Using a programming language like **Python**, you can grab the information neede
 
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure.jpg">
- <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure.jpg" alt = "An example HDF5 file structure containing metadata for the file, groups, and datasets."></a>
+ <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure-with-metadata.jpg">
+ <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure-with-metadata.jpg" alt = "An example HDF5 file structure containing metadata for the file, groups, and datasets."></a>
  <figcaption> HDF files are self describing - this means that all elements (the file itself, groups and datasets) can have associated metadata that describes the information contained within the element. Source: NEON
  </figcaption>
 </figure>
