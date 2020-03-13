@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/jupyter-notebook-shortcuts/
 nav-title: "Jupyter Notebook Shortcuts"
 dateCreated: 2019-07-15
-modified: 2019-09-23
+modified: 2020-03-11
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1
@@ -18,7 +18,7 @@ author_profile: false
 comments: true
 order: 6
 topics:
-  reproducible-science-and-programming: ['jupyter-notebook']
+  reproducible-science-and-programming: ['jupyter-notebook'] 
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -69,7 +69,7 @@ For a full list of keyboard shortcuts, click the help button, then the keyboard 
 
 ## Additional Resources
 
-* <a href="https://unidata.github.io/online-python-training/introduction.html" target="_blank">Why Jupyter Notebook and Python</a>
+* <a href="https://unidata.github.io/python-training/python/intro-to-python/" target="_blank">Why Jupyter Notebook and Python</a>
 
 * <a href="https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/Notebook%20Basics.html" target="_blank">Jupyter Notebook Basics</a>
 

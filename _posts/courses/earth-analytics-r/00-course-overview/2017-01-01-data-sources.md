@@ -89,8 +89,8 @@ from international, national and even local groups.
 
 ## Counties (examples)
 
-* <a href="http://www.garfield-county.com/Index.aspx?page=744" target="_blank">Garfield county</a>
-* <a href="http://www.bouldercounty.org/gis/" target="_blank">Boulder county</a>
+* <a href="https://www.garfield-county.com/geographic-information-system/download-gis-data/" target="_blank">Garfield county</a>
+* <a href="https://www.bouldercounty.org/property-and-land/geographic-information-systems/" target="_blank">Boulder county</a>
 
 
 ## Private Sector Data Sources (examples)
@@ -112,7 +112,7 @@ from international, national and even local groups.
 
 ## Snow & Ice
 
-* <a href="https://www2.gwu.edu/~calm/data/north.html" target="_blank">Thaw depth table</a>
+* <a href="https://www2.gwu.edu/~calm/data/north.htm" target="_blank">Thaw depth table</a>
 * <a href="http://www.gina.alaska.edu/projects" target="_blank">GINA Projects link (where different data products/projects are actually desribed)</a>
 * <a href="http://www.gina.alaska.edu/projects/modis-derived-ndvi-metrics" target="_blank">GINA MODIS NDVI derived data description (includes links to data)</a>
 <a href="http://static.gina.alaska.edu/NPS_products/eMODIS_NDVI/eMODIS_TERRA_NDVI_data/" target="_blank">GINA MODIS NDVI data (underlying time series)</a>

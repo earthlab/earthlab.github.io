@@ -4,7 +4,7 @@ title: "Clean Remote Sensing Data in Python - Clouds, Shadows & Cloud Masks"
 excerpt: "Landsat remote sensing data often has pixels that are covered by clouds and cloud shadows. Learn how to remove cloud covered landsat pixels using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2017-03-01
-modified: 2020-03-03
+modified: 2020-03-11
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/
@@ -23,7 +23,7 @@ topics:
   spatial-data-and-gis: ['raster-data']
 redirect_from:
   - "/courses/earth-analytics-python/multispectral-remote-sensing-modis/cloud-masks-with-spectral-data-python/"
-  - "/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/cloud-masks-with-spectral-data-python/"
+  - "/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/cloud-masks-with-spectral-data-python/" 
 ---
 
 {% include toc title="On This Page" icon="file-text" %}
@@ -103,12 +103,6 @@ data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
-
-
-
 Next, you will load and plot landsat data. If you are completing the earth analytics course, you have worked with these data already in your homework.
 
 
@@ -145,7 +139,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_4_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-02-landsat-cloud-masks/2020-03-02-landsat-multispectral-02-landsat-cloud-masks_4_0.png" alt = "RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.">
+<figcaption>RGB Landsat image for the Cold Springs fire area with a cloud blocking part of the image.</figcaption>
 
 </figure>
 

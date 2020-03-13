@@ -2,7 +2,7 @@
 layout: single
 title: 'Acquiring streamflow data from USGS with climata and Python'
 date: 2016-07-08
-modified: 2019-09-03
+modified: 2020-03-11
 authors: [Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial demonstrates how to use climata to acquire streamflow data in and around Boulder, Colorado.'
@@ -11,7 +11,7 @@ sidebar:
 author_profile: false
 comments: true
 lang: [python]
-lib: [matplotlib, climata, pandas, numpy]
+lib: [matplotlib, climata, pandas, numpy] 
 ---
 Climata is a python package aimed at acquiring climate and water flow data from a variety of organizations including NOAA, CoCoRaHS, USBR, NWS, NRCS, and USGS. 
 Here, we'll use climata to acquire streamflow data in and around Boulder, Colorado.
@@ -26,7 +26,7 @@ Here, we'll use climata to acquire streamflow data in and around Boulder, Colora
 
 - [climata](https://github.com/heigeo/climata)
 
-Many data queries are possible through climata, some of which are demonstrated [here](http://climata.houstoneng.net/datarequests/).
+Many data queries are possible through climata, some of which are demonstrated [here](https://github.com/heigeo/climata/blob/master/README.rst).
 
 {:.input}
 ```python
@@ -63,6 +63,12 @@ data = DailyValueIO(
     parameter=param_id,
 )
 ```
+
+{:.output}
+    /opt/conda/lib/python3.7/site-packages/ipykernel_launcher.py:7: FutureWarning: The pandas.datetime class is deprecated and will be removed from pandas in a future version. Import from datetime module instead.
+      import sys
+
+
 
 {:.input}
 ```python
@@ -124,6 +130,12 @@ for series in data:
         date.append(row[0])
         value.append(row[1])
 ```
+
+{:.output}
+    /opt/conda/lib/python3.7/site-packages/ipykernel_launcher.py:5: FutureWarning: The pandas.datetime class is deprecated and will be removed from pandas in a future version. Import from datetime module instead.
+      """
+
+
 
 {:.input}
 ```python
