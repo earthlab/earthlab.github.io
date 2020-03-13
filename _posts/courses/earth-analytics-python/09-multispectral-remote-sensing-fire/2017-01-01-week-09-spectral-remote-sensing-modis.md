@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Quantify the Impacts of a Fire Using MODIS and Landsat Remote Sensing Data in Python"
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/
-modified: 2020-03-11
+modified: 2020-03-12
 week-landing: 9
 week: 9
 sidebar:
@@ -30,7 +30,9 @@ Landsat data to calculate burn indices.
 
 ## Materials to Review For This Week’s Assignment
 
-Please be sure to review <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/" target="_blank">Chapter 11 on Calculating Normalized Burn Ratio (NBR) </a> in Section 5 of the Intermediate Earth Data Science Textbook and <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/" target="_blank">Data Story on Cold Springs Fire</a> in Section 7 of the Intermediate Earth Data Science Textbook
+Please be sure to review:
+1. <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/" target="_blank">Chapter 11 on Calculating Normalized Burn Ratio (NBR) </a> in Section 5 of the Intermediate Earth Data Science Textbook and 
+2. <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/" target="_blank">Data Story on Cold Springs Fire</a> in Section 7 of the Intermediate Earth Data Science Textbook
 
 ### 1. Complete the Assignment Using the Template for this week. 
 

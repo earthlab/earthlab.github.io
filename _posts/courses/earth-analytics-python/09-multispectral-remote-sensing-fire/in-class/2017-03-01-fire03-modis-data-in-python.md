@@ -3,14 +3,14 @@ layout: single
 title: "Work with MODIS Remote Sensing Data in Python"
 excerpt: "MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2020-03-11
+modified: 2020-03-12
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/
 nav-title: 'MODIS Data in Python'
 module-title: 'MODIS, Landsat and the Normalized Burn Ratio Index (NBR) in Python' 
 module-description: 'MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python' 
-module-nav-title: 'Normalized Burn Ration For Fire Severity - in Python' 
+module-nav-title: 'Normalized Burn Ratio For Fire Severity - in Python' 
 module-type: 'class'
 class-order: 1
 week: 9
@@ -127,12 +127,6 @@ import earthpy.plot as ep
 data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
-
-
 
 In previous lessons, you have used `glob("*keyword*.tif")` to create a list of all files that both:
 1. Contain a certain keyword as denoted by the asterisks (e.g. `*band*`) and
