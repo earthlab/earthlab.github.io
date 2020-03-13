@@ -4,7 +4,7 @@ title: "Geographic vs projected coordinate reference systems - GIS in Python"
 excerpt: "Geographic coordinate systems span the entire globe (e.g. latitude / longitude), while projected coordinate systems are localized to minimize visual distortion in a particular region (e.g. Robinson, UTM, State Plane). Learn more about key differences between projected vs. geographic coordinate reference systems."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-05
+modified: 2020-03-13
 category: [courses]
 class-lesson: ['intro-vector-python-tb']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/geographic-vs-projected-coordinate-reference-systems-python/
@@ -109,6 +109,12 @@ sns.set_style("white")
 data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/12459464
+    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
+
+
 
 
 {:.output}
@@ -438,6 +444,6 @@ More about UTM Zones - Penn State E-education</a>
 
 ### More about Datums
 *  <a href="http://help.arcgis.com/en/arcgisdesktop/10.0/help/index.html#/Datums/003r00000008000000/" target="_blank">ESRI's ArcGIS discussion of Datums.</a>
-*  <a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">page 2 in M. Fraiser's CRS Overview.</a>
+*  <a href="https://web.archive.org/web/20200225021219/https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/OverviewCoordinateReferenceSystems.pdf" target="_blank">page 2 in M. Fraiser's CRS Overview.</a>
 
 </div>
