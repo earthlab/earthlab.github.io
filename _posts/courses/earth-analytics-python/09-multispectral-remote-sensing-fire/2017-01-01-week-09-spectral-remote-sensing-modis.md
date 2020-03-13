@@ -27,11 +27,28 @@ Landsat data to calculate burn indices.
 
 </div>
 
-### 2. Complete the Assignment Using the Template for this week. 
-(10 points)
-Please note that like the flood report, this assignment is worth more points than
-a usual weekly assignment. You have 1 week to complete this assignment. Start
-early!
+
+## Materials to Review For This Week’s Assignment
+
+Please be sure to review:
+1. <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/" target="_blank">Chapter 11 on Calculating Normalized Burn Ratio (NBR) </a> in Section 5 of the Intermediate Earth Data Science Textbook and 
+2. <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/" target="_blank">Data Story on Cold Springs Fire</a> in Section 7 of the Intermediate Earth Data Science Textbook
+
+### 1. Complete the Assignment Using the Template for this week. 
+
+Note that this assignment is worth more points than a usual weekly assignment. 
+
+<a href="https://github.com/earthlab-education/ea-python-2020-09-cold-springs-workflows-h4-template" target="_blank">Click here to view the the example GitHub Repo with the assignment template. </a>
+
+### 2. Suggested Fire Readings
+
+Please read the articles below to prepare for next week's class.
+
+* <a href="http://www.denverpost.com/2016/07/13/cold-springs-fire-wednesday/" target="_blank">Denver Post article on the Cold Springs fire.</a>
+* <a href="http://www.nature.com/nature/journal/v421/n6926/full/nature01437.html" target="_blank" data-proofer-ignore=''>Fire science for rainforests -  Cochrane 2003.</a>
+* <a href="https://www.webpages.uidaho.edu/for570/Readings/2006_Lentile_et_al.pdf
+" target="_blank">A review of ways to use remote sensing to assess fire and post-fire effects - Lentile et al 2006.</a>
+* <a href="http://www.sciencedirect.com/science/article/pii/S0034425710001100" target="_blank"> Comparison of dNBR vs RdNBR accuracy / introduction to fire indices -  Soverel et al 2010.</a>
 
 
 
@@ -46,7 +63,9 @@ early!
 
 
 
-## Homework Plot 1 - Grid of 3 - 3 band CIR plots post fire
+
+
+## Homework Figure 1 - Grid of 3 Color InfraRed (CIR) Post-Fire Plots: NAIP, Landsat and MODIS
 
 
 {:.output}
@@ -54,7 +73,7 @@ early!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_12_0.png" alt = "CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_18_0.png" alt = "CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire.">
 <figcaption>CIR Composite images from NAIP, Landsat, and MODIS for the post-Cold Springs fire.</figcaption>
 
 </figure>
@@ -63,6 +82,23 @@ early!
 
 
 
+## Homework Figure 2 - Difference NDVI (dNDVI) Using Landsat & MODIS
+
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_21_0.png">
+
+</figure>
+
+
+
+
+## Homework Figure 3 - Difference NBR (dNBR) Using Landsat & MODIS
+
 
 
 
@@ -71,7 +107,7 @@ early!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_15_0.png" alt = "NBR images calculated from Landsat for pre- and post-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_25_0.png" alt = "NBR images calculated from Landsat for pre- and post-Cold Springs fire.">
 <figcaption>NBR images calculated from Landsat for pre- and post-Cold Springs fire.</figcaption>
 
 </figure>
@@ -84,12 +120,13 @@ early!
 
 
 
+
 {:.output}
 {:.display_data}
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_20_0.png" alt = "NBR images calculated from MODIS for pre- and post-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_31_0.png" alt = "NBR images calculated from MODIS for pre- and post-Cold Springs fire.">
 <figcaption>NBR images calculated from MODIS for pre- and post-Cold Springs fire.</figcaption>
 
 </figure>
@@ -99,22 +136,6 @@ early!
 
 
 
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_22_0.png" alt = "Histogram for the dNBR image calculated from MODIS for the Cold Springs fire.">
-<figcaption>Histogram for the dNBR image calculated from MODIS for the Cold Springs fire.</figcaption>
-
-</figure>
-
-
-
-
-## Homework Plot 2 & 3 : Landsat & MODIS Difference Normalized Burn Ration  dNBR
-
-
 
 
 {:.output}
@@ -122,8 +143,8 @@ early!
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_25_0.png" alt = "Difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.">
-<figcaption>Difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.</figcaption>
+<img src = "{{ site.url }}/images/courses/earth-analytics-python/09-multispectral-remote-sensing-fire/2017-01-01-week-09-spectral-remote-sensing-modis/2017-01-01-week-09-spectral-remote-sensing-modis_35_0.png" alt = "Classified difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.">
+<figcaption>Classified difference NBR (dNBR) images calculated from Landsat and MODIS for the Cold Springs fire.</figcaption>
 
 </figure>
 
@@ -132,13 +153,15 @@ early!
 
 
 
+# Landsat vs MODIS  Burned Area
+
+
 
 {:.output}
-    Burned Landsat class 1:
-    Burned Landsat class 2:
-    Burned MODIS class 1:
-    Burned MODIS class 2:
-
+    Burned Landsat class 4:
+    Burned Landsat class 5:
+    Burned MODIS class 4:
+    Burned MODIS class 5:
 
 
 
