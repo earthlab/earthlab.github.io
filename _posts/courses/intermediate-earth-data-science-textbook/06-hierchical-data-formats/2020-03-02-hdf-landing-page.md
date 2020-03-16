@@ -4,7 +4,7 @@ category: courses
 title: "Introduction to Hierarchical Data Formats in Python"
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/
 week-landing: 6
-modified: 2020-03-13
+modified: 2020-03-16
 week: 6
 sidebar:
   nav:
@@ -48,7 +48,7 @@ HDF files use a "file directory" like structure that allows you to organize data
 There are many different types of HDFs. For Earth Data Science, the most widely used HDFs are:
 * HDF4: the format adapted by the MODIS data products.
 * HDF5: the format used for many different products provided by NASA.
-* NetCDF: the format frequently used to store climate data.
+* NetCDF: a format frequently used to store climate data.
 
 In the first chapter of this section, you will learn more about HDF4 files and process HDF4 files to complete remote sensing analyses with MODIS data. 
 
@@ -72,8 +72,8 @@ In a HDF file, what you call "directories" or "folders" on your computer are cal
 HDF files containing datasets might be structured like this:  
 
 <figure>
- <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure-with-metadata.jpg">
- <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure-with-metadata.jpg" alt = "An example HDF5 file structure containing data for multiple field sites and also containing various datasets."></a>
+ <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure.jpg">
+ <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure.jpg" alt = "An example HDF5 file structure containing data for multiple field sites and also containing various datasets."></a>
  <figcaption> An example HDF5 file structure containing data for multiple field sites and also containing various datasets (averaged at different time intervals). Source: NEON
  </figcaption>
 </figure>
@@ -131,7 +131,9 @@ One dataset can also contain heterogeneous data types (e.g., both text and numer
 
 ## HDFs Are Open Data Formats
 
-HDF formats are open and free to use. As such, HDF files are widely supported in a host of programs, including open source programming languages like **Python**, and commercial programming tools like **Matlab** and **IDL**. Spatial data that are stored in HDF formats can also be used in GIS and imaging programs including QGIS, ArcGIS, and ENVI.
+HDF formats are open and free to use. The supporting libraries and a free HDF viewer can be downloaded from the <a href="https://www.hdfgroup.org/downloads/" target="_blank">HDF Group </a> website.
+
+As such, HDF files are widely supported in a host of programs, including open source programming languages like **Python**, and commercial programming tools like **Matlab** and **IDL**. Spatial data that are stored in HDF formats can also be used in GIS and imaging programs including QGIS, ArcGIS, and ENVI.
 
 
 ## Benefits of HDF Files 
