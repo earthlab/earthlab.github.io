@@ -3,9 +3,9 @@ layout: single
 category: courses
 title: "Earth Data Science Workflows"
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/
-week-landing: 6
+week-landing: 8
 modified: 2020-03-16
-week: 6
+week: 8
 sidebar:
   nav:
 comments: false

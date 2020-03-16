@@ -9,7 +9,7 @@ category: [courses]
 class-lesson: ['create-data-workflows-tb']
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/efficient-workflow-best-practices/
 nav-title: 'Best Practices For Data Workflows'
-week: 6
+week: 8
 course: "intermediate-earth-data-science-textbook"
 sidebar:
   nav:

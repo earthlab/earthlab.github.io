@@ -5,7 +5,7 @@ title: "Introduction to Hierarchical Data Formats in Python"
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/
 week-landing: 6
 modified: 2020-03-16
-week: 6
+week: 7
 sidebar:
   nav:
 comments: false

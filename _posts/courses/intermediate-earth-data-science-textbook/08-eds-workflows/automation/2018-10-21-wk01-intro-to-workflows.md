@@ -14,7 +14,7 @@ module-type: 'class'
 class-order: 1
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/
 nav-title: 'Intro to NDVI Data Workflow'
-week: 6
+week: 8
 chapter: 12
 course: "intermediate-earth-data-science-textbook"
 sidebar:
