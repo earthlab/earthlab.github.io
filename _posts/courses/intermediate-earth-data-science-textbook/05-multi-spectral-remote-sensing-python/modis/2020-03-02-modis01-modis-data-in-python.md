@@ -158,7 +158,7 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/MODIS/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_15_0.png" alt = "Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/modis/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_15_0.png" alt = "Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.">
 <figcaption>Cropped images for surface reflectance from MODIS for all bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
@@ -172,7 +172,7 @@ Review the table above which displays the band ranges for the MODIS sensor. Reca
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/MODIS/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_16_0.png" alt = "Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/modis/2020-03-02-modis01-modis-data-in-python/2020-03-02-modis01-modis-data-in-python_16_0.png" alt = "Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.">
 <figcaption>Cropped surface reflectance from MODIS using the RGB bands for pre-Cold Springs fire.</figcaption>
 
 </figure>
