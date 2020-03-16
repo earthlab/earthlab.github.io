@@ -10,9 +10,10 @@ permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/mo
 nav-title: 'MODIS Data in Python'
 module-title: 'MODIS, Landsat and the Normalized Burn Ratio Index (NBR) in Python' 
 module-description: 'MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python' 
-module-nav-title: 'Normalized Burn Ratio For Fire Severity - in Python' 
+module-nav-title: 'MODIS Data' 
 module-type: 'class'
 class-order: 4
+chapter: 10
 week: 5
 course: "intermediate-earth-data-science-textbook"
 sidebar:

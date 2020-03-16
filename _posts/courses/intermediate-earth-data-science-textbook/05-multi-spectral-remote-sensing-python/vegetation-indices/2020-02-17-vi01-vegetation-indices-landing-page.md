@@ -14,7 +14,7 @@ module-description: 'Learn how to calculate vegetation indices from multispectra
 module-nav-title: 'Calculate Vegetation Indices in Python'
 module-type: 'class'
 chapter: 11
-class-order: 4
+class-order: 5
 week: 5
 course: "intermediate-earth-data-science-textbook"
 sidebar:
