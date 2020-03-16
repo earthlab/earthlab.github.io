@@ -35,10 +35,9 @@ After completing this section of the textbook, you will be able to:
 
 </div>
 
-
 ## About Hierarchical Data Formats
 
-The Hierarchical Data Formats (HDF) are open source file formats that support large, complex, heterogeneous data.
+Hierarchical Data Formats (HDF) are open source file formats that support large, complex, heterogeneous data.
 
 HDF files use a "file directory" like structure that allows you to organize data within the file in many different structured ways, as you might do with files on your computer. HDF files also allow for embedding of metadata making them *self-describing*.
 
@@ -60,23 +59,6 @@ HDF files can be thought of as a file system contained and described within one 
 Think about the files and folders stored on your computer. You might have a data directory with some temperature data for multiple field sites. This temperature data is collected every minute and summarized on an hourly, daily and weekly basis. 
 
 Within **ONE** HDF file, you can store a similar set of data organized in the same way that you might organize files and folders on your computer. 
-
-In a HDF file, what you call "directories" or "folders" on your computer are called **groups**, and what you call files on your computer are called **datasets**. 
-
-
-### Important HDF Terms
-
-* **Group:** A folder like element within a HDF file that might contain other groups OR datasets within it.
-* **Dataset:** The actual data contained within the HDF file. Datasets are often (but don't have to be) stored within groups in the file.
-
-HDF files containing datasets might be structured like this:  
-
-<figure>
- <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure.jpg">
- <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf5-example-data-structure.jpg" alt = "An example HDF5 file structure containing data for multiple field sites and also containing various datasets."></a>
- <figcaption> An example HDF5 file structure containing data for multiple field sites and also containing various datasets (averaged at different time intervals). Source: NEON
- </figcaption>
-</figure>
 
 ## HDFs Are Self Describing Files
 
