@@ -4,12 +4,12 @@ title: "Canopy Height Models, Digital Surface Models & Digital Elevation Models 
 excerpt: "This lesson defines 3 lidar data products: the digital elevation model (DEM), the digital surface model (DSM) and the canopy height model (CHM)."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-06
+modified: 2020-03-16
 category: [courses]
 class-lesson: ['lidar-data-story']
 permalink: /courses/use-data-open-source-python/data-stories/what-is-lidar-data/lidar-chm-dem-dsm/
 nav-title: 'CHM, DTM, DSM'
-week: 7
+week: 9
 course: 'intermediate-earth-data-science-textbook'
 chapter: 21
 sidebar:
@@ -75,7 +75,7 @@ In this lesson, you will explore Digital Surface Models (DSM) and learn how to u
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/lidar-intro/2018-02-05-lidar04-chm-dtm-dsm/2018-02-05-lidar04-chm-dtm-dsm_3_0.png" alt = "Raster plot of a lidar DEM.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/09-data-stories/lidar-intro/2018-02-05-lidar04-chm-dtm-dsm/2018-02-05-lidar04-chm-dtm-dsm_3_0.png" alt = "Raster plot of a lidar DEM.">
 <figcaption>Raster plot of a lidar DEM.</figcaption>
 
 </figure>
@@ -94,7 +94,7 @@ Next, let's review the digital surface model (DSM). The DSM represents the top o
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/lidar-intro/2018-02-05-lidar04-chm-dtm-dsm/2018-02-05-lidar04-chm-dtm-dsm_6_0.png" alt = "Raster plot of a Lidar DSM.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/09-data-stories/lidar-intro/2018-02-05-lidar04-chm-dtm-dsm/2018-02-05-lidar04-chm-dtm-dsm_6_0.png" alt = "Raster plot of a Lidar DSM.">
 <figcaption>Raster plot of a Lidar DSM.</figcaption>
 
 </figure>
@@ -122,7 +122,7 @@ You can learn how to subtract rasters in the <a href="{{ site.url }}/courses/use
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/data-stories/lidar-intro/2018-02-05-lidar04-chm-dtm-dsm/2018-02-05-lidar04-chm-dtm-dsm_8_0.png" alt = "Raster plot of a Lidar canopy height model.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/09-data-stories/lidar-intro/2018-02-05-lidar04-chm-dtm-dsm/2018-02-05-lidar04-chm-dtm-dsm_8_0.png" alt = "Raster plot of a Lidar canopy height model.">
 <figcaption>Raster plot of a Lidar canopy height model.</figcaption>
 
 </figure>

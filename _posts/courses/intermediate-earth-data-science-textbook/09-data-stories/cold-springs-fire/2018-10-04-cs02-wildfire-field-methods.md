@@ -4,12 +4,12 @@ title: "Field Methods to Study Wildfire"
 excerpt: "Scientists often use field survey methods to study the impacts of wildfire through measurements of biomass and soil. Learn more about how survey methods can be used to study wildfire impacts."
 authors: ['Leah Wasser']
 dateCreated: 2018-10-04
-modified: 2020-03-06
+modified: 2020-03-16
 category: [courses]
 class-lesson: ['wildfire-overview-tb']
 permalink: /courses/use-data-open-source-python/data-stories/cold-springs-wildfire/wildfire-field-methods/
 nav-title: 'Field Studies of Wildfire Impacts'
-week: 7
+week: 9
 course: 'intermediate-earth-data-science-textbook'
 module-type: 'class'
 sidebar:

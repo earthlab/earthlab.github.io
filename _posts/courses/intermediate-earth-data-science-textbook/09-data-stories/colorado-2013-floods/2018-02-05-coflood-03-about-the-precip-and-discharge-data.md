@@ -4,12 +4,12 @@ title: "About the Stream Discharge Data Used in this Data Story"
 excerpt: "Learn more about the stream discharge data that is used in this data story."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-06
+modified: 2020-03-16
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'
 chapter: 20
-week: 7
+week: 9
 permalink: /courses/use-data-open-source-python/data-stories/colorado-floods-2013/about-the-stream-discharge-data/
 nav-title: 'About the Stream Discharge Data'
 sidebar:
