@@ -4,7 +4,7 @@ title: "Compare Lidar to Measured Tree Height"
 excerpt: "To explore uncertainty in remote sensing data, it is helpful to compare ground-based measurements and data that are collected via airborne instruments or satellites. Learn how to create scatter plots that compare values across two datasets."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
 dateCreated: 2016-12-06
-modified: 2020-03-05
+modified: 2020-03-06
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/summarize-and-compare-lidar-insitu-tree-height/

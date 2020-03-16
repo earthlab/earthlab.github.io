@@ -4,7 +4,7 @@ title: "The Relationship Between Precipitation and Stream Discharge | Explore Ma
 excerpt: "Learn how to create a cumulative sum plot in Pandas to better understand stream discharge in a watershed"
 authors: ['Matthew Rossi', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-02
+modified: 2020-03-03
 category: [courses]
 class-lesson: ['time-series-python-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -101,11 +101,11 @@ hf.get_nwis(site, 'dv').json()
         {'value': '[mode=LATEST, modifiedSince=null]',
          'title': 'filter:timeRange'},
         {'value': 'methodIds=[ALL]', 'title': 'filter:methodId'},
-        {'value': '2020-03-02T23:37:41.462Z', 'title': 'requestDT'},
-        {'value': 'cf0f6850-5cde-11ea-b0d8-6cae8b6642f6', 'title': 'requestId'},
+        {'value': '2020-03-03T21:50:29.939Z', 'title': 'requestDT'},
+        {'value': 'fffca120-5d98-11ea-acf4-6cae8b663fb6', 'title': 'requestId'},
         {'value': 'Provisional data are subject to revision. Go to http://waterdata.usgs.gov/nwis/help/?provisional for more information.',
          'title': 'disclaimer'},
-        {'value': 'caas01', 'title': 'server'}]},
+        {'value': 'vaas01', 'title': 'server'}]},
       'timeSeries': [{'sourceInfo': {'siteName': 'BOULDER CREEK AT MOUTH NEAR LONGMONT, CO',
          'siteCode': [{'value': '06730500',
            'network': 'NWIS',
@@ -141,9 +141,9 @@ hf.get_nwis(site, 'dv').json()
          'noDataValue': -999999.0,
          'variableProperty': [],
          'oid': '45807197'},
-        'values': [{'value': [{'value': '65.2',
+        'values': [{'value': [{'value': '77.0',
             'qualifiers': ['P'],
-            'dateTime': '2020-03-01T00:00:00.000'}],
+            'dateTime': '2020-03-02T00:00:00.000'}],
           'qualifier': [{'qualifierCode': 'P',
             'qualifierDescription': 'Provisional data subject to revision.',
             'qualifierID': 0,

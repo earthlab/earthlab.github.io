@@ -468,7 +468,7 @@ sjer_plot_locations.plot()
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f1128c76c18>
+    <matplotlib.axes._subplots.AxesSubplot at 0x7f7c41ca2b70>
 
 
 

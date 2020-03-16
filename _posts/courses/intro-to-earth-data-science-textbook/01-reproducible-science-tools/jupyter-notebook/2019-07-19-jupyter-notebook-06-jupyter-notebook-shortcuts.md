@@ -8,7 +8,7 @@ class-lesson: ['jupyter-notebook']
 permalink: /courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/jupyter-notebook-shortcuts/
 nav-title: "Jupyter Notebook Shortcuts"
 dateCreated: 2019-07-15
-modified: 2020-03-11
+modified: 2020-03-13
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 1

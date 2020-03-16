@@ -5,7 +5,7 @@ title: "Use Data for Earth and Environmental Science in Open Source Python | Ear
 nav-title: "Use Data for Earth and Environmental Science in Open Source Python Home"
 permalink: /courses/use-data-open-source-python/
 course: "intermediate-earth-data-science-textbook"
-modified: 2020-03-11
+modified: 2020-03-13
 module-type: 'overview'
 module-title: "Use Data for Earth and Environmental Science in Open Source Python Textbook"
 week-landing: 0

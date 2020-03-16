@@ -4,7 +4,7 @@ title: "GIS in Python: Intro to Coordinate Reference Systems in Python"
 excerpt: "A coordinate reference system (CRS) defines the translation between a location on the round earth and that same location, on a flattened, 2 dimensional coordinate system. Learn how to explore and reproject data into geographic and projected CRS in Python."
 authors: ['Chris Holdgraf', 'Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-05
+modified: 2020-03-06
 category: [courses]
 class-lesson: ['intro-vector-python-tb']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/intro-to-coordinate-reference-systems-python/
@@ -225,9 +225,9 @@ city_locations
 
 
 
-    [<shapely.geometry.point.Point at 0x7f44eccb5ad0>,
-     <shapely.geometry.point.Point at 0x7f44eccb56d0>,
-     <shapely.geometry.point.Point at 0x7f44eccb5250>]
+    [<shapely.geometry.point.Point at 0x7fb96b1fae10>,
+     <shapely.geometry.point.Point at 0x7fb96b1fa190>,
+     <shapely.geometry.point.Point at 0x7fb96b1fa9d0>]
 
 
 

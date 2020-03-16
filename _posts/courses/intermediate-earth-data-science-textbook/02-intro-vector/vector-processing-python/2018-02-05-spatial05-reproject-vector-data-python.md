@@ -93,12 +93,6 @@ data = et.data.get_data('spatial-vector-lidar')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
-
 Revisiting the challenge from a previous lesson, here are the two layers:
 Notice the CRS of each layer.
 

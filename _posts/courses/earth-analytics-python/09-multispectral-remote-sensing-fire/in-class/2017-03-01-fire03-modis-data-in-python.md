@@ -3,7 +3,7 @@ layout: single
 title: "Work with MODIS Remote Sensing Data in Python"
 excerpt: "MODIS is a satellite remote sensing instrument that collects data daily across the globe at 250-500 m resolution. Learn how to import, clean up and plot MODIS data in Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2020-03-12
+modified: 2020-03-13
 category: [courses]
 class-lesson: ['modis-multispectral-rs-python']
 permalink: /courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/

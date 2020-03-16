@@ -8,7 +8,7 @@ class-lesson: ['intro-conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/alternative-multiple-conditions/
 nav-title: "Alternative and Multiple Conditions"
 dateCreated: 2019-10-22
-modified: 2020-03-05
+modified: 2020-03-06
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7

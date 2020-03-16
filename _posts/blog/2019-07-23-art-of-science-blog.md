@@ -6,7 +6,7 @@ category: blog
 excerpt: "Blogging is a great way to communicate the importance and results
   of scientific projects. Learn tips and tricks to get the most out of science blogging."
 layout: single
-modified: '2020-03-11'
+modified: '2020-03-13'
 comments: yes
 permalink: /blog/how-to-write-a-blog-for-science-communication/
 sidebar:
