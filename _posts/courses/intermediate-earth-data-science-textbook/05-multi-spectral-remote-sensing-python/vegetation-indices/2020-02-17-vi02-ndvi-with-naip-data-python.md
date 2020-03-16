@@ -4,7 +4,7 @@ title: "Calculate NDVI Using NAIP Remote Sensing Data in the Python Programming 
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI vegetation index using NAIP data in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2018-04-14
-modified: 2020-02-17
+modified: 2020-03-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/calculate-NDVI-python/
@@ -131,7 +131,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2018-04-14-multispectral04-create-ndvi-with-naip-data-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_10_0.png" alt = "Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vi02-ndvi-with-naip-data-python/2020-02-17-vi02-ndvi-with-naip-data-python_10_0.png" alt = "Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.">
 <figcaption>Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.</figcaption>
 
 </figure>
@@ -157,7 +157,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2018-04-14-multispectral04-create-ndvi-with-naip-data-python/2018-04-14-multispectral04-create-ndvi-with-naip-data-python_12_0.png" alt = "Histogram of NDVI values derived from 2015 NAIP data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vi02-ndvi-with-naip-data-python/2020-02-17-vi02-ndvi-with-naip-data-python_12_0.png" alt = "Histogram of NDVI values derived from 2015 NAIP data.">
 <figcaption>Histogram of NDVI values derived from 2015 NAIP data.</figcaption>
 
 </figure>

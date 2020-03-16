@@ -4,7 +4,7 @@ title: "Calculate Vegetation Indices in Python"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI and NBR vegetation indices to study vegetation health and wildfire impacts in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2018-04-14
-modified: 2020-03-11
+modified: 2020-03-16
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/
@@ -111,7 +111,7 @@ in the red and near infrared bands to calculate the index.
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vegetation-indices-landing-page/2020-02-17-vegetation-indices-landing-page_3_0.png" alt = "Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vi01-vegetation-indices-landing-page/2020-02-17-vi01-vegetation-indices-landing-page_3_0.png" alt = "Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.">
 <figcaption>Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.</figcaption>
 
 </figure>
@@ -205,7 +205,7 @@ should you use to calculate NBR using MODIS?
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vegetation-indices-landing-page/2020-02-17-vegetation-indices-landing-page_6_0.png" alt = "NBR - Post Cold Springs Fire using Landsat 8 data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vi01-vegetation-indices-landing-page/2020-02-17-vi01-vegetation-indices-landing-page_6_0.png" alt = "NBR - Post Cold Springs Fire using Landsat 8 data.">
 <figcaption>NBR - Post Cold Springs Fire using Landsat 8 data.</figcaption>
 
 </figure>
