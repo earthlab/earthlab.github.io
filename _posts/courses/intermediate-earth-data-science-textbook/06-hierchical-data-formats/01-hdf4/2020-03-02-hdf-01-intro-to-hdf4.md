@@ -48,13 +48,13 @@ After completing this chapter, you will be able to:
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
 
-You will need a computer with internet access to complete this lesson and the Cold Springs MODIS data, which you can download using the link below.  
+You will need a computer with internet access to complete this lesson and the Cold Springs MODIS data, which you can download using **earthpy**:
 
-{% include /data_subsets/course_earth_analytics/_data-cold-springs-modis-h5.md %}
+`et.data.get_data("cold-springs-modis-h5")`
 
 You will also need to download a <a href="https://www.hdfgroup.org/downloads/hdfview/" target="_blank">free HDF viewer</a> from the HDF Group website. Additional download and installation information are provided on this page. 
 
-Be sure to manually download the data using the download button above, so that you can access the data in the free HDF viewer. 
+Be sure to download the data above, so that you can access the data in the free HDF viewer. 
 
 </div>
 
@@ -123,7 +123,7 @@ Once installed, open the `HDFView` program on your computer. In the menu bar, cl
  </figcaption>
 </figure>
 
-Navigate to the directory in which you downloaded the example dataset at the top of this page (see: section on What You Need). 
+Navigate to directory for the data download (see: section on What You Need). 
 
 
 
