@@ -4,7 +4,7 @@ category: courses
 title: "Spatial Data Applications in Python"
 permalink: /courses/use-data-open-source-python/spatial-data-applications/
 week-landing: 4
-modified: 2020-02-05
+modified: 2020-02-06
 week: 4
 sidebar:
   nav:

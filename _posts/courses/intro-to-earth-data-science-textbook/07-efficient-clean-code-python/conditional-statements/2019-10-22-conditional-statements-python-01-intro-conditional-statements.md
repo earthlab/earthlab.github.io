@@ -8,7 +8,7 @@ class-lesson: ['intro-conditional-statements-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/
 nav-title: "Intro to Conditional Statements"
 dateCreated: 2019-10-22
-modified: 2019-11-07
+modified: 2020-01-08
 module-title: 'Introduction to Conditional Statements in Python'
 module-nav-title: 'Conditional Statements in Python'
 module-description: 'Conditional statements help you to control the flow of code by executing code only when certain conditions are met. Learn how to use conditional statements to write Do Not Repeat Yourself, or DRY, code in Python.'

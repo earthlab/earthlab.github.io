@@ -4,7 +4,7 @@ title: "Learn to Use NAIP Multiband Remote Sensing Images in Python"
 excerpt: "Learn how to open up a multi-band raster layer or image stored in .tiff format in Python using Rasterio. Learn how to plot histograms of raster values and how to plot 3 band RGB and color infrared or false color images."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-02-17
+modified: 2020-03-05
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-naip']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/
@@ -306,7 +306,7 @@ To use earthpy call:
 plot_bands() takes several key agruments including:
 
 * `arr`: an n-dimensional numpy array to plot.
-* `figsize`: a tutple of 2 values representing the x and y dimensions of the image.
+* `figsize`: a tuple of 2 values representing the x and y dimensions of the image.
 * `cols`: if you are plotting more than one band you can specify the number of columns in the grid that you'd like to plot. 
 * `title`: OPTIONAL - A single title for one band or a list of x titles for x bands in your array.
 * `cbar`: OPTIONAL - `ep.plot_bands()` by default will add a colorbar to each plot it creates. You can turn the colobar off by setting this argument to false. 
@@ -419,7 +419,7 @@ plt.show()
 To render a 3 band, color image in `Python`, you can use the `imshow()` function. 
 `imshow` allows you to identify what bands you want to render in the red, green and blue regions. 
 
-To ensure that the image plots and is scalled correctly, you will use the `bytescale()` function which used to be a part of sci-py / sci-image. Scipy deprecated this function so we've added it to the `earthpy` package for you to use in this course
+To ensure that the image plots and is scaled correctly, you will use the `bytescale()` function which used to be a part of sci-py / sci-image. Scipy deprecated this function so we've added it to the `earthpy` package for you to use in this course
 
 The code will look something like this:
 
@@ -524,7 +524,7 @@ Below you use the skimage package to contrast stretch each band in your data to 
 
 In the example below you only stretch bands 0,1 and 2 which are the RGB bands. To begin,
 
-1. preallocate and array of zeros that is the same shape as your numpy array.
+1. preallocate an array of zeros that is the same shape as your numpy array.
 2. then look through each band in the image and rescale it.
 
 <i class="fa fa-star"></i> **Data Tip:** Read more about image stretch on the <a href="http://scikit-image.org/docs/dev/auto_examples/color_exposure/plot_equalize.html" target = "_blank">scikit-image website</a>.

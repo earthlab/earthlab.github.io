@@ -21,6 +21,7 @@ topics:
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
 ---
+
 {% include toc title="In This Chapter" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
@@ -33,18 +34,18 @@ topics:
 
 </div>
 
-In this lesson you will learn how to download MODIS data from EarthExplorer, and the distinct qualities of the different MODIS products available.
+In this lesson you will learn how to download MODIS data from EarthExplorer, and about the distinct qualities of the different MODIS products available.
 
 
 ## MODIS Products
 
 ### Aqua and Terra
 
-MODIS, unlike Landsat satellites, is not just one satellite. MODIS consists of two seperate satellites with distinct missions. The appropriately named Aqua and Terra satellites both focus their data collection on their area of specialty, water and land respectively. For land based earth analytics project, such as calculating NDVI or NBR, you should generally be getting your data from the Terra satellite, as it is the one that focuses on land based collection.
+MODIS, unlike Landsat satellites, is not just one satellite. MODIS consists of two seperate satellites with distinct missions. The appropriately named Aqua and Terra satellites both focus their data collection on their area of specialty, water and land respectively. For land based earth analytics projects, such as calculating NDVI or NBR, you should generally be getting your data from the Terra satellite, as it is the one that focuses on land based data collection.
 
 ### Products made with MODIS data
 
-MODIS satellites collect a lot of data. Where Landsat 8 collects 11 bands of data, the MODIS satellites collect 36. Due to the large number of bands, much of the MODIS data that is available for download is pre-processed heavily to make it more easily accessible. Below is a list of all of the MODIS products available to download from USGS EarthExplorer. 
+Where Landsat 8 collects 11 bands of data, the MODIS satellites collect 36. Due to the large number of bands, much of the MODIS data that is available for download is pre-processed heavily to make it more easily accessible. Below is a list of all of the MODIS products available to download from USGS EarthExplorer. 
 
 
 <figure>
@@ -74,7 +75,7 @@ You may notice that once we narrow our search down to just the surface reflectan
 
 The name of each product contains some information about what the products consist of. For surface reflectance, the second letter of the name is either an `O` or a `Y`. `O` means that the data came from the Terra satellite, and `Y` means that the data came from the Aqua satellite. So if you want land based data, you would be looking to choose a product that begins with `MO`.
 
-By hovering over each products name, you can find out more about the product. You can also find more data on each product on the <a href="https://modis.gsfc.nasa.gov/data/dataprod/mod09.php" target="_blank">MODIS website</a>. MODIS products can vary widly. MODIS makes a complete pass of the Earth daily. Some products are created daily based on the individual days readings, and others are weekly averages of an area, to help account for cloud cover or other interference that can occur from day to day. Some products are even yearly, such as the MODIS land cover product, which is a composite of an entire year's worth of data. 
+By hovering over each products name, you can find out more about the product. You can also find more data on each product on the <a href="https://modis.gsfc.nasa.gov/data/dataprod/mod09.php" target="_blank">MODIS website</a>. MODIS products can vary widly. MODIS makes a complete pass of the Earth daily. Some products are created daily based on the individual readings for the day, and others are weekly averages of an area, to help account for cloud cover or other interference that can occur from day to day. Some products are even yearly, such as the MODIS land cover product, which is a composite of an entire year's worth of data. 
 
 In the surface reflectance category you can see these differences in spatial and temporal resolution. 
 

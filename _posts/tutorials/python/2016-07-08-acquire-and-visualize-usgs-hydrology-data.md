@@ -2,7 +2,7 @@
 layout: single
 title: 'Acquiring streamflow data from USGS with climata and Python'
 date: 2016-07-08
-modified: 2020-03-11
+modified: 2020-03-13
 authors: [Max Joseph]
 category: [tutorials]
 excerpt: 'This tutorial demonstrates how to use climata to acquire streamflow data in and around Boulder, Colorado.'

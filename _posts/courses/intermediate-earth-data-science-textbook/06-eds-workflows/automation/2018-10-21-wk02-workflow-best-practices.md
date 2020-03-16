@@ -4,7 +4,7 @@ title: "Data Workflow Best Practices - Things to Consider When Processing Data"
 excerpt: "Identifying aspects of a workflow that can be modularized and tested can help you design efficient and effective data workflows. Learn best practices for designing efficient data workflows."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph', 'Lauren Herwehe']
 dateCreated: 2018-10-21
-modified: 2020-03-05
+modified: 2020-03-06
 category: [courses]
 class-lesson: ['create-data-workflows-tb']
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/efficient-workflow-best-practices/

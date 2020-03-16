@@ -4,7 +4,7 @@ title: "Extract Raster Values at Point Locations in Python"
 excerpt: "For many scientific analyses, it is helpful to be able to select raster pixels based on their relationship to a vector dataset (e.g. locations, boundaries). Learn how to extract data from a raster dataset using a vector dataset."
 authors: ['Leah Wasser', 'Chris Holdgraf', 'Carson Farmer']
 dateCreated: 2016-12-06
-modified: 2020-03-11
+modified: 2020-03-13
 category: [courses]
 class-lesson: ['remote-sensing-uncertainty-python-tb']
 permalink: /courses/use-data-open-source-python/spatial-data-applications/lidar-remote-sensing-uncertainty/extract-data-from-raster/
@@ -73,12 +73,6 @@ sns.set(font_scale=1.5)
 data = et.data.get_data("spatial-vector-lidar")
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/12459464
-    Extracted output to /root/earth-analytics/data/spatial-vector-lidar/.
-
-
 
 ## Import Canopy Height Model
 

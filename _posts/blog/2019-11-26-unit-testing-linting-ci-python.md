@@ -5,7 +5,7 @@ authors: ["Will Norris"]
 category: blog
 excerpt: "Making your codebase more robust with unit tests, linting, and continuous integration improves your ability to reuse code in house and greatly reduces the effort needed to share code. In this post, you will learn how to integrate testing with pytest, linting with black and flake8, and continuous integration with Travis."
 layout: single
-modified: '2019-11-26'
+modified: '2020-01-08'
 comments: yes
 permalink: blog/unit-testing-linting-ci-python/
 sidebar:

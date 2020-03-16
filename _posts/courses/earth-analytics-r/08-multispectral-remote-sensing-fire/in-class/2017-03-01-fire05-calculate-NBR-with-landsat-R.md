@@ -3,7 +3,7 @@ layout: single
 title: "Calculate and Plot Difference Normalized Burn Ratio (dNBR) from Landsat Remote Sensing Data in R"
 excerpt: "In this lesson you review how to calculate difference normalized burn ratio using pre and post fire NBR rasters in R. You finally will classify the dNBR raster."
 authors: ['Leah Wasser','Megan Cattau']
-modified: '2020-03-11'
+modified: '2020-03-13'
 category: [courses]
 class-lesson: ['spectral-data-fire-2-r']
 permalink: /courses/earth-analytics/multispectral-remote-sensing-modis/calculate-dNBR-R-Landsat/

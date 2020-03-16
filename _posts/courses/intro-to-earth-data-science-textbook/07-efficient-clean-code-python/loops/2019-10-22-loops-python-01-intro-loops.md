@@ -8,7 +8,7 @@ class-lesson: ['intro-loops-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/loops/
 nav-title: "Intro to Loops"
 dateCreated: 2019-10-23
-modified: 2019-11-09
+modified: 2020-01-08
 module-title: 'Introduction to Loops in Python'
 module-nav-title: 'Loops in Python'
 module-description: 'Loops can help reduce repetition in code by iteratively executing the same code on a range or list of values. Learn how to write loops in Python to write Do Not Repeat Yourself, or DRY, code in Python.'

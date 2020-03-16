@@ -8,7 +8,7 @@ class-lesson: ['clean-expressive-code-tb']
 permalink: /courses/intro-to-earth-data-science/write-efficient-python-code/intro-to-clean-code/expressive-variable-names-make-code-easier-to-read/
 nav-title: "Expressive Code"
 dateCreated: 2019-09-03
-modified: 2019-11-11
+modified: 2020-01-08
 module-type: 'class'
 course: "intro-to-earth-data-science-textbook"
 week: 7
