@@ -78,6 +78,12 @@ data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
+
 Next, open up the NAIP data that you wish to calculate NDVI with. You will use the data from 2015 for this example that you downloaded for week 7 of this course:
 
 `data/cold-springs-fire/naip/m_3910505_nw_13_1_20150919/crop/m_3910505_nw_13_1_20150919_crop.tif`
@@ -131,7 +137,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vi02-ndvi-with-naip-data-python/2020-02-17-vi02-ndvi-with-naip-data-python_10_0.png" alt = "Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vi02-ndvi-with-naip-data/2020-02-17-vi02-ndvi-with-naip-data_10_0.png" alt = "Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.">
 <figcaption>Plotting the NDVI calculation of the 2015 NAIP data with a colorbar that reflects the data.</figcaption>
 
 </figure>
@@ -157,7 +163,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vi02-ndvi-with-naip-data-python/2020-02-17-vi02-ndvi-with-naip-data-python_12_0.png" alt = "Histogram of NDVI values derived from 2015 NAIP data.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/vegetation-indices/2020-02-17-vi02-ndvi-with-naip-data/2020-02-17-vi02-ndvi-with-naip-data_12_0.png" alt = "Histogram of NDVI values derived from 2015 NAIP data.">
 <figcaption>Histogram of NDVI values derived from 2015 NAIP data.</figcaption>
 
 </figure>
