@@ -13,7 +13,7 @@ module-description: 'MODIS is a satellite remote sensing instrument that collect
 module-nav-title: 'Normalized Burn Ratio For Fire Severity - in Python' 
 module-type: 'class'
 class-order: 1
-week: 6
+week: 5
 course: "intermediate-earth-data-science-textbook"
 sidebar:
   nav:
