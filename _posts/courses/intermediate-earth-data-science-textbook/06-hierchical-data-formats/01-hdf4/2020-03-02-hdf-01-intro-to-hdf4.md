@@ -4,7 +4,7 @@ title: "Introduction to the HDF4 Data Format"
 excerpt: "MODIS is remote sensing data that is stored in the HDF4 file format. Learn how to view and explore HDF4 files (and their metadata) using the free HDF viewer provided by the HDF group."
 authors: ['Leah Wasser', 'Jenny Palomino']
 dateCreated: 2020-03-01
-modified: 2020-03-16
+modified: 2020-03-17
 category: [courses]
 class-lesson: ['hdf4']
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-hdf4/
@@ -42,7 +42,7 @@ In this chapter, you will learn how to work with MODIS remote sensing data store
 After completing this chapter, you will be able to:
 
 * Explain how data are structured and stored in HDF4 files.
-* Explore HDF4 files (and their metadata) in a free HDF Viewer.
+* Explore HDF4 files (and their metadata) in a free HDF viewer.
 * Open and process HDF4 files in **Python**.
 
 
@@ -92,9 +92,9 @@ Related data objects can be grouped into datasets consisting of multiple data ob
 </figure>
 
 
-## Explore HDF4 Files Using HDF Viewer 
+## Explore HDF4 Files Using HDFView
 
-To familiarize yourself with the HDF4 structure, and explore a particular file's data objects, you can use the free HDF Viewer published by the HDF group. 
+To familiarize yourself with the HDF4 structure, and explore a particular file's data objects, you can use the free HDFView tool published by the HDF group. 
 
 The sections below walk you through downloading and installing the tool as well as exploring an HF4-EOS file included in the dataset that you downloaded at the top of this page (see: section on What You Need).
 
@@ -114,7 +114,9 @@ Once you have finished creating an account, you can select the appropriate insta
 
 ### Open HDF4 Files in HDF Viewer
 
-Once installed, open the `HDFView` program on your computer. In the menu bar, click the first button `Open` to open a file. 
+Once installed, open the HDFView tool on your computer. 
+
+In the menu bar, click the first button `Open` to open a file. 
 
 <figure>
  <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-hdf-viewer-open-file.png">
@@ -125,22 +127,79 @@ Once installed, open the `HDFView` program on your computer. In the menu bar, cl
 
 Navigate to directory for the data download (see: section on What You Need). 
 
+Recall that **earthpy** datasets are downloaded to the `data` directory under `earth-analytics` (e.g. `home/user/earth-analytics/data/cold-springs-modis-h5/`).
 
+Within the `cold-springs-modis-h5` directory, you will see two directories containing `.hdf` files (e.g. `07_july_2016` directory).  
 
+Select and open `MOD09GA.A2016189.h09v05.006.2016191073856.hdf` within the `07_july_2016` directory.
+
+<figure>
+ <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-hdf-viewer-open-select-file.png">
+ <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-hdf-viewer-open-select-file.png" alt = "Window to select a file to open in the HDF View interface."></a>
+ <figcaption> Navigate to the appropriate directory to open a new HDF file in the HDF View interface. 
+ </figcaption>
+</figure>
 
 
 ### Explore HDF4 Data Objects in HDF Viewer
 
+#### View HDF File Structure
 
-#### View Surface Reflectance Bands
+Once opened, the HDF file structure will appear in the left panel of the HDFView interface.
+
+Click on the `>` next to the dataset name for `MODIS_Grid_500m_2D` to expand it. 
+
+Then, expand `Data Fields` to see the data objects that are stored in that dataset. 
+
+From the list of surface reflectance bands, click (or select) `sur_refl_b01_1` for band 1. 
+
+<figure>
+ <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-data-object.png">
+ <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-data-object.png" alt = "Display of metadata for MODIS surface reflectance band 1."></a>
+ <figcaption> Since the data and metadata are stored together in HDF4 files, you can see the associated metadata for data objects, such as the fill value and valid range for surface reflectance band 1.  
+ </figcaption>
+</figure>
+
+Notice that when you select an individual data object, you see the associated metadata in the `Object Attribute Info` tab, such as the fill value of `-28672` and valid range of `-100, 16000`.
 
 
+#### View Image of Surface Reflectance Band
 
-#### View Metadata for Surface Reflectance Bands
+Click on the second tab titled `General Object Info`. 
 
+Notice that the path to the file is displayed as well as other attributes such as the dimensions.
 
+To preview the image, click on the button for `Show Data with Options` (bottom center).
 
+<figure>
+ <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-band-1-object-info.png">
+ <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-band-1-object-info.png" alt = "Display of attributes for MODIS surface reflectance band 1."></a>
+ <figcaption> The General Object Info tab provides additional attribute info such as the path to the data object and the dimensions of the band. 
+ </figcaption>
+</figure>
 
+For the `Display As` option, select the radio button for `Image`.
 
+On the right hand side of the window, enter values into the box for Valid Range: 
+
+`-100, 16000`
+
+<figure>
+ <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-band-1-view-image-settings-valid-range.png">
+ <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-band-1-view-image-settings-valid-range.png" alt = "Display for setting valid range for surface reflectance band."></a>
+ <figcaption> Setting the valid range for the data allows you to deal with the fill values (i.e. no-data values) before you preview the image.  
+ </figcaption>
+</figure>
+
+Last, click on the `OK` button (bottom center) to open the image. 
+
+<figure>
+ <a href="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-band-1-view-image-valid-range.png">
+ <img src="{{ site.url }}/images/earth-analytics/hierarchical-data-formats/hdf4-modis-band-1-view-image-valid-range.png" alt = "Display of the image for surface reflectance band 1."></a>
+ <figcaption> Previewing the data is useful to get a sense of the data values and identify potential quality issues. 
+ </figcaption>
+</figure>
+
+You now know how to open and explore HDF4 files using the free HDFView tool.
 
 To explore additional functionality in the HDF viewer such as converting and exporting files, review the <a href="https://portal.hdfgroup.org/display/HDFVIEW/HDFView+3.x+User%27s+Guide" target="_blank">HDF Viewer User Guide</a>.
