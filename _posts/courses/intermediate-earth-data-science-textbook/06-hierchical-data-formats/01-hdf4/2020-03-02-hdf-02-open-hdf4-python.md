@@ -105,7 +105,7 @@ pre_fire_path = os.path.join("cold-springs-modis-h5",
                              "MOD09GA.A2016189.h09v05.006.2016191073856.hdf")
 ```
 
-## Open HDF Files Using Open Source Python - Rasterio
+## Open HDF4 Files Using Open Source Python - Rasterio
 
 HDF files are hierarchical and self describing (the metadata is contained 
 within the data). Because the data are hierarchical, you will have to loop
@@ -214,7 +214,7 @@ with rio.open(pre_fire_path) as dataset:
 
 
 
-## Process MODIS Bands Stored in a H4 File
+## Process MODIS Bands Stored in a HDF4 File
 
 Once you have accessed the subdatasets, you are ready to extract the bands that 
 you wish to work with. At this point, you could export each band as 
@@ -407,7 +407,7 @@ plt.show()
 
 
 
-## Crop MODIS Data
+## Crop MODIS Data Using EarthPy
 
 Above you opened and plotted MODIS reflectance data. However, the data 
 cover a larger study area than you need. It is a good idea to crop it
@@ -486,7 +486,7 @@ with rio.open(pre_fire_path) as dataset:
 
 
 
-## Crop Your MODIS Data Using EarthPy
+### Crop MODIS Data Using Reprojected Fire Boundary
 
 Once you have opened and reprojected your crop extent, you can 
 crop your MODIS raster data. Below you:
@@ -743,71 +743,12 @@ plt.show()
 
 
 
-{:.output}
-{:.execute_result}
-
-
-
-    (1200, 1200)
 
 
 
 
 
 
-
-
-
-
-{:.input}
-```python
-# ## Import the data using rasterio
-# # this could easily become a helper function -- assuming the students needed to import multiple datasets
-
-# all_bands = []
-# # Just get the reflectance data - the bands
-# with rio.open(pre_fire_path) as dataset:
-#     #crs = dataset.read_crs()
-#     for name in dataset.subdatasets:
-#         # Build out content on regex
-#         if re.search("b0.\_1$", name):
-#             with rio.open(name) as subdataset:
-#                 # This is not ideal because it's reprojecting each time...
-#                 fire_bound_sin = fire_boundary.to_crs(subdataset.crs)
-#                 modis_meta = subdataset.profile
-#                 crop_band, crop_meta = es.crop_image(subdataset, fire_bound_sin)
-#                 # read in the data as a 2 dim vs 3 dim arr
-#                 #all_bands.append(subdataset.read(1))
-#                 all_bands.append(np.squeeze(crop_band))
-
-# pre_fire_modis = np.stack(all_bands)
-# extent_modis_pre = plotting_extent(pre_fire_modis[0], crop_meta["transform"])
-
-# all_bands = []
-# # Just get the reflectance data - the bands
-# with rio.open(post_fire_path) as dataset:
-#     #crs = dataset.read_crs()
-#     for name in dataset.subdatasets:
-#         if re.search("b0.\_1$", name):
-#             with rio.open(name) as subdataset:
-#                 # This is not ideal because it's reprojecting each time...
-#                 fire_bound_sin = fire_boundary.to_crs(subdataset.crs)
-#                 modis_meta = subdataset.profile
-#                 crop_band, crop_meta = es.crop_image(subdataset, fire_bound_sin)
-#                 # read in the data as a 2 dim vs 3 dim arr
-#                 #all_bands.append(subdataset.read(1))
-#                 all_bands.append(np.squeeze(crop_band))
-
-# post_fire_modis = np.stack(all_bands)
-# extent_modis_post = plotting_extent(post_fire_modis[0], crop_meta["transform"])
-```
-
-{:.input}
-```python
-# Plot the data
-# ep.plot_bands(post_fire_modis, figsize=(12,6))
-# plt.show()
-```
 
 
 
