@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Open and Use MODIS Data in HDF4 format in Open Source Python"
-excerpt: "Learn how to open and use MODIS data in HDF4 form in Open Source Python."
+excerpt: "MODIS is remote sensing data that is stored in the HDF4 file format. Learn how to open and use MODIS data in HDF4 form in Open Source Python."
 authors: ['Leah Wasser', 'Jenny Palomino']
 dateCreated: 2020-03-01
 modified: 2020-03-18
@@ -23,34 +23,31 @@ topics:
   reproducible-science-and-programming:
   spatial-data-and-gis: ['raster-data']
 ---
-{% include toc title="In This Chapter" icon="file-text" %}
+{% include toc title="On This Page" icon="file-text" %}
 
 <div class='notice--success' markdown="1">
 
-
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-After completing this lesson you will be able to:
-
-* Read MODIS data in hdf4 format into Python using open source tools (rasterio)
-* Extract metadata from hdf4 files
-* Plot data extracted from hdf4 files using earthpy
+* Read MODIS data in HDF4 format into **Python** using open source packages (**rasterio**).
+* Extract metadata from HDF4 files.
+* Plot data extracted from HDF4 files using **earthpy**.
 
 </div>
 
-In this lesson you will learn how to open a MODIS HDF4 format file using 
-**rasterio**. To begin import your packages.
+In this lesson, you will learn how to open a MODIS HDF4 format file using **rasterio**. 
 
+To begin, import your packages.
 
 {:.input}
 ```python
-import numpy as np
-import numpy.ma as ma
-import matplotlib.pyplot as plt
+# Import packages
 import os
 import re  # regular expressions
 import warnings
-
+import matplotlib.pyplot as plt
+import numpy as np
+import numpy.ma as ma
 import rasterio as rio
 from rasterio.plot import plotting_extent
 import geopandas as gpd
@@ -61,10 +58,13 @@ import earthpy.mask as em
 
 warnings.simplefilter('ignore')
 
-# Get the data
+# Get the MODIS data
 et.data.get_data('cold-springs-modis-h5')
+
 # This download is for the fire boundary
 et.data.get_data('cold-springs-fire')
+
+# Set working directory
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 ```
 
@@ -81,18 +81,21 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 
 ## Hierarchical Data Formats - HDF4 - EOS in Python
 
-In the previous lesson, you learned about the hdf4 file format which is 
-a commen format used to store MODIS remote sensing data. In this lesson 
-you will learn how to open and process remote sensing data stored in hdf4 
+In the previous lesson, you learned about the HDF4 file format, which is 
+a common format used to store MODIS remote sensing data. In this lesson, 
+you will learn how to open and process remote sensing data stored in HDF4 
 format.
 
-You can use gdal or rasterio (which wraps around gdal) to open hdf4 data. 
-In this less you will use rasterio. Similar to opening .tif files using rasterio, 
-you can use a context manager to open hdf4 files. However because the data are 
-nested, you will see that loops will become important to open and explore the 
-reflectance data stored within the h4 file. 
+You can use **gdal** or **rasterio** (which wraps around **gdal**) to open HDF4 data.
 
-To begin, create a path to your hdf file.
+In this lesson, you will use rasterio. Similar to opening .tif files using **rasterio**, 
+you can use a context manager to open HDF4 files. 
+
+However, because the data are 
+nested, you will see that loops will become important to open and explore the 
+reflectance data stored within the HDF4 file. 
+
+To begin, create a path to your HDF4 file.
 
 {:.input}
 ```python
@@ -109,12 +112,14 @@ within the data). Because the data are hierarchical, you will have to loop
 through the main dataset and the subdatasets nested within the main dataset 
 to access the reflectance data (the bands) and the qa layers. 
 
-The first context manager below opens the main h4 file. Notice that this layer has 
+The first context manager below opens the main HDF4 file. 
+
+Notice that this layer has 
 some metatadata associated with it. However, there is not CRS or proper affine 
 information for the spatial layers contained within the file. 
 
-You will need to access the bands which are stored as subdatasets within the 
-h4 file. 
+To access that information, you will need to access the bands which are stored as subdatasets within the 
+HDF4 file. 
 
 {:.input}
 ```python
@@ -151,9 +156,13 @@ hdf4_meta
 
 
 
-To access the spatial information stored within your H4 file, you will need 
-to loop through the subdatasets. Below you open a connection to the main h4 file, 
-then you loop through each subdataset in the file. The files with this pattern 
+To access the spatial information stored within your HDF4 file, you will need 
+to loop through the subdatasets. 
+
+Below you open a connection to the main HDF4 file, 
+then you loop through each subdataset in the file. 
+
+The files with this pattern 
 in the name:
 
 `sur_refl_b01_1`  
@@ -161,9 +170,12 @@ in the name:
 are the bands which contain surface reflectance data. 
 
 * **sur_refl_b01_1:** MODIS Band One
-* **sur_refl_b02_1:** MODI Band Two
+* **sur_refl_b02_1:** MODIS Band Two
+
+etc.
 
 Below you loop through and print the name of each subdataset in the file.
+
 Notice that there are some other layers in the file as well including the 
 `state_1km` layer which contains the QA (cloud and quality assurance) information.
 
@@ -204,35 +216,44 @@ with rio.open(pre_fire_path) as dataset:
 
 ## Process MODIS Bands Stored in a H4 File
 
-Once you have accessed the subdatasets you are ready to extract the bands that 
-you wish to work with. At this point you could export each band as 
+Once you have accessed the subdatasets, you are ready to extract the bands that 
+you wish to work with. At this point, you could export each band as 
 a `.tif` file if you wanted. 
 
-Below you collect all of the bands that you want and manipulate the data
-as a numpy array. Below you do two things
+In the code below, you collect all of the bands that you want and manipulate the data
+as a numpy array. Below you do two things:
 
-1. You add a second context manager to the loop which will allow you to `read()` or crop the data using rasterio.
-2. You add `re.search()` which uses regular expressions to filter out only the subdatasets that contain the string `b0` in them. This filters out the bands or surfance reflectance data that you will need to calculate vegetation indices. 
+1. Add a second context manager to the loop, which will allow you to `read()` or crop the data using rasterio.
+2. Add `re.search()` which uses regular expressions to filter out only the subdatasets that contain the string `b0` in them. This filters out the bands or surfance reflectance data that you will need to calculate vegetation indices. 
 
-The data are appended to a list and stacked using `np.stack()`. This creates 
+The data are appended to a list and stacked using `np.stack()`. 
+
+This creates 
 a single numpy array that only contains MODIS surface reflectance data (just 
 the bands). 
 
-
 {:.input}
 ```python
-# Open & stack the prefire data
+# Create empty list to append arrays (of band data)
 all_bands = []
-# Just get the reflectance data - the bands
+
+# Open the pre-fire HDF4 file
 with rio.open(pre_fire_path) as dataset:
+    
+    # Loop through each subdataset in HDF4 file
     for name in dataset.subdatasets:
-        # Use regular expressions to grab data with b0 in the name (the bands)
+        
+        # Use regular expression to identify if subdataset has b0 in the name (the bands)
         if re.search("b0.\_1$", name):
+            
+            # Open the band subdataset
             with rio.open(name) as subdataset:
                 modis_meta = subdataset.profile
-                # read in the data as a 2 dim vs 3 dim arr
+                
+                # Read band data as a 2 dim arr and append to list
                 all_bands.append(subdataset.read(1))
 
+# Stack pre-fire reflectance bands
 pre_fire_modis = np.stack(all_bands)
 pre_fire_modis.shape
 ```
@@ -250,7 +271,9 @@ pre_fire_modis.shape
 
 ### Plot All MODIS Bands with EarthPy
 
-You are now ready to plot your data using earthpy. Notice below that the 
+Now that you have a stack of all of the arrays for surface reflectance, you are now ready to plot your data using **earthpy**. 
+
+Notice below that the 
 images look washed out and there are large negative values in the data. 
 
 This might be a good time to consider cleaning up your data by addressing 
@@ -275,7 +298,7 @@ plt.show()
 
 
 
-If you look at the <a href="{{ site.url }}/courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/"> table in the MODIS documentation or that is on the earthdatascience.org intermediate textbook,</a> you will see that the
+If you look at the <a href="{{ site.url }}/courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/"> MODIS documentation table that is in the Introduction to MODIS chapter,</a> you will see that the
 range of value values for MODIS spans from **-100 to 16000**. 
 
 There is also a fill or no data value **-28672** to consider. You can access this nodata
@@ -283,7 +306,8 @@ value using the rasterio metadata object.
 
 {:.input}
 ```python
-# View entire metadata object for a MODIS band
+# View entire metadata object 
+# for the last MODIS band processed in loop
 modis_meta
 ```
 
@@ -316,7 +340,7 @@ modis_meta["nodata"]
 
 
 
-To address the valid range of values in your data, you can mask it using 
+To address the valid range of values in your data, you can mask the data using 
 `numpy ma.masked_where()` which will mask specific values within a numpy
 array. 
 
@@ -355,7 +379,7 @@ plt.show()
 
 ### RGB Image of MODIS Data Using EarthPy
 
-Once you have your data cleaned up, you can plot an RGB image of your data 
+Once you have your data cleaned up, you can also plot an RGB image of your data 
 to ensure that it looks correct!
 
 {:.input}
@@ -385,24 +409,13 @@ plt.show()
 
 ## Crop MODIS Data
 
-Above you opened and plotted MODIS reflectance data. However the data 
+Above you opened and plotted MODIS reflectance data. However, the data 
 cover a larger study area than you need. It is a good idea to crop it
 the data to maximize processing efficiency.  
 
-To begin you will want to check that th CRS of your crop layer (in this 
-case the fire boundary layer that you have used in other lessons - 
+To begin, you will want to check that the CRS of your crop layer (in this 
+case, the fire boundary layer that you have used in other lessons - 
 `co_cold_springs_20160711_2200_dd83.shp`) is the same as your MODIS data. 
-
-There are several different ways to check the CRS for your crop extent. 
-You will need to get the CRS of the MODIS data prior to reprojecting the 
-fire boundary. Below you do this by:
-
-1. Creating a connection to the hdf4 file
-2. Opening a connection to one single band 
-3. Grabbing the CRS using the `src` object
-
-Finally you use the CRS to check and reproject the fire boundary if it 
-is not in the same CRS.
 
 {:.input}
 ```python
@@ -411,7 +424,9 @@ fire_boundary_path = os.path.join("cold-springs-fire",
                                   "vector_layers",
                                   "fire-boundary-geomac",
                                   "co_cold_springs_20160711_2200_dd83.shp")
+
 fire_boundary = gpd.read_file(fire_boundary_path)
+
 # Check the CRS
 fire_boundary.crs
 ```
@@ -427,74 +442,92 @@ fire_boundary.crs
 
 
 
-### Reproject the Clip Extent - (the Fire Boundary)
+### Reproject the Clip Extent (Fire Boundary)
 
-First reproject the fire boundary. Note that you do not need all of the 
+To check the CRS of MODIS data, you can:
+
+1. Create a connection to the HDF4 file.
+2. Open a connection to one single band.
+3. Grab the CRS of the band using the `src` object.
+
+You can then use the CRS of the band to check and reproject the fire boundary if it 
+is not in the same CRS.
+
+In the code below, you use these steps to reproject the fire boundary to match the HDF4 data. 
+
+Note that you do not need all of the 
 print statments included below. They are included to help you see what is 
 happening in the code!
 
 {:.input}
 ```python
-# Check to see if you need to reproject the fire boundary
+# Open the pre-fire HDF4 file
 with rio.open(pre_fire_path) as dataset:
+    
+    # Loop through each subdataset in HDF4 file
     for name in dataset.subdatasets:
-        # get the first band
+        
+        # Get the first band and check its CRS against the fire boundary
         if re.search("b01_1$", name):
             with rio.open(name) as subdataset:
-                print("Fire Bound CRS:", fire_boundary.crs)
                 print("MODIS CRS:", subdataset.crs)
-
+                print("Fire Bound CRS:", fire_boundary.crs)
+                
+                # Project the fire boundary if the CRS do not match
                 if not fire_boundary.crs == subdataset.crs:
-                    print("I just reprojected the data!")
                     fire_bound_sin = fire_boundary.to_crs(subdataset.crs)
+                    print("Crop boundary reprojected to match the MODIS bands.")
 ```
 
 {:.output}
-    Fire Bound CRS: {'init': 'epsg:4269'}
     MODIS CRS: PROJCS["unnamed",GEOGCS["Unknown datum based upon the custom spheroid",DATUM["Not specified (based on custom spheroid)",SPHEROID["Custom spheroid",6371007.181,0]],PRIMEM["Greenwich",0],UNIT["degree",0.0174532925199433]],PROJECTION["Sinusoidal"],PARAMETER["longitude_of_center",0],PARAMETER["false_easting",0],PARAMETER["false_northing",0],UNIT["Meter",1]]
-    I just reprojected the data!
+    Fire Bound CRS: {'init': 'epsg:4269'}
+    Crop boundary reprojected to match the MODIS bands.
 
 
 
 ## Crop Your MODIS Data Using EarthPy
 
-Once you have opened and reprojected your crop extent you can 
+Once you have opened and reprojected your crop extent, you can 
 crop your MODIS raster data. Below you:
 
-1. open up the fire boundary which you will use to crop your modis data. 
-2. open and crop each band using earthpy's `crop_image()` function.
-3. stack the data using `numpy.stack()`. 
-4. address no data values using `numpy.ma.masked_where()`. 
+1. open and crop each band to the reprojected fire boundary using the `crop_image()` function in **earthpy**.
+2. stack the data using `numpy.stack()`. 
+3. address no data values using `numpy.ma.masked_where()`. 
 
 Notice that the **nodata** value is pulled directly from the metadata 
-object that you created  in the loop. 
+object that you created in the loop. 
 
 `ma.masked_where(pre_fire_modis_crop == modis_meta["nodata"], pre_fire_modis_crop)`
 
-
 {:.input}
 ```python
-# Open & stack the prefire reflectance data
+# Create empty list to append bands 
 all_bands = []
 
+# Open HDF file and loop through datasets
 with rio.open(pre_fire_path) as dataset:
     for name in dataset.subdatasets:
-        # Select only the bands (the reflectance data)
+        
+        # Identify bands (the reflectance data)
         if re.search("b0.\_1$", name):
             with rio.open(name) as subdataset:
                 modis_meta = subdataset.profile
+                
+                # Crop band using projected fire boundary
                 crop_band, crop_meta = es.crop_image(
                     subdataset, fire_bound_sin)
-                # Append the band to a list
+                
+                # Append the cropped band as 2D array to the list
                 all_bands.append(np.squeeze(crop_band))
 
-# Stack the data and handle no data values
+# Stack the bands and handle no data values
 pre_fire_modis_crop = np.stack(all_bands)
 pre_fire_modis_crop = ma.masked_where(
     pre_fire_modis_crop == modis_meta["nodata"], pre_fire_modis_crop)
 
 # Optional - define a plotting extent
-# You only need this code if you want to overlay the fire boundary on top of your reflectance data
+# Only needed to overlay the fire boundary on top of reflectance data
 extent_modis_pre = plotting_extent(
     pre_fire_modis_crop[0], crop_meta["transform"])
 
@@ -515,8 +548,9 @@ pre_fire_modis_crop.shape
 
 ### Plot Your Cropped MODIS Data
 
-Once you have a stacked numpy array, you can process the data however you'd like.
-Below, each band in the numpy array is plotted.
+Once you have a stacked numpy array, you can use the data for analysis or plotting.
+
+The code belows plots each band in the stacked numpy array of the cropped data.
 
 {:.input}
 ```python
@@ -538,19 +572,21 @@ plt.show()
 
 
 
-## Export MODIS Data in a Numpy Array as a Geotiff 
+## Export MODIS Data in a Numpy Array as a GeoTIFF
 
 This last section is optional. If you want to export your newly stacked MODIS 
-data as a geotif you need to fix the metadata object. The metadata for each 
-band represents a single array so the `count` element is **1**. However you now 
-are writing out a stacked array. You will need to adjust the `count` 
+data as a GeoTIFF, you need to fix the metadata object. 
+
+The metadata for each 
+band represents a single array, so the `count` element is **1**. However, you are now 
+writing out a stacked array. You will need to adjust the `count` 
 element in the metadata dictionary to account for this.
 
-`es.crop_image()` returns the correct height, width and no data value so you 
+`es.crop_image()` returns the correct height, width and no-data value so you 
 do not need to account for those values!
 
 To get started, have a look at the metadata object for a single band. This 
-has most of the information that you need to export a new geotiff file. Pay
+has most of the information that you need to export a new GeoTIFF file. Pay
 close attention to the **count** value.
 
 {:.input}
@@ -596,19 +632,23 @@ crop_meta["count"]
 
 
 Next, redefine the count to represent the number of layers or bands in your 
-stack. In this case there are 7 bands. You can grab this value from the `.shape`
+stack. 
+
+In this case, there are 7 bands in the stacked array. You can grab this value from the `.shape`
 attribute of your numpy array.
 
 {:.input}
 ```python
-# Adjust the count to represent the number of bands in the numpy stacked array.
-print("My array has", pre_fire_modis_crop.shape[0], "bands")
+# Check number of bands
+print("Stacked array has", pre_fire_modis_crop.shape[0], "bands")
+
+# Adjust count to represent number of bands in stacked array
 crop_meta["count"] = pre_fire_modis_crop.shape[0]
 crop_meta
 ```
 
 {:.output}
-    My array has 7 bands
+    Stacked array has 7 bands
 
 
 
@@ -631,37 +671,41 @@ crop_meta
 
 
 
-Finally, create an output directory to save your exported geotiff. Below, you 
+Finally, create an output directory to save your exported geotiff. 
+
+Below, you 
 create a directory called **stacked** within the MODIS directory that you've 
 been working with.
 
 {:.input}
 ```python
-stacked_file_path = os.path.join(os.path.dirname(pre_fire_path), "stacked", "modis_stack.tif")
+# Define path for exported file
+stacked_file_path = os.path.join(os.path.dirname(pre_fire_path), 
+                                 "stacked", "modis_stack.tif")
+
+# Get the directory needed for the defined path
 modis_dir_path = os.path.dirname(stacked_file_path)
+print("Needed directory:", modis_dir_path)
 
-print("file path:", modis_dir_path)
-print("MODIS new file path:", stacked_file_path)
-
+# Create the needed directory if it does not exist
 if not os.path.exists(modis_dir_path):
     os.mkdir(modis_dir_path)
-    print("dir", pre_fire_path, " doesn't exist - creating it for you!")
+    print("The directory", modis_dir_path, "did not exist - creating it now!")
 ```
 
 {:.output}
-    file path: cold-springs-modis-h5/07_july_2016/stacked
-    MODIS new file path: cold-springs-modis-h5/07_july_2016/stacked/modis_stack.tif
-    dir cold-springs-modis-h5/07_july_2016/MOD09GA.A2016189.h09v05.006.2016191073856.hdf  doesn't exist - creating it for you!
+    Needed directory: cold-springs-modis-h5/07_july_2016/stacked
+    The directory cold-springs-modis-h5/07_july_2016/stacked did not exist - creating it now!
 
 
 
-You can now export or write out a new geotiff. To do this you will create a 
+You can now export or write out a new GeoTIFF. To do this, you will create a 
 context manager with a connection to a new file in write (`"w"`) mode. You 
 will then use `.write(numpy_arr_here)` to export the file.
 
 The `crop_meta` object has two stars (`**`) next to it as that tells rasterio 
 to "unpack" the meta object into the various pieces that are required to 
-save a spatially referenced geotiff file.
+save a spatially referenced GeoTIFF file.
 
 {:.input}
 ```python
@@ -670,12 +714,11 @@ with rio.open(stacked_file_path, "w", **crop_meta) as dest:
     dest.write(pre_fire_modis_crop)
 ```
 
-Open and view your stacked geotiff!
+Open and view your stacked GeoTIFF.
 
 {:.input}
 ```python
-# Open the file and have a look at just to make sure it's correct!
-
+# Open the file to make sure it's correct!
 with rio.open(stacked_file_path) as src:
     modis_arr = src.read()
     
