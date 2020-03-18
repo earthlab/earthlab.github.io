@@ -275,7 +275,7 @@ plt.show()
 
 
 
-If you look at the table that <a href="{{ site.url }}/courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/" table in the MODIS documentation or that is on the earthdatascience.org intermediate textbook,</a> you will see that the
+If you look at the <a href="{{ site.url }}/courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/"> table in the MODIS documentation or that is on the earthdatascience.org intermediate textbook,</a> you will see that the
 range of value values for MODIS spans from **-100 to 16000**. 
 
 There is also a fill or no data value **-28672** to consider. You can access this nodata
@@ -317,9 +317,10 @@ modis_meta["nodata"]
 
 
 To address the valid range of values in your data, you can mask it using 
-`numpy ma.masked_where()`. 
+`numpy ma.masked_where()` which will mask specific values within a numpy
+array. 
 
-ma.masked_where(pre_fire_modis == modis_meta["nodata"], pre_fire_modis)
+`ma.masked_where(pre_fire_modis == modis_meta["nodata"], pre_fire_modis)`
 
 After masking the nodata values, the plot now shows a range of
 values represented between **0-10,000** which is what you would expect.
@@ -355,7 +356,7 @@ plt.show()
 ### RGB Image of MODIS Data Using EarthPy
 
 Once you have your data cleaned up, you can plot an RGB image of your data 
-to ensure it looks correct!
+to ensure that it looks correct!
 
 {:.input}
 ```python
@@ -381,16 +382,12 @@ plt.show()
 
 
 
-{:.input}
-```python
-#extent_modis_pre = plotting_extent(pre_fire_modis[0], crop_meta["transform"])
-```
 
 ## Crop MODIS Data
 
 Above you opened and plotted MODIS reflectance data. However the data 
-cover a larger study area than you need so it is a good idea to crop it
-before moving any further. 
+cover a larger study area than you need. It is a good idea to crop it
+the data to maximize processing efficiency.  
 
 To begin you will want to check that th CRS of your crop layer (in this 
 case the fire boundary layer that you have used in other lessons - 
@@ -430,6 +427,8 @@ fire_boundary.crs
 
 
 
+### Reproject the Clip Extent - (the Fire Boundary)
+
 First reproject the fire boundary. Note that you do not need all of the 
 print statments included below. They are included to help you see what is 
 happening in the code!
@@ -457,19 +456,18 @@ with rio.open(pre_fire_path) as dataset:
 
 
 
-## Crop MODIS Data 
+## Crop Your MODIS Data Using EarthPy
 
-MODIS scenes are large. If your study area is small, you may want to crop the data.
-Below you:
+Once you have opened and reprojected your crop extent you can 
+crop your MODIS raster data. Below you:
 
 1. open up the fire boundary which you will use to crop your modis data. 
 2. open and crop each band using earthpy's `crop_image()` function.
 3. stack the data using `numpy.stack()`. 
 4. address no data values using `numpy.ma.masked_where()`. 
 
-Notice that the 
-nodata value is pulled directly from the metadata object that you created 
-in the loop. 
+Notice that the **nodata** value is pulled directly from the metadata 
+object that you created  in the loop. 
 
 `ma.masked_where(pre_fire_modis_crop == modis_meta["nodata"], pre_fire_modis_crop)`
 
@@ -515,7 +513,7 @@ pre_fire_modis_crop.shape
 
 
 
-## Calculate NDVI Using MODIS Data
+### Plot Your Cropped MODIS Data
 
 Once you have a stacked numpy array, you can process the data however you'd like.
 Below, each band in the numpy array is plotted.
@@ -542,17 +540,18 @@ plt.show()
 
 ## Export MODIS Data in a Numpy Array as a Geotiff 
 
-This last section is option. If you want to export your newly stacked MODIS 
+This last section is optional. If you want to export your newly stacked MODIS 
 data as a geotif you need to fix the metadata object. The metadata for each 
-band represents a single array so the `count` element is 1. However you now 
+band represents a single array so the `count` element is **1**. However you now 
 are writing out a stacked array. You will need to adjust the `count` 
 element in the metadata dictionary to account for this.
 
 `es.crop_image()` returns the correct height, width and no data value so you 
 do not need to account for those values!
 
-2. write out a tif file
-3. read it back in
+To get started, have a look at the metadata object for a single band. This 
+has most of the information that you need to export a new geotiff file. Pay
+close attention to the **count** value.
 
 {:.input}
 ```python
@@ -596,12 +595,22 @@ crop_meta["count"]
 
 
 
+Next, redefine the count to represent the number of layers or bands in your 
+stack. In this case there are 7 bands. You can grab this value from the `.shape`
+attribute of your numpy array.
+
 {:.input}
 ```python
 # Adjust the count to represent the number of bands in the numpy stacked array.
+print("My array has", pre_fire_modis_crop.shape[0], "bands")
 crop_meta["count"] = pre_fire_modis_crop.shape[0]
 crop_meta
 ```
+
+{:.output}
+    My array has 7 bands
+
+
 
 {:.output}
 {:.execute_result}
@@ -621,6 +630,10 @@ crop_meta
 
 
 
+
+Finally, create an output directory to save your exported geotiff. Below, you 
+create a directory called **stacked** within the MODIS directory that you've 
+been working with.
 
 {:.input}
 ```python
@@ -642,12 +655,22 @@ if not os.path.exists(modis_dir_path):
 
 
 
+You can now export or write out a new geotiff. To do this you will create a 
+context manager with a connection to a new file in write (`"w"`) mode. You 
+will then use `.write(numpy_arr_here)` to export the file.
+
+The `crop_meta` object has two stars (`**`) next to it as that tells rasterio 
+to "unpack" the meta object into the various pieces that are required to 
+save a spatially referenced geotiff file.
+
 {:.input}
 ```python
 # Export file as a geotiff
 with rio.open(stacked_file_path, "w", **crop_meta) as dest:
     dest.write(pre_fire_modis_crop)
 ```
+
+Open and view your stacked geotiff!
 
 {:.input}
 ```python
@@ -666,7 +689,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/06-hierchical-data-formats/01-hdf4/2020-03-02-hdf-02-open-hdf4-python/2020-03-02-hdf-02-open-hdf4-python_38_0.png">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/06-hierchical-data-formats/01-hdf4/2020-03-02-hdf-02-open-hdf4-python/2020-03-02-hdf-02-open-hdf4-python_42_0.png">
 
 </figure>
 
