@@ -31,8 +31,10 @@ Landsat data to calculate burn indices.
 ## Materials to Review For This Week’s Assignment
 
 Please be sure to review:
-1. <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/" target="_blank">Chapter 11 on Calculating Normalized Burn Ratio (NBR) </a> in Section 5 of the Intermediate Earth Data Science Textbook and 
-2. <a href="https://www.earthdatascience.org/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/" target="_blank">Data Story on Cold Springs Fire</a> in Section 7 of the Intermediate Earth Data Science Textbook
+1. <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/" target="_blank">Chapter 11 on Calculating Normalized Burn Ratio (NBR) </a> in Section 5 of the Intermediate Earth Data Science Textbook.
+2. <a href="{{ site.url }}/courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-hdf4/" target="_blank">Chapter 12 on Working with MODIS HDF4 Files in Python</a> in Section 6 of Intermediate Earth Data Science Textbook.
+    * For more background on MODIS, you can review  <a href="{{ site.url }}/courses/earth-analytics-python/multispectral-remote-sensing-modis/modis-remote-sensing-data-in-python/" target="_blank">Chapter 10 on Intro to MODIS Data</a> in Section 5 of the Intermediate Earth Data Science Textbook.
+3. <a href="{{ site.url }}/courses/use-data-open-source-python/data-stories/cold-springs-wildfire/" target="_blank">Data Story on Cold Springs Fire</a> in Section 7 of the Intermediate Earth Data Science Textbook.
 
 ### 1. Complete the Assignment Using the Template for this week. 
 
