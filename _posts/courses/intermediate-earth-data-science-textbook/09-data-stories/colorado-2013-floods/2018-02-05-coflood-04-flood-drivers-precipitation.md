@@ -3,7 +3,7 @@ layout: single
 title: 'Rain: a Driver of the 2013 Colorado Floods'
 excerpt: "The amount and/or duration of rainfall can impact how severe a flood is. Learn how rainfall is measured and used to understand flood impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2020-03-16
+modified: 2020-03-18
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'

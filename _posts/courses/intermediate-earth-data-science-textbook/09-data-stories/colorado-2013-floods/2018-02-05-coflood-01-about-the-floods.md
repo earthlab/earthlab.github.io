@@ -4,7 +4,7 @@ title: 'An Overview of the 2013 Colorado Floods'
 excerpt: "The 2013 flood event caused significant damage throughout the state of Colorado, USA. Learn about what caused the 2013 floods in Colorado and also some of the impacts."
 authors: ['Leah Wasser', 'Lauren Herwehe']
 dateCreated: 2018-05-24
-modified: 2020-03-16
+modified: 2020-03-18
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'

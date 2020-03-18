@@ -4,7 +4,7 @@ title: "Learn to Use NAIP Multiband Remote Sensing Images in Python"
 excerpt: "Learn how to open up a multi-band raster layer or image stored in .tiff format in Python using Rasterio. Learn how to plot histograms of raster values and how to plot 3 band RGB and color infrared or false color images."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-03-05
+modified: 2020-03-18
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-naip']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/
@@ -100,12 +100,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 plt.rcParams['figure.figsize'] = (10, 10)
 plt.rcParams['axes.titlesize'] = 20
 ```
-
-{:.output}
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
-
-
 
 To begin, you will use the rasterio open function to open the multi-band NAIP image
 

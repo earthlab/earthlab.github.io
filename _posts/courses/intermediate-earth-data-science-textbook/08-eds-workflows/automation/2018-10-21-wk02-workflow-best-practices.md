@@ -4,7 +4,7 @@ title: "Data Workflow Best Practices - Things to Consider When Processing Data"
 excerpt: "Identifying aspects of a workflow that can be modularized and tested can help you design efficient and effective data workflows. Learn best practices for designing efficient data workflows."
 authors: ['Leah Wasser', 'Jenny Palomino', 'Max Joseph', 'Lauren Herwehe']
 dateCreated: 2018-10-21
-modified: 2020-03-16
+modified: 2020-03-18
 category: [courses]
 class-lesson: ['create-data-workflows-tb']
 permalink: /courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/efficient-workflow-best-practices/
@@ -33,26 +33,26 @@ redirect_from:
 
 </div>
 
-## Data Workflow Best Practices
+## Data Workflow Best Practices 
 
-In the previous lessons, you designed a workflow to process several sites worth of Landsat data, but of course, identifying the workflow is just beginning.
+In the previous lessons, you designed a workflow to process several sites worth of Landsat data, but of course, identifying the workflow is just beginning. 
 
-For each of the steps you identified in your pseudocode, you need to flesh out how you can accomplish each task.
+For each of the steps you identified in your pseudocode, you need to flesh out how you can accomplish each task. 
 
-Before you design your workflow in more detail, there are many things to keep in mind regarding how you will use and name files, how you will modularize code to reduce repetitive code, etc.
+Before you design your workflow in more detail, there are many things to keep in mind regarding how you will use and name files, how you will modularize code to reduce repetitive code, etc. 
 
-Consider the data workflow best practices discussed below.
-
+Consider the data workflow best practices discussed below. 
+ 
 
 ## Do Not Modify the Raw Data
 
-Typically you do not want to modify the raw data, so that you can always reproduce your output from the same inputs. In some cases, this is less important, e.g., when you are not tasked with curating the raw data. For example you *could*  redownload the landsat data provided in this class.
+Typically you do not want to modify the raw data, so that you can always reproduce your output from the same inputs. In some cases, this is less important, e.g., when you are not tasked with curating the raw data. For example you *could*  redownload the landsat data provided in this class. 
 
-In other cases, this is extremely important - you wouldn’t want to recollect a summers worth of field collected data because you accidentally modified the original spreadsheet.
+In other cases, this is extremely important - you wouldn’t want to recollect a summers worth of field collected data because you accidentally modified the original spreadsheet. 
 
 A good rule of thumb is to create an “outputs” directory where you store outputs. An outputs directory is helpful because:
 1. You can always delete and recreate the outputs without worrying about deleting your original data.
-2. An outputs directory is expressive and reminds anyone looking at your project (including you in the future - i.e. your future self!) where the output products are - they don’t have to dig for the data.
+2. An outputs directory is expressive and reminds anyone looking at your project (including you in the future - i.e. your future self!) where the output products are - they don’t have to dig for the data. 
 
 
 ## Create Expressive Intermediate File Names and Outputs
@@ -69,18 +69,18 @@ ndvi.csv
 all-sites-ndvi.csv
 ```
 
-Always use clear, expressive names for objects, files, etc. Ask yourself if someone reading your code could guess what is contained in that object or file based on the name.
+Always use clear, expressive names for objects, files, etc. Ask yourself if someone reading your code could guess what is contained in that object or file based on the name. 
 
 
-## Write Modular Code
+## Write Modular Code 
 
 As you are working on your pseudo code, consider the parts of your analysis that are well suited for functions.
 
 Writing custom functions for repetitive tasks in your workflows can help your workflow to be more efficient and easier to follow and implement.
 
-Ideally, a Python function will have 1-3 inputs and will produce 1-2 outputs.
+Ideally, a Python function will have 1-3 inputs and will produce 1-2 outputs. 
 
-Keep functions small and focused. A function should do one thing well.
+Keep functions small and focused. A function should do one thing well. 
 
 You can then combine many functions into a wrapper function to automate and make for a nicely crafted program.
 
@@ -111,17 +111,17 @@ You can use existing functions from commonly used packages (i.e. `geopandas.read
 # Example of a simple function
 def add_five(x):
     """Add the numeric value 5 to an input value.
-
+    
     Parameters
     ----------
     x : int or float
-
+            
     Returns
     ----------
     int or float
         Input data with value increased by 5.
     """
-
+    
     return (x + 5)
 ```
 
@@ -146,26 +146,26 @@ Now, check out the more complex <a href="https://github.com/geopandas/geopandas/
 
 **Do we have to fully understand all of the detailed code in order to use the function?**
 
-Simply put - no. We only need to know the appropriate inputs and outputs, so we can provide the correct file to get back our GeoDataframe.
+Simply put - no. We only need to know the appropriate inputs and outputs, so we can provide the correct file to get back our GeoDataframe. 
 
 This one of the primary benefits of writing and using functions!
 
 ### Review of Benefits of Using and Writing Functions
 
-1. Reusability (e.g. by yourself or others)
+1. Reusability (e.g. by yourself or others) 
 2. Fewer variables (e.g. temporary variables not needed outside of the function are not stored)
-3. Documentation/Reproducibility (e.g. for yourself or others)
+3. Documentation/Reproducibility (e.g. for yourself or others) 
 4. Easier updates to code (i.e. update only the function definition)
 5. Testing (e.g. include checks and tests on inputs and outputs directly within function)
 6. Modularity (i.e. stand-alone units of code that can executed independently and asynchronously)
 
 Sometimes you may need to write custom functions to:
 * complete tasks that do not already have published functions
-* combine existing functions into one function for a specific task
+* combine existing functions into one function for a specific task 
 
 ### Generalizing Custom Functions
 
-The best functions complete one specific task but are generalizable for more than one application.
+The best functions complete one specific task but are generalizable for more than one application. 
 
 Example: Goal is a function that can be used to calculate Normalized Difference Vegetation Index (NDVI)
 
@@ -187,7 +187,7 @@ There are other indices that can be calculated using the same formula:
 (green - near_infrared) / (Green + near_infrared)
 ```
 
-For example:
+For example: 
 ```python
 (band1 - band2) / (band1 + band2)
 ```
@@ -201,26 +201,26 @@ Even better for conciseness and readibility:
 ```python
 def normalized_diff(b1, b2):
     """Calculate the normalized difference of two arrays of same shape.
-    Math will be calculated (b1-b2) / (b1+b2).
-
+    Math will be calculated (b1-b2) / (b1+b2). 
+    
     Parameters
     ----------
     b1, b2 : numpy arrays
         Two numpy arrays of same shape.
-
+    
     Returns
     ----------
     n_diff : numpy array
-        The element-wise result of (b1-b2) / (b1+b2) calculation.
+        The element-wise result of (b1-b2) / (b1+b2) calculation. 
     """
     n_diff = (b1 - b2) / (b1 + b2)
-
+        
     return n_diff
 ```
 
 ## Expand Code to Add Checks and Tests
 
-By including checks (i.e. tests) in your code, you can be more confident that your code is doing what you think is!
+By including checks (i.e. tests) in your code, you can be more confident that your code is doing what you think is! 
 
 ### Specific Reasons to Check Your Code
 
@@ -232,25 +232,25 @@ By including checks (i.e. tests) in your code, you can be more confident that yo
 
 ### How Can You Check Your Code?
 
-There are many different ways to start checking your code. You can begin with <a href="{{ site.url }}/courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/">conditional statements </a> and work toward more complex checks using try/except and exception handling (which are introduced below).
+There are many different ways to start checking your code. You can begin with <a href="{{ site.url }}/courses/intro-to-earth-data-science/write-efficient-python-code/conditional-statements/">conditional statements </a> and work toward more complex checks using try/except and exception handling (which are introduced below). 
 
 
 ### Conditional Statements
 
-This is frequently referred to as "asking permission" before code can execute.
+This is frequently referred to as "asking permission" before code can execute. 
 
 ```python
 if condition_1:
     action_1
 elif condition_2:
     action_2
-else:
+else: 
     action_3
 ```
 
-Thinking about the `norm_diff` function: what is a condition that we might want to check for the code to run successfully?
+Thinking about the `norm_diff` function: what is a condition that we might want to check for the code to run successfully? 
 
-Take a look at the equation again, and think about what the intended inputs are for b1 and b2 ("arrays of same shape").
+Take a look at the equation again, and think about what the intended inputs are for b1 and b2 ("arrays of same shape"). 
 
 ```python
 (b1 - b2) / (b1 + b2)
@@ -258,7 +258,7 @@ Take a look at the equation again, and think about what the intended inputs are 
 
 {:.input}
 ```python
-import numpy as np
+import numpy as np 
 
 # Create numpy array inputs for function
 nir_band = np.array([[6, 7, 8, 9, 10], [16, 17, 18, 19, 20]])
@@ -297,7 +297,7 @@ else:
 
 ### `Try` and `except`
 
-These statements allow the a code block to try to execute first, and then do something else if the code is not executed successfully.
+These statements allow the a code block to try to execute first, and then do something else if the code is not executed successfully. 
 
 This is often referred to as "asking for forgiveness, rather than permission".
 
@@ -355,14 +355,14 @@ except:
 
 
 
-After this try/except, if you try to print `ndvi`, you will see the following error because it was not created by the code.
+After this try/except, if you try to print `ndvi`, you will see the following error because it was not created by the code. 
 
 ```
 ---------------------------------------------------------------------------
 NameError                                 Traceback (most recent call last)
 <ipython-input-8-24938b8c9bd5> in <module>
       6     print("Input arrays are not of same shape")
-      7
+      7 
 ----> 8 print(ndvi.ndim)
 
 NameError: name 'ndvi' is not defined
@@ -398,7 +398,7 @@ Is it possible that something else could cause a new directory to not get create
 
 ### Exception Handling
 
-Also commonly referred to as error handling, exceptions are used to check for specific types of errors that can occur when running code.
+Also commonly referred to as error handling, exceptions are used to check for specific types of errors that can occur when running code. 
 
 Though it is more common to use exception handling when writing code that you want to publish as packages or libraries or when you are writing applications for end users, it is useful to know about these, so that you are familiar with them when you receive exception messages by others' code.
 
@@ -422,7 +422,7 @@ try:
     print("Directory created!")
 except FileExistsError:
     print("Directory already exists!")
-
+    
     # Uncomment line below to have the except do nothing (e.g. no print statement)
     #pass  
 ```
@@ -439,23 +439,23 @@ except FileExistsError:
 # Example of ValueError
 def normalized_diff(b1, b2):
     """Calculate the normalized difference of two arrays of same shape.
-    Math will be calculated (b1-b2) / (b1+b2).
-
+    Math will be calculated (b1-b2) / (b1+b2). 
+    
     Parameters
     ----------
     b1, b2 : numpy arrays
         Two numpy arrays of same shape.
-
+    
     Returns
     ----------
     n_diff : numpy array
-        The element-wise result of (b1-b2) / (b1+b2) calculation.
+        The element-wise result of (b1-b2) / (b1+b2) calculation. 
     """
     if not (b1.shape == b2.shape):
         raise ValueError("Inputs arrays should have the same dimensions")
-
+        
     n_diff = (b1 - b2) / (b1 + b2)
-
+        
     return n_diff
 ```
 
@@ -463,7 +463,7 @@ Now if you try to run the following code:
 
 `ndvi = normalized_diff(b1=nir_band_3d, b2=red_band)`
 
-You will see the following ValueError that can help you (and others) understand why the function did not execute successfully.
+You will see the following ValueError that can help you (and others) understand why the function did not execute successfully. 
 
 
 ```
@@ -471,13 +471,13 @@ You will see the following ValueError that can help you (and others) understand 
 ValueError                                Traceback (most recent call last)
 <ipython-input-13-7a66955ecfea> in <module>
 ----> 1 ndvi = normalized_diff(b1=nir_band_3d, b2=red_band)
-      2
+      2 
 
 <ipython-input-11-018feb34e9f1> in norm_diff(b1, b2)
      16     """
      17     if not (b1.shape == b2.shape):
 ---> 18         raise ValueError("Inputs arrays should have the same dimensions")
-     19
+     19 
      20     n_diff = (b1 - b2) / (b1 + b2)
 
 ValueError: Inputs arrays should have the same dimensions
@@ -485,7 +485,7 @@ ValueError: Inputs arrays should have the same dimensions
 
 ### Old Fashioned Trial and Error
 
-Maybe the code is executing just fine, but maybe you are not getting the output in the most optimal format.
+Maybe the code is executing just fine, but maybe you are not getting the output in the most optimal format. 
 
 It may not be clear to you until you run the function many times with different inputs.
 
@@ -527,13 +527,13 @@ def normalized_diff(b1, b2):
     """Take two numpy arrays and calculate the normalized difference.
     Math will be calculated (b1-b2) / (b1+b2). The arrays must be of the
     same shape.
-
+    
     Parameters
     ----------
     b1, b2 : numpy arrays
         Two numpy arrays that will be used to calculate the normalized difference.
         Math will be calculated (b1-b2) / (b1+b2).
-
+   
    Returns
     ----------
     n_diff : numpy array
@@ -579,7 +579,7 @@ print(ndvi)
 
 
 
-There is now a warning provided by the function to explain that the division by zero resulted in values that are replaced with nan values.
+There is now a warning provided by the function to explain that the division by zero resulted in values that are replaced with nan values. 
 
 There are many ways to include tests and checks in your code, so explore the resources below to learn different ways to incorporate them into your workflows.  
 

@@ -71,8 +71,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics', 'data'))
 {:.output}
     Downloading from https://ndownloader.figshare.com/files/10960112
     Extracted output to /root/earth-analytics/data/cold-springs-modis-h5/.
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
 
 
 

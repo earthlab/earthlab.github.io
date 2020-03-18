@@ -4,7 +4,7 @@ category: courses
 title: "Multispectral Remote Sensing Data in Python"
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/
 week-landing: 5
-modified: 2020-02-15
+modified: 2020-03-18
 week: 5
 sidebar:
   nav:

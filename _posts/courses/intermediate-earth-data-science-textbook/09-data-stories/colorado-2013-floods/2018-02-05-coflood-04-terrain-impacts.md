@@ -3,7 +3,7 @@ layout: single
 title: 'Measure Changes in the Terrain Caused by a Flood Using Lidar Data'
 excerpt: "A flood event often changes the terrain as water moves sediment and debris across the landscape. Learn how terrain changes are measured using lidar remote sensing data."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2020-03-16
+modified: 2020-03-18
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'

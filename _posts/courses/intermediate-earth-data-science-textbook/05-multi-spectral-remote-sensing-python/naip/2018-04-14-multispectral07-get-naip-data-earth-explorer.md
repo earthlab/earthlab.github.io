@@ -4,7 +4,7 @@ title: "Get NAIP Remote Sensing Data From the Earth Explorer Website"
 excerpt: "In this lesson you will review how to find and download USDS NAIP imagery from the USGS Earth Explorere website."
 authors: ['Leah Wasser']
 dateCreated: 2018-04-14
-modified: 2020-02-17
+modified: 2020-03-18
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-naip']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/intro-naip/get-naip-data-earth-explorer/

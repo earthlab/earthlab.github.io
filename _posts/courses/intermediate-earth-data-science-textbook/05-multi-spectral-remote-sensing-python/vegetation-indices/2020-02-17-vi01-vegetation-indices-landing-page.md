@@ -4,7 +4,7 @@ title: "Calculate Vegetation Indices in Python"
 excerpt: "A vegetation index is a single value that quantifies vegetation health or structure. Learn how to calculate the NDVI and NBR vegetation indices to study vegetation health and wildfire impacts in Python."
 authors: ['Leah Wasser', 'Chris Holdgraf']
 dateCreated: 2018-04-14
-modified: 2020-03-16
+modified: 2020-03-18
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-veg-indices']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/vegetation-indices-in-python/

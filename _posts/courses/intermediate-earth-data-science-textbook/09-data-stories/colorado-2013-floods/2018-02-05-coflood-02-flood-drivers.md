@@ -3,7 +3,7 @@ layout: single
 title: 'How the Atmosphere Drives Floods: The 2013 Colorado Floods'
 excerpt: "Changes in the atmosphere, including how quickly a storm moves can impact the severity of a flood. Learn more about how atmospheric conditions impact flood events."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2020-03-16
+modified: 2020-03-18
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'
