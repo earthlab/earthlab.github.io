@@ -7,14 +7,10 @@ dateCreated: 2020-03-01
 modified: 2020-03-18
 category: [courses]
 class-lesson: ['hdf4']
-permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/intro-to-hdf4/
-nav-title: 'Intro to HDF4'
-module-title: 'Introduction to the HDF4 File Format in Python'
-module-description: 'MODIS is a remote sensing data type that is stored in the HDF4 file formal. Learn how to open and manipulate data stored in the HDF4 file format using open source python.'
-module-nav-title: 'hdf4'
+permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/open-MODIS-hdf4-files-python/
+nav-title: 'Open HDF4'
 module-type: 'class'
 chapter: 12
-class-order: 1
 week: 6
 course: "intermediate-earth-data-science-textbook"
 sidebar:
