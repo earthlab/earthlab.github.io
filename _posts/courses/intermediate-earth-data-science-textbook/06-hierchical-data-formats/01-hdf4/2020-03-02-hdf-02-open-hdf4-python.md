@@ -94,9 +94,6 @@ reflectance data stored within the h4 file.
 
 To begin, create a path to your hdf file.
 
-NOTE: We are in the process of updating earthpy to download that data into a 
-more appropriately named directory.
-
 {:.input}
 ```python
 # Create a path to the pre-fire MODIS h4 data
