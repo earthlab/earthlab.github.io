@@ -1,9 +1,9 @@
 ---
 layout: single
-title: 'Introduction to the JSON data structure'
-excerpt: 'This lesson covers the JSON data structure. JSON is a powerful text based format that supports hierarchical data structures. It is the core structure used to create GeoJSON which is a spatial version of JSON that can be used to create maps. JSON is preferred for use over CSV files for data structures, as it has been proven to be more efficient - particulary as data size becomes large.'
+title: 'Introduction to JSON Data in Python'
+excerpt: 'JSON is a powerful text based data format that contains hierarchical data. JSON and GeoJSON (a spatial) format are commonly used as return format when accessing automatically data using API's. Learn about the basic characteristics of JSON and GeoJSON data.'
 authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey']
-modified: 2020-03-23
+modified: 2020-03-24
 category: [courses]
 class-lesson: ['intro-APIs-python']
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/intro-to-JSON/

@@ -4,7 +4,7 @@ category: courses
 title: "Introduction to API Data Access in Open Source Python"
 permalink: /courses/use-data-open-source-python/hierarchical-data-formats-hdf/
 week-landing: 7
-modified: 2020-03-23
+modified: 2020-03-24
 week: 7
 sidebar:
   nav:
@@ -29,7 +29,10 @@ processing skills through working with twitter data - grabbed from the Twitter A
 
 After completing this section of the textbook, you will be able to:
 
-* FILL THIS OUT
+* Explain what the JSON and GeoJSON data formats are
+* Access data programatically using Python
+* Use the Twitter API to access twitter data
+* Apply basic natural langauge processing techniques to twitter data
 
 </div>
 
