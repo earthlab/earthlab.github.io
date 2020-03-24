@@ -1,7 +1,7 @@
 ---
 layout: single
 title: 'Introduction to JSON Data in Python'
-excerpt: 'JSON is a powerful text based data format that contains hierarchical data. JSON and GeoJSON (a spatial) format are commonly used as return format when accessing automatically data using API's. Learn about the basic characteristics of JSON and GeoJSON data.'
+excerpt: 'JSON is a powerful text based data format that contains hierarchical data. JSON and GeoJSON are common data formats that are returned when accessing automatically data using an API. Learn about the basic characteristics of JSON and GeoJSON data.'
 authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey']
 modified: 2020-03-24
 category: [courses]
