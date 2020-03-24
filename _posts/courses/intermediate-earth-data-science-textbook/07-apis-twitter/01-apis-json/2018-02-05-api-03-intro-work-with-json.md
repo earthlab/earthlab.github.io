@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey', 'Jenny Palomino']
 modified: 2020-03-24
 category: [courses]
 class-lesson: ['intro-APIs-python']
-permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/work-with-JSON-intro/
+/courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/work-with-JSON-intro/
 nav-title: 'JSON Data in Python'
 week: 7
 sidebar:

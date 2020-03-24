@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey']
 modified: 2020-03-24
 category: [courses]
 class-lesson: ['intro-APIs-python']
-permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/intro-to-JSON/
+/courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/intro-to-JSON/
 nav-title: 'Intro to JSON'
 week: 7
 sidebar:
