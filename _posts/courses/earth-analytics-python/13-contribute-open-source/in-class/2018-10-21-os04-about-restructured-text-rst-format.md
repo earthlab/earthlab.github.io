@@ -3,7 +3,7 @@ layout: single
 title: "About the ReStructured Text Format - Introduction to .rst"
 excerpt: "Restructured text (RST) is a text format similar to markdown that is often used to document python software. Learn how create headings, lists and code blocks in a text file using RST syntax."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe']
-modified: 2020-03-04
+modified: 2020-03-24
 category: [courses]
 class-lesson: ['open-source-software-python']
 permalink: /courses/earth-analytics-python/contribute-to-open-source/restructured-text-format-rst/

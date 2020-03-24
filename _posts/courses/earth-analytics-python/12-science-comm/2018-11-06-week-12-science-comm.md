@@ -3,9 +3,9 @@ layout: single
 category: courses
 title: "MidTerm Review - Science Communication"
 permalink: /courses/earth-analytics-python/communicate-your-science/
-modified: 2020-02-01
-week-landing: 11
-week: 11
+modified: 2020-03-24
+week-landing: 12
+week: 12
 sidebar:
   nav:
 comments: false
@@ -32,6 +32,6 @@ View Slideshow: Present your science</a>
 
 ## Homework for this Week
 
-Get ready for your midterm presentation next week! And also don't forget to continue to work on your automation assignment.
+Continue working on your final project for this course!
 
 

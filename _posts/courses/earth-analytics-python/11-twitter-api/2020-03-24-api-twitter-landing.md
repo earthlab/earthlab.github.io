@@ -3,9 +3,9 @@ layout: single
 category: courses
 title: "Programmatic Data Access"
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/
-modified: 2020-03-13
-week-landing: 13
-week: 13
+modified: 2020-03-24
+week-landing: 11
+week: 11
 sidebar:
   nav:
 comments: false
@@ -32,14 +32,4 @@ Save the data in your `earth-analytics/data/week_12` directory.
 -->
 </div>
 
-|  Time | Topic   | Speaker   |
-|---|---|---|---|---|
-| 1:00 - 2:45  | Twitter API interactive demo|   |
-|===
-| 3:00 - 3:50  | Homework / Final Project work time   |   |
 
-#### Final Presentation Notes:
-
-Please note that we will have final presentations on the last day of class. Similar
-to the midterms, you will be required to evaluate your colleagues! Please plan
-on attending class for all of the final presentations on the last day of class - even if you are remote.
