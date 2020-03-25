@@ -44,6 +44,7 @@ After completing this chapter, you will be able to:
 
 * Use `glob()` to create a subsetted list of file names within a specified directory on your computer.
 * Create a raster stack from a list of `.tif` files in **Python**.
+* Crop rasters to a desired extent in **Python**.
 * Plot various band combinations using a numpy array in **Python**.
 
 ## <i class="fa fa-check-square-o fa-2" aria-hidden="true"></i> What You Need
@@ -149,11 +150,7 @@ The second part of the file name above tells you more about when the data were l
 
 <a href="https://www.usgs.gov/faqs/what-naming-convention-landsat-collections-level-1-scenes?qt-news_science_products=0#qt-news_science_products" target="_blank">Learn more about Landsat 8 file naming conventions.</a>
 
-As you work wtih these data, it is good to double check that you are working with the sensor (Landsat 8) and the time period that you intend. Having this information in the file name makes it easier to keep track of this as you process your data. 
-
-## Open Landsat .tif Files in Python
-
-Now that you understand the Landsat 8 Collection file naming conventions, you will bring the data into Python. To begin, load your libraries and set up your working directory.
+As you work with these data, it is good to double check that you are working with the sensor (Landsat 8) and the time period that you intend. Having this information in the file name makes it easier to keep track of this as you process your data. 
 
 {:.input}
 ```python
@@ -171,6 +168,12 @@ import earthpy.plot as ep
 data = et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
+
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/10960109
+    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
+
+
 
 {:.input}
 ```python
