@@ -4,7 +4,7 @@ title: "Layer a raster dataset over a hillshade in Python to create a beautiful 
 excerpt: "A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. Learn how to overlay raster data on top of a hillshade in Python."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-03
+modified: 2020-03-26
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/overlay-raster-maps/
@@ -67,6 +67,12 @@ data = et.data.get_data('colorado-flood')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
+
 {:.input}
 ```python
 # Open raster DTM data
@@ -96,7 +102,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 ep.plot_bands(lidar_dem_im, ax=ax, cmap='viridis_r',
               title="Lidar Digital Elevation Model (DEM)\n overlayed on top of a hillshade")
 
-ax.imshow(lidar_dem_hill, cmap='Greys', alpha=.5)
+ep.plot_bands(lidar_dem_hill, cmap='Greys', alpha=.5, ax=ax, cbar=False)
 ax.set_axis_off()
 
 plt.show()
