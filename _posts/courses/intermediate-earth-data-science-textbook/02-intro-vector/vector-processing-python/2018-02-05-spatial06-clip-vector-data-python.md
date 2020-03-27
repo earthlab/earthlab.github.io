@@ -4,7 +4,7 @@ title: "Clip a spatial vector layer in Python using Shapely & GeoPandas: GIS in 
 excerpt: "Sometimes you may want to spatially clip a vector data layer to a specified boundary for easier plotting and analysis of smaller spatial areas. Learn how to clip a vector data layer in Python using GeoPandas and Shapely."
 authors: ['Leah Wasser', 'Martha Morrissey']
 dateCreated: 2018-02-05
-modified: 2020-03-06
+modified: 2020-03-27
 category: [courses]
 class-lesson: ['vector-processing-python']
 permalink: /courses/use-data-open-source-python/intro-vector-data-python/vector-data-processing/clip-vector-data-in-python-geopandas-shapely/
@@ -77,7 +77,6 @@ import geopandas as gpd
 # Load the box module from shapely to create box objects
 from shapely.geometry import box
 import earthpy as et
-from earthpy import clip as cl
 import seaborn as sns
 
 # Ignore warning about missing/empty geometries
@@ -125,9 +124,9 @@ print("pop_places", pop_places.crs)
 ```
 
 {:.output}
-    country_boundary_us {'init': 'epsg:4326'}
-    state_boundary_us {'init': 'epsg:4326'}
-    pop_places {'init': 'epsg:4326'}
+    country_boundary_us epsg:4326
+    state_boundary_us epsg:4326
+    pop_places epsg:4326
 
 
 
@@ -174,25 +173,9 @@ To remove the points that are outside of your study area, you can clip the data.
     </figcaption>
 </figure>
 
-One way to clip a points layer is to:
+To clip points, lines, and polygons, GeoPandas has a function named `clip()` that will clip all types of geometries. This operation used to be much more difficult, involving creating bounding boxes and shapely objects, while using the GeoPandas `intersection()` function to clip the data. However, to simplify the process EarthPy developed a `clip_shp()` function that would do all of these things automatically. The function was than picked up by GeoPandas and is now a part of their package! Just a small example of how awesome working with open source code can be.
 
-1. Create a mask where every point that overlaps the polygon that you wish to clip to is set to true
-2. Apply that mask to filter the geopandas dataframe.
-
-To clip the data you first create a unified polygon object that represents the total area covered by your clip layer. If your study area contains only one polygon you can use `boundary.geometry[0]` to select the first (and only) polygon n the layer. You can also use `.unary_union` if you have many polygons in your clip boundary. `unary.union` will combine all of the polygons in your boundary layer into on vector object to use for clipping. Next you can use the `.intersects()` method to select just the points within the `pop_places` object that fall within the geometry in the `poly` object. 
-
-The `.intersects()` method returns a boolean mask. Every point that is within the poly object is set to `True`. Points that do not fall within the boundary are set to `False`. Finally, you subset the `pop_places` object
-
-`pop_places[pop_places.geometry.intersects(poly)]`
-
-What will be returned are just the points that fall within the polygon region.  
-
-
-The process for clipping points, lines and polygons is different. However, to streamline things, for this class, your instructor has created a `clip_shp()` function that you imported above as a module to use in this lesson.
-
-`import clip_data`
-
-If you wanted to clip data using geopandas you use the `.intersection()` method as follows:
+If you wanted to clip data using GeoPandas without `clip()` you could use the `.intersection()` method as follows:
 
 ```python
 # "clip" a points layer to the boundary of a polygon
@@ -200,18 +183,19 @@ poly = country_boundary_us.geometry.unary_union
 points_clip = pop_places[pop_places.geometry.intersects(poly)]
 ```
 
-However if you use the `clip_shp()` shape function, it will take care of all of these steps for you.
-Clip shape takes two arguments:
+However now you can just use the `clip()` function and it will take care of all of these steps for you!
+Clip takes three arguments:
 
-* shp: the vector layer (point, line or polygon) that you wish to clip and
-* clip_obj: the polygon that you wish to use to clip your data
+* gdf: Vector layer (point, line, polygon) to be clipped to mask.
+* mask: Polygon vector layer used to clip `gdf`. The mask's geometry is dissolved into one geometric feature and intersected with `gdf`.
+* keep_geom_type: If True, return only geometries of original type in case of intersection resulting in multiple geometry types or GeometryCollections. If False, return all resulting geometries (potentially mixed-types). Default value is False (You don't need to worry about this argument for this assignment)
 
-`clip_shp()` will clip the data to the boundary of the polygon layer that you select. If there are multiple polygons in your clip_obj object, `clip_shp()` will clip the data to the total boundary of all polygons in the layer.
+`clip()` will clip the data to the boundary of the polygon layer that you select. If there are multiple polygons in your clip_obj object, `clip()` will clip the data to the total boundary of all polygons in the layer.
 
 {:.input}
 ```python
-# Clip the data using the clip_data module
-points_clip = cl.clip_shp(pop_places, country_boundary_us)
+# Clip the data using GeoPandas clip
+points_clip = gpd.clip(pop_places, country_boundary_us)
 
 # View the first 6 rows and a few select columns
 points_clip[['name', 'geometry', 'scalerank', 'natscale', ]].head()
@@ -361,7 +345,7 @@ if (ne_roads.crs == country_boundary_us.crs):
 ```
 
 {:.output}
-    Both layers are in the same crs! {'init': 'epsg:4326'} {'init': 'epsg:4326'}
+    Both layers are in the same crs! epsg:4326 epsg:4326
 
 
 
@@ -391,12 +375,12 @@ country_boundary_us_sim = country_boundary_us.simplify(
     .2, preserve_topology=True)
 ```
 
-Clip and plot the data. Be patient. It may take up to a minute to clip the data. 
+Clip and plot the data.
 
 {:.input}
 ```python
 # Clip data
-ne_roads_clip = cl.clip_shp(ne_roads, country_boundary_us_sim)
+ne_roads_clip = gpd.clip(ne_roads, country_boundary_us_sim)
 
 # Ignore missing/empty geometries
 ne_roads_clip = ne_roads_clip[~ne_roads_clip.is_empty]
@@ -475,9 +459,10 @@ plt.show()
 
 
 <div class="notice" markdown="1">
-<i class="fa fa-star"></i>**How Clip_shp() works:** 
+<i class="fa fa-star"></i>**How Clip() works:** 
 
-Here are the steps involved with clipping data in geopandas - these steps are completed when you use the `clip_shp()` function which is provided to you as a `.py` script that you can import into this lesson as a module. They are simply described below just in case you ever need to clip data in python and that function doesn't work for you.
+Here are the steps involved with clipping data in geopandas - these steps are completed when you use the `clip()` function from GeoPandas. This is an oversimplification! If you want to see the actual code, you can look at the code <a href="https://github.com/geopandas/geopandas/blob/master/geopandas/tools/clip.py">here</a> to see what is happening under the hood. If you look at the code, you'll notice that points, line, and polygons all have to be handled differently for the clip function to work, which is part of the reason that `clip()` is so convenient! 
+
 
 1. Subset the roads data using a spatial index.
 1. Clip the geometry using `.intersection()`
