@@ -3,13 +3,16 @@ layout: single
 category: courses
 title: "Get Started With GIS in Open Source Python - Geopandas, Rasterio & Matplotlib"
 excerpt: 'There are a suite of powerful open source python libraries that can be used to work with spatial data. Learn how to use geopandas, rasterio and matplotlib to plot and manipulate spatial data in Python.'
-modified: 2019-09-04
+authors: ['Leah Wasser', 'Jenny Palomino', 'Chris Holdgraf', 'Martha Morrissey', 'Joe McGlinchy']
+modified: 2020-03-30
 nav-title: "Spatial Data Workshop Overview"
 permalink: /workshops/gis-open-source-python/
 module: "spatial-data-open-source-python"
 module-type: 'workshop'
 module-title: "Get Started With GIS in Open Source Python Tools"
 module-description: 'There are a suite of powerful open source python libraries that can be used to work with spatial data. Learn how to use geopandas, rasterio and matplotlib to plot and manipulate spatial data in Python.'
+estimated-time: "3+ hours"
+difficulty: "intermediate"
 sidebar:
   nav:
 comments: false

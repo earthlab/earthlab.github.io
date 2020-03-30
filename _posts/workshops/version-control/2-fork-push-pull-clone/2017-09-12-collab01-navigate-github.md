@@ -1,13 +1,15 @@
 ---
 layout: single # the template to use to build the page
-authors: ['Leah Wasser', 'Max Joseph', 'NEON Data Skills'] # add one or more authors as a list
+authors: ['Leah Wasser', 'Max Joseph', 'NEON Data Skills', 'Software Carpentry'] # add one or more authors as a list
 category: courses # the category of choice - for now courses
 title: 'How to find and navigate a repo on the GitHub website'
 attribution: ''
 excerpt: 'Learn how to find a repo on the GitHub website using the search. Also get to know the GitHub repo interface. '
 dateCreated: 2017-09-12
-modified: '2019-09-03'
+modified: '2020-03-30'
 nav-title: 'Navigate GitHub repos'
+estimated-time: "3+ hours"
+difficulty: "beginner"
 sidebar:
   nav:
 module: "intro-version-control-git"
