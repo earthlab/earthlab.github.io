@@ -4,8 +4,8 @@ title: "Introduction to Lidar Raster Data Products"
 excerpt: "This lesson introduces the raster geotiff file format - which is often used
 to store lidar raster data. You learn the 3 key spatial attributes of a raster dataset
 including Coordinate reference system, spatial extent and resolution."
-authors: ['Leah Wasser']
-modified: '2020-03-13'
+authors: ['Leah Wasser', 'NEON Data Skills']
+modified: '2020-03-30'
 category: [courses]
 class-lesson: ['intro-lidar-raster-r']
 permalink: /courses/earth-analytics/lidar-raster-data-r/open-lidar-raster-r/
@@ -18,6 +18,8 @@ module-nav-title: 'Lidar Raster Data in R'
 module-type: 'class'
 week: 3
 course: "earth-analytics"
+estimated-time: "2-3 hours"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false
@@ -164,16 +166,12 @@ method. You can assign this string to an `R` object too.
 ```r
 # view resolution units
 crs(lidar_dem)
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## CRS arguments: NA
 
 # assign crs to an object (class) to use for reprojection and other tasks
 myCRS <- crs(lidar_dem)
 myCRS
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## CRS arguments: NA
 ```
 
 The `CRS` string for our `lidar_dem` object tells us that your data are in the UTM
@@ -293,9 +291,7 @@ string.
 ```r
 # view coordinate reference system
 crs(lidar_dem)
-## CRS arguments:
-##  +proj=utm +zone=13 +datum=WGS84 +units=m +no_defs +ellps=WGS84
-## +towgs84=0,0,0
+## CRS arguments: NA
 ```
 
 Notice this string contains an element called **units=m**. This means the units

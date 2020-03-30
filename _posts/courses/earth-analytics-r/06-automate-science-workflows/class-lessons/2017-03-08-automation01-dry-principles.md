@@ -2,8 +2,8 @@
 layout: single
 title: "Write Efficient Scientific Code - the DRY (Don't Repeat Yourself) Principle "
 excerpt: "This lesson will cover the basic principles of using functions and why they are important."
-authors: ['Max Joseph', 'Leah Wasser', 'Software Carpentry', 'Reproducible Science Curriculum Community']
-modified: '2019-09-03'
+authors: ['Max Joseph', 'Leah Wasser', 'Software Carpentry', 'Reproducible Science Curriculum Community', 'Bryce Mecum']
+modified: '2020-03-30'
 category: [courses]
 class-lesson: ['automating-your-science-r']
 permalink: /courses/earth-analytics/automate-science-workflows/write-efficient-code-for-science-r/
@@ -14,6 +14,8 @@ module-nav-title: 'Efficient Programming Using Functions'
 module-type: 'class'
 course: "earth-analytics"
 week: 6
+estimated-time: "2-3 hours"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false

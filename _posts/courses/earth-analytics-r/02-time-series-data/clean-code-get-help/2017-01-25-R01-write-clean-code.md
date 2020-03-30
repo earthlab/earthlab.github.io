@@ -8,7 +8,7 @@ class-lesson: ['write-clean-code']
 permalink: /courses/earth-analytics/time-series-data/write-clean-code-with-r/
 nav-title: 'Write Clean Code'
 dateCreated: 2016-12-13
-modified: '2019-09-03'
+modified: '2020-03-30'
 module-title: 'Clean Code & Getting Help'
 module-nav-title: 'Clean Code & Getting Help with R'
 module-description: 'This module covers how to write easier to read, clean code.
@@ -16,6 +16,8 @@ Further is covers some basic approaches to getting help when working in R. Final
 it reviews how to install QGIS - a free and open source GIS tool - on your computer.'
 module-type: 'homework'
 week: 2
+estimated-time: "1 hour"
+difficulty: "intermediate"
 sidebar:
   nav:
 author_profile: false
