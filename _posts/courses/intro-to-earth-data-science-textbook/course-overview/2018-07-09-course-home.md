@@ -2,14 +2,17 @@
 layout: single
 category: courses
 title: "Introduction to Earth Data Science | Earth Lab CU Boulder"
+authors: ['Leah Wasser', 'Jenny Palomino']
 nav-title: "Intro to Earth Data Science Home"
 permalink: /courses/intro-to-earth-data-science/
 course: "intro-to-earth-data-science-textbook"
-modified: 2020-03-13
+modified: 2020-03-30
 module-type: 'overview'
 module-title: "Intro to Earth Data Science Textbook"
 week-landing: 0
 week: 0
+estimated-time: "12 weeks"
+difficulty: "beginner"
 sidebar:
   nav:
 comments: false
