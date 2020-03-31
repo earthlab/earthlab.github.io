@@ -34,6 +34,14 @@ After completing this section of the textbook, you will be able to:
 * Use the Twitter API to access twitter data
 * Apply basic natural langauge processing techniques to twitter data
 
+## Materials to Review For This Week
+
+This week we will be reviewing API data access and using social media data for science.
+The chapters below cover these topics. 
+
+* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/">Clean Landsat Data - Apply Cloud Masks  in Python</a>
+* <a href="{{ site.url }}/courses/use-data-open-source-python/use-apis-natural-language-processing-twitter/intro-to-programmatic-data-access-python/">Natural Language Processing and Twitter Data</a>. 
+
 </div>
 
 {% include textbook-section-toc.html %}
