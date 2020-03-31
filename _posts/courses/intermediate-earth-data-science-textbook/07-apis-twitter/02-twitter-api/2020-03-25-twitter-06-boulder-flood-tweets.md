@@ -450,7 +450,7 @@ tweets_nsw_nc[2]
 
 {:.output}
     [nltk_data] Downloading package stopwords to /root/nltk_data...
-    [nltk_data]   Package stopwords is already up-to-date!
+    [nltk_data]   Unzipping corpora/stopwords.zip.
 
 
 
@@ -682,9 +682,9 @@ for k, v in d[0].items():
 
 {:.input}
 ```python
-fig, ax = plt.subplots(figsize=(10, 8))
-pos = nx.spring_layout(G, k=1)
+fig, ax = plt.subplots(figsize=(12, 8))
 
+pos = nx.spring_layout(G, k=5.5)
 # Plot networks
 nx.draw_networkx(G, pos,
                  font_size=16,
@@ -696,7 +696,7 @@ nx.draw_networkx(G, pos,
 
 # Create offset labels
 for key, value in pos.items():
-    x, y = value[0]+.135, value[1]+.047
+    x, y = value[0]+.135, value[1]+.05
     ax.text(x, y,
             s=key,
             bbox=dict(facecolor='red', alpha=0.25),
