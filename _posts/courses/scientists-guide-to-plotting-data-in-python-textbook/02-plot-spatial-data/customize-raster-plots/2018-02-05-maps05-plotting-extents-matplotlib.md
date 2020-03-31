@@ -62,7 +62,7 @@ import earthpy.plot as ep
 et.data.get_data('cold-springs-fire')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 
-# Set figure size and title size of plots 
+# Set figure size and title size of plots
 mpl.rcParams['figure.figsize'] = (14, 14)
 mpl.rcParams['axes.titlesize'] = 20
 ```
@@ -148,12 +148,12 @@ naip_path = os.path.join("data",
 # Open NAIP data in read ('r') mode
 with rio.open(naip_path) as naip_src:
     naip_data = naip_src.read()
-    
+
     # Project fire boundary to match NAIP data
     fire_bound_utmz13 = fire_boundary.to_crs(naip_src.crs)
-    
+
     # Get plotting extent from DatasetReader object
-    naip_plot_extent = plotting_extent(naip_src)   
+    naip_plot_extent = plotting_extent(naip_src)
 ```
 
 ### Order of Coordinates for Plotting Extent
@@ -299,7 +299,7 @@ f, ax = plt.subplots()
 ep.plot_rgb(naip_data,
             rgb=[0, 1, 2],
             ax=ax,
-            extent=naip_plot_extent) # Use plotting extent from DatasetReader object
+            extent=naip_plot_extent)  # Use plotting extent from DatasetReader object
 
 fire_bound_utmz13.plot(ax=ax)
 
@@ -311,7 +311,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_22_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_22_0.png" alt = "Map of the un cropped NAIP RGB imagery overlayed with the Cold Springs Fire vector layer.">
+<figcaption>Map of the un cropped NAIP RGB imagery overlayed with the Cold Springs Fire vector layer.</figcaption>
 
 </figure>
 
@@ -324,9 +325,9 @@ plt.show()
 f, ax = plt.subplots()
 
 ep.plot_rgb(naip_data_crop,
-            rgb=[0, 1, 2],         
+            rgb=[0, 1, 2],
             ax=ax,
-            extent=naip_crop_plot_extent) # Use plotting extent from cropped array
+            extent=naip_crop_plot_extent)  # Use plotting extent from cropped array
 
 fire_bound_utmz13.plot(ax=ax)
 
@@ -338,7 +339,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_23_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_23_0.png" alt = "Map of the cropped NAIP RGB imagery overlayed with the Cold Springs Fire vector layer.">
+<figcaption>Map of the cropped NAIP RGB imagery overlayed with the Cold Springs Fire vector layer.</figcaption>
 
 </figure>
 
@@ -368,7 +370,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_25_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_25_0.png" alt = "Map of the NAIP RGB imagery of the Cold Springs fire area without the fire overlayed.">
+<figcaption>Map of the NAIP RGB imagery of the Cold Springs fire area without the fire overlayed.</figcaption>
 
 </figure>
 
@@ -390,7 +393,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_26_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_26_0.png" alt = "Map of the Cold Springs fire area without imagery underneath.">
+<figcaption>Map of the Cold Springs fire area without imagery underneath.</figcaption>
 
 </figure>
 
@@ -418,7 +422,8 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_28_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_28_0.png" alt = "Map of the NAIP RGB imagery of the Cold Springs fire area with the fire overlayed without settting the plotting extent. No data is visible, it's just a long white box.">
+<figcaption>Map of the NAIP RGB imagery of the Cold Springs fire area with the fire overlayed without settting the plotting extent. No data is visible, it's just a long white box.</figcaption>
 
 </figure>
 
@@ -427,5 +432,90 @@ plt.show()
 
 ### Use the Appropriate Plotting Extent for Data
 
-Another important aspect of plotting extents to consider is that each raster dataset should have its own plotting extent defined. 
+Another important aspect of plotting extents to consider is that each raster dataset should have its own plotting extent defined. Even if the area the plot covers is similar, if you use the wrong extent it can produce a less than ideal plot. 
+
+To demonstrate this, try to plot MODIS data using the NAIP extent that's been cropped to the same area as the MODIS data, and see how the plot comes out. As the two satellites use differnet CRS's, the data should be plotted in an illegible way. 
+
+{:.input}
+```python
+# Open up and crop the MODIS data like you did with the NAIP data
+
+modis_path = os.path.join('data', 'cold-springs-fire', 'modis', 'reflectance', '07_july_2016',
+             'crop', 'MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1.tif')
+
+# Open MODIS data in read ('r') mode
+with rio.open(modis_path) as modis_src:
+
+    # Project fire boundary to match MODIS data
+    fire_bound_WGS84 = fire_boundary.to_crs(modis_src.crs)
+
+    # Crop raster data to fire boundary
+    modis_data_crop, modis_meta_crop = es.crop_image(
+        modis_src, fire_bound_WGS84)
+
+# Define plotting extent using cropped array and transform from metadata
+modis_crop_plot_extent = plotting_extent(
+    modis_data_crop[0], modis_meta_crop["transform"])
+```
+
+{:.input}
+```python
+# Plot the MODIS data with the proper extent
+
+# Plot cropped data
+f, ax = plt.subplots()
+
+ep.plot_bands(modis_data_crop,
+              ax=ax,
+              extent=modis_crop_plot_extent,
+              cbar=False)
+
+fire_bound_WGS84.plot(ax=ax)
+
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_31_0.png" alt = "Map of the cropped MODIS imagery overlayed with the Cold Springs Fire vector layer.">
+<figcaption>Map of the cropped MODIS imagery overlayed with the Cold Springs Fire vector layer.</figcaption>
+
+</figure>
+
+
+
+
+{:.input}
+```python
+# Plotting MODIS with the NAIP extent
+
+# Plot cropped data
+f, ax = plt.subplots()
+
+ep.plot_bands(modis_data_crop,
+              ax=ax,
+              extent=naip_crop_plot_extent,
+              cbar=False)
+
+fire_bound_WGS84.plot(ax=ax)
+
+plt.show()
+
+# That skinny line below is the actual plot! The plotting extents are non-transferable.
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_32_0.png" alt = "Map of the cropped MODIS RGB imagery overlayed with the Cold Springs Fire vector layer. The NAIP extent is used instead of the MODIS extent, so no data is visible, only a long black line.">
+<figcaption>Map of the cropped MODIS RGB imagery overlayed with the Cold Springs Fire vector layer. The NAIP extent is used instead of the MODIS extent, so no data is visible, only a long black line.</figcaption>
+
+</figure>
+
+
 
