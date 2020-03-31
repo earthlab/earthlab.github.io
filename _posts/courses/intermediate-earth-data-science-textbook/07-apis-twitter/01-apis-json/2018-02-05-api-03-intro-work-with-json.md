@@ -3,10 +3,10 @@ layout: single
 title: 'Introduction to Working With JSON Data in Open Source Python'
 excerpt: 'This lesson introduces how to work with the JSON data structure using Python using the JSON and Pandas libraries to create and convert JSON objects. '
 authors: ['Leah Wasser', 'Max Joseph', 'Martha Morrissey', 'Jenny Palomino']
-modified: 2020-03-24
+modified: 2020-03-31
 category: [courses]
 class-lesson: ['intro-APIs-python']
-permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/work-with-JSON-intro/
+permalink: /courses/use-data-open-source-python/intro-to-apis/apis-in-python/use-JSON-in-python/
 nav-title: 'JSON Data in Python'
 week: 7
 sidebar:

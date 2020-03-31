@@ -6,7 +6,7 @@ authors: ['Leah Wasser', 'Jenny Palomino']
 modified: 2020-03-31
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/colorado-flood-twitter-data/
+permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/json-colorado-flood-twitter-data/
 nav-title: 'CO Flood Tweets JSON'
 week: 7 
 sidebar:

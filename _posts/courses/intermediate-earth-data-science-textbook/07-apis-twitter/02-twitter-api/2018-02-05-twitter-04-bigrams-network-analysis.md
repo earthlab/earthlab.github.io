@@ -6,7 +6,7 @@ authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
 modified: 2020-03-31
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-bigrams-networks-in-python/
+permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/calculate-tweet-word-bigrams/
 nav-title: 'Tweet Word Bigrams and Network Analysis'
 week: 7 
 sidebar:
@@ -246,12 +246,12 @@ bigram_counts.most_common(20)
     [(('#climate', '#change'), 32),
      (('#globalwarming', '#climatechange'), 28),
      (('#climate', 'change,'), 17),
-     (('#climate', 'change:'), 17),
-     (('#climate', 'change.'), 16),
+     (('#climate', 'change:'), 16),
+     (('#climate', 'change.'), 15),
      (('#change', '#climatechange'), 14),
      (('#gpwx', '#globalwarming'), 14),
-     (('fight', '#climate'), 11),
      (('coronavirus', 'pandemic'), 11),
+     (('fight', '#climate'), 10),
      (('roll', 'back'), 9),
      (('#climate', 'crisis'), 9),
      (('great', 'barrier'), 9),
@@ -324,12 +324,12 @@ bigram_df
     <tr>
       <th>3</th>
       <td>(#climate, change:)</td>
-      <td>17</td>
+      <td>16</td>
     </tr>
     <tr>
       <th>4</th>
       <td>(#climate, change.)</td>
-      <td>16</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>5</th>
@@ -343,13 +343,13 @@ bigram_df
     </tr>
     <tr>
       <th>7</th>
-      <td>(fight, #climate)</td>
+      <td>(coronavirus, pandemic)</td>
       <td>11</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>(coronavirus, pandemic)</td>
-      <td>11</td>
+      <td>(fight, #climate)</td>
+      <td>10</td>
     </tr>
     <tr>
       <th>9</th>

@@ -6,7 +6,7 @@ authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
 modified: 2020-03-31
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-frequencies-in-python/
+permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/calculate-tweet-word-frequencies-in-python/
 nav-title: 'Tweet Word Frequency Analysis'
 week: 7 
 sidebar:
@@ -387,21 +387,21 @@ counts_no_urls.most_common(15)
 
 
 
-    [('climate', 577),
-     ('the', 541),
-     ('change', 429),
-     ('to', 349),
-     ('and', 239),
-     ('of', 236),
-     ('a', 205),
-     ('is', 176),
-     ('in', 160),
-     ('for', 139),
-     ('we', 123),
-     ('coronavirus', 97),
-     ('on', 91),
-     ('how', 74),
-     ('covid19', 74)]
+    [('climate', 564),
+     ('the', 528),
+     ('change', 419),
+     ('to', 343),
+     ('and', 236),
+     ('of', 234),
+     ('a', 201),
+     ('is', 170),
+     ('in', 154),
+     ('for', 133),
+     ('we', 119),
+     ('coronavirus', 95),
+     ('on', 90),
+     ('how', 72),
+     ('climatechange', 71)]
 
 
 
@@ -448,27 +448,27 @@ clean_tweets_no_urls.head()
     <tr>
       <th>0</th>
       <td>climate</td>
-      <td>577</td>
+      <td>564</td>
     </tr>
     <tr>
       <th>1</th>
       <td>the</td>
-      <td>541</td>
+      <td>528</td>
     </tr>
     <tr>
       <th>2</th>
       <td>change</td>
-      <td>429</td>
+      <td>419</td>
     </tr>
     <tr>
       <th>3</th>
       <td>to</td>
-      <td>349</td>
+      <td>343</td>
     </tr>
     <tr>
       <th>4</th>
       <td>and</td>
-      <td>239</td>
+      <td>236</td>
     </tr>
   </tbody>
 </table>
@@ -566,7 +566,16 @@ list(stop_words)[0:10]
 
 
 
-    ['only', 'you', 'so', 's', 'over', 'until', 'd', 'once', 'we', 'further']
+    ['each',
+     "aren't",
+     'once',
+     "hasn't",
+     'don',
+     'didn',
+     'can',
+     'what',
+     'shan',
+     'now']
 
 
 
@@ -660,21 +669,21 @@ counts_nsw.most_common(15)
 
 
 
-    [('climate', 577),
-     ('change', 429),
-     ('coronavirus', 97),
-     ('covid19', 74),
-     ('climatechange', 73),
-     ('amp', 49),
-     ('new', 49),
+    [('climate', 564),
+     ('change', 419),
+     ('coronavirus', 95),
+     ('climatechange', 71),
+     ('covid19', 69),
+     ('amp', 48),
+     ('new', 48),
      ('us', 44),
-     ('crisis', 42),
-     ('pandemic', 38),
+     ('crisis', 41),
      ('global', 36),
+     ('pandemic', 35),
      ('science', 34),
      ('world', 32),
-     ('fight', 30),
-     ('globalwarming', 30)]
+     ('globalwarming', 30),
+     ('fight', 29)]
 
 
 
@@ -805,21 +814,21 @@ counts_nsw_nc.most_common(15)
 
 
 
-    [('coronavirus', 97),
-     ('covid19', 74),
-     ('amp', 49),
-     ('new', 49),
+    [('coronavirus', 95),
+     ('covid19', 69),
+     ('amp', 48),
+     ('new', 48),
      ('us', 44),
-     ('crisis', 42),
-     ('pandemic', 38),
+     ('crisis', 41),
      ('global', 36),
+     ('pandemic', 35),
      ('science', 34),
      ('world', 32),
-     ('fight', 30),
      ('globalwarming', 30),
-     ('need', 29),
-     ('like', 28),
-     ('environment', 27)]
+     ('fight', 29),
+     ('environment', 27),
+     ('need', 27),
+     ('like', 27)]
 
 
 
@@ -837,7 +846,7 @@ len(counts_nsw_nc)
 
 
 
-    2817
+    2777
 
 
 
@@ -883,22 +892,22 @@ clean_tweets_ncw.head()
     <tr>
       <th>0</th>
       <td>coronavirus</td>
-      <td>97</td>
+      <td>95</td>
     </tr>
     <tr>
       <th>1</th>
       <td>covid19</td>
-      <td>74</td>
+      <td>69</td>
     </tr>
     <tr>
       <th>2</th>
       <td>amp</td>
-      <td>49</td>
+      <td>48</td>
     </tr>
     <tr>
       <th>3</th>
       <td>new</td>
-      <td>49</td>
+      <td>48</td>
     </tr>
     <tr>
       <th>4</th>

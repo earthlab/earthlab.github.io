@@ -6,7 +6,7 @@ authors: ['Martha Morrissey', 'Leah Wasser','Carson Farmer']
 modified: 2020-03-31
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/get-and-use-twitter-data-in-python/
+permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/twitter-data-in-python/
 nav-title: 'Get Twitter Data'
 week: 7
 sidebar:
@@ -240,11 +240,11 @@ tweets = tw.Cursor(api.search,
 
 
 
-    ['9 Environmental Crises Around the World — and What You Can Do To Help https://t.co/YwGikMuZ1F #ClimateChange… https://t.co/f6PgcOnkEg',
+    ["#WildfireSafety: Do your part to prevent #wildfires while spending time outdoors. Learn from Smokey Bear's tips for… https://t.co/tl7nnv7kp2",
+     '9 Environmental Crises Around the World — and What You Can Do To Help https://t.co/YwGikMuZ1F #ClimateChange… https://t.co/f6PgcOnkEg',
      'Anheuser-Busch + @NVFC have teamed up to provide volunteer fire departments with cans of clean drinking water to ke… https://t.co/x5PSnLMd1t',
      'Not everyone is coming to the future - Says Madonna in her Occult video #Coronavirus #wildfires #statueofliberty… https://t.co/IPJsShDQxf',
-     'After searching for ways to protect #California from #wildfires like the one that nearly engulfed her hometown, you… https://t.co/lUFmuQf0MY',
-     'The US has the tools to reduce the threat of large #wildfires during the #COVID19 pandemic and beyond. Bill Derr, f… https://t.co/AYGKj2Rwch']
+     'After searching for ways to protect #California from #wildfires like the one that nearly engulfed her hometown, you… https://t.co/lUFmuQf0MY']
 
 
 
@@ -276,11 +276,11 @@ users_locs
 
 
 
-    [['Optimizics', 'Boston, MA'],
+    [['citizens_fla', '866.411.2742'],
+     ['Optimizics', 'Boston, MA'],
      ['Provident__Ins', 'Pittsburgh, PA'],
      ['SheenaParish', ''],
-     ['California_ELI', 'California'],
-     ['DauntlessAir', 'Appleton, MN']]
+     ['California_ELI', 'California']]
 
 
 
@@ -327,28 +327,28 @@ tweet_text
   <tbody>
     <tr>
       <th>0</th>
+      <td>citizens_fla</td>
+      <td>866.411.2742</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>Optimizics</td>
       <td>Boston, MA</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>Provident__Ins</td>
       <td>Pittsburgh, PA</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>SheenaParish</td>
       <td></td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>California_ELI</td>
       <td>California</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>DauntlessAir</td>
-      <td>Appleton, MN</td>
     </tr>
   </tbody>
 </table>

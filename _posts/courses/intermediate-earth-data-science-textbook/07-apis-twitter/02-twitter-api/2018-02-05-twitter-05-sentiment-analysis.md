@@ -6,7 +6,7 @@ authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
 modified: 2020-03-31
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/analyze-tweet-sentiments-in-python/
+permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/analyze-tweet-sentiment-in-python/
 nav-title: 'Tweet Sentiment Analysis'
 week: 7 
 sidebar:
@@ -331,11 +331,11 @@ all_tweets_no_urls[:5]
 
 
 
-    [TextBlob("Camp fire and gentle sound of harp for your relaxation gtgt relaxation relaxing"),
+    [TextBlob("Love a bit of improvisation Campfire outdoorliving"),
+     TextBlob("Camp fire and gentle sound of harp for your relaxation gtgt relaxation relaxing"),
      TextBlob("Why werent any PGampE executives indicted over the CampFire Prosecutors would have had to prove that a specific"),
      TextBlob("With all this hand washing we thought wed have some extra bubbly fun this afternoon at a safe distance of cour"),
-     TextBlob("beautiful beautifulevening wood all cut fire is lit washing is drying Stay safe enjoy whats around you and I"),
-     TextBlob("CHANGE IN PLANSPGE4Me will not pay CampFire victims from 135B fund")]
+     TextBlob("beautiful beautifulevening wood all cut fire is lit washing is drying Stay safe enjoy whats around you and I")]
 
 
 
@@ -385,28 +385,28 @@ wild_sent_df.head()
   <tbody>
     <tr>
       <th>0</th>
+      <td>0.500000</td>
+      <td>Love a bit of improvisation Campfire outdoorli...</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>0.300000</td>
       <td>Camp fire and gentle sound of harp for your re...</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>3</th>
       <td>0.266667</td>
       <td>With all this hand washing we thought wed have...</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>4</th>
       <td>0.583333</td>
       <td>beautiful beautifulevening wood all cut fire i...</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>6</th>
       <td>0.100000</td>
       <td>This research was a direct response to CampFir...</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>0.416667</td>
-      <td>PGampE drops plan to pay CampFire fine from 13...</td>
     </tr>
   </tbody>
 </table>

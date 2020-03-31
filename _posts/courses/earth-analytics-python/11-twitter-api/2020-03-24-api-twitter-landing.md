@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Programmatic Data Access"
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/
-modified: 2020-03-24
+modified: 2020-03-31
 week-landing: 11
 week: 11
 sidebar:
@@ -31,5 +31,11 @@ Save the data in your `earth-analytics/data/week_12` directory.
 [<i class="fa fa-download" aria-hidden="true"></i> Download Week 12 Data (~80 MB)](https://ndownloader.figshare.com/files/9751453?private_link=92e248fddafa3af15b98){:data-proofer-ignore='' .btn }
 -->
 </div>
+
+## Materials to Review For This Week's Assignment
+
+
+* <a href="{{ site.url }}/courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/">Designing and Automating Data Workflows in Python</a>. 
+* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/">Clean Landsat Data - Apply Cloud Masks  in Python</a>
 
 
