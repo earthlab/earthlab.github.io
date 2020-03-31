@@ -28,8 +28,7 @@ Welcome to week {{ page.week }} of Earth Analytics! This week you will continue 
 ## Materials to Review For This Week's Assignment
 
 
-
+* <a href="{{ site.url }}/courses/use-data-open-source-python/use-apis-natural-language-processing-twitter/intro-to-programmatic-data-access-python/">Designing and Automating Data Workflows in Python</a>. 
 * <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/">Clean Landsat Data - Apply Cloud Masks  in Python</a>
-* <a href="{{ site.url }}/courses/use-data-open-source-python/use-apis-natural-language-processing-twitter/intro-to-programmatic-data-access-python/">Natural Language Processing and Twitter Data</a>. 
 
 
