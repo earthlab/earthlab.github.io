@@ -73,7 +73,7 @@ mpl.rcParams['axes.titlesize'] = 20
 
 
 
-## Open Vector Data for Plot
+### Open Vector Data for Plot
 
 In order to overlay the data in the same plot, you need data that overlap spatially. 
 
@@ -285,7 +285,67 @@ naip_crop_plot_extent
 
 
 
-## Importance of Plotting Extent for Plotting Vector and Raster Together
+## Plot Vector and Raster Data Overlays With Plotting Extent
+
+Using the extent objects you created, you can now plot either uncropped or cropped arrays with the fire boundary using the `extent` parameter of plot functions that rely on **matplotlib**.
+
+For example, to plot an `RGB` image, you can use `plot_rgb()`from **earthpy** (which uses **matplotlib**) and use the `extent` parameter to provide the appropriate plotting extent. 
+
+{:.input}
+```python
+# Plot uncropped array
+f, ax = plt.subplots()
+
+ep.plot_rgb(naip_data,
+            rgb=[0, 1, 2],
+            ax=ax,
+            extent=naip_plot_extent) # Use plotting extent from DatasetReader object
+
+fire_bound_utmz13.plot(ax=ax)
+
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_22_0.png">
+
+</figure>
+
+
+
+
+{:.input}
+```python
+# Plot cropped data
+f, ax = plt.subplots()
+
+ep.plot_rgb(naip_data_crop,
+            rgb=[0, 1, 2],         
+            ax=ax,
+            extent=naip_crop_plot_extent) # Use plotting extent from cropped array
+
+fire_bound_utmz13.plot(ax=ax)
+
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_23_0.png">
+
+</figure>
+
+
+
+
+## Importance of Using Appropriate Plotting Extents
 
 Below is an example of what happens if you do not define the plotting extent for a plot overlaying vector and raster data (array). 
 
@@ -308,7 +368,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_22_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_25_0.png">
 
 </figure>
 
@@ -330,7 +390,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_23_0.png">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_26_0.png">
 
 </figure>
 
@@ -358,67 +418,14 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_25_0.png">
-
-</figure>
-
-
-
-
-## Plot Vector and Raster Data Overlays With Plotting Extent
-
-Using the extent objects you created, you can now plot either uncropped or cropped arrays with the fire boundary. 
-
-{:.input}
-```python
-# Plot uncropped array
-f, ax = plt.subplots()
-
-ep.plot_rgb(naip_data,
-            rgb=[0, 1, 2],
-            ax=ax,
-            extent=naip_plot_extent)
-
-fire_bound_utmz13.plot(ax=ax)
-
-plt.show()
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_27_0.png">
-
-</figure>
-
-
-
-
-{:.input}
-```python
-# Plot cropped data
-f, ax = plt.subplots()
-
-ep.plot_rgb(naip_data_crop,
-            rgb=[0, 1, 2],         
-            ax=ax,
-            extent=naip_crop_plot_extent)
-
-fire_bound_utmz13.plot(ax=ax)
-
-plt.show()
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
 <img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_28_0.png">
 
 </figure>
 
 
+
+
+### Use the Appropriate Plotting Extent for Data
+
+Another important aspect of plotting extents to consider is that each raster dataset should have its own plotting extent defined. 
 
