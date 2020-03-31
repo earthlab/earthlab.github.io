@@ -3,7 +3,7 @@ layout: single
 title: 'Analyze Co-occurrence and Networks of Words Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to identify the co-occurrence and networks of words in Tweets. Learn how to analyze word co-occurrence (i.e. bigrams) and networks of words using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2020-03-24
+modified: 2020-03-31
 category: [courses]
 class-lesson: ['social-media-Python']
 permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-bigrams-networks-in-python/
@@ -139,7 +139,7 @@ tweets_nsw_nc = [[w for w in word if not w in collection_words]
 
 {:.output}
     [nltk_data] Downloading package stopwords to /root/nltk_data...
-    [nltk_data]   Package stopwords is already up-to-date!
+    [nltk_data]   Unzipping corpora/stopwords.zip.
 
 
 
@@ -163,18 +163,16 @@ terms_bigram[0]
 
 
 
-    [('govts', 'use'),
-     ('use', 'stimulus'),
-     ('stimulus', 'save'),
-     ('save', 'liveable'),
-     ('liveable', 'planet'),
-     ('planet', 'keep'),
-     ('keep', 'killing'),
-     ('killing', 'itcop26'),
-     ('itcop26', 'emphasis'),
-     ('emphasis', 'may'),
-     ('may', 'worlds'),
-     ('worlds', 'vast')]
+    [('covid19', 'lockdown'),
+     ('lockdown', 'saved'),
+     ('saved', 'trillions'),
+     ('trillions', 'gallon'),
+     ('gallon', 'water'),
+     ('water', 'wasted'),
+     ('wasted', 'tourism'),
+     ('tourism', 'sector'),
+     ('sector', 'water'),
+     ('water', 'crisis')]
 
 
 
@@ -193,7 +191,7 @@ tweets_no_urls[0]
 
 
 
-    'Will govts use stimulus to save a liveable planet or to keep killing itCOP26 emphasis may be how worlds vast'
+    'Covid19 Lockdown saved trillions of gallon water wasted in the Tourism sector Water crisis Climate change'
 
 
 
@@ -210,19 +208,17 @@ tweets_nsw_nc[0]
 
 
 
-    ['govts',
-     'use',
-     'stimulus',
-     'save',
-     'liveable',
-     'planet',
-     'keep',
-     'killing',
-     'itcop26',
-     'emphasis',
-     'may',
-     'worlds',
-     'vast']
+    ['covid19',
+     'lockdown',
+     'saved',
+     'trillions',
+     'gallon',
+     'water',
+     'wasted',
+     'tourism',
+     'sector',
+     'water',
+     'crisis']
 
 
 
@@ -248,26 +244,26 @@ bigram_counts.most_common(20)
 
 
 
-    [(('need', 'relief'), 83),
-     (('relief', 'asap'), 83),
-     (('asap', 'also'), 83),
-     (('also', 'cant'), 83),
-     (('cant', 'fund'), 83),
-     (('fund', 'businesses'), 83),
-     (('world', 'water'), 14),
-     (('water', 'day'), 14),
-     (('understanding', 'healthy'), 13),
-     (('healthy', 'soil'), 13),
-     (('soil', 'amp'), 13),
-     (('amp', 'steps'), 13),
-     (('steps', 'everyone'), 13),
-     (('everyone', 'take'), 13),
-     (('take', 'soil'), 13),
-     (('soil', 'healthysoil'), 13),
-     (('global', 'warming'), 12),
-     (('senfeinstein', 'senkamalaharris'), 11),
-     (('gpwx', 'globalwarming'), 10),
-     (('science', 'links'), 9)]
+    [(('coronavirus', 'pandemic'), 15),
+     (('gpwx', 'globalwarming'), 13),
+     (('global', 'warming'), 9),
+     (('great', 'barrier'), 9),
+     (('barrier', 'reef'), 9),
+     (('links', 'science'), 7),
+     (('teach', 'us'), 7),
+     (('roll', 'back'), 6),
+     (('back', 'obamaera'), 6),
+     (('antarctic', 'ice'), 6),
+     (('ice', 'sheet'), 6),
+     (('science', 'links'), 6),
+     (('investor', 'ideas'), 6),
+     (('cleantech', 'podcast'), 6),
+     (('trump', 'roll'), 5),
+     (('obamaera', 'clean'), 5),
+     (('clean', 'car'), 5),
+     (('car', 'rules'), 5),
+     (('rules', 'huge'), 5),
+     (('huge', 'blow'), 5)]
 
 
 
@@ -313,103 +309,103 @@ bigram_df
   <tbody>
     <tr>
       <th>0</th>
-      <td>(need, relief)</td>
-      <td>83</td>
+      <td>(coronavirus, pandemic)</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>(relief, asap)</td>
-      <td>83</td>
+      <td>(gpwx, globalwarming)</td>
+      <td>13</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>(asap, also)</td>
-      <td>83</td>
+      <td>(global, warming)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>(also, cant)</td>
-      <td>83</td>
+      <td>(great, barrier)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>(cant, fund)</td>
-      <td>83</td>
+      <td>(barrier, reef)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>(fund, businesses)</td>
-      <td>83</td>
+      <td>(links, science)</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>(world, water)</td>
-      <td>14</td>
+      <td>(teach, us)</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>(water, day)</td>
-      <td>14</td>
+      <td>(roll, back)</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>(understanding, healthy)</td>
-      <td>13</td>
+      <td>(back, obamaera)</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>(healthy, soil)</td>
-      <td>13</td>
+      <td>(antarctic, ice)</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>(soil, amp)</td>
-      <td>13</td>
+      <td>(ice, sheet)</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>(amp, steps)</td>
-      <td>13</td>
+      <td>(science, links)</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>(steps, everyone)</td>
-      <td>13</td>
+      <td>(investor, ideas)</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>(everyone, take)</td>
-      <td>13</td>
+      <td>(cleantech, podcast)</td>
+      <td>6</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>(take, soil)</td>
-      <td>13</td>
+      <td>(trump, roll)</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>(soil, healthysoil)</td>
-      <td>13</td>
+      <td>(obamaera, clean)</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>(global, warming)</td>
-      <td>12</td>
+      <td>(clean, car)</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>(senfeinstein, senkamalaharris)</td>
-      <td>11</td>
+      <td>(car, rules)</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>(gpwx, globalwarming)</td>
-      <td>10</td>
+      <td>(rules, huge)</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>(science, links)</td>
-      <td>9</td>
+      <td>(huge, blow)</td>
+      <td>5</td>
     </tr>
   </tbody>
 </table>
