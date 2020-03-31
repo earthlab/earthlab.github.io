@@ -5,7 +5,7 @@ excerpt: "You can access twitter social media data using the twitter API automat
 authors: ['Leah Wasser', 'Martha Morrissey']
 modified: 2020-03-31
 category: [courses]
-class-lesson: ['social-media-Python']
+class-lesson: ['social-media-python']
 permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/intro-to-social-media-text-mining-python/
 nav-title: "Twitter Data for Science"
 module-title: "Introduction to using Twitter Social media data in Python"

@@ -3,9 +3,9 @@ layout: single
 title: 'Analyze The Sentiment of Tweets From Twitter Data and Tweepy in Python'
 excerpt: 'One way to analyze Twitter data is to analyze attitudes (or sentiment) in the tweet text. Learn how to analyze sentiments in Twitter data using open source Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2020-03-24
+modified: 2020-03-31
 category: [courses]
-class-lesson: ['social-media-Python']
+class-lesson: ['social-media-python']
 permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/analyze-tweet-sentiments-in-python/
 nav-title: 'Tweet Sentiment Analysis'
 week: 7 
@@ -144,7 +144,7 @@ sentiment_objects[0].polarity, sentiment_objects[0]
 
 
     (0.0,
-     TextBlob("Todays episode of the Reversing Climate Change podcast features SophiaRokhlin discussing her book When Plants D"))
+     TextBlob("Coronavirus and the Massive Climate Change FSClub Coronavirus climate impact emissions global economy"))
 
 
 
@@ -166,7 +166,7 @@ sentiment_values[0]
 
 
     [0.0,
-     'Todays episode of the Reversing Climate Change podcast features SophiaRokhlin discussing her book When Plants D']
+     'Coronavirus and the Massive Climate Change FSClub Coronavirus climate impact emissions global economy']
 
 
 
@@ -210,28 +210,28 @@ sentiment_df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.00</td>
-      <td>Todays episode of the Reversing Climate Change...</td>
+      <td>0.000000</td>
+      <td>Coronavirus and the Massive Climate Change FSC...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>-0.05</td>
-      <td>The signs of a changing climate are harder to ...</td>
+      <td>0.000000</td>
+      <td>US to announce rollback of auto pollution rule...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0.10</td>
-      <td>As COVID19 brings fast societal shift and big ...</td>
+      <td>-0.239583</td>
+      <td>How hard can it be to teach reading If you thi...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.50</td>
-      <td>The Sahel region is an area of the world parti...</td>
+      <td>0.000000</td>
+      <td>Climate Change Requires Human Change By Proxy ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>0.00</td>
-      <td>The Coronavirus Pandemic Shows Us The Importan...</td>
+      <td>0.000000</td>
+      <td>Help animals environment adoptdontshop animalc...</td>
     </tr>
   </tbody>
 </table>
@@ -331,11 +331,11 @@ all_tweets_no_urls[:5]
 
 
 
-    [TextBlob("morningmoneyben This old majestic oak tree on TableMountain survived the CampFire which burned down the town of"),
-     TextBlob("So it wasnt for a lack of forest raking CampFire"),
-     TextBlob("Pacific Gas amp Electric said Monday it will plead guilty to 84 counts of involuntarymanslaughter in connection wit"),
-     TextBlob("ICYMI PGampE to plead guilty to 84 counts of involuntary manslaughter and one count of unlawfully starting the 2018"),
-     TextBlob("Good morning campers Lets have some fun today Have yall been involved in the neighborhood window scavenger hun")]
+    [TextBlob("Camp fire and gentle sound of harp for your relaxation gtgt relaxation relaxing"),
+     TextBlob("Why werent any PGampE executives indicted over the CampFire Prosecutors would have had to prove that a specific"),
+     TextBlob("With all this hand washing we thought wed have some extra bubbly fun this afternoon at a safe distance of cour"),
+     TextBlob("beautiful beautifulevening wood all cut fire is lit washing is drying Stay safe enjoy whats around you and I"),
+     TextBlob("CHANGE IN PLANSPGE4Me will not pay CampFire victims from 135B fund")]
 
 
 
@@ -385,28 +385,28 @@ wild_sent_df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>-0.027778</td>
-      <td>morningmoneyben This old majestic oak tree on ...</td>
+      <td>0.300000</td>
+      <td>Camp fire and gentle sound of harp for your re...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.500000</td>
-      <td>Pacific Gas amp Electric said Monday it will p...</td>
+      <td>0.266667</td>
+      <td>With all this hand washing we thought wed have...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>-0.250000</td>
-      <td>ICYMI PGampE to plead guilty to 84 counts of i...</td>
+      <td>0.583333</td>
+      <td>beautiful beautifulevening wood all cut fire i...</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>0.500000</td>
-      <td>Good morning campers Lets have some fun today ...</td>
+      <th>5</th>
+      <td>0.100000</td>
+      <td>This research was a direct response to CampFir...</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>0.300000</td>
-      <td>Check out my slomo campfire lolzOut camping st...</td>
+      <th>7</th>
+      <td>0.416667</td>
+      <td>PGampE drops plan to pay CampFire fine from 13...</td>
     </tr>
   </tbody>
 </table>

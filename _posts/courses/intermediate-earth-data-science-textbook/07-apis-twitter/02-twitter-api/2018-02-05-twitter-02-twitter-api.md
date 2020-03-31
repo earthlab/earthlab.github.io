@@ -3,9 +3,9 @@ layout: single
 title: 'Automate Getting Twitter Data in Python Using Tweepy and API Access'
 excerpt: 'You can use the Twitter RESTful API to access tweet data from Twitter. Learn how to use tweepy to download and work with twitter social media data in Python.'
 authors: ['Martha Morrissey', 'Leah Wasser','Carson Farmer']
-modified: 2020-03-24
+modified: 2020-03-31
 category: [courses]
-class-lesson: ['social-media-Python']
+class-lesson: ['social-media-python']
 permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/get-and-use-twitter-data-in-python/
 nav-title: 'Get Twitter Data'
 week: 7
@@ -240,11 +240,11 @@ tweets = tw.Cursor(api.search,
 
 
 
-    ['#Washington land commissioner Franz continues push for more funds to battle state’s #wildfires; Bill calls for $5 s… https://t.co/fGMPyyTzoy',
-     'PG&amp;E to plead guilty to lethal crimes in 2018 wildfires\n#Wildfires\n#California\n#LosAngeles\n#SantaClarita\n#SantaRosa… https://t.co/wCkdL110Sw',
-     '@PGE4Me said last week that "it will agree to increased regulatory oversight sand commit billions of dollars in add… https://t.co/XTDrmfRokr',
-     'Considering the fire challenge (fuel,weather&amp;topography)+#people, that cause most #wildfires amazing how many fires… https://t.co/qoz6J7JUy4',
-     'The Pros &amp; Cons of Planting #Trees 2Address #GlobalWarming | #ClimateAdaptation #CutCO2Emissions #FossilFuelBurning… https://t.co/Cdk5LsCwLT']
+    ['9 Environmental Crises Around the World — and What You Can Do To Help https://t.co/YwGikMuZ1F #ClimateChange… https://t.co/f6PgcOnkEg',
+     'Anheuser-Busch + @NVFC have teamed up to provide volunteer fire departments with cans of clean drinking water to ke… https://t.co/x5PSnLMd1t',
+     'Not everyone is coming to the future - Says Madonna in her Occult video #Coronavirus #wildfires #statueofliberty… https://t.co/IPJsShDQxf',
+     'After searching for ways to protect #California from #wildfires like the one that nearly engulfed her hometown, you… https://t.co/lUFmuQf0MY',
+     'The US has the tools to reduce the threat of large #wildfires during the #COVID19 pandemic and beyond. Bill Derr, f… https://t.co/AYGKj2Rwch']
 
 
 
@@ -276,11 +276,11 @@ users_locs
 
 
 
-    [['thecolumbian', 'Vancouver, Washington'],
-     ['RealPhatsBlog', 'North America'],
-     ['NAMIC', 'Indianapolis, IN'],
-     ['JhawkFire', 'CAL FIRE'],
-     ['JaneKBrundage', 'Coyoacán, Mexico City']]
+    [['Optimizics', 'Boston, MA'],
+     ['Provident__Ins', 'Pittsburgh, PA'],
+     ['SheenaParish', ''],
+     ['California_ELI', 'California'],
+     ['DauntlessAir', 'Appleton, MN']]
 
 
 
@@ -327,28 +327,28 @@ tweet_text
   <tbody>
     <tr>
       <th>0</th>
-      <td>thecolumbian</td>
-      <td>Vancouver, Washington</td>
+      <td>Optimizics</td>
+      <td>Boston, MA</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>RealPhatsBlog</td>
-      <td>North America</td>
+      <td>Provident__Ins</td>
+      <td>Pittsburgh, PA</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>NAMIC</td>
-      <td>Indianapolis, IN</td>
+      <td>SheenaParish</td>
+      <td></td>
     </tr>
     <tr>
       <th>3</th>
-      <td>JhawkFire</td>
-      <td>CAL FIRE</td>
+      <td>California_ELI</td>
+      <td>California</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>JaneKBrundage</td>
-      <td>Coyoacán, Mexico City</td>
+      <td>DauntlessAir</td>
+      <td>Appleton, MN</td>
     </tr>
   </tbody>
 </table>

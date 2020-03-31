@@ -5,7 +5,7 @@ excerpt: 'One common way to analyze Twitter data is to calculate word frequencie
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
 modified: 2020-03-31
 category: [courses]
-class-lesson: ['social-media-Python']
+class-lesson: ['social-media-python']
 permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-frequencies-in-python/
 nav-title: 'Tweet Word Frequency Analysis'
 week: 7 
@@ -110,11 +110,11 @@ all_tweets[:5]
 
 
 
-    ['For people who work in the intersection of business and #climate change, the coronavirus crisis and economic fallou… https://t.co/RZxPpShgAI',
-     'Coronavirus fight could prove fatal for another global challenge: Addressing #CLIMATE change… https://t.co/Qhe3gV4Ka5',
-     'Trump to roll back Obama-era clean car rules in huge blow to #CLIMATE fight https://t.co/z4KjtWzKhC  #GlobalWarming #climatechange',
-     'Coronavirus fight could prove fatal for another global challenge: Addressing #CLIMATE change… https://t.co/ApZKgV4XVJ',
-     'Trump to roll back Obama-era clean car rules in huge blow to #CLIMATE fight https://t.co/SupsibzPss #GPWX #GlobalWarming #climatechange']
+    ['Coronavirus and the Massive Climate Change https://t.co/pDBbhBGTlO @FSClub #Coronavirus #climate #impact #emissions #global #economy',
+     'U.S. to announce rollback of auto pollution rules, a key effort to fight #climate change. https://t.co/MYprBWzgmZ',
+     'How hard can it be to teach #reading? If you think the ‘science’ around #climate change or #C19 is a little obscure… https://t.co/OBFavJNsNM',
+     '#Climate Change Requires Human Change - By Proxy | We can no longer rely on the whims of human morality to adapt to… https://t.co/wTQJlMGLO5',
+     'Help #animals #environment #adoptdontshop #animalcruelty #animalsmatter #climate #GoVeg say No to #Fur  help protec… https://t.co/rmgSRCWfkw']
 
 
 
@@ -169,11 +169,11 @@ all_tweets_no_urls[:5]
 
 
 
-    ['For people who work in the intersection of business and climate change the coronavirus crisis and economic fallou',
-     'Coronavirus fight could prove fatal for another global challenge Addressing CLIMATE change',
-     'Trump to roll back Obamaera clean car rules in huge blow to CLIMATE fight GlobalWarming climatechange',
-     'Coronavirus fight could prove fatal for another global challenge Addressing CLIMATE change',
-     'Trump to roll back Obamaera clean car rules in huge blow to CLIMATE fight GPWX GlobalWarming climatechange']
+    ['Coronavirus and the Massive Climate Change FSClub Coronavirus climate impact emissions global economy',
+     'US to announce rollback of auto pollution rules a key effort to fight climate change',
+     'How hard can it be to teach reading If you think the science around climate change or C19 is a little obscure',
+     'Climate Change Requires Human Change By Proxy We can no longer rely on the whims of human morality to adapt to',
+     'Help animals environment adoptdontshop animalcruelty animalsmatter climate GoVeg say No to Fur help protec']
 
 
 
@@ -264,24 +264,19 @@ all_tweets_no_urls[0].split()
 
 
 
-    ['For',
-     'people',
-     'who',
-     'work',
-     'in',
-     'the',
-     'intersection',
-     'of',
-     'business',
+    ['Coronavirus',
      'and',
+     'the',
+     'Massive',
+     'Climate',
+     'Change',
+     'FSClub',
+     'Coronavirus',
      'climate',
-     'change',
-     'the',
-     'coronavirus',
-     'crisis',
-     'and',
-     'economic',
-     'fallou']
+     'impact',
+     'emissions',
+     'global',
+     'economy']
 
 
 
@@ -302,24 +297,19 @@ all_tweets_no_urls[0].lower().split()
 
 
 
-    ['for',
-     'people',
-     'who',
-     'work',
-     'in',
-     'the',
-     'intersection',
-     'of',
-     'business',
+    ['coronavirus',
      'and',
+     'the',
+     'massive',
      'climate',
      'change',
-     'the',
+     'fsclub',
      'coronavirus',
-     'crisis',
-     'and',
-     'economic',
-     'fallou']
+     'climate',
+     'impact',
+     'emissions',
+     'global',
+     'economy']
 
 
 
@@ -339,34 +329,32 @@ words_in_tweet[:2]
 
 
 
-    [['for',
-      'people',
-      'who',
-      'work',
-      'in',
-      'the',
-      'intersection',
-      'of',
-      'business',
+    [['coronavirus',
       'and',
+      'the',
+      'massive',
       'climate',
       'change',
-      'the',
+      'fsclub',
       'coronavirus',
-      'crisis',
-      'and',
-      'economic',
-      'fallou'],
-     ['coronavirus',
-      'fight',
-      'could',
-      'prove',
-      'fatal',
-      'for',
-      'another',
+      'climate',
+      'impact',
+      'emissions',
       'global',
-      'challenge',
-      'addressing',
+      'economy'],
+     ['us',
+      'to',
+      'announce',
+      'rollback',
+      'of',
+      'auto',
+      'pollution',
+      'rules',
+      'a',
+      'key',
+      'effort',
+      'to',
+      'fight',
       'climate',
       'change']]
 
@@ -399,21 +387,21 @@ counts_no_urls.most_common(15)
 
 
 
-    [('climate', 543),
-     ('the', 508),
-     ('change', 404),
-     ('to', 301),
-     ('and', 231),
-     ('of', 227),
-     ('a', 199),
-     ('is', 164),
-     ('in', 143),
-     ('for', 137),
-     ('we', 110),
-     ('coronavirus', 88),
-     ('on', 87),
-     ('climatechange', 71),
-     ('covid19', 71)]
+    [('climate', 577),
+     ('the', 541),
+     ('change', 429),
+     ('to', 349),
+     ('and', 239),
+     ('of', 236),
+     ('a', 205),
+     ('is', 176),
+     ('in', 160),
+     ('for', 139),
+     ('we', 123),
+     ('coronavirus', 97),
+     ('on', 91),
+     ('how', 74),
+     ('covid19', 74)]
 
 
 
@@ -460,27 +448,27 @@ clean_tweets_no_urls.head()
     <tr>
       <th>0</th>
       <td>climate</td>
-      <td>543</td>
+      <td>577</td>
     </tr>
     <tr>
       <th>1</th>
       <td>the</td>
-      <td>508</td>
+      <td>541</td>
     </tr>
     <tr>
       <th>2</th>
       <td>change</td>
-      <td>404</td>
+      <td>429</td>
     </tr>
     <tr>
       <th>3</th>
       <td>to</td>
-      <td>301</td>
+      <td>349</td>
     </tr>
     <tr>
       <th>4</th>
       <td>and</td>
-      <td>231</td>
+      <td>239</td>
     </tr>
   </tbody>
 </table>
@@ -528,7 +516,7 @@ plt.show()
 
 
 
-    [18, 12, 16]
+    [13, 15, 22]
 
 
 
@@ -578,7 +566,7 @@ list(stop_words)[0:10]
 
 
 
-    ['we', 'some', 'into', 'a', 'd', 'just', 'him', 'were', 'ours', 'both']
+    ['only', 'you', 'so', 's', 'over', 'until', 'd', 'once', 'we', 'further']
 
 
 
@@ -598,24 +586,19 @@ words_in_tweet[0]
 
 
 
-    ['for',
-     'people',
-     'who',
-     'work',
-     'in',
-     'the',
-     'intersection',
-     'of',
-     'business',
+    ['coronavirus',
      'and',
+     'the',
+     'massive',
      'climate',
      'change',
-     'the',
+     'fsclub',
      'coronavirus',
-     'crisis',
-     'and',
-     'economic',
-     'fallou']
+     'climate',
+     'impact',
+     'emissions',
+     'global',
+     'economy']
 
 
 
@@ -645,16 +628,17 @@ tweets_nsw[0]
 
 
 
-    ['people',
-     'work',
-     'intersection',
-     'business',
+    ['coronavirus',
+     'massive',
      'climate',
      'change',
+     'fsclub',
      'coronavirus',
-     'crisis',
-     'economic',
-     'fallou']
+     'climate',
+     'impact',
+     'emissions',
+     'global',
+     'economy']
 
 
 
@@ -676,21 +660,21 @@ counts_nsw.most_common(15)
 
 
 
-    [('climate', 543),
-     ('change', 404),
-     ('coronavirus', 88),
-     ('climatechange', 71),
-     ('covid19', 71),
-     ('amp', 47),
-     ('new', 46),
-     ('crisis', 41),
-     ('us', 41),
-     ('global', 38),
-     ('pandemic', 36),
+    [('climate', 577),
+     ('change', 429),
+     ('coronavirus', 97),
+     ('covid19', 74),
+     ('climatechange', 73),
+     ('amp', 49),
+     ('new', 49),
+     ('us', 44),
+     ('crisis', 42),
+     ('pandemic', 38),
+     ('global', 36),
+     ('science', 34),
      ('world', 32),
-     ('science', 31),
-     ('globalwarming', 28),
-     ('like', 28)]
+     ('fight', 30),
+     ('globalwarming', 30)]
 
 
 
@@ -760,16 +744,17 @@ tweets_nsw[0]
 
 
 
-    ['people',
-     'work',
-     'intersection',
-     'business',
+    ['coronavirus',
+     'massive',
      'climate',
      'change',
+     'fsclub',
      'coronavirus',
-     'crisis',
-     'economic',
-     'fallou']
+     'climate',
+     'impact',
+     'emissions',
+     'global',
+     'economy']
 
 
 
@@ -785,14 +770,14 @@ tweets_nsw_nc[0]
 
 
 
-    ['people',
-     'work',
-     'intersection',
-     'business',
+    ['coronavirus',
+     'massive',
+     'fsclub',
      'coronavirus',
-     'crisis',
-     'economic',
-     'fallou']
+     'impact',
+     'emissions',
+     'global',
+     'economy']
 
 
 
@@ -820,21 +805,21 @@ counts_nsw_nc.most_common(15)
 
 
 
-    [('coronavirus', 88),
-     ('covid19', 71),
-     ('amp', 47),
-     ('new', 46),
-     ('crisis', 41),
-     ('us', 41),
-     ('global', 38),
-     ('pandemic', 36),
+    [('coronavirus', 97),
+     ('covid19', 74),
+     ('amp', 49),
+     ('new', 49),
+     ('us', 44),
+     ('crisis', 42),
+     ('pandemic', 38),
+     ('global', 36),
+     ('science', 34),
      ('world', 32),
-     ('science', 31),
-     ('globalwarming', 28),
+     ('fight', 30),
+     ('globalwarming', 30),
+     ('need', 29),
      ('like', 28),
-     ('people', 25),
-     ('need', 25),
-     ('could', 24)]
+     ('environment', 27)]
 
 
 
@@ -852,7 +837,7 @@ len(counts_nsw_nc)
 
 
 
-    2718
+    2817
 
 
 
@@ -898,27 +883,27 @@ clean_tweets_ncw.head()
     <tr>
       <th>0</th>
       <td>coronavirus</td>
-      <td>88</td>
+      <td>97</td>
     </tr>
     <tr>
       <th>1</th>
       <td>covid19</td>
-      <td>71</td>
+      <td>74</td>
     </tr>
     <tr>
       <th>2</th>
       <td>amp</td>
-      <td>47</td>
+      <td>49</td>
     </tr>
     <tr>
       <th>3</th>
       <td>new</td>
-      <td>46</td>
+      <td>49</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>crisis</td>
-      <td>41</td>
+      <td>us</td>
+      <td>44</td>
     </tr>
   </tbody>
 </table>

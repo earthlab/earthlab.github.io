@@ -5,7 +5,7 @@ excerpt: 'One common way to analyze Twitter data is to identify the co-occurrenc
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
 modified: 2020-03-31
 category: [courses]
-class-lesson: ['social-media-Python']
+class-lesson: ['social-media-python']
 permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/calculate-tweet-word-bigrams-networks-in-python/
 nav-title: 'Tweet Word Bigrams and Network Analysis'
 week: 7 
@@ -110,8 +110,11 @@ def remove_url(txt):
     -------
     The same txt string with url's removed.
     """
+    
+    url_pattern = re.compile(r'https?://\S+|www\.\S+')
+    no_url = url_pattern.sub(r'', txt)
 
-    return " ".join(re.sub("([^0-9A-Za-z \t])|(\w+:\/\/\S+)", "", txt).split())
+    return no_url
 ```
 
 {:.input}
@@ -139,7 +142,7 @@ tweets_nsw_nc = [[w for w in word if not w in collection_words]
 
 {:.output}
     [nltk_data] Downloading package stopwords to /root/nltk_data...
-    [nltk_data]   Unzipping corpora/stopwords.zip.
+    [nltk_data]   Package stopwords is already up-to-date!
 
 
 
@@ -163,16 +166,14 @@ terms_bigram[0]
 
 
 
-    [('covid19', 'lockdown'),
-     ('lockdown', 'saved'),
-     ('saved', 'trillions'),
-     ('trillions', 'gallon'),
-     ('gallon', 'water'),
-     ('water', 'wasted'),
-     ('wasted', 'tourism'),
-     ('tourism', 'sector'),
-     ('sector', 'water'),
-     ('water', 'crisis')]
+    [('coronavirus', 'massive'),
+     ('massive', '@fsclub'),
+     ('@fsclub', '#coronavirus'),
+     ('#coronavirus', '#climate'),
+     ('#climate', '#impact'),
+     ('#impact', '#emissions'),
+     ('#emissions', '#global'),
+     ('#global', '#economy')]
 
 
 
@@ -191,7 +192,7 @@ tweets_no_urls[0]
 
 
 
-    'Covid19 Lockdown saved trillions of gallon water wasted in the Tourism sector Water crisis Climate change'
+    'Coronavirus and the Massive Climate Change  @FSClub #Coronavirus #climate #impact #emissions #global #economy'
 
 
 
@@ -208,17 +209,15 @@ tweets_nsw_nc[0]
 
 
 
-    ['covid19',
-     'lockdown',
-     'saved',
-     'trillions',
-     'gallon',
-     'water',
-     'wasted',
-     'tourism',
-     'sector',
-     'water',
-     'crisis']
+    ['coronavirus',
+     'massive',
+     '@fsclub',
+     '#coronavirus',
+     '#climate',
+     '#impact',
+     '#emissions',
+     '#global',
+     '#economy']
 
 
 
@@ -244,26 +243,26 @@ bigram_counts.most_common(20)
 
 
 
-    [(('coronavirus', 'pandemic'), 15),
-     (('gpwx', 'globalwarming'), 13),
-     (('global', 'warming'), 9),
+    [(('#climate', '#change'), 32),
+     (('#globalwarming', '#climatechange'), 28),
+     (('#climate', 'change,'), 17),
+     (('#climate', 'change:'), 17),
+     (('#climate', 'change.'), 16),
+     (('#change', '#climatechange'), 14),
+     (('#gpwx', '#globalwarming'), 14),
+     (('fight', '#climate'), 11),
+     (('coronavirus', 'pandemic'), 11),
+     (('roll', 'back'), 9),
+     (('#climate', 'crisis'), 9),
      (('great', 'barrier'), 9),
-     (('barrier', 'reef'), 9),
-     (('links', 'science'), 7),
-     (('teach', 'us'), 7),
-     (('roll', 'back'), 6),
-     (('back', 'obamaera'), 6),
-     (('antarctic', 'ice'), 6),
-     (('ice', 'sheet'), 6),
-     (('science', 'links'), 6),
-     (('investor', 'ideas'), 6),
-     (('cleantech', 'podcast'), 6),
-     (('trump', 'roll'), 5),
-     (('obamaera', 'clean'), 5),
-     (('clean', 'car'), 5),
-     (('car', 'rules'), 5),
-     (('rules', 'huge'), 5),
-     (('huge', 'blow'), 5)]
+     (('barrier', 'reef'), 8),
+     (('clean', 'car'), 7),
+     (('car', 'rules'), 7),
+     (('rules', 'huge'), 7),
+     (('huge', 'blow'), 7),
+     (('blow', '#climate'), 7),
+     (('#climate', 'fight'), 7),
+     (('links', 'science'), 7)]
 
 
 
@@ -309,103 +308,103 @@ bigram_df
   <tbody>
     <tr>
       <th>0</th>
-      <td>(coronavirus, pandemic)</td>
-      <td>15</td>
+      <td>(#climate, #change)</td>
+      <td>32</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>(gpwx, globalwarming)</td>
-      <td>13</td>
+      <td>(#globalwarming, #climatechange)</td>
+      <td>28</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>(global, warming)</td>
-      <td>9</td>
+      <td>(#climate, change,)</td>
+      <td>17</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>(#climate, change:)</td>
+      <td>17</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(#climate, change.)</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(#change, #climatechange)</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>(#gpwx, #globalwarming)</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>(fight, #climate)</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>(coronavirus, pandemic)</td>
+      <td>11</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>(roll, back)</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>(#climate, crisis)</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>11</th>
       <td>(great, barrier)</td>
       <td>9</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>(barrier, reef)</td>
-      <td>9</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>(links, science)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>(teach, us)</td>
-      <td>7</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>(roll, back)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>(back, obamaera)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>(antarctic, ice)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>(ice, sheet)</td>
-      <td>6</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>(science, links)</td>
-      <td>6</td>
-    </tr>
-    <tr>
       <th>12</th>
-      <td>(investor, ideas)</td>
-      <td>6</td>
+      <td>(barrier, reef)</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>(cleantech, podcast)</td>
-      <td>6</td>
+      <td>(clean, car)</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>(trump, roll)</td>
-      <td>5</td>
+      <td>(car, rules)</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>(obamaera, clean)</td>
-      <td>5</td>
+      <td>(rules, huge)</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>(clean, car)</td>
-      <td>5</td>
+      <td>(huge, blow)</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>(car, rules)</td>
-      <td>5</td>
+      <td>(blow, #climate)</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>(rules, huge)</td>
-      <td>5</td>
+      <td>(#climate, fight)</td>
+      <td>7</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>(huge, blow)</td>
-      <td>5</td>
+      <td>(links, science)</td>
+      <td>7</td>
     </tr>
   </tbody>
 </table>
@@ -443,7 +442,7 @@ G.add_node("china", weight=100)
 ```python
 fig, ax = plt.subplots(figsize=(10, 8))
 
-pos = nx.spring_layout(G, k=1)
+pos = nx.spring_layout(G, k=2)
 
 # Plot networks
 nx.draw_networkx(G, pos,

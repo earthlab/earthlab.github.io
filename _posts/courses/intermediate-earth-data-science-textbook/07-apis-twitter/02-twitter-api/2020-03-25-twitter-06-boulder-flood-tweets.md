@@ -5,7 +5,7 @@ excerpt: 'In this lesson you will learn how to parse a JSON file containing twit
 authors: ['Leah Wasser', 'Jenny Palomino']
 modified: 2020-03-31
 category: [courses]
-class-lesson: ['social-media-Python']
+class-lesson: ['social-media-python']
 permalink: /courses/use-data-open-source-python/using-apis-natural-language-processing-twitter/colorado-flood-twitter-data/
 nav-title: 'CO Flood Tweets JSON'
 week: 7 
@@ -450,7 +450,7 @@ tweets_nsw_nc[2]
 
 {:.output}
     [nltk_data] Downloading package stopwords to /root/nltk_data...
-    [nltk_data]   Unzipping corpora/stopwords.zip.
+    [nltk_data]   Package stopwords is already up-to-date!
 
 
 
