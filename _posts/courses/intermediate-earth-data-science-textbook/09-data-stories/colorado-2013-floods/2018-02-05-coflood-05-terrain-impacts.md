@@ -3,7 +3,7 @@ layout: single
 title: 'Measure Changes in the Terrain Caused by a Flood Using Lidar Data'
 excerpt: "A flood event often changes the terrain as water moves sediment and debris across the landscape. Learn how terrain changes are measured using lidar remote sensing data."
 authors: ['Leah Wasser', 'Lauren Herwehe']
-modified: 2020-03-16
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['about-2013-floods-tb']
 course: 'intermediate-earth-data-science-textbook'
@@ -102,7 +102,7 @@ Below, you can see a Digital Terrain Model (DTM) created for the lower Four-Mile
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/09-data-stories/colorado-2013-floods/2018-02-05-coflood-04-terrain-impacts/2018-02-05-coflood-04-terrain-impacts_3_0.png" alt = "Plots of DTMs for Four Mile Canyon Creek in Boulder County, Colorado before and after the 2013 floods.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/09-data-stories/colorado-2013-floods/2018-02-05-coflood-05-terrain-impacts/2018-02-05-coflood-05-terrain-impacts_3_0.png" alt = "Plots of DTMs for Four Mile Canyon Creek in Boulder County, Colorado before and after the 2013 floods.">
 <figcaption>Plots of DTMs for Four Mile Canyon Creek in Boulder County, Colorado before and after the 2013 floods.</figcaption>
 
 </figure>
@@ -123,7 +123,7 @@ The DoD created with the Four Mile Canyon Creek DTMs is below. Areas in purple h
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/09-data-stories/colorado-2013-floods/2018-02-05-coflood-04-terrain-impacts/2018-02-05-coflood-04-terrain-impacts_5_0.png" alt = "Plot of Digital Elevation Model of Difference (DoD) for Four Mile Canyon Creek DTMs.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/09-data-stories/colorado-2013-floods/2018-02-05-coflood-05-terrain-impacts/2018-02-05-coflood-05-terrain-impacts_5_0.png" alt = "Plot of Digital Elevation Model of Difference (DoD) for Four Mile Canyon Creek DTMs.">
 <figcaption>Plot of Digital Elevation Model of Difference (DoD) for Four Mile Canyon Creek DTMs.</figcaption>
 
 </figure>
