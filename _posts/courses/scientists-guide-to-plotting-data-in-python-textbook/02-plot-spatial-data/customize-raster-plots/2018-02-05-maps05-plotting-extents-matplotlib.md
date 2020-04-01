@@ -556,7 +556,8 @@ f, ax = plt.subplots()
 ep.plot_bands(modis_data_crop,
               ax=ax,
               extent=naip_crop_plot_extent,
-              cbar=False)
+              cbar=False,
+             title="Plot with the incorrect extent")
 
 fire_bound_WGS84.plot(ax=ax)
 
