@@ -35,7 +35,7 @@ Save the data in your `earth-analytics/data/week_12` directory.
 ## Materials to Review For This Week's Assignment
 
 
-* <a href="{{ site.url }}courses/use-data-open-source-python/intro-to-apis/apis-in-python/">Introduction to API's in Python</a>. 
-* <a href="{{ site.url }}/courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/social-media-text-mining-python/">Programatically Access Twitter Data and Natural Language Processing in Python</a>
+* <a href="{{ site.url }}/courses/use-data-open-source-python/intro-to-apis/apis-in-python/">Introduction to API's in Python</a>. 
+* <a href="{{ site.url }}/courses/use-data-open-source-python/intro-to-apis/social-media-text-mining-python/">Programatically Access Twitter Data and Natural Language Processing in Python</a>
 
 
