@@ -437,7 +437,7 @@ Now notice that the plot does not render appropriately when you try to overlay t
 {:.input}
 ```python
 # Incorrect plot because plotting extent is not defined
-f, ax = plt.subplots(figsize=(4, 4))
+f, ax = plt.subplots(figsize=(12, 4))
 
 ep.plot_rgb(naip_data,
             rgb=[0, 1, 2],
