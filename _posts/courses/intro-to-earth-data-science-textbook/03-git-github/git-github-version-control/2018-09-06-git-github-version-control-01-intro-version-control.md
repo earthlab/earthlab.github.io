@@ -2,13 +2,13 @@
 layout: single
 title: 'What Is Version Control'
 excerpt: "A version control system allows you to track and manage changes to your files. Learn benefits of version control for scientific workflows and how git and GitHub.com support version control."
-authors: ['Max Joseph', 'Leah Wasser', 'Jenny Palomino']
+authors: ['Max Joseph', 'Leah Wasser', 'Jenny Palomino', 'Martha Morrissey']
 category: [courses]
 class-lesson: ['version-control-git-github']
 permalink: /courses/intro-to-earth-data-science/git-github/version-control/
 nav-title: "What Is Version Control"
 dateCreated: 2019-09-06
-modified: 2019-09-23
+modified: 2020-04-01
 module-title: 'Git/GitHub For Version Control'
 module-nav-title: 'Git/GitHub For Version Control'
 module-description: 'A version control system allows you to track and manage changes to your files. Learn how to get started with version control using git and GitHub.com.'
@@ -17,6 +17,8 @@ chapter: 7
 class-order: 1
 course: "intro-to-earth-data-science-textbook"
 week: 3
+estimated-time: "2-3 hours"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false

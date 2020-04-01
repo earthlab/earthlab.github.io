@@ -2,13 +2,13 @@
 layout: single
 title: 'Python Packages for Earth Data Science'
 excerpt: "The Python programming language provides many packages and libraries for working with scientific data. Learn about key Python packages for earth data science."
-authors: ['Leah Wasser', 'Jenny Palomino']
+authors: ['Leah Wasser', 'Jenny Palomino', 'Will Norris']
 category: [courses]
 class-lesson: ['python-packages-for-eds']
 permalink: /courses/intro-to-earth-data-science/python-code-fundamentals/use-python-packages/
 nav-title: "Python Packages"
 dateCreated: 2019-09-17
-modified: 2020-01-14
+modified: 2020-04-01
 module-title: 'Import and Install Python Packages for Earth Data Science'
 module-nav-title: 'Use Python Packages'
 module-description: 'The Python programming language provides many packages and libraries for working with scientific data. Learn how to import and install Python packages for earth data science.'
@@ -17,6 +17,8 @@ class-order: 2
 chapter: 11
 course: "intro-to-earth-data-science-textbook"
 week: 4
+estimated-time: "2-3 hours"
+difficulty: "beginner"
 sidebar:
   nav:
 author_profile: false
