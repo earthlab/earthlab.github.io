@@ -1,14 +1,14 @@
 ---
 layout: single
-title: "Customize Matplotlib Plotting Extents in Python"
-excerpt: "When plotting raster and vector data together, the extent of the plot needs to be defined for the data to overlay with each other correctly. Learn how to define plotting extents in Python."
+title: "Overlay Raster and Vector Spatial Data in A Matplotlib Plot Using Extents in Python"
+excerpt: "When plotting raster and vector data together, the extent of the plot needs to be defined for the data to overlay with each other correctly. Learn how to define plotting extents for Python Matplotlib Plots."
 authors: ['Leah Wasser', 'Nathan Korinek', 'Jenny Palomino']
 dateCreated: 2020-03-26
-modified: 2020-03-31
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/plotting-extents/
-nav-title: 'Raster Plotting Extents'
+nav-title: 'Spatial Extents For Raster Plots'
 week: 2
 sidebar:
   nav:
@@ -33,17 +33,32 @@ topics:
 
 </div>
 
-## Why Use Plotting Extents
+## About Extents for matplotlib Plots  
 
-When plotting raster data (e.g. imagery), it is very common to want to overlay some sort of vector data over it, such as political boundaries, study boundaries, etc. 
+You often want to create a map that includes a raster layer (for example a 
+satelite image) with vector data such as political boundaries or study area boundaries 
+overlayed on top of that raster layer. 
 
-Recall that when you read in a raster data file with **rasterio**, you are provided with a **numpy array** of the data values without the spatial information.
+If you are reading in your raster data using **rasterio**, your data will be 
+returned as a **numpy array** containing the raster data values. The spatial 
+information will be stored separately in a metadata dictionary.
 
-Thus, in order to plot the raster and vector data together in the same plot, you need to identify the spatial extent of the raster data file to let the plot know *where the array should be plotted within the geographic space of the plot*. 
+If you plot the numpy array using matplotlib, the corner location of the raster 
+is unknown and so the plot will begin at the x,y location: `0,0`. If you 
+want to overlay a spatial vector layer on top of that raster, the data 
+will not line up correctly.
 
-In **Python**, you can use the `plotting_extent` function from **rasterio** to get the spatial extent of a raster data file. 
+In order to plot the raster and vector data together in the same plot, 
+you need to identify the spatial **extent** of the raster data file so that matplotlib
+can correctly place the raster data in geographic space. 
 
-To begin, load all of the required libraries. Notice that you are loading the `plotting_extent()` function from the **plot** module of the **rasterio** package.
+If you are working with **rasterio** in **Python** to import raster data, 
+you can use the `plotting_extent` function create the spatial plotting extent
+for a raster layer stored as a numpy array. 
+
+To begin, load all of the required libraries. Notice that you are loading 
+the `plotting_extent()` function from the **plot** module of the **rasterio** 
+package.
 
 {:.input}
 ```python
@@ -75,9 +90,9 @@ mpl.rcParams['axes.titlesize'] = 20
 
 ### Open Vector Data for Plot
 
-In order to overlay the data in the same plot, you need data that overlap spatially. 
+To begin, open up the Cold Springs fire boundary data. You will use this data 
+to both crop your raster data and as a visual overlay on your final plot. 
 
-Below, you open up the Cold Springs fire boundary data that you will use to crop and overlay with imagery (raster data) of the study area.
 
 {:.input}
 ```python
@@ -126,11 +141,18 @@ fire_boundary.crs
 
 ## Get Plotting Extent of Raster Data File
 
-If you open up raster data without cropping it (i.e. using `.read()`), the process to define a plotting extent is quite simple. 
+If you open up raster data using the `.read()` method in rasterio, you can  
+create the `plotting_extent` object within the rasterio context manager
+using the **rasterio** `DatasetReader` object (or the `src` object).
 
-Within the context manager, you can open the raster data file and get the plotting extent from the **rasterio** `DatasetReader` object (e.g. `src` object).
+```python
+with rio.open(naip_path) as naip_src:
+    naip_extent = plotting_extent(naip_src)
+```
 
-Below you open up National Agriculture Imagery Program (NAIP) imagery data with **rasterio** and get the plotting extent from the `DatasetReader` object called `naip_src`.
+Below you open up National Agriculture Imagery Program (NAIP) imagery 
+data with **rasterio** and get the plotting extent from the `DatasetReader` 
+object called `naip_src`.
 
 {:.input}
 ```python
@@ -152,13 +174,15 @@ with rio.open(naip_path) as naip_src:
     # Project fire boundary to match NAIP data
     fire_bound_utmz13 = fire_boundary.to_crs(naip_src.crs)
 
-    # Get plotting extent from DatasetReader object
+    # Create plotting extent from DatasetReader object
     naip_plot_extent = plotting_extent(naip_src)
 ```
 
 ### Order of Coordinates for Plotting Extent
 
-The `plotting_extent` object is a re-ordering of the `.bounds` of the **rasterio** `DatasetReader` object and provides the correct object type and order of coordinates for **matplotlib**. 
+The `plotting_extent` object is a re-ordering of the `.bounds` of the 
+**rasterio** `DatasetReader` object and provides the correct object type 
+and order of coordinates for **matplotlib**. 
 
 It defines the coordinates as a `tuple` in the appropriate order for **matplotlib** as:
 
@@ -198,7 +222,9 @@ type(naip_plot_extent)
 
 
 
-This order differs from the coordinates provided by `.bounds` of the `DatasetReader` object, which provides the coordinates as a `BoundingBox` in a slightly different order:
+This order differs from the coordinates provided by `.bounds` of the 
+`DatasetReader` object, which provides the coordinates as a `BoundingBox` in 
+a slightly different order:
 
 `(leftmost coordinate, bottom coordinate, rightmost coordinate, top coordinate)`
 
@@ -236,25 +262,57 @@ type(naip_src.bounds)
 
 
 
-So while the `.bounds` attribute is useful for other purposes, it does not provide the appropriate structure needed for **matplotlib**. 
+So while the `.bounds` attribute is useful for other purposes, it does not 
+provide the appropriate structure needed for **matplotlib**. 
 
-Instead, you can always use `plotting_extent()` to create an object that you can provide to **matplotlib** to plot the array of the raster data in the appropriate geographic space of the plot. 
-
-## Get Plotting Extent of Cropped Array
-
-In addition to defining the plotting extent of a `DatasetReader` object, the `plotting_extent()` function can also define plotting extents for cropped arrays.
-
-This distinction is important because if you are cropping the raster data, the original **rasterio** `DatasetReader` object will no longer provide the extent that you actually want to plot.
-
-Instead, you will need to use the array produced by the cropping function to define the plotting extent. 
-
-For a cropped array, the `plotting_extent()` function needs an additional parameter for the `affine` information, which can be accessed from the `transform` attribute of the metadata.  
-
-Luckily, the outputs of `es.crop_image()` provide everything that you need to define a plotting extent for a cropped array!
+Instead, you can always use `plotting_extent()` to create an object that you 
+can provide to **matplotlib** to plot the array of the raster data in the 
+appropriate geographic space of the plot. 
 
 {:.input}
 ```python
-# Open NAIP data in read ('r') mode
+# Plot uncropped array
+f, ax = plt.subplots()
+
+ep.plot_rgb(naip_data,
+            rgb=[0, 1, 2],
+            ax=ax,
+            title="Fire boundary overlayed on top of uncropped NAIP data",
+            extent=naip_plot_extent)  # Use plotting extent from DatasetReader object
+
+fire_bound_utmz13.plot(ax=ax)
+
+plt.show()
+```
+
+{:.output}
+{:.display_data}
+
+<figure>
+
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_18_0.png" alt = "Map of the un cropped NAIP RGB imagery overlayed with the Cold Springs Fire vector layer.">
+<figcaption>Map of the un cropped NAIP RGB imagery overlayed with the Cold Springs Fire vector layer.</figcaption>
+
+</figure>
+
+
+
+
+## Get Plotting Extent of Cropped Raster Layer
+
+If you crop your data, the process of getting the the `plotting_extent()` 
+is slightly different. The cropped layer does not have the same spatial 
+attributes of the original dataset. In this case, you will have to use the metadata 
+dictionary, returned from the crop function to create your plotting extent. 
+
+For a cropped array, the `plotting_extent()` function needs an additional 
+parameter for the `affine` information, which can be accessed from the 
+`transform` key in the metadata dictionary.  
+
+
+{:.input}
+```python
+# Open NAIP data
 with rio.open(naip_path) as naip_src:
 
     # Project fire boundary to match NAIP data
@@ -293,40 +351,13 @@ For example, to plot an `RGB` image, you can use `plot_rgb()`from **earthpy** (w
 
 {:.input}
 ```python
-# Plot uncropped array
-f, ax = plt.subplots()
-
-ep.plot_rgb(naip_data,
-            rgb=[0, 1, 2],
-            ax=ax,
-            extent=naip_plot_extent)  # Use plotting extent from DatasetReader object
-
-fire_bound_utmz13.plot(ax=ax)
-
-plt.show()
-```
-
-{:.output}
-{:.display_data}
-
-<figure>
-
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_22_0.png" alt = "Map of the un cropped NAIP RGB imagery overlayed with the Cold Springs Fire vector layer.">
-<figcaption>Map of the un cropped NAIP RGB imagery overlayed with the Cold Springs Fire vector layer.</figcaption>
-
-</figure>
-
-
-
-
-{:.input}
-```python
 # Plot cropped data
 f, ax = plt.subplots()
 
 ep.plot_rgb(naip_data_crop,
             rgb=[0, 1, 2],
             ax=ax,
+            title="Fire boundary overlayed on top of cropped NAIP data",
             extent=naip_crop_plot_extent)  # Use plotting extent from cropped array
 
 fire_bound_utmz13.plot(ax=ax)
@@ -430,18 +461,36 @@ plt.show()
 
 
 
-### Use the Appropriate Plotting Extent for Data
+### Use the Appropriate Plotting Extent for Your Data
 
-Another important aspect of plotting extents to consider is that each raster dataset should have its own plotting extent defined. Even if the area the plot covers is similar, if you use the wrong extent it can produce a less than ideal plot. 
+When you are plotting spatial data, it is important to consider which plotting
+extent you will need. You will need to create a unique plotting extent for each 
+dataset in your project that is is either 
 
-To demonstrate this, try to plot MODIS data using the NAIP extent that's been cropped to the same area as the MODIS data, and see how the plot comes out. As the two satellites use differnet CRS's, the data should be plotted in an illegible way. 
+1. in a differennt CRS 
+2. a different resolution and/or
+3. cropped differently
+
+Even if the area that the plot covers is similar, if you use the wrong extent 
+it can produce a plot that is skewed, stretched or in the incorrect geographic
+location
+
+To demonstrate this, try to plot MODIS data using the NAIP extent that's 
+been cropped to the same area as the MODIS data, and see how the plot 
+comes out. As the two satellites use differnet CRS's, the data should 
+be plotted in an illegible way. 
 
 {:.input}
 ```python
 # Open up and crop the MODIS data like you did with the NAIP data
 
-modis_path = os.path.join('data', 'cold-springs-fire', 'modis', 'reflectance', '07_july_2016',
-             'crop', 'MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1.tif')
+modis_path = os.path.join('data', 
+                          'cold-springs-fire', 
+                          'modis', 
+                          'reflectance', 
+                          '07_july_2016',
+                          'crop', 
+                          'MOD09GA.A2016189.h09v05.006.2016191073856_sur_refl_b04_1.tif')
 
 # Open MODIS data in read ('r') mode
 with rio.open(modis_path) as modis_src:
@@ -488,6 +537,14 @@ plt.show()
 
 
 
+That skinny line below the plot code below is your actual plot! The plotting 
+for NAIP data does not work for MODIS data as NAIP is:
+
+1. in a different corrdinate reference system and 
+2. is at a different spatial resolution
+
+Thus, you must create a unique plotting extent object for your MODIS data.
+
 {:.input}
 ```python
 # Plotting MODIS with the NAIP extent
@@ -504,7 +561,7 @@ fire_bound_WGS84.plot(ax=ax)
 
 plt.show()
 
-# That skinny line below is the actual plot! The plotting extents are non-transferable.
+
 ```
 
 {:.output}
@@ -512,7 +569,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_32_0.png" alt = "Map of the cropped MODIS RGB imagery overlayed with the Cold Springs Fire vector layer. The NAIP extent is used instead of the MODIS extent, so no data is visible, only a long black line.">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps05-plotting-extents-matplotlib/2018-02-05-maps05-plotting-extents-matplotlib_33_0.png" alt = "Map of the cropped MODIS RGB imagery overlayed with the Cold Springs Fire vector layer. The NAIP extent is used instead of the MODIS extent, so no data is visible, only a long black line.">
 <figcaption>Map of the cropped MODIS RGB imagery overlayed with the Cold Springs Fire vector layer. The NAIP extent is used instead of the MODIS extent, so no data is visible, only a long black line.</figcaption>
 
 </figure>
