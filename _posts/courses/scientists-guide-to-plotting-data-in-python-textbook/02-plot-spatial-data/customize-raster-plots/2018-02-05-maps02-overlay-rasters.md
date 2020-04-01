@@ -4,7 +4,7 @@ title: "Layer a raster dataset over a hillshade in Python to create a beautiful 
 excerpt: "A hillshade is a representation of the earth's surface as it would look with shade and shadows from the sun. Learn how to overlay raster data on top of a hillshade in Python."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-03
+modified: 2020-03-26
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/overlay-raster-maps/
@@ -67,6 +67,12 @@ data = et.data.get_data('colorado-flood')
 os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 ```
 
+{:.output}
+    Downloading from https://ndownloader.figshare.com/files/16371473
+    Extracted output to /root/earth-analytics/data/colorado-flood/.
+
+
+
 {:.input}
 ```python
 # Open raster DTM data
@@ -107,7 +113,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps01-overlay-rasters/2018-02-05-maps01-overlay-rasters_5_0.png" alt = "Plot of the Digital Elevation Model overlayed on top of a hillshade.">
+<img src = "{{ site.url }}/images/courses/scientists-guide-to-plotting-data-in-python-textbook/02-plot-spatial-data/customize-raster-plots/2018-02-05-maps02-overlay-rasters/2018-02-05-maps02-overlay-rasters_5_0.png" alt = "Plot of the Digital Elevation Model overlayed on top of a hillshade.">
 <figcaption>Plot of the Digital Elevation Model overlayed on top of a hillshade.</figcaption>
 
 </figure>
