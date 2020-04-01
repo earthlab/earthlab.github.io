@@ -3,10 +3,10 @@ layout: single
 title: "Use Twitter Social Media Data in Python - An Introduction"
 excerpt: "You can access twitter social media data using the twitter API automatically in Python. Learn about the basics of downloading twitter data using open source Python."
 authors: ['Leah Wasser', 'Martha Morrissey']
-modified: 2020-03-31
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/social-media-text-mining-python/
+permalink: /courses/use-data-open-source-python/intro-to-apis/social-media-text-mining-python/
 nav-title: "Twitter Data for Science"
 module-title: "Introduction to using Twitter Social media data in Python"
 module-description: "Social media data can be used to address many social and environmental issues and challenges. Learn how to use Twitter social media data combined with basic natural language processing techniques to better understand the social impacts and perceptions of natural disturbances and other events."

@@ -3,10 +3,10 @@ layout: single
 title: 'Automate Getting Twitter Data in Python Using Tweepy and API Access'
 excerpt: 'You can use the Twitter RESTful API to access tweet data from Twitter. Learn how to use tweepy to download and work with twitter social media data in Python.'
 authors: ['Martha Morrissey', 'Leah Wasser','Carson Farmer']
-modified: 2020-03-31
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/twitter-data-in-python/
+permalink: /courses/use-data-open-source-python/intro-to-apis/twitter-data-in-python/
 nav-title: 'Get Twitter Data'
 week: 7
 sidebar:
@@ -240,11 +240,11 @@ tweets = tw.Cursor(api.search,
 
 
 
-    ["#WildfireSafety: Do your part to prevent #wildfires while spending time outdoors. Learn from Smokey Bear's tips for… https://t.co/tl7nnv7kp2",
-     '9 Environmental Crises Around the World — and What You Can Do To Help https://t.co/YwGikMuZ1F #ClimateChange… https://t.co/f6PgcOnkEg',
-     'Anheuser-Busch + @NVFC have teamed up to provide volunteer fire departments with cans of clean drinking water to ke… https://t.co/x5PSnLMd1t',
-     'Not everyone is coming to the future - Says Madonna in her Occult video #Coronavirus #wildfires #statueofliberty… https://t.co/IPJsShDQxf',
-     'After searching for ways to protect #California from #wildfires like the one that nearly engulfed her hometown, you… https://t.co/lUFmuQf0MY']
+    ['tfw you remember you have a @vogmask, which you bought for #wildfires but still &amp; because #breathing. https://t.co/pkIaVk7JSU',
+     'Fact: wildfires destroy thousands of homes every year, we are committed to help all those families out there. Conta… https://t.co/FzT4n3B6kI',
+     '@JayMega @GoBigGurlsGo This year #2020 #wildfires #Brexit #Megxit #Covid and whatever comes next...we’ve still got 9 months to go!!',
+     "#WildfireSafety: Do your part to prevent #wildfires while spending time outdoors. Learn from Smokey Bear's tips for… https://t.co/tl7nnv7kp2",
+     '9 Environmental Crises Around the World — and What You Can Do To Help https://t.co/YwGikMuZ1F #ClimateChange… https://t.co/f6PgcOnkEg']
 
 
 
@@ -276,11 +276,11 @@ users_locs
 
 
 
-    [['citizens_fla', '866.411.2742'],
-     ['Optimizics', 'Boston, MA'],
-     ['Provident__Ins', 'Pittsburgh, PA'],
-     ['SheenaParish', ''],
-     ['California_ELI', 'California']]
+    [['PacesInPlaces', 'Seattle, WA'],
+     ['JJSFireSupply', 'Florida and California'],
+     ['Nice_guy_T', 'London UK'],
+     ['citizens_fla', '866.411.2742'],
+     ['Optimizics', 'Boston, MA']]
 
 
 
@@ -327,28 +327,28 @@ tweet_text
   <tbody>
     <tr>
       <th>0</th>
+      <td>PacesInPlaces</td>
+      <td>Seattle, WA</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>JJSFireSupply</td>
+      <td>Florida and California</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Nice_guy_T</td>
+      <td>London UK</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>citizens_fla</td>
       <td>866.411.2742</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>4</th>
       <td>Optimizics</td>
       <td>Boston, MA</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Provident__Ins</td>
-      <td>Pittsburgh, PA</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>SheenaParish</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>California_ELI</td>
-      <td>California</td>
     </tr>
   </tbody>
 </table>

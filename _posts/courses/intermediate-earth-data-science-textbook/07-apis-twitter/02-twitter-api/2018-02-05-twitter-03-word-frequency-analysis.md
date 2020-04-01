@@ -3,10 +3,10 @@ layout: single
 title: 'Analyze Word Frequency Counts Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to calculate word frequencies to understand how often words are used in tweets on a particular topic. To complete any analysis, you need to first prepare the data. Learn how to clean Twitter data and calculate word frequencies using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2020-03-31
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/calculate-tweet-word-frequencies-in-python/
+permalink: /courses/use-data-open-source-python/intro-to-apis/calculate-tweet-word-frequencies-in-python/
 nav-title: 'Tweet Word Frequency Analysis'
 week: 7 
 sidebar:
@@ -110,11 +110,11 @@ all_tweets[:5]
 
 
 
-    ['Coronavirus and the Massive Climate Change https://t.co/pDBbhBGTlO @FSClub #Coronavirus #climate #impact #emissions #global #economy',
-     'U.S. to announce rollback of auto pollution rules, a key effort to fight #climate change. https://t.co/MYprBWzgmZ',
-     'How hard can it be to teach #reading? If you think the ‘science’ around #climate change or #C19 is a little obscure… https://t.co/OBFavJNsNM',
-     '#Climate Change Requires Human Change - By Proxy | We can no longer rely on the whims of human morality to adapt to… https://t.co/wTQJlMGLO5',
-     'Help #animals #environment #adoptdontshop #animalcruelty #animalsmatter #climate #GoVeg say No to #Fur  help protec… https://t.co/rmgSRCWfkw']
+    ['Different kind of #climate change. https://t.co/yIVrqSdMzP',
+     'Some forests, particularly in more arid regions, have become more drought tolerant, primarily thanks to the death o… https://t.co/VDRfQ5ymo8',
+     'England’s water resource muddle. The UK Department of Environment, Food &amp; Rural Affairs has issued a warning: large… https://t.co/aC1zKPhhg4',
+     'Covid-19 and climate change – The epidemic provides a chance to do good by the #climate \n#environmentaljustice\nhttps://t.co/1W6SkvbFRl',
+     "@realDonaldTrump That's a lie. In your obsessive need to deconstruct the @BarackObama-era legislation, now you've r… https://t.co/RWp9jBvX5R"]
 
 
 
@@ -169,11 +169,11 @@ all_tweets_no_urls[:5]
 
 
 
-    ['Coronavirus and the Massive Climate Change FSClub Coronavirus climate impact emissions global economy',
-     'US to announce rollback of auto pollution rules a key effort to fight climate change',
-     'How hard can it be to teach reading If you think the science around climate change or C19 is a little obscure',
-     'Climate Change Requires Human Change By Proxy We can no longer rely on the whims of human morality to adapt to',
-     'Help animals environment adoptdontshop animalcruelty animalsmatter climate GoVeg say No to Fur help protec']
+    ['Different kind of climate change',
+     'Some forests particularly in more arid regions have become more drought tolerant primarily thanks to the death o',
+     'Englands water resource muddle The UK Department of Environment Food amp Rural Affairs has issued a warning large',
+     'Covid19 and climate change The epidemic provides a chance to do good by the climate environmentaljustice',
+     'realDonaldTrump Thats a lie In your obsessive need to deconstruct the BarackObamaera legislation now youve r']
 
 
 
@@ -264,19 +264,7 @@ all_tweets_no_urls[0].split()
 
 
 
-    ['Coronavirus',
-     'and',
-     'the',
-     'Massive',
-     'Climate',
-     'Change',
-     'FSClub',
-     'Coronavirus',
-     'climate',
-     'impact',
-     'emissions',
-     'global',
-     'economy']
+    ['Different', 'kind', 'of', 'climate', 'change']
 
 
 
@@ -297,19 +285,7 @@ all_tweets_no_urls[0].lower().split()
 
 
 
-    ['coronavirus',
-     'and',
-     'the',
-     'massive',
-     'climate',
-     'change',
-     'fsclub',
-     'coronavirus',
-     'climate',
-     'impact',
-     'emissions',
-     'global',
-     'economy']
+    ['different', 'kind', 'of', 'climate', 'change']
 
 
 
@@ -329,34 +305,25 @@ words_in_tweet[:2]
 
 
 
-    [['coronavirus',
-      'and',
+    [['different', 'kind', 'of', 'climate', 'change'],
+     ['some',
+      'forests',
+      'particularly',
+      'in',
+      'more',
+      'arid',
+      'regions',
+      'have',
+      'become',
+      'more',
+      'drought',
+      'tolerant',
+      'primarily',
+      'thanks',
+      'to',
       'the',
-      'massive',
-      'climate',
-      'change',
-      'fsclub',
-      'coronavirus',
-      'climate',
-      'impact',
-      'emissions',
-      'global',
-      'economy'],
-     ['us',
-      'to',
-      'announce',
-      'rollback',
-      'of',
-      'auto',
-      'pollution',
-      'rules',
-      'a',
-      'key',
-      'effort',
-      'to',
-      'fight',
-      'climate',
-      'change']]
+      'death',
+      'o']]
 
 
 
@@ -387,21 +354,21 @@ counts_no_urls.most_common(15)
 
 
 
-    [('climate', 564),
-     ('the', 528),
-     ('change', 419),
-     ('to', 343),
-     ('and', 236),
-     ('of', 234),
-     ('a', 201),
-     ('is', 170),
+    [('climate', 570),
+     ('the', 538),
+     ('change', 421),
+     ('to', 347),
+     ('and', 239),
+     ('of', 236),
+     ('a', 207),
+     ('is', 167),
      ('in', 154),
      ('for', 133),
-     ('we', 119),
+     ('we', 117),
      ('coronavirus', 95),
-     ('on', 90),
-     ('how', 72),
-     ('climatechange', 71)]
+     ('on', 91),
+     ('climatechange', 72),
+     ('how', 72)]
 
 
 
@@ -448,27 +415,27 @@ clean_tweets_no_urls.head()
     <tr>
       <th>0</th>
       <td>climate</td>
-      <td>564</td>
+      <td>570</td>
     </tr>
     <tr>
       <th>1</th>
       <td>the</td>
-      <td>528</td>
+      <td>538</td>
     </tr>
     <tr>
       <th>2</th>
       <td>change</td>
-      <td>419</td>
+      <td>421</td>
     </tr>
     <tr>
       <th>3</th>
       <td>to</td>
-      <td>343</td>
+      <td>347</td>
     </tr>
     <tr>
       <th>4</th>
       <td>and</td>
-      <td>236</td>
+      <td>239</td>
     </tr>
   </tbody>
 </table>
@@ -516,7 +483,7 @@ plt.show()
 
 
 
-    [13, 15, 22]
+    [5, 18, 18]
 
 
 
@@ -566,16 +533,16 @@ list(stop_words)[0:10]
 
 
 
-    ['each',
-     "aren't",
-     'once',
-     "hasn't",
-     'don',
-     'didn',
-     'can',
-     'what',
-     'shan',
-     'now']
+    ['after',
+     "that'll",
+     'not',
+     'being',
+     'very',
+     'couldn',
+     'ourselves',
+     'more',
+     'under',
+     'which']
 
 
 
@@ -595,19 +562,7 @@ words_in_tweet[0]
 
 
 
-    ['coronavirus',
-     'and',
-     'the',
-     'massive',
-     'climate',
-     'change',
-     'fsclub',
-     'coronavirus',
-     'climate',
-     'impact',
-     'emissions',
-     'global',
-     'economy']
+    ['different', 'kind', 'of', 'climate', 'change']
 
 
 
@@ -637,17 +592,7 @@ tweets_nsw[0]
 
 
 
-    ['coronavirus',
-     'massive',
-     'climate',
-     'change',
-     'fsclub',
-     'coronavirus',
-     'climate',
-     'impact',
-     'emissions',
-     'global',
-     'economy']
+    ['different', 'kind', 'climate', 'change']
 
 
 
@@ -669,19 +614,19 @@ counts_nsw.most_common(15)
 
 
 
-    [('climate', 564),
-     ('change', 419),
+    [('climate', 570),
+     ('change', 421),
      ('coronavirus', 95),
-     ('climatechange', 71),
-     ('covid19', 69),
-     ('amp', 48),
+     ('climatechange', 72),
+     ('covid19', 71),
+     ('amp', 49),
      ('new', 48),
      ('us', 44),
      ('crisis', 41),
      ('global', 36),
      ('pandemic', 35),
      ('science', 34),
-     ('world', 32),
+     ('world', 33),
      ('globalwarming', 30),
      ('fight', 29)]
 
@@ -753,17 +698,7 @@ tweets_nsw[0]
 
 
 
-    ['coronavirus',
-     'massive',
-     'climate',
-     'change',
-     'fsclub',
-     'coronavirus',
-     'climate',
-     'impact',
-     'emissions',
-     'global',
-     'economy']
+    ['different', 'kind', 'climate', 'change']
 
 
 
@@ -779,14 +714,7 @@ tweets_nsw_nc[0]
 
 
 
-    ['coronavirus',
-     'massive',
-     'fsclub',
-     'coronavirus',
-     'impact',
-     'emissions',
-     'global',
-     'economy']
+    ['different', 'kind']
 
 
 
@@ -815,19 +743,19 @@ counts_nsw_nc.most_common(15)
 
 
     [('coronavirus', 95),
-     ('covid19', 69),
-     ('amp', 48),
+     ('covid19', 71),
+     ('amp', 49),
      ('new', 48),
      ('us', 44),
      ('crisis', 41),
      ('global', 36),
      ('pandemic', 35),
      ('science', 34),
-     ('world', 32),
+     ('world', 33),
      ('globalwarming', 30),
      ('fight', 29),
-     ('environment', 27),
-     ('need', 27),
+     ('environment', 28),
+     ('need', 28),
      ('like', 27)]
 
 
@@ -846,7 +774,7 @@ len(counts_nsw_nc)
 
 
 
-    2777
+    2801
 
 
 
@@ -897,12 +825,12 @@ clean_tweets_ncw.head()
     <tr>
       <th>1</th>
       <td>covid19</td>
-      <td>69</td>
+      <td>71</td>
     </tr>
     <tr>
       <th>2</th>
       <td>amp</td>
-      <td>48</td>
+      <td>49</td>
     </tr>
     <tr>
       <th>3</th>

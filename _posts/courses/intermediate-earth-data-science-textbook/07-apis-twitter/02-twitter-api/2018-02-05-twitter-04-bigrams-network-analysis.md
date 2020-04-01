@@ -3,10 +3,10 @@ layout: single
 title: 'Analyze Co-occurrence and Networks of Words Using Twitter Data and Tweepy in Python'
 excerpt: 'One common way to analyze Twitter data is to identify the co-occurrence and networks of words in Tweets. Learn how to analyze word co-occurrence (i.e. bigrams) and networks of words using Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2020-03-31
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/calculate-tweet-word-bigrams/
+permalink: /courses/use-data-open-source-python/intro-to-apis/calculate-tweet-word-bigrams/
 nav-title: 'Tweet Word Bigrams and Network Analysis'
 week: 7 
 sidebar:
@@ -166,14 +166,7 @@ terms_bigram[0]
 
 
 
-    [('coronavirus', 'massive'),
-     ('massive', '@fsclub'),
-     ('@fsclub', '#coronavirus'),
-     ('#coronavirus', '#climate'),
-     ('#climate', '#impact'),
-     ('#impact', '#emissions'),
-     ('#emissions', '#global'),
-     ('#global', '#economy')]
+    [('different', 'kind'), ('kind', '#climate'), ('#climate', 'change.')]
 
 
 
@@ -192,7 +185,7 @@ tweets_no_urls[0]
 
 
 
-    'Coronavirus and the Massive Climate Change  @FSClub #Coronavirus #climate #impact #emissions #global #economy'
+    'Different kind of #climate change. '
 
 
 
@@ -209,15 +202,7 @@ tweets_nsw_nc[0]
 
 
 
-    ['coronavirus',
-     'massive',
-     '@fsclub',
-     '#coronavirus',
-     '#climate',
-     '#impact',
-     '#emissions',
-     '#global',
-     '#economy']
+    ['different', 'kind', '#climate', 'change.']
 
 
 
@@ -243,12 +228,12 @@ bigram_counts.most_common(20)
 
 
 
-    [(('#climate', '#change'), 32),
+    [(('#climate', '#change'), 33),
      (('#globalwarming', '#climatechange'), 28),
      (('#climate', 'change,'), 17),
+     (('#climate', 'change.'), 16),
      (('#climate', 'change:'), 16),
-     (('#climate', 'change.'), 15),
-     (('#change', '#climatechange'), 14),
+     (('#change', '#climatechange'), 15),
      (('#gpwx', '#globalwarming'), 14),
      (('coronavirus', 'pandemic'), 11),
      (('fight', '#climate'), 10),
@@ -309,7 +294,7 @@ bigram_df
     <tr>
       <th>0</th>
       <td>(#climate, #change)</td>
-      <td>32</td>
+      <td>33</td>
     </tr>
     <tr>
       <th>1</th>
@@ -323,18 +308,18 @@ bigram_df
     </tr>
     <tr>
       <th>3</th>
-      <td>(#climate, change:)</td>
+      <td>(#climate, change.)</td>
       <td>16</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>(#climate, change.)</td>
-      <td>15</td>
+      <td>(#climate, change:)</td>
+      <td>16</td>
     </tr>
     <tr>
       <th>5</th>
       <td>(#change, #climatechange)</td>
-      <td>14</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>6</th>

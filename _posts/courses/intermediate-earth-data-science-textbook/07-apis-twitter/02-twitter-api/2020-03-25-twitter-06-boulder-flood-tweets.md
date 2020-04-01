@@ -3,10 +3,10 @@ layout: single
 title: 'Use Twitter Data to Explore the 2013 Colorado Flood Using Open Source Python'
 excerpt: 'In this lesson you will learn how to parse a JSON file containing twitter data to better understand the 2013 Colorado Floods using Open Source Python tools.'
 authors: ['Leah Wasser', 'Jenny Palomino']
-modified: 2020-03-31
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/json-colorado-flood-twitter-data/
+permalink: /courses/use-data-open-source-python/intro-to-apis/json-colorado-flood-twitter-data/
 nav-title: 'CO Flood Tweets JSON'
 week: 7 
 sidebar:

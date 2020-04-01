@@ -3,10 +3,10 @@ layout: single
 title: 'Analyze The Sentiment of Tweets From Twitter Data and Tweepy in Python'
 excerpt: 'One way to analyze Twitter data is to analyze attitudes (or sentiment) in the tweet text. Learn how to analyze sentiments in Twitter data using open source Python.'
 authors: ['Martha Morrissey', 'Leah Wasser', 'Jeremey Diaz', 'Jenny Palomino']
-modified: 2020-03-31
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['social-media-python']
-permalink: /courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/analyze-tweet-sentiment-in-python/
+permalink: /courses/use-data-open-source-python/intro-to-apis/analyze-tweet-sentiment-in-python/
 nav-title: 'Tweet Sentiment Analysis'
 week: 7 
 sidebar:
@@ -143,8 +143,7 @@ sentiment_objects[0].polarity, sentiment_objects[0]
 
 
 
-    (0.0,
-     TextBlob("Coronavirus and the Massive Climate Change FSClub Coronavirus climate impact emissions global economy"))
+    (0.3, TextBlob("Different kind of climate change"))
 
 
 
@@ -165,8 +164,7 @@ sentiment_values[0]
 
 
 
-    [0.0,
-     'Coronavirus and the Massive Climate Change FSClub Coronavirus climate impact emissions global economy']
+    [0.3, 'Different kind of climate change']
 
 
 
@@ -210,28 +208,28 @@ sentiment_df.head()
   <tbody>
     <tr>
       <th>0</th>
-      <td>0.000000</td>
-      <td>Coronavirus and the Massive Climate Change FSC...</td>
+      <td>0.300000</td>
+      <td>Different kind of climate change</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0.000000</td>
-      <td>US to announce rollback of auto pollution rule...</td>
+      <td>0.400000</td>
+      <td>Some forests particularly in more arid regions...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>-0.239583</td>
-      <td>How hard can it be to teach reading If you thi...</td>
+      <td>0.107143</td>
+      <td>Englands water resource muddle The UK Departme...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>0.000000</td>
-      <td>Climate Change Requires Human Change By Proxy ...</td>
+      <td>0.700000</td>
+      <td>Covid19 and climate change The epidemic provid...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0.000000</td>
-      <td>Help animals environment adoptdontshop animalc...</td>
+      <td>realDonaldTrump Thats a lie In your obsessive ...</td>
     </tr>
   </tbody>
 </table>
@@ -331,11 +329,11 @@ all_tweets_no_urls[:5]
 
 
 
-    [TextBlob("Love a bit of improvisation Campfire outdoorliving"),
+    [TextBlob("BryanDeanWright UmmMost masks we have that are n95 masks used in most hospitals were made in China They do work"),
+     TextBlob("Friday amp Saturday perfect weather for the outdoor Campfire party in the woods forest presearves ill find out tomor"),
+     TextBlob("Love a bit of improvisation Campfire outdoorliving"),
      TextBlob("Camp fire and gentle sound of harp for your relaxation gtgt relaxation relaxing"),
-     TextBlob("Why werent any PGampE executives indicted over the CampFire Prosecutors would have had to prove that a specific"),
-     TextBlob("With all this hand washing we thought wed have some extra bubbly fun this afternoon at a safe distance of cour"),
-     TextBlob("beautiful beautifulevening wood all cut fire is lit washing is drying Stay safe enjoy whats around you and I")]
+     TextBlob("Why werent any PGampE executives indicted over the CampFire Prosecutors would have had to prove that a specific")]
 
 
 
@@ -386,27 +384,27 @@ wild_sent_df.head()
     <tr>
       <th>0</th>
       <td>0.500000</td>
-      <td>Love a bit of improvisation Campfire outdoorli...</td>
+      <td>BryanDeanWright UmmMost masks we have that are...</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>0.250000</td>
+      <td>Friday amp Saturday perfect weather for the ou...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.500000</td>
+      <td>Love a bit of improvisation Campfire outdoorli...</td>
+    </tr>
+    <tr>
+      <th>3</th>
       <td>0.300000</td>
       <td>Camp fire and gentle sound of harp for your re...</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>5</th>
       <td>0.266667</td>
       <td>With all this hand washing we thought wed have...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>0.583333</td>
-      <td>beautiful beautifulevening wood all cut fire i...</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>0.100000</td>
-      <td>This research was a direct response to CampFir...</td>
     </tr>
   </tbody>
 </table>
