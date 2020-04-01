@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Programmatic Data Access"
 permalink: /courses/earth-analytics-python/using-apis-natural-language-processing-twitter/
-modified: 2020-03-31
+modified: 2020-04-01
 week-landing: 11
 week: 11
 sidebar:
@@ -35,7 +35,7 @@ Save the data in your `earth-analytics/data/week_12` directory.
 ## Materials to Review For This Week's Assignment
 
 
-* <a href="{{ site.url }}/courses/use-data-open-source-python/earth-data-science-workflows/design-efficient-automated-data-workflows/">Designing and Automating Data Workflows in Python</a>. 
-* <a href="{{ site.url }}/courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/remove-clouds-from-landsat-data/">Clean Landsat Data - Apply Cloud Masks  in Python</a>
+* <a href="{{ site.url }}courses/use-data-open-source-python/intro-to-apis/apis-in-python/">Introduction to API's in Python</a>. 
+* <a href="{{ site.url }}/courses/use-data-open-source-python/intro-to-apis/natural-language-processing-twitter/social-media-text-mining-python/">Programatically Access Twitter Data and Natural Language Processing in Python</a>
 
 
