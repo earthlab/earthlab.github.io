@@ -3,12 +3,12 @@ layout: single
 title: "Introduction to Documenting Python Software"
 excerpt: "Lack of documentation will limit peoples’ use of your code. In this lesson you will learn about 2 ways to document python code using docstrings and online documentation. YOu will also learn how to improve documentation in other software packages."
 authors: ['Leah Wasser', 'Max Joseph', 'Lauren Herwehe']
-modified: 2020-03-24
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['open-source-software-python']
 permalink: /courses/earth-analytics-python/contribute-to-open-source/software-documentation-python/
 nav-title: 'Document Python Code'
-week: 10
+week: 13
 course: "earth-analytics-python"
 sidebar:
   nav:
