@@ -441,7 +441,8 @@ f, ax = plt.subplots(figsize=(12, 4))
 
 ep.plot_rgb(naip_data,
             rgb=[0, 1, 2],
-            ax=ax)
+            ax=ax,
+           title="Plot without a raster extent defined. Notice the data do not line up")
 
 fire_bound_utmz13.plot(ax=ax)
 
