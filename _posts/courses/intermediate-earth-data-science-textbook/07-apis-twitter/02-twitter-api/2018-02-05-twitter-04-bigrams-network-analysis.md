@@ -166,7 +166,14 @@ terms_bigram[0]
 
 
 
-    [('different', 'kind'), ('kind', '#climate'), ('#climate', 'change.')]
+    [('virus', 'outlook'),
+     ('outlook', 'fond'),
+     ('fond', 'hope'),
+     ('hope', 'alarmists'),
+     ('alarmists', 'want'),
+     ('want', 'get'),
+     ('get', 'everyone'),
+     ('everyone', 'travellin…')]
 
 
 
@@ -185,7 +192,7 @@ tweets_no_urls[0]
 
 
 
-    'Different kind of #climate change. '
+    'What does the virus do for the outlook and fond hope of climate change alarmists who want to get everyone travellin… '
 
 
 
@@ -202,7 +209,15 @@ tweets_nsw_nc[0]
 
 
 
-    ['different', 'kind', '#climate', 'change.']
+    ['virus',
+     'outlook',
+     'fond',
+     'hope',
+     'alarmists',
+     'want',
+     'get',
+     'everyone',
+     'travellin…']
 
 
 
@@ -228,26 +243,26 @@ bigram_counts.most_common(20)
 
 
 
-    [(('#climate', '#change'), 33),
+    [(('#climate', '#change'), 32),
      (('#globalwarming', '#climatechange'), 28),
-     (('#climate', 'change,'), 17),
-     (('#climate', 'change.'), 16),
-     (('#climate', 'change:'), 16),
-     (('#change', '#climatechange'), 15),
-     (('#gpwx', '#globalwarming'), 14),
-     (('coronavirus', 'pandemic'), 11),
-     (('fight', '#climate'), 10),
-     (('roll', 'back'), 9),
-     (('#climate', 'crisis'), 9),
+     (('#climate', 'change.'), 19),
+     (('#climate', 'change:'), 19),
+     (('#climate', 'change,'), 15),
+     (('roll', 'back'), 13),
+     (('#gpwx', '#globalwarming'), 13),
+     (('#change', '#climatechange'), 12),
+     (('fight', '#climate'), 11),
+     (('clean', 'car'), 10),
+     (('coronavirus', 'pandemic'), 10),
+     (('back', 'obama-era'), 9),
+     (('car', 'rules'), 9),
+     (('rules', 'huge'), 9),
+     (('huge', 'blow'), 9),
+     (('blow', '#climate'), 9),
+     (('#climate', 'fight'), 9),
      (('great', 'barrier'), 9),
-     (('barrier', 'reef'), 8),
-     (('clean', 'car'), 7),
-     (('car', 'rules'), 7),
-     (('rules', 'huge'), 7),
-     (('huge', 'blow'), 7),
-     (('blow', '#climate'), 7),
-     (('#climate', 'fight'), 7),
-     (('links', 'science'), 7)]
+     (('#climate', '#change,'), 8),
+     (('#climate', 'crisis'), 8)]
 
 
 
@@ -294,7 +309,7 @@ bigram_df
     <tr>
       <th>0</th>
       <td>(#climate, #change)</td>
-      <td>33</td>
+      <td>32</td>
     </tr>
     <tr>
       <th>1</th>
@@ -303,93 +318,93 @@ bigram_df
     </tr>
     <tr>
       <th>2</th>
-      <td>(#climate, change,)</td>
-      <td>17</td>
+      <td>(#climate, change.)</td>
+      <td>19</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>(#climate, change.)</td>
-      <td>16</td>
+      <td>(#climate, change:)</td>
+      <td>19</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>(#climate, change:)</td>
-      <td>16</td>
+      <td>(#climate, change,)</td>
+      <td>15</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>(#change, #climatechange)</td>
-      <td>15</td>
+      <td>(roll, back)</td>
+      <td>13</td>
     </tr>
     <tr>
       <th>6</th>
       <td>(#gpwx, #globalwarming)</td>
-      <td>14</td>
+      <td>13</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>(coronavirus, pandemic)</td>
-      <td>11</td>
+      <td>(#change, #climatechange)</td>
+      <td>12</td>
     </tr>
     <tr>
       <th>8</th>
       <td>(fight, #climate)</td>
-      <td>10</td>
+      <td>11</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>(roll, back)</td>
-      <td>9</td>
+      <td>(clean, car)</td>
+      <td>10</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>(#climate, crisis)</td>
-      <td>9</td>
+      <td>(coronavirus, pandemic)</td>
+      <td>10</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>(great, barrier)</td>
+      <td>(back, obama-era)</td>
       <td>9</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>(barrier, reef)</td>
-      <td>8</td>
+      <td>(car, rules)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>(clean, car)</td>
-      <td>7</td>
+      <td>(rules, huge)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>(car, rules)</td>
-      <td>7</td>
+      <td>(huge, blow)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>(rules, huge)</td>
-      <td>7</td>
+      <td>(blow, #climate)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>(huge, blow)</td>
-      <td>7</td>
+      <td>(#climate, fight)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>(blow, #climate)</td>
-      <td>7</td>
+      <td>(great, barrier)</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>(#climate, fight)</td>
-      <td>7</td>
+      <td>(#climate, #change,)</td>
+      <td>8</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>(links, science)</td>
-      <td>7</td>
+      <td>(#climate, crisis)</td>
+      <td>8</td>
     </tr>
   </tbody>
 </table>

@@ -240,11 +240,11 @@ tweets = tw.Cursor(api.search,
 
 
 
-    ['tfw you remember you have a @vogmask, which you bought for #wildfires but still &amp; because #breathing. https://t.co/pkIaVk7JSU',
-     'Fact: wildfires destroy thousands of homes every year, we are committed to help all those families out there. Conta… https://t.co/FzT4n3B6kI',
-     '@JayMega @GoBigGurlsGo This year #2020 #wildfires #Brexit #Megxit #Covid and whatever comes next...we’ve still got 9 months to go!!',
-     "#WildfireSafety: Do your part to prevent #wildfires while spending time outdoors. Learn from Smokey Bear's tips for… https://t.co/tl7nnv7kp2",
-     '9 Environmental Crises Around the World — and What You Can Do To Help https://t.co/YwGikMuZ1F #ClimateChange… https://t.co/f6PgcOnkEg']
+    ['#NewSouthWales - the #Australian state most severely affected by last summer’s #wildfires on Tuesday marked the off… https://t.co/yzdS0u22n0',
+     '"The trend is toward more wildfires that burn larger areas and cause more damage." Bren faculty Andrew Plantinga an… https://t.co/m2l2HB2ExU',
+     'Sticking with #wildfires, @bobbymagill at @environment writes that the BLM approved 11,000 miles of fire breaks in… https://t.co/4a4OfEN0zG',
+     'Worsening California Wildfires Part of Long-term Trend\n#Wildfires\n#California\n#LosAngeles\n#SantaClarita\n#SantaRosa… https://t.co/v29XWPy35T',
+     'Fire experts ask people to keep drones at home this wildfire season | Brainerd Dispatch https://t.co/0y2Bx0ST1i… https://t.co/FRGAZoe4Dy']
 
 
 
@@ -276,11 +276,11 @@ users_locs
 
 
 
-    [['PacesInPlaces', 'Seattle, WA'],
-     ['JJSFireSupply', 'Florida and California'],
-     ['Nice_guy_T', 'London UK'],
-     ['citizens_fla', '866.411.2742'],
-     ['Optimizics', 'Boston, MA']]
+    [['MusicForRelief', 'Los Angeles'],
+     ['brenucsb', 'Santa Barbara, California'],
+     ['MarkOlalde', ''],
+     ['RealPhatsBlog', 'North America'],
+     ['HoffLawGroup', 'Chicago, IL']]
 
 
 
@@ -327,28 +327,28 @@ tweet_text
   <tbody>
     <tr>
       <th>0</th>
-      <td>PacesInPlaces</td>
-      <td>Seattle, WA</td>
+      <td>MusicForRelief</td>
+      <td>Los Angeles</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>JJSFireSupply</td>
-      <td>Florida and California</td>
+      <td>brenucsb</td>
+      <td>Santa Barbara, California</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Nice_guy_T</td>
-      <td>London UK</td>
+      <td>MarkOlalde</td>
+      <td></td>
     </tr>
     <tr>
       <th>3</th>
-      <td>citizens_fla</td>
-      <td>866.411.2742</td>
+      <td>RealPhatsBlog</td>
+      <td>North America</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Optimizics</td>
-      <td>Boston, MA</td>
+      <td>HoffLawGroup</td>
+      <td>Chicago, IL</td>
     </tr>
   </tbody>
 </table>
