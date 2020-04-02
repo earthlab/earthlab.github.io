@@ -4,7 +4,7 @@ title: "Open and Crop Remote Sensing Data in Python"
 excerpt: "Learn how to open up a stack of Landsat images and crop them to a certain extent using open source Python."
 authors: ['Leah Wasser']
 dateCreated: 2020-03-25
-modified: 2020-03-25
+modified: 2020-04-02
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/open-and-crop-data/
@@ -15,7 +15,7 @@ sidebar:
   nav:
 author_profile: false
 comments: true
-order: 5
+order: 2
 topics:
   remote-sensing: ['landsat', 'modis']
   earth-science: ['fire']
@@ -28,9 +28,11 @@ topics:
 
 ## <i class="fa fa-graduation-cap" aria-hidden="true"></i> Learning Objectives
 
-* Get a list of landsat files to open with Python
-* Crop all of the images to the desired extent of the study
-* Stack all of the images into one image to allow for easier processing.
+After completing this lesson, you will be able to:
+
+* Create a list of landsat .tif files using `glob` and `os.path.join`
+* Crop a list of landsat .tif files to a defined crop extent boundary
+* Stack a list of landsat .tif files into one output .tif file OR one numpy array
 
 </div>
 
@@ -73,7 +75,7 @@ Now that you understand the Landsat 8 Collection file naming conventions, you wi
 {:.input}
 ```python
 import os
-from glob import glob # File manipulation
+from glob import glob  # File manipulation
 import matplotlib.pyplot as plt
 import numpy as np
 import geopandas as gpd
@@ -91,8 +93,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 {:.output}
     Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
     Extracted output to /root/earth-analytics/data/cs-test-landsat/.
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
 
 
 
@@ -152,7 +152,7 @@ Begin exploring `glob()` by grabbing everything in the directory using `/*`.
 ```python
 path = os.path.join("data", "cs-test-landsat")
 
-glob(path + "/*")
+glob(os.path.join(path, "*"))
 ```
 
 {:.output}
@@ -160,20 +160,20 @@ glob(path + "/*")
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
-     'data/cs-test-landsat/crop',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1.xml',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1.xml',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_MTL.txt',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_ANG.txt',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_ANG.txt']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
+     'data/cs-test-landsat/crop',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif']
 
 
 
@@ -192,7 +192,7 @@ Note that it is important that the file **ends with** .tif. So we use an asteris
 
 {:.input}
 ```python
-glob(path + "/*.tif")
+glob(os.path.join(path, "*.tif"))
 ```
 
 {:.output}
@@ -200,16 +200,16 @@ glob(path + "/*.tif")
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif']
 
 
 
@@ -221,7 +221,7 @@ This tells python to look for the word band anywhere before the `.tif` extension
 
 {:.input}
 ```python
-all_landsat_post_bands = glob(path + "/*band*.tif")
+all_landsat_post_bands = glob(os.path.join(path, "*band*.tif"))
 all_landsat_post_bands
 ```
 
@@ -230,13 +230,13 @@ all_landsat_post_bands
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif']
 
 
 
@@ -267,21 +267,23 @@ all_landsat_post_bands
 
 
 
-### Crop a Single Band with EarthPy
+### Crop a Single Landsat Band Using EarthPy crop_image()
 
 Now you have a list of all of the landsat bands in your landsat collections folder. You could chose to open and crop each file individually using the `rio.open` (rasterio library) function alongside the `es.crop_image` function.
 
-For this example, let's just crop band 4. In order to crop a band, you need to have a `GeoPandas` object that is the extent of the area you want to study in the Landsat image. Be careful though! In order for crop to work properly, you must ensure that the shapefile and the Landsat file are in the same Coordinate Reference System, or CRS. You can do this with the metadata accessed through `rasterio`. 
+In the example below, you will crop Landsat band 4. In order to crop a band, you need to have a `GeoPandas` object that represents the extent of the area you want to study in the Landsat image (your crop extent). 
 
-Remember that Python uses 0 based indexing so band 3 is actually at index `[2]` not `[3]`.
+In order for crop to work properly, you must ensure that the crop extent shapefile and the Landsat data are in the same Coordinate Reference System, or CRS. You can do check the CRS of your Landsat data using the metadata object returned from `rasterio`. 
+
+Remember that Python uses 0 based indexing so band 4 is actually at index `[3]` not `[4]`.
 
 {:.input}
 ```python
 # Open up boundary extent in GeoPandas
 
-fire_boundary_path = os.path.join("data", 
+fire_boundary_path = os.path.join("data",
                                   "cold-springs-fire",
-                                  "vector_layers", 
+                                  "vector_layers",
                                   "fire-boundary-geomac",
                                   "co_cold_springs_20160711_2200_dd83.shp")
 
@@ -289,14 +291,14 @@ fire_boundary = gpd.read_file(fire_boundary_path)
 
 # Open a single band and plot
 with rio.open(all_landsat_post_bands[3]) as src:
-    
+
     # Reproject the fire boundary shapefile to be the same CRS as the Landsat data
     crop_raster_profile = src.profile
     fire_boundary_utmz13 = fire_boundary.to_crs(crop_raster_profile["crs"])
-    
+
     # Crop the landsat image to the extent of the fire boundary
     landsat_band4, landsat_metadata = es.crop_image(src, fire_boundary_utmz13)
-    
+
 ep.plot_bands(landsat_band4[0],
               title="Landsat Cropped Band 4\nColdsprings Fire Scar",
               scale=False)
@@ -309,7 +311,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-open-and-crop-all/2020-03-02-landsat-multispectral-00-open-and-crop-all_13_0.png" alt = "Landsat band 4  - red band - plot.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-open-and-crop-all/2020-03-02-landsat-multispectral-01-open-and-crop-all_13_0.png" alt = "Landsat band 4  - red band - plot.">
 <figcaption>Landsat band 4  - red band - plot.</figcaption>
 
 </figure>
@@ -317,20 +319,35 @@ plt.show()
 
 
 
-### Crop All Files in a List
+### Crop A Set of Landsat .Tif Files Using a List of File Paths  (Earthpy crop_all)
 
-While it's possible to crop each file one by one in a loop, `EarthPy` has a function to help with this sort of situation! The function `es.crop_all` will take a list of satellite imagery files and crop them to a provided extent, and return a list of the cropped files to allow for easy creation of a numpy array! You need to have a folder for the cropped files to be written to, so make sure you have one ready before using this function. 
+Above you have a list of files that need to be cropped. You could crop each file 
+one by one in a for loop. However,  `EarthPy` has a function called `crop_all()` 
+that takes a list of geotif file paths and crops them to a provide spatial 
+extent. The function returns return a list of the cropped files which you can then 
+use with the earthpy stack() function to create a stacked numpy array. 
 
-In order to do this, you need a list of all the files you wish to crop, such as the list returned by the `glob` function earlier, and the extent you wish to crop them to. Remember, the CRS issue still applies here, so make sure your shapefile data is in the correct projection! 
+To use **earthpy** `crop_all()`, you need to:
+
+1. define (and create) an output folder where the cropped files will be saved. 
+2. create a list of the paths to the tif files that you want to crop.
+3. provide a crop extent layer which you will use to crop. This layer should be in the same CRS as your landsat data. 
 
 {:.input}
 ```python
-cropped_folder = os.path.join("data", "cold-springs-fire", "outputs", "cropped-images")
+cropped_folder = os.path.join("data", 
+                              "cold-springs-fire", 
+                              "outputs", 
+                              "cropped-images")
 
 if not os.path.isdir(cropped_folder):
     os.mkdir(cropped_folder)
 
-cropped_file_list = es.crop_all(all_landsat_post_bands, cropped_folder, fire_boundary_utmz13, overwrite=True, verbose=True)
+cropped_file_list = es.crop_all(all_landsat_post_bands, 
+                                cropped_folder, 
+                                fire_boundary_utmz13, 
+                                overwrite=True, 
+                                verbose=True)
 
 cropped_file_list
 ```
@@ -352,9 +369,10 @@ cropped_file_list
 
 
 
-### Create Raster Stack of All Landsat Bands in Python
+### Use EarthPy Stack() To Create Raster Stack of All Landsat Bands in Python
 
-It's sometimes less efficient to import bands individually into Python. For this class, we have built a function that will create a new stacked tif file from a list of tif files. This function takes 2 arguments:
+Once you have a list of tif files that you wish to work with in Python, you 
+can stack them. The earthpy.stack() function takes 2 arguments:
 
 1. a list of tif files that are all in the same crs and of the same extent
 2. a path to a new file where the stacked raster will be saved
@@ -369,7 +387,7 @@ down how this function works in case you want to know.
 
 {:.input}
 ```python
-landsat_post_fire_path = os.path.join("data", "cold-springs-fire", 
+landsat_post_fire_path = os.path.join("data", "cold-springs-fire",
                                       "outputs", "landsat_post_fire.tif")
 
 # This will create a new stacked raster with all bands
@@ -379,23 +397,19 @@ land_stack, land_meta = es.stack(cropped_file_list,
 
 #### Open The New Raster Stack 
 
-Once you have stacked your data, you can import it and work with it as you need to!
+Once you have stacked your data, you can plot it or work with it as you need to!
 
-
-{:.input}
-```python
-with rio.open(landsat_post_fire_path) as src:
-    landsat_post_fire = src.read()
-```
 
 {:.input}
 ```python
 # Plot all bands using earthpy
-band_titles = ["Band 1", "Blue", "Green", "Red", 
+band_titles = ["Band 1", "Blue", "Green", "Red",
                "NIR", "Band 6", "Band7"]
 
-ep.plot_bands(landsat_post_fire,
-              title=band_titles, cbar=False)
+ep.plot_bands(land_stack,
+              figsize=(11,7),
+              title=band_titles, 
+              cbar=False)
 plt.show()
 ```
 
@@ -404,7 +418,7 @@ plt.show()
 
 <figure>
 
-<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-00-open-and-crop-all/2020-03-02-landsat-multispectral-00-open-and-crop-all_20_0.png" alt = "Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.">
+<img src = "{{ site.url }}/images/courses/intermediate-earth-data-science-textbook/05-multi-spectral-remote-sensing-python/landsat/2020-03-02-landsat-multispectral-01-open-and-crop-all/2020-03-02-landsat-multispectral-01-open-and-crop-all_19_0.png" alt = "Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.">
 <figcaption>Plot showing all 7 of the landsat 8 bands for the Cold Springs Fire Site. Do you notice any difference in brightness between the bands?.</figcaption>
 
 </figure>
