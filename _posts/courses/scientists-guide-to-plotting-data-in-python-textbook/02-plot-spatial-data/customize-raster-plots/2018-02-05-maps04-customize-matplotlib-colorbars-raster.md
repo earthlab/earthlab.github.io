@@ -4,7 +4,7 @@ title: "Customize Matplotlib Raster Maps in Python"
 excerpt: "Sometimes you want to customize the colorbar and range of values plotted in a raster map. Learn how to create breaks to plot rasters in Python."
 authors: ['Leah Wasser']
 dateCreated: 2018-02-05
-modified: 2020-03-26
+modified: 2020-04-01
 category: [courses]
 class-lesson: ['customize-raster-plots']
 permalink: /courses/scientists-guide-to-plotting-data-in-python/plot-spatial-data/customize-raster-plots/customize-matplotlib-raster-maps/
