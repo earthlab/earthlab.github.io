@@ -93,8 +93,6 @@ os.chdir(os.path.join(et.io.HOME, 'earth-analytics'))
 {:.output}
     Downloading from https://ndownloader.figshare.com/files/10960214?private_link=fbba903d00e1848b423e
     Extracted output to /root/earth-analytics/data/cs-test-landsat/.
-    Downloading from https://ndownloader.figshare.com/files/10960109
-    Extracted output to /root/earth-analytics/data/cold-springs-fire/.
 
 
 
@@ -162,20 +160,20 @@ glob(os.path.join(path, "*"))
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_ANG.txt',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
      'data/cs-test-landsat/crop',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_MTL.txt',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_ANG.txt',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_MTL.txt',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1.xml',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif']
 
 
 
@@ -202,16 +200,16 @@ glob(os.path.join(path, "*.tif"))
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif']
 
 
 
@@ -232,13 +230,13 @@ all_landsat_post_bands
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif']
 
 
 

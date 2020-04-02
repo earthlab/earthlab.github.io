@@ -3,7 +3,7 @@ layout: single
 category: courses
 title: "Work with MODIS HDF4 Data in Open Source Python"
 permalink: /courses/earth-analytics-python/hdf4-remote-sensing-modis/
-modified: 2020-03-24
+modified: 2020-04-01
 week-landing: 10
 week: 10
 sidebar:

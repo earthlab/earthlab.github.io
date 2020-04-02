@@ -110,11 +110,11 @@ all_tweets[:5]
 
 
 
-    ['Different kind of #climate change. https://t.co/yIVrqSdMzP',
-     'Some forests, particularly in more arid regions, have become more drought tolerant, primarily thanks to the death o… https://t.co/VDRfQ5ymo8',
-     'England’s water resource muddle. The UK Department of Environment, Food &amp; Rural Affairs has issued a warning: large… https://t.co/aC1zKPhhg4',
-     'Covid-19 and climate change – The epidemic provides a chance to do good by the #climate \n#environmentaljustice\nhttps://t.co/1W6SkvbFRl',
-     "@realDonaldTrump That's a lie. In your obsessive need to deconstruct the @BarackObama-era legislation, now you've r… https://t.co/RWp9jBvX5R"]
+    ['What does the virus do for the outlook and fond hope of climate change alarmists who want to get everyone travellin… https://t.co/XNeIcoW06z',
+     'In addition to #COVID19, the world also faces an unprecedented #climateemergency, note Mary Robinson and @ISC Presi… https://t.co/cCxhqCXhuj',
+     'Here’s the state of our #climate… the news is no joke. \nhttps://t.co/dPvdZ2jGhh\n\nImage via kwest/Shutterstock.com. https://t.co/yvxRhzzCD9',
+     "BBC News - Climate change: Warming clips the nightingale's wings https://t.co/HotwIofI8h #climate",
+     'This is one to read now and follow up on. #Climate, #CleanAir matter as much as the #Economy. How will people treat… https://t.co/WnMVSIqOYR']
 
 
 
@@ -169,11 +169,11 @@ all_tweets_no_urls[:5]
 
 
 
-    ['Different kind of climate change',
-     'Some forests particularly in more arid regions have become more drought tolerant primarily thanks to the death o',
-     'Englands water resource muddle The UK Department of Environment Food amp Rural Affairs has issued a warning large',
-     'Covid19 and climate change The epidemic provides a chance to do good by the climate environmentaljustice',
-     'realDonaldTrump Thats a lie In your obsessive need to deconstruct the BarackObamaera legislation now youve r']
+    ['What does the virus do for the outlook and fond hope of climate change alarmists who want to get everyone travellin',
+     'In addition to COVID19 the world also faces an unprecedented climateemergency note Mary Robinson and ISC Presi',
+     'Heres the state of our climate the news is no joke Image via kwestShutterstockcom',
+     'BBC News Climate change Warming clips the nightingales wings climate',
+     'This is one to read now and follow up on Climate CleanAir matter as much as the Economy How will people treat']
 
 
 
@@ -264,7 +264,27 @@ all_tweets_no_urls[0].split()
 
 
 
-    ['Different', 'kind', 'of', 'climate', 'change']
+    ['What',
+     'does',
+     'the',
+     'virus',
+     'do',
+     'for',
+     'the',
+     'outlook',
+     'and',
+     'fond',
+     'hope',
+     'of',
+     'climate',
+     'change',
+     'alarmists',
+     'who',
+     'want',
+     'to',
+     'get',
+     'everyone',
+     'travellin']
 
 
 
@@ -285,7 +305,27 @@ all_tweets_no_urls[0].lower().split()
 
 
 
-    ['different', 'kind', 'of', 'climate', 'change']
+    ['what',
+     'does',
+     'the',
+     'virus',
+     'do',
+     'for',
+     'the',
+     'outlook',
+     'and',
+     'fond',
+     'hope',
+     'of',
+     'climate',
+     'change',
+     'alarmists',
+     'who',
+     'want',
+     'to',
+     'get',
+     'everyone',
+     'travellin']
 
 
 
@@ -305,25 +345,44 @@ words_in_tweet[:2]
 
 
 
-    [['different', 'kind', 'of', 'climate', 'change'],
-     ['some',
-      'forests',
-      'particularly',
-      'in',
-      'more',
-      'arid',
-      'regions',
-      'have',
-      'become',
-      'more',
-      'drought',
-      'tolerant',
-      'primarily',
-      'thanks',
-      'to',
+    [['what',
+      'does',
       'the',
-      'death',
-      'o']]
+      'virus',
+      'do',
+      'for',
+      'the',
+      'outlook',
+      'and',
+      'fond',
+      'hope',
+      'of',
+      'climate',
+      'change',
+      'alarmists',
+      'who',
+      'want',
+      'to',
+      'get',
+      'everyone',
+      'travellin'],
+     ['in',
+      'addition',
+      'to',
+      'covid19',
+      'the',
+      'world',
+      'also',
+      'faces',
+      'an',
+      'unprecedented',
+      'climateemergency',
+      'note',
+      'mary',
+      'robinson',
+      'and',
+      'isc',
+      'presi']]
 
 
 
@@ -354,21 +413,21 @@ counts_no_urls.most_common(15)
 
 
 
-    [('climate', 570),
-     ('the', 538),
-     ('change', 421),
-     ('to', 347),
-     ('and', 239),
-     ('of', 236),
-     ('a', 207),
-     ('is', 167),
-     ('in', 154),
+    [('climate', 550),
+     ('the', 528),
+     ('change', 395),
+     ('to', 355),
+     ('and', 227),
+     ('of', 227),
+     ('a', 200),
+     ('is', 180),
+     ('in', 168),
      ('for', 133),
-     ('we', 117),
-     ('coronavirus', 95),
-     ('on', 91),
-     ('climatechange', 72),
-     ('how', 72)]
+     ('we', 112),
+     ('coronavirus', 99),
+     ('on', 98),
+     ('how', 72),
+     ('climatechange', 71)]
 
 
 
@@ -415,27 +474,27 @@ clean_tweets_no_urls.head()
     <tr>
       <th>0</th>
       <td>climate</td>
-      <td>570</td>
+      <td>550</td>
     </tr>
     <tr>
       <th>1</th>
       <td>the</td>
-      <td>538</td>
+      <td>528</td>
     </tr>
     <tr>
       <th>2</th>
       <td>change</td>
-      <td>421</td>
+      <td>395</td>
     </tr>
     <tr>
       <th>3</th>
       <td>to</td>
-      <td>347</td>
+      <td>355</td>
     </tr>
     <tr>
       <th>4</th>
       <td>and</td>
-      <td>239</td>
+      <td>227</td>
     </tr>
   </tbody>
 </table>
@@ -483,7 +542,7 @@ plt.show()
 
 
 
-    [5, 18, 18]
+    [21, 17, 14]
 
 
 
@@ -533,16 +592,16 @@ list(stop_words)[0:10]
 
 
 
-    ['after',
-     "that'll",
-     'not',
-     'being',
-     'very',
-     'couldn',
-     'ourselves',
-     'more',
-     'under',
-     'which']
+    ["you'll",
+     'then',
+     'themselves',
+     'my',
+     'me',
+     'll',
+     "you'd",
+     "doesn't",
+     'any',
+     'i']
 
 
 
@@ -562,7 +621,27 @@ words_in_tweet[0]
 
 
 
-    ['different', 'kind', 'of', 'climate', 'change']
+    ['what',
+     'does',
+     'the',
+     'virus',
+     'do',
+     'for',
+     'the',
+     'outlook',
+     'and',
+     'fond',
+     'hope',
+     'of',
+     'climate',
+     'change',
+     'alarmists',
+     'who',
+     'want',
+     'to',
+     'get',
+     'everyone',
+     'travellin']
 
 
 
@@ -592,7 +671,17 @@ tweets_nsw[0]
 
 
 
-    ['different', 'kind', 'climate', 'change']
+    ['virus',
+     'outlook',
+     'fond',
+     'hope',
+     'climate',
+     'change',
+     'alarmists',
+     'want',
+     'get',
+     'everyone',
+     'travellin']
 
 
 
@@ -614,21 +703,21 @@ counts_nsw.most_common(15)
 
 
 
-    [('climate', 570),
-     ('change', 421),
-     ('coronavirus', 95),
-     ('climatechange', 72),
-     ('covid19', 71),
-     ('amp', 49),
-     ('new', 48),
-     ('us', 44),
-     ('crisis', 41),
-     ('global', 36),
-     ('pandemic', 35),
-     ('science', 34),
-     ('world', 33),
-     ('globalwarming', 30),
-     ('fight', 29)]
+    [('climate', 550),
+     ('change', 395),
+     ('coronavirus', 99),
+     ('climatechange', 71),
+     ('covid19', 67),
+     ('amp', 44),
+     ('new', 42),
+     ('us', 41),
+     ('global', 39),
+     ('crisis', 38),
+     ('science', 37),
+     ('world', 34),
+     ('pandemic', 33),
+     ('fight', 33),
+     ('globalwarming', 30)]
 
 
 
@@ -698,7 +787,17 @@ tweets_nsw[0]
 
 
 
-    ['different', 'kind', 'climate', 'change']
+    ['virus',
+     'outlook',
+     'fond',
+     'hope',
+     'climate',
+     'change',
+     'alarmists',
+     'want',
+     'get',
+     'everyone',
+     'travellin']
 
 
 
@@ -714,7 +813,15 @@ tweets_nsw_nc[0]
 
 
 
-    ['different', 'kind']
+    ['virus',
+     'outlook',
+     'fond',
+     'hope',
+     'alarmists',
+     'want',
+     'get',
+     'everyone',
+     'travellin']
 
 
 
@@ -742,21 +849,21 @@ counts_nsw_nc.most_common(15)
 
 
 
-    [('coronavirus', 95),
-     ('covid19', 71),
-     ('amp', 49),
-     ('new', 48),
-     ('us', 44),
-     ('crisis', 41),
-     ('global', 36),
-     ('pandemic', 35),
-     ('science', 34),
-     ('world', 33),
+    [('coronavirus', 99),
+     ('covid19', 67),
+     ('amp', 44),
+     ('new', 42),
+     ('us', 41),
+     ('global', 39),
+     ('crisis', 38),
+     ('science', 37),
+     ('world', 34),
+     ('pandemic', 33),
+     ('fight', 33),
      ('globalwarming', 30),
-     ('fight', 29),
-     ('environment', 28),
+     ('environment', 29),
      ('need', 28),
-     ('like', 27)]
+     ('trump', 26)]
 
 
 
@@ -774,7 +881,7 @@ len(counts_nsw_nc)
 
 
 
-    2801
+    2762
 
 
 
@@ -820,27 +927,27 @@ clean_tweets_ncw.head()
     <tr>
       <th>0</th>
       <td>coronavirus</td>
-      <td>95</td>
+      <td>99</td>
     </tr>
     <tr>
       <th>1</th>
       <td>covid19</td>
-      <td>71</td>
+      <td>67</td>
     </tr>
     <tr>
       <th>2</th>
       <td>amp</td>
-      <td>49</td>
+      <td>44</td>
     </tr>
     <tr>
       <th>3</th>
       <td>new</td>
-      <td>48</td>
+      <td>42</td>
     </tr>
     <tr>
       <th>4</th>
       <td>us</td>
-      <td>44</td>
+      <td>41</td>
     </tr>
   </tbody>
 </table>
