@@ -1,14 +1,14 @@
 ---
 layout: single
-authors: [Naupaka Zimmerman, Leah Wasser]
+authors: ['Naupaka Zimmerman', 'Leah Wasser']
 title: 'Open Science Lesson Instructor Notes'
 excerpt: 'Instructor notes for the open science lesson.'
-category: [course-materials]
+category: [courses]
 nav-title: 'Instructor Notes'
 module: ['intro-open-science']
 dateCreated: 2016-06-25
-modified: 2017-07-25
-permalink: /courses/open-science-instructor-notes/
+modified: '2020-04-02'
+permalink: /workshops/open-science-instructor-notes/
 sidebar:
   nav:
 author_profile: false
