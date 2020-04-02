@@ -8,7 +8,7 @@ modified: 2020-04-02
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/open-and-crop-data/
-nav-title: 'Open and Crop Landsat'
+nav-title: 'Open & Crop Landsat Data'
 course: "intermediate-earth-data-science-textbook"
 week: 5
 sidebar:
@@ -160,20 +160,20 @@ glob(os.path.join(path, "*"))
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1.xml',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_MTL.txt',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_ANG.txt',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1.xml',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_ANG.txt',
      'data/cs-test-landsat/crop',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_MTL.txt',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif']
 
 
 
@@ -200,16 +200,16 @@ glob(os.path.join(path, "*.tif"))
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_radsat_qa.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_pixel_qa.tif']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_aerosol.tif']
 
 
 
@@ -230,13 +230,13 @@ all_landsat_post_bands
 
 
 
-    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
+    ['data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band3.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band4.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band1.tif',
      'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band2.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band6.tif',
-     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif']
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band5.tif',
+     'data/cs-test-landsat/LC08_L1TP_034032_20160621_20170221_01_T1_sr_band7.tif']
 
 
 
@@ -335,18 +335,18 @@ To use **earthpy** `crop_all()`, you need to:
 
 {:.input}
 ```python
-cropped_folder = os.path.join("data", 
-                              "cold-springs-fire", 
-                              "outputs", 
+cropped_folder = os.path.join("data",
+                              "cold-springs-fire",
+                              "outputs",
                               "cropped-images")
 
 if not os.path.isdir(cropped_folder):
     os.mkdir(cropped_folder)
 
-cropped_file_list = es.crop_all(all_landsat_post_bands, 
-                                cropped_folder, 
-                                fire_boundary_utmz13, 
-                                overwrite=True, 
+cropped_file_list = es.crop_all(all_landsat_post_bands,
+                                cropped_folder,
+                                fire_boundary_utmz13,
+                                overwrite=True,
                                 verbose=True)
 
 cropped_file_list
@@ -407,8 +407,8 @@ band_titles = ["Band 1", "Blue", "Green", "Red",
                "NIR", "Band 6", "Band7"]
 
 ep.plot_bands(land_stack,
-              figsize=(11,7),
-              title=band_titles, 
+              figsize=(11, 7),
+              title=band_titles,
               cbar=False)
 plt.show()
 ```

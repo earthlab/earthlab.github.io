@@ -8,7 +8,7 @@ modified: 2020-04-02
 category: [courses]
 class-lesson: ['multispectral-remote-sensing-data-python-landsat']
 permalink: /courses/use-data-open-source-python/multispectral-remote-sensing/landsat-in-Python/
-nav-title: 'Work with Landsat in Python'
+nav-title: 'About Landsat Data'
 module-title: 'Learn How to Work With Landsat Multispectral Remote Sensing Data in Python'
 module-description: 'Learn how to work with Landsat multi-band raster data stored in .tif format in Python using Rasterio'
 module-nav-title: 'Landsat'
